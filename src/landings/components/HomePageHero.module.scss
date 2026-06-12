@@ -1,0 +1,24 @@
+.section {
+  height: 21rem;
+  background-image: image-set(
+    url("/assets/images/banner-images/hero-home.webp") type("image/webp"),
+    url("/assets/images/banner-images/hero-home.png") type("image/png")
+  );
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+}
+
+.section h1 {
+  font-size: 4rem;
+  line-height: 1.2;
+}
+
+.content {
+  backdrop-filter: blur(1rem);
+  background-color: color-mix(
+    in srgb,
+    var(--color-canvas-subtle) 70%,
+    transparent
+  );
+}

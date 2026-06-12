@@ -1,15 +1,15 @@
 import Head from 'next/head'
 import { Heading } from '@primer/react'
 
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
-import { useNumberFormatter } from 'src/search/components/hooks/useNumberFormatter'
-import { SearchResults } from 'src/search/components/results/SearchResults'
-import { NoQuery } from 'src/search/components/results/NoQuery'
-import { useMainContext } from 'src/frame/components/context/MainContext'
-import { ValidationErrors } from 'src/search/components/results/ValidationErrors'
-import { useSearchContext } from 'src/search/components/context/SearchContext'
-import type { SearchTotalHits } from '@elastic/elasticsearch/lib/api/types'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { DEFAULT_VERSION, useVersion } from '@/versions/components/useVersion'
+import { useNumberFormatter } from '@/search/components/hooks/useNumberFormatter'
+import { SearchResults } from '@/search/components/results/SearchResults'
+import { NoQuery } from '@/search/components/results/NoQuery'
+import { useMainContext } from '@/frame/components/context/MainContext'
+import { ValidationErrors } from '@/search/components/results/ValidationErrors'
+import { useSearchContext } from '@/search/components/context/SearchContext'
+import type { estypes } from '@elastic/elasticsearch'
 
 export function Search() {
   const { search } = useSearchContext()
@@ -38,7 +38,7 @@ export function Search() {
       pageTitle += ` (${searchVersion})`
     }
     if (results) {
-      pageTitle = `${formatInteger((results.meta.found as SearchTotalHits).value)} ${pageTitle}`
+      pageTitle = `${formatInteger((results.meta.found as estypes.SearchTotalHits).value)} ${pageTitle}`
     }
   }
 

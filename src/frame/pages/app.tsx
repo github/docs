@@ -5,17 +5,20 @@ import Head from 'next/head'
 import { ThemeProvider } from '@primer/react'
 import { useRouter } from 'next/router'
 
-import { initializeEvents } from 'src/events/components/events'
+import { initializeEvents } from '@/events/components/events'
 import {
   initializeExperiments,
   initializeForwardFeatureUrlParam,
-} from 'src/events/components/experiments/experiment'
+} from '@/events/components/experiments/experiment'
 import {
   LanguagesContext,
   LanguagesContextT,
   LanguageItem,
-} from 'src/languages/components/LanguagesContext'
-import { useTheme } from 'src/color-schemes/components/useTheme'
+} from '@/languages/components/LanguagesContext'
+import { useTheme } from '@/color-schemes/components/useTheme'
+import { SharedUIContextProvider } from '@/frame/components/context/SharedUIContext'
+import { ClientSideHashFocus } from '@/frame/components/ClientSideHashFocus'
+import type { ExtendedRequest } from '@/types'
 
 type MyAppProps = AppProps & {
   isDotComAuthenticated: boolean
@@ -24,11 +27,13 @@ type MyAppProps = AppProps & {
 }
 
 const stagingNames = new Set([
+  'balsam',
   'boxwood',
   'cedar',
   'cypress',
   'fir',
   'hemlock',
+  'hinoki',
   'holly',
   'juniper',
   'laurel',
@@ -36,6 +41,7 @@ const stagingNames = new Set([
   'redwood',
   'sequoia',
   'spruce',
+  'yew',
 ])
 
 function getFaviconHref(stagingName?: string) {
@@ -138,7 +144,10 @@ const MyApp = ({ Component, pageProps, languagesContext, stagingName }: MyAppPro
         preventSSRMismatch
       >
         <LanguagesContext.Provider value={languagesContext}>
-          <Component {...pageProps} />
+          <SharedUIContextProvider>
+            <ClientSideHashFocus />
+            <Component {...pageProps} />
+          </SharedUIContextProvider>
         </LanguagesContext.Provider>
       </ThemeProvider>
     </>
@@ -149,7 +158,7 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
   const { ctx } = appContext
   // calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(appContext)
-  const req: any = ctx.req
+  const req = ctx.req as unknown as ExtendedRequest
 
   // Have to define the type manually here because `req.context.languages`
   // comes from Node JS and is not type-aware.
@@ -163,9 +172,8 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
   // Note, `req` will be undefined if this is the client-side rendering
   // of a 500 page ("Ooops! It looks like something went wrong.")
   if (req?.context?.languages) {
-    for (const [langCode, langObj] of Object.entries(
-      req.context.languages as Record<string, LanguageItem>,
-    )) {
+    const languageEntries = Object.entries(req.context.languages as Record<string, LanguageItem>)
+    for (const [langCode, langObj] of languageEntries) {
       // Only pick out the keys we actually need
       languagesContext.languages[langCode] = {
         name: langObj.name,
@@ -180,11 +188,14 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
       }
     }
   }
-  const stagingName = req.headers['x-ong-external-url']?.match(/staging-(\w+)\./)?.[1]
+  const headerValue = req.headers['x-ong-external-url']
+  const stagingName = (typeof headerValue === 'string' ? headerValue : headerValue?.[0])?.match(
+    /staging-(\w+)\./,
+  )?.[1]
   return {
     ...appProps,
     languagesContext,
-    stagingName: stagingNames.has(stagingName) ? stagingName : undefined,
+    stagingName: stagingName && stagingNames.has(stagingName) ? stagingName : undefined,
   }
 }
 

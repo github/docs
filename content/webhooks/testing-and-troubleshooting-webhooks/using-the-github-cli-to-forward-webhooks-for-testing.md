@@ -3,8 +3,6 @@ title: Using the GitHub CLI to forward webhooks for testing
 intro: 'You can use the {% data variables.product.prodname_cli %} to test webhooks in your development environment without the complexity of port forwarding or third-party tools.'
 versions:
   feature: cli-webhook-forwarding
-topics:
-  - Webhooks
 shortTitle: Test with the CLI
 redirect_from:
   - /developers/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli
@@ -12,6 +10,8 @@ redirect_from:
   - /webhooks/webhooks/receiving-webhooks-with-the-github-cli
   - /webhooks/receiving-webhooks-with-the-github-cli
   - /webhooks/testing-and-troubleshooting-webhooks/receiving-webhooks-with-the-github-cli
+category:
+  - Test and troubleshoot
 ---
 ## About receiving webhooks with {% data variables.product.prodname_cli %}
 

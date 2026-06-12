@@ -1,6 +1,6 @@
 import type { Response } from 'express'
 
-import { defaultCacheControl } from './cache-control.js'
+import { defaultCacheControl } from './cache-control'
 import type { Context, ExtendedRequest, Tree } from '@/types'
 
 const renderOpts = { textOnly: true }
@@ -29,13 +29,14 @@ export default async function categoriesForSupport(req: ExtendedRequest, res: Re
         // We can't get the rendered titles from middleware/render-tree-titles
         // here because that middleware only runs on the current version, and this
         // middleware processes all versions.
+        if (!req.context) return
         const name = categoryPage.page.title.includes('{')
           ? await categoryPage.page.renderProp('title', req.context, renderOpts)
           : categoryPage.page.title
 
         allCategories.push({
           name,
-          published_articles: await findArticlesPerCategory(categoryPage, [], req.context!),
+          published_articles: await findArticlesPerCategory(categoryPage, [], req.context),
         })
       }),
     )

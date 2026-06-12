@@ -1,18 +1,15 @@
 ---
-title: 'Getting started with {% data variables.product.prodname_emus %}'
+title: Getting started with {% data variables.product.prodname_emus %}
 shortTitle: Get started with managed users
-intro: 'Learn how to create and configure an {% data variables.enterprise.prodname_emu_enterprise %}.'
+intro: Learn how to create and configure an {% data variables.enterprise.prodname_emu_enterprise %}.
 versions:
   ghec: '*'
-type: overview
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - SSO
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users
+contentType: concepts
+category:
+  - Configure authentication
 ---
 
 Before your developers can use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %}, you must follow a series of configuration steps.
@@ -21,8 +18,7 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
 
 To use {% data variables.product.prodname_emus %}, you need a **separate type of enterprise account** with {% data variables.product.prodname_emus %} enabled.
 
-* To create an enterprise on {% data variables.product.prodname_dotcom_the_website %}, start a free 30-day trial of {% data variables.product.prodname_ghe_cloud %}, and choose **Enterprise with managed users**. See [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud).
-* If you require {% data variables.enterprise.data_residency_short %}, contact {% data variables.contact.contact_enterprise_sales %}.
+You can create an enterprise account by signing up for a trial of {% data variables.product.prodname_ghe_cloud %}. See [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud).
 
 ### Understand where your enterprise is hosted
 
@@ -32,27 +28,20 @@ The setup process for the environments is similar. However, you will need to **p
 
 ## Create the setup user
 
-After we create your enterprise, you will receive an email inviting you to choose a password for the setup user, which is used to configure authentication and provisioning. The username is your enterprise's shortcode (chosen by you or randomly generated), suffixed with `_admin`. For example: `fabrikam_admin`.
+After we create your enterprise, you will receive an email inviting you to choose a password for the setup user, which is used to configure authentication and provisioning. This is the first enterprise owner account, and the only user account in the enterprise that is not SCIM-provisioned. The username is your enterprise's shortcode (chosen by you or randomly generated), suffixed with `_admin`. For example: `fabrikam_admin`.
 
 Using an **incognito or private browsing window**:
 
 1. Set the user's password.
-1. Enable two-factor authentication (2FA), and save the recovery codes. See [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
+1. Enable two-factor authentication (2FA) for the setup user account, and save the recovery codes. See [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
 
    > [!WARNING]
-   > All subsequent login attempts for the setup user account will require a successful 2FA challenge response or the use of an enterprise recovery code to complete authentication. To avoid being locked out of your account, after enabling single sign-on, save your enterprise recovery codes. See [AUTOTITLE](/admin/managing-iam/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes#downloading-codes-for-an-enterprise-with-enterprise-managed-users).
-
-{% data reusables.enterprise-accounts.emu-password-reset-session %}
+   > All subsequent login attempts to the setup user account will require a successful 2FA challenge response.
+1. Download the enterprise recovery codes. See [AUTOTITLE](/admin/managing-iam/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes).
 
 {% data reusables.enterprise-accounts.emu-recommend-password-manager %}
 
-   > [!NOTE]
-   > Once single sign-on has been configured on the enterprise, the setup user is only intended to be used going forwards for:
-   >
-   > * SCIM provisioning via its {% data variables.product.pat_generic %}.
-   > * To regain access to your enterprise in the event of an issue with your identity provider by utilizing the enterprise's SAML recovery codes.
-   >
-   > For other enterprise administration tasks, you should use a provisioned managed user account with the enterprise owner role.
+{% data reusables.enterprise-accounts.about-setup-user %}
 
 ## Create a {% data variables.product.pat_generic %}
 
@@ -68,7 +57,7 @@ Using an **incognito or private browsing window**:
 
 {% data reusables.enterprise-accounts.emu-configure-provisioning %}
 
-## Manage organization membership
+## Sync teams with IdP groups
 
 {% data reusables.enterprise-accounts.emu-manage-org-membership %}
 
@@ -77,4 +66,5 @@ Using an **incognito or private browsing window**:
 Developers may need to maintain separate, personal accounts for their work outside of your {% data variables.enterprise.prodname_emu_enterprise %}. You can help them manage multiple accounts by providing the following resources:
 
 * **On the command line**, developers can configure Git to simplify the process of using multiple accounts. See [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts).
+* **In Git Credential Manager (GCM)**: Turn off account filtering to prevent multiple sign-in prompts if the [SSO Redirect setting](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users) is not enabled for your enterprise. See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users).
 * **In the web interface**, developers can switch between accounts without always needing to re-authenticate. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/switching-between-accounts).

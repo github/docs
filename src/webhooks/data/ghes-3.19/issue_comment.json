@@ -1,0 +1,216 @@
+{
+  "created": {
+    "descriptionHtml": "<p>A comment on an issue or pull request was created.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a comment on an issue or pull request. For more information about issues and pull requests, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/issues/tracking-your-work-with-issues/about-issues\">About issues</a>\" and \"<a href=\"https://docs.github.com/enterprise-server@3.19/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests\">About pull requests</a>.\" For information about the APIs to manage issue comments, see <a href=\"https://docs.github.com/enterprise-server@3.19/graphql/reference/objects#issuecomment\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.19/rest/issues/comments\">Issue comments</a>\" in the REST API documentation.</p>\n<p>For activity relating to an issue as opposed to comments on an issue, use the <code>issue</code> event. For activity related to pull request reviews or pull request review comments, use the <code>pull_request_review</code> or <code>pull_request_review_comment</code> events. For more information about the different types of pull request comments, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/rest/guides/working-with-comments\">Working with comments</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "created"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "comment",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.19/rest/issues/comments#get-an-issue-comment\">comment</a> itself.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.19/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.19/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "issue",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.19/rest/issues/issues#get-an-issue\">issue</a> the comment belongs to.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "created",
+    "category": "issue_comment"
+  },
+  "deleted": {
+    "descriptionHtml": "<p>A comment on an issue or pull request was deleted.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a comment on an issue or pull request. For more information about issues and pull requests, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/issues/tracking-your-work-with-issues/about-issues\">About issues</a>\" and \"<a href=\"https://docs.github.com/enterprise-server@3.19/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests\">About pull requests</a>.\" For information about the APIs to manage issue comments, see <a href=\"https://docs.github.com/enterprise-server@3.19/graphql/reference/objects#issuecomment\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.19/rest/issues/comments\">Issue comments</a>\" in the REST API documentation.</p>\n<p>For activity relating to an issue as opposed to comments on an issue, use the <code>issue</code> event. For activity related to pull request reviews or pull request review comments, use the <code>pull_request_review</code> or <code>pull_request_review_comment</code> events. For more information about the different types of pull request comments, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/rest/guides/working-with-comments\">Working with comments</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "deleted"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "comment",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.19/rest/issues/comments#get-an-issue-comment\">comment</a> itself.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.19/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.19/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "issue",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.19/rest/issues/issues#get-an-issue\">issue</a> the comment belongs to.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "deleted",
+    "category": "issue_comment"
+  },
+  "edited": {
+    "descriptionHtml": "<p>A comment on an issue or pull request was edited.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a comment on an issue or pull request. For more information about issues and pull requests, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/issues/tracking-your-work-with-issues/about-issues\">About issues</a>\" and \"<a href=\"https://docs.github.com/enterprise-server@3.19/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests\">About pull requests</a>.\" For information about the APIs to manage issue comments, see <a href=\"https://docs.github.com/enterprise-server@3.19/graphql/reference/objects#issuecomment\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.19/rest/issues/comments\">Issue comments</a>\" in the REST API documentation.</p>\n<p>For activity relating to an issue as opposed to comments on an issue, use the <code>issue</code> event. For activity related to pull request reviews or pull request review comments, use the <code>pull_request_review</code> or <code>pull_request_review_comment</code> events. For more information about the different types of pull request comments, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/rest/guides/working-with-comments\">Working with comments</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "edited"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "changes",
+        "description": "<p>The changes to the comment.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "comment",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.19/rest/issues/comments#get-an-issue-comment\">comment</a> itself.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.19/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.19/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "issue",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.19/rest/issues/issues#get-an-issue\">issue</a> the comment belongs to.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "edited",
+    "category": "issue_comment"
+  }
+}

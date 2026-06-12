@@ -1,19 +1,16 @@
 ---
 title: Monitoring a high-availability configuration
-intro: 'After configuration of high availability for {% data variables.location.product_location %}, you can monitor the status of data replication among to your instance''s replica nodes.'
+intro: After configuration of high availability for {% data variables.location.product_location %}, you can monitor the status of data replication among to your instance's replica nodes.
 versions:
   ghes: '*'
-permissions: 'Site administrators can monitor a high-availability configuration for a {% data variables.product.prodname_ghe_server %} instance.'
-type: how_to
-topics:
-  - Enterprise
-  - High availability
-  - Infrastructure
-  - Monitoring
+permissions: Site administrators can monitor a high-availability configuration for a {% data variables.product.prodname_ghe_server %} instance.
 shortTitle: Monitor HA configuration
 redirect_from:
   - /admin/enterprise-management/configuring-high-availability/monitoring-a-high-availability-configuration
   - /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/monitoring-a-high-availability-configuration
+contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 ## About observability for high availability
@@ -32,13 +29,9 @@ You can also monitor replication status from the overview dashboard on your inst
 
 `http(s)://HOSTNAME/setup/replication`
 
-{% ifversion ghes-manage-api-cli-extension %}
-
 ## Monitoring replication using the {% data variables.product.prodname_cli %}
 
 You can monitor replication status on your instance using the `gh es` extension for {% data variables.product.prodname_cli %}. For more information, see the [GH ES CLI usage documentation](https://github.com/github/gh-es/blob/main/USAGE.md#gh-es-replication-status) and [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/administering-your-instance-using-the-github-cli).
-
-{% endif %}
 
 ## Monitoring replication using the REST API
 

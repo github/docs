@@ -10,10 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Set base permissions
+category:
+  - Control repository access
 ---
 
 ## About base permissions for an organization
@@ -31,6 +30,7 @@ If you've created a custom repository role with an inherited role that is lower 
 > [!NOTE]
 > * All changes to base permissions will affect both new and existing members.
 > * {% data reusables.repositories.org-base-permissions-private-forks %}
+> * Internal repositories have a minimum visibility level of read, even if the base permission has been set to none.
 
 ## Setting base permissions
 

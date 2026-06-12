@@ -1,0 +1,11 @@
+{
+  "name": "apache-arrow-stub",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Lightweight stub for apache-arrow. The real package causes ~40 V8 prototype chain deoptimizations at import time via Object.setPrototypeOf on TypedArray subclasses. We never use elasticsearch's Arrow features (toArrowTable/toArrowReader).",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./Arrow.node": "./index.js"
+  }
+}

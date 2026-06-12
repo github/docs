@@ -1,4 +1,4 @@
-import { readFile, writeFile } from 'fs/promises'
+import { readFile, writeFile, readdir, unlink } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'
 import { mkdirp } from 'mkdirp'
@@ -7,10 +7,10 @@ import { updateRestFiles } from './update-markdown'
 import { allVersions } from '@/versions/lib/all-versions'
 import { createOperations, processOperations } from './get-operations'
 import { getProgAccessData } from '@/github-apps/scripts/sync'
-import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../../lib/index'
+import { REST_DATA_DIR } from '../../lib/index'
+import type { OpenApiSchema } from './openapi-types'
+import type Operation from './operation'
 
-type Schema = Record<string, any>
-type Operation = { category: string; subcategory: string; [key: string]: any }
 type OperationsByCategory = Record<string, Record<string, Operation[]>>
 
 // All of the schema releases that we store in allVersions
@@ -24,11 +24,25 @@ export async function syncRestData(
   sourceDirectory: string,
   restSchemas: string[],
   progAccessSource: string,
+  injectIntoSchema?: (
+    schema: OpenApiSchema,
+    schemaName: string,
+  ) => OpenApiSchema | Promise<OpenApiSchema>,
 ): Promise<void> {
+  const writeTasks: Promise<void>[] = []
+  // Track which category files were written per version directory so we
+  // can remove stale files that no longer appear in the upstream schema.
+  const writtenFilesByVersion = new Map<string, Set<string>>()
+
   await Promise.all(
     restSchemas.map(async (schemaName) => {
       const file = path.join(sourceDirectory, schemaName)
-      const schema = JSON.parse(await readFile(file, 'utf-8')) as Schema
+      let schema = JSON.parse(await readFile(file, 'utf-8')) as OpenApiSchema
+
+      if (injectIntoSchema) {
+        const injectedSchema = await injectIntoSchema(schema, schemaName)
+        schema = injectedSchema || schema // Fallback to original if injection returns null
+      }
 
       const operations: Operation[] = []
       console.log('Instantiating operation instances from schema ', schemaName)
@@ -61,20 +75,56 @@ export async function syncRestData(
       if (!existsSync(targetDirectoryPath)) {
         await mkdirp(targetDirectoryPath)
       }
-      const targetPath = path.join(targetDirectoryPath, REST_SCHEMA_FILENAME)
-      await writeFile(targetPath, JSON.stringify(formattedOperations, null, 2))
-      console.log(`✅ Wrote ${targetPath}`)
+
+      const writtenFiles = new Set<string>()
+      writtenFilesByVersion.set(targetDirectoryPath, writtenFiles)
+
+      for (const [category, categoryData] of Object.entries(formattedOperations)) {
+        const categoryFilename = `${category}.json`
+        const categoryPath = path.join(targetDirectoryPath, categoryFilename)
+        writtenFiles.add(categoryFilename)
+        writeTasks.push(
+          (async () => {
+            await writeFile(categoryPath, JSON.stringify(categoryData, null, 2))
+            console.log(`✅ Wrote ${categoryPath}`)
+          })(),
+        )
+      }
     }),
   )
+
+  await Promise.all(writeTasks)
+  await removeStaleRestDataFiles(writtenFilesByVersion)
   await updateRestFiles()
   await updateRestConfigData(restSchemas)
+}
+
+// After syncing, remove any .json category files on disk that were not
+// written during this run. This handles the case where an entire API
+// category is removed upstream — without this cleanup, stale data files
+// would persist and continue to generate docs pages.
+export async function removeStaleRestDataFiles(
+  writtenFilesByVersion: Map<string, Set<string>>,
+): Promise<void> {
+  for (const [versionDir, writtenFiles] of writtenFilesByVersion) {
+    if (!existsSync(versionDir)) continue
+
+    const filesOnDisk = (await readdir(versionDir)).filter((f) => f.endsWith('.json'))
+    for (const file of filesOnDisk) {
+      if (!writtenFiles.has(file)) {
+        const filePath = path.join(versionDir, file)
+        await unlink(filePath)
+        console.log(`🗑️  Removed stale data file ${filePath}`)
+      }
+    }
+  }
 }
 
 async function formatRestData(operations: Operation[]): Promise<OperationsByCategory> {
   const categories = [...new Set(operations.map((operation) => operation.category))].sort()
 
   const operationsByCategory: OperationsByCategory = {}
-  categories.forEach((category) => {
+  for (const category of categories) {
     operationsByCategory[category] = {}
     const categoryOperations = operations.filter((operation) => operation.category === category)
 
@@ -89,7 +139,7 @@ async function formatRestData(operations: Operation[]): Promise<OperationsByCate
       subcategories.unshift(firstItem)
     }
 
-    subcategories.forEach((subcategory) => {
+    for (const subcategory of subcategories) {
       operationsByCategory[category][subcategory] = []
 
       const subcategoryOperations = categoryOperations.filter(
@@ -97,42 +147,53 @@ async function formatRestData(operations: Operation[]): Promise<OperationsByCate
       )
 
       operationsByCategory[category][subcategory] = subcategoryOperations
-    })
-  })
+    }
+  }
   return operationsByCategory
 }
 
 // Every time we update the REST data files, we'll want to make sure the
 // config.json file is updated with the latest api versions.
+// This function rebuilds each version's date array from the schemas that were
+// actually synced, so deprecated calendar-date versions are automatically
+// removed. Only version keys that appear in the incoming schemas are touched —
+// keys absent from this sync run (e.g. during a partial --versions run) are
+// left unchanged. We never remove an entire version key (e.g. "ghes-3.14");
+// that is handled separately by the GHES deprecation process.
 async function updateRestConfigData(schemas: string[]): Promise<void> {
   const restConfigFilename = 'src/rest/lib/config.json'
   const restConfigData = JSON.parse(await readFile(restConfigFilename, 'utf8')) as Record<
     string,
-    any
+    unknown
   >
-  const restApiVersionData = restConfigData['api-versions'] || {}
-  // If the version isn't one of the OpenAPI version,
-  // then it's an api-versioned schema
+  const restApiVersionData = (restConfigData['api-versions'] as Record<string, string[]>) || {}
+
+  // Phase 1: Collect the dates present in the incoming schemas, keyed by
+  // OpenAPI version name. Only calendar-date schemas contribute — those that
+  // don't exactly match a base OPENAPI_VERSION_NAMES entry but do start with one.
+  const incomingDates: Record<string, Set<string>> = {}
+
   for (const schema of schemas) {
     const schemaBaseName = path.basename(schema, '.json')
     if (!OPENAPI_VERSION_NAMES.includes(schemaBaseName)) {
-      const openApiVer = OPENAPI_VERSION_NAMES.find((ver) => schemaBaseName.startsWith(ver))
+      const openApiVer = OPENAPI_VERSION_NAMES.find((ver) => schemaBaseName.startsWith(`${ver}-`))
       if (!openApiVer) {
         throw new Error(`Could not find the OpenAPI version for schema ${schemaBaseName}`)
       }
-      const date = schemaBaseName.split(`${openApiVer}-`)[1]
-
-      if (!restApiVersionData[openApiVer]) {
-        restApiVersionData[openApiVer] = []
-      }
-      if (!restApiVersionData[openApiVer].includes(date)) {
-        const dates = restApiVersionData[openApiVer]
-        dates.push(date)
-        restApiVersionData[openApiVer] = dates
-      }
+      const date = schemaBaseName.slice(openApiVer.length + 1)
+      if (!incomingDates[openApiVer]) incomingDates[openApiVer] = new Set()
+      incomingDates[openApiVer].add(date)
     }
-    restConfigData['api-versions'] = restApiVersionData
   }
+
+  // Phase 2: For each version key that appeared in this sync run, replace its
+  // date array with exactly what was synced. This removes any deprecated dates
+  // that are no longer present in the upstream schemas.
+  for (const [openApiVer, dates] of Object.entries(incomingDates)) {
+    restApiVersionData[openApiVer] = [...dates].sort()
+  }
+
+  restConfigData['api-versions'] = restApiVersionData
   await writeFile(restConfigFilename, JSON.stringify(restConfigData, null, 2))
 }
 
@@ -145,23 +206,21 @@ export async function getOpenApiSchemaFiles(
   // bundling the OpenAPI in github/github
   const schemaNames = schemas.map((schema) => path.basename(schema, '.json'))
 
-  const OPENAPI_VERSION_NAMES = Object.keys(allVersions).map(
-    (elem) => allVersions[elem].openApiVersionName,
-  )
+  const versionNames = Object.keys(allVersions).map((elem) => allVersions[elem].openApiVersionName)
 
   for (const schema of schemaNames) {
     const schemaBasename = `${schema}.json`
     // If the version doesn't have calendar date versioning
     // it should have an exact match with one of the versions defined
     // in the allVersions object.
-    if (OPENAPI_VERSION_NAMES.includes(schema)) {
+    if (versionNames.includes(schema)) {
       webhookSchemas.push(schemaBasename)
     }
 
     // If the schema version has calendar date versioning, then one of
     // the versions defined in allVersions should be a substring of the
     // schema version. This means the schema version is a supported version
-    if (OPENAPI_VERSION_NAMES.some((elem) => schema.startsWith(elem))) {
+    if (versionNames.some((elem) => schema.startsWith(elem))) {
       // If the schema being evaluated is a calendar-date version, then
       // there would only be one exact match in the list of schema names.
       // If the schema being evaluated is a non-calendar-date version, then

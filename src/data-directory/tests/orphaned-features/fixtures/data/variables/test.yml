@@ -1,0 +1,4 @@
+# Test variables file for orphaned features testing
+test_variable_with_feature: '{% ifversion used-in-variables %}This variable uses a feature{% else %}Default value{% endif %}'
+another_variable: 'Static value without features'
+complex_variable: '{% ifversion used-in-variables %}Feature enabled{% elsif fpt %}Free tier{% else %}Other{% endif %}'

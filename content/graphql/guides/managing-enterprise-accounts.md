@@ -6,9 +6,9 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - API
 shortTitle: Manage enterprise accounts
+category:
+  - Get started and make API calls
 ---
 
 ## About managing enterprise accounts with GraphQL
@@ -26,7 +26,7 @@ With the Audit Log API, you can monitor when someone:
 * Promotes users to admin.
 * Changes permissions of a GitHub App.
 
-The Audit Log API enables you to keep copies of your audit log data. For queries made with the Audit Log API, the GraphQL response can include data for up to 90 to 120 days. For a list of the fields available with the Audit Log API, see the [AUTOTITLE](/graphql/reference/interfaces#auditentry/).
+The Audit Log API enables you to keep copies of your audit log data. For queries made with the Audit Log API, the GraphQL response can include data for up to 90 to 120 days. For a list of the fields available with the Audit Log API, see the [AUTOTITLE](/graphql/reference/enterprise-admin#interface-auditentry/).
 
 With the Enterprise Accounts API, you can:
 * List and review all of the organizations and repositories that belong to your enterprise account.
@@ -39,10 +39,7 @@ For a list of the fields available with the Enterprise Accounts API, see [AUTOTI
 
 ## Getting started using GraphQL for enterprise accounts
 
-Follow these steps to get started using GraphQL to manage your enterprise accounts:
-* Authenticating with a {% data variables.product.pat_generic %}
-* Choosing a GraphQL client or using the GraphQL Explorer
-* Setting up Insomnia to use the GraphQL API
+See [AUTOTITLE](/graphql/guides/using-graphql-clients) to get started using GraphQL to manage your enterprise accounts.
 
 For some example queries, see [An example query using the Enterprise Accounts API](#an-example-query-using-the-enterprise-accounts-api).
 
@@ -80,6 +77,7 @@ The next steps will use Insomnia.
 1. Add the base url and `POST` method to your GraphQL client. When using GraphQL to request information (queries), change information (mutations), or transfer data using the GitHub API, the default HTTP method is `POST` and the base url follows this syntax:
     * For your enterprise instance: `https://<HOST>/api/graphql`
     * For GitHub Enterprise Cloud: `https://api.github.com/graphql`
+    * For GitHub Enterprise Cloud with Data Residency: `https://api.SUBDOMAIN.ghe.com/graphql`
 
 1. Select the "Auth" menu and click **Bearer Token**. If you've previously selected a different authentication method, the menu will be labeled with that method, such as "Basic Auth", instead.
    ![Screenshot of the expanded "Auth" menu in Insomnia. The menu label, "Auth", and the "Bearer Token" option are outlined in dark orange.](/assets/images/developer/graphql/insomnia-bearer-token-option.png)
@@ -205,5 +203,5 @@ For more information about getting started with GraphQL, see [AUTOTITLE](/graphq
 
 For more details about the new queries, mutations, and schema defined types available for use with the Enterprise Accounts API, see the sidebar with detailed GraphQL definitions from any [GraphQL reference page](/graphql).
 
-You can access the reference docs from within the GraphQL explorer on GitHub. For more information, see [AUTOTITLE](/graphql/guides/using-the-explorer#accessing-the-sidebar-docs).
+You can access the reference docs from within the GraphQL clients. For more information, see [AUTOTITLE](/graphql/guides/using-graphql-clients).
 For other information, such as authentication and rate limit details, check out the [guides](/graphql/guides).

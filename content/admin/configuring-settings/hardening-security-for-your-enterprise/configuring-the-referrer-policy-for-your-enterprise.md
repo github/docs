@@ -1,18 +1,15 @@
 ---
 title: Configuring the referrer policy for your enterprise
 shortTitle: Configure referrer policy
-intro: 'You can increase the privacy of {% data variables.location.product_location %} by configuring the policy for cross-origin requests.'
+intro: You can increase the privacy of {% data variables.location.product_location %} by configuring the policy for cross-origin requests.
 redirect_from:
   - /admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise
   - /admin/configuration/hardening-security-for-your-enterprise/configuring-the-referrer-policy-for-your-enterprise
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Networking
-  - Privacy
-  - Security
+contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About the referrer policy for your enterprise
@@ -32,6 +29,6 @@ You can enable the `same-origin` referrer policy to instruct modern browsers to 
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. Under **{% octicon "gear" aria-hidden="true" %} Settings**, click **Authentication security**.
+1. Under **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**, click **Authentication security**.
 1. Under "User Agent Referrer Policy", select **Enable same origin referrer policy for all organizations**.
 1. Click **Save**.

@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Git Large File Storage
+category:
+  - Store large files with Git LFS
 ---
 
 ## About {% data variables.large_files.product_name_long %}
@@ -55,4 +57,5 @@ It tracks the `version` of {% data variables.large_files.product_name_short %} y
 
 ## Further reading
 
-* [AUTOTITLE](/repositories/working-with-files/managing-large-files/collaboration-with-git-large-file-storage)
+* [AUTOTITLE](/repositories/working-with-files/managing-large-files/collaboration-with-git-large-file-storage) {% ifversion fpt or ghec %}
+* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage) {% endif %}

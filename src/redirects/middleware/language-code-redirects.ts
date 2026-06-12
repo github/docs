@@ -1,7 +1,7 @@
 import type { NextFunction, Response } from 'express'
 
-import languages from '@/languages/lib/languages.js'
-import { defaultCacheControl } from '@/frame/middleware/cache-control.js'
+import languages from '@/languages/lib/languages-server'
+import { defaultCacheControl } from '@/frame/middleware/cache-control'
 import { ExtendedRequest } from '@/types'
 
 const redirectPatterns = Object.values(languages)
@@ -44,7 +44,7 @@ export default function languageCodeRedirects(
     const [code, pattern] = matched
     if (code && pattern) {
       defaultCacheControl(res)
-      return res.redirect(301, req.path.replace(pattern, `/${code}`))
+      return res.safeRedirect(301, req.path.replace(pattern, `/${code}`))
     }
   }
   return next()

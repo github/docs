@@ -7,6 +7,8 @@ versions:
 shortTitle: '{% data variables.product.pat_generic_caps %} policies'
 redirect_from:
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise
+category:
+  - Secure and govern your enterprise
 ---
 
 ## Restricting access by {% data variables.product.pat_generic_plural %}
@@ -23,12 +25,10 @@ Regardless of the chosen policy, {% data variables.product.pat_generic_caps_plur
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
-1. Under **{% octicon "law" aria-hidden="true" %} Policies**, click **{% data variables.product.pat_generic_caps_plural %}**. {% ifversion tabbed-pat-settings-ui %}
-1. Select either the **Fine-grained tokens** or **Tokens (classic)** tab to enforce this policy based on the token type. {% endif %}
+1. Under **{% octicon "law" aria-hidden="true" aria-label="law" %} Policies**, click **{% data variables.product.pat_generic_caps_plural %}**. 
+1. Select either the **Fine-grained tokens** or **Tokens (classic)** tab to enforce this policy based on the token type. 
 1. Under **{% data variables.product.pat_v2_caps_plural %}** or **Restrict {% data variables.product.pat_v1_plural %} from accessing your organizations**, select your access policy.
 1. Click **Save**.
-
-{% ifversion pats-maximum-lifetime %}
 
 ## Enforcing a maximum lifetime policy for {% data variables.product.pat_generic_plural %}
 
@@ -47,13 +47,12 @@ When you set a policy, tokens with non-compliant lifetimes will be blocked from 
 ### Setting a maximum lifetime policy
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}, then click **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**.
+{% data reusables.enterprise-accounts.policies-tab %}, then click **{% octicon "key" aria-hidden="true" aria-label="key" %} {% data variables.product.pat_generic_caps %}s**.
 1. Select either the **Fine-grained tokens** or **Tokens (classic)** tab to enforce this policy based on the token type.
 1. Under **Set maximum lifetimes for {% data variables.product.pat_generic_plural %}**, set the maximum lifetime. Tokens must be created with a lifetime less than or equal to this many days.
 1. Optionally, to exempt your enterprise administrators from this policy, check the **Exempt administrators** checkbox. You should exempt them from this policy if you use SCIM for user provisioning or have automation that has not migrated to {% data variables.product.prodname_github_app %} yet.
    >[!WARNING] If you use {% data variables.product.prodname_emus %}, you will be asked to accept the risk of service interruption unless you exempt your enterprise administrators. This ensures you are aware of the potential risk.
 1. Click **Save**.
-{% endif %}
 
 ## Enforcing an approval policy for {% data variables.product.pat_v2_plural %}
 
@@ -70,7 +69,7 @@ By default, organizations require approval of {% data variables.product.pat_v2_p
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
-1. Under **{% octicon "law" aria-hidden="true" %} Policies**, click **{% data variables.product.pat_generic_caps_plural %}**. {% ifversion tabbed-pat-settings-ui %}
-1. Select the **Fine-grained tokens** tab. {% endif %}
+1. Under **{% octicon "law" aria-hidden="true" aria-label="law" %} Policies**, click **{% data variables.product.pat_generic_caps_plural %}**. 
+1. Select the **Fine-grained tokens** tab. 
 1. Under **Require approval of {% data variables.product.pat_v2_plural %}**, select your approval policy:
 1. Click **Save**.

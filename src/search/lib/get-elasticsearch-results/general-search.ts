@@ -2,12 +2,7 @@ import { getElasticsearchClient } from '@/search/lib/helpers/get-client'
 import { DEFAULT_HIGHLIGHT_FIELDS } from '@/search/lib/search-request-params/search-params-objects'
 import { getHighlightConfiguration } from '@/search/lib/get-elasticsearch-results/helpers/elasticsearch-highlight-config'
 
-import type {
-  SearchHit as ElasticsearchHit,
-  QueryDslQueryContainer,
-  SearchRequest,
-  SearchTotalHits,
-} from '@elastic/elasticsearch/lib/api/types'
+import type { estypes } from '@elastic/elasticsearch'
 import type {
   AdditionalIncludes,
   ComputedSearchQueryParamsMap,
@@ -21,8 +16,6 @@ const isDevMode: boolean = process.env.NODE_ENV !== 'production'
 type getGeneralSearchResultsParams = {
   indexName: string
   searchParams: ComputedSearchQueryParamsMap['generalSearch']
-  topics?: string[]
-  includeTopics?: boolean
 }
 
 // Query Elasticsearch for general search results
@@ -43,15 +36,8 @@ export async function getGeneralSearchResults(
       debug,
       sort,
     },
-    topics,
-    includeTopics,
   } = args
 
-  const usePrefixSearch = autocomplete
-
-  if (topics && !Array.isArray(topics)) {
-    throw new Error("'topics' has to be an array")
-  }
   if (include) {
     if (!Array.isArray(include)) {
       throw new Error("'include' has to be an array")
@@ -69,6 +55,7 @@ export async function getGeneralSearchResults(
     }
   }
   const t0 = Date.now()
+  const usePrefixSearch = autocomplete
   const client = getElasticsearchClient()
   const from = size * (page - 1)
 
@@ -80,37 +67,24 @@ export async function getGeneralSearchResults(
     },
   })
 
-  const matchQuery: Record<string, any> = {
-    bool: {
-      should: matchQueries,
-      // This allows filtering by toplevel later.
-      minimum_should_match: 1,
-    },
+  const matchBool: estypes.QueryDslBoolQuery = {
+    should: matchQueries,
+    // This allows filtering by toplevel later.
+    minimum_should_match: 1,
   }
-
-  const topicsArray = Array.isArray(topics) ? topics : topics ? [topics] : []
-  const topicsFilter = topicsArray.map((topic) => {
-    return {
-      term: {
-        // Remember, 'topics' is a keyword field, meaning you need
-        // to filter by "Webhooks", not "webhooks"
-        topics: topic,
-      },
-    }
-  })
-  if (topicsFilter.length) {
-    matchQuery.bool.filter = matchQuery.bool.filter || []
-    matchQuery.bool.filter.push(...topicsFilter)
+  const matchQuery: estypes.QueryDslQueryContainer = {
+    bool: matchBool,
   }
 
   const toplevelArray = toplevel || []
   if (toplevelArray.length) {
-    matchQuery.bool.filter = matchQuery.bool.filter || []
-    matchQuery.bool.filter.push({
+    const filters = Array.isArray(matchBool.filter) ? matchBool.filter : []
+    filters.push({
       terms: {
         toplevel: toplevelArray,
       },
     })
+    matchBool.filter = filters
   }
 
   const highlightFields = Array.from(highlights || DEFAULT_HIGHLIGHT_FIELDS)
@@ -122,7 +96,7 @@ export async function getGeneralSearchResults(
 
   const aggs = getAggregations(aggregate)
 
-  const searchQuery: SearchRequest = {
+  const searchQuery: estypes.SearchRequest = {
     index: indexName,
     highlight,
     from,
@@ -135,10 +109,6 @@ export async function getGeneralSearchResults(
     // stored in Elasticsearch to here if it's not going to be needed
     // anyway.
     _source_includes: ['title', 'url', 'breadcrumbs', 'popularity', 'toplevel'],
-  }
-
-  if (includeTopics && Array.isArray(searchQuery._source_includes)) {
-    searchQuery._source_includes?.push('topics')
   }
 
   for (const key of ['intro', 'headings'] as const) {
@@ -184,13 +154,12 @@ export async function getGeneralSearchResults(
     throw new Error(`Unrecognized sort enum '${sort}'`)
   }
 
-  const result = await client.search(searchQuery)
+  const result = await client.search<GeneralSearchSource>(searchQuery)
 
   const hitsAll = result.hits
   const hits = getHits(hitsAll.hits, {
     indexName,
     debug,
-    includeTopics,
     highlightFields,
     include,
   })
@@ -198,7 +167,7 @@ export async function getGeneralSearchResults(
   const t1 = Date.now()
 
   const meta = {
-    found: hitsAll.total as SearchTotalHits,
+    found: hitsAll.total as estypes.SearchTotalHits,
     took: {
       query_msec: result.took,
       total_msec: t1 - t0,
@@ -210,10 +179,12 @@ export async function getGeneralSearchResults(
   return { meta, hits, aggregations: aggregationsResult }
 }
 
-function getAggregations(aggregate?: string[]): Record<string, any> | undefined {
+function getAggregations(
+  aggregate?: string[],
+): Record<string, estypes.AggregationsAggregationContainer> | undefined {
   if (!aggregate || !aggregate.length) return undefined
 
-  const aggs: Record<string, any> = {}
+  const aggs: Record<string, estypes.AggregationsAggregationContainer> = {}
   for (const key of aggregate) {
     aggs[key] = {
       terms: {
@@ -227,18 +198,19 @@ function getAggregations(aggregate?: string[]): Record<string, any> | undefined 
 
 function getAggregationsResult(
   aggregate?: string[],
-  result?: Record<string, any>,
+  result?: Record<string, estypes.AggregationsAggregate>,
 ): Record<string, SearchAggregation[]> | undefined {
   if (!aggregate || !aggregate.length || !result) return undefined
   const aggregations: Record<string, SearchAggregation[]> = {}
   for (const key of aggregate) {
-    if (result[key]?.buckets) {
-      aggregations[key] = result[key].buckets
-        .map((bucket: any) => ({
+    const agg = result[key] as { buckets?: Array<{ key: string; doc_count: number }> } | undefined
+    if (agg?.buckets) {
+      aggregations[key] = agg.buckets
+        .map((bucket) => ({
           key: bucket.key as string,
           count: bucket.doc_count as number,
         }))
-        .sort((a: { key: string }, b: { key: string }) => a.key.localeCompare(b.key))
+        .sort((a, b) => a.key.localeCompare(b.key))
     }
   }
   return aggregations
@@ -255,7 +227,7 @@ interface GetMatchQueriesOptions {
 function getMatchQueries(
   query: string,
   { usePrefixSearch, fuzzy }: GetMatchQueriesOptions,
-): QueryDslQueryContainer[] {
+): estypes.QueryDslQueryContainer[] {
   const BOOST_PHRASE = 10.0
   const BOOST_TITLE = 4.0
   const BOOST_HEADINGS = 3.0
@@ -268,7 +240,7 @@ function getMatchQueries(
   // which wouldn't find anything else anyway.
   const BOOST_FUZZY = 0.1
 
-  const matchQueries: QueryDslQueryContainer[] = []
+  const matchQueries: estypes.QueryDslQueryContainer[] = []
 
   // If the query input is multiple words, it's good to know because you can
   // make the query do `match_phrase` and you can make `match` query
@@ -314,7 +286,7 @@ function getMatchQueries(
       ],
     )
     // If the content is short, it is given a disproportionate advantage
-    // in search ranking. For example, our category and map-topic pages
+    // in search ranking. For example, our category and subcategory pages
     // often includes a list of other document titles but because it's so
     // short it thinks that content is really relevant. This only applies
     // when you use `match_phrase_prefix` which first makes a search
@@ -446,14 +418,21 @@ function getMatchQueries(
 interface GetHitsOptions {
   indexName: string
   debug?: boolean
-  includeTopics?: boolean
   highlightFields: string[]
   include: AdditionalIncludes[]
 }
 
+interface GeneralSearchSource {
+  url: string
+  title: string
+  breadcrumbs: string
+  popularity?: number
+  [key: string]: unknown
+}
+
 function getHits(
-  hits: ElasticsearchHit<any>[],
-  { indexName, debug = false, includeTopics = false, highlightFields, include }: GetHitsOptions,
+  hits: estypes.SearchHit<GeneralSearchSource>[],
+  { indexName, debug = false, highlightFields, include }: GetHitsOptions,
 ): GeneralSearchHit[] {
   return hits.map((hit) => {
     // Return `hit.highlights[...]` based on the highlight fields requested.
@@ -469,25 +448,23 @@ function getHits(
       hitHighlights[key] = (hit.highlight && hit.highlight[key]) || []
     }
 
+    const source = hit._source!
     const result: GeneralSearchHit = {
-      id: hit._id,
-      url: hit._source.url,
-      title: hit._source.title,
-      breadcrumbs: hit._source.breadcrumbs,
+      id: hit._id!,
+      url: source.url,
+      title: source.title,
+      breadcrumbs: source.breadcrumbs,
       highlights: hitHighlights,
-    }
-    if (includeTopics) {
-      result.topics = hit._source.topics || []
     }
     if (debug) {
       result.score = hit._score ?? 0.0
-      result.popularity = hit._source.popularity ?? 0.0
+      result.popularity = source.popularity ?? 0.0
       if (isDevMode) {
         result.es_url = `http://localhost:9200/${indexName}/_doc/${hit._id}`
       }
     }
     for (const field of include) {
-      result[field] = hit._source[field]
+      result[field] = source[field] as string
     }
     return result
   })

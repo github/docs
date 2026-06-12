@@ -1,10 +1,10 @@
 import type { Response, NextFunction } from 'express'
 
 import type { Context, ExtendedRequest, Glossary } from '@/types'
-import { getDataByLanguage } from '@/data-directory/lib/get-data.js'
-import { liquid } from '@/content-render/index.js'
-import { executeWithFallback } from '@/languages/lib/render-with-fallback.js'
-import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content.js'
+import { getDataByLanguage } from '@/data-directory/lib/get-data'
+import { liquid } from '@/content-render/index'
+import { executeWithFallback } from '@/languages/lib/render-with-fallback'
+import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content'
 
 export default async function glossaries(req: ExtendedRequest, res: Response, next: NextFunction) {
   if (!req.pagePath) throw new Error('request is not contextualized')
@@ -25,11 +25,11 @@ export default async function glossaries(req: ExtendedRequest, res: Response, ne
   const enGlossaryMap = new Map()
   // But we don't need to bother if the current language is English.
   if (req.context.currentLanguage !== 'en') {
-    const enGlossariesRaw: Glossary[] = getDataByLanguage('glossaries.external', 'en')
+    const enGlossariesRaw: Glossary[] = getDataByLanguage('glossaries.external', 'en') as Glossary[]
 
-    enGlossariesRaw.forEach(({ term, description }) => {
+    for (const { term, description } of enGlossariesRaw) {
       enGlossaryMap.set(term, description)
-    })
+    }
   }
 
   // The glossaries Yaml file contains descriptions that might contain
@@ -39,9 +39,9 @@ export default async function glossaries(req: ExtendedRequest, res: Response, ne
   // injected there it needs to have its own possible Liquid rendered out.
   const glossariesRaw: Glossary[] = getDataByLanguage(
     'glossaries.external',
-    req.context.currentLanguage,
-  )
-  const glossaries = (
+    req.context.currentLanguage!,
+  ) as Glossary[]
+  const glossariesList = (
     await Promise.all(
       glossariesRaw.map(async (glossary) => {
         let { description } = glossary
@@ -60,7 +60,7 @@ export default async function glossaries(req: ExtendedRequest, res: Response, ne
           )
         }
         description = await executeWithFallback(
-          req.context,
+          req.context!,
           () => liquid.parseAndRender(description, req.context),
           (enContext: Context) => {
             const { term } = glossary
@@ -80,7 +80,7 @@ export default async function glossaries(req: ExtendedRequest, res: Response, ne
     )
   ).filter(Boolean)
 
-  req.context.glossaries = glossaries.sort((a, b) =>
+  req.context.glossaries = glossariesList.sort((a, b) =>
     a.term.localeCompare(b.term, req.context!.currentLanguage),
   )
 

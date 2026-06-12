@@ -3,18 +3,18 @@ import cx from 'classnames'
 import { slug as githubSlug } from 'github-slugger'
 import { CheckIcon, XIcon } from '@primer/octicons-react'
 
-import { HeadingLink } from 'src/frame/components/article/HeadingLink'
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { Link } from 'src/frame/components/Link'
-import { MainContextT } from 'src/frame/components/context/MainContext'
+import { HeadingLink } from '@/frame/components/article/HeadingLink'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { Link } from '@/frame/components/Link'
+import { MainContextT } from '@/frame/components/context/MainContext'
 import {
   AutomatedPageContext,
   AutomatedPageContextT,
-} from 'src/automated-pipelines/components/AutomatedPageContext'
-import { AutomatedPage } from 'src/automated-pipelines/components/AutomatedPage'
-import { RestRedirect } from 'src/rest/components/RestRedirect'
+} from '@/automated-pipelines/components/AutomatedPageContext'
+import { AutomatedPage } from '@/automated-pipelines/components/AutomatedPage'
+import { RestRedirect } from '@/rest/components/RestRedirect'
 
-import styles from 'src/github-apps/components/PermissionTable.module.scss'
+import styles from '@/github-apps/components/PermissionTable.module.scss'
 const IAT_DOCS_REF =
   '/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation'
 const UAT_DOCS_REF =

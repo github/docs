@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub search
 shortTitle: Search issues & PRs
+category:
+  - Search for work and community content
 ---
 You can search for issues and pull requests globally across all of {% data variables.product.github %}, or search for issues and pull requests within a particular organization. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
 
@@ -198,7 +198,6 @@ You can use the `project` qualifier to find issues that are associated with a sp
 | Qualifier        | Example
 | ------------- | -------------
 | <code>project:<em>PROJECT_NUMBER</em></code> | **project:github/57** matches issues owned by GitHub that are associated with the organization's project 57.
-| <code>project:<em>REPOSITORY/PROJECT_NUMBER</em></code> | **project:github-linguist/linguist/1** matches issues that are associated with project 1 in @github's linguist repository.
 
 ## Search by commit status
 
@@ -367,7 +366,7 @@ You can narrow your search to issues and pull requests that are missing certain 
 | `no:label` | [**priority no:label**](https://github.com/search?q=priority+no%3Alabel&type=Issues) matches issues and pull requests with the word "priority" that also don't have any labels.
 | `no:milestone` | [**sprint no:milestone type:issue**](https://github.com/search?q=sprint+no%3Amilestone+type%3Aissue&type=Issues) matches issues not associated with a milestone containing the word "sprint."
 | `no:assignee` | [**important no:assignee language:java type:issue**](https://github.com/search?q=important+no%3Aassignee+language%3Ajava+type%3Aissue&type=Issues) matches issues not associated with an assignee, containing the word "important," and in Java repositories.
-| `no:project` | [**build no:project**](https://github.com/search?utf8=%E2%9C%93&q=build+no%3Aproject&type=Issues) matches issues not associated with a {% data variables.projects.projects_v1_board %}, containing the word "build."
+| `no:project` | [**build no:project**](https://github.com/search?utf8=%E2%9C%93&q=build+no%3Aproject&type=Issues) matches issues not associated with a {% data variables.projects.project_v2 %}, containing the word "build."
 
 ## Further reading
 

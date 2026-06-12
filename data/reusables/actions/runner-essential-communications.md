@@ -1,3 +1,10 @@
+{% ifversion ghec %}
+
+> [!NOTE]
+> If you use {% data variables.enterprise.data_residency %}, your runners must communicate with additional hostnames beyond those listed below. For the complete network requirements, see [AUTOTITLE](/admin/data-residency/network-details-for-ghecom).
+
+{% endif %}
+
 **Needed for essential operations:**
 
 ```shell copy
@@ -10,13 +17,6 @@ api.github.com
 
 ```shell copy
 codeload.github.com
-pkg.actions.githubusercontent.com
-```
-
-**Needed for publishing immutable actions:**
-
-```shell copy
-ghcr.io
 ```
 
 **Needed for uploading/downloading job summaries, logs, workflow artifacts, and caches:**
@@ -64,3 +64,15 @@ dependabot-actions.githubapp.com
 ```
 
 {% endif %}
+
+**Needed for downloading release assets:**
+
+```shell copy
+release-assets.githubusercontent.com
+```
+
+**Needed for VNet:**
+
+```shell copy
+api.snapcraft.io
+```

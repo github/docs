@@ -1,0 +1,1 @@
+For these requests, the rate limit is 5,000 requests per hour per {% data variables.product.prodname_oauth_app %}. If the app is owned by a {% data variables.product.prodname_ghe_cloud %} organization, the rate limit is 15,000 requests per hour.

@@ -1,0 +1,14 @@
+---
+title: Concepts for providing context to GitHub Copilot
+shortTitle: Context
+allowTitleToDifferFromFilename: true
+intro: Learn how {% data variables.product.prodname_copilot %} gathers contextual information to provide relevant responses to your prompts.
+versions:
+  feature: copilot
+children:
+  - /mcp
+  - /spaces
+  - /repository-indexing
+  - /content-exclusion
+contentType: concepts
+---

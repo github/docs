@@ -1,1 +1,1 @@
-1. In the left sidebar, click **{% octicon "gear" aria-hidden="true" %} Account**.
+1. In the left sidebar, click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Account**.

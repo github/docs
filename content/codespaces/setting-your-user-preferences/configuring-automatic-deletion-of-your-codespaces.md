@@ -1,15 +1,15 @@
 ---
 title: Configuring automatic deletion of your codespaces
 shortTitle: Configure automatic deletion
-intro: 'Inactive codespaces are automatically deleted. You can choose how long your stopped codespaces are retained, up to a maximum of 30 days.'
+intro: Inactive codespaces are automatically deleted. You can choose how long your stopped codespaces are retained, up to a maximum of 30 days.
 redirect_from:
   - /codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Codespaces
-type: how_to
+contentType: how-tos
+category:
+  - Customize your codespace
 ---
 
 By default, {% data variables.product.prodname_github_codespaces %} are automatically deleted after they have been stopped and have remained inactive for 30 days.
@@ -67,14 +67,14 @@ You may have a codespace that you want to keep for longer than the retention per
 > [!NOTE]
 > The "Keep codespace" option is not available for organization-owned codespaces affected by an organization retention policy.
 
-Codespaces incur storage costs, or consume your included storage allowance if the codespace is owned by your personal {% data variables.product.prodname_dotcom %} account. You should therefore be aware of the cost implications of storing codespaces indefinitely. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-storage-usage).
+Codespaces incur storage costs, or consume your included storage allowance if the codespace is owned by your personal {% data variables.product.prodname_dotcom %} account. You should therefore be aware of the cost implications of storing codespaces indefinitely. See [AUTOTITLE](/billing/concepts/product-billing/github-codespaces).
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
-1. To the right of the codespace you want to exempt from automatic deletion, click {% octicon "kebab-horizontal" aria-label="Codespace configuration" %}, then click **{% octicon "bookmark" aria-hidden="true" %} Keep codespace**.
+1. To the right of the codespace you want to exempt from automatic deletion, click {% octicon "kebab-horizontal" aria-label="Codespace configuration" %}, then click **{% octicon "bookmark" aria-hidden="true" aria-label="bookmark" %} Keep codespace**.
 
    ![Screenshot of the dropdown menu for an active codespace. The "Keep codespace" option has a tooltip saying "Expires 10 days after shutdown."](/assets/images/help/codespaces/keep-codespace.png)
 
-Codespaces that you have exempted from automatic deletion are indicated in your list of codespaces with the bookmark icon ({% octicon "bookmark-fill" aria-hidden="true" %}).
+Codespaces that you have exempted from automatic deletion are indicated in your list of codespaces with the bookmark icon ({% octicon "bookmark-fill" aria-hidden="true" aria-label="bookmark-fill" %}).
 
 ![Screenshot of a section of the codespaces list, showing a codespace labeled with the bookmark icon.](/assets/images/help/codespaces/keep-codespace-bookmarked.png)
 

@@ -1,16 +1,20 @@
 import express from 'express'
 import { createProxyMiddleware } from 'http-proxy-middleware'
 
-import events from '@/events/middleware.js'
-import anchorRedirect from '@/rest/api/anchor-redirect.js'
+import { createLogger } from '@/observability/logger'
+import events from '@/events/middleware'
+import anchorRedirect from '@/rest/api/anchor-redirect'
 import aiSearch from '@/search/middleware/ai-search'
-import search from '@/search/middleware/search-routes.js'
+import aiSearchLocalProxy from '@/search/middleware/ai-search-local-proxy'
+import search from '@/search/middleware/search-routes'
 import pageList from '@/article-api/middleware/pagelist'
 import article from '@/article-api/middleware/article'
-import webhooks from '@/webhooks/middleware/webhooks.js'
+import webhooks from '@/webhooks/middleware/webhooks'
 import { ExtendedRequest } from '@/types'
 import { noCacheControl } from './cache-control'
+import { STAFFONLY_COOKIE_NAME } from '@/frame/lib/constants'
 
+const logger = createLogger(import.meta.url)
 const router = express.Router()
 
 router.use('/events', events)
@@ -28,19 +32,10 @@ router.use('/article', article)
 if (process.env.CSE_COPILOT_ENDPOINT || process.env.NODE_ENV === 'test') {
   router.use('/ai-search', aiSearch)
 } else {
-  console.log(
+  logger.info(
     'Proxying AI Search requests to docs.github.com. To use the cse-copilot endpoint, set the CSE_COPILOT_ENDPOINT environment variable.',
   )
-  router.use(
-    '/ai-search',
-    createProxyMiddleware({
-      target: 'https://docs.github.com',
-      changeOrigin: true,
-      pathRewrite: function (path, req: ExtendedRequest) {
-        return req.originalUrl
-      },
-    }),
-  )
+  router.use(aiSearchLocalProxy)
 }
 if (process.env.ELASTICSEARCH_URL) {
   router.use('/search', search)
@@ -50,7 +45,7 @@ if (process.env.ELASTICSEARCH_URL) {
     createProxyMiddleware({
       target: 'https://docs.github.com',
       changeOrigin: true,
-      pathRewrite: function (path, req: ExtendedRequest) {
+      pathRewrite(path, req: ExtendedRequest) {
         return req.originalUrl
       },
     }),
@@ -63,12 +58,17 @@ if (process.env.ELASTICSEARCH_URL) {
 router.get('/cookies', (req, res) => {
   noCacheControl(res)
   const cookies = {
-    isStaff: Boolean(req.cookies?.staffonly?.startsWith('yes')) || false,
+    isStaff: Boolean(req.cookies?.[STAFFONLY_COOKIE_NAME]?.startsWith('yes')) || false,
   }
-  return res.json(cookies)
+  res.json(cookies)
 })
 
-router.get('*', (req, res) => {
+// Handle root /api requests
+router.get('/', (req, res) => {
+  res.status(404).json({ error: `${req.path} not found` })
+})
+
+router.get('/*path', (req, res) => {
   res.status(404).json({ error: `${req.path} not found` })
 })
 

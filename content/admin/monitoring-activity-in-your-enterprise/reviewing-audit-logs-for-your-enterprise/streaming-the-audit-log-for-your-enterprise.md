@@ -1,22 +1,18 @@
 ---
 title: Streaming the audit log for your enterprise
-intro: 'Learn how to stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system.'
+intro: Learn how to stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system.
 versions:
   ghes: '*'
   ghec: '*'
-type: tutorial
-topics:
-  - Auditing
-  - Enterprise
-  - Logging
-  - Organizations
 shortTitle: Stream audit logs
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
   - /admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
 permissions: Enterprise owners
+contentType: tutorials
+category:
+  - Monitor and audit your enterprise
 ---
-
 
 >[!NOTE] {% ifversion ghes %}{% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% else %}{% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% endif %}
 
@@ -83,7 +79,11 @@ You can stream audit logs to multiple endpoints. For example, you can stream you
 
 {% ifversion ghes %}
 
->[!NOTE] The Amazon region `us-east-1` must be reachable from your appliance for streaming to S3 to work. Your S3 bucket can reside in other AWS regions.
+> [!NOTE]
+> For streaming to S3, the AWS region that must be reachable depends on the option you select for the bucket's region.
+>
+> * If you select **Auto Detect**, `us-east-1` must be reachable from your appliance because the AWS SDK uses that region to detect the destination bucket's region.
+> * If you select a specific region, the selected region must be reachable from your appliance. `us-east-1` does not need to be reachable unless it is the selected region.
 
 {% endif %}
 
@@ -117,17 +117,19 @@ From {% data variables.product.prodname_dotcom %}:
 1. Under "Authentication", click **Access keys**.{% endif %}
 1. Configure the stream settings.
 
-{% ifversion ghec %}
-    - Under "Region", select the bucket's region. For example, `us-east-1`.{% endif %}
-    - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
-    - Under "Access Key ID", type your access key ID. For example, `ABCAIOSFODNN7EXAMPLE1`.
-    - Under "Secret Key", type your secret key. For example, `aBcJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.
+    * Under "Region", select **Auto Detect** or select the bucket's region. For example, `us-east-1`.
+    * Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
+    * Under "Access Key ID", type your access key ID. For example, `ABCAIOSFODNN7EXAMPLE1`.
+    * Under "Secret Key", type your secret key. For example, `aBcJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.
 {% data reusables.audit_log.streaming-check-s3-endpoint %}
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
 {% ifversion streaming-oidc-s3 %}
 
 #### Setting up streaming to S3 with OpenID Connect
+
+> [!NOTE]
+> Audit log streaming to S3 with OpenID Connect for {% data variables.enterprise.data_residency %} is currently unavailable. See [AUTOTITLE](/admin/data-residency/feature-overview-for-github-enterprise-cloud-with-data-residency#currently-unavailable-features).
 
 From AWS:
 
@@ -315,6 +317,8 @@ To restart streaming, click **Resume stream**.
 {% ifversion audit-log-streaming-for-api %}
 
 ## Enabling audit log streaming of API requests
+
+>[!NOTE] Not all API requests are included in the audit log stream after this feature is enabled. The streaming of API requests is limited to security relevant endpoints.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

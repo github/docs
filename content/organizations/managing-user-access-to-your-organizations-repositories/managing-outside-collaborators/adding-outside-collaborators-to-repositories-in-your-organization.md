@@ -10,11 +10,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Add outside collaborator
 permissions: People with admin access to a repository can add an outside collaborator to the repository.
+category:
+  - Control repository access
 ---
 
 {% data reusables.enterprise-managed.repo-collaborators-note %}
@@ -28,7 +27,7 @@ permissions: People with admin access to a repository can add an outside collabo
 {% ifversion fpt %}
 Organizations that use {% data variables.product.prodname_ghe_cloud %} can restrict the ability to invite collaborators. For more information, see [AUTOTITLE](/enterprise-cloud@latest/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators) in the {% data variables.product.prodname_ghe_cloud %} documentation.
 {% else %}
-An organization owner can restrict the ability to invite collaborators. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators).
+Organization and enterprise owners can restrict the ability to invite collaborators. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators) and [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories).
 {% endif %}
 
 {% ifversion ghes %}

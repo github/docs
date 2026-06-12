@@ -9,9 +9,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 children:
   - /inviting-users-to-join-your-organization
   - /canceling-or-editing-an-invitation-to-join-your-organization

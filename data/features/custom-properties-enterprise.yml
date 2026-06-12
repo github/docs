@@ -1,0 +1,3 @@
+# Repository custom properties defined at the enterprise level
+versions:
+  ghec: '*'

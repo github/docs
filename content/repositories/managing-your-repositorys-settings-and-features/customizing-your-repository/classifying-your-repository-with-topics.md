@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Classify with topics
+category:
+  - Customize and configure a repository
 ---
 
 ## About topics

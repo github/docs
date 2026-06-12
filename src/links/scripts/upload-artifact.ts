@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import fs from 'fs'
 
 /* Writes string to file to be uploaded as an action artifact.

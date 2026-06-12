@@ -8,8 +8,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub search
 children:
   - /finding-files-on-github
   - /searching-for-repositories

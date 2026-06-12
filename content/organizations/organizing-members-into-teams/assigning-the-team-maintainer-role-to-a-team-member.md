@@ -10,11 +10,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Team maintainers
 permissions: Organization owners can promote team members to team maintainers.
+category:
+  - Organize teams
 ---
 
 ## About team maintainers
@@ -25,11 +24,11 @@ People with the team maintainer role can manage team membership and settings.
 * [Change the team's visibility](/organizations/organizing-members-into-teams/changing-team-visibility)
 * [Request to add a child team](/organizations/organizing-members-into-teams/requesting-to-add-a-child-team)
 * [Request to add or change a parent team](/organizations/organizing-members-into-teams/requesting-to-add-or-change-a-parent-team)
-* [Set the team profile picture](/organizations/organizing-members-into-teams/setting-your-teams-profile-picture){% ifversion team-discussions %}
-* [Edit team discussions](/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment)
-* [Delete team discussions](/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment){% endif %}
+* [Set the team profile picture](/organizations/organizing-members-into-teams/setting-your-teams-profile-picture)
+
 * [Add organization members to the team](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)
 * [Remove organization members from the team](/organizations/organizing-members-into-teams/removing-organization-members-from-a-team)
+* Assign the team maintainer role to other team members
 * Remove the team's access to repositories
 * [Manage code review assignment for the team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team){% ifversion fpt or ghec %}
 * [Manage scheduled reminders for pull requests](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team){% endif %}

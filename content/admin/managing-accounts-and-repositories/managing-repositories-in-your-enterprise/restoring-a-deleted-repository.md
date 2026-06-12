@@ -4,13 +4,11 @@ intro: You can restore deleted repositories to recover their contents.
 permissions: Enterprise owners can restore a deleted repository.
 versions:
   ghes: '*'
-topics:
-  - Enterprise
-  - Privacy
-  - Repositories
 shortTitle: Restore a deleted repository
 redirect_from:
   - /admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository
+category:
+  - Manage accounts and repositories
 ---
 
 ## About repository restoration
@@ -23,14 +21,14 @@ If a repository was part of a fork network when it was deleted, the restored rep
 
 It can take up to an hour after a repository is deleted before that repository is available for restoration.
 
-Restoring a repository will not restore release attachments or team permissions. Issues that are restored will not be labeled.
+Restoring a repository will not restore release attachments or team permissions.
 
 ## Restoring a deleted repository
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user-or-org %}
 {% data reusables.enterprise_site_admin_settings.click-user-or-org %}
-1. In the **{% octicon "repo" aria-hidden="true" %} Repositories** section, click the **{% octicon "trash" aria-hidden="true" %} Deleted repositories** link.
+1. In the **{% octicon "repo" aria-hidden="true" aria-label="repo" %} Repositories** section, click the **{% octicon "trash" aria-hidden="true" aria-label="trash" %} Deleted repositories** link.
 1. Find the repository you want to restore in the deleted repositories list, then to the right of the repository name click **Restore**.
 1. To confirm you would like to restore the named repository, click **Restore**.
 

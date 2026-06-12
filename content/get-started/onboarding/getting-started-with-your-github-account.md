@@ -5,6 +5,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Set up your account on GitHub
 ---
 
 This guide will walk you through setting up your {% data variables.product.company_short %} account and getting started with {% data variables.product.github %}'s features for collaboration and community.
@@ -52,9 +54,9 @@ The administrator of your {% data variables.product.prodname_ghe_server %} insta
 
 Two-factor authentication, or 2FA, is an extra layer of security used when logging into websites or apps. We strongly urge you to configure 2FA for the safety of your account. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication).
 
-{% ifversion passkeys %}Optionally, after you have configured 2FA, add a passkey to your account to enable a secure, passwordless login. See [AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys).{% endif %}
+Optionally, after you have configured 2FA, add a passkey to your account to enable a secure, passwordless login. See [AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys).
 
-### {% ifversion fpt or ghec %}5.{% elsif ghes %}3.{% else %}2.{% endif %} Viewing your {% data variables.product.github %} profile and contribution graph
+### {% ifversion fpt or ghec %}5.{% elsif ghes %}3.{% endif %} Viewing your {% data variables.product.github %} profile and contribution graph
 
 Your {% data variables.product.github %} profile tells people the story of your work through the repositories and gists you've pinned, the organization memberships you've chosen to publicize, the contributions you've made, and the projects you've created. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile) and [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile).
 
@@ -182,11 +184,11 @@ You can enable {% data variables.product.prodname_discussions %} for your reposi
 
 ## Part 5: Building securely on {% data variables.product.github %}
 
-{% data variables.product.github %} has a variety of security features that help keep code and secrets secure in repositories. Some features are available for all repositories, while others are only available for public repositories and repositories with a {% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}{% else %}{% data variables.product.prodname_GHAS %}{% endif %} license. For an overview of security features, see [AUTOTITLE](/code-security/getting-started/github-security-features).
+{% data variables.product.github %} has a variety of security features that help keep code and secrets secure in repositories. Some features are available for all repositories, while others are only available for public repositories and repositories with a {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %} license. For an overview of security features, see [AUTOTITLE](/code-security/getting-started/github-security-features).
 
 ### 1. Securing your repository
 
-As a repository administrator, you can secure your repositories by configuring repository security settings. These include managing access to your repository, setting a security policy, and managing dependencies. For public repositories, and for private repositories owned by organizations {% ifversion ghas-products %}with licenses for the features{% else %}where {% data variables.product.prodname_GHAS %} is enabled{% endif %}, you can also configure code and secret scanning to automatically identify vulnerabilities and ensure tokens and keys are not exposed.
+As a repository administrator, you can secure your repositories by configuring repository security settings. These include managing access to your repository, setting a security policy, and managing dependencies. For public repositories, and for private repositories owned by organizations with licenses for the features, you can also configure code and secret scanning to automatically identify vulnerabilities and ensure tokens and keys are not exposed.
 
 For more information on steps you can take to secure your repositories, see [AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-repository).
 

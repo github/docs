@@ -1,31 +1,53 @@
 import fs from 'fs'
-import path from 'path'
 
-// eslint-disable-next-line import/named
 import { visit, Test } from 'unist-util-visit'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { toMarkdown } from 'mdast-util-to-markdown'
 import yaml from 'js-yaml'
-// eslint-disable-next-line import/no-unresolved
 import { type Node, type Nodes, type Definition, type Link } from 'mdast'
 
-import frontmatter from 'src/frame/lib/read-frontmatter.js'
+import type { Context, Page } from '@/types'
+import { createLogger } from '@/observability/logger'
+import frontmatter from '@/frame/lib/read-frontmatter'
 import {
   getPathWithLanguage,
   getPathWithoutLanguage,
   getPathWithoutVersion,
   getVersionStringFromPath,
-} from 'src/frame/lib/path-utils.js'
-import loadRedirects from 'src/redirects/lib/precompile.js'
-import patterns from 'src/frame/lib/patterns.js'
-import { loadUnversionedTree, loadPages, loadPageMap } from 'src/frame/lib/page-data.js'
-import getRedirect, { splitPathByLanguage } from 'src/redirects/lib/get-redirect.js'
-import nonEnterpriseDefaultVersion from 'src/versions/lib/non-enterprise-default-version.js'
-import { deprecated } from 'src/versions/lib/enterprise-server-releases.js'
+} from '@/frame/lib/path-utils'
+import loadRedirects from '@/redirects/lib/precompile'
+import patterns from '@/frame/lib/patterns'
+import { loadUnversionedTree, loadPages, loadPageMap } from '@/frame/lib/page-data'
+import getRedirect, { splitPathByLanguage } from '@/redirects/lib/get-redirect'
+import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
+import { deprecated } from '@/versions/lib/enterprise-server-releases'
+
+const logger = createLogger(import.meta.url)
 
 // That magical string that can be turned into the actual title when
 // we, at runtime, render out the links
 const AUTOTITLE = 'AUTOTITLE'
+
+type LinkContext = {
+  pages: Record<string, Page>
+  redirects: NonNullable<Context['redirects']>
+  currentLanguage: string
+  userLanguage: string
+}
+
+type Replacement = {
+  asMarkdown: string
+  newAsMarkdown: string
+  line: number
+  column?: number
+}
+
+type Warning = {
+  warning: string
+  asMarkdown: string
+  line: number
+  column?: number
+}
 
 const Options = {
   setAutotitle: false,
@@ -58,7 +80,7 @@ export async function updateInternalLinks(files: string[], options = {}) {
         ...(await updateFile(file, context, opts)),
       })
     } catch (err) {
-      console.warn(`The file it tried to process on exception was: ${file}`)
+      logger.warn('File processing failed', { file })
       throw err
     }
   }
@@ -66,16 +88,7 @@ export async function updateInternalLinks(files: string[], options = {}) {
   return results
 }
 
-async function updateFile(
-  file: string,
-  context: {
-    pages: Record<string, any>
-    redirects: any
-    currentLanguage: string
-    userLanguage: string
-  },
-  opts: typeof Options,
-) {
+async function updateFile(file: string, context: LinkContext, opts: typeof Options) {
   const rawContent = fs.readFileSync(file, 'utf8')
   let { data, content } = frontmatter(rawContent)
   data = data || {}
@@ -83,8 +96,8 @@ async function updateFile(
 
   // Since this function can process both `.md` and `.yml` files,
   // when treating a `.md` file, the `data` from `frontmatter(rawContent)`
-  // is easy. But when dealing a file like `data/learning-tracks/foo.yml`
-  // then the `frontmatter(rawContent).data` always becomes `{}`.
+  // is easy. But when dealing a `.yml` file,
+  // the `frontmatter(rawContent).data` always becomes `{}`.
   // And since the Yaml file might contain arrays of internal linked
   // pathnames, we have to re-read it fully.
   if (file.endsWith('.yml')) {
@@ -94,8 +107,8 @@ async function updateFile(
   let newContent = content
   const ast = fromMarkdown(newContent)
 
-  const replacements: any[] = []
-  const warnings: any[] = []
+  const replacements: Replacement[] = []
+  const warnings: Warning[] = []
 
   const newData = structuredClone(data)
 
@@ -104,23 +117,9 @@ async function updateFile(
 
   // This configuration determines which nested things to bother looking
   // into.
-  const HAS_LINKS: Record<string, any> = {
+  const HAS_LINKS: Record<string, string[] | symbol> = {
     featuredLinks: ['gettingStarted', 'startHere', 'guideCards', 'popular'],
     introLinks: ANY,
-    includeGuides: IS_ARRAY,
-  }
-
-  if (
-    file.split(path.sep).includes('data') &&
-    file.split(path.sep).includes('learning-tracks') &&
-    file.endsWith('.yml')
-  ) {
-    // data/learning-tracks/**/*.yml files are different because the keys
-    // are arbitrary but what they might all have in common is a key
-    // there called `guides`
-    for (const key of Object.keys(data)) {
-      HAS_LINKS[key] = ['guides']
-    }
   }
 
   for (const [key, seek] of Object.entries(HAS_LINKS)) {
@@ -161,7 +160,7 @@ async function updateFile(
       // bubble up to the CLI. And the CLI will mention which file it
       // was processing when it failed. But we have a valuable piece of
       // information here about which frontmatter key it was that failed.
-      console.warn(`The frontmatter key it processed and failed was '${key}'`)
+      logger.warn('Frontmatter key processing failed', { key })
       throw error
     }
   }
@@ -217,8 +216,7 @@ async function updateFile(
 
       const hasQuotesAroundLink = content.includes(`"${asMarkdown}`)
 
-      // @ts-ignore
-      const xValue = node?.children?.[0]?.value
+      const xValue = (node.children[0] as { value?: string } | undefined)?.value
 
       if (opts.setAutotitle) {
         if (hasQuotesAroundLink) {
@@ -294,9 +292,10 @@ async function updateFile(
         newContent = newContent.replace(asMarkdown, newAsMarkdown)
       }
     } else if (opts.verbose) {
-      console.warn(
-        `Unable to find link as Markdown ('${asMarkdown}') in the source content (${file})`,
-      )
+      logger.warn('Unable to find link as Markdown in the source content', {
+        asMarkdown,
+        file,
+      })
     }
   })
 
@@ -372,13 +371,8 @@ function linkMatcher(node: Node) {
 }
 
 function getNewFrontmatterLinkList(
-  list: any[],
-  context: {
-    pages: Record<string, any>
-    redirects: any
-    currentLanguage: string
-    userLanguage: string
-  },
+  list: string[],
+  context: LinkContext,
   opts: {
     setAutotitle: boolean
     fixHref: boolean
@@ -404,7 +398,7 @@ function getNewFrontmatterLinkList(
   const better = []
   for (const entry of list) {
     if (/{%\s*else\s*%}/.test(entry)) {
-      console.warn(`Skipping frontmatter link with {% else %} in it: ${entry}. (file: ${file})`)
+      logger.warn('Skipping frontmatter link with {% else %} in it', { entry, file })
       better.push(entry)
       continue
     }
@@ -429,7 +423,7 @@ function getNewFrontmatterLinkList(
         if (opts.strict) {
           throw new Error(msg)
         }
-        console.warn(`WARNING: ${msg}`)
+        logger.warn(msg, { file, pure, lineNumber })
         better.push(entry)
       } else {
         // Perhaps it just redirected to a specific version
@@ -449,7 +443,7 @@ function getNewFrontmatterLinkList(
 // Try to return the line in the raw content that entry was on.
 // It's hard to know exactly because the `entry` is the result of parsing
 // the YAML, most likely, from the front
-function findLineNumber(entry: any, rawContent: string) {
+function findLineNumber(entry: string, rawContent: string) {
   let number = 0
   for (const line of rawContent.split(/\n/g)) {
     number++
@@ -482,18 +476,13 @@ function stripLiquid(text: string) {
   return text
 }
 
-function equalArray(arr1: any[], arr2: any[]) {
+function equalArray(arr1: unknown[], arr2: unknown[]) {
   return arr1.length === arr2.length && arr1.every((item, i) => item === arr2[i])
 }
 
 function getNewHref(
   href: string,
-  context: {
-    pages: Record<string, any>
-    redirects: any
-    currentLanguage: string
-    userLanguage: string
-  },
+  context: LinkContext,
   opts: {
     setAutotitle: boolean
     fixHref: boolean
@@ -518,7 +507,7 @@ function getNewHref(
     if (opts.strict) {
       throw new Error(msg)
     } else {
-      console.warn(`WARNING: ${msg}`)
+      logger.warn(msg, { file, href: newHref })
       return
     }
   }
@@ -536,7 +525,7 @@ function getNewHref(
       if (opts.strict) {
         throw new Error(msg)
       } else {
-        console.warn(`WARNING: ${msg}`)
+        logger.warn(msg, { file, href })
         return
       }
     }
@@ -575,7 +564,7 @@ function getNewHref(
       if (opts.strict) {
         throw new Error(msg)
       } else {
-        console.warn(msg)
+        logger.warn(msg, { file })
         return
       }
     } else if (withoutLanguage.startsWith('/enterprise-server@latest')) {

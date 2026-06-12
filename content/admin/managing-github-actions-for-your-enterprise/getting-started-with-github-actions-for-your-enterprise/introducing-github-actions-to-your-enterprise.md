@@ -1,16 +1,18 @@
 ---
 title: Introducing GitHub Actions to your enterprise
 shortTitle: Introduce Actions
-intro: 'You can plan how to roll out {% data variables.product.prodname_actions %} in your enterprise.'
+intro: You can plan how to roll out {% data variables.product.prodname_actions %} in your enterprise.
 versions:
   ghec: '*'
   ghes: '*'
-type: how_to
-topics:
-  - Actions
-  - Enterprise
 redirect_from:
   - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
+  - /enterprise-onboarding/github-actions-for-your-enterprise/planning-a-rollout-of-github-actions
+  - /enterprise-onboarding/github-actions-for-your-enterprise/security-hardening-for-github-actions
+  - /enterprise-onboarding/github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
+contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About {% data variables.product.prodname_actions %} for enterprises
@@ -90,7 +92,7 @@ You may need to upgrade the CPU and memory resources for {% data variables.locat
 
 {% data variables.product.prodname_actions %} workflows require runners.{% ifversion ghec %} You can choose to use {% data variables.product.prodname_dotcom %}-hosted runners or self-hosted runners. {% data variables.product.company_short %} manages maintenance and upgrades for {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners).
 
-To manage your own resources, configuration, or geographic location of your runner machines, use self hosted runners. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
+To manage your own resources, configuration, or geographic location of your runner machines, use self-hosted runners. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
 
 If you want more control over the networking policies for your runners, use self-hosted runners or private networking options for {% data variables.product.prodname_dotcom %}-hosted runners. For more information about private networking options, see [AUTOTITLE](/actions/using-github-hosted-runners/connecting-to-a-private-network/about-private-networking-with-github-hosted-runners).{% else %} You will need to host your own runners by installing the {% data variables.product.prodname_actions %} self-hosted runner application on your own machines. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).{% endif %}
 
@@ -130,6 +132,4 @@ You can view both usage and performance data for your enterprise under the "Insi
 
 For more detailed usage data at a per job or per workflow level, you{% else %}You{% endif %} can use webhooks to subscribe to information about workflow jobs and workflow runs. For more information, see [AUTOTITLE](/webhooks-and-events/webhooks/about-webhooks).
 
-Make a plan for how your enterprise can pass the information from these webhooks into a data archiving system. You can consider using "CEDAR.GitHub.Collector", an open source tool that collects and processes webhook data from {% data variables.product.prodname_dotcom %}. For more information, see the [`Microsoft/CEDAR.GitHub.Collector` repository](https://github.com/microsoft/CEDAR.GitHub.Collector/).
-
-You should also plan how you'll enable your teams to get the data they need from your archiving system.
+Make a plan for how your enterprise can pass the information from these webhooks into a data archiving system, and plan how you'll enable your teams to get the data they need from your archiving system.

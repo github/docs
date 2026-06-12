@@ -12,6 +12,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Install from Marketplace for user
+category:
+  - Install and authorize apps
 ---
 
 ## About {% data variables.product.prodname_marketplace %}
@@ -55,5 +57,5 @@ For more information about authorizing {% data variables.product.prodname_github
 
 ## Further reading
 
-* [AUTOTITLE](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)
+* [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information)
 * [AUTOTITLE](/apps/using-github-apps/installing-an-app-in-your-organization)

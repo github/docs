@@ -3,26 +3,8 @@ title: '{% data variables.product.prodname_actions %} documentation'
 shortTitle: '{% data variables.product.prodname_actions %}'
 intro: 'Automate, customize, and execute your software development workflows right in your repository with {% data variables.product.prodname_actions %}. You can discover, create, and share actions to perform any job you''d like, including CI/CD, and combine actions in a completely customized workflow.'
 introLinks:
-  overview: /actions/about-github-actions/understanding-github-actions
-  quickstart: /actions/writing-workflows/quickstart
-featuredLinks:
-  startHere:
-    - /actions/writing-workflows
-    - /actions/use-cases-and-examples
-    - /actions/about-github-actions/about-continuous-integration-with-github-actions
-    - /actions/use-cases-and-examples/deploying/deploying-with-github-actions
-    - /actions/use-cases-and-examples/publishing-packages/about-packaging-with-github-actions
-    - /actions/monitoring-and-troubleshooting-workflows
-  guideCards:
-    - /actions/writing-workflows/using-workflow-templates
-    - /actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages
-    - /actions/use-cases-and-examples/building-and-testing/building-and-testing-powershell
-  popular:
-    - /actions/writing-workflows/workflow-syntax-for-github-actions
-    - /actions/writing-workflows
-    - /actions/use-cases-and-examples
-changelog:
-  label: actions
+  overview: /actions/get-started/understand-github-actions
+  quickstart: /actions/get-started/quickstart
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions
   - /articles/customizing-your-project-with-github-actions
@@ -30,24 +12,41 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions
   - /categories/automating-your-workflow-with-github-actions
   - /marketplace/actions
-  - /actions/reference
-layout: product-landing
+layout: discovery-landing
+heroImage: /assets/images/banner-images/hero-3
+contentType: landing
+carousels:
+  recommended:
+    - /actions/get-started/quickstart
+    - /actions/get-started/understand-github-actions
+    - /actions/how-tos/manage-runners/github-hosted-runners/use-github-hosted-runners
+    - /actions/reference/workflows-and-actions/workflow-syntax
+    - /actions/reference/workflows-and-actions/events-that-trigger-workflows
+    - /actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations
+    - /actions/tutorials/migrate-to-github-actions
+    - /actions/how-tos/reuse-automations/reuse-workflows
+    - /actions/how-tos/administer/view-metrics
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+includedCategories:
+  - Get started with GitHub Actions
+  - Migrate to GitHub Actions
+  - Write workflows
+  - Build and test code
+  - Deploy to environments
+  - Set up runners
+  - Use and manage runners
+  - Secure your workflows
+  - Reuse and share automations
+  - Manage and monitor workflow runs
+  - Administer GitHub Actions
 children:
-  - /about-github-actions
-  - /writing-workflows
-  - /managing-workflow-runs-and-deployments
-  - /sharing-automations
-  - /monitoring-and-troubleshooting-workflows
-  - /using-github-hosted-runners
-  - /hosting-your-own-runners
-  - /security-for-github-actions
-  - /use-cases-and-examples
-  - /migrating-to-github-actions
-  - /administering-github-actions
-  - /guides
+  - /get-started
+  - /concepts
+  - /how-tos
+  - /reference
+  - /tutorials
 ---
 

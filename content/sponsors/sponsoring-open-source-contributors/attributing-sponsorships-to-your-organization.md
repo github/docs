@@ -7,17 +7,15 @@ versions:
   fpt: '*'
   ghec: '*'
 permissions: People who are organization owners of both organizations can attribute one organization's sponsorships to another organization.
-type: how_to
-topics:
-  - Open Source
-  - Organizations
-  - Sponsors profile
 shortTitle: Attribute sponsorships
+contentType: how-tos
+category:
+  - Fund open source work
 ---
 
 1. Navigate to the organization whose sponsorships you want to attribute to another organization.
 {% data reusables.organizations.navigate-to-sponsoring %}
-1. In the sidebar, click **{% octicon "gear" aria-hidden="true" %} Settings**.
+1. In the sidebar, click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**.
 
    ![Screenshot of the sponsorship overview page for @octo-org. A sidebar tab, labeled "Settings," is outlined in dark orange.](/assets/images/help/sponsors/sponsoring-settings-tab.png)
 

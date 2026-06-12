@@ -6,7 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-layout: product-landing
+layout: discovery-landing
 introLinks:
   quickstart: /get-started/start-your-journey
 featuredLinks:
@@ -16,10 +16,23 @@ featuredLinks:
     - /get-started/foo/bar
   guideCards:
     - /get-started/foo/autotitling
+journeyTracks:
+  - id: 'getting_started'
+    title: 'Getting started'
+    description: 'Learn the basics of our platform.'
+    guides:
+      - href: '/get-started/start-your-journey/hello-world'
+      - href: '/get-started/foo/bar'
+  - id: 'advanced'
+    title: 'Advanced topics'
+    description: 'Dive deeper into advanced features.'
+    guides:
+      - href: '/get-started/foo/autotitling'
+      - href: '/get-started/start-your-journey/hello-world'
 children:
   - /start-your-journey
   - /foo
-  - /video-transcripts
+  - /sidebar-test
   - /minitocs
   - /liquid
   - /markdown
@@ -27,9 +40,14 @@ children:
   - /versioning
   - /learning-about-github
   - /empty-categories
+  - /test-journey
+  - /carousel
+  - /article-grid-discovery
+  - /article-grid-bespoke
+  - /multi-carousel
+  - /non-child-resolution
+  - /discovery-filtered
 communityRedirect:
   name: Provide HubGit Feedback
   href: 'https://hubgit.com/orgs/community/discussions/categories/get-started'
-product_video: 'https://www.yourube.com/abc123'
-product_video_transcript: '/get-started/video-transcripts/transcript--my-awesome-video'
 ---

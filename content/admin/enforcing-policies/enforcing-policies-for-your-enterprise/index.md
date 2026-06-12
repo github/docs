@@ -6,17 +6,14 @@ redirect_from:
   - /articles/setting-policies-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/setting-policies-for-organizations-in-your-enterprise-account
   - /admin/policies/enforcing-policies-for-your-enterprise
+  - /admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-team-policies-in-your-enterprise
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
-  - Policies
 children:
-  - /about-enterprise-policies
   - /enforcing-repository-management-policies-in-your-enterprise
-  - /enforcing-team-policies-in-your-enterprise
   - /enforcing-policies-for-projects-in-your-enterprise
+  - /control-offboarding
   - /restricting-email-notifications-for-your-enterprise
   - /enforcing-policies-for-github-sponsors-in-your-enterprise
   - /enforcing-policies-for-security-settings-in-your-enterprise

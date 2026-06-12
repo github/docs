@@ -8,12 +8,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
-  - Fundamentals
-  - Developer
 shortTitle: Delete a codespace
+contentType: how-tos
+category:
+  - Create and manage codespaces
 ---
 
 ## Overview
@@ -41,7 +39,7 @@ There are costs associated with storing codespaces. You should therefore delete 
 {% webui %}
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
-1. To the right of the codespace you want to delete, click {% octicon "kebab-horizontal" aria-label="Codespace configuration" %}, then click **{% octicon "trash" aria-hidden="true" %} Delete**.
+1. To the right of the codespace you want to delete, click {% octicon "kebab-horizontal" aria-label="Codespace configuration" %}, then click **{% octicon "trash" aria-hidden="true" aria-label="trash" %} Delete**.
 
    ![Screenshot of a list of codespaces with the dropdown menu for one of them displayed, showing the "Delete" option.](/assets/images/help/codespaces/delete-codespace.png)
 

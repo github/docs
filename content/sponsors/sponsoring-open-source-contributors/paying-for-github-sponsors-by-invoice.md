@@ -1,16 +1,15 @@
 ---
 title: Paying for GitHub Sponsors by invoice
 shortTitle: Paying by invoice
-intro: 'Organizations can set up invoicing to sponsor accounts.'
+intro: Organizations can set up invoicing to sponsor accounts.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Sponsors
-  - Open Source
 redirect_from:
   - /sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-via-invoice
+contentType: how-tos
+category:
+  - Fund open source work
 ---
 
 ## About paying for {% data variables.product.prodname_sponsors %} by invoice
@@ -25,11 +24,10 @@ When setting up a sponsorship, organizations paying by invoice have the option t
 
 ### Requirements
 
-* The organization needs to sign the sponsorship agreement which is a 3 year commitment. The {% data variables.product.company_short %} Invoiced Sponsor Agreement is separate from other services.
-* The organization needs a minimum spend of 5,000 US dollars (USD) per year on sponsoring.
+* The minimum amount for each invoice is 5,000 US dollars (USD).
 * The organization needs to pay the invoice within 30 days.
 
-Once the organization reaches the yearly minimum spend, they can opt out of being invoiced for the rest of the year.
+Organizations can request invoices as needed, as long as each invoice meets the $5,000 minimum. Once an invoice is paid, the amount paid will be credited to the organization's account and can be used over time without expiration. 
 
 ## Switching to paying by invoice
 
@@ -40,7 +38,7 @@ If your organization currently pays for {% data variables.product.prodname_spons
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing and plans**.
+1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing and licensing**.
 1. Scroll to the "{% data variables.product.prodname_sponsors %}" section and click **Switch to invoiced billing**.
 1. Compare credit card and invoice billing on the next page. To proceed with changing to invoiced billing, click **Switch to invoiced billing**.
 1. Fill out the form and click **Submit**.
@@ -53,7 +51,7 @@ To add money to your balance, you need to create an invoice. You can then use yo
 
 1. Navigate to the organization you want to create an invoice for.
 {% data reusables.organizations.navigate-to-sponsoring %}
-1. In the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Invoices**.
+1. In the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Invoices**.
 1. To create a new invoice, click **Create an invoice**.
 
    ![Screenshot of the "Invoices" page for {% data variables.product.prodname_sponsors %}. A button, labeled "Create an invoice," is outlined in dark orange.](/assets/images/help/sponsors/sponsors-create-an-invoice.png)
@@ -73,7 +71,7 @@ You can view your {% data variables.product.company_short %} Invoiced Sponsor Ag
 
 1. Navigate to the organization.
 {% data reusables.organizations.navigate-to-sponsoring %}
-1. In the sidebar, click **{% octicon "graph" aria-hidden="true" %} Insights**.
+1. In the sidebar, click **{% octicon "graph" aria-hidden="true" aria-label="graph" %} Insights**.
 1. Under your balance, click **{% data variables.product.company_short %} Invoiced Sponsor Agreement** to view the agreement.
 
 ## Understanding your {% data variables.product.prodname_sponsors %} invoice

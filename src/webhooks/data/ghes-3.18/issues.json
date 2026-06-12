@@ -1,0 +1,1057 @@
+{
+  "assigned": {
+    "descriptionHtml": "<p>An issue was assigned to a user.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to an issue. For more information about issues, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/issues/tracking-your-work-with-issues/about-issues\">About issues</a>.\" For information about the APIs to manage issues, see <a href=\"https://docs.github.com/enterprise-server@3.18/graphql/reference/objects#issue\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues\">Issues</a>\" in the REST API documentation.</p>\n<p>For activity relating to a comment on an issue, use the <code>issue_comment</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "<p>The action that was performed.</p>",
+        "isRequired": true,
+        "enum": [
+          "assigned"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object or null",
+        "name": "assignee",
+        "description": "",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "issue",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues/issues#get-an-issue\">issue</a> itself.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "assigned",
+    "category": "issues"
+  },
+  "closed": {
+    "descriptionHtml": "<p>An issue was closed.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to an issue. For more information about issues, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/issues/tracking-your-work-with-issues/about-issues\">About issues</a>.\" For information about the APIs to manage issues, see <a href=\"https://docs.github.com/enterprise-server@3.18/graphql/reference/objects#issue\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues\">Issues</a>\" in the REST API documentation.</p>\n<p>For activity relating to a comment on an issue, use the <code>issue_comment</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "<p>The action that was performed.</p>",
+        "isRequired": true,
+        "enum": [
+          "closed"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "issue",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues/issues#get-an-issue\">issue</a> itself.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "closed",
+    "category": "issues"
+  },
+  "deleted": {
+    "descriptionHtml": "<p>An issue was deleted.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to an issue. For more information about issues, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/issues/tracking-your-work-with-issues/about-issues\">About issues</a>.\" For information about the APIs to manage issues, see <a href=\"https://docs.github.com/enterprise-server@3.18/graphql/reference/objects#issue\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues\">Issues</a>\" in the REST API documentation.</p>\n<p>For activity relating to a comment on an issue, use the <code>issue_comment</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "deleted"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "issue",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues/issues#get-an-issue\">issue</a> itself.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "deleted",
+    "category": "issues"
+  },
+  "demilestoned": {
+    "descriptionHtml": "<p>An issue was removed from a milestone.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to an issue. For more information about issues, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/issues/tracking-your-work-with-issues/about-issues\">About issues</a>.\" For information about the APIs to manage issues, see <a href=\"https://docs.github.com/enterprise-server@3.18/graphql/reference/objects#issue\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues\">Issues</a>\" in the REST API documentation.</p>\n<p>For activity relating to a comment on an issue, use the <code>issue_comment</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "demilestoned"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "issue",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues/issues#get-an-issue\">issue</a> itself.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "milestone",
+        "description": "<p>A collection of related issues and pull requests.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "demilestoned",
+    "category": "issues"
+  },
+  "edited": {
+    "descriptionHtml": "<p>The title or body on an issue was edited.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to an issue. For more information about issues, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/issues/tracking-your-work-with-issues/about-issues\">About issues</a>.\" For information about the APIs to manage issues, see <a href=\"https://docs.github.com/enterprise-server@3.18/graphql/reference/objects#issue\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues\">Issues</a>\" in the REST API documentation.</p>\n<p>For activity relating to a comment on an issue, use the <code>issue_comment</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "edited"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "changes",
+        "description": "<p>The changes to the issue.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "issue",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues/issues#get-an-issue\">issue</a> itself.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "label",
+        "description": "",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "edited",
+    "category": "issues"
+  },
+  "labeled": {
+    "descriptionHtml": "<p>A label was added to an issue.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to an issue. For more information about issues, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/issues/tracking-your-work-with-issues/about-issues\">About issues</a>.\" For information about the APIs to manage issues, see <a href=\"https://docs.github.com/enterprise-server@3.18/graphql/reference/objects#issue\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues\">Issues</a>\" in the REST API documentation.</p>\n<p>For activity relating to a comment on an issue, use the <code>issue_comment</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "labeled"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "issue",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues/issues#get-an-issue\">issue</a> itself.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "label",
+        "description": "",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "labeled",
+    "category": "issues"
+  },
+  "locked": {
+    "descriptionHtml": "<p>Conversation on an issue was locked. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/communities/moderating-comments-and-conversations/locking-conversations\">Locking conversations</a>.\"</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to an issue. For more information about issues, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/issues/tracking-your-work-with-issues/about-issues\">About issues</a>.\" For information about the APIs to manage issues, see <a href=\"https://docs.github.com/enterprise-server@3.18/graphql/reference/objects#issue\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues\">Issues</a>\" in the REST API documentation.</p>\n<p>For activity relating to a comment on an issue, use the <code>issue_comment</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "locked"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "issue",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues/issues#get-an-issue\">issue</a> itself.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "locked",
+    "category": "issues"
+  },
+  "milestoned": {
+    "descriptionHtml": "<p>An issue was added to a milestone.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to an issue. For more information about issues, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/issues/tracking-your-work-with-issues/about-issues\">About issues</a>.\" For information about the APIs to manage issues, see <a href=\"https://docs.github.com/enterprise-server@3.18/graphql/reference/objects#issue\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues\">Issues</a>\" in the REST API documentation.</p>\n<p>For activity relating to a comment on an issue, use the <code>issue_comment</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "milestoned"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "issue",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues/issues#get-an-issue\">issue</a> itself.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "milestone",
+        "description": "<p>A collection of related issues and pull requests.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "milestoned",
+    "category": "issues"
+  },
+  "opened": {
+    "descriptionHtml": "<p>An issue was created. When a closed issue is reopened, the action will be <code>reopened</code> instead.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to an issue. For more information about issues, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/issues/tracking-your-work-with-issues/about-issues\">About issues</a>.\" For information about the APIs to manage issues, see <a href=\"https://docs.github.com/enterprise-server@3.18/graphql/reference/objects#issue\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues\">Issues</a>\" in the REST API documentation.</p>\n<p>For activity relating to a comment on an issue, use the <code>issue_comment</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "opened"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "changes",
+        "description": "",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "issue",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues/issues#get-an-issue\">issue</a> itself.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "opened",
+    "category": "issues"
+  },
+  "pinned": {
+    "descriptionHtml": "<p>An issue was pinned to a repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository\">Pinning an issue to your repository</a>.\"</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to an issue. For more information about issues, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/issues/tracking-your-work-with-issues/about-issues\">About issues</a>.\" For information about the APIs to manage issues, see <a href=\"https://docs.github.com/enterprise-server@3.18/graphql/reference/objects#issue\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues\">Issues</a>\" in the REST API documentation.</p>\n<p>For activity relating to a comment on an issue, use the <code>issue_comment</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "pinned"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "issue",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues/issues#get-an-issue\">issue</a> itself.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "pinned",
+    "category": "issues"
+  },
+  "reopened": {
+    "descriptionHtml": "<p>A closed issue was reopened.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to an issue. For more information about issues, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/issues/tracking-your-work-with-issues/about-issues\">About issues</a>.\" For information about the APIs to manage issues, see <a href=\"https://docs.github.com/enterprise-server@3.18/graphql/reference/objects#issue\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues\">Issues</a>\" in the REST API documentation.</p>\n<p>For activity relating to a comment on an issue, use the <code>issue_comment</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "reopened"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "issue",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues/issues#get-an-issue\">issue</a> itself.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "reopened",
+    "category": "issues"
+  },
+  "transferred": {
+    "descriptionHtml": "<p>An issue was transferred to another repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository\">Transferring an issue to another repository</a>.\"</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to an issue. For more information about issues, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/issues/tracking-your-work-with-issues/about-issues\">About issues</a>.\" For information about the APIs to manage issues, see <a href=\"https://docs.github.com/enterprise-server@3.18/graphql/reference/objects#issue\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues\">Issues</a>\" in the REST API documentation.</p>\n<p>For activity relating to a comment on an issue, use the <code>issue_comment</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "transferred"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "changes",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "issue",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues/issues#get-an-issue\">issue</a> itself.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "transferred",
+    "category": "issues"
+  },
+  "unassigned": {
+    "descriptionHtml": "<p>A user was unassigned from an issue.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to an issue. For more information about issues, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/issues/tracking-your-work-with-issues/about-issues\">About issues</a>.\" For information about the APIs to manage issues, see <a href=\"https://docs.github.com/enterprise-server@3.18/graphql/reference/objects#issue\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues\">Issues</a>\" in the REST API documentation.</p>\n<p>For activity relating to a comment on an issue, use the <code>issue_comment</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "<p>The action that was performed.</p>",
+        "isRequired": true,
+        "enum": [
+          "unassigned"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object or null",
+        "name": "assignee",
+        "description": "",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "issue",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues/issues#get-an-issue\">issue</a> itself.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "unassigned",
+    "category": "issues"
+  },
+  "unlabeled": {
+    "descriptionHtml": "<p>A label was removed from an issue.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to an issue. For more information about issues, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/issues/tracking-your-work-with-issues/about-issues\">About issues</a>.\" For information about the APIs to manage issues, see <a href=\"https://docs.github.com/enterprise-server@3.18/graphql/reference/objects#issue\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues\">Issues</a>\" in the REST API documentation.</p>\n<p>For activity relating to a comment on an issue, use the <code>issue_comment</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "unlabeled"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "issue",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues/issues#get-an-issue\">issue</a> itself.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "label",
+        "description": "",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "unlabeled",
+    "category": "issues"
+  },
+  "unlocked": {
+    "descriptionHtml": "<p>Conversation on an issue was locked. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/communities/moderating-comments-and-conversations/locking-conversations\">Locking conversations</a>.\"</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to an issue. For more information about issues, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/issues/tracking-your-work-with-issues/about-issues\">About issues</a>.\" For information about the APIs to manage issues, see <a href=\"https://docs.github.com/enterprise-server@3.18/graphql/reference/objects#issue\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues\">Issues</a>\" in the REST API documentation.</p>\n<p>For activity relating to a comment on an issue, use the <code>issue_comment</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "unlocked"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "issue",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues/issues#get-an-issue\">issue</a> itself.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "unlocked",
+    "category": "issues"
+  },
+  "unpinned": {
+    "descriptionHtml": "<p>An issue was unpinned from a repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository\">Pinning an issue to your repository</a>.\"</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to an issue. For more information about issues, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/issues/tracking-your-work-with-issues/about-issues\">About issues</a>.\" For information about the APIs to manage issues, see <a href=\"https://docs.github.com/enterprise-server@3.18/graphql/reference/objects#issue\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues\">Issues</a>\" in the REST API documentation.</p>\n<p>For activity relating to a comment on an issue, use the <code>issue_comment</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "unpinned"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.18/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "issue",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues/issues#get-an-issue\">issue</a> itself.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "unpinned",
+    "category": "issues"
+  }
+}

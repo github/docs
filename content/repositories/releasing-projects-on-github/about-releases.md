@@ -13,8 +13,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
+category:
+  - Release software
 ---
 ## About releases
 
@@ -30,7 +30,7 @@ You can manually create release notes while managing a release. Alternatively, y
 
 When viewing the details for a release, the creation date for each release asset is shown next to the release asset.
 
-GitHub will automatically include links to download a zip file and a tarball containing the contents of the repository at the point of the tag's creation.
+{% data variables.product.github %} will automatically include links to download a zip file and a tarball containing the contents of the repository at the point of the tag's creation.
 
 {% ifversion fpt or ghec %}
 People with admin permissions to a repository can choose whether {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.github %} creates for each release. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository).
@@ -46,6 +46,6 @@ You can also use the Releases API to gather information, such as the number of t
 
 ## Storage and bandwidth quotas
 
- Each file included in a release must be under {% data variables.large_files.max_file_size %}. There is no limit on the total size of a release, nor bandwidth usage.
+Up to {% data variables.releases.release_asset_limit %} release assets may be associated with a single release. Each file included in a release must be under {% data variables.large_files.max_file_size %}. There is no limit on the total size of a release, nor bandwidth usage.
 
 {% endif %}

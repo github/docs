@@ -1,20 +1,16 @@
 ---
 title: SAML configuration reference
 shortTitle: SAML reference
-intro: 'You can see SAML metadata for {% ifversion ghec %}your organization or enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}, and you can learn more about available SAML attributes and response requirements.'
+intro: You can see SAML metadata for {% ifversion ghec %}your organization or enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}, and you can learn more about available SAML attributes and response requirements.
 versions:
   ghec: '*'
   ghes: '*'
-type: reference
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
-  - SSO
 redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference
   - /admin/identity-and-access-management/iam-configuration-reference/saml-configuration-reference
+contentType: reference
+category:
+  - Configure authentication
 ---
 
 ## About SAML configuration
@@ -56,7 +52,7 @@ Depending on your environment, the SP metadata for an enterprise on {% data vari
 | :- | :- | :- | :- |
 | SP Entity ID | SP URL, audience restriction | The top-level URL for your enterprise on {% data variables.location.product_location %} | `https://github.com/enterprises/ENTERPRISE` |
 | SP Assertion Consumer Service (ACS) URL | Reply, recipient, or destination URL | URL where IdP sends SAML responses | `https://github.com/enterprises/ENTERPRISE/saml/consume` |
-| SP Single Sign-On (SSO) URL | | URL where IdP begins SSO |  `https://github.com/enterprises/ENTERPRISE/saml/sso` |
+| SP Single Sign-On (SSO) URL | | URL where IdP begins SSO |  `https://github.com/enterprises/ENTERPRISE/sso` |
 
 {% elsif ghes %}
 
@@ -79,7 +75,7 @@ The following SAML attributes are available for {% data variables.product.github
 | `NameID` | {% octicon "check" aria-label="Required" %} | A persistent user identifier. Any persistent name identifier format may be used. {% ifversion ghec %}If you use an enterprise with {% data variables.product.prodname_emus %}, {% endif %}{% data variables.product.github %} will normalize the `NameID` element to use as a username unless one of the alternative assertions is provided. For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication).<br><br> > [!NOTE] It's important to use a human-readable, persistent identifier. Using a transient identifier format like `urn:oasis:names:tc:SAML:2.0:nameid-format:transient` will result in re-linking of accounts on every sign-in, which can be detrimental to authorization management.  |
 | `SessionNotOnOrAfter` | {% octicon "x" aria-label="Optional" %} | The date that {% data variables.product.github %} invalidates the associated session. After invalidation, the person must authenticate once again to access {% ifversion ghec %}your enterprise's resources{% elsif ghes %}{% data variables.location.product_location %}{% endif %}. For more information, see [Session duration and timeout](#session-duration-and-timeout). |
 | {% ifversion ghes %} |
-| `administrator` | {% octicon "x" aria-label="Optional" %} | When the value is `true`, {% data variables.product.github %} will automatically promote the user to be a {% ifversion ghes %}site administrator{% endif %}. Setting this attribute to anything but `true` will result in demotion, as long as the value is not blank. Omitting this attribute or leaving the value blank will not change the role of the user. |
+| `administrator` | {% octicon "x" aria-label="Optional" %} | When the value is `true`, {% data variables.product.github %} will automatically promote the user to be a site administrator. Setting this attribute to anything but `true` will result in demotion, as long as the value is not blank. Omitting this attribute or leaving the value blank will not change the role of the user. |
 | `username` | {% octicon "x" aria-label="Optional" %} | The username for {% data variables.location.product_location %}. |
 | {% endif %} |
 | `full_name` | {% octicon "x" aria-label="Optional" %} | {% ifversion ghec %}If you configure SAML SSO for an enterprise and you use {% data variables.product.prodname_emus %}, the{% else %}The{% endif %} full name of the user to display on the user's profile page. |
@@ -175,4 +171,4 @@ If you define a customized session duration value less than 24 hours, {% data va
 To prevent authentication errors, we recommend a minimum session duration of 4 hours. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#users-are-repeatedly-redirected-to-authenticate).
 {% endif %}
 
->[!NOTE] For Microsoft Entra ID (previously known as Azure AD), the configurable lifetime policy for SAML tokens does not control session timeout for {% data variables.product.github %}.
+>[!NOTE] Microsoft Entra ID (previously known as Azure AD) **does not support the `SessionNotOnOrAfter` attribute**. Additionally, the configurable lifetime policy for SAML tokens issued by Entra ID **does not control session timeout** for {% data variables.product.github %}.

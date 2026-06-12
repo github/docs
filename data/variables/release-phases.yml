@@ -1,26 +1,29 @@
 # Contains variables to identify GitHub's release phases. These are aligned with Microsoft standards.
 # For reference: https://github.com/github/docs-team/issues/4302
 
-public_preview: >-
-  {% ifversion ghes < 3.16 %}beta{% else %}public preview{% endif %}
+preview: 'preview'
 
-public_preview_caps: >-
-  {% ifversion ghes < 3.16 %}Beta{% else %}Public preview{% endif %}
+public_preview: 'public preview'
 
-private_preview: >-
-  {% ifversion ghes < 3.16 %}private beta{% else %}private preview{% endif %}
+public_preview_dpa: >-
+  public preview with [data protection](https://gh.io/dpa)
 
-private_preview_caps: >-
-  {% ifversion ghes < 3.16 %}Private beta{% else %}Private preview{% endif %}
+public_preview_caps: 'Public preview'
 
-closing_down: >-
-  {% ifversion ghes < 3.16 %}deprecated{% else %}closing down{% endif %}
+private_preview: 'private preview'
 
-closing_down_caps: >-
-  {% ifversion ghes < 3.16 %}Deprecated{% else %}Closing down{% endif %}
+private_preview_caps: 'Private preview'
 
-retired: >-
-  {% ifversion ghes < 3.16 %}sunset{% else %}retired{% endif %}
+technical_preview: >-
+  technical preview
 
-retired_caps: >-
-  {% ifversion ghes < 3.16 %}Sunset{% else %}Retired{% endif %}
+technical_preview_caps: >-
+  Technical preview
+
+closing_down: 'closing down'
+
+closing_down_caps: 'Closing down'
+
+retired: 'retired'
+
+retired_caps: 'Retired'

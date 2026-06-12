@@ -1,7 +1,7 @@
 import type { Response, NextFunction } from 'express'
 
 import type { ExtendedRequest } from '@/types'
-import { defaultCacheControl } from './cache-control.js'
+import { defaultCacheControl } from './cache-control'
 
 export default function trailingSlashes(req: ExtendedRequest, res: Response, next: NextFunction) {
   if (req.method === 'GET' || req.method === 'HEAD' || req.method === 'OPTIONS') {
@@ -17,7 +17,7 @@ export default function trailingSlashes(req: ExtendedRequest, res: Response, nex
       }
       url = url.replace(/\/+/g, '/') // Prevent multiple slashes
       defaultCacheControl(res)
-      return res.redirect(301, url)
+      return res.safeRedirect(301, url)
     }
   }
 

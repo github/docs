@@ -9,6 +9,7 @@ versions:
 children:
   - /managing-branches-in-github-desktop
   - /committing-and-reviewing-changes-to-your-project-in-github-desktop
+  - /working-with-git-hooks-in-github-desktop
   - /stashing-changes-in-github-desktop
   - /viewing-the-branch-history-in-github-desktop
   - /pushing-changes-to-github-from-github-desktop

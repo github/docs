@@ -6,8 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Support
+category:
+  - Contact GitHub
 ---
 
 ## About ticket management
@@ -16,7 +16,7 @@ topics:
 
 {% data reusables.support.zendesk-old-tickets %}
 
-You can use the {% data variables.contact.contact_landing_page_portal %} to view current and past support tickets and respond to {% data variables.contact.github_support %}. After 120 days, resolved tickets are archived, and archived tickets can only be viewed for enterprise accounts.
+You can use the {% data variables.contact.contact_landing_page_portal %} to view current and past support tickets and respond to {% data variables.contact.github_support %}. After 120 days, resolved tickets are archived and retained for up to three years. Archived tickets can only be viewed for enterprise accounts.
 
 Your capabilities in the {% data variables.contact.landing_page_portal %} depend on the account you select when you submit a ticket.{% ifversion ghes or ghec %} If you select an enterprise account, your role in the enterprise also affects your capabilities.
 
@@ -35,14 +35,12 @@ Your capabilities in the {% data variables.contact.landing_page_portal %} depend
 
 ## Viewing your archived support tickets
 
-You can only view archived tickets for an enterprise account.
+You can only view archived tickets for an enterprise account. Archived tickets are retained for up to three years.
 
 {% data reusables.support.navigate-to-my-tickets %}
-1. Select the **My Tickets** drop-down menu and click the name of the enterprise account.
+1. Select the **Account** dropdown menu and click the name of the enterprise account.
 
 {% indented_data_reference reusables.support.entitlements-note spaces=3 %}
-
-   ![Screenshot showing the "My Tickets" dropdown menu highlighted in dark orange.](/assets/images/help/support/ticket-context.png)
 1. Under the "My tickets" table, click **View archived tickets**.
 
 {% endif %}
@@ -66,6 +64,9 @@ You can also comment on tickets opened by someone else and associated with your 
 ## Requesting a callback
 
 If your account includes {% data variables.contact.premium_support %}, you can request a callback for urgent or high priority tickets. From the ticket, click **Request a callback from GitHub Support**.
+
+> [!NOTE]
+> Callbacks are not available for security-related tickets, such as incident notifications or account compromise investigations. These tickets are handled exclusively in writing through support tickets.
 
 ## Requesting an escalation
 

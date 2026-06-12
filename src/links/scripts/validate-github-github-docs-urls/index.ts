@@ -13,6 +13,10 @@ program
   .description('Validate config/docs-urls.json in github/github')
   .option('--fail-on-warning', 'Any warning will make the process exit with a non-zero code')
   .option('--fail-on-error', 'Any error will make the process exit with a non-zero code')
+  .option(
+    '--ignore-not-found',
+    'Do not fail validation on 404 errors (pages not found) - useful for feature-flagged content',
+  )
   .option('-o, --output <output-file>', 'Output file')
   .argument('<docs-urls-json-filepath>', 'path to the docs-urls JSON file')
   .action(validate)

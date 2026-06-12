@@ -14,6 +14,8 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom
   - /education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-to-github-classroom
 shortTitle: Connect an LMS course
+category:
+  - Set up GitHub Classroom
 ---
 ## About connecting an LMS to your classroom
 
@@ -31,6 +33,22 @@ To configure an LMS to connect to {% data variables.product.prodname_classroom %
 ## Supported LMSes
 
 {% data reusables.classroom.supported-lmses %}
+
+## Linking a Blackboard course with a classroom
+
+You can link your Blackboard course with a classroom in {% data variables.product.prodname_classroom %}. For more information about Blackboard, see the [Blackboard website](https://www.anthology.com/products/teaching-and-learning/learning-effectiveness/blackboard).
+
+An administrator needs to register your LMS instance with classroom before you can link an LMS course. For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/register-a-learning-management-system-with-github-classroom#configuring-blackboard-for-github-classroom).
+
+1. Sign into your **Blackboard** instance.
+1. Select the Blackboard course or organization to integrate with {% data variables.product.prodname_classroom %}.
+1. In the right sidebar on the course page, click **Books & Tools**, then click **GitHub Classroom**. Note that the name may be different if your LMS administrator named it something else when registering your LMS.
+1. Click **{% data variables.product.prodname_classroom %}**.
+1. In {% data variables.product.prodname_classroom %}, select a classroom to link with your LMS course.
+
+    > [!NOTE] This step might give you an error message, "Unable to launch link. The Tool Provider has been disabled by the System Administrator: {% data variables.product.prodname_classroom %}". To resolve this error, ensure that the status of the “{% data variables.product.prodname_classroom %}” tool is set to `Approved`. In the "Admin Panel," click **LTI Tool Providers**. Hover on the name next to {% data variables.product.prodname_classroom %} and click **Approve**.
+
+Once your course is linked, you can import your roster from your LMS course to your classroom. For more information, see [Importing a roster from your LMS](#importing-a-roster-from-your-lms).
 
 ## Linking a Canvas course with a classroom
 

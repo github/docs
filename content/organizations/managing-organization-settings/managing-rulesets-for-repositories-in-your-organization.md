@@ -2,16 +2,28 @@
 title: Managing rulesets for repositories in your organization
 intro: 'You can edit, monitor, and delete existing rulesets to alter how people can interact with repositories in your organization.'
 versions:
-  feature: repo-rules-enterprise
-permissions: 'Organization owners and users with the "Manage organization ref update rules and rulesets" permission can manage rulesets at the organization level.'
-topics:
-  - Organizations
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+permissions: Organization owners and users with the "Manage organization ref update rules and rulesets" permission can manage rulesets at the organization level.
 shortTitle: Manage rulesets
+category:
+  - Set repository policies
 ---
 
 ## About managing rulesets for an organization
 
-After creating a ruleset at the organization level, you can make changes to the ruleset to alter how people can interact with the targeted repositories. For example, you can add rules to better protect the branches or tags in those repositories, or you can switch your ruleset from "Evaluate" mode to "Active" after testing its effects on the contributor experience for your repositories. Organizational rulesets that apply to branches of a repository will no longer allow the repository administrator to rename branches of the targeted repository or change the default branch to another branch. Repository administrators may create and delete branches so long as they have the appropriate permissions.
+After creating a ruleset at the organization level, you can make changes to the ruleset to alter how people can interact with the targeted repositories. For example, you can add rules to better protect the branches or tags in those repositories{% ifversion not fpt %}, or you can switch your ruleset from "Evaluate" mode to "Active" after testing its effects on the contributor experience for your repositories{% endif %}.
+
+{% ifversion repo-admin-branch-rename %}
+
+For information about how organizational rulesets affect branch renaming, see [AUTOTITLE](/organizations/managing-organization-settings/allowing-repository-admins-to-rename-branches-with-organization-rulesets).
+
+{% else %}
+
+Organizational rulesets that apply to branches of a repository will not allow the repository administrator to rename branches of the targeted repository or change the default branch to another branch.
+
+{% endif %}
 
 {% ifversion push-rule-delegated-bypass %}
 
@@ -19,7 +31,7 @@ After creating a ruleset at the organization level, you can make changes to the 
 
 {% endif %}
 
-You can use the REST and GraphQL APIs to manage rulesets. For more information, see [AUTOTITLE](/rest/orgs/rules) and [AUTOTITLE](/graphql/reference/mutations#createrepositoryruleset).
+You can use the REST and GraphQL APIs to manage rulesets. For more information, see [AUTOTITLE](/rest/orgs/rules) and [AUTOTITLE](/graphql/reference/repos#mutation-createrepositoryruleset).
 
 {% data reusables.repositories.rulesets-anyone-can-view %}
 
@@ -41,7 +53,7 @@ You can use the REST and GraphQL APIs to manage rulesets. For more information, 
 {% data reusables.organizations.access-ruleset-settings %}
 {% data reusables.repositories.delete-ruleset-steps %}
 
-{% ifversion repo-rules-management %}
+{% ifversion repo-rules-history %}
 
 ## Using ruleset history
 
@@ -54,7 +66,11 @@ You can use the REST and GraphQL APIs to manage rulesets. For more information, 
 {% data reusables.organizations.access-ruleset-settings %}
 {% data reusables.repositories.ruleset-history %}
 
-### Importing a ruleset
+{% endif %}
+
+{% ifversion repo-rules-management %}
+
+## Importing a ruleset
 
 You can import a ruleset from another repository or organization using the exported JSON file from the previous section. This can be useful if you want to apply the same ruleset to multiple repositories or organizations.
 
@@ -64,6 +80,7 @@ You can import a ruleset from another repository or organization using the expor
 {% data reusables.repositories.import-a-ruleset %}
 
 {% endif %}
+{% ifversion not fpt %}
 
 ## Viewing insights for rulesets
 
@@ -71,7 +88,7 @@ You can view insights for rulesets to see how rulesets are affecting the reposit
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, in the "Code, planning, and automation" section, click **{% octicon "repo" aria-hidden="true" %} Repository**, then click **Rule insights**.
+1. In the left sidebar, in the "Code, planning, and automation" section, click **{% octicon "repo" aria-hidden="true" aria-label="repo" %} Repository**, then click **Rule insights**.
 
    ![Screenshot of an organization's settings page. In the sidebar, a link labeled "Rule insights" is outlined in orange.](/assets/images/help/organizations/sidebar-repository-rule-insights.png)
 
@@ -82,4 +99,5 @@ You can view insights for rulesets to see how rulesets are affecting the reposit
 
 {% data reusables.repositories.managing-delegated-bypass %}
 
+{% endif %}
 {% endif %}

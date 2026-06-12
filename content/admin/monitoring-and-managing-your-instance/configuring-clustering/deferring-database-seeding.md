@@ -4,21 +4,17 @@ intro: You can speed up the process of adding a new MySQL replica node to your c
 product: '{% data reusables.gated-features.cluster %}'
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Clustering
-  - Enterprise
 redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/deferring-database-seeding
+contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 ## About deferring database seeding of a MySQL replica node
 
 >[!NOTE]
->The ability to defer database seeding{% ifversion ghes < 3.13 %} was added in patch release
- 3.12.1
-
- and{% endif %} is available as a {% data variables.release-phases.public_preview %}.
+>The ability to defer database seeding is available as a {% data variables.release-phases.public_preview %}.
 
 Adding a new MySQL replica node to your cluster when your primary node has more than seven days of data will normally trigger database seeding which can take several hours depending on the amount of data. You can choose to defer database seeding, allowing the config apply run to complete sooner, resulting in being able to open your appliance to traffic sooner.
 

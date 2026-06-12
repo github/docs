@@ -1,19 +1,24 @@
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import cx from 'classnames'
 import { XIcon } from '@primer/octicons-react'
 
-import { useLanguages } from 'src/languages/components/LanguagesContext'
-import { useMainContext } from 'src/frame/components/context/MainContext'
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { ExcludesNull } from 'src/frame/components/lib/ExcludesNull'
-import { useVersion } from 'src/versions/components/useVersion'
-import { useUserLanguage } from 'src/languages/components/useUserLanguage'
+import { useLanguages } from '@/languages/components/LanguagesContext'
+import { useMainContext } from '@/frame/components/context/MainContext'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { ExcludesNull } from '@/frame/components/lib/ExcludesNull'
+import { useVersion } from '@/versions/components/useVersion'
+import { useUserLanguage } from '@/languages/components/useUserLanguage'
 import styles from './HeaderNotifications.module.scss'
+import { useSharedUIContext } from '@/frame/components/context/SharedUIContext'
+import Cookies from '@/frame/components/lib/cookies'
+import { MACHINE_TRANSLATION_BANNER_COOKIE_NAME } from '@/frame/lib/constants'
 
 enum NotificationType {
   RELEASE = 'RELEASE',
   TRANSLATION = 'TRANSLATION',
   EARLY_ACCESS = 'EARLY_ACCESS',
+  MACHINE_TRANSLATION = 'MACHINE_TRANSLATION',
 }
 
 type Notif = {
@@ -30,8 +35,14 @@ export const HeaderNotifications = () => {
   const page = mainContext.page!
   const { userLanguage, setUserLanguageCookie } = useUserLanguage()
   const { languages } = useLanguages()
+  const { setHasOpenHeaderNotifications } = useSharedUIContext()
 
   const { t } = useTranslation('header')
+
+  const [machineTranslationDismissed, setMachineTranslationDismissed] = useState(true)
+  useEffect(() => {
+    setMachineTranslationDismissed(Cookies.get(MACHINE_TRANSLATION_BANNER_COOKIE_NAME) === 'true')
+  }, [])
 
   const translationNotices: Array<Notif> = []
   if (router.locale === 'en') {
@@ -58,6 +69,22 @@ export const HeaderNotifications = () => {
       })
     }
   }
+
+  if (router.locale !== 'en' && !machineTranslationDismissed) {
+    translationNotices.push({
+      type: NotificationType.MACHINE_TRANSLATION,
+      content: t('notices.machine_translation'),
+      onClose: () => {
+        setMachineTranslationDismissed(true)
+        try {
+          Cookies.set(MACHINE_TRANSLATION_BANNER_COOKIE_NAME, 'true')
+        } catch (err) {
+          console.warn('Unable to set cookie', err)
+        }
+      },
+    })
+  }
+
   const releaseNotices: Array<Notif> = []
   if (currentVersion === data.variables.release_candidate.version) {
     releaseNotices.push({
@@ -78,6 +105,10 @@ export const HeaderNotifications = () => {
       : null,
   ].filter(ExcludesNull)
 
+  useEffect(() => {
+    setHasOpenHeaderNotifications(allNotifications.length > 0)
+  }, [allNotifications, setHasOpenHeaderNotifications])
+
   return (
     <div data-container="notifications">
       {allNotifications.map(({ type, content, onClose }, i) => {
@@ -93,6 +124,7 @@ export const HeaderNotifications = () => {
               styles.container,
               'text-center f5 color-fg-default py-4 px-6 z-1',
               type === NotificationType.TRANSLATION && 'color-bg-accent',
+              type === NotificationType.MACHINE_TRANSLATION && 'color-bg-accent',
               type === NotificationType.RELEASE && 'color-bg-accent',
               type === NotificationType.EARLY_ACCESS && 'color-bg-danger',
               !isLast && 'border-bottom color-border-default',

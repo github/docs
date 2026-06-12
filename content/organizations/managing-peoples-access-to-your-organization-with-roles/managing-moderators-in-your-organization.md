@@ -5,11 +5,9 @@ permissions: Organization owners can assign the moderator role.
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
-  - Community
 shortTitle: Managing moderators
+category:
+  - Assign roles and permissions
 ---
 
 ## About organization moderators

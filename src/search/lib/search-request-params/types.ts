@@ -33,15 +33,14 @@ export interface ComputedSearchQueryParamsMap {
     toplevel: string[]
     aggregate: string[]
   }
-  generalAutocomplete: ComputedSearchQueryParams
   aiSearchAutocomplete: ComputedSearchQueryParams
 }
 
 export interface SearchRequestQueryParams {
   key: keyof ComputedSearchQueryParams
-  default_?: any
-  cast?: (value: any) => any
-  validate?: (value: any) => boolean
+  default_?: unknown
+  cast?: (value: unknown) => unknown
+  validate?: (value: unknown) => boolean
   multiple?: boolean
 }
 

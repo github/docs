@@ -1,8 +1,8 @@
+import { isArchivedVersion } from '@/archives/lib/is-archived-version'
+import { languagePrefixPathRegex } from '@/languages/lib/languages-server'
+import versionSatisfiesRange from '@/versions/lib/version-satisfies-range'
 import type { NextFunction, Request, Response } from 'express'
 import helmet from 'helmet'
-import { isArchivedVersion } from '@/archives/lib/is-archived-version'
-import versionSatisfiesRange from '@/versions/lib/version-satisfies-range.js'
-import { languagePrefixPathRegex } from '@/languages/lib/languages.js'
 
 const isDev = process.env.NODE_ENV === 'development'
 const GITHUB_DOMAINS = [
@@ -15,11 +15,9 @@ const GITHUB_DOMAINS = [
 
 const DEFAULT_OPTIONS = {
   crossOriginResourcePolicy: true,
-  crossOriginEmbedderPolicy: false, // doesn't work with youtube
+  crossOriginEmbedderPolicy: false,
   referrerPolicy: {
-    // See docs-engineering #2426
-    // The `... as 'no-referrer-when-downgrade'` is a workaround for TypeScript
-    policy: 'no-referrer-when-downgrade' as 'no-referrer-when-downgrade',
+    policy: 'no-referrer-when-downgrade' as const,
   },
   // This module defines a Content Security Policy (CSP) to disallow
   // inline scripts and content from untrusted sources.
@@ -29,7 +27,9 @@ const DEFAULT_OPTIONS = {
       prefetchSrc: ["'self'"],
       // When doing local dev, especially in Safari, you need to add `ws:`
       // which NextJS uses for the hot module reloading.
-      connectSrc: ["'self'", isDev && 'ws:'].filter(Boolean) as string[],
+      connectSrc: ["'self'", 'https://collector.githubapp.com', isDev && 'ws:'].filter(
+        Boolean,
+      ) as string[],
       fontSrc: ["'self'", 'data:'],
       imgSrc: [...GITHUB_DOMAINS, 'data:', 'placehold.it'],
       objectSrc: ["'self'"],
@@ -48,7 +48,6 @@ const DEFAULT_OPTIONS = {
           ? 'https://support.github.com'
           : // Assume that a developer is not testing the VA iframe locally if this env var is not set
             process.env.SUPPORT_PORTAL_URL || '',
-        'https://www.youtube-nocookie.com',
       ].filter(Boolean) as string[],
       frameAncestors: isDev ? ['*'] : [...GITHUB_DOMAINS],
       styleSrc: [...GITHUB_DOMAINS, "'self'", "'unsafe-inline'", 'data:'],

@@ -11,12 +11,9 @@ redirect_from:
   - /admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Auditing
-  - Enterprise
-  - Logging
-  - Security
+contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 ## About log forwarding
@@ -25,7 +22,7 @@ Forwarding logs to an external receiver allows your organization to centralize l
 
 Any log collection system that supports syslog-style log streams is supported (e.g., [Logstash](https://www.elastic.co/products/logstash) and [Splunk](https://docs.splunk.com/Documentation/Splunk/latest/Data/Monitornetworkports)).
 
-When you enable log forwarding, you must upload a CA certificate to encrypt communications between syslog endpoints. Your appliance and the remote syslog server will perform two-way SSL, each providing a certificate to the other and validating the certificate which is received.
+When you enable log forwarding, you must upload a CA certificate to encrypt communications between syslog endpoints. Your appliance will establish an SSL connection to the remote syslog server and validate the server’s certificate.
 
 For more information on log content, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-system-logs).
 

@@ -1,12 +1,12 @@
 import type { ProductNames } from '@/types'
-import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.js'
+import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
 
 const productNames: ProductNames = {
   dotcom: 'GitHub.com',
 }
 
-enterpriseServerReleases.all.forEach((version) => {
+for (const version of enterpriseServerReleases.all) {
   productNames[version] = `Enterprise Server ${version}`
-})
+}
 
 export default productNames

@@ -31,15 +31,15 @@ jobs:
   validate_github_github_docs_urls:
     name: Validate github/github docs URLs
     if: github.repository == 'github/docs-internal'
-    runs-on: ubuntu-20.04-xl
+    runs-on: ubuntu-latest
     steps:
       - name: Check out repo's default branch
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       - uses: ./.github/actions/node-npm-setup
 
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           repository: github/github
           ref: master
           path: github
@@ -50,14 +50,18 @@ jobs:
           # do other things in other steps.
           npm run validate-github-github-docs-urls -- validate \
             --output checks.json \
+            --ignore-not-found \
             github/config/docs-urls.json
 
       - name: Update config/docs-urls.json in github/github (possibly)
         if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           npm run validate-github-github-docs-urls -- generate-new-json checks.json github/config/docs-urls.json
+
+          git config --global user.name "docs-bot"
+          git config --global user.email "77750099+docs-bot@users.noreply.github.com"
 
           cd github
           git status
@@ -83,7 +87,7 @@ jobs:
       - name: Clean up old branches in github/github
         if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           npm run validate-github-github-docs-urls -- clean-up-old-branches --prefix update-docs-urls
 
@@ -102,25 +106,27 @@ jobs:
       - name: Get changed content/data files
         if: ${{ github.event_name == 'pull_request' }}
         id: changed_files
-        uses: ./.github/actions/get-changed-files
+        uses: tj-actions/changed-files@22103cc46bda19c2b464ffe86db46df6922fd323 # v47.0.5
         with:
           files: |
             content/**
 
       - name: Generate PR comment
-        if: ${{ github.event_name == 'pull_request' && steps.changed_files.outputs.filtered_changed_files }}
+        if: ${{ github.event_name == 'pull_request' && steps.changed_files.outputs.any_modified == 'true' }}
         env:
-          # Make it an environment variable so that its value doesn't need to be escaped.
-          # See https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable
-          CHANGED_FILES: |-
-            ${{ steps.changed_files.outputs.filtered_changed_files }}
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          CHANGED_FILES: ${{ steps.changed_files.outputs.all_modified_files }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           ISSUE_NUMBER: ${{ github.event.pull_request.number }}
           REPOSITORY: ${{ github.repository }}
-        run: npm run validate-github-github-docs-urls -- post-pr-comment checks.json --changed-files $CHANGED_FILES
+        run: |
+          npm run validate-github-github-docs-urls -- post-pr-comment checks.json --changed-files $CHANGED_FILES
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name == 'schedule' }}
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+      - uses: ./.github/actions/create-workflow-failure-issue
+        if: ${{ failure() && github.event_name == 'schedule' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}

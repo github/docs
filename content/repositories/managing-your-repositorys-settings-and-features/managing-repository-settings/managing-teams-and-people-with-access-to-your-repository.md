@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Repositories
 shortTitle: Teams & people
+category:
+  - Manage access and repository policies
 ---
 
 ## About access management for repositories
@@ -26,8 +26,6 @@ This overview can help you audit access to your repository, onboard or off-board
 {% ifversion repository-collaborators %}
 
 If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you can invite a member of your enterprise to collaborate in a repository that either a user or organization owns. The invited user will only have access to the repository, even if the repository belongs to an organization. The user must be provisioned by your company's identity provider (IdP). For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators-or-repository-collaborators).
-
-{% data reusables.repositories.repository-collaborators-release-phase %}
 
 {% endif %}
 

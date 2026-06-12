@@ -1,7 +1,7 @@
 ---
 title: Creating an issue
-intro: 'Issues can be created in a variety of ways, so you can choose the most convenient method for your workflow.'
-permissions: 'People with read access can create an issue in a repository where issues are enabled. {% data reusables.enterprise-accounts.emu-permission-repo %}'
+intro: Issues can be created in a variety of ways, so you can choose the most convenient method for your workflow.
+permissions: People with read access can create an issue in a repository where issues are enabled. {% data reusables.enterprise-accounts.emu-permission-repo %}
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/creating-an-issue
   - /articles/creating-an-issue
@@ -23,12 +23,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
-  - Issues
-  - Project management
 shortTitle: Create an issue
-type: how_to
+contentType: how-tos
+category:
+  - Create and work with issues
 ---
 
 Issues can be used to keep track of bugs, enhancements, or other requests. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues).
@@ -46,6 +44,7 @@ Issues can be used to keep track of bugs, enhancements, or other requests. For m
 
    ![Screenshot of the template chooser for an issue. Below the template choices, a link, labeled "Open a blank issue," is outlined in dark orange.](/assets/images/help/issues/blank-issue-link.png)
 {% data reusables.repositories.type-issue-title-and-description %}
+   To cross-reference a related discussion, paste the discussion's URL into the issue description.
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
@@ -88,7 +87,7 @@ You can open a new issue from a specific line or lines of code in a file or pull
 {% data reusables.repositories.navigate-to-repo %}
 1. Locate the code you want to reference in an issue:
     * To open an issue about code in a file, navigate to the file.
-    * To open an issue about code in a pull request, navigate to the pull request and click **{% octicon "diff" aria-hidden="true" %} Files changed**. Then, browse to the file that contains the code you want included in your comment, and click **View**.
+    * To open an issue about code in a pull request, navigate to the pull request and click **{% octicon "diff" aria-hidden="true" aria-label="diff" %} Files changed**. Then, browse to the file that contains the code you want included in your comment, and click **View**.
 {% data reusables.repositories.choose-line-or-range %}
 1. To the left of the code range, click {% octicon "kebab-horizontal" aria-label="Code line X options" %}. In the dropdown menu, click **Reference in new issue**.
 
@@ -105,7 +104,7 @@ When you create an issue from a discussion, the contents of the discussion post 
 
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click **{% octicon "issue-opened" aria-hidden="true" %} Create issue from discussion**.
+1. In the right sidebar, click **{% octicon "issue-opened" aria-hidden="true" aria-label="issue-opened" %} Create issue from discussion**.
 
    ![Screenshot of the sidebar in a discussion. The "Create issue from discussion" option is outlined in dark orange.](/assets/images/help/discussions/create-issue-from-discussion.png)
 
@@ -119,14 +118,6 @@ When you create an issue from a discussion, the contents of the discussion post 
 
 1. Navigate to your project.
 {% data reusables.projects.create-issue-modal %}
-
-{% ifversion projects-v1 %}
-
-## Creating an issue from a {% data variables.projects.projects_v1_board %} note
-
-If you're using a {% data variables.projects.projects_v1_board %} to track and prioritize your work, you can convert notes to issues. For more information, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards) and [AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-notes-to-a-project-board#converting-a-note-to-an-issue).
-
-{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -145,7 +136,7 @@ You can use query parameters to open issues. Query parameters are optional parts
 
 You must have the proper permissions for any action to use the equivalent query parameter. For example, you must have permission to add a label to an issue to use the `labels` query parameter. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization).
 
-If you create an invalid URL using query parameters, or if you don’t have the proper permissions, the URL will return a `404 Not Found` error page. If you create a URL that exceeds the server limit, the URL will return a `414 URI Too Long` error page.
+If you create an invalid URL using query parameters, or if you don't have the proper permissions, the URL will return a `404 Not Found` error page. If you create a URL that exceeds the server limit, the URL will return a `414 URI Too Long` error page.
 
 Query parameter | Example
 ---  | ---
@@ -161,21 +152,18 @@ Query parameter | Example
 You can also use URL query parameters to fill custom text fields that you have defined in issue form templates. Query parameters for issue form fields can also be passed to the issue template chooser. For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys).
 {% endif %}
 
-{% ifversion code-scanning-task-lists %}
-
-## Creating an issue from a {% data variables.product.prodname_code_scanning %} alert
-
-{% data reusables.code-scanning.beta-alert-tracking-in-issues %}
-If you're using issues to track and prioritize your work, you can use issues to track {% data variables.product.prodname_code_scanning %} alerts.
-{% data reusables.code-scanning.alert-tracking-link %}
-
-{% endif %}
-
 {% ifversion copilot %}
 
-## Creating an issue from {% data variables.product.prodname_copilot_chat_short %}
+## Creating an issue with {% data variables.copilot.copilot_chat_short %} on {% data variables.product.github %}
 
-You can create an issue from {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %} with the Model Context Protocol (MCP). For more information, see [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-chat-with-mcp).
+> [!NOTE]
+> This feature is in {% data variables.release-phases.public_preview %} and subject to change.
+
+Creating issues manually can be repetitive and time-consuming. With {% data variables.product.prodname_copilot_short %}, you can create issues faster by prompting in natural language, or even by uploading a screenshot. {% data variables.product.prodname_copilot_short %} fills out the title, body, labels, assignees, and more, using your repository’s templates and structure. See [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-to-create-issues).
+
+## Creating an issue from {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}
+
+You can also create an issue directly from {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}, using the Model Context Protocol (MCP). See [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-chat-with-mcp).
 
 {% endif %}
 

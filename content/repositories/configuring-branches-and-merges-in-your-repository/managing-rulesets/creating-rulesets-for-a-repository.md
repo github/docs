@@ -7,27 +7,24 @@ versions:
   ghec: '*'
   ghes: '*'
 permissions: '{% data reusables.repositories.repo-rules-permissions %}'
-topics:
-  - Repositories
 shortTitle: Create a ruleset
+redirect_from:
+  - /repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules
+category:
+  - Manage branches and protect code
 ---
 
 ## Introduction
 
 You can create rulesets to control how users can interact with selected branches and tags in a repository. You can control things like who can push commits to a certain branch and how the commits must be formatted, or who can delete or rename a tag. You can also prevent people from renaming repositories.
 
-{% ifversion push-rulesets %}
-
 {% data reusables.repositories.rulesets-push-rulesets-intro %}
-
-{% endif %}
 
 When you create a ruleset, you can allow certain users to bypass the rules in the ruleset.
 
 For more information on rulesets, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
 
-{% ifversion repo-rules-enterprise %}
-You can also create rulesets for all repositories in an organization. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization).{% endif %}
+For customers on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} plans you can also create rulesets for repositories in an organization. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization).
 
 {% ifversion repo-rules-management %}
 
@@ -35,7 +32,7 @@ You can also create rulesets for all repositories in an organization. For more i
 
 To import one of the prebuilt rulesets by {% data variables.product.prodname_dotcom %}, see [`github/ruleset-recipes`](https://github.com/github/ruleset-recipes).
 
-{% data reusables.repositories.import-a-ruleset-conceptual %} For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#using-ruleset-history).{% endif %}
+{% data reusables.repositories.import-a-ruleset-conceptual %} For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#importing-a-ruleset).{% endif %}
 
 ## Using `fnmatch` syntax
 
@@ -86,8 +83,6 @@ To import one of the prebuilt rulesets by {% data variables.product.prodname_dot
 
 {% data reusables.repositories.rulesets-create-and-insights-step %}
 
-{% ifversion push-rulesets %}
-
 ## Creating a push ruleset
 
 {% data reusables.repositories.push-rules-fork-network-note %}
@@ -113,5 +108,3 @@ You can create a push ruleset for private or internal repositories.
 ### Finalizing your push ruleset and next steps
 
 {% data reusables.repositories.rulesets-create-and-insights-step %}
-
-{% endif %}

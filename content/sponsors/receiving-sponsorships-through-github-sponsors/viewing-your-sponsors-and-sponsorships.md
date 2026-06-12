@@ -7,11 +7,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Open Source
-  - Analytics
 shortTitle: View sponsors & sponsorships
+contentType: how-tos
+category:
+  - Manage your sponsored account
 ---
 
 ## About sponsors and sponsorships
@@ -60,5 +59,5 @@ You can export your sponsorship transactions by month. {% data variables.product
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.your-sponsors-tab %}
-1. In the top-right, click **{% octicon "download" aria-hidden="true" %} Export**.
+1. In the top-right, click **{% octicon "download" aria-hidden="true" aria-label="download" %} Export**.
 1. Choose a time frame and a format for the data you'd like to export, then click **Start export**.

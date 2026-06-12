@@ -1,28 +1,25 @@
 ---
-title: 'Adding items to your {% data variables.projects.project_v2 %}'
+title: Adding items to your {% data variables.projects.project_v2 %}
 shortTitle: Adding items
-intro: 'Learn how to add pull requests, issues, and draft issues to your projects individually or in bulk.'
+intro: Learn how to add pull requests, issues, and draft issues to your projects individually or in bulk.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
-topics:
-  - Projects
 allowTitleToDifferFromFilename: true
+contentType: tutorials
+category:
+  - Manage project items and fields
 ---
 
 > [!NOTE]
-> A project can contain a maximum of {% data variables.projects.item_limit %} items and {% data variables.projects.archived_item_limit %} archived items. To learn more about automatically archiving items when they meet specific criteria, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically).
+> A project can contain a maximum of{% ifversion projects-single-limit %} {% data variables.projects.item_limit %} items across both active views and the archive page{% else %} {% data variables.projects.legacy_item_limit %} items and {% data variables.projects.legacy_archived_item_limit %} archived items{% endif %}. To learn more about automatically archiving items when they meet specific criteria, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically).
 
 ## Adding issues and pull requests to a project
 
 You have several options for adding issues and pull requests to your project. You can add them individually, automatically, or in bulk. Furthermore, you can include issues and pull requests from any organization, and you also have the ability to add draft issues that can be converted into regular issues later on. For more information, see [Creating draft issues](#creating-draft-issues).
 
 {% ifversion projects-v2-timeline-events %}
-
-> [!NOTE]
-> Timeline events for Projects is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 When you add an issue or pull request to your project, an event will be added to the issue or pull request's timeline. Timeline events will also be added when you remove issues or pull requests and when changes are made to its `status` field for those items. Timeline events are only visible to people who have at least read permission for the project. If a change is made by a built-in workflow, the activity will be attributed to **@github-project-automation**.
 
@@ -53,7 +50,7 @@ If you know the issue or pull request number or if you know part of the title, y
 
 You can add multiple issues and pull requests from your project and use filters, such as `label:bug`, to narrow down your search.
 
-1. In the bottom row of the project, click {% octicon "plus" aria-hidden="true" %}.
+1. In the bottom row of the project, click {% octicon "plus" aria-hidden="true" aria-label="plus" %}.
    ![Screenshot showing the bottom row of a table view. The "+" button is highlighted with an orange outline.](/assets/images/help/projects-v2/omnibar-add.png)
 1. Click **Add item from repository**.
 {% data reusables.projects.bulk-add %}

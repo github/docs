@@ -5,14 +5,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - OAuth apps
 children:
   - /installing-an-oauth-app-in-your-personal-account
   - /installing-an-oauth-app-in-your-organization
   - /authorizing-oauth-apps
   - /reviewing-your-authorized-oauth-apps
   - /connecting-with-third-party-applications
-  - /internal-oauth-apps
+  - /privileged-oauth-apps
 ---
 

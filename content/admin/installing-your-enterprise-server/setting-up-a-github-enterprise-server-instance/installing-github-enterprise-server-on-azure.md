@@ -1,6 +1,6 @@
 ---
 title: Installing GitHub Enterprise Server on Azure
-intro: 'To install {% data variables.product.prodname_ghe_server %} on Azure, you must deploy onto a memory-optimized instance that supports premium storage.'
+intro: To install {% data variables.product.prodname_ghe_server %} on Azure, you must deploy onto a memory-optimized instance that supports premium storage.
 redirect_from:
   - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
@@ -8,15 +8,21 @@ redirect_from:
   - /admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-azure
 versions:
   ghes: '*'
-type: tutorial
-topics:
-  - Administrator
-  - Enterprise
-  - Infrastructure
-  - Set up
 shortTitle: Install on Azure
+contentType: tutorials
+category:
+  - Install and configure your instance
 ---
 You can deploy {% data variables.product.prodname_ghe_server %} on global Azure or Azure Government.
+
+{% ifversion ghes = 3.20 %}
+## Azure Local
+
+> [!NOTE] {% data variables.product.prodname_ghe_server %} on Azure Local is now in public preview. During this public preview, you can only use GHES version 3.20.
+
+If your organization requires sovereign deployments or operates in regulated environments, Azure Local is Microsoft's distributed infrastructure solution that enables this. Supporting regulated deployments, you can now host {% data variables.product.prodname_ghe_server %} on Azure Local. For more information, see [GitHub Enterprise Local](https://learn.microsoft.com/en-us/azure/azure-sovereign-clouds/private/github-local/github-local-overview). 
+
+{% endif %}
 
 ## Prerequisites
 
@@ -64,7 +70,10 @@ Before launching {% data variables.location.product_location %} on Azure, you'll
 
    {% data reusables.enterprise_installation.necessary_ports %}
 
-1. Create and attach a new unencrypted data disk to the VM, and configure the size based on your user license count. For more information, see [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) in the Microsoft documentation.
+1. Create and attach a new data disk to the VM, and configure the size based on your user license count. For more information, see [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) in the Microsoft documentation.
+
+   > [!NOTE]
+   > All Azure managed disks created since June 10, 2017 are encrypted at rest by default with [Azure Storage Encryption](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption#about-azure-storage-service-side-encryption). Enabling Azure Disk Encryption for GitHub Enterprise Server is not supported.
 
    Pass in options for the name of your VM (for example, `ghe-acme-corp`), the resource group, the premium storage SKU, the size of the disk (for example, `200`), and a name for the resulting VHD.
 

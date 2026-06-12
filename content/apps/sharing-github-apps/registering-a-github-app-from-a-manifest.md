@@ -12,14 +12,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 shortTitle: App manifest
+category:
+  - Maintain and share your app
 ---
 ## About {% data variables.product.prodname_github_app %} Manifests
 
 {% ifversion enterprise-apps-public-beta %}
->[!NOTE] {% data variables.product.prodname_github_app %} Manifests are not available for enterprise-owned {% data variables.product.prodname_github_apps %}.
+>[!NOTE] {% data variables.product.prodname_github_app %} Manifests are not available for enterprise-owned {% data variables.product.prodname_github_apps %}.{% ifversion enterprise-installed-apps %} They do not support enterprise permissions at this time.{% endif %}
 {% endif %}
 
 When someone registers a {% data variables.product.prodname_github_app %} from a manifest, they only need to follow a URL and name the app. The manifest includes the permissions, events, and webhook URL needed to automatically register the app. The manifest flow creates the {% data variables.product.prodname_github_app %} registration and generates the app's webhook secret, private key (PEM file), client secret, and {% data variables.product.prodname_github_app %} ID. The person who creates the {% data variables.product.prodname_github_app %} registration from the manifest will own the {% data variables.product.prodname_github_app %} registration and can choose to edit the registration's settings, delete it, or transfer it to another person on {% data variables.product.prodname_dotcom %}.
@@ -67,7 +67,7 @@ The person registering the app will be redirected to a {% data variables.product
 `description` | `string` | A description of the {% data variables.product.prodname_github_app %}.
 `public` | `boolean` | Set to `true` when your {% data variables.product.prodname_github_app %} is available to the public or `false` when it is only accessible to the owner of the app.
 `default_events` | `array` | The list of [events](/webhooks-and-events/webhooks/webhook-events-and-payloads) the {% data variables.product.prodname_github_app %} subscribes to.
-`default_permissions` | `object` | The set of permissions needed by the {% data variables.product.prodname_github_app %}. The format of the object uses the permission name for the key (for example, `issues`) and the access type for the value (for example, `write`). For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app).
+`default_permissions` | `object` | The set of permissions needed by the {% data variables.product.prodname_github_app %}. The format of the object uses the permission name for the key (for example, `issues`) and the access type for the value (for example, `write`). For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app). To see the list of permissions available for use and their parameterized names, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#account-permissions).
 `request_oauth_on_install` | `boolean` | Set to `true` to request the user to authorize the {% data variables.product.prodname_github_app %}, after the {% data variables.product.prodname_github_app %} is installed.
 `setup_on_update` | `boolean` | Set to `true` to redirect users to the `setup_url` after they update your {% data variables.product.prodname_github_app %} installation.
 
@@ -179,7 +179,7 @@ You must complete this step of the {% data variables.product.prodname_github_app
 
 For more information about the endpoint's response, see [Create a {% data variables.product.prodname_github_app %} from a manifest](/rest/apps/apps#create-a-github-app-from-a-manifest).
 
-When the final step in the manifest flow is completed, the person registering the app from the flow will be an owner of a registered {% data variables.product.prodname_github_app %} that they can install on any of their personal repositories. They can choose to extend the app using the {% data variables.product.prodname_dotcom %} APIs, transfer ownership to someone else, or delete it at any time.
+When the final step in the manifest flow is completed, the person registering the app from the flow will be an owner of a registered {% data variables.product.prodname_github_app %} that they can install on any of their accounts. They can choose to extend the app using the {% data variables.product.prodname_dotcom %} APIs, transfer ownership to someone else, or delete it at any time.
 
 ## Using Probot to implement the {% data variables.product.prodname_github_app %} Manifest flow
 
@@ -190,10 +190,6 @@ To create a Probot App that you can share, follow these steps:
 1. [Generate a new {% data variables.product.prodname_github_app %}](https://probot.github.io/docs/development/#generating-a-new-app).
 1. Open the project you created, and customize the settings in the `app.yml` file. Probot uses the settings in `app.yml` as the [{% data variables.product.prodname_github_app %} Manifest parameters](#github-app-manifest-parameters).
 1. Add your application's custom code.
-1. [Run the {% data variables.product.prodname_github_app %} locally](https://probot.github.io/docs/development/#running-the-app-locally) or [host it anywhere you'd like](#hosting-your-app-with-glitch). When you navigate to the hosted app's URL, you'll find a web page with a **Register {% data variables.product.prodname_github_app %}** button that people can click to register a preconfigured app.
+1. [Run the {% data variables.product.prodname_github_app %} locally](https://probot.github.io/docs/development/#running-the-app-locally) or host it anywhere you'd like. When you navigate to the hosted app's URL, you'll find a web page with a **Register {% data variables.product.prodname_github_app %}** button that people can click to register a preconfigured app.
 
 Using [dotenv](https://github.com/bkeepers/dotenv), Probot creates a `.env` file and sets the `APP_ID`, `PRIVATE_KEY`, and `WEBHOOK_SECRET` environment variables with the values [retrieved from the app configuration](#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration).
-
-### Hosting your app with Glitch
-
-You can see an [example Probot app](https://glitch.com/~auspicious-aardwolf) that uses [Glitch](https://glitch.com/) to host and share the app. The example uses the [Checks API](/rest/checks) and selects the necessary Checks API events and permissions in the `app.yml` file. Glitch is a tool that allows you to "Remix your own" apps. Remixing an app creates a copy of the app that Glitch hosts and deploys. See [About Glitch](https://glitch.com/about/) to learn about remixing Glitch apps.

@@ -10,11 +10,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: View people with access
 permissions: Organization owners can view people with access to a repository.
+category:
+  - Control repository access
 ---
 
 ## About the list of people with access to your repository

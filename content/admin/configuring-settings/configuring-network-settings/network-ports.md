@@ -9,15 +9,12 @@ redirect_from:
   - /enterprise/admin/configuration/network-ports
   - /admin/configuration/network-ports
   - /admin/configuration/configuring-network-settings/network-ports
-intro: 'Open network ports selectively based on the network services you need to expose for administrators, end users, and email support.'
+intro: Open network ports selectively based on the network services you need to expose for administrators, end users, and email support.
 versions:
   ghes: '*'
-type: reference
-topics:
-  - Enterprise
-  - Infrastructure
-  - Networking
-  - Security
+contentType: reference
+category:
+  - Install and configure your instance
 ---
 ## Administrative ports
 
@@ -56,7 +53,7 @@ Email ports must be accessible directly or via relay for inbound email support f
 
 ## {% data variables.product.prodname_actions %} ports
 
-{% data variables.product.prodname_actions %} ports must be accessible for self-hosted runners to connect to {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#communication-between-self-hosted-runners-and-github-enterprise-server).
+{% data variables.product.prodname_actions %} ports must be accessible for self-hosted runners to connect to {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/communicating-with-self-hosted-runners).
 
 | Port | Service | Description |
 |---|---|---|

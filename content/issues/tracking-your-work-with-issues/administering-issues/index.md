@@ -5,12 +5,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Issues
 children:
+  - /triaging-an-issue-with-ai
   - /pinning-an-issue-to-your-repository
   - /marking-issues-or-pull-requests-as-a-duplicate
   - /transferring-an-issue-to-another-repository
   - /closing-an-issue
   - /deleting-an-issue
+  - /cloning-an-issue
 ---

@@ -1,1 +1,1 @@
-1. Sign in as the setup user for your enterprise with the username **SHORT-CODE_admin**, replacing SHORT-CODE with your enterprise's short code.
+1. Sign in as the setup user for your enterprise with the username **SHORTCODE_admin**, replacing SHORTCODE with your enterprise's shortcode.

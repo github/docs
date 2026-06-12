@@ -1,0 +1,181 @@
+{
+  "created": {
+    "label": [
+      {
+        "type": "string",
+        "name": "color",
+        "description": "<p>6-character hex code, without the leading #, identifying the color</p>",
+        "isRequired": true
+      },
+      {
+        "type": "boolean",
+        "name": "default",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string or null",
+        "name": "description",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "integer",
+        "name": "id",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "name",
+        "description": "<p>The name of the label.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "node_id",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "url",
+        "description": "<p>URL for the label</p>",
+        "isRequired": true
+      }
+    ]
+  },
+  "deleted": {
+    "label": [
+      {
+        "type": "string",
+        "name": "color",
+        "description": "<p>6-character hex code, without the leading #, identifying the color</p>",
+        "isRequired": true
+      },
+      {
+        "type": "boolean",
+        "name": "default",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string or null",
+        "name": "description",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "integer",
+        "name": "id",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "name",
+        "description": "<p>The name of the label.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "node_id",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "url",
+        "description": "<p>URL for the label</p>",
+        "isRequired": true
+      }
+    ]
+  },
+  "edited": {
+    "changes": [
+      {
+        "type": "object",
+        "name": "color",
+        "description": "",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "from",
+            "description": "<p>The previous version of the color if the action was <code>edited</code>.</p>",
+            "isRequired": true
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "description",
+        "description": "",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "from",
+            "description": "<p>The previous version of the description if the action was <code>edited</code>.</p>",
+            "isRequired": true
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "name",
+        "description": "",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "from",
+            "description": "<p>The previous version of the name if the action was <code>edited</code>.</p>",
+            "isRequired": true
+          }
+        ]
+      }
+    ],
+    "label": [
+      {
+        "type": "string",
+        "name": "color",
+        "description": "<p>6-character hex code, without the leading #, identifying the color</p>",
+        "isRequired": true
+      },
+      {
+        "type": "boolean",
+        "name": "default",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string or null",
+        "name": "description",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "integer",
+        "name": "id",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "name",
+        "description": "<p>The name of the label.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "node_id",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "url",
+        "description": "<p>URL for the label</p>",
+        "isRequired": true
+      }
+    ]
+  }
+}

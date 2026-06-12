@@ -1,6 +1,6 @@
 ---
 title: Enforcing repository management policies in your enterprise
-intro: 'You can enforce policies for repository management within your enterprise''s organizations, or allow policies to be set in each organization.'
+intro: You can enforce policies for repository management within your enterprise's organizations, or allow policies to be set in each organization.
 permissions: Enterprise owners can enforce policies for repository management in an enterprise.
 redirect_from:
   - /enterprise/admin/installation/configuring-the-default-visibility-of-new-repositories-on-your-appliance
@@ -37,13 +37,10 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Policies
-  - Repositories
-  - Security
 shortTitle: Repository management policies
+contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About policies for repository management in your enterprise
@@ -63,11 +60,8 @@ Each time someone creates a new repository within your enterprise, that person m
 If an enterprise owner disallows members from creating certain types of repositories, members will not be able to create that type of repository even if the visibility setting defaults to that type. For more information, see [Enforcing a policy for repository creation](#enforcing-a-policy-for-repository-creation).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
+
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "Default repository visibility", use the drop-down menu and select a default visibility.
 {% indented_data_reference reusables.enterprise_installation.image-urls-viewable-warning spaces=3 %}
@@ -82,6 +76,9 @@ Across all organizations owned by your enterprise, you can set a base repository
 {% data reusables.enterprise-accounts.repositories-tab %}
 1. Under "Base permissions", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 1. Under "Base permissions", select the dropdown menu and click a policy.
+
+> [!NOTE]
+> Internal repositories have a minimum visibility level of read, even if the base permission has been set to none.
 
 ## Enforcing a policy for repository creation
 
@@ -193,6 +190,19 @@ Across all organizations owned by your enterprise, you can allow members with ad
 1. Under "Repository issue deletion", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 1. Under "Repository issue deletion", select the dropdown menu and click a policy.
 
+{% ifversion repo-admin-branch-rename %}
+
+## Enforcing a policy for renaming protected branches
+
+By default, repository administrators can rename branches that are targeted by enterprise-level rules, provided the new branch name is still targeted by those same rules, or the administrator has permission to bypass the rule in question. You can restrict this ability to enterprise owners only.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.repositories-tab %}
+1. Under "Repository branch renames", select the dropdown menu and click a policy.
+
+{% endif %}
+
 {% ifversion ghes %}
 
 ## Enforcing a policy for Git push limits
@@ -208,8 +218,6 @@ By default, when you enforce repository upload limits, people cannot add or upda
 1. Optionally, to enforce a maximum upload limit for all repositories in your enterprise, select **Enforce on all repositories**
 
    ![Screenshot of the "Repository upload limit" policy section. The "Enforce on all repositories" checkbox is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
-
-{% ifversion ghes %}
 
 ## Enforcing a policy for the display of member names in your repositories
 
@@ -228,18 +236,13 @@ Across all organizations owned by your enterprise, you can allow members to see 
 
    ![Screenshot of the policy option for the display of member names in your repositories. The "Enforce on all repositories" checkbox is outlined.](/assets/images/enterprise/site-admin-settings/enforce-for-all-repositories-option.png)
 
-{% endif %}
-
 ## Configuring the merge conflict editor for pull requests between repositories
 
 Requiring users to resolve merge conflicts locally on their computer can prevent people from inadvertently writing to an upstream repository from a fork.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
+
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "Conflict editor for pull requests between repositories", use the drop-down menu, and click **Disabled**.
 
@@ -307,11 +310,8 @@ If necessary, you can prevent repository administrators from changing anonymous 
 ### Setting anonymous Git read access for all repositories
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
+
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "Anonymous Git read access", use the drop-down menu, and click **Enabled**.
 1. Optionally, to prevent repository admins from changing anonymous Git read access settings in all repositories on your enterprise, select **Prevent repository admins from changing anonymous Git read access**.

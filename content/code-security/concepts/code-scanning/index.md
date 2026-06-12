@@ -1,0 +1,28 @@
+---
+title: Concepts for code scanning
+shortTitle: Code scanning
+intro: Learn core concepts for {% data variables.product.github %}'s code scanning features.
+versions:
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+redirect_from:
+  - /code-security/code-scanning/introduction-to-code-scanning
+contentType: concepts
+children:
+  - /code-scanning
+  - /code-scanning-alerts
+  - /risk-assessment
+  - /copilot-autofix-for-code-scanning
+  - /setup-types
+  - /integration-with-code-scanning
+  - /sarif-files
+  - /alert-tracking-with-issues
+  - /merge-protection
+  - /multi-repository-variant-analysis
+  - /codeql
+  - /tool-status-page
+  - /pull-request-alert-metrics
+  - /repository-properties
+---
+

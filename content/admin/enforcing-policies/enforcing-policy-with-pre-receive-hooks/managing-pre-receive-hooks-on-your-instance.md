@@ -1,6 +1,6 @@
 ---
 title: Managing pre-receive hooks on your instance
-intro: 'Configure how people will use pre-receive hooks on {% data variables.location.product_location %}.'
+intro: Configure how people will use pre-receive hooks on {% data variables.location.product_location %}.
 redirect_from:
   - /enterprise/admin/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
   - /enterprise/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-appliance
@@ -10,12 +10,10 @@ redirect_from:
   - /admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-your-instance
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Policies
-  - Pre-receive hooks
 shortTitle: Manage pre-receive hooks
+contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 ## Creating pre-receive hooks
 
@@ -61,5 +59,5 @@ A repository owner can only configure a hook if the site administrator selected 
 {% data reusables.profile.enterprise_access_profile %}
 1. Navigate to the repository that you want to configure pre-receive hooks for.
 {% data reusables.repositories.sidebar-settings %}
-1. In the left sidebar, click **{% octicon "webhook" aria-hidden="true" %} Hooks**.
+1. In the left sidebar, click **{% octicon "webhook" aria-hidden="true" aria-label="webhook" %} Hooks**.
 1. Next to the pre-receive hook that you want to configure, select the **Hook permissions** dropdown menu, then click whether to enable or disable the pre-receive hook.

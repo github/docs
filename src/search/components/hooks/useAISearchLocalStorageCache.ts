@@ -16,7 +16,7 @@ interface CacheIndexEntry {
  *
  * Cached items are cached under a prefix, for a fixed number of days
  */
-export function useAISearchLocalStorageCache<T = any>(
+export function useAISearchLocalStorageCache<T = unknown>(
   cacheKeyPrefix: string = 'ai-query-cache',
   maxEntries: number = 1000,
   expirationDays: number = 30,
@@ -93,9 +93,9 @@ export function useAISearchLocalStorageCache<T = any>(
         index.sort((a, b) => a.timestamp - b.timestamp)
         const excess = index.length - maxEntries
         const entriesToRemove = index.slice(0, excess)
-        entriesToRemove.forEach((entry) => {
+        for (const entry of entriesToRemove) {
           localStorage.removeItem(entry.key)
-        })
+        }
         index = index.slice(excess)
       }
 

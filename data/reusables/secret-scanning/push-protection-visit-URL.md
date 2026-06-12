@@ -1,1 +1,1 @@
-1. Visit the URL returned by {% data variables.product.prodname_dotcom %} when your push was blocked.
+1. Visit the URL returned by {% data variables.product.prodname_dotcom %} when your push was blocked, **as the same user that performed the push**. If a different user attempts to visit this URL, they will receive a `404` error.

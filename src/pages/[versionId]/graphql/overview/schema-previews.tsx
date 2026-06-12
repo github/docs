@@ -1,1 +1,1 @@
-export { default, getServerSideProps } from 'src/graphql/pages/schema-previews'
+export { default, getServerSideProps } from '@/graphql/pages/schema-previews'

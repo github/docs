@@ -1,16 +1,13 @@
 ---
 title: Disabling passkeys for your instance
-intro: 'Learn how to disable passkeys for all users on your instance.'
-permissions: 'Site administrators'
+intro: Learn how to disable passkeys for all users on your instance.
+permissions: Site administrators
 versions:
-  ghes: '>=3.14'
-type: how_to
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
+  ghes: '*'
 shortTitle: Disable passkeys
+contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 Passkeys are enabled by default.

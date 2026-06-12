@@ -10,8 +10,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
+category:
+  - Create pull requests
 ---
 
 If you want to create a new branch for your pull request and do not have write permissions to the repository, you can fork the repository first. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) and [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks).
@@ -185,22 +185,13 @@ You can also make changes to files on the {% data variables.product.github %} we
 1. In the menu, click **Edit file**.
 1. Make your changes in the editor and when committing your change, choose to commit directly back to your head branch.
 
-{% ifversion copilot-hadron %}
-
-If you are part of the {% data variables.release-phases.public_preview %} of {% data variables.product.prodname_copilot_workspace %}, clicking **Edit** on a file on the "Files changed" tab will open the file in a {% data variables.product.prodname_copilot_workspace %} on {% data variables.product.prodname_dotcom %}. In a {% data variables.product.prodname_copilot_workspace %}, you can still make changes to the file but also make changes to other files in the repository, group your changes into a single commit, and take advantage of {% data variables.product.prodname_copilot_short %} code completion.
-
-You can access {% data variables.product.prodname_copilot_workspace %} by choosing to edit an individual file or by clicking **Open in {% data variables.product.prodname_copilot_workspace_short %}** in your pull request's right sidebar. For more information about {% data variables.product.prodname_copilot_workspace %} and joining the {% data variables.release-phases.public_preview %}, see [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request).
-
-{% endif %}
-
 {% endwebui %}
 
 ## Further reading
 
 * [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
 * [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)
-* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-base-branch-of-a-pull-request){% ifversion projects-v1 %}
-* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar){% endif %}
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-base-branch-of-a-pull-request)
 * [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)
 * [AUTOTITLE](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users)
 * [AUTOTITLE](/get-started/writing-on-github)

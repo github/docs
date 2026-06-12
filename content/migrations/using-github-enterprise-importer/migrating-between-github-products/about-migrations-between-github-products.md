@@ -1,41 +1,27 @@
 ---
-title: About migrations between GitHub products
+title: About migrations between GitHub products with {% data variables.product.prodname_importer_proper_name %}
 shortTitle: About migrations
 intro: 'Learn which data {% data variables.product.prodname_importer_proper_name %} can migrate between {% data variables.product.company_short %} products.'
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Understand enterprise migration tools
+allowTitleToDifferFromFilename: true
 ---
 
 ## About migrations between {% data variables.product.company_short %} products
 
 With {% data variables.product.prodname_importer_proper_name %}, you can migrate data from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %}, or migrate data from {% data variables.product.prodname_dotcom_the_website %} to another account on {% data variables.product.prodname_ghe_cloud %}.
 
-For example, {% data variables.product.prodname_importer_proper_name %} can help your company to:
-
-* Adopt {% data variables.enterprise.data_residency %} by migrating your enterprise to {% data variables.enterprise.data_residency_site %}
-* Adopt certain features on {% data variables.product.prodname_dotcom_the_website %}, such as {% data variables.product.prodname_emus %} or new billing models, by migrating between enterprises on {% data variables.product.prodname_dotcom_the_website %}
-* Benefit from simplified administration and new features by migrating from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %}
-
 If your migration source is an account on {% data variables.product.prodname_dotcom_the_website %}, you can migrate individual repositories between organizations, or migrate entire organizations between enterprises. If your migration source is {% data variables.product.prodname_ghe_server %}, you can migrate individual repositories.
 
 The data that {% data variables.product.prodname_importer_proper_name %} migrates depends on the source of the migration and whether you are migrating a repository or organization.
 
 {% ifversion repo-rules-enterprise %}
-{% data reusables.enterprise-migration-tool.deploy-key-bypass %}
+{% data reusables.enterprise-migration-tool.repository-migrations-bypass %}
 {% endif %}
-
-## Considerations for migrations to {% data variables.product.prodname_ghe_cloud %}
-
-Before you use {% data variables.product.prodname_importer_proper_name %}, understand the following considerations:
-
-* If you **already use {% data variables.product.prodname_ghe_cloud %}**: A {% data variables.product.prodname_enterprise %} plan entitles you to one deployment of {% data variables.product.prodname_ghe_cloud %}.
-
-  For example, if you already use {% data variables.product.prodname_dotcom_the_website %}, and you also want to migrate from {% data variables.product.prodname_ghe_server %} to {% data variables.enterprise.data_residency_site %}, your usage for both won't be covered under a single plan.
-* If you're **migrating to {% data variables.product.prodname_emus %}**: You will need to integrate with an identity provider to manage user accounts. Check the level of support for your identity provider before you start. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems).
-* If you're **migrating from {% data variables.product.prodname_ghe_server %}**: Be aware that {% data variables.product.company_short %} applies rate limits to certain actions, which are disabled by default on {% data variables.product.prodname_ghe_server %}. See [AUTOTITLE](/enterprise-cloud@latest/rest/using-the-rest-api/rate-limits-for-the-rest-api).
-* If you're **migrating to {% data variables.enterprise.data_residency %}**: Be aware that certain features are unavailable, and some features require different or additional configuration. See [AUTOTITLE](/enterprise-cloud@latest/admin/data-residency/feature-overview-for-github-enterprise-cloud-with-data-residency).
 
 ## Data that is migrated from {% data variables.product.prodname_ghe_server %}
 
@@ -57,12 +43,12 @@ User history for the above data | {% octicon "check" aria-label="Can be migrated
 Attachments (see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/attaching-files)) | {% octicon "check" aria-label="Can be migrated" %}  | {% octicon "check" aria-label="Can be migrated" %}  |
 Releases | {% octicon "x" aria-label="Cannot be migrated" %} | {% octicon "check" aria-label="Can be migrated" %}  |
 
-Different size limits per repository apply depending on your GHES version.
+Different size limits per repository apply to the compressed archive, depending on your GHES version.
 
-Limit | GHES <3.8.0 | GHES 3.8.0+ |
------ | ----------- | ----------- |
-Git source | 2GB | 10GB
-Metadata | 2GB | 10GB
+Limit | GHES <3.8.0 | GHES 3.8.x-3.11.x | GHES 3.12.x | GHES 3.13.0+
+----- | ----------- | ----------------- | ----------- | ------------
+Git source | 2GiB | 10GiB | 20GiB | 40GiB (public preview)
+Metadata | 2GiB | 10GiB | 20GiB | 40GiB (public preview)
 
 ### Data that is not migrated
 
@@ -122,7 +108,7 @@ When you migrate a repository, either directly or as part of an organization mig
     * Allow merge commits (commit message setting is reset to the default message)
     * Allow squash merging (commit message setting is reset to the default message)
     * Allow rebase merging
-* Releases (up to 10 GB per repository)
+* Releases (up to 10 GiB per repository)
 * User history for the above data
 * Attachments (see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/attaching-files))
 
@@ -130,9 +116,7 @@ When you migrate a repository, either directly or as part of an organization mig
 
 Currently, the following data is **not** migrated.
 
-* {% data variables.product.prodname_codespaces %} secrets
 {% data reusables.enterprise-migration-tool.data-not-migrated %}
-* User access to the repository
 
 When you migrate a repository directly, teams and team access to repositories are not migrated.
 
@@ -142,7 +126,13 @@ When you migrate a repository directly, teams and team access to repositories ar
 
 ## Limitations on migrated data
 
-{% data reusables.enterprise-migration-tool.limitations-of-migrated-data %}
+{% data reusables.enterprise-migration-tool.limitations-of-dotcom %}
+
+### Limitations of {% data variables.product.prodname_importer_proper_name %}
+
+* {% data reusables.enterprise-migration-tool.git-repo-size-limit %}
+* **40 GiB limit for metadata ({% data variables.release-phases.public_preview %}):** The {% data variables.product.prodname_importer_secondary_name %} cannot migrate repositories with more than 40 GiB of metadata. Metadata includes issues, pull requests, releases, and attachments. In most cases, large metadata is caused by binary assets attached to releases. You can exclude releases from the migration with the `migrate-repo` command's `--skip-releases` flag, and then move your releases manually after the migration.
+{% data reusables.enterprise-migration-tool.limitations-of-migration-tooling %}
 
 ## Getting started
 

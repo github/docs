@@ -33,18 +33,18 @@ env:
 
 jobs:
   dryRunElasticsearchIndexes:
-    runs-on: ubuntu-20.04-xl
+    runs-on: ubuntu-latest
     if: github.repository == 'github/docs-internal'
     steps:
       - name: Check out repo
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
       - name: Clone docs-internal-data
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           repository: github/docs-internal-data
           # This works because user `docs-bot` has read access to that private repo.
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           path: docs-internal-data
 
       - uses: ./.github/actions/setup-elasticsearch
@@ -64,7 +64,7 @@ jobs:
 
           # first sleep to give it a chance to start
           sleep 6
-          curl --retry-connrefused --retry 4 -I http://localhost:4002/
+          curl --retry-connrefused --retry 6 -I http://localhost:4002/
 
       - if: ${{ failure() }}
         name: Debug server outputs on errors

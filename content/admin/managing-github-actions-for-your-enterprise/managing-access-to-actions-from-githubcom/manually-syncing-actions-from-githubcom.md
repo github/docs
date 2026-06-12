@@ -1,17 +1,16 @@
 ---
 title: Manually syncing actions from GitHub.com
-intro: 'For users that need access to actions from {% data variables.product.prodname_dotcom_the_website %}, you can sync specific actions to your enterprise.'
+intro: For users that need access to actions from {% data variables.product.prodname_dotcom_the_website %}, you can sync specific actions to your enterprise.
 redirect_from:
   - /enterprise/admin/github-actions/manually-syncing-actions-from-githubcom
   - /admin/github-actions/manually-syncing-actions-from-githubcom
   - /admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom
 versions:
   ghes: '*'
-type: tutorial
-topics:
-  - Actions
-  - Enterprise
 shortTitle: Manually sync actions
+contentType: tutorials
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -88,6 +87,7 @@ This example demonstrates using the `actions-sync` tool to sync an individual ac
 1. After the action repository is created in your enterprise, people in your enterprise can use the destination repository to reference the action in their workflows. For the example action shown above:
 
    ```yaml
+   {% data reusables.actions.actions-not-certified-by-github-comment %}
    uses: synced-actions/actions-stale@v1
    ```
 

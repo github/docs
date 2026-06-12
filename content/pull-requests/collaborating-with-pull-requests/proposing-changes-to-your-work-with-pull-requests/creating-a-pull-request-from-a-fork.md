@@ -11,9 +11,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Create a PR from a fork
+category:
+  - Create pull requests
 ---
 If your pull request compares your topic branch with a branch in the upstream repository as the base branch, then your topic branch is also called the "compare branch" of the pull request.
 

@@ -5,9 +5,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 permissions: People with admin access for a forked repository can delete the forked repository.
+category:
+  - Work with forks
 ---
 
 ## Converting a fork into a standalone repository
@@ -42,7 +42,7 @@ You can only detach forks with the leave network option when:
 
 While the fork is being detached, some operations will be briefly unavailable until the fork has been transitioned to a standalone repository.
 
-## Manually Leaving the fork network
+## Manually leaving the fork network
 
 To turn your fork into a standalone repository, you can clone the fork, use the clone to create a new repository, and then delete the fork removing the connection to the original network.
 

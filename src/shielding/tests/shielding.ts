@@ -1,12 +1,13 @@
 import { describe, expect, test } from 'vitest'
 
-import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key.js'
-import { get } from '@/tests/helpers/e2etest.js'
+import { makeLanguageSurrogateKey } from '@/frame/middleware/set-fastly-surrogate-key'
+import { get } from '@/tests/helpers/e2etest'
 
 describe('honeypotting', () => {
   test('any GET with survey-vote and survey-token query strings is 400', async () => {
     const res = await get('/en?survey-vote=1&survey-token=2')
     expect(res.statusCode).toBe(400)
+    expect(res.headers['content-type']).toMatch('text/plain')
     expect(res.body).toMatch(/Honeypotted/)
     expect(res.headers['cache-control']).toMatch('private')
   })
@@ -18,6 +19,26 @@ describe('junk paths', () => {
     expect(res.statusCode).toBe(404)
     expect(res.headers['content-type']).toMatch('text/plain')
     expect(res.headers['cache-control']).toMatch('public')
+  })
+
+  test('double-slash protocol-relative paths are safely redirected', async () => {
+    const res = await get('//evil.com')
+    expect(res.statusCode).toBe(301)
+    // Must normalize to a safe local path, not redirect externally
+    expect(res.headers.location).toBe('/evil.com')
+  })
+
+  test('double-slash with query params does not open redirect', async () => {
+    const res = await get('//evil.com?a=1&b=2&c=3')
+    // With 3 unrecognized query keys, the query string middleware redirects
+    // using res.safeRedirect which normalizes // to /
+    expect(res.headers.location).not.toMatch(/^\/\//)
+  })
+
+  test('triple-slash paths are still blocked', async () => {
+    const res = await get('///evil.com')
+    expect(res.statusCode).toBe(404)
+    expect(res.headers['content-type']).toMatch('text/plain')
   })
 
   test('junk base name', async () => {
@@ -71,25 +92,13 @@ describe('index.md and .md suffixes', () => {
     }
   })
 
-  // TODO-ARTICLEAPI: unskip tests or replace when ready to ship article API
-  test('any URL that ends with /.md redirects', async () => {
-    // With language prefix
+  test('any URL that ends with .md serves markdown directly', async () => {
+    // .md is stripped and request flows through with Accept: text/markdown
     {
-      const res = await get('/en/get-started/hello.md')
-      expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe('/api/article/body?pathname=/en/get-started/hello')
-    }
-    // Without language prefix
-    {
-      const res = await get('/get-started/hello.md')
-      expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe('/api/article/body?pathname=/get-started/hello')
-    }
-    // With query string
-    {
-      const res = await get('/get-started/hello.md?foo=bar')
-      expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe('/api/article/body?pathname=/get-started/hello')
+      const res = await get('/en/get-started.md')
+      // Should not redirect — serves markdown directly (or 404 if page doesn't exist)
+      expect(res.statusCode).not.toBe(301)
+      expect(res.statusCode).not.toBe(302)
     }
   })
 })
@@ -127,8 +136,8 @@ describe('404 pages and their content-type', () => {
     expect(res.headers['cache-control']).toMatch('public')
     expect(res.headers['cache-control']).toMatch(/max-age=\d\d+/)
     const surrogateKeySplit = res.headers['surrogate-key'].split(/\s/g)
-    // The default is that it'll be purged at the next deploy.
-    expect(surrogateKeySplit.includes(SURROGATE_ENUMS.DEFAULT)).toBeTruthy()
+    // Keyed by language so it's purged at the next per-language deploy purge.
+    expect(surrogateKeySplit.includes(makeLanguageSurrogateKey('en'))).toBeTruthy()
     expect(res.headers['surrogate-control']).toContain('public')
     expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
   })

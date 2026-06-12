@@ -5,10 +5,9 @@ permissions: Organization owners can export member information for an organizati
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Export member information
+category:
+  - Manage members
 ---
 
 ## About export of membership information
@@ -21,7 +20,6 @@ The membership information report includes the following information.
 * Whether the user has two-factor authentication enabled
 * Whether the membership is public or private
 * Whether the user is an organization owner or member
-* Datetime of the user's last activity (such as timeline events, session updates, or access to resources via a {% data variables.product.pat_generic %} or SSH key)
 {%- ifversion ghec %}
 * Optionally, additional information that depends on the organization's configuration:
   * The user's SAML `NameID`
@@ -29,7 +27,7 @@ The membership information report includes the following information.
   * User, subscription email address, and license status for {% data variables.visual_studio.prodname_vss_ghe %}
 {%- endif %}
 
-You can also use {% data variables.product.prodname_dotcom %}'s APIs to retrieve information about your organization's members. For more information, see the [GraphQL API](/graphql/reference/objects#user) and [REST API](/rest/users) documentation.
+You can also use {% data variables.product.prodname_dotcom %}'s APIs to retrieve information about your organization's members. For more information, see the [GraphQL API](/graphql/reference/users#object-user) and [REST API](/rest/users) documentation.
 
 {% ifversion ghec %}
 

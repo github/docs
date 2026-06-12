@@ -6,12 +6,16 @@ redirect_from:
   - /github/managing-packages-with-github-packages/using-github-packages-with-github-actions
   - /packages/using-github-packages-with-your-projects-ecosystem/using-github-packages-with-github-actions
   - /packages/guides/using-github-packages-with-github-actions
+  - /actions/use-cases-and-examples/publishing-packages/about-packaging-with-github-actions
+  - /actions/concepts/use-cases/about-packaging-with-github-actions
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 shortTitle: Publish & install with Actions
 layout: inline
+category:
+  - Publish and manage packages
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -140,11 +144,11 @@ jobs:
 # This job publishes the package. `needs: run-npm-test` makes this job dependent on the `run-npm-test` job.
   build-and-push-image:
     runs-on: ubuntu-latest
-    needs: run-npm-test {% ifversion ghes %}
+    needs: run-npm-test 
     # Sets the permissions granted to the `GITHUB_TOKEN` for the actions in this job.
     permissions:
       contents: read
-      packages: write {% endif %}
+      packages: write 
       #
     steps:
       - name: Checkout

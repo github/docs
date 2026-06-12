@@ -1,15 +1,12 @@
 ---
 title: Navigating your Sponsors dashboard
-intro: 'View {% data variables.product.prodname_sponsors %}-related activity from your Sponsors dashboard.'
+intro: View {% data variables.product.prodname_sponsors %}-related activity from your Sponsors dashboard.
 versions:
   fpt: '*'
   ghec: '*'
-type: overview
-topics:
-  - Open Source
-  - Fundamentals
-  - Sponsors
-  - Sponsors profile
+contentType: concepts
+category:
+  - Understand sponsorships
 ---
 ## About your Sponsors dashboard
 
@@ -23,7 +20,7 @@ You can also manage current sponsorships and view past sponsorships, and export 
 
 {% data reusables.organizations.sponsors-dashboard %}
 {% data reusables.organizations.navigate-to-sponsoring %}
-1. From the left sidebar, click **{% octicon "heart" aria-hidden="true" %} Your sponsorships**.
+1. From the left sidebar, click **{% octicon "heart" aria-hidden="true" aria-label="heart" %} Your sponsorships**.
 
 ## Viewing dependencies
 
@@ -33,7 +30,7 @@ You can also export the list of dependencies as a CSV file.
 
 {% data reusables.organizations.sponsors-dashboard %}
 {% data reusables.organizations.navigate-to-sponsoring %}
-1. From the left sidebar, click **{% octicon "package-dependencies" aria-hidden="true" %} Dependencies**.
+1. From the left sidebar, click **{% octicon "package-dependencies" aria-hidden="true" aria-label="package-dependencies" %} Dependencies**.
 
 ## Viewing bulk sponsorships
 
@@ -49,7 +46,7 @@ You can manage your open and paid invoices from your sponsors dashboard. To be a
 
 {% data reusables.organizations.sponsors-dashboard %}
 {% data reusables.organizations.navigate-to-sponsoring %}
-1. From the left sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Invoices**.
+1. From the left sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Invoices**.
 
 ## Viewing settings
 
@@ -61,13 +58,13 @@ You can also choose to attribute your paid sponsorships to another account by li
 
 {% data reusables.organizations.sponsors-dashboard %}
 {% data reusables.organizations.navigate-to-sponsoring %}
-1. From the left sidebar, click **{% octicon "gear" aria-hidden="true" %} Settings**.
+1. From the left sidebar, click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**.
 1. Under "Sponsorship log", click **log**.
 
 ### Link your sponsorships to another account
 
 {% data reusables.organizations.sponsors-dashboard %}
 {% data reusables.organizations.navigate-to-sponsoring %}
-1. From the left sidebar, click **{% octicon "gear" aria-hidden="true" %} Settings**.
+1. From the left sidebar, click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**.
 1. Select the **Linked account** dropdown and click the account to use.
 1. Click **Link account** to confirm your selection.

@@ -1,0 +1,57 @@
+import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
+import { getPathWithoutVersion } from '@/frame/lib/path-utils'
+
+import type { Permalink } from '@/types'
+
+type Redirects = Record<string, string>
+
+export default function permalinkRedirects(
+  permalinks: Permalink[],
+  redirectFrom: string[],
+): Redirects {
+  const redirects: Redirects = {}
+  if (!permalinks.length) return redirects
+
+  // The following is handling for versionless redirect fallbacks!
+  // We put an entry into `redirects` without any version prefix that goes to the first supported
+  // version in the lib/all-versions.ts order. For example, we want this versionless path:
+  //   /billing/managing-billing-for-your-github-account/managing-invoices-for-your-enterprise
+  // to redirect to its first supported version, which is GHEC:
+  //   /enterprise-cloud@latest/billing/managing-billing-for-your-github-account/managing-invoices-for-your-enterprise
+  if (permalinks[0].pageVersion !== nonEnterpriseDefaultVersion) {
+    redirects[getPathWithoutVersion(permalinks[0].hrefWithoutLanguage)] =
+      permalinks[0].hrefWithoutLanguage
+  }
+
+  // For every "old" path in a content file's redirect_from frontmatter, also add that path to
+  // the redirects object as a key, where the value is the content file's permalink.
+  for (let frontmatterOldPath of redirectFrom) {
+    if (!frontmatterOldPath.startsWith('/')) {
+      throw new Error(
+        `'${frontmatterOldPath}' is not a valid redirect_from frontmatter value because it doesn't start with a /`,
+      )
+    }
+
+    // Exceptions where the `redirect_from` entries are too old
+    // Only replace /enterprise/ when it's at the start of the path followed by /admin/
+    // This handles legacy patterns like /enterprise/admin/... → /admin/...
+    // but preserves paths like /early-access/enterprise/... where enterprise is a directory name
+    frontmatterOldPath = frontmatterOldPath
+      .replace('/admin/guides/', '/admin/')
+      .replace(/^\/enterprise\/admin\//, '/admin/')
+
+    for (let index = 0; index < permalinks.length; index++) {
+      const permalink = permalinks[index]
+      // For the first supported permalink (the order is determined by lib/all-versions),
+      // put an entry into `redirects` without any version prefix.
+      if (index === 0) {
+        redirects[frontmatterOldPath] = permalink.hrefWithoutLanguage
+      }
+
+      // For every permalink, put an entry into `redirects` with the version prefix.
+      redirects[`/${permalink.pageVersion}${frontmatterOldPath}`] = permalink.hrefWithoutLanguage
+    }
+  }
+
+  return redirects
+}

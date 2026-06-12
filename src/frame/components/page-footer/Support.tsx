@@ -1,7 +1,7 @@
 import { PeopleIcon, CommentDiscussionIcon } from '@primer/octicons-react'
 
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { useMainContext } from 'src/frame/components/context/MainContext'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { useMainContext } from '@/frame/components/context/MainContext'
 
 export const Support = () => {
   const { t } = useTranslation('support')

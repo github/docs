@@ -1,4 +1,4 @@
-import { loadPages } from '@/frame/lib/page-data.js'
+import { loadPages } from '@/frame/lib/page-data'
 
 import type { Page } from '@/search/scripts/scrape/types'
 

@@ -24,6 +24,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Manage remote repositories
+category:
+  - Work with Git
 ---
 {% ifversion ghec %}
 

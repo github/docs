@@ -1,6 +1,6 @@
 ---
 title: Requesting to add a child team
-intro: 'If you have maintainer permissions in a team, you can request to nest an existing team under your team in your organization’s hierarchy.'
+intro: "If you have maintainer permissions in a team, you can request to nest an existing team under your team in your organization's hierarchy."
 redirect_from:
   - /articles/requesting-to-add-a-child-team
   - /github/setting-up-and-managing-organizations-and-teams/requesting-to-add-a-child-team
@@ -8,10 +8,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Add a child team
+category:
+  - Organize teams
 ---
 
 When you request to add a team as a child, a request is sent to the maintainers of the child team. Once a maintainer of the child team approves your request, the child team is nested under the parent team in your organization's hierarchy.
@@ -24,7 +23,7 @@ If you're an organization owner or you have team maintainer permissions in both 
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.teams %}
 1. In the list of teams, click the name of the team where you'd like to add the child team.
-1. At the top of the team page, click **{% octicon "people" aria-hidden="true" %} Teams**.
+1. At the top of the team page, click **{% octicon "people" aria-hidden="true" aria-label="people" %} Teams**.
 
    ![Screenshot of the header of a team's page. A tab, labeled with a people icon and "Teams", is outlined in dark orange.](/assets/images/help/teams/teams-tab-global-nav-update.png)
 

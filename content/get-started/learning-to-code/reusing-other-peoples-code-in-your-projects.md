@@ -5,6 +5,8 @@ shortTitle: Reuse people's code
 versions:
   fpt: '*'
 allowTitleToDifferFromFilename: true
+category:
+  - Learn to code
 ---
 
 One of the best things about open source software is the ability to reuse other people's code. Repurposing code helps you save time, discover new functionality, and learn other programming styles. There are two main ways to reuse code:
@@ -52,7 +54,7 @@ Explain this program.
 
 Before you can reuse the code you've found, you need to understand its licensing. Licenses determine how you can use the code in a project, including your ability to copy, modify, and distribute that code.
 
-To identify the license for [new2code/python-factorial](https://github.com/new2code/python-factorial), locate the "About" section on the repository's main page. There, you'll see that the repository is licensed under the MIT license. To read the license, click {% octicon "law" aria-hidden="true" %} **MIT license**.
+To identify the license for [new2code/python-factorial](https://github.com/new2code/python-factorial), locate the "About" section on the repository's main page. There, you'll see that the repository is licensed under the MIT license. To read the license, click {% octicon "law" aria-hidden="true" aria-label="law" %} **MIT license**.
 
   ![Screenshot of the main page of the new2code/python-factorial repository. In the right sidebar, "MIT license" is outlined in dark orange.](/assets/images/help/repository/license-info-python-factorial.png)
 
@@ -66,7 +68,7 @@ Now, you're ready to paste the code snippet into your project. While you'll some
 
 Let's say we want to quickly calculate the factorials of 5, 7, 9, and 10. Instead of copying and pasting the entire program for each number, we can move our calculator into a **function** that takes a number as an argument.
 
-Use [{% data variables.product.prodname_copilot_chat_short %}](https://github.com/copilot) to suggest and explain an implementation. Paste our current code into the chat window, followed by this prompt:
+Use [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot) to suggest and explain an implementation. Paste our current code into the chat window, followed by this prompt:
 
 ```text copy
 Wrap the Python code above in a function.
@@ -122,9 +124,9 @@ print(calculate_factorial(10))
 
 ### 1. Finding a library
 
-Once you know what functionality you want to add to your project, you can search for a library with relevant code. {% data variables.product.prodname_copilot_chat_short %} is an easy way to search for libraries, since you can use natural language to describe exactly what you're looking for.
+Once you know what functionality you want to add to your project, you can search for a library with relevant code. {% data variables.copilot.copilot_chat_short %} is an easy way to search for libraries, since you can use natural language to describe exactly what you're looking for.
 
-Finding a factorial is a pretty common function, and there's a good chance someone included that function in an existing library. Open [{% data variables.product.prodname_copilot_chat_short %}](https://github.com/copilot), then ask:
+Finding a factorial is a pretty common function, and there's a good chance someone included that function in an existing library. Open [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot), then ask:
 
 ```text copy
 Is there a Python library with a function for calculating a factorial?
@@ -142,7 +144,7 @@ Thankfully, there are some steps you can take to best protect your project. Let'
 
 Popular libraries are more likely to be secure, because they are actively maintained and used by many developers. One good marker of popularity is the number of **stars** a repository has. If you can't find the {% data variables.product.github %} repository for a dependency, you can ask {% data variables.product.prodname_copilot_short %} for help.
 
-Open [{% data variables.product.prodname_copilot_chat_short %}](https://github.com/copilot), then ask:
+Open [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot), then ask:
 
 ```text copy
 Find the GitHub repository containing the code for the math module in Python.
@@ -154,15 +156,13 @@ Find the GitHub repository containing the code for the math module in Python.
 
 When enabled, {% data variables.product.prodname_dependabot_alerts %} are automatically generated when {% data variables.product.prodname_dependabot %} detects a security issue in your dependencies, helping you quickly fix vulnerabilities. {% data variables.product.prodname_dependabot %} is available for **free** on all open source {% data variables.product.github %} repositories.
 
-Turn {% data variables.product.prodname_dependabot_alerts %} on for your repository now. Click the **Security** tab for your project's {% data variables.product.github %} repository. Next to {% data variables.product.prodname_dependabot_alerts %}, click **Enable {% data variables.product.prodname_dependabot_alerts %}**. You can access {% data variables.product.prodname_dependabot_alerts %} from the **{% data variables.product.prodname_dependabot %}** tab of the sidebar.
-
-  ![Screenshot of the "Security" page of a repository. The "Security" tab, "{% data variables.product.prodname_dependabot %}" tab, and "Enable {% data variables.product.prodname_dependabot_alerts %}" button are outlined in orange.](/assets/images/help/dependabot/learners-enable-dependabot.png)
+Turn {% data variables.product.prodname_dependabot_alerts %} on for your repository now. Click the **{% data variables.product.prodname_security_and_quality_tab %}** tab for your project's {% data variables.product.github %} repository. Next to {% data variables.product.prodname_dependabot_alerts %}, click **Enable {% data variables.product.prodname_dependabot_alerts %}**. You can access {% data variables.product.prodname_dependabot_alerts %} from the **{% data variables.product.prodname_dependabot %}** tab of the sidebar.
 
 ### 3. Implementing code from a library
 
 Now you're ready to import the library into your project, then use its contents in your code. You can read the documentation for the library to learn how to do it yourself, or you can ask {% data variables.product.prodname_copilot_short %} to suggest and explain an implementation for you.
 
-Open [{% data variables.product.prodname_copilot_chat_short %}](https://github.com/copilot), then ask:
+Open [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot), then ask:
 
 ```text copy
 How do I use the factorial function of the math module in my Python project?

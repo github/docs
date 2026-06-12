@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub search
 shortTitle: Search for repositories
+category:
+  - Find repositories and resources
 ---
 You can search for repositories globally across all of {% data variables.product.prodname_dotcom %}, or search for repositories within a particular organization. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
 
@@ -151,8 +151,6 @@ You can filter your search based on the visibility of the repositories. For more
 |  {% endif %} |
 | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) matches private repositories that you can access and contain the word "pages."
 
-{% ifversion repository-properties %}
-
 ## Search based on repository custom property
 
 You can filter repositories based on custom properties using the `props.` prefixed qualifiers. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
@@ -162,8 +160,6 @@ For these qualifiers to work, the search must be limited to a single organizatio
 | Qualifier  | Example
 | ------------- | -------------
 | <code>props.<em>PROPERTY</em>:<em>VALUE</em></code> | [**org:github props.environment:production**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+props.environment%3Atesting&type=Repositories) matches repositories from the `github` organization that have the custom property `environment` set to `production`.
-
-{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -217,6 +213,19 @@ You can search for repositories that have a funding file using the `has:funding-
 | ------------- | -------------
 | `is:sponsorable` | [**is:sponsorable**](https://github.com/search?q=is%3Asponsorable&type=Repositories) matches repositories whose owners have a {% data variables.product.prodname_sponsors %} profile.
 | `has:funding-file` | [**has:funding-file**](https://github.com/search?q=has%3Afunding-file&type=Repositories) matches repositories that have a FUNDING.yml file.
+
+{% endif %}
+
+{% ifversion virtual-registry %}
+
+## Search based on deployment context
+
+If your organization has added records to the {% data variables.product.virtual_registry %}, you can use this data to filter lists of repositories, such as the organization's "Repositories" page. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/linked-artifacts).
+
+| Qualifier | Description |
+| --------- | ----------- |
+| `deployable:true` | There is an active **storage record** for the repository in the {% data variables.product.virtual_registry %}. |
+| `deployed:true` | There is an active **deployment record** for the repository in the {% data variables.product.virtual_registry %}. |
 
 {% endif %}
 

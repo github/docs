@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Remove files
+category:
+  - Store large files with Git LFS
 ---
 ## Removing a single file
 

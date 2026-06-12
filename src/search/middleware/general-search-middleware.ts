@@ -1,15 +1,16 @@
 /*
 This file & middleware is for when a user requests our /search page e.g. 'docs.github.com/search?query=foo'
- We make whatever search is in the ?query= parameter and attach it to req.search 
- req.search is then consumed by the search component in 'src/search/pages/search.tsx' 
+ We make whatever search is in the ?query= parameter and attach it to req.search
+ req.search is then consumed by the search component in 'src/search/pages/search.tsx'
 
 When a user directly hits our API e.g. /api/search/v1?query=foo, they will hit the routes in ./search-routes.ts
 */
 
-import got from 'got'
+import { fetchWithRetry } from '@/frame/lib/fetch-utils'
 import { Request, Response, NextFunction } from 'express'
+import { createLogger } from '@/observability/logger'
 import { errors } from '@elastic/elasticsearch'
-import statsd from '@/observability/lib/statsd.js'
+import statsd, { adaptForTimer } from '@/observability/lib/statsd'
 
 import { getPathWithoutVersion, getPathWithoutLanguage } from '@/frame/lib/path-utils'
 import { getGeneralSearchResults } from '@/search/lib/get-elasticsearch-results/general-search'
@@ -21,7 +22,9 @@ import type {
   SearchOnReqObject,
   SearchTypes,
   SearchValidationErrorEntry,
-} from '@/search/types.js'
+} from '@/search/types'
+
+const logger = createLogger(import.meta.url)
 
 interface Context<Type extends SearchTypes> {
   currentVersion: string
@@ -94,7 +97,11 @@ export default async function contextualizeGeneralSearch(
       }
     } else {
       const tags: string[] = [`indexName:${indexName}`, `toplevels:${searchParams.toplevel.length}`]
-      const timed = statsd.asyncTimer(getGeneralSearchResults, 'contextualize.search', tags)
+      const timed = statsd.asyncTimer(
+        adaptForTimer(getGeneralSearchResults),
+        'contextualize.search',
+        tags,
+      )
       const getGeneralSearchArgs = {
         indexName,
         searchParams,
@@ -118,17 +125,12 @@ export default async function contextualizeGeneralSearch(
       } catch (error) {
         // If the Elasticsearch sends a 4XX we want the user to see a 500
         if (error instanceof errors.ResponseError) {
-          console.error(
-            'Error calling getSearchResults(%s):',
-            JSON.stringify({
-              indexName,
-              searchParams,
-            }),
+          logger.error('Error calling getSearchResults', {
+            indexName,
+            searchParams,
             error,
-          )
-          if (error?.meta?.body) {
-            console.error(`Meta:`, error.meta.body)
-          }
+            meta: error?.meta?.body,
+          })
           throw new Error(error.message)
         } else {
           throw error
@@ -169,6 +171,13 @@ async function getProxySearch(
       url.searchParams.set(key, value)
     }
   }
-  console.log(`Proxying search to ${url}`)
-  return got(url).json<GeneralSearchResponse>()
+  // Add client_name for external API requests
+  url.searchParams.set('client_name', 'docs.github.com-client')
+  logger.info('Proxying search', { url: url.toString() })
+
+  const response = await fetchWithRetry(url.toString())
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+  }
+  return response.json() as Promise<GeneralSearchResponse>
 }

@@ -4,11 +4,14 @@ import type { Response, NextFunction } from 'express'
 import sharp from 'sharp'
 
 import type { ExtendedRequest } from '@/types'
-import { assetCacheControl, defaultCacheControl } from '@/frame/middleware/cache-control.js'
+import { assetCacheControl, defaultCacheControl } from '@/frame/middleware/cache-control'
 import {
   setFastlySurrogateKey,
-  SURROGATE_ENUMS,
-} from '@/frame/middleware/set-fastly-surrogate-key.js'
+  makeLanguageSurrogateKey,
+} from '@/frame/middleware/set-fastly-surrogate-key'
+import { createLogger } from '@/observability/logger'
+
+const logger = createLogger(import.meta.url)
 
 /**
  * This is the indicator that is a virtual part of the URL.
@@ -79,13 +82,14 @@ export default async function dynamicAssets(
     //    < 302
     //    < location: /assets/images/site/logo.web
     //
-    return res.redirect(302, req.path)
+    return res.safeRedirect(302, req.path)
   }
 
   // From PNG to WEBP, if the PNG exists
   if (req.path.endsWith('.webp')) {
     const { url, maxWidth, error } = deconstructImageURL(req.path)
     if (error) {
+      logger.warn('Invalid dynamic asset URL', { path: req.path, error })
       return res.status(400).type('text/plain').send(error.toString())
     }
     try {
@@ -146,9 +150,14 @@ export default async function dynamicAssets(
       const buffer = await image.webp({ effort }).toBuffer()
       assetCacheControl(res)
       return res.type('image/webp').send(buffer)
-    } catch (error) {
-      if (error instanceof Error && (error as any).code !== 'ENOENT') {
-        throw error
+    } catch (catchError) {
+      if (
+        catchError instanceof Error &&
+        'code' in catchError &&
+        (catchError as NodeJS.ErrnoException).code !== 'ENOENT'
+      ) {
+        logger.error('Failed to process dynamic asset', { path: req.path, error: catchError })
+        throw catchError
       }
     }
   }
@@ -164,7 +173,7 @@ export default async function dynamicAssets(
   // it could be that the next prod deployment fixes the missing image.
   // For example, a PR landed that introduced the *reference* to the image
   // but forgot to check in the new image, then a follow-up PR adds the image.
-  setFastlySurrogateKey(res, SURROGATE_ENUMS.DEFAULT)
+  setFastlySurrogateKey(res, makeLanguageSurrogateKey(), true)
 
   // Don't use something like `next(404)` because we don't want a fancy
   // HTML "Page not found" page response because a failed asset lookup

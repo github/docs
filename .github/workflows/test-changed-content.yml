@@ -21,20 +21,33 @@ permissions:
 
 jobs:
   test-changed-content:
-    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
+    runs-on: ubuntu-latest
     if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
     steps:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
       - name: Check out repo
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          # Fetch 2 commits so tj-actions/changed-files can diff without extra API calls
+          fetch-depth: 2
 
       - uses: ./.github/actions/node-npm-setup
+
+      - name: Generate GitHub App token
+        if: ${{ github.repository == 'github/docs-internal' }}
+        id: app-token
+        uses: actions/create-github-app-token@3ff1caaa28b64c9cc276ce0a02e2ff584f3900c5 # v2.0.2
+        with:
+          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
+          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
+          owner: github
+          repositories: docs-early-access
 
       - uses: ./.github/actions/get-docs-early-access
         if: ${{ github.repository == 'github/docs-internal' }}
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ steps.app-token.outputs.token }}
 
       - uses: ./.github/actions/cache-nextjs
 
@@ -43,12 +56,19 @@ jobs:
 
       - name: Get changed files
         id: changed_files
-        uses: ./.github/actions/get-changed-files
+        uses: tj-actions/changed-files@22103cc46bda19c2b464ffe86db46df6922fd323 # v47.0.5
         with:
           files: 'content/**'
+          # Needed to expose `all_old_new_renamed_files` (old,new pairs for renames).
+          # Without this, files git classifies as renames (status R) are invisible to
+          # the deleted-file redirect check below and old URLs can silently 404.
+          include_all_old_new_renamed_files: true
 
       - name: Run tests
         env:
-          CHANGED_FILES: ${{ steps.changed_files.outputs.filtered_changed_files }}
-          DELETED_FILES: ${{ steps.changed_files.outputs.filtered_deleted_files }}
-        run: npm test -- src/content-render/tests/render-changed-and-deleted-files.js
+          CHANGED_FILES: ${{ steps.changed_files.outputs.all_modified_files }}
+          DELETED_FILES: ${{ steps.changed_files.outputs.deleted_files }}
+          # Space-separated `oldPath,newPath` pairs. The test treats the old paths
+          # like deleted files so missing redirects on renames are caught.
+          RENAMED_FILES: ${{ steps.changed_files.outputs.all_old_new_renamed_files }}
+        run: npm test -- src/content-render/tests/render-changed-and-deleted-files.ts

@@ -1,18 +1,17 @@
 ---
 title: Facilitating quick creation and resumption of codespaces
 shortTitle: Facilitating codespace creation
-intro: 'You can add a link to take people straight to a page for creating a codespace, with your choice of options preconfigured. Alternatively you can link to the "Resume codespace" page.'
+intro: You can add a link to take people straight to a page for creating a codespace, with your choice of options preconfigured. Alternatively you can link to the "Resume codespace" page.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
-  - Set up
 redirect_from:
   - /codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/adding-a-codespaces-badge
+contentType: how-tos
+category:
+  - Set up dev containers for a project
 ---
 
 ## Overview
@@ -45,7 +44,7 @@ You can use the "Share a deep link" option to configure more options for the cod
 
    ![Screenshot of the branch dropdown menu, listing various branches. The dropdown menu, labeled with a branch icon and "trunk," is outlined in orange.](/assets/images/help/codespaces/branch-drop-down.png)
 
-1. Click the **{% octicon "code" aria-hidden="true" %} Code** button, then click the **Codespaces** tab.
+1. Click the **{% octicon "code" aria-hidden="true" aria-label="code" %} Code** button, then click the **Codespaces** tab.
 1. To open the "Share codespace configuration" window, at the top right of the **Codespaces** tab, select {% octicon "kebab-horizontal" aria-label="Codespace repository configuration" %}, then click **Share a deep link**.
 
    ![Screenshot of the options dropdown in the "{% data variables.product.prodname_codespaces %}" tab. The "Share a deep link" option is highlighted with an orange outline.](/assets/images/help/codespaces/share-deep-link.png)

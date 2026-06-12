@@ -11,6 +11,7 @@ import { getUserEventsId } from '../events'
 import type { ParsedUrlQuery } from 'querystring'
 
 let experimentsInitialized = false
+let userIsStaff = false
 
 export function shouldShowExperiment(
   experimentKey: ExperimentNames | { key: ExperimentNames },
@@ -28,6 +29,8 @@ export function shouldShowExperiment(
   const experiments = getActiveExperiments('all')
   for (const experiment of experiments) {
     if (experiment.key === experimentKey) {
+      // Respect isActive so flipping it to false actually stops the experiment
+      if (!experiment.isActive) return false
       // If there is an override for the current session, use that
       if (controlGroupOverride[experiment.key]) {
         const controlGroup = getExperimentControlGroupFromSession(
@@ -45,6 +48,7 @@ export function shouldShowExperiment(
         // If the user has staffonly cookie, and staff override is true, show the experiment
         if (experiment.alwaysShowForStaff) {
           if (isStaff) {
+            userIsStaff = true
             console.log(`Staff cookie is set, showing '${experiment.key}' experiment`)
             return true
           }
@@ -73,7 +77,7 @@ export function shouldShowExperiment(
 // Allow developers to override their experiment group for the current session
 export const controlGroupOverride = {} as { [key in ExperimentNames]: 'treatment' | 'control' }
 if (typeof window !== 'undefined') {
-  // @ts-expect-error
+  // @ts-expect-error globally available function
   window.overrideControlGroup = (
     experimentKey: ExperimentNames,
     controlGroup: 'treatment' | 'control',
@@ -117,10 +121,11 @@ export function getExperimentVariationForContext(locale: string, version: string
     if (experiment.includeVariationInContext) {
       // If the user is using the URL param to view the experiment, include the variation in the context
       if (
-        experiment.turnOnWithURLParam &&
-        window.location?.search
-          ?.toLowerCase()
-          .includes(`feature=${experiment.turnOnWithURLParam.toLowerCase()}`)
+        (experiment.turnOnWithURLParam &&
+          window.location?.search
+            ?.toLowerCase()
+            .includes(`feature=${experiment.turnOnWithURLParam.toLowerCase()}`)) ||
+        (experiment.alwaysShowForStaff && userIsStaff)
       ) {
         return TREATMENT_VARIATION
       }
@@ -218,8 +223,9 @@ export function initializeForwardFeatureUrlParam(router: NextRouter, currentVers
       }
     }
 
-    const handleClick = (event: any) => {
-      const anchor = event.target?.closest('a')
+    const handleClick = (event: MouseEvent) => {
+      if (!(event.target instanceof Element)) return
+      const anchor = event.target.closest('a')
       if (anchor) {
         // If we found that the target is an anchor, we need to update and manually navigate to it
         event.preventDefault()
@@ -227,9 +233,10 @@ export function initializeForwardFeatureUrlParam(router: NextRouter, currentVers
       }
     }
 
-    const handleKeyDown = (event: any) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key !== 'Enter') return
-      const anchor = event.target?.closest('a')
+      if (!(event.target instanceof Element)) return
+      const anchor = event.target.closest('a')
       if (anchor) {
         // If we found that the target is an anchor, we need to update and manually navigate to it
         event.preventDefault()

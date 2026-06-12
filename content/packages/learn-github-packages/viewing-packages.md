@@ -13,6 +13,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Get started with packages
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -41,7 +43,7 @@ You can find and view a package located in the repositories of an organization y
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-1. Under your organization name, click **{% octicon "package" aria-hidden="true" %} Packages**.
+1. Under your organization name, click **{% octicon "package" aria-hidden="true" aria-label="package" %} Packages**.
 {% data reusables.package_registry.navigate-to-packages %}
 
 ## Viewing your packages

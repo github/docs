@@ -1,20 +1,16 @@
 ---
 title: Configuring web commit signing
 shortTitle: Configure web commit signing
-intro: 'You can enable auto-signing of commits made in the web interface of {% data variables.product.prodname_ghe_server %}.'
+intro: You can enable auto-signing of commits made in the web interface of {% data variables.product.prodname_ghe_server %}.
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Access management
-  - Enterprise
-  - Fundamentals
-  - Identity
-  - Security
-permissions: 'Site administrators'
+permissions: Site administrators
 redirect_from:
   - /admin/configuration/configuring-your-enterprise/configuring-web-commit-signing
   - /admin/configuration/configuring-user-applications-for-your-enterprise/configuring-web-commit-signing
+contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About web commit signing
@@ -22,6 +18,14 @@ redirect_from:
 If you enable web commit signing, {% data variables.product.prodname_ghe_server %} will automatically use GPG to sign commits users make on the web interface of {% data variables.location.product_location %}. Commits signed by {% data variables.product.prodname_ghe_server %} will have a verified status. For more information, see [AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification).
 
 You can enable web commit signing, rotate the private key used for web commit signing, and disable web commit signing.
+
+### About persistent commit signature verification
+
+Persistent commit signature verification is related but separate from web commit signing. This feature ensures that the verified status of commits is retained, even if signing keys are changed or revoked.
+
+Persistent commit signature verification helps maintain long-term integrity and trust in your repository’s commit history. However, you may choose to disable it in environments where minimizing disk usage is a priority, especially for large installations with a high number of verified commits.
+
+For information about disabling persistent commit signature verification, see [AUTOTITLE](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/disabling-persistent-commit-verification).
 
 ## Enabling web commit signing
 

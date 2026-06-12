@@ -1,10 +1,9 @@
-#!/usr/bin/env node
 import dotenv from 'dotenv'
 import { Octokit } from '@octokit/rest'
 import { retry } from '@octokit/plugin-retry'
 
 if (!process.env.GITHUB_TOKEN) {
-  dotenv.config()
+  dotenv.config({ quiet: true })
 }
 
 const RetryingOctokit = Octokit.plugin(retry)

@@ -7,7 +7,7 @@ name: Add docs-reviewers request to the docs-content review board
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 */6 * * *' # Run every 6 hours at 20 minutes after
+    - cron: '20 16 * * 1-5' # Run Mon-Fri at 16:20 UTC / 8:20 PST
 
 permissions:
   contents: read
@@ -20,22 +20,22 @@ jobs:
 
     steps:
       - name: Check out repo content
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
       - name: Setup Node.js
-        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
         with:
           node-version-file: 'package.json'
           cache: npm
 
       - name: Install dependencies
-        run: npm install @octokit/graphql
+        run: npm ci
 
       - name: Run script for audit-log-allowlists
         run: |
           npm run fr-add-docs-reviewers-requests
         env:
-          TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           PROJECT_NUMBER: 2936
           ORGANIZATION: 'github'
           REPO: 'audit-log-allowlists'
@@ -45,5 +45,9 @@ jobs:
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+      - uses: ./.github/actions/create-workflow-failure-issue
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}

@@ -4,13 +4,11 @@ intro: Learn about sponsorships, payment, and tax information for {% data variab
 versions:
   fpt: '*'
   ghec: '*'
-type: overview
-topics:
-  - Open Source
-  - Organizations
-  - Sponsors profile
 shortTitle: About sponsorships
 allowTitleToDifferFromFilename: true
+contentType: concepts
+category:
+  - Understand sponsorships
 ---
 
 ## About sponsorships
@@ -63,7 +61,7 @@ You can access the sponsorships dashboard through your organization's profile.
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-1. Under your organization name, click **{% octicon "heart" aria-hidden="true" %} Sponsoring**.
+1. Under your organization name, click **{% octicon "heart" aria-hidden="true" aria-label="heart" %} Sponsoring**.
 
 ## Sponsorship fees
 

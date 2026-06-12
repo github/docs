@@ -1,6 +1,6 @@
 ---
 title: Managing organization settings
-intro: 'Organization owners can change several settings, including the names of repositories that belong to the organization and Owners team membership. In addition, organization owners can delete the organization and all of its repositories.'
+intro: Organization owners can change several settings, including the names of repositories that belong to the organization and Owners team membership. In addition, organization owners can delete the organization and all of its repositories.
 redirect_from:
   - /articles/managing-organization-settings
   - /github/setting-up-and-managing-organizations-and-teams/managing-organization-settings
@@ -9,9 +9,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 children:
   - /verifying-or-approving-a-domain-for-your-organization
   - /renaming-an-organization
@@ -30,6 +27,7 @@ children:
   - /configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization
   - /setting-permissions-for-adding-outside-collaborators
   - /allowing-people-to-delete-issues-in-your-organization
+  - /allowing-repository-admins-to-rename-branches-with-organization-rulesets
   - /enabling-or-disabling-github-discussions-for-an-organization
   - /managing-discussion-creation-for-repositories-in-your-organization
   - /managing-the-commit-signoff-policy-for-your-organization
@@ -43,10 +41,10 @@ children:
   - /managing-the-display-of-member-names-in-your-organization
   - /managing-updates-from-accounts-your-organization-sponsors
   - /managing-the-publication-of-github-pages-sites-for-your-organization
+  - /managing-commit-comments-for-your-organization
   - /archiving-an-organization
   - /deleting-an-organization-account
   - /converting-an-organization-into-a-user
-  - /integrating-jira-with-your-organization-project-board
   - /upgrading-to-the-github-customer-agreement
   - /disabling-project-boards-in-your-organization
   - /managing-base-permissions-for-projects
@@ -54,7 +52,6 @@ children:
   - /creating-rulesets-for-repositories-in-your-organization
   - /managing-rulesets-for-repositories-in-your-organization
   - /managing-custom-properties-for-repositories-in-your-organization
+  - /managing-or-restricting-github-models-for-your-organization
 shortTitle: Manage organization settings
 ---
-{% ifversion fpt or ghec %}
-{% endif %}

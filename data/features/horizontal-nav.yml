@@ -1,5 +1,6 @@
 # Reference: #17228
 # Move Enterprise navigation from left sidebar to top of page
 versions:
+  fpt: '*'
   ghec: '*'
   ghes: '>3.16'

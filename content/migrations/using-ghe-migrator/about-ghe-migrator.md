@@ -1,6 +1,6 @@
 ---
 title: About ghe-migrator
-intro: 'You can use `ghe-migrator` to transfer data from a *source* location (either a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance.'
+intro: You can use `ghe-migrator` to transfer data from a *source* location (either a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance.
 redirect_from:
   - /enterprise/admin/migrations/about-migrations
   - /enterprise/admin/user-management/about-migrations
@@ -10,10 +10,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: overview
-topics:
-  - Enterprise
-  - Migration
+contentType: concepts
+category:
+  - Understand enterprise migration tools
 ---
 
 ## Types of migrations
@@ -43,7 +42,6 @@ The items in the table below can be migrated with a repository. Any items not sh
 | Wikis | All wiki data is migrated.
 | Teams | **@mentions** of teams are rewritten to match the target.
 | Milestones | Timestamps are preserved.
-| {% data variables.product.prodname_projects_v1_caps %} boards | {% data variables.projects.projects_v1_boards_caps %} associated with the repository and with the organization that owns the repository are migrated. {% data variables.product.prodname_projects_v2 %}, the all-new projects experience, is not supported.
 | Issues | Issue references and timestamps are preserved.
 | Issue comments | Cross-references to comments are rewritten for the target instance.
 | Pull requests | Cross-references to pull requests are rewritten to match the target. Timestamps are preserved.

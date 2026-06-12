@@ -1,15 +1,15 @@
 ---
-title: FAQ about changes to GitHub’s plans
+title: FAQ about changes to GitHub's plans
 intro: 'As of April 14, 2020, GitHub announced that all of the core GitHub features are now free for everyone.'
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - GitHub
 redirect_from:
   - /github/getting-started-with-github/faq-about-changes-to-githubs-plans
   - /github/getting-started-with-github/learning-about-github/faq-about-changes-to-githubs-plans
 shortTitle: Changes to GitHub plans
+category:
+  - Explore GitHub plans and features
 ---
 ## What plans and pricing changes did GitHub announce on April 14?
 
@@ -42,7 +42,6 @@ To downgrade your personal account or organizations's plan, see [AUTOTITLE](/bil
 * Wikis in private repositories
 * Multiple assignees for issues and pull requests in private repositories
 * Multiple pull request reviewers in private repositories
-* Draft pull requests in private repositories
 * Autolinked references in private repositories
 * Standard support
 

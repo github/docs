@@ -1,3 +1,7 @@
+/**
+ * @purpose Writer tool
+ * @description Find all content files that use a specific reusable
+ */
 // Usage: npm run reusables -- --help
 // Usage: npm run reusables -- find used accounts/create-account.md
 // Usage: npm run reusables -- find unused accounts/create-account.md

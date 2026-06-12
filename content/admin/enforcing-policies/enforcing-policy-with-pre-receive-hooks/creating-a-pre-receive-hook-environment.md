@@ -1,6 +1,6 @@
 ---
 title: Creating a pre-receive hook environment
-intro: 'To execute pre-receive hooks, use either the default pre-receive environment, or create a custom environment.'
+intro: To execute pre-receive hooks, use either the default pre-receive environment, or create a custom environment.
 redirect_from:
   - /enterprise/admin/developer-workflow/creating-a-pre-receive-hook-environment
   - /enterprise/admin/policies/creating-a-pre-receive-hook-environment
@@ -8,12 +8,10 @@ redirect_from:
   - /admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Policies
-  - Pre-receive hooks
 shortTitle: Pre-receive hook environments
+contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 A pre-receive environment for {% data variables.product.prodname_ghe_server %} is a Linux [`chroot`](https://en.wikipedia.org/wiki/Chroot) environment. Because pre-receive hooks execute on every push event, they should be fast and lightweight. The environment needed for such checks will typically be minimal.
 
@@ -44,13 +42,13 @@ You can use a Linux container management tool to build a pre-receive hook enviro
    ```shell
    $ docker build -f Dockerfile.debian -t pre-receive.debian .
    > [+] Building 0.6s (6/6) FINISHED                                                                   docker:desktop-linux
-   > => [internal] load build definition from Dockerfile.debian                                                              
-   > => [1/2] FROM docker.io/library/debian:latest@sha256:80dd3c3b9c6cecb9f1667e9290b3bc61b78c2678c02cbdae5f0fea92cc6  
-   > => [2/2] RUN apt-get update && apt-get install -y git bash curl                                            
-   > => exporting to image                                                                                             
-   > => => exporting layers                                                                                            
-   > => => writing image sha256:b57af4e24082f3a30a34c0fe652a336444a3608f76833f5c5fdaf4d81d20c3cc                       
-   > => => naming to docker.io/library/pre-receive.debian 
+   > => [internal] load build definition from Dockerfile.debian
+   > => [1/2] FROM docker.io/library/debian:latest@sha256:80dd3c3b9c6cecb9f1667e9290b3bc61b78c2678c02cbdae5f0fea92cc6
+   > => [2/2] RUN apt-get update && apt-get install -y git bash curl
+   > => exporting to image
+   > => => exporting layers
+   > => => writing image sha256:b57af4e24082f3a30a34c0fe652a336444a3608f76833f5c5fdaf4d81d20c3cc
+   > => => naming to docker.io/library/pre-receive.debian
    ```
 
 1. Create a container:
@@ -82,7 +80,7 @@ You can use a Linux container management tool to build a pre-receive hook enviro
    > * `/bin/sh` must exist and be executable, as the entry point into the chroot environment.
    > * Unlike traditional chroots, the `dev` directory is not required by the chroot environment for pre-receive hooks.
 
-For more information about creating a chroot environment see [Chroot](https://wiki.debian.org/chroot) from the _Debian Wiki_ or [BasicChroot](https://help.ubuntu.com/community/BasicChroot) from the _Ubuntu Community Help Wiki_.
+For more information about creating a chroot environment, see [Chroot](https://wiki.debian.org/chroot) from the Debian Wiki.
 
 ## Uploading a pre-receive hook environment on {% data variables.product.prodname_ghe_server %}
 

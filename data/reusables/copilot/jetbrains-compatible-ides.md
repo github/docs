@@ -16,4 +16,4 @@
 * WebStorm
 * Writerside
 
-See the [JetBrains IDEs](https://www.jetbrains.com/products/) tool finder to download.
+See the [JetBrains IDEs](https://www.jetbrains.com/products/?ref_product=copilot&ref_type=engagement&ref_style=button) tool finder to download.

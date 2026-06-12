@@ -16,9 +16,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 children:
   - /about-teams
   - /creating-a-team
@@ -34,8 +31,8 @@ children:
   - /requesting-to-add-a-child-team
   - /requesting-to-add-or-change-a-parent-team
   - /removing-organization-members-from-a-team
-  - /disabling-team-discussions-for-your-organization
   - /managing-scheduled-reminders-for-your-team
   - /deleting-a-team
 shortTitle: Organize members into teams
 ---
+

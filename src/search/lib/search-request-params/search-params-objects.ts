@@ -1,20 +1,17 @@
-/* 
+/*
   When a request is made to a /search endpoint with query parameters, e.g. ?query=foo&version=free-pro-team,
-  we need to validate and parse the parameters. This file contains the configuration for which parameters 
+  we need to validate and parse the parameters. This file contains the configuration for which parameters
   to expect based on the type of search request "e.g. general search vs autocomplete search" and how to validate them.
  */
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import { allIndexVersionKeys, versionToIndexVersionMap } from '@/search/lib/elasticsearch-versions'
 import { SearchTypes } from '@/search/types'
-import { latest } from '@/versions/lib/enterprise-server-releases'
 
 import type { SearchRequestQueryParams } from '@/search/lib/search-request-params/types'
 
 // Entry to this file, returns the query parameters to expect based on the type of search request
 export function getSearchRequestParamsObject(type: SearchTypes): SearchRequestQueryParams[] {
-  if (type === 'generalAutocomplete') {
-    return AUTOCOMPLETE_PARAMS_OBJ
-  } else if (type === 'aiSearchAutocomplete') {
+  if (type === 'aiSearchAutocomplete') {
     return AI_SEARCH_AUTOCOMPLETE_PARAMS_OBJ
   }
   return GENERAL_SEARCH_PARAMS_OBJ
@@ -47,8 +44,8 @@ const SHARED_PARAMS_OBJ: SearchRequestQueryParams[] = [
   {
     key: 'version',
     default_: 'free-pro-team',
-    validate: (version: string) => {
-      if (!versionToIndexVersionMap[version]) {
+    validate: (version) => {
+      if (!versionToIndexVersionMap[version as string]) {
         throw new ValidationError(`'${version}' not in ${allIndexVersionKeys.join(', ')}`)
       }
       return true
@@ -59,28 +56,36 @@ const SHARED_PARAMS_OBJ: SearchRequestQueryParams[] = [
 const GENERAL_SEARCH_PARAMS_OBJ: SearchRequestQueryParams[] = [
   ...SHARED_PARAMS_OBJ,
   { key: 'query' },
-  { key: 'language', default_: 'en', validate: (v) => v in languages },
+  { key: 'language', default_: 'en', validate: (v) => (v as string) in languages },
   {
     key: 'size',
     default_: DEFAULT_SIZE,
-    cast: (v) => parseInt(v, 10),
-    validate: (v) => v >= 0 && v <= MAX_SIZE,
+    cast: (v) => parseInt(v as string, 10),
+    validate: (v) => (v as number) >= 0 && (v as number) <= MAX_SIZE,
   },
   {
     key: 'page',
     default_: DEFAULT_PAGE,
-    cast: (v) => parseInt(v, 10),
-    validate: (v) => v >= 1 && v <= MAX_PAGE,
+    cast: (v) => parseInt(v as string, 10),
+    validate: (v) => (v as number) >= 1 && (v as number) <= MAX_PAGE,
   },
-  { key: 'sort', default_: DEFAULT_SORT, validate: (v) => POSSIBLE_SORTS.includes(v as any) },
+  {
+    key: 'sort',
+    default_: DEFAULT_SORT,
+    validate: (v) => POSSIBLE_SORTS.includes(v as (typeof POSSIBLE_SORTS)[number]),
+  },
   {
     key: 'highlights',
     default_: DEFAULT_HIGHLIGHT_FIELDS,
     cast: (v) => (Array.isArray(v) ? v : [v]),
     multiple: true,
     validate: (v) => {
-      for (const highlight of v) {
-        if (!POSSIBLE_HIGHLIGHT_FIELDS.includes(highlight)) {
+      for (const highlight of v as string[]) {
+        if (
+          !POSSIBLE_HIGHLIGHT_FIELDS.includes(
+            highlight as (typeof POSSIBLE_HIGHLIGHT_FIELDS)[number],
+          )
+        ) {
           throw new ValidationError(`highlight value '${highlight}' is not valid`)
         }
       }
@@ -95,7 +100,9 @@ const GENERAL_SEARCH_PARAMS_OBJ: SearchRequestQueryParams[] = [
     cast: toArray,
     multiple: true,
     validate: (values) =>
-      values.every((value: string) => V1_ADDITIONAL_INCLUDES.includes(value as any)),
+      (values as string[]).every((value: string) =>
+        V1_ADDITIONAL_INCLUDES.includes(value as (typeof V1_ADDITIONAL_INCLUDES)[number]),
+      ),
   },
   {
     key: 'toplevel',
@@ -108,7 +115,10 @@ const GENERAL_SEARCH_PARAMS_OBJ: SearchRequestQueryParams[] = [
     default_: [],
     cast: toArray,
     multiple: true,
-    validate: (values) => values.every((value: string) => V1_AGGREGATES.includes(value as any)),
+    validate: (values) =>
+      (values as string[]).every((value: string) =>
+        V1_AGGREGATES.includes(value as (typeof V1_AGGREGATES)[number]),
+      ),
   },
 ]
 
@@ -117,41 +127,30 @@ const SHARED_AUTOCOMPLETE_PARAMS_OBJ: SearchRequestQueryParams[] = [
   {
     key: 'size',
     default_: DEFAULT_AUTOCOMPLETE_SIZE,
-    cast: (size: string) => parseInt(size, 10),
-    validate: (size: number) => size >= 0 && size <= MAX_AUTOCOMPLETE_SIZE,
+    cast: (size) => parseInt(size as string, 10),
+    validate: (size) => (size as number) >= 0 && (size as number) <= MAX_AUTOCOMPLETE_SIZE,
   },
-  // We only want to enable for latest versions of fpt, ghec, and ghes
   {
     key: 'version',
     default_: 'free-pro-team',
-    validate: (version: string) => {
-      const mappedVersion = versionToIndexVersionMap[version]
-      if (
-        mappedVersion === 'fpt' ||
-        mappedVersion === 'ghec' ||
-        mappedVersion === `ghes-${latest}`
-      ) {
-        return true
+    validate: (version) => {
+      if (!versionToIndexVersionMap[version as string]) {
+        throw new ValidationError(`'${version}' not in ${allIndexVersionKeys.join(', ')}`)
       }
-      return false
+      return true
     },
   },
 ]
 
 const AI_SEARCH_AUTOCOMPLETE_PARAMS_OBJ: SearchRequestQueryParams[] = [
   ...SHARED_AUTOCOMPLETE_PARAMS_OBJ,
-  { key: 'language', default_: 'en', validate: (language: string) => language === 'en' },
+  { key: 'language', default_: 'en', validate: (language) => language === 'en' },
 ]
 
-const AUTOCOMPLETE_PARAMS_OBJ: SearchRequestQueryParams[] = [
-  ...SHARED_AUTOCOMPLETE_PARAMS_OBJ,
-  { key: 'language', default_: 'en', validate: (language: string) => language in languages },
-]
-
-function toBoolean(value: any): boolean {
+function toBoolean(value: unknown): boolean {
   return value === 'true' || value === '1'
 }
 
-function toArray(value: any): any[] {
+function toArray(value: unknown): unknown[] {
   return Array.isArray(value) ? value : [value]
 }

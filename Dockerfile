@@ -1,14 +1,16 @@
 # This Dockerfile is used solely for production deployments to Moda
 # For building this file locally, see src/deployments/production/README.md
-# Environment variables are set in the Moda configuration:
+# Most environment variables are set in the Moda configuration:
 #   config/moda/configuration/*/env.yaml
+# V8 heap sizing is set here via NODE_OPTIONS and mirrored in
+# the Moda config files for defense-in-depth.
 
 # ---------------------------------------------------------------
 # BASE STAGE: Install linux dependencies and set up the node user
 # ---------------------------------------------------------------
 # To update the sha:
 # https://github.com/github/gh-base-image/pkgs/container/gh-base-image%2Fgh-base-noble
-FROM ghcr.io/github/gh-base-image/gh-base-noble:20250407-184504-g7b9deed09 AS base
+FROM ghcr.io/github/gh-base-image/gh-base-noble:20260611-183630-g2a7c4449e@sha256:1ed595f8af068c9d8aa3afc113db1576a02e9492e513198c271c7bb3cd87c944 AS base
 
 # Install curl for Node install and determining the early access branch
 # Install git for cloning docs-early-access & translations repos
@@ -16,8 +18,15 @@ FROM ghcr.io/github/gh-base-image/gh-base-noble:20250407-184504-g7b9deed09 AS ba
 # https://github.com/nodejs/release#release-schedule
 # Ubuntu's apt-get install nodejs is _very_ outdated
 # Must run as root
-RUN apt-get -qq update && apt-get -qq install --no-install-recommends curl git \
-  && curl -sL https://deb.nodesource.com/setup_22.x | bash - \
+
+# From https://thehub.github.com/epd/engineering/devops/ci/actions/setting-up-new-github-action/
+# We passed pkg-mirror-host as a secret to the build but it is not sensitive data.
+RUN --mount=type=secret,id=pkg-mirror-host,target=/etc/pkg_mirror_host.txt \
+  if [ -f /etc/pkg_mirror_host.txt ]; then cat /etc/pkg_mirror_host.txt >> /etc/apt/mirrorlist.txt; fi
+
+RUN --mount=type=secret,id=apt-auth-conf,target=/etc/apt/auth.conf.d/apt_auth.conf \
+  apt-get -qq update && apt-get -qq install --no-install-recommends curl git \
+  && curl -sL https://deb.nodesource.com/setup_24.x | bash - \
   && apt-get install -y nodejs \
   && node --version
 
@@ -48,26 +57,35 @@ COPY --chown=node:node --chmod=+x \
 # - 3. Fetch each translations repo to the repo/translations directory
 # We use --mount-type=secret to avoid the secret being copied into the image layers for security
 # The secret passed via --secret can only be used in this RUN command
-RUN --mount=type=secret,id=DOCS_BOT_PAT_READPUBLICKEY,mode=0444 \
+RUN --mount=type=secret,id=DOCS_BOT_PAT_BASE,mode=0444 \
   # We don't cache because Docker can't know if we need to fetch new content from remote repos
   echo "Don't cache this step by printing date: $(date)" && \
   . ./build-scripts/fetch-repos.sh
 
-# -----------------------------------------
-# DEPENDENCIES STAGE: Install node packages
-# -----------------------------------------
-FROM base AS dependencies
+# ------------------------------------------------
+# PROD_DEPS STAGE: Install production dependencies
+# ------------------------------------------------
+FROM base AS prod_deps
 USER node:node
 WORKDIR $APP_HOME
 
 # Copy what is needed to run npm ci
 COPY --chown=node:node package.json package-lock.json ./
 
-RUN npm ci --omit=optional --registry https://registry.npmjs.org/
+# Install only production dependencies (skip scripts to avoid husky)
+RUN npm ci --omit=dev --ignore-scripts --registry https://registry.npmjs.org/
 
-# -----------------------------------------
-# BUILD STAGE: Prepare for production stage
-# -----------------------------------------
+# ------------------------------------------------------------
+# ALL_DEPS STAGE: Install all dependencies on top of prod deps
+# ------------------------------------------------------------
+FROM prod_deps AS all_deps
+
+# Install dev dependencies on top of production ones
+RUN npm ci --registry https://registry.npmjs.org/
+
+# ----------------------------------
+# BUILD STAGE: Build the application
+# ----------------------------------
 FROM base AS build
 USER node:node
 WORKDIR $APP_HOME
@@ -75,7 +93,7 @@ WORKDIR $APP_HOME
 # Source code
 COPY --chown=node:node src src/
 COPY --chown=node:node package.json ./
-COPY --chown=node:node next.config.js ./
+COPY --chown=node:node next.config.ts ./
 COPY --chown=node:node tsconfig.json ./
 
 # From the clones stage
@@ -84,14 +102,30 @@ COPY --chown=node:node --from=clones $APP_HOME/assets assets/
 COPY --chown=node:node --from=clones $APP_HOME/content content/
 COPY --chown=node:node --from=clones $APP_HOME/translations translations/
 
-# From the dependencies stage
-COPY --chown=node:node --from=dependencies $APP_HOME/node_modules node_modules/
+# From the all_deps stage (need dev deps for build)
+COPY --chown=node:node --from=all_deps $APP_HOME/node_modules node_modules/
 
-# Generate build files
-RUN npm run build \
-  && npm run warmup-remotejson \
-  && npm run precompute-pageinfo -- --max-versions 2 \
-  && npm prune --production
+# Build the application
+RUN npm run build
+
+# ---------------------------------------------
+# WARMUP_CACHE STAGE: Warm up remote JSON cache
+# ---------------------------------------------
+FROM build AS warmup_cache
+
+# Generate remote JSON cache
+RUN npm run warmup-remotejson
+
+# --------------------------------------
+# PRECOMPUTE STAGE: Precompute page info
+# --------------------------------------
+FROM build AS precompute_stage
+
+# Generate precomputed page info. Only English + free-pro-team@latest
+# permalinks are cached; cache misses for older versions and translated
+# pages fall through to runtime compute (which is cheap and Fastly-cached
+# per pathname after the first hit).
+RUN npm run precompute-pageinfo -- --max-versions 1
 
 # -------------------------------------------------
 # PRODUCTION STAGE: What will run on the containers
@@ -103,7 +137,7 @@ WORKDIR $APP_HOME
 # Source code
 COPY --chown=node:node src src/
 COPY --chown=node:node package.json ./
-COPY --chown=node:node next.config.js ./
+COPY --chown=node:node next.config.ts ./
 COPY --chown=node:node tsconfig.json ./
 
 # From clones stage
@@ -112,20 +146,30 @@ COPY --chown=node:node --from=clones $APP_HOME/assets assets/
 COPY --chown=node:node --from=clones $APP_HOME/content content/
 COPY --chown=node:node --from=clones $APP_HOME/translations translations/
 
-# From dependencies stage (*modified in build stage)
-COPY --chown=node:node --from=build $APP_HOME/node_modules node_modules/
+# From prod_deps stage (production-only node_modules)
+COPY --chown=node:node --from=prod_deps $APP_HOME/node_modules node_modules/
 
 # From build stage
 COPY --chown=node:node --from=build $APP_HOME/.next .next/
-COPY --chown=node:node --from=build $APP_HOME/.remotejson-cache ./
-COPY --chown=node:node --from=build $APP_HOME/.pageinfo-cache.json.br* ./
+
+# From warmup_cache stage
+COPY --chown=node:node --from=warmup_cache $APP_HOME/.remotejson-cache ./
+
+# From precompute_stage
+COPY --chown=node:node --from=precompute_stage $APP_HOME/.pageinfo-cache.json.br* ./
 
 # This makes it possible to set `--build-arg BUILD_SHA=abc123`
 # and it then becomes available as an environment variable in the docker run.
 ARG BUILD_SHA
 ENV BUILD_SHA=$BUILD_SHA
 
+# V8 heap limit as a percentage of the container cgroup memory limit.
+# Uses --max-old-space-size-percentage (Node 24+) so the heap adapts
+# automatically when K8s memory limits change. 80% leaves ~20% headroom
+# for off-heap memory (Buffers, V8 code cache, libuv) and OS overhead.
+# Raised from 75% on advice from performance engineering to reduce GC
+# pressure during traffic spikes.
+ENV NODE_OPTIONS="--max-old-space-size-percentage=80"
+
 # Entrypoint to start the server
-# Note: Currently we have to use tsx because
-# we have a mix of `.ts` and `.js` files with multiple import patterns
 CMD ["node_modules/.bin/tsx", "src/frame/server.ts"]

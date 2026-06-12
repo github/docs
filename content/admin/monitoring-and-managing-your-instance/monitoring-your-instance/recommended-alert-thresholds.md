@@ -1,6 +1,6 @@
 ---
 title: Recommended alert thresholds
-intro: 'You can configure an alert to notify you of system resource issues before they affect your {% data variables.product.prodname_ghe_server %} appliance''s performance.'
+intro: You can configure an alert to notify you of system resource issues before they affect your {% data variables.product.prodname_ghe_server %} appliance's performance.
 redirect_from:
   - /enterprise/admin/guides/installation/about-recommended-alert-thresholds
   - /enterprise/admin/installation/about-recommended-alert-thresholds
@@ -12,19 +12,23 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/recommended-alert-thresholds
 versions:
   ghes: '*'
-type: reference
-topics:
-  - Enterprise
-  - Infrastructure
-  - Monitoring
-  - Performance
-  - Storage
 shortTitle: Recommended alert thresholds
+contentType: reference
+category:
+  - Monitor and audit your enterprise
 ---
 
 ## About recommended alert thresholds
 
-You can configure external monitoring systems to alert you to storage, CPU, and memory usage that may cause problems with {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/setting-up-external-monitoring) and [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards).
+You can configure external monitoring systems to alert you to storage, CPU, and memory usage that may cause problems with {% data variables.location.product_location %}.
+
+{% ifversion ghes-opentelemetry %}
+For more information about OpenTelemetry metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/about-opentelemetry-metrics).
+{% endif %}
+
+For more information about collectd metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/collectd-metrics/about-collectd-metrics).
+
+For more information about the monitor dashboards, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards).
 
 ## Monitoring storage
 

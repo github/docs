@@ -1,4 +1,4 @@
-import { Parameter, StatusCode, CodeSample, BodyParameter } from 'src/rest/components/types'
+import { Parameter, StatusCode, CodeSample, BodyParameter } from '@/rest/components/types'
 
 export interface WebhookT {
   actions: string[]
@@ -21,7 +21,7 @@ interface WebhookActionData {
   codeExamples: Array<CodeSample>
   availability: Array<string>
   action: string
-  payloadExample?: Object
+  payloadExample?: object
 }
 export interface WebhookAction {
   name: string

@@ -1,5 +1,6 @@
 import express from 'express'
 
+import handleMalformedUrls from './handle-malformed-urls'
 import handleInvalidQuerystrings from './handle-invalid-query-strings'
 import handleInvalidPaths from './handle-invalid-paths'
 import handleOldNextDataPaths from './handle-old-next-data-paths'
@@ -9,6 +10,7 @@ import handleInvalidHeaders from './handle-invalid-headers'
 
 const router = express.Router()
 
+router.use(handleMalformedUrls)
 router.use(handleInvalidQuerystrings)
 router.use(handleInvalidPaths)
 router.use(handleOldNextDataPaths)

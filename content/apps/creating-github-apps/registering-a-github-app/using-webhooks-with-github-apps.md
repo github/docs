@@ -6,11 +6,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 redirect_from:
   - /apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps
   - /apps/creating-github-apps/setting-up-a-github-app/using-webhooks-with-github-apps
+category:
+  - Register and configure a GitHub App
 ---
 
 ## About webhooks and {% data variables.product.prodname_github_apps %}
@@ -23,7 +23,9 @@ To receive webhook events in your {% data variables.product.prodname_github_app 
 
 If your {% data variables.product.prodname_github_app %} does not need to respond to webhooks or will only be used for authentication, you can turn off the webhook function for your {% data variables.product.prodname_github_app %} registration. You do not need to specify a webhook URL.
 
-For more information about registering a {% data variables.product.prodname_github_app %}, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app). For more information about changing the webhooks that a {% data variables.product.prodname_github_app %} registration subscribes to, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app).
+For more information about registering a {% data variables.product.prodname_github_app %}, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app). For more information about changing the webhooks that a {% data variables.product.prodname_github_app %} registration subscribes to, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app).{% ifversion enterprise-installed-apps %}
+
+Apps installed on an enterprise do not support webhooks at this time. They must be installed on organizations in order to receive webhooks.{% endif %}
 
 ## Choosing a webhook URL
 
@@ -31,7 +33,7 @@ When you activate webhooks for your {% data variables.product.prodname_github_ap
 
 ### Choosing a webhook URL for development and testing
 
-While you develop and test your app, you can use a webhook payload delivery service like [Smee](https://smee.io/) to capture and forward webhook payloads to your local development environment. Never use Smee for an application in production, because Smee channels are not authenticated or secure. Alternatively, you can use a tool like [ngrok](https://ngrok.com/docs/guides/developer-preview/getting-started/), [localtunnel](https://localtunnel.github.io/www/), or the [Hookdeck Console](https://console.hookdeck.com?provider=github) that exposes your local machine to the internet to receive the payloads.
+While you develop and test your app, you can use a webhook payload delivery service like [Smee](https://smee.io/) to capture and forward webhook payloads to your local development environment. Never use Smee for an application in production, because Smee channels are not authenticated or secure. Alternatively, you can use a tool like [ngrok](https://ngrok.com/docs/getting-started/), [localtunnel](https://localtunnel.github.io/www/), or the [Hookdeck Console](https://console.hookdeck.com?provider=github) that exposes your local machine to the internet to receive the payloads.
 
 #### Creating a webhook URL with Smee
 

@@ -10,6 +10,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Access control & visibility
+category:
+  - Publish and manage packages
 ---
 {% data reusables.package_registry.container-registry-ghes-beta %}
 
@@ -98,7 +100,7 @@ If you disable automatic inheritance of access permissions, new packages scoped 
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the sidebar, in the "Code, planning, and automation" section, click **{% octicon "package" aria-hidden="true" %} Packages**.
+1. In the sidebar, in the "Code, planning, and automation" section, click **{% octicon "package" aria-hidden="true" aria-label="package" %} Packages**.
 1. Under "Default Package Settings", deselect **Inherit access from source repository**.
 1. Click **Save**.
 

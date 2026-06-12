@@ -18,8 +18,8 @@ redirect_from:
   - /articles/github-business-cloud-support
   - /admin/enterprise-support/about-support-for-advanced-security
   - /enterprise-server/admin/enterprise-support/about-support-for-advanced-security
-topics:
-  - Support
+category:
+  - Understand your support options
 ---
 
 ## About {% data variables.contact.github_support %}
@@ -28,7 +28,7 @@ The support options available to {% data variables.product.github %} users depen
 
 {% rowheaders %}
 
-|  | {% data variables.product.prodname_gcf %} | Standard support | Enterprise support | Premium support |
+| {% data variables.product.github %} plan | {% data variables.product.prodname_gcf %} | Standard support | Enterprise support | Premium support |
 |---|---|---|---|---|
 | {% data variables.product.prodname_free_user %} | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} | {% octicon "x" aria-label="Not available" %} | {% octicon "x" aria-label="Not available" %} |
 | {% data variables.product.prodname_pro %} | {% octicon "check" aria-label="Available" %} | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} | {% octicon "x" aria-label="Not available" %} |
@@ -57,7 +57,7 @@ For more information, see [AUTOTITLE](/support/learning-about-github-support/abo
 
 {% ifversion fpt or ghec %}
 
-Before contacting {% data variables.contact.github_support %}, check if there are currently any incidents affecting services on {% data variables.product.github %} on [{% data variables.product.github %} Status](https://githubstatus.com/). For more information, see [About GitHub status](#about-github-status).
+Before contacting {% data variables.contact.github_support %}, check [{% data variables.product.github %} Status](https://githubstatus.com/) for any active incidents affecting {% data variables.product.github %} services. For more information, see [About GitHub status](#about-github-status).
 
 {% endif %}
 
@@ -87,11 +87,13 @@ Email communication from GitHub Support will always be sent from either a `githu
 
 {% data reusables.support.scope-of-support %}
 
+For security-related matters, all communication is handled in writing through support tickets. This includes incident notifications, account compromise investigations, and credential exposure. Written communication ensures responses are reviewed, fully documented, and auditable. Callback and screen share requests cannot be accommodated for these tickets.
+
 {% ifversion ghec or fpt %}
 
 ## About GitHub status
 
-You can check for any incidents currently affecting {% data variables.product.github %} services and view information about past incidents on {% data variables.product.github %}'s [Status page]({% ifversion fpt or ghec %}https://githubstatus.com{% endif %}).
+You can check for any incidents currently affecting {% data variables.product.github %} services, including {% data variables.product.prodname_copilot %} model availability, and view information about past incidents on {% data variables.product.github %}'s [Status page](https://githubstatus.com).
 
 You can also subscribe and get alerted via email, text message, and webhook whenever there's an incident affecting {% data variables.product.github %}.
 
@@ -109,9 +111,9 @@ Enterprise owners can also add support entitlements to members of organizations 
 
 {% endif %}
 
-## About {% data variables.product.prodname_copilot_in_support %}
+## About {% data variables.copilot.copilot_in_support %}
 
-You can receive answers to questions relating to {% data variables.product.github %}'s products and features before submitting a support ticket by using {% data variables.product.prodname_copilot_in_support %}. {% data variables.product.prodname_copilot_in_support %} is an AI-powered tool that uses a large language model to find answers to a wide variety of support queries. If {% data variables.product.prodname_copilot_in_support %} cannot answer your question, You can proceed with submitting your ticket to {% data variables.contact.github_support %}. For more information, see [AUTOTITLE](/support/learning-about-github-support/about-copilot-in-github-support).
+You can receive answers to questions relating to {% data variables.product.github %}'s products and features before submitting a support ticket by using {% data variables.copilot.copilot_in_support %}. {% data variables.copilot.copilot_in_support %} is an AI-powered tool that uses a large language model to find answers to a wide variety of support queries. If {% data variables.copilot.copilot_in_support %} cannot answer your question, You can proceed with submitting your ticket to {% data variables.contact.github_support %}. For more information, see [AUTOTITLE](/support/learning-about-github-support/about-copilot-in-github-support).
 
 {% ifversion fpt or ghec %}
 
@@ -131,7 +133,7 @@ For pricing, licensing, renewals, quotes, payments, and other related questions,
 To learn more about training options, including customized trainings, see [{% data variables.product.company_short %}'s training site](https://services.github.com/).
 
 > [!NOTE]
-> Training is included in the {% data variables.product.premium_plus_support_plan %}. For more information, see [AUTOTITLE](/support/learning-about-github-support/about-github-premium-support).
+> Training is included in the {% data variables.product.premium_plus_support_plan %} / {% data variables.product.microsoft_premium_plus_support_plan %}. For more information, see [AUTOTITLE](/support/learning-about-github-support/about-github-premium-support).
 
 {% endif %}
 
@@ -141,7 +143,7 @@ To learn more about training options, including customized trainings, see [{% da
 
 ### Support in English
 
-For standard non-urgent issues, we offer support in English 24 hours per day, 5 days per week, excluding weekends and national U.S. holidays. The standard response time is 24 hours.
+For standard non-urgent issues, we offer support in English 24 hours per day, 5 days per week, excluding weekends and national U.S. holidays.
 
 {% ifversion ghes %}
 For urgent issues, we are available 24 hours per day, 7 days per week, even during national U.S. holidays.

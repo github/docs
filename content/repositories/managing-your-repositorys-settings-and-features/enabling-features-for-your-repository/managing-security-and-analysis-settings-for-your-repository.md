@@ -1,6 +1,6 @@
 ---
 title: Managing security and analysis settings for your repository
-intro: 'You can control features that secure and analyze the code in your project on {% data variables.product.github %}.'
+intro: You can control features that secure and analyze the code in your project on {% data variables.product.github %}.
 permissions: People with admin permissions to a repository can manage security and analysis settings for the repository.
 redirect_from:
   - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organization-s-repositories
@@ -13,15 +13,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Dependabot
-  - Alerts
-  - Code Security
-  - Dependency graph
-  - Secret scanning
-  - Repositories
 shortTitle: Security & analysis
+contentType: how-tos
+category:
+  - Manage access and repository policies
 ---
 
 {% ifversion dependabot-alerts-enterprise-enablement %}
@@ -60,7 +55,7 @@ Other features are permanently enabled for public repositories, such as the depe
 
 ## Enabling or disabling security and analysis features{% ifversion fpt or ghec %} for private repositories{% endif %}
 
-You can manage the security and analysis features for your {% ifversion fpt or ghec %}private or internal {% endif %}repository. If your enterprise or organization has a license for {% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}{% else %}{% data variables.product.prodname_GHAS %}{% endif %}, then extra options are available. {% data reusables.advanced-security.more-info-ghas %}
+You can manage the security and analysis features for your {% ifversion fpt or ghec %}private or internal {% endif %}repository. If your enterprise or organization has a license for {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}, then extra options are available. {% data reusables.advanced-security.more-info-ghas %}
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
@@ -76,7 +71,7 @@ You can manage the security and analysis features for your {% ifversion fpt or g
 
 {% data variables.product.github %} security alerts are automated notifications that inform you when vulnerabilities are found in your repository's dependencies or code. They prompt you to review and remediate these issues, helping to keep your project secure.
 
-You can find security alerts from {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_secret_scanning_caps %}, and {% data variables.product.prodname_code_scanning_caps %} under your repository's **Security** tab.
+You can find security alerts from {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_secret_scanning_caps %}, and {% data variables.product.prodname_code_scanning_caps %} under your repository's **{% data variables.product.prodname_security_and_quality_tab %}** tab.
 
 Security alerts for a repository are visible to people with write, maintain, or admin access to the repository and, when the repository is owned by an organization, organization owners. You can give additional teams and people access to the alerts.
 

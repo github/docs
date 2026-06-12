@@ -9,8 +9,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub search
+category:
+  - Find repositories and resources
 ---
 ## Search {% data variables.product.github %} for topics
 

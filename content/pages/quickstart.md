@@ -1,16 +1,16 @@
 ---
 title: Quickstart for GitHub Pages
-intro: 'You can use {% data variables.product.prodname_pages %} to showcase some open source projects, host a blog, or even share your résumé. This guide will help get you started on creating your next website.'
+intro: You can use {% data variables.product.prodname_pages %} to showcase some open source projects, host a blog, or even share your résumé. This guide will help get you started on creating your next website.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: quick_start
-topics:
-  - Pages
 shortTitle: Quickstart
 product: '{% data reusables.gated-features.pages %}'
+category:
+  - Set up a GitHub Pages site
+contentType: get-started
 ---
 
 ## Introduction

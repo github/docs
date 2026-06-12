@@ -1,16 +1,15 @@
 ---
 title: Enabling GitHub Packages with MinIO
-intro: 'Set up {% data variables.product.prodname_registry %} with MinIO as your external storage.'
+intro: Set up {% data variables.product.prodname_registry %} with MinIO as your external storage.
 versions:
   ghes: '*'
-type: tutorial
-topics:
-  - Enterprise
-  - Packages
-  - Storage
 shortTitle: Enable Packages with MinIO
 redirect_from:
   - /admin/packages/enabling-github-packages-with-minio
+  - /admin/configuring-packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages
+contentType: tutorials
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 > [!WARNING]
@@ -21,7 +20,7 @@ redirect_from:
 
 ## Prerequisites
 
-Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.location.product_location_enterprise %}, you need to prepare your MinIO storage bucket. To help you quickly set up a MinIO bucket and navigate MinIO's customization options, see the [AUTOTITLE](/admin/packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages).
+Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.location.product_location_enterprise %}, you need to prepare your MinIO object store. See the [MinIO AIStor Documentation](https://docs.min.io/enterprise/aistor-object-store/).
 
 Ensure your MinIO external storage access key ID and secret have these permissions:
 * `s3:PutObject`

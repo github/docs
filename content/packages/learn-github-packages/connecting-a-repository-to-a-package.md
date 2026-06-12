@@ -10,6 +10,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Connect a repository
+category:
+  - Publish and manage packages
 ---
 
 When you publish a package that is scoped to a personal account or an organization, the package is not linked to a repository by default. If you connect a package to a repository, the package's landing page will show information and links from the repository, such as the README. You can also choose to have the package inherit its access permissions from the linked repository. For more information, see [AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility).
@@ -119,4 +121,4 @@ When you publish a package that is scoped to a personal account or an organizati
 If you currently have a package linked to a repository and you would like to link it to a different repository, this can be done by unlinking the package from the current repository and linking it to the new repository.
 
 1. Follow the steps to unlink it, see [Unlinking a repository from a package on {% data variables.product.prodname_dotcom %}](/packages/learn-github-packages/connecting-a-repository-to-a-package#unlinking-a-repository-from-a-package-on-github).
-1. Follow the steps to link the package to the new repository, see [Connecting a repository to an organization-scoped package on {% data variables.product.prodname_dotcom %}](/packages/learn-github-packages/connecting-a-repository-to-a-package#connecting-a-repository-to-a-user-scoped-package-on-github) or [Connecting a repository to a user-scoped package on {% data variables.product.prodname_dotcom %}](/packages/learn-github-packages/connecting-a-repository-to-a-package#connecting-a-repository-to-an-organization-scoped-package-on-github).
+1. Follow the steps to link the package to the new repository, see [Connecting a repository to an organization-scoped package on {% data variables.product.prodname_dotcom %}](/packages/learn-github-packages/connecting-a-repository-to-a-package#connecting-a-repository-to-an-organization-scoped-package-on-github) or [Connecting a repository to a user-scoped package on {% data variables.product.prodname_dotcom %}](/packages/learn-github-packages/connecting-a-repository-to-a-package#connecting-a-repository-to-a-user-scoped-package-on-github).

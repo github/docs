@@ -18,7 +18,7 @@
 
     // We want to keep table-layout: auto so that column widths dynamically adjust;
     // otherwise entries get needlessly squashed into narrow columns. As a workaround,
-    // we use components/lib/wrap-code-terms.js to prevent some reference table content
+    // we use components/lib/wrap-code-terms.ts to prevent some reference table content
     // from expanding beyond the horizontal boundaries of the parent element.
     @media (min-width: 544px) {
       table-layout: auto;
@@ -35,6 +35,7 @@
     thead {
       position: sticky;
       top: 105px; // 88 + 8 + 8 + 1, space for the site header
+      z-index: 1; // Ensure header stays above content including superscripts
 
       @include breakpoint-xxl {
         top: 65px !important; // 48 + 8 + 8 + 1, space for the site header

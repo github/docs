@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // [start-readme]
 
 // This script is intended to be used as a git "prepush" hook.

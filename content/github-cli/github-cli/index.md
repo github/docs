@@ -12,6 +12,7 @@ children:
   - /using-multiple-accounts
   - /creating-github-cli-extensions
   - /using-github-cli-extensions
+  - /github-cli-telemetry
   - /github-cli-reference
 ---
 

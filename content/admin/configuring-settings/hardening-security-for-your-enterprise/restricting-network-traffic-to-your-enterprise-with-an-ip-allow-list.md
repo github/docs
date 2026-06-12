@@ -5,23 +5,22 @@ intro: You can restrict access to your enterprise and only allow access to your 
 permissions: Enterprise owners can configure IP allow lists.
 versions:
   ghec: '*'
-type: how_to
-topics:
-  - Access management
-  - Enterprise
-  - Fundamentals
-  - Networking
-  - Security
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list
   - /admin/configuration/hardening-security-for-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list
+contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About network traffic restrictions
 
 By default, authorized users can access your enterprise's resources from any IP address. You can restrict access to your enterprise's private resources by configuring a list that allows or denies access from specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+
+> [!NOTE]
+> If your enterprise uses {% data variables.product.prodname_emus %}, enabling the IP allow list does not restrict user provisioning actions performed through SAML/SCIM, OpenID Connect (OIDC) with Entra ID, or via REST API endpoints. For more information, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim).
 
 If your enterprise uses {% data variables.product.prodname_emus %} with Microsoft Entra ID (previously known as Azure AD) and OIDC, you can choose whether to use {% data variables.product.company_short %}'s IP allow list feature or to use the allow list restrictions for your identity provider (IdP). If your enterprise does not use {% data variables.product.prodname_emus %} with Azure and OIDC, you can use {% data variables.product.company_short %}'s allow list feature.
 
@@ -56,8 +55,8 @@ To ensure seamless use of the OIDC CAP while still applying the policy to OAuth 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
-1. If you're using {% data variables.product.prodname_emus %} with OIDC, under "IP allow list", select the **IP allow list configuration** dropdown menu and click **GitHub**.
-1. Under "IP allow list", select **Enable IP allow list**.
+1. If you're using {% data variables.product.prodname_emus %} with OIDC, under "IP allow list," select the **IP allow list configuration** dropdown menu and click **GitHub**.
+1. Under "IP allow list," select **Enable IP allow list**.
 1. Click **Save**.
 
 ### Adding an allowed IP address
@@ -119,9 +118,36 @@ To ensure seamless use of the OIDC CAP while still applying the policy to OAuth 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
-1. Under "IP allow list", select the **IP allow list configuration** dropdown menu and click **Identity Provider**.
+1. Under "IP allow list," select the **IP allow list configuration** dropdown menu and click **Identity Provider**.
 1. Optionally, to allow installed {% data variables.product.company_short %} and {% data variables.product.prodname_oauth_apps %} to access your enterprise from any IP address, select **Skip IdP check for applications**.
 1. Click **Save**.
+
+## Restricting access to user-owned resources with the IP allow list
+
+> [!NOTE]
+> User-level IP allow list enforcement is only available for enterprises that use {% data variables.product.prodname_emus %}.
+
+By default, your enterprise's IP allow list does not restrict access to repositories and other resources owned by {% data variables.enterprise.prodname_managed_users %}. You can enable user-level enforcement to extend IP allow list restrictions to user-owned resources, including:
+
+* User-owned repositories and their forks
+* User profile pages
+
+This ensures that all locations where enterprise code may reside—not just organization-owned repositories—are only accessible from allowed IP addresses.
+
+### Enabling user-level enforcement
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+1. Under "IP allow list", select **Enable IP allow list user-level enforcement**.
+1. Click **Save**.
+
+> [!IMPORTANT]
+> Before enabling user-level enforcement, add all IP addresses that your {% data variables.enterprise.prodname_managed_users %} use to connect to the enterprise IP allow list. If a user connects from an IP address that isn’t on the allow list, they won’t be able to access their user-owned resources.
+
+### Disabling user-level enforcement
+
+To stop enforcing the IP allow list on user-owned resources, follow the same steps above and deselect **Enable IP allow list user-level enforcement**, then click **Save**. Access to user-owned resources will no longer be restricted by the IP allow list.
 
 ## Using {% data variables.product.prodname_actions %} with an IP allow list
 
@@ -130,3 +156,7 @@ To ensure seamless use of the OIDC CAP while still applying the policy to OAuth 
 ## Using {% data variables.product.prodname_pages %} with an IP allow list
 
 {% data reusables.pages.ip-allow-list-pages %}
+
+## Using {% data variables.product.prodname_dependabot %} with an IP allow list
+
+{% data reusables.dependabot.ip-allow-list-dependabot %}

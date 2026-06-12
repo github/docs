@@ -1,6 +1,6 @@
 ---
 title: Introduction to dev containers
-intro: 'When you work in a codespace, the environment you are working in is created using a development container, or dev container, hosted on a virtual machine.'
+intro: When you work in a codespace, the environment you are working in is created using a development container, or dev container, hosted on a virtual machine.
 permissions: People with write permissions to a repository can create or edit the codespace configuration.
 redirect_from:
   - /github/developing-online-with-github-codespaces/configuring-github-codespaces-for-your-project
@@ -12,11 +12,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
-  - Set up
-  - Fundamentals
+contentType: how-tos
+category:
+  - Set up dev containers for a project
 ---
 
 ## About dev containers
@@ -125,7 +123,7 @@ If you don't add a dev container configuration to your repository, or if your co
 The default configuration is a good option if you're working on a small project that uses the languages and tools that {% data variables.product.prodname_github_codespaces %} provides.
 
 > [!NOTE]
-> {% data variables.product.prodname_dotcom %} does not charge for storage of containers built from the default dev container image. For more information about billing for codespace storage, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-storage-usage). {% data reusables.codespaces.check-for-default-image %}
+> {% data variables.product.prodname_dotcom %} does not charge for storage of containers built from the default dev container image. For more information about billing for codespace storage, see [AUTOTITLE](/billing/concepts/product-billing/github-codespaces). {% data reusables.codespaces.check-for-default-image %}
 
 ## Using a predefined dev container configuration
 
@@ -176,7 +174,7 @@ If none of the predefined configurations meets your needs, you can create a cust
 ### Adding a `devcontainer.json` file
 
 If you don't already have a `devcontainer.json` file in your repository, you can quickly add one from {% data variables.product.github %}.
-1. Navigate to your repository and click the **{% octicon "code" aria-hidden="true" %} Code** dropdown.
+1. Navigate to your repository and click the **{% octicon "code" aria-hidden="true" aria-label="code" %} Code** dropdown.
 1. In the **Codespaces** tab, click the ellipsis (**...**), then select **Configure dev container**.
 
    ![Screenshot of the "Code" dropdown, and, within it, another dropdown with the "Configure dev container" option highlighted.](/assets/images/help/codespaces/configure-dev-container.png)

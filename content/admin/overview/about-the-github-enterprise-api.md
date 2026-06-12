@@ -10,16 +10,15 @@ redirect_from:
   - /admin/overview/about-the-github-enterprise-server-api
 versions:
   ghes: '*'
-topics:
-  - Enterprise
 shortTitle: GitHub Enterprise API
+category:
+  - Get started with GitHub Enterprise
 ---
 
 With the APIs, you can automate many administrative tasks. Some examples include:
 
-{%- ifversion management-console-manage-ghes-parity %}
 * Perform a configuration run to apply changes to {% data variables.enterprise.management_console %} settings. For more information, see [AUTOTITLE](/rest/enterprise-admin/manage-ghes).
-{%- endif %}
+
 * Configure LDAP sync. For more information, see [AUTOTITLE](/rest/enterprise-admin/ldap).
 * Collect statistics about your enterprise. For more information, see [AUTOTITLE](/rest/enterprise-admin/admin-stats).
 * Manage your enterprise account. For more information, see [AUTOTITLE](/graphql/guides/managing-enterprise-accounts).

@@ -1,16 +1,15 @@
 ---
 title: Setting up a template repository for GitHub Codespaces
 shortTitle: Set up a template repo
-intro: 'You can help people get started with a project by setting up a template repository for use with {% data variables.product.prodname_github_codespaces %}.'
+intro: You can help people get started with a project by setting up a template repository for use with {% data variables.product.prodname_github_codespaces %}.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
-  - Set up
 redirect_from:
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-a-template-repository-for-github-codespaces
+contentType: how-tos
+category:
+  - Set up dev containers for a project
 ---
 
 ## Introduction
@@ -23,7 +22,7 @@ To help users find your template and get started quickly, you can share a link t
 
 When someone creates a codespace from your template, the contents of your template repository will be cloned into their codespace. When the user is ready, they will be able to publish their work to a new repository on {% data variables.product.github %} belonging to their personal account. For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template).
 
-Organizations can pay for members of the organization and outside collaborators to use {% data variables.product.prodname_github_codespaces %} at the organization's expense. This includes codespaces created from template repositories owned by the organization. However, if a user publishes a codespace created from a template to their personal account, ownership and billing of the codespace transfers to the user who created the codespace. For more information, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#how-billing-is-handled-for-github-codespaces-templates).
+Organizations can pay for members of the organization and outside collaborators to use {% data variables.product.prodname_github_codespaces %} at the organization's expense. This includes codespaces created from template repositories owned by the organization. However, if a user publishes a codespace created from a template to their personal account, ownership and billing of the codespace transfers to the user who created the codespace. For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-codespaces#how-costs-are-assigned-to-a-billable-account).
 
 ## Describe your template
 

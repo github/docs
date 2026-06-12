@@ -11,10 +11,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Reinstate collaborator
+category:
+  - Control repository access
 ---
 
 {% data reusables.enterprise-managed.repo-collaborators-note %}
@@ -24,9 +23,9 @@ When an outside collaborator's access to your organization's private repositorie
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
 When you reinstate a former outside collaborator, you can restore:
+
 * The user's former access to organization repositories
 * Any private forks of repositories owned by the organization
-* Membership in the organization's teams
 * Previous access and permissions for the organization's repositories
 * Stars for organization repositories
 * Issue assignments in the organization
@@ -43,6 +42,7 @@ When you reinstate a former outside collaborator, you can restore:
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.reinstate-user-type-username %}
 {% ifversion fpt or ghec %}
+
 1. Select whether to restore the outside collaborator's previous privileges in the organization by clicking **Invite and reinstate** or choose to clear their previous privileges and set new access permissions by clicking **Invite and start fresh**.
 
    > [!WARNING]

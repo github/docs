@@ -8,13 +8,14 @@ The following regions are supported on {% data variables.product.prodname_dotcom
 <li><code>AustraliaEast</code></li>
 <li><code>BrazilSouth</code></li>
 <li><code>CanadaCentral</code></li>
+<li><code>CanadaEast</code></li>
 <li><code>CentralUs</code></li>
 <li><code>EastAsia</code></li>
 <li><code>EastUs</code></li>
 <li><code>EastUs2</code></li>
 <li><code>FranceCentral</code></li>
 <li><code>GermanyWestCentral</code></li>
-<li><code>JapanEast</code></li>
+<li><code>JapanWest</code></li>
 <li><code>KoreaCentral</code></li>
 <li><code>NorthCentralUs</code></li>
 <li><code>NorthEurope</code></li>
@@ -25,6 +26,7 @@ The following regions are supported on {% data variables.product.prodname_dotcom
 <li><code>SwedenCentral</code></li>
 <li><code>SwitzerlandNorth</code></li>
 <li><code>UkSouth</code></li>
+<li><code>UkWest</code></li>
 <li><code>WestUs</code></li>
 <li><code>WestUs2</code></li>
 <li><code>WestUs3</code></li>
@@ -48,4 +50,4 @@ Azure private networking supports arm64 runners in the following regions.
 * `WestUs2`
 * `WestUs3`
 
-If your desired region is not supported, please submit a request for new region availability in [this GitHub form](https://resources.github.com/private-networking-for-github-hosted-runners-with-azure-virtual-networks/). You may also use global virtual network peering to connect virtual networks across Azure regions. For more information, see [Virtual network peering](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) in the Azure documentation.
+We will be launching a process to request support for new regions soon. You may also use global virtual network peering to connect virtual networks across Azure regions. For more information, see [Virtual network peering](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) in the Azure documentation.

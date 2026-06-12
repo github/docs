@@ -11,7 +11,7 @@ export const nextApp = next({ dev: isDevelopment })
 export const nextHandleRequest = nextApp.getRequestHandler()
 await nextApp.prepare()
 
-function renderPageWithNext(req: ExtendedRequest, res: Response, next: NextFunction) {
+function renderPageWithNext(req: ExtendedRequest, res: Response, nextFn: NextFunction) {
   if (req.path.startsWith('/_next') && !req.path.startsWith('/_next/data')) {
     return nextHandleRequest(req, res)
   }
@@ -20,7 +20,7 @@ function renderPageWithNext(req: ExtendedRequest, res: Response, next: NextFunct
   // '/_next/static/webpack/64e44ef62e261d3a.webpack.hot-update.json' has to
   // go through here.
 
-  return next()
+  return nextFn()
 }
 
 export default renderPageWithNext

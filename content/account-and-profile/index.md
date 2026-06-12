@@ -1,39 +1,40 @@
 ---
 title: Account and profile documentation
 shortTitle: Account and profile
-intro: 'Make {% data variables.product.github %} work best for you by adjusting the settings for your personal account, personalizing your profile page, and managing the notifications you receive.'
+intro: Make {% data variables.product.github %} work best for you by customizing your personal account settings and personalizing your profile page.
 introLinks:
-  quickstart: /get-started/onboarding/getting-started-with-your-github-account
-featuredLinks:
-  startHere:
-    - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/changing-your-github-username
-    - /account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme
-    - /account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications
-  popular:
-    - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address
-    - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository
-    - /account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications
-  guideCards:
-    - /account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile
-    - /account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox
-    - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address
-    - '{% ifversion ghes %}/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories{% endif %}'
-changelog:
-  label: 'profiles, github-themes, notifications'
-  versions:
-    fpt: '*'
-    ghec: '*'
-layout: product-landing
+  quickstart: /account-and-profile/get-started/account
+  overview: /account-and-profile/get-started/profile
+layout: discovery-landing
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Profiles
-  - Notifications
+carousels:
+  recommended:
+    - /account-and-profile/get-started/account
+    - /account-and-profile/get-started/profile
+    - /account-and-profile/get-started/personal-dashboard-quickstart
+    - /account-and-profile/tutorials/personalize-your-profile
+    - /account-and-profile/tutorials/using-your-github-profile-to-enhance-your-resume
+    - /account-and-profile/how-tos/email-preferences/setting-your-commit-email-address
+    - /account-and-profile/how-tos/profile-customization/managing-your-profile-readme
+    - /account-and-profile/how-tos/account-management/managing-multiple-accounts
+    - /account-and-profile/how-tos/contribution-settings/viewing-contributions-on-your-profile
+includedCategories:
+  - Set up your account
+  - Manage your email
+  - Customize your profile
+  - Track your contributions
+  - Configure account settings
+  - Change or close your account
+  - Participate in organizations
 children:
-  - /setting-up-and-managing-your-personal-account-on-github
-  - /setting-up-and-managing-your-github-profile
-  - /managing-subscriptions-and-notifications-on-github
+  - /get-started
+  - /concepts
+  - /how-tos
+  - /tutorials
+  - /reference
+contentType: landing
 ---
+

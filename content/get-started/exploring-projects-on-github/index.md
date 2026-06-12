@@ -11,10 +11,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Projects
 children:
   - /finding-ways-to-contribute-to-open-source-on-github
+  - /contributing-to-open-source
   - /using-github-copilot-to-explore-projects
   - /contributing-to-a-project
   - /saving-repositories-with-stars

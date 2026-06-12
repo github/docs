@@ -12,15 +12,12 @@ type UseQueryParamReturn<T extends string | boolean> = {
 }
 
 // Overloads so we can use this for a boolean or string query param
-// eslint-disable-next-line no-redeclare
 export function useQueryParam(queryParamKey: string, isBoolean: true): UseQueryParamReturn<boolean>
-// eslint-disable-next-line no-redeclare
 export function useQueryParam(queryParamKey: string, isBoolean?: false): UseQueryParamReturn<string>
-// eslint-disable-next-line no-redeclare
 export function useQueryParam(
   queryParamKey: string,
   isBoolean?: boolean,
-): UseQueryParamReturn<any> {
+): UseQueryParamReturn<boolean> | UseQueryParamReturn<string> {
   const router = useRouter()
 
   const [queryParamString, setQueryParamState] = useState<string>('')
@@ -62,9 +59,16 @@ export function useQueryParam(
     setQueryParamState(newValue)
   }
 
+  if (isBoolean) {
+    return {
+      debug,
+      queryParam: queryParam as boolean,
+      setQueryParam: setQueryParam as (value: boolean) => void,
+    }
+  }
   return {
     debug,
-    queryParam: queryParam as any, // Type will be set based on overloads
-    setQueryParam,
+    queryParam: queryParam as string,
+    setQueryParam: setQueryParam as (value: string) => void,
   }
 }

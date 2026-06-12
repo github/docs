@@ -1,0 +1,4 @@
+# Automatic watching for notifications, deprecated
+
+versions:
+  ghes: '<3.18'

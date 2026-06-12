@@ -1,0 +1,1 @@
+During the {% data variables.release-phases.public_preview %}, {% data variables.product.prodname_code_quality_short %} uses the `{% data variables.code-quality.workflow_name_billing %}` workflow that is also used by {% data variables.product.prodname_code_scanning %}.

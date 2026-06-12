@@ -4,6 +4,7 @@ import { ActionMenu } from '@primer/react'
 import { AnchorAlignment } from '@primer/behaviors'
 
 import { Fields } from './Fields'
+import styles from './Picker.module.scss'
 
 interface Props {
   items: PickerItem[]
@@ -12,7 +13,7 @@ interface Props {
   pickerLabel?: string
   dataTestId: string
   defaultText: string
-  ariaLabel: string
+  ariaLabel?: string
   alignment: AnchorAlignment
   descriptionFontSize?: number
   renderItem?: (item: PickerItem) => ReactNode | string
@@ -23,7 +24,10 @@ export interface PickerItem {
   text: string
   selected: boolean
   extra?: {
-    [key: string]: any
+    arrow?: boolean
+    info?: boolean
+    version?: string
+    currentDate?: string
   }
   divider?: boolean
 }
@@ -47,14 +51,9 @@ export const Picker = ({
       <ActionMenu.Button
         aria-label={ariaLabel}
         variant={buttonBorder ? 'default' : 'invisible'}
-        className="color-fg-default width-full p-1 pl-2 pr-2"
-        sx={{
-          height: 'auto',
-          textAlign: 'left',
-          'span:first-child': { display: 'inline' },
-        }}
+        className={`color-fg-default width-full p-1 pl-2 pr-2 ${styles.menuButton}`}
       >
-        {pickerLabel && <span style={{ whiteSpace: 'pre-wrap' }}>{`${pickerLabel}`}</span>}
+        {pickerLabel && <span className={styles.pickerLabel}>{`${pickerLabel}`}</span>}
         <span
           className={`f${descriptionFontSize} color-fg-muted text-normal`}
           data-testid={dataTestId}

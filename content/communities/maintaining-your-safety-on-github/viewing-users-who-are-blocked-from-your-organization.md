@@ -7,9 +7,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Community
 shortTitle: View blocked users in org
+category:
+  - Block users and report abuse
 ---
 
 

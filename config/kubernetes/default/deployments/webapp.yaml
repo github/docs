@@ -2,8 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: webapp
+  annotations:
+    moda.github.net/inject-unified-service-tag-env-var: docs-internal
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: webapp
@@ -16,18 +18,32 @@ spec:
         # See https://thehub.github.com/epd/engineering/dev-practicals/observability/logging/ for more details
         fluentbit.io/parser: logfmt_sloppy
         observability.github.com/splunk_index: docs-internal
+        ad.datadoghq.com/webapp.logs: '[{"source":"nodejs","service":"docs-internal","tags":["env:staging"]}]'
+        ad.datadoghq.com/tolerate-unready: 'true'
     spec:
       dnsPolicy: Default
+      terminationGracePeriodSeconds: 60
       containers:
         - name: webapp
           image: docs-internal
+          # Retune using 2 weeks of data
+          # https://app.datadoghq.com/dashboard/6vx-iun-ghs/moda-resource-recommendations?tpl_var_kube_namespace%5B0%5D=docs-internal-staging-balsam&tpl_var_kube_namespace%5B1%5D=docs-internal-staging-boxwood&tpl_var_kube_namespace%5B2%5D=docs-internal-staging-cedar&tpl_var_kube_namespace%5B3%5D=docs-internal-staging-cypress&tpl_var_kube_namespace%5B4%5D=docs-internal-staging-fir&tpl_var_kube_namespace%5B5%5D=docs-internal-staging-hemlock&tpl_var_kube_namespace%5B6%5D=docs-internal-staging-hinoki&tpl_var_kube_namespace%5B7%5D=docs-internal-staging-holly&tpl_var_kube_namespace%5B8%5D=docs-internal-staging-juniper&tpl_var_kube_namespace%5B9%5D=docs-internal-staging-laurel&tpl_var_kube_namespace%5B10%5D=docs-internal-staging-pine&tpl_var_kube_namespace%5B11%5D=docs-internal-staging-redwood&tpl_var_kube_namespace%5B12%5D=docs-internal-staging-sequoia&tpl_var_kube_namespace%5B13%5D=docs-internal-staging-spruce&tpl_var_kube_namespace%5B14%5D=docs-internal-staging-yew&from_ts=0&to_ts=1209600000&live=true
+          # Staging is not budget checked
           resources:
             requests:
-              cpu: 1000m
-              memory: 4500Mi
+              # requests.cpu: 150m idle schedule floor
+              # staging idles near zero
+              cpu: 150m
+              # requests.memory: highest-peak pod p99 (1882Mi) * 1.1
+              # for working-set padding
+              memory: 2070Mi
             limits:
-              cpu: 8000m
-              memory: 16Gi
+              # limits.cpu: highest-peak pod max [warmup peak] (1.82 cores) * 3
+              # for start up insurance; compressible
+              cpu: 5460m
+              # limits.memory: highest-peak pod max (1882Mi) * 2
+              # over-limit means OOMkill; non-compressible
+              memory: 3764Mi
           ports:
             - name: http
               containerPort: 4000
@@ -41,6 +57,15 @@ spec:
             # configuration set in config/moda/configuration/*/env.yaml
             - configMapRef:
                 name: application-config
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
           # Zero-downtime deploys
           # https://thehub.github.com/engineering/products-and-services/internal/moda/feature-documentation/pod-lifecycle/#required-prestop-hook
           # https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
@@ -48,10 +73,19 @@ spec:
             preStop:
               exec:
                 command: ['sleep', '5']
-          readinessProbe:
-            initialDelaySeconds: 5
+          # See production/deployments/webapp.yaml for detailed comments on probe config.
+          startupProbe:
             httpGet:
-              # WARNING: This should be updated to a meaningful endpoint for your application which will return a 200 once the app is fully started.
-              # See: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes
               path: /healthcheck
               port: http
+            initialDelaySeconds: 30
+            periodSeconds: 5
+            failureThreshold: 30
+            timeoutSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: http
+            periodSeconds: 10
+            failureThreshold: 5
+            timeoutSeconds: 5

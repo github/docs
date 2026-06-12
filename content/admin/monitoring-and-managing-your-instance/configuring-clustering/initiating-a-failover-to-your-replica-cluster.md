@@ -1,19 +1,16 @@
 ---
 title: Initiating a failover to your replica cluster
-intro: 'If your {% data variables.product.prodname_ghe_server %} cluster fails, you can fail over to the replica.'
+intro: If your {% data variables.product.prodname_ghe_server %} cluster fails, you can fail over to the replica.
 redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster
   - /admin/enterprise-management/initiating-a-failover-to-your-replica-cluster
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/initiating-a-failover-to-your-replica-cluster
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Clustering
-  - Enterprise
-  - High availability
-  - Infrastructure
 shortTitle: Initiate a failover to replica
+contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 ## About failover to your replica cluster
@@ -29,8 +26,6 @@ After failover, you will have two standalone clusters without high availability 
 To fail over to replica nodes, you must have configured high availability replication for your cluster. For more information, see [AUTOTITLE](/enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster).
 
 ## Initiating a failover to your replica cluster
-
-{% ifversion ghes < 3.13 %}{% data reusables.enterprise_clustering.cluster-ip-note %} For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-cluster-failover).{% endif %}
 
 1. SSH into the primary MySQL node in the replica cluster. For more information, see [AUTOTITLE](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh).
 1. To begin the failover to the secondary cluster and configure the nodes to respond to requests, run the following command.

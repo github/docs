@@ -1,19 +1,21 @@
 import React from 'react'
 import type { GetServerSideProps } from 'next'
+import type { Response } from 'express'
 
 import {
   MainContextT,
   MainContext,
   getMainContext,
   addUINamespaces,
-} from 'src/frame/components/context/MainContext'
+} from '@/frame/components/context/MainContext'
 
-import { DefaultLayout } from 'src/frame/components/DefaultLayout'
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { ArticleList } from 'src/landings/components/ArticleList'
-import { HomePageHero } from 'src/landings/components/HomePageHero'
-import type { ProductGroupT } from 'src/landings/components/ProductSelections'
-import { ProductSelections } from 'src/landings/components/ProductSelections'
+import { DefaultLayout } from '@/frame/components/DefaultLayout'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { ArticleList } from '@/landings/components/ArticleList'
+import { HomePageHero } from '@/landings/components/HomePageHero'
+import type { ProductGroupT } from '@/landings/components/ProductSelections'
+import { ProductSelections } from '@/landings/components/ProductSelections'
+import type { ExtendedRequest, FeaturedLinkExpanded } from '@/types'
 
 type FeaturedLink = {
   href: string
@@ -78,8 +80,8 @@ function HomePage(props: HomePageProps) {
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const req = context.req as any
-  const res = context.res as any
+  const req = context.req as unknown as ExtendedRequest
+  const res = context.res as unknown as Response
 
   const mainContext = await getMainContext(req, res)
   addUINamespaces(req, mainContext.data.ui, ['homepage', 'product_landing'])
@@ -87,15 +89,13 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   return {
     props: {
       mainContext,
-      productGroups: req.context.productGroups,
-      gettingStartedLinks: req.context.featuredLinks.gettingStarted.map(
-        ({ title, href, intro }: any) => ({ title, href, intro }),
+      productGroups: (req.context!.productGroups || []) as unknown as ProductGroupT[],
+      gettingStartedLinks: (req.context!.featuredLinks?.gettingStarted || []).map(
+        ({ title, href, intro }: FeaturedLinkExpanded) => ({ title, href, intro: intro || '' }),
       ),
-      popularLinks: req.context.featuredLinks.popular.map(({ title, href, intro }: any) => ({
-        title,
-        href,
-        intro,
-      })),
+      popularLinks: (req.context!.featuredLinks?.popular || []).map(
+        ({ title, href, intro }: FeaturedLinkExpanded) => ({ title, href, intro: intro || '' }),
+      ),
     },
   }
 }

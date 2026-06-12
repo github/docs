@@ -6,6 +6,8 @@ versions:
   ghes: '*'
 redirect_from:
   - /early-access/github/analyze-how-your-team-works-with-server-statistics/exploring-server-statistics
+category:
+  - Monitor and audit your enterprise
 ---
 
 You can download up to the last 365 days of {% data variables.product.prodname_server_statistics %} data in a CSV or JSON file. This data, which includes aggregate metrics on repositories, issues, and pull requests, can help you anticipate the needs of your organization, understand how your team works, and show the value you get from {% data variables.product.prodname_ghe_server %}.
@@ -24,7 +26,7 @@ To learn more about {% data variables.product.prodname_github_connect %}, see [A
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 
-1. {% ifversion horizontal-nav %}At the top of the page, in the enterprise account sidebar, click {% octicon "plug" aria-hidden="true" %} **GitHub Connect**.{% else %}On the left side of the page, in the enterprise account sidebar, click {% octicon "plug" aria-hidden="true" %} **GitHub Connect**.{% endif %}
+1. At the top of the page, in the enterprise account sidebar, click {% octicon "plug" aria-hidden="true" aria-label="plug" %} **GitHub Connect**.
 
 {% data reusables.server-statistics.csv-download %}
 

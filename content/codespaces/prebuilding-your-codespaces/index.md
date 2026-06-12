@@ -4,8 +4,6 @@ intro: 'To speed up codespace creation, you can configure your project to prebui
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Codespaces
 redirect_from:
   - /codespaces/customizing-your-codespace/prebuilding-codespaces-for-your-project
 children:

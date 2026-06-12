@@ -9,9 +9,9 @@ versions:
   fpt: '*'
   ghec: '*'
 permissions: Organization owners and moderators can limit interactions in an organization.
-topics:
-  - Community
 shortTitle: Limit interactions in org
+category:
+  - Moderate comments and conversations
 ---
 
 ## About temporary interaction limits
@@ -32,7 +32,7 @@ Organization owners and moderators can also block users for a specific amount of
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. _For organization owners:_ In the "Access" section of the sidebar, select **{% octicon "report" aria-hidden="true" %} Moderation**, then click **Interaction limits**.
+1. _For organization owners:_ In the "Access" section of the sidebar, select **{% octicon "report" aria-hidden="true" aria-label="report" %} Moderation**, then click **Interaction limits**.
 
    _For organization moderators:_ In the sidebar, click **Interaction limits**.
 

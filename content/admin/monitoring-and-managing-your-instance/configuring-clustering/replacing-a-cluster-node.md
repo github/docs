@@ -1,6 +1,6 @@
 ---
 title: Replacing a cluster node
-intro: 'If a node fails in a {% data variables.product.prodname_ghe_server %} cluster, or if you want to add a new node with more resources, mark any nodes to replace as offline, then add the new node.'
+intro: If a node fails in a {% data variables.product.prodname_ghe_server %} cluster, or if you want to add a new node with more resources, mark any nodes to replace as offline, then add the new node.
 product: '{% data reusables.gated-features.cluster %}'
 redirect_from:
   - /enterprise/admin/clustering/replacing-a-cluster-node
@@ -10,11 +10,9 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Clustering
-  - Enterprise
-  - Infrastructure
+contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 ## About replacement of {% data variables.product.prodname_ghe_server %} cluster nodes
@@ -40,7 +38,6 @@ To replace a functional node, install the {% data variables.product.prodname_ghe
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-modify-cluster-conf %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-initialize-new-node %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-config-node %}
-{% ifversion cluster-node-removal %}
 1. To take the node you're replacing offline, from the primary MySQL node of your cluster, run the following command.
 
    ```shell
@@ -48,11 +45,6 @@ To replace a functional node, install the {% data variables.product.prodname_ghe
    ```
 
    This command will evacuate data from any data services running on the node, mark the node as offline in your configuration, and stop traffic being routed to the node. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-remove-node).
-{% else %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-need-three-nodes %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-mark-offline %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-validate-config %}
-{% endif %}
 
 ## Replacing a node in an emergency
 
@@ -60,8 +52,6 @@ You can replace a failed node in your cluster. For example, a software or hardwa
 
 > [!NOTE]
 > If you're replacing the primary database node, see [Replacing the primary database node](#replacing-the-primary-database-node-mysql-or-mysql-and-mssql).
-
-{% ifversion cluster-node-removal %}
 
 To replace a node in an emergency, you'll take the failed node offline, add your replacement node to the cluster, then run commands to remove references to data services on the removed node.
 
@@ -134,22 +124,6 @@ To replace a node in an emergency, you'll take the failed node offline, add your
       ```
 
    1. To copy the configuration to other nodes in the cluster, from the administrative shell of the node where you modified `cluster.conf`, run `ghe-cluster-config-apply`.
-
-{% else %}
-
-To replace a node in an emergency, install the {% data variables.product.prodname_ghe_server %} appliance on a new VM, configure an IP address, take the failed node offline, apply the configuration, add the new node to the cluster configuration file, initialize the cluster and apply the configuration, and optionally, evacuate the failed node.
-
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-provision %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-admin-configure-ip %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-mark-offline %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-validate-config %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-modify-cluster-conf %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-replacement-name %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-initialize-new-node %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-config-node %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-need-three-nodes %}
-
-{% endif %}
 
 ## Replacing the primary database node (MySQL or MySQL and MSSQL)
 
@@ -249,11 +223,11 @@ If you need to allocate more resources to your primary MySQL (or MySQL and MSSQL
 
    > [!NOTE] The previous snippet does not assume {% data variables.product.prodname_actions %} is enabled in the cluster.
 
-1. Check the status of the MySQL(or MySQL and MSSQL) replication from any node in the cluster by running `ghe-cluster-status -v`.
 1. If {% data variables.product.prodname_actions %} is enabled in the cluster, run the following command from the new MySQL and MSSQL node.
 
    ```shell copy
    /usr/local/share/enterprise/ghe-repl-post-failover-mssql
    ```
 
+1. Check the status of the MySQL(or MySQL and MSSQL) replication from any node in the cluster by running `ghe-cluster-status -v`.
 1. When the MySQL(or MySQL and MSSQL) replication is finished, from any node in the cluster, disable maintenance mode. See [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#enabling-or-disabling-maintenance-mode-for-all-nodes-in-a-cluster-via-the-cli).

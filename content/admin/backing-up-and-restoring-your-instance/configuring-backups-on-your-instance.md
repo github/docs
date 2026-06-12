@@ -1,5 +1,6 @@
 ---
-title: Configuring backups on your instance
+title: Configuring backups on your instance using Backup Utilities
+allowTitleToDifferFromFilename: true
 shortTitle: Configuring backups
 redirect_from:
   - /enterprise/admin/categories/backups-and-restores
@@ -16,16 +17,21 @@ redirect_from:
   - /admin/configuration/configuring-backups-on-your-appliance
   - /admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance
   - /admin/configuration/configuring-your-enterprise/configuring-backups-on-your-instance
-intro: 'As part of a disaster recovery plan, you can protect production data on {% data variables.location.product_location %} by configuring automated backups.'
+intro: As part of a disaster recovery plan, you can protect production data on {% data variables.location.product_location %} by configuring automated backups.
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Backups
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
+contentType: how-tos
+category:
+  - Back up and upgrade your instance
 ---
+
+## About backup options for {% data variables.product.prodname_ghe_server %}
+
+{% data variables.product.company_short %} offers two options for backing up your {% data variables.product.prodname_ghe_server %} instance:
+
+* **{% data variables.product.prodname_enterprise_backup_utilities %}**: An open-source backup system that you install on a separate host. For more information, see the sections below.
+* **{% data variables.product.prodname_enterprise_backup_service %} (in {% data variables.release-phases.public_preview %})**: A managed backup service available in {% data variables.product.prodname_ghe_server %}. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/backup-service-for-github-enterprise-server).
+
 ## About {% data variables.product.prodname_enterprise_backup_utilities %}
 
 {% data variables.product.prodname_enterprise_backup_utilities %} is a backup system you install on a separate host, which takes backup snapshots of {% data variables.location.product_location %} at regular intervals over a secure SSH network connection. You can use a snapshot to restore an existing {% data variables.product.prodname_ghe_server %} instance to a previous state from the backup host.

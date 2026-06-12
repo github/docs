@@ -23,10 +23,10 @@ See the [contributing docs](https://docs.github.com/en/contributing) for general
   - [`changelog`](#changelog)
   - [`defaultPlatform`](#defaultplatform)
   - [`defaultTool`](#defaulttool)
-  - [`learningTracks`](#learningtracks)
-  - [`includeGuides`](#includeguides)
-  - [`type`](#type)
-  - [`topics`](#topics)
+
+  - [`journeyTracks`](#journeytracks)
+  - [`journeyArticlesHeading`](#journeyarticlesheading)
+  - [`contentType`](#contenttype)
   - [`communityRedirect`](#communityRedirect)
   - [`effectiveDate`](#effectiveDate)
   - [Escaping single quotes](#escaping-single-quotes)
@@ -40,7 +40,6 @@ See the [contributing docs](https://docs.github.com/en/contributing) for general
   - [Legacy filepaths and redirects for links](#legacy-filepaths-and-redirects-for-links)
   - [Index pages](#index-pages)
   - [Home page](#homepage)
-  - [Creating new product guides pages](#creating-new-product-guides-pages)
 
 ## Frontmatter
 
@@ -50,13 +49,13 @@ It is a block of key-value content that lives at the top of every Markdown file.
 
 The following frontmatter values have special meanings and requirements for this site.
 There's also a schema that's used by the test suite to validate every page's frontmatter.
-See [`lib/frontmatter.js`](/src/frame/lib/frontmatter.js).
+See [`lib/frontmatter.ts`](/src/frame/lib/frontmatter.ts).
 
 ### `versions`
 
-- Purpose: Indicates the [versions](/src/versions/lib/all-versions.js) to which a page applies.
+- Purpose: Indicates the [versions](/src/versions/lib/all-versions.ts) to which a page applies.
 See [Versioning](#versioning) for more info.
-- Type: `Object`. Allowable keys map to product names and can be found in the `versions` object in [`lib/frontmatter.js`](/src/frame/lib/frontmatter.js).
+- Type: `Object`. Allowable keys map to product names and can be found in the `versions` object in [`lib/frontmatter.ts`](/src/frame/lib/frontmatter.ts).
 - This frontmatter value is currently **required** for all pages.
 - The `*` is used to denote all releases for the version.
 
@@ -150,8 +149,7 @@ shortTitle: Contributing to projects
 ### `layout`
 
 - Purpose: Render the proper page layout.
-- Type: `String` that matches the name of the layout.
-For a layout named `components/landing`, the value would be `product-landing`.
+- Type: `String` that matches the name of a supported layout. See `layoutNames` in `src/frame/lib/frontmatter.ts` for the authoritative list (for example, `discovery-landing`, `journey-landing`, `bespoke-landing`, `category-landing`, `toc-landing`, `inline`).
 - Optional. If omitted, `DefaultLayout` is used.
 
 ### `children`
@@ -196,7 +194,7 @@ featuredLinks:
 
 ### `allowTitleToDifferFromFilename`
 
-- Purpose: Indicates whether a page is allowed to have a title that differs from its filename. Pages with this frontmatter set to `true` will not be flagged in tests or updated by `src/content-render/scripts/reconcile-filenames-with-ids.js`. Use this value if a file's `title` frontmatter includes Liquid or punctuation that cannot be part of the filename. For example, the article [About Enterprise Managed Users](https://docs.github.com/en/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users) uses a Liquid reusable in its title, `'About {% data variables.product.prodname_emus %}'`, which cannot be in the filename, `about-enterprise-managed-users.md`, so the `allowTitleToDifferFromFilename` frontmatter is set to `true`.
+- Purpose: Indicates whether a page is allowed to have a title that differs from its filename. Pages with this frontmatter set to `true` will not be flagged in tests or updated by `src/content-render/scripts/reconcile-filenames-with-ids.ts`. Use this value if a file's `title` frontmatter includes Liquid or punctuation that cannot be part of the filename. For example, the article [About Enterprise Managed Users](https://docs.github.com/en/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users) uses a Liquid reusable in its title, `'About {% data variables.product.prodname_emus %}'`, which cannot be in the filename, `about-enterprise-managed-users.md`, so the `allowTitleToDifferFromFilename` frontmatter is set to `true`.
 - Type: `Boolean`. Default is `false`.
 - Optional.
 
@@ -230,37 +228,61 @@ defaultPlatform: linux
 defaultTool: cli
 ```
 
-### `learningTracks`
-- Purpose: Render a list of learning tracks on a product's sub-landing page.
-- type: `String`. This should reference learning tracks' names defined in [`data/learning-tracks/*.yml`](../data/learning-tracks/README.md).
-- Optional
 
-**Note: the featured track is set by a specific property in the learning tracks YAML. See that [README](../data/learning-tracks/README.md) for details.*
-
-### `includeGuides`
-- Purpose: Render a list of articles, filterable by `type` and `topics`. Only applicable when used with `layout: product-guides`.
-- Type: `Array`
+### `journeyTracks`
+- Purpose: Define journeys for journey landing pages.
+- Type: `Array` of objects with the following properties:
+  - `id` (required): Unique identifier for the journey. The id only needs to be unique for journeys within a single journey landing page.
+  - `title` (required): Display title for the journey (supports Liquid variables)
+  - `description` (optional): Description of the journey (supports Liquid variables)
+  - `guides` (required): Array of guide objects that make up this journey. Each guide object has:
+    - `href` (required): Path to the article
+    - `alternativeNextStep` (optional): Custom text to guide users to alternative paths in the journey. Supports Liquid variables and `[AUTOTITLE]`.
+- Only applicable when used with `layout: journey-landing`.
 - Optional.
 
 Example:
 
 ```yaml
-includeGuides:
-  - /actions/guides/about-continuous-integration
-  - /actions/guides/setting-up-continuous-integration-using-workflow-templates
-  - /actions/guides/building-and-testing-nodejs
-  - /actions/guides/building-and-testing-powershell
+journeyTracks:
+  - id: 'getting_started'
+    title: 'Getting started with {% data variables.product.prodname_actions %}'
+    description: 'Learn the basics of GitHub Actions.'
+    guides:
+      - href: '/actions/quickstart'
+      - href: '/actions/learn-github-actions'
+        alternativeNextStep: 'Want to skip ahead? See [AUTOTITLE](/actions/using-workflows).'
+      - href: '/actions/using-workflows'
+  - id: 'advanced'
+    title: 'Advanced {% data variables.product.prodname_actions %}'
+    description: 'Dive deeper into advanced features.'
+    guides:
+      - href: '/actions/using-workflows/workflow-syntax-for-github-actions'
+      - href: '/actions/deployment/deploying-with-github-actions'
 ```
 
-### `type`
-- Purpose: Indicate the type of article.
-- Type: `String`, one of the `overview`, `quick_start`, `tutorial`, `how_to`, `reference`.
-- Optional.
+### `journeyArticlesHeading`
+- Purpose: Override the default "Articles" heading shown above the article list on single-track journey landing pages.
+- Type: `String`
+- Only applicable when used with `layout: journey-landing` and a single journey track.
+- Optional. If omitted, the heading defaults to the translated value of `journey_landing.articles_heading` ("Articles").
 
-### `topics`
-- Purpose: Indicate the topics covered by the article. Refer to the content models for more details about adding topics. A full list of existing topics is located in the [allowed topics file](/data/allowed-topics.js). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](/src/search/tests/topics.js) will fail.
-- Type: Array of `String`s
-- Optional: Topics are preferred for each article, but, there may be cases where existing articles don't yet have topics, or adding a topic to a new article may not add value.
+Example:
+
+```yaml
+layout: journey-landing
+journeyArticlesHeading: "Guides"
+journeyTracks:
+  - id: ado_migration
+    title: Run your migration
+    guides:
+      - href: /migrations/ado/understand-migrations-from-azure-devops-to-github
+```
+
+### `contentType`
+- Purpose: Indicate the type of article.
+- Type: `String`, one of `get-started`, `concepts`, `how-tos`, `reference`, `tutorials`, `rai`, `landing` (only applies to `content/<product>/index.md` files).
+- Optional.
 
 ### `communityRedirect`
 - Purpose: Set a custom link and link name for `Ask the GitHub community` link in the footer.
@@ -297,7 +319,7 @@ A content file can have **two** types of versioning:
 - Liquid statements in content (**optional**)
     - Conditionally render content depending on the current version being viewed. See [Versioning documentation](https://docs.github.com/en/contributing/writing-for-github-docs/versioning-documentation#versioning-with-liquid-conditional-operators) for more info. Note Liquid conditionals can also appear in `data` and `include` files.
 
-**Note**: As of early 2021, the `free-pro-team@latest` version is not included URLs. A helper function called `src/versions/lib/remove-fpt-from-path.js` removes the version from URLs.
+**Note**: As of early 2021, the `free-pro-team@latest` version is not included URLs. A helper function called `src/versions/lib/remove-fpt-from-path.ts` removes the version from URLs.
 
 ## Filenames
 
@@ -345,7 +367,7 @@ Links to docs in the `docs-internal` repository must start with a product ID (li
 
 Image paths must start with `/assets` and contain the entire filepath including the file extension. For example, `/assets/images/help/settings/settings-account-delete.png`.
 
-The links to Markdown pages undergo some transformations on the server side to match the current page's language and version. The handling for these transformations lives in [`src/content-render/unified/rewrite-local-links.js`](/src/content-render/unified/rewrite-local-links.js).
+The links to Markdown pages undergo some transformations on the server side to match the current page's language and version. The handling for these transformations lives in [`src/content-render/unified/rewrite-local-links.ts`](/src/content-render/unified/rewrite-local-links.ts).
 
 For example, if you include the following link in a content file:
 
@@ -406,13 +428,3 @@ The homepage is the main Table of Contents file for the docs site. The homepage 
 
 `childGroups` is an array of mappings containing a `name` for the group, an optional `icon` for the group, and an array of `children`.  The `children` in the array must be present in the `children` frontmatter property.
 
-### Creating new product guides pages
-
-To create a product guides page (e.g. [Actions' Guide page](https://docs.github.com/en/actions/guides)), create or modify an existing markdown file with these specific frontmatter values:
-
-1. Use the product guides page template by referencing `layout: product-guides`.
-1. (optional) Include the learning tracks in [`learningTracks`](#learningTracks).
-1. (optional) Define which articles to include with [`includeGuides`](#includeGuides).
-
-If using learning tracks, they need to be defined in [`data/learning-tracks/*.yml`](../data/learning-tracks/README.md).
-If using `includeGuides`, make sure each of the articles in this list has [`topics`](#topics) and [`type`](#type) in its frontmatter.

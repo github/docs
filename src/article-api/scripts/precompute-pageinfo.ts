@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /**
  * This script gathers all English pages, computes each page's
  * 'title', 'intro' and 'product' properties. These things are then stored
@@ -32,9 +30,9 @@ import { brotliCompressSync } from 'zlib'
 import chalk from 'chalk'
 import { program, Option } from 'commander'
 
-import { languageKeys } from 'src/languages/lib/languages.js'
-import { loadPages, loadUnversionedTree } from 'src/frame/lib/page-data.js'
-import { CACHE_FILE_PATH, getPageInfo } from '../middleware/article-pageinfo'
+import { languageKeys } from '@/languages/lib/languages-server'
+import { loadPages, loadUnversionedTree } from '@/frame/lib/page-data'
+import { CACHE_FILE_PATH, getCacheablePageInfo } from '../middleware/article-pageinfo'
 
 program
   .description('Generates a JSON file with precompute pageinfo data by pathname')
@@ -92,7 +90,7 @@ async function main(options: Options) {
     for (const permalink of page.permalinks) {
       const pathname = permalink.href
       try {
-        const computed = await getPageInfo(page, pathname)
+        const computed = await getCacheablePageInfo(page, pathname)
         if (computed) {
           pageinfos[pathname] = computed
         }
@@ -118,8 +116,8 @@ async function main(options: Options) {
     fs.writeFileSync(outputFile, payload)
   } else {
     const payloadBuffer = Buffer.from(payload, 'utf-8')
-    const payloadCompressed = brotliCompressSync(payloadBuffer)
-    fs.writeFileSync(outputFile, payloadCompressed)
+    const payloadCompressed = brotliCompressSync(payloadBuffer as NodeJS.ArrayBufferView)
+    fs.writeFileSync(outputFile, payloadCompressed as NodeJS.ArrayBufferView)
   }
   console.timeEnd(label)
   console.log(

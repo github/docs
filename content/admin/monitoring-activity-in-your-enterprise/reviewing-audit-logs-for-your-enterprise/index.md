@@ -5,10 +5,7 @@ shortTitle: Review audit logs
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
 children:
-  - /about-the-audit-log-for-your-enterprise
   - /accessing-the-audit-log-for-your-enterprise
   - /configuring-the-audit-log-for-your-enterprise
   - /displaying-ip-addresses-in-the-audit-log-for-your-enterprise
@@ -19,3 +16,4 @@ children:
   - /using-the-audit-log-api-for-your-enterprise
   - /audit-log-events-for-your-enterprise
 ---
+

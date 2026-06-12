@@ -1,17 +1,15 @@
 ---
 title: Managing invitations to organizations within your enterprise
-intro: 'You can retry or cancel invitations to organizations within your enterprise, either one by one or multiple at a time.'
+intro: You can retry or cancel invitations to organizations within your enterprise, either one by one or multiple at a time.
 versions:
   feature: enterprise-manage-organization-members
-type: how_to
-topics:
-  - Administrator
-  - Enterprise
-  - Organizations
 shortTitle: Manage organization invitations
 permissions: Enterprise owners can manage invitations to organizations within their enterprise.
 redirect_from:
   - /admin/user-management/managing-users-in-your-enterprise/managing-invitations-to-organizations-within-your-enterprise
+contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 You can manage invitations to your enterprise or organizations within your enterprise.
@@ -26,7 +24,7 @@ Invitations expire after 7 days. You can retry or cancel expired invitations, ei
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. Under "{% octicon "person" aria-hidden="true" %} People", click **Failed invitations**.
+1. Under "{% octicon "person" aria-hidden="true" aria-label="person" %} People", click **Failed invitations**.
 1. Optionally, retry or cancel a single invitation.
    * To the right of the invitation you want to cancel or retry, select the {% octicon "kebab-horizontal" aria-label="Show actions" %} dropdown menu and click **Retry invitation** or **Cancel invitation**.
 

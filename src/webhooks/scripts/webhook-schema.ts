@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 // This schema is used to validate each generated webhook object at build time
 
 export default {

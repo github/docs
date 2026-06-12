@@ -1,44 +1,44 @@
 ---
-title: "{% data variables.product.prodname_codespaces %} documentation"
-shortTitle: "{% data variables.product.prodname_codespaces %}"
-intro: 'Create a codespace to start developing in a secure, configurable, and dedicated development environment that works how and where you want it to.'
+title: '{% data variables.product.prodname_codespaces %} documentation'
+shortTitle: '{% data variables.product.prodname_codespaces %}'
+intro: >-
+  Create a codespace to start developing in a secure, configurable, and
+  dedicated development environment that works how and where you want it to.
 introLinks:
   overview: /codespaces/about-codespaces/what-are-codespaces
   quickstart: /codespaces/quickstart
-featuredLinks:
-  startHere:
-    - /codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization
+layout: discovery-landing
+includedCategories:
+  - Get started
+  - Create and manage codespaces
+  - Write code in a codespace
+  - Customize your codespace
+  - Set up dev containers for a project
+  - Speed up codespace creation with prebuilds
+  - Manage codespaces for your organization
+  - Troubleshoot codespaces
+carousels:
+  recommended:
+    - /codespaces/quickstart
+    - /codespaces/about-codespaces/what-are-codespaces
     - /codespaces/about-codespaces/understanding-the-codespace-lifecycle
-    - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers
-    - /codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces
-    - /billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces
-  guideCards:
-    - /codespaces/about-codespaces/deep-dive
     - /codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository
     - /codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template
-    - /codespaces/developing-in-a-codespace/opening-an-existing-codespace
-    - /codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account
-    - /codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code
-  popular:
-    - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-nodejs-project-for-codespaces
-    - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-python-project-for-codespaces
-    - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-java-project-for-codespaces
-    - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-dotnet-project-for-codespaces
-    - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-php-project-for-codespaces
-  popularHeading: Set up your project
-changelog:
-  label: codespaces
-product_video: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc'
-product_video_transcript: /video-transcripts/transcript-codespaces-your-instant-dev-box-in-the-cloud
+    - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers
+    - /codespaces/developing-in-a-codespace/using-source-control-in-your-codespace
+    - /codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization
+    - /codespaces/reference/security-in-github-codespaces
 communityRedirect:
   name: Provide GitHub Feedback
   href: 'https://github.com/orgs/community/discussions/categories/codespaces'
 redirect_from:
   - /github/developing-online-with-github-codespaces
   - /github/developing-online-with-codespaces
-  - /codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide
+  - >-
+    /codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide
   - /codespaces/reference/using-the-github-codespaces-plugin-for-jetbrains
-layout: product-landing
+  - /codespaces/guides
+  - /video-transcripts/transcript-codespaces-your-instant-dev-box-in-the-cloud
 versions:
   fpt: '*'
   ghec: '*'
@@ -55,5 +55,4 @@ children:
   - /reference
   - /troubleshooting
   - /the-githubdev-web-based-editor
-  - /guides
 ---

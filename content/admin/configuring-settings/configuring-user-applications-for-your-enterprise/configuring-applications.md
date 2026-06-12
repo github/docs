@@ -1,6 +1,6 @@
 ---
 title: Configuring applications
-intro: 'You can configure internal application settings for {% data variables.location.product_location %}.'
+intro: You can configure internal application settings for {% data variables.location.product_location %}.
 redirect_from:
   - /enterprise/admin/installation/configuring-applications
   - /enterprise/admin/configuration/configuring-applications
@@ -9,10 +9,9 @@ redirect_from:
   - /admin/configuration/configuring-user-applications-for-your-enterprise/configuring-applications
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
+contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 ## Adjusting image caching
 
@@ -35,11 +34,3 @@ You can enable a retention policy for checks, actions, and associated data by se
 1. Under "Archive threshold (days)", type the number of days for the archival threshold. Checks older than this number of days will be archived before being permanently deleted.
 1. Under "Delete threshold (days)", type the number of days for the deletion threshold. An archived check exists in an archived state for the number of days specified here. After this threshold, the check will be permanently deleted.
 {% data reusables.enterprise_management_console.save-settings %}
-
-{% ifversion ghes < 3.13 %}
-
-## Enabling interactive maps
-
-You can enable the display of interactive maps in the web interface for users of {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-interactive-maps).
-
-{% endif %}

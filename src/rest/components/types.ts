@@ -18,20 +18,19 @@ export interface ProgAccessT {
   userToServerRest?: boolean
   serverToServer?: boolean
   fineGrainedPat?: boolean
-  permissions: Array<Object>
+  permissions: Array<object>
   allowPermissionlessAccess?: boolean
   allowsPublicRead?: boolean
   basicAuth?: boolean
 }
 
 export interface Parameter {
-  exampleName?: string
   in: string
   name: string
   description: string
   required: boolean
   schema: {
-    type: string
+    type: string | string[]
     default?: string
     enum?: Array<string>
   }
@@ -40,11 +39,9 @@ export interface Parameter {
 export interface StatusCode {
   description: string
   httpStatusCode: string
-  httpStatusMessage: string
 }
 
 export interface CodeSample {
-  key: string
   response: {
     contentType: string
     description: string
@@ -61,7 +58,6 @@ export interface CodeSample {
 }
 
 export interface BodyParameter {
-  in: string
   name: string
   description: string
   type: string
@@ -90,8 +86,8 @@ export type ExampleT = {
     statusCode: string
     contentType?: string
     description: string
-    example?: Object
-    schema?: Object
+    example?: object
+    schema?: object
   }
 }
 

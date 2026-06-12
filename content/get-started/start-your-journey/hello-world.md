@@ -1,16 +1,15 @@
 ---
 title: Hello World
-intro: 'Follow this Hello World exercise to learn {% data variables.product.github %}''s pull request workflow.'
+intro: Follow this Hello World exercise to learn {% data variables.product.github %}'s pull request workflow.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: quick_start
-topics:
-  - Pull requests
-  - Fundamentals
 redirect_from:
   - /get-started/quickstart/hello-world
+category:
+  - Explore and contribute
+contentType: get-started
 ---
 
 ## Introduction
@@ -88,7 +87,7 @@ You can make and save changes to the files in your repository. On {% data variab
 1. Under the `readme-edits` branch you created, click the `README.md` file.
 1. To edit the file, click {% octicon "pencil" aria-label="Edit file" %}.
 1. In the editor, write a bit about yourself.
-{% ifversion code-view-ui %}1. Click **Commit changes**.{% endif %}
+1. Click **Commit changes**.
 1. In the "Commit changes" box, write a commit message that describes your changes.
 1. Click **Commit changes**.
 

@@ -1,14 +1,18 @@
 import type { NextFunction, Response } from 'express'
 
-import FailBot from '../lib/failbot.js'
-import { nextApp } from '@/frame/middleware/next.js'
+import FailBot from '../lib/failbot'
+import { nextApp } from '@/frame/middleware/next'
+import { minimumNotFoundHtml } from '@/frame/lib/constants'
 import {
   setFastlySurrogateKey,
-  SURROGATE_ENUMS,
-} from '@/frame/middleware/set-fastly-surrogate-key.js'
-import { errorCacheControl } from '@/frame/middleware/cache-control.js'
-import statsd from '@/observability/lib/statsd.js'
-import { ExtendedRequest } from '@/types.js'
+  makeLanguageSurrogateKey,
+} from '@/frame/middleware/set-fastly-surrogate-key'
+import { errorCacheControl } from '@/frame/middleware/cache-control'
+import { toError } from '@/observability/lib/to-error'
+import { ExtendedRequest } from '@/types'
+import { createLogger } from '@/observability/logger'
+
+const logger = createLogger(import.meta.url)
 
 const DEBUG_MIDDLEWARE_TESTS = Boolean(JSON.parse(process.env.DEBUG_MIDDLEWARE_TESTS || 'false'))
 
@@ -20,7 +24,7 @@ type ErrorWithCode = Error & {
 
 function shouldLogException(error: ErrorWithCode) {
   const IGNORED_ERRORS = [
-    // Client connected aborted
+    // Client connection aborted
     'ECONNRESET',
   ]
 
@@ -41,29 +45,12 @@ async function logException(error: ErrorWithCode, req: ExtendedRequest) {
   }
 }
 
-function timedOut(req: ExtendedRequest) {
-  // The `req.pagePath` can come later so it's not guaranteed to always
-  // be present. It's added by the `handle-next-data-path.ts` middleware
-  // we translates those "cryptic" `/_next/data/...` URLs from
-  // client-side routing.
-  const incrementTags = [`path:${req.pagePath || req.path}`]
-  if (req.context?.currentCategory) {
-    incrementTags.push(`product:${req.context.currentCategory}`)
-  }
-  statsd.increment('middleware.timeout', 1, incrementTags)
-}
-
-export default async function handleError(
+async function handleError(
   error: ErrorWithCode | number,
   req: ExtendedRequest,
   res: Response,
   next: NextFunction,
 ) {
-  // Potentially set by the `connect-timeout` middleware.
-  if (req.timedout) {
-    timedOut(req)
-  }
-
   const responseDone = res.headersSent || req.aborted
 
   if (req.path.startsWith('/assets') || req.path.startsWith('/_next/static')) {
@@ -77,11 +64,12 @@ export default async function handleError(
       errorCacheControl(res)
       // Makes sure the surrogate key is NOT the manual one if it failed.
       // This basically unsets what was assumed in the beginning of
-      // loading all the middlewares.
-      setFastlySurrogateKey(res, SURROGATE_ENUMS.DEFAULT)
+      // loading all the middlewares. Falls back to `no-language` when
+      // `req.language` isn't set yet (e.g. errors before language detection).
+      setFastlySurrogateKey(res, makeLanguageSurrogateKey(req.language), true)
     }
   } else if (DEBUG_MIDDLEWARE_TESTS) {
-    console.warn('An error occurred in some middleware handler', error)
+    logger.warn('An error occurred in some middleware handler', { error })
   }
 
   try {
@@ -93,7 +81,8 @@ export default async function handleError(
       }
 
       // We MUST delegate to the default Express error handler
-      return next(error)
+      next(error)
+      return
     }
 
     if (!req.context) {
@@ -102,8 +91,10 @@ export default async function handleError(
 
     // Special handling for when a middleware calls `next(404)`
     if (error === 404) {
-      // Note that if this fails, it will swallow that error.
-      return nextApp.render404(req, res)
+      errorCacheControl(res)
+      setFastlySurrogateKey(res, makeLanguageSurrogateKey(req.language), true)
+      res.status(404).type('html').send(minimumNotFoundHtml)
+      return
     }
     if (typeof error === 'number') {
       throw new Error("Don't use next(xxx) where xxx is any other number than 404")
@@ -117,7 +108,8 @@ export default async function handleError(
     // If the error contains a status code, just send that back. This is usually
     // from a middleware like `express.json()`.
     if (error.statusCode) {
-      return res.sendStatus(error.statusCode)
+      res.sendStatus(error.statusCode)
+      return
     }
 
     res.statusCode = 500
@@ -129,15 +121,21 @@ export default async function handleError(
     // it's easier to just see the full stack trace in the console
     // and in the client.
     if (process.env.NODE_ENV === 'development') {
-      return next(error)
+      next(error)
+      return
     } else {
       nextApp.renderError(error, req, res, req.path)
 
       // Report to Failbot AFTER responding to the user
       await logException(error, req)
     }
-  } catch (error) {
-    console.error('An error occurred in the error handling middleware!', error)
-    return next(error)
+  } catch (handlingError) {
+    logger.error('An error occurred in the error handling middleware', {
+      error: toError(handlingError),
+    })
+    next(handlingError)
+    return
   }
 }
+
+export default handleError

@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 
-import { analyzeComment, getGuessedLanguage } from '../lib/analyze-comment.js'
+import { analyzeComment, getGuessedLanguage } from '../lib/analyze-comment'
 
 describe('analyzeComment', () => {
   test('email only', async () => {

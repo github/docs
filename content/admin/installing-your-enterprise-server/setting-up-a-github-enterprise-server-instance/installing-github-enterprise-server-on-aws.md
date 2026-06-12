@@ -1,6 +1,6 @@
 ---
 title: Installing GitHub Enterprise Server on AWS
-intro: 'To install {% data variables.product.prodname_ghe_server %} on Amazon Web Services (AWS), you must launch an Amazon Elastic Compute Cloud (EC2) instance and create and attach a separate Amazon Elastic Block Store (EBS) data volume.'
+intro: To install {% data variables.product.prodname_ghe_server %} on Amazon Web Services (AWS), you must launch an Amazon Elastic Compute Cloud (EC2) instance and create and attach a separate Amazon Elastic Block Store (EBS) data volume.
 redirect_from:
   - /enterprise/admin/guides/installation/installing-github-enterprise-on-aws
   - /enterprise/admin/installation/installing-github-enterprise-server-on-aws
@@ -8,13 +8,10 @@ redirect_from:
   - /admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-aws
 versions:
   ghes: '*'
-type: tutorial
-topics:
-  - Administrator
-  - Enterprise
-  - Infrastructure
-  - Set up
 shortTitle: Install on AWS
+contentType: tutorials
+category:
+  - Install and configure your instance
 ---
 ## Prerequisites
 
@@ -38,6 +35,34 @@ This guide recommends the principle of least privilege when setting up {% data v
 ## Hardware considerations
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
+
+### Storage volume performance recommendations for AWS
+
+{% data variables.product.prodname_ghe_server %} is I/O intensive and requires high-performance storage for both the root volume and data volume to ensure optimal performance. Both volumes need high IOPS and low latency, as insufficient disk I/O is a common cause of performance degradation and service disruptions.
+
+When selecting Amazon EBS volume types, consider the following guidance:
+
+* For most deployments, `gp3` volumes provide a good starting point with configurable IOPS and throughput
+* For larger or high-activity deployments, `io1` or `io2` volumes may be more appropriate due to their consistent performance characteristics
+* Very large or mission-critical deployments may benefit from `io2 Block Express` for the highest performance levels
+
+> [!IMPORTANT]
+> The optimal storage configuration for your instance will vary significantly based on your specific usage patterns. Factors that increase I/O requirements include:
+>
+> * Number of active users and repositories
+> * CI/CD workload volume and frequency
+> * API usage patterns and automation
+> * Git operation frequency and repository sizes
+>
+> We strongly recommend continuously monitoring your instance's disk performance in the Management Console metrics dashboard. Pay particular attention to:
+>
+> * **Disk queue length**: Should remain near zero.
+> * **I/O utilization**: Sustained periods above 80% indicate need for more IOPS.
+> * **Disk latency**: Should remain below 1-2ms.
+>
+> Be prepared to adjust your storage configuration as your usage patterns evolve. Scale up IOPS allocation proactively if you observe performance bottlenecks to prevent service degradation.
+
+For more information about Amazon EBS volume types, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html#vol-type-ssd) in the AWS documentation.
 
 ## Determining the instance type
 

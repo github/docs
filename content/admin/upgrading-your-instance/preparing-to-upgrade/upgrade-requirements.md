@@ -1,6 +1,6 @@
 ---
 title: Upgrade requirements
-intro: 'Before upgrading {% data variables.product.prodname_ghe_server %}, review these recommendations and requirements to plan your upgrade strategy.'
+intro: Before upgrading {% data variables.product.prodname_ghe_server %}, review these recommendations and requirements to plan your upgrade strategy.
 redirect_from:
   - /enterprise/admin/installation/upgrade-requirements
   - /enterprise/admin/guides/installation/finding-the-current-github-enterprise-release
@@ -12,10 +12,9 @@ redirect_from:
   - /admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/upgrade-requirements
 versions:
   ghes: '*'
-type: reference
-topics:
-  - Enterprise
-  - Upgrades
+contentType: reference
+category:
+  - Back up and upgrade your instance
 ---
 
 > [!NOTE]
@@ -35,6 +34,7 @@ topics:
 
 ## Requirements
 
+* You must perform a capacity check. For more information, see [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/check-system-capacity-before-upgrading).
 * You must upgrade from a feature release that's **at most** two releases behind. For example, to upgrade to {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.latest }}, you must be on {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[1] }} or {{ enterpriseServerReleases.supported[2] }}.
 * When upgrading using an upgrade package, schedule a maintenance window for {% data variables.product.prodname_ghe_server %} end users.
 * {% data reusables.enterprise_installation.hotpatching-explanation %}

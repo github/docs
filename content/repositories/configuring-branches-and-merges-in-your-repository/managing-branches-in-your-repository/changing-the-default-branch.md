@@ -11,20 +11,13 @@ redirect_from:
   - /articles/setting-the-default-branch
   - /github/administering-a-repository/changing-the-default-branch
   - /github/administering-a-repository/managing-branches-in-your-repository/changing-the-default-branch
-topics:
-  - Repositories
 shortTitle: Change the default branch
+category:
+  - Manage branches and protect code
 ---
 ## About changing the default branch
 
 You can choose the default branch for a repository. The default branch is the base branch for pull requests and code commits. For more information about the default branch, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch).
-
-{% ifversion ghes < 3.13 %}
-
-> [!NOTE]
-> If you use the Git-Subversion bridge, changing the default branch will affect your `trunk` branch contents and the `HEAD` you see when you list references for the remote repository. For more information, see [AUTOTITLE](/get-started/working-with-subversion-on-github/support-for-subversion-clients) and [git-ls-remote](https://git-scm.com/docs/git-ls-remote.html) in the Git documentation.
-
-{% endif %}
 
 You can also rename the default branch. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch).
 
@@ -34,9 +27,13 @@ You can also rename the default branch. For more information, see [AUTOTITLE](/r
 
 To change the default branch, your repository must have more than one branch. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch).
 
-{% ifversion not fpt %}
+{% ifversion repo-admin-branch-rename %}
 
-Rulesets at the organization{% ifversion ghec %} or enterprise{% endif %} level that apply to branches of a repository will not allow the repository administrator to rename branches of the targeted repository or change the default branch to another branch. See [AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization){% ifversion ghec %} or [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-governance){% endif %}.
+If organizational or enterprise rulesets target branches in your repository, changing the default branch requires an organization or enterprise administrator. Whether repository administrators can rename other targeted branches depends on the branch-rename setting or policy configured by your organization or enterprise. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/allowing-repository-admins-to-rename-branches-with-organization-rulesets).
+
+{% else %}
+
+Rulesets at the organization level that apply to branches of a repository will not allow the repository administrator to rename branches of the targeted repository or change the default branch to another branch. See [AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization).
 
 {% endif %}
 

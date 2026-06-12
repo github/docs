@@ -29,7 +29,7 @@ const DEBOUNCE_TIME = 100 // In milliseconds
 
 // Results are only cached for the current session
 // We cache results so if a user presses backspace, we can show the results immediately without burdening the API
-let sessionCache = {} as Record<string, SearchOptions>
+const sessionCache = {} as Record<string, SearchOptions>
 
 // Helper to incorporate version & locale into the cache key
 function getCacheKey(query: string, version: string, locale: string) {
@@ -125,8 +125,15 @@ export function useCombinedSearchResults({
         // Update state with fetched results
         setSearchOptions(results)
         setSearchLoading(false)
-      } catch (error: any) {
-        if (error.name === 'AbortError') {
+      } catch (error: unknown) {
+        // Aborted fetch() requests reject with a DOMException (not always an
+        // Error instance), so match on the name rather than the prototype.
+        if (
+          typeof error === 'object' &&
+          error !== null &&
+          'name' in error &&
+          (error as { name?: unknown }).name === 'AbortError'
+        ) {
           return
         }
         console.error(error)

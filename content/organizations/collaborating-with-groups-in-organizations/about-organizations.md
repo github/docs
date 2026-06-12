@@ -8,9 +8,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
+category:
+  - Set up your organization
 ---
 
 ## About organizations
@@ -19,7 +18,7 @@ topics:
 
 You can invite people to join your organization, then give these organization members a variety of roles that grant different levels of access to the organization and its data. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization). If an organization exceeds 100,000 members, some UI experiences and API functionality may be degraded.
 
-In addition to managing access to the organization itself, you can separately manage access to your organization's repositories, projects, and apps. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization), {% ifversion projects-v1 %}[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization),{% endif %} and [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization).
+In addition to managing access to the organization itself, you can separately manage access to your organization's repositories, projects, and apps. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization),  and [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization).
 
 To simplify access management and enhance collaboration, you can create nested teams that reflect your group's structure, with cascading access permissions and mentions. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams).
 
@@ -38,14 +37,15 @@ To learn how to use organizations most effectively, see [AUTOTITLE](/organizatio
 
 ## Organizations and enterprise accounts
 
-<!-- expires 2025-06-30 -->
+<!-- expires 2027-01-30 -->
 
-<!-- When this expires, check with the stakeholder for release #4079 on whether or not the content is still needed -->
+<!-- When this expires, check with the stakeholder for release #4079 on whether or not the content is still needed. See https://github.com/github/releases/issues/4079#issuecomment-3954280272 for context. -->
 
 {% ifversion ghec %}
-> [!NOTE] Currently, {% data variables.product.prodname_ghe_cloud %} customers who use a single organization are being automatically upgraded to an enterprise account at no additional cost. For details, see [AUTOTITLE](/admin/managing-your-enterprise-account/creating-an-enterprise-account#what-will-happen-after-i-upgrade-my-organization).
+> [!NOTE] {% data variables.product.prodname_ghe_cloud %} customers who use a single organization are being automatically upgraded to an enterprise account at no additional cost. For details, see [AUTOTITLE](/admin/managing-your-enterprise-account/creating-an-enterprise-account#what-will-happen-after-i-upgrade-my-organization).
 {% endif %}
-<!-- end expires 2025-06-30 -->
+
+<!-- end expires 2027-01-30 -->
 
 {% ifversion fpt %}
 Enterprise accounts are a feature of {% data variables.product.prodname_ghe_cloud %} that allow owners to centrally manage policy and billing for multiple organizations. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/about-organizations).

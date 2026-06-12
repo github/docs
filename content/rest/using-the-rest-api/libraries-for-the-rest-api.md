@@ -11,8 +11,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
+category:
+  - Learn about the REST API
 ---
 
 ## About libraries
@@ -113,7 +113,6 @@ These third-party libraries are not maintained by {% data variables.product.comp
 ### Rust
 
 * Octocrab: [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)
-* Octocat: [octocat-rs/octocat-rs](https://github.com/octocat-rs/octocat-rs)
 
 ### Scala
 

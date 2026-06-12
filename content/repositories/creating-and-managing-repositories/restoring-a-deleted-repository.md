@@ -10,14 +10,14 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Repositories
 shortTitle: Restore deleted repository
+category:
+  - Manage, move, and archive a repository
 ---
 
 {% ifversion ghes %}
 
-Usually, deleted repositories can be restored within 90 days by an enterprise owner{% ifversion ghes %} on {% data variables.location.product_location %}{% endif %}. For more information, see [AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository).
+Usually, deleted repositories can be restored within 90 days by an enterprise owner on {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository).
 
 {% else %}
 
@@ -36,7 +36,7 @@ If you want to restore a repository that was part of a fork network that is not 
 
 It can take up to an hour after a repository is deleted before that repository is available for restoration.
 
-Restoring a repository will not restore release attachments or team permissions. Issues that are restored will not be labeled.
+Restoring a repository will not restore team permissions.
 
 ## Restoring a deleted repository that was owned by a personal account
 

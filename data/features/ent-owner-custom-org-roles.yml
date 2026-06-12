@@ -1,0 +1,4 @@
+# Allows enterprise owners to create custom roles for organizations
+versions:
+  ghec: '*'
+  ghes: '>3.18'

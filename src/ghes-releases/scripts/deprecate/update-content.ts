@@ -3,10 +3,10 @@ import path from 'path'
 import yaml from 'js-yaml'
 import walkFiles from 'walk-sync'
 
-import frontmatter from '#src/frame/lib/read-frontmatter.js'
-import { supported, deprecated } from '#src/versions/lib/enterprise-server-releases.js'
+import frontmatter from '@/frame/lib/read-frontmatter'
+import { supported, deprecated } from '@/versions/lib/enterprise-server-releases'
 import { isInAllGhes } from '../version-utils'
-import { Versions } from '#src/types.js'
+import { Versions } from '@/types'
 
 type featureDataType = Versions | undefined
 
@@ -28,7 +28,7 @@ export function updateContentFiles() {
     let featureData = undefined
 
     if (data.versions.feature) {
-      const featureFilePath = 'data/features/' + data.versions.feature + '.yml'
+      const featureFilePath = `data/features/${data.versions.feature}.yml`
       const featureContent = fs.readFileSync(featureFilePath, 'utf8')
       featureData = yaml.load(featureContent) as featureDataType
       if (!featureData || !featureData.versions)
@@ -58,7 +58,12 @@ export function updateContentFiles() {
       // To preserve newlines when stringifying,
       // you can set the lineWidth option to -1
       // This prevents updates to the file that aren't actual changes.
-      fs.writeFileSync(file, frontmatter.stringify(content, data, { lineWidth: -1 } as any))
+      fs.writeFileSync(
+        file,
+        frontmatter.stringify(content!, data, { lineWidth: -1 } as unknown as Parameters<
+          typeof frontmatter.stringify
+        >[2]),
+      )
       continue
     }
     if (featureAppliesToAllVersions) {
@@ -71,7 +76,12 @@ export function updateContentFiles() {
       // To preserve newlines when stringifying,
       // you can set the lineWidth option to -1
       // This prevents updates to the file that aren't actual changes.
-      fs.writeFileSync(file, frontmatter.stringify(content, data, { lineWidth: -1 } as any))
+      fs.writeFileSync(
+        file,
+        frontmatter.stringify(content!, data, { lineWidth: -1 } as unknown as Parameters<
+          typeof frontmatter.stringify
+        >[2]),
+      )
       continue
     }
 
@@ -94,7 +104,12 @@ export function updateContentFiles() {
         // Remove the ghes property from versions Fm and return
         delete data.versions.ghes
         console.log('Removing GHES version from: ', file)
-        fs.writeFileSync(file, frontmatter.stringify(content, data, { lineWidth: -1 } as any))
+        fs.writeFileSync(
+          file,
+          frontmatter.stringify(content!, data, { lineWidth: -1 } as unknown as Parameters<
+            typeof frontmatter.stringify
+          >[2]),
+        )
       }
     }
   }
@@ -117,8 +132,8 @@ function removeFileUpdateParent(filePath: string) {
   if (!data) return
   // Children paths are relative to the index.md file's directory
   const childPath = filePath.endsWith('index.md')
-    ? '/' + path.basename(path.dirname(filePath))
-    : '/' + path.basename(filePath, '.md')
+    ? `/${path.basename(path.dirname(filePath))}`
+    : `/${path.basename(filePath, '.md')}`
 
   // Remove the childPath from the parent index.md file's children frontmatter
   data.children = data.children.filter((child) => child !== childPath)
@@ -130,7 +145,9 @@ function removeFileUpdateParent(filePath: string) {
     console.log('..Updating children in: ', parentFilePath)
     fs.writeFileSync(
       parentFilePath,
-      frontmatter.stringify(content || '', data, { lineWidth: -1 } as any),
+      frontmatter.stringify(content || '', data, { lineWidth: -1 } as unknown as Parameters<
+        typeof frontmatter.stringify
+      >[2]),
     )
   }
 }

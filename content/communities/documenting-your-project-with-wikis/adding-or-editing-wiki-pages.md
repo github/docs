@@ -13,9 +13,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Community
 shortTitle: Manage wiki pages
+category:
+  - Document your project with wikis
 ---
 
 ## Adding wiki pages
@@ -37,7 +37,7 @@ shortTitle: Manage wiki pages
 {% data reusables.repositories.sidebar-wiki %}
 1. Using the wiki sidebar on the right, navigate to the page you want to change. In the upper-right corner of the page, click **Edit**.
 1. Use the text editor to edit the page's content.
-1. In the "Edit message" field, type a commit message describing the new file you’re adding.
+1. In the "Edit message" field, type a commit message describing the changes you’re making.
 1. To commit your changes to the wiki, click **Save Page**.
 
 ## Adding or editing wiki pages locally

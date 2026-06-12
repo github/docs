@@ -1,6 +1,0 @@
-# Reference: Issue #10331 - Repository Properties
-
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>=3.13'

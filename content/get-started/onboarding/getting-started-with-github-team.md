@@ -3,6 +3,8 @@ title: Getting started with GitHub Team
 intro: 'With {% data variables.product.prodname_team %} groups of people can collaborate across many projects at the same time in an organization account.'
 versions:
   fpt: '*'
+category:
+  - Set up your account on GitHub
 ---
 
 This guide will walk you through setting up, configuring and managing your {% data variables.product.prodname_team %} account as an organization owner.
@@ -23,9 +25,9 @@ Once your personal account is set up, you can create an organization and pick a 
 
 ### 3. Managing billing for an organization
 
-You must manage billing settings, payment method, and paid features and products for each of your personal accounts and organizations separately. You can switch between settings for your different accounts using the context switcher in your settings. For more information, see [AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github#switching-between-settings-for-your-different-accounts).
+You must manage billing settings, payment method, and paid features and products for each of your personal accounts and organizations separately. You can switch between settings for your different accounts using the context switcher in your settings. For more information, see [AUTOTITLE](/billing/managing-your-billing/about-billing-on-github#switching-between-settings-for-your-different-accounts).
 
-Your organization's billing settings page allows you to manage settings like your payment method, billing cycle and billing email, or view information such as your subscription, billing date and payment history. You can also view and upgrade your storage and GitHub Actions minutes. For more information on managing your billing settings, see [AUTOTITLE](/billing/managing-your-github-billing-settings).
+Your organization's billing settings page allows you to manage settings like your payment method, billing cycle and billing email, or view information such as your subscription, billing date and payment history. You can also view and upgrade your storage and GitHub Actions minutes. For more information on managing your billing settings, see [AUTOTITLE](/billing/managing-your-billing).
 
 Only organization members with the _owner_ or _billing manager_ role can access or change billing settings for your organization. A billing manager is someone who manages the billing settings for your organization and does not use a paid license in your organization's subscription. For more information on adding a billing manager to your organization, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization).
 

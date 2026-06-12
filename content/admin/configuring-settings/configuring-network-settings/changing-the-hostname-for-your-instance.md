@@ -1,16 +1,14 @@
 ---
 title: Changing the hostname for your instance
 shortTitle: Change hostname
-intro: 'If you want to change the hostname for an existing {% data variables.product.prodname_ghe_server %} instance, you must restore the settings and data to a new instance.'
+intro: If you want to change the hostname for an existing {% data variables.product.prodname_ghe_server %} instance, you must restore the settings and data to a new instance.
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
 redirect_from:
   - /admin/configuration/configuring-network-settings/changing-the-hostname-for-your-instance
+contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 
 ## About changes to the hostname for {% data variables.product.prodname_ghe_server %}
@@ -18,6 +16,8 @@ redirect_from:
 If you need to use a new hostname for {% data variables.location.product_location %}, you must back up the existing instance's settings and data, configure a new instance, restore the backup to the new instance, and then adjust your DNS configuration to send traffic to the new instance.
 
 Migration to a new instance requires downtime. The amount of downtime required depends on how much data you need to back up, as well as the speed of the network connection between the backup host and the instances.
+
+The new instance cannot directly replace an existing instance in a high availability configuration. Ensuring the new instance is configured with a different IP address to the instance with the old hostname is strongly recommended, and can simplify roll back. In high availability environments, once the restore is complete and the state of the new instance has been validated, you can then proceed with using a fresh appliance, or reconfiguring an existing replica. See [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-high-availability/creating-a-high-availability-replica).
 
 In this article, the term "source instance" refers to the instance with the old hostname, and "destination instance" refers to the instance with the new hostname.
 

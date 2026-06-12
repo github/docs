@@ -5,12 +5,11 @@ intro: You can configure your project to prebuild a codespace automatically each
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
-  - Set up
 permissions: People with admin access to a repository can configure prebuilds for the repository.
 product: '{% data reusables.gated-features.codespaces-repo %}'
+contentType: how-tos
+category:
+  - Speed up codespace creation with prebuilds
 ---
 
 You can set up a prebuild configuration for the combination of a specific branch of your repository with a specific dev container configuration file.
@@ -26,7 +25,7 @@ Prebuilds are created using {% data variables.product.prodname_actions %}. As a 
 You can set up prebuilds in any repository owned by a personal account. The prebuild will consume storage space that will either incur a billable charge or, for repositories owned by your personal account, will use some of your monthly included storage.
 
 > [!NOTE]
-> {% data reusables.codespaces.prebuilds-billing-for-forks %} See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#how-billing-is-handled-for-forked-repositories).
+> {% data reusables.codespaces.prebuilds-billing-for-forks %} See [AUTOTITLE](/billing/concepts/product-billing/github-codespaces#how-costs-are-assigned-to-a-billable-account).
 
 For repositories owned by an organization, you can set up prebuilds if the organization is on a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plan. Additionally, you must have added a payment method and set a spending limit for {% data variables.product.prodname_github_codespaces %} on the organization account or its parent enterprise. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-the-github-codespaces-spending-limit-for-your-organization-account) and [AUTOTITLE](/get-started/learning-about-github/githubs-plans).
 
@@ -73,7 +72,7 @@ For repositories owned by an organization, you can set up prebuilds if the organ
    ![Screenshot of the "Region availability" settings. "Reduce prebuild available to only specific regions" is selected with two regions selected.](/assets/images/help/codespaces/prebuilds-regions.png)
 
    > [!NOTE]
-   > * The prebuild in each region incurs individual storage charges. You should, therefore, only enable prebuilds for regions in which you know they'll be used. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-codespaces-prebuilds).
+   > * The prebuild in each region incurs individual storage charges. You should, therefore, only enable prebuilds for regions in which you know they'll be used.
    > * Developers can set their default region for {% data variables.product.prodname_github_codespaces %}, which can allow you to enable prebuilds for fewer regions. See [AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-default-region-for-github-codespaces).
 
 1. Optionally, under **Template history**, set the number of prebuild versions to be retained. You can input any number between 1 and 5. The default number of saved versions is 2, which means that only the latest prebuild and the previous version are saved.

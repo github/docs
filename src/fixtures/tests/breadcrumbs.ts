@@ -1,6 +1,8 @@
 import { describe, expect, test } from 'vitest'
 
-import { getDOM } from '@/tests/helpers/e2etest.js'
+import type { Element } from 'domhandler'
+
+import { getDOM } from '@/tests/helpers/e2etest'
 
 describe('breadcrumbs', () => {
   test('links always prefixed with language', async () => {
@@ -26,7 +28,7 @@ describe('breadcrumbs', () => {
     expect(links.text()).toBe('Bar')
   })
 
-  test('article pages have breadcrumbs in article with product, category, maptopic, and article and last breadcrumb is not viewable', async () => {
+  test('article pages have breadcrumbs in article with product, category, subcategory, and article and last breadcrumb is not viewable', async () => {
     const $ = await getDOM('/get-started/start-your-journey/hello-world')
     const links = $('[data-testid=breadcrumbs-in-article] a')
     expect(links.length).toBe(3)
@@ -68,7 +70,7 @@ describe('breadcrumbs', () => {
 
     expect($breadcrumbTitles.length).toBe(0)
     expect($breadcrumbLinks.length).toBe(2)
-    expect(($breadcrumbLinks[0] as cheerio.TagElement).attribs.title).toBe('Deeper secrets')
-    expect(($breadcrumbLinks[1] as cheerio.TagElement).attribs.title).toBe('Mariana Trench')
+    expect(($breadcrumbLinks[0] as Element).attribs.title).toBe('Deeper secrets')
+    expect(($breadcrumbLinks[1] as Element).attribs.title).toBe('Mariana Trench')
   })
 })

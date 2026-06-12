@@ -1,8 +1,8 @@
 import { describe, expect, test } from 'vitest'
 
 import { blockIndex } from '@/frame/middleware/block-robots'
-import { productMap } from '@/products/lib/all-products.js'
-import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.js'
+import { productMap } from '@/products/lib/all-products'
+import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
 
 function allowIndex(path: string) {
   return !blockIndex(path)
@@ -20,7 +20,7 @@ describe('block robots', () => {
       .filter((product) => product.wip)
       .map((product) => product.id)
 
-    wipProductIds.forEach((id) => {
+    for (const id of wipProductIds) {
       const { href } = productMap[id]
       const blockedPaths = [
         `/en${href}`,
@@ -30,10 +30,10 @@ describe('block robots', () => {
         `/en/enterprise/${enterpriseServerReleases.oldestSupported}/user${href}`,
       ]
 
-      blockedPaths.forEach((path) => {
+      for (const path of blockedPaths) {
         expect(allowIndex(path)).toBe(false)
-      })
-    })
+      }
+    }
   })
 
   test('disallows crawling of early access "hidden" products', async () => {
@@ -41,19 +41,19 @@ describe('block robots', () => {
       .filter((product) => product.hidden)
       .map((product) => product.id)
 
-    hiddenProductIds.forEach((id) => {
+    for (const id of hiddenProductIds) {
       const { versions } = productMap[id]
-      if (!versions) return
+      if (!versions) continue
       const blockedPaths = versions
         .map((version) => {
           return [`/en/${version}/${id}`, `/en/${version}/${id}/some-early-access-article`]
         })
         .flat()
 
-      blockedPaths.forEach((path) => {
+      for (const path of blockedPaths) {
         expect(allowIndex(path)).toBe(false)
-      })
-    })
+      }
+    }
   })
 
   test('allows crawling of non-WIP products', async () => {
@@ -68,7 +68,7 @@ describe('block robots', () => {
   })
 
   test('disallows crawling of deprecated enterprise releases', async () => {
-    enterpriseServerReleases.deprecated.forEach((version) => {
+    for (const version of enterpriseServerReleases.deprecated) {
       const blockedPaths = [
         `/en/enterprise-server@${version}/actions`,
         `/en/enterprise/${version}/actions`,
@@ -76,9 +76,9 @@ describe('block robots', () => {
         `/en/enterprise/${version}/actions/overview`,
       ]
 
-      blockedPaths.forEach((path) => {
+      for (const path of blockedPaths) {
         expect(allowIndex(path)).toBe(false)
-      })
-    })
+      }
+    }
   })
 })

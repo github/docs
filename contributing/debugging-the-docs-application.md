@@ -10,4 +10,4 @@ This repo has configuration for debugging the codebase with VS Code's built-in N
 1. Select the node process that's started with the `--inspect` flag.
 1. Debugger has now been attached. Enjoy!
 
-For more detailed instructions, please see this [VS Code recipe](https://github.com/Microsoft/vscode-recipes/tree/master/nodemon). You can also learn more about debugging using VS Code [here](https://code.visualstudio.com/docs/editor/debugging).
+For more detailed instructions, please see this [VS Code recipe](https://github.com/Microsoft/vscode-recipes/tree/main/nodemon). You can also learn more about debugging using VS Code [here](https://code.visualstudio.com/docs/editor/debugging).

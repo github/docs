@@ -1,5 +1,5 @@
 ---
-title: '{% data variables.product.github %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
+title: '{% data variables.product.github %}{% ifversion fpt or ghec %}.com{% endif %} Help Documentation'
 featuredLinks:
   gettingStarted:
     - /get-started/git-basics/set-up-git
@@ -9,7 +9,7 @@ featuredLinks:
   popular:
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
     - /authentication
-    - /copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
+    - /copilot/how-tos/get-code-suggestions/get-ide-code-suggestions
     - /get-started/git-basics/managing-remote-repositories
     - /pages
 redirect_from:
@@ -17,6 +17,7 @@ redirect_from:
   - /articles
   - /common-issues-and-questions
   - /troubleshooting-common-issues
+  - /video-transcripts
   - /early-access/github/enforcing-best-practices-with-github-policies
   - /github/enforcing-best-practices-with-github-policies/index
   - /early-access/github/enforcing-best-practices-with-github-policies/about-github-policies
@@ -53,6 +54,7 @@ children:
   - get-started
   - enterprise-onboarding
   - account-and-profile
+  - subscriptions-and-notifications
   - authentication
   - repositories
   - admin
@@ -65,6 +67,7 @@ children:
   - actions
   - copilot
   - codespaces
+  - integrations
   - migrations
   - packages
   - search-github
@@ -81,7 +84,7 @@ children:
   - desktop
   - early-access
   - support
-  - video-transcripts
+
   - contributing
   - github-models
   - nonprofit
@@ -92,6 +95,7 @@ childGroups:
       - get-started
       - migrations
       - account-and-profile
+      - subscriptions-and-notifications
       - authentication
       - billing
       - site-policy
@@ -102,30 +106,32 @@ childGroups:
       - repositories
       - pull-requests
       - discussions
+      - integrations
   - name: GitHub Copilot
     octicon: CopilotIcon
     children:
       - copilot
-      - copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
-      - copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat
-      - copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github
-      - copilot/copilot-chat-cookbook
-      - copilot/building-copilot-extensions/quickstart-for-github-copilot-extensions-using-agents
+      - copilot/get-started/plans
+      - copilot/how-tos/use-copilot-agents/cloud-agent
+      - copilot/tutorials
+      - copilot/tutorials/copilot-cookbook
+      - copilot/tutorials/customization-library
+      - copilot/how-tos/copilot-cli
   - name: CI/CD and DevOps
     octicon: GearIcon
     children:
       - actions
       - packages
       - pages
-  - name: Security
+  - name: Security and code quality
     octicon: ShieldLockIcon
     children:
       - code-security
-      - code-security/secret-scanning
-      - code-security/supply-chain-security
-      - code-security/dependabot
-      - code-security/code-scanning
-      - code-security/security-advisories
+      - code-security/how-tos/secure-your-secrets
+      - code-security/how-tos/find-and-fix-code-vulnerabilities
+      - code-security/how-tos/secure-your-supply-chain
+      - code-security/how-tos/maintain-quality-code
+      - code-security/how-tos/secure-at-scale
   - name: Client apps
     octicon: DeviceMobileIcon
     children:
@@ -138,14 +144,13 @@ childGroups:
       - issues
       - issues/planning-and-tracking-with-projects
       - search-github
-  - name: Enterprise and Teams
+  - name: Enterprise and teams
     octicon: OrganizationIcon
     children:
       - organizations
-      - code-security/securing-your-organization
+      - code-security/how-tos/secure-at-scale
       - enterprise-onboarding
       - admin
-      - gh-wa
   - name: Developers
     octicon: CodeSquareIcon
     children:
@@ -153,7 +158,6 @@ childGroups:
       - rest
       - graphql
       - webhooks
-      - copilot/building-copilot-extensions
       - github-models
   - name: Community
     octicon: GlobeIcon
@@ -170,6 +174,7 @@ childGroups:
       - codeql
       - electron
       - npm
+      - gh-wa
 externalProducts:
   electron:
     id: electron

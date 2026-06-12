@@ -1,1 +1,1 @@
-export { default, getServerSideProps } from 'src/graphql/pages/breaking-changes'
+export { default, getServerSideProps } from '@/graphql/pages/breaking-changes'

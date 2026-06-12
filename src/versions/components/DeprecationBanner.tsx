@@ -1,6 +1,6 @@
-import type { EnterpriseDeprecation } from 'src/frame/components/context/MainContext'
-import { useMainContext } from 'src/frame/components/context/MainContext'
-import { useVersion } from 'src/versions/components/useVersion'
+import type { EnterpriseDeprecation } from '@/frame/components/context/MainContext'
+import { useMainContext } from '@/frame/components/context/MainContext'
+import { useVersion } from '@/versions/components/useVersion'
 import { Flash } from '@primer/react'
 import cx from 'classnames'
 
@@ -9,8 +9,9 @@ import styles from './DeprecationBanner.module.scss'
 export const DeprecationBanner = () => {
   const { data, enterpriseServerReleases } = useMainContext()
   const { currentVersion } = useVersion()
+  const currentRelease = currentVersion.replace('enterprise-server@', '')
 
-  if (!currentVersion.includes(enterpriseServerReleases.oldestSupported)) {
+  if (!enterpriseServerReleases.releasesWithOldestDeprecationDate.includes(currentRelease)) {
     return null
   }
 

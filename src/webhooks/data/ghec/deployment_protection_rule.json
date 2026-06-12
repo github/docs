@@ -1,0 +1,88 @@
+{
+  "requested": {
+    "descriptionHtml": "<p>A deployment protection rule was requested for an environment.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to deployment protection rules. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules\">Using environments for deployment</a>.\" For information about the API to manage deployment protection rules, see <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/deployments/environments\">the REST API documentation</a>.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Deployments\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "enum": [
+          "requested"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "environment",
+        "description": "<p>The name of the environment that has the deployment protection rule.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "event",
+        "description": "<p>The event that triggered the deployment protection rule.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "sha",
+        "description": "<p>The commit SHA that triggered the workflow. Always populated from the check suite, regardless of whether a deployment is created.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "ref",
+        "description": "<p>The ref (branch or tag) that triggered the workflow. Always populated from the check suite, regardless of whether a deployment is created.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "deployment_callback_url",
+        "description": "<p>The URL to review the deployment protection rule.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object or null",
+        "name": "deployment",
+        "description": "<p>A request for a specific ref(branch,sha,tag) to be deployed</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "array of objects",
+        "name": "pull_requests",
+        "description": "",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "app"
+    ],
+    "action": "requested",
+    "category": "deployment_protection_rule"
+  }
+}

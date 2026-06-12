@@ -1,11 +1,10 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import Cookies from 'src/frame/components/lib/cookies'
+import Cookies from '@/frame/components/lib/cookies'
 
-import { useVersion } from 'src/versions/components/useVersion'
-import { useMainContext } from 'src/frame/components/context/MainContext'
-
-export const API_VERSION_COOKIE_NAME = 'apiVersionPreferred'
+import { useVersion } from '@/versions/components/useVersion'
+import { useMainContext } from '@/frame/components/context/MainContext'
+import { API_VERSION_COOKIE_NAME } from '@/frame/lib/constants'
 
 // This component allows us to set the URL Param for the REST API Calendar Date version
 // We set a cookie as well to remember what calendar date version the user is on
@@ -33,7 +32,7 @@ export function RestRedirect() {
       const params = new URLSearchParams(asPathQuery)
 
       params.set('apiVersion', date)
-      const url = `/${router.locale}${asPathRoot}?${params}${hash ? '#' + hash : ''}`
+      const url = `/${router.locale}${asPathRoot}?${params}${hash ? `#${hash}` : ''}`
       router.replace(url)
     }
   }, [router.asPath, currentVersion])

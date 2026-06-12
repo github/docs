@@ -1,0 +1,6 @@
+# Reference: #17004
+# Dependabot `schedule` enhancements [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.17'

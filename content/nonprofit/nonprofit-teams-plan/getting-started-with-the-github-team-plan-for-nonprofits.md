@@ -4,6 +4,8 @@ shortTitle: 'Apply for GitHub Team'
 intro: 'Learn how to receive a free GitHub Team plan for your nonprofit.'
 versions:
   fpt: '*'
+category:
+  - Apply for nonprofit benefits
 ---
 
 ## Introduction
@@ -17,7 +19,6 @@ Some features of GitHub Team include:
 * Access to GitHub Codespaces
 * Protected branches
 * Multiple reviewers in pull requests
-* Draft pull requests
 * Code owners
 * Required reviewers
 * Pages and Wikis

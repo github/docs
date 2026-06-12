@@ -5,6 +5,8 @@ versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can edit assignments for that classroom. {% data reusables.classroom.classroom-admins-link %}'
 shortTitle: Edit an assignment
+category:
+  - Create and manage assignments
 ---
 ## About editing assignments
 
@@ -14,7 +16,7 @@ After creating an assignment, you can edit many aspects of the assignment to bet
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
-1. In the **{% octicon "repo" aria-hidden="true" %} Assignments** tab, next to the assignment you would like to edit, click {% octicon "pencil" aria-label="The pencil icon" %}.
+1. In the **{% octicon "repo" aria-hidden="true" aria-label="repo" %} Assignments** tab, next to the assignment you would like to edit, click {% octicon "pencil" aria-label="The pencil icon" %}.
 
     > [!NOTE]
     > You can also edit an assignment from the assignment's page. To access the assignment's page, in the **Assignments** tab, click the assignment name.

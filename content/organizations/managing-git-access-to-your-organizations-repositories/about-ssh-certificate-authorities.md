@@ -7,15 +7,16 @@ redirect_from:
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: SSH certificate authorities
+category:
+  - Manage authentication methods
 ---
 
 ## About SSH certificate authorities
 
 An SSH certificate is a mechanism for one SSH key to sign another SSH key. If you use an SSH certificate authority (CA) to provide your organization members and outside collaborators with signed SSH certificates, you can add the CA to your enterprise account or organization to allow these organization contributors to use their certificates to access organization resources.
+
+{% data variables.product.github %} uses OpenSSH-format SSH user certificates to authenticate Git operations over SSH by validating the certificate's signature and fields (including its validity period) against a trusted SSH certificate authority (CA) configured at the organization and/or enterprise level.
 
 {% data reusables.organizations.ssh-ca-ghec-only %}
 
@@ -28,7 +29,6 @@ Certificates added to your enterprise grant access to all organizations owned by
 Optionally, you can require that members and outside collaborators use SSH certificates to access organization resources. For more information, see [AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities) and [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise).
 
 For example, you can build an internal system that issues a new certificate to your developers every morning. Each developer can use their daily certificate to work on your organization's repositories on {% data variables.product.github %}. At the end of the day, the certificate can automatically expire, protecting your repositories if the certificate is later compromised.
-
 {% ifversion ghec %}
 Organization contributors can use their signed certificates for authentication even if you've enforced SAML single sign-on (SSO), without the need to authorize the signed certificates.
 
@@ -39,11 +39,11 @@ Unless you make SSH certificates a requirement, organization members and outside
 
 ## About SSH URLs with SSH certificates
 
-If your organization requires SSH certificates, to prevent authentication errors, organization members and outside collaborators should use a special URL that includes the organization ID when performing Git operations over SSH. This special URL allows the client and server to more easily negotiate which key on the member's computer should be used for authentication. If a member uses the normal URL, which starts with `git@github.com`, the SSH client might offer the wrong key, causing the operation to fail.
+If your organization requires SSH certificates, to prevent authentication errors, organization members and outside collaborators should use a special URL that includes the organization ID when performing Git operations over SSH. This special URL allows the client and server to more easily negotiate which key on the member's computer should be used for authentication. If a member uses the normal URL, which starts with `git@{% data variables.product.product_url %}`, the SSH client might offer the wrong key, causing the operation to fail.
 
 Anyone with read access to the repository can find this URL by selecting the **Code** dropdown menu on the main page of the repository, then clicking **Use SSH**.
 
-If your organization doesn't require SSH certificates, contributors can continue to use their own SSH keys, or other means of authentication. In that case, either the special URL or the normal URL, which starts with `git@github.com`, will work.
+If your organization doesn't require SSH certificates, contributors can continue to use their own SSH keys, or other means of authentication. In that case, either the special URL or the normal URL, which starts with `git@{% data variables.product.product_url %}`, will work.
 
 ## Issuing certificates
 
@@ -70,7 +70,7 @@ ssh-keygen -s ./ca-key -V '+1d' -I KEY-IDENTITY -O extension:id@{% data variable
 > [!WARNING]
 > After a certificate has been signed and issued, the certificate cannot be revoked.
 
-For CAs uploaded {% ifversion ghec %}after March 27th, 2024{% elsif ghes %}to {% data variables.product.prodname_ghe_server %} version 3.13 or later{% endif %}, you {% ifversion ghes < 3.13 %}will need to{% else %}must{% endif %} use the `-V` flag to configure a lifetime less than 366 days for the certificate. For CAs uploaded {% ifversion ghec %}before this date{% elsif ghes %}before version 3.13{% endif %}, the `-V` flag is optional, and you can create certificates that are irrevocable and live forever.
+For CAs uploaded {% ifversion ghec %}after March 27th, 2024{% elsif ghes %}to {% data variables.product.prodname_ghe_server %} version 3.13 or later{% endif %}, you must use the `-V` flag to configure a lifetime less than 366 days for the certificate. For CAs uploaded {% ifversion ghec %}before this date{% elsif ghes %}before version 3.13{% endif %}, the `-V` flag is optional, and you can create certificates that are irrevocable and live forever.
 
 {% ifversion ssh-ca-expires %}
 If you have legacy CAs that are exempt from the expiration requirement, you can upgrade the CA to enforce the requirement. To learn more, see [AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities) and [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise).
@@ -78,7 +78,7 @@ If you have legacy CAs that are exempt from the expiration requirement, you can 
 If you use a username as the login extension, {% data variables.product.company_short %} validates that the named user has not been renamed since the certificate was issued. This prevents a rename attack, where a certificate issued for a username is valid even if the underlying user account changes. To enforce this, the certificate must include the `valid_after` claim, which tells us when the certificate was issued. This field is often missing if an expiration is not required for the certificate, which is why expirations are now required.
 {% endif %}
 
-To issue a certificate for someone who uses SSH to access multiple {% data variables.product.company_short %} products, you can include two login extensions to specify the username for each product. For example, the following command would issue a certificate for USERNAME-1 for the user's account for {% data variables.product.prodname_ghe_cloud %}, and USERNAME-2 for the user's account on {% data variables.product.prodname_ghe_server %} at HOSTNAME.
+To issue a certificate for someone who uses SSH to access multiple {% data variables.product.company_short %} products, you can include two login extensions to specify the username for each product. For example, the following command would issue a certificate for USERNAME-1 for the user's account for {% data variables.product.prodname_ghe_cloud %}, and USERNAME-2 for the user's account on {% data variables.product.prodname_ghe_server %} or {% data variables.enterprise.data_residency %} at HOSTNAME.
 
 ```shell
 ssh-keygen -s ./ca-key -V '+1d' -I KEY-IDENTITY -O extension:login@github.com=USERNAME-1 extension:login@HOSTNAME=USERNAME-2 ./user-key.pub
@@ -89,3 +89,20 @@ You can restrict the IP addresses from which an organization member can access y
 ```shell
 ssh-keygen -s ./ca-key -V '+1d' -I KEY-IDENTITY -O extension:login@{% data variables.product.product_url %}=USERNAME -O source-address=COMMA-SEPARATED-LIST-OF-IP-ADDRESSES-OR-RANGES ./user-key.pub
 ```
+
+## Certificate revocation and CA rotation
+
+{% data variables.product.github %} validates SSH certificates based on their signature, fields (including their validity period), and whether the signing CA is trusted at the organization or enterprise level. OpenSSH certificates don't use certificate revocation lists (CRLs) or the Online Certificate Status Protocol (OCSP), so there is no way to revoke an individual already-issued certificate while continuing to trust the same CA.
+
+To invalidate certificates before they naturally expire, remove the issuing CA from your organization or enterprise settings. Removing a CA immediately prevents {% data variables.product.github %} from accepting any SSH certificates signed by that CA.
+
+> [!WARNING]
+> Removing a CA from your organization or enterprise settings invalidates all certificates it has signed, including certificates that have not yet expired.
+
+To rotate a CA with minimal disruption:
+
+1. Add the new CA to your enterprise or organization settings.
+1. Update your certificate issuance system to sign new certificates with the new CA.
+1. After all users have received new certificates from the new CA, remove the old CA.
+
+Issuing short-lived certificates reduces the window of risk if a certificate is compromised. For more information about managing CAs, see [AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities) and [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise).

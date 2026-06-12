@@ -1,0 +1,18 @@
+.textInput {
+  min-width: 100%;
+}
+
+.categoryLabel {
+  color: var(--fgColor-default, var(--color-fg-default, #1f2328));
+  display: inline-block;
+}
+
+.complexityLabel {
+  color: var(--fgColor-default, var(--color-fg-default, #1f2328));
+  display: inline-block;
+}
+
+.surfaceLabel {
+  color: var(--fgColor-default, var(--color-fg-default, #1f2328));
+  display: inline-block;
+}

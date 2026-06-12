@@ -17,9 +17,9 @@ jobs:
     if: github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         with:
-          github-token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
 
             const issue = context.payload.issue

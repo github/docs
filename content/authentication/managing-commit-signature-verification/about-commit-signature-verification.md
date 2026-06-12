@@ -11,10 +11,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 shortTitle: Commit signature verification
+category:
+  - Learn about authentication
 ---
 ## About commit signature verification
 
@@ -42,6 +41,8 @@ Signing commits differs from signing off on a commit. For more information about
 | **Unverified** | The commit is signed but the signature could not be verified.
 | No verification status | The commit is not signed.
 
+{% endif %}
+
 ### Persistent commit signature verification
 
 Regardless of the signature choice - GPG, SSH, or S/MIME - once a commit signature is verified, it remains verified within its repository's network. See [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories).
@@ -52,6 +53,12 @@ The verification record includes a timestamp marking when the verification was c
 
 Persistent commit signature verification applies to new commits pushed to {% data variables.product.github %}. For any commits that predate this feature, a persistent record will be created the next time the commit's signature is verified on {% data variables.product.github %}, helping ensure that verified statuses remain stable and reliable across the repository's history.
 
+{% ifversion ghes %}
+
+For information about disabling persistent commit signature verification, see [AUTOTITLE](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/disabling-persistent-commit-verification).
+
+{% endif %}
+
 #### Records persist even after revocation and expiration
 
 Persistent commit signature verification reflects the verified state of a commit at the time of verification. This means that if a signing key is later revoked, expired, or otherwise altered, previously verified commits retain their verified status based on the record created during the initial verification. {% data variables.product.github %} will not re-verify previously signed commits or retroactively adjust their verification status in response to changes in the key's state. Organizations may need to manage key states directly to align with their security policies, especially if frequent key rotation or revocation is planned.
@@ -59,8 +66,6 @@ Persistent commit signature verification reflects the verified state of a commit
 #### The verification record is scoped to its repository network
 
 The verification record is persistent across the repository network, meaning that if the same commit is pushed again to the same repository or to any of its forks, the existing verification record is reused. This allows {% data variables.product.github %} to maintain a consistent verified status across related repositories without re-verifying the commit each time it appears within the network. This persistence reinforces a unified and reliable view of commit authenticity across all instances of the commit within the repository network.
-
-{% endif %}
 
 ### Signature verification for rebase and merge
 

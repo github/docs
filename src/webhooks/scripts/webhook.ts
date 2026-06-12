@@ -1,12 +1,13 @@
-#!/usr/bin/env node
 import { get, isPlainObject } from 'lodash-es'
 import { getJsonValidator } from '@/tests/lib/validate-json-schema'
 import { renderContent } from '@/content-render/index'
+import { normalizeDocsUrls } from '../../rest/scripts/utils/normalize-docs-urls'
 import webhookSchema from './webhook-schema'
 import { getBodyParams, TransformedParam } from '../../rest/scripts/utils/get-body-params'
 
 const NO_CHILD_PROPERTIES = [
   'action',
+  'comment',
   'enterprise',
   'installation',
   'organization',
@@ -22,7 +23,7 @@ export interface WebhookSchema {
   requestBody?: {
     content: {
       'application/json': {
-        schema: Record<string, any>
+        schema: Record<string, unknown>
       }
     }
   }
@@ -90,8 +91,8 @@ export default class Webhook implements WebhookInterface {
   }
 
   async renderDescription(): Promise<this> {
-    this.descriptionHtml = await renderContent(this.#webhook.description)
-    this.summaryHtml = await renderContent(this.#webhook.summary)
+    this.descriptionHtml = normalizeDocsUrls(await renderContent(this.#webhook.description))
+    this.summaryHtml = normalizeDocsUrls(await renderContent(this.#webhook.summary))
     return this
   }
 
@@ -101,10 +102,10 @@ export default class Webhook implements WebhookInterface {
     this.bodyParameters = isPlainObject(schema) ? await getBodyParams(schema, true) : []
 
     // Removes the children of the common properties
-    this.bodyParameters.forEach((param) => {
+    for (const param of this.bodyParameters) {
       if (NO_CHILD_PROPERTIES.includes(param.name)) {
         param.childParamsGroups = []
       }
-    })
+    }
   }
 }

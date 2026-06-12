@@ -1,7 +1,7 @@
 ---
 title: Monitoring the health of your cluster
 shortTitle: Monitor cluster health
-intro: 'To ensure the performance and redundancy of a {% data variables.product.prodname_ghe_server %} cluster, you can monitor the cluster''s health.'
+intro: To ensure the performance and redundancy of a {% data variables.product.prodname_ghe_server %} cluster, you can monitor the cluster's health.
 product: '{% data reusables.gated-features.cluster %}'
 redirect_from:
   - /enterprise/admin/clustering/monitoring-cluster-nodes
@@ -12,14 +12,9 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/monitoring-the-health-of-your-cluster
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Clustering
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Monitoring
-  - Performance
+contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 ## About {% data variables.product.prodname_ghe_server %} cluster health
@@ -41,13 +36,9 @@ admin@ghe-data-node-0:~$ ghe-cluster-status | grep error
 > [!NOTE]
 > If there are no failing tests, this command produces no output. This indicates the cluster is healthy.
 
-{% ifversion ghes-manage-api-cli-extension %}
-
 ## Monitoring cluster status using the {% data variables.product.prodname_cli %}
 
 You can use the `gh es` extension for {% data variables.product.prodname_cli %} to check the status of your {% data variables.product.prodname_ghe_server %} cluster. For more information, see the [GH ES CLI usage documentation](https://github.com/github/gh-es/blob/main/USAGE.md#gh-es-cluster-status) and [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/administering-your-instance-using-the-github-cli).
-
-{% endif %}
 
 ## Monitoring cluster status with Nagios
 

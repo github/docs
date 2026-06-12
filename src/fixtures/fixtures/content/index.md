@@ -10,7 +10,7 @@ featuredLinks:
     - /get-started/foo/bar
     - /pages
     - '{% ifversion ghec %}/get-started/versioning/only-ghec{% endif %}'
-    - /actions/category/map-topic
+    - /actions/category/subcategory
 redirect_from:
   - /olden-days
 versions:
@@ -29,19 +29,21 @@ children:
   - early-access
   - pages
   - code-security
+  - codespaces
   - actions
   - rest
   - webhooks
+  - graphql
   # - account-and-profile
-  # - authentication
+  - authentication
   # - repositories
-  # - admin
+  - admin
   # - billing
   # - site-policy
-  # - organizations
+  - organizations
   # - pull-requests
   # - issues
-  # - copilot
+  - copilot
   # - codespaces
   # - packages
   # - search-github

@@ -11,9 +11,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Permanent links to files
+category:
+  - Work with files
 ---
 
 > [!TIP]

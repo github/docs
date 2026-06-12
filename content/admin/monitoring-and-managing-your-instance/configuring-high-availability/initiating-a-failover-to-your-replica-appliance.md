@@ -1,6 +1,6 @@
 ---
 title: Initiating a failover to your replica appliance
-intro: 'You can failover to a {% data variables.product.prodname_ghe_server %} replica appliance using the command line for maintenance and testing, or if the primary appliance fails.'
+intro: You can failover to a {% data variables.product.prodname_ghe_server %} replica appliance using the command line for maintenance and testing, or if the primary appliance fails.
 redirect_from:
   - /enterprise/admin/installation/initiating-a-failover-to-your-replica-appliance
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
@@ -9,12 +9,10 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/initiating-a-failover-to-your-replica-appliance
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - High availability
-  - Infrastructure
 shortTitle: Initiate failover to appliance
+contentType: how-tos
+category:
+  - Scale your instance
 ---
 The time required to failover depends on how long it takes to manually promote the replica and redirect traffic. The average time ranges between 20-30 minutes.
 
@@ -57,6 +55,8 @@ The time required to failover depends on how long it takes to manually promote t
 1. Update the DNS record to point to the IP address of the replica. Traffic is directed to the replica after the TTL period elapses. If you are using a load balancer, ensure it is configured to send traffic to the replica.
 1. Notify users that they can resume normal operations.
 1. If desired, set up replication from the new primary to existing appliances and the previous primary. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#utilities-for-replication-management).
+   > [!NOTE]
+   > If there were multiple replicas before failover, the replicas that were not promoted during failover will remain part of the high availability group associated with the previous primary. Before re-establishing replication from the new primary, you must remove these replicas from the high availability configuration of the old primary. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-high-availability/removing-a-high-availability-replica#removing-replication-permanently).
 1. Appliances you do not intend to setup replication to that were part of the high availability configuration prior the failover, need to be removed from the high availability configuration by UUID.
     * On the former appliances, get their UUID via `cat /data/user/common/uuid`.
 
@@ -64,11 +64,14 @@ The time required to failover depends on how long it takes to manually promote t
       cat /data/user/common/uuid
       ```
 
-    * On the new primary, remove the UUIDs using `ghe-repl-teardown`. Please replace `UUID` with a UUID you retrieved in the previous step.
+    * On the new primary, remove the UUIDs using {% ifversion ghes > 3.17 %}`ghe-repl-decommission`{% else %}`ghe-repl-teardown`{% endif %}. Please replace `UUID` with the UUID you retrieved in the previous step.
 
       ```shell
-      ghe-repl-teardown -u UUID
+      {% ifversion ghes > 3.17 %}ghe-repl-decommission UUID{% else %}ghe-repl-teardown -u UUID{% endif %}
       ```
+
+   > [!WARNING]
+   > If you do not intend to re-establish replication from the new primary, you must shut down or delete any appliances that were part of the previous high availability configuration. If those appliances were unreachable during failover, they could cause unintended changes to the new primary if they become reachable later. To prevent configuration conflicts or data integrity issues, always ensure that unused appliances are properly decommissioned.
 
 ## Further reading
 

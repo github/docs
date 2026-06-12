@@ -1,0 +1,13 @@
+.linkItem {
+  border-radius: 0;
+
+  &:hover {
+    border-radius: 0;
+  }
+
+  h3,
+  span {
+    user-select: text;
+    color: var(--fgColor-accent, var(--color-accent-fg));
+  }
+}

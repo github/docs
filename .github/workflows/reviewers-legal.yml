@@ -23,7 +23,7 @@ permissions:
   repository-projects: read
 
 jobs:
-  codeowners-legal:
+  reviewers-legal:
     if: >-
       ${{ github.repository == 'github/docs-internal' &&
           !github.event.pull_request.draft &&
@@ -31,32 +31,35 @@ jobs:
           github.event.pull_request.head.ref != 'repo-sync' }}
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repo
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - name: Checkout repository
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          # Fetch 2 commits so tj-actions/changed-files can diff without extra API calls
+          fetch-depth: 2
 
       - name: Get changed files
         id: changed_files
-        uses: ./.github/actions/get-changed-files
+        uses: tj-actions/changed-files@22103cc46bda19c2b464ffe86db46df6922fd323 # v47.0.5
         with:
           files: 'content/**'
 
       - name: Set up Node and dependencies
-        if: steps.changed_files.outputs.filtered_changed_files
+        if: steps.changed_files.outputs.any_modified == 'true'
         uses: ./.github/actions/node-npm-setup
 
       - name: Check content type
-        if: steps.changed_files.outputs.filtered_changed_files
+        if: steps.changed_files.outputs.any_modified == 'true'
         id: checkContentType
         run: npm run check-content-type
         env:
-          CHANGED_FILE_PATHS: ${{ steps.changed_files.outputs.filtered_changed_files }}
+          CHANGED_FILE_PATHS: ${{ steps.changed_files.outputs.all_modified_files }}
           CONTENT_TYPE: 'rai'
 
-      - name: Check for reviewers-legal label, add if missing and request review
+      - name: Add legal as a reviewer
         if: steps.checkContentType.outputs.containsContentType == 'true'
+        uses: ./.github/actions/retry-command
         env:
-          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           PR: ${{ github.event.pull_request.html_url }}
-        run: |
-          gh pr edit $PR --add-reviewer github/legal-product
-          gh pr edit $PR --add-label reviewers-legal
+        with:
+          command: gh pr edit $PR --add-reviewer github/legal-product --add-label reviewers-legal

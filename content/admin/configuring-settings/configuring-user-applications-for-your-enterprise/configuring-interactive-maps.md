@@ -1,15 +1,15 @@
 ---
 title: Configuring interactive maps
-intro: 'You can enable the display of interactive maps in the web interface for {% data variables.location.product_location %}.'
+intro: You can enable the display of interactive maps in the web interface for {% data variables.location.product_location %}.
 shortTitle: Configure interactive maps
-permissions: 'People with access to the {% data variables.enterprise.management_console %} can configure interactive maps.'
+permissions: People with access to the {% data variables.enterprise.management_console %} can configure interactive maps.
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
 redirect_from:
   - /admin/configuration/configuring-user-applications-for-your-enterprise/configuring-interactive-maps
+contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About interactive maps
@@ -17,13 +17,6 @@ redirect_from:
 You can allow users of {% data variables.location.product_location %} to create interactive maps using GeoJSON or TopoJSON syntax. For more information about creation of interactive maps, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps).
 
 To enable interactive maps, you must provide authentication credentials for Azure Maps.
-
-{% ifversion ghes < 3.13 %}
-
-> [!WARNING]
-> Authentication with Azure Maps using an API token is {% data variables.release-phases.retired %} in {% data variables.product.prodname_ghe_server %} 3.12 and later. If you upgrade to the latest release of {% data variables.product.prodname_ghe_server %} on an instance already configured to authenticate with an API token, interactive maps will be disabled. You must reconfigure authentication using role-based access control (RBAC) for an application on a Microsoft Entra ID (previously known as Azure AD) tenant. {% data reusables.enterprise.azure-maps-auth-deprecation-link %}
-
-{% endif %}
 
 ## Prerequisites
 
@@ -50,7 +43,7 @@ To generate credentials for Azure Maps, you must create an application for your 
    1. Select **Delegated permissions**.
    1. Under "Select permissions", select "`user_impersonation`".
    1. To save the permissions, click **Add permissions**.
-1. Sign into an Azure Maps account. If you don't have an account, you can create one. For more information, see the [Azure Maps Account](https://www.microsoft.com/maps) website.
+1. Sign into an Azure Maps account. If you don't have an account, you can create one. For more information, see the [Azure Maps Account](https://azure.microsoft.com/en-us/products/azure-maps/) website.
 1. Configure RBAC for Azure Maps. For more information, see [Authentication with Azure Maps](https://learn.microsoft.com/azure/azure-maps/azure-maps-authentication#authorization-with-role-based-access-control) and [Assign Azure roles using the Azure portal](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal) on Microsoft Learn.
 
    * On your Entra ID tenant, from **Access control (IAM)**, you must assign the role of "Azure Maps Data Reader" to "User, group, or service principal", select the application you created earlier in these instructions, and complete the form.

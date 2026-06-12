@@ -4,10 +4,9 @@ intro: You can limit which users can approve or request changes to a pull reques
 versions:
   feature: pull-request-approval-limit
 permissions: Organization owners can limit which users can submit reviews that approve or request changes to a pull request.
-topics:
-  - Organizations
-  - Pull requests
 shortTitle: Manage pull request reviews
+category:
+  - Set repository policies
 ---
 
 ## About code review limits
@@ -22,8 +21,8 @@ You can also enable code review limits for individual repositories. If you enabl
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Access" section of the sidebar, click **{% octicon "report" aria-hidden="true" %} Moderation**.
-1. Under "{% octicon "report" aria-hidden="true" %} Moderation", click **Code review limits**.
+1. In the "Access" section of the sidebar, click **{% octicon "report" aria-hidden="true" aria-label="report" %} Moderation**.
+1. Under "{% octicon "report" aria-hidden="true" aria-label="report" %} Moderation", click **Code review limits**.
 1. Review the information on screen.
 1. Manage code review limits.
    * To limit reviews to those with explicit access, click **Limit review on all repositories**.

@@ -1,7 +1,7 @@
 import type { Request, Response, NextFunction } from 'express'
 
-import { productMap } from '@/products/lib/all-products.js'
-import { deprecated } from '@/versions/lib/enterprise-server-releases.js'
+import { productMap } from '@/products/lib/all-products'
+import { deprecated } from '@/versions/lib/enterprise-server-releases'
 
 const pathRegExps: RegExp[] = [
   // Disallow indexing of WIP products
@@ -23,7 +23,7 @@ export function blockIndex(path: string) {
   return pathRegExps.some((pathRe) => pathRe.test(path))
 }
 
-const middleware = function blockRobots(req: Request, res: Response, next: NextFunction) {
+function middleware(req: Request, res: Response, next: NextFunction) {
   if (blockIndex(req.path)) res.set('x-robots-tag', 'noindex')
   return next()
 }

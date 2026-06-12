@@ -1,8 +1,0 @@
-# Reference: 13369
-# Documentation for metered GHE/GHAS.
-# Reference: 16705 GHAS is now available to GitHub Team users.
-
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>= 3.13'

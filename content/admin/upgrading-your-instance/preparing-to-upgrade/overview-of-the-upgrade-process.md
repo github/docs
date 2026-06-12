@@ -1,28 +1,27 @@
 ---
-  title: Overview of the upgrade process
-  intro: 'Learn the recommendations and requirements for upgrading {% data variables.product.prodname_ghe_server %}, so you can plan and test your upgrade strategy.'
-  redirect_from:
-    - /enterprise/admin/installation/upgrading-github-enterprise-server
-    - /enterprise/admin/articles/upgrading-to-the-latest-release
-    - /enterprise/admin/articles/migrations-and-upgrades
-    - /enterprise/admin/guides/installation/upgrading-the-github-enterprise-virtual-machine
-    - /enterprise/admin/guides/installation/upgrade-packages-for-older-releases
-    - /enterprise/admin/articles/upgrading-older-installations
-    - /enterprise/admin/hidden/upgrading-older-installations
-    - /enterprise/admin/hidden/upgrading-github-enterprise-using-a-hotpatch-early-access-program
-    - /enterprise/admin/hidden/upgrading-github-enterprise-using-a-hotpatch
-    - /enterprise/admin/guides/installation/upgrading-github-enterprise
-    - /enterprise/admin/enterprise-management/upgrading-github-enterprise-server
-    - /admin/enterprise-management/upgrading-github-enterprise-server
-    - /admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server
-    - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server
-  versions:
-    ghes: '*'
-  type: overview
-  topics:
-    - Enterprise
-    - Upgrades
-  shortTitle: Upgrading overview
+title: Overview of the upgrade process
+intro: Learn the recommendations and requirements for upgrading {% data variables.product.prodname_ghe_server %}, so you can plan and test your upgrade strategy.
+redirect_from:
+  - /enterprise/admin/installation/upgrading-github-enterprise-server
+  - /enterprise/admin/articles/upgrading-to-the-latest-release
+  - /enterprise/admin/articles/migrations-and-upgrades
+  - /enterprise/admin/guides/installation/upgrading-the-github-enterprise-virtual-machine
+  - /enterprise/admin/guides/installation/upgrade-packages-for-older-releases
+  - /enterprise/admin/articles/upgrading-older-installations
+  - /enterprise/admin/hidden/upgrading-older-installations
+  - /enterprise/admin/hidden/upgrading-github-enterprise-using-a-hotpatch-early-access-program
+  - /enterprise/admin/hidden/upgrading-github-enterprise-using-a-hotpatch
+  - /enterprise/admin/guides/installation/upgrading-github-enterprise
+  - /enterprise/admin/enterprise-management/upgrading-github-enterprise-server
+  - /admin/enterprise-management/upgrading-github-enterprise-server
+  - /admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server
+  - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server
+versions:
+  ghes: '*'
+shortTitle: Upgrading overview
+contentType: concepts
+category:
+  - Back up and upgrade your instance
 ---
 
 {% data reusables.enterprise.constantly-improving %} You are responsible for upgrades to your instance. See [AUTOTITLE](/admin/overview/about-upgrades-to-new-releases).
@@ -80,7 +79,7 @@ Check if you need to upgrade the following applications:
     > [!NOTE]
     > Hotpatches require a configuration run, which can cause a brief period of errors or unresponsiveness for some or all services on {% data variables.location.product_location %}. You are not required to enable maintenance mode during installation of a hotpatch, but doing so will guarantee that users see a maintenance page instead of errors or timeouts. See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
   * Patch releases using an upgrade package typically require less than five minutes of downtime.
-  * Upgrading to a new feature release that include data migrations may cause a few hours of downtime, depending on storage performance and the amount of data that is migrated. During this time none of your users will be able to use the enterprise.
+  * Upgrading to a new feature release that includes data migrations may cause a few hours of downtime, depending on storage performance and the amount of data that is migrated. During this time none of your users will be able to use the enterprise. You may notice that upgrades to a new feature release take less time. This is because selective database transitions will now run concurrently, with the number of concurrent workers defaulting to the number of CPU cores, up to a maximum of 16.
 
 ## Communicating your upgrade
 

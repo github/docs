@@ -11,9 +11,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Allow changes to a branch
+category:
+  - Work with forks
 ---
 When a user creates a pull request from their fork, the user generally has the authority to decide if other users can commit to the pull request's compare branch. If the pull request author wants greater collaboration, they can grant maintainers of the upstream repository (that is, anyone with push access to the upstream repository) permission to commit to the pull request's compare branch. To learn more about upstream repositories, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks).
 
@@ -24,7 +24,7 @@ You can set commit permissions when you first create a pull request from a fork.
 ## Enabling repository maintainer permissions on existing pull requests
 
 1. On {% data variables.product.github %}, navigate to the main page of the upstream repository of your pull request.
-1. Under the upstream repository name, click **{% octicon "git-pull-request" aria-hidden="true" %} Pull requests**.
+1. Under the upstream repository name, click **{% octicon "git-pull-request" aria-hidden="true" aria-label="git-pull-request" %} Pull requests**.
 
    ![Screenshot of the main page of a repository. In the horizontal navigation bar, a tab, labeled "Pull requests," is outlined in dark orange.](/assets/images/help/repository/repo-tabs-pull-requests-global-nav-update.png)
 

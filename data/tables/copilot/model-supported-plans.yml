@@ -1,0 +1,167 @@
+# Please keep this list sorted in alphabetical order.
+#
+# This file defines which AI models are available in each Copilot plan.
+# It is used to generate the "Supported AI models per Copilot plan" table at
+# /content/copilot/reference/ai-models/supported-models##supported-ai-models-per-copilot-plan.
+#
+# Column keys:
+# - name: The model name.
+# - pro: Availability on Copilot Pro.
+# - pro_plus: Availability on Copilot Pro+.
+# - max: Availability on Copilot Max.
+# - business: Availability on Copilot Business.
+# - enterprise: Availability on Copilot Enterprise.
+
+- name: Claude Haiku 4.5
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Claude Opus 4.5
+  pro: false
+  pro_plus: false
+  max: false
+  business: true
+  enterprise: true
+
+- name: Claude Opus 4.6
+  pro: false
+  pro_plus: false
+  max: false
+  business: true
+  enterprise: true
+
+- name: Claude Opus 4.6 (fast mode) (preview)
+  pro: false
+  pro_plus: false
+  max: false
+  business: false
+  enterprise: true
+
+- name: Claude Opus 4.7
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Claude Opus 4.8
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Claude Fable 5
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Claude Sonnet 4.5
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Claude Sonnet 4.6
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Gemini 2.5 Pro
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Gemini 3 Flash
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Gemini 3.1 Pro
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Gemini 3.5 Flash
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: MAI-Code-1-Flash
+  pro: true
+  pro_plus: true
+  max: true
+  business: false
+  enterprise: false
+
+- name: GPT-5 mini
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: GPT-5.3-Codex
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: GPT-5.4
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: GPT-5.4 mini
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: GPT-5.4 nano
+  pro: false
+  pro_plus: true
+  max: true
+  business: false
+  enterprise: false
+
+- name: GPT-5.5
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Raptor mini
+  pro: true
+  pro_plus: true
+  max: true
+  business: false
+  enterprise: false
+
+- name: Goldeneye
+  pro: false
+  pro_plus: false
+  max: false
+  business: false
+  enterprise: false

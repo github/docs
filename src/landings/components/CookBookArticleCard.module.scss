@@ -1,0 +1,26 @@
+.spotlightImage {
+  background-color: gray;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  width: 100%;
+  height: auto;
+}
+
+.cardContainer {
+  min-height: 200px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.label {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
+  height: auto !important;
+  line-height: 1.4 !important;
+}
+
+.labelGroup {
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}

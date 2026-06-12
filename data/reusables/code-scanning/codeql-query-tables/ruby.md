@@ -1,6 +1,6 @@
 {% rowheaders %}
 
-| Query name | Related CWEs | Default | Extended | {% data variables.product.prodname_copilot_autofix_short %} |
+| Query name | Related CWEs | Default | Extended | {% data variables.copilot.copilot_autofix_short %} |
 | --- | --- | --- | --- | --- |
 | [Bad HTML filtering regexp](https://codeql.github.com/codeql-query-help/ruby/rb-bad-tag-filter/) | 116, 020, 185, 186 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Badly anchored regular expression](https://codeql.github.com/codeql-query-help/ruby/rb-regex-badly-anchored-regexp/) | 020 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
@@ -39,7 +39,6 @@
 | [Use of externally-controlled format string](https://codeql.github.com/codeql-query-help/ruby/rb-tainted-format-string/) | 134 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Weak cookie configuration](https://codeql.github.com/codeql-query-help/ruby/rb-weak-cookie-configuration/) | 732, 1275 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [XML external entity expansion](https://codeql.github.com/codeql-query-help/ruby/rb-xxe/) | 611, 776, 827 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| [Hard-coded credentials](https://codeql.github.com/codeql-query-help/ruby/rb-hardcoded-credentials/) | 259, 321, 798 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
 | [Hard-coded data interpreted as code](https://codeql.github.com/codeql-query-help/ruby/rb-hardcoded-data-interpreted-as-code/) | 506 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Log injection](https://codeql.github.com/codeql-query-help/ruby/rb-log-injection/) | 117 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Missing regular expression anchor](https://codeql.github.com/codeql-query-help/ruby/rb-regex-missing-regexp-anchor/) | 020 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |

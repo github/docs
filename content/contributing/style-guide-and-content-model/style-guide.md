@@ -7,7 +7,13 @@ versions:
   ghes: '*'
 redirect_from:
   - /contributing/writing-for-github-docs/style-guide
+category:
+  - Follow the style guide and content model
 ---
+
+<!--
+A condensed version of this style guide is available at `.github/instructions/style-guide-summary.instructions.md`, optimized for AI agents and quick reference. If you make significant changes to this full guide, update the summary file as well.
+-->
 
 > [!NOTE]
 > These guidelines are specific to {% data variables.product.company_short %}'s documentation. For general style questions or guidance on topics not covered here, see the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs). For any questions about the GitHub brand, see our [GitHub Brand Guide](https://brand.github.com).<!-- markdownlint-disable-line search-replace -->
@@ -132,28 +138,47 @@ Liquid syntax for alerts is still supported and may still appear in older articl
 
 For more information on formatting alerts, see “Alerts” in [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#alerts).
 
-## Buttons
+## Call to action (CTA)
 
-Landing pages and some articles have buttons that take people to relevant content in other articles or on other {% data variables.product.prodname_dotcom %} webpages. Buttons should be used when someone needs to navigate to another page to complete the task being described. For example, [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud) has a button that takes people to the trial sign up page since that is the next step in the process of setting up a trial. The [AUTOTITLE](/migrations) landing page uses a button to direct people to the article that most people will need to read to start a migration.
+A CTA is a link or button prompting users to take the next step in their journey. It will send a user to a different location.
 
-If a button encourages people to navigate away from the {% data variables.product.prodname_docs %} site, follow the call to action (CTA) button guidelines. If you want to include another type of button on a landing page or article, you must get approval from the {% data variables.product.prodname_docs %} team.
+The key component of a CTA is that it helps the user to do what they were trying to do, either by guiding them to the next step or leading them to a product or feature they need.
 
-## Call to action (CTA) buttons
+In considering when to use a CTA, ask the following questions:
 
-CTA buttons emphasize a link that we expect or encourage people to navigate to after reading an article or as part of completing the task that an article describes. CTAs should only take people to {% data variables.product.company_short %}-owned domains. For example, the CTA button on [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud) links to [an enterprise sales page](https://github.com/account/enterprises/new?ref_cta=GHEC+trial&ref_loc=setting+up+a+trial+of+github+enterprise+cloud&ref_page=docs) on {% data variables.product.prodname_dotcom_the_website %}.
+* Is there a logical or necessary next step for the user? This can be the next information they need, or a feature that would help them accomplish their task.
+* Is there a business need for sending the user to that place?
 
-Only include a CTA button if navigating to the link supports user needs. Do not use CTA buttons solely for marketing GitHub features or products. In the above example, someone who wants to try {% data variables.product.prodname_copilot %} must navigate to the {% data variables.product.prodname_copilot_short %} settings menu and would likely want to after reading the article. In contrast, even though someone might use {% data variables.product.prodname_copilot_short %} as part of writing code that they then create a pull request for, we would not add a "Try {% data variables.product.prodname_copilot %}" CTA to [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) since {% data variables.product.prodname_copilot_short %} is not connected to the user needs of "Creating a pull request." Most people will create pull requests without using {% data variables.product.prodname_copilot_short %}. But people visiting articles about getting started with {% data variables.product.prodname_copilot_short %} are probably interested in trying {% data variables.product.prodname_copilot_short %} if they are not already using it. So we add the CTA button to help people get where they are trying to go.
+We should only use a CTA when the answer to both questions is yes.
 
-Style your CTAs using the following format.
+### How is a CTA different from a link?
 
-```html
-{% raw %}<a href="https://github.com/DESTINATION/URL?ref_cta=CTA+NAME&ref_loc=LOCATION&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try PRODUCT NAME</span> {% octicon "link-external" height:16 %}</a>{% endraw %}
+A CTA is an explicit direction to the user to take an immediate action, such as “Try Copilot for free” or “Create your own repository”. A CTA in our documentation should only lead people to a {% data variables.product.company_short %}-owned domain.
+
+For example, the CTA on [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud) links to [an enterprise sales page](https://github.com/account/enterprises/new?ref_product=ghec&ref_type=trial&ref_style=text&ref_plan=enterprise) on {% data variables.product.prodname_dotcom_the_website %}.
+
+### Building CTAs
+
+To build a valid CTA URL with the correct parameters, use the CTA builder script in your docs repository checkout:
+
+```shell
+npm run cta-builder
 ```
 
-Replace the placeholders with the relevant information for your CTA.
-* `DESTINATION/URL`: The URL that the button should navigate to.
-* `CTA+NAME`: The name of the CTA. For example, `GHEC+trial` or `Copilot+Business+Trial`.
-* `LOCATION`: The location in {% data variables.product.prodname_docs %} of the CTA. For example, `Setting+up+a+trial+of+GitHub+Enterprise+Cloud`.
+The script will guide you through an interactive process to:
+* Select the appropriate {% data variables.product.company_short %} product (`ref_product`)
+  * Use `github` as the default when the link is not specific to a particular feature or product
+* Choose the type of action (`ref_type`)
+* Specify the formatting style (`ref_style`)
+* Optionally select a specific plan (`ref_plan`)
+
+The script provides all available options for each parameter and generates a complete, valid CTA URL at the end. Use this tool to ensure you're using current, approved values for CTA parameters.
+
+For example, the script might generate a URL like:
+
+```
+https://github.com/account/enterprises/new?ref_product=ghec&ref_type=trial&ref_style=button&ref_plan=enterprise
+```
 
 ## Code
 
@@ -519,7 +544,6 @@ The Microsoft Style Guide offers resources on bias-free communication, accessibi
 * [Accessibility terms](https://docs.microsoft.com/style-guide/a-z-word-list-term-collections/term-collections/accessibility-terms)
 
 More resources for learning about inclusive and accessible language and style:
-* [18F Content Guide on Inclusive Language](https://content-guide.18f.gov/our-style/inclusive-language/)
 * MailChimp Content Style Guide:
   * [Writing About People](https://styleguide.mailchimp.com/writing-about-people/)
   * [Writing for Accessibility](https://styleguide.mailchimp.com/writing-for-accessibility/)
@@ -545,7 +569,7 @@ For presenting keyboard shortcuts, follow the [Microsoft Style Guide](https://do
 
 ### Usage highlights
 
-Below are some usage highlights for how we present keyboard shortcuts in our documentation:
+Here are some usage highlights for how we present keyboard shortcuts in our documentation:
 
 * The basic syntax is to show keys with `+` between key combinations, without any spaces.
 
@@ -586,7 +610,7 @@ Below are some usage highlights for how we present keyboard shortcuts in our doc
 
 Do not create reusables for license attributions. We must use the exact license a project is licensed under, so any attributions must be accurately written for the articles that they appear in.
 
-If you are unsure of the legality of reusing any content, contact legal. If you are adding content with a license that is not listed below, you must receive a legal review before you can publish the content.
+If you are unsure of the legality of reusing any content, contact legal. If you are adding content with a license that is not listed here, you must receive a legal review before you can publish the content.
 
 ### Attributing MIT-licensed content
 
@@ -782,7 +806,7 @@ When introducing a list, avoid short, nonspecific sentences using terms like “
 Use permission statements and product callouts to communicate tasks that require specific roles or products to complete.
 
 * [**Permissions statements**](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#permissions-statements): The role required to take an action or do a task described in the article. Example: "Enterprise owners."
-* [**Product callout**](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#product-callout): The product or products required to take an action or do a task described in the article. Example: "Organization and enterprise accounts with a subscription to {% data variables.product.prodname_copilot_business_short %}."
+* [**Product callout**](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#product-callout): The product or products required to take an action or do a task described in the article. Example: "Organization and enterprise accounts with a subscription to {% data variables.copilot.copilot_business_short %}."
 
 Together, permission statements and product callouts tell readers who can use the feature being described in an article.
 
@@ -946,7 +970,7 @@ When referring to instances of remote working environments created with this tec
 
 Always use "dev container" (or, where clarification is needed, its longer form "development container") and not "devcontainer" (one word), except in file/path names. The single word could form could be considered a brand, which we want to avoid, and we also want to be consistent with the two-word form used in [the {% data variables.product.prodname_vscode %} documentation](https://code.visualstudio.com/docs/remote/create-dev-container#_path-to-creating-a-dev-container).
 
-Use "development container configuration files" to refer to all of the files in the `.devcontainer` directory (plus the `.devcontainer.json` if that's being used rather than `devcontainer.json` in the `.devcontainer` directory). Don't refer to these as "development container files" or "devcontainer files" to avoid this being taken as referring to `devcontainer.json` files. "Development container configuration files" refers to all of the files that can be used to configure a dev container, including `Dockerfile` and `docker-compose.yml` files. Don't use "the development container configuration file" (singular) when referring specifically to a `devcontainer.json` file. Instead refer to this file by its name.
+Use "development container configuration files" to refer to all of the files in the `.devcontainer` directory (plus the `.devcontainer.json` if that's being used rather than `devcontainer.json` in the `.devcontainer` directory). Don't refer to these as "development container files" or "devcontainer files" to avoid this being taken as referring to `devcontainer.json` files. "Development container configuration files" refers to all of the files that can be used to configure a dev container, including `Dockerfile` and `compose.yaml` files. Don't use "the development container configuration file" (singular) when referring specifically to a `devcontainer.json` file. Instead refer to this file by its name.
 
 ### {% data variables.product.prodname_GHAS %} products (GHAS)
 
@@ -986,12 +1010,8 @@ Each release note in a set describes one of the following changes.
 * [Bug fixes](#bug-fixes): fixes to flaws or unexpected behavior
 * [Changes](#changes): notable changes to past behavior
 * [Known issues](#known-issues): issues that {% data variables.product.company_short %} has identified, but cannot or has not yet prioritized
-{%- ifversion ghes < 3.16 %}
-* [Deprecations](#deprecations): removal of a feature or behavior
-{%- else %}
 * [Closing down](#closing-down): the process of being retired and should no longer be relied upon for future work
 * [Retired](#retired): end of a product or feature lifecycle
-{%- endif %}
 * [Errata](#errata): correction to inaccurate release note or documentation
 
 You can also review guidelines for updating release notes in [Adding or updating a release note](#adding-or-updating-a-release-note) and [Removing a release note](#removing-a-release-note).
@@ -1134,36 +1154,6 @@ A release note for a known issue answers the following questions.
 
 * > After an administrator begins a configuration run, a `No such object error` may occur during the validation phase for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
 
-{% ifversion ghes < 3.16 %}
-
-### Deprecations
-
-A deprecation release note summarizes a behavior or feature that {% data variables.product.company_short %} has removed or plans to remove. Generally, notes for deprecations are only part of feature releases.
-
-#### Writing release notes for deprecations
-
-A release note for a deprecation answers the following questions.
-
-1. Does this existing functionality apply to me, with my role or access?
-1. What is the functionality that's being deprecated?
-1. If applicable, what replaces the deprecated functionality?
-1. If applicable, where can I read more?
-
-> _AUDIENCE_ (**1**) _DESCRIPTION OF DEPRECATED FUNCTIONALITY_ (**2**) _REPLACEMENT FUNCTIONALITY_ (**3**) For more information, see [_ARTICLE TITLE_](/) (**4**).
-
-* Notes are in the present tense, or the future tense for upcoming changes. If applicable, specify the upcoming release where the deprecation will occur.
-* To reduce repetition and unnecessary words, "now" is usually implied.
-* To clarify actors and impact, avoid passive language when possible.
-* Categorize each feature in a section, under a feature heading.
-
-#### Examples of release notes for deprecations
-
-* > **Upcoming deprecation:** In {% data variables.product.prodname_ghe_server %} 3.8 and later, to ensure instance security, unsecure algorithms will be disabled for SSH connections to the administrative shell.
-
-* > Commit comments, which are comments that users add directly to a commit outside of a pull request, no longer appear in the pull request timeline. Users could not reply to or resolve these comments. The Timeline events REST API and the GraphQL API's `PullRequest` object also no longer return commit comments.
-
-{% else %}
-
 ### Closing down
 
 A release note for a feature that is closing down summarizes a behavior or feature that {% data variables.product.github %} plans to remove. These features are still available for production use and come with the associated support SLAs and technical support obligations. However, they are in the process of being retired and should no longer be relied upon for future work. Closing down is a transitional stage where users are advised to stop using the feature and prepare for its retirement.
@@ -1214,8 +1204,6 @@ A release note for a retired feature answers the following questions.
 
 * > **Retired:** {% data variables.product.github %} no longer supports required workflows for {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %} 3.11 and later. Use repository rulesets instead. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging).
 
-{% endif %}
-
 ### Errata
 
 Errata corrects inaccurate information previously published in the release notes or documentation for a release.
@@ -1244,6 +1232,14 @@ To signal to readers that you've added or changed a note, or to indicate the pub
 ### Removing a release note
 
 To signal that we have removed a release note, add an "Errata" section detailing which note you removed and (if relevant) which version the removed note actually pertains to. See [Writing errata](#writing-errata).
+
+## Release references
+
+When referring to a range of releases starting from a particular release, use "or later."
+
+* **Use:** "release 0.41.0 or later"
+* **Avoid:** "release 0.41.0 or above"
+* **Avoid:** "release 0.41.0 or greater"
 
 ## Reusables and variables
 
@@ -1420,14 +1416,14 @@ The following example shows part of a table from [AUTOTITLE](/code-security/depe
 <td align=center>
 {% octicon "check" aria-label="Supported" %}
 </td>
-</td>
+
 <td align=center>
 {% octicon "x" aria-label="Not supported" %}
 </td>
 <td align=center>
 {% octicon "check" aria-label="Supported" %}
 </td>
-</td>
+
 <td align=left>Location of package manifests</td>
 </tr>
 <tr>
@@ -1435,14 +1431,14 @@ The following example shows part of a table from [AUTOTITLE](/code-security/depe
 <td align=center>
 {% octicon "check" aria-label="Supported" %}
 </td>
-</td>
+
 <td align=center>
 {% octicon "x" aria-label="Not supported" %}
 </td>
 <td align=center>
 {% octicon "check" aria-label="Supported" %}
 </td>
-</td>
+
 <td align=left>How often to check for updates</td>
 </tr>
 </tbody>
@@ -1527,11 +1523,12 @@ Format lists and clickable list items in bold. To describe interacting with a li
 
 ### Location
 
-Describe a user interface element’s location with standard terms.
-* Under or above
-* Next to
-* Upper-left, upper-right, lower-left, lower-right
-* Top of the page, bottom of the page, right side of the page, left side of the page
+As per [WCAG guidance](https://www.w3.org/WAI/WCAG21/Understanding/sensory-characteristics.html), we should describe elements by name and not merely by appearance or location. The Microsoft Style Guide offers specific guidance for directional phrases, with emphasis on their use in documentation.
+
+* [Above](https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/above) or [below](https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/b/below)
+* [Upper-left, upper-right](https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/u/upper-left-upper-right)
+* [Lower-left, lower-right](https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/l/lower-left-lower-right)
+* Next to, bottom or top of the page, left or right side of the page
 
 ### Panels
 
@@ -1628,7 +1625,7 @@ Unless the content is about administering an enterprise product, describe an ind
 With {% data variables.product.company_short %}'s enterprise products, administrators manage an enterprise account. An enterprise account can own multiple organizations, and people's user accounts can be members of the organizations. For more information, see the "Roles in an enterprise" article for each product.
 
 * [{% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
-* [{% data variables.product.prodname_ghe_server %}](/enterprise-server/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
+* [{% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
 
 If the reader manages an enterprise account, and you're describing the people's accounts that they manage, use "user account." This applies to the following products.
 

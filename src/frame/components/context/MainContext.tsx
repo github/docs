@@ -1,8 +1,9 @@
 import { createContext, useContext } from 'react'
 import pick from 'lodash/pick'
 
-import type { BreadcrumbT } from 'src/frame/components/page-header/Breadcrumbs'
-import type { FeatureFlags } from 'src/frame/components/hooks/useFeatureFlags'
+import type { BreadcrumbT } from '@/frame/components/page-header/Breadcrumbs'
+import type { FeatureFlags } from '@/frame/components/hooks/useFeatureFlags'
+import type { SidebarLink } from '@/types'
 
 export type ProductT = {
   external: boolean
@@ -21,7 +22,7 @@ export type VersionItem = {
   latestApiVersion: string
 }
 
-// This reflects what gets exported from `all-versions.js` in the
+// This reflects what gets exported from `all-versions.ts` in the
 // `allVersions` object.
 // It's necessary for TypeScript, but we don't need to write down
 // every possible key that might be present because we don't need it
@@ -54,6 +55,8 @@ export type ProductTreeNode = {
   title: string
   href: string
   childPages: Array<ProductTreeNode>
+  sidebarLink?: SidebarLink
+  layout?: string
 }
 
 type UIString = Record<string, string>
@@ -83,52 +86,51 @@ type EnterpriseServerReleases = {
   oldestSupported: string
   nextDeprecationDate: string
   supported: Array<string>
+  releasesWithOldestDeprecationDate: Array<string>
 }
 
 export type MainContextT = {
+  allVersions: Record<string, VersionItem>
   breadcrumbs: {
     product: BreadcrumbT
     category?: BreadcrumbT
-    maptopic?: BreadcrumbT
+    subcategory?: BreadcrumbT
     article?: BreadcrumbT
   }
   communityRedirect: {
     name: string
     href: string
   }
+  currentCategory?: string
+  currentPathWithoutLanguage: string
   currentProduct?: ProductT
   currentProductName: string
-  currentLayoutName?: string
-  isHomepageVersion: boolean
-  data: DataT
-  error: string
-  currentCategory?: string
-  relativePath?: string
-  enterpriseServerReleases: EnterpriseServerReleases
-  currentPathWithoutLanguage: string
-  allVersions: Record<string, VersionItem>
-  currentVersion?: string
   currentProductTree?: ProductTreeNode | null
-  sidebarTree?: ProductTreeNode | null
+  currentLayoutName?: string
+  currentVersion?: string
+  data: DataT
+  enterpriseServerReleases: EnterpriseServerReleases
+  enterpriseServerVersions: Array<string>
+  error: string
   featureFlags: FeatureFlags
+  fullUrl: string
+  isHomepageVersion: boolean
+  nonEnterpriseDefaultVersion: string
   page: {
     documentType: string
-    type?: string
-    topics: Array<string>
+    contentType?: string
     title: string
     fullTitle?: string
     introPlainText?: string
     hidden: boolean
     noEarlyAccessBanner: boolean
     applicableVersions: string[]
+    docsTeamMetrics: string[] | null
   } | null
-
-  enterpriseServerVersions: Array<string>
-
-  nonEnterpriseDefaultVersion: string
-
+  relativePath?: string
+  sidebarTree?: ProductTreeNode | null
   status: number
-  fullUrl: string
+  xHost?: string
 }
 
 // Write down the namespaces from `data/ui.yml` that are used on all pages,
@@ -149,7 +151,6 @@ const DEFAULT_UI_NAMESPACES = [
   'contribution_cta',
   'support',
   'rest',
-  'domain_edit',
   'cookbook_landing',
 ]
 
@@ -182,9 +183,12 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
 
   const ui: UIStrings = {}
   addUINamespaces(req, ui, DEFAULT_UI_NAMESPACES)
+  if (req.context.currentJourneyTrack?.trackId) {
+    addUINamespaces(req, ui, ['journey_track_nav'])
+  }
 
-  // Every product landing page has a listing of all articles.
-  // It's used by the <ProductArticlesList> component.
+  // Product index pages (depth-2 index.md, e.g. actions/index.md) need the
+  // full product tree for landing rendering.
   const includeFullProductTree = documentType === 'product'
   const includeSidebarTree = documentType !== 'homepage'
 
@@ -192,7 +196,11 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
 
   // To know whether we need this key, we need to match this
   // with the business logic in `DeprecationBanner.tsx` which is as follows:
-  if (req.context.currentVersion.includes(req.context.enterpriseServerReleases.oldestSupported)) {
+  if (
+    req.context.enterpriseServerReleases.releasesWithOldestDeprecationDate.includes(
+      req.context.currentRelease,
+    )
+  ) {
     reusables.enterprise_deprecation = {
       version_was_deprecated: req.context.getDottedData(
         'reusables.enterprise_deprecation.version_was_deprecated',
@@ -216,14 +224,14 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
   const pageInfo =
     (page && {
       documentType,
-      type: req.context.page.type || null,
+      contentType: req.context.page.contentType || null,
       title: req.context.page.title,
       fullTitle: req.context.page.fullTitle || null,
-      topics: req.context.page.topics || [],
       introPlainText: req.context.page?.introPlainText || null,
       applicableVersions: req.context.page?.permalinks.map((obj: any) => obj.pageVersion) || [],
       hidden: req.context.page.hidden || false,
       noEarlyAccessBanner: req.context.page.noEarlyAccessBanner || false,
+      docsTeamMetrics: req.context.page.docsTeamMetrics || null,
     }) ||
     null
 
@@ -231,35 +239,14 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
   const currentProductName: string = req.context.currentProductName || ''
 
   const props: MainContextT = {
+    allVersions: minimalAllVersions(req.context.allVersions),
     breadcrumbs: req.context.breadcrumbs || {},
     communityRedirect: req.context.page?.communityRedirect || {},
+    currentCategory: req.context.currentCategory || '',
+    currentLayoutName: req.context.currentLayoutName || null,
+    currentPathWithoutLanguage: req.context.currentPathWithoutLanguage,
     currentProduct,
     currentProductName,
-    isHomepageVersion: req.context.page?.documentType === 'homepage',
-    error: req.context.error ? req.context.error.toString() : '',
-    data: {
-      ui,
-
-      reusables,
-
-      variables: {
-        release_candidate: {
-          version: releaseCandidateVersion,
-        },
-      },
-    },
-    currentCategory: req.context.currentCategory || '',
-    currentPathWithoutLanguage: req.context.currentPathWithoutLanguage,
-    page: pageInfo,
-    enterpriseServerReleases: pick(req.context.enterpriseServerReleases, [
-      'isOldestReleaseDeprecated',
-      'oldestSupported',
-      'nextDeprecationDate',
-      'supported',
-    ]),
-    enterpriseServerVersions: req.context.enterpriseServerVersions,
-    allVersions: minimalAllVersions(req.context.allVersions),
-    currentVersion: req.context.currentVersion,
     // This is a slimmed down version of `req.context.currentProductTree`
     // that only has the minimal titles stuff needed for sidebars and
     // any page that is hidden is omitted.
@@ -268,21 +255,38 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     // has the full length titles and not just the short titles.
     currentProductTree:
       (includeFullProductTree && req.context.currentProductTreeTitlesExcludeHidden) || null,
+    currentVersion: req.context.currentVersion,
+    data: {
+      ui,
+      reusables,
+      variables: {
+        release_candidate: {
+          version: releaseCandidateVersion,
+        },
+      },
+    },
+    enterpriseServerReleases: pick(req.context.enterpriseServerReleases, [
+      'isOldestReleaseDeprecated',
+      'oldestSupported',
+      'nextDeprecationDate',
+      'supported',
+      'releasesWithOldestDeprecationDate',
+    ]),
+    enterpriseServerVersions: req.context.enterpriseServerVersions,
+    error: req.context.error ? req.context.error.toString() : '',
+    featureFlags: {},
+    fullUrl: `${req.protocol}://${req.hostname}${req.originalUrl}`, // does not include port for localhost
+    isHomepageVersion: req.context.page?.documentType === 'homepage',
+    nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
+    page: pageInfo,
+    relativePath: req.context.page?.relativePath || null,
     // The minimal product tree is needed on all pages that depend on
     // the product sidebar or the rest sidebar.
     sidebarTree: (includeSidebarTree && req.context.sidebarTree) || null,
-    featureFlags: {},
-    nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
     status: res.statusCode,
-    fullUrl: req.protocol + '://' + req.hostname + req.originalUrl, // does not include port for localhost
+    xHost: req.get('x-host') || '',
   }
 
-  if (req.context.currentLayoutName) {
-    props.currentLayoutName = req.context.currentLayoutName
-  }
-  if (req.context.page?.relativePath) {
-    props.relativePath = req.context.page.relativePath
-  }
   return props
 }
 

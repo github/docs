@@ -1,11 +1,11 @@
 ### Standard {% data variables.product.prodname_dotcom %}-hosted runners for public repositories
 
-For public repositories, jobs using the workflow labels shown in the table below will run on virtual machines with the associated specifications. The use of these runners on public repositories is free and unlimited.
+For public repositories, jobs using the workflow labels shown in the table below will run with the associated specifications. {% data reusables.actions.single-cpu-runners %} Use of the standard {% data variables.product.prodname_dotcom %}-hosted runners is free and unlimited on public repositories.
 
 <table style="width:100%">
   <thead>
     <tr>
-      <th scope="col"><b>Virtual Machine</b></th>
+      <th scope="col"><b>Virtual machine / container</b></th>
       <th scope="col"><b>Processor (CPU)</b></th>
       <th scope="col"><b>Memory (RAM)</b></th>
       <th scope="col"><b>Storage (SSD)</b></th>
@@ -14,6 +14,7 @@ For public repositories, jobs using the workflow labels shown in the table below
     </tr>
   </thead>
   <tbody>
+    {% data reusables.actions.single-cpu-table-row %}
     <tr>
       <td>Linux</td>
       <td>4</td>
@@ -24,7 +25,7 @@ For public repositories, jobs using the workflow labels shown in the table below
         <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md">ubuntu-latest</a></code>,
         <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md">ubuntu-24.04</a></code>,
         <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md">ubuntu-22.04</a></code>,
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2004-Readme.md">ubuntu-20.04</a></code>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2604-Readme.md">ubuntu-26.04</a></code> ({% data variables.release-phases.public_preview_caps %})
       </td>
     </tr>
     <tr>
@@ -34,21 +35,33 @@ For public repositories, jobs using the workflow labels shown in the table below
       <td>14 GB</td>
       <td> x64 </td>
       <td>
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md">windows-latest</a></code>,
-         <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-Readme.md">windows-2025</a></code>[{% data variables.release-phases.public_preview_caps %}],
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md">windows-2022</a></code>,
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2019-Readme.md">windows-2019</a></code>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-Readme.md">windows-latest</a></code>,
+         <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-Readme.md">windows-2025</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-VS2026-Readme.md">windows-2025-vs2026</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md">windows-2022</a></code>
       </td>
     </tr>
     <tr>
-      <td>Linux [Public preview]</td>
+      <td>Linux</td>
       <td>4</td>
       <td>16 GB</td>
       <td>14 GB</td>
       <td> arm64 </td>
       <td>
-        <code><a href="https://github.com/actions/partner-runner-images/blob/main/images/arm-ubuntu-24-image.md">ubuntu-24.04-arm</a></code>,
-        <code><a href="https://github.com/actions/partner-runner-images/blob/main/images/arm-ubuntu-22-image.md">ubuntu-22.04-arm</a></code>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Arm64-Readme.md">ubuntu-24.04-arm</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Arm64-Readme.md">ubuntu-22.04-arm</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2604-Arm64-Readme.md">ubuntu-26.04-arm</a></code> ({% data variables.release-phases.public_preview_caps %})
+      </td>
+    </tr>
+    <tr>
+      <td>Windows</td>
+      <td>4</td>
+      <td>16 GB</td>
+      <td>14 GB</td>
+      <td>arm64</td>
+      <td>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows11-Arm64-Readme.md">windows-11-arm</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows11-VS2026-Arm64-Readme.md">windows-11-vs2026-arm</a></code> ({% data variables.release-phases.public_preview_caps %})
       </td>
     </tr>
     <tr>
@@ -58,7 +71,8 @@ For public repositories, jobs using the workflow labels shown in the table below
       <td>14 GB</td>
       <td> Intel </td>
       <td>
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md">macos-13</a></code>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md">macos-15-intel</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-26-Readme.md">macos-26-intel</a></code>
       </td>
     </tr>
     <tr>
@@ -68,20 +82,19 @@ For public repositories, jobs using the workflow labels shown in the table below
       <td>14 GB</td>
       <td> arm64 </td>
       <td>
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md">macos-latest</a></code>,
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md">macos-14</a></code>,
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md">macos-15</a></code> [{% data variables.release-phases.public_preview_caps %}]
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-arm64-Readme.md">macos-latest</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-14-arm64-Readme.md">macos-14</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-arm64-Readme.md">macos-15</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-26-arm64-Readme.md">macos-26</a></code>
       </td>
     </tr>
   </tbody>
 
 </table>
 
->[!NOTE] The arm64 Linux runner is in {% data variables.release-phases.public_preview %} and subject to change.
-
 ### Standard {% data variables.product.prodname_dotcom %}-hosted runners for {% ifversion ghec %}internal and{% endif %} private repositories
 
-For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using the workflow labels shown in the table below will run on virtual machines with the associated specifications. These runners use your {% data variables.product.prodname_dotcom %} account's allotment of free minutes, and are then charged at the per minute rates. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates).
+For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using the workflow labels shown in the table below will run on virtual machines with the associated specifications. These runners use your {% data variables.product.prodname_dotcom %} account's allotment of free minutes, and are then charged at the per minute rates. See [AUTOTITLE](/billing/reference/actions-minute-multipliers).
 
 <table style="width:100%">
   <thead>
@@ -95,30 +108,53 @@ For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using
     </tr>
   </thead>
   <tbody>
+    {% data reusables.actions.single-cpu-table-row %}
     <tr>
       <td>Linux</td>
       <td>2</td>
-      <td>7 GB</td>
+      <td>8 GB</td>
       <td>14 GB</td>
       <td> x64 </td>
       <td>
         <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md">ubuntu-latest</a></code>,
         <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md">ubuntu-24.04</a></code>,
         <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md">ubuntu-22.04</a></code>,
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2004-Readme.md">ubuntu-20.04</a></code>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2604-Readme.md">ubuntu-26.04</a></code> ({% data variables.release-phases.public_preview_caps %})
       </td>
     </tr>
     <tr>
       <td>Windows</td>
       <td>2</td>
-      <td>7 GB</td>
+      <td>8 GB</td>
       <td>14 GB</td>
       <td> x64 </td>
       <td>
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md">windows-latest</a></code>,
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-Readme.md">windows-2025</a></code>[{% data variables.release-phases.public_preview_caps %}],
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md">windows-2022</a></code>,
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2019-Readme.md">windows-2019</a></code>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-Readme.md">windows-latest</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-Readme.md">windows-2025</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md">windows-2022</a></code>
+      </td>
+    </tr>
+    <tr>
+      <td>Linux</td>
+      <td>2</td>
+      <td>8 GB</td>
+      <td>14 GB</td>
+      <td> arm64 </td>
+      <td>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Arm64-Readme.md">ubuntu-24.04-arm</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Arm64-Readme.md">ubuntu-22.04-arm</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2604-Arm64-Readme.md">ubuntu-26.04-arm</a></code> ({% data variables.release-phases.public_preview_caps %})
+      </td>
+    </tr>
+    <tr>
+      <td>Windows</td>
+      <td>2</td>
+      <td>8 GB</td>
+      <td>14 GB</td>
+      <td> arm64 </td>
+      <td>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows11-Arm64-Readme.md">windows-11-arm</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows11-Arm64-VS2026-Readme.md">windows-11-vs2026-arm</a></code> ({% data variables.release-phases.public_preview_caps %})
       </td>
     </tr>
     <tr>
@@ -128,7 +164,8 @@ For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using
       <td>14 GB</td>
       <td> Intel </td>
       <td>
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md">macos-13</a></code>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md">macos-15-intel</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-26-Readme.md">macos-26-intel</a></code>
       </td>
     </tr>
     <tr>
@@ -138,9 +175,10 @@ For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using
       <td>14 GB</td>
       <td> arm64 </td>
       <td>
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md">macos-latest</a></code>,
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md">macos-14</a></code>,
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md">macos-15</a></code> [{% data variables.release-phases.public_preview_caps %}]
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-arm64-Readme.md">macos-latest</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-14-arm64-Readme.md">macos-14</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-arm64-Readme.md">macos-15</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-26-arm64-Readme.md">macos-26</a></code>
       </td>
     </tr>
   </tbody>

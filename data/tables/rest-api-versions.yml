@@ -1,0 +1,8 @@
+# REST API calendar date versions and their end of support dates.
+# Rendering code lives in content/rest/about-the-rest-api/api-versions.md
+
+versions:
+  '2022-11-28':
+    end_of_support: 'March 10, 2028'
+  '2026-03-10':
+    end_of_support: ~

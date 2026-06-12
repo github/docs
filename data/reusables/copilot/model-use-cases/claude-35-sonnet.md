@@ -1,2 +1,0 @@
-{% data variables.copilot.copilot_claude_sonnet_35 %} is a good choice for everyday coding support—including writing documentation, answering language-specific questions, or generating boilerplate code. It offers helpful, direct answers without over-complicating the task.
-If you're working within cost constraints, {% data variables.copilot.copilot_claude_sonnet_35 %} is recommended as it delivers solid performance on many of the same tasks as {% data variables.copilot.copilot_claude_sonnet_37 %}, but with significantly lower resource usage.

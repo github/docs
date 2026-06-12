@@ -9,9 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 shortTitle: Authenticating
+category:
+  - Authenticate API requests
 ---
 
 ## About authentication
@@ -45,6 +45,8 @@ If you want to use the {% data variables.product.company_short %} REST API for p
 If you are using a {% data variables.product.pat_v2 %}, your {% data variables.product.pat_v2 %} requires specific permissions in order to access each REST API endpoint. The REST API reference document for each endpoint states whether the endpoint works with {% data variables.product.pat_v2 %}s and states what permissions are required in order for the token to use the endpoint. Some endpoints may require multiple permissions, and some endpoints may require one of multiple permissions. For an overview of which REST API endpoints a {% data variables.product.pat_v2 %} can access with each permission, see [AUTOTITLE](/rest/overview/permissions-required-for-fine-grained-personal-access-tokens).
 
 If you are using a {% data variables.product.pat_v1 %}, it requires specific scopes in order to access each REST API endpoint. For general guidance about what scopes to choose, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes).
+
+{% data variables.product.pat_generic_caps_plural %} act as your identity (limited by the scopes or permissions you selected) when you make requests to the REST API. As such, it is important to keep your {% data variables.product.pat_generic_plural %} secure. For more information about keeping your {% data variables.product.pat_generic_plural %} secure, see [AUTOTITLE](/rest/authentication/keeping-your-api-credentials-secure?apiVersion=2022-11-28).
 
 ### {% data variables.product.pat_generic_caps_plural %} and SAML SSO
 
@@ -87,7 +89,7 @@ The client ID and client secret are associated with the app, not with the owner 
 
 If you are the owner of a {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %}, or if you are an app manager for a {% data variables.product.prodname_github_app %}, you can find the client ID and generate a client secret on the settings page for your app. To navigate to your app's settings page:
 
-1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile photo.
+1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile picture.
 1. Navigate to your account settings.
    * For an app owned by a personal account, click **Settings**.
    * For an app owned by an organization:
@@ -101,7 +103,7 @@ If you are the owner of a {% data variables.product.prodname_github_app %} or {%
 
 ## Authenticating in a {% data variables.product.prodname_actions %} workflow
 
-If you want to use the API in a {% data variables.product.prodname_actions %} workflow, {% data variables.product.company_short %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token).
+If you want to use the API in a {% data variables.product.prodname_actions %} workflow, {% data variables.product.company_short %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token).
 
 If this is not possible, you can store your token as a secret and use the name of your secret in your {% data variables.product.prodname_actions %} workflow. For more information about secrets, see [AUTOTITLE](/actions/security-guides/encrypted-secrets).
 
@@ -169,4 +171,4 @@ Authentication with username and password is not supported. If you try to authen
 ## Further reading
 
 * [AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)
-* [AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#authenticating)
+* [AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#authentication)

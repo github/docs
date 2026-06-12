@@ -13,6 +13,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Apache Maven registry
+category:
+  - Work with a package registry
 ---
 
 {% ifversion ghec %}
@@ -65,7 +67,7 @@ If your instance has subdomain isolation enabled:
       <repositories>
         <repository>
           <id>central</id>
-          <url>https://repo1.maven.org/maven2</url>
+          <url>https://repo.maven.apache.org/maven2</url>
         </repository>
         <repository>
           <id>github</id>
@@ -107,7 +109,7 @@ If your instance has subdomain isolation disabled:
       <repositories>
         <repository>
           <id>central</id>
-          <url>https://repo1.maven.org/maven2</url>
+          <url>https://repo.maven.apache.org/maven2</url>
         </repository>
         <repository>
           <id>github</id>

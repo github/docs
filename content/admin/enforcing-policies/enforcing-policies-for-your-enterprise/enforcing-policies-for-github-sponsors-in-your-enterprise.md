@@ -1,17 +1,15 @@
 ---
 title: Enforcing policies for GitHub Sponsors in your enterprise
 intro: Enterprise owners can control whether to allow the enterprise's organizations to sponsor open source projects.
-permissions: 'Enterprise owners can enforce policies for {% data variables.product.prodname_sponsors %} in an enterprise.'
+permissions: Enterprise owners can enforce policies for {% data variables.product.prodname_sponsors %} in an enterprise.
 versions:
   feature: enterprise-orgs-sponsors-with-cc
-type: how_to
-topics:
-  - Sponsors
-  - Enterprise
-  - Policies
 shortTitle: '{% data variables.product.prodname_sponsors %} policies'
 redirect_from:
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-sponsors-in-your-enterprise
+contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About enterprise policies for {% data variables.product.prodname_sponsors %}
@@ -26,7 +24,7 @@ Organizations that belong to an enterprise that pays by invoice can either pay f
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
-1. Under {% octicon "law" aria-hidden="true" %} "Policies", click **Sponsors**.
+1. Under {% octicon "law" aria-hidden="true" aria-label="law" %} "Policies", click **Sponsors**.
 1. Under "Sponsors", click **Add organization**.
 1. Begin typing the name of the organization you'd like to enable sponsorships for, then click the name of the organization in the list.
 1. Click **Enable sponsorships**.
@@ -37,5 +35,5 @@ You can disallow the use of {% data variables.product.prodname_sponsors %} for a
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
-1. Under {% octicon "law" aria-hidden="true" %} "Policies", click **Sponsors**.
+1. Under {% octicon "law" aria-hidden="true" aria-label="law" %} "Policies", click **Sponsors**.
 1. Under "Sponsors", to the right of the organization's name, click **Disable**.

@@ -4,7 +4,7 @@
 import { existsSync, statSync, readdirSync } from 'fs'
 import { program, Option } from 'commander'
 
-import { languageKeys } from '@/languages/lib/languages'
+import { languageKeys } from '@/languages/lib/languages-server'
 import scrapeIntoIndexJson from '@/search/scripts/scrape/lib/scrape-into-index-json'
 import {
   allIndexVersionOptions,

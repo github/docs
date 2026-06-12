@@ -14,32 +14,27 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Add a file
+category:
+  - Work with files
 ---
 
 ## Adding a file to a repository on {% data variables.product.github %}
 
 Files that you add to a repository via a browser are limited to {% data variables.large_files.max_github_browser_size %} per file. You can add larger files, up to {% data variables.large_files.max_github_size %} each, via the command line. For more information, see [Adding a file to a repository using the command line](#adding-a-file-to-a-repository-using-the-command-line). To add files larger than {% data variables.large_files.max_github_size %}, you must use {% data variables.large_files.product_name_long %}. For more information, see [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github).
 
-You can upload multiple files to {% data variables.product.github %} at the same time.
+You can upload up to 100 files to {% data variables.product.github %} at the same time.
 
 {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
 
-{% ifversion push-rulesets %}
-
 {% data reusables.repositories.rulesets-push-rules-general-info-for-related-articles %}
-
-{% endif %}
-
-{% ifversion push-protection-block-uploads %}
 
 Your repository may be secured by push protection. With push protection, {% data variables.product.prodname_dotcom %} will block uploading a file to the repository if the file contains a supported secret, such as a token. You should remove the secret from the file before attempting to upload the file again. For more information, see [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui) and [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui#resolving-a-blocked-commit).
 
 {% data reusables.secret-scanning.push-protection-web-UI-uploads-beta %}
 
-{% endif %}
+> [!WARNING]
+> Use Git to push files to your repository if you need to apply the logic in your `.gitattributes` file. For example, automatic conversion of line endings. Uploading a file through the {% data variables.product.github %} web interface will ignore `.gitattributes`.
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Above the list of files, select the **Add file** dropdown menu and click **Upload files**. Alternatively, you can drag and drop files into your browser.

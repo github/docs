@@ -11,8 +11,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Events
+category:
+  - Learn about the REST API
 ---
 Issue events are triggered by activity in issues and pull requests and are available in the REST API for [Issue events](/rest/issues/events) and [Timeline events](/rest/issues/timeline). Each event type specifies whether the event is available in the REST API for issue events or timeline events.
 
@@ -23,29 +23,6 @@ GitHub's REST API considers every pull request to be an issue, but not every iss
 Issue events all have the same object structure, except events that are only available in the REST API for timeline events. Some events also include additional properties that provide more context about the event resources. Refer to the specific event for details about any properties that differ from this object format.
 
 {% data reusables.issue-events.issue-event-common-properties %}
-
-## added_to_project
-
-The issue or pull request was added to a {% data variables.projects.projects_v1_board %}. {% data reusables.projects.disabled-projects %}
-
-This event is available for the following issue types.
-
-{% rowheaders %}
-
-|  | REST API for issue events | REST API for timeline events |
-|---|---|---|
-|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-
-{% endrowheaders %}
-
-### Properties for added_to_project
-
-{% data reusables.pre-release-program.starfox-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
-
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.project-card-properties %}
 
 ## assigned
 
@@ -243,28 +220,6 @@ This event is available for the following issue types.
 ### Properties for convert_to_draft
 
 {% data reusables.issue-events.issue-event-common-properties %}
-
-## converted_note_to_issue
-
-The issue was created by converting a note in a {% data variables.projects.projects_v1_board %} to an issue. {% data reusables.projects.disabled-projects %}
-
-This event is available for the following issue types.
-
-{% rowheaders %}
-
-|  | REST API for issue events | REST API for timeline events |
-|---|---|---|
-|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-
-{% endrowheaders %}
-
-### Properties for converted_note_to_issue
-
-{% data reusables.pre-release-program.starfox-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
-
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.project-card-properties %}
 
 ## converted_to_discussion
 
@@ -556,30 +511,6 @@ This event is available for the following issue types.
 `milestone` | `object` | The milestone object.
 `milestone[title]` | `string` | The title of the milestone.
 
-## moved_columns_in_project
-
-The issue or pull request was moved between columns in a {% data variables.projects.projects_v1_board %}. {% data reusables.projects.disabled-projects %}
-
-This event is available for the following issue types.
-
-{% rowheaders %}
-
-|  | REST API for issue events | REST API for timeline events |
-|---|---|---|
-|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-
-{% endrowheaders %}
-
-### Properties for moved_columns_in_project
-
-{% data reusables.pre-release-program.starfox-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
-
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.project-card-properties %}
-`previous_column_name` | `string` | The name of the column the issue was moved from.
-
 ## pinned
 
 The issue was pinned.
@@ -634,29 +565,6 @@ This event is available for the following issue types.
 ### Properties for referenced
 
 {% data reusables.issue-events.issue-event-common-properties %}
-
-## removed_from_project
-
-The issue or pull request was removed from a {% data variables.projects.projects_v1_board %}. {% data reusables.projects.disabled-projects %}
-
-This event is available for the following issue types.
-
-{% rowheaders %}
-
-|  | REST API for issue events | REST API for timeline events |
-|---|---|---|
-|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-
-{% endrowheaders %}
-
-### Properties for removed_from_project
-
-{% data reusables.pre-release-program.starfox-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
-
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.project-card-properties %}
 
 ## renamed
 

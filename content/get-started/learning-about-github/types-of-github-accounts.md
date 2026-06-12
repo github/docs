@@ -13,12 +13,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - CLI
-  - Mobile
-  - Desktop
-  - Security
+category:
+  - Explore GitHub plans and features
 ---
 
 ## About accounts
@@ -40,7 +36,7 @@ User accounts are intended for humans, but you can create accounts to automate a
 
 {% ifversion fpt or ghec %}
 
-There are two types of user account:
+There are two types of user accounts:
 
 * [Personal accounts](#personal-accounts)
 * [{% data variables.enterprise.prodname_managed_users_caps %}](#managed-user-accounts)
@@ -88,7 +84,7 @@ For more information about all the features of organizations, see [AUTOTITLE](/o
 {% elsif ghec %}
 Enterprise accounts allow central policy management and billing for multiple organizations. You can use your enterprise account to centrally manage policy and billing. Unlike organizations, enterprise accounts cannot directly own resources like repositories, packages, or projects. These resources are owned by organizations within the enterprise account instead. For more information, see [AUTOTITLE](/admin/managing-your-enterprise-account/about-enterprise-accounts).
 {% elsif ghes %}
-Your enterprise account is a collection of all the organizations {% ifversion ghes %}on{% endif %} {% data variables.location.product_location %}. You can use your enterprise account to centrally manage policy and billing. Unlike organizations, enterprise accounts cannot directly own resources like repositories, packages, or projects. These resources are owned by organizations within the enterprise account instead. For more information, see [AUTOTITLE](/admin/managing-your-enterprise-account/about-enterprise-accounts).
+Your enterprise account is a collection of all the organizations on {% data variables.location.product_location %}. You can use your enterprise account to centrally manage policy and billing. Unlike organizations, enterprise accounts cannot directly own resources like repositories, packages, or projects. These resources are owned by organizations within the enterprise account instead. For more information, see [AUTOTITLE](/admin/managing-your-enterprise-account/about-enterprise-accounts).
 {% endif %}
 
 ## Further reading

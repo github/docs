@@ -11,8 +11,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
+category:
+  - Merge and close pull requests
 ---
 Status checks are based on external processes, such as continuous integration builds, which run for each push you make to a repository. You can see the _pending_, _passing_, or _failing_ state of status checks next to individual commits in your pull request.
 
@@ -22,7 +22,7 @@ Anyone with write permissions to a repository can set the state for any status c
 
 You can see the overall state of the last commit to a branch on your repository's branches page or in your repository's list of pull requests.
 
-{% data reusables.pull_requests.required-checks-must-pass-to-merge %}
+If status checks are required for a repository, they must pass before you can merge your branch into the protected branch. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-status-checks-before-merging).
 
 {% data reusables.actions.workflows.skipped-job-status-checks-passing %}
 
@@ -42,7 +42,7 @@ Organization owners and users with push access to a repository can create checks
 
 ## Checks
 
-When _checks_ are set up in a repository, pull requests have a **Checks** tab where you can view detailed build output from checks and rerun failed checks.
+Pull requests have a **Checks** tab where you can view detailed build output from checks and rerun failed checks.
 
 > [!NOTE]
 > The **Checks** tab only gets populated for pull requests if you set up _checks_, not _commit statuses_, for the repository.

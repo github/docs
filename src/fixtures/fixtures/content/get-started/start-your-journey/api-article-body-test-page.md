@@ -1,18 +1,12 @@
 ---
 title: Api Article Body Test Page
 shortTitle: About GitHub and Git
-intro: 'You can use Github and Git to collaborate on work.'
+intro: 'You can use GitHub and Git to collaborate on work.'
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
-topics:
-  - Git
-  - Fundamentals
-  - GitHub
-  - Collaboration
-  - Community
+contentType: concepts
 redirect_from:
   - /get-started/quickstart/about-github-and-git
 ---

@@ -1,0 +1,124 @@
+{
+  "created": {
+    "key": [
+      {
+        "type": "string or null",
+        "name": "added_by",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "created_at",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "integer",
+        "name": "id",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "key",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string or null",
+        "name": "last_used",
+        "description": ""
+      },
+      {
+        "type": "boolean",
+        "name": "read_only",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "title",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "url",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "boolean",
+        "name": "verified",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "boolean",
+        "name": "enabled",
+        "description": ""
+      }
+    ]
+  },
+  "deleted": {
+    "key": [
+      {
+        "type": "string or null",
+        "name": "added_by",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "created_at",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "integer",
+        "name": "id",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "key",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string or null",
+        "name": "last_used",
+        "description": ""
+      },
+      {
+        "type": "boolean",
+        "name": "read_only",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "title",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "url",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "boolean",
+        "name": "verified",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "boolean",
+        "name": "enabled",
+        "description": ""
+      }
+    ]
+  }
+}

@@ -11,10 +11,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pages
 shortTitle: Set Markdown processor
+category:
+  - Managing a GitHub Pages site
 ---
+
+{% data reusables.pages.actions-is-preferred %}
 
 People with write permissions for a repository can set the Markdown processor for a {% data variables.product.prodname_pages %} site.
 

@@ -1,1 +1,0 @@
-1. From the administrative shell of the node where you modified `cluster.conf`, run `ghe-cluster-config-apply`. This will validate the configuration file, copy it to each node in the cluster, and mark the node offline.

@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 permissions: Organization owners can add people to an organization.
 shortTitle: Add people to organization
+category:
+  - Manage members
 ---
 {% ifversion organization-invitation-enhancements %}
 

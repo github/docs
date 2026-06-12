@@ -11,9 +11,9 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
 shortTitle: View people in your enterprise
+category:
+  - Manage accounts and repositories
 ---
 
 {% data reusables.enterprise-managed.repo-collaborators-note %}
@@ -82,8 +82,6 @@ If a user has multiple roles in an enterprise, the user is counted once for each
 
 An "outside collaborator" is a user who has access to a repository in an organization, but is not a member of the organization. The user might be an outside collaborator in one organization in your enterprise and a member of another organization. In this case, the user counts towards each total. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization).
 
-If your enterprise uses {% ifversion ghec %}{% data variables.enterprise.prodname_managed_users %}{% else %}SCIM provisioning{% endif %}, an "unaffiliated" user is someone who been provisioned with a user account, but is not a member of any of your organizations.
-
 {% ifversion ghec %}
 
 #### User licenses consumed
@@ -111,6 +109,9 @@ You may be able to view the email addresses for members of your enterprise on ei
 
 * If you verify a domain for your enterprise, you can view members' email addresses for the verified domain. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise).
 
+  > [!NOTE]
+  > Email addresses for verified domains are not returned in a guaranteed order. If a member has email addresses for multiple verified domains, old or stale email addresses may remain after an IdP change. The list of verified domain email addresses cannot reliably identify the member's canonical or current corporate email address.
+
 * If you don't use {% data variables.product.prodname_emus %}, and you also don't configure SAML single sign-on (SSO), members access your enterprise's resources on {% data variables.product.github %} solely using a personal account. {% data reusables.saml.personal-accounts-determine-email-visibility %}
 
 If you use {% data variables.product.prodname_emus %}, verify a domain, or configure SAML SSO for your enterprise, you may be able to view the email addresses in one or more of the following ways.
@@ -120,6 +121,8 @@ If you use {% data variables.product.prodname_emus %}, verify a domain, or confi
 
    * `GitHub com saml name`: The `NameID` from the user's linked SAML identity, which is typically the user's email address (for more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference))
    * `GitHub com verified domain emails`: Email addresses for any verified domains (for more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise))
+
+     The `GitHub com verified domain emails` value is unordered. Emails may be returned in a non-deterministic order, and you cannot request priority, sorting, or filtering for the user's current email address.
 
    For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise).
 {% data reusables.saml.use-api-to-get-externalidentity %}
@@ -181,7 +184,7 @@ You can view a list of all dormant users {% ifversion ghes %} who have not been 
 {% data reusables.enterprise-accounts.access-enterprise %}
 1. Under "Organizations", in the search bar, begin typing the organization's name until it appears in the search results.
 1. Select the name of the organization.
-1. Above the organization name, select **{% octicon "person" aria-hidden="true" %} People**.
+1. Above the organization name, select **{% octicon "person" aria-hidden="true" aria-label="person" %} People**.
 
    ![Screenshot of the tabs above an organization name. The "People" tab is highlighted with an orange outline.](/assets/images/help/enterprises/emu-organization-people-tab.png)
 1. Above the list of members, select **Type**, then select the type of members you want to view.
@@ -198,9 +201,18 @@ If you use SAML authentication and SCIM provisioning, you can filter members bas
 1. Select **Account Type**, then choose from the following options.
 
    * **Built-in:** Users with local accounts on {% data variables.location.product_location %} who authenticate with a username and password.
+{% ifversion scim-for-ghes-ga %}
+   * **SAML JIT provisioned:** Users who authenticate with SAML via an identity provider and were created through just-in-time (JIT) provisioning when they first signed in. These users are not linked to SCIM identities.
+   * **SCIM provisioned:** Users who were created and managed through SCIM provisioning from your identity provider. These users are linked to SCIM identities.
+{% else %}
    * **SAML linked:** Users who authenticate with SAML via an identity provider, but were not provisioned by SCIM.
    * **SAML and SCIM linked:** Users who authenticate with SAML via an identity provider, and were provisioned by SCIM.
+{% endif %}
 
+{% endif %}
+
+{% ifversion scim-for-ghes-ga %}
+{% data reusables.scim.ghe-scim-identities-csv %}
 {% endif %}
 
 ## Viewing members without an email address from a verified domain
@@ -210,11 +222,11 @@ You can view a list of members in your enterprise who don't have an email addres
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.verified-domains-tab %}
-1. Under "Notification preferences", select the **{% octicon "eye" aria-hidden="true" %} View enterprise members without an approved or verified domain email** link.
+1. Under "Notification preferences", select the **{% octicon "eye" aria-hidden="true" aria-label="eye" %} View enterprise members without an approved or verified domain email** link.
 
 ## Viewing whether members in your enterprise have 2FA enabled
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 
 You can see which people in your enterprise have enabled two-factor authentication.
 
@@ -234,13 +246,9 @@ You can see which people in your enterprise have enabled two-factor authenticati
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. To view enterprise members who have enabled or disabled two-factor authentication, on the right, select {% ifversion ghes > 3.16 %}**Two-factor authentication**{% else %}**2FA**{% endif %}, then select {% ifversion ghes > 3.16 %}**Secure**{% else %}**Enabled**{% endif %} or **Disabled**.
+1. To view enterprise members who have enabled or disabled two-factor authentication, on the right, select **Two-factor authentication**, then select **Secure** or **Disabled**.
 
-   {% ifversion ghes > 3.16 %}
    ![Screenshot of the list of organization members. A dropdown menu, labeled "Two-factor Authentication", is expanded and outlined in orange.](/assets/images/help/2fa/ghes-filter-org-members-by-2fa.png)
-   {% else %}
-   ![Screenshot of the list of organization members. A dropdown menu, labeled "2FA", is expanded and outlined in orange.](/assets/images/help/2fa/legacy-filter-org-members-by-2fa.png)
-   {% endif %}
 
 {% endif %}
 

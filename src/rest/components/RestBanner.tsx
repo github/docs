@@ -2,10 +2,10 @@ import React from 'react'
 import { Flash } from '@primer/react'
 import { useRouter } from 'next/router'
 
-import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
-import { Link } from 'src/frame/components/Link'
-import { useMainContext } from 'src/frame/components/context/MainContext'
-import { useTranslation } from 'src/languages/components/useTranslation'
+import { DEFAULT_VERSION, useVersion } from '@/versions/components/useVersion'
+import { Link } from '@/frame/components/Link'
+import { useMainContext } from '@/frame/components/context/MainContext'
+import { useTranslation } from '@/languages/components/useTranslation'
 
 const restRepoDisplayPages = [
   'branches',

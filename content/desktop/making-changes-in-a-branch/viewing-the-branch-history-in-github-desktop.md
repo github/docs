@@ -11,12 +11,14 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: View branch history
+category:
+  - Work with branches and pull requests
 ---
 Each commit shows:
 
 * The commit message
 * The time the commit was created
-* The committer's username and profile photo (if available)
+* The committer's username and profile picture (if available)
 * The commit's SHA-1 hash (the unique ID)
 
 {% data reusables.desktop.history-tab %}
