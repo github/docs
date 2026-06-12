@@ -124,3 +124,5 @@ You can also authenticate using a {% data variables.product.pat_v2 %} with the "
 ## Next steps
 
 You can now use {% data variables.product.prodname_copilot_short %} from the command line. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli).
+
+For a list of commands for {% data variables.copilot.copilot_cli_short %}, including the command to update, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference).
