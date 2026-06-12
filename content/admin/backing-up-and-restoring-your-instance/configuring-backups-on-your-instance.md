@@ -25,16 +25,12 @@ category:
   - Back up and upgrade your instance
 ---
 
-{% ifversion ghes > 3.16 %}
-
 ## About backup options for {% data variables.product.prodname_ghe_server %}
 
 {% data variables.product.company_short %} offers two options for backing up your {% data variables.product.prodname_ghe_server %} instance:
 
 * **{% data variables.product.prodname_enterprise_backup_utilities %}**: An open-source backup system that you install on a separate host. For more information, see the sections below.
 * **{% data variables.product.prodname_enterprise_backup_service %} (in {% data variables.release-phases.public_preview %})**: A managed backup service available in {% data variables.product.prodname_ghe_server %}. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/backup-service-for-github-enterprise-server).
-
-{% endif %}
 
 ## About {% data variables.product.prodname_enterprise_backup_utilities %}
 

@@ -224,12 +224,8 @@ The {% data variables.product.prodname_ghe_server %} LDAP authentication timeout
 
 {% data variables.product.prodname_ghe_server %} does not support user LDAP DNs with special characters. If there is an LDAP user with a special character in their LDAP DN, {% data variables.product.prodname_ghe_server %} may not be able to accurately determine the group membership of a user who is authenticating or being synced by LDAP Sync.
 
-{% ifversion scim-for-ghes-ga %}
-
 ## Migrating from LDAP to SAML and SCIM
 
 If your organization needs automated user provisioning and lifecycle management capabilities beyond what LDAP provides, you can migrate from LDAP authentication to SAML single sign-on with SCIM provisioning. This migration enables centralized user provisioning, deprovisioning, and attribute synchronization from your identity provider.
 
-For more information, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/migrating-from-ldap-to-saml-with-scim).  
-
-{% endif %}
+For more information, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/migrating-from-ldap-to-saml-with-scim).

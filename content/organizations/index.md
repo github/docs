@@ -1,7 +1,7 @@
 ---
 title: Organizations and teams documentation
 shortTitle: Organizations
-intro: 'You can use organizations to collaborate with a large number of people across many projects at once, while managing access to your data and customizing settings.'
+intro: You can use organizations to collaborate with a large number of people across many projects at once, while managing access to your data and customizing settings.
 redirect_from:
   - /articles/about-improved-organization-permissions
   - /categories/setting-up-and-managing-organizations-and-teams
@@ -44,7 +44,6 @@ children:
   - /managing-peoples-access-to-your-organization-with-roles
   - /managing-user-access-to-your-organizations-repositories
   - /organizing-members-into-teams
-  - /managing-access-to-your-organizations-project-boards
   - /managing-programmatic-access-to-your-organization
   - /managing-oauth-access-to-your-organizations-data
   - /managing-organization-settings

@@ -3,7 +3,7 @@ title: Restoring from a backup
 shortTitle: Restore from backup
 intro: Restore a {% data variables.product.prodname_ghe_server %} instance using a previously created backup snapshot.
 versions:
-  ghes: '>= 3.17'
+  ghes: '*'
 contentType: how-tos
 category:
   - Back up and upgrade your instance

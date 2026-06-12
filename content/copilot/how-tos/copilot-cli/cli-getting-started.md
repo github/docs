@@ -69,6 +69,8 @@ Use one of these commands:
    Give me an overview of this project.
    ```
 
+   If you like, you can speak your prompt instead of typing it. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/voice-input).
+
 ## Core shortcuts to master
 
 | Shortcut | Action |

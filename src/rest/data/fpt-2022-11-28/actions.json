@@ -16729,6 +16729,7 @@
                   "status": "online",
                   "busy": true,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -16754,6 +16755,7 @@
                   "status": "offline",
                   "busy": false,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -16850,6 +16852,13 @@
                       },
                       "ephemeral": {
                         "type": "boolean"
+                      },
+                      "version": {
+                        "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "required": [
@@ -17179,6 +17188,7 @@
                   "status": "online",
                   "busy": true,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -17204,6 +17214,7 @@
                   "status": "offline",
                   "busy": false,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -17300,6 +17311,13 @@
                       },
                       "ephemeral": {
                         "type": "boolean"
+                      },
+                      "version": {
+                        "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "required": [
@@ -17624,6 +17642,13 @@
                     },
                     "ephemeral": {
                       "type": "boolean"
+                    },
+                    "version": {
+                      "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   },
                   "required": [
@@ -19276,6 +19301,7 @@
               "status": "online",
               "busy": true,
               "ephemeral": false,
+              "version": "2.323.0",
               "labels": [
                 {
                   "id": 5,
@@ -19358,6 +19384,13 @@
                 },
                 "ephemeral": {
                   "type": "boolean"
+                },
+                "version": {
+                  "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
               },
               "required": [
@@ -20251,6 +20284,7 @@
                   "status": "online",
                   "busy": true,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -20276,6 +20310,7 @@
                   "status": "offline",
                   "busy": false,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -20372,6 +20407,13 @@
                       },
                       "ephemeral": {
                         "type": "boolean"
+                      },
+                      "version": {
+                        "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "required": [
@@ -20716,6 +20758,13 @@
                     },
                     "ephemeral": {
                       "type": "boolean"
+                    },
+                    "version": {
+                      "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   },
                   "required": [
@@ -22398,6 +22447,7 @@
               "status": "online",
               "busy": true,
               "ephemeral": false,
+              "version": "2.323.0",
               "labels": [
                 {
                   "id": 5,
@@ -22480,6 +22530,13 @@
                 },
                 "ephemeral": {
                   "type": "boolean"
+                },
+                "version": {
+                  "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
               },
               "required": [

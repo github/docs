@@ -33,14 +33,15 @@ export const next = '3.22'
 export const nextNext = '3.23'
 
 // Currently supported GHES versions (in descending order, latest first)
-export const supported = ['3.21', '3.20', '3.19', '3.18', '3.17', '3.16']
+export const supported = ['3.21', '3.20', '3.19', '3.18', '3.17']
 
 // Set to version number when in RC phase, null when no RC is active
-export const releaseCandidate = '3.21'
+export const releaseCandidate = null
 
 // Deprecated versions with functional redirect handling (3.0+)
 // When archiving a new version, add it here and update the archival process
 export const deprecatedWithFunctionalRedirects = [
+  '3.16',
   '3.15',
   '3.14',
   '3.13',

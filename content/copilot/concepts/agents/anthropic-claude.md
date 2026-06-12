@@ -16,9 +16,9 @@ The {% data variables.product.prodname_anthropic_claude %} coding agent uses the
 
 ## {% data variables.product.prodname_anthropic_claude %} coding agent
 
-Before you can assign tasks to {% data variables.product.prodname_anthropic_claude %} coding agent, it must be enabled. See [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-third-party-agents-in-your-repositories). 
+Before you can assign tasks to {% data variables.product.prodname_anthropic_claude %} coding agent, it must be enabled. See [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-third-party-coding-agents-in-your-repositories). 
 
-To learn more about using third-party coding agents, see [AUTOTITLE](/copilot/concepts/agents/about-third-party-agents).
+To learn more about using third-party coding agents, see [AUTOTITLE](/copilot/concepts/agents/about-third-party-coding-agents).
 
 ### Supported models
 

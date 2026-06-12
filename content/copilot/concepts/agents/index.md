@@ -10,12 +10,16 @@ children:
   - /copilot-cli
   - /github-copilot-app
   - /code-review
+  - /about-github-agentic-workflows
   - /copilot-memory
   - /hooks
-  - /about-third-party-agents
+  - /about-enterprise-plugin-standards
+  - /about-third-party-coding-agents
+  - /agent-apps
   - /openai-codex
   - /anthropic-claude
   - /about-agent-skills
   - /enterprise-management
 contentType: concepts
 ---
+

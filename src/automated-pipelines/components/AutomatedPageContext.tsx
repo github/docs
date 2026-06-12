@@ -2,6 +2,7 @@ import { createContext, useContext } from 'react'
 import type { IncomingMessage } from 'http'
 import type { JSX } from 'react'
 import type { MiniTocItem } from '@/frame/components/context/ArticleContext'
+import type { JourneyContext } from '@/journeys/lib/journey-path-resolver'
 import type { Context } from '@/types'
 
 export type AutomatedPageContextT = {
@@ -12,6 +13,7 @@ export type AutomatedPageContextT = {
   product?: string
   permissions?: string
   currentLayout?: string
+  currentJourneyTrack?: JourneyContext | null
 }
 
 export const AutomatedPageContext = createContext<AutomatedPageContextT | null>(null)
@@ -59,5 +61,6 @@ export const getAutomatedPageContextFromRequest = (
     product: page.product ?? '',
     permissions: page.permissions ?? page.rawPermissions ?? '',
     currentLayout: context.currentLayoutName ?? 'default',
+    currentJourneyTrack: (context.currentJourneyTrack as JourneyContext | null | undefined) ?? null,
   }
 }

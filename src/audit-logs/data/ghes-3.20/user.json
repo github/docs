@@ -534,7 +534,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "/copilot/how-tos/manage-and-track-spending/manage-request-allowances#setting-a-policy-for-paid-usage"
+    "docs_reference_titles": "Optimizing your budget configuration"
   },
   {
     "action": "billing.unlock",
@@ -6760,7 +6760,7 @@
       "project_id",
       "project_kind"
     ],
-    "docs_reference_titles": "Closing a project (classic)"
+    "docs_reference_titles": "Planning and tracking with Projects"
   },
   {
     "action": "project_collaborator.add",
@@ -7061,7 +7061,7 @@
       "project_kind",
       "project_name"
     ],
-    "docs_reference_titles": "Reopening a closed project (classic)"
+    "docs_reference_titles": "Planning and tracking with Projects"
   },
   {
     "action": "project.rename",

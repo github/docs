@@ -12,7 +12,8 @@ interface CorrectionContext {
   code?: string
   dottedPath?: string
   relativePath?: string
-  [key: string]: any
+  skipOrphanStripping?: boolean
+  [key: string]: unknown
 }
 
 export function correctTranslatedContentStrings(
@@ -177,6 +178,9 @@ export function correctTranslatedContentStrings(
     // `{% icono "X" ... %}` — "icono" = "icon" = octicon
     content = content.replaceAll('{% icono ', '{% octicon ')
     content = content.replaceAll('{%- icono ', '{%- octicon ')
+    // `{% alto "X" ... %}` — "alto" used as alias for octicon (observed in billing reusable)
+    content = content.replaceAll('{% alto ', '{% octicon ')
+    content = content.replaceAll('{%- alto ', '{%- octicon ')
     // `{% octicon "bombilla" %}` — Spanish "bombilla" = "light-bulb" (translated octicon name)
     content = content.replaceAll('{% octicon "bombilla"', '{% octicon "light-bulb"')
     content = content.replaceAll('{%- octicon "bombilla"', '{%- octicon "light-bulb"')
@@ -236,6 +240,15 @@ export function correctTranslatedContentStrings(
         'tienen prioridad sobre el envío automático de dependencias.{% endif %}\n',
       )
     }
+
+    // [SCRAPE-6642] admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-with-okta.md
+    // (title): `{% ifversion ghec %}SCIM{% else %} con Okta` is never closed —
+    // the `{% endif %}` is missing. The corrector runs on the PARSED title
+    // value, so match the unquoted substring (no trailing YAML quote).
+    content = content.replaceAll(
+      '{% ifversion ghec %}SCIM{% else %} con Okta',
+      '{% ifversion ghec %}SCIM{% else %} con Okta{% endif %}',
+    )
   }
 
   if (context.code === 'ja') {
@@ -490,6 +503,29 @@ export function correctTranslatedContentStrings(
       '{% data variables.product.prodname_dotcom %} ホステッド ランナー{% ifversion default-setup-self-hosted-runners-GHEC %}なしのエンタープライズに対して {% data variables.product.prodname_code_scanning %} を有効化、構成、および無効化できます。 {% data variables.product.prodname_code_scanning_caps %} を使用すると、コードの脆弱性やエラーをスキャンできます。',
       '{% data variables.product.prodname_dotcom %} ホステッド ランナー{% ifversion default-setup-self-hosted-runners-GHEC %}なしのエンタープライズに対して{% endif %} {% data variables.product.prodname_code_scanning %} を有効化、構成、および無効化できます。 {% data variables.product.prodname_code_scanning_caps %} を使用すると、コードの脆弱性やエラーをスキャンできます。',
     )
+
+    // [SCRAPE-6604] Per-file fixes for ja pages whose intro/title Liquid was
+    // structurally scrambled. Scoped by unique broken substring so they are
+    // no-ops everywhere except the affected file.
+
+    // [SCRAPE-6608] code-security/.../enabling-github-advanced-security-for-your-enterprise.md
+    // (title): `{% ifversion ghas-products %}` opens but never closes (versions: ghes: '*').
+    // The corrector runs on the PARSED title — a `|2-` block scalar whose trailing
+    // newline is stripped — so the earlier `...有効にする\n` pattern never matched at
+    // render time. Match the newline-free value and close after the gated word `製品`
+    // (EN gates only "products"), not the whole phrase.
+    content = content.replaceAll(
+      '{% ifversion ghas-products %}製品をあなたの企業のために有効にする',
+      '{% ifversion ghas-products %}製品{% endif %}をあなたの企業のために有効にする',
+    )
+
+    // admin/managing-iam/.../configuring-scim-provisioning-with-okta.md
+    // (intro): spurious `{% endif %}` after `上で` — one too many endifs for
+    // the single `{% ifversion ghec %}` opener. Drop the stray closer.
+    content = content.replaceAll(
+      '{% endif %} 上で{% endif %}エンタープライズとの通信を実行できるように Okta を構成する方法を学習します。',
+      '{% endif %} 上でエンタープライズとの通信を実行できるように Okta を構成する方法を学習します。',
+    )
   }
 
   if (context.code === 'pt') {
@@ -524,6 +560,9 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{%- sugestões embutidas do variables.', '{%- data variables.')
     // Fully translated reusables path: `{% dados reutilizáveis.X.Y %}` → `{% data reusables.X.Y %}`
     content = content.replaceAll('{% dados reutilizáveis.', '{% data reusables.')
+    // `{% dado reutilizáveis.X.Y %}` — singular "dado" (datum) + plural "reutilizáveis"
+    content = content.replaceAll('{% dado reutilizáveis.', '{% data reusables.')
+    content = content.replaceAll('{%- dado reutilizáveis.', '{%- data reusables.')
     // Translated path segment inside reusables path: `repositórios` → `repositories`
     content = content.replaceAll(
       '{% data reusables.repositórios.',
@@ -546,6 +585,11 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% variáveis de dados ', '{% data variables ')
     // `{% dados variáveis.` — alternate word order "data variables"
     content = content.replaceAll('{% dados variáveis.', '{% data variables.')
+    // `{% Espaços de Código %}` / `{% espaços de código %}` — "Code Spaces" = codespaces
+    content = content.replaceAll('{% Espaços de Código %}', '{% codespaces %}')
+    content = content.replaceAll('{%- Espaços de Código %}', '{%- codespaces %}')
+    content = content.replaceAll('{% espaços de código %}', '{% codespaces %}')
+    content = content.replaceAll('{%- espaços de código %}', '{%- codespaces %}')
     // `{% janelas %}` — Portuguese "windows" = windows (platform tag)
     content = content.replaceAll('{% janelas %}', '{% windows %}')
     content = content.replaceAll('{%- janelas %}', '{%- windows %}')
@@ -615,6 +659,12 @@ export function correctTranslatedContentStrings(
       /\{%(-?)\s*(fpt|ghec|ghes)\s+ifversion\s*%\}/g,
       '{%$1 ifversion $2 %}',
     )
+    // Multi-plan word-order swap: `{% ghes ifversion ou ghec %}` → `{% ifversion ghes or ghec %}`
+    // Handles the combination of word-order inversion AND Portuguese "ou" for "or".
+    content = content.replace(
+      /\{%(-?)\s*(fpt|ghec|ghes|ghae)\s+ifversion\s+(?:ou|or)\s+(fpt|ghec|ghes|ghae)\s*(-?)%\}/g,
+      '{%$1 ifversion $2 or $3 $4%}',
+    )
     // With extra "de" word: `{% ghes de ifversion %}` → `{% ifversion ghes %}`
     content = content.replace(
       /\{%(-?)\s*(fpt|ghec|ghes)\s+de\s+ifversion\s*%\}/g,
@@ -655,6 +705,9 @@ export function correctTranslatedContentStrings(
     // `{% caso contrário %}` — alternate "otherwise" = else
     content = content.replaceAll('{% caso contrário %}', '{% else %}')
     content = content.replaceAll('{%- caso contrário %}', '{%- else %}')
+    // `{% outra %}` — "other/another" (feminine) = else
+    content = content.replaceAll('{% outra %}', '{% else %}')
+    content = content.replaceAll('{%- outra %}', '{%- else %}')
     // `{% observação %}` — "note" = note
     content = content.replaceAll('{% observação %}', '{% note %}')
     content = content.replaceAll('{%- observação %}', '{%- note %}')
@@ -671,6 +724,15 @@ export function correctTranslatedContentStrings(
     // inside `{% data variables.product. prodname_ghe_cloud %}`. The generic
     // pt regex above already restored it, but here we only need to confirm —
     // no extra per-file replacement required.
+
+    // [SCRAPE-6604] Per-file fix:
+    // organizations/.../requiring-two-factor-authentication-in-your-organization.md
+    // (intro): `{% ifversion fpt or ghec %}...{% else %}` never closes.
+    // Append `{% endif %}` at the end of the intro value.
+    content = content.replaceAll(
+      'tornando mais difícil para os atores mal-intencionados acessarem os repositórios e as configurações de uma organização.',
+      'tornando mais difícil para os atores mal-intencionados acessarem os repositórios e as configurações de uma organização.{% endif %}',
+    )
   }
 
   if (context.code === 'zh') {
@@ -800,6 +862,26 @@ export function correctTranslatedContentStrings(
     // Pattern: `{% 捕获IDENTIFIER %}` (no space) or `{% 捕获 IDENTIFIER %}` (with space)
     // → `{% capture IDENTIFIER %}`
     content = content.replace(/\{%(-?)\s*捕获\s*(\w+)\s*(-?)%\}/g, '{%$1 capture $2 $3%}')
+
+    // [SCRAPE-6608] organizations/.../permissions-of-custom-organization-roles.md
+    // (intro): `{% ifversion org-custom-role-with-repo-permissions %}...{% else %}`
+    // never closes. The corrector runs on the PARSED intro (no surrounding YAML
+    // quote), so the earlier quote-suffixed pattern never matched at render time.
+    // Restore the else-branch object (`组织的设置`, already used in the if-branch)
+    // and close before the shared trailing text so both branches render correctly.
+    content = content.replaceAll(
+      '{% else %} 的访问权限。',
+      '{% else %}组织的设置{% endif %} 的访问权限。',
+    )
+
+    // [SCRAPE-6642] admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-with-okta.md
+    // (intro): `{% endif %}` appears before `{% ifversion ghec %}` — the two
+    // tags are swapped, leaving an orphan endif and an unclosed ifversion.
+    // Restore the English pattern: enterprise{% ifversion ghec %} on X or Y{% endif %}.
+    content = content.replaceAll(
+      '在{% data variables.product.prodname_dotcom_the_website %}或{% data variables.enterprise.data_residency_site %}{% endif %}上的企业{% ifversion ghec %}进行通信。',
+      '的企业{% ifversion ghec %}在{% data variables.product.prodname_dotcom_the_website %}或{% data variables.enterprise.data_residency_site %}{% endif %}进行通信。',
+    )
   }
 
   if (context.code === 'ru') {
@@ -1114,9 +1196,23 @@ export function correctTranslatedContentStrings(
       '{% ifversion enterprise-licensing-language %}license-language%else %}licenses{% license seats{% endif %}',
       '{% ifversion enterprise-licensing-language %}licenses{% else %}licensed seats{% endif %}',
     )
+
+    // [SCRAPE-6642] admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-with-okta.md
+    // (title): translator swapped the ghec/non-ghec branches and the `{% else %}`
+    // ended up as an orphan after the `{% endif %}` already closed the block.
+    // Reconstruct to match English: Configuring {% ifversion ghec %}SCIM{% else %}authentication and{% endif %} provisioning with Okta.
+    // The corrector runs on the PARSED title value, so match the unquoted
+    // substring (no trailing YAML quote).
+    content = content.replaceAll(
+      '{% ifversion ghec %}аутентификации и{% endif %} провизионирования SCIM{% else %}с помощью Okta',
+      '{% ifversion ghec %}SCIM{% else %}аутентификации и{% endif %} провизионирования с помощью Okta',
+    )
   }
 
   if (context.code === 'fr') {
+    // `{% espaces de code %}` — French "code spaces" = codespaces
+    content = content.replaceAll('{% espaces de code %}', '{% codespaces %}')
+    content = content.replaceAll('{%- espaces de code %}', '{%- codespaces %}')
     // `{% sinon %}` — "otherwise" = else
     content = content.replaceAll('{% sinon %}', '{% else %}')
     content = content.replaceAll('{%- sinon %}', '{%- else %}')
@@ -1280,6 +1376,30 @@ export function correctTranslatedContentStrings(
       /\{%(-?)\s*des(?:\s+[^{}%\n]+?)?\s+variables\.([A-Za-z0-9._-]+)(\s*-?%\})/g,
       '{%$1 data variables.$2$3',
     )
+    // `{% modules réutilisables.X %}` — French "modules réutilisables" = "reusable modules"
+    // used in place of `{% data reusables.X %}`.
+    content = content.replaceAll('{% modules réutilisables.', '{% data reusables.')
+    content = content.replaceAll('{%- modules réutilisables.', '{%- data reusables.')
+    // `{% flux de travail variables.X %}` — French "flux de travail" = "workflow" was
+    // mistakenly substituted for the "data" keyword in data variable references.
+    content = content.replaceAll('{% flux de travail variables.', '{% data variables.')
+    content = content.replaceAll('{%- flux de travail variables.', '{%- data variables.')
+    // `{% invite %}` / `{%- invite %}` — French "invite" = "prompt"; translator used the
+    // French word as the tag opener for the `{% prompt %}` block tag.
+    content = content.replaceAll('{% invite %}', '{% prompt %}')
+    content = content.replaceAll('{%- invite %}', '{%- prompt %}')
+    content = content.replaceAll('{% invite -%}', '{% prompt -%}')
+    content = content.replaceAll('{%- invite -%}', '{%- prompt -%}')
+    // `{% collaborateurs invités ifversion %}` — French translation of
+    // `{% ifversion guest-collaborators %}` with both word-order swap and full translation.
+    content = content.replaceAll(
+      '{% collaborateurs invités ifversion %}',
+      '{% ifversion guest-collaborators %}',
+    )
+    content = content.replaceAll(
+      '{%- collaborateurs invités ifversion %}',
+      '{%- ifversion guest-collaborators %}',
+    )
   }
 
   if (context.code === 'ko') {
@@ -1432,6 +1552,27 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll(
       '자체 호스팅된 실행기에서 실행 중인 {% data variables.product.prodname_dependabot %}에 대한 액세스를 구성할 수도 있습니다.{% data variables.product.prodname_dependabot %}',
       '자체 호스팅된 실행기에서 실행 중인 {% data variables.product.prodname_dependabot %}에 대한 액세스를 구성할 수도 있습니다.{% endif %}',
+    )
+
+    // [SCRAPE-6608] organizations/.../permissions-of-custom-organization-roles.md
+    // (intro): `{% ifversion org-custom-role-with-repo-permissions %}...{% else %}`
+    // never closes. The corrector runs on the PARSED intro (no surrounding YAML
+    // quote), so the earlier quote-suffixed pattern never matched at render time.
+    // Restore the else-branch object (`조직의 설정`, already used in the if-branch)
+    // and close before the shared trailing text so both branches render correctly.
+    content = content.replaceAll(
+      '{% else %}에 대한 액세스를 제어할 수 있습니다.',
+      '{% else %}조직의 설정{% endif %}에 대한 액세스를 제어할 수 있습니다.',
+    )
+
+    // [SCRAPE-6642] code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configuring-code-scanning-for-your-appliance.md
+    // (intro): the second `{% ifversion default-setup-self-hosted-runners-GHEC %}`
+    // is a corruption — it should be `{% endif %}` to close the first one.
+    // This left the `{% ifversion %}` block unclosed and broke the
+    // /ko/code-security landing page scrape. Restore the endif.
+    content = content.replaceAll(
+      '{% data variables.product.prodname_dotcom %}.{% ifversion default-setup-self-hosted-runners-GHEC %}',
+      '{% data variables.product.prodname_dotcom %}.{% endif %}',
     )
   }
 
@@ -1595,6 +1736,8 @@ export function correctTranslatedContentStrings(
       '{%$1data reusables.',
     )
     content = content.replace(/\{%(-?\s*)data Variablen\./g, '{%$1data variables.')
+    // `data variablen.` — lowercase variant of "Variablen" (survives after broad fallback)
+    content = content.replace(/\{%(-?\s*)data variablen\./g, '{%$1data variables.')
     // German `oder` = "or", `und` = "and" inside ifversion/elsif/if tags
     content = content.replace(/\{%-?\s+(?:ifversion|elsif|if)\s+[^%]*?\soder\s[^%]*?-?%\}/g, (m) =>
       m.replace(/\soder\s/g, ' or '),
@@ -1614,9 +1757,38 @@ export function correctTranslatedContentStrings(
       'Mit angepassten Organisationsrollen kannst du den Zugriff auf die Einstellungen deiner {% ifversion org-custom-role-with-repo-permissions %}Organisation und die Repositories{% else %}einer Organisation steuern.',
       'Mit angepassten Organisationsrollen kannst du den Zugriff auf die Einstellungen deiner {% ifversion org-custom-role-with-repo-permissions %}Organisation und die Repositories{% else %}einer Organisation{% endif %} steuern.',
     )
+
+    // [SCRAPE-6642] admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-pingfederate.md
+    // (intro): translator swapped the ghes/non-ghes branches. The EMU/dotcom/data-residency
+    // text ended up inside `{% ifversion ghes %}...{% endif %}`, the `{% endif %}` closed
+    // the block too early, and `{% else %}` was left as an orphan after it.
+    // Reconstruct to match English: {% ifversion ghes %}centrally manage...{% else %}for EMUs on dotcom...{% endif %}.
+    content = content.replaceAll(
+      '{% ifversion ghes %}ein, um Authentifizierung und Provisionierung für {% data variables.product.prodname_emus %} auf {% data variables.product.prodname_dotcom_the_website %} oder {% data variables.enterprise.data_residency_site %}{% endif %} für Ihr Unternehmen{% else %} zentral zu verwalten.',
+      '{% ifversion ghes %}ein, um Authentifizierung und Provisionierung für Ihr Unternehmen zentral zu verwalten{% else %}für {% data variables.product.prodname_emus %} auf {% data variables.product.prodname_dotcom_the_website %} oder {% data variables.enterprise.data_residency_site %}{% endif %}.',
+    )
+
+    // [SCRAPE-6642] code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries.md
+    // (intro): `{% endif %}` was replaced by a duplicate
+    // `{% data variables.product.prodname_dependabot %}` reference, leaving
+    // `{% ifversion dependabot-on-actions-self-hosted %}` unclosed. This broke
+    // the /de/code-security landing page scrape. Restore the endif.
+    content = content.replaceAll(
+      'auf selbst-gehosteten Runnern ausführen.{% data variables.product.prodname_dependabot %}',
+      'auf selbst-gehosteten Runnern ausführen.{% endif %}',
+    )
   }
 
   // --- Generic fixes (all languages) ---
+
+  // [copilot/tutorials/learn-a-new-language] The `${numCats}` JS template literal inside
+  // a backtick code span confused translators and caused the closing `{% endprompt %}` to
+  // be dropped from the JavaScript-conditional-example prompt block. Fix by appending
+  // `{% endprompt %}` to the line that contains the distinctive code.
+  content = content.replace(
+    /(\* \{%[- ]prompt [-]?%\}(?![^\n]*\{%-?\s*endprompt\s*-?%\})[^\n]*'cat is' : 'cats are'\} hungry\.[^\n]*(?:\?|？)[^\n]*)(\n|$)/g,
+    '$1{% endprompt %}$2',
+  )
 
   // Inside ANY Liquid tag `{% ... %}` (including `{% octicon ... %}`,
   // `{% data ... %}`, `{% assign ... %}` etc.), normalize typographic

@@ -19,9 +19,9 @@ The {% data variables.product.prodname_openai_codex %} coding agent and the {% d
 
 ## {% data variables.product.prodname_openai_codex %} coding agent
 
-Before you can assign tasks to {% data variables.product.prodname_openai_codex %} coding agent, it must be enabled. See [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-third-party-agents-in-your-repositories). 
+Before you can assign tasks to {% data variables.product.prodname_openai_codex %} coding agent, it must be enabled. See [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-third-party-coding-agents-in-your-repositories). 
 
-To learn more about using third-party agents on {% data variables.product.github %}, see [AUTOTITLE](/free-pro-team@latest/copilot/concepts/agents/about-third-party-agents).
+To learn more about using third-party agents on {% data variables.product.github %}, see [AUTOTITLE](/free-pro-team@latest/copilot/concepts/agents/about-third-party-coding-agents).
 
 ### Supported models
 

@@ -115,9 +115,23 @@ public delegate Task<PostToolUseHookOutput?> PostToolUseHandler(
 {% codetab java %}
 
 ```java
-import com.github.copilot.sdk.json.*;
+import com.github.copilot.rpc.*;
+import java.util.concurrent.CompletableFuture;
 
-PostToolUseHandler postToolUseHandler;
+public class PostToolUseSignature {
+    PostToolUseHandler handler = (PostToolUseHookInput input, HookInvocation invocation) ->
+        CompletableFuture.completedFuture(null);
+    public static void main(String[] args) {}
+}
+```
+
+```java
+@FunctionalInterface
+public interface PostToolUseHandler {
+    CompletableFuture<PostToolUseHookOutput> handle(
+        PostToolUseHookInput input,
+        HookInvocation invocation);
+}
 ```
 
 {% endcodetab %}
@@ -269,9 +283,11 @@ var session = await client.CreateSessionAsync(new SessionConfig
 {% endcodetab %}
 {% codetab java %}
 
+<!-- docs-validate: skip -->
+
 ```java
-import com.github.copilot.sdk.*;
-import com.github.copilot.sdk.json.*;
+import com.github.copilot.*;
+import com.github.copilot.rpc.*;
 import java.util.concurrent.CompletableFuture;
 
 var hooks = new SessionHooks()

@@ -25,7 +25,7 @@ export default async function glossaries(req: ExtendedRequest, res: Response, ne
   const enGlossaryMap = new Map()
   // But we don't need to bother if the current language is English.
   if (req.context.currentLanguage !== 'en') {
-    const enGlossariesRaw: Glossary[] = getDataByLanguage('glossaries.external', 'en')
+    const enGlossariesRaw: Glossary[] = getDataByLanguage('glossaries.external', 'en') as Glossary[]
 
     for (const { term, description } of enGlossariesRaw) {
       enGlossaryMap.set(term, description)
@@ -40,7 +40,7 @@ export default async function glossaries(req: ExtendedRequest, res: Response, ne
   const glossariesRaw: Glossary[] = getDataByLanguage(
     'glossaries.external',
     req.context.currentLanguage!,
-  )
+  ) as Glossary[]
   const glossariesList = (
     await Promise.all(
       glossariesRaw.map(async (glossary) => {

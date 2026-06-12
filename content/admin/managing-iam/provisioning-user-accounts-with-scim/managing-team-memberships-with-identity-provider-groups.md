@@ -19,8 +19,6 @@ category:
   - Provision and manage enterprise users
 ---
 
-{% data reusables.scim.ghes-beta-note %}
-
 ## About team management with {% ifversion ghec %}{% data variables.product.prodname_emus %}{% else %}SCIM{% endif %}
 
 {% data reusables.emus.about-team-management-with-idp %}

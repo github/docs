@@ -162,7 +162,7 @@ func main() {
 ```golang
 func createClientForUser(userToken string) *copilot.Client {
     return copilot.NewClient(&copilot.ClientOptions{
-        GithubToken:     userToken,
+        GitHubToken:     userToken,
         UseLoggedInUser: copilot.Bool(false),
     })
 }
@@ -228,10 +228,11 @@ var response = await session.SendAndWaitAsync(
 {% endcodetab %}
 {% codetab java %}
 
+<!-- docs-validate: skip -->
+
 ```java
-import com.github.copilot.sdk.CopilotClient;
-import com.github.copilot.sdk.events.*;
-import com.github.copilot.sdk.json.*;
+import com.github.copilot.CopilotClient;
+import com.github.copilot.rpc.*;
 
 CopilotClient createClientForUser(String userToken) throws Exception {
     var client = new CopilotClient(new CopilotClientOptions()

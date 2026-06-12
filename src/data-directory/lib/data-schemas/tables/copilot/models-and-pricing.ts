@@ -26,7 +26,7 @@ const modelsAndPricingSchema = {
           },
           provider: {
             type: 'string',
-            enum: ['openai', 'anthropic', 'google', 'xai', 'github'],
+            enum: ['openai', 'anthropic', 'google', 'microsoft', 'xai', 'github'],
           },
           release_status: {
             type: 'string',
@@ -45,6 +45,14 @@ const modelsAndPricingSchema = {
             lintable: true,
           },
           output: {
+            type: 'string',
+            lintable: true,
+          },
+          threshold: {
+            type: 'string',
+            lintable: true,
+          },
+          tier: {
             type: 'string',
             lintable: true,
           },

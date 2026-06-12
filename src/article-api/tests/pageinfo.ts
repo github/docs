@@ -1,7 +1,7 @@
 import { beforeAll, describe, expect, test } from 'vitest'
 
 import { get } from '@/tests/helpers/e2etest'
-import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
+import { makeLanguageSurrogateKey } from '@/frame/middleware/set-fastly-surrogate-key'
 import { latest } from '@/versions/lib/enterprise-server-releases'
 
 const makeURL = (pathname: string): string =>
@@ -55,7 +55,7 @@ describe('pageinfo api', () => {
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
     expect(res.headers['surrogate-control']).toContain('public')
     expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
-    expect(res.headers['surrogate-key']).toBe(`${SURROGATE_ENUMS.DEFAULT} language:en`)
+    expect(res.headers['surrogate-key']).toBe(makeLanguageSurrogateKey('en'))
   })
 
   test('a pathname that does not exist', async () => {

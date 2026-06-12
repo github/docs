@@ -15,6 +15,15 @@ category:
 ---
 You can deploy {% data variables.product.prodname_ghe_server %} on global Azure or Azure Government.
 
+{% ifversion ghes = 3.20 %}
+## Azure Local
+
+> [!NOTE] {% data variables.product.prodname_ghe_server %} on Azure Local is now in public preview. During this public preview, you can only use GHES version 3.20.
+
+If your organization requires sovereign deployments or operates in regulated environments, Azure Local is Microsoft's distributed infrastructure solution that enables this. Supporting regulated deployments, you can now host {% data variables.product.prodname_ghe_server %} on Azure Local. For more information, see [GitHub Enterprise Local](https://learn.microsoft.com/en-us/azure/azure-sovereign-clouds/private/github-local/github-local-overview). 
+
+{% endif %}
+
 ## Prerequisites
 
 * {% data reusables.enterprise_installation.software-license %}

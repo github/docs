@@ -49,7 +49,8 @@
         "type": "string or null",
         "name": "starred_at",
         "description": "<p>The time the star was created. This is a timestamp in ISO 8601 format: <code>YYYY-MM-DDTHH:MM:SSZ</code>. Will be <code>null</code> for the <code>deleted</code> action.</p>",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": []
       }
     ],
     "availability": [
@@ -110,7 +111,8 @@
         "type": "null",
         "name": "starred_at",
         "description": "<p>The time the star was created. This is a timestamp in ISO 8601 format: <code>YYYY-MM-DDTHH:MM:SSZ</code>. Will be <code>null</code> for the <code>deleted</code> action.</p>",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": []
       }
     ],
     "availability": [

@@ -47,9 +47,6 @@
 - model: 'GPT-4o mini'
   new_multiplier: '0.33'
 
-- model: 'GPT-4.1'
-  new_multiplier: '1'
-
 - model: 'GPT-5.1'
   new_multiplier: '3'
 
@@ -60,12 +57,6 @@
   new_multiplier: '0.33'
 
 - model: 'GPT-5.1-Codex-Max'
-  new_multiplier: '3'
-
-- model: 'GPT-5.2'
-  new_multiplier: '3'
-
-- model: 'GPT-5.2-Codex'
   new_multiplier: '3'
 
 - model: 'GPT-5.3-Codex'
@@ -84,4 +75,7 @@
   new_multiplier: '0.33'
 
 - model: 'Raptor mini'
+  new_multiplier: '0.33'
+
+- model: 'MAI-Code-1-Flash'
   new_multiplier: '0.33'

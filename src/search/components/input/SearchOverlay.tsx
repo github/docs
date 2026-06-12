@@ -190,7 +190,7 @@ export function SearchOverlay({
       generalWithView.push({
         title: t('search.overlay.view_all_search_results'),
         isViewAllResults: true,
-      } as any)
+      } as unknown as GeneralSearchHitWithOptions)
     } else if (autoCompleteSearchError) {
       if (urlSearchInputQuery.trim() !== '') {
         generalWithView.push({
@@ -203,7 +203,7 @@ export function SearchOverlay({
       generalWithView.push({
         title: t('search.overlay.no_results_found'),
         isNoResultsFound: true,
-      } as any)
+      } as unknown as GeneralSearchHitWithOptions)
     } else {
       generalWithView = []
     }
@@ -423,7 +423,7 @@ export function SearchOverlay({
         // If it's the "no results found" option, skip it
         if (
           newIndex >= selectedIndex &&
-          (combinedOptions[newIndex]?.option as any)?.isNoResultsFound
+          (combinedOptions[newIndex]?.option as GeneralSearchHitWithOptions)?.isNoResultsFound
         ) {
           newIndex += 1
         }
@@ -454,7 +454,7 @@ export function SearchOverlay({
         // If it's the "no results found" option, skip it
         if (
           newIndex <= selectedIndex &&
-          (combinedOptions[newIndex]?.option as any)?.isNoResultsFound
+          (combinedOptions[newIndex]?.option as GeneralSearchHitWithOptions)?.isNoResultsFound
         ) {
           newIndex -= 1
         }

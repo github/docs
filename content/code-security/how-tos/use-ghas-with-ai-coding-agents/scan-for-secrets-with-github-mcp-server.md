@@ -146,7 +146,3 @@ If push protection is enabled, the MCP server also blocks secrets from being inc
 | Agent doesn't recognize the tool | Confirm your IDE or agent supports MCP. See [AUTOTITLE](/copilot/concepts/context/mcp#availability). |
 | Unexpected detection results | Your organization's security configuration controls which patterns are scanned. Check your repository security settings. |
 | Tool works in one client but not another | The experience varies across MCP-compatible clients. Check your client's MCP documentation for supported features. |
-
-## Further reading
-
-* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/configure-toolsets)

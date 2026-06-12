@@ -8,8 +8,8 @@ versions:
 contentType: how-tos
 children:
   - /enabling-github-advanced-security-for-your-enterprise
-  - /creating-a-custom-security-configuration-for-your-enterprise
-  - /applying-a-custom-security-configuration-to-your-enterprise
-  - /configuring-additional-secret-scanning-settings-for-your-enterprise
+  - /create-custom-configuration
+  - /apply-custom-configuration
+  - /configure-additional-settings
 ---
 

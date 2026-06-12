@@ -98,7 +98,6 @@ jobs:
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
       - uses: ./.github/actions/create-workflow-failure-issue
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
@@ -246,7 +245,6 @@ jobs:
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
 
       - uses: ./.github/actions/create-workflow-failure-issue
@@ -385,15 +383,12 @@ jobs:
         if: ${{ steps.check-artifacts.outputs.has_artifacts == 'true' && fromJSON(steps.aggregate.outputs.result || '{"hasFailures":false}').hasFailures }}
         uses: ./.github/actions/slack-alert
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-          color: warning
           message: ${{ fromJSON(steps.aggregate.outputs.result || '{"message":""}').message }}
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() }}
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
 
       - uses: ./.github/actions/create-workflow-failure-issue

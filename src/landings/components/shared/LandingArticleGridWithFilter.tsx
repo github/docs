@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react'
 import { TextInput, ActionMenu, ActionList, Token, Pagination } from '@primer/react'
 import { SearchIcon } from '@primer/octicons-react'
+import { announce } from '@primer/live-region-element'
 import cx from 'classnames'
 
 import { Link } from '@/frame/components/Link'
@@ -61,6 +62,7 @@ export const ArticleGrid = ({
 
   const inputRef = useRef<HTMLInputElement>(null)
   const headingRef = useRef<HTMLHeadingElement>(null)
+  const statusTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   // Read filter state directly from query params
   const searchQuery = params['articles-filter'] || ''
@@ -230,6 +232,25 @@ export const ArticleGrid = ({
     prevPageRef.current = currentPage
   }, [currentPage])
 
+  // Announce search/filter no-results to assistive technologies.
+  // Uses @primer/live-region-element which renders a <live-region> web component
+  // with a shadow DOM on document.body — completely isolated from React's component
+  // tree. This avoids VoiceOver re-announcing the focused input when React re-renders
+  // cause DOM mutations near the TextInput.
+  const noArticlesFoundMessage = t('article_grid.no_articles_found')
+  useEffect(() => {
+    if (statusTimerRef.current) clearTimeout(statusTimerRef.current)
+
+    if (filteredResults.length === 0) {
+      statusTimerRef.current = setTimeout(() => {
+        announce(noArticlesFoundMessage, { politeness: 'assertive' })
+      }, 750)
+    }
+
+    return () => {
+      if (statusTimerRef.current) clearTimeout(statusTimerRef.current)
+    }
+  }, [filteredResults.length, searchQuery, selectedCategory, noArticlesFoundMessage])
   return (
     <div data-testid="article-grid-container">
       {/* Filter and Search Controls */}
@@ -294,14 +315,14 @@ export const ArticleGrid = ({
           />
         ))}
         {filteredResults.length === 0 && (
-          <div className={styles.noArticlesContainer} data-testid="no-articles-message">
+          <div
+            className={styles.noArticlesContainer}
+            data-testid="no-articles-message"
+            aria-hidden="true"
+          >
             <p className={styles.noArticlesText}>{t('article_grid.no_articles_found')}</p>
           </div>
         )}
-
-        <div aria-live="polite" aria-atomic="true" className="visually-hidden">
-          {filteredResults.length === 0 ? t('article_grid.no_articles_found') : ''}
-        </div>
       </div>
 
       {/* Pagination */}

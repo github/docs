@@ -46,9 +46,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | `billing` | Contains all activities related to your organization's billing.
 | `business` | Contains activities related to business settings for an enterprise. |
 | {% endif %} |
-| {% ifversion fpt or ghec or ghes > 3.16 %} |
 | `code-scanning` | Contains all activities related to your organization's code scanning alerts. |
-| {% endif %} |
 | {% ifversion fpt or ghec %} |
 | `codespaces` | Contains all activities related to your organization's codespaces. |
 | `copilot` | Contains all activities related to your {% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %} subscription.

@@ -423,7 +423,7 @@ Create a wrapper script to log all communication:
 #!/bin/bash
 # mcp-debug-wrapper.sh
 
-LOG="/tmp/mcp-debug-$(date +%s).log"
+LOG="./mcp-debug-$(date +%s).log"
 ACTUAL_SERVER="$1"
 shift
 

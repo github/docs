@@ -45,6 +45,17 @@ By default, {% data variables.copilot.copilot_cloud_agent %} is available in all
 
 Once {% data variables.copilot.copilot_cloud_agent %} is enabled for a repository, any user with access to {% data variables.copilot.copilot_cloud_agent %} and write permission for the repository can delegate work to {% data variables.product.prodname_copilot_short %}.
 
+## Controlling {% data variables.copilot.copilot_automations %} in your repositories
+
+{% data variables.copilot.copilot_automations_cap %} let users run {% data variables.copilot.copilot_cloud_agent %} automatically, on a schedule or in response to events. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-automations).
+
+{% data variables.copilot.copilot_automations_cap %} are allowed by default in repositories where {% data variables.copilot.copilot_cloud_agent %} is available. You can control whether {% data variables.copilot.copilot_automations %} are allowed in repositories owned by your organization, separately from the {% data variables.copilot.copilot_cloud_agent %} policy.
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.copilot.cloud-agent-settings %}
+1. To allow or block {% data variables.copilot.copilot_automations %}, toggle the **Allow automations** setting.
+
 ## Managing the agent firewall for your organization
 
 Organization owners can configure the {% data variables.copilot.copilot_cloud_agent %} firewall for their organization, including whether it is enabled for the organization and which external hosts and URLs the agent can access. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-firewall).

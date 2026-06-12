@@ -7,11 +7,13 @@ versions:
   feature: copilot
 children:
   - /start-copilot-sessions
+  - /create-automations
   - /changing-the-ai-model
   - /configuring-agent-settings
   - /create-custom-agents-in-your-ide
   - /use-cloud-agent-on-github
   - /use-cloud-agent-on-mobile
+  - /use-agent-apps
   - /use-cloud-agent-in-your-ide
   - /use-cloud-agent-via-the-api
   - /use-cloud-agent-from-cli

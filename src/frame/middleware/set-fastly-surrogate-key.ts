@@ -14,7 +14,6 @@ import { ExtendedRequest } from '@/types'
 const KEY = 'surrogate-key'
 
 export const SURROGATE_ENUMS = {
-  DEFAULT: 'every-deployment',
   MANUAL: 'manual-purge',
 }
 
@@ -32,7 +31,7 @@ export function setFastlySurrogateKey(res: Response, enumKey: string, isCustomKe
 }
 
 export function setDefaultFastlySurrogateKey(req: Request, res: Response, next: NextFunction) {
-  res.set(KEY, `${SURROGATE_ENUMS.DEFAULT} ${makeLanguageSurrogateKey()}`)
+  res.set(KEY, makeLanguageSurrogateKey())
   return next()
 }
 
@@ -41,7 +40,7 @@ export function setLanguageFastlySurrogateKey(
   res: Response,
   next: NextFunction,
 ) {
-  res.set(KEY, `${SURROGATE_ENUMS.DEFAULT} ${makeLanguageSurrogateKey(req.language)}`)
+  res.set(KEY, makeLanguageSurrogateKey(req.language))
   return next()
 }
 

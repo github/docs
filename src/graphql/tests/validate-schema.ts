@@ -50,7 +50,7 @@ describe('graphql json files', () => {
             typeObj,
           )
 
-          let formattedErrors: any = errors // Can be either raw errors array or formatted string
+          let formattedErrors: string | undefined
           if (!isValid) {
             formattedErrors = `name: ${typeObj.name}: ${formatAjvErrors(errors || [])}`
           }
@@ -63,7 +63,7 @@ describe('graphql json files', () => {
 
   test('previews object validation', () => {
     for (const version of graphqlVersions) {
-      const previews = readJsonFile(`${GRAPHQL_DATA_DIR}/${version}/previews.json`) as Array<any> // GraphQL preview schema structure is dynamic
+      const previews = readJsonFile(`${GRAPHQL_DATA_DIR}/${version}/previews.json`) as unknown[]
       for (const preview of previews) {
         const isValid = previewsValidate(preview)
         let errors: string | undefined
@@ -81,7 +81,7 @@ describe('graphql json files', () => {
     for (const version of graphqlVersions) {
       const upcomingChanges = readJsonFile(
         `${GRAPHQL_DATA_DIR}/${version}/upcoming-changes.json`,
-      ) as Record<string, Array<any>> // GraphQL change object structure is dynamic
+      ) as Record<string, unknown[]>
       for (const changes of Object.values(upcomingChanges)) {
         // each object value is an array of changes
         for (const changeObj of changes) {

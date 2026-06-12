@@ -103,12 +103,13 @@ async function createDeprecationIssue() {
   const issueTemplate = readFileSync('src/ghes-releases/lib/deprecation-steps.md', 'utf8')
   const { data, content } = matter(issueTemplate)
   const { title, labels } = data
+  const renderedContent = content.replaceAll('{{ release-number }}', oldestSupported)
   const body = `GHES ${oldestSupported} deprecation occurs on ${deprecationDate}.
-  \n${content}
-  '/cc @github/docs-engineering'`
+
+${renderedContent}`
   await createIssue(
     repo,
-    title.replace('{{ release-number }}', oldestSupported),
+    title.replaceAll('{{ release-number }}', oldestSupported),
     body,
     labels,
     oldestSupported,

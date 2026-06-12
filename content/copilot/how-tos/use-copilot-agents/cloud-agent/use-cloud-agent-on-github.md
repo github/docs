@@ -20,6 +20,8 @@ You can start {% data variables.copilot.copilot_cloud_agent %} sessions from sev
 
 For more information about {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
 
+You can also start partner-built agents from these same entry points using {% data variables.copilot.agent_apps %}. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/use-agent-apps).
+
 ## Starting a session from the agents tab or panel
 
 You can start sessions from the agents tab and the agents panel. The only difference is the entry point—once you see the "New agent task" form, the steps are the same.
@@ -49,7 +51,9 @@ You can ask {% data variables.product.prodname_copilot_short %} to start work fr
    > [!NOTE]
    > If you have enabled the **New Dashboard Experience** in feature preview, the new session will appear in "Agent sessions" under the prompt box in your dashboard. For more information, see [AUTOTITLE](/account-and-profile/reference/personal-dashboard#home-dashboard-view).
 
-## Starting from Copilot Chat
+## Starting from {% data variables.copilot.copilot_chat_short %}
+
+When you start a task from {% data variables.copilot.copilot_chat_short %}, the new {% data variables.copilot.copilot_cloud_agent %} session incorporates the context of your current chat conversation. This means you don't need to restate details you have already shared with {% data variables.product.prodname_copilot_short %} in your `/task` prompt.
 
 1. Open {% data variables.copilot.copilot_chat %} on {% data variables.product.prodname_dotcom_the_website %}.
 1. Type `/task` to ask {% data variables.product.prodname_copilot_short %} to create a pull request, and give details of what you want {% data variables.product.prodname_copilot_short %} to change.
@@ -125,9 +129,6 @@ When creating a new repository, you can ask {% data variables.product.prodname_c
 
 ## Fixing a failing {% data variables.product.prodname_actions %} workflow run
 
-> [!NOTE]
-> This feature is only available to {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} users.
-
 When an {% data variables.product.prodname_actions %} workflow run fails on a pull request branch, you can ask {% data variables.product.prodname_copilot_short %} to investigate and fix the failure.
 
 1. On {% data variables.product.github %}, navigate to the failing workflow run job page.
@@ -159,6 +160,10 @@ You can ask {% data variables.product.prodname_copilot_short %} to resolve merge
 * **Using an @copilot mention**: Mention `@copilot` in a comment on the pull request and ask it to fix the conflicts—for example, "@copilot resolve the merge conflicts on this PR."
 
 {% data variables.product.prodname_copilot_short %} analyzes the conflicting changes, resolves them, and verifies that the build, tests, and linter still pass. It then requests your review so you can confirm the resolution before merging.
+
+## Running {% data variables.copilot.copilot_cloud_agent %} automatically with {% data variables.copilot.copilot_automations %}
+
+You can set up {% data variables.copilot.copilot_automations %} to run {% data variables.copilot.copilot_cloud_agent %} automatically, on a schedule or in response to events such as an issue being opened. You create and manage {% data variables.copilot.copilot_automations %} from the **{% data variables.copilot.copilot_automations_cap %}** pane in the **Agents** tab of a repository. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-automations).
 
 ## Managing {% data variables.product.prodname_actions %} workflow runs
 
