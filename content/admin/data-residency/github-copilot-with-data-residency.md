@@ -40,7 +40,11 @@ The enforcement happens at multiple levels:
 
 ## Available AI models by region
 
-The models available for {% data variables.product.prodname_copilot_short %} vary by region. {% data reusables.copilot.model-compliance.models-intro %}
+The models available for {% data variables.product.prodname_copilot_short %} vary by region. 
+
+{% data reusables.copilot.model-compliance.models-intro %}
+
+> [!NOTE] Some models listed may only be available as utility models. See [AUTOTITLE](/copilot/concepts/models/utility-models).
 
 ### United States
 
@@ -48,17 +52,20 @@ The models available for {% data variables.product.prodname_copilot_short %} var
 
 ### European Union
 
-* GPT-4o mini
-* GPT-4.1
-* GPT-5 mini
-* GPT-5.2
-* GPT-5.4
-* Claude Haiku 4.5
-* Claude Sonnet 4
-* Claude Sonnet 4.5
-* Claude Opus 4.5
-* Claude Sonnet 4.6
-* Claude Opus 4.6
+* {% data variables.copilot.copilot_gpt_4o_mini %}
+* {% data variables.copilot.copilot_gpt_41 %}
+* {% data variables.copilot.copilot_gpt_5_mini %}
+* {% data variables.copilot.copilot_gpt_52 %}
+* {% data variables.copilot.copilot_gpt_53_codex %}
+* {% data variables.copilot.copilot_gpt_54 %}
+* {% data variables.copilot.copilot_gpt_54_mini %}
+* {% data variables.copilot.copilot_gpt_54_nano %}
+* {% data variables.copilot.copilot_gpt_55 %}
+* {% data variables.copilot.copilot_claude_haiku_45 %}
+* {% data variables.copilot.copilot_claude_sonnet_45 %}
+* {% data variables.copilot.copilot_claude_opus_45 %}
+* {% data variables.copilot.copilot_claude_sonnet_46 %}
+* {% data variables.copilot.copilot_claude_opus_46 %}
 
 ## Pricing changes
 

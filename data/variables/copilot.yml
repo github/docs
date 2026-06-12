@@ -16,6 +16,8 @@ copilot_free: 'GitHub Copilot Free'
 copilot_free_short: 'Copilot Free'
 copilot_student: 'GitHub Copilot Student'
 copilot_student_short: 'Copilot Student'
+copilot_max: 'GitHub Copilot Max'
+copilot_max_short: 'Copilot Max'
 
 ## Copilot billing
 # Price per additional premium request
@@ -24,6 +26,8 @@ additional_premium_requests: '$0.04 USD' # Note that these are also used to bill
 cfi_price_per_month: '$10 USD'
 # Price per month for Copilot Pro Plus
 cpp_price_per_month: '$39 USD'
+# Price per month for Copilot Max
+cm_price_per_month: '$100 USD'
 # Price per month for Copilot Business
 cfb_price_per_month: '$19 USD'
 # Price per month for Copilot Enterprise
@@ -34,8 +38,15 @@ ai_credits_per_user_business: '1,900'
 ai_credits_per_user_enterprise: '3,900'
 ai_credits_per_user_business_promo: '3,000'
 ai_credits_per_user_enterprise_promo: '7,000'
-ai_credits_per_user_pro: '1000'
-ai_credits_per_user_pro_plus: '3900'
+ai_credits_per_user_pro: '1,000'
+ai_credits_per_user_pro_plus: '3,900'
+ai_credits_per_user_max: '10,000'
+ai_credits_per_user_pro_flex: '500'
+ai_credits_per_user_pro_plus_flex: '3,100'
+ai_credits_per_user_max_flex: '10,000'
+ai_credits_per_user_pro_total: '1,500'
+ai_credits_per_user_pro_plus_total: '7,000'
+ai_credits_per_user_max_total: '20,000'
 
 ## Copilot partners: builders who can develop Copilot extensions
 copilot_partners: 'Copilot Partners'
@@ -58,6 +69,16 @@ copilot_cloud_agent_short: 'cloud agent'
 copilot_cloud_agent_short_cap_c: 'Cloud agent'
 copilot_cloud_agent_tmp: 'Copilot cloud agent (formerly Copilot coding agent)'
 
+## GitHub Agentic Workflows -> {% data variables.copilot.github_agentic_workflows %}
+github_agentic_workflows: 'GitHub Agentic Workflows'
+agentic_workflows_short: 'agentic workflows'
+agentic_workflows_short_cap: 'Agentic workflows'
+
+## Copilot automations (powered by Copilot cloud agent)
+copilot_automations_cap: 'Automations'
+copilot_automations: 'automations'
+copilot_automation: 'automation'
+
 ## Short for "Copilot Extensions agent" -> {% data variables.copilot.copilot_agent_short %}
 ## Note: this is NOT a short form for the Copilot cloud agent (previously coding agent / Padawan):
 copilot_agent_short: 'Copilot agent'
@@ -74,12 +95,21 @@ copilot_mobile: 'GitHub Copilot Chat in GitHub Mobile'
 copilot_vsc_chat_participant: 'Copilot-enabled VS Code chat participant'
 copilot_vsc_chat_participants: 'Copilot-enabled VS Code chat participants'
 
+## GitHub Copilot app
+github_copilot_app: 'GitHub Copilot app'
+
 ## Copilot CLI
 copilot_cli_short: 'Copilot CLI'
 copilot_cli: 'GitHub Copilot CLI'
 copilot_old-cli_short: 'Copilot in the CLI'
 copilot_old-cli: 'GitHub Copilot in the CLI'
 copilot_cli_npm_version: 'Node.js 22 or later'
+
+## GitHub Sandbox
+sandbox: 'cloud and local sandboxes for GitHub Copilot'
+sandbox_caps: 'Cloud and local sandboxes for GitHub Copilot'
+sandbox_short: 'sandboxes for GitHub Copilot'
+sandbox_short_caps: 'Sandboxes for GitHub Copilot'
 
 ## Copilot custom agents
 copilot_custom_agent: 'Copilot custom agent'
@@ -88,6 +118,14 @@ copilot_custom_agent_short: 'custom agent'
 copilot_custom_agent_caps_short: 'Custom agent'
 custom_agents_short: 'custom agents'
 custom_agents_caps_short: 'Custom agents'
+
+## Agent apps (GitHub Apps that expose custom agents, powered by Copilot cloud agent)
+agent_apps: 'agent apps'
+agent_app: 'agent app'
+agent_apps_short: 'agent apps'
+agent_app_short: 'agent app'
+agent_apps_caps: 'Agent apps'
+agent_app_caps: 'Agent app'
 
 ## Copilot SDK
 copilot_sdk: 'GitHub Copilot SDK'
@@ -155,6 +193,8 @@ copilot_claude_opus_45: 'Claude Opus 4.5'
 copilot_claude_opus_46: 'Claude Opus 4.6'
 copilot_claude_opus_46_fast: 'Claude Opus 4.6 (fast mode) (preview)'
 copilot_claude_opus_47: 'Claude Opus 4.7'
+copilot_claude_opus_48: 'Claude Opus 4.8'
+copilot_claude_fable_5: 'Claude Fable 5'
 copilot_claude_sonnet: 'Claude Sonnet'
 copilot_claude_sonnet_35: 'Claude Sonnet 3.5'
 copilot_claude_sonnet_37: 'Claude Sonnet 3.7'
@@ -168,6 +208,7 @@ copilot_gemini_3_flash: 'Gemini 3 Flash'
 copilot_gemini_25_pro: 'Gemini 2.5 Pro'
 copilot_gemini_3_pro: 'Gemini 3 Pro'
 copilot_gemini_31_pro: 'Gemini 3.1 Pro'
+copilot_gemini_35_flash: 'Gemini 3.5 Flash'
 # OpenAI GPT series:
 copilot_gpt_4o: 'GPT-4o'
 copilot_gpt_4o_mini: 'GPT-4o mini'
@@ -193,12 +234,13 @@ copilot_o4_mini: 'o4-mini'
 copilot_grok_code: 'Grok Code Fast 1'
 # Qwen:
 copilot_qwen_25: 'Qwen2.5'
+# Microsoft:
+copilot_mai_code_1_flash: 'MAI-Code-1-Flash'
 # Microsoft fine-tuned:
 copilot_raptor_mini: 'Raptor mini'
-copilot_goldeneye: 'Goldeneye'
 
 ## Current model used by Copilot cloud agent and Copilot CLI
-cca_current_model: '{% data variables.copilot.copilot_claude_sonnet_40 %}'
+cca_current_model: '{% data variables.copilot.copilot_claude_opus_46 %}'
 
 ## Next edit suggestions
 next_edit_suggestions: 'next edit suggestions'
@@ -211,4 +253,4 @@ copilot_workspace: 'Copilot Workspace'
 copilot_workspace_short: 'Workspace'
 
 # BYOK
-copilot_byok_supported_features: '{% data variables.copilot.copilot_chat %} and {% data variables.copilot.copilot_cli %}'
+copilot_byok_supported_features: '{% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_cli_short %}, and {% data variables.product.prodname_vscode_shortname %}'

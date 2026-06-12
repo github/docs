@@ -143,7 +143,7 @@ You can also extend the power of this query by [substituting a variable](/graphq
 
 GraphQL schemas are strongly typed, making data handling safer.
 
-Consider an example of adding a comment to an issue or pull request using a GraphQL [mutation](/graphql/reference/mutations), and mistakenly specifying an integer rather than a string for the value of [`clientMutationId`](/graphql/reference/mutations#addcomment):
+Consider an example of adding a comment to an issue or pull request using a GraphQL [mutation](/graphql/reference), and mistakenly specifying an integer rather than a string for the value of [`clientMutationId`](/graphql/reference/issues#mutation-addcomment):
 
 ```graphql
 mutation {

@@ -31,8 +31,8 @@ You can customize {% data variables.product.prodname_copilot_short %}'s developm
 
 In addition, you can:
 
-* [Set environment variables in {% data variables.product.prodname_copilot_short %}'s environment](#setting-environment-variables-in-copilots-environment)
-* [Disable or customize the agent's firewall](/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-cloud-agent).
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables)
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-firewall).
 
 > [!NOTE]
 > Organization owners can configure the default runner type for {% data variables.copilot.copilot_cloud_agent %} across all repositories in their organization, and choose whether repositories are allowed to override this default. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/configure-runner-for-coding-agent).
@@ -98,7 +98,7 @@ Your `copilot-setup-steps.yml` file will automatically be run as a normal {% dat
 
 Once you have merged the yml file into your default branch, you can manually run the workflow from the repository's **Actions** tab at any time to check that everything works as expected. For more information, see [AUTOTITLE](/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/manually-running-a-workflow).
 
-When {% data variables.product.prodname_copilot_short %} starts work, your setup steps will be run, and updates will show in the session logs. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/track-copilot-sessions).
+When {% data variables.product.prodname_copilot_short %} starts work, your setup steps will be run, and updates will show in the session logs. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents).
 
 If any setup step fails by returning a non-zero exit code, {% data variables.product.prodname_copilot_short %} will skip the remaining setup steps and begin working with the current state of its development environment.
 
@@ -168,7 +168,7 @@ We recommend that you only use {% data variables.copilot.copilot_cloud_agent %} 
     | `ssl_cert_file`    | The path to the SSL certificate presented by your proxy server. You will need to configure this if your proxy intercepts SSL connections. | `/path/to/key.pem`                               |
     | `node_extra_ca_certs`    | The path to the SSL certificate presented by your proxy server. You will need to configure this if your proxy intercepts SSL connections. | `/path/to/key.pem`                               |
 
-    You can set these environment variables by following the [instructions below](#setting-environment-variables-in-copilots-environment), or by setting them on the runner directly, for example with a custom runner image. For more information on building a custom image, see [AUTOTITLE](/actions/concepts/runners/actions-runner-controller#creating-your-own-runner-image).
+    You can set these environment variables by creating Agents variables or secrets, or by setting them on the runner directly, for example with a custom runner image. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables) and [AUTOTITLE](/actions/concepts/runners/actions-runner-controller#creating-your-own-runner-image).
 
 ## Switching {% data variables.product.prodname_copilot_short %} to a Windows development environment
 
@@ -200,19 +200,7 @@ jobs:
           lfs: true
 ```
 
-## Setting environment variables in {% data variables.product.prodname_copilot_short %}'s environment
-
-You may want to set environment variables in {% data variables.product.prodname_copilot_short %}'s environment to configure or authenticate tools or dependencies that it has access to.
-
-You may want to set an environment variable for {% data variables.product.prodname_copilot_short %}, create a {% data variables.product.prodname_actions %} variable or secret in the `copilot` environment. If the value contains sensitive information, for example a password or API key, it's best to use a {% data variables.product.prodname_actions %} secret.
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.actions.sidebar-environment %}
-1. Click the `copilot` environment.
-1. To add a secret, under "Environment secrets," click **Add environment secret**. To add a variable, under "Environment variables," click **Add environment variable**.
-1. Fill in the "Name" and "Value" fields, and then click **Add secret** or **Add variable** as appropriate.
-
 ## Further reading
 
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables)
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-firewall)

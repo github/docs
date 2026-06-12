@@ -28,12 +28,29 @@ jobs:
           persist-credentials: false
 
       - name: Sync repo to branch
-        uses: repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88
-        with:
-          source_repo: https://${{ secrets.DOCS_BOT_PAT_REPO_SYNC }}@github.com/github/${{ github.repository == 'github/docs-internal' && 'docs' || 'docs-internal' }}.git
-          source_branch: main
-          destination_branch: repo-sync
-          github_token: ${{ secrets.DOCS_BOT_PAT_REPO_SYNC }}
+        env:
+          SOURCE_REPO: https://${{ secrets.DOCS_BOT_PAT_REPO_SYNC }}@github.com/github/${{ github.repository == 'github/docs-internal' && 'docs' || 'docs-internal' }}.git
+          SOURCE_BRANCH: main
+          DESTINATION_BRANCH: repo-sync
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_REPO_SYNC }}
+        run: |
+          set -euo pipefail
+
+          : "${GH_TOKEN:?DOCS_BOT_PAT_REPO_SYNC is empty}"
+          : "${SOURCE_REPO:?SOURCE_REPO is empty}"
+          : "${SOURCE_BRANCH:?SOURCE_BRANCH is empty}"
+          : "${DESTINATION_BRANCH:?DESTINATION_BRANCH is empty}"
+
+          git config --unset-all http."https://github.com/".extraheader || true
+
+          git remote remove tmp_upstream 2>/dev/null || true
+          trap 'git remote remove tmp_upstream 2>/dev/null || true' EXIT
+
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git remote add tmp_upstream "${SOURCE_REPO}"
+
+          git fetch tmp_upstream --quiet
+          git push origin "refs/remotes/tmp_upstream/${SOURCE_BRANCH}:refs/heads/${DESTINATION_BRANCH}" --force
 
       - name: Ship pull request
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
@@ -174,7 +191,6 @@ jobs:
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
 
       - uses: ./.github/actions/create-workflow-failure-issue

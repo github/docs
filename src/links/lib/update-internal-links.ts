@@ -6,6 +6,8 @@ import { toMarkdown } from 'mdast-util-to-markdown'
 import yaml from 'js-yaml'
 import { type Node, type Nodes, type Definition, type Link } from 'mdast'
 
+import type { Context, Page } from '@/types'
+import { createLogger } from '@/observability/logger'
 import frontmatter from '@/frame/lib/read-frontmatter'
 import {
   getPathWithLanguage,
@@ -20,9 +22,32 @@ import getRedirect, { splitPathByLanguage } from '@/redirects/lib/get-redirect'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
 import { deprecated } from '@/versions/lib/enterprise-server-releases'
 
+const logger = createLogger(import.meta.url)
+
 // That magical string that can be turned into the actual title when
 // we, at runtime, render out the links
 const AUTOTITLE = 'AUTOTITLE'
+
+type LinkContext = {
+  pages: Record<string, Page>
+  redirects: NonNullable<Context['redirects']>
+  currentLanguage: string
+  userLanguage: string
+}
+
+type Replacement = {
+  asMarkdown: string
+  newAsMarkdown: string
+  line: number
+  column?: number
+}
+
+type Warning = {
+  warning: string
+  asMarkdown: string
+  line: number
+  column?: number
+}
 
 const Options = {
   setAutotitle: false,
@@ -55,7 +80,7 @@ export async function updateInternalLinks(files: string[], options = {}) {
         ...(await updateFile(file, context, opts)),
       })
     } catch (err) {
-      console.warn(`The file it tried to process on exception was: ${file}`)
+      logger.warn('File processing failed', { file })
       throw err
     }
   }
@@ -63,18 +88,7 @@ export async function updateInternalLinks(files: string[], options = {}) {
   return results
 }
 
-async function updateFile(
-  file: string,
-  context: {
-    // Using any because page data structures vary by page type (articles, guides, etc.)
-    pages: Record<string, any>
-    // Using any because redirects can be strings or redirect objects with various properties
-    redirects: any
-    currentLanguage: string
-    userLanguage: string
-  },
-  opts: typeof Options,
-) {
+async function updateFile(file: string, context: LinkContext, opts: typeof Options) {
   const rawContent = fs.readFileSync(file, 'utf8')
   let { data, content } = frontmatter(rawContent)
   data = data || {}
@@ -93,10 +107,8 @@ async function updateFile(
   let newContent = content
   const ast = fromMarkdown(newContent)
 
-  // Using any[] because replacements can contain various mdast node types with different structures
-  const replacements: any[] = []
-  // Using any[] because warnings contain various error information depending on the issue type
-  const warnings: any[] = []
+  const replacements: Replacement[] = []
+  const warnings: Warning[] = []
 
   const newData = structuredClone(data)
 
@@ -105,8 +117,7 @@ async function updateFile(
 
   // This configuration determines which nested things to bother looking
   // into.
-  // Using any because frontmatter values can be strings, arrays, or nested objects
-  const HAS_LINKS: Record<string, any> = {
+  const HAS_LINKS: Record<string, string[] | symbol> = {
     featuredLinks: ['gettingStarted', 'startHere', 'guideCards', 'popular'],
     introLinks: ANY,
   }
@@ -149,7 +160,7 @@ async function updateFile(
       // bubble up to the CLI. And the CLI will mention which file it
       // was processing when it failed. But we have a valuable piece of
       // information here about which frontmatter key it was that failed.
-      console.warn(`The frontmatter key it processed and failed was '${key}'`)
+      logger.warn('Frontmatter key processing failed', { key })
       throw error
     }
   }
@@ -205,7 +216,7 @@ async function updateFile(
 
       const hasQuotesAroundLink = content.includes(`"${asMarkdown}`)
 
-      const xValue = (node?.children?.[0] as any)?.value
+      const xValue = (node.children[0] as { value?: string } | undefined)?.value
 
       if (opts.setAutotitle) {
         if (hasQuotesAroundLink) {
@@ -281,9 +292,10 @@ async function updateFile(
         newContent = newContent.replace(asMarkdown, newAsMarkdown)
       }
     } else if (opts.verbose) {
-      console.warn(
-        `Unable to find link as Markdown ('${asMarkdown}') in the source content (${file})`,
-      )
+      logger.warn('Unable to find link as Markdown in the source content', {
+        asMarkdown,
+        file,
+      })
     }
   })
 
@@ -359,16 +371,8 @@ function linkMatcher(node: Node) {
 }
 
 function getNewFrontmatterLinkList(
-  // Using any[] because frontmatter links can be strings or objects with href/title properties
-  list: any[],
-  context: {
-    // Using any because page data structures vary by page type
-    pages: Record<string, any>
-    // Using any because redirects can be strings or redirect objects
-    redirects: any
-    currentLanguage: string
-    userLanguage: string
-  },
+  list: string[],
+  context: LinkContext,
   opts: {
     setAutotitle: boolean
     fixHref: boolean
@@ -394,7 +398,7 @@ function getNewFrontmatterLinkList(
   const better = []
   for (const entry of list) {
     if (/{%\s*else\s*%}/.test(entry)) {
-      console.warn(`Skipping frontmatter link with {% else %} in it: ${entry}. (file: ${file})`)
+      logger.warn('Skipping frontmatter link with {% else %} in it', { entry, file })
       better.push(entry)
       continue
     }
@@ -419,7 +423,7 @@ function getNewFrontmatterLinkList(
         if (opts.strict) {
           throw new Error(msg)
         }
-        console.warn(`WARNING: ${msg}`)
+        logger.warn(msg, { file, pure, lineNumber })
         better.push(entry)
       } else {
         // Perhaps it just redirected to a specific version
@@ -439,8 +443,7 @@ function getNewFrontmatterLinkList(
 // Try to return the line in the raw content that entry was on.
 // It's hard to know exactly because the `entry` is the result of parsing
 // the YAML, most likely, from the front
-// Using any because entry can be a string or an object with various link properties
-function findLineNumber(entry: any, rawContent: string) {
+function findLineNumber(entry: string, rawContent: string) {
   let number = 0
   for (const line of rawContent.split(/\n/g)) {
     number++
@@ -473,21 +476,13 @@ function stripLiquid(text: string) {
   return text
 }
 
-// Using any[] for generic array comparison - works with strings, objects, etc.
-function equalArray(arr1: any[], arr2: any[]) {
+function equalArray(arr1: unknown[], arr2: unknown[]) {
   return arr1.length === arr2.length && arr1.every((item, i) => item === arr2[i])
 }
 
 function getNewHref(
   href: string,
-  context: {
-    // Using any because page data structures vary by page type
-    pages: Record<string, any>
-    // Using any because redirects can be strings or redirect objects
-    redirects: any
-    currentLanguage: string
-    userLanguage: string
-  },
+  context: LinkContext,
   opts: {
     setAutotitle: boolean
     fixHref: boolean
@@ -512,7 +507,7 @@ function getNewHref(
     if (opts.strict) {
       throw new Error(msg)
     } else {
-      console.warn(`WARNING: ${msg}`)
+      logger.warn(msg, { file, href: newHref })
       return
     }
   }
@@ -530,7 +525,7 @@ function getNewHref(
       if (opts.strict) {
         throw new Error(msg)
       } else {
-        console.warn(`WARNING: ${msg}`)
+        logger.warn(msg, { file, href })
         return
       }
     }
@@ -569,7 +564,7 @@ function getNewHref(
       if (opts.strict) {
         throw new Error(msg)
       } else {
-        console.warn(msg)
+        logger.warn(msg, { file })
         return
       }
     } else if (withoutLanguage.startsWith('/enterprise-server@latest')) {

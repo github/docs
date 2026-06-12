@@ -50,19 +50,21 @@ Provisioned users appear automatically in your enterprise's **People** list. You
 
 Group users to scale license assignment by creating enterprise teams. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/create-enterprise-teams).
 
+## Convert your trial to a paid enterprise account
+
+To begin using {% data variables.copilot.copilot_business_short %} after your trial, convert to a paid enterprise account. See [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud#purchasing-github-enterprise).
+
 ## Enable {% data variables.product.prodname_copilot_short %} for the enterprise
 
-{% data reusables.copilot-business-for-non-ghe.enable-copilot %}
+1. Ensure you are signed in as an enterprise administrator on {% data variables.product.github %}.
+1. To purchase {% data variables.product.prodname_copilot %} for your enterprise, [contact {% data variables.product.github %}'s Sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=text).
+1. A member of the Sales team will work with you to set up {% data variables.product.prodname_copilot_short %} for your enterprise.
 
 ## Assign {% data variables.product.prodname_copilot_short %} licenses
 
 Give people access to {% data variables.product.prodname_copilot_short %} by assigning {% data variables.copilot.copilot_business_short %} licenses to users or enterprise teams.
 
 For detailed steps, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/grant-access#assigning-licenses-to-users-or-teams).
-
-## Convert your trial to a paid enterprise account
-
-To continue using {% data variables.copilot.copilot_business_short %} after your trial, convert to a paid enterprise account. See [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud#purchasing-github-enterprise).
 
 ## Next steps
 

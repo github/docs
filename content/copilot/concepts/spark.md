@@ -4,6 +4,7 @@ shortTitle: Spark
 intro: 'Learn about building and deploying intelligent apps with natural language using {% data variables.product.prodname_spark %}.'
 versions:
   feature: spark
+product: '{% data variables.copilot.copilot_pro_plus_short %} and {% data variables.copilot.copilot_enterprise_short %}'
 contentType: concepts
 category: 
   - Learn about Copilot
@@ -81,13 +82,12 @@ Benefits include:
 
 * **Centralized control**. {% data variables.product.prodname_spark_short %} is included in the {% data variables.product.prodname_copilot_short %} license and respects existing enterprise access policies.
 * **Governance and security**. Built on {% data variables.product.github %} and Azure, sparks inherit enterprise-grade reliability, authentication, and compliance.
-* **Transparency and cost management**. {% data variables.product.prodname_spark_short %} consumption draws from {% data variables.product.prodname_copilot_short %} premium requests, which you can monitor through the {% data variables.product.github %} billing platform.
+* **Transparency and cost management**. {% data variables.product.prodname_spark_short %} consumption draws from {% data variables.product.prodname_ai_credits_short %}, which you can monitor through the {% data variables.product.github %} billing platform.
 * **Accelerated innovation**. Teams can validate ideas in hours instead of months, without relying on fragmented toolchains.
 
 ### Billing
 
-Each natural-language prompt in {% data variables.product.prodname_spark_short %} consumes four premium requests.
-See [AUTOTITLE](/billing/concepts/product-billing/github-spark).
+Each prompt to {% data variables.product.prodname_spark_short %} consumes {% data variables.product.prodname_ai_credits_short %}. See [AUTOTITLE](/billing/concepts/product-billing/github-spark).
 
 ### Infrastructure
 

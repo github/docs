@@ -39,16 +39,16 @@ If you choose to trust the directory for future sessions, the trusted directory 
 
 ### Editing trusted directories
 
-You can edit the list of permanently trusted directories.
+You can edit the list of permanently trusted directories. Trusted directories are stored in the automatically managed `config.json` file.
 
-1. Open the CLI’s `settings.json` file. By default, it’s stored in a `.copilot` folder under your home directory:
+1. Open the CLI's `config.json` file. By default, it's stored in a `.copilot` folder under your home directory:
 
-   * **macOS/Linux**: `~/.copilot/settings.json`
-   * **Windows**: `$HOME\.copilot\settings.json`
+   * **macOS/Linux**: `~/.copilot/config.json`
+   * **Windows**: `$HOME\.copilot\config.json`
 
-  You can change the config location by setting the `COPILOT_HOME` environment variable.
+  You can change the config location by setting the `COPILOT_HOME` environment variable. This would change `~/.copilot/` and `$HOME\.copilot\` in the above paths.
 
-1. Edit the contents of the `trusted_folders` array.
+1. Edit the contents of the `trustedFolders` array.
 
 ## Setting allowed tools
 

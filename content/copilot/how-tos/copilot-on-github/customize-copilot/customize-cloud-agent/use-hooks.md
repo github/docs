@@ -5,7 +5,7 @@ intro: 'Run automated checks—like linting, formatting, or security scans—at 
 versions:
   feature: copilot
 contentType: how-tos
-category: 
+category:
   - Configure Copilot
 redirect_from:
   - /copilot/how-tos/use-copilot-agents/coding-agent/use-hooks
@@ -16,6 +16,11 @@ redirect_from:
 
 ## Creating a hook in a repository on {% data variables.product.github %}
 
+1. Create a new `NAME.json` file (where `NAME` describes the purpose of the file) in the `.github/hooks/` folder of your repository.
+
+   > [!IMPORTANT]
+   > The hooks configuration file **must be present** on your repository's default branch to be used by {% data variables.copilot.copilot_cloud_agent %}.
+
 {% data reusables.copilot.cloud-agent.create-hooks-instructions %}
 
 ## Troubleshooting
@@ -24,7 +29,7 @@ redirect_from:
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/reference/hooks-configuration)
+* [AUTOTITLE](/copilot/reference/hooks-reference)
 * [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent)
 * [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli)
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment)

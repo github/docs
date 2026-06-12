@@ -36,11 +36,11 @@ async function checkPortAvailability() {
   // Check that the development server is not already running
   const portInUse = await tcpPortUsed.check(port)
   if (portInUse) {
-    console.log(`\n\n\nPort ${port} is not available. You may already have a server running.`)
-    console.log(
-      `Try running \`npx kill-port ${port}\` to shut down all your running node processes.\n\n\n`,
+    logger.error('Port is not available. You may already have a server running.', { port })
+    logger.error(
+      `Try running \`npx kill-port ${port}\` to shut down all your running node processes.`,
     )
-    console.log('\x07') // system 'beep' sound
+    logger.info('\x07') // system 'beep' sound
     process.exit(1)
   }
 }

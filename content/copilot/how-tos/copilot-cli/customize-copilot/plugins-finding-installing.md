@@ -16,7 +16,7 @@ docsTeamMetrics:
 
 ## Introduction
 
-Plugins are packages that extend the functionality of {% data variables.copilot.copilot_cli_short %}. You can install a plugin from a marketplace that you have registered with the CLI, from a Git repository, or from a local path.
+Plugins are packages that extend the functionality of {% data variables.copilot.copilot_cli_short %}. You can install a plugin from a marketplace that you have registered with the CLI.
 
 For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-cli-plugins).
 
@@ -25,8 +25,6 @@ For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about
 ## Finding plugins
 
 Plugins are collected together in marketplaces. A marketplace is a registry of plugins that you can browse and install from. You can add a marketplace to your CLI configuration, which allows you to use the CLI to browse and install plugins from that marketplace—see [Adding plugin marketplaces](#adding-plugin-marketplaces). {% data variables.product.prodname_copilot_short %} comes with two marketplaces already registered by default: `copilot-plugins` and `awesome-copilot`.
-
-Alternatively, you can search for plugin marketplaces online and then add a plugin directly from a repository.
 
 To use the CLI to browse the plugins in one of your registered marketplaces:
 
@@ -55,11 +53,9 @@ To use the CLI to browse the plugins in one of your registered marketplaces:
 
 ## Installing plugins
 
-Typically, you'll install a plugin from one of your registered marketplaces. However, you can also install a plugin directly from a Git repository, or from a local path.
+You can install plugins from a registered marketplace. For information on how to register additional marketplaces, see [Adding plugin marketplaces](#adding-plugin-marketplaces).
 
-For information on how to register additional marketplaces, see [Adding and removing plugin marketplaces](#adding-and-removing-plugin-marketplaces).
-
-### Install from a registered marketplace
+To install a plugin, enter:
 
 ```shell copy
 copilot plugin install PLUGIN-NAME@MARKETPLACE-NAME
@@ -77,43 +73,6 @@ Alternatively, in an interactive session, enter:
 /plugin install PLUGIN-NAME@MARKETPLACE-NAME
 ```
 
-### Install directly from an online Git repository
-
-You can install a plugin directly from a repository, rather than doing so using a registered marketplace.
-
-To install a plugin directly from a repository **on {% data variables.product.prodname_dotcom_the_website %}**, enter:
-
-```shell copy
-copilot plugin install OWNER/REPO
-```
-
-To install a plugin from **any online Git repository**, enter:
-
-```shell copy
-copilot plugin install URL-OF-GIT-REPO
-```
-
-For example, `copilot plugin install https://gitlab.com/OWNER/REPO.git`.
-
-> [!IMPORTANT]
-> For these commands to work, the repository must contain a `plugin.json` file in a `.plugin`, `.github/plugin`, or `.claude-plugin` directory, or at the root of the repository.
-
-To install a plugin directly from a repository on {% data variables.product.prodname_dotcom_the_website %} where the `plugin.json` file is located somewhere other than `.github/plugin`, `.claude-plugin`, or the repository root—for example, if you are installing a plugin directly from a marketplace repository such as [anthropics/claude-code](https://github.com/anthropics/claude-code)—enter:
-
-```shell copy
-copilot plugin install OWNER/REPO:PATH/TO/PLUGIN
-```
-
-Where `PATH/TO/PLUGIN` is the path from the root of the repository to a directory that contains `plugin.json`, `.github/plugin/plugin.json` or `.claude-plugin/plugin.json`.
-
-For example, `copilot plugin install anthropics/claude-code:plugins/frontend-design`
-
-### Install from a local path
-
-```shell copy
-copilot plugin install ./PATH/TO/PLUGIN
-```
-
 ## Managing installed plugins
 
 ```bash
@@ -121,10 +80,6 @@ copilot plugin list                    # View installed plugins
 copilot plugin update PLUGIN-NAME      # Update plugin to latest version
 copilot plugin uninstall PLUGIN-NAME   # Remove plugin completely
 ```
-
-## Where plugins are stored
-
-Plugins installed from a marketplace are stored at: `~/.copilot/installed-plugins/MARKETPLACE/PLUGIN-NAME/`. Plugins installed directly (for example, from a local path) are stored at: `~/.copilot/installed-plugins/_direct/SOURCE-ID/`.
 
 ## Adding plugin marketplaces
 

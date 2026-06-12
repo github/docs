@@ -207,12 +207,24 @@
           "description": "<p>OK</p>"
         },
         {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
           "httpStatusCode": "403",
           "description": "<p>Response for a private repository when GitHub Advanced Security is not enabled, or if used against a fork</p>"
         },
         {
           "httpStatusCode": "404",
           "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
         }
       ],
       "previews": [],

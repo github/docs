@@ -133,7 +133,3 @@ In the alert view, you can review any labels assigned to the alert. The labels p
 |`multi-repo`| The secret detected in your repository has been found across multiple repositories in your organization or enterprise. This information may help you more easily dedupe the alert across your organization or enterprise. | If you have appropriate permissions, you'll see links to any specific alerts for the same secret in your organization or enterprise. |
 
 {% endif %}
-
-## Next steps
-
-* [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/resolving-alerts)

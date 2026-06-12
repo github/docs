@@ -3,6 +3,9 @@ import type { TagToken, Liquid, Template } from 'liquidjs'
 
 import { THROW_ON_EMPTY, DataReferenceError } from './error-handling'
 import { getDataByLanguage } from '@/data-directory/lib/get-data'
+import { createLogger } from '@/observability/logger'
+
+const logger = createLogger(import.meta.url)
 
 const Syntax = /([a-z0-9/\\_.\-[\]]+)/i
 const SyntaxHelp = "Syntax Error in 'data' - Valid syntax: data [path]"
@@ -35,14 +38,16 @@ export default {
   },
 
   async render(scope: CustomScope) {
-    let text = getDataByLanguage(this.path, scope.environments.currentLanguage || '')
+    let text = getDataByLanguage(this.path, scope.environments.currentLanguage || '') as
+      | string
+      | undefined
     if (text === undefined) {
       if (scope.environments.currentLanguage === 'en') {
         const message = `Can't find the key 'data ${this.path}' in the scope.`
         if (THROW_ON_EMPTY) {
           throw new DataReferenceError(message)
         }
-        console.warn(message)
+        logger.warn(message)
       }
       return
     }

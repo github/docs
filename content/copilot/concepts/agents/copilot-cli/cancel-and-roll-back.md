@@ -46,7 +46,7 @@ As a rule of thumb, use <kbd>Esc</kbd> when you want to intervene selectively, a
 
 While {% data variables.product.prodname_copilot_short %} is inactive and there is no text in the input area, you can press <kbd>Esc</kbd> twice to display a list of points in your current session that you can roll back to. Each point corresponds to a snapshot of your workspace that was taken immediately before {% data variables.product.prodname_copilot_short %} started working on the prompt shown in the list.
 
-For full details of how to use the double <kbd>Esc</kbd> keypress to roll back changes made during a session, see [AUTOTITLE](/copilot/how-tos/copilot-cli/roll-back-changes).
+For full details of how to use the double <kbd>Esc</kbd> keypress to roll back changes made during a session, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/roll-back-changes).
 
 > [!WARNING]
 > {% data reusables.copilot.copilot-cli.cli-rewind-warning %}

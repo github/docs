@@ -6,7 +6,7 @@ product: '{% data reusables.gated-features.ghas-trial %}'
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '> 3.15'
+  ghes: '*'
 redirect_from:
   - /billing/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security
   - /billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security
@@ -52,9 +52,3 @@ If you pay for {% data variables.product.prodname_ghe_cloud %} with metered bill
 {% data reusables.enterprise-accounts.licensing-tab-both-platforms %}
 1. To the right of "{% data variables.product.prodname_GHAS %} trial", select the **Manage** dropdown menu and click **Purchase**.
 {% data reusables.advanced-security.purchase-ghas %}
-
-## Next steps
-
-1. [AUTOTITLE](/code-security/trialing-github-advanced-security/enable-security-features-trial)
-1. [AUTOTITLE](/code-security/trialing-github-advanced-security/explore-trial-secret-scanning)
-1. [AUTOTITLE](/code-security/trialing-github-advanced-security/explore-trial-code-scanning)

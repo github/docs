@@ -75,7 +75,6 @@ You must authenticate using SAML SSO. For more information, see [AUTOTITLE](/aut
 {% elsif ghes %}
 You must configure user provisioning with SCIM for {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise).
 
-{% data reusables.scim.ghes-beta-note %}
 {% endif %}
 
 ## Connecting an IdP group to a team

@@ -10,9 +10,7 @@ children:
   - /plans
   - /features
   - /best-practices
-  - /choose-enterprise-plan
-  - /achieve-company-goals
-  - /resources-for-approval
+  - /enterprise-ai-governance
 redirect_from:
   - /copilot/about-github-copilot
 contentType: get-started

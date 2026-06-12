@@ -12,6 +12,7 @@ versions:
   ghec: '*'
 redirect_from:
   - /code-security/security-overview/assessing-adoption-code-security
+  - /code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/enabling-security-features-for-multiple-repositories
 category:
   - Secure at scale
 ---
@@ -29,14 +30,6 @@ You can view data to assess the enablement of features for secure coding across 
 1. To display the "Security coverage" view, in the sidebar, click **{% octicon "meter" aria-hidden="true" aria-label="meter" %} Coverage**.
 {% data reusables.code-scanning.using-security-overview-coverage %}
 
-{% ifversion pre-security-configurations %}
-1. Optionally, click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Security settings** to enable security features for a repository and click **Save security settings** to confirm the changes. If a feature is not shown, it has more complex configuration requirements and you need to use the repository settings dialog. For more information, see [AUTOTITLE](/code-security/getting-started/securing-your-repository).
-1. Optionally, select some or all of the repositories that match your current search and click **Security settings** in the table header to display a side panel where you can enable security features for the selected repositories. When you've finished, click **Apply changes** to confirm the changes. For more information, see [AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories).
-
-{% data reusables.security-overview.settings-limitations %}
-
-{% endif %}
-
 {% ifversion dependabot-updates-paused-enterprise-orgs %}
 
 In the list of repositories, a "Paused" label under "{% data variables.product.prodname_dependabot %}" indicates repositories for which {% data variables.product.prodname_dependabot_updates %} are paused. For information about inactivity criteria, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-automatic-deactivation-of-dependabot-updates) and [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#about-automatic-deactivation-of-dependabot-updates), for security and version updates, respectively.{% endif %}
@@ -44,10 +37,6 @@ In the list of repositories, a "Paused" label under "{% data variables.product.p
 ## Viewing the enablement of features for secure coding in an enterprise
 
 You can view data to assess the enablement of security features across organizations in an enterprise.
-
-{% ifversion pre-security-configurations %}
-In the enterprise-level view, you can view data about the enablement of features, but you cannot enable or disable features.
-{% endif %}
 
 {% ifversion ghes %}{% data reusables.enterprise-accounts.access-enterprise-ghes %}{% else %}{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}{% endif %}
 {% data reusables.code-scanning.click-code-security-enterprise %}
@@ -57,12 +46,6 @@ In the enterprise-level view, you can view data about the enablement of features
    {% data reusables.security-overview.enterprise-filters-tip %}
 
 ## Viewing enablement trends for an organization
-
-{% ifversion ghes < 3.15 %}
-
-> [!NOTE] The "Enablement trends" view is currently in {% data variables.release-phases.public_preview %} and is subject to change.
-
-{% endif %}
 
 You can view data to assess the enablement status and enablement status trends of security features for an organization.
 
@@ -77,12 +60,6 @@ You can view data to assess the enablement status and enablement status trends o
       ![Screenshot of the "Enablement trends" view for an organization, showing Dependabot status and trends over 30 days, with a filter applied.](/assets/images/help/security-overview/security-overview-enablement-trends.png)
 
 ## Viewing enablement trends for an enterprise
-
-{% ifversion ghes < 3.15 %}
-
-> [!NOTE] The "Enablement trends" view is currently in {% data variables.release-phases.public_preview %} and is subject to change.
-
-{% endif %}
 
 You can view data to assess the enablement status and enablement status trends of security features across organizations in an enterprise.
 
@@ -101,7 +78,7 @@ You can view data to assess the enablement status and enablement status trends o
 After you have reviewed enablement coverage, consider the following actions.
 
 1. Check if your enterprise has configured overly restrictive policies that limit the use of security features. See [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise).
-1. Enable features that should be enabled on all repositories. For information on enabling features for a whole organization, see {% ifversion security-configurations %}[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization){% else %}[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization){% endif %}.
+1. Enable features that should be enabled on all repositories. For information on enabling features for a whole organization, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization).
 
    For example, {% data variables.secret-scanning.alerts %} and push protection reduce the risk of a security leak no matter what information is stored in the repository. If you see repositories that don't already use these features, you should either enable them or discuss an enablement plan with the team who owns the repository.
 

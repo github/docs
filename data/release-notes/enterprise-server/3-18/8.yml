@@ -72,6 +72,8 @@ sections:
       To improve page load performance, user profile pages display a maximum of 24 organizations. When viewing your own profile, a "View all" link provides access to the full list in organization settings. When viewing another user's profile, a count displays any additional organizations beyond the first 24.
   known_issues:
     - |
+      After upgrading to 3.18.8 via hotpatch, the instance reboots and briefly enters maintenance mode. In some cases, the post-reboot configuration run fails, and the instance does not fully resume service. Site administrators who experience this should SSH into the instance and manually run `ghe-config-apply`. [Updated: 2026-04-30]
+    - |
       On instances configured for high availability, you will not be able to change GitHub Actions settings through the Management Console. Other settings are not affected. [Updated: 2026-04-22]
     - |
       First time setups of GitHub Actions with OpenID Connect (OIDC) fail with an error on the `Update Servicing Resources` step. This problem does not affect instances where GitHub Actions is already enabled.
@@ -121,7 +123,5 @@ sections:
       When publishing npm packages in a workflow after restoring from a backup to GitHub Enterprise Server 3.13.5.gm4 or 3.14.2.gm3, you may encounter a `401 Unauthorized` error from the GitHub Packages service. This can happen if the restore is from an N-1 or N-2 version and the workflow targets the npm endpoint on the backup instance. To avoid this issue, ensure the access token is valid and includes the correct scopes for publishing to GitHub Packages.
     - |
       The setting to define private registries at the organization level for code scanning is only available if dependabot is also enabled for the instance.
-    - |
-      Custom NTP settings are removed during the upgrade process.
     - |
       When applying an enterprise security configuration to all repositories (for example, enabling Secret Scanning or Code Scanning across all repositories), the system immediately enqueues enablement jobs for every organization in the enterprise simultaneously. For enterprises with a large number of repositories, this can result in significant system load and potential performance degradation. If you manage a large enterprise with many organizations and repositories, we recommend applying security configurations at the organization level rather than at the enterprise level in the UI. This allows you to enable security features incrementally and monitor system performance as you roll out changes.

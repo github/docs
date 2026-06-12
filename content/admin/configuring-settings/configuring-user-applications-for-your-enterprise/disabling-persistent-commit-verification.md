@@ -3,7 +3,7 @@ title: Disabling persistent commit verification
 shortTitle: Disable persistent commit verification
 intro: You can disable persistent commit verification on {% data variables.product.prodname_ghe_server %} to reduce disk usage.
 versions:
-  ghes: '>=3.17'
+  ghes: '*'
 permissions: Site administrators
 contentType: how-tos
 category:

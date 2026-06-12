@@ -13,7 +13,7 @@ children:
   - /copilot-cli-reference
   - /custom-agents-configuration
   - /custom-instructions-support
-  - /hooks-configuration
+  - /hooks-reference
   - /policy-conflicts
   - /copilot-allowlist-reference
   - /mcp-allowlist-enforcement

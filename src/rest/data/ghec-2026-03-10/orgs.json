@@ -488,32 +488,32 @@
                 },
                 "advanced_security_enabled_for_new_repositories": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether GitHub Advanced Security is enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether GitHub Advanced Security is enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
                   "deprecated": true
                 },
                 "dependabot_alerts_enabled_for_new_repositories": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether Dependabot alerts are automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether Dependabot alerts are automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
                   "deprecated": true
                 },
                 "dependabot_security_updates_enabled_for_new_repositories": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether Dependabot security updates are automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether Dependabot security updates are automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
                   "deprecated": true
                 },
                 "dependency_graph_enabled_for_new_repositories": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether dependency graph is automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether dependency graph is automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
                   "deprecated": true
                 },
                 "secret_scanning_enabled_for_new_repositories": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether secret scanning is automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether secret scanning is automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
                   "deprecated": true
                 },
                 "secret_scanning_push_protection_enabled_for_new_repositories": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether secret scanning push protection is automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether secret scanning push protection is automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
                   "deprecated": true
                 },
                 "secret_scanning_push_protection_custom_link": {
@@ -525,7 +525,7 @@
                 },
                 "secret_scanning_validity_checks_enabled": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether secret scanning automatic validity checks on supported partner tokens is enabled for all repositories under this organization.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether secret scanning automatic validity checks on supported partner tokens is enabled for all repositories under this organization.",
                   "deprecated": true
                 },
                 "created_at": {
@@ -1123,32 +1123,32 @@
                 },
                 "advanced_security_enabled_for_new_repositories": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether GitHub Advanced Security is enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether GitHub Advanced Security is enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
                   "deprecated": true
                 },
                 "dependabot_alerts_enabled_for_new_repositories": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether Dependabot alerts are automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether Dependabot alerts are automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
                   "deprecated": true
                 },
                 "dependabot_security_updates_enabled_for_new_repositories": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether Dependabot security updates are automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether Dependabot security updates are automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
                   "deprecated": true
                 },
                 "dependency_graph_enabled_for_new_repositories": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether dependency graph is automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether dependency graph is automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
                   "deprecated": true
                 },
                 "secret_scanning_enabled_for_new_repositories": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether secret scanning is automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether secret scanning is automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
                   "deprecated": true
                 },
                 "secret_scanning_push_protection_enabled_for_new_repositories": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether secret scanning push protection is automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether secret scanning push protection is automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
                   "deprecated": true
                 },
                 "secret_scanning_push_protection_custom_link": {
@@ -1160,7 +1160,7 @@
                 },
                 "secret_scanning_validity_checks_enabled": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether secret scanning automatic validity checks on supported partner tokens is enabled for all repositories under this organization.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether secret scanning automatic validity checks on supported partner tokens is enabled for all repositories under this organization.",
                   "deprecated": true
                 },
                 "created_at": {
@@ -2277,6 +2277,14 @@
                               "write"
                             ]
                           },
+                          "code_quality": {
+                            "type": "string",
+                            "description": "The level of permission to grant the access token to view and manage code quality data.",
+                            "enum": [
+                              "read",
+                              "write"
+                            ]
+                          },
                           "codespaces": {
                             "type": "string",
                             "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -2506,12 +2514,13 @@
                             "type": "string",
                             "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                             "enum": [
+                              "read",
                               "write"
                             ]
                           },
                           "organization_copilot_agent_settings": {
                             "type": "string",
-                            "description": "The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.",
+                            "description": "The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.",
                             "enum": [
                               "read",
                               "write"
@@ -2654,6 +2663,14 @@
                           "starring": {
                             "type": "string",
                             "description": "The level of permission to grant the access token to list and manage repositories a user is starring.",
+                            "enum": [
+                              "read",
+                              "write"
+                            ]
+                          },
+                          "enterprise_administration": {
+                            "type": "string",
+                            "description": "The level of permission to grant the access token to administer an enterprise account.",
                             "enum": [
                               "read",
                               "write"
@@ -4613,11 +4630,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -4626,19 +4643,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "last_rate_limited_timestamp",
-                "last_request_timestamp",
-                "rate_limited_request_count",
-                "http_method",
-                "api_route",
-                "total_request_count"
-              ],
-              "default": "total_request_count"
-            }
+            "type": "array"
           }
         },
         {
@@ -4796,11 +4801,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -4809,18 +4814,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "last_rate_limited_timestamp",
-                "last_request_timestamp",
-                "rate_limited_request_count",
-                "subject_name",
-                "total_request_count"
-              ],
-              "default": "total_request_count"
-            }
+            "type": "array"
           }
         },
         {
@@ -5739,11 +5733,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -5752,18 +5746,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "last_rate_limited_timestamp",
-                "last_request_timestamp",
-                "rate_limited_request_count",
-                "subject_name",
-                "total_request_count"
-              ],
-              "default": "total_request_count"
-            }
+            "type": "array"
           }
         },
         {
@@ -6141,10 +6124,7 @@
           "description": "<p>The cluster name.</p>",
           "required": true,
           "schema": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 128,
-            "pattern": "^[a-zA-Z0-9._-]+$"
+            "type": "string"
           }
         }
       ],
@@ -6169,19 +6149,19 @@
             {
               "type": "string",
               "name": "name",
-              "description": "<p>The name of the artifact. Note that if multiple deployments have identical 'digest' parameter values,\nthe name parameter must also be identical across all entries.</p>",
+              "description": "<p>The name of the artifact.</p>",
               "isRequired": true
             },
             {
               "type": "string",
               "name": "digest",
-              "description": "<p>The hex encoded digest of the artifact. Note that if multiple deployments have identical 'digest' parameter values,\nthe name and version parameters must also be identical across all entries.</p>",
+              "description": "<p>The hex encoded digest of the artifact.</p>",
               "isRequired": true
             },
             {
               "type": "string",
               "name": "version",
-              "description": "<p>The artifact version. Note that if multiple deployments have identical 'digest' parameter values,\nthe version parameter must also be identical across all entries.</p>"
+              "description": "<p>The artifact version.</p>"
             },
             {
               "type": "string",
@@ -6223,7 +6203,7 @@
           "default": true
         }
       ],
-      "descriptionHTML": "<p>Set deployment records for a given cluster.\nIf proposed records in the 'deployments' field have identical 'cluster', 'logical_environment',\n'physical_environment', and 'deployment_name' values as existing records, the existing records will be updated.\nIf no existing records match, new records will be created.</p>",
+      "descriptionHTML": "<p>Set deployment records for a given cluster.\nIf proposed records in the 'deployments' field have identical 'cluster', 'logical_environment',\n'physical_environment', and 'deployment_name' values as existing records, the existing records will be updated.\nIf no existing records match, new records will be created.\nNote: Artifacts are uniquely identified by the combination of their repository and digest fields. If two entries in the deployments\narray resolve to the same repository and have identical digest fields but differing name and version fields, the endpoint will use\nthe artifact name and version from the record processed first, since a single artifact (identified by repository and digest) can\nonly have one name and version.</p>",
       "codeExamples": [
         {
           "request": {
@@ -6606,10 +6586,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string",
-            "minLength": 71,
-            "maxLength": 71,
-            "pattern": "^sha256:[a-f0-9]{64}$"
+            "type": "string"
           }
         }
       ],
@@ -6766,10 +6743,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string",
-            "minLength": 71,
-            "maxLength": 71,
-            "pattern": "^sha256:[a-f0-9]{64}$"
+            "type": "string"
           }
         }
       ],
@@ -8192,13 +8166,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "day",
             "enum": [
               "hour",
               "day",
               "week",
               "month"
-            ],
-            "default": "day"
+            ]
           }
         },
         {
@@ -8208,6 +8182,7 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "completed",
               "cancelled",
@@ -8217,8 +8192,7 @@
               "denied",
               "open",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -12499,6 +12473,32 @@
                 ],
                 "created_at": "2024-12-11T14:39:09Z",
                 "updated_at": "2024-12-11T14:39:09Z"
+              },
+              {
+                "id": 3,
+                "node_id": "IFMS_kwDNAd3NAZt",
+                "name": "Categories",
+                "description": "Issue categories",
+                "data_type": "multi_select",
+                "options": [
+                  {
+                    "id": 4,
+                    "name": "Frontend",
+                    "color": "blue"
+                  },
+                  {
+                    "id": 5,
+                    "name": "Backend",
+                    "color": "green"
+                  },
+                  {
+                    "id": 6,
+                    "name": "Infrastructure",
+                    "color": "purple"
+                  }
+                ],
+                "created_at": "2024-12-11T14:39:09Z",
+                "updated_at": "2024-12-11T14:39:09Z"
               }
             ],
             "schema": {
@@ -12537,6 +12537,7 @@
                       "text",
                       "date",
                       "single_select",
+                      "multi_select",
                       "number"
                     ]
                   },
@@ -12549,7 +12550,7 @@
                     ]
                   },
                   "options": {
-                    "description": "Available options for single select fields.",
+                    "description": "Available options for single select and multi select fields.",
                     "type": [
                       "array",
                       "null"
@@ -12697,6 +12698,7 @@
             "text",
             "date",
             "single_select",
+            "multi_select",
             "number"
           ]
         },
@@ -12712,7 +12714,7 @@
         {
           "type": "array of objects or null",
           "name": "options",
-          "description": "<p>Options for single select fields. Required when data_type is 'single_select'.</p>",
+          "description": "<p>Options for select fields. Required when data_type is 'single_select' or 'multi_select'.</p>",
           "childParamsGroups": [
             {
               "type": "string",
@@ -12859,6 +12861,7 @@
                     "text",
                     "date",
                     "single_select",
+                    "multi_select",
                     "number"
                   ]
                 },
@@ -12871,7 +12874,7 @@
                   ]
                 },
                 "options": {
-                  "description": "Available options for single select fields.",
+                  "description": "Available options for single select and multi select fields.",
                   "type": [
                     "array",
                     "null"
@@ -13033,7 +13036,7 @@
         {
           "type": "array of objects",
           "name": "options",
-          "description": "<p>Options for single select fields. Only applicable when updating single_select fields. When provided, this array <strong>replaces</strong> the entire existing set of options rather than adding to or updating individual options. To retain or update an existing option, include it in the array with its <code>id</code>. Options sent without an <code>id</code> are treated as new options and may cause existing options to be deleted and recreated.</p>",
+          "description": "<p>Options for select fields. Only applicable when updating single_select or multi_select fields. When provided, this array <strong>replaces</strong> the entire existing set of options rather than adding to or updating individual options. To retain or update an existing option, include it in the array with its <code>id</code>. Options sent without an <code>id</code> are treated as new options and may cause existing options to be deleted and recreated.</p>",
           "childParamsGroups": [
             {
               "type": "integer",
@@ -13168,6 +13171,7 @@
                     "text",
                     "date",
                     "single_select",
+                    "multi_select",
                     "number"
                   ]
                 },
@@ -13180,7 +13184,7 @@
                   ]
                 },
                 "options": {
-                  "description": "Available options for single select fields.",
+                  "description": "Available options for single select and multi select fields.",
                   "type": [
                     "array",
                     "null"
@@ -13420,7 +13424,7 @@
               "type": "array",
               "items": {
                 "title": "Issue Type",
-                "description": "The type of issue.",
+                "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                 "type": [
                   "object",
                   "null"
@@ -13595,7 +13599,7 @@
             },
             "schema": {
               "title": "Issue Type",
-              "description": "The type of issue.",
+              "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
               "type": [
                 "object",
                 "null"
@@ -13783,7 +13787,7 @@
             },
             "schema": {
               "title": "Issue Type",
-              "description": "The type of issue.",
+              "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
               "type": [
                 "object",
                 "null"
@@ -14281,14 +14285,14 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "all",
               "admin",
               "direct_member",
               "billing_manager",
               "hiring_manager"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -14298,12 +14302,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "all",
               "member",
               "scim"
-            ],
-            "default": "all"
+            ]
           }
         }
       ],
@@ -15268,12 +15272,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "2fa_disabled",
               "2fa_insecure",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -15283,12 +15287,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "all",
               "admin",
               "member"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -21337,12 +21341,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "2fa_disabled",
               "2fa_insecure",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -21756,10 +21760,10 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created_at",
             "enum": [
               "created_at"
-            ],
-            "default": "created_at"
+            ]
           }
         },
         {
@@ -21769,11 +21773,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -21782,14 +21786,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "array",
-            "maxItems": 10,
-            "items": {
-              "type": "string"
-            },
-            "examples": [
-              "owner[]=octocat1,owner[]=octocat2"
-            ]
+            "type": "array"
           }
         },
         {
@@ -21798,10 +21795,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "examples": [
-              "Hello-World"
-            ]
+            "type": "string"
           }
         },
         {
@@ -21810,10 +21804,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "examples": [
-              "issues_read"
-            ]
+            "type": "string"
           }
         },
         {
@@ -21822,8 +21813,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -21832,8 +21822,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -21842,14 +21831,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "array",
-            "maxItems": 50,
-            "items": {
-              "type": "string"
-            },
-            "examples": [
-              "token_id[]=1,token_id[]=2"
-            ]
+            "type": "array"
           }
         }
       ],
@@ -22157,8 +22139,7 @@
           {
             "\"Personal access token requests\" organization permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -22262,8 +22243,7 @@
           {
             "\"Personal access token requests\" organization permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -22363,8 +22343,7 @@
           {
             "\"Personal access token requests\" organization permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -23302,8 +23281,7 @@
           {
             "\"Personal access token requests\" organization permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -23348,10 +23326,10 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created_at",
             "enum": [
               "created_at"
-            ],
-            "default": "created_at"
+            ]
           }
         },
         {
@@ -23361,11 +23339,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -23374,14 +23352,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "array",
-            "maxItems": 10,
-            "items": {
-              "type": "string"
-            },
-            "examples": [
-              "owner[]=octocat1,owner[]=octocat2"
-            ]
+            "type": "array"
           }
         },
         {
@@ -23390,10 +23361,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "examples": [
-              "Hello-World"
-            ]
+            "type": "string"
           }
         },
         {
@@ -23402,10 +23370,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "examples": [
-              "issues_read"
-            ]
+            "type": "string"
           }
         },
         {
@@ -23414,8 +23379,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -23424,8 +23388,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -23434,14 +23397,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "array",
-            "maxItems": 50,
-            "items": {
-              "type": "string"
-            },
-            "examples": [
-              "token_id[]=1,token_id[]=2"
-            ]
+            "type": "array"
           }
         }
       ],
@@ -23740,8 +23696,7 @@
           {
             "\"Personal access tokens\" organization permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -23839,8 +23794,7 @@
           {
             "\"Personal access tokens\" organization permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -23933,8 +23887,7 @@
           {
             "\"Personal access tokens\" organization permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -24872,8 +24825,7 @@
           {
             "\"Personal access tokens\" organization permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ],
@@ -24918,13 +24870,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "day",
             "enum": [
               "hour",
               "day",
               "week",
               "month"
-            ],
-            "default": "day"
+            ]
           }
         },
         {
@@ -24941,13 +24893,28 @@
           "in": "query",
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "pass",
               "fail",
               "bypass",
               "all"
-            ],
-            "default": "all"
+            ]
+          }
+        },
+        {
+          "name": "evaluate_status",
+          "description": "<p>The evaluate status to filter on. When specified, only rule suites resulting from rulesets with the specified evaluate status will be returned.</p>\n<ul>\n<li><code>all</code> - all rule suites will be returned.</li>\n<li><code>active</code> - only rule suites resulting from rulesets in active (non-evaluate) mode will be returned.</li>\n<li><code>evaluate</code> - only rule suites resulting from rulesets in evaluate mode will be returned.</li>\n</ul>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "default": "all",
+            "enum": [
+              "all",
+              "active",
+              "evaluate"
+            ]
           }
         },
         {
@@ -25394,10 +25361,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "examples": [
-              "branch,tag,push"
-            ]
+            "type": "string"
           }
         }
       ],
@@ -25523,7 +25487,7 @@
                             "integer",
                             "null"
                           ],
-                          "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. If `actor_type` is `EnterpriseOwner`, `actor_id` is ignored. `OrganizationAdmin` and `EnterpriseOwner` are not applicable for personal repositories."
+                          "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, `Team`, and `User` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. If `actor_type` is `EnterpriseOwner`, `actor_id` is ignored. `OrganizationAdmin`, `EnterpriseOwner` and `EnterpriseRole` are not applicable for personal repositories."
                         },
                         "actor_type": {
                           "type": "string",
@@ -25533,7 +25497,9 @@
                             "RepositoryRole",
                             "Team",
                             "DeployKey",
-                            "EnterpriseOwner"
+                            "EnterpriseOwner",
+                            "EnterpriseRole",
+                            "User"
                           ],
                           "description": "The type of actor that can bypass a ruleset"
                         },
@@ -26492,6 +26458,159 @@
                           }
                         },
                         {
+                          "title": "workflows",
+                          "description": "Require all changes made to a targeted branch to pass the specified workflows before they can be merged.",
+                          "type": "object",
+                          "required": [
+                            "type"
+                          ],
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "workflows"
+                              ]
+                            },
+                            "parameters": {
+                              "type": "object",
+                              "properties": {
+                                "do_not_enforce_on_create": {
+                                  "type": "boolean",
+                                  "description": "Allow repositories and branches to be created if a check would otherwise prohibit it."
+                                },
+                                "workflows": {
+                                  "type": "array",
+                                  "description": "Workflows that must pass for this rule to pass.",
+                                  "items": {
+                                    "title": "WorkflowFileReference",
+                                    "description": "A workflow that must run for this rule to pass",
+                                    "type": "object",
+                                    "properties": {
+                                      "path": {
+                                        "type": "string",
+                                        "description": "The path to the workflow file"
+                                      },
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The ref (branch or tag) of the workflow file to use"
+                                      },
+                                      "repository_id": {
+                                        "type": "integer",
+                                        "description": "The ID of the repository where the workflow is defined"
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The commit SHA of the workflow file to use"
+                                      }
+                                    },
+                                    "required": [
+                                      "path",
+                                      "repository_id"
+                                    ]
+                                  }
+                                }
+                              },
+                              "required": [
+                                "workflows"
+                              ]
+                            }
+                          }
+                        },
+                        {
+                          "title": "code_scanning",
+                          "description": "Choose which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated.",
+                          "type": "object",
+                          "required": [
+                            "type"
+                          ],
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "code_scanning"
+                              ]
+                            },
+                            "parameters": {
+                              "type": "object",
+                              "properties": {
+                                "code_scanning_tools": {
+                                  "type": "array",
+                                  "description": "Tools that must provide code scanning results for this rule to pass.",
+                                  "items": {
+                                    "title": "CodeScanningTool",
+                                    "description": "A tool that must provide code scanning results for this rule to pass.",
+                                    "type": "object",
+                                    "properties": {
+                                      "alerts_threshold": {
+                                        "type": "string",
+                                        "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                        "enum": [
+                                          "none",
+                                          "errors",
+                                          "errors_and_warnings",
+                                          "all"
+                                        ]
+                                      },
+                                      "security_alerts_threshold": {
+                                        "type": "string",
+                                        "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                        "enum": [
+                                          "none",
+                                          "critical",
+                                          "high_or_higher",
+                                          "medium_or_higher",
+                                          "all"
+                                        ]
+                                      },
+                                      "tool": {
+                                        "type": "string",
+                                        "description": "The name of a code scanning tool"
+                                      }
+                                    },
+                                    "required": [
+                                      "alerts_threshold",
+                                      "security_alerts_threshold",
+                                      "tool"
+                                    ]
+                                  }
+                                }
+                              },
+                              "required": [
+                                "code_scanning_tools"
+                              ]
+                            }
+                          }
+                        },
+                        {
+                          "title": "copilot_code_review",
+                          "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
+                          "type": "object",
+                          "required": [
+                            "type"
+                          ],
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "copilot_code_review"
+                              ]
+                            },
+                            "parameters": {
+                              "type": "object",
+                              "properties": {
+                                "review_draft_pull_requests": {
+                                  "type": "boolean",
+                                  "description": "Copilot automatically reviews draft pull requests before they are marked as ready for review."
+                                },
+                                "review_on_push": {
+                                  "type": "boolean",
+                                  "description": "Copilot automatically reviews each new push to the pull request."
+                                }
+                              }
+                            }
+                          }
+                        },
+                        {
                           "title": "file_path_restriction",
                           "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.",
                           "type": "object",
@@ -26612,159 +26731,6 @@
                               ]
                             }
                           }
-                        },
-                        {
-                          "title": "workflows",
-                          "description": "Require all changes made to a targeted branch to pass the specified workflows before they can be merged.",
-                          "type": "object",
-                          "required": [
-                            "type"
-                          ],
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "enum": [
-                                "workflows"
-                              ]
-                            },
-                            "parameters": {
-                              "type": "object",
-                              "properties": {
-                                "do_not_enforce_on_create": {
-                                  "type": "boolean",
-                                  "description": "Allow repositories and branches to be created if a check would otherwise prohibit it."
-                                },
-                                "workflows": {
-                                  "type": "array",
-                                  "description": "Workflows that must pass for this rule to pass.",
-                                  "items": {
-                                    "title": "WorkflowFileReference",
-                                    "description": "A workflow that must run for this rule to pass",
-                                    "type": "object",
-                                    "properties": {
-                                      "path": {
-                                        "type": "string",
-                                        "description": "The path to the workflow file"
-                                      },
-                                      "ref": {
-                                        "type": "string",
-                                        "description": "The ref (branch or tag) of the workflow file to use"
-                                      },
-                                      "repository_id": {
-                                        "type": "integer",
-                                        "description": "The ID of the repository where the workflow is defined"
-                                      },
-                                      "sha": {
-                                        "type": "string",
-                                        "description": "The commit SHA of the workflow file to use"
-                                      }
-                                    },
-                                    "required": [
-                                      "path",
-                                      "repository_id"
-                                    ]
-                                  }
-                                }
-                              },
-                              "required": [
-                                "workflows"
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "title": "code_scanning",
-                          "description": "Choose which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated.",
-                          "type": "object",
-                          "required": [
-                            "type"
-                          ],
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "enum": [
-                                "code_scanning"
-                              ]
-                            },
-                            "parameters": {
-                              "type": "object",
-                              "properties": {
-                                "code_scanning_tools": {
-                                  "type": "array",
-                                  "description": "Tools that must provide code scanning results for this rule to pass.",
-                                  "items": {
-                                    "title": "CodeScanningTool",
-                                    "description": "A tool that must provide code scanning results for this rule to pass.",
-                                    "type": "object",
-                                    "properties": {
-                                      "alerts_threshold": {
-                                        "type": "string",
-                                        "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
-                                        "enum": [
-                                          "none",
-                                          "errors",
-                                          "errors_and_warnings",
-                                          "all"
-                                        ]
-                                      },
-                                      "security_alerts_threshold": {
-                                        "type": "string",
-                                        "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
-                                        "enum": [
-                                          "none",
-                                          "critical",
-                                          "high_or_higher",
-                                          "medium_or_higher",
-                                          "all"
-                                        ]
-                                      },
-                                      "tool": {
-                                        "type": "string",
-                                        "description": "The name of a code scanning tool"
-                                      }
-                                    },
-                                    "required": [
-                                      "alerts_threshold",
-                                      "security_alerts_threshold",
-                                      "tool"
-                                    ]
-                                  }
-                                }
-                              },
-                              "required": [
-                                "code_scanning_tools"
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "title": "copilot_code_review",
-                          "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
-                          "type": "object",
-                          "required": [
-                            "type"
-                          ],
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "enum": [
-                                "copilot_code_review"
-                              ]
-                            },
-                            "parameters": {
-                              "type": "object",
-                              "properties": {
-                                "review_draft_pull_requests": {
-                                  "type": "boolean",
-                                  "description": "Copilot automatically reviews draft pull requests before they are marked as ready for review."
-                                },
-                                "review_on_push": {
-                                  "type": "boolean",
-                                  "description": "Copilot automatically reviews each new push to the pull request."
-                                }
-                              }
-                            }
-                          }
                         }
                       ]
                     }
@@ -26865,7 +26831,7 @@
             {
               "type": "integer or null",
               "name": "actor_id",
-              "description": "<p>The ID of the actor that can bypass a ruleset. Required for <code>Integration</code>, <code>RepositoryRole</code>, and <code>Team</code> actor types. If <code>actor_type</code> is <code>OrganizationAdmin</code>, <code>actor_id</code> is ignored. If <code>actor_type</code> is <code>DeployKey</code>, this should be null. If <code>actor_type</code> is <code>EnterpriseOwner</code>, <code>actor_id</code> is ignored. <code>OrganizationAdmin</code> and <code>EnterpriseOwner</code> are not applicable for personal repositories.</p>"
+              "description": "<p>The ID of the actor that can bypass a ruleset. Required for <code>Integration</code>, <code>RepositoryRole</code>, <code>Team</code>, and <code>User</code> actor types. If <code>actor_type</code> is <code>OrganizationAdmin</code>, <code>actor_id</code> is ignored. If <code>actor_type</code> is <code>DeployKey</code>, this should be null. If <code>actor_type</code> is <code>EnterpriseOwner</code>, <code>actor_id</code> is ignored. <code>OrganizationAdmin</code>, <code>EnterpriseOwner</code> and <code>EnterpriseRole</code> are not applicable for personal repositories.</p>"
             },
             {
               "type": "string",
@@ -26878,7 +26844,9 @@
                 "RepositoryRole",
                 "Team",
                 "DeployKey",
-                "EnterpriseOwner"
+                "EnterpriseOwner",
+                "EnterpriseRole",
+                "User"
               ]
             },
             {
@@ -28078,7 +28046,7 @@
                           "integer",
                           "null"
                         ],
-                        "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. If `actor_type` is `EnterpriseOwner`, `actor_id` is ignored. `OrganizationAdmin` and `EnterpriseOwner` are not applicable for personal repositories."
+                        "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, `Team`, and `User` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. If `actor_type` is `EnterpriseOwner`, `actor_id` is ignored. `OrganizationAdmin`, `EnterpriseOwner` and `EnterpriseRole` are not applicable for personal repositories."
                       },
                       "actor_type": {
                         "type": "string",
@@ -28088,7 +28056,9 @@
                           "RepositoryRole",
                           "Team",
                           "DeployKey",
-                          "EnterpriseOwner"
+                          "EnterpriseOwner",
+                          "EnterpriseRole",
+                          "User"
                         ],
                         "description": "The type of actor that can bypass a ruleset"
                       },
@@ -29047,6 +29017,159 @@
                         }
                       },
                       {
+                        "title": "workflows",
+                        "description": "Require all changes made to a targeted branch to pass the specified workflows before they can be merged.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "workflows"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "do_not_enforce_on_create": {
+                                "type": "boolean",
+                                "description": "Allow repositories and branches to be created if a check would otherwise prohibit it."
+                              },
+                              "workflows": {
+                                "type": "array",
+                                "description": "Workflows that must pass for this rule to pass.",
+                                "items": {
+                                  "title": "WorkflowFileReference",
+                                  "description": "A workflow that must run for this rule to pass",
+                                  "type": "object",
+                                  "properties": {
+                                    "path": {
+                                      "type": "string",
+                                      "description": "The path to the workflow file"
+                                    },
+                                    "ref": {
+                                      "type": "string",
+                                      "description": "The ref (branch or tag) of the workflow file to use"
+                                    },
+                                    "repository_id": {
+                                      "type": "integer",
+                                      "description": "The ID of the repository where the workflow is defined"
+                                    },
+                                    "sha": {
+                                      "type": "string",
+                                      "description": "The commit SHA of the workflow file to use"
+                                    }
+                                  },
+                                  "required": [
+                                    "path",
+                                    "repository_id"
+                                  ]
+                                }
+                              }
+                            },
+                            "required": [
+                              "workflows"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "code_scanning",
+                        "description": "Choose which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "code_scanning"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "code_scanning_tools": {
+                                "type": "array",
+                                "description": "Tools that must provide code scanning results for this rule to pass.",
+                                "items": {
+                                  "title": "CodeScanningTool",
+                                  "description": "A tool that must provide code scanning results for this rule to pass.",
+                                  "type": "object",
+                                  "properties": {
+                                    "alerts_threshold": {
+                                      "type": "string",
+                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "enum": [
+                                        "none",
+                                        "errors",
+                                        "errors_and_warnings",
+                                        "all"
+                                      ]
+                                    },
+                                    "security_alerts_threshold": {
+                                      "type": "string",
+                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "enum": [
+                                        "none",
+                                        "critical",
+                                        "high_or_higher",
+                                        "medium_or_higher",
+                                        "all"
+                                      ]
+                                    },
+                                    "tool": {
+                                      "type": "string",
+                                      "description": "The name of a code scanning tool"
+                                    }
+                                  },
+                                  "required": [
+                                    "alerts_threshold",
+                                    "security_alerts_threshold",
+                                    "tool"
+                                  ]
+                                }
+                              }
+                            },
+                            "required": [
+                              "code_scanning_tools"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "copilot_code_review",
+                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "copilot_code_review"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "review_draft_pull_requests": {
+                                "type": "boolean",
+                                "description": "Copilot automatically reviews draft pull requests before they are marked as ready for review."
+                              },
+                              "review_on_push": {
+                                "type": "boolean",
+                                "description": "Copilot automatically reviews each new push to the pull request."
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
                         "title": "file_path_restriction",
                         "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.",
                         "type": "object",
@@ -29165,159 +29288,6 @@
                             "required": [
                               "max_file_size"
                             ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "workflows",
-                        "description": "Require all changes made to a targeted branch to pass the specified workflows before they can be merged.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "workflows"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "do_not_enforce_on_create": {
-                                "type": "boolean",
-                                "description": "Allow repositories and branches to be created if a check would otherwise prohibit it."
-                              },
-                              "workflows": {
-                                "type": "array",
-                                "description": "Workflows that must pass for this rule to pass.",
-                                "items": {
-                                  "title": "WorkflowFileReference",
-                                  "description": "A workflow that must run for this rule to pass",
-                                  "type": "object",
-                                  "properties": {
-                                    "path": {
-                                      "type": "string",
-                                      "description": "The path to the workflow file"
-                                    },
-                                    "ref": {
-                                      "type": "string",
-                                      "description": "The ref (branch or tag) of the workflow file to use"
-                                    },
-                                    "repository_id": {
-                                      "type": "integer",
-                                      "description": "The ID of the repository where the workflow is defined"
-                                    },
-                                    "sha": {
-                                      "type": "string",
-                                      "description": "The commit SHA of the workflow file to use"
-                                    }
-                                  },
-                                  "required": [
-                                    "path",
-                                    "repository_id"
-                                  ]
-                                }
-                              }
-                            },
-                            "required": [
-                              "workflows"
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "code_scanning",
-                        "description": "Choose which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "code_scanning"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "code_scanning_tools": {
-                                "type": "array",
-                                "description": "Tools that must provide code scanning results for this rule to pass.",
-                                "items": {
-                                  "title": "CodeScanningTool",
-                                  "description": "A tool that must provide code scanning results for this rule to pass.",
-                                  "type": "object",
-                                  "properties": {
-                                    "alerts_threshold": {
-                                      "type": "string",
-                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
-                                      "enum": [
-                                        "none",
-                                        "errors",
-                                        "errors_and_warnings",
-                                        "all"
-                                      ]
-                                    },
-                                    "security_alerts_threshold": {
-                                      "type": "string",
-                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
-                                      "enum": [
-                                        "none",
-                                        "critical",
-                                        "high_or_higher",
-                                        "medium_or_higher",
-                                        "all"
-                                      ]
-                                    },
-                                    "tool": {
-                                      "type": "string",
-                                      "description": "The name of a code scanning tool"
-                                    }
-                                  },
-                                  "required": [
-                                    "alerts_threshold",
-                                    "security_alerts_threshold",
-                                    "tool"
-                                  ]
-                                }
-                              }
-                            },
-                            "required": [
-                              "code_scanning_tools"
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "copilot_code_review",
-                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "copilot_code_review"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "review_draft_pull_requests": {
-                                "type": "boolean",
-                                "description": "Copilot automatically reviews draft pull requests before they are marked as ready for review."
-                              },
-                              "review_on_push": {
-                                "type": "boolean",
-                                "description": "Copilot automatically reviews each new push to the pull request."
-                              }
-                            }
                           }
                         }
                       }
@@ -29533,7 +29503,7 @@
                           "integer",
                           "null"
                         ],
-                        "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. If `actor_type` is `EnterpriseOwner`, `actor_id` is ignored. `OrganizationAdmin` and `EnterpriseOwner` are not applicable for personal repositories."
+                        "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, `Team`, and `User` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. If `actor_type` is `EnterpriseOwner`, `actor_id` is ignored. `OrganizationAdmin`, `EnterpriseOwner` and `EnterpriseRole` are not applicable for personal repositories."
                       },
                       "actor_type": {
                         "type": "string",
@@ -29543,7 +29513,9 @@
                           "RepositoryRole",
                           "Team",
                           "DeployKey",
-                          "EnterpriseOwner"
+                          "EnterpriseOwner",
+                          "EnterpriseRole",
+                          "User"
                         ],
                         "description": "The type of actor that can bypass a ruleset"
                       },
@@ -30502,6 +30474,159 @@
                         }
                       },
                       {
+                        "title": "workflows",
+                        "description": "Require all changes made to a targeted branch to pass the specified workflows before they can be merged.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "workflows"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "do_not_enforce_on_create": {
+                                "type": "boolean",
+                                "description": "Allow repositories and branches to be created if a check would otherwise prohibit it."
+                              },
+                              "workflows": {
+                                "type": "array",
+                                "description": "Workflows that must pass for this rule to pass.",
+                                "items": {
+                                  "title": "WorkflowFileReference",
+                                  "description": "A workflow that must run for this rule to pass",
+                                  "type": "object",
+                                  "properties": {
+                                    "path": {
+                                      "type": "string",
+                                      "description": "The path to the workflow file"
+                                    },
+                                    "ref": {
+                                      "type": "string",
+                                      "description": "The ref (branch or tag) of the workflow file to use"
+                                    },
+                                    "repository_id": {
+                                      "type": "integer",
+                                      "description": "The ID of the repository where the workflow is defined"
+                                    },
+                                    "sha": {
+                                      "type": "string",
+                                      "description": "The commit SHA of the workflow file to use"
+                                    }
+                                  },
+                                  "required": [
+                                    "path",
+                                    "repository_id"
+                                  ]
+                                }
+                              }
+                            },
+                            "required": [
+                              "workflows"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "code_scanning",
+                        "description": "Choose which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "code_scanning"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "code_scanning_tools": {
+                                "type": "array",
+                                "description": "Tools that must provide code scanning results for this rule to pass.",
+                                "items": {
+                                  "title": "CodeScanningTool",
+                                  "description": "A tool that must provide code scanning results for this rule to pass.",
+                                  "type": "object",
+                                  "properties": {
+                                    "alerts_threshold": {
+                                      "type": "string",
+                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "enum": [
+                                        "none",
+                                        "errors",
+                                        "errors_and_warnings",
+                                        "all"
+                                      ]
+                                    },
+                                    "security_alerts_threshold": {
+                                      "type": "string",
+                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "enum": [
+                                        "none",
+                                        "critical",
+                                        "high_or_higher",
+                                        "medium_or_higher",
+                                        "all"
+                                      ]
+                                    },
+                                    "tool": {
+                                      "type": "string",
+                                      "description": "The name of a code scanning tool"
+                                    }
+                                  },
+                                  "required": [
+                                    "alerts_threshold",
+                                    "security_alerts_threshold",
+                                    "tool"
+                                  ]
+                                }
+                              }
+                            },
+                            "required": [
+                              "code_scanning_tools"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "copilot_code_review",
+                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "copilot_code_review"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "review_draft_pull_requests": {
+                                "type": "boolean",
+                                "description": "Copilot automatically reviews draft pull requests before they are marked as ready for review."
+                              },
+                              "review_on_push": {
+                                "type": "boolean",
+                                "description": "Copilot automatically reviews each new push to the pull request."
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
                         "title": "file_path_restriction",
                         "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.",
                         "type": "object",
@@ -30622,159 +30747,6 @@
                             ]
                           }
                         }
-                      },
-                      {
-                        "title": "workflows",
-                        "description": "Require all changes made to a targeted branch to pass the specified workflows before they can be merged.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "workflows"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "do_not_enforce_on_create": {
-                                "type": "boolean",
-                                "description": "Allow repositories and branches to be created if a check would otherwise prohibit it."
-                              },
-                              "workflows": {
-                                "type": "array",
-                                "description": "Workflows that must pass for this rule to pass.",
-                                "items": {
-                                  "title": "WorkflowFileReference",
-                                  "description": "A workflow that must run for this rule to pass",
-                                  "type": "object",
-                                  "properties": {
-                                    "path": {
-                                      "type": "string",
-                                      "description": "The path to the workflow file"
-                                    },
-                                    "ref": {
-                                      "type": "string",
-                                      "description": "The ref (branch or tag) of the workflow file to use"
-                                    },
-                                    "repository_id": {
-                                      "type": "integer",
-                                      "description": "The ID of the repository where the workflow is defined"
-                                    },
-                                    "sha": {
-                                      "type": "string",
-                                      "description": "The commit SHA of the workflow file to use"
-                                    }
-                                  },
-                                  "required": [
-                                    "path",
-                                    "repository_id"
-                                  ]
-                                }
-                              }
-                            },
-                            "required": [
-                              "workflows"
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "code_scanning",
-                        "description": "Choose which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "code_scanning"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "code_scanning_tools": {
-                                "type": "array",
-                                "description": "Tools that must provide code scanning results for this rule to pass.",
-                                "items": {
-                                  "title": "CodeScanningTool",
-                                  "description": "A tool that must provide code scanning results for this rule to pass.",
-                                  "type": "object",
-                                  "properties": {
-                                    "alerts_threshold": {
-                                      "type": "string",
-                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
-                                      "enum": [
-                                        "none",
-                                        "errors",
-                                        "errors_and_warnings",
-                                        "all"
-                                      ]
-                                    },
-                                    "security_alerts_threshold": {
-                                      "type": "string",
-                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
-                                      "enum": [
-                                        "none",
-                                        "critical",
-                                        "high_or_higher",
-                                        "medium_or_higher",
-                                        "all"
-                                      ]
-                                    },
-                                    "tool": {
-                                      "type": "string",
-                                      "description": "The name of a code scanning tool"
-                                    }
-                                  },
-                                  "required": [
-                                    "alerts_threshold",
-                                    "security_alerts_threshold",
-                                    "tool"
-                                  ]
-                                }
-                              }
-                            },
-                            "required": [
-                              "code_scanning_tools"
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "copilot_code_review",
-                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "copilot_code_review"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "review_draft_pull_requests": {
-                                "type": "boolean",
-                                "description": "Copilot automatically reviews draft pull requests before they are marked as ready for review."
-                              },
-                              "review_on_push": {
-                                "type": "boolean",
-                                "description": "Copilot automatically reviews each new push to the pull request."
-                              }
-                            }
-                          }
-                        }
                       }
                     ]
                   }
@@ -30880,7 +30852,7 @@
             {
               "type": "integer or null",
               "name": "actor_id",
-              "description": "<p>The ID of the actor that can bypass a ruleset. Required for <code>Integration</code>, <code>RepositoryRole</code>, and <code>Team</code> actor types. If <code>actor_type</code> is <code>OrganizationAdmin</code>, <code>actor_id</code> is ignored. If <code>actor_type</code> is <code>DeployKey</code>, this should be null. If <code>actor_type</code> is <code>EnterpriseOwner</code>, <code>actor_id</code> is ignored. <code>OrganizationAdmin</code> and <code>EnterpriseOwner</code> are not applicable for personal repositories.</p>"
+              "description": "<p>The ID of the actor that can bypass a ruleset. Required for <code>Integration</code>, <code>RepositoryRole</code>, <code>Team</code>, and <code>User</code> actor types. If <code>actor_type</code> is <code>OrganizationAdmin</code>, <code>actor_id</code> is ignored. If <code>actor_type</code> is <code>DeployKey</code>, this should be null. If <code>actor_type</code> is <code>EnterpriseOwner</code>, <code>actor_id</code> is ignored. <code>OrganizationAdmin</code>, <code>EnterpriseOwner</code> and <code>EnterpriseRole</code> are not applicable for personal repositories.</p>"
             },
             {
               "type": "string",
@@ -30893,7 +30865,9 @@
                 "RepositoryRole",
                 "Team",
                 "DeployKey",
-                "EnterpriseOwner"
+                "EnterpriseOwner",
+                "EnterpriseRole",
+                "User"
               ]
             },
             {
@@ -32094,7 +32068,7 @@
                           "integer",
                           "null"
                         ],
-                        "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. If `actor_type` is `EnterpriseOwner`, `actor_id` is ignored. `OrganizationAdmin` and `EnterpriseOwner` are not applicable for personal repositories."
+                        "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, `Team`, and `User` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. If `actor_type` is `EnterpriseOwner`, `actor_id` is ignored. `OrganizationAdmin`, `EnterpriseOwner` and `EnterpriseRole` are not applicable for personal repositories."
                       },
                       "actor_type": {
                         "type": "string",
@@ -32104,7 +32078,9 @@
                           "RepositoryRole",
                           "Team",
                           "DeployKey",
-                          "EnterpriseOwner"
+                          "EnterpriseOwner",
+                          "EnterpriseRole",
+                          "User"
                         ],
                         "description": "The type of actor that can bypass a ruleset"
                       },
@@ -33063,6 +33039,159 @@
                         }
                       },
                       {
+                        "title": "workflows",
+                        "description": "Require all changes made to a targeted branch to pass the specified workflows before they can be merged.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "workflows"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "do_not_enforce_on_create": {
+                                "type": "boolean",
+                                "description": "Allow repositories and branches to be created if a check would otherwise prohibit it."
+                              },
+                              "workflows": {
+                                "type": "array",
+                                "description": "Workflows that must pass for this rule to pass.",
+                                "items": {
+                                  "title": "WorkflowFileReference",
+                                  "description": "A workflow that must run for this rule to pass",
+                                  "type": "object",
+                                  "properties": {
+                                    "path": {
+                                      "type": "string",
+                                      "description": "The path to the workflow file"
+                                    },
+                                    "ref": {
+                                      "type": "string",
+                                      "description": "The ref (branch or tag) of the workflow file to use"
+                                    },
+                                    "repository_id": {
+                                      "type": "integer",
+                                      "description": "The ID of the repository where the workflow is defined"
+                                    },
+                                    "sha": {
+                                      "type": "string",
+                                      "description": "The commit SHA of the workflow file to use"
+                                    }
+                                  },
+                                  "required": [
+                                    "path",
+                                    "repository_id"
+                                  ]
+                                }
+                              }
+                            },
+                            "required": [
+                              "workflows"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "code_scanning",
+                        "description": "Choose which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "code_scanning"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "code_scanning_tools": {
+                                "type": "array",
+                                "description": "Tools that must provide code scanning results for this rule to pass.",
+                                "items": {
+                                  "title": "CodeScanningTool",
+                                  "description": "A tool that must provide code scanning results for this rule to pass.",
+                                  "type": "object",
+                                  "properties": {
+                                    "alerts_threshold": {
+                                      "type": "string",
+                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "enum": [
+                                        "none",
+                                        "errors",
+                                        "errors_and_warnings",
+                                        "all"
+                                      ]
+                                    },
+                                    "security_alerts_threshold": {
+                                      "type": "string",
+                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "enum": [
+                                        "none",
+                                        "critical",
+                                        "high_or_higher",
+                                        "medium_or_higher",
+                                        "all"
+                                      ]
+                                    },
+                                    "tool": {
+                                      "type": "string",
+                                      "description": "The name of a code scanning tool"
+                                    }
+                                  },
+                                  "required": [
+                                    "alerts_threshold",
+                                    "security_alerts_threshold",
+                                    "tool"
+                                  ]
+                                }
+                              }
+                            },
+                            "required": [
+                              "code_scanning_tools"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "copilot_code_review",
+                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "copilot_code_review"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "review_draft_pull_requests": {
+                                "type": "boolean",
+                                "description": "Copilot automatically reviews draft pull requests before they are marked as ready for review."
+                              },
+                              "review_on_push": {
+                                "type": "boolean",
+                                "description": "Copilot automatically reviews each new push to the pull request."
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
                         "title": "file_path_restriction",
                         "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.",
                         "type": "object",
@@ -33181,159 +33310,6 @@
                             "required": [
                               "max_file_size"
                             ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "workflows",
-                        "description": "Require all changes made to a targeted branch to pass the specified workflows before they can be merged.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "workflows"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "do_not_enforce_on_create": {
-                                "type": "boolean",
-                                "description": "Allow repositories and branches to be created if a check would otherwise prohibit it."
-                              },
-                              "workflows": {
-                                "type": "array",
-                                "description": "Workflows that must pass for this rule to pass.",
-                                "items": {
-                                  "title": "WorkflowFileReference",
-                                  "description": "A workflow that must run for this rule to pass",
-                                  "type": "object",
-                                  "properties": {
-                                    "path": {
-                                      "type": "string",
-                                      "description": "The path to the workflow file"
-                                    },
-                                    "ref": {
-                                      "type": "string",
-                                      "description": "The ref (branch or tag) of the workflow file to use"
-                                    },
-                                    "repository_id": {
-                                      "type": "integer",
-                                      "description": "The ID of the repository where the workflow is defined"
-                                    },
-                                    "sha": {
-                                      "type": "string",
-                                      "description": "The commit SHA of the workflow file to use"
-                                    }
-                                  },
-                                  "required": [
-                                    "path",
-                                    "repository_id"
-                                  ]
-                                }
-                              }
-                            },
-                            "required": [
-                              "workflows"
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "code_scanning",
-                        "description": "Choose which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "code_scanning"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "code_scanning_tools": {
-                                "type": "array",
-                                "description": "Tools that must provide code scanning results for this rule to pass.",
-                                "items": {
-                                  "title": "CodeScanningTool",
-                                  "description": "A tool that must provide code scanning results for this rule to pass.",
-                                  "type": "object",
-                                  "properties": {
-                                    "alerts_threshold": {
-                                      "type": "string",
-                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
-                                      "enum": [
-                                        "none",
-                                        "errors",
-                                        "errors_and_warnings",
-                                        "all"
-                                      ]
-                                    },
-                                    "security_alerts_threshold": {
-                                      "type": "string",
-                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
-                                      "enum": [
-                                        "none",
-                                        "critical",
-                                        "high_or_higher",
-                                        "medium_or_higher",
-                                        "all"
-                                      ]
-                                    },
-                                    "tool": {
-                                      "type": "string",
-                                      "description": "The name of a code scanning tool"
-                                    }
-                                  },
-                                  "required": [
-                                    "alerts_threshold",
-                                    "security_alerts_threshold",
-                                    "tool"
-                                  ]
-                                }
-                              }
-                            },
-                            "required": [
-                              "code_scanning_tools"
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "copilot_code_review",
-                        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "copilot_code_review"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "review_draft_pull_requests": {
-                                "type": "boolean",
-                                "description": "Copilot automatically reviews draft pull requests before they are marked as ready for review."
-                              },
-                              "review_on_push": {
-                                "type": "boolean",
-                                "description": "Copilot automatically reviews each new push to the pull request."
-                              }
-                            }
                           }
                         }
                       }
@@ -34996,7 +34972,7 @@
                 },
                 "secret": {
                   "type": "string",
-                  "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers)."
+                  "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#delivery-headers)."
                 },
                 "insecure_ssl": {
                   "oneOf": [
@@ -35125,7 +35101,7 @@
                 },
                 "secret": {
                   "type": "string",
-                  "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers)."
+                  "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#delivery-headers)."
                 },
                 "insecure_ssl": {
                   "oneOf": [

@@ -17,13 +17,7 @@ category:
   - Manage Copilot for a team
 ---
 
-<!-- expires 2026-06-01 -->
-
-{% data reusables.copilot.ubb-announcement-cb-ce %}
-
-<!-- end expires 2026-06-01 -->
-
-When you're adopting {% data variables.product.prodname_copilot %} in an enterprise, you will want to set budgets and track spending to ensure your rollout is sustainable. {% data variables.product.github %} offers billing tools to help you visualize your spending patterns, receive alerts when you reach budget thresholds, and optimize your license usage.
+When you're adopting {% data variables.product.prodname_copilot %} in an enterprise, you will want to set budgets and track spending to ensure your rollout is sustainable. {% data variables.product.github %} offers billing tools to help you visualize your spending patterns, control {% data variables.product.prodname_ai_credits_short %} consumption with budget controls, receive alerts when you reach budget thresholds, and optimize your license usage.
 
 ## Understanding who can grant licenses
 
@@ -33,19 +27,17 @@ We recommend that you identify the people with this role and communicate with th
 
 For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-members).
 
-## Managing premium requests
+## Managing {% data variables.product.prodname_ai_credits_short %} usage
 
-Each {% data variables.product.prodname_copilot_short %} plan includes a per-user allowance for premium requests. To learn more about premium requests, see [AUTOTITLE](/copilot/concepts/copilot-billing/requests-in-github-copilot). For allowances per plan, see [AUTOTITLE](/copilot/get-started/plans-for-github-copilot#comparing-copilot-plans).
+Each {% data variables.product.prodname_copilot_short %} license includes {% data variables.product.prodname_ai_credits_short %} that are pooled across your enterprise. When the pool is exhausted, additional usage is charged at {% data variables.product.prodname_ai_credits_value %} per {% data variables.product.prodname_ai_credit_singular %}, subject to your budget controls.
 
-### Tracking premium request usage
+### Tracking usage
 
-To track premium request usage, download the premium request usage report for your organization or enterprise. See [AUTOTITLE](/copilot/how-tos/premium-requests/monitoring-your-copilot-usage-and-entitlements#downloading-a-monthly-usage-report).
+To track {% data variables.product.prodname_ai_credits_short %} consumption, navigate to **Billing & licensing** > **AI usage** in your enterprise settings. You can filter usage by user, model, organization, or cost center, and export the data for further analysis.
 
-This report includes all premium request usage by user, both within and beyond the allowance, so you can use the report to understand general patterns and identify users who would benefit from more premium requests.
+### Controlling usage with budgets
 
-### Granting more premium requests to members
-
-Your organization or enterprise's policies and budgets determine whether users can use premium requests over their included allowance. See [AUTOTITLE](/copilot/how-tos/premium-requests/manage-for-enterprise).
+You can set budgets at the user, cost center, and enterprise level to control how {% data variables.product.prodname_ai_credits_short %} are consumed. For an overview of how budget controls work, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing). For guidance on choosing the right configuration, see [AUTOTITLE](/copilot/tutorials/budgets/optimizing-your-budget-configuration).
 
 ## Mapping spending to groups of users
 
@@ -57,16 +49,18 @@ For more information, see [AUTOTITLE](/billing/tutorials/control-costs-at-scale)
 
 ## Preventing overspending
 
-You can set a monthly budget on {% data variables.product.prodname_copilot %} spending.
+You can set budgets to control {% data variables.product.prodname_copilot_short %} spending at multiple levels.
 
-* For {% data variables.product.prodname_copilot_short %} **licenses**, a budget is for monitoring purposes only and will not prevent usage beyond the budgeted amount. However, you will receive notifications by email when spending exceeds certain percentages of the budget you've set.
-* For {% data variables.product.prodname_copilot_short %} **premium requests**, you can choose to stop usage once the budget amount is reached.
+* **User-level budgets** cap how many {% data variables.product.prodname_ai_credits_short %} any single user can consume per billing cycle, from both the shared pool and additional usage.
+* **Cost center budgets** and **enterprise spending limits** cap metered charges after the shared pool is exhausted.
 
-To create a budget, see [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending#editing-or-deleting-a-budget).
+Enable "Stop usage when budget limit is reached" on every spending limit you create. Without it, reaching a limit sends a notification but does not block usage and charges continue to accrue.
+
+For step-by-step instructions, see [AUTOTITLE](/billing/how-tos/set-up-budgets).
 
 ## Visualizing spending trends
 
-You can understand your spending trends by viewing graphs of {% data variables.product.prodname_copilot_short %} usage over a certain timeframe. Usage includes costs for {% data variables.product.prodname_copilot_short %} licenses and any additional premium requests beyond the allowance.
+You can understand your spending trends by viewing graphs of {% data variables.product.prodname_copilot_short %} usage over a certain timeframe. Usage includes costs for {% data variables.product.prodname_copilot_short %} licenses and any additional {% data variables.product.prodname_ai_credits_short %} beyond the included pool.
 
 For more detailed insights, you can group usage by the type of {% data variables.product.prodname_copilot_short %} plan, and enterprises can filter the results by cost center.
 
@@ -77,11 +71,10 @@ For more detailed insights, you can group usage by the type of {% data variables
 
    ![Screenshot of the "Usage" page. A line chart tracks Copilot spending over the current month, grouped by SKU.](/assets/images/help/copilot/track-spending.png)
 
-1. To visualize the consumption of premium requests in detail, in the left sidebar click **Premium request analytics**.
-1. By default, the chart and table show use grouped by models. Use the filter, "Group by", and "Timeframe" controls to show the data you want.
-   {% data reusables.billing.premium-request-analytics-start %}
+1. To visualize {% data variables.product.prodname_ai_credits_short %} consumption in detail, in the left sidebar under "Metered usage" click **AI usage**.
+1. By default, the chart and table show usage grouped by model. Use the filter, "Group by", and "Timeframe" controls to show the data you want.
 
-   ![Screenshot of the "Premium request analytics" page. A line chart tracks premium request use over the current month, grouped by model.](/assets/images/help/copilot/track-spending-prs.png)
+   ![Screenshot of the "AI usage" page. A line chart tracks AI usage over the current month, grouped by model.](/assets/images/help/copilot/track-spending-prs.png)
 
 ## Next steps
 

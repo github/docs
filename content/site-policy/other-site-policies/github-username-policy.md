@@ -17,11 +17,13 @@ GitHub account names are available on a first-come, first-served basis, and are 
 
 Keep in mind that not all activity on GitHub is publicly visible; accounts with no visible activity may be in active use.
 
+We do not accept requests to release, transfer, or reclaim usernames on the basis that they appear inactive or unused. If the username you want has already been claimed, you will need to select a different available name unless you are submitting a trademark complaint as described below.
+
 If the username you want has already been claimed, consider other names or unique variations. Using a number, hyphen, or an alternative spelling might help you identify a desirable username that's still available.
 
 ## Trademark Policy
 
-If you believe someone's account is violating your trademark rights, you can find more information about making a trademark complaint on our [Trademark Policy](/site-policy/content-removal-policies/github-trademark-policy) page.
+If you believe someone's account is violating your trademark rights, you can find more information about making a trademark complaint on our [AUTOTITLE](/site-policy/content-removal-policies/github-trademark-policy) page. Valid trademark-related complaints are the only requests we review for possible release of a username that is already claimed.
 
 ## Name Squatting Policy
 

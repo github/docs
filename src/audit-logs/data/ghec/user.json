@@ -534,7 +534,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "/copilot/how-tos/manage-and-track-spending/manage-request-allowances#setting-a-policy-for-paid-usage"
+    "docs_reference_titles": "Optimizing your budget configuration"
   },
   {
     "action": "billing.unlock",
@@ -2230,7 +2230,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "About Dependabot alerts"
+    "docs_reference_titles": "Dependabot alerts"
   },
   {
     "action": "dependabot_closure_request.cancel",
@@ -2266,7 +2266,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "About Dependabot alerts"
+    "docs_reference_titles": "Dependabot alerts"
   },
   {
     "action": "dependabot_closure_request.create",
@@ -2302,7 +2302,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "About Dependabot alerts"
+    "docs_reference_titles": "Dependabot alerts"
   },
   {
     "action": "dependabot_closure_request.deny",
@@ -2338,7 +2338,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "About Dependabot alerts"
+    "docs_reference_titles": "Dependabot alerts"
   },
   {
     "action": "dependabot_repository_access.repositories_updated",
@@ -7131,7 +7131,7 @@
       "project_id",
       "project_kind"
     ],
-    "docs_reference_titles": "Closing a project (classic)"
+    "docs_reference_titles": "Planning and tracking with Projects"
   },
   {
     "action": "project_collaborator.add",
@@ -7432,7 +7432,7 @@
       "project_kind",
       "project_name"
     ],
-    "docs_reference_titles": "Reopening a closed project (classic)"
+    "docs_reference_titles": "Planning and tracking with Projects"
   },
   {
     "action": "project.rename",

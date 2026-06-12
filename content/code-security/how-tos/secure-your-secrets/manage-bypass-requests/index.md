@@ -8,8 +8,9 @@ versions:
   ghec: '*'
 contentType: how-tos
 children:
-  - /enabling-delegated-bypass-for-push-protection
+  - /enable-delegated-bypass
   - /grant-exemptions
-  - /managing-requests-to-bypass-push-protection
-  - /reviewing-requests-to-bypass-push-protection
+  - /manage-bypass-requests
+  - /review-bypass-requests
 ---
+

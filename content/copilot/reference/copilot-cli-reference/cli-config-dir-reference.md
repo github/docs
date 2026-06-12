@@ -23,21 +23,23 @@ The `~/.copilot` directory contains the following top-level items.
 
 | Path | Type | Description |
 |------|------|-------------|
-| `settings.json` | File | Your personal configuration settings |
-| `copilot-instructions.md` | File | Personal custom instructions (applied to all sessions) |
-| `instructions/` | Directory | Additional personal `*.instructions.md` files |
-| `mcp-config.json` | File | User-level MCP server definitions |
-| `lsp-config.json` | File | User-level LSP server definitions |
-| `permissions-config.json` | File | Saved tool and directory permissions per project |
 | `agents/` | Directory | Personal custom agent definitions |
-| `skills/` | Directory | Personal custom skill definitions |
+| `config.json` | File | Automatically managed application state (authentication, installed plugins, and other internal data) |
+| `copilot-instructions.md` | File | Personal custom instructions (applied to all sessions) |
 | `hooks/` | Directory | User-level hook scripts |
-| `logs/` | Directory | Session log files |
-| `session-state/` | Directory | Session history and workspace data |
-| `session-store.db` | File | SQLite database for cross-session data |
-| `installed-plugins/` | Directory | Installed plugin files |
-| `plugin-data/` | Directory | Persistent data for installed plugins |
 | `ide/` | Directory | IDE integration state |
+| `installed-plugins/` | Directory | Installed plugin files |
+| `instructions/` | Directory | Additional personal `*.instructions.md` files |
+| `logs/` | Directory | Session log files |
+| `lsp-config.json` | File | User-level LSP server definitions |
+| `mcp-config.json` | File | User-level MCP server definitions |
+| `permissions-config.json` | File | Saved tool and directory permissions per project |
+| `plugin-data/` | Directory | Persistent data for installed plugins |
+| `session-state/` | Directory | Session history and workspace data |
+| `command-history-state/` | Directory | Command history data |
+| `session-store.db` | File | SQLite database for cross-session data |
+| `settings.json` | File | Your personal configuration settings |
+| `skills/` | Directory | Personal custom skill definitions |
 
 > [!NOTE]
 > Not all of these items appear immediately. Some are created on demand the first time you use a particular feature—for example, `installed-plugins/` appears only after you install your first plugin.
@@ -48,10 +50,10 @@ The following files are designed to be edited by you directly, or managed throug
 
 ### `settings.json`
 
-This is the primary configuration file for {% data variables.copilot.copilot_cli_short %}. You can edit it directly in a text editor, or use interactive commands like `/model` and `/theme` to change specific values from within a session. The file supports JSON with comments (JSONC).
+This is the primary configuration file for {% data variables.copilot.copilot_cli_short %}. Within a session, you can use the interactive `/settings` command to change specific values, or run `/settings KEY VALUE` to set a single value, or edit the file directly in a text editor. The file supports JSON with comments (JSONC).
 
 > [!NOTE]
-> The configuration file was renamed from `config.json` to `settings.json`. Existing settings are automatically migrated from `~/.copilot/config.json` on startup.
+> User-editable settings were originally stored in `config.json`. They have been moved to `settings.json`. Any user settings present in `config.json` on startup are automatically migrated to `settings.json`.
 
 For the full list of settings and how they interact with repository-level configuration, see [Configuration file settings](#configuration-file-settings) later in this article.
 
@@ -102,6 +104,13 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 
 The following items are managed by the CLI. You generally should not edit them manually.
 
+### `config.json`
+
+Stores internal application state that is managed automatically by the CLI, including authentication data, installed plugin metadata, and other runtime information. You should not normally need to edit this file.
+
+> [!NOTE]
+> Earlier versions of {% data variables.copilot.copilot_cli_short %} stored both user settings and application state in `config.json`. User-editable settings are now located in `settings.json`. Any user settings in `config.json` at startup are automatically migrated to `settings.json`. Application state fields—such as `loggedInUsers`, `installedPlugins`, `firstLaunchAt`, and `staff`—remain in `config.json` and are not migrated.
+
 ### `permissions-config.json`
 
 Stores your saved tool and directory permission decisions, organized by project location. When you approve a tool or grant access to a directory, the CLI records the decision here so you aren't prompted again in the same project.
@@ -113,9 +122,17 @@ Stores your saved tool and directory permission decisions, organized by project 
 
 Contains session history data, organized by session ID in subdirectories. Each session directory stores an event log (`events.jsonl`) and workspace artifacts (plans, checkpoints, tracked files). This data enables session resume (`--resume` or `--continue`).
 
+Deleting files from this directory only removes local copies. If you have synced sessions to your {% data variables.product.github %} account, the synced data is stored separately and is not affected by local file deletion. You can delete or hide synced sessions from {% data variables.product.prodname_dotcom_the_website %}. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/chronicle#managing-your-session-data).
+
+### `command-history-state/`
+
+Contains command history data used for reverse search (<kbd>Ctrl</kbd>+<kbd>R</kbd>) and history navigation in the interactive interface. This directory is managed automatically and should not be edited.
+
 ### `session-store.db`
 
 A SQLite database used by the CLI for cross-session data such as checkpoint indexing and search. This file is automatically managed and should not be edited.
+
+If you delete this file, you can rebuild it using the `/chronicle reindex` command. Reindexing also syncs your session data to your account.
 
 ### `logs/`
 
@@ -140,30 +157,20 @@ Contains lock files and state for IDE integrations (for example, when {% data va
 
 ## Changing the location of the configuration directory
 
-You can override the default `~/.copilot` location in two ways:
-
-- **Environment variable**: Set `COPILOT_HOME` to the path of the directory you want to use.
+To override the default `~/.copilot` location, set the `COPILOT_HOME` environment variable to the path of the directory you want to use.
 
   ```bash copy
   export COPILOT_HOME=/path/to/my/copilot-config
   ```
 
-- **Command-line option**: Use `--config-dir` when launching the CLI.
-
-  ```bash copy
-  copilot --config-dir /path/to/my/copilot-config
-  ```
-
-The `--config-dir` option takes precedence over `COPILOT_HOME`, which in turn takes precedence over the default `~/.copilot` location.
-
 ### Things to be aware of
 
-- `COPILOT_HOME` replaces the entire `~/.copilot` path. The value you set should be the complete path to the directory you want to use for the configuration files and subdirectories.
-- Changing the directory means your existing configuration, session history, installed plugins, and saved permissions will not be found in the new location. Copy or move the contents of `~/.copilot` to the new location if you want to preserve them.
-- The **cache directory** (used for marketplace caches, auto-update packages, and other ephemeral data) follows platform conventions and is not affected by `COPILOT_HOME`. It is located at:
-  - **macOS**: `~/Library/Caches/copilot`
-  - **Linux**: `$XDG_CACHE_HOME/copilot` or `~/.cache/copilot`
-  - **Windows**: `%LOCALAPPDATA%/copilot`
+* `COPILOT_HOME` replaces the entire `~/.copilot` path. The value you set should be the complete path to the directory you want to use for the configuration files and subdirectories.
+* Changing the directory means your existing configuration, session history, installed plugins, and saved permissions will not be found in the new location. Copy or move the contents of `~/.copilot` to the new location if you want to preserve them.
+* The **cache directory** (used for marketplace caches, auto-update packages, and other ephemeral data) follows platform conventions and is not affected by `COPILOT_HOME`. It is located at:
+  * **macOS**: `~/Library/Caches/copilot`
+  * **Linux**: `$XDG_CACHE_HOME/copilot` or `~/.cache/copilot`
+  * **Windows**: `%LOCALAPPDATA%/copilot`
 
   To override the cache directory separately, set `COPILOT_CACHE_HOME`.
 
@@ -172,16 +179,18 @@ The `--config-dir` option takes precedence over `COPILOT_HOME`, which in turn ta
 | Item | Safe to delete? | Effect |
 |------|-----------------|--------|
 | `agents/`, `skills/`, `hooks/` | Not recommended | You will lose your personal customizations. Back up first. |
+| `config.json` | With caution | Resets application state including authentication. You will need to re-authenticate and the CLI will re-detect internal state on next launch. |
 | `copilot-instructions.md`, `instructions/` | Not recommended | You will lose your personal custom instructions. Back up first. |
-| `installed-plugins/` | Not recommended | Use `copilot plugin uninstall` instead, to ensure plugin metadata in `settings.json` stays consistent. |
+| `installed-plugins/` | Not recommended | Use `copilot plugin uninstall` instead, to ensure plugin metadata in `config.json` remains accurate. |
 | `logs/` | Yes | Log files are re-created each session. Deleting them has no functional impact. |
 | `lsp-config.json` | Not recommended | You will lose your user-level LSP server definitions. Back up first. |
 | `mcp-config.json` | Not recommended | You will lose your user-level MCP server definitions. Back up first. |
 | `permissions-config.json` | With caution | Resets all saved permissions. The CLI will prompt you again for tool and directory approvals. |
 | `plugin-data/` | Yes | Plugin persistent data is re-created as needed. |
 | `session-state/` | With caution | Deleting removes session history. You will no longer be able to resume past sessions. |
+| `command-history-state/` | With caution | Deleting removes command history. You will no longer be able to search previous commands with <kbd>Ctrl</kbd>+<kbd>R</kbd>. |
 | `session-store.db` | With caution | Deleting removes cross-session data. The file is re-created automatically. |
-| `settings.json` | With caution | Resets all configuration to defaults. You will need to reconfigure your preferences and re-authenticate. |
+| `settings.json` | With caution | Resets all user preferences to defaults. You will need to reconfigure your settings. |
 
 ## Configuration file settings
 
@@ -195,7 +204,7 @@ Settings cascade from user to repository to local, with more specific scopes ove
 
 ### User settings (`~/.copilot/settings.json`)
 
-These settings apply across all your sessions and repositories. You can edit this file directly, or use slash commands to update individual values.
+These settings apply across all your sessions and repositories. You can use the `/settings` slash command to run an interactive dialog, or use specific slash commands to update individual values, or edit this file directly.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
@@ -206,6 +215,8 @@ These settings apply across all your sessions and repositories. You can edit thi
 | `banner` | `"always"` \| `"once"` \| `"never"` | `"once"` | Animated banner display frequency. |
 | `bashEnv` | `boolean` | `false` | Enable `BASH_ENV` support for bash shells. Can also be set with `--bash-env` or `--no-bash-env`. |
 | `beep` | `boolean` | `true` | Play an audible beep when attention is required. |
+| `builtInAgents.rubberDuck` | `boolean` | `true` | Enable the rubber-duck subagent that provides adversarial feedback on agent plans. |
+| `builtInAgents.rubberDuckAutoInvoke` | `boolean` | `false` | Include proactive prompting for automatic rubber-duck invocation. Set to `true` to opt into additional rubber-duck nudges during agent turns. |
 | `colorMode` | `"default"` \| `"dim"` \| `"high-contrast"` \| `"colorblind"` | `"default"` | Color contrast mode. Managed by the `/theme` slash command. |
 | `compactPaste` | `boolean` | `true` | Collapse large pastes (more than 10 lines) into compact tokens. |
 | `companyAnnouncements` | `string[]` | `[]` | Custom messages shown randomly on startup. One message is randomly selected each time the CLI starts. Useful for team announcements or reminders. |
@@ -226,19 +237,28 @@ These settings apply across all your sessions and repositories. You can edit thi
 | `ide.autoConnect` | `boolean` | `true` | Automatically connect to an IDE workspace on startup. When `false`, you can still connect manually using the `/ide` command. |
 | `ide.openDiffOnEdit` | `boolean` | `true` | Open file edit diffs in the connected IDE for approval. When `false`, file edit approvals are shown only in the terminal. |
 | `includeCoAuthoredBy` | `boolean` | `true` | Add a `Co-authored-by` trailer to git commits made by the agent. |
+| `keepAlive` | `"on"` \| `"off"` \| `"busy"` | `"off"` | Keep-alive mode applied at CLI startup. `"on"` always prevents the system from sleeping, `"busy"` prevents sleeping only while the agent is running, and `"off"` disables keep-alive. Also configurable with the `/keep-alive` slash command. |
 | `logLevel` | `"none"` \| `"error"` \| `"warning"` \| `"info"` \| `"debug"` \| `"all"` \| `"default"` | `"default"` | Logging verbosity. |
 | `mergeStrategy` | `"rebase"` \| `"merge"` | — | Conflict resolution strategy for `/pr fix conflicts`. When set to `"rebase"`, conflicts are resolved by rebasing onto the base branch. When set to `"merge"`, the base branch is merged into the feature branch. If not configured, a picker dialog is shown. |
 | `model` | `string` | varies | AI model to use. Set to `"auto"` to let {% data variables.product.prodname_copilot_short %} pick the best available model automatically. Managed by the `/model` slash command. |
 | `mouse` | `boolean` | `true` | Enable mouse support in alt screen mode. Can also be set with `--mouse` or `--no-mouse`. |
-| `powershellFlags` | `string[]` | `["-NoProfile", "-NoLogo"]` | Flags passed to PowerShell (`pwsh`) on startup. Windows only. |
+| `permissions.disableBypassPermissionsMode` | `string` | — | When set to `"disable"`, all allow-all flags (`--allow-all-tools`, `--allow-all-paths`, `--allow-all-urls`, `--allow-all`, `--yolo`) are suppressed at startup and cannot be used to grant elevated permissions. |
+| `powershellFlags` | `string[]` | `["-NoProfile", "-NoLogo"]` | Flags passed to PowerShell on startup. On Windows, the CLI prefers PowerShell 7+ (`pwsh`) and falls back to Windows PowerShell (`powershell.exe`) when `pwsh` is unavailable. Windows only. |
+| `remote` | `"on"` \| `"off"` | `"on"` | Controls session syncing and remote access. Set to `"off"` to keep session data local only and disable remote control. Can also be set with `--remote` or `--no-remote`. |
 | `renderMarkdown` | `boolean` | `true` | Render Markdown in terminal output. |
+| `remoteExport` | `boolean` | `true` | Export sessions remotely when session sync is available. Set to `false` to opt out of remote export by default. The `remoteSessions` setting when set to `true`, or the `--remote` flag, still enables export and steering regardless of this setting. |
 | `respectGitignore` | `boolean` | `true` | Exclude gitignored files from the `@` file mention picker. When `false`, the picker includes files normally excluded by `.gitignore`. |
 | `screenReader` | `boolean` | `false` | Enable screen reader optimizations. |
+| `showTipsOnStartup` | `boolean` | `true` | Show a random command tip when the CLI starts. |
 | `skillDirectories` | `string[]` | `[]` | Additional directories to search for custom skill definitions (in addition to `~/.copilot/skills/`). |
 | `statusLine` | `object` | — | Custom status line display. `type`: must be `"command"`. `command`: path to an executable script that receives session JSON on stdin and prints status content to stdout. `padding`: optional number of left-padding spaces. |
-| `storeTokenPlaintext` | `boolean` | `false` | Store authentication tokens in plain text in the configuration file when no system keychain is available. |
+| `storeTokenPlaintext` | `boolean` | `false` | Allow authentication tokens to be stored in plain text in `config.json` when no system keychain is available. |
 | `stream` | `boolean` | `true` | Enable streaming responses. |
 | `streamerMode` | `boolean` | `false` | Hide preview model names and quota details. Useful when demonstrating {% data variables.copilot.copilot_cli_short %} or screen sharing. |
+| `tabs.enabled` | `boolean` | `true` | Show the home tab bar. Set to `false` to hide it entirely. |
+| `tabs.hide` | `string[]` | `[]` | Tab identifiers to hide. Accepted values: `"copilot"`, `"agents"`, `"issues"`, `"pull-requests"`, `"gists"` (matched case-insensitively). |
+| `tabs.sort` | `string[]` | `[]` | Order in which tabs are displayed. Tabs not listed keep their default relative order after the listed ones. Unknown identifiers are ignored. |
+| `terminalProgress` | `boolean` | `true` | Emit OSC 9;4 terminal progress indicators while the agent is working. Supported terminals include Windows Terminal, iTerm2, Ghostty, and ConEmu. |
 | `theme` | `"auto"` \| `"dark"` \| `"light"` | `"auto"` | Terminal color theme. `"auto"` detects the terminal background and chooses accordingly. |
 | `updateTerminalTitle` | `boolean` | `true` | Show the current intent in the terminal tab or window title. |
 
@@ -269,3 +289,4 @@ The local configuration file uses the same schema as the repository configuratio
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-programmatic-reference)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-plugin-reference)
+* [AUTOTITLE](/copilot/reference/hooks-reference)

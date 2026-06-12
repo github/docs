@@ -5,7 +5,8 @@ permissions:
   actions: read|write|none{% ifversion artifact-metadata %}
   artifact-metadata: read|write|none{% endif %}{% ifversion artifact-attestations %}
   attestations: read|write|none{% endif %}
-  checks: read|write|none
+  checks: read|write|none{% ifversion code-quality %}
+  code-quality: read|write|none{% endif %}
   contents: read|write|none
   deployments: read|write|none{% ifversion fpt or ghec %}
   id-token: write|none{% endif %}
@@ -14,8 +15,8 @@ permissions:
   discussions: read|write|none
   packages: read|write|none
   pages: read|write|none
-  pull-requests: read|write|none{% ifversion projects-v1 %}
-  repository-projects: read|write|none{% endif %}
+  pull-requests: read|write|none
+
   security-events: read|write|none
   statuses: read|write|none{% ifversion vulnerability-alerts-permission %}
   vulnerability-alerts: read|none{% endif %}

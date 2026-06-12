@@ -88,7 +88,7 @@ Autoscaling allows you to dynamically adjust the number of self-hosted runners b
 
 For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller) and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-support-for-actions-runner-controller).
 
-### {% data variables.product.prodname_actions %} Runner Scale Set Client 
+### {% data variables.product.prodname_actions %} Runner Scale Set Client
 
 The {% data variables.product.prodname_actions %} Runner Scale Set Client is a standalone Go-based module that empowers platform teams, integrators, and infrastructure providers to build custom autoscaling solutions for {% data variables.product.prodname_actions %} runners across VMs, containers, on-premise infrastructure, and cloud services, with support for Windows, Linux, and macOS platforms.
 

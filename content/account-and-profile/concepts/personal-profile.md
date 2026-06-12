@@ -54,7 +54,7 @@ To hide parts of your profile page, you can make your profile private. This also
 
 After making your profile private, you can still view all your information when you visit your own profile.
 
-For more information, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-github-profile/customizing-your-profile/setting-your-profile-to-private).
+For more information, see [AUTOTITLE](/account-and-profile/how-tos/profile-customization/setting-your-profile-to-private).
 
 ### Differences between private and public profiles
 
@@ -91,5 +91,5 @@ You can control the visibility of specific profile elements or set your entire p
 ## Next steps
 
 * For a general tutorial on personalizing your profile, see [AUTOTITLE](/account-and-profile/tutorials/personalize-your-profile).
-* For more specific profile customization, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-github-profile).
+* For more specific profile customization, see [AUTOTITLE](/account-and-profile/how-tos).
 * For reference information, see [AUTOTITLE](/account-and-profile/reference/profile-reference).

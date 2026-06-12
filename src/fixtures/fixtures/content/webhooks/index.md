@@ -13,7 +13,5 @@ versions:
   ghec: '*'
 children:
   - /webhook-events-and-payloads
-changelog:
-  label: webhooks
-layout: product-landing
+layout: discovery-landing
 ---

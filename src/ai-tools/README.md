@@ -181,3 +181,5 @@ Add `GITHUB_TOKEN` to `.env` with Models scopes.
 - Add more examples
 - Test in Models UI first
 - Consider different model/parameters
+
+🌎

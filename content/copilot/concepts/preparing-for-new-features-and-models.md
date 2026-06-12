@@ -32,7 +32,7 @@ To learn about new {% data variables.product.prodname_copilot_short %} features,
 | --- | --- | --- | --- |
 | Assistive | Respond to prompts and provide suggestions, but require human review before changes are made. | Inline suggestions, {% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_for_prs %}. | All changes require user approval. |
 | Agentic | Autonomously research, plan, and make changes on behalf of users. | {% data variables.copilot.copilot_cloud_agent %}, third-party agents. | Can work autonomously, but with built-in protections. |
-| Third-party | External coding agents that work alongside {% data variables.copilot.copilot_cloud_agent %} to complete tasks asynchronously. | {% data variables.product.prodname_anthropic_claude %}, {% data variables.product.prodname_openai_codex %}. | Same as agentic. Review provider documentation and enable via policies. See [AUTOTITLE](/copilot/concepts/agents/about-third-party-agents). |
+| Third-party | External coding agents that work alongside {% data variables.copilot.copilot_cloud_agent %} to complete tasks asynchronously. | {% data variables.product.prodname_anthropic_claude %}, {% data variables.product.prodname_openai_codex %}. | Same as agentic. Review provider documentation and enable via policies. See [AUTOTITLE](/copilot/concepts/agents/about-third-party-coding-agents). |
 
 {% endrowheaders %}
 
@@ -54,19 +54,21 @@ You can find information about the models available and upcoming models in the f
 * **Model comparison**: To compare model capabilities side by side, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
 * **Changelog**: Model updates are announced in the [{% data variables.product.prodname_copilot_short %} changelog](https://github.blog/changelog/label/copilot/).
 
-To plan for model transitions and set user expectations, track which models {% data variables.product.github %} designates as base or long-term support (LTS). {% data variables.product.prodname_copilot_short %} automatically falls back to a base model when premium requests run out:
+#### Special categories
+
+{% data variables.product.company_short %} categorizes certain types of model, allowing you to plan for model transitions and set user expectations.
 
 {% rowheaders %}
 
 | Model type | Description | Why it matters |
 | --- | --- | --- |
+| Utility model | A small set of models that power background {% data variables.product.company_short %} features across surfaces. | Your enterprise cannot disable these models. Monitor these to ensure they are compliant. |
 | Base model | The default model when no other models are enabled. | Automatically enabled within 60 days of designation. |
 | LTS model | A model supported for one year from designation. | Allows enterprises to build workflows around a stable model. |
-| Fallback | When premium requests are exhausted, {% data variables.product.prodname_copilot_short %} uses an earlier base model. | Ensures continuous access at no additional cost. |
 
 {% endrowheaders %}
 
-For more information, see [AUTOTITLE](/copilot/concepts/fallback-and-lts-models).
+For more information, see [AUTOTITLE](/copilot/concepts/models/utility-models) and [AUTOTITLE](/copilot/concepts/models/fallback-and-lts-models).
 
 ## Considering different release stages
 

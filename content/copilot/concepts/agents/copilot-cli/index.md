@@ -9,16 +9,18 @@ children:
   - /about-copilot-cli
   - /comparing-cli-features
   - /cancel-and-roll-back
-  - /about-remote-access
+  - /about-remote-control
   - /about-custom-agents
   - /about-cli-plugins
   - /autopilot
   - /fleet
   - /research
   - /chronicle
+  - /rubber-duck
   - /lsp-servers
   - /context-management
 contentType: concepts
 docsTeamMetrics:
   - copilot-cli
 ---
+

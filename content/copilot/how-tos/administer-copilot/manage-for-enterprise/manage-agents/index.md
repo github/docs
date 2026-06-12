@@ -6,10 +6,11 @@ versions:
   feature: copilot
 children:
   - /prepare-for-custom-agents
+  - /configure-enterprise-plugin-standards
   - /monitor-agentic-activity
   - /enable-copilot-cloud-agent
-  - /block-copilot-cloud-agent
-  - /manage-copilot-code-review
+  - /block-agentic-features
+  - /enable-copilot-code-review
 contentType: how-tos
 ---
 

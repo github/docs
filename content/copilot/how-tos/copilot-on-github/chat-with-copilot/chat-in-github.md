@@ -19,7 +19,7 @@ redirect_from:
   - /copilot/how-tos/chat-with-copilot/use-chat-in-github
   - /copilot/how-tos/chat-with-copilot/chat-in-github
 contentType: how-tos
-category: 
+category:
   - Author and optimize with Copilot
 ---
 
@@ -50,7 +50,7 @@ category:
 
 ### Changing and comparing AI models
 
-You can choose from a selection of AI models, each with different strengths. Different models have different premium request multipliers, which affect your monthly usage allowance. For details, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
+You can choose from a selection of AI models, each with different strengths. Different models consume {% data variables.product.prodname_ai_credits_short %} at different rates based on their token pricing. For details, see [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing).
 
 {% data reusables.copilot.model-picker-enable-alternative-models %}
 
@@ -71,6 +71,14 @@ The response to your edited question is displayed in a new subthread. An edit co
 > [!NOTE] This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 You can attach images to your prompts by pasting, dragging, or clicking {% octicon "plus" aria-label="Add attachment" %} in the prompt box and then selecting **{% octicon "file-code" aria-hidden="true" %} Upload from computer**. Select a model that supports images from the model picker. For supported file types and example questions, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/provide-visual-inputs).
+
+### Continuing a conversation alongside an agent session
+
+When you start a {% data variables.copilot.copilot_cloud_agent %} task from {% data variables.copilot.copilot_chat_short %}—for example, by asking {% data variables.product.prodname_copilot_short %} to create a pull request or research a repository—you can keep chatting while the {% data variables.copilot.copilot_cloud_agent_short %} session runs. {% data variables.copilot.copilot_chat_short %} reflects the status of the in-progress session and draws on its context, so you can ask follow-up questions about what the agent is doing. When the session is complete, you can ask further questions about the work or start another session from {% data variables.copilot.copilot_chat_short %}. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents).
+
+### Conversation history and retention
+
+{% data variables.copilot.copilot_chat_short %} stores up to 100 of your most recent conversations. Messages within each conversation are kept for 28 days before being permanently deleted. Once a conversation has no messages left, it's automatically removed from your history.
 
 ## Further reading
 
