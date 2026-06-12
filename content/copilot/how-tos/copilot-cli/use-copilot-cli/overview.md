@@ -283,6 +283,18 @@ You can run {% data variables.copilot.copilot_cli_short %} sessions inside a san
 
 Press <kbd>Ctrl</kbd>+<kbd>T</kbd> to show or hide the model's reasoning process while it generates a response. This setting persists across sessions, allowing you to observe how {% data variables.product.prodname_copilot_short %} works through complex problems.
 
+### Configure settings
+
+You can view and change {% data variables.copilot.copilot_cli_short %} settings using the `/settings` slash command.
+
+* Run `/settings` to open an interactive settings dialog, where you can search for a setting by name and edit it.
+* Run `/settings KEY VALUE` to set a setting inline, where KEY is the name of the setting and VALUE is the value you want to set. This also works in scripts and in programmatic sessions started with `-p`.
+* Run `/settings reset KEY` to restore a setting to its default value.
+
+Some settings, such as the color mode, take effect immediately when you save them.
+
+For the full list of available settings, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#configuration-file-settings).
+
 ## Find out more
 
 For a complete list of the command line options and slash commands that you can use with {% data variables.copilot.copilot_cli_short %}, do one of the following:

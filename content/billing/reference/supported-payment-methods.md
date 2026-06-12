@@ -43,7 +43,8 @@ The following Azure subscription types cannot be used as a payment method for {%
 | `AzureForStudents_2018-01-01` | MS-AZR-0170P |
 | `DreamSpark_2015-02-01` | MS-AZR-0144P |
 | `AzurePass_2014-09-01` | MS-AZR-0120P, MS-AZR-0122P–MS-AZR-0125P, MS-AZR-0128P–MS-AZR-0130P |
-| `PayAsYouGo_2014-09-01` | MS-AZR-0017G |
+| `PayAsYouGo_2014-09-01` | MS-AZR-0001P, MS-AZR-0002P, MS-AZR-0003P, MS-AZR-0006P, MS-AZR-0008P, MS-AZR-0010P, MS-AZR-0011P, MS-AZR-0018P, MS-AZR-0019P, MS-AZR-0030P, MS-AZR-0044P, MS-AZR-0046P, MS-AZR-0048P, MS-AZR-0050P |
+| `MSDN_2014-09-01` | MS-AZR-0029P, MS-AZR-0059P, MS-AZR-0062P, MS-AZR-0063P |
 
 {% ifversion fpt or ghec %}
 
