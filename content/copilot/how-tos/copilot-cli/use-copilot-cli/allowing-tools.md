@@ -79,6 +79,8 @@ For details of the supported tool kinds, see [AUTOTITLE](/copilot/reference/copi
 
 The following command-line options give {% data variables.copilot.copilot_cli_short %} permission to use all available tools.
 
+{% data reusables.copilot.disable-bypass %}
+
 * `--allow-all-tools` — Full access to the available tools.
 
 * `--allow-all`  or `--yolo` — Equivalent to using all of the `--allow-all-tools`, `--allow-all-paths`, and `--allow-all-urls` options when starting the CLI.
