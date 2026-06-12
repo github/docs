@@ -2,7 +2,7 @@
 title: Configuring enterprise plugin standards
 shortTitle: Configure plugin standards
 allowTitleToDifferFromFilename: true
-intro: 'Configure enterprise plugin standards by defining a `settings.json` file in your enterprise''s `.github-private` repository.'
+intro: 'Configure enterprise plugin standards by defining a `{% data variables.copilot.managed_setting_file %}` file in your enterprise''s `.github-private` repository.'
 permissions: Enterprise owners
 versions:
   feature: copilot
@@ -16,9 +16,8 @@ category:
 
 You can apply settings to control users' available plugin marketplaces and default-installed plugins. These settings apply to users on your enterprise's {% data variables.product.prodname_copilot_short %} plan. For more information, see [AUTOTITLE](/copilot/concepts/agents/about-enterprise-plugin-standards).
 
-1. In your enterprise's `.github-private` repository, navigate to the `.github/copilot/` directory. If you don't have a `.github-private` repository yet, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents).
-1. Create or edit the `settings.json` file at `.github/copilot/settings.json`.
-1. Add your plugin policy configuration to the file. The `settings.json` file supports the following top-level properties:
+{% data reusables.copilot.create-managed-settings %}
+1. Add your plugin policy configuration to the file. The `{% data variables.copilot.managed_setting_file %}` file supports the following top-level properties:
 
    ```json copy
    {

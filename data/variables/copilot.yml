@@ -254,3 +254,6 @@ copilot_workspace_short: 'Workspace'
 
 # BYOK
 copilot_byok_supported_features: '{% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_cli_short %}, and {% data variables.product.prodname_vscode_shortname %}'
+
+## File for enterprise client management
+managed_setting_file: 'managed-settings.json'
