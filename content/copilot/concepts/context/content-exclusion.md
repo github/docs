@@ -26,6 +26,8 @@ You can use content exclusion to configure {% data variables.product.prodname_co
 
 Repository administrators, organization owners, and enterprise owners can configure content exclusion.
 
+Content exclusion requires a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan. This feature is not available for {% data variables.product.prodname_copilot_short %} plans assigned to personal accounts (such as {% data variables.copilot.copilot_free_short %}, {% data variables.copilot.copilot_pro_short %}, or {% data variables.copilot.copilot_pro_plus_short %}). Repositories must belong to an organization with an eligible plan for the content exclusion settings to appear.
+
 {% data reusables.copilot.content-exclusions-scope %}
 
 ### Availability of content exclusion
