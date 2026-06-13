@@ -54,6 +54,13 @@ Indicates that the directory given on the command line is not a database
 itself, but a directory that _contains_ one or more databases under
 construction. Those databases will be processed together.
 
+#### `--working-dir=<dir>`
+
+\[Advanced] The directory in which the specified command should be
+executed. If this argument is not provided, the command is executed in
+the value of `--source-root` passed to [codeql database create](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-create), if one exists. If no `--source-root` argument is provided, the command is executed in the
+current working directory.
+
 #### `--additional-dbs=<database>[:<database>...]`
 
 \[Advanced] Path to additional CodeQL databases under construction.

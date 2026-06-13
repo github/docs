@@ -6,6 +6,7 @@ versions:
   feature: copilot
 children:
   - /cli-command-reference
+  - /cli-hooks-reference
   - /cli-plugin-reference
   - /cli-programmatic-reference
   - /acp-server

@@ -1,8 +1,73 @@
 # Docs changelog
 
+**7 May 2026**
+
+Enterprise administrators can now centrally manage plugin standards for Copilot CLI. We added two new articles:
+
+* A conceptual article explaining how enterprise plugin standards work: [About enterprise-managed plugin standards for Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-enterprise-plugin-standards)
+* A how-to article for configuring available marketplaces and default-enabled plugins: [Configuring enterprise plugin standards for Copilot CLI](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-plugin-standards)
+
+<hr>
+
+**23 April 2026**
+
+We added documentation for the new `gh skill` command (public preview), which you can use to discover, install, update, and publish agent skills directly from GitHub CLI.
+
+See [Adding agent skills for GitHub Copilot](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/add-skills#managing-skills-with-github-cli).
+
+<hr>
+
+**21 April 2026**
+
+We reorganized the Copilot how-tos for GitHub.com into a new [Copilot on GitHub](https://docs.github.com/en/copilot/how-tos/copilot-on-github) category, structured around five task-based map topics that follow the way people actually use Copilot on GitHub:
+
+* [Set up Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/set-up-copilot): Enable Copilot, configure AI models, and set up code review.
+* [Chat with Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/chat-with-copilot): A streamlined [quickstart](https://docs.github.com/en/copilot/how-tos/copilot-on-github/chat-with-copilot/get-started-with-chat) with example prompts, plus focused articles for chat on GitHub and chat on GitHub Mobile.
+* [Customize Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot): Add custom instructions, customize coding agents (MCP, hooks, skills, firewall), and curate context with Spaces and content exclusions. A new [quickstart](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-copilot-overview) walks through a scenario that ties these features together.
+* [Copilot for GitHub tasks](https://docs.github.com/en/copilot/how-tos/copilot-on-github/copilot-for-github-tasks): Create issues, generate PR summaries, and use the GitHub MCP server from the web UI.
+* [Use Copilot agents](https://docs.github.com/en/copilot/how-tos/copilot-on-github/use-copilot-agents) — Six articles following the agent workflow end-to-end: kick off a task, research and iterate, monitor sessions, request code review, and review output. Includes a new [hands-on quickstart](https://docs.github.com/en/copilot/how-tos/copilot-on-github/use-copilot-agents/overview) you can complete in about ten minutes.
+
+Every article was revised for plain language, scannable structure, and value-focused intros. Web-specific content was separated from IDE and CLI content so you see only what's relevant to GitHub.com.
+
+<hr>
+
+**21 April 2026**
+
+We recently published two new guides for organizations adopting Copilot cloud agent.
+
+* Pre-enablement: [Building guardrails for GitHub Copilot cloud agent](https://docs.github.com/en/enterprise-cloud@latest/copilot/tutorials/cloud-agent/build-guardrails) helps you expand built-in protections to create a secure environment for agents to operate in.
+* Post-enablement: [Giving GitHub Copilot cloud agent access to resources in your organization](https://docs.github.com/en/enterprise-cloud@latest/copilot/tutorials/cloud-agent/give-access-to-resources) helps you get more out of Copilot by giving it access to MCP servers and internal packages, while promoting secure, consistent practices.
+
+<hr>
+
+**15 April 2026**
+
+LSP servers greatly improve Copilot CLI's ability to work with your code. For example, when Copilot renames a symbol throughout a project it can do this more quickly and reliably if it has access to an LSP server for the language the code is written in.
+
+We've added documentation to explain LSP servers in greater detail and show how to install these for Copilot CLI:
+
+* [Using LSP servers with GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/copilot-cli/lsp-servers)
+* [Adding LSP servers for GitHub Copilot CLI](https://docs.github.com/copilot/how-tos/copilot-cli/set-up-copilot-cli/add-lsp-servers)
+
+<hr>
+
+**13 April 2026**
+
+To coincide with the release of the ability to [steer your Copilot CLI sessions remotely](https://github.blog/changelog/2026-04-13-remote-control-cli-sessions-on-web-and-mobile-in-public-preview/) (from GitHub.com, or from GitHub Mobile), we have added these new articles:
+
+* _Conceptual information:_ [About remote access to GitHub Copilot CLI sessions](https://docs.github.com/copilot/concepts/agents/copilot-cli/about-remote-access)
+* _How-to information:_ [Steering a GitHub Copilot CLI session from another device](https://docs.github.com/copilot/how-tos/copilot-cli/steer-remotely)
+
+<hr>
+
 **9 April 2026**
 
-We have added documentation for the code security risk assessment (CSRA), a free self-serve tool that helps organization admins and security managers understand their organization's exposure to code vulnerabilities.
+We've added a conceptual article to the Copilot CLI documentation explaining the context window, compaction, and checkpoints.
+
+[Managing context in GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/copilot-cli/context-management)
+
+We've also added documentation for the code security risk assessment (CSRA), a free self-serve tool that helps organization admins and security managers understand their organization's exposure to code vulnerabilities.
+
 New content includes:
 
 * [Code security risk assessment](https://docs.github.com/en/code-security/concepts/code-scanning/code-security-risk-assessment): What the CSRA is, who can run it, what it scans, and how it relates to the secret risk assessment.

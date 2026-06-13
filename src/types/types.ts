@@ -155,7 +155,6 @@ export type Context = {
   redirectNotFound?: string
   earlyAccessPageLinks?: string
   changelogUrl?: string
-  whatsNewChangelog?: ChangelogItem[]
   secretScanningData?: SecretScanningData[]
   ghesReleases?: GHESRelease[]
   ghesReleaseNotes?: GHESReleasePatch[]
@@ -173,8 +172,6 @@ export type Context = {
   breadcrumbs?: Breadcrumb[]
   glossaries?: Glossary[]
   currentProductName?: string
-  productCommunityExamples?: ProductExample[]
-  productUserExamples?: ProductExample[]
   productGroups?: ProductGroup[]
   featuredLinks?: FeaturedLinksExpanded
   renderedPage?: string
@@ -270,12 +267,6 @@ export type ReleaseNotes = {
   }
 }
 
-export type ChangelogItem = {
-  title: string
-  date: string
-  href: string
-}
-
 export type SecretScanningData = {
   provider: string
   supportedSecret: string
@@ -345,6 +336,7 @@ export type Page = {
   industry?: string[]
   sidebarLink?: SidebarLink
   contentType?: string
+  docsTeamMetrics?: string[]
   children?: string[]
 }
 
@@ -435,12 +427,6 @@ export type AllVersions = {
 // It's useful because otherwise you might get a TypeScript error that
 // is not possible to happen at runtime.
 export type URLSearchParamsTypes = string | string[][] | Record<string, string> | URLSearchParams
-
-export type ProductExample = {
-  repo?: string
-  user?: string
-  description: string
-}
 
 export type FeatureData = {
   [key: string]: Versions

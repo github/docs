@@ -119,12 +119,12 @@ copilot -p "Fix the race condition in the worker pool" \
 
 Alternatively, you can set the `COPILOT_MODEL` environment variable to specify a model for the duration of the shell session.
 
-To persist a model selection across shell sessions, you can set the `model` key in the CLI configuration file. This file is located at `~/.copilot/config.json` (or `$COPILOT_HOME/.copilot/config.json` if you have set the `COPILOT_HOME` environment variable). Some models also allow you to set a reasoning effort level, which controls how much time the model spends thinking before responding.
+To persist a model selection across shell sessions, you can set the `model` key in the CLI configuration file. This file is located at `~/.copilot/settings.json` (or `$COPILOT_HOME/settings.json` if you have set the `COPILOT_HOME` environment variable). Some models also allow you to set a reasoning effort level, which controls how much time the model spends thinking before responding.
 
 ```json copy
 {
   "model": "gpt-5.3-codex",
-  "reasoning_effort": "low"
+  "effortLevel": "low"
 }
 ```
 
@@ -138,7 +138,7 @@ When determining which model to use for a given prompt, the CLI checks for model
 * Where a custom agent is used: the model specified in the custom agent definition (if any).
 * The `--model` command line option.
 * The `COPILOT_MODEL` environment variable.
-* The `model` key in the configuration file (`~/.copilot/config.json` or `$COPILOT_HOME/.copilot/config.json`).
+* The `model` key in the configuration file (`~/.copilot/settings.json` or `$COPILOT_HOME/settings.json`).
 * The CLI's default model.
 
 ## Using custom agents

@@ -278,31 +278,49 @@ export class GraphQLReferenceTransformer implements PageTransformer {
     }
   }
 
+  private static STANDARD_PAGINATION_ARGS = new Set(['after', 'before', 'first', 'last'])
+
+  /**
+   * Check if a field has only the standard pagination arguments
+   * (after, before, first, last) with no additional args.
+   */
+  private hasOnlyStandardPaginationArgs(field: FieldT): boolean {
+    if (!field.arguments || field.arguments.length !== 4) return false
+    return field.arguments.every((arg) =>
+      GraphQLReferenceTransformer.STANDARD_PAGINATION_ARGS.has(arg.name),
+    )
+  }
+
   /**
    * Prepare fields for rendering
    */
   private async prepareFields(fields: FieldT[]): Promise<Array<Record<string, unknown>>> {
-    return fields.map((field) => ({
-      name: field.name,
-      type: field.type,
-      href: field.href,
-      description: field.description ? fastTextOnly(field.description) : '',
-      defaultValue: field.defaultValue,
-      isDeprecated: field.isDeprecated || false,
-      deprecationReason: field.deprecationReason
-        ? fastTextOnly(field.deprecationReason)
-        : undefined,
-      arguments: field.arguments
-        ? field.arguments.map((arg) => ({
-            name: arg.name,
-            description: arg.description ? fastTextOnly(arg.description) : '',
-            defaultValue: arg.defaultValue,
-            type: {
-              name: arg.type.name,
-              href: arg.type.href,
-            },
-          }))
-        : undefined,
-    }))
+    return fields.map((field) => {
+      const hasPaginationOnly = this.hasOnlyStandardPaginationArgs(field)
+      return {
+        name: field.name,
+        type: field.type,
+        href: field.href,
+        description: field.description ? fastTextOnly(field.description) : '',
+        defaultValue: field.defaultValue,
+        isDeprecated: field.isDeprecated || false,
+        deprecationReason: field.deprecationReason
+          ? fastTextOnly(field.deprecationReason)
+          : undefined,
+        hasPaginationOnly,
+        arguments:
+          field.arguments && !hasPaginationOnly
+            ? field.arguments.map((arg) => ({
+                name: arg.name,
+                description: arg.description ? fastTextOnly(arg.description) : '',
+                defaultValue: arg.defaultValue,
+                type: {
+                  name: arg.type.name,
+                  href: arg.type.href,
+                },
+              }))
+            : undefined,
+      }
+    })
   }
 }

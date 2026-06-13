@@ -101,12 +101,13 @@ export default function rewriteLocalLinks(context?: Context) {
       const linkRefNode = node as LinkReference
       const definition = definitions.get(linkRefNode.identifier)
       if (definition) {
-        // Replace the LinkReference node with a Link node
-        // Using 'as any' because we're mutating the node type at runtime,
-        // which TypeScript doesn't allow as LinkReference and Link are incompatible types
-        ;(linkRefNode as any).type = 'link'
-        ;(linkRefNode as any).url = definition.url
-        ;(linkRefNode as any).title = definition.title
+        // Replace the LinkReference node with a Link node by mutating its
+        // properties at runtime. Using 'as unknown as' because LinkReference
+        // and Link are structurally incompatible in TypeScript.
+        const mutableNode = linkRefNode as unknown as Link
+        mutableNode.type = 'link'
+        mutableNode.url = definition.url
+        mutableNode.title = definition.title
       } else {
         console.warn(`Definition not found for identifier: ${linkRefNode.identifier}`)
       }

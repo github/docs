@@ -52,7 +52,7 @@ To reply to an existing line or file comment, you'll need to navigate to the com
 
      When you have finished, click **Finish your review** at the top right of the page, leave a summary of your review, and click **Submit review**.
 
-Anyone watching the pull request or repository will receive a notification of your comments. Batching your comments avoids multiple notifications being sent. {% ifversion copilot %}If you are commenting on a pull request created by {% data variables.product.prodname_copilot_short %}, batching your comments prevents {% data variables.product.prodname_copilot_short %} from starting to work on individual comments before you have completed your review. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-a-pr).{% endif %}
+Anyone watching the pull request or repository will receive a notification of your comments. Batching your comments avoids multiple notifications being sent. {% ifversion copilot %}If you are commenting on a pull request created by {% data variables.product.prodname_copilot_short %}, batching your comments prevents {% data variables.product.prodname_copilot_short %} from starting to work on individual comments before you have completed your review. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions).{% endif %}
 
 ### Resolving conversations
 

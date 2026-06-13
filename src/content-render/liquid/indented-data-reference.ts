@@ -1,20 +1,13 @@
 import assert from 'assert'
 
+import { type TagToken, type Liquid } from 'liquidjs'
 import { THROW_ON_EMPTY, IndentedDataReferenceError } from './error-handling'
 import { getDataByLanguage } from '@/data-directory/lib/get-data'
-
-// Note: Using 'any' for liquidjs-related types because liquidjs doesn't provide comprehensive TypeScript definitions
-interface LiquidTag {
-  markup: string
-  liquid: any
-  parse(tagToken: any): void
-  render(scope: any): Promise<string | undefined>
-}
 
 interface LiquidScope {
   environments: {
     currentLanguage: string
-    [key: string]: any
+    [key: string]: unknown
   }
 }
 
@@ -28,11 +21,11 @@ interface LiquidScope {
 // reference is used inside a block element (like a list or nested list) without
 // affecting the formatting when the reference is used elsewhere via {{ site.data.foo.bar }}.
 
-const IndentedDataReference: LiquidTag = {
+const IndentedDataReference = {
   markup: '',
-  liquid: null as any,
+  liquid: null as Liquid | null,
 
-  parse(tagToken: any): void {
+  parse(tagToken: TagToken): void {
     this.markup = tagToken.args.trim()
   },
 

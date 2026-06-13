@@ -46,7 +46,9 @@ If you have any questions about downloading your license, contact {% data variab
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.licensing-tab-both-platforms %}
-1. Optionally, if a yellow banner reports "Your license usage for Enterprise Cloud has changed. Generate a new license key to update server seats.", click **Generate new license** to generate a new license key.
+1. Optionally, if a yellow banner appears, click **Generate new license** to generate a new license key. A yellow banner appears in either of the following situations:
+   * Your license usage for {% data variables.product.prodname_ghe_cloud %} has changed.
+   * Your current server license key expires within 30 days.
 1. Scroll down to "Enterprise Server licenses". Next to the license you want to download, click **{% octicon "download" aria-hidden="true" aria-label="download" %} Download**.
 
 After you download your license file, you can upload the file to {% data variables.product.prodname_ghe_server %} to validate your application. For more information, see {% ifversion ghec %}[AUTOTITLE](/enterprise-server@latest/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server) in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}[AUTOTITLE](/enterprise-server@latest/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server).{% endif %}

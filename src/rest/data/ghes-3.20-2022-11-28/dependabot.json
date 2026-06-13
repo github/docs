@@ -8324,7 +8324,7 @@
     {
       "serverUrl": "http(s)://HOSTNAME/api/v3",
       "verb": "get",
-      "requestPath": "/organizations/{org}/dependabot/repository-access",
+      "requestPath": "/orgs/{org}/dependabot/repository-access",
       "title": "Lists the repositories Dependabot can access in an organization",
       "category": "dependabot",
       "subcategory": "repository-access",
@@ -8880,7 +8880,7 @@
     {
       "serverUrl": "http(s)://HOSTNAME/api/v3",
       "verb": "patch",
-      "requestPath": "/organizations/{org}/dependabot/repository-access",
+      "requestPath": "/orgs/{org}/dependabot/repository-access",
       "title": "Updates Dependabot's repository access list for an organization",
       "category": "dependabot",
       "subcategory": "repository-access",
@@ -8953,7 +8953,7 @@
     {
       "serverUrl": "http(s)://HOSTNAME/api/v3",
       "verb": "put",
-      "requestPath": "/organizations/{org}/dependabot/repository-access/default-level",
+      "requestPath": "/orgs/{org}/dependabot/repository-access/default-level",
       "title": "Set the default repository access level for Dependabot",
       "category": "dependabot",
       "subcategory": "repository-access",

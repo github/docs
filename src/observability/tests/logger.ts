@@ -4,6 +4,21 @@ import { createLogger } from '@/observability/logger'
 // Mock only the logger-context for most tests, but we'll test integration without mocks
 vi.mock('@/observability/logger/lib/logger-context')
 
+// Strip ANSI escape codes for easier assertion matching
+function stripAnsi(s: string): string {
+  // eslint-disable-next-line no-control-regex
+  return s.replace(/\u001B\[\d+m/g, '')
+}
+
+// Check that a dev-mode log line contains the expected level and message
+function expectDevLog(logs: string[], level: string, message: string): void {
+  const match = logs.find((log) => {
+    const clean = stripAnsi(log)
+    return clean.includes(level) && clean.includes(message)
+  })
+  expect(match, `Expected a log containing "${level}" and "${message}"`).toBeDefined()
+}
+
 describe('createLogger', () => {
   let originalEnv: typeof process.env
   let originalConsoleLog: typeof console.log
@@ -77,28 +92,32 @@ describe('createLogger', () => {
 
     it('should log simple messages (Pattern 1)', () => {
       logger.info('Hello world')
-      expect(consoleLogs).toContain('[INFO] Hello world')
+      expectDevLog(consoleLogs, 'INFO', 'Hello world')
     })
 
     it('should log messages with extra data (Pattern 2)', () => {
       logger.info('User logged in', { userId: 123, email: 'test@example.com' })
-      expect(consoleLogs).toContain('[INFO] User logged in')
+      expectDevLog(consoleLogs, 'INFO', 'User logged in')
+      // Extra data should also be present in the log line
+      const clean = stripAnsi(consoleLogs[0])
+      expect(clean).toContain('userId=')
+      expect(clean).toContain('email=')
     })
 
     it('should log multiple message parts (Pattern 3)', () => {
       logger.info('User', 'action', 123, true)
-      expect(consoleLogs).toContain('[INFO] User action 123 true')
+      expectDevLog(consoleLogs, 'INFO', 'User action 123 true')
     })
 
     it('should log multiple message parts with extra data (Pattern 4)', () => {
       logger.info('User', 'login', 'success', { userId: 123 })
-      expect(consoleLogs).toContain('[INFO] User login success')
+      expectDevLog(consoleLogs, 'INFO', 'User login success')
     })
 
     it('should log messages with Error objects (Pattern 5)', () => {
       const error = new Error('Database connection failed')
       logger.error('Database error', error)
-      expect(consoleLogs).toContain('[ERROR] Database error: Database connection failed')
+      expectDevLog(consoleLogs, 'ERROR', 'Database error: Database connection failed')
       expect(consoleErrors).toContain(error)
     })
 
@@ -106,7 +125,7 @@ describe('createLogger', () => {
       const error1 = new Error('First error')
       const error2 = new Error('Second error')
       logger.error('Multiple failures', error1, error2)
-      expect(consoleLogs).toContain('[ERROR] Multiple failures: First error, Second error')
+      expectDevLog(consoleLogs, 'ERROR', 'Multiple failures: First error, Second error')
       expect(consoleErrors).toContain(error1)
       expect(consoleErrors).toContain(error2)
     })
@@ -114,7 +133,7 @@ describe('createLogger', () => {
     it('should handle mixed arguments with errors and extra data', () => {
       const error = new Error('Test error')
       logger.error('Operation failed', 'with code', 500, error, { operation: 'delete' })
-      expect(consoleLogs).toContain('[ERROR] Operation failed with code 500: Test error')
+      expectDevLog(consoleLogs, 'ERROR', 'Operation failed with code 500: Test error')
       expect(consoleErrors).toContain(error)
     })
 
@@ -124,10 +143,38 @@ describe('createLogger', () => {
       logger.warn('Warning message')
       logger.error('Error message')
 
-      expect(consoleLogs).toContain('[DEBUG] Debug message')
-      expect(consoleLogs).toContain('[INFO] Info message')
-      expect(consoleLogs).toContain('[WARN] Warning message')
-      expect(consoleLogs).toContain('[ERROR] Error message')
+      expectDevLog(consoleLogs, 'DEBUG', 'Debug message')
+      expectDevLog(consoleLogs, 'INFO', 'Info message')
+      expectDevLog(consoleLogs, 'WARN', 'Warning message')
+      expectDevLog(consoleLogs, 'ERROR', 'Error message')
+    })
+  })
+
+  describe('dev-mode format includes timestamp, file, and context', () => {
+    let logger: ReturnType<typeof createLogger>
+
+    beforeEach(() => {
+      vi.stubEnv('NODE_ENV', 'development')
+      logger = createLogger('file:///path/to/test.js')
+    })
+
+    it('should include a timestamp in HH:MM:SS.mmm format', () => {
+      logger.info('Timestamp test')
+      const clean = stripAnsi(consoleLogs[0])
+      expect(clean).toMatch(/^\d{2}:\d{2}:\d{2}\.\d{3}/)
+    })
+
+    it('should include the file path', () => {
+      logger.info('File test')
+      const clean = stripAnsi(consoleLogs[0])
+      expect(clean).toContain('test.js')
+    })
+
+    it('should include structured context data inline', () => {
+      logger.info('Structured', { count: 42, name: 'widget' })
+      const clean = stripAnsi(consoleLogs[0])
+      expect(clean).toContain('count=42')
+      expect(clean).toContain('name=widget')
     })
   })
 
@@ -143,16 +190,16 @@ describe('createLogger', () => {
 
       // Check that a log was output in development format
       expect(consoleLogs).toHaveLength(1)
-      const logOutput = consoleLogs[0]
-      expect(logOutput).toBe('[INFO] Test message')
+      expectDevLog(consoleLogs, 'INFO', 'Test message')
     })
 
     it('should include extra data in development logs', () => {
       logger.info('User action', { userId: 123, action: 'login' })
 
       expect(consoleLogs).toHaveLength(1)
-      const logOutput = consoleLogs[0]
-      expect(logOutput).toBe('[INFO] User action')
+      const clean = stripAnsi(consoleLogs[0])
+      expect(clean).toContain('userId=123')
+      expect(clean).toContain('action=login')
     })
 
     it('should format errors properly in development logs', () => {
@@ -162,8 +209,7 @@ describe('createLogger', () => {
 
       expect(consoleLogs).toHaveLength(1)
       expect(consoleErrors).toHaveLength(1)
-      const logOutput = consoleLogs[0]
-      expect(logOutput).toBe('[ERROR] Something failed: Test error')
+      expectDevLog(consoleLogs, 'ERROR', 'Something failed: Test error')
       expect(consoleErrors[0]).toBe(error)
     })
 
@@ -180,8 +226,7 @@ describe('createLogger', () => {
       expect(consoleErrors).toHaveLength(2)
 
       // Both log entries should have the same message
-      expect(consoleLogs[0]).toBe('[ERROR] Multiple errors: First error, Second error')
-      expect(consoleLogs[1]).toBe('[ERROR] Multiple errors: First error, Second error')
+      expectDevLog(consoleLogs, 'ERROR', 'Multiple errors: First error, Second error')
       expect(consoleErrors[0]).toBe(error1)
       expect(consoleErrors[1]).toBe(error2)
     })
@@ -206,10 +251,11 @@ describe('createLogger', () => {
       logger.warn('Warn message')
       logger.error('Error message')
 
-      expect(consoleLogs).not.toContain('[DEBUG] Debug message')
-      expect(consoleLogs).not.toContain('[INFO] Info message')
-      expect(consoleLogs).not.toContain('[WARN] Warn message')
-      expect(consoleLogs).toContain('[ERROR] Error message')
+      const allClean = consoleLogs.map(stripAnsi).join('\n')
+      expect(allClean).not.toContain('Debug message')
+      expect(allClean).not.toContain('Info message')
+      expect(allClean).not.toContain('Warn message')
+      expectDevLog(consoleLogs, 'ERROR', 'Error message')
     })
 
     it('should respect LOG_LEVEL=warn setting', () => {
@@ -221,10 +267,11 @@ describe('createLogger', () => {
       logger.warn('Warn message')
       logger.error('Error message')
 
-      expect(consoleLogs).not.toContain('[DEBUG] Debug message')
-      expect(consoleLogs).not.toContain('[INFO] Info message')
-      expect(consoleLogs).toContain('[WARN] Warn message')
-      expect(consoleLogs).toContain('[ERROR] Error message')
+      const allClean = consoleLogs.map(stripAnsi).join('\n')
+      expect(allClean).not.toContain('Debug message')
+      expect(allClean).not.toContain('Info message')
+      expectDevLog(consoleLogs, 'WARN', 'Warn message')
+      expectDevLog(consoleLogs, 'ERROR', 'Error message')
     })
 
     it('should respect LOG_LEVEL=info setting', () => {
@@ -236,10 +283,11 @@ describe('createLogger', () => {
       logger.warn('Warn message')
       logger.error('Error message')
 
-      expect(consoleLogs).not.toContain('[DEBUG] Debug message')
-      expect(consoleLogs).toContain('[INFO] Info message')
-      expect(consoleLogs).toContain('[WARN] Warn message')
-      expect(consoleLogs).toContain('[ERROR] Error message')
+      const allClean = consoleLogs.map(stripAnsi).join('\n')
+      expect(allClean).not.toContain('Debug message')
+      expectDevLog(consoleLogs, 'INFO', 'Info message')
+      expectDevLog(consoleLogs, 'WARN', 'Warn message')
+      expectDevLog(consoleLogs, 'ERROR', 'Error message')
     })
   })
 
@@ -255,18 +303,18 @@ describe('createLogger', () => {
 
     it('should handle null and undefined values in extra data', () => {
       logger.info('Test message', { nullValue: null, undefinedValue: undefined })
-      expect(consoleLogs).toContain('[INFO] Test message')
+      expectDevLog(consoleLogs, 'INFO', 'Test message')
     })
 
     it('should handle arrays in extra data', () => {
       logger.info('Test message', { items: [1, 2, 3] })
-      expect(consoleLogs).toContain('[INFO] Test message')
+      expectDevLog(consoleLogs, 'INFO', 'Test message')
     })
 
     it('should handle Date objects in extra data', () => {
       const date = new Date('2023-01-01T00:00:00.000Z')
       logger.info('Test message', { timestamp: date })
-      expect(consoleLogs).toContain('[INFO] Test message')
+      expectDevLog(consoleLogs, 'INFO', 'Test message')
     })
 
     it('should handle nested objects properly', () => {
@@ -276,7 +324,7 @@ describe('createLogger', () => {
           profile: { name: 'John', age: 30 },
         },
       })
-      expect(consoleLogs).toContain('[INFO] Test message')
+      expectDevLog(consoleLogs, 'INFO', 'Test message')
     })
 
     it('should distinguish between plain objects and class instances', () => {
@@ -286,37 +334,39 @@ describe('createLogger', () => {
       const instance = new CustomClass('test')
 
       logger.info('Custom object', instance)
-      expect(consoleLogs).toContain('[INFO] Custom object [object Object]')
+      expectDevLog(consoleLogs, 'INFO', 'Custom object [object Object]')
     })
 
     it('should handle empty arguments gracefully', () => {
       logger.info('Just a message')
-      expect(consoleLogs).toContain('[INFO] Just a message')
+      expectDevLog(consoleLogs, 'INFO', 'Just a message')
     })
 
     it('should handle boolean and number arguments', () => {
       logger.info('Values:', true, false, 42, 0, -1)
-      expect(consoleLogs).toContain('[INFO] Values: true false 42 0 -1')
+      expectDevLog(consoleLogs, 'INFO', 'Values: true false 42 0 -1')
     })
   })
 
   describe('file path handling in development', () => {
-    it('should log file paths in development format', () => {
+    it('should include file path in development format', () => {
       const logger = createLogger('file:///Users/test/project/src/test.js')
       logger.info('Test message')
 
       expect(consoleLogs).toHaveLength(1)
-      const logOutput = consoleLogs[0]
-      expect(logOutput).toBe('[INFO] Test message')
+      const clean = stripAnsi(consoleLogs[0])
+      expect(clean).toContain('test.js')
+      expect(clean).toContain('Test message')
     })
 
-    it('should handle relative paths in development logs', () => {
+    it('should include relative path in development logs', () => {
       const logger = createLogger('file:///absolute/path/to/src/component/test.ts')
       logger.info('Test message')
 
       expect(consoleLogs).toHaveLength(1)
-      const logOutput = consoleLogs[0]
-      expect(logOutput).toBe('[INFO] Test message')
+      const clean = stripAnsi(consoleLogs[0])
+      expect(clean).toContain('test.ts')
+      expect(clean).toContain('Test message')
     })
   })
 
@@ -331,8 +381,7 @@ describe('createLogger', () => {
       logger.info('No context test')
 
       expect(consoleLogs).toHaveLength(1)
-      const logOutput = consoleLogs[0]
-      expect(logOutput).toBe('[INFO] No context test')
+      expectDevLog(consoleLogs, 'INFO', 'No context test')
     })
   })
 
@@ -350,7 +399,7 @@ describe('createLogger', () => {
       const error = new Error('First error')
       logger.error('Error occurred', error, 'additional', 'info', { extra: 'data' })
 
-      expect(consoleLogs).toContain('[ERROR] Error occurred additional info: First error')
+      expectDevLog(consoleLogs, 'ERROR', 'Error occurred additional info: First error')
       expect(consoleErrors).toContain(error)
     })
 
@@ -358,13 +407,13 @@ describe('createLogger', () => {
       const error = new Error('Middle error')
       logger.error('Error', 'in', error, 'middle', { context: 'test' })
 
-      expect(consoleLogs).toContain('[ERROR] Error in middle: Middle error')
+      expectDevLog(consoleLogs, 'ERROR', 'Error in middle: Middle error')
       expect(consoleErrors).toContain(error)
     })
 
     it('should handle multiple data types in arguments', () => {
       logger.info('Mixed', 123, true, 'string', { data: 'object' })
-      expect(consoleLogs).toContain('[INFO] Mixed 123 true string')
+      expectDevLog(consoleLogs, 'INFO', 'Mixed 123 true string')
     })
 
     it('should prioritize plain objects as extra data over other objects', () => {

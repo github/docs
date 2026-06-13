@@ -60,17 +60,7 @@ In order to use grouped security updates, you must first enable the following fe
 
 ### Enabling or disabling grouped {% data variables.product.prodname_dependabot_security_updates %} for an organization
 
-{% ifversion security-configurations %} You can enable grouped {% data variables.product.prodname_dependabot_security_updates %} into a single pull request. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#grouping-dependabot-security-updates).
-
-{% else %}
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
-1. Under "{% data variables.product.UI_advanced_security %}," to the right of "Grouped security updates," click **Disable all** or **Enable all**.
-1. Optionally, to enable grouped {% data variables.product.prodname_dependabot_security_updates %} for new repositories in your organization, select **Automatically enable for new repositories**.
-
-{% endif %}
+You can enable grouped {% data variables.product.prodname_dependabot_security_updates %} into a single pull request. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#grouping-dependabot-security-updates).
 
 ## Overriding the default behavior with a configuration file
 

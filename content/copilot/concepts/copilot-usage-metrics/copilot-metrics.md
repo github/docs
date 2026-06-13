@@ -98,7 +98,7 @@ You can expect data to be available within **two full days**. This means that da
 
 {% data variables.product.prodname_copilot_short %} usage metrics can be grouped into a few main categories: Adoption, engagement, acceptance rate, Lines of Code (LoC), and pull request lifecycle metrics.
 
-**Adoption** measures how many licensed developers are actively using {% data variables.product.prodname_copilot_short %}. For example, daily active users (DAU) tells you how many unique users interacted with {% data variables.product.prodname_copilot_short %} on a given day. Ideally, you'll see a consistent upward trend in these metrics during rollout.
+**Adoption** measures how many licensed developers are actively using {% data variables.product.prodname_copilot_short %}. For example, daily active users (DAU) tells you how many unique users interacted with {% data variables.product.prodname_copilot_short %} on a given day. Ideally, you'll see a consistent upward trend in these metrics during rollout. {% data variables.copilot.copilot_code-review_short %} adoption is tracked separately, with distinct active and passive user counts. Active users manually requested a review or applied a suggestion; passive users had {% data variables.copilot.copilot_code-review_short %} automatically assigned to review their pull request. When a user has both signals in the same period, they are counted as active only.
 
 **Engagement** measures describe how deeply developers use {% data variables.product.prodname_copilot_short %} once they’ve adopted it. Key engagement metrics show not only frequency of use but also breadth across features. For example, average chat requests per active user measures how often users open and interact with {% data variables.copilot.copilot_chat_short %}. You'd want to see regular and increasing chat use across languages and IDEs.
 
@@ -127,6 +127,7 @@ These metrics can be used together to answer key questions about your teams' usa
 | Do developers trust {% data variables.product.prodname_copilot_short %}’s output? | Acceptance rate trends |
 | Are enablement efforts working? | Growth in adoption and engagement after training or communication campaigns |
 | Is {% data variables.product.prodname_copilot_short %} influencing delivery speed or pull request throughput? | Pull request merge counts and median time to merge |
+| How is {% data variables.copilot.copilot_code-review_short %} being adopted? | Active versus passive code review user counts |
 
 Look for patterns across these signals rather than focusing on any single number. For example, a steady DAU paired with a rising acceptance rate indicates growing trust and value.
 

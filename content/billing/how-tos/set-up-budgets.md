@@ -136,3 +136,4 @@ You can edit or delete a budget at any time, but you cannot change the scope of 
 1. Navigate to the "Budgets and alerts" view. See [Viewing budgets](#viewing-budgets).
 1. In the list of budgets, click {% octicon "kebab-horizontal" aria-label="View actions" %} next to the budget you want to edit, and click **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Edit** or **{% octicon "trash" aria-hidden="true" aria-label="trash" %} Delete**.
 1. Follow the prompts.
+

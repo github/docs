@@ -5,6 +5,10 @@ intro: 'Learn how to use {% data variables.product.prodname_copilot %} on {% dat
 versions:
   feature: copilot
 children:
+  - /set-up-copilot
   - /chat-with-copilot
+  - /customize-copilot
+  - /copilot-for-github-tasks
+  - /use-copilot-agents
 contentType: how-tos
 ---

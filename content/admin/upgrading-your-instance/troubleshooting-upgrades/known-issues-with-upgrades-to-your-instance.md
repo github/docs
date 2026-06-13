@@ -27,15 +27,6 @@ We have extended the support window for versions 3.14, 3.15, 3.16, and 3.17. The
 
 We will continue to release patches for 3.14, 3.15, 3.16, and 3.17 throughout this extended support window.
 
-{% ifversion ghes < 3.15 %}
-
-## Elasticsearch Upgrade
-
-As part of upgrading GitHub Enterprise Server to version 3.13 or later, the Elasticsearch service will be upgraded. {% data variables.product.company_short %} strongly recommends following the guidance in [AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/preparing-for-the-elasticsearch-upgrade).
-{% endif %}
-
-{% ifversion ghes > 3.14 %}
-
 ## Required root disk size increased to 400GB
 
 > [!Note]
@@ -68,7 +59,6 @@ In case you did not have the opportunity to run the encryption diagnostics scrip
 If undecryptable records are detected, you will be prompted whether you want to proceed with the upgrade or not. If you proceed, the upgrade process deletes the undecryptable records. Otherwise, the upgrade process will exit.
 
 If you have any questions during the upgrade, you can reach out to {% data variables.contact.github_support %}. Once you have had the time and opportunity to understand the impact, you can retrigger the upgrade.
-{% endif %}
 
 {% ifversion ghes < 3.17 %}
 

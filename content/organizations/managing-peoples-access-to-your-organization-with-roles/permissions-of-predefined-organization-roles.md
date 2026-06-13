@@ -1,10 +1,12 @@
 ---
 title: Permissions of predefined organization roles
-intro: "Learn about the predefined organization roles and the permissions each role grants in your organization."
+intro: Learn about the predefined organization roles and the permissions each role grants in your organization.
 versions:
-  feature: 'org-pre-defined-roles'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 shortTitle: Predefined roles permissions
-product: 'Organizations on {% data variables.product.prodname_ghe_cloud %}{% ifversion ghes %} and {% data variables.product.prodname_ghe_server %}{% endif %}'
+product: Organizations on {% data variables.product.prodname_ghe_cloud %}{% ifversion ghes %} and {% data variables.product.prodname_ghe_server %}{% endif %}
 category:
   - Assign roles and permissions
 ---

@@ -80,30 +80,7 @@ For more information about enabling or disabling {% data variables.product.prodn
 
 ## Adding {% data variables.dependabot.custom_rules %} to your organization
 
-{% ifversion security-configurations %} You can add {% data variables.dependabot.custom_rules %} for all eligible repositories in your organization. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#creating-and-managing-dependabot-auto-triage-rules).
-
-{% else %}
-
-> [!NOTE]
-> During the {% data variables.release-phases.public_preview %}, you can create up to 25 {% data variables.dependabot.custom_rules %} for your organization.
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
-{% data reusables.dependabot.navigate-to-org-level-dependabot-alert-rules %}
-{% data reusables.dependabot.click-new-alert-rule %}
-{% data reusables.dependabot.dependabot-alert-rule-set-name %}
-1. Under "State", use the dropdown menu to choose how you want to apply the rule.
-   * Choose **Enforced** to prevent repository administrators from being able to edit, disable, or delete the rule in the repository's settings page.
-   * Choose **Enabled** to set the rule on-by-default for all repositories, while also allowing repository administrators to disable the rule in the repository's settings page.
-   * Alternatively, you can choose to set the rule as **Disabled**, which cannot be overridden at the repository level. Disabled rules are hidden for all repositories.
-{% data reusables.dependabot.target-alerts-metadata %}
-1. Under "Rules", select the action you want to take on alerts that match the metadata:
-   * Select **Dismiss alerts** to auto-dismiss alerts that match the metadata. You can choose to dismiss alerts indefinitely, or until a patch is available.
-   * Select **Open a pull request to resolve this alert** if you want {% data variables.product.prodname_dependabot %} to suggest changes to resolve alerts that match the metadata. Note that this option is unavailable if you have selected the option to dismiss the alerts indefinitely.
-{% data reusables.dependabot.dependabot-alert-rules-click-create-rule %}
-
-{% endif %}
+ You can add {% data variables.dependabot.custom_rules %} for all eligible repositories in your organization. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#creating-and-managing-dependabot-auto-triage-rules).
 
 ## Editing or deleting {% data variables.dependabot.custom_rules %} for your repository
 
@@ -117,16 +94,5 @@ For more information about enabling or disabling {% data variables.product.prodn
 
 ## Editing or deleting {% data variables.dependabot.custom_rules %} for your organization
 
-{% ifversion security-configurations %} You can edit or delete {% data variables.dependabot.custom_rules %} for all eligible repositories in your organization. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#creating-and-managing-dependabot-auto-triage-rules).
+ You can edit or delete {% data variables.dependabot.custom_rules %} for all eligible repositories in your organization. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#creating-and-managing-dependabot-auto-triage-rules).
 
-{% else %}
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
-{% data reusables.dependabot.navigate-to-org-level-dependabot-alert-rules %}
-1. Under "Organization rules", to the right of the rule that you want to edit or delete, click {% octicon "pencil" aria-label="Edit custom rule" %}.
-{% data reusables.dependabot.custom-alert-rules-edit-rule %}
-{% data reusables.dependabot.custom-alert-rules-delete-rule %}
-
-{% endif %}

@@ -7,8 +7,6 @@ intro: >-
 introLinks:
   overview: /rest/about-the-rest-api/about-the-rest-api
   quickstart: /rest/quickstart
-changelog:
-  label: api, apis
 layout: discovery-landing
 includedCategories:
   - Learn about the REST API
@@ -66,6 +64,7 @@ children:
   - /collaborators
   - /commits
   - /copilot
+  - /copilot-spaces
   - /credentials
   - /dependabot
   - /dependency-graph

@@ -59,7 +59,7 @@ The following sections describe revocation options for each credential type base
 * **Users** can revoke their authorization to an {% data variables.product.prodname_oauth_app %} in their personal account settings, which will revoke any tokens associated with the app. See [AUTOTITLE](/apps/oauth-apps/using-oauth-apps/reviewing-your-authorized-oauth-apps).
 {% data reusables.credentials.revoke-via-api %}
 * **Organization owners** can deny a previously approved {% data variables.product.prodname_oauth_app %}'s access to the organization. See [AUTOTITLE](/enterprise-cloud@latest/organizations/managing-oauth-access-to-your-organizations-data/denying-access-to-a-previously-approved-oauth-app-for-your-organization).
-* Enterprise and organization owners cannot directly revoke SSO authorization for individual {% data variables.product.prodname_oauth_app %} tokens.
+* On {% data variables.product.prodname_ghe_cloud %}, enterprise and organization owners cannot directly revoke SSO authorization for individual {% data variables.product.prodname_oauth_app %} tokens. SSO credential authorization does not apply to {% data variables.product.prodname_ghe_server %}.
 * **Revoked automatically** if pushed to a public repository or gist, or if unused for one year. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation).
 
 ### {% data variables.product.prodname_github_app %} user access tokens
@@ -67,7 +67,7 @@ The following sections describe revocation options for each credential type base
 * **Users** can revoke their authorization to an {% data variables.product.prodname_github_app %} in their personal account settings. Note that this revokes authorization for **all** organizations, not just a specific one. See [AUTOTITLE](/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps).
 {% data reusables.credentials.revoke-via-api %}
 * **Organization owners** can't revoke user authorizations directly, but can suspend or uninstall the app to prevent access to organization resources. See [AUTOTITLE](/apps/using-github-apps/reviewing-and-modifying-installed-github-apps).
-* Enterprise and organization owners cannot directly revoke SSO authorization for individual {% data variables.product.prodname_github_app %} user access tokens.
+* On {% data variables.product.prodname_ghe_cloud %}, enterprise and organization owners cannot directly revoke SSO authorization for individual {% data variables.product.prodname_github_app %} user access tokens. SSO credential authorization does not apply to {% data variables.product.prodname_ghe_server %}.
 * **Automatically expires** after 8 hours by default. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation#user-token-expired-due-to-github-app-configuration).
 
 ### {% data variables.product.prodname_github_app %} refresh tokens
@@ -106,7 +106,7 @@ For more information on `GITHUB_TOKEN`, see [AUTOTITLE](/actions/concepts/securi
 
 ## SSO authorization
 
-When single sign-on (SSO) is required at the enterprise level, enforced at the organization level, or enabled for an organization and a member has linked an identity, certain credential types must be authorized for an organization before they can access organization resources. The following table indicates which credential types can be authorized for an organization.
+On {% data variables.product.prodname_ghe_cloud %}, when single sign-on (SSO) is required at the enterprise level, enforced at the organization level, or enabled for an organization and a member has linked an identity, certain credential types must be authorized for an organization before they can access organization resources. The following table indicates which credential types can be authorized for an organization. SSO credential authorization does not apply to {% data variables.product.prodname_ghe_server %}.
 
 | Token type | Supports SSO authorization | Admins can revoke SSO authorization |
 |-----------------|---------------------------|-------------------------------------|
@@ -120,9 +120,9 @@ When single sign-on (SSO) is required at the enterprise level, enforced at the o
 | Deploy key | {% octicon "x" aria-label="No" %} (repository-scoped) | Not applicable |
 | `GITHUB_TOKEN` ({% data variables.product.prodname_actions %}) | {% octicon "x" aria-label="No" %} (repository-scoped) | Not applicable |
 
-[^1]: SSO authorization is granted automatically when the user authorizes the app during an active SAML or OIDC session. These authorizations are not visible to users or admins in the {% data variables.product.github %} UI, and are not returned by the [List SAML SSO authorizations for an organization](/rest/orgs/orgs#list-saml-sso-authorizations-for-an-organization) REST API endpoint.
+[^1]: On {% data variables.product.prodname_ghe_cloud %}, SSO authorization is granted automatically when the user authorizes the app during an active SAML or OIDC session. These authorizations are not visible to users or admins in the {% data variables.product.github %} UI, and are not returned by the [AUTOTITLE](/rest/orgs/orgs#list-saml-sso-authorizations-for-an-organization) REST API endpoint.
 
-For information on how to authorize a credential for SSO, see [AUTOTITLE](/enterprise-cloud@latest/authentication/authenticating-with-single-sign-on/authorizing-a-personal-access-token-for-use-with-single-sign-on), [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token), and [AUTOTITLE](/enterprise-cloud@latest/authentication/authenticating-with-single-sign-on/authorizing-an-ssh-key-for-use-with-single-sign-on).
+On {% data variables.product.prodname_ghe_cloud %}, for information on how to authorize a credential for SSO, see [AUTOTITLE](/enterprise-cloud@latest/authentication/authenticating-with-single-sign-on/authorizing-a-personal-access-token-for-use-with-single-sign-on), [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token), and [AUTOTITLE](/enterprise-cloud@latest/authentication/authenticating-with-single-sign-on/authorizing-an-ssh-key-for-use-with-single-sign-on).
 
 ### Revoking SSO authorization
 
@@ -131,14 +131,14 @@ On {% data variables.product.prodname_ghe_cloud %} with SSO enforced, when a cre
 * **Delete or revoke the credential itself**: Permanently removes all access associated with the credential. See the individual credential type sections above for who can perform this action.
 * **Revoke the credential's SSO authorization**: Blocks the credential from accessing a specific organization's resources without deleting it. Once revoked, the user cannot re-authorize the same credential; they must create a new one.
 
-Enterprise administrators and organization owners can revoke SSO authorization for the credential types marked in the table above:
+On {% data variables.product.prodname_ghe_cloud %}, enterprise administrators and organization owners can revoke SSO authorization for the credential types marked in the table above:
 
 * **Organization owners** can manage SSO authorizations for organizations with organization-level SSO via the {% data variables.product.github %} UI. See [AUTOTITLE](/enterprise-cloud@latest/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization).
 * **Enterprise owners** can manage SSO authorizations for enterprises with enterprise-level SSO (including {% data variables.product.prodname_emus %}) via the {% data variables.product.github %} UI. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-authorized-credentials).
 
-You can also manage SSO authorizations via the REST API. See [AUTOTITLE](/rest/orgs/orgs?apiVersion=2022-11-28#list-saml-sso-authorizations-for-an-organization).
+On {% data variables.product.prodname_ghe_cloud %}, you can also manage SSO authorizations via the REST API.
 
-During a security incident, enterprise owners can revoke SSO authorizations in bulk. See [Bulk actions for security incidents](#bulk-actions-for-security-incidents).
+On {% data variables.product.prodname_ghe_cloud %}, during a security incident, enterprise owners can revoke SSO authorizations in bulk. See [Bulk actions for security incidents](#bulk-actions-for-security-incidents).
 
 ## Bulk actions for security incidents
 

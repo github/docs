@@ -14,4 +14,10 @@ By default, {% data variables.product.prodname_actions %} allows multiple jobs w
 
 {% data variables.product.prodname_actions %} also allows you to disable concurrent execution. This can be useful for controlling your account’s or organization’s resources in situations where running multiple workflows or jobs at the same time could cause conflicts or consume more Actions minutes and storage than expected. For example, you might want to prevent multiple deployments from running at the same time, or cancel linters checking outdated commits.
 
+{% ifversion actions-nga %}
+
+When you limit concurrency, by default only one run can be pending in a concurrency group—any additional pending runs cancel the previous one. If you need runs to execute sequentially without being canceled, you can opt in to queuing, which allows multiple runs to wait in line and execute in order.
+
+{% endif %}
+
 To start controlling concurrency in your own workflows with the `concurrency` keyword, see [AUTOTITLE](/actions/how-tos/writing-workflows/choosing-when-your-workflow-runs/control-the-concurrency-of-workflows-and-jobs).

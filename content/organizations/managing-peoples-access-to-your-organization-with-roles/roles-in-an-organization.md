@@ -23,23 +23,17 @@ Repository-level roles give organization members, outside collaborators and team
 
 Team-level roles are roles that give permissions to manage a team. You can give any individual member of a team the team maintainer role, which gives the member a number of administrative permissions over a team. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member).
 
-{% ifversion org-pre-defined-roles %}
 Organization-level roles are sets of permissions that can be assigned to individuals or teams to manage an organization and the organization's repositories, teams, and settings. For more information about all the roles available at the organization level, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-predefined-organization-roles).
-{% endif %}
 
 {% ifversion ghec or ghes %}
 If your organization is owned by an enterprise account, enterprise owners can choose to join your organization with any role. For more information, see [AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise).
 {% endif %}
-
-{% ifversion org-pre-defined-roles %}
 
 ## About predefined organization roles
 
 Predefined organization roles are roles that are available by default in every organization. You don't need to create them yourself. They can include both organization permissions that let the recipient manage the organization, as well as repository permissions that apply to all of the repositories in the organization.
 
 For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-predefined-organization-roles).
-
-{% endif %}
 
 ## About custom organization roles
 
@@ -51,7 +45,6 @@ This feature is only available to organizations on {% data variables.product.pro
 {% endif %}
 
 For more information on the permissions available with custom roles, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles).
-
 
 ## Descriptions of predefined organization roles
 

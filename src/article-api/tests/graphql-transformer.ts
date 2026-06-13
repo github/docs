@@ -233,7 +233,7 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
   })
 
   describe('Overview pages', () => {
-    test('changelog page renders with changes', async () => {
+    test('changelog index page renders with latest year changes', async () => {
       const res = await getCached('/en/graphql/overview/changelog')
       expect(res.statusCode).toBe(200)
 
@@ -250,16 +250,38 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
         'Breaking changes include changes that will break existing queries',
       )
 
-      // Check for date-based changelog sections
-      expect(res.body).toContain('## Schema changes for 2025-11-30')
+      // Index page shows latest year (2026) entries only
+      expect(res.body).toContain('## Schema changes for 2026-')
 
       // Check for change items
       expect(res.body).toContain('### The GraphQL schema includes these changes:')
-      expect(res.body).toContain('Type SuggestedReviewerActor was added')
+
+      // Should NOT contain entries from other years
+      expect(res.body).not.toContain('## Schema changes for 2025-')
+
+      // Check for year navigation
+      expect(res.body).toContain('2026')
+      expect(res.body).toContain('2025')
+    })
+
+    test('changelog year page renders with that year only', async () => {
+      const res = await getCached('/en/graphql/overview/changelog/2025')
+      expect(res.statusCode).toBe(200)
+
+      // Check for year-specific heading
+      expect(res.body).toContain('# GraphQL changelog for 2025')
+
+      // Check for date-based changelog sections from 2025
+      expect(res.body).toContain('## Schema changes for 2025-')
+
+      // Should NOT contain entries from other years
+      expect(res.body).not.toContain('## Schema changes for 2026-')
+      expect(res.body).not.toContain('## Schema changes for 2024-')
     })
 
     test('changelog removes HTML tags from changes', async () => {
-      const res = await getCached('/en/graphql/overview/changelog')
+      // Use a year page that has the specific test data
+      const res = await getCached('/en/graphql/overview/changelog/2025')
       expect(res.statusCode).toBe(200)
 
       // Check that HTML tags are removed

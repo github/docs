@@ -9,8 +9,6 @@ redirect_from:
   - /categories/supporting-the-open-source-community-with-github-sponsors
   - /github/supporting-the-open-source-community-with-github-sponsors
   - /sponsors/guides
-changelog:
-  label: sponsors
 layout: discovery-landing
 contentType: landing
 versions:

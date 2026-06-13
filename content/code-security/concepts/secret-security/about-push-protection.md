@@ -26,8 +26,8 @@ Push protection blocks secrets detected in:
 
 * Pushes from the command line
 * Commits made in the {% data variables.product.prodname_dotcom %} UI{% ifversion push-protection-delegated-bypass-file-upload-support %}
-* File uploads to a repository on {% data variables.product.github %}{% endif %}{% ifversion secret-scanning-push-protection-content-endpoints %}
-* Requests to the REST API{% endif %}
+* File uploads to a repository on {% data variables.product.github %}{% endif %}
+* Requests to the REST API
 * Interactions with the {% data variables.product.github %} MCP server (public repositories only)
 
 When push protection detects a potential secret during a push attempt, it will block the push and provide a detailed message explaining the reason for the block. You will need to review the code in question, remove any sensitive information, and reattempt the push.
@@ -91,7 +91,6 @@ After you enable push protection for repositories, you can customize it by:
 
 ## Next steps
 
-{% ifversion security-configurations %}
 To enable push protection:
 * **For a repository**, see [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository).
 {% ifversion security-configurations-cloud -%}
@@ -100,9 +99,6 @@ To enable push protection:
 * **For an organization or enterprise**, you need to apply a {% data variables.product.prodname_security_configuration %}. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/creating-a-custom-security-configuration) and [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/creating-a-custom-security-configuration-for-your-enterprise).
 {% else -%}
 * **For an organization**, you need to apply a {% data variables.product.prodname_security_configuration %}. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/creating-a-custom-security-configuration).
-{% endif %}
-{% else %}
-To get started with push protection, see [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository).
 {% endif %}
 
 For a list of secrets and service providers supported by push protection, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets).

@@ -42,7 +42,7 @@
         },
         {
           "name": "before",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -51,7 +51,7 @@
         },
         {
           "name": "after",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -60,7 +60,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -69,7 +69,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -131,7 +131,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists code scanning alerts for the default branch for all eligible repositories in an enterprise. Eligible repositories are repositories that are owned by organizations that you own or for which you are a security manager. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization\">Managing security managers in your organization</a>.\"</p>\n<p>The authenticated user must be a member of the enterprise to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> or <code>repo</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Lists code scanning alerts for the default branch for all eligible repositories in an enterprise. Eligible repositories are repositories that are owned by organizations that you own or for which you are a security manager. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization\">Managing security managers in your organization</a>.\"</p>\n<p>The authenticated user must be a member of the enterprise to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> or <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1476,7 +1476,7 @@
         },
         {
           "name": "before",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -1485,7 +1485,7 @@
         },
         {
           "name": "after",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -1494,7 +1494,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -1503,7 +1503,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -1584,7 +1584,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists code scanning alerts for the default branch for all eligible repositories in an organization. Eligible repositories are repositories that are owned by organizations that you own or for which you are a security manager. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization\">Managing security managers in your organization</a>.\"</p>\n<p>The authenticated user must be an owner or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> or <code>repo</code>s cope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
+      "descriptionHTML": "<p>Lists code scanning alerts for the default branch for all eligible repositories in an organization. Eligible repositories are repositories that are owned by organizations that you own or for which you are a security manager. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization\">Managing security managers in your organization</a>.\"</p>\n<p>The authenticated user must be an owner or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> or <code>repo</code>s cope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2942,7 +2942,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -2951,7 +2951,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -2993,7 +2993,7 @@
         },
         {
           "name": "before",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -3002,7 +3002,7 @@
         },
         {
           "name": "after",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -6040,7 +6040,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -6049,7 +6049,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -6310,7 +6310,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -6319,7 +6319,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -6624,7 +6624,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a specified code scanning analysis for a repository.</p>\n<p>The default JSON response contains fields that describe the analysis.\nThis includes the Git reference and commit SHA to which the analysis relates,\nthe datetime of the analysis, the name of the code scanning tool,\nand the number of alerts.</p>\n<p>The <code>rules_count</code> field in the default response give the number of rules\nthat were run in the analysis.\nFor very old analyses this data is not available,\nand <code>0</code> is returned in this field.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/sarif+json</code></strong>: Instead of returning a summary of the analysis, this endpoint returns a subset of the analysis data that was uploaded. The data is formatted as <a href=\"https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html\">SARIF version 2.1.0</a>. It also returns additional data such as the <code>github/alertNumber</code> and <code>github/alertUrl</code> properties.</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
+      "descriptionHTML": "<p>Gets a specified code scanning analysis for a repository.</p>\n<p>The default JSON response contains fields that describe the analysis.\nThis includes the Git reference and commit SHA to which the analysis relates,\nthe datetime of the analysis, the name of the code scanning tool,\nand the number of alerts.</p>\n<p>The <code>rules_count</code> field in the default response give the number of rules\nthat were run in the analysis.\nFor very old analyses this data is not available,\nand <code>0</code> is returned in this field.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/sarif+json</code></strong>: Instead of returning a summary of the analysis, this endpoint returns a subset of the analysis data that was uploaded. The data is formatted as <a href=\"https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html\">SARIF version 2.1.0</a>. It also returns additional data such as the <code>github/alertNumber</code> and <code>github/alertUrl</code> properties.</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
       "codeExamples": [
         {
           "request": {
@@ -7358,7 +7358,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a CodeQL database for a language in a repository.</p>\n<p>By default this endpoint returns JSON metadata about the CodeQL database. To\ndownload the CodeQL database binary content, set the <code>Accept</code> header of the request\nto <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\"><code>application/zip</code></a>, and make sure\nyour HTTP client is configured to follow redirects or use the <code>Location</code> header\nto make a second request to get the redirect URL.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
+      "descriptionHTML": "<p>Gets a CodeQL database for a language in a repository.</p>\n<p>By default this endpoint returns JSON metadata about the CodeQL database. To\ndownload the CodeQL database binary content, set the <code>Accept</code> header of the request\nto <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\"><code>application/zip</code></a>, and make sure\nyour HTTP client is configured to follow redirects or use the <code>Location</code> header\nto make a second request to get the redirect URL.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
       "codeExamples": [
         {
           "request": {
@@ -7727,7 +7727,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Creates a new CodeQL variant analysis, which will run a CodeQL query against one or more repositories.</p>\n<p>Get started by learning more about <a href=\"https://docs.github.com/enterprise-cloud@latest//code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/running-codeql-queries-at-scale-with-multi-repository-variant-analysis\">running CodeQL queries at scale with Multi-Repository Variant Analysis</a>.</p>\n<p>Use the <code>owner</code> and <code>repo</code> parameters in the URL to specify the controller repository that\nwill be used for running GitHub Actions workflows and storing the results of the CodeQL variant analysis.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Creates a new CodeQL variant analysis, which will run a CodeQL query against one or more repositories.</p>\n<p>Get started by learning more about <a href=\"https://docs.github.com/enterprise-cloud@latest/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/running-codeql-queries-at-scale-with-multi-repository-variant-analysis\">running CodeQL queries at scale with Multi-Repository Variant Analysis</a>.</p>\n<p>Use the <code>owner</code> and <code>repo</code> parameters in the URL to specify the controller repository that\nwill be used for running GitHub Actions workflows and storing the results of the CodeQL variant analysis.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -12919,7 +12919,7 @@
         {
           "type": "string",
           "name": "sarif",
-          "description": "<p>A Base64 string representing the SARIF file to upload. You must first compress your SARIF file using <a href=\"http://www.gnu.org/software/gzip/manual/gzip.html\"><code>gzip</code></a> and then translate the contents of the file into a Base64 encoding string. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//code-security/secure-coding/sarif-support-for-code-scanning\">SARIF support for code scanning</a>.\"</p>",
+          "description": "<p>A Base64 string representing the SARIF file to upload. You must first compress your SARIF file using <a href=\"http://www.gnu.org/software/gzip/manual/gzip.html\"><code>gzip</code></a> and then translate the contents of the file into a Base64 encoding string. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/code-security/secure-coding/sarif-support-for-code-scanning\">SARIF support for code scanning</a>.\"</p>",
           "isRequired": true
         },
         {
@@ -12943,7 +12943,7 @@
           "description": "<p>Whether the SARIF file will be validated according to the code scanning specifications.\nThis parameter is intended to help integrators ensure that the uploaded SARIF files are correctly rendered by code scanning.</p>"
         }
       ],
-      "descriptionHTML": "<p>Uploads SARIF data containing the results of a code scanning analysis to make the results available in a repository. For troubleshooting information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/troubleshooting-sarif\">Troubleshooting SARIF uploads</a>.\"</p>\n<p>There are two places where you can upload code scanning results.</p>\n<ul>\n<li>If you upload to a pull request, for example <code>--ref refs/pull/42/merge</code> or <code>--ref refs/pull/42/head</code>, then the results appear as alerts in a pull request check. For more information, see \"<a href=\"/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests\">Triaging code scanning alerts in pull requests</a>.\"</li>\n<li>If you upload to a branch, for example <code>--ref refs/heads/my-branch</code>, then the results appear in the <strong>Security</strong> tab for your repository. For more information, see \"<a href=\"/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository\">Managing code scanning alerts for your repository</a>.\"</li>\n</ul>\n<p>You must compress the SARIF-formatted analysis data that you want to upload, using <code>gzip</code>, and then encode it as a Base64 format string. For example:</p>\n<pre><code>gzip -c analysis-data.sarif | base64 -w0\n</code></pre>\n<p>SARIF upload supports a maximum number of entries per the following data objects, and an analysis will be rejected if any of these objects is above its maximum value. For some objects, there are additional values over which the entries will be ignored while keeping the most important entries whenever applicable.\nTo get the most out of your analysis when it includes data above the supported limits, try to optimize the analysis configuration. For example, for the CodeQL tool, identify and remove the most noisy queries. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/troubleshooting-sarif/results-exceed-limit\">SARIF results exceed one or more limits</a>.\"</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th scope=\"col\"><strong>SARIF data</strong></th><th align=\"center\" scope=\"col\"><strong>Maximum values</strong></th><th scope=\"col\"><strong>Additional limits</strong></th></tr></thead><tbody><tr><td>Runs per file</td><td align=\"center\">20</td><td></td></tr><tr><td>Results per run</td><td align=\"center\">25,000</td><td>Only the top 5,000 results will be included, prioritized by severity.</td></tr><tr><td>Rules per run</td><td align=\"center\">25,000</td><td></td></tr><tr><td>Tool extensions per run</td><td align=\"center\">100</td><td></td></tr><tr><td>Thread Flow Locations per result</td><td align=\"center\">10,000</td><td>Only the top 1,000 Thread Flow Locations will be included, using prioritization.</td></tr><tr><td>Location per result</td><td align=\"center\">1,000</td><td>Only 100 locations will be included.</td></tr><tr><td>Tags per rule</td><td align=\"center\">20</td><td>Only 10 tags will be included.</td></tr></tbody></table>\n<p>The <code>202 Accepted</code> response includes an <code>id</code> value.\nYou can use this ID to check the status of the upload by using it in the <code>/sarifs/{sarif_id}</code> endpoint.\nFor more information, see \"<a href=\"/rest/code-scanning/code-scanning#get-information-about-a-sarif-upload\">Get information about a SARIF upload</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>\n<p>This endpoint is limited to 1,000 requests per hour for each user or app installation calling it.</p>",
+      "descriptionHTML": "<p>Uploads SARIF data containing the results of a code scanning analysis to make the results available in a repository. For troubleshooting information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/troubleshooting-sarif\">Troubleshooting SARIF uploads</a>.\"</p>\n<p>There are two places where you can upload code scanning results.</p>\n<ul>\n<li>If you upload to a pull request, for example <code>--ref refs/pull/42/merge</code> or <code>--ref refs/pull/42/head</code>, then the results appear as alerts in a pull request check. For more information, see \"<a href=\"/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests\">Triaging code scanning alerts in pull requests</a>.\"</li>\n<li>If you upload to a branch, for example <code>--ref refs/heads/my-branch</code>, then the results appear in the <strong>Security</strong> tab for your repository. For more information, see \"<a href=\"/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository\">Managing code scanning alerts for your repository</a>.\"</li>\n</ul>\n<p>You must compress the SARIF-formatted analysis data that you want to upload, using <code>gzip</code>, and then encode it as a Base64 format string. For example:</p>\n<pre><code>gzip -c analysis-data.sarif | base64 -w0\n</code></pre>\n<p>SARIF upload supports a maximum number of entries per the following data objects, and an analysis will be rejected if any of these objects is above its maximum value. For some objects, there are additional values over which the entries will be ignored while keeping the most important entries whenever applicable.\nTo get the most out of your analysis when it includes data above the supported limits, try to optimize the analysis configuration. For example, for the CodeQL tool, identify and remove the most noisy queries. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/troubleshooting-sarif/results-exceed-limit\">SARIF results exceed one or more limits</a>.\"</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th scope=\"col\"><strong>SARIF data</strong></th><th align=\"center\" scope=\"col\"><strong>Maximum values</strong></th><th scope=\"col\"><strong>Additional limits</strong></th></tr></thead><tbody><tr><td>Runs per file</td><td align=\"center\">20</td><td></td></tr><tr><td>Results per run</td><td align=\"center\">25,000</td><td>Only the top 5,000 results will be included, prioritized by severity.</td></tr><tr><td>Rules per run</td><td align=\"center\">25,000</td><td></td></tr><tr><td>Tool extensions per run</td><td align=\"center\">100</td><td></td></tr><tr><td>Thread Flow Locations per result</td><td align=\"center\">10,000</td><td>Only the top 1,000 Thread Flow Locations will be included, using prioritization.</td></tr><tr><td>Location per result</td><td align=\"center\">1,000</td><td>Only 100 locations will be included.</td></tr><tr><td>Tags per rule</td><td align=\"center\">20</td><td>Only 10 tags will be included.</td></tr></tbody></table>\n<p>The <code>202 Accepted</code> response includes an <code>id</code> value.\nYou can use this ID to check the status of the upload by using it in the <code>/sarifs/{sarif_id}</code> endpoint.\nFor more information, see \"<a href=\"/rest/code-scanning/code-scanning#get-information-about-a-sarif-upload\">Get information about a SARIF upload</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>\n<p>This endpoint is limited to 1,000 requests per hour for each user or app installation calling it.</p>",
       "codeExamples": [
         {
           "request": {
@@ -13228,7 +13228,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -13237,7 +13237,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -13654,7 +13654,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -13663,7 +13663,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",

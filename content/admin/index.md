@@ -64,8 +64,6 @@ redirect_from:
   - /insights/installing-and-configuring-github-insights/managing-data-in-github-insights/managing-repositories
   - /admin/configuration/configuring-your-enterprise/configuring-data-encryption-for-your-enterprise
   - /admin/guides
-changelog:
-  label: enterprise
 layout: discovery-landing
 includedCategories:
   - Get started with GitHub Enterprise

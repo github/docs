@@ -1,20 +1,5 @@
-import { TokenizationError } from 'liquidjs'
+import { TokenizationError, type TagToken } from 'liquidjs'
 import octicons from '@primer/octicons'
-
-// Note: Using 'any' for liquidjs-related types because liquidjs doesn't provide comprehensive TypeScript definitions
-interface LiquidTag {
-  icon: string
-  options: Record<string, string>
-  parse(tagToken: any): void
-  render(): Promise<string>
-}
-
-interface OcticonsMatch {
-  groups: {
-    icon: string
-    options?: string
-  }
-}
 
 const OptionsSyntax = /([a-zA-Z-]+)="([\w\s-]+)"*/g
 const Syntax = new RegExp(`"(?<icon>[a-zA-Z-]+)"(?<options>(?:\\s${OptionsSyntax.source})*)`)
@@ -30,13 +15,13 @@ const SyntaxHelp = 'Syntax Error in tag \'octicon\' - Valid syntax: octicon "<na
  * {% octicon "check" %} <!-- auto-generates aria-label="check icon" -->
  * {% octicon "check" width="64" aria-label="Example label" %}
  */
-const Octicon: LiquidTag = {
+const Octicon = {
   icon: '',
-  options: {},
+  options: {} as Record<string, string>,
 
-  parse(tagToken: any): void {
-    const match: OcticonsMatch | null = tagToken.args.match(Syntax)
-    if (!match) {
+  parse(tagToken: TagToken): void {
+    const match = tagToken.args.match(Syntax)
+    if (!match || !match.groups) {
       throw new TokenizationError(SyntaxHelp, tagToken)
     }
 

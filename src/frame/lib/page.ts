@@ -19,6 +19,7 @@ import { renderContentWithFallback } from '@/languages/lib/render-with-fallback'
 import { deprecated, supported } from '@/versions/lib/enterprise-server-releases'
 import { allPlatforms } from '@/tools/lib/all-platforms'
 import type { Context, FrontmatterVersions, FeaturedLinksExpanded } from '@/types'
+import type { Product } from '@/products/lib/all-products'
 
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -28,10 +29,17 @@ const isProduction = process.env.NODE_ENV === 'production'
 // every single time, we turn it into a Set once.
 const productMapKeysAsSet = new Set(Object.keys(productMap))
 
+type FrontmatterError = {
+  reason: string
+  message?: string
+  filepath?: string
+  property?: string
+}
+
 type ReadFileContentsResult = {
-  data?: any
+  data?: Record<string, unknown>
   content?: string
-  errors?: any[]
+  errors?: FrontmatterError[]
 }
 
 type PageInitOptions = {
@@ -43,8 +51,9 @@ type PageInitOptions = {
 type PageReadResult = PageInitOptions & {
   fullPath: string
   markdown: string
-  frontmatterErrors?: any[]
-} & any
+  frontmatterErrors?: FrontmatterError[]
+  [key: string]: unknown
+}
 
 type RenderOptions = {
   preferShort?: boolean
@@ -59,9 +68,9 @@ type CommunityRedirect = {
 }
 
 export class FrontmatterErrorsError extends Error {
-  public frontmatterErrors: string[]
+  public frontmatterErrors: FrontmatterError[]
 
-  constructor(message: string, frontmatterErrors: string[]) {
+  constructor(message: string, frontmatterErrors: FrontmatterError[]) {
     super(message)
     this.frontmatterErrors = frontmatterErrors
   }
@@ -181,8 +190,8 @@ class Page {
         mtime,
         frontmatterErrors,
       } as PageReadResult
-    } catch (err: any) {
-      if (err.code === 'ENOENT') return false
+    } catch (err) {
+      if (err instanceof Error && (err as NodeJS.ErrnoException).code === 'ENOENT') return false
       console.error(err)
       return false
     }
@@ -234,7 +243,7 @@ class Page {
 
       if (versionsParentProductIsNotAvailableIn.length) {
         throw new Error(
-          `\`versions\` frontmatter in ${this.fullPath} contains ${versionsParentProductIsNotAvailableIn}, which ${this.parentProduct.id} product is not available in!`,
+          `\`versions\` frontmatter in ${this.fullPath} contains ${versionsParentProductIsNotAvailableIn}, which ${this.parentProduct?.id} product is not available in!`,
         )
       }
     }
@@ -289,7 +298,7 @@ class Page {
     return id
   }
 
-  get parentProduct(): any {
+  get parentProduct(): Product | undefined {
     const id = this.parentProductId
     return id ? productMap[id] : undefined
   }

@@ -19,3 +19,12 @@ The {% data variables.product.prodname_anthropic_claude %} coding agent uses the
 Before you can assign tasks to {% data variables.product.prodname_anthropic_claude %} coding agent, it must be enabled. See [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-third-party-agents-in-your-repositories). 
 
 To learn more about using third-party coding agents, see [AUTOTITLE](/copilot/concepts/agents/about-third-party-agents).
+
+### Supported models
+
+When starting a task with the {% data variables.product.prodname_anthropic_claude %} coding agent, you can select the AI model used by the agent. The following models are available:
+
+* Auto
+{% data reusables.copilot.anthropic-claude-agent-models %}
+
+If you select **Auto**, {% data variables.copilot.copilot_auto_model_selection %} will select the best model based on availability and to help reduce rate limiting. For more information, see [AUTOTITLE](/copilot/concepts/auto-model-selection).

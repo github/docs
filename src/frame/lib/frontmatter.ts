@@ -1,6 +1,7 @@
 // when updating to typescript,
 // update links in content/contributing as well
 
+import type { SchemaObject } from 'ajv'
 import parse from '@/frame/lib/read-frontmatter'
 import { allVersions } from '@/versions/lib/all-versions'
 import { allTools } from '@/tools/lib/all-tools'
@@ -10,20 +11,25 @@ interface SchemaProperty {
   type?: string | string[]
   translatable?: boolean
   deprecated?: boolean
-  default?: any
+  default?: unknown
   minimum?: number
   maximum?: number
-  enum?: any[]
+  enum?: unknown[]
   errorMessage?: string
-  items?: any
-  properties?: Record<string, any>
+  items?: SchemaProperty | SchemaProperty[]
+  properties?: Record<string, SchemaProperty>
   required?: string[]
   additionalProperties?: boolean
-  patternProperties?: Record<string, any>
+  patternProperties?: Record<string, SchemaProperty>
   format?: string
   description?: string
   minItems?: number
   maxItems?: number
+}
+
+interface FrontmatterOptions {
+  schema?: SchemaObject
+  filepath?: string | null
 }
 
 interface Schema {
@@ -36,7 +42,6 @@ interface Schema {
 const layoutNames = [
   'default',
   'graphql-explorer',
-  'product-landing',
   'release-notes',
   'inline',
   'category-landing',
@@ -168,7 +173,8 @@ export const schema: Schema = {
         },
       },
     },
-    // Shown in `product-landing.html` "What's new" section
+    // DEPRECATED: tied to the removed product-landing layout. Schema entry kept
+    // because translations still carry `changelog:` until they catch up.
     changelog: {
       type: 'object',
       properties: {
@@ -239,7 +245,8 @@ export const schema: Schema = {
       },
       description: 'Array of journey tracks for journey landing pages',
     },
-    // Used in `product-landing.html`
+    // DEPRECATED: tied to the removed product-landing layout. Schema entry kept
+    // because translations still carry `beta_product:` until they catch up.
     beta_product: {
       type: 'boolean',
     },
@@ -442,17 +449,20 @@ const semverRange = {
   errorMessage: 'Must be a valid SemVer range: ${0}',
 }
 
-;(schema.properties as Record<string, any>).versions = {
+;(schema.properties as Record<string, SchemaProperty>).versions = {
   type: ['object', 'string'], // allow a '*' string to indicate all versions
   additionalProperties: false, // don't allow any versions in FM that aren't defined in lib/all-versions
-  properties: Object.values(allVersions).reduce((acc: any, versionObj) => {
-    acc[versionObj.plan] = semverRange
-    acc[versionObj.shortName] = semverRange
-    return acc
-  }, featureVersionsProp),
+  properties: Object.values(allVersions).reduce(
+    (acc: Record<string, SchemaProperty>, versionObj) => {
+      acc[versionObj.plan] = semverRange
+      acc[versionObj.shortName] = semverRange
+      return acc
+    },
+    featureVersionsProp,
+  ),
 }
 
-export function frontmatter(markdown: string, opts: any = {}) {
+export function frontmatter(markdown: string, opts: FrontmatterOptions = {}) {
   const defaults = {
     schema,
   }

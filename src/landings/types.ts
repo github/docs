@@ -4,6 +4,15 @@ import { ValidOcticon, isValidOcticon } from './lib/octicons'
 export type { ValidOcticon }
 export { isValidOcticon }
 
+export type FeaturedLink = {
+  title: string
+  href: string
+  intro?: string
+  authors?: Array<string>
+  date?: string
+  fullTitle?: string
+}
+
 // Base type for all TOC items with core properties
 export type BaseTocItem = {
   fullPath: string

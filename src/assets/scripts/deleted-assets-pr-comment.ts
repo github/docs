@@ -1,8 +1,8 @@
-import github from '@actions/github'
+import { context as github_context, getOctokit } from '@actions/github'
 import { setOutput } from '@actions/core'
 
 const { GITHUB_TOKEN } = process.env
-const context = github.context
+const context = github_context
 
 if (!GITHUB_TOKEN) {
   throw new Error(`GITHUB_TOKEN environment variable not set`)
@@ -26,7 +26,7 @@ type MainArgs = {
   headSHA: string
 }
 async function main({ owner, repo, baseSHA, headSHA }: MainArgs) {
-  const octokit = github.getOctokit(GITHUB_TOKEN as string)
+  const octokit = getOctokit(GITHUB_TOKEN as string)
   // get the list of file changes from the PR
   const response = await octokit.rest.repos.compareCommitsWithBasehead({
     owner,

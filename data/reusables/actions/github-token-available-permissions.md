@@ -17,7 +17,8 @@ permissions:
   pull-requests: read|write|none{% ifversion projects-v1 %}
   repository-projects: read|write|none{% endif %}
   security-events: read|write|none
-  statuses: read|write|none
+  statuses: read|write|none{% ifversion vulnerability-alerts-permission %}
+  vulnerability-alerts: read|none{% endif %}
 ```
 
 If you specify the access for any of these permissions, all of those that are not specified are set to `none`.

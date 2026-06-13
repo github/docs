@@ -62,7 +62,7 @@ Manifest files stored in directories with names that are typically used for vend
 
 If the table of dependencies for your project doesn't accurately represent your repository's manifests, you can trigger a rebuild of its dependency graph.
 
-From the repository's {% data variables.product.prodname_dependabot_alerts %} tab, click {% octicon "gear" aria-label="settings" %} at the top of the alert list. Select **Refresh {% data variables.product.prodname_dependabot_alerts %}** from the dropdown menu. This will enqueue a background task to process the repository's manifests, detect any new or changed dependencies, and update the alerts.
+From the repository's {% data variables.product.prodname_dependabot %} tab, click {% octicon "gear" aria-label="settings" %} at the top of the alert list. Select **Refresh {% data variables.product.prodname_dependabot_alerts %}** from the dropdown menu. This will enqueue a background task to process the repository's manifests, detect any new or changed dependencies, and update the alerts.
 
 >[!NOTE] You need to have permission to manage security alerts in order to refresh a repository's dependency graph. See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) for information on configuring this access. To further reduce the potential for abuse, the **Refresh {% data variables.product.prodname_dependabot_alerts %}** option can only be triggered once an hour per repository.
 

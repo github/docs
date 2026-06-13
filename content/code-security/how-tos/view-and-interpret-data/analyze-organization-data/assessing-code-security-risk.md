@@ -24,7 +24,7 @@ You can use the different views on your **{% data variables.product.prodname_sec
 * **Overview:** use to explore trends in **Detection**, **Remediation**, and **Prevention** of security alerts.
 * **Risk:** use to explore the current state of repositories, across all alert types.{% ifversion secret-risk-assessment %}
 * **Assessments:** use to explore the current state of repositories, for secret leaks specifically{% endif %}
-* **Alerts views:** use to explore {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_dependabot %}, or {% data variables.product.prodname_secret_scanning %} alerts in greater detail.
+* **Findings:** use to explore {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_dependabot %}, or {% data variables.product.prodname_secret_scanning %} alerts in greater detail.
 
 These views provide you with the data and filters to:
 

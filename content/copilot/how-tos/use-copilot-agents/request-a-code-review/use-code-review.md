@@ -18,6 +18,12 @@ category:
   - Author and optimize with Copilot
 ---
 
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.code-review-actions-minutes-note %}
+
+<!-- end expires 2026-06-01 -->
+
 ## Introduction
 
 {% data variables.product.prodname_copilot %} can review your code and provide feedback. Where possible, {% data variables.product.prodname_copilot_short %}'s feedback includes suggested changes which you can apply with a couple of clicks.
@@ -57,7 +63,7 @@ If you're happy with the changes, you can accept a single suggestion from {% dat
 
 You can also invoke {% data variables.copilot.copilot_cloud_agent %} to implement suggested changes. To do this, you must:
 
-* Opt into the {% data variables.release-phases.public_preview %} for {% data variables.copilot.copilot_code-review-tools_short %} and enable {% data variables.copilot.copilot_cloud_agent %}.
+* Enable {% data variables.copilot.copilot_code-review-tools_short %} and {% data variables.copilot.copilot_cloud_agent %}.
 * On review comments from {% data variables.copilot.copilot_code-review %}, click **Implement suggestion**. This creates a draft comment on the pull request, where you can instruct {% data variables.product.prodname_copilot_short %} to address specific feedback. {% data variables.product.prodname_copilot_short %} will create a new pull request against your branch with the suggestions applied.
 
 ## Providing feedback on {% data variables.product.prodname_copilot_short %}'s reviews
@@ -149,7 +155,7 @@ These instructions explain how to use {% data variables.copilot.copilot_code-rev
 1. In the Git Changes window, click **Review changes with {% data variables.product.prodname_copilot_short %}**.
    This button appears as a comment icon with a sparkle.
 1. {% data variables.product.prodname_copilot_short %} will begin reviewing your changes. After a few moments, a link showing the number of code review comments appears in the Git Changes window.
-1. Click the link to view and navigate the comments. If no issues are found, you’ll see the message:
+1. Click the link to view and navigate the comments. If no issues are found, you'll see the message:
    {% data variables.product.prodname_copilot_short %} did not comment on any files.
 1. {% data variables.product.prodname_copilot_short %} displays comments in your code with a summary of each potential issue. You can:
 
@@ -235,3 +241,43 @@ These instructions explain how to use {% data variables.copilot.copilot_code-rev
 1. If there is more than one comment, use the up and down arrows, at the top right of the popup, to navigate between comments.
 
 {% endjetbrains %}
+
+{% cli %}
+
+## Prerequisites
+
+* **Access to {% data variables.product.prodname_copilot_short %}**. {% data reusables.copilot.subscription-prerequisite %}
+* **{% data variables.product.prodname_cli %}**. You must have the {% data variables.product.prodname_cli %} installed and authenticated. See [AUTOTITLE](/github-cli/github-cli/quickstart).
+
+## Using {% data variables.copilot.copilot_code-review_short %}
+
+These instructions explain how to use {% data variables.copilot.copilot_code-review_short %} with the {% data variables.product.prodname_cli %}. To see instructions for other popular coding environments, click the appropriate tab at the top of the page.
+
+### Requesting a review when creating a pull request
+
+You can request a review from {% data variables.product.prodname_copilot_short %} when creating a new pull request using `gh pr create`:
+
+```shell copy
+gh pr create --reviewer @copilot
+```
+
+You can also select {% data variables.product.prodname_copilot_short %} interactively from the searchable reviewer prompt during `gh pr create`.
+
+```text
+? Reviewers  [Use arrows to move, space to select, <right> to all, <left> to none, type to filter]
+  [ ]  Search (7472 more)
+  [x]  monalisa (Mona Lisa)
+> [x]  Copilot (AI)
+```
+
+### Requesting a review on an existing pull request
+
+To request a review from {% data variables.product.prodname_copilot_short %} on an existing pull request, use `gh pr edit`. If you are not on the pull request's branch, specify the pull request number:
+
+```shell copy
+gh pr edit PR-NUMBER --add-reviewer @copilot
+```
+
+Replace `PR-NUMBER` with the number of the pull request you want reviewed. If you have the pull request's branch checked out, you can omit the number.
+
+{% endcli %}

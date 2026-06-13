@@ -35,6 +35,9 @@ You can deploy runner scale sets with ARC's Helm charts or by deploying the nece
    * Update the `NAMESPACE` value to the location you want the runner pods to be created.
    * Set the `GITHUB_CONFIG_URL` value to the URL of your repository, organization, or enterprise. This is the entity that the runners will belong to.
    * This example command installs the latest version of the Helm chart. To install a specific version, you can pass the `--version` argument with the version of the chart you want to install. You can find the list of releases in the [`actions-runner-controller`](https://github.com/actions/actions-runner-controller/pkgs/container/actions-runner-controller-charts%2Fgha-runner-scale-set) repository.
+
+   > [!NOTE]
+   > This example uses a {% data variables.product.pat_generic %} to keep the initial setup short. If you are registering runners at the repository or organization level, we recommend authenticating with a {% data variables.product.prodname_github_app %} instead. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/authenticating-to-the-github-api). Enterprise-level runners require {% data variables.product.pat_v1 %} authentication.
     {% ifversion not ghes %}
 
      ```bash copy

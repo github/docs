@@ -118,7 +118,6 @@ contentType: how-tos
 | Screen reader mode | `--screen-reader` | Accessibility |
 | Rich diff rendering | `--plain-diff` | Terminal rendering |
 | Startup banner | `--banner` | Visual element |
-| Streamer mode | `/streamer-mode` | TUI display mode |
 | Alternate screen buffer | `--alt-screen`, `--no-alt-screen` | Terminal rendering |
 | Mouse support | `--mouse`, `--no-mouse` | Terminal input |
 | **Path/Permission Shortcuts** | | |

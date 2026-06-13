@@ -13,6 +13,8 @@ category:
 
 Enterprise-level {% data variables.copilot.custom_agents_short %} are defined in a specific repository within an organization in your enterprise. Before you can create and use {% data variables.copilot.custom_agents_short %}, you need to create this repository and configure the relevant enterprise settings.
 
+The same `.github-private` repository can also be used to configure enterprise plugin standards for {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-plugin-standards).
+
 ## Creating a repository for your {% data variables.copilot.custom_agents_short %}
 
 1. Choose an organization in your enterprise to own the repository containing your enterprise-level {% data variables.copilot.custom_agents_short %}.

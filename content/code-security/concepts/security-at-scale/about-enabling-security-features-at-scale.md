@@ -3,7 +3,9 @@ title: About enabling security features at scale
 shortTitle: Organization security
 intro: You can quickly secure your organization at scale with {% data variables.product.prodname_security_configurations %} and {% data variables.product.prodname_global_settings %}.
 versions:
-  feature: security-configurations
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale
   - /code-security/concepts/security-at-scale/about-security-configurations

@@ -1,7 +1,7 @@
 ---
 title: Renaming a branch
 intro: You can change the name of a branch in a repository.
-permissions: 'People with write permissions to a repository can rename a branch in the repository unless it is the [default branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch) or a [protected branch](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches). People with admin permissions can rename the default branch and protected branches.'
+permissions: 'People with write permissions to a repository can rename a branch in the repository unless it is the [default branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch) or covered by a [branch protection](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches) or ruleset. People with admin permissions can rename the default branch and protected branches.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -24,7 +24,27 @@ Although file URLs are automatically redirected, raw file URLs are not redirecte
 
 {% data variables.product.prodname_actions %} workflows do not follow renames, so if your repository publishes an action, anyone using that action with `@{old-branch-name}` will break. You should consider adding a new branch with the original content plus an additional commit reporting that the branch name is {% data variables.release-phases.closing_down %} and suggesting that users migrate to the new branch name.
 
-Organizational rulesets that apply to branches of a repository will no longer allow the repository administrator to rename branches of the targeted repository or change the default branch to another branch. Repository administrators may create and delete branches so long as they have the appropriate permissions.
+## Who can rename a branch
+
+Most branches can be renamed by any user with **write** permission to the repository.
+
+Some branches can only be renamed by a repository administrator: the repository's default branch, and any branch covered by a branch protection or a repository-level branch ruleset.
+
+{% ifversion repo-admin-branch-rename %}
+
+When organization-level or enterprise-level rulesets target branches in a repository, renaming those branches typically requires an organization or enterprise administrator.
+
+However, organization and enterprise owners can allow repository administrators to rename branches covered by these rulesets, provided the new branch name is still subject to all the same rules as the current name. Changing the default branch still requires an organization or enterprise administrator when rulesets are in play.
+
+For more information, see [AUTOTITLE](/organizations/managing-organization-settings/allowing-repository-admins-to-rename-branches-with-organization-rulesets) and [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-renaming-protected-branches).
+
+{% else %}
+
+Organizational rulesets that apply to branches of a repository will not allow the repository administrator to rename branches of the targeted repository or change the default branch to another branch.
+
+{% endif %}
+
+Repository administrators may create and delete branches so long as they have the appropriate permissions.
 
 ## Renaming a branch
 

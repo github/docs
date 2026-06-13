@@ -49,22 +49,16 @@ You can assign the security manager role to a maximum of 10 teams in your organi
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion security-configurations %}
 {% data reusables.security-configurations.display-global-settings %}
-{% else %}
-{% data reusables.organizations.security-and-analysis %}
-{% endif %}
+
 1. In the "Security managers" section, in the search field, search for and select the team to give the role. Each team you select will appear in a list below the search bar.
 
 ## Removing the security manager role from a team in your organization
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion security-configurations %}
 {% data reusables.security-configurations.display-global-settings %}
-{% else %}
-{% data reusables.organizations.security-and-analysis %}
-{% endif %}
+
 1. Under **Security managers**, next to the team you want to remove as security managers, click {% octicon "x" aria-label="Remove TEAM" %}.
 
 {% endif %}

@@ -7,6 +7,7 @@ function fix(content: string, code: string, englishContent = '') {
   return correctTranslatedContentStrings(content, englishContent, {
     code,
     relativePath: 'test.md',
+    skipOrphanStripping: true,
   })
 }
 
@@ -32,8 +33,33 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% data reutilizables.foo.bar %}', 'es')).toBe('{% data reusables.foo.bar %}')
     })
 
+    test('fixes extra Spanish word inserted around "de datos" and "de variables"', () => {
+      // `{% WORD de datos variables.` — leading translator word
+      expect(fix('{% uso de datos variables.product.github %}', 'es')).toBe(
+        '{% data variables.product.github %}',
+      )
+      // Unicode-aware: accented words must also match
+      expect(fix('{% análisis de datos variables.product.github %}', 'es')).toBe(
+        '{% data variables.product.github %}',
+      )
+      expect(fix('{%- uso de datos reusables.foo.bar %}', 'es')).toBe(
+        '{%- data reusables.foo.bar %}',
+      )
+
+      // `{% de datos WORD variables.` — adjective inserted after "de datos"
+      expect(fix('{% de datos específico variables.product.github %}', 'es')).toBe(
+        '{% data variables.product.github %}',
+      )
+
+      // `{% WORD de variables.` — missing "datos" keyword
+      expect(fix('{% alerta de variables.product.github %}', 'es')).toBe(
+        '{% data variables.product.github %}',
+      )
+    })
+
     test('fixes translated comment keyword', () => {
       expect(fix('{% comentario %}', 'es')).toBe('{% comment %}')
+      expect(fix('{%- comentario %}', 'es')).toBe('{%- comment %}')
     })
 
     test('fixes translated if keyword', () => {
@@ -91,10 +117,49 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- encabezados de fila %}', 'es')).toBe('{%- rowheaders %}')
     })
 
+    test('fixes icono → octicon', () => {
+      expect(fix('{% icono "copilot" aria-hidden="true" aria-label="Copilot" %}', 'es')).toBe(
+        '{% octicon "copilot" aria-hidden="true" aria-label="Copilot" %}',
+      )
+      expect(fix('{%- icono "check" %}', 'es')).toBe('{%- octicon "check" %}')
+    })
+
+    test('fixes octicon "bombilla" → octicon "light-bulb"', () => {
+      expect(fix('{% octicon "bombilla" aria-label="The light-bulb icon" %}', 'es')).toBe(
+        '{% octicon "light-bulb" aria-label="The light-bulb icon" %}',
+      )
+      expect(fix('{%- octicon "bombilla" aria-label="The light-bulb icon" %}', 'es')).toBe(
+        '{%- octicon "light-bulb" aria-label="The light-bulb icon" %}',
+      )
+    })
+
+    test('fixes capturar → capture', () => {
+      expect(fix('{% capturar service_name %}runner{% endcapture %}', 'es')).toBe(
+        '{% capture service_name %}runner{% endcapture %}',
+      )
+    })
+
+    test('fixes para el modelo en → for model in', () => {
+      expect(fix('{% para el modelo en tables.copilot.model-comparison %}', 'es')).toBe(
+        '{% for model in tables.copilot.model-comparison %}',
+      )
+    })
+
     test('fixes multiple or-translations in single ifversion', () => {
       expect(fix('{% ifversion fpt o ghec o ghes %}', 'es')).toBe(
         '{% ifversion fpt or ghec or ghes %}',
       )
+    })
+
+    test('fixes datos reutilizables → data reusables', () => {
+      expect(fix('{% datos reutilizables.profile.access_org %}', 'es')).toBe(
+        '{% data reusables.profile.access_org %}',
+      )
+    })
+
+    test('fixes siVersion → ifversion', () => {
+      expect(fix('{% siVersion productos-ghas %}', 'es')).toBe('{% ifversion productos-ghas %}')
+      expect(fix('{%- siVersion productos-ghas %}', 'es')).toBe('{%- ifversion productos-ghas %}')
     })
   })
 
@@ -125,6 +190,7 @@ describe('correctTranslatedContentStrings', () => {
 
     test('fixes note keyword', () => {
       expect(fix('{% メモ %}', 'ja')).toBe('{% note %}')
+      expect(fix('{%- メモ %}', 'ja')).toBe('{%- note %}')
     })
 
     test('fixes Japanese or (または) in ifversion tags', () => {
@@ -232,6 +298,11 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- それ以外の %}', 'ja')).toBe('{%- else %}')
     })
 
+    test('fixes further-truncated それ以外 → else', () => {
+      expect(fix('{% それ以外 %}', 'ja')).toBe('{% else %}')
+      expect(fix('{%- それ以外 %}', 'ja')).toBe('{%- else %}')
+    })
+
     test('fixes それ以外の場合 ifversion X → elsif X', () => {
       expect(fix('{% それ以外の場合 ifversion codeql-rust-public-preview %}', 'ja')).toBe(
         '{% elsif codeql-rust-public-preview %}',
@@ -240,6 +311,21 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% それ以外の場合 ifversion codeql-rust-public-preview%}', 'ja')).toBe(
         '{% elsif codeql-rust-public-preview %}',
       )
+    })
+
+    test('fixes 行ヘッダー → rowheaders', () => {
+      expect(fix('{% 行ヘッダー %}', 'ja')).toBe('{% rowheaders %}')
+      expect(fix('{%- 行ヘッダー %}', 'ja')).toBe('{%- rowheaders %}')
+    })
+
+    test('fixes ウィンドウズ → windows', () => {
+      expect(fix('{% ウィンドウズ %}', 'ja')).toBe('{% windows %}')
+      expect(fix('{%- ウィンドウズ %}', 'ja')).toBe('{%- windows %}')
+    })
+
+    test('fixes ウィンドウ (without ズ) → windows', () => {
+      expect(fix('{% ウィンドウ %}', 'ja')).toBe('{% windows %}')
+      expect(fix('{%- ウィンドウ %}', 'ja')).toBe('{%- windows %}')
     })
   })
 
@@ -262,9 +348,31 @@ describe('correctTranslatedContentStrings', () => {
       )
     })
 
+    test('fixes en-dash in trim modifier', () => {
+      // `{%–` — en-dash (U+2013) used instead of hyphen in `{%-` trim modifier
+      expect(fix('{%– ifversion projects-v1 %}', 'pt')).toBe('{%- ifversion projects-v1 %}')
+      expect(fix('{%– endif %}', 'pt')).toBe('{%- endif %}')
+    })
+
+    test('fixes datavariables / dadosvariables (no space)', () => {
+      // `{% datavariables` — no space between "data" and "variables" (post-translation)
+      expect(fix('{% datavariables.product.github %}', 'pt')).toBe(
+        '{% data variables.product.github %}',
+      )
+      expect(fix('{%- datavariables.product.github %}', 'pt')).toBe(
+        '{%- data variables.product.github %}',
+      )
+      // `{% dadosvariables` — Portuguese "dados" fused with "variables"
+      expect(fix('{% dadosvariables.product.github %}', 'pt')).toBe(
+        '{% data variables.product.github %}',
+      )
+    })
+
     test('fixes translated else variants', () => {
       expect(fix('{% senão %}', 'pt')).toBe('{% else %}')
+      expect(fix('{%- senão %}', 'pt')).toBe('{%- else %}')
       expect(fix('{% mais %}', 'pt')).toBe('{% else %}')
+      expect(fix('{%- mais %}', 'pt')).toBe('{%- else %}')
     })
 
     test('fixes translated if keyword', () => {
@@ -313,6 +421,56 @@ describe('correctTranslatedContentStrings', () => {
         '{% data reusables.repositories.reaction_list %}',
       )
     })
+
+    test('fixes variáveis de dados → data variables', () => {
+      expect(fix('{% variáveis de dados.release-phases.public_preview %}', 'pt')).toBe(
+        '{% data variables.release-phases.public_preview %}',
+      )
+      expect(fix('{% variáveis de dados product.github %}', 'pt')).toBe(
+        '{% data variables product.github %}',
+      )
+    })
+
+    test('fixes dados variáveis → data variables', () => {
+      expect(fix('{% dados variáveis.produto.prodname_pro %}', 'pt')).toBe(
+        '{% data variables.produto.prodname_pro %}',
+      )
+    })
+
+    test('fixes janelas → windows', () => {
+      expect(fix('{% janelas %}', 'pt')).toBe('{% windows %}')
+      expect(fix('{%- janelas %}', 'pt')).toBe('{%- windows %}')
+    })
+
+    test('fixes observação → note', () => {
+      expect(fix('{% observação %}', 'pt')).toBe('{% note %}')
+      expect(fix('{%- observação %}', 'pt')).toBe('{%- note %}')
+    })
+
+    test('fixes comentário → comment', () => {
+      expect(fix('{% comentário %}', 'pt')).toBe('{% comment %}')
+      expect(fix('{%- comentário %}', 'pt')).toBe('{%- comment %}')
+    })
+
+    test('fixes nota de fim → endnote', () => {
+      expect(fix('{% nota de fim %}', 'pt')).toBe('{% endnote %}')
+      expect(fix('{%- nota de fim %}', 'pt')).toBe('{%- endnote %}')
+    })
+
+    test('fixes Dados variables → data variables', () => {
+      expect(fix('{% Dados variables.product.github %}', 'pt')).toBe(
+        '{% data variables.product.github %}',
+      )
+    })
+
+    test('fixes fully translated audit_log reusable path', () => {
+      expect(
+        fix(
+          '{% dados agrupados por categoria.complemento.audit_log.reference-grouped-by-category %}',
+          'pt',
+        ),
+      ).toBe('{% data reusables.audit_log.reference-grouped-by-category %}')
+    })
   })
 
   // ─── CHINESE (zh) ──────────────────────────────────────────────────
@@ -326,11 +484,20 @@ describe('correctTranslatedContentStrings', () => {
         '{% data variables.product.github %}',
       )
       expect(fix('{% 数据可重用s.foo %}', 'zh')).toBe('{% data reusables.foo %}')
+      // No space between `{%` and 数据
+      expect(fix('{%数据variables.product.github%}', 'zh')).toBe(
+        '{% data variables.product.github%}',
+      )
+      expect(fix('{%数据 variables.product.github%}', 'zh')).toBe(
+        '{% data variables.product.github%}',
+      )
     })
 
     test('fixes translated else and raw', () => {
       expect(fix('{% 其他 %}', 'zh')).toBe('{% else %}')
+      expect(fix('{%- 其他 %}', 'zh')).toBe('{%- else %}')
       expect(fix('{% 原始 %}', 'zh')).toBe('{% raw %}')
+      expect(fix('{%- 原始 %}', 'zh')).toBe('{%- raw %}')
     })
 
     test('fixes Chinese if keyword', () => {
@@ -350,6 +517,24 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% 否则 %}', 'zh')).toBe('{% else %}')
       expect(fix('{%- 否则 %}', 'zh')).toBe('{%- else %}')
     })
+
+    test('fixes 行标题 → rowheaders', () => {
+      expect(fix('{% 行标题 %}', 'zh')).toBe('{% rowheaders %}')
+      expect(fix('{%- 行标题 %}', 'zh')).toBe('{%- rowheaders %}')
+    })
+
+    test('fixes 数据变量 → data variables', () => {
+      expect(fix('{% 数据变量.product.github %}', 'zh')).toBe('{% data variables.product.github %}')
+    })
+
+    test('fixes 数据变量 with no leading space (`{%数据变量.`)', () => {
+      expect(fix('{%数据变量.enterprise.management_console%}', 'zh')).toBe(
+        '{% data variables.enterprise.management_console%}',
+      )
+      expect(fix('{%-数据变量.product.github %}', 'zh')).toBe(
+        '{%- data variables.product.github %}',
+      )
+    })
   })
 
   // ─── RUSSIAN (ru) ──────────────────────────────────────────────────
@@ -361,6 +546,10 @@ describe('correctTranslatedContentStrings', () => {
 
     test('fixes АВТОЗАГОЛОВОК (translated AUTOTITLE)', () => {
       expect(fix('[АВТОЗАГОЛОВОК](/path/to/article)', 'ru')).toBe('[AUTOTITLE](/path/to/article)')
+    })
+
+    test('fixes Liquid-embedded lowercase autotitle anchor (`[{% autoTITLE](`)', () => {
+      expect(fix('[{% autoTITLE](/path/to/article)', 'ru')).toBe('[AUTOTITLE](/path/to/article)')
     })
 
     test('fixes translated data tag variants', () => {
@@ -424,11 +613,17 @@ describe('correctTranslatedContentStrings', () => {
 
     test('fixes translated raw/endraw', () => {
       expect(fix('{% необработанного %}', 'ru')).toBe('{% raw %}')
+      expect(fix('{%- необработанного %}', 'ru')).toBe('{%- raw %}')
       expect(fix('{% необработанные %}', 'ru')).toBe('{% raw %}')
+      expect(fix('{%- необработанные %}', 'ru')).toBe('{%- raw %}')
       expect(fix('{% необработанный %}', 'ru')).toBe('{% raw %}')
+      expect(fix('{%- необработанный %}', 'ru')).toBe('{%- raw %}')
       expect(fix('{% сырой %}', 'ru')).toBe('{% raw %}')
+      expect(fix('{%- сырой %}', 'ru')).toBe('{%- raw %}')
       expect(fix('{% нарисовать %}', 'ru')).toBe('{% endraw %}')
+      expect(fix('{%- нарисовать %}', 'ru')).toBe('{%- endraw %}')
       expect(fix('{% запроса %}', 'ru')).toBe('{% endraw %}')
+      expect(fix('{%- запроса %}', 'ru')).toBe('{%- endraw %}')
     })
 
     test('fixes translated or (или) in ifversion tags', () => {
@@ -445,7 +640,9 @@ describe('correctTranslatedContentStrings', () => {
 
     test('fixes translated else variants', () => {
       expect(fix('{% еще %}', 'ru')).toBe('{% else %}')
+      expect(fix('{%- еще %}', 'ru')).toBe('{%- else %}')
       expect(fix('{% ещё %}', 'ru')).toBe('{% else %}')
+      expect(fix('{%- ещё %}', 'ru')).toBe('{%- else %}')
     })
 
     test('fixes конец as context-aware end tag', () => {
@@ -453,6 +650,16 @@ describe('correctTranslatedContentStrings', () => {
         '{% raw %}some content{% endraw %}',
       )
       expect(fix('{% конец %}', 'ru')).toBe('{% endif %}')
+      expect(fix('{%- конец %}', 'ru')).toBe('{%- endif %}')
+    })
+
+    test('fixes конец для → endfor', () => {
+      expect(fix('{%- конец для %}', 'ru')).toBe('{%- endfor %}')
+    })
+
+    test('fixes заголовки строк → rowheaders', () => {
+      expect(fix('{% заголовки строк %}', 'ru')).toBe('{% rowheaders %}')
+      expect(fix('{%- заголовки строк %}', 'ru')).toBe('{%- rowheaders %}')
     })
 
     test('fixes translated feature flag names', () => {
@@ -464,11 +671,14 @@ describe('correctTranslatedContentStrings', () => {
 
     test('fixes other translated keywords', () => {
       expect(fix('{% конечным %}', 'ru')).toBe('{% endif %}')
-      expect(fix('{% endif _%}', 'ru')).toBe('{% endif %}')
+      expect(fix('{%- конечным %}', 'ru')).toBe('{%- endif %}')
       expect(fix('{% примечание %}', 'ru')).toBe('{% note %}')
+      expect(fix('{%- примечание %}', 'ru')).toBe('{%- note %}')
       expect(fix('{% конечных головщиков %}', 'ru')).toBe('{% endrowheaders %}')
       expect(fix('{% эндкёрл %}', 'ru')).toBe('{% endcurl %}')
+      expect(fix('{%- эндкёрл %}', 'ru')).toBe('{%- endcurl %}')
       expect(fix('{% Эльсиф %}', 'ru')).toBe('{% else %}')
+      expect(fix('{%- Эльсиф %}', 'ru')).toBe('{%- else %}')
     })
 
     test('fixes translated reusable paths', () => {
@@ -478,11 +688,11 @@ describe('correctTranslatedContentStrings', () => {
       )
     })
 
-    test('fixes double quotes in Russian YAML', () => {
+    test('fixes double quotes in Russian YAML (via generic)', () => {
       expect(fix('href=""https://example.com"', 'ru')).toBe('href="https://example.com"')
     })
 
-    test('fixes empty HTML tags', () => {
+    test('fixes empty HTML tags (via generic)', () => {
       expect(fix('some <b></b> text', 'ru')).toBe('some  text')
       expect(fix('some <u></u> text', 'ru')).toBe('some  text')
     })
@@ -510,8 +720,28 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- иначе %}', 'ru')).toBe('{%- else %}')
     })
 
-    test('fixes capitalized Mac → mac platform tag', () => {
+    test('fixes capitalized Mac → mac platform tag (via generic)', () => {
       expect(fix('{% Mac %}', 'ru')).toBe('{% mac %}')
+      expect(fix('{%- Mac %}', 'ru')).toBe('{%- mac %}')
+    })
+
+    test('fixes Endwindows → endwindows (via generic)', () => {
+      expect(fix('{% Endwindows %}', 'ru')).toBe('{% endwindows %}')
+      expect(fix('{%- Endwindows %}', 'ru')).toBe('{%- endwindows %}')
+    })
+
+    test('fixes capitalized Elsif → elsif (via generic)', () => {
+      expect(fix('{% Elsif ghec %}', 'ru')).toBe('{% elsif ghec %}')
+    })
+
+    test('fixes capitalized Linux → linux platform tag', () => {
+      expect(fix('{% Linux %}', 'ru')).toBe('{% linux %}')
+      expect(fix('{%- Linux %}', 'ru')).toBe('{%- linux %}')
+    })
+
+    test('fixes джетмозги → jetbrains', () => {
+      expect(fix('{% джетмозги %}', 'ru')).toBe('{% jetbrains %}')
+      expect(fix('{%- джетмозги %}', 'ru')).toBe('{%- jetbrains %}')
     })
   })
 
@@ -527,16 +757,27 @@ describe('correctTranslatedContentStrings', () => {
         '{% data variables.product.github %}',
       )
       expect(fix('{% données reusables.foo %}', 'fr')).toBe('{% data reusables.foo %}')
+      // `{% de données variables.` — preposition "de" prepended
+      expect(fix('{% de données variables.product.github %}', 'fr')).toBe(
+        '{% data variables.product.github %}',
+      )
+      // `{% de data variables.` — partially-corrected form
+      expect(fix('{% de data variables.product.github %}', 'fr')).toBe(
+        '{% data variables.product.github %}',
+      )
     })
 
     test('fixes translated else', () => {
       expect(fix('{% autre %}', 'fr')).toBe('{% else %}')
+      expect(fix('{%- autre %}', 'fr')).toBe('{%- else %}')
     })
 
     test('fixes translated raw/endraw', () => {
       expect(fix('{% brut %}', 'fr')).toBe('{% raw %}')
+      expect(fix('{%- brut %}', 'fr')).toBe('{%- raw %}')
       expect(fix('{% %brut }', 'fr')).toBe('{% raw %}')
       expect(fix('{% redessiner %}', 'fr')).toBe('{% endraw %}')
+      expect(fix('{%- redessiner %}', 'fr')).toBe('{%- endraw %}')
     })
 
     test('fixes ou → or in ifversion tags', () => {
@@ -548,6 +789,13 @@ describe('correctTranslatedContentStrings', () => {
       expect(
         fix('{% if query.apiVersion == nil ou "2026-03-10" <= query.apiVersion %}', 'fr'),
       ).toBe('{% if query.apiVersion == nil or "2026-03-10" <= query.apiVersion %}')
+    })
+
+    test('fixes et → and in ifversion tags', () => {
+      expect(fix('{% ifversion ghes > 3.14 et ghes < 3.20 %}', 'fr')).toBe(
+        '{% ifversion ghes > 3.14 and ghes < 3.20 %}',
+      )
+      expect(fix('{%- ifversion ghes et fpt %}', 'fr')).toBe('{%- ifversion ghes and fpt %}')
     })
 
     test('fixes French guillemets « » → " in if/ifversion tags', () => {
@@ -571,11 +819,13 @@ describe('correctTranslatedContentStrings', () => {
 
     test('removes orphaned endif when no matching ifversion/elsif opener exists', () => {
       // Caused by translations where only the closing tag survived (e.g. user-api.md reusable)
-      expect(fix('Some content\n{% endif %}\nMore content', 'fr')).toBe(
+      const fixWithStrip = (s: string) =>
+        correctTranslatedContentStrings(s, '', { code: 'fr', relativePath: 'test.md' })
+      expect(fixWithStrip('Some content\n{% endif %}\nMore content')).toBe(
         'Some content\n\nMore content',
       )
-      expect(fix('Line one\n{%- endif %}\nLine two', 'fr')).toBe('Line one\n\nLine two')
-      expect(fix('Text {%- endif -%} more', 'fr')).toBe('Text  more')
+      expect(fixWithStrip('Line one\n{%- endif %}\nLine two')).toBe('Line one\n\nLine two')
+      expect(fixWithStrip('Text {%- endif -%} more')).toBe('Text  more')
     })
 
     test('preserves endif when matching ifversion opener is present', () => {
@@ -591,6 +841,37 @@ describe('correctTranslatedContentStrings', () => {
     test('fixes sinon → else', () => {
       expect(fix('{% sinon %}', 'fr')).toBe('{% else %}')
       expect(fix('{%- sinon %}', 'fr')).toBe('{%- else %}')
+    })
+
+    test('fixes note de fin → endnote', () => {
+      expect(fix('{% note de fin %}', 'fr')).toBe('{% endnote %}')
+      expect(fix('{%- note de fin %}', 'fr')).toBe('{%- endnote %}')
+    })
+
+    test('fixes éclipse → eclipse platform tag', () => {
+      expect(fix('{% éclipse %}', 'fr')).toBe('{% eclipse %}')
+      expect(fix('{%- éclipse %}', 'fr')).toBe('{%- eclipse %}')
+    })
+
+    test('fixes données_reutilisables → data reusables', () => {
+      expect(fix('{% données_reutilisables.user-settings.ssh %}', 'fr')).toBe(
+        '{% data reusables.user-settings.ssh %}',
+      )
+      expect(fix('{% données_réutilisables.codespaces.foo %}', 'fr')).toBe(
+        '{% data reusables.codespaces.foo %}',
+      )
+    })
+
+    test('fixes composants réutilisables → data reusables', () => {
+      expect(fix('{% composants réutilisables.répertoires.barre-latérale-sujets %}', 'fr')).toBe(
+        '{% data reusables.répertoires.barre-latérale-sujets %}',
+      )
+    })
+
+    test('fixes fully-translated données réutilisables propriétés-personnalisées path', () => {
+      expect(
+        fix('{% données réutilisables propriétés-personnalisées valeurs-requises %}', 'fr'),
+      ).toBe('{% data reusables.organizations.custom-properties-required-values %}')
     })
   })
 
@@ -612,21 +893,27 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% 데이터 변숫값.product.github %}', 'ko')).toBe(
         '{% data variables.product.github %}',
       )
-      expect(fix('{% dada variables.product.github %}', 'ko')).toBe(
+    })
+
+    test('fixes extra percent before data (via generic)', () => {
+      expect(fix('{% % data variables.product.github %}', 'ko')).toBe(
         '{% data variables.product.github %}',
       )
     })
 
-    test('fixes extra percent before data', () => {
-      expect(fix('{% % data variables.product.github %}', 'ko')).toBe(
+    test('fixes dada → data (via generic)', () => {
+      expect(fix('{% dada variables.product.github %}', 'ko')).toBe(
         '{% data variables.product.github %}',
       )
     })
 
     test('fixes translated keywords', () => {
       expect(fix('{% 기타 %}', 'ko')).toBe('{% else %}')
+      expect(fix('{%- 기타 %}', 'ko')).toBe('{%- else %}')
       expect(fix('{% 참고 %}', 'ko')).toBe('{% note %}')
+      expect(fix('{%- 참고 %}', 'ko')).toBe('{%- note %}')
       expect(fix('{% 원시 %}', 'ko')).toBe('{% raw %}')
+      expect(fix('{%- 원시 %}', 'ko')).toBe('{%- raw %}')
     })
 
     test('fixes 또는 → or in ifversion tags', () => {
@@ -646,6 +933,50 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% 옥티콘 "check" aria-label="Supported" %}', 'ko')).toBe(
         '{% octicon "check" aria-label="Supported" %}',
       )
+      expect(fix('{%- 옥티콘 "check" aria-label="Supported" %}', 'ko')).toBe(
+        '{%- octicon "check" aria-label="Supported" %}',
+      )
+    })
+
+    test('fixes 데이터 재사용 → data reusables', () => {
+      expect(fix('{% 데이터 재사용.profile.access_org %}', 'ko')).toBe(
+        '{% data reusables.profile.access_org %}',
+      )
+    })
+
+    test('fixes datavariable → data variables (via generic)', () => {
+      expect(fix('{% datavariable.product.github %}', 'ko')).toBe(
+        '{% data variables.product.github %}',
+      )
+    })
+
+    test('fixes 행 머리글 → rowheaders', () => {
+      expect(fix('{% 행 머리글 %}', 'ko')).toBe('{% rowheaders %}')
+      expect(fix('{%- 행 머리글 %}', 'ko')).toBe('{%- rowheaders %}')
+    })
+
+    test('fixes 윈도우즈 → windows', () => {
+      expect(fix('{% 윈도우즈 %}', 'ko')).toBe('{% windows %}')
+      expect(fix('{%- 윈도우즈 %}', 'ko')).toBe('{%- windows %}')
+    })
+
+    test('fixes 엔드맥 → endmac', () => {
+      expect(fix('{% 엔드맥 %}', 'ko')).toBe('{% endmac %}')
+      expect(fix('{%- 엔드맥 %}', 'ko')).toBe('{%- endmac %}')
+    })
+
+    test('fixes 주석 끝 → endnote', () => {
+      expect(fix('{% 주석 끝 %}', 'ko')).toBe('{% endnote %}')
+      expect(fix('{%- 주석 끝 %}', 'ko')).toBe('{%- endnote %}')
+    })
+
+    test('fixes capitalized Variables → data variables', () => {
+      expect(fix('{% data Variables.product.github %}', 'ko')).toBe(
+        '{% data variables.product.github %}',
+      )
+      expect(fix('{%- data Variables.product.github %}', 'ko')).toBe(
+        '{%- data variables.product.github %}',
+      )
     })
   })
 
@@ -659,10 +990,8 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% daten variables.product.github %}', 'de')).toBe(
         '{% data variables.product.github %}',
       )
-      expect(fix('{% Data variables.product.github %}', 'de')).toBe(
-        '{% data variables.product.github %}',
-      )
       expect(fix('{% Daten reusables.foo %}', 'de')).toBe('{% data reusables.foo %}')
+      expect(fix('{%- Daten reusables.foo %}', 'de')).toBe('{%- data reusables.foo %}')
     })
 
     test('fixes hyphenated data tags without space', () => {
@@ -691,6 +1020,27 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- Tipp -%}', 'de')).toBe('{%- tip -%}')
     })
 
+    test('fixes capitalized Codespaces platform tag', () => {
+      expect(fix('{% Codespaces %}', 'de')).toBe('{% codespaces %}')
+      expect(fix('{%- Codespaces %}', 'de')).toBe('{%- codespaces %}')
+    })
+
+    test('fixes translated prompt/endprompt keywords', () => {
+      expect(fix('{% Aufforderung %}', 'de')).toBe('{% prompt %}')
+      expect(fix('{%- Aufforderung %}', 'de')).toBe('{%- prompt %}')
+      expect(fix('{% Endprompt %}', 'de')).toBe('{% endprompt %}')
+      expect(fix('{%- Endprompt %}', 'de')).toBe('{%- endprompt %}')
+    })
+
+    test('fixes `{%-DatenXxx variables` no-space compound German "Daten" tags', () => {
+      expect(fix('{%-Datenpaket variables.product.github %}', 'de')).toBe(
+        '{%- data variables.product.github %}',
+      )
+      expect(fix('{%-Dateneinstellungen reusables.foo.bar %}', 'de')).toBe(
+        '{%- data reusables.foo.bar %}',
+      )
+    })
+
     test('fixes für → for in for-loops', () => {
       expect(fix('{%- für version in tables.copilot.ides -%}', 'de')).toBe(
         '{%- for version in tables.copilot.ides -%}',
@@ -705,6 +1055,9 @@ describe('correctTranslatedContentStrings', () => {
       )
       expect(fix('{% Daten wiederverwendbare.audit_log.reference %}', 'de')).toBe(
         '{% data reusables.audit_log.reference %}',
+      )
+      expect(fix('{%- Daten wiederverwendbare.audit_log.reference %}', 'de')).toBe(
+        '{%- data reusables.audit_log.reference %}',
       )
       // Full real-world example: `{% Data wiederverwendbare.audit_log.referenz-nach-kategorie-gruppiert %}`
       // The `{% Data ` → `{% data ` fix runs before this, so by the time we check:
@@ -723,9 +1076,165 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- ansonsten %}', 'de')).toBe('{%- else %}')
     })
 
+    test('fixes andernfalls and sonst → else', () => {
+      expect(fix('{% andernfalls %}', 'de')).toBe('{% else %}')
+      expect(fix('{%- andernfalls %}', 'de')).toBe('{%- else %}')
+      expect(fix('{% sonst %}', 'de')).toBe('{% else %}')
+      expect(fix('{%- sonst %}', 'de')).toBe('{%- else %}')
+    })
+
+    test('fixes andernfalls/sonst ifversion → elsif', () => {
+      expect(fix('{% andernfalls ifversion ghes %}', 'de')).toBe('{% elsif ghes %}')
+      expect(fix('{% sonst ifversion ghes %}', 'de')).toBe('{% elsif ghes %}')
+    })
+
+    test('fixes Datenvariablen → data variables', () => {
+      expect(fix('{% Datenvariablen.product.github %}', 'de')).toBe(
+        '{% data variables.product.github %}',
+      )
+      expect(fix('{%- Datenvariablen.release-phases.public_preview %}', 'de')).toBe(
+        '{%- data variables.release-phases.public_preview %}',
+      )
+    })
+
+    test('fixes daten wiederverwendbars → data reusables', () => {
+      expect(fix('{% daten wiederverwendbars.enterprise-accounts.ai-controls-tab %}', 'de')).toBe(
+        '{% data reusables.enterprise-accounts.ai-controls-tab %}',
+      )
+    })
+
     test('fixes Zeilenkopfzeilen → rowheaders', () => {
       expect(fix('{% Zeilenkopfzeilen %}', 'de')).toBe('{% rowheaders %}')
       expect(fix('{%- Zeilenkopfzeilen %}', 'de')).toBe('{%- rowheaders %}')
+    })
+
+    test('fixes Rohdaten → raw', () => {
+      expect(fix('{% Rohdaten %}', 'de')).toBe('{% raw %}')
+      expect(fix('{%- Rohdaten %}', 'de')).toBe('{%- raw %}')
+      expect(fix('{%- Rohdaten -%}', 'de')).toBe('{%- raw -%}')
+    })
+
+    test('fixes okticon → octicon (via generic)', () => {
+      expect(fix('{% okticon "pencil" %}', 'de')).toBe('{% octicon "pencil" %}')
+    })
+
+    test('fixes Endnotiz → endnote', () => {
+      expect(fix('{% Endnotiz %}', 'de')).toBe('{% endnote %}')
+      expect(fix('{%- Endnotiz %}', 'de')).toBe('{%- endnote %}')
+    })
+
+    test('fixes endifen → endif (via generic)', () => {
+      expect(fix('{% endifen %}', 'de')).toBe('{% endif %}')
+      expect(fix('{%- endifen %}', 'de')).toBe('{%- endif %}')
+    })
+
+    test('fixes Dateninstanz → data', () => {
+      expect(fix('{% Dateninstanz variables.product.github %}', 'de')).toBe(
+        '{% data variables.product.github %}',
+      )
+    })
+
+    test('fixes ifversion-Sicherheitskonfigurationen', () => {
+      expect(fix('{% ifversion-Sicherheitskonfigurationen %}', 'de')).toBe(
+        '{% ifversion security-configurations %}',
+      )
+    })
+
+    test('fixes ifversion-Unterprobleme', () => {
+      expect(fix('{% ifversion-Unterprobleme %}', 'de')).toBe('{% ifversion sub-issues %}')
+    })
+
+    test('fixes ifversion-Sicherheitskampagnen', () => {
+      expect(fix('{% ifversion-Sicherheitskampagnen %}', 'de')).toBe(
+        '{% ifversion security-campaigns %}',
+      )
+    })
+
+    test('fixes capitalized Windows → windows platform tag', () => {
+      expect(fix('{% Windows %}', 'de')).toBe('{% windows %}')
+      expect(fix('{%- Windows %}', 'de')).toBe('{%- windows %}')
+    })
+
+    test('fixes capitalized Linux → linux platform tag', () => {
+      expect(fix('{% Linux %}', 'de')).toBe('{% linux %}')
+      expect(fix('{%- Linux %}', 'de')).toBe('{%- linux %}')
+    })
+
+    test('fixes capitalized Eclipse → eclipse platform tag', () => {
+      expect(fix('{% Eclipse %}', 'de')).toBe('{% eclipse %}')
+      expect(fix('{%- Eclipse %}', 'de')).toBe('{%- eclipse %}')
+    })
+
+    test('fixes unformatierte → raw', () => {
+      expect(fix('{% unformatierte %}', 'de')).toBe('{% raw %}')
+    })
+
+    test('fixes Daten variables → data variables', () => {
+      expect(fix('{% Daten variables.product.github %}', 'de')).toBe(
+        '{% data variables.product.github %}',
+      )
+    })
+
+    test('fixes daten wiederverwendbar/wiederverwendbare → data reusables', () => {
+      expect(fix('{% daten wiederverwendbar.foo.bar %}', 'de')).toBe('{% data reusables.foo.bar %}')
+      expect(fix('{% daten wiederverwendbare.foo.bar %}', 'de')).toBe(
+        '{% data reusables.foo.bar %}',
+      )
+    })
+
+    test('fixes Endifen and Endif → endif (via generic)', () => {
+      expect(fix('{% Endifen %}', 'de')).toBe('{% endif %}')
+      expect(fix('{% Endif %}', 'de')).toBe('{% endif %}')
+    })
+
+    test('fixes ifversion-repo-policy-rules (via generic)', () => {
+      expect(fix('{% ifversion-repo-policy-rules %}', 'de')).toBe(
+        '{% ifversion repo-policy-rules %}',
+      )
+    })
+
+    test('fixes ifversion-enterprise-installed-apps (via generic)', () => {
+      expect(fix('{% ifversion-enterprise-installed-apps %}', 'de')).toBe(
+        '{% ifversion enterprise-installed-apps %}',
+      )
+    })
+
+    test('fixes data-variables (hyphen instead of space)', () => {
+      expect(fix('{% data-variables.product.github %}', 'de')).toBe(
+        '{% data variables.product.github %}',
+      )
+      expect(fix('{%- data-variables.product.github %}', 'de')).toBe(
+        '{%- data variables.product.github %}',
+      )
+    })
+
+    test('fixes Datenworkflow variables → data variables', () => {
+      expect(fix('{%- Datenworkflow variables.product.prodname_actions %}', 'de')).toBe(
+        '{%- data variables.product.prodname_actions %}',
+      )
+      expect(fix('{% Datenworkflow variables.product.prodname_actions %}', 'de')).toBe(
+        '{% data variables.product.prodname_actions %}',
+      )
+    })
+
+    test('fixes ifec → ifversion', () => {
+      expect(fix('{% ifec ghec %}', 'de')).toBe('{% ifversion ghec %}')
+      expect(fix('{%- ifec ghec %}', 'de')).toBe('{%- ifversion ghec %}')
+    })
+
+    test('fixes andere → else', () => {
+      expect(fix('{% andere %}', 'de')).toBe('{% else %}')
+      expect(fix('{%- andere %}', 'de')).toBe('{%- else %}')
+    })
+
+    test('fixes Datenauflistung → data', () => {
+      // `{% Datenauflistung variables.X %}` — "data listing" compound = data
+      expect(fix('{% Datenauflistung variables.product.github %}', 'de')).toBe(
+        '{% data variables.product.github %}',
+      )
+      expect(fix('{%- Datenauflistung variables.product.github %}', 'de')).toBe(
+        '{%- data variables.product.github %}',
+      )
     })
   })
 
@@ -742,6 +1251,97 @@ describe('correctTranslatedContentStrings', () => {
       )
       expect(fix('{% Data reusables.foo %}', 'es')).toBe('{% data reusables.foo %}')
       expect(fix('{% Data ifversion ghec %}', 'es')).toBe('{% data ifversion ghec %}')
+      expect(fix('{%- Data variables.product.github %}', 'es')).toBe(
+        '{%- data variables.product.github %}',
+      )
+    })
+
+    test('fixes leading dot in {% data paths', () => {
+      // `{% data .variables.X %}` — translator inserted a stray dot
+      expect(fix('{% data .variables.product.prodname_ghe_server %}', 'ja')).toBe(
+        '{% data variables.product.prodname_ghe_server %}',
+      )
+      expect(fix('{%- data .variables.product.github %}', 'pt')).toBe(
+        '{%- data variables.product.github %}',
+      )
+      expect(fix('{% data .reusables.foo.bar %}', 'zh')).toBe('{% data reusables.foo.bar %}')
+    })
+
+    test('fixes singular variable / reusable in {% data paths', () => {
+      // `{% data variable.product.X %}` (singular) → `{% data variables.product.X %}`
+      expect(fix('{% data variable.product.prodname_container_registry %}', 'zh')).toBe(
+        '{% data variables.product.prodname_container_registry %}',
+      )
+      expect(fix('{%- data variable.product.github %}', 'es')).toBe(
+        '{%- data variables.product.github %}',
+      )
+      expect(fix('{% data reusable.foo.bar %}', 'fr')).toBe('{% data reusables.foo.bar %}')
+    })
+
+    test('fixes capitalized platform tags across all languages', () => {
+      expect(fix('{% Windows %}', 'zh')).toBe('{% windows %}')
+      expect(fix('{% Eclipse %}', 'zh')).toBe('{% eclipse %}')
+      expect(fix('{% Linux %}', 'zh')).toBe('{% linux %}')
+      expect(fix('{% Mac %}', 'zh')).toBe('{% mac %}')
+      expect(fix('{%- Mac %}', 'zh')).toBe('{%- mac %}')
+    })
+
+    test('fixes capitalized Liquid keywords across all languages', () => {
+      expect(fix('{% Endwindows %}', 'es')).toBe('{% endwindows %}')
+      expect(fix('{%- Endwindows %}', 'ja')).toBe('{%- endwindows %}')
+      expect(fix('{% Elsif ghec %}', 'pt')).toBe('{% elsif ghec %}')
+      expect(fix('{% Endif %}', 'es')).toBe('{% endif %}')
+      expect(fix('{%- Endif %}', 'ja')).toBe('{%- endif %}')
+      expect(fix('{%- Endif -%}', 'pt')).toBe('{%- endif -%}')
+    })
+
+    test('fixes garbled endif variants across all languages', () => {
+      expect(fix('{% endifen %}', 'es')).toBe('{% endif %}')
+      expect(fix('{%- endifen %}', 'ja')).toBe('{%- endif %}')
+      expect(fix('{% Endifen %}', 'pt')).toBe('{% endif %}')
+      expect(fix('{%- Endifen %}', 'zh')).toBe('{%- endif %}')
+      expect(fix('{% endif _%}', 'fr')).toBe('{% endif %}')
+    })
+
+    test('fixes okticon → octicon across all languages', () => {
+      expect(fix('{% okticon "pencil" %}', 'es')).toBe('{% octicon "pencil" %}')
+    })
+
+    test('fixes dada → data across all languages', () => {
+      expect(fix('{% dada variables.product.github %}', 'es')).toBe(
+        '{% data variables.product.github %}',
+      )
+    })
+
+    test('fixes extra percent before data across all languages', () => {
+      expect(fix('{% % data variables.product.github %}', 'es')).toBe(
+        '{% data variables.product.github %}',
+      )
+    })
+
+    test('fixes double-quote corruption in href across all languages', () => {
+      expect(fix('href=""https://example.com"', 'es')).toBe('href="https://example.com"')
+    })
+
+    test('fixes empty HTML tags across all languages', () => {
+      expect(fix('some <b></b> text', 'es')).toBe('some  text')
+      expect(fix('some <u></u> text', 'es')).toBe('some  text')
+    })
+
+    test('fixes ifversion-FEATURE hyphen-instead-of-space across all languages', () => {
+      expect(fix('{% ifversion-repo-policy-rules %}', 'es')).toBe(
+        '{% ifversion repo-policy-rules %}',
+      )
+      expect(fix('{%- ifversion-enterprise-installed-apps %}', 'ja')).toBe(
+        '{%- ifversion enterprise-installed-apps %}',
+      )
+      expect(fix('{% ifversion-some-new-feature %}', 'pt')).toBe('{% ifversion some-new-feature %}')
+    })
+
+    test('fixes datavariable (singular) → data variables', () => {
+      expect(fix('{% datavariable.product.github %}', 'es')).toBe(
+        '{% data variables.product.github %}',
+      )
     })
 
     test('fixes AUTOTITLE corruption patterns', () => {
@@ -925,6 +1525,33 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{{%raw %}', 'es')).toBe('{% raw %}')
       expect(fix('{{% raw %}', 'es')).toBe('{% raw %}')
     })
+
+    test('rejoins broken bullet markers split across lines (all languages)', () => {
+      // Lone `*` with content on indented next line → `* content`
+      const broken = '* \n              [AUTOTITLE](/orgs/transfer)'
+      const expected = '* [AUTOTITLE](/orgs/transfer)'
+      for (const lang of ['ja', 'de', 'es', 'fr', 'ko', 'pt', 'ru', 'zh']) {
+        expect(fix(broken, lang)).toBe(expected)
+      }
+      // No trailing space variant
+      expect(fix('*\n  [AUTOTITLE](/path)', 'ko')).toBe('* [AUTOTITLE](/path)')
+      // Multiple consecutive broken bullets
+      expect(fix('* \n  one\n* \n  two', 'fr')).toBe('* one\n* two')
+      // Valid bullets are not modified
+      expect(fix('* normal\n* another', 'de')).toBe('* normal\n* another')
+    })
+
+    test('rejoins broken table cells split across lines (all languages)', () => {
+      const broken = '|\n              **クラウドとサーバー**             | 説明'
+      const expected = '| **クラウドとサーバー**             | 説明'
+      for (const lang of ['ja', 'de', 'es', 'fr', 'ko', 'pt', 'ru', 'zh']) {
+        expect(fix(broken, lang)).toBe(expected)
+      }
+      // Pipe with trailing whitespace
+      expect(fix('|   \n  cell text', 'zh')).toBe('| cell text')
+      // Valid table rows are not modified
+      expect(fix('| a | b |\n| c | d |', 'es')).toBe('| a | b |\n| c | d |')
+    })
   })
 
   // ─── EDGE CASES ────────────────────────────────────────────────────
@@ -1064,6 +1691,146 @@ Para más información, consulta "[AUTOTITLE](/path)".
 
       // Generous threshold; regression would be multi-second.
       expect(elapsed).toBeLessThan(2000)
+    })
+  })
+
+  // ─── SCRAPE-6548: search-scrape failures ─────────────────────────────
+  // Tests for the per-file Liquid corrections added to stop the daily
+  // search-scrape failures reported in github/docs-engineering#6548.
+  describe('SCRAPE-6548 per-file fixes', () => {
+    function fixAt(content: string, code: string, relativePath: string) {
+      return correctTranslatedContentStrings(content, '', {
+        code,
+        relativePath,
+        skipOrphanStripping: true,
+      })
+    }
+
+    test('pt: {%datavariables (no spaces) → {% data variables', () => {
+      expect(fix('{%datavariables.product.github %}', 'pt')).toBe(
+        '{% data variables.product.github %}',
+      )
+      expect(fix('{%-datavariables.product.github %}', 'pt')).toBe(
+        '{%- data variables.product.github %}',
+      )
+    })
+
+    test('pt: stray space after {% data variables.product.', () => {
+      expect(fix('{% data variables.product. prodname_ghe_cloud %}', 'pt')).toBe(
+        '{% data variables.product.prodname_ghe_cloud %}',
+      )
+      expect(fix('{%- data variables.product. prodname_ghe_server %}', 'pt')).toBe(
+        '{%- data variables.product.prodname_ghe_server %}',
+      )
+    })
+
+    test('pt: leaves correct path alone', () => {
+      const ok = '{% data variables.product.prodname_ghe_cloud %}'
+      expect(fix(ok, 'pt')).toBe(ok)
+    })
+
+    test('fr: missing-% in {% ifversion ghes} / {% elsif ghec or ghes}', () => {
+      expect(fix('{% ifversion ghes}', 'fr')).toBe('{% ifversion ghes %}')
+      expect(fix('{% elsif ghec or ghes}', 'fr')).toBe('{% elsif ghec or ghes %}')
+    })
+
+    test('fr: {% des … variables.X %} → {% data variables.X %}', () => {
+      expect(fix('{% des instances de variables.product.prodname_ghe_server %}', 'fr')).toBe(
+        '{% data variables.product.prodname_ghe_server %}',
+      )
+    })
+
+    test('fr: leaves unrelated `des` prose alone', () => {
+      const ok = 'Les métriques des données sont utiles.'
+      expect(fix(ok, 'fr')).toBe(ok)
+    })
+
+    test('ko: username-changes intro orphan-endif fix', () => {
+      const broken =
+        '인스턴스에서 기본 제공 인증{% endif %}를 사용하는 경우 {% data variables.product.github %} 계정 {% ifversion ghes %}의 사용자 이름을 변경할 수 있습니다.'
+      const out = fixAt(broken, 'ko', 'account-and-profile/concepts/username-changes.md')
+      expect(out).not.toContain('{% endif %}를')
+      expect(out).toContain('{% endif %}')
+      expect(out).toContain('{% ifversion ghes %}')
+    })
+
+    test('zh: username-changes intro orphan-endif fix', () => {
+      const broken =
+        '如果实例使用内置身份验证{% endif %}，则可以更改 {% data variables.product.github %} 帐户 {% ifversion ghes %} 的用户名。'
+      const out = fixAt(broken, 'zh', 'account-and-profile/concepts/username-changes.md')
+      expect(out).not.toContain('{% endif %}，')
+      expect(out).toContain('{% endif %}')
+    })
+
+    test('zh: security-log-events markdown duplicate ifversion ghes', () => {
+      const broken = '> * {% ifversion ghes %} 本文包含最新版本'
+      expect(fix(broken, 'zh')).toBe('> * 本文包含最新版本')
+    })
+
+    test('de: permissions-of-custom-organization-roles intro append endif', () => {
+      const broken =
+        'Mit angepassten Organisationsrollen kannst du den Zugriff auf die Einstellungen deiner {% ifversion org-custom-role-with-repo-permissions %}Organisation und die Repositories{% else %}einer Organisation steuern.'
+      const out = fixAt(
+        broken,
+        'de',
+        'organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles.md',
+      )
+      expect(out).toContain('{% endif %} steuern.')
+    })
+
+    test('ru: permissions-of-custom-organization-roles intro append endif', () => {
+      const broken =
+        'Вы можете управлять доступом к параметрам и репозиториям организации {% ifversion org-custom-role-with-repo-permissions %}, а также к параметрам организации {% else %}организации с пользовательскими ролями организации.'
+      const out = fixAt(
+        broken,
+        'ru',
+        'organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles.md',
+      )
+      expect(out).toMatch(/\{% endif %\}$/)
+    })
+
+    test('ja: scim/index title rebalances tags', () => {
+      const broken =
+        'SCIM{% endif %} を使用したエンタープライズ マネージド ユーザー{% else %} 向けのプロビジョニング アカウント{% ifversion ghec %}'
+      const out = fix(broken, 'ja')
+      // After fix: balanced ifversion/else/endif and starts with ifversion
+      expect(out).toMatch(/^\{% ifversion ghec %\}/)
+      expect(out).toMatch(/\{% endif %\}$/)
+      expect(out.match(/\{% endif %\}/g) || []).toHaveLength(1)
+    })
+
+    test('es: deduplication reusable appends endif when scoped by dottedPath', () => {
+      const broken = 'tienen prioridad sobre el envío automático de dependencias.\n1. Otra cosa.'
+      const out = correctTranslatedContentStrings(broken, '', {
+        code: 'es',
+        dottedPath: 'reusables.dependency-graph.deduplication',
+        skipOrphanStripping: true,
+      })
+      expect(out).toContain(
+        'tienen prioridad sobre el envío automático de dependencias.{% endif %}\n',
+      )
+    })
+
+    test('es: deduplication reusable also fires when scoped by relativePath', () => {
+      const broken = 'tienen prioridad sobre el envío automático de dependencias.\n1. Otra cosa.'
+      const out = correctTranslatedContentStrings(broken, '', {
+        code: 'es',
+        relativePath: 'data/reusables/dependency-graph/deduplication.md',
+        skipOrphanStripping: true,
+      })
+      expect(out).toContain(
+        'tienen prioridad sobre el envío automático de dependencias.{% endif %}\n',
+      )
+    })
+
+    test('es: deduplication fix does NOT fire on unrelated paths', () => {
+      const text = 'tienen prioridad sobre el envío automático de dependencias.\n1. Otra.'
+      const out = correctTranslatedContentStrings(text, '', {
+        code: 'es',
+        relativePath: 'some/other/file.md',
+        skipOrphanStripping: true,
+      })
+      expect(out).toBe(text)
     })
   })
 })

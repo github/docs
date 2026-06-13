@@ -20,7 +20,7 @@ category:
 
 ## GitHub Privacy Statement
 
-Effective date: February 1, 2024
+Effective date: April 27, 2026
 
 Welcome to the GitHub Privacy Statement. This is where we describe how we handle your “Personal Data”, which is information that is directly linked or can be linked to you. It applies to the Personal Data that GitHub, Inc. or GitHub B.V., processes as the “Data Controller” when you interact with websites, applications, and services that display this Statement (collectively, “Services”). This Statement does not apply to services or products that do not display this Statement, such as Previews, where relevant.
 
@@ -46,7 +46,7 @@ Personal Data is collected from you directly, automatically from your device, an
 ### From You
 
 * Account Data: We collect certain information when you open an account such as your GitHub handle, name, email address, password, payment information and transaction information.
-* User Content and Files: When you use our Services, we collect Personal Data included as part of the information you provide such as code, inputs, text, documents, images, or feedback.
+* User Content and Files: When you use our Services, we collect Personal Data included as part of the information you provide such as code, inputs, AI outputs, text, documents, images, or feedback.
 * Demographic information: In some cases, you provide us with ethnicity, gender, or similar demographic details.
 * Feedback Data: This consists of information you submit through surveys, reviews, or interactive features.
 * Payment Information: For paid subscriptions, we collect details like name, billing address, and payment specifics.
@@ -67,7 +67,7 @@ Personal Data is collected from you directly, automatically from your device, an
 ### From Third Parties
 
 * Information from Other Users of the Services: Other users may share information about you when they submit issues and comments. We may also receive information about you if you are identified as a representative or administrator on your company's account.
-* Publicly Available Sources: We may acquire information about you from publicly available sources like public GitHub repositories.
+* Publicly Available Sources: We may acquire information about you from publicly available sources.
 * Services you linked to your GitHub account: When you or your administrator integrate third-party apps or services with our Services, we receive information based on your settings with those services. This can include details like your name and email from services like Google for authentication. The information we receive depends on the third-party's settings and privacy policies. Always review these to understand what data is shared with our Services.
 * Vendors, Partners, and Affiliates: We may receive information about you from third parties, like vendors, resellers, partners, or affiliates for the purposes outlined in this statement.
 
@@ -83,6 +83,7 @@ The Personal Data we process depends on your interaction and access methods with
 * Service Provision: We use Personal Data to deliver and update our Services as configured and used by You, and to make ongoing personalized experiences and recommendations.
 * Troubleshooting: We use Personal Data to identify and resolve technical issues.
 * Ongoing Service Performance: Personal Data helps us keep the Services up to date and performant, and meet user productivity, reliability, efficacy, quality, privacy, accessibility and security needs.
+* Product Development and Improvement: We use Personal Data to develop and improve our products, services, and technologies, including artificial intelligence and machine learning technologies. This includes improving features, developing new offerings, enhancing safety and security capabilities, and training models. We apply appropriate technical safeguards, including aggregation and de-identification techniques where feasible, to protect your privacy while enabling these improvements.
 * Complying with and resolving legal obligations: including responding to Data Subject Requests for Personal Data processed by GitHub as Controller (for example website data), tax requirements, agreements and disputes.
 * Delivering Professional Services: We use Personal Data to deliver training, consulting or implementation (“Professional Services”). This includes providing technical support, professional planning, advice, guidance, data migration, deployment, and solution/software development services.
 * Improving Professional Services: Enhancing delivery, efficacy, quality, and security of Professional Services and the underlying product(s) based on issues identified while providing Professional Services, including fixing software defects, and otherwise keeping the Professional Services up to date and performant.
@@ -94,7 +95,7 @@ When carrying out these activities, GitHub practices data minimization and uses 
 We may share Personal Data with the following recipients:
 
 * Abuse and Fraud Prevention Entities: We may disclose Personal Data based on a good faith belief it is needed to prevent fraud, abuse, or attacks on our Services, or to protect the safety of GitHub and our users.
-* Affiliates: Personal Data may be shared with GitHub affiliates, including Microsoft, to facilitate customer service, marketing and advertising, order fulfillment, billing, technical support, and legal and compliance obligations. Our affiliates may only use the Personal Data in a manner consistent with this Privacy Statement.
+* Affiliates: Personal Data may be shared with GitHub affiliates, including Microsoft, to facilitate customer service, marketing and advertising, order fulfillment, billing, technical support, legal and compliance obligations, product development and improvement (including training and improving artificial intelligence and machine learning technologies), and for other purposes described in their respective privacy statements. When we share data with affiliates, they will process it in accordance with applicable law and their privacy commitments.
 * GitHub Organization Accounts: If an organization adds you to their GitHub account, we might share Personal Data with that organization to fulfill the commercial relationship. In such a case, your use of the Services is protected by a data protection agreement and terms between your organization and GitHub
 * Competent Authorities: We may disclose Personal Data to authorized law enforcement, regulators, courts, or other public authorities in response to lawful requests or to protect our rights and safety. Please refer to our [Guidelines for Legal Requests of User Data](https://docs.github.com/en/site-policy/other-site-policies/guidelines-for-legal-requests-of-user-data) for more information.
 * Corporate Transaction Entities: we might disclose Personal Data within the limits of the law and in accordance with this Privacy Statement for strategic business transactions such as sales or a merger.
@@ -106,19 +107,7 @@ We may share Personal Data with the following recipients:
 
 ## Private repositories: GitHub Access
 
-If your GitHub account has private repositories, you control the access to that information. GitHub personnel does not access private repository information without your consent except as provided in this Privacy Statement and for:
-
-<!-- markdownlint-disable GHD034 -->
-
-* security purposes
-* automated scanning or manual review for known vulnerabilities, active malware, or other content known to violate our Terms of Service
-* to assist the repository owner with a support matter
-* to maintain the integrity of the Services, or
-* to comply with our legal obligations if we have reason to believe the contents are in violation of the law.
-
-<!-- markdownlint-enable GHD034 -->
-
-GitHub will provide you with notice regarding private repository access unless doing so is prohibited by law or if GitHub acted in response to a security threat or other risk to security.
+If your GitHub account has private repositories, our ability and rights to access private repository information is set forth in Section E (Private Repositories) of the GitHub Terms of Service.
 
 ## Lawful Bases for Processing Personal Data (Applicable to EEA and UK End Users)
 
@@ -126,7 +115,7 @@ GitHub processes Personal Data in compliance with the GDPR, ensuring a lawful ba
 
 * Contractual Necessity: Processing is required to fulfill our contractual duties to you, in accordance with the GitHub Terms of Service.
 * Legal Obligation: We process data when it's necessary to comply with applicable laws or to protect the rights, safety, and property of GitHub, our affiliates, users, or third parties.
-* Legitimate Interests: We process data for purposes that are in our legitimate interests, such as securing our Services, communicating with you, and improving our Services. This is done only when these interests are not overridden by your data protection rights or your fundamental rights and freedoms.
+* Legitimate Interests: We process data for purposes that are in our legitimate interests, such as securing our Services, communicating with you, and developing and improving our Services, which include artificial intelligence and machine learning technologies. This is done only when these interests are not overridden by your data protection rights or your fundamental rights and freedoms.
 * Consent: We process data when you have explicitly consented to such processing. When we rely on consent as the legal basis, you have the right to withdraw your consent for data processing at any time. The procedures for withdrawal are detailed in this Statement and available on our website.
 
 ## Your Privacy Rights
@@ -220,7 +209,7 @@ For Enterprise Marketing Pages, we may also use non-essential cookies to (i) gat
 
 Our emails to users may contain a pixel tag, which is a small, clear image that can tell us whether or not you have opened an email and what your IP address is. We use this pixel tag to make our email communications more effective and to make sure we are not sending you unwanted email.
 
-The length of time a cookie will stay on your browser or device depends on whether it is a “persistent” or “session” cookie. Session cookies will only stay on your device until you stop browsing. Persistent cookies stay until they expire or are deleted. The expiration time or retention period applicable to persistent cookies depends on the purpose of the cookie collection and tool used. You may be able to delete cookie data. For more information, see [AUTOTITLE](/site-policy/privacy-policies/github-privacy-statement#what-are-your-cookie-choices-and-controls).
+The length of time a cookie will stay on your browser or device depends on whether it is a “persistent” or “session” cookie. Session cookies will only stay on your device until you stop browsing. Persistent cookies stay until they expire or are deleted. The expiration time or retention period applicable to persistent cookies depends on the purpose of the cookie collection and tool used. You may be able to delete cookie data. For more information, see [AUTOTITLE](/site-policy/privacy-policies/github-general-privacy-statement#what-are-your-cookie-choices-and-controls).
 
 #### What are cookies and similar technologies?
 
@@ -255,7 +244,7 @@ The table below provides additional information about how we use different types
 
   1. **Specifically on GitHub Enterprise Marketing Pages**
 
-     Any GitHub page that serves non-essential cookies will have a link in the page’s footer to cookie settings. You can express your preferences at any time by clicking on that linking and updating your settings.
+     Any GitHub page that serves non-essential cookies will have a link in the page’s footer to cookie settings. You can express your preferences at any time by clicking on that link and updating your settings.
 
      Some users will also be able to manage non-essential cookies via a cookie consent banner, including the options to accept, manage, and reject all non-essential cookies.
   1. **Generally for all websites**

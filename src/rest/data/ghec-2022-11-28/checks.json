@@ -3317,7 +3317,7 @@
             {
               "type": "array of objects",
               "name": "annotations",
-              "description": "<p>Adds information from your analysis to specific lines of code. Annotations are visible in GitHub's pull request UI. Annotations are visible in GitHub's pull request UI. The Checks API limits the number of annotations to a maximum of 50 per API request. To create more than 50 annotations, you have to make multiple requests to the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/checks/runs#update-a-check-run\">Update a check run</a> endpoint. Each time you update the check run, annotations are appended to the list of annotations that already exist for the check run. GitHub Actions are limited to 10 warning annotations and 10 error annotations per step. For details about annotations in the UI, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//articles/about-status-checks#checks\">About status checks</a>\".</p>",
+              "description": "<p>Adds information from your analysis to specific lines of code. Annotations are visible in GitHub's pull request UI. Annotations are visible in GitHub's pull request UI. The Checks API limits the number of annotations to a maximum of 50 per API request. To create more than 50 annotations, you have to make multiple requests to the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/checks/runs#update-a-check-run\">Update a check run</a> endpoint. Each time you update the check run, annotations are appended to the list of annotations that already exist for the check run. GitHub Actions are limited to 10 warning annotations and 10 error annotations per step. For details about annotations in the UI, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/articles/about-status-checks#checks\">About status checks</a>\".</p>",
               "childParamsGroups": [
                 {
                   "type": "string",
@@ -3405,7 +3405,7 @@
         {
           "type": "array of objects",
           "name": "actions",
-          "description": "<p>Possible further actions the integrator can perform, which a user may trigger. Each action includes a <code>label</code>, <code>identifier</code> and <code>description</code>. A maximum of three actions are accepted. To learn more about check runs and requested actions, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-the-rest-api-to-interact-with-checks#check-runs-and-requested-actions\">Check runs and requested actions</a>.\"</p>",
+          "description": "<p>Possible further actions the integrator can perform, which a user may trigger. Each action includes a <code>label</code>, <code>identifier</code> and <code>description</code>. A maximum of three actions are accepted. To learn more about check runs and requested actions, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-the-rest-api-to-interact-with-checks#check-runs-and-requested-actions\">Check runs and requested actions</a>.\"</p>",
           "childParamsGroups": [
             {
               "type": "string",
@@ -4534,7 +4534,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -4543,7 +4543,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -4711,7 +4711,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Triggers GitHub to rerequest an existing check run, without pushing new code to a repository. This endpoint will trigger the <a href=\"https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#check_run\"><code>check_run</code> webhook</a> event with the action <code>rerequested</code>. When a check run is <code>rerequested</code>, the <code>status</code> of the check suite it belongs to is reset to <code>queued</code> and the <code>conclusion</code> is cleared. The check run itself is not updated. GitHub apps recieving the <a href=\"https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#check_run\"><code>check_run</code> webhook</a> with the <code>rerequested</code> action should then decide if the check run should be reset or updated and call the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/checks/runs#update-a-check-run\">update <code>check_run</code> endpoint</a> to update the check_run if desired.</p>\n<p>For more information about how to re-run GitHub Actions jobs, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/actions/workflow-runs#re-run-a-job-from-a-workflow-run\">Re-run a job from a workflow run</a>\".</p>",
+      "descriptionHTML": "<p>Triggers GitHub to rerequest an existing check run, without pushing new code to a repository. This endpoint will trigger the <a href=\"https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#check_run\"><code>check_run</code> webhook</a> event with the action <code>rerequested</code>. When a check run is <code>rerequested</code>, the <code>status</code> of the check suite it belongs to is reset to <code>queued</code> and the <code>conclusion</code> is cleared. The check run itself is not updated. GitHub apps recieving the <a href=\"https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#check_run\"><code>check_run</code> webhook</a> with the <code>rerequested</code> action should then decide if the check run should be reset or updated and call the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/checks/runs#update-a-check-run\">update <code>check_run</code> endpoint</a> to update the check_run if desired.</p>\n<p>For more information about how to re-run GitHub Actions jobs, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/actions/workflow-runs#re-run-a-job-from-a-workflow-run\">Re-run a job from a workflow run</a>\".</p>",
       "codeExamples": [
         {
           "request": {
@@ -4842,7 +4842,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -4851,7 +4851,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -5985,7 +5985,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -5994,7 +5994,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -6012,7 +6012,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists check runs for a commit ref. The <code>ref</code> can be a SHA, branch name, or a tag name.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThe endpoints to manage checks only look for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty <code>pull_requests</code> array.</p>\n</div>\n<p>If there are more than 1000 check suites on a single git reference, this endpoint will limit check runs to the 1000 most recent check suites. To iterate over all possible check runs, use the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/reference/checks#list-check-suites-for-a-git-reference\">List check suites for a Git reference</a> endpoint and provide the <code>check_suite_id</code> parameter to the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/reference/checks#list-check-runs-in-a-check-suite\">List check runs in a check suite</a> endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint on a private repository.</p>",
+      "descriptionHTML": "<p>Lists check runs for a commit ref. The <code>ref</code> can be a SHA, branch name, or a tag name.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThe endpoints to manage checks only look for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty <code>pull_requests</code> array.</p>\n</div>\n<p>If there are more than 1000 check suites on a single git reference, this endpoint will limit check runs to the 1000 most recent check suites. To iterate over all possible check runs, use the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/reference/checks#list-check-suites-for-a-git-reference\">List check suites for a Git reference</a> endpoint and provide the <code>check_suite_id</code> parameter to the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/reference/checks#list-check-runs-in-a-check-suite\">List check runs in a check suite</a> endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint on a private repository.</p>",
       "codeExamples": [
         {
           "request": {
@@ -7100,7 +7100,7 @@
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>Creates a check suite manually. By default, check suites are automatically created when you create a <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/checks/runs\">check run</a>. You only need to use this endpoint for manually creating check suites when you've disabled automatic creation using \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/checks/suites#update-repository-preferences-for-check-suites\">Update repository preferences for check suites</a>\".</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThe Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty <code>pull_requests</code> array and a <code>null</code> value for <code>head_branch</code>.</p>\n</div>\n<p>OAuth apps and personal access tokens (classic) cannot use this endpoint.</p>",
+      "descriptionHTML": "<p>Creates a check suite manually. By default, check suites are automatically created when you create a <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/checks/runs\">check run</a>. You only need to use this endpoint for manually creating check suites when you've disabled automatic creation using \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/checks/suites#update-repository-preferences-for-check-suites\">Update repository preferences for check suites</a>\".</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThe Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty <code>pull_requests</code> array and a <code>null</code> value for <code>head_branch</code>.</p>\n</div>\n<p>OAuth apps and personal access tokens (classic) cannot use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -10428,7 +10428,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Changes the default automatic flow when creating check suites. By default, a check suite is automatically created each time code is pushed to a repository. When you disable the automatic creation of check suites, you can manually <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/checks/suites#create-a-check-suite\">Create a check suite</a>.\nYou must have admin permissions in the repository to set preferences for check suites.</p>",
+      "descriptionHTML": "<p>Changes the default automatic flow when creating check suites. By default, a check suite is automatically created each time code is pushed to a repository. When you disable the automatic creation of check suites, you can manually <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/checks/suites#create-a-check-suite\">Create a check suite</a>.\nYou must have admin permissions in the repository to set preferences for check suites.</p>",
       "codeExamples": [
         {
           "request": {
@@ -13187,7 +13187,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Triggers GitHub to rerequest an existing check suite, without pushing new code to a repository. This endpoint will trigger the <a href=\"https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#check_suite\"><code>check_suite</code> webhook</a> event with the action <code>rerequested</code>. When a check suite is <code>rerequested</code>, its <code>status</code> is reset to <code>queued</code> and the <code>conclusion</code> is cleared.</p>",
+      "descriptionHTML": "<p>Triggers GitHub to rerequest an existing check suite, without pushing new code to a repository. This endpoint will trigger the <a href=\"https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#check_suite\"><code>check_suite</code> webhook</a> event with the action <code>rerequested</code>. When a check suite is <code>rerequested</code>, its <code>status</code> is reset to <code>queued</code> and the <code>conclusion</code> is cleared.</p>",
       "codeExamples": [
         {
           "request": {
@@ -13287,7 +13287,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -13296,7 +13296,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",

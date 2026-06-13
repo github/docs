@@ -65,9 +65,33 @@ async function startServer() {
 
   process.once('SIGTERM', () => {
     logger.info('Received SIGTERM, beginning graceful shutdown', { pid: process.pid, port })
+
+    // Force-close idle keep-alive sockets so server.close() doesn't hang
+    // waiting for them to disconnect naturally.
+    try {
+      server.closeIdleConnections()
+    } catch (err) {
+      logger.warn('closeIdleConnections failed (server may not be running)', { error: err })
+    }
+
     server.close(() => {
       logger.info('HTTP server closed')
     })
+
+    // If in-flight requests haven't drained within 25s, force exit.
+    // Kubernetes sends SIGKILL at terminationGracePeriodSeconds (60s),
+    // but the deploy controller may time out before that if an old pod
+    // stays in "Terminating" state too long. The preStop hook sleeps 5s,
+    // so 25s here keeps total shutdown well under the 60s grace period.
+    setTimeout(() => {
+      logger.warn('Graceful shutdown timed out, forcing exit')
+      try {
+        server.closeAllConnections()
+      } catch (err) {
+        logger.warn('closeAllConnections failed (server may not be running)', { error: err })
+      }
+      process.exit(0)
+    }, 25_000).unref()
   })
 
   return server

@@ -52,7 +52,7 @@ You can configure environments with protection rules and secrets. When a workflo
 
 ## Using concurrency
 
-Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. You can use concurrency so that an environment has a maximum of one deployment in progress and one deployment pending at a time. For more information about concurrency, see [AUTOTITLE](/actions/using-jobs/using-concurrency).
+Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. You can use concurrency so that an environment has a maximum of one deployment in progress{% ifversion actions-nga %}{% else %} and one deployment pending{% endif %} at a time. For more information about concurrency, see [AUTOTITLE](/actions/using-jobs/using-concurrency).
 
 {% ifversion actions-environments-without-deployments %}
 

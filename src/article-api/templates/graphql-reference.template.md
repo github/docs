@@ -62,7 +62,7 @@ Connection types with only the standard pagination fields (`edges`, `nodes`, `pa
 
 ### Fields for `{{ item.name }}`
 
-{% for field in item.fields %}* `{{ field.name }}` ({{ field.type }}): {{ field.description }}{% if field.defaultValue %} Default: `{{ field.defaultValue }}`.{% endif %}{% if field.isDeprecated %} **Deprecated:** {{ field.deprecationReason }}{% endif %}{% if field.arguments.size > 0 %}
+{% for field in item.fields %}* `{{ field.name }}` ({{ field.type }}): {{ field.description }}{% if field.defaultValue %} Default: `{{ field.defaultValue }}`.{% endif %}{% if field.isDeprecated %} **Deprecated:** {{ field.deprecationReason }}{% endif %}{% if field.hasPaginationOnly %} _(Pagination: `after`, `before`, `first`, `last`)_{% elsif field.arguments.size > 0 %}
 {% for arg in field.arguments %}  * `{{ arg.name }}` ({{ arg.type.name }}): {{ arg.description }}{% if arg.defaultValue %} Default: `{{ arg.defaultValue }}`.{% endif %}
 {% endfor %}{% endif %}
 {% endfor %}
@@ -73,7 +73,7 @@ Connection types with only the standard pagination fields (`edges`, `nodes`, `pa
 
 ### Fields for `{{ item.name }}`
 
-{% for field in item.fields %}* `{{ field.name }}` ({{ field.type }}): {{ field.description }}{% if field.defaultValue %} Default: `{{ field.defaultValue }}`.{% endif %}{% if field.isDeprecated %} **Deprecated:** {{ field.deprecationReason }}{% endif %}{% if field.arguments.size > 0 %}
+{% for field in item.fields %}* `{{ field.name }}` ({{ field.type }}): {{ field.description }}{% if field.defaultValue %} Default: `{{ field.defaultValue }}`.{% endif %}{% if field.isDeprecated %} **Deprecated:** {{ field.deprecationReason }}{% endif %}{% if field.hasPaginationOnly %} _(Pagination: `after`, `before`, `first`, `last`)_{% elsif field.arguments.size > 0 %}
 {% for arg in field.arguments %}  * `{{ arg.name }}` ({{ arg.type.name }}): {{ arg.description }}{% if arg.defaultValue %} Default: `{{ arg.defaultValue }}`.{% endif %}
 {% endfor %}{% endif %}
 {% endfor %}

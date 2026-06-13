@@ -59,6 +59,8 @@ Examples of marketplaces include:
 
 For more about adding marketplaces and installing plugins from them, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing).
 
+Enterprise administrators can also define plugin standards that apply across the enterprise, including specifying additional marketplaces and plugins that are automatically installed for all {% data variables.copilot.copilot_cli_short %} users. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-enterprise-plugin-standards).
+
 ## Plugins compared with manual configuration
 
 Any functionality that you could add with a plugin, you could also add by configuring {% data variables.copilot.copilot_cli_short %} manually—for example, by adding custom agent profiles or MCP servers. However, plugins provide several advantages over manual configuration:

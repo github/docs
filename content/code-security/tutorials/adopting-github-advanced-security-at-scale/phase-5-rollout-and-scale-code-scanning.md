@@ -1,6 +1,6 @@
 ---
 title: 'Phase 5: Rollout and scale code scanning'
-intro: You can {% ifversion security-configuration-enterprise-level %}use security configurations{% else %}leverage the available APIs{% endif %} to rollout {% data variables.product.prodname_code_scanning %} across your enterprise{% ifversion security-configurations %}{% else %} using the repository data you collected earlier{% endif %}.
+intro: You can {% ifversion security-configuration-enterprise-level %}use security configurations{% else %}leverage the available APIs{% endif %} to rollout {% data variables.product.prodname_code_scanning %} across your enterprise.
 versions:
   ghes: '*'
   ghec: '*'
@@ -15,11 +15,7 @@ category:
 >[!TIP]
 > This article is part of a series on adopting {% data variables.product.prodname_GHAS %} at scale. For the previous article in this series, see [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation).
 
-{% ifversion security-configurations %}
-
 {% data reusables.security-configurations.enable-security-features-with-gh-config %}
-
-{% endif %}
 
 ## Enabling code scanning
 
@@ -37,11 +33,7 @@ To successfully manage and use {% data variables.product.prodname_code_scanning 
 
 You'll also need SMEs if you need to use advanced setup for {% data variables.product.prodname_code_scanning %}. These SMEs will need knowledge of {% data variables.product.prodname_code_scanning %} alerts, as well as topics like {% data variables.product.prodname_actions %} and customizing {% data variables.product.prodname_code_scanning %} workflows for particular frameworks. For custom configurations of advanced setup, consider running meetings on complicated topics to scale the knowledge of several SMEs at once.
 
-{% ifversion security-overview-org-codeql-pr-alerts %}
-
 For {% data variables.product.prodname_code_scanning %} alerts from {% data variables.product.prodname_codeql %} analysis, you can use security overview to see how {% data variables.product.prodname_codeql %} is performing in pull requests in repositories across your organization, and to identify repositories where you may need to take action. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/pull-request-alert-metrics).
-
-{% endif %}
 
 {% ifversion copilot-chat-ghas-alerts %}
 

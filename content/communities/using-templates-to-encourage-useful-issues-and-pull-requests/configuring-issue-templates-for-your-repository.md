@@ -31,6 +31,9 @@ category:
 
    ![Screenshot of the preview of an issue template. To the right of the template name, a pencil icon is outlined in dark orange.](/assets/images/help/repository/issue-template-edit-button.png)
 1. To automatically set a default issue title, assign the issue to people with read access to the repository, or apply labels to issues raised from the template, use the fields under "Optional additional information." You can also add these details in the issue template with `title`, `labels`, `type`, or `assignees` in a YAML frontmatter format.
+    > [!NOTE]
+    > The template name must be more than 3 characters.
+
 1. When you're finished editing and previewing your template, click **Propose changes** in the upper right corner of the page.
 1. In the "Commit message" field, type a commit message describing your changes.
 1. Below the commit message fields, select whether to commit your template directly to the default branch, or to create a new branch and open a pull request. For more information about pull requests, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
@@ -49,6 +52,9 @@ To use an issue form in your repository, you must create a new file and add it t
 Here is an example of an issue form configuration file.
 
 {% data reusables.community.issue-forms-sample %}
+
+> [!NOTE]
+> The `name` field must be more than 3 characters. If it's not, the template won't be shown when creating an issue.
 
 Here is the rendered version of the issue form.
 

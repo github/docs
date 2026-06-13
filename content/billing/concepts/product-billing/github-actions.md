@@ -112,7 +112,6 @@ The use of standard {% data variables.product.github %}-hosted runners is free:
 * In public repositories
 * For {% data variables.product.prodname_pages %}
 * For {% data variables.product.prodname_dependabot %}
-* For the agentic features ({% data variables.release-phases.public_preview %}) in {% data variables.copilot.copilot_code-review %}
 
 > [!NOTE]
 >

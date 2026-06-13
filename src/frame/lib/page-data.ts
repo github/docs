@@ -192,7 +192,7 @@ async function translateTree(
       // The beauty in this is that if the translated content file
       // has something wrong with, say, the `versions` frontmatter key
       // we don't even care because we won't be using it anyway.
-      if (translatableFrontmatterKeys.includes(property)) {
+      if (property && translatableFrontmatterKeys.includes(property)) {
         const message = `frontmatter error on '${property}' (in ${fullPath}) so falling back to English`
         if (DEBUG_TRANSLATION_FALLBACKS) {
           // The object format is so the health report knows which path the issue is on

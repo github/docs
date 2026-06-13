@@ -38,9 +38,12 @@ export async function renderContent(
   try {
     template = await renderLiquid(template, context)
     if (context.markdownRequested) {
-      const md = await renderMarkdown(template, context)
-
-      return md
+      // Skip the remark pipeline when there are no internal links to rewrite,
+      // since link rewriting is the only transformation the pipeline performs.
+      if (!/\]\(\s*<?\//.test(template) && !/\]:\s*\//.test(template)) {
+        return template.trim()
+      }
+      return await renderMarkdown(template, context)
     }
 
     const html = await renderUnified(template, context, options)

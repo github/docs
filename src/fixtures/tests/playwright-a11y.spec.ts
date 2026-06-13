@@ -10,7 +10,7 @@ const pages: { [key: string]: string } = {
     '/code-security/getting-started/quickstart?learn=foo_bar&learnProduct=code-security',
   mapAndTopic: '/actions/category/subcategory',
   procedural: '/get-started/images/images-in-lists',
-  productLanding: '/code-security',
+  discoveryLanding: '/code-security',
   restCategory: '/rest/actions/artifacts',
   restLanding: '/rest',
   restOverview: '/rest/about-the-rest-api/comparing-githubs-rest-api-and-graphql-api',
