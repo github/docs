@@ -1,1 +1,0 @@
-> [!NOTE] If you have a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} license, these commands may be blocked by an enterprise administrator.
