@@ -54,7 +54,7 @@ export function createProcessor(context: Context): UnifiedProcessor {
       .use(useEnglishHeadings as unknown as (ctx: Context) => void, context || {})
       .use(headingLinks)
       .use(codeHeader)
-      .use(annotate, context)
+      .use(annotate as unknown as (ctx: Context) => void, context)
       // Using type assertion for highlight plugin due to complex type mismatch between unified and rehype-highlight
       .use(highlight as unknown as (options: unknown) => void, {
         languages: { ...common, graphql, dockerfile, http, groovy, erb, powershell },

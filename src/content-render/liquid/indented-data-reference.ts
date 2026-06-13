@@ -51,7 +51,7 @@ const IndentedDataReference = {
     const text: string | undefined = getDataByLanguage(
       dataReference,
       scope.environments.currentLanguage,
-    )
+    ) as string | undefined
     if (text === undefined) {
       if (scope.environments.currentLanguage === 'en') {
         const message = `Can't find the key 'indented_data_reference ${dataReference}' in the scope.`

@@ -135,7 +135,7 @@ async function getLinksFromMarkdown(
   const needsLiquidHrefResolution =
     rawResult.internalLinks.some((l) => l.href.includes('{%') || l.href.includes('{{')) ||
     rawResult.liquidPrefixedLinks.length > 0
-  type RenderLiquidFn = (template: string, context: unknown) => Promise<string>
+  type RenderLiquidFn = (template: string, context: Context) => Promise<string>
   let renderLiquidFn: RenderLiquidFn | null = null
   if (needsLiquidHrefResolution) {
     const mod = await import('@/content-render/liquid/index')

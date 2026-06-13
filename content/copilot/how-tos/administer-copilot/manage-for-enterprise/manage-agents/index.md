@@ -7,6 +7,7 @@ versions:
 children:
   - /prepare-for-custom-agents
   - /configure-enterprise-plugin-standards
+  - /disable-automatic-commands
   - /monitor-agentic-activity
   - /enable-copilot-cloud-agent
   - /block-agentic-features

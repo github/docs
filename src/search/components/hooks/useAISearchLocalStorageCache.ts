@@ -16,7 +16,7 @@ interface CacheIndexEntry {
  *
  * Cached items are cached under a prefix, for a fixed number of days
  */
-export function useAISearchLocalStorageCache<T = any>(
+export function useAISearchLocalStorageCache<T = unknown>(
   cacheKeyPrefix: string = 'ai-query-cache',
   maxEntries: number = 1000,
   expirationDays: number = 30,

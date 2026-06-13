@@ -321,12 +321,6 @@ jobs:
 
             core.setOutput('examples', examples.join('\n'));
 
-      - name: Set up Node.js
-        if: steps.check_parent.outputs.has_parent == 'true' && steps.check_existing.outputs.exists == 'false'
-        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
-        with:
-          node-version-file: 'package.json'
-
       - name: Prepare prompts for LLM
         if: steps.check_parent.outputs.has_parent == 'true' && steps.check_existing.outputs.exists == 'false'
         id: prepare_prompts
@@ -724,39 +718,17 @@ jobs:
               body: `<!-- changelog-agent-handled -->\n🤖 A changelog draft PR has been automatically created in docs-content: ${changelogPrUrl}`,
             });
 
-      - name: Send Slack failure alert
-        if: failure()
-        env:
-          SLACK_CHANNEL_ID: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          SLACK_TOKEN: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-          WORKFLOW_NAME: ${{ github.workflow }}
-          REPOSITORY: ${{ github.repository }}
-          RUN_ID: ${{ github.run_id }}
-          SERVER_URL: ${{ github.server_url }}
-        run: |
-          curl -sS -X POST https://slack.com/api/chat.postMessage \
-            -H "Authorization: Bearer ${SLACK_TOKEN}" \
-            -H "Content-Type: application/json; charset=utf-8" \
-            --data "$(cat <<EOF
-          {
-            "channel": "${SLACK_CHANNEL_ID}",
-            "text": ":warning: Workflow failure in ${REPOSITORY}",
-            "blocks": [
-              {
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": ":warning: *${WORKFLOW_NAME}* failed in *${REPOSITORY}*"
-                }
-              },
-              {
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": "<${SERVER_URL}/${REPOSITORY}/actions/runs/${RUN_ID}|View workflow run>"
-                }
-              }
-            ]
-          }
-          EOF
-          )"
+      # Local composite actions below require the repository to be checked out.
+      - name: Check out repo
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+      - uses: ./.github/actions/create-workflow-failure-issue
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}

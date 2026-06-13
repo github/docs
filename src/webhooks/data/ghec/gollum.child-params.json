@@ -1,0 +1,46 @@
+{
+  "default": {
+    "pages": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "<p>The action that was performed on the page. Can be <code>created</code> or <code>edited</code>.</p>",
+        "isRequired": true,
+        "enum": [
+          "created",
+          "edited"
+        ]
+      },
+      {
+        "type": "string",
+        "name": "html_url",
+        "description": "<p>Points to the HTML wiki page.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "page_name",
+        "description": "<p>The name of the page.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "sha",
+        "description": "<p>The latest commit SHA of the page.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string or null",
+        "name": "summary",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "title",
+        "description": "<p>The current page title.</p>",
+        "isRequired": true
+      }
+    ]
+  }
+}
