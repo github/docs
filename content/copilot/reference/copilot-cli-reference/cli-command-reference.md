@@ -102,6 +102,7 @@ copilot completion fish > ~/.config/fish/completions/copilot.fish
 | <kbd>Ctrl</kbd>+<kbd>Enter</kbd> or <kbd>Ctrl</kbd>+<kbd>Q</kbd> | Queue a message to send while the agent is busy. |
 | <kbd>Ctrl</kbd>+<kbd>R</kbd>        | Reverse search through command history. |
 | <kbd>Ctrl</kbd>+<kbd>V</kbd> | Paste from clipboard as an attachment. |
+| <kbd>Alt</kbd>+<kbd>V</kbd> | Paste image from clipboard as an attachment. |
 | <kbd>Ctrl</kbd>+<kbd>X</kbd> then `/`  | After you have started typing a prompt, this allows you to run a slash command—for example, if you want to change the model without having to retype your prompt. |
 | <kbd>Ctrl</kbd>+<kbd>X</kbd> then `e`  | Edit the prompt in an external editor (`$EDITOR`). |
 | <kbd>Ctrl</kbd>+<kbd>X</kbd> then `b`  | Promote the running task or shell command to the background. |
