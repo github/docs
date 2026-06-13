@@ -15,7 +15,9 @@ category:
 contentType: how-tos
 ---
 
-You can use the `jobs.<job_id>.if` conditional to prevent a job from running unless a condition is met. {% data reusables.actions.if-supported-contexts %}
+You can use the `jobs.<job_id>.if` conditional to prevent a job from running unless a condition is met. {% data reusables.actions.if-supported-contexts %} 
+
+Note that conditions executed by a shell (for example `[[ $variable == "prefix"* ]]`) can not be evaluated in `jobs.<job_id>.if`. Such conditions must be written inside `jobs.<job_id>.steps[*].run`.
 
 ### Example: Only run job for a specific repository
 
