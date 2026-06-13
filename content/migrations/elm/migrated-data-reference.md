@@ -154,4 +154,4 @@ The following are exported during initial backfill only and are **not** updated 
 
 References **within the source repository**, such as user mentions or links to issues and pull requests in the same repository, are rewritten so that they will still point to the correct resources after migration.
 
-References to **different repositories** (such as a link to an issue in the the `repo-2` repository from a pull request in `repo-1`) are **not** migrated and will point to the exact same destination after migration. This applies even if the referenced repository has already been migrated or is being migrated concurrently.
+References to **different repositories** (such as a link to an issue in the `repo-2` repository from a pull request in `repo-1`) are **not** migrated and will point to the exact same destination after migration. This applies even if the referenced repository has already been migrated or is being migrated concurrently.

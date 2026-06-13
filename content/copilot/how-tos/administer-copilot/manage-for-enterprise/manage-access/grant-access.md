@@ -53,7 +53,7 @@ If your enterprise has a {% data variables.copilot.copilot_enterprise_short %} p
 {% data reusables.enterprise-accounts.copilot-licensing %}
 1. Next to "Organization access", choose whether to enable {% data variables.product.prodname_copilot_short %} for all organizations or allow for specific organizations.
 
-   ![Screenshot of the the "Organization access" section, with the dropdown menu highlighted.](/assets/images/help/copilot/organization-access-menu.png)
+   ![Screenshot of the "Organization access" section, with the dropdown menu highlighted.](/assets/images/help/copilot/organization-access-menu.png)
 
 1. If you selected **Allow for specific organizations**:
     1. Click the **{% octicon "organization" aria-hidden="true" aria-label="organization" %} Organizations** tab.
