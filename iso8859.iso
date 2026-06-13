@@ -1,0 +1,313 @@
+<?xml version=”1.0” encoding=”ISO-8859-1” ¿>
+<feed xmlns=http://www.w3.org/2005/Atom>
+  <title>PayPal Holdings, Inc. (0001633917)</title>
+  <subtitle>Submissions in last 365 days of type 3,4,5 (max count = 40)</subtitle>
+  <link href=https://www.sec.gov/edgar/browse/index.html?cik=1633917/>
+  <link href=https://data.sec.gov/rss?cik=1633917&amp;type=3,4,5&amp;count=40/>
+  <author>
+    <email>webmaster@sec.gov</email>
+    <name>Webmaster</name>
+  </author>
+  <id>urn:uuid:152ca182-afd1-46ca-828f-777687ab52f5</id>
+  <updated>2025-08-22T12:58:36.797Z</updated>
+  <company-info>
+    <addresses>
+      <address type=”mailing”>
+        <street1>2211 NORTH FIRST STREET</street1>
+        <city>SAN JOSE</city>
+        <stateOrCountry>CA</stateOrCountry>
+        <zipCode>95131</zipCode>
+        <stateOrCountryDescription>CA</stateOrCountryDescription>
+      </address>
+      <address type=”business”>
+        <street1>2211 NORTH FIRST STREET</street1>
+        <city>SAN JOSE</city>
+        <stateOrCountry>CA</stateOrCountry>
+        <zipCode>95131</zipCode>
+        <stateOrCountryDescription>CA</stateOrCountryDescription>
+      </address>
+    </addresses>
+    <assigned-sic>7389</assigned-sic>
+    <assigned-sic-desc>Services-Business Services, NEC</assigned-sic-desc>
+    <assigned-sic-href>https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;SIC=7389&amp;owner=exclude;count=40</assigned-sic-href>
+    <confirmed-name>PayPal Holdings, Inc.</confirmed-name>
+    <employer-identification-number>472989869</employer-identification-number>
+    <fiscal-year-end>1231</fiscal-year-end>
+    <office>Office of Trade &amp; Services</office>
+    <state-location>CA</state-location>
+    <state-location-href>https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;State=CA&amp;owner=exclude&amp;count=40</state-location-href>
+  </company-info>
+  <entry>
+    <category label=”form type” scheme=https://www.sec.gov/ term=”4” />
+    <content-type type=”text/xml”>
+      <acceptance-date-time>2025-08-20T21:27:53.000Z</acceptance-date-time>
+      <accession-number>0001633917-25-000173</accession-number>
+      <filing-date>2025-08-20</filing-date>
+      <filing-href>https://www.sec.gov/Archives/edgar/data/1633917/000163391725000173/0001633917-25-000173-index.htm</filing-href>
+      <form-name>Statement of changes in beneficial ownership of securities</form-name>
+      <report-date>2025-08-19</report-date>
+      <size>6225</size>
+    </content-type>
+    <id>urn:tag:sec.gov,2021:accession-number=0001633917-25-000173</id>
+    <link href=https://www.sec.gov/Archives/edgar/data/1633917/000163391725000173/0001633917-25-000173-index.htm rel=”alternate” type=”text/html” />
+    <summary type=”html”> &lt;strong&gt;Filed:&lt;/strong&gt; 2025-08-20 &lt;strong&gt;AccNo:&lt;/strong&gt; 0001633917-25-000173 &lt;strong&gt;Size:&lt;/strong&gt; 7KB </summary>
+    <title>Statement of changes in beneficial ownership of securities</title>
+    <updated>2025-08-22T12:58:36.797Z</updated>
+  </entry>
+  <entry>
+    <category label=”form type” scheme=https://www.sec.gov/ term=”4” />
+    <content-type type=”text/xml”>
+      <acceptance-date-time>2025-08-18T20:36:35.000Z</acceptance-date-time>
+      <accession-number>0001633917-25-000171</accession-number>
+      <filing-date>2025-08-18</filing-date>
+      <filing-href>https://www.sec.gov/Archives/edgar/data/1633917/000163391725000171/0001633917-25-000171-index.htm</filing-href>
+      <form-name>Statement of changes in beneficial ownership of securities</form-name>
+      <report-date>2025-08-15</report-date>
+      <size>8786</size>
+    </content-type>
+    <id>urn:tag:sec.gov,2021:accession-number=0001633917-25-000171</id>
+    <link href=https://www.sec.gov/Archives/edgar/data/1633917/000163391725000171/0001633917-25-000171-index.htm rel=”alternate” type=”text/html” />
+    <summary type=”html”> &lt;strong&gt;Filed:&lt;/strong&gt; 2025-08-18 &lt;strong&gt;AccNo:&lt;/strong&gt; 0001633917-25-000171 &lt;strong&gt;Size:&lt;/strong&gt; 9KB </summary>
+    <title>Statement of changes in beneficial ownership of securities</title>
+    <updated>2025-08-22T12:58:36.797Z</updated>
+  </entry>
+  <entry>
+    <category label=”form type” scheme=https://www.sec.gov/ term=”4” />
+    <content-type type=”text/xml”>
+      <acceptance-date-time>2025-08-01T23:56:46.000Z</acceptance-date-time>
+      <accession-number>0001633917-25-000167</accession-number>
+      <filing-date>2025-08-01</filing-date>
+      <filing-href>https://www.sec.gov/Archives/edgar/data/1633917/000163391725000167/0001633917-25-000167-index.htm</filing-href>
+      <form-name>Statement of changes in beneficial ownership of securities</form-name>
+      <report-date>2025-07-31</report-date>
+      <size>6220</size>
+    </content-type>
+    <id>urn:tag:sec.gov,2021:accession-number=0001633917-25-000167</id>
+    <link href=https://www.sec.gov/Archives/edgar/data/1633917/000163391725000167/0001633917-25-000167-index.htm rel=”alternate” type=”text/html” />
+    <summary type=”html”> &lt;strong&gt;Filed:&lt;/strong&gt; 2025-08-01 &lt;strong&gt;AccNo:&lt;/strong&gt; 0001633917-25-000167 &lt;strong&gt;Size:&lt;/strong&gt; 7KB </summary>
+    <title>Statement of changes in beneficial ownership of securities</title>
+    <updated>2025-08-22T12:58:36.797Z</updated>
+  </entry>
+  <entry>
+    <category label=”form type” scheme=https://www.sec.gov/ term=”4” />
+    <content-type type=”text/xml”>
+      <acceptance-date-time>2025-08-01T23:55:07.000Z</acceptance-date-time>
+      <accession-number>0001633917-25-000166</accession-number>
+      <filing-date>2025-08-01</filing-date>
+      <filing-href>https://www.sec.gov/Archives/edgar/data/1633917/000163391725000166/0001633917-25-000166-index.htm</filing-href>
+      <form-name>Statement of changes in beneficial ownership of securities</form-name>
+      <report-date>2025-07-31</report-date>
+      <size>4356</size>
+    </content-type>
+    <id>urn:tag:sec.gov,2021:accession-number=0001633917-25-000166</id>
+    <link href=https://www.sec.gov/Archives/edgar/data/1633917/000163391725000166/0001633917-25-000166-index.htm rel=”alternate” type=”text/html” />
+    <summary type=”html”> &lt;strong&gt;Filed:&lt;/strong&gt; 2025-08-01 &lt;strong&gt;AccNo:&lt;/strong&gt; 0001633917-25-000166 &lt;strong&gt;Size:&lt;/strong&gt; 5KB </summary>
+    <title>Statement of changes in beneficial ownership of securities</title>
+    <updated>2025-08-22T12:58:36.797Z</updated>
+  </entry>
+  <entry>
+    <category label=”form type” scheme=https://www.sec.gov/ term=”4” />
+    <content-type type=”text/xml”>
+      <acceptance-date-time>2025-07-16T22:39:01.000Z</acceptance-date-time>
+      <accession-number>0001633917-25-000147</accession-number>
+      <filing-date>2025-07-16</filing-date>
+      <filing-href>https://www.sec.gov/Archives/edgar/data/1633917/000163391725000147/0001633917-25-000147-index.htm</filing-href>
+      <form-name>Statement of changes in beneficial ownership of securities</form-name>
+      <report-date>2025-07-15</report-date>
+      <size>12153</size>
+    </content-type>
+    <id>urn:tag:sec.gov,2021:accession-number=0001633917-25-000147</id>
+    <link href=https://www.sec.gov/Archives/edgar/data/1633917/000163391725000147/0001633917-25-000147-index.htm rel=”alternate” type=”text/html” />
+    <summary type=”html”> &lt;strong&gt;Filed:&lt;/strong&gt; 2025-07-16 &lt;strong&gt;AccNo:&lt;/strong&gt; 0001633917-25-000147 &lt;strong&gt;Size:&lt;/strong&gt; 13KB </summary>
+    <title>Statement of changes in beneficial ownership of securities</title>
+    <updated>2025-08-22T12:58:36.797Z</updated>
+  </entry>
+  <entry>
+    <category label=”form type” scheme=https://www.sec.gov/ term=”4” />
+    <content-type type=”text/xml”>
+      <acceptance-date-time>2025-07-16T22:36:19.000Z</acceptance-date-time>
+      <accession-number>0001633917-25-000145</accession-number>
+      <filing-date>2025-07-16</filing-date>
+      <filing-href>https://www.sec.gov/Archives/edgar/data/1633917/000163391725000145/0001633917-25-000145-index.htm</filing-href>
+      <form-name>Statement of changes in beneficial ownership of securities</form-name>
+      <report-date>2025-07-15</report-date>
+      <size>8781</size>
+    </content-type>
+    <id>urn:tag:sec.gov,2021:accession-number=0001633917-25-000145</id>
+    <link href=https://www.sec.gov/Archives/edgar/data/1633917/000163391725000145/0001633917-25-000145-index.htm rel=”alternate” type=”text/html” />
+    <summary type=”html”> &lt;strong&gt;Filed:&lt;/strong&gt; 2025-07-16 &lt;strong&gt;AccNo:&lt;/strong&gt; 0001633917-25-000145 &lt;strong&gt;Size:&lt;/strong&gt; 9KB </summary>
+    <title>Statement of changes in beneficial ownership of securities</title>
+    <updated>2025-08-22T12:58:36.797Z</updated>
+  </entry>
+  <entry>
+    <category label=”form type” scheme=https://www.sec.gov/ term=”4” />
+    <content-type type=”text/xml”>
+      <acceptance-date-time>2025-07-16T22:33:17.000Z</acceptance-date-time>
+      <accession-number>0001633917-25-000143</accession-number>
+      <filing-date>2025-07-16</filing-date>
+      <filing-href>https://www.sec.gov/Archives/edgar/data/1633917/000163391725000143/0001633917-25-000143-index.htm</filing-href>
+      <form-name>Statement of changes in beneficial ownership of securities</form-name>
+      <report-date>2025-07-15</report-date>
+      <size>8806</size>
+    </content-type>
+    <id>urn:tag:sec.gov,2021:accession-number=0001633917-25-000143</id>
+    <link href=https://www.sec.gov/Archives/edgar/data/1633917/000163391725000143/0001633917-25-000143-index.htm rel=”alternate” type=”text/html” />
+    <summary type=”html”> &lt;strong&gt;Filed:&lt;/strong&gt; 2025-07-16 &lt;strong&gt;AccNo:&lt;/strong&gt; 0001633917-25-000143 &lt;strong&gt;Size:&lt;/strong&gt; 9KB </summary>
+    <title>Statement of changes in beneficial ownership of securities</title>
+    <updated>2025-08-22T12:58:36.797Z</updated>
+  </entry>
+  <entry>
+    <category label=”form type” scheme=https://www.sec.gov/ term=”4” />
+    <content-type type=”text/xml”>
+      <acceptance-date-time>2025-07-16T22:31:07.000Z</acceptance-date-time>
+      <accession-number>0001633917-25-000141</accession-number>
+      <filing-date>2025-07-16</filing-date>
+      <filing-href>https://www.sec.gov/Archives/edgar/data/1633917/000163391725000141/0001633917-25-000141-index.htm</filing-href>
+      <form-name>Statement of changes in beneficial ownership of securities</form-name>
+      <report-date>2025-07-15</report-date>
+      <size>8791</size>
+    </content-type>
+    <id>urn:tag:sec.gov,2021:accession-number=0001633917-25-000141</id>
+    <link href=https://www.sec.gov/Archives/edgar/data/1633917/000163391725000141/0001633917-25-000141-index.htm rel=”alternate” type=”text/html” />
+    <summary type=”html”> &lt;strong&gt;Filed:&lt;/strong&gt; 2025-07-16 &lt;strong&gt;AccNo:&lt;/strong&gt; 0001633917-25-000141 &lt;strong&gt;Size:&lt;/strong&gt; 9KB </summary>
+    <title>Statement of changes in beneficial ownership of securities</title>
+    <updated>2025-08-22T12:58:36.797Z</updated>
+  </entry>
+  <entry>
+    <category label=”form type” scheme=https://www.sec.gov/ term=”4” />
+    <content-type type=”text/xml”>
+      <acceptance-date-time>2025-07-16T22:28:39.000Z</acceptance-date-time>
+      <accession-number>0001633917-25-000139</accession-number>
+      <filing-date>2025-07-16</filing-date>
+      <filing-href>https://www.sec.gov/Archives/edgar/data/1633917/000163391725000139/0001633917-25-000139-index.htm</filing-href>
+      <form-name>Statement of changes in beneficial ownership of securities</form-name>
+      <report-date>2025-07-15</report-date>
+      <size>9037</size>
+    </content-type>
+    <id>urn:tag:sec.gov,2021:accession-number=0001633917-25-000139</id>
+    <link href=https://www.sec.gov/Archives/edgar/data/1633917/000163391725000139/0001633917-25-000139-index.htm rel=”alternate” type=”text/html” />
+    <summary type=”html”> &lt;strong&gt;Filed:&lt;/strong&gt; 2025-07-16 &lt;strong&gt;AccNo:&lt;/strong&gt; 0001633917-25-000139 &lt;strong&gt;Size:&lt;/strong&gt; 10KB </summary>
+    <title>Statement of changes in beneficial ownership of securities</title>
+    <updated>2025-08-22T12:58:36.797Z</updated>
+  </entry>
+  <entry>
+    <category label=”form type” scheme=https://www.sec.gov/ term=”4” />
+    <content-type type=”text/xml”>
+      <acceptance-date-time>2025-06-25T22:19:08.000Z</acceptance-date-time>
+      <accession-number>0001633917-25-000132</accession-number>
+      <filing-date>2025-06-25</filing-date>
+      <filing-href>https://www.sec.gov/Archives/edgar/data/1633917/000163391725000132/0001633917-25-000132-index.htm</filing-href>
+      <form-name>Statement of changes in beneficial ownership of securities</form-name>
+      <report-date>2025-06-24</report-date>
+      <size>7646</size>
+    </content-type>
+    <id>urn:tag:sec.gov,2021:accession-number=0001633917-25-000132</id>
+    <link href=https://www.sec.gov/Archives/edgar/data/1633917/000163391725000132/0001633917-25-000132-index.htm rel=”alternate” type=”text/html” />
+    <summary type=”html”> &lt;strong&gt;Filed:&lt;/strong&gt; 2025-06-25 &lt;strong&gt;AccNo:&lt;/strong&gt; 0001633917-25-000132 &lt;strong&gt;Size:&lt;/strong&gt; 8KB </summary>
+    <title>Statement of changes in beneficial ownership of securities</title>
+    <updated>2025-08-22T12:58:36.797Z</updated>
+  </entry>
+  <entry>
+    <category label=”form type” scheme=https://www.sec.gov/ term=”3” />
+    <content-type type=”text/xml”>
+      <acceptance-date-time>2025-06-25T21:50:53.000Z</acceptance-date-time>
+      <accession-number>0001633917-25-000130</accession-number>
+      <filing-date>2025-06-25</filing-date>
+      <filing-href>https://www.sec.gov/Archives/edgar/data/1633917/000163391725000130/0001633917-25-000130-index.htm</filing-href>
+      <form-name>Initial statement of beneficial ownership of securities</form-name>
+      <report-date>2025-06-24</report-date>
+      <size>6032</size>
+    </content-type>
+    <id>urn:tag:sec.gov,2021:accession-number=0001633917-25-000130</id>
+    <link href=https://www.sec.gov/Archives/edgar/data/1633917/000163391725000130/0001633917-25-000130-index.htm rel=”alternate” type=”text/html” />
+    <summary type=”html”> &lt;strong&gt;Filed:&lt;/strong&gt; 2025-06-25 &lt;strong&gt;AccNo:&lt;/strong&gt; 0001633917-25-000130 &lt;strong&gt;Size:&lt;/strong&gt; 7KB </summary>
+    <title>Initial statement of beneficial ownership of securities</title>
+    <updated>2025-08-22T12:58:36.797Z</updated>
+  </entry>
+  <entry>
+    <category label=”form type” scheme=https://www.sec.gov/ term=”4” />
+    <content-type type=”text/xml”>
+      <acceptance-date-time>2025-06-24T22:02:44.000Z</acceptance-date-time>
+      <accession-number>0001633917-25-000128</accession-number>
+      <filing-date>2025-06-24</filing-date>
+      <filing-href>https://www.sec.gov/Archives/edgar/data/1633917/000163391725000128/0001633917-25-000128-index.htm</filing-href>
+      <form-name>Statement of changes in beneficial ownership of securities</form-name>
+      <report-date>2025-06-23</report-date>
+      <size>8613</size>
+    </content-type>
+    <id>urn:tag:sec.gov,2021:accession-number=0001633917-25-000128</id>
+    <link href=https://www.sec.gov/Archives/edgar/data/1633917/000163391725000128/0001633917-25-000128-index.htm rel=”alternate” type=”text/html” />
+    <summary type=”html”> &lt;strong&gt;Filed:&lt;/strong&gt; 2025-06-24 &lt;strong&gt;AccNo:&lt;/strong&gt; 0001633917-25-000128 &lt;strong&gt;Size:&lt;/strong&gt; 9KB </summary>
+    <title>Statement of changes in beneficial ownership of securities</title>
+    <updated>2025-08-22T12:58:36.797Z</updated>
+  </entry>
+  <entry>
+    <category label=”form type” scheme=https://www.sec.gov/ term=”4” />
+    <content-type type=”text/xml”>
+      <acceptance-date-time>2025-06-24T21:59:32.000Z</acceptance-date-time>
+      <accession-number>0001633917-25-000126</accession-number>
+      <filing-date>2025-06-24</filing-date>
+      <filing-href>https://www.sec.gov/Archives/edgar/data/1633917/000163391725000126/0001633917-25-000126-index.htm</filing-href>
+      <form-name>Statement of changes in beneficial ownership of securities</form-name>
+      <report-date>2025-06-23</report-date>
+      <size>6646</size>
+    </content-type>
+    <id>urn:tag:sec.gov,2021:accession-number=0001633917-25-000126</id>
+    <link href=https://www.sec.gov/Archives/edgar/data/1633917/000163391725000126/0001633917-25-000126-index.htm rel=”alternate” type=”text/html” />
+    <summary type=”html”> &lt;strong&gt;Filed:&lt;/strong&gt; 2025-06-24 &lt;strong&gt;AccNo:&lt;/strong&gt; 0001633917-25-000126 &lt;strong&gt;Size:&lt;/strong&gt; 7KB </summary>
+    <title>Statement of changes in beneficial ownership of securities</title>
+    <updated>2025-08-22T12:58:36.797Z</updated>
+  </entry>
+  <entry>
+    <category label=”form type” scheme=https://www.sec.gov/ term=”4” />
+    <content-type type=”text/xml”>
+      <acceptance-date-time>2025-06-17T21:26:04.000Z</acceptance-date-time>
+      <accession-number>0001633917-25-000115</accession-number>
+      <filing-date>2025-06-17</filing-date>
+      <filing-href>https://www.sec.gov/Archives/edgar/data/1633917/000163391725000115/0001633917-25-000115-index.htm</filing-href>
+      <form-name>Statement of changes in beneficial ownership of securities</form-name>
+      <report-date>2025-06-15</report-date>
+      <size>12213</size>
+    </content-type>
+    <id>urn:tag:sec.gov,2021:accession-number=0001633917-25-000115</id>
+    <link href=https://www.sec.gov/Archives/edgar/data/1633917/000163391725000115/0001633917-25-000115-index.htm rel=”alternate” type=”text/html” />
+    <summary type=”html”> &lt;strong&gt;Filed:&lt;/strong&gt; 2025-06-17 &lt;strong&gt;AccNo:&lt;/strong&gt; 0001633917-25-000115 &lt;strong&gt;Size:&lt;/strong&gt; 13KB </summary>
+    <title>Statement of changes in beneficial ownership of securities</title>
+    <updated>2025-08-22T12:58:36.797Z</updated>
+  </entry>
+  <entry>
+    <category label=”form type” scheme=https://www.sec.gov/ term=”4” />
+    <content-type type=”text/xml”>
+      <acceptance-date-time>2025-06-17T21:22:59.000Z</acceptance-date-time>
+      <accession-number>0001633917-25-000113</accession-number>
+      <filing-date>2025-06-17</filing-date>
+      <filing-href>https://www.sec.gov/Archives/edgar/data/1633917/000163391725000113/0001633917-25-000113-index.htm</filing-href>
+      <form-name>Statement of changes in beneficial ownership of securities</form-name>
+      <report-date>2025-06-15</report-date>
+      <size>12232</size>
+    </content-type>
+    <id>urn:tag:sec.gov,2021:accession-number=0001633917-25-000113</id>
+    <link href=https://www.sec.gov/Archives/edgar/data/1633917/000163391725000113/0001633917-25-000113-index.htm rel=”alternate” type=”text/html” />
+    <summary type=”html”> &lt;strong&gt;Filed:&lt;/strong&gt; 2025-06-17 &lt;strong&gt;AccNo:&lt;/strong&gt; 0001633917-25-000113 &lt;strong&gt;Size:&lt;/strong&gt; 13KB </summary>
+    <title>Statement of changes in beneficial ownership of securities</title>
+    <updated>2025-08-22T12:58:36.797Z</updated>
+  </entry>
+  <entry>
+    <category label=”form type” scheme=https://www.sec.gov/ term=”4” />
+    <content-type type=”text/xml”>
+      <acceptance-date-time>2025-06-09T21:38:55.000Z</acceptance-date-time>
+      <accession-number>0001633917-25-000109</accession-number>
+      <filing-date>2025-06-09</filing-date>
+      <filing-href>https://www.sec.gov/Archives/edgar/data/1633917/000163391725000109/0001633917-25-000109-index.htm</filing-href>
+      <form-name>Statement of changes in beneficial ownership of securities</form-name>
+      <report-date>2025-06-06</report-date>
+      <size>4553</size>
+    </content-type>
+    <id>urn:tag:sec.gov,2021:accession-number=0001633917-25-000109</id>
+    <link href=https://www.sec.gov/Archives/edgar/data/1633917/000163391725000109/0001633917-25-000109-index.htm rel=”alternate” type=”text/html” />
+    <summary type=”html”> &lt;strong&gt;Filed:&lt;/stron
+Propietario Edgar Manuel Ruiz Arias edgarplasticos3@hotmail.com 
+
+by Edgar Manuel Ruiz Arias Edgarruiz8585 
+https://github.com/Edgarruiz8585 
+.
