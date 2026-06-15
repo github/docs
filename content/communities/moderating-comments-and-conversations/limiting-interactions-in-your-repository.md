@@ -1,6 +1,6 @@
 ---
 title: Limiting interactions in your repository
-intro: You can temporarily enforce a period of limited activity for certain users on a public repository, and set a maximum number of concurrent open pull requests for users without write access.
+intro: You can temporarily enforce a period of limited activity for certain users on a public repository.
 redirect_from:
   - /articles/limiting-interactions-with-your-repository
   - /articles/limiting-interactions-in-your-repository
@@ -8,7 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-permissions: 'People with admin permissions to a repository, and organization moderators, can temporarily limit interactions in that repository and set a maximum number of concurrent open pull requests for users without write access.'
+permissions: 'People with admin permissions to a repository, and organization moderators, can temporarily limit interactions in that repository.'
 shortTitle: Limit interactions in repo
 category:
   - Moderate comments and conversations
@@ -33,7 +33,7 @@ You can also enable activity limitations on all repositories owned by your perso
 
 ## Limiting concurrent open pull requests for users without write access
 
-You can set a maximum number of pull requests that a user without write access can have open at the same time in your repository. When a user without write access reaches the limit, they must close or get an existing pull request merged before they can open a new one.
+In a public repository, you can also set a maximum number of pull requests that a user without write access can have open at the same time. When a user without write access reaches the limit, they must close or get an existing pull request merged before they can open a new one.
 
 This setting helps maintainers manage contribution volume by preventing users from opening an excessive number of pull requests, which can overwhelm review queues and trigger unnecessary CI runs. The limit only applies to users without write access — users with collaborator access to the repository are not affected.
 
@@ -45,9 +45,8 @@ You can manage the bypass list through either the UI or the API. The bypass list
 
 ### Configuring the pull request limit
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. In the sidebar, select **{% octicon "comment-discussion" aria-hidden="true" aria-label="comment-discussion" %} Moderation options**, then click **Interaction limits**.
+To configure the pull request limit, navigate to the **Interaction limits** settings page following the same steps described in "[Limiting interactions in your repository](#limiting-interactions-in-your-repository)," then:
+
 1. Under "Pull request limits", select the maximum number of concurrent open pull requests allowed for non-collaborators.
 1. Optionally, to allow specific users to bypass the limit, under "Allowlist", search for and select the users you want to add.
 
