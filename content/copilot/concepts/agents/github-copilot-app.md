@@ -14,8 +14,8 @@ category:
 
 > [!NOTE] The {% data variables.copilot.github_copilot_app %} is in {% data variables.release-phases.technical_preview %} and subject to change.
 >
-> * **{% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}, {% data variables.copilot.copilot_pro_short %}, and {% data variables.copilot.copilot_pro_plus_short %} users** — Download and install from the [{% data variables.copilot.github_copilot_app %} repository](https://gh.io/github-copilot-app-repo?utm_source=docs-about-github-copilot-app-repo&utm_medium=docs&utm_campaign=msbuild-2026). For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, your organization or enterprise must enable preview features and {% data variables.copilot.copilot_cli_short %}.
-> * **{% data variables.copilot.copilot_free_short %} users and users without a {% data variables.product.prodname_copilot_short %} plan** — To request access, [join the waitlist](https://gh.io/github-copilot-app?utm_source=docs-about-github-copilot-app-waitlist&utm_medium=docs&utm_campaign=msbuild-2026).
+> * **Existing {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}, {% data variables.copilot.copilot_pro_short %}, and {% data variables.copilot.copilot_pro_plus_short %} users** — Download and install from the [{% data variables.copilot.github_copilot_app %} repository](https://gh.io/github-copilot-app-repo?utm_source=docs-about-github-copilot-app-repo&utm_medium=docs&utm_campaign=msbuild-2026). For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, your organization or enterprise must enable preview features and {% data variables.copilot.copilot_cli_short %}.
+> * **{% data variables.copilot.copilot_free_short %} users and users without a {% data variables.product.prodname_copilot_short %} plan** do not currently have access to the {% data variables.copilot.github_copilot_app %}. Access is expected to expand over time.
 
 ## Introduction
 
@@ -44,7 +44,7 @@ The {% data variables.copilot.github_copilot_app %} supports the following opera
 * **Parallel workspaces:** Run multiple isolated agent sessions simultaneously, each with a dedicated git worktree and branch. You can also run sessions in cloud sandboxes (public preview) hosted by {% data variables.product.github %}. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
 * **Session modes:** Choose how you work with agents: Interactive (collaborative), Plan (agent plans, you approve), or Autopilot (fully autonomous). You can also select from multiple LLMs and adjust reasoning effort for each session.
 * **{% data variables.product.github %} integration:** Browse and find issues, start sessions from them, create and close pull requests, review pull requests, view CI check results, and search across your repositories—all within the app.
-* **Customizations:** Configure MCP servers, skills, extensions, and plugins globally or for each session.
+* **Customizations:** Configure and use global instructions, MCP servers, and agent skills.
 * **Automations:** Save recurring agent tasks and run them on a schedule or on demand.
 * **Quick chats:** Brainstorm in a conversation mode without creating a dedicated branch or workspace.
 * **Session history:** Use `/chronicle` to get insights from previous sessions, including work you started in the app.

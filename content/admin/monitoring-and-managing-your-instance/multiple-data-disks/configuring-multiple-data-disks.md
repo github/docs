@@ -3,7 +3,7 @@ title: Configuring multiple data disks
 product: '{% data variables.product.prodname_ghe_server %}'
 intro: You can configure additional data disks and use them to host data of different services.
 versions:
-  ghes: '>= 3.17'
+  ghes: '*'
 contentType: concepts
 category:
   - Scale your instance
@@ -85,7 +85,6 @@ In high availability setups, it is best to use multi-data disks on both the prim
    ``` shell copy
    /usr/local/share/enterprise/ghe-storage-multi-disk init /dev/nvme4n1 systemlogs
    ```
-
 
    ``` shell copy
    /usr/local/share/enterprise/ghe-storage-multi-disk init /dev/nvme5n1 githublogs

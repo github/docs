@@ -246,13 +246,9 @@ You can see which people in your enterprise have enabled two-factor authenticati
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. To view enterprise members who have enabled or disabled two-factor authentication, on the right, select {% ifversion ghes > 3.16 %}**Two-factor authentication**{% else %}**2FA**{% endif %}, then select {% ifversion ghes > 3.16 %}**Secure**{% else %}**Enabled**{% endif %} or **Disabled**.
+1. To view enterprise members who have enabled or disabled two-factor authentication, on the right, select **Two-factor authentication**, then select **Secure** or **Disabled**.
 
-   {% ifversion ghes > 3.16 %}
    ![Screenshot of the list of organization members. A dropdown menu, labeled "Two-factor Authentication", is expanded and outlined in orange.](/assets/images/help/2fa/ghes-filter-org-members-by-2fa.png)
-   {% else %}
-   ![Screenshot of the list of organization members. A dropdown menu, labeled "2FA", is expanded and outlined in orange.](/assets/images/help/2fa/legacy-filter-org-members-by-2fa.png)
-   {% endif %}
 
 {% endif %}
 

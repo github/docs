@@ -307,14 +307,14 @@ type Replacement = {
   asMarkdown: string
   newAsMarkdown: string
   line: number
-  column: number
+  column?: number
 }
 
 type Warning = {
   warning: string
   asMarkdown: string
   line: number
-  column: number
+  column?: number
 }
 
 type UpdateResult = {

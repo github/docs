@@ -84,6 +84,53 @@ These tell the CLI where to find your plugin's components. All are optional. The
 
 {% data reusables.copilot.copilot-cli.cli-example-plugin-file %}
 
+### LSP server configuration
+
+To include LSP (Language Server Protocol) servers in a plugin, create a `lsp-config/servers.json` file in the plugin directory, or specify a path or inline object using the `lspServers` field in `plugin.json`.
+
+Example `lsp-config/servers.json` (or inline via `lspServers` in `plugin.json`):
+
+```json
+{
+    "lspServers": {
+        "my-lsp": {
+            "command": "my-language-server",
+            "fileExtensions": { ".myext": "mylang" }
+        }
+    }
+}
+```
+
+For cross-platform support, use `bash` and `powershell` instead of `command`:
+
+```json
+{
+    "lspServers": {
+        "my-lsp": {
+            "bash": "${PLUGIN_ROOT}/scripts/start-lsp.sh",
+            "powershell": "${PLUGIN_ROOT}/scripts/start-lsp.ps1",
+            "fileExtensions": { ".myext": "mylang" }
+        }
+    }
+}
+```
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `command` | string | * | Executable to launch the language server. |
+| `bash` | string | * | Bash script to launch the server (Linux/macOS); executed via `bash -c SCRIPT`. |
+| `powershell` | string | * | PowerShell script to launch the server (Windows); executed via `pwsh -c SCRIPT`. |
+| `cwd` | string | No | Working directory. Absolute or relative to the configuration file. Supports `${PLUGIN_ROOT}`. |
+| `args` | string[] | No | Arguments to pass to `command` (ignored for `bash` and `powershell`). |
+| `env` | object | No | Environment variables to set when spawning the server. |
+| `fileExtensions` | object | Yes | Map of file extensions to language IDs (for example, `{ ".ts": "typescript" }`). |
+| `rootUri` | string | No | Project root relative to the git root (default: `.`). |
+| `initializationOptions` | any | No | Options sent to the server in the LSP `initialize` request. |
+
+(*) At least one of `command`, `bash`, or `powershell` is required. When both `bash` and `powershell` are specified, the platform-appropriate one is selected automatically (PowerShell on Windows, Bash elsewhere).
+
+Use `${PLUGIN_ROOT}` to reference paths within the plugin directory.
+
 ## `marketplace.json`
 
 You can create a plugin marketplace—which people can use to discover and install your plugins—by creating a `marketplace.json` file and saving it to the `.github/plugin/` directory of the repository. You can also store the `marketplace.json` file in your local file system. For example, saving the file as `/PATH/TO/my-marketplace/.github/plugin/marketplace.json` allows you to add it to the CLI using the following command:

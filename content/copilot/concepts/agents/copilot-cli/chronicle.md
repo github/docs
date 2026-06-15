@@ -55,6 +55,21 @@ You can choose to share individual sessions, giving view-only access to others w
 
 You can manage your session data both locally and on {% data variables.product.prodname_dotcom_the_website %}.
 
+#### Deleting sessions with the `/session` slash command
+
+The simplest way to delete sessions is to use the `/session` slash command in an interactive CLI session.
+
+* `/session delete` deletes the current session and starts a new one in its place.
+* `/session delete SESSION-ID` deletes a specific session. This shows a preview first; add `--yes` to confirm, for example `/session delete SESSION-ID --yes`.
+* `/session delete-all` deletes all of your local sessions except the current one. Add `--yes` to confirm: `/session delete-all --yes`. Sessions that are in use by another process are skipped.
+* `/session prune --older-than DAYS` deletes sessions older than the specified number of days. Add `--dry-run` to preview what would be deleted.
+
+When you delete a session that has been synced to your account, `/session delete` asks whether you also want to delete the synced (remote) copy. Deleting the synced copy also removes the session from your `/chronicle` insights and query results. The `/session delete-all` and `/session prune` subcommands only affect local sessions and do not delete synced data. To remove synced data for those sessions, manually delete it from {% data variables.product.prodname_dotcom_the_website %}.
+
+For the full list of `/session` subcommands, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference).
+
+#### Deleting session data manually
+
 * **Local data**: To remove data for a particular CLI session locally, delete the relevant session directory from `~/.copilot/session-state/`. To clear all local session data, delete everything under `~/.copilot/session-state/`. After doing this you must manually reindex the session store. See [Reindexing the session store](#reindexing-the-session-store) later in this article. Deleting local files does not affect session data that has been synced to your account. You cannot delete synced data locally.
 * **Synced data**: You can delete or hide synced CLI sessions from {% data variables.product.prodname_dotcom_the_website %}. Hiding a session removes it from your session index so it no longer appears in query results. Deleting a session removes it from your session list on {% data variables.product.prodname_dotcom_the_website %}. Deletion applies to CLI, {% data variables.product.prodname_vscode_shortname %}, and {% data variables.copilot.github_copilot_app %} sessions.
 
@@ -81,7 +96,7 @@ You can reindex the session store from the session files on disk. Reindexing als
 Situations where you might need to reindex include:
 
 * **Indexing old sessions**: If you have old session files on disk that were created before the session store existed, reindexing will populate the session store with data from those sessions.
-* **Session deletion**: If you want to delete a session from your history you can delete the session directory and then reindex the session store.
+* **Session deletion**: To delete a session from your history, use the `/session delete`, `/session delete-all`, or `/session prune` slash commands. For a synced session, `/session delete` can also remove the synced copy, which removes the session from your `/chronicle` insights.
 * **Migrating/recovering sessions**: If you moved your session files to another machine, or restored them from a backup, without also moving/restoring the session store file (`~/.copilot/session-store.db`), you can use the reindex command to recreate the session store.
 * **File corruption**: If the session store file (`~/.copilot/session-store.db`) becomes corrupted, or is accidentally deleted, you can recover the session store from the session files.
 * **Unexpected termination**: If a session terminates unexpectedly (for example, due to a crash or power loss) before data held in memory has been flushed to the session store you may be able to populate the session store with the missing data if it was written to disk, in the session files, prior to the termination.

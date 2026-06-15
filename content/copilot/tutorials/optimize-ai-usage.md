@@ -13,19 +13,13 @@ category:
 
 When agents are well-scoped, well-instructed, and operating within clear guardrails, token efficiency improves as a natural outcome. High-quality agents complete tasks in fewer attempts, follow clearer workflows with less rework, and avoid expensive debugging and correction cycles.
 
-This article outlines five strategies for improving both agent quality and {% data variables.product.prodname_ai_credits_short %} efficiency:
-
-* [Choose the right model for the right task](#1-choose-the-right-model-for-the-right-task)
-* [Provide clear guidance in your prompts](#2-provide-clear-guidance-in-your-prompts)
-* [Research, plan, then implement](#3-research-plan-then-implement)
-* [Add deterministic guardrails](#4-add-deterministic-guardrails)
-* [Maintain a concise `copilot-instructions.md`](#5-maintain-a-concise-copilot-instructionsmd)
+Follow the strategies outlined in this article to improve both agent quality and {% data variables.product.prodname_ai_credits_short %} efficiency.
 
 ## 1. Choose the right model for the right task
 
 Model choice is one of the fastest ways to improve both agent quality and cost efficiency, but it is often overlooked. A common pattern is to default to the most capable model for every task—but this often increases token usage without improving the outcome. In some execution-heavy scenarios, overusing reasoning models can reduce quality because the model may overthink the task or introduce unnecessary changes.
 
-Choose the model based on the work at hand. {% data variables.copilot.copilot_auto_model_selection %} can also handle this automatically based on real-time system health and model performance.
+Choose the model based on the work involved:
 
 * **Reasoning models**: Best for architecture decisions, complex debugging, system design, and tasks that require deeper analysis.
 * **Mid-tier models**: Best when the plan is already clear and the agent needs to execute efficiently.
@@ -34,6 +28,18 @@ Choose the model based on the work at hand. {% data variables.copilot.copilot_au
 Use as much capability as the task requires, and as little as necessary. Matching capability to task improves outcomes and directly controls costs at scale.
 
 For a breakdown by model and task type, see [AUTOTITLE](/copilot/tutorials/compare-ai-models).
+
+### Configure the reasoning level of the model
+
+Some models also support configurable reasoning levels, which control how much the model reasons before it responds. A higher level can improve answers to complex problems, but it consumes more tokens, and therefore more credits, so you should use the regular level by default and raise it only for harder tasks. Configurable reasoning is available for {% data variables.product.prodname_vscode %} and {% data variables.copilot.copilot_cli_short %} for supported models.
+
+See [AUTOTITLE](/copilot/reference/ai-models/supported-models#models-with-extended-capabilities).
+
+### Use {% data variables.copilot.copilot_auto_model_selection %}
+
+{% data variables.copilot.copilot_auto_model_selection %} chooses a capable model for you, based on the intent of your task.
+
+See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
 
 ## 2. Provide clear guidance in your prompts
 
@@ -49,33 +55,42 @@ This added guidance doesn't meaningfully increase token usage, but it can signif
 
 For prompt engineering best practices, see [AUTOTITLE](/copilot/concepts/prompting/prompt-engineering).
 
-## 3. Research, plan, then implement
+## 3. Keep your context lean
 
-One of the biggest shifts in working effectively with agents is moving away from doing everything in a single session. When research, planning, and implementation all happen together, context grows quickly, irrelevant information accumulates, and agent quality degrades over time.
+{% data variables.product.prodname_copilot_short %} sends the context it has access to as input tokens, and that context adds up: open editor tabs, attached files, and the full back-and-forth of a long conversation all count as context.
 
-Break work into clear phases:
+To keep context under control, consider doing the following:
 
-* **Research:** Use the agent to explore the codebase, identify relevant files, and understand dependencies.
-* **Plan:** Create a detailed, structured plan or specification before making changes. This is where reasoning models are most valuable.
-* **Implement:** Execute against the plan using focused context and a model suited for execution.
+### Start a new conversation when you switch problems
 
-Starting a new session between phases prevents carrying unnecessary context forward. A single session completed within a reasonable scope takes advantage of caching. Carrying forward context from earlier phases can increase token usage, introduce bias, and reduce clarity for the agent. Each phase should operate with only what it needs. For guidance on scoping sessions effectively, see [AUTOTITLE](/copilot/tutorials/cloud-agent/get-the-best-results).
+A long thread carries its entire history into every new request. When you move on to an unrelated task, start a new conversation. For example:
 
-## 4. Add deterministic guardrails
+* In {% data variables.copilot.copilot_cli_short %} use `/new` (or `/clear`)
+* In {% data variables.copilot.copilot_chat_short %}, start a new chat session.
 
-Agents are non-deterministic and won't be correct every time, especially in multi-step workflows. Without guardrails, small errors can compound quickly: agents build on incorrect outputs, drift further from the goal, and make debugging more expensive and time-consuming.
+### Compact long {% data variables.copilot.copilot_cli_short %} sessions that you want to continue
 
-Deterministic controls introduce clear pass/fail signals:
+When you need the thread to keep going but it has grown large, run `/compact` in {% data variables.copilot.copilot_cli_short %} to summarize the history and shrink the context window, optionally focusing the summary (for example, `/compact focus on the auth module`).
 
-* **Unit tests** verify the agent's changes produced the expected behavior.
-* **Linters** enforce structure and consistency, preventing formatting issues, style drift, and avoidable cleanup work.
-* **Security scans** catch risky patterns early, before they are harder to unwind.
+In addition, you can use `/context` to check current usage at any time.
 
-Together, these controls create a tight feedback loop: the agent makes a change, a test, rule, or scan evaluates it, and the agent adjusts before moving forward. This prevents long chains of incorrect changes, which are one of the biggest drivers of token waste.
+See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/context-management).
 
-Teams that invest in these guardrails see fewer retries, faster task completion, and more predictable agent behavior. They often reduce total token consumption even if individual steps use slightly more tokens upfront.
+### Give {% data variables.product.prodname_copilot_short %} a map of your project
 
-## 5. Maintain a concise `copilot-instructions.md`
+A well-maintained custom instructions file, such as an `AGENTS.md` or `.github/copilot-instructions.md` file, gives agents a structural overview of your repository so they don't have to read large numbers of files just to orient themselves. See [AUTOTITLE](/copilot/reference/custom-instructions-support).
+
+### Bring in only the tools you need
+
+Large tool sets (for example, a full MCP server's worth of tools) add to the context on every request. Where it fits your workflow, enable only the toolsets relevant to the task.
+
+See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/configure-toolsets).
+
+### Take advantage of context caching
+
+{% data variables.product.prodname_copilot_short %} reuses context you've already sent through caching, which lowers the cost of follow-up turns. However, cached context expires after a period of inactivity and isn't reused when you switch models mid-session. In both cases, the context is re-sent and billed again as fresh input tokens. To get the most from caching, keep related work in one continuous session and avoid switching models partway through.
+
+## 4. Reduce repeated errors with a `copilot-instructions.md` file
 
 Persistent instructions improve consistency across agent interactions, but their value depends entirely on how they are written. A `copilot-instructions.md` file at the repository level is the most direct way to encode this guidance. Personal and organization-level instructions can layer on top for broader consistency.
 
@@ -99,3 +114,39 @@ The best instructions are short, specific, and grounded in real observed agent b
 Keep instructions updated as your codebase, architecture, standards, and workflows evolve. Because these instructions are included in the agent's context on every run, even small improvements can reduce repeated errors and lower wasted token usage over time.
 
 For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions).
+
+## 5. Research, plan, then implement
+
+One of the biggest shifts in working effectively with agents is moving away from doing everything in a single session. When research, planning, and implementation all happen together, context grows quickly, irrelevant information accumulates, and agent quality degrades over time.
+
+Break work into clear phases:
+
+* **Research:** Use the agent to explore the codebase, identify relevant files, and understand dependencies.
+* **Plan:** Create a detailed, structured plan or specification before making changes. This is where reasoning models are most valuable.
+   * In {% data variables.copilot.copilot_cli_short %}, use `/plan`.
+   * In {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}, select "Plan" from the agent dropdown, or type `plan` in the context window.
+* **Implement:** Execute against the plan using focused context and a model suited for execution.
+
+Starting a new session between phases prevents carrying unnecessary context forward. Carrying forward context from earlier phases can increase token usage, introduce bias, and reduce clarity for the agent. Each phase should operate with only what it needs. For guidance on scoping sessions effectively, see [AUTOTITLE](/copilot/tutorials/cloud-agent/get-the-best-results).
+
+## 6. Add deterministic guardrails
+
+Agents are non-deterministic and won't be correct every time, especially in multi-step workflows. Without guardrails, small errors can compound quickly: agents build on incorrect outputs, drift further from the goal, and make debugging more expensive and time-consuming.
+
+Deterministic controls introduce clear pass/fail signals:
+
+* **Unit tests** verify the agent's changes produced the expected behavior.
+* **Linters** enforce structure and consistency, preventing formatting issues, style drift, and avoidable cleanup work.
+* **Security scans** catch risky patterns early, before they are harder to unwind.
+
+Together, these controls create a tight feedback loop: the agent makes a change, a test, rule, or scan evaluates it, and the agent adjusts before moving forward. This prevents long chains of incorrect changes, which are one of the biggest drivers of token waste.
+
+Teams that invest in these guardrails see fewer retries, faster task completion, and more predictable agent behavior. They often reduce total token consumption even if individual steps use slightly more tokens upfront.
+
+## Next steps
+
+In addition to improving agent efficiency, you can also monitor and manage your spending to get the most out of your {% data variables.product.prodname_ai_credits_short %}:
+
+* **Use your dashboard and budget controls**. The "AI usage" page, under https://github.com/settings/billing, breaks down consumption across every feature and model, so you can see where your credits are actually going and adjust accordingly.
+* **Identify expensive patterns before they add up**. Within a {% data variables.copilot.copilot_cli_short %} session, use `/usage` to see session-level metrics and to spot expensive patterns as you work. In addition, `/chronicle tips` analyzes your recent session history and surfaces opportunities to use {% data variables.product.prodname_copilot_short %} more efficiently.
+* **Upgrade for a larger allowance**. If you regularly approach your monthly limit, a higher plan may be more economical than paying for additional usage, as higher plans have more {% data variables.product.prodname_ai_credit_singular %} allowance. See [AUTOTITLE](/copilot/concepts/billing/individual-plans#github-ai-credits-allowance-by-plan) and [AUTOTITLE](/copilot/how-tos/manage-your-account/view-and-change-your-copilot-plan).

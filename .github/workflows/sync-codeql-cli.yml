@@ -90,14 +90,22 @@ jobs:
 
           branchname=codeql-cli-update-${{ steps.semmle-code.outputs.OPENAPI_COMMIT_SHA }}
 
-          branchCheckout=$(git checkout -b $branchname)
-          if [[ ! $? -eq 0 ]]; then
-            echo "Branch $branchname already exists in 'github/docs-internal'. Exiting..."
-            exit 0
-          fi
+          git checkout -b $branchname
           git add .
           git commit -m "Update CodeQL CLI data"
-          git push -u origin $branchname
+
+          # Force-push to handle reruns where the branch already exists on the
+          # remote from a prior failed attempt. Plain --force is safe here
+          # because these branches are exclusively managed by this workflow.
+          git push --force -u origin $branchname
+
+          # If a PR already exists for this branch (e.g. a previous run
+          # succeeded but the workflow still reported failure), skip creation.
+          existing_pr=$(gh pr list --repo github/docs-internal --head "$branchname" --json number --jq '.[0].number')
+          if [[ -n "$existing_pr" ]]; then
+            echo "Pull request #$existing_pr already exists for branch $branchname. Skipping PR creation."
+            exit 0
+          fi
 
           echo "Creating pull request..."
           gh pr create \
@@ -113,5 +121,4 @@ jobs:
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

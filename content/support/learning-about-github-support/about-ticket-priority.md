@@ -28,6 +28,8 @@ Ticket priority helps to ensure that support requests are handled in order, and 
 
 Please note that {% data variables.contact.github_support %} can only assist with issues that fall within {% data variables.product.company_short %}'s Scope of Support. Requests related to out-of-scope areas, such as third-party integration issues, custom scripts, or unsupported platforms, cannot be prioritized or addressed by {% data variables.contact.github_support %}.
 
+{% data reusables.support.discontinued-versions %}
+
 For more details and examples of what is considered out of scope for {% data variables.contact.github_support %}, see {% data variables.product.company_short %}'s [Scope of Support documentation](/support/learning-about-github-support/about-github-support#scope-of-support). If your request falls outside this scope, please refer to the relevant third-party’s support resources, community forums, or consult [{% data variables.product.prodname_expert_services %}](https://github.com/services/).
 
 ## Ticket priorities

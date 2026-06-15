@@ -119,14 +119,6 @@ When you create an issue from a discussion, the contents of the discussion post 
 1. Navigate to your project.
 {% data reusables.projects.create-issue-modal %}
 
-{% ifversion projects-v1 %}
-
-## Creating an issue from a {% data variables.projects.projects_v1_board %} note
-
-If you're using a {% data variables.projects.projects_v1_board %} to track and prioritize your work, you can convert notes to issues. For more information, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards) and [AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-notes-to-a-project-board#converting-a-note-to-an-issue).
-
-{% endif %}
-
 {% ifversion fpt or ghec %}
 
 ## Creating an issue from a task list item

@@ -45,8 +45,6 @@ The specific metadata available depends on what the service provider shares with
 
 ## Getting started with validity and extended metadata checks
 
-{% data reusables.secret-scanning.extended-metadata-checks-note %}
-
 You can enable validity and extended metadata checks at the repository, organization, or enterprise level to help prioritize which exposed credentials pose the most immediate security risks.
 
 For large organizations, we recommend using **security configurations** to enable these features at the organization or enterprise level. Security configurations allow you to centrally manage  {% data variables.product.prodname_secret_scanning %} settings and apply them consistently across many repositories.

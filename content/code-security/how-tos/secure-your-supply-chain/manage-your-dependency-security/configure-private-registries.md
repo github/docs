@@ -25,12 +25,11 @@ This article contains recommendations and advice to help you configure {% data v
 
 You'll find detailed guidance for the setup of the following package managers:
 
-{% ifversion dependabot-bun-support %}
-* [Bun](#bun){% endif %}
+* [Bun](#bun)
 * [Bundler](#bundler)
 * [Cargo](#cargo)
-* [Docker](#docker){% ifversion dependabot-docker-compose-support %}
-* [Docker Compose](#docker-compose){% endif %}
+* [Docker](#docker)
+* [Docker Compose](#docker-compose)
 * [Go](#go)
 * [Gradle](#gradle){% ifversion dependabot-helm-support %}
 * [Helm Charts](#helm-charts){% endif %}
@@ -38,8 +37,8 @@ You'll find detailed guidance for the setup of the following package managers:
 * [npm](#npm)
 * [NuGet](#nuget)
 * [pub](#pub)
-* [Python](#python) (includes pip, pip-compile, pipenv, and poetry){% ifversion dependabot-uv-support %}
-* [uv](#uv){% endif %}
+* [Python](#python) (includes pip, pip-compile, pipenv, and poetry)
+* [uv](#uv)
 * [Yarn](#yarn)
 
 You'll also find recommendations for the setup of the following registry hosts:
@@ -55,13 +54,9 @@ You'll also find recommendations for the setup of the following registry hosts:
 
 ## Configuring package managers
 
-{% ifversion dependabot-bun-support %}
-
 ### Bun
 
 Bun adheres to the same configuration guidelines as npm. Note that the `.npmrc` file is not required, but can be provided in order to customize the configuration. For detailed steps, see [npm](#npm).
-
-{% endif %}
 
 ### Bundler
 
@@ -157,13 +152,9 @@ registries:
 * Dockerfiles do not receive updates to images specified with the `ARG` directive. There is a workaround available for the `COPY` directive. For more information, see [{% data variables.product.prodname_dependabot %} ignores image references in COPY Dockerfile statement](https://github.com/dependabot/dependabot-core/issues/5103#issuecomment-1692420920) in the `dependabot/dependabot-core` repository.
 * {% data variables.product.prodname_dependabot %} doesn't support multi-stage Docker builds. For more information, see [Support for Docker multi-stage builds](https://github.com/dependabot/dependabot-core/issues/7640) in the `dependabot/dependabot-core` repository.
 
-{% ifversion dependabot-docker-compose-support %}
-
 ### Docker Compose
 
 Docker Compose adheres to the same configuration guidelines as Docker. For more information, see [Docker](#docker).
-
-{% endif %}
 
 {% ifversion dependabot-helm-support %}
 
@@ -548,13 +539,9 @@ registries:
 
 `url` should contain the URL, organization, and the "feed" or repository.
 
-{% ifversion dependabot-uv-support %}
-
 ### uv
 
 The uv registry uses a configuration similar to that of the python index. For more information, see "`python-index`" in [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot#python-index).
-
-{% endif %}
 
 ### Yarn
 

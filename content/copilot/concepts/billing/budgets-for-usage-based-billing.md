@@ -1,10 +1,10 @@
 ---
 title: Budgets for usage-based billing
 shortTitle: Budgets
-intro: 'Under usage-based billing, budget controls at the user, cost center, and enterprise levels determine how {% data variables.product.prodname_copilot_short %} usage is served, metered, or blocked.'
+intro: 'Under usage-based billing, budget controls at the user, organization, cost center, and enterprise levels determine how {% data variables.product.prodname_copilot_short %} usage is served, metered, or blocked.'
 versions:
   feature: copilot
-permissions: 'Enterprise owners and billing managers can set all budget controls. Organization owners can set organization-level and cost center budgets.'
+permissions: 'Enterprise owners and billing managers can set all budget controls. Organization owners can set organization-level budgets.'
 product: '{% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}'
 contentType: concepts
 category:
@@ -13,9 +13,9 @@ category:
 
 Every {% data variables.product.prodname_copilot_short %} license includes {% data variables.product.prodname_ai_credits_short %} that are pooled across your enterprise. Budget controls let you govern how individual users draw from that pool, and cap any additional spending once it's exhausted. This article explains what each budget control does, how the system evaluates them, and what happens when a limit is reached.
 
-## Understanding the four budget controls
+## Understanding budget controls
 
-You have four budget controls, each serving a different purpose. They work together, not as alternatives.
+You have budget controls at the user, organization, cost center, and enterprise levels, each serving a different purpose. They work together, not as alternatives.
 
 ### User-level budget
 
@@ -38,6 +38,14 @@ A cost center budget caps metered charges for a defined group of users or an org
 
 When a cost center's budget is exhausted, only users in that cost center are blocked. Other users and cost centers are unaffected.
 
+### Organization budget
+
+An organization budget caps metered charges for users who receive their {% data variables.product.prodname_copilot_short %} license through that organization. Like cost center budgets, it is only active after the shared pool is exhausted.
+
+Organization budgets are the only budget option available to organization owners. They can only further restrict usage below any budget set by an enterprise admin, and they cannot override a higher-level budget.
+
+If a user receives {% data variables.product.prodname_copilot_short %} licenses from multiple organizations, {% data variables.product.github %} picks one organization at random each billing cycle to bill the seat. This means the user's spend could count against a different organization's budget from month to month, making enforcement unpredictable. To avoid this, ensure each user has a single license through one organization, or use cost center budgets with direct user assignment.
+
 ### Enterprise budget
 
 The enterprise budget caps total metered charges across your entire enterprise. Like cost center budgets, it is only active after the shared pool is exhausted.
@@ -52,6 +60,7 @@ The enterprise budget caps total metered charges across your entire enterprise. 
 | Universal user-level budget | Each user's total {% data variables.product.prodname_ai_credit_singular %} consumption | Always (pool + metered) | Per user | Always |
 | Individual user-level budget | A specific user's total consumption (overrides universal) | Always (pool + metered) | Per user | Always |
 | Cost center budget | A team's metered charges after pool exhaustion | Metered phase only | Per cost center | Only if "Stop usage when budget limit is reached" is enabled |
+| Organization budget | An organization's metered charges after pool exhaustion | Metered phase only | Per organization | Only if "Stop usage when budget limit is reached" is enabled |
 | Enterprise budget | Total enterprise metered charges after pool exhaustion | Metered phase only | Enterprise-wide | Only if "Stop usage when budget limit is reached" is enabled |
 
 Any budget set to $0 USD stops usage immediately for the users it applies to.
@@ -67,15 +76,16 @@ Each request for an {% data variables.product.prodname_ai_credit_singular %}-con
 
 1. **User-level budget check.** The system first checks whether the user has exceeded their user-level budget. If yes, the request is blocked immediately—user-level budgets are always a hard stop. If no (or no ULB is set), the request continues.
 1. **Shared pool check.** Next, the system checks whether the shared pool has {% data variables.product.prodname_ai_credits_short %} remaining. If yes, the request is served from the pool at no extra cost. If the pool is empty, the request moves to metered usage at {% data variables.product.prodname_ai_credits_value %} per {% data variables.product.prodname_ai_credit_singular %}.
-1. **Cost center or enterprise check.** For metered usage, the system checks whether the user is assigned to a cost center.
+1. **Cost center, organization, or enterprise check.** For metered usage, the system checks budgets in the following order:
 
    * **If the user is in a cost center:** The cost center's budget is checked. If budget remains, the cost center pays. If the budget is exhausted, the system checks whether "Stop usage when budget limit is reached" is enabled.
-   * **If the user is not in a cost center:** The enterprise spending limit is checked. If the limit has not been reached, the enterprise pays. If the limit has been reached, the system checks whether "Stop usage when budget limit is reached" is enabled.
+   * **If the user is not in a cost center but their license is billed to an organization with a budget:** The organization's budget is checked. If budget remains, the organization pays. If the budget is exhausted, the system checks whether "Stop usage when budget limit is reached" is enabled.
+   * **If no cost center or organization budget applies:** The enterprise spending limit is checked. If the limit has not been reached, the enterprise pays. If the limit has been reached, the system checks whether "Stop usage when budget limit is reached" is enabled.
 
-   In both cases, if "Stop usage when budget limit is reached" is on, the user is blocked. If it is off, charges continue to accrue without a cap.
+   In all cases, if "Stop usage when budget limit is reached" is on, the user is blocked. If it is off, charges continue to accrue without a cap.
 
 > [!IMPORTANT]
-> "Stop usage when budget limit is reached" applies to enterprise spending limits and cost center budgets only, and is off by default. Without it, charges continue to accrue past the limit. Always enable it when creating a spending limit. User-level budgets always enforce a hard stop and do not have this setting.
+> "Stop usage when budget limit is reached" applies to enterprise spending limits, cost center budgets, and organization budgets only, and is off by default. Without it, charges continue to accrue past the limit. Always enable it when creating a budget. User-level budgets always enforce a hard stop and do not have this setting.
 
 ## How user-level budgets and spending limits interact
 

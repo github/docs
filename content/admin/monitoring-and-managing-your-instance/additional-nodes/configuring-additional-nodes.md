@@ -10,10 +10,6 @@ category:
   - Scale your instance
 ---
 
-> [!NOTE]
-> The ability to add additional compute nodes to HA is in {% data variables.release-phases.public_preview %} and subject to change. During the preview, please share any feedback with your customer success team.
-
-
 For {% data variables.product.prodname_ghe_server %} customers looking to scale horizontally, migrating to and operating a cluster is an option, but is resource-intensive and time-consuming. As an alternative, we recommend adding nodes to an HA configuration.
 
 The terms "additional node" and "stateless node" are used interchangeably throughout this article. Stateless nodes can only be added to HA deployments that contain at least one replica.
@@ -59,7 +55,7 @@ ghe-cluster-balance rebalance --yes
 
 The `ghe-config-apply` command is a requirement to add stateless nodes.
 
-For the public preview, we have not specifically tested for downtime, and it's not clear if a maintenance window is required.
+We recommend a maintenance window to add stateless nodes.
 
 ## Removing an additional node
 
@@ -71,7 +67,7 @@ ghe-config-apply
 
 The `ghe-config-apply` command is a requirement to remove stateless nodes.
 
-For the public preview, we have not specifically tested for downtime, and it's not clear if a maintenance window is required.
+We recommend a maintenance window to remove stateless nodes.
 
 ## Reprovisioning a node that previously hosted {% data variables.product.prodname_ghe_server %}
 

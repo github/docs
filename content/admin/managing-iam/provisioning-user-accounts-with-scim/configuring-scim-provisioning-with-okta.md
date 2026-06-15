@@ -22,8 +22,6 @@ category:
   - Provision and manage enterprise users
 ---
 
-{% data reusables.scim.ghes-beta-note %}
-
 ## About provisioning with Okta
 
 If you use Okta as an IdP, you can use Okta's application to provision user accounts, manage enterprise membership, and manage team memberships for organizations in your enterprise. Okta is a partner IdP, so you can simplify your authentication and provisioning configuration by using the Okta application {% ifversion ghec %}for {% data variables.product.prodname_emus %}. For more information, see [AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#about-authentication-and-user-provisioning).{% else %}to manage both SAML single-sign on and SCIM provisioning on {% data variables.product.prodname_ghe_server %}.{% endif %}

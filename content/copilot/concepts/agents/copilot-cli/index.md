@@ -12,7 +12,6 @@ children:
   - /about-remote-control
   - /about-custom-agents
   - /about-cli-plugins
-  - /about-enterprise-plugin-standards
   - /autopilot
   - /fleet
   - /research
@@ -24,3 +23,4 @@ contentType: concepts
 docsTeamMetrics:
   - copilot-cli
 ---
+

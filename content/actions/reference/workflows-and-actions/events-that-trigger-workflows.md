@@ -428,73 +428,6 @@ on:
   page_build
 ```
 
-{% ifversion projects-v1 %}
-
-## `project`
-
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
-| --------------------- | -------------- | ------------ | -------------|
-| [`project`](/webhooks-and-events/webhooks/webhook-events-and-payloads#project) | - `created`<br/>- `closed`<br/>- `reopened`<br/>- `edited`<br/>- `deleted`<br/> | Last commit on default branch | Default branch |
-
-> [!NOTE]
-> * {% data reusables.developer-site.multiple_activity_types %} The `edited` activity type refers to when a {% data variables.projects.projects_v1_board %}, not a column or card on the {% data variables.projects.projects_v1_board %}, is edited. For information about each activity type, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#project). {% data reusables.developer-site.limit_workflow_to_activity_types %}
-> * {% data reusables.actions.branch-requirement %}
-> * This event only occurs for projects owned by the workflow's repository, not for organization-owned or user-owned projects or for projects owned by another repository.
-
-Runs your workflow when a {% data variables.projects.projects_v1_board %} is created or modified. For activity related to cards or columns in a {% data variables.projects.projects_v1_board %}, use the [`project_card`](#project_card) or [`project_column`](#project_column) events instead. For more information about {% data variables.projects.projects_v1_boards %}, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards). For information about the {% data variables.projects.projects_v1_board %} APIs, see [AUTOTITLE](/graphql/reference/projects-classic#object-project) in the GraphQL API documentation or [AUTOTITLE](/rest/projects-classic).
-
-For example, you can run a workflow when a project has been `created` or `deleted`.
-
-```yaml
-on:
-  project:
-    types: [created, deleted]
-```
-
-## `project_card`
-
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
-| --------------------- | -------------- | ------------ | -------------|
-| [`project_card`](/webhooks-and-events/webhooks/webhook-events-and-payloads#project_card) | - `created`<br/>- `moved`<br/>- `converted` to an issue<br/>- `edited`<br/>- `deleted` | Last commit on default branch | Default branch |
-
-> [!NOTE]
-> * {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#project_card). {% data reusables.developer-site.limit_workflow_to_activity_types %}
-> * {% data reusables.actions.branch-requirement %}
-> * This event only occurs for projects owned by the workflow's repository, not for organization-owned or user-owned projects or for projects owned by another repository.
-
-Runs your workflow when a card on a {% data variables.projects.projects_v1_board %} is created or modified. For activity related to {% data variables.projects.projects_v1_boards %} or columns in a {% data variables.projects.projects_v1_board %}, use the [`project`](#project) or [`project_column`](#project_column) event instead. For more information about {% data variables.projects.projects_v1_boards %}, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards). For information about the project card APIs, see [AUTOTITLE](/graphql/reference/projects-classic#object-projectcard) in the GraphQL API documentation or [AUTOTITLE](/rest/projects-classic/cards).
-
-For example, you can run a workflow when a project card has been `created` or `deleted`.
-
-```yaml
-on:
-  project_card:
-    types: [created, deleted]
-```
-
-## `project_column`
-
-| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
-| --------------------- | -------------- | ------------ | -------------|
-| [`project_column`](/webhooks-and-events/webhooks/webhook-events-and-payloads#project_column) | - `created`<br/>- `updated`<br/>- `moved`<br/>- `deleted` | Last commit on default branch | Default branch |
-
-> [!NOTE]
-> * {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#project_column). {% data reusables.developer-site.limit_workflow_to_activity_types %}
-> * {% data reusables.actions.branch-requirement %}
-> * This event only occurs for projects owned by the workflow's repository, not for organization-owned or user-owned projects or for projects owned by another repository.
-
-Runs your workflow when a column on a {% data variables.projects.projects_v1_board %} is created or modified. For activity related to {% data variables.projects.projects_v1_boards %} or cards in a {% data variables.projects.projects_v1_board %}, use the [`project`](#project) or [`project_card`](#project_card) event instead. For more information about {% data variables.projects.projects_v1_boards %}, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards). For information about the project column APIs, see [AUTOTITLE](/graphql/reference/projects-classic#object-projectcolumn) in the GraphQL API documentation or [AUTOTITLE](/rest/projects-classic#columns).
-
-For example, you can run a workflow when a project column has been `created` or `deleted`.
-
-```yaml
-on:
-  project_column:
-    types: [created, deleted]
-```
-
-{% endif %}
-
 ## `public`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
@@ -845,7 +778,7 @@ jobs:
 > * The webhook payload available to GitHub Actions does not include the `added`, `removed`, and `modified` attributes in the `commit` object. You can retrieve the full commit object using the API. For information, see [AUTOTITLE](/graphql/reference/commits#object-commit) in the GraphQL API documentation or [AUTOTITLE](/rest/commits#get-a-commit).
 > * Events will not be created if more than 5,000 branches are pushed at once. Events will not be created for tags when more than three tags are pushed at once.
 
-Runs your workflow when you push a commit or tag, or when you create a repository from a template. This includes workflows that are not merged into the default branch. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#running-your-workflow-only-when-a-push-to-specific-branches-occurs). 
+Runs your workflow when you push a commit or tag, or when you create a repository from a template. This includes workflows that are not merged into the default branch. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#running-your-workflow-only-when-a-push-to-specific-branches-occurs).
 
 For example, you can run a workflow when the `push` event occurs.
 

@@ -29,14 +29,12 @@ You can use {% data variables.secret-scanning.copilot-secret-scanning %} to gene
 
 ## Defining a custom pattern for a repository
 
-Before defining a custom pattern, you must ensure that {% ifversion ghas-products %}{% data variables.product.prodname_secret_protection %}{% else %}{% data variables.product.prodname_secret_scanning %}{% endif %} is enabled on your repository. For more information, see [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-secret-scanning-for-your-repository).
+Before defining a custom pattern, you must ensure that {% data variables.product.prodname_secret_protection %} is enabled on your repository. For more information, see [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-secret-scanning-for-your-repository).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}{% ifversion ghas-products %}
-1. Under "{% data variables.product.prodname_secret_protection %}", to the right of "Custom patterns", click **New pattern**.{% else %}
-{% data reusables.repositories.navigate-to-ghas-settings %}
-{% data reusables.advanced-security.secret-scanning-new-custom-pattern %}{% endif %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. Under "{% data variables.product.prodname_secret_protection %}", to the right of "Custom patterns", click **New pattern**.
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
 1. When you're ready to test your new custom pattern, to identify matches in the repository without creating alerts, click **Save and dry run**.
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}

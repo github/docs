@@ -15,8 +15,6 @@ category:
   - Provision and manage enterprise users
 ---
 
-{% data reusables.scim.ghes-beta-note %}
-
 ## About management of team membership with IdP groups
 
 {% data reusables.emus.about-team-management-with-idp %} You can review a list of teams that you've synchronized to IdP groups from your enterprise's settings. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups#viewing-idp-groups-group-membership-and-connected-teams).

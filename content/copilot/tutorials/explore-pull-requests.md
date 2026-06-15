@@ -83,6 +83,16 @@ You can ask {% data variables.product.prodname_copilot_short %} to explain why a
 * `Why has this workflow failed?`
 * `What can I do to fix this issue?`
 
+## Ask about a pull request created by {% data variables.product.prodname_copilot_short %}
+
+When you view a pull request created by {% data variables.copilot.copilot_cloud_agent %}, you can ask {% data variables.product.prodname_copilot_short %} about the work it did. {% data variables.product.prodname_copilot_short %} retrieves the agent's session logs to explain what changed, what was validated, and why.
+
+### Example prompts
+
+* `What did {% data variables.product.prodname_copilot_short %} change in this pull request and why?`
+* `What did {% data variables.product.prodname_copilot_short %} validate before opening this pull request?`
+* `Summarize the agent session that created this pull request.`
+
 ## Further reading
 
-* [AUTOTITLE](//copilot/tutorials/using-copilot-to-explore-a-codebase)
+* [AUTOTITLE](/copilot/tutorials/using-copilot-to-explore-a-codebase)

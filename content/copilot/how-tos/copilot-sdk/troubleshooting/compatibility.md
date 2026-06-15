@@ -167,9 +167,7 @@ The Copilot SDK communicates with the CLI via JSON-RPC protocol. Features must b
 | **Development** | | |
 | Toggle experimental | `/experimental`, `--experimental` | Runtime flag |
 | Custom instructions control | `--no-custom-instructions` | CLI flag |
-| Diagnose session | `/diagnose` | TUI command |
 | View/manage instructions | `/instructions` | TUI command |
-| Collect debug logs | `/collect-debug-logs` | Diagnostic tool |
 | Reindex workspace | `/reindex` | TUI command |
 | IDE integration | `/ide` | IDE-specific workflow |
 | **Non-interactive Mode** | | |

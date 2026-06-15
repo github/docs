@@ -13,8 +13,9 @@ category:
 
 Issue fields are organization-level fields that provide consistent, typed metadata across all repositories. Unlike project custom fields, issue fields are defined once at the organization level and are available on every issue and in every project across the organization. For more information on creating and managing issue fields, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-fields-in-your-organization).
 
-> [!NOTE]
-> Issue fields are currently only supported in private projects. Issue fields are not available in public projects.
+## Issue fields in public and internal projects
+
+Only fields with **Public** visibility appear in public and internal projects. Organization-only fields are hidden. For details on configuring field visibility and how visibility changes affect projects, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-fields-in-your-organization#setting-field-visibility).
 
 ## Adding an issue field to a project
 

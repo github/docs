@@ -55,7 +55,7 @@ Other features are permanently enabled for public repositories, such as the depe
 
 ## Enabling or disabling security and analysis features{% ifversion fpt or ghec %} for private repositories{% endif %}
 
-You can manage the security and analysis features for your {% ifversion fpt or ghec %}private or internal {% endif %}repository. If your enterprise or organization has a license for {% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}{% else %}{% data variables.product.prodname_GHAS %}{% endif %}, then extra options are available. {% data reusables.advanced-security.more-info-ghas %}
+You can manage the security and analysis features for your {% ifversion fpt or ghec %}private or internal {% endif %}repository. If your enterprise or organization has a license for {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}, then extra options are available. {% data reusables.advanced-security.more-info-ghas %}
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 

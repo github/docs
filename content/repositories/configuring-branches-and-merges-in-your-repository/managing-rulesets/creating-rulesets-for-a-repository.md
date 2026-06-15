@@ -18,11 +18,7 @@ category:
 
 You can create rulesets to control how users can interact with selected branches and tags in a repository. You can control things like who can push commits to a certain branch and how the commits must be formatted, or who can delete or rename a tag. You can also prevent people from renaming repositories.
 
-{% ifversion push-rulesets %}
-
 {% data reusables.repositories.rulesets-push-rulesets-intro %}
-
-{% endif %}
 
 When you create a ruleset, you can allow certain users to bypass the rules in the ruleset.
 
@@ -87,8 +83,6 @@ To import one of the prebuilt rulesets by {% data variables.product.prodname_dot
 
 {% data reusables.repositories.rulesets-create-and-insights-step %}
 
-{% ifversion push-rulesets %}
-
 ## Creating a push ruleset
 
 {% data reusables.repositories.push-rules-fork-network-note %}
@@ -114,5 +108,3 @@ You can create a push ruleset for private or internal repositories.
 ### Finalizing your push ruleset and next steps
 
 {% data reusables.repositories.rulesets-create-and-insights-step %}
-
-{% endif %}

@@ -63,6 +63,18 @@ The following models are available for each agent:
 * Auto
 {% data reusables.copilot.anthropic-claude-agent-models %}
 
+## Security validation
+
+When a third-party coding agent creates or modifies code, {% data variables.product.github %} automatically scans the generated code for security issues and attempts to resolve them before the pull request is finalized. This reduces the likelihood of the agent introducing problems such as hardcoded secrets, insecure dependencies, and other vulnerabilities.
+
+The following tools and processes scan for security issues:
+
+* **{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}** identifies code security issues.
+* **{% data variables.product.prodname_secret_scanning_caps %}** detects sensitive information such as API keys, tokens, and other secrets.
+* Newly introduced dependencies are checked against the **{% data variables.product.prodname_advisory_database %}** for malware advisories and CVSS-rated High or Critical vulnerabilities.
+
+Security validation does not require a {% data variables.product.prodname_GHAS %} license.
+
 ## Usage costs
 
 Coding agents consume **{% data variables.product.prodname_actions %} minutes** and **{% data variables.product.prodname_ai_credits_short %}**. Each agent session consumes {% data variables.product.prodname_ai_credits_short %} based on the model used and the number of tokens processed.

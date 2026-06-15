@@ -1,9 +1,9 @@
 ---
 title: Understanding the backup service
 shortTitle: Understand the backup service
-intro: 'Answers to common questions about using the backup service with {% data variables.product.prodname_ghe_server %}.'
+intro: Answers to common questions about using the backup service with {% data variables.product.prodname_ghe_server %}.
 versions:
-  ghes: '>= 3.17'
+  ghes: '*'
 category:
   - Back up and upgrade your instance
 ---

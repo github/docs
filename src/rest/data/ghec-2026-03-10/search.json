@@ -2970,6 +2970,7 @@
                               "enum": [
                                 "text",
                                 "single_select",
+                                "multi_select",
                                 "number",
                                 "date"
                               ]
@@ -3020,6 +3021,36 @@
                                 "name",
                                 "color"
                               ]
+                            },
+                            "multi_select_options": {
+                              "description": "Details about the selected options",
+                              "type": [
+                                "array",
+                                "null"
+                              ],
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "description": "Unique identifier for the option.",
+                                    "type": "integer",
+                                    "format": "int64"
+                                  },
+                                  "name": {
+                                    "description": "The name of the option",
+                                    "type": "string"
+                                  },
+                                  "color": {
+                                    "description": "The color of the option",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "name",
+                                  "color"
+                                ]
+                              }
                             }
                           },
                           "required": [
@@ -5613,6 +5644,7 @@
                               "enum": [
                                 "text",
                                 "single_select",
+                                "multi_select",
                                 "number",
                                 "date"
                               ]
@@ -5663,6 +5695,36 @@
                                 "name",
                                 "color"
                               ]
+                            },
+                            "multi_select_options": {
+                              "description": "Details about the selected options",
+                              "type": [
+                                "array",
+                                "null"
+                              ],
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "description": "Unique identifier for the option.",
+                                    "type": "integer",
+                                    "format": "int64"
+                                  },
+                                  "name": {
+                                    "description": "The name of the option",
+                                    "type": "string"
+                                  },
+                                  "color": {
+                                    "description": "The color of the option",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "name",
+                                  "color"
+                                ]
+                              }
                             }
                           },
                           "required": [

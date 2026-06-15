@@ -35,18 +35,13 @@ If your organization is owned by an enterprise account, an enterprise owner can 
 
 ## Enabling {% data variables.secret-scanning.user_alerts %}
 
-{% ifversion ghas-products %}
 {% data variables.secret-scanning.user_alerts_caps %} are enabled when you enable {% data variables.product.prodname_secret_protection %} for your repository.
-{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}{% ifversion ghas-products %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
 1. To the right of "{% data variables.product.prodname_secret_protection %}", click **Enable**.
-1. Review the impact of enabling {% data variables.product.prodname_secret_protection %}, then click **Enable {% data variables.product.prodname_secret_protection %}**.{% elsif ghes < 3.17 %}
-1. When you enable {% data variables.product.prodname_AS %}, {% data variables.product.prodname_secret_scanning %} may automatically be enabled for the repository due to the organization's settings. If "{% data variables.product.prodname_secret_scanning_caps %}" is shown with an **Enable** button, you still need to enable {% data variables.product.prodname_secret_scanning %} by clicking **Enable**. If you see a **Disable** button, {% data variables.product.prodname_secret_scanning %} is already enabled.
-
-   ![Screenshot of the "{% data variables.product.prodname_secret_scanning_caps %}" section of the "{% data variables.product.UI_advanced_security %}" page, with the "Enable" button highlighted in a dark orange outline.](/assets/images/help/repository/enable-secret-scanning-alerts.png){% endif %}
+1. Review the impact of enabling {% data variables.product.prodname_secret_protection %}, then click **Enable {% data variables.product.prodname_secret_protection %}**.
 
 A repository administrator can choose to disable {% data variables.product.prodname_secret_scanning %} for a repository at any time. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository).
 

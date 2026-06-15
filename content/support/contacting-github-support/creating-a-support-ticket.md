@@ -23,6 +23,10 @@ category:
   - Contact GitHub
 ---
 
+## Support for discontinued {% data variables.product.prodname_ghe_server %} releases
+
+{% data reusables.support.discontinued-versions %}
+
 ## About support tickets
 
 {% ifversion fpt %}

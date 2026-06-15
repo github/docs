@@ -24,7 +24,7 @@ The models included with {% data variables.product.prodname_copilot_short %} pla
 
 Model multipliers and costs are subject to change.
 
-> [!NOTE] If you use {% data variables.copilot.copilot_auto_model_selection_short %} in {% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_cli_short %}, or {% data variables.copilot.copilot_cloud_agent %}, you qualify for a 10% discount. For example, if a model has a multiplier of 1x you'll be billed at 0.9x instead.
+> [!NOTE] Users on legacy annual {% data variables.product.prodname_copilot_short %} plans will not receive access to new models and features. 
 
 ## Model multipliers
 
@@ -36,6 +36,8 @@ The following table shows the model multipliers per supported model.
 > * {% data variables.copilot.copilot_claude_sonnet_46 %}
 > * {% data variables.copilot.copilot_gpt_54_mini %}
 > * The multiplier for {% data variables.copilot.copilot_mai_code_1_flash %} is a promotional rate.
+> 
+> If you use {% data variables.copilot.copilot_auto_model_selection_short %} in {% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_cli_short %}, or {% data variables.copilot.copilot_cloud_agent %}, you qualify for a 10% discount. For example, if a model has a multiplier of 1x you'll be billed at 0.9x instead.
 
 | Model | Multiplier |
 | --- | ---: |

@@ -17,8 +17,6 @@ category:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}{% ifversion ghas-products %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
 1. If you have not already enabled {% data variables.product.prodname_secret_protection %}, to the right of "{% data variables.product.prodname_secret_protection %}", click **Enable**.
-1. In the "{% data variables.product.prodname_secret_protection %}" section, to the right of "Push protection", click **Enable**.{% else %}
-{% data reusables.repositories.navigate-to-ghas-settings %}
-{% data reusables.advanced-security.secret-scanning-push-protection-repo %}{% endif %}
+1. In the "{% data variables.product.prodname_secret_protection %}" section, to the right of "Push protection", click **Enable**.

@@ -24,33 +24,6 @@ Issue events all have the same object structure, except events that are only ava
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-{% ifversion projects-v1 %}
-
-## added_to_project
-
-The issue or pull request was added to a {% data variables.projects.projects_v1_board %}. {% data reusables.projects.disabled-projects %}
-
-This event is available for the following issue types.
-
-{% rowheaders %}
-
-|  | REST API for issue events | REST API for timeline events |
-|---|---|---|
-|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-
-{% endrowheaders %}
-
-### Properties for added_to_project
-
-{% data reusables.pre-release-program.starfox-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
-
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.project-card-properties %}
-
-{% endif %}
-
 ## assigned
 
 The issue or pull request was assigned to a user.
@@ -247,32 +220,6 @@ This event is available for the following issue types.
 ### Properties for convert_to_draft
 
 {% data reusables.issue-events.issue-event-common-properties %}
-
-{% ifversion projects-v1 %}
-
-## converted_note_to_issue
-
-The issue was created by converting a note in a {% data variables.projects.projects_v1_board %} to an issue. {% data reusables.projects.disabled-projects %}
-
-This event is available for the following issue types.
-
-{% rowheaders %}
-
-|  | REST API for issue events | REST API for timeline events |
-|---|---|---|
-|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-
-{% endrowheaders %}
-
-### Properties for converted_note_to_issue
-
-{% data reusables.pre-release-program.starfox-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
-
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.project-card-properties %}
-
-{% endif %}
 
 ## converted_to_discussion
 
@@ -564,34 +511,6 @@ This event is available for the following issue types.
 `milestone` | `object` | The milestone object.
 `milestone[title]` | `string` | The title of the milestone.
 
-{% ifversion projects-v1 %}
-
-## moved_columns_in_project
-
-The issue or pull request was moved between columns in a {% data variables.projects.projects_v1_board %}. {% data reusables.projects.disabled-projects %}
-
-This event is available for the following issue types.
-
-{% rowheaders %}
-
-|  | REST API for issue events | REST API for timeline events |
-|---|---|---|
-|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-
-{% endrowheaders %}
-
-### Properties for moved_columns_in_project
-
-{% data reusables.pre-release-program.starfox-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
-
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.project-card-properties %}
-`previous_column_name` | `string` | The name of the column the issue was moved from.
-
-{% endif %}
-
 ## pinned
 
 The issue was pinned.
@@ -646,33 +565,6 @@ This event is available for the following issue types.
 ### Properties for referenced
 
 {% data reusables.issue-events.issue-event-common-properties %}
-
-{% ifversion projects-v1 %}
-
-## removed_from_project
-
-The issue or pull request was removed from a {% data variables.projects.projects_v1_board %}. {% data reusables.projects.disabled-projects %}
-
-This event is available for the following issue types.
-
-{% rowheaders %}
-
-|  | REST API for issue events | REST API for timeline events |
-|---|---|---|
-|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-
-{% endrowheaders %}
-
-### Properties for removed_from_project
-
-{% data reusables.pre-release-program.starfox-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
-
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.project-card-properties %}
-
-{% endif %}
 
 ## renamed
 

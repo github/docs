@@ -19,10 +19,6 @@ category:
 
 > [!NOTE] {% data reusables.scim.ghec-open-scim-test-in-isolation %}
 
-{% else %}
-
-{% data reusables.scim.ghes-beta-note %}
-
 {% endif %}
 
 {% ifversion ghec %}
