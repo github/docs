@@ -404,6 +404,16 @@ jobs:
             fs.writeFileSync('prompt.txt', userPrompt);
             core.setOutput('date_str', dateStr);
 
+      - name: Set up Node.js for Copilot CLI
+        if: steps.check_parent.outputs.has_parent == 'true' && steps.check_existing.outputs.exists == 'false'
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+        with:
+          node-version: 24
+
+      - name: Install GitHub Copilot CLI
+        if: steps.check_parent.outputs.has_parent == 'true' && steps.check_existing.outputs.exists == 'false'
+        run: npm install -g @github/copilot
+
       - name: Generate changelog draft via Copilot
         if: steps.check_parent.outputs.has_parent == 'true' && steps.check_existing.outputs.exists == 'false'
         id: generate_draft

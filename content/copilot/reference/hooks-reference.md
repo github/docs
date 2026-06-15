@@ -115,6 +115,34 @@ Command hooks run shell scripts and are supported on all hook types.
 | `timeoutSec` | number | No | Timeout in seconds. Default: `30`. |
 | `type` | `"command"` | No | Hook type. Defaults to `"command"` when omitted. |
 
+#### Progress messages
+
+Command hooks can emit progress status lines to the CLI timeline while executing. Write a `{"type": "progress", "message": "..."}` JSON object to stdout before writing the final output:
+
+```bash
+echo '{"type": "progress", "message": "Checking policy..."}'
+# ... perform work ...
+echo '{"permissionDecision": "allow"}'
+```
+
+Set `"temporary": true` to emit a transient status line. A transient line replaces the previous transient line and is cleared when the assistant responds, instead of accumulating in the timeline:
+
+```bash
+echo '{"type": "progress", "message": "Routing...", "temporary": true}'
+echo '{"type": "progress", "message": "Thinking...", "temporary": true}'
+# ... perform work ...
+echo '{"permissionDecision": "allow"}'
+```
+
+Progress messages are display-only and do not affect hook output or decision logic.
+
+**How stdout is parsed when progress messages are mixed in.** — The CLI scans stdout line-by-line as the hook runs. Any line that, after trimming, is a single complete JSON object with `"type": "progress"` is consumed as a progress event and **removed from the hook's output stream**. Every other line—blank lines, plain text, and JSON objects that are not progress messages—is preserved verbatim. When the hook exits, the preserved lines are concatenated, trimmed, and parsed with a single `JSON.parse` call: that result is the hook's output (the "hook output JSON" referenced elsewhere in this article). This means:
+
+* Emitting progress lines alongside a final decision object (as in the examples above) is safe and is the intended pattern—the progress lines never reach the JSON parser.
+* Each progress message must be on its own line and must be valid JSON on that single line. Multi-line / pretty-printed progress objects are not recognized as progress and will be left in the output stream, where they will likely cause the final `JSON.parse` to fail.
+* The final decision object, by contrast, may span multiple lines—only progress *recognition* is line-oriented; what remains after progress stripping is parsed as one JSON document, not as line-delimited JSON.
+* If the leftover output is empty, or fails to parse as JSON, the hook is treated as having produced no output and falls through to default behavior. Two or more non-progress JSON objects on stdout (for example, two `echo '{"permissionDecision": ...}'` calls) will therefore concatenate into invalid JSON and be ignored—emit exactly one final decision object.
+
 ### HTTP hooks
 
 HTTP hooks send the input payload as a JSON `POST` to a URL.
@@ -310,6 +338,30 @@ When configured with the PascalCase event name `PreToolUse`, the payload uses sn
     tool_input: unknown;    // Tool arguments (parsed from JSON string when possible)
 }
 ```
+
+**Claude-format matchers (PascalCase `PreToolUse`):** Hooks configured with the PascalCase event name `PreToolUse`—as used in Claude Code plugins and the Open Plugins format—apply Claude's matcher semantics instead of the native regex rule:
+
+* `*`, `**`, or an empty matcher fires for every tool.
+* A literal name or `|`-separated alternation (for example, `Bash` or `Edit|Write`) fires when any token equals the runtime tool name or its Claude tool name from the table below.
+* Any other value is treated as a case-sensitive regex anchored as `^(?:pattern)$` tested against the Claude tool name (or the runtime name for tools with no Claude equivalent).
+
+Payloads for PascalCase `PreToolUse` report `tool_name` as the Claude tool name (for example, `Bash`, not `bash`).
+
+| Runtime tool | Claude tool name |
+|---|---|
+| `bash`, `powershell` | `Bash` |
+| `view` | `Read` |
+| `create` | `Write` |
+| `edit`, `str_replace_editor`, `apply_patch` | `Edit` |
+| `grep`, `rg` | `Grep` |
+| `glob` | `Glob` |
+| `web_fetch` | `WebFetch` |
+| `web_search` | `WebSearch` |
+| `ask_user` | `AskUserQuestion` |
+| `update_todo` | `TodoWrite` |
+| `task` | `Agent` (the literal `Task` is also accepted) |
+
+Tools with no Claude equivalent keep their runtime names.
 
 > [!IMPORTANT]
 > **Command vs HTTP fail behavior for `preToolUse`:** Command `preToolUse` hooks are **fail-closed**—a crash or non-zero exit denies the tool call. HTTP `preToolUse` hooks are **fail-open**—a network error, timeout, or non-2xx response falls through to the default permission flow. Choose the variant that matches your security requirements.
@@ -572,6 +624,9 @@ The `permissionRequest` hook fires before the permission service runs—before r
 All configured `permissionRequest` hooks run for each request (except `read` and `hook` permission kinds, which short-circuit before hooks). Hook outputs are merged with later hook outputs overriding earlier ones.
 
 **Matcher:** Optional regex tested against `toolName`. Anchored as `^(?:pattern)$`; must match the full tool name. When set, the hook fires only for matching tool names.
+
+> [!NOTE]
+> **Claude-format matchers (PascalCase `PermissionRequest`):** Hooks configured with the PascalCase event name `PermissionRequest` use the same Claude matcher semantics as `PreToolUse`. See [Claude-format matchers (PascalCase PreToolUse)](#claude-format-matchers-pascalcase-pretooluse) for the matcher rules and tool name table.
 
 Output JSON to stdout to control the permission decision:
 

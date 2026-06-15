@@ -1,0 +1,44 @@
+name: Purge Fastly (all)
+
+# **What it does**: Purges the ENTIRE Fastly cache for docs (every URL) on demand.
+# **Why we have it**: So docs engineering can clear a bad cache state without asking core engineering to run a purge-all in the Fastly UI.
+# **Who does it impact**: All readers. Origin sees a traffic spike while the cache refills, so only run this when a targeted purge will not do.
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: "Type 'purge everything' to confirm a full hard purge of the Fastly cache."
+        required: true
+
+permissions:
+  contents: read
+
+# Only one purge-all may run at a time. Do not cancel an in-flight purge:
+# a half-finished purge leaves the cache in an unknown state.
+concurrency:
+  group: purge-fastly-all
+  cancel-in-progress: false
+
+env:
+  FASTLY_TOKEN: ${{ secrets.FASTLY_TOKEN }}
+  FASTLY_SERVICE_ID: ${{ secrets.FASTLY_SERVICE_ID }}
+
+jobs:
+  purge-all:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate confirmation input
+        if: ${{ inputs.confirm != 'purge everything' }}
+        run: |
+          echo "::error::Confirmation text did not match. Re-run and type exactly: purge everything"
+          exit 1
+
+      - name: Check out repo
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Purge entire Fastly cache
+        run: npm run purge-fastly-all

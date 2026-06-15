@@ -1679,6 +1679,16 @@
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
+  isduplicate: true
+- provider: Datadog
+  supportedSecret: Datadog Personal Access Token
+  secretType: datadog_pat
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
   isduplicate: false
 - provider: Datadog
   supportedSecret: Datadog RCM
@@ -1686,6 +1696,16 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Datadog
+  supportedSecret: Datadog Service Account Token
+  secretType: datadog_sat
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -3431,7 +3451,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: NuGet

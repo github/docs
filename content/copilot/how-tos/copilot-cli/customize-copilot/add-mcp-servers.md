@@ -22,9 +22,14 @@ The Model Context Protocol (MCP) is an open standard that defines how applicatio
 
 If your organization or enterprise has configured a registry URL and allowlist policy, those settings apply to {% data variables.copilot.copilot_cli_short %}. The configured registry URL will appear as a discovery source, and only servers permitted by the allowlist policy can run.
 
-You can add MCP servers using the interactive `/mcp add` command within the CLI, or by editing the configuration file directly.
+You can add MCP servers in the following ways:
+* [Using the `/mcp add` command](#using-the-mcp-add-command)
+* [Using the `copilot mcp add` subcommand](#using-the-copilot-mcp-add-subcommand)
+* [Editing the configuration file](#editing-the-configuration-file)
+* [Searching and installing from the registry (experimental)](#searching-and-installing-from-the-registry)
 
 For installation instructions, available tools, and URLs for specific MCP servers, see the [{% data variables.product.github %} MCP Registry](https://github.com/mcp).
+
 
 ### Using the `/mcp add` command
 
@@ -49,6 +54,59 @@ For installation instructions, available tools, and URLs for specific MCP server
 
 1. Next to **Tools**, specify which tools from the server should be available. Enter `*` to include all tools, or provide a comma-separated list of tool names (no quotes needed). The default is `*`.
 1. Press <kbd>Ctrl</kbd>+<kbd>S</kbd> to save the configuration. The MCP server is added and available immediately without restarting the CLI.
+
+### Using the `copilot mcp add` subcommand
+
+You can add MCP servers from the terminal using the `copilot mcp add` subcommand, without entering interactive mode. The server is added to the user configuration at `~/.copilot/mcp-config.json`.
+
+For local (stdio) servers, provide the command after `--`:
+
+```shell copy
+copilot mcp add SERVER-NAME -- COMMAND [ARGS...]
+```
+
+For remote (HTTP/SSE) servers, specify the transport and provide the URL:
+
+```shell copy
+copilot mcp add --transport http SERVER-NAME URL
+```
+
+You can also pass additional options:
+
+* `--env KEY=VALUE`: Set environment variables for the server. Repeat for multiple variables.
+* `--header "HEADER: VALUE"`: Set HTTP headers for remote servers. Repeat for multiple headers.
+* `--transport TRANSPORT`: Set the transport type (`stdio`, `http`, or `sse`). The default is `stdio`.
+* `--tools TOOLS`: Specify which tools to enable. Use `*` for all tools (default), a comma-separated list, or `""` for none.
+* `--timeout MS`: Set a timeout in milliseconds.
+
+#### Examples
+
+Add a local stdio server:
+
+```shell copy
+copilot mcp add context7 -- npx -y @upstash/context7-mcp
+```
+
+Add a local server with environment variables:
+
+```shell copy
+copilot mcp add github -e GITHUB_PERSONAL_ACCESS_TOKEN=YOUR_GITHUB_PAT -- docker run -i --rm -e GITHUB_PERSONAL_ACCESS_TOKEN ghcr.io/github/github-mcp-server
+```
+
+Add a remote HTTP server:
+
+```shell copy
+copilot mcp add --transport http notion \
+  https://mcp.notion.com/mcp
+```
+
+Add a remote server with an authorization header:
+
+```shell copy
+copilot mcp add --transport http \
+  --header "Authorization: Bearer YOUR-TOKEN" \
+  stripe https://mcp.stripe.com
+```
 
 ### Editing the configuration file
 
@@ -80,9 +138,31 @@ The following example shows a configuration file with a local server and a remot
 
 For more information on MCP server configuration, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp#writing-a-json-configuration-for-mcp-servers).
 
+### Searching and installing from the registry
+
+> [!NOTE]
+> The `/mcp search` command is currently an experimental feature. To use it, start {% data variables.copilot.copilot_cli_short %} with the `--experimental` command line option, or enter `/experimental on` during a session.
+
+You can discover and install MCP servers directly from the [{% data variables.product.github %} MCP Registry](https://github.com/mcp) using the `/mcp search` command in interactive mode. This lets you browse available servers, view their details, and install them without manually filling out the configuration form.
+
+If your organization has configured a custom MCP registry URL, `/mcp search` connects to that registry instead of the default {% data variables.product.github %} registry.
+
+1. In interactive mode, enter `/mcp search` to browse top servers by stars, or `/mcp search QUERY` to search for a specific server. For example:
+
+   ```text
+   /mcp search context7
+   ```
+
+1. A keyboard-navigable list of matching servers is displayed. Use the arrow keys to browse the results.
+1. Select a server to open its configuration form. The form is pre-populated with the server's configuration from the registry. Fill in any required fields, such as API keys or tokens.
+1. Press <kbd>Ctrl</kbd>+<kbd>S</kbd> to save. The server is added to your `mcp-config.json` and started immediately.
+
+
 ## Managing MCP servers
 
-You can manage your configured MCP servers using the following `/mcp` commands in {% data variables.copilot.copilot_cli_short %}.
+You can manage your configured MCP servers using the `/mcp` commands in interactive mode or the `copilot mcp` subcommands from the terminal.
+
+### Using `/mcp` commands in interactive mode
 
 * **List configured MCP servers:** Use the command `/mcp show`. This displays all configured MCP servers and their current status.
 
@@ -95,6 +175,34 @@ You can manage your configured MCP servers using the following `/mcp` commands i
 * **Disable a server:** Use the command `/mcp disable SERVER-NAME`. A disabled server remains configured but is not used by {% data variables.product.prodname_copilot_short %} for the current session.
 
 * **Enable a previously disabled server:** Use the command `/mcp enable SERVER-NAME`.
+
+### Using `copilot mcp` subcommands from the terminal
+
+You can also manage MCP servers from the terminal without entering interactive mode.
+
+* **List all configured servers:**
+
+  ```shell copy
+  copilot mcp list
+  ```
+
+  Lists servers from all configuration sources (user, workspace, and plugin). Add `--json` for JSON output.
+
+* **View server details:**
+
+  ```shell copy
+  copilot mcp get SERVER-NAME
+  ```
+
+  Shows a server's type, status, and available tools. Add `--json` for JSON output.
+
+* **Remove a server:**
+
+  ```shell copy
+  copilot mcp remove SERVER-NAME
+  ```
+
+  Removes the server from the user configuration.
 
 ## Using MCP servers
 

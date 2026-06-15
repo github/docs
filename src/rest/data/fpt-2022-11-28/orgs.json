@@ -5605,8 +5605,11 @@
                   "status": "deployed",
                   "deployment_name": "deployment-pod",
                   "tags": {
-                    "runtime-risk": "sensitive-data"
-                  }
+                    "owning-team": "platform"
+                  },
+                  "runtime_risks": [
+                    "sensitive-data"
+                  ]
                 }
               ]
             },
