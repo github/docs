@@ -1,6 +1,6 @@
 ---
 title: Limiting interactions in your repository
-intro: You can temporarily enforce a period of limited activity for certain users on a public repository, and set a maximum number of concurrent open pull requests for non-collaborators.
+intro: You can temporarily enforce a period of limited activity for certain users on a public repository, and set a maximum number of concurrent open pull requests for users without write access.
 redirect_from:
   - /articles/limiting-interactions-with-your-repository
   - /articles/limiting-interactions-in-your-repository
@@ -8,7 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-permissions: 'People with admin permissions to a repository, and organization moderators, can temporarily limit interactions in that repository and set a maximum number of concurrent open pull requests for non-collaborators.'
+permissions: 'People with admin permissions to a repository, and organization moderators, can temporarily limit interactions in that repository and set a maximum number of concurrent open pull requests for users without write access.'
 shortTitle: Limit interactions in repo
 category:
   - Moderate comments and conversations
@@ -31,15 +31,17 @@ You can also enable activity limitations on all repositories owned by your perso
 1. In the sidebar, select **{% octicon "comment-discussion" aria-hidden="true" aria-label="comment-discussion" %} Moderation options**, then click **Interaction limits**.
 {% data reusables.community.set-interaction-limit %}
 
-## Limiting concurrent open pull requests for non-collaborators
+## Limiting concurrent open pull requests for users without write access
 
-You can set a maximum number of pull requests that a non-collaborator can have open at the same time in your repository. When a non-collaborator reaches the limit, they must close or get an existing pull request merged before they can open a new one.
+You can set a maximum number of pull requests that a user without write access can have open at the same time in your repository. When a user without write access reaches the limit, they must close or get an existing pull request merged before they can open a new one.
 
-This setting helps maintainers manage contribution volume by preventing users from opening an excessive number of pull requests, which can overwhelm review queues and trigger unnecessary CI runs. The limit only applies to non-collaborators — users with collaborator access to the repository are not affected.
+This setting helps maintainers manage contribution volume by preventing users from opening an excessive number of pull requests, which can overwhelm review queues and trigger unnecessary CI runs. The limit only applies to users without write access — users with collaborator access to the repository are not affected.
 
-### Adding trusted contributors to the allowlist
+### Adding trusted contributors to the bypass list
 
-You can add trusted contributors to an allowlist so they can bypass the pull request limit without being granted full collaborator access. This is useful for regular external contributors who need to open multiple pull requests but don't require the additional permissions that come with collaborator access, such as push access or label management.
+Rather than granting full collaborator access, you can add trusted contributors to a bypass list, allowing them to exceed the pull request limit while keeping their permissions otherwise unchanged. This is ideal for regular external contributors who routinely open multiple pull requests but don't need the additional permissions that come with collaborator access.
+
+You can manage the bypass list through either the UI or the API. The bypass list supports up to 100 users.
 
 ### Configuring the pull request limit
 
