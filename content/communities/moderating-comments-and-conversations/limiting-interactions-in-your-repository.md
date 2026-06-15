@@ -33,22 +33,22 @@ You can also enable activity limitations on all repositories owned by your perso
 
 ## Limiting concurrent open pull requests for users without write access
 
-In a public repository, you can also set a maximum number of pull requests that a user without write access can have open at the same time. When a user without write access reaches the limit, they must close or get an existing pull request merged before they can open a new one.
+In a public repository, you can also set a maximum number of pull requests that a user without write access can have open at the same time. When a user without write access reaches the limit, they must close or have an existing pull request merged before they can open a new one.
 
-This setting helps maintainers manage contribution volume by preventing users from opening an excessive number of pull requests, which can overwhelm review queues and trigger unnecessary CI runs. The limit only applies to users without write access — users with collaborator access to the repository are not affected.
+This setting helps maintainers manage contribution volume by preventing users from opening an excessive number of pull requests, which can overwhelm review queues and trigger unnecessary CI runs. The limit only applies to users without write access — users with write access or higher are not affected.
 
 ### Adding trusted contributors to the bypass list
 
-Rather than granting full collaborator access, you can add trusted contributors to a bypass list, allowing them to exceed the pull request limit while keeping their permissions otherwise unchanged. This is ideal for regular external contributors who routinely open multiple pull requests but don't need the additional permissions that come with collaborator access.
+Rather than granting full collaborator access, you can add trusted contributors to a bypass list, allowing them to exceed the pull request limit while keeping their permissions otherwise unchanged. This is ideal for regular external contributors who routinely open multiple pull requests but do not need the additional permissions that come with collaborator access.
 
 You can manage the bypass list through either the UI or the API. The bypass list supports up to 100 users.
 
 ### Configuring the pull request limit
 
-To configure the pull request limit, navigate to the **Interaction limits** settings page following the same steps described in [Limiting interactions in your repository](#limiting-interactions-in-your-repository), then:
+To configure the pull request limit, navigate to the **Interaction limits** settings page following the same steps described in "[Limiting interactions in your repository](#limiting-interactions-in-your-repository)," then:
 
-1. Under "Pull request limits", select the maximum number of concurrent open pull requests allowed for users without write access.
-1. Optionally, to allow specific users to bypass the limit, under "Bypass list", search for and select the users you want to add.
+1. Under **Pull request limits**, select the maximum number of concurrent open pull requests allowed for users without write access.
+1. Optionally, to allow specific users to bypass the limit, under **Bypass list**, search for and select the users you want to add.
 
 ## Further reading
 
