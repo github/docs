@@ -213,7 +213,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100).</p>",
+          "description": "<p>The number of results per page (max 10).</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -246,7 +246,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets all budgets for an enterprise. The authenticated user must be an enterprise admin or billing manager.\nEach page returns up to 100 budgets.</p>",
+      "descriptionHTML": "<p>Gets all budgets for an enterprise. The authenticated user must be an enterprise admin or billing manager.\nEach page returns up to 10 budgets.</p>",
       "codeExamples": [
         {
           "request": {

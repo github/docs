@@ -145,10 +145,7 @@
                     ]
                   },
                   "description": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
+                    "type": "string",
                     "description": "A description of the code security configuration"
                   },
                   "advanced_security": {
@@ -490,7 +487,8 @@
         {
           "type": "string",
           "name": "description",
-          "description": "<p>A description of the code security configuration</p>"
+          "description": "<p>A description of the code security configuration</p>",
+          "isRequired": true
         },
         {
           "type": "string",
@@ -810,10 +808,7 @@
                   ]
                 },
                 "description": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
+                  "type": "string",
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -1272,10 +1267,7 @@
                         ]
                       },
                       "description": {
-                        "type": [
-                          "string",
-                          "null"
-                        ],
+                        "type": "string",
                         "description": "A description of the code security configuration"
                       },
                       "advanced_security": {
@@ -1677,10 +1669,7 @@
                   ]
                 },
                 "description": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
+                  "type": "string",
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -2338,10 +2327,7 @@
                   ]
                 },
                 "description": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
+                  "type": "string",
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -2972,10 +2958,7 @@
                       ]
                     },
                     "description": {
-                      "type": [
-                        "string",
-                        "null"
-                      ],
+                      "type": "string",
                       "description": "A description of the code security configuration"
                     },
                     "advanced_security": {
@@ -4017,10 +4000,7 @@
                     ]
                   },
                   "description": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
+                    "type": "string",
                     "description": "A description of the code security configuration"
                   },
                   "advanced_security": {
@@ -4366,7 +4346,8 @@
         {
           "type": "string",
           "name": "description",
-          "description": "<p>A description of the code security configuration</p>"
+          "description": "<p>A description of the code security configuration</p>",
+          "isRequired": true
         },
         {
           "type": "string",
@@ -4762,10 +4743,7 @@
                   ]
                 },
                 "description": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
+                  "type": "string",
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -5216,10 +5194,7 @@
                         ]
                       },
                       "description": {
-                        "type": [
-                          "string",
-                          "null"
-                        ],
+                        "type": "string",
                         "description": "A description of the code security configuration"
                       },
                       "advanced_security": {
@@ -5736,10 +5711,7 @@
                   ]
                 },
                 "description": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
+                  "type": "string",
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -6465,10 +6437,7 @@
                   ]
                 },
                 "description": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
+                  "type": "string",
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -7099,10 +7068,7 @@
                       ]
                     },
                     "description": {
-                      "type": [
-                        "string",
-                        "null"
-                      ],
+                      "type": "string",
                       "description": "A description of the code security configuration"
                     },
                     "advanced_security": {
@@ -8110,10 +8076,7 @@
                       ]
                     },
                     "description": {
-                      "type": [
-                        "string",
-                        "null"
-                      ],
+                      "type": "string",
                       "description": "A description of the code security configuration"
                     },
                     "advanced_security": {
