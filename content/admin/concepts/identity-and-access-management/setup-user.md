@@ -43,7 +43,6 @@ Enterprise recovery codes are not the same as personal two-factor authentication
 
 {% data reusables.enterprise-accounts.emu-password-reset-session %}
 
-
 ## Can I delete the setup user?
 
 The setup user **cannot** be deleted, because it is essential for maintaining authentication and provisioning. The only way to remove the setup user is to delete your enterprise account. See [AUTOTITLE](/admin/managing-your-enterprise-account/deleting-an-enterprise-account).
