@@ -14,7 +14,7 @@ category:
 
 > [!NOTE] This feature is in {% data variables.release-phases.public_preview %} and subject to change.
 
-You can prevent users from using modes that enable automatic approval of agent commands in {% data variables.copilot.copilot_cli_short %} and {% data variables.product.prodname_vscode_shortname %}. The `disableBypassPermissionsMode` setting is defined in your enterprise's `{% data variables.copilot.managed_setting_file %}` file and applies to users on your enterprise's {% data variables.product.prodname_copilot_short %} plan.
+You can prevent users from using modes that enable automatic approval of agent commands in {% data variables.copilot.copilot_cli_short %} and {% data variables.product.prodname_vscode_shortname %}. The configuration is defined in a `{% data variables.copilot.managed_setting_file %}` file at the following path: `.github/copilot/{% data variables.copilot.managed_setting_file %}`. This file was previously called `settings.json`, which is still supported.
 
 This setting blocks users from using:
 
