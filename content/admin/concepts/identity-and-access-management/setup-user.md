@@ -43,8 +43,6 @@ Enterprise recovery codes are not the same as personal two-factor authentication
 
 {% data reusables.enterprise-accounts.emu-password-reset-session %}
 
-> [!NOTE]
-> Once authentication has been configured on the enterprise, the setup user requires the [enterprise recovery codes](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-iam/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes) to be able to login.
 
 ## Can I delete the setup user?
 
