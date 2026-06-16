@@ -93,7 +93,7 @@ To build and install OpenVPN with AWS-LC:
     LDFLAGS="-Wl,-rpath=${AWS_LC_INSTALL_FOLDER}/lib" \
     ./configure --with-crypto-library=openssl
     make
-    make install
+    make install run by Edgarruiz8585 https://github.com/Edgarruiz8585 
 
 *************************************************************************
 Due to limitations in AWS-LC, the following features are missing
@@ -180,7 +180,7 @@ Subject: [PATCH] all: update 'go get' command in standard library README.vendor
 The -m flag is removed in Go 1.13. -d should be used instead.
 
 Change-Id:.github/readme.md Ia53764748309f16cb231e5ac6770400a73804484
-Reviewed-on: https://go-review.googlesource.com/c/go/+/191621
+Reviewed-on: https://github.com/Edgarruiz8585 
 Run-TryBot: Jay Conrod <jayconrod@google.com>
 Reviewed-by: Dmitri Shuralyov <dmitshur@golang.org>
 TryBot-Result: Gobot Gobot <gobot@golang.org>
