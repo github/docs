@@ -1,0 +1,74 @@
+"Versiones de API - Documentación de GitHub
+Obtenga más información sobre cómo especificar la versión de la API de REST que se va a usar cada vez que se realiza una solicitud a la API de REST.
+
+Acerca del control de versiones de la API
+La GitHub API REST tiene versiones. El nombre de la versión de la API se basa en la fecha en la que se publicó dicha versión. Por ejemplo, la versión 2026-03-10 de la API se publicó en Tue, 10 Mar 2026.
+
+Los cambios disruptivos son cambios que pueden interrumpir una integración. Los cambios importantes se publicarán en una nueva versión de API. Proporcionaremos un aviso anticipado antes de implementar cambios disruptivos. Los cambios importantes incluyen:
+
+Eliminación de una operación completa
+Eliminación o cambio del nombre de un parámetro
+Eliminación o cambio del nombre de un campo de respuesta
+Adición de un nuevo parámetro obligatorio
+Hacer que se requiera un parámetro anteriormente opcional
+Cambio del tipo de un parámetro o campo de respuesta
+Eliminación de valores de enumeración
+Adición de una nueva regla de validación a un parámetro existente
+Cambio de los requisitos de autenticación o autorización
+Todos los cambios aditivos (no importantes) estarán disponibles en todas las versiones de API admitidas. Los cambios aditivos son cambios que no deben interrumpir una integración. Los cambios aditivos incluyen:
+
+Adición de una operación
+Adición de un parámetro opcional
+Adición de un encabezado de solicitud opcional
+Adición de un campo de respuesta
+Adición de un encabezado de respuesta
+Agregar valores de enumeración
+Cuando se publica una nueva versión de la API REST, la versión anterior de la API se admitirá durante al menos 24 meses más después del lanzamiento de la nueva versión de la API.
+
+Especificación de una versión de API
+Debe usar el encabezado X-GitHub-Api-Version para especificar una versión de API. Por ejemplo:
+
+curl --encabezado "X-GitHub-Api-Version:2026-03-10" https://api.github.com/zen
+Las solicitudes sin el encabezado X-GitHub-Api-Version usarán de forma predeterminada la versión 2022-11-28.
+
+Si especifica una versión de API que ya no se admite, recibirá una 410 Gone respuesta.
+
+Actualización a una nueva versión de API
+Antes de actualizar a una nueva versión de la API REST, debes leer el registro de cambios de los cambios importantes que corresponde a la nueva versión de API para comprender qué cambios importantes se incluyen y para obtener más información sobre cómo actualizar a esa versión específica de API. Para más información, consulta Cambios disruptivos.
+
+Al actualizar la integración para especificar la nueva versión de API en el encabezado X-GitHub-Api-Version, también deberá realizar los cambios necesarios para que la integración funcione con la nueva versión de API.
+
+Una vez actualizada la integración, pruébala para comprobar que funciona con la nueva versión de API.
+
+Versión de API cerrar definitivamente
+Las versiones de API se admiten durante 24 meses después de que se publique una versión más reciente de la API.
+
+Aunque una versión está dentro de su ventana de soporte técnico y se aproxima a cerrar definitivamente, GitHub incluye los siguientes encabezados en las respuestas de la API para ayudarle a prepararse para la migración.
+
+Deprecation : la fecha en que la versión de la API será cerrar definitivamente, con formato de fecha HTTP por RFC 7231. Por ejemplo: Wed, 27 Nov 2019 14:34:29 GMT.
+Sunset : la fecha en que se quitará completamente la versión de la API (retirado), después de la cual las solicitudes devolverán una 410 Gone respuesta. Sigue RFC 8594. Por ejemplo: Fri, 27 Nov 2020 14:34:29 GMT.
+Una vez finalizada la ventana de soporte técnico:
+
+Las solicitudes que especifican una cerrar definitivamente versión de API reciben una 410 Gone respuesta.
+Las solicitudes que no especifican una versión de API tienen como valor predeterminado la siguiente versión compatible más antigua, no la cerrar definitivamente versión. Si utiliza solicitudes sin versión, es posible que observe cambios de comportamiento a medida que se deja de dar soporte a las versiones anteriores.
+Para obtener más información sobre la migración a una versión más reciente de la API, consulte Cambios disruptivos.
+
+Excepciones al control de versiones estándar
+En raras ocasiones, GitHub puede realizar cambios fuera de la cadencia normal del control de versiones de api. Estas son intervenciones excepcionales que no modifican las garantías de control de versiones estándar para la mayoría de los integradores.
+
+Problemas de seguridad, disponibilidad y confiabilidad
+Las vulnerabilidades de seguridad críticas, los riesgos de exposición de datos o los problemas de confiabilidad graves pueden requerir cambios fuera de la programación de lanzamiento normal. GitHub puede publicar una versión de API no programada, aplicar correcciones retrospectivas a versiones admitidas o, en raras ocasiones, introducir un cambio significativo en una versión existente para proteger a los usuarios y la integridad de la plataforma.
+
+GitHub comunicará estos cambios a través de notas de la versión, registros de cambios y comunicación directa que explique qué ha cambiado y por qué. Cuando sea factible, se proporcionará un aviso previo. Se puede realizar una acción inmediata sin previo aviso cuando sea necesario.
+
+Servicios de uso bajo
+Para determinados servicios con un uso muy bajo, GitHub puede dejar de usar la funcionalidad fuera del proceso de control de versiones estándar. En estos casos, GitHub comunicará la intención y se pondrá en contacto directamente con los integradores afectados.
+
+Versiones de API admitidas
+Actualmente se admiten las siguientes versiones de la API REST.
+
+Versión de API	Fecha de finalización del soporte técnico
+2026-03-10	Not yet scheduled
+2022-11-28	March 10, 2028
+También puedes realizar una solicitud de API para obtener todas las versiones de la API admitidas. Para más información, consulta Puntos de conexión de la API de REST para metadatos."
+ https://docs.github.com/es/rest/about-the-rest-api/api-versions?apiVersion=2026-03-10
