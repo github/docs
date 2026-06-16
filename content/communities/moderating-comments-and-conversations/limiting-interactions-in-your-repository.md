@@ -33,7 +33,7 @@ You can also enable activity limitations on all repositories owned by your perso
 
 ## Limiting concurrent open pull requests for users without write access
 
-In a public repository, you can also set a maximum number of pull requests that a user without write access can have open at the same time. When a user without write access reaches the limit, they must close or have an existing pull request merged before they can open a new one.
+In a public repository, you can set a maximum number of pull requests that a user without write access can have open at the same time. When a user without write access reaches the limit, they can close or merge an existing pull request before they can open a new one.
 
 This setting helps maintainers manage contribution volume by preventing users from opening an excessive number of pull requests, which can overwhelm review queues and trigger unnecessary CI runs. The limit only applies to users without write access — users with write access or higher are not affected.
 
