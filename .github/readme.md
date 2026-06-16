@@ -182,7 +182,7 @@ The -m flag is removed in Go 1.13. -d should be used instead.
 Change-Id:.github/readme.md Ia53764748309f16cb231e5ac6770400a73804484
 Reviewed-on: https://github.com/Edgarruiz8585 
 Run-TryBot: Jay Conrod <jayconrod@google.com>
-Reviewed-by: Dmitri Shuralyov <dmitshur@golang.org>
+Reviewed-by: Edgar Manuel Ruiz Arias <ruizariasedgarmanuel@gmail.com>
 TryBot-Result: Gobot Gobot <gobot@golang.org>
 ---
 
