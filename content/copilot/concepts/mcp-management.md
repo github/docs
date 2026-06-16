@@ -47,6 +47,12 @@ MCP management features are supported as follows:
 > [!NOTE]
 > For Eclipse, JetBrains, and Xcode, MCP management features are supported in the pre-release versions of {% data variables.product.prodname_copilot_short %}.
 
+## Agent finder
+
+Agent finder is a discovery service that helps {% data variables.product.prodname_copilot_short %} find the right capabilities—such as MCP servers, tools, agents, and skills—for a task at runtime, instead of requiring every capability to be configured in advance. Like an MCP registry, it searches a registry you choose—a curated public catalog or your own private registry—and returns ranked matches that {% data variables.product.prodname_copilot_short %} can use on demand. Agent finder implements the open Agentic Resource Discovery (ARD) specification.
+
+You control what agent finder can surface through managed settings for {% data variables.product.prodname_copilot_short %}, and it never installs anything on its own.
+
 ## Next steps
 
 To create your own MCP registry, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-mcp-registry).
