@@ -22,6 +22,7 @@ journeyTracks:
     description: 'Use {% data variables.product.github %}''s governance features to stay in control of your codebase and compliance requirements.'
     guides:
       - href: '/copilot/tutorials/roll-out-at-scale/govern-at-scale/govern-for-adoption'
+      - href: '/copilot/concepts/policies'
       - href: '/copilot/tutorials/roll-out-at-scale/govern-at-scale/maintain-codebase-standards'
       - href: '/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs'
       - href: '/copilot/concepts/preparing-for-new-features-and-models'

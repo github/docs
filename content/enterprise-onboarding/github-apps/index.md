@@ -9,5 +9,7 @@ children:
   - /create-enterprise-apps
   - /install-enterprise-apps
 contentType: concepts
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 

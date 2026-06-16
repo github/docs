@@ -43,6 +43,8 @@ All prices are **per 1 million tokens**.
 
 Anthropic models include a cache write cost in addition to cached input.
 
+{% data reusables.copilot.model-fable-disabled %}
+
 | Model | Release status | Category | Input | Cached input | Cache write | Output |
 | --- | --- | --- | ---: | ---: | ---: | ---: |
 | {% for entry in tables.copilot.models-and-pricing %}{% if entry.provider == "anthropic" %} |

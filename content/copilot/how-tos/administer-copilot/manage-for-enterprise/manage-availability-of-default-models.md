@@ -56,4 +56,4 @@ Targeted model rules let you control exactly which models are available to speci
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/policies)
+* [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies)

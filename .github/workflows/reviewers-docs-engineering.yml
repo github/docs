@@ -45,11 +45,17 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PR: ${{ github.event.pull_request.html_url }}
-      GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@3ff1caaa28b64c9cc276ce0a02e2ff584f3900c5 # v2.0.2
+        with:
+          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
+          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
 
       # Detect PRs that only changed package-lock.json (no engineering source files).
       # These are usually cross-platform `npm install` churn from contributors
@@ -57,6 +63,8 @@ jobs:
       # docs-engineering for review.
       - name: Detect lockfile-only churn
         id: detect
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           changed=$(gh pr diff "$PR" --name-only)
           echo "Changed files:"
@@ -71,6 +79,8 @@ jobs:
 
       - name: Comment and label lockfile-only PRs
         if: steps.detect.outputs.lockfile_only == 'true'
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           cat > /tmp/lockfile-churn-body.md <<'EOF'
           _Posted by Copilot on behalf of docs-engineering._
@@ -90,6 +100,8 @@ jobs:
 
       - name: Add docs engineering as a reviewer
         if: steps.detect.outputs.lockfile_only != 'true'
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         uses: ./.github/actions/retry-command
         with:
           command: gh pr edit $PR --add-reviewer github/docs-engineering --add-label reviewers-docs-engineering

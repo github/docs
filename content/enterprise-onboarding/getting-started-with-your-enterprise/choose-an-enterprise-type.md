@@ -11,6 +11,8 @@ redirect_from:
   - /admin/managing-iam/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud
   - /admin/concepts/identity-and-access-management/enterprise-types-for-github-enterprise-cloud
 contentType: other
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 **Before** you create your enterprise account, you must choose an enterprise type:

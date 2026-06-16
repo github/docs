@@ -10,4 +10,6 @@ children:
   - /adding-users-to-your-enterprise
   - /about-enterprise-billing
   - /about-migrating-to-github-enterprise-cloud
+docsTeamMetrics:
+  - enterprise-onboarding
 ---

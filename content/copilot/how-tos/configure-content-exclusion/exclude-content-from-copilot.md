@@ -203,3 +203,4 @@ For more information, see [AUTOTITLE](/rest/copilot/copilot-content-exclusion-ma
 * [AUTOTITLE](/copilot/concepts/content-exclusion-for-github-copilot)
 * [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/reviewing-changes-to-content-exclusions-for-github-copilot)
 * [Configuring content exclusion for {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-admin?view=vs-2022#configure-content-exclusion) in the Microsoft Learn documentation
+* [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies)
