@@ -5,6 +5,8 @@ intro: Enforce repository policies across your enterprise using custom propertie
 versions:
   ghec: '*'
 contentType: how-tos
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 {% data reusables.enterprise.repo-policy-rules-preview %}

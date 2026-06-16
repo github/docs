@@ -44,8 +44,8 @@ For more information about authenticating in a {% data variables.product.prodnam
    > You can control your app's permission to organization projects and to repository projects. You must give permission to read and write organization projects; permission to read and write repository projects will not be sufficient.
 
 1. Install the {% data variables.product.prodname_github_app %} in your organization. Install it for all repositories that your project needs to access. For more information, see [AUTOTITLE](/apps/maintaining-github-apps/installing-github-apps#installing-your-private-github-app-on-your-repository).
-1. Store your {% data variables.product.prodname_github_app %}'s ID as a configuration variable in your repository or organization. In the following workflow, replace `APP_ID` with the name of the configuration variable. You can find your app ID on the settings page for your app or through the App API. For more information, see [AUTOTITLE](/rest/apps#get-an-app). For more information about configuration variables, see [AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows).
-1. Generate a private key for your app. Store the contents of the resulting file as a secret in your repository or organization. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following workflow, replace `APP_PEM` with the name of the secret. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps). For more information about storing secrets, see [AUTOTITLE](/actions/security-guides/encrypted-secrets).
+1. Store your {% data variables.product.prodname_github_app %}'s client ID as a configuration variable in your repository or organization. In the following workflow, replace `APP_CLIENT_ID` with the name of the configuration variable. You can find your client ID on the settings page for your app or through the App API. For more information, see [AUTOTITLE](/rest/apps#get-an-app). For more information about configuration variables, see [AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows).
+1. Generate a private key for your app. Store the contents of the resulting file as a secret in your repository or organization. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following workflow, replace `APP_PRIVATE_KEY` with the name of the secret. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps). For more information about storing secrets, see [AUTOTITLE](/actions/security-guides/encrypted-secrets).
 1. In the following workflow, replace `YOUR_ORGANIZATION` with the name of your organization. For example, `octo-org`. Replace `YOUR_PROJECT_NUMBER` with your project number. To find the project number, look at the project URL. For example, `https://github.com/orgs/octo-org/projects/5` has a project number of 5. In order for this specific example to work, your project must also have a "Date posted" date field.
 
 ```yaml annotate copy
@@ -60,17 +60,17 @@ jobs:
   track_pr:
     runs-on: ubuntu-latest
     steps:
-    # Uses the [actions/create-github-app-token](https://github.com/marketplace/actions/create-github-app-token) action to generate an installation access token for your app from the app ID and private key. The installation access token is accessed later in the workflow as `{% raw %}${{ steps.generate-token.outputs.token }}{% endraw %}`.
+    # Uses the [actions/create-github-app-token](https://github.com/marketplace/actions/create-github-app-token) action to generate an installation access token for your app from the client ID and private key. The installation access token is accessed later in the workflow as `{% raw %}${{ steps.generate-token.outputs.token }}{% endraw %}`.
     #
-    # Replace `APP_ID` with the name of the configuration variable that contains your app ID.
+    # Replace `APP_CLIENT_ID` with the name of the configuration variable that contains your client ID.
     #
-    # Replace `APP_PEM` with the name of the secret that contains your app private key.
+    # Replace `APP_PRIVATE_KEY` with the name of the secret that contains your app private key.
       - name: Generate token
         id: generate-token
-        uses: actions/create-github-app-token@v2
+        uses: actions/create-github-app-token@v3
         with:
-          app-id: {% raw %}${{ vars.APP_ID }}{% endraw %}
-          private-key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
+          client-id: {% raw %}${{ vars.APP_CLIENT_ID }}{% endraw %}
+          private-key: {% raw %}${{ secrets.APP_PRIVATE_KEY }}{% endraw %}
       # Sets environment variables for this step.
       #
       # Replace `YOUR_ORGANIZATION` with the name of your organization. For example, `octo-org`.

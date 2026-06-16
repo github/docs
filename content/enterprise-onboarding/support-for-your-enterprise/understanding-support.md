@@ -6,6 +6,8 @@ versions:
   ghec: '*'
 allowTitleToDifferFromFilename: true
 contentType: concepts
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 ## About {% data variables.contact.github_support %}

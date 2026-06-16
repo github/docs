@@ -7,6 +7,8 @@ shortTitle: Start a trial
 redirect_from:
   - /enterprise-onboarding/getting-started-with-your-enterprise/ending-a-trial-of-github-enterprise
 contentType: how-tos
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 To set up a trial, you must be signed in to a personal account.
