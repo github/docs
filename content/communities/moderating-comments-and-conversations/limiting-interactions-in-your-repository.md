@@ -45,7 +45,7 @@ You can manage the bypass list through either the UI or the API. The bypass list
 
 ### Configuring the pull request limit
 
-To configure the pull request limit, navigate to the **Interaction limits** settings page following the same steps described in "[Limiting interactions in your repository](#limiting-interactions-in-your-repository)," then:
+To configure the pull request limit, navigate to the **Interaction limits** settings page following the same steps described in [AUTOTITLE](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository), then:
 
 1. Under **Pull request limits**, select the maximum number of concurrent open pull requests allowed for users without write access.
 1. Optionally, to allow specific users to bypass the limit, under **Bypass list**, search for and select the users you want to add.
