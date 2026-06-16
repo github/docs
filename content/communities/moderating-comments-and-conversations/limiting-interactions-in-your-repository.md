@@ -39,7 +39,7 @@ This setting helps maintainers manage contribution volume by preventing users fr
 
 ### Adding trusted contributors to the bypass list
 
-Rather than granting full collaborator access, you can add trusted contributors to a bypass list, allowing them to exceed the pull request limit while keeping their permissions otherwise unchanged. This is ideal for regular external contributors who routinely open multiple pull requests but do not need the additional permissions that come with collaborator access.
+Rather than granting full collaborator access, you can add trusted contributors to a bypass list, allowing them to exceed the pull request limit while keeping their permissions otherwise unchanged. This bypass is ideal for regular external contributors who routinely open multiple pull requests but do not need the additional permissions that come with collaborator access.
 
 You can manage the bypass list through either the UI or the API. The bypass list supports up to 100 users.
 
