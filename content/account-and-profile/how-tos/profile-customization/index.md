@@ -14,6 +14,7 @@ children:
   - /managing-your-profile-readme
   - /pinning-items-to-your-profile
   - /setting-your-profile-to-private
+  - /update profile picture instructions
 contentType: how-tos
 shortTitle: Profile customization
 ---
