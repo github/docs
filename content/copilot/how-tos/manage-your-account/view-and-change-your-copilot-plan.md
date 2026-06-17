@@ -25,10 +25,6 @@ category:
   - Configure Copilot
 ---
 
-> [!IMPORTANT]
-> * {% data reusables.copilot.plans.individual-plans-paused %} {% data variables.product.prodname_copilot_short %} plans may still also be downgraded, or canceled.
-> * {% data reusables.copilot.plans.copilot-max-upgrade-only %}
-
 You can view your current plan details in your {% data variables.product.github %} account settings. From there, you can change or cancel your plan.
 
 If you have access to {% data variables.product.prodname_copilot %} through an organization or enterprise, you will not be able to modify your plan.

@@ -7,6 +7,8 @@ versions:
 redirect_from:
   - /enterprise-onboarding/feature-enhancements/about-access-permissions-on-github
 contentType: concepts
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 {% data reusables.enterprise-onboarding.about-roles %}

@@ -5,6 +5,8 @@ intro: Assign enterprise roles to manage access and permissions.
 versions:
   ghec: '*'
 contentType: how-tos
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 {% data reusables.enterprise-onboarding.assign-roles %}

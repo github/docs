@@ -7,6 +7,8 @@ versions:
 redirect_from:
   - /enterprise-onboarding/getting-started-with-your-enterprise/securing-enterprise-resources-with-single-sign-on
   - /enterprise-onboarding/getting-started-with-your-enterprise/securing-your-enterprise-with-managed-users
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 The method of adding users to your enterprise and controlling authentication varies depending on the enterprise type that you chose.

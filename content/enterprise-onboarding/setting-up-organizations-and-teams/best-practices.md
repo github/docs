@@ -7,6 +7,8 @@ shortTitle: Best practices
 redirect_from:
   - /enterprise-onboarding/setting-up-organizations-and-teams/best-practices-for-organizations-in-your-enterprise
 contentType: how-tos
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 {% data reusables.enterprise-onboarding.best-practices %}

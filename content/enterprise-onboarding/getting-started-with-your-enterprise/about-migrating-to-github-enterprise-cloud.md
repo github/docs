@@ -5,6 +5,8 @@ versions:
   ghec: '*'
 shortTitle: Migrations
 contentType: concepts
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 {% data reusables.migrations.about-migrations %}

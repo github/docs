@@ -35,3 +35,4 @@ After you've added your key and selected one or more models, you and your organi
 
 * [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys) in our documentation for enterprise accounts.
 * [AUTOTITLE](/copilot/concepts/chat)
+* [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies)

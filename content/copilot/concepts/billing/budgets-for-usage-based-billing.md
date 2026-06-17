@@ -34,7 +34,7 @@ For a complete view of all licensed users regardless of activity, use the **AI u
 
 ### Cost center budget
 
-A cost center budget caps metered charges for a defined group of users or an organization. It does not limit how much a team draws from the pool. It is only active after the shared pool is exhausted.
+A cost center budget caps metered charges for a defined group of users or an organization. It does not limit how much a team draws from the pool. It is only active after the shared pool is exhausted. A cost center budget **does not extend or override a user-level budget**: if a user has reached their user-level budget, they are blocked even if their cost center still has remaining budget.
 
 When a cost center's budget is exhausted, only users in that cost center are blocked. Other users and cost centers are unaffected.
 
@@ -74,7 +74,7 @@ When someone in your enterprise uses {% data variables.product.prodname_copilot_
 
 Each request for an {% data variables.product.prodname_ai_credit_singular %}-consuming feature goes through these checks:
 
-1. **User-level budget check.** The system first checks whether the user has exceeded their user-level budget. If yes, the request is blocked immediately—user-level budgets are always a hard stop. If no (or no ULB is set), the request continues.
+1. **User-level budget check.** The system first checks whether the user has exceeded their user-level budget. If yes, the request is blocked immediately. ULBs are always a hard stop, and no other budget can override or supplement them. If no (or no ULB is set), the request continues.
 1. **Shared pool check.** Next, the system checks whether the shared pool has {% data variables.product.prodname_ai_credits_short %} remaining. If yes, the request is served from the pool at no extra cost. If the pool is empty, the request moves to metered usage at {% data variables.product.prodname_ai_credits_value %} per {% data variables.product.prodname_ai_credit_singular %}.
 1. **Cost center, organization, or enterprise check.** For metered usage, the system checks budgets in the following order:
 
@@ -89,13 +89,15 @@ Each request for an {% data variables.product.prodname_ai_credit_singular %}-con
 
 ## How user-level budgets and spending limits interact
 
-User-level budgets and spending limits are independent controls that serve different purposes. User-level budgets control how much each person can consume. Spending limits control how much metered usage your organization will pay for.
+User-level budgets and spending limits are independent controls that serve different purposes. ULBs control how much each person can consume. Spending limits control how much metered usage your organization will pay for.
 
-If these are not aligned, users can get blocked unexpectedly. The system applies a "lowest remaining headroom wins" rule: whichever budget has the least capacity remaining blocks the user first, regardless of what other budgets still have available. For example, if a user has $5 USD remaining on their individual user-level budget but the enterprise budget only has $1 USD remaining, the enterprise budget blocks them—even though their personal budget isn't exhausted.
+If these are not aligned, users can get blocked unexpectedly. The system applies a "lowest remaining headroom wins" rule: whichever budget has the least capacity remaining blocks the user first, regardless of what other budgets still have available. For example, if a user has $5 USD remaining on their individual ULB but the enterprise budget only has $1 USD remaining, the enterprise budget blocks them, even though their personal budget isn't exhausted.
 
-This means that if your user-level budgets collectively allow more consumption than the shared pool provides, the difference spills over into metered charges. If your enterprise budget is too low to cover that gap, users get blocked before they reach their individual limits.
+This means that if your ULBs collectively allow more consumption than the shared pool provides, the difference spills over into metered charges. If your enterprise budget is too low to cover that gap, users get blocked before they reach their individual limits.
 
-When you raise user-level budgets, check that your spending limits can still cover the resulting gap.
+When you raise ULBs, check that your spending limits can still cover the resulting gap.
+
+The reverse is also true: raising a cost center or enterprise budget does not unblock a user who has hit their ULB. For example, if a user exhausts their $5 USD ULB at the same moment the shared pool runs out, they cannot consume from any remaining cost center budget, even if that cost center has $10 USD remaining. The ULB is a total cap on that user's consumption across both pool and metered phases. To unblock them, you must raise their individual ULB or increase the universal ULB.
 
 ## Cost center exclusion
 

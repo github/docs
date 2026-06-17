@@ -3,7 +3,7 @@ title: Working with agent sessions in the GitHub Copilot app
 shortTitle: Agent sessions
 intro: 'Run multiple isolated agent sessions simultaneously, each with its own branch, and steer them using different session modes, models, and tools.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.github-app %}'
+product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_source=docs-agent-sessions-signup&utm_medium=docs&utm_campaign=github-copilot-app-ga-2026" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 contentType: how-tos
@@ -13,11 +13,6 @@ category:
   - Author and optimize with Copilot
 ---
 
-> [!NOTE] The {% data variables.copilot.github_copilot_app %} is in {% data variables.release-phases.technical_preview %} and subject to change.
->
-> * **Existing {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}, {% data variables.copilot.copilot_pro_short %}, and {% data variables.copilot.copilot_pro_plus_short %} users** — Download and install from the [{% data variables.copilot.github_copilot_app %} repository](https://gh.io/github-copilot-app-repo?utm_source=docs-github-copilot-app-agent-sessions&utm_medium=docs&utm_campaign=msbuild-2026). For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, your organization or enterprise must enable preview features and {% data variables.copilot.copilot_cli_short %}.
-> * **{% data variables.copilot.copilot_free_short %} users and users without a {% data variables.product.prodname_copilot_short %} plan** do not currently have access to the {% data variables.copilot.github_copilot_app %}. Access is expected to expand over time.
-
 ## Starting a session
 
 Each session in the {% data variables.copilot.github_copilot_app %} runs in its own isolated workspace, so you can run multiple sessions in parallel and make progress on several tasks without conflicts.
@@ -25,14 +20,14 @@ Each session in the {% data variables.copilot.github_copilot_app %} runs in its 
 1. In the sidebar next to **Sessions**, click **+** to start a new session.
 1. Choose a repository—you can use a local folder, choose from {% data variables.product.github %}, or clone from a URL.
 1. From the dropdown under the prompt box, choose where the session should run: in a new working tree, in your local repository, or in a cloud sandbox. Cloud sandboxes for {% data variables.product.prodname_copilot_short %} (public preview) are fully isolated environments hosted by {% data variables.product.github %}. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
-1. Select a session mode, model, and reasoning effort from the dropdowns above the prompt field.
+1. Select a session mode, model, and reasoning effort from the dropdowns below the prompt field.
 1. Describe the task in the prompt field. You can reference issues with `#`, add files with `@`, or use `/` for commands.
 
 The agent starts working. Your active sessions appear in the sidebar grouped by repository—click any session to switch to it.
 
 ## Choosing a session mode
 
-The session mode controls how much autonomy the agent has. You can set the mode from the dropdown above the prompt field and change it at any time.
+The session mode controls how much autonomy the agent has. You can set the mode from the dropdown below the prompt field and change it at any time.
 
 * **Interactive**: You and the agent work together. The agent suggests changes and waits for your input before proceeding.
 * **Plan**: The agent creates a plan first. You review and approve the plan before the agent executes it.
@@ -41,6 +36,8 @@ The session mode controls how much autonomy the agent has. You can set the mode 
 ## Choosing a model
 
 You can select a model and reasoning effort from the dropdowns above the prompt field. Higher reasoning effort gives the agent more time to think through complex problems but may take longer. You can change both settings at any time during a session.
+
+Hover over the {% octicon "info" aria-label="the info icon" %} icon in the model picker to see model details.
 
 ## Using quick chats
 

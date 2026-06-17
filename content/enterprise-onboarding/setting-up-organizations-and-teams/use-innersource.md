@@ -6,6 +6,8 @@ versions:
   ghec: '*'
 contentType: concepts
 allowTitleToDifferFromFilename: true
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 {% data reusables.enterprise-onboarding.use-innersource %}

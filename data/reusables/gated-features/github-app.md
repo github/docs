@@ -1,1 +1,1 @@
-{% data variables.copilot.github_copilot_app %} is in {% data variables.release-phases.technical_preview %}. {% data variables.copilot.copilot_for_business %}, {% data variables.copilot.copilot_enterprise %}, {% data variables.copilot.copilot_pro %}, and {% data variables.copilot.copilot_pro_plus %} users can download and use the app.
+{% data variables.copilot.github_copilot_app %} is available for all paid {% data variables.product.prodname_copilot_short %} plans.

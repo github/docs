@@ -41,6 +41,7 @@
     "enable-automerge": "tsx src/workflows/enable-automerge.ts",
     "find-orphaned-assets": "tsx src/assets/scripts/find-orphaned-assets.ts",
     "find-orphaned-features": "tsx src/data-directory/scripts/find-orphaned-features/index.ts",
+    "find-orphaned-tables": "tsx src/data-directory/scripts/find-orphaned-tables.ts",
     "find-past-built-pr": "tsx src/workflows/find-past-built-pr.ts",
     "find-unused-variables": "tsx src/content-linter/scripts/find-unsed-variables.ts",
     "fixture-dev": "cross-env ROOT=src/fixtures/fixtures npm start",

@@ -93,10 +93,10 @@ Command hooks run shell scripts and are supported on all hook types.
     "preToolUse": [
       {
         "type": "command",
-        "bash": "your-bash-command",
-        "powershell": "your-powershell-command",
-        "cwd": "optional/working/directory",
-        "env": { "VAR": "value" },
+        "bash": "YOUR_BASH_COMMAND",
+        "powershell": "YOUR_POWERSHELL_COMMAND",
+        "cwd": "OPTIONAL/WORKING/DIRECTORY",
+        "env": { "VAR": "VALUE" },
         "timeoutSec": 30
       }
     ]
@@ -194,7 +194,7 @@ Prompt hooks auto-submit text as if the user typed it. They are only supported o
     "sessionStart": [
       {
         "type": "prompt",
-        "prompt": "Your prompt text or /slash-command"
+        "prompt": "YOUR_PROMPT_TEXT_OR_SLASH_COMMAND"
       }
     ]
   }
@@ -214,15 +214,15 @@ The table below lists every supported event. The **Cloud agent** column shows wh
 |-------|-----------|------------------|-------------|
 | `agentStop` | The main agent finishes a turn. | Yes — can block and force continuation. | Fires. `decision: "block"` forces another turn, which still counts against the job's timeout. |
 | `errorOccurred` | An error occurs during execution. | No | Fires. |
-| `notification` | Fires asynchronously when the CLI emits a system notification (shell completion, agent completion or idle, permission prompts, elicitation dialogs). Fire-and-forget: never blocks the session. Supports `matcher` regex on `notification_type`. | Optional — can inject `additionalContext` into the session. | **Does not fire.** Cloud agent does not surface notifications to a user (see the **Interactivity** row in the Cloud agent execution environment table above). |
-| `permissionRequest` | Fires before the permission service runs (rules engine, session approvals, auto-allow/auto-deny, and user prompting). If the merged hook output returns `behavior: "allow"` or `"deny"`, that decision short-circuits the normal permission flow. Supports `matcher` regex on `toolName`. | Yes — can allow or deny programmatically. | Tool calls are pre-approved, so this hook either does not fire or has no effect. Use `preToolUse` to make permission decisions instead. |
+| `notification` | Fires asynchronously when the CLI emits a system notification (shell completion, agent completion or idle, permission prompts, elicitation dialogs). Fire-and-forget: never blocks the session. Supports a `matcher` regex pattern (the value of the `matcher` field) on `notification_type`. | Optional — can inject `additionalContext` into the session. | **Does not fire.** Cloud agent does not surface notifications to a user (see the **Interactivity** row in the Cloud agent execution environment table above). |
+| `permissionRequest` | Fires before the permission service runs (rules engine, session approvals, auto-allow/auto-deny, and user prompting). If the merged hook output returns `behavior: "allow"` or `"deny"`, that decision short-circuits the normal permission flow. Supports a `matcher` regex pattern (the value of the `matcher` field) on `toolName`. | Yes — can allow or deny programmatically. | Tool calls are pre-approved, so this hook either does not fire or has no effect. Use `preToolUse` to make permission decisions instead. |
 | `postToolUse` | After each tool completes successfully. | Yes — can modify the tool result or inject additional context for the model. | Fires. |
 | `postToolUseFailure` | After a tool completes with a failure. | Yes — can provide recovery guidance via `additionalContext` (exit code `2` for command hooks). | Fires. |
-| `preCompact` | Context compaction is about to begin (manual or automatic). Supports `matcher` to filter by trigger (`"manual"` or `"auto"`). | No — notification only. | Fires only with `trigger: "auto"`. There is no user to request manual compaction. |
+| `preCompact` | Context compaction is about to begin (manual or automatic). Supports a `matcher` regex pattern (the value of the `matcher` field) to filter by trigger (`"manual"` or `"auto"`). | No — notification only. | Fires only with `trigger: "auto"`. There is no user to request manual compaction. |
 | `preToolUse` | Before each tool executes. | Yes — can allow, deny, or modify. | Fires. A decision of `"ask"` is treated as `"deny"` because no user is available to answer. |
 | `sessionEnd` | The session terminates. | No | Fires once per job. `reason` is typically `"complete"`, `"error"`, or `"timeout"`; `"abort"` and `"user_exit"` are not expected because there is no user. |
 | `sessionStart` | A new or resumed session begins. | Optional — can inject `additionalContext` into the session. | Fires once per job, as a new session (not a resume). See the Prompt hooks note above for the behavior of `prompt` entries under cloud agent. |
-| `subagentStart` | A subagent is spawned (before it runs). Supports `matcher` to filter by agent name. | Optional — cannot block creation, but `additionalContext` is prepended to the subagent's prompt. | Fires. |
+| `subagentStart` | A subagent is spawned (before it runs). Supports a `matcher` regex pattern (the value of the `matcher` field) to filter by agent name. | Optional — cannot block creation, but `additionalContext` is prepended to the subagent's prompt. | Fires. |
 | `subagentStop` | A subagent completes. | Yes — can block and force continuation. | Fires. |
 | `userPromptSubmitted` | The user submits a prompt. | No | Fires at most once, for the prompt supplied to the job. There is no follow-up user input. |
 
@@ -341,9 +341,9 @@ When configured with the PascalCase event name `PreToolUse`, the payload uses sn
 
 **Claude-format matchers (PascalCase `PreToolUse`):** Hooks configured with the PascalCase event name `PreToolUse`—as used in Claude Code plugins and the Open Plugins format—apply Claude's matcher semantics instead of the native regex rule:
 
-* `*`, `**`, or an empty matcher fires for every tool.
+* `*`, `**`, or an empty `matcher` value fires for every tool.
 * A literal name or `|`-separated alternation (for example, `Bash` or `Edit|Write`) fires when any token equals the runtime tool name or its Claude tool name from the table below.
-* Any other value is treated as a case-sensitive regex anchored as `^(?:pattern)$` tested against the Claude tool name (or the runtime name for tools with no Claude equivalent).
+* Any other value is treated as a case-sensitive regex anchored as `^(?:PATTERN)$` tested against the Claude tool name (or the runtime name for tools with no Claude equivalent).
 
 Payloads for PascalCase `PreToolUse` report `tool_name` as the Claude tool name (for example, `Bash`, not `bash`).
 
@@ -614,6 +614,16 @@ Return `{}` or empty output to keep the original successful result.
 > [!NOTE]
 > `modifiedResult` is honored by both SDK programmatic hooks and command/HTTP config-file `postToolUse` hooks.
 
+**Matcher:** Optional regex tested against `toolName`. The regex pattern is the value of the `matcher` field, compiled as `^(?:PATTERN)$`, and must match the entire tool name. If the pattern is not a valid regular expression, the hook is skipped. Omit `matcher` to receive results from all tools.
+
+```json
+{
+    "type": "command",
+    "matcher": "bash|edit",
+    "bash": "./scripts/log-tool.sh"
+}
+```
+
 ## `permissionRequest` decision control
 
 > [!NOTE]
@@ -623,7 +633,7 @@ The `permissionRequest` hook fires before the permission service runs—before r
 
 All configured `permissionRequest` hooks run for each request (except `read` and `hook` permission kinds, which short-circuit before hooks). Hook outputs are merged with later hook outputs overriding earlier ones.
 
-**Matcher:** Optional regex tested against `toolName`. Anchored as `^(?:pattern)$`; must match the full tool name. When set, the hook fires only for matching tool names.
+**Matcher:** Optional regex tested against `toolName`. The regex pattern is the value of the `matcher` field, anchored as `^(?:PATTERN)$`, and must match the full tool name. When set, the hook fires only for matching tool names.
 
 > [!NOTE]
 > **Claude-format matchers (PascalCase `PermissionRequest`):** Hooks configured with the PascalCase event name `PermissionRequest` use the same Claude matcher semantics as `PreToolUse`. See [Claude-format matchers (PascalCase PreToolUse)](#claude-format-matchers-pascalcase-pretooluse) for the matcher rules and tool name table.
@@ -680,16 +690,17 @@ The `notification` hook fires asynchronously when the CLI emits a system notific
 
 If `additionalContext` is returned, the text is injected into the session as a prepended user message. This can trigger further agent processing if the session is idle. Return `{}` or empty output to take no action.
 
-**Matcher:** Optional regex on `notification_type`. The pattern is anchored as `^(?:pattern)$`. Omit `matcher` to receive all notification types.
+**Matcher:** Optional regex on `notification_type`. The regex pattern is the value of the `matcher` field, anchored as `^(?:PATTERN)$`. Omit `matcher` to receive all notification types.
 
 ## Matcher filtering
 
-Several events accept an optional `matcher` regex on each hook entry that filters which invocations the hook fires for. The pattern is anchored as `^(?:matcher)$` and must match the full value. Invalid regexes cause the hook entry to be skipped.
+Several events accept an optional `matcher` regex on each hook entry that filters which invocations the hook fires for. It is compiled as `^(?:PATTERN)$` and must match the full value. Invalid regexes cause the hook entry to be skipped.
 
 | Event | `matcher` is matched against |
 |-------|------------------------------|
 | `notification` | `notification_type` |
 | `permissionRequest` | `toolName` |
+| `postToolUse` | `toolName` |
 | `preCompact` | `trigger` (`"manual"` or `"auto"`) |
 | `preToolUse` | `toolName` |
 | `subagentStart` | `agentName` |

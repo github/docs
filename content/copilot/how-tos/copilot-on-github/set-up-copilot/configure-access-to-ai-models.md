@@ -25,7 +25,7 @@ For a list of available AI models, see [AUTOTITLE](/copilot/using-github-copilot
 
 ## Setup for individual use
 
-For individual {% data variables.product.prodname_copilot_short %} plans, you can use AI models directly within {% data variables.product.prodname_copilot_short %} without configuring access or managing policies. {% data variables.copilot.copilot_free_short %} and {% data variables.copilot.copilot_student_short %} only have access to {% data variables.copilot.copilot_auto_model_selection_short %}. 
+For individual {% data variables.product.prodname_copilot_short %} plans, you can use AI models directly within {% data variables.product.prodname_copilot_short %} without configuring access or managing policies. {% data variables.copilot.copilot_free_short %} and {% data variables.copilot.copilot_student_short %} only have access to {% data variables.copilot.copilot_auto_model_selection_short %}.
 
 > [!NOTE]
 > Models available depend on your plan. See [AUTOTITLE](/copilot/reference/ai-models/supported-models#supported-ai-models-per-copilot-plan).

@@ -3,6 +3,9 @@ name: Test
 # **What it does**: Runs our tests.
 # **Why we have it**: We want our tests to pass before merging code.
 # **Who does it impact**: Docs engineering, open-source engineering contributors.
+#
+# For a catalog of what each suite covers and how risky it is to admin-merge
+# past it when red, see src/tests/SUITES.md.
 
 on:
   workflow_dispatch:

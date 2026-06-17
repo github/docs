@@ -41,6 +41,7 @@ GitHub Copilot includes several agentic features that go beyond suggestion and c
 * **Copilot cloud agent**: An asynchronous agent on GitHub.com that can create branches, write code, and open pull requests in response to assigned issues. The cloud agent runs in an ephemeral, firewalled environment with automated security scanning.
 * **Copilot CLI**: A command-line tool that can create and modify files, execute commands, and perform multi-step tasks. All actions require explicit permission prompts and are scoped to the current directory.
 * **Copilot SDK**: A programmatic library that allows developers to build custom AI-powered applications using Copilot. The SDK communicates with Copilot CLI over JSON-RPC and supports custom agents, MCP server integrations, lifecycle hooks, and session management.
+* **{% data variables.copilot.github_copilot_app %}**: A desktop application for directing agent sessions across local repositories, git worktrees, and cloud sandboxes. The app uses {% data variables.copilot.copilot_cli %} and {% data variables.copilot.copilot_sdk %} as its foundation and adds a user interface for parallel sessions, quick chats, {% data variables.product.github %} issue and pull request workflows, automations, and canvases.
 {% ifversion spark %}
 * **GitHub Spark (preview)**: A managed app-building experience where an agent writes code and runs commands in a development environment. Spark provides a managed runtime and can add inference capabilities via the GitHub Models SDK.
 {% endif %}
@@ -256,6 +257,15 @@ Copilot agentic features have been subject to RAI red teaming to identify and ad
 * **Session scoping**: Each SDK session is isolated with its own context, tools, and permissions. Developers can control what data and capabilities are available within each session.
 * **BYOK responsibility**: When using bring-your-own-key configurations, prompts and responses are sent directly to the configured provider. Developers are responsible for reviewing the data handling policies of their chosen provider.
 
+### {% data variables.copilot.github_copilot_app %}
+
+The {% data variables.copilot.github_copilot_app %} is a desktop application for directing agent sessions across local repositories, git worktrees, and cloud sandboxes. The app uses {% data variables.copilot.copilot_cli %} and {% data variables.copilot.copilot_sdk %} as its foundation and adds a user interface for parallel sessions, quick chats, {% data variables.product.github %} issue and pull request workflows, automations, and canvases.
+
+* **Workspace isolation**: App sessions can run in separate git worktrees or cloud sandboxes, helping isolate concurrent tasks from each other and from the default branch.
+* **Inherited CLI and SDK safety controls**: App sessions use {% data variables.copilot.copilot_cli %} and {% data variables.copilot.copilot_sdk %}, so they inherit the same model limitations and safety controls for file access, file modification, command execution, session scoping, and connected tools.
+* **Human review before merge**: The app surfaces generated changes, pull request status, CI results, review activity, and session history so users can inspect work before submitting reviews, enabling agent merge, or merging pull requests.
+* **Configurable integrations and automations**: Users control which MCP servers, skills, canvas extensions, and automations are available in the app. These configurations should be reviewed before use because they can affect the tools, data, and background actions available to sessions.
+
 ### Data handling when using your own model provider (CLI)
 
 When you configure Copilot CLI to use your own model provider, your prompts, code context, and generated responses are sent directly to the provider you configure. They are not routed through GitHub. You are responsible for reviewing and complying with the terms of service and data handling policies of your chosen provider.
@@ -334,6 +344,7 @@ For additional guidance on the responsible use of Copilot agentic features, we r
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/sdk-getting-started)
 * [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp)
 * [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli)
+* [AUTOTITLE](/copilot/concepts/agents/github-copilot-app)
 {% ifversion spark %}
 * [AUTOTITLE](/copilot/tutorials/building-your-first-app-in-minutes-with-github-spark)
 * [AUTOTITLE](/copilot/tutorials/building-ai-app-prototypes)

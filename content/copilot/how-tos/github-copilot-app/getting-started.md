@@ -3,7 +3,7 @@ title: Getting started with the GitHub Copilot app
 shortTitle: Quickstart
 allowTitleToDifferFromFilename: true
 intro: 'Sign in to the {% data variables.copilot.github_copilot_app %}, ask your first question in a quick chat, and then create a full agent session to make changes to your code.'
-product: '{% data reusables.gated-features.github-app %}'
+product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_source=docs-getting-started-signup&utm_medium=docs&utm_campaign=github-copilot-app-ga-2026" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 contentType: how-tos
@@ -14,25 +14,23 @@ category:
   - Author and optimize with Copilot
 ---
 
-> [!NOTE] The {% data variables.copilot.github_copilot_app %} is in {% data variables.release-phases.technical_preview %} and subject to change.
->
-> * **Existing {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}, {% data variables.copilot.copilot_pro_short %}, and {% data variables.copilot.copilot_pro_plus_short %} users** — Download and install from the [{% data variables.copilot.github_copilot_app %} repository](https://gh.io/github-copilot-app-repo?utm_source=docs-github-copilot-app-get-started&utm_medium=docs&utm_campaign=msbuild-2026). For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, your organization or enterprise must enable preview features and {% data variables.copilot.copilot_cli_short %}.
-> * **{% data variables.copilot.copilot_free_short %} users and users without a {% data variables.product.prodname_copilot_short %} plan** do not currently have access to the {% data variables.copilot.github_copilot_app %}. Access is expected to expand over time.
-
 For a conceptual overview of the {% data variables.copilot.github_copilot_app %}, see [AUTOTITLE](/copilot/concepts/agents/github-copilot-app).
 
 ## Prerequisites
 
-* Access to the {% data variables.copilot.github_copilot_app %}. The app is currently in {% data variables.release-phases.technical_preview %}.
-  * **Existing {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} users**: You have access, as long as your organization or enterprise has enabled preview features and enabled {% data variables.copilot.copilot_cli_short %}. You can download the app directly from the [{% data variables.copilot.github_copilot_app %} repository](https://gh.io/github-copilot-app-repo?utm_source=docs-github-copilot-app-get-started&utm_medium=docs&utm_campaign=msbuild-2026).
-  * **Existing {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} users**: You have access and can download the app directly from the [{% data variables.copilot.github_copilot_app %} repository](https://gh.io/github-copilot-app-repo?utm_source=docs-github-copilot-app-get-started&utm_medium=docs&utm_campaign=msbuild-2026).
-  * **{% data variables.copilot.copilot_free_short %} users and users without a {% data variables.product.prodname_copilot_short %} plan** do not currently have access to the {% data variables.copilot.github_copilot_app %}. Access is expected to expand over time.
-* The {% data variables.copilot.github_copilot_app %} installed on macOS, Windows, or Linux. Once you have access, you can download and install the application from the [{% data variables.copilot.github_copilot_app %} repository](https://github.com/github/app?utm_source=docs-github-copilot-app-get-started-install&utm_medium=docs&utm_campaign=msbuild-2026#install).
+* [Git](https://github.com/git-guides/install-git) installed on your computer.
+* A paid {% data variables.product.prodname_copilot_short %} plan.
+* If you use {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}, your plan administrator must enable the **{% data variables.copilot.copilot_cli_short %}** policy. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies) or [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
+
+## Installing the {% data variables.copilot.github_copilot_app %}
+
+1. Visit the [download page for {% data variables.copilot.github_copilot_app %}](https://gh.io/app?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-getting-started-download&utm_medium=docs&utm_campaign=github-copilot-app-ga-2026).
+1. Download the app for your platform.
 
 ## Opening the {% data variables.copilot.github_copilot_app %} for the first time
 
 1. Open the {% data variables.copilot.github_copilot_app %}.
-1. Click **Sign in to {% data variables.product.github %}** and follow the prompts to authenticate.
+1. Click **Sign in to {% data variables.product.github %}** and follow the prompts to authenticate. If you use {% data variables.product.prodname_ghe_server %}, choose **Use GitHub Enterprise** and enter your server address when prompted.
 1. The app walks you through onboarding. When prompted, select one or more repositories based on your recent {% data variables.product.github %} activity, or choose a sample project. You can also skip this step and add repositories later.
 1. Choose a theme, then complete onboarding.
 
@@ -71,16 +69,16 @@ When you are ready to make changes to code, create a session. You can start from
 
 1. Click **My work** in the sidebar.
 1. Browse or filter to find an issue, then click it to view its details.
-1. Click **Start a session**. The app creates a new session with the issue context already loaded and automatically uses **Plan** mode.
-1. The agent proposes a plan. Review the plan, then you can choose to let the agent start working on a pull request or have it propose changes that you can then manually apply.
-1. If you've told it to, the agent creates a branch, makes changes, and even creates a pull request that you can then review and iterate on.
+1. Click **New session**. The app creates a new session with the issue context already loaded.
+1. Select a session mode from the dropdown below the prompt field—for example, **Plan** to have the agent propose a plan first, or **Interactive** to work collaboratively with the agent.
+1. Prompt the agent with what you want it to do. If you chose **Plan** mode, the agent proposes a plan for you to review first; otherwise, the agent will start working on the issue and propose changes that you can iterate on. Follow along in the conversation view and provide feedback to steer the agent.
 
 ### Starting from a task
 
 If you do not have an issue to work from, you can describe a task directly.
 
 1. In the sidebar, click **+** next to "Sessions" to start a new session, then select a repository.
-1. Select a session mode from the dropdown above the prompt field—for example, **Interactive** to work collaboratively with the agent.
+1. Select a session mode from the dropdown below the prompt field—for example, **Interactive** to work collaboratively with the agent.
 1. Describe a task—for example, "Fix the failing test in `utils.test.ts`" or "Add input validation to the signup form."
 1. The agent will make changes based on your direction. Follow along in the conversation view and provide feedback to steer the agent.
 

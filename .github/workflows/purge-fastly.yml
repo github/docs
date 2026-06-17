@@ -38,23 +38,47 @@ jobs:
 
       - uses: ./.github/actions/node-npm-setup
 
-      - name: Wait for production to match build number
+      - name: Wait for production to match build commit SHA
         if: github.event_name != 'workflow_dispatch'
+        # A single /_build match only proves *one* Moda instance is serving the
+        # new build; others can still be mid-rollout. If we purge then, Fastly's
+        # soft purge serves stale-while-revalidate and may revalidate against a
+        # lagging instance, re-caching old content as fresh for a full TTL. So we
+        # require several consecutive matches to confirm the rollout has settled
+        # across instances before purging.
         run: |
           needs=$(git rev-parse HEAD)
           start_time=$(date +%s)
           timeout_seconds=1200
-          while [[ $needs != $(curl -s --fail --retry-connrefused --retry 5 https://docs.github.com/_build) ]]
+          required_matches=5
+          interval_seconds=10
+          consecutive=0
+          while [[ $consecutive -lt $required_matches ]]
           do
             if [[ $(($(date +%s) - $start_time)) -gt $timeout_seconds ]]
             then
-              echo "Production did not match the build number within $timeout_seconds seconds"
+              echo "Production did not reach $required_matches consecutive build matches within $timeout_seconds seconds"
               exit 1
             fi
-            echo "Production is not up to date with the build commit"
-            sleep 10
+            if [[ $needs == $(curl -s --fail --retry-connrefused --retry 5 https://docs.github.com/_build) ]]
+            then
+              consecutive=$((consecutive + 1))
+              echo "Production matches the build commit ($consecutive/$required_matches)"
+            else
+              if [[ $consecutive -gt 0 ]]
+              then
+                echo "Production stopped matching the build commit; resetting consecutive count"
+              else
+                echo "Production is not up to date with the build commit"
+              fi
+              consecutive=0
+            fi
+            if [[ $consecutive -lt $required_matches ]]
+            then
+              sleep $interval_seconds
+            fi
           done
-          echo "Production is up to date with the build commit"
+          echo "Production is up to date with the build commit ($required_matches consecutive matches)"
 
       - name: Purge Fastly edge cache per language
         env:
