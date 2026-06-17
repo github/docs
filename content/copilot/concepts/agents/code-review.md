@@ -2,7 +2,7 @@
 title: About GitHub Copilot code review
 shortTitle: Code review
 allowTitleToDifferFromFilename: true
-intro: 'Find out how {% data variables.product.prodname_copilot_short %} can review pull requests for you.'
+intro: '{% data variables.product.prodname_copilot_short %} reviews your pull requests, identifies issues, and suggests fixes you can apply in a couple of clicks.'
 product: '{% data reusables.copilot.plans.permission-paid-plans-cfi %}'
 versions:
   feature: copilot
@@ -33,6 +33,7 @@ This article provides an overview of {% data variables.copilot.copilot_code-revi
 * {% data variables.product.prodname_vs %}
 * Xcode
 * JetBrains IDEs
+* Azure DevOps ({% data variables.release-phases.public_preview %})
 
 > [!NOTE]
 > If you receive {% data variables.product.prodname_copilot_short %} from an organization, your organization must enable the **{% data variables.copilot.copilot_code-review_short %}** option in the {% data variables.product.prodname_copilot_short %} policy settings. This applies to reviews on {% data variables.product.prodname_dotcom_the_website %} or in {% data variables.product.prodname_mobile %}. See [AUTOTITLE](/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization).
@@ -76,22 +77,18 @@ For more information, see [AUTOTITLE](/copilot/reference/review-excluded-files).
 
 ## Agentic capabilities for {% data variables.copilot.copilot_code-review_short %}
 
-> [!NOTE]
->
-> * {% data variables.copilot.copilot_code-review_short %} has capabilities that are in {% data variables.release-phases.public_preview %} and subject to change. The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of preview features.
-
 {% data variables.copilot.copilot_code-review_short %} utilizes agentic capabilities to extend its functionality.
 
-* **Full project context gathering**. This provides more specific, accurate, and contextually aware code reviews. This capability analyzes your entire repository to better understand the context of code changes. Full project context gathering is generally available.
+* **Full project context gathering**. This provides more specific, accurate, and contextually aware code reviews. This capability analyzes your entire repository to better understand the context of code changes.
 * **The ability to pass suggestions to {% data variables.copilot.copilot_cloud_agent %}**. This automates creating a new pull request against your branch with the suggested fixes applied. Passing suggestions to {% data variables.copilot.copilot_cloud_agent %} is in public preview and subject to change.
 
-These capabilities are enabled automatically for {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and {% data variables.copilot.copilot_max_short %} plans.
+These capabilities are enabled automatically for all plans that include {% data variables.copilot.copilot_code-review_short %}. See [Review effort level](#review-effort-level) later in this article for information about choosing between Low and Medium analysis levels.
 
 If {% data variables.product.prodname_actions %} is unavailable or if Actions workflows used by {% data variables.copilot.copilot_code-review_short %} fail, reviews will still be generated. However, they will not include the additional features provided by the agentic capabilities.
 
 ### Usage of {% data variables.product.prodname_actions %} runners for agentic capabilities in code review
 
-{% data variables.copilot.copilot_code-review_short %} uses {% data variables.product.prodname_actions %} to run the agentic capabilities, including full project context gathering and any capabilities in {% data variables.release-phases.public_preview %}. By default, {% data variables.copilot.copilot_code-review_short %} uses standard {% data variables.product.prodname_dotcom %}-hosted runners. You can also upgrade to larger {% data variables.product.prodname_dotcom %}-hosted runners for better performance, or use self-hosted runners.
+{% data variables.copilot.copilot_code-review_short %} uses {% data variables.product.prodname_actions %} to run the agentic capabilities, including full project context gathering and passing suggestions to {% data variables.copilot.copilot_cloud_agent %}. By default, {% data variables.copilot.copilot_code-review_short %} uses standard {% data variables.product.prodname_dotcom %}-hosted runners. You can also upgrade to larger {% data variables.product.prodname_dotcom %}-hosted runners for better performance, or use self-hosted runners.
 
 > [!NOTE]
 > Usage of larger {% data variables.product.prodname_dotcom %}-hosted runners is billed at a higher per-minute rate. Self-hosted runners do not consume {% data variables.product.prodname_actions %} minutes.
@@ -103,6 +100,21 @@ If your organization has disabled {% data variables.product.prodname_dotcom %}-h
 For more information on configuring runners, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-runners).
 
 You can view the {% data variables.product.prodname_actions %} minutes associated with {% data variables.copilot.copilot_code-review_short %} runs. For more information, see [{% data variables.product.prodname_actions %} minutes for code review](/copilot/reference/copilot-billing/models-and-pricing#github-actions-minutes-for-code-review).
+
+## Review effort level
+
+> [!NOTE]
+> Medium review effort is in {% data variables.release-phases.public_preview %} and subject to change. The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of preview features.
+
+{% data variables.copilot.copilot_code-review_short %} supports multiple review effort levels, so you can choose the level of thoroughness that matches the criticality of your code.
+
+* **Low**: Standard review. Provides fast, targeted feedback on common issues such as bugs, security vulnerabilities, and style inconsistencies (default).
+* **Medium**: Routes pull requests to a higher-reasoning model for longer analysis of complex logic, security-sensitive code, and cross-service changes. Medium reviews use more {% data variables.product.prodname_ai_credits_short %} and {% data variables.product.prodname_actions %} minutes than Low reviews. For better performance with Medium reviews, consider configuring larger or self-hosted runners. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-runners).
+
+Use Medium for security-sensitive code, multi-service pull requests, or repositories with strict quality standards. Use Low for routine changes where fast feedback is more important than exhaustive analysis.
+
+
+Repository administrators can set the default review effort level for automatic code reviews. For configuration steps, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review).
 
 ## Code review usage
 
@@ -134,6 +146,30 @@ When {% data variables.copilot.copilot_code-review_short %} is enabled for these
 {% data reusables.copilot.ccr-model-usage %}
 
 {% data reusables.copilot.ccr-model-settings %}
+
+## MCP servers and agent skills for code review
+
+{% data reusables.copilot.code-review.skills-and-mcp-preview-note %}
+
+{% data variables.copilot.copilot_code-review_short %} can use repository-level agent skills and MCP servers when they are relevant to the review.
+
+{% data variables.copilot.copilot_code-review_short %} is more likely to use skills and MCP context when your repository or pull request gives clear signals, including review-focused skill directory names, custom instructions that reference MCP context, and pull request descriptions that include identifiers referencing configured MCP servers such as issue keys or incident IDs.
+
+### Agent skills
+
+If your repository includes agent skills, {% data variables.copilot.copilot_code-review_short %} can automatically use relevant skills when reviewing a pull request, extending {% data variables.product.prodname_copilot_short %} beyond its built-in analysis.
+
+For setup details, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills).
+
+### MCP servers
+
+{% data variables.copilot.copilot_code-review_short %} can use MCP servers to pull context directly into the review from the third-party platforms and internal systems your team uses, including issue tracking, documentation, service catalogs, and incident tooling.
+
+The {% data variables.product.github %} MCP server and Playwright MCP server are enabled by default.
+
+You can configure MCP servers in your repository settings. Repository MCP configuration on {% data variables.product.github %} applies to both {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}. Changes you make to repository MCP settings affect both features. For setup details, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers).
+
+{% data reusables.copilot.code-review.mcp-tools-setting %}
 
 ## Validating {% data variables.product.prodname_copilot_short %} code reviews
 

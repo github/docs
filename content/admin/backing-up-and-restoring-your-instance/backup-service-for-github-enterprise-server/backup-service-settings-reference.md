@@ -3,7 +3,7 @@ title: Backup service settings reference
 shortTitle: Backup settings
 intro: Reference for all configurable options available in the Backup Service section of the {% data variables.enterprise.management_console %}.
 versions:
-  ghes: '>= 3.17'
+  ghes: '*'
 contentType: reference
 category:
   - Back up and upgrade your instance

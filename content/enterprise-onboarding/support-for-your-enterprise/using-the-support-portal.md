@@ -6,6 +6,8 @@ allowTitleToDifferFromFilename: true
 versions:
   ghec: '*'
 contentType: how-tos
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 ## About the {% data variables.contact.enterprise_portal %} for enterprises

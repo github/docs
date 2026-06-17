@@ -51,7 +51,7 @@ An autonomous AI agent that can research a repository, create an implementation 
 
 ### Third-party coding agents ({% data variables.release-phases.public_preview %})
 
-You can use third-party coding agents alongside {% data variables.copilot.copilot_cloud_agent %}. Third-party agents are subject to the same security protections, mitigations, and limitations as {% data variables.copilot.copilot_cloud_agent %}. See [AUTOTITLE](/copilot/concepts/agents/about-third-party-agents).
+You can use third-party coding agents alongside {% data variables.copilot.copilot_cloud_agent %}. Third-party agents are subject to the same security protections, mitigations, and limitations as {% data variables.copilot.copilot_cloud_agent %}. See [AUTOTITLE](/copilot/concepts/agents/about-third-party-coding-agents).
 
 ### {% data variables.copilot.copilot_code-review_short %}
 

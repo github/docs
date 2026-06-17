@@ -37,15 +37,34 @@ export type TitleResolutionContext = Context & {
   redirects: Record<string, string>
 }
 
+// Memoizes resolved reference links by their input string. The resolved markdown
+// only depends on the link string plus the pages/redirects indexes, and those
+// indexes are process-wide singletons that only change on deploy (a fresh
+// process). Without this, the audit-log pages re-render ~500 page titles on every
+// request (~90–150ms of repeated work). See docs-engineering#6650.
+const referenceLinksMarkdownCache = new Map<string, Promise<string>>()
+
 // Resolves docs_reference_links URLs to markdown links
-export async function resolveReferenceLinksToMarkdown(
+export function resolveReferenceLinksToMarkdown(
   docsReferenceLinks: string,
   context: TitleResolutionContext,
 ): Promise<string> {
   if (!docsReferenceLinks || docsReferenceLinks === 'N/A') {
-    return ''
+    return Promise.resolve('')
   }
 
+  let cached = referenceLinksMarkdownCache.get(docsReferenceLinks)
+  if (!cached) {
+    cached = computeReferenceLinksToMarkdown(docsReferenceLinks, context)
+    referenceLinksMarkdownCache.set(docsReferenceLinks, cached)
+  }
+  return cached
+}
+
+async function computeReferenceLinksToMarkdown(
+  docsReferenceLinks: string,
+  context: TitleResolutionContext,
+): Promise<string> {
   // Handle multiple comma-separated or space-separated links
   const links = docsReferenceLinks
     .split(/[,\s]+/)

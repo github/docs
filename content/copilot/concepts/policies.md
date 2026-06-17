@@ -1,60 +1,59 @@
 ---
-title: GitHub Copilot policies to control availability of features and models
+title: GitHub Copilot policies for enterprises and organizations
 shortTitle: Policies
 allowTitleToDifferFromFilename: true
-intro: 'Learn about the policies that control the availability of {% data variables.product.prodname_copilot %} features and models for users granted a license through your organization or an organization in your enterprise.'
+intro: 'Control the availability of {% data variables.product.prodname_copilot %} features and models for your users.'
 versions:
   feature: copilot
 contentType: concepts
-category: 
+category:
   - Manage Copilot for a team
 ---
 
-## About policies for {% data variables.product.prodname_copilot_short %}
+## How do policies work?
 
-When you assign a {% data variables.product.prodname_copilot_short %} license to a member of your organization or enterprise, you can control the features they can use under that license with {% data variables.product.prodname_copilot_short %} policies.
+You will find policies for {% data variables.product.prodname_copilot %} on your enterprise's **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} AI controls** tab or in your organization's settings. Policies control which {% data variables.product.prodname_copilot %} features, agents, and models your users can access, and how they can use those features. For example, a policy controls whether users can use {% data variables.copilot.copilot_cli_short %}.
 
-Policies are grouped into different types.
+In an enterprise, policies are set at the enterprise level first. For most policies, enterprise administrators can either explicitly enable or disable a policy, or let organizations decide. As an exception, for {% data variables.copilot.copilot_cloud_agent %}, enterprises can select exactly which organizations receive access.
 
-* **Feature policy:** Defines the availability of a {% data variables.product.prodname_copilot_short %} feature. Shown on the "Policies" page.
-* **Privacy policy:** Defines whether a potentially sensitive action is allowed or not. Shown at the end of the "Policies" page.
-* **Models policy:** Defines the availability of models beyond the basic models provided with {% data variables.product.prodname_copilot_short %}, which may incur additional costs. Shown on the "Models" page.
+Users who receive access to {% data variables.product.prodname_copilot_short %} directly from the enterprise, rather than through an organization, are not covered by the "Let organizations decide" option. A separate **Policies for enterprise-assigned users** setting determines whether "Let organizations decide" policies default to enabled or disabled for these users.
 
-Each policy controls availability for members who receive a {% data variables.product.prodname_copilot_short %} license from your enterprise or organization.
+## Who do policies apply to?
 
-## Organization-level control of policies
+Generally, policies only apply to users on your {% data variables.product.prodname_copilot_short %} plan. A user is governed by the policies of the enterprise or organization where they receive a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} license.
 
-Organization owners set policies to control the availability of features and models for users granted a {% data variables.product.prodname_copilot_short %} license by the organization. For example, an organization owner can enable or disable using {% data variables.product.prodname_copilot_short %} in the IDE (unless an enterprise owner has defined availability for the feature at the enterprise level).
+A small number of policies work differently and govern a setting for everyone. For example, you can block {% data variables.copilot.copilot_cloud_agent %} for all users in your enterprise's repositories. If this is the case, you will see this highlighted in the policy description.
 
-The enforcement options for feature and model policies in an organization are:
+## What about users with multiple licenses?
 
-* **Unconfigured** - A placeholder, which is removed once you have defined a setting. The policy is treated as disabled for this organization until you select an option.
-* **Enabled** - The feature is **available** to all members who are assigned {% data variables.product.prodname_copilot_short %} by the organization.
-* **Disabled** - The feature is **blocked** for all members who are assigned {% data variables.product.prodname_copilot_short %} by the organization.
+A user can receive access to {% data variables.product.prodname_copilot_short %} from multiple organizations in the same enterprise. If these organizations have configured the same policy differently, the **least restrictive** policy usually applies, but there are some exceptions.
 
-For privacy policies, the options are called "Allowed" and "Blocked" in preference to enabled and disabled. This provides a clearer message of the impact of a privacy policy.
+More rarely, if a user receives a license from multiple different enterprises, the **most restrictive** policy across enterprises almost always applies. For example, if any enterprise disables {% data variables.copilot.copilot_chat_dotcom_short %}, that feature is disabled for the user.
 
-## Enterprise-level control of policies
+A user's individual plan is cancelled when they are added to a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan, so a user's personal policies cannot conflict with an enterprise's or organization's.
 
-Enterprise owners can choose to set policies for {% data variables.product.prodname_copilot_short %} at the enterprise level or to delegate the decision to organization owners.
+To see details for each policy, see [AUTOTITLE](/copilot/reference/policy-conflicts).
 
-### Policy defined
+## Where do policies apply?
 
-If a policy is defined at the enterprise level, the policy applies to all users and control of the policy is disabled at the organization level.
+Policies can apply to any surface where users authenticate to {% data variables.product.prodname_copilot_short %}, including IDEs, the {% data variables.product.github %} website, and {% data variables.copilot.copilot_cli_short %}.
 
-### Granular organization selection
+However, not all policies apply to every surface. See [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies).
 
-**For the {% data variables.copilot.copilot_cloud_agent %} policy**, enterprise owners can choose to enable the feature for specific organizations rather than applying a blanket enterprise-wide setting. When **Enabled for selected organizations** is selected by an enterprise owner or an AI manager, only the selected organizations can enable the feature. Organizations can be selected individually or by using organization custom properties.
+## How can I prevent policy drift?
 
-### No policy
+If too many people have access to policy settings and your enterprise's governance posture isn't clearly communicated, policy settings can drift over time. This is a risk for enterprises with strict compliance requirements.
 
-If an enterprise owner selects **No policy**, the impact depends on whether a user has access to {% data variables.product.prodname_copilot_short %} through an organization or directly from the enterprise.
+* Regularly review the people with access to policies:
 
-For members who receive a {% data variables.product.prodname_copilot_short %} license from the organization, organization owners can choose their policy. If a member receives access to {% data variables.product.prodname_copilot_short %} through multiple organizations with conflicting policies, either the least or most permissive policy may apply, depending on the policy. For more information, see [AUTOTITLE](/copilot/reference/feature-availability-enterprise).
+   * In enterprises, enterprise owners or users with the "Manage enterprise AI controls" custom role permission
+   * In organizations, organization owners or users with various granular custom permissions
 
-For users who receive access to {% data variables.product.prodname_copilot_short %} directly from the enterprise rather than from an organization, the **Policies for enterprise-assigned users** setting determines whether "No policy" defaults to enabled or disabled.
+* Use your audit log to monitor changes to policy settings or organization enablement.
 
-## Next steps
+## Setting policies
 
-* [AUTOTITLE](/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization)
+To set policies, see:
+
 * [AUTOTITLE](/copilot/how-tos/administer/enterprises/managing-policies-and-features-for-copilot-in-your-enterprise)
+* [AUTOTITLE](/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization)

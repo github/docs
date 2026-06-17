@@ -22,8 +22,6 @@ You should regularly evaluate your strategies for access, governance, and organi
 
 ## Use teams to organize people
 
->[!NOTE] Enterprise teams are in public preview and subject to change.
-
 Enterprise teams are the best way to control access and permissions at scale. Create teams and manage their membership as your primary means of performing actions like adding users to organizations, granting licenses, and delegating access to enterprise settings.
 
 When you use teams in this way, controlling membership of teams is a sensitive action. Limit the permission to control teams and their membership to a small number of people. If you use an external identity provider (IdP), sync teams to IdP groups so that team membership can be controlled by a central administrator.

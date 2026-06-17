@@ -32,6 +32,9 @@ import yaml from 'js-yaml'
 import fs from 'fs'
 import { chunk, last } from 'lodash-es'
 import { visit } from 'unist-util-visit'
+import type { Test } from 'unist-util-visit'
+import type { Node, Parent } from 'unist'
+import type { Element, Nodes } from 'hast'
 import { h } from 'hastscript'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { toHast } from 'mdast-util-to-hast'
@@ -39,12 +42,29 @@ import type { Root } from 'mdast'
 import { header } from './code-header'
 import findPage from '@/frame/lib/find-page'
 import { createLogger } from '@/observability/logger'
+import type { Context } from '@/types'
 
 const logger = createLogger(import.meta.url)
 
 interface LanguageConfig {
   comment: 'number' | 'slash' | 'xml' | 'percent' | 'hyphen'
-  [key: string]: any
+  [key: string]: unknown
+}
+
+interface HastNode {
+  type?: string
+  value?: string
+  properties?: {
+    className?: string[]
+    [key: string]: unknown
+  }
+  children?: HastNode[]
+  data?: {
+    meta?: {
+      annotate?: boolean
+      [key: string]: unknown
+    }
+  }
 }
 
 interface ElementNode {
@@ -52,13 +72,13 @@ interface ElementNode {
   tagName: string
   properties: {
     className?: string[]
-    [key: string]: any
+    [key: string]: unknown
   }
-  children: any[]
+  children: HastNode[]
   data?: {
     meta?: {
       annotate?: boolean
-      [key: string]: any
+      [key: string]: unknown
     }
   }
 }
@@ -92,27 +112,27 @@ const commentRegexes = {
   hyphen: /^\s*--\s*/,
 }
 
-// Using 'any' for node because unist-util-visit requires broad type compatibility
-const matcher = (node: any): node is ElementNode =>
-  node.type === 'element' && node.tagName === 'pre' && Boolean(getPreMeta(node).annotate)
+const matcher = (node: Node): boolean =>
+  node.type === 'element' &&
+  (node as unknown as ElementNode).tagName === 'pre' &&
+  Boolean(getPreMeta(node as unknown as ElementNode).annotate)
 
-// Using 'any' for context because unified plugins receive different context types depending on processor configuration
-export default function annotate(context: any) {
-  // Using 'any' for tree because unified's AST types are complex and vary between processors
-  return (tree: any) => {
-    // Using 'any' for parent because unist-util-visit's callback typing doesn't provide specific parent types
-    visit(tree, matcher, (node: ElementNode, index: number | undefined, parent: any) => {
+export default function annotate(context: Context) {
+  return (tree: Node) => {
+    visit(tree, matcher as Test, (node, index, parent) => {
       if (index !== undefined && parent) {
-        parent.children[index] = createAnnotatedNode(node, context)
+        ;(parent as Parent).children[index] = createAnnotatedNode(
+          node as unknown as ElementNode,
+          context,
+        ) as unknown as Node
       }
     })
   }
 }
 
-// Using 'any' for context to match the plugin signature, and return type because hastscript returns complex hast types
-function createAnnotatedNode(node: ElementNode, context: any): any {
-  const lang = node.children[0].properties.className[0].replace('language-', '')
-  const code = node.children[0].children[0].value
+function createAnnotatedNode(node: ElementNode, context: Context): Element {
+  const lang = node.children[0].properties!.className![0].replace('language-', '')
+  const code = node.children[0].children![0].value as string
 
   // Check the code is parse-able
   validate(lang, code)
@@ -189,8 +209,7 @@ function matchComment(lang: string): (line: string) => boolean {
   return (line) => regex.test(line)
 }
 
-// Using 'any' return type because hastscript's h() function returns complex hast element types
-function getSubnav(): any {
+function getSubnav(): Element {
   const besideBtn = h(
     'button',
     {
@@ -215,7 +234,6 @@ function getSubnav(): any {
   return h('div', { className: 'annotate-toggle' }, [besideBtn, inlineBtn])
 }
 
-// Using 'any' for context and return type due to hastscript's complex type definitions
 function template({
   lang,
   code,
@@ -225,8 +243,8 @@ function template({
   lang: string
   code: string
   rows: string[][][]
-  context: any
-}): any {
+  context: Context
+}): Element {
   return h(
     'div',
     { class: 'annotate beside' },
@@ -257,8 +275,7 @@ function template({
   )
 }
 
-// Using 'any' for context and return type to maintain compatibility with mdast-util-to-hast complex types
-function mdToHast(text: string, context: any): any {
+function mdToHast(text: string, context: Context): Nodes {
   const mdast: Root = fromMarkdown(text)
 
   // Process AUTOTITLE links
@@ -269,8 +286,7 @@ function mdToHast(text: string, context: any): any {
 
 // Helper method to process AUTOTITLE links in MDAST
 // This can be reused for other MDAST processing that needs AUTOTITLE support
-// Using 'any' for context because it may or may not have pages/redirects properties depending on usage
-function processAutotitleInMdast(mdast: Root, context: any): void {
+function processAutotitleInMdast(mdast: Root, context: Context): void {
   visit(mdast, 'link', (node) => {
     if (node.url && node.url.startsWith('/')) {
       for (const child of node.children) {
@@ -300,7 +316,7 @@ function removeComment(lang: string): (line: string) => string {
   return (line) => line.replace(regex, '')
 }
 
-function getPreMeta(node: ElementNode): { annotate?: boolean; [key: string]: any } {
+function getPreMeta(node: ElementNode): { annotate?: boolean; [key: string]: unknown } {
   // Here's why this monstrosity works:
   // https://github.com/syntax-tree/mdast-util-to-hast/blob/c87cd606731c88a27dbce4bfeaab913a9589bf83/lib/handlers/code.js#L40-L42
   return node.children[0]?.data?.meta || {}

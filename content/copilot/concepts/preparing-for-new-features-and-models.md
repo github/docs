@@ -32,7 +32,7 @@ To learn about new {% data variables.product.prodname_copilot_short %} features,
 | --- | --- | --- | --- |
 | Assistive | Respond to prompts and provide suggestions, but require human review before changes are made. | Inline suggestions, {% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_for_prs %}. | All changes require user approval. |
 | Agentic | Autonomously research, plan, and make changes on behalf of users. | {% data variables.copilot.copilot_cloud_agent %}, third-party agents. | Can work autonomously, but with built-in protections. |
-| Third-party | External coding agents that work alongside {% data variables.copilot.copilot_cloud_agent %} to complete tasks asynchronously. | {% data variables.product.prodname_anthropic_claude %}, {% data variables.product.prodname_openai_codex %}. | Same as agentic. Review provider documentation and enable via policies. See [AUTOTITLE](/copilot/concepts/agents/about-third-party-agents). |
+| Third-party | External coding agents that work alongside {% data variables.copilot.copilot_cloud_agent %} to complete tasks asynchronously. | {% data variables.product.prodname_anthropic_claude %}, {% data variables.product.prodname_openai_codex %}. | Same as agentic. Review provider documentation and enable via policies. See [AUTOTITLE](/copilot/concepts/agents/about-third-party-coding-agents). |
 
 {% endrowheaders %}
 

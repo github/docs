@@ -46,7 +46,7 @@ When you open a pull request, {% data variables.product.github %} creates up to 
 | `refs/pull/PULL_REQUEST_NUMBER/head` | Points to the latest commit on the pull request's head branch. |
 | `refs/pull/PULL_REQUEST_NUMBER/merge` | A merge branch—a simulated merge commit that represents what the repository would look like if the pull request were merged right now. This ref is only available when the pull request has no merge conflicts. |
 
-The merge branch automatically updates when the head branch or base branch changes. To fetch it locally:
+The merge branch automatically updates when the head branch changes. To fetch it locally:
 
 ```shell
 git fetch origin refs/pull/PULL_REQUEST_NUMBER/merge

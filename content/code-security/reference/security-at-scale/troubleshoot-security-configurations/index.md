@@ -10,8 +10,8 @@ children:
   - /a-repository-is-using-advanced-setup-for-code-scanning
   - /feature-disappears
   - /unexpected-default-setup
-  - /diagnosing-security-configuration-issues
-  - /not-enough-github-advanced-security-licenses
+  - /configuration-issue-diagnosis
+  - /not-enough-ghas-licenses
 redirect_from:
   - /code-security/securing-your-organization/troubleshooting-security-configurations
   - /code-security/how-tos/secure-at-scale/troubleshoot-security-configurations

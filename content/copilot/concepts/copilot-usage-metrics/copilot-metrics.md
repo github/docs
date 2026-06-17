@@ -85,7 +85,7 @@ To be included in the {% data variables.product.prodname_copilot_short %} usage 
 | Eclipse | 4.31 | 0.9.3.202507240902 |
 | JetBrains / IntelliJ | 2024.2.6 | 1.5.52-241 |
 | {% data variables.product.prodname_vs %} | 17.14.13 | 18.0.471.29466 |
-| {% data variables.product.prodname_vscode_shortname %} | 1.101 | 0.28.0 |
+| {% data variables.product.prodname_vscode_shortname %} | 1.107.1 | 0.35.3 |
 | Xcode | 13.2.1 | 0.40.0 |
 
 ## Data freshness

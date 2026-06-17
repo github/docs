@@ -1874,7 +1874,7 @@ Available section IDs: `identity`, `tone`, `tool_efficiency`, `environment_conte
 
 Each override supports four actions: `replace`, `remove`, `append`, and `prepend`. Unknown section IDs are handled gracefully—content is appended to additional instructions and a warning is emitted; `remove` on unknown sections is silently ignored.
 
-See the language-specific SDK READMEs for examples in [TypeScript](https://github.com/github/copilot-sdk/tree/main/nodejs/README.md), [Python](https://github.com/github/copilot-sdk/tree/main/python/README.md), [Go](https://github.com/github/copilot-sdk/tree/main/go/README.md), [Rust](https://github.com/github/copilot-sdk/tree/main/rust/README.md), [Java](https://github.com/github/copilot-sdk/tree/main/java/README.md), and [C#](https://github.com/github/copilot-sdk/tree/main/dotnet/README.md).
+See the language-specific SDK READMEs for examples in [TypeScript](https://github.com/github/copilot-sdk/tree/main/nodejs/README.md?utm_source=docs-copilot-sdk-typescript-readme&utm_medium=docs&utm_campaign=msbuild-2026), [Python](https://github.com/github/copilot-sdk/tree/main/python/README.md?utm_source=docs-copilot-sdk-python-readme&utm_medium=docs&utm_campaign=msbuild-2026), [Go](https://github.com/github/copilot-sdk/tree/main/go/README.md?utm_source=docs-copilot-sdk-go-readme&utm_medium=docs&utm_campaign=msbuild-2026), [Rust](https://github.com/github/copilot-sdk/tree/main/rust/README.md?utm_source=docs-copilot-sdk-rust-readme&utm_medium=docs&utm_campaign=msbuild-2026), [Java](https://github.com/github/copilot-sdk/tree/main/java/README.md?utm_source=docs-copilot-sdk-java-readme&utm_medium=docs&utm_campaign=msbuild-2026), and [C#](https://github.com/github/copilot-sdk/tree/main/dotnet/README.md?utm_source=docs-copilot-sdk-csharp-readme&utm_medium=docs&utm_campaign=msbuild-2026).
 
 ## Connecting to an external CLI server
 
@@ -2205,12 +2205,12 @@ Trace context is propagated automatically—no manual instrumentation is needed:
 
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/auth/authenticate) - GitHub OAuth, environment variables, and BYOK
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/auth/byok) - Use your own API keys from Azure AI Foundry, OpenAI, etc.
-* [Node.js SDK Reference](https://github.com/github/copilot-sdk/tree/main/nodejs/README.md)
-* [Python SDK Reference](https://github.com/github/copilot-sdk/tree/main/python/README.md)
-* [Go SDK Reference](https://github.com/github/copilot-sdk/tree/main/go/README.md)
-* [Rust SDK Reference](https://github.com/github/copilot-sdk/tree/main/rust/README.md)
-* [.NET SDK Reference](https://github.com/github/copilot-sdk/tree/main/dotnet/README.md)
-* [Java SDK Reference](https://github.com/github/copilot-sdk/tree/main/java/README.md)
+* [Node.js SDK Reference](https://github.com/github/copilot-sdk/tree/main/nodejs/README.md?utm_source=docs-copilot-sdk-nodejs-reference&utm_medium=docs&utm_campaign=msbuild-2026)
+* [Python SDK Reference](https://github.com/github/copilot-sdk/tree/main/python/README.md?utm_source=docs-copilot-sdk-python-reference&utm_medium=docs&utm_campaign=msbuild-2026)
+* [Go SDK Reference](https://github.com/github/copilot-sdk/tree/main/go/README.md?utm_source=docs-copilot-sdk-go-reference&utm_medium=docs&utm_campaign=msbuild-2026)
+* [Rust SDK Reference](https://github.com/github/copilot-sdk/tree/main/rust/README.md?utm_source=docs-copilot-sdk-rust-reference&utm_medium=docs&utm_campaign=msbuild-2026)
+* [.NET SDK Reference](https://github.com/github/copilot-sdk/tree/main/dotnet/README.md?utm_source=docs-copilot-sdk-dotnet-reference&utm_medium=docs&utm_campaign=msbuild-2026)
+* [Java SDK Reference](https://github.com/github/copilot-sdk/tree/main/java/README.md?utm_source=docs-copilot-sdk-java-reference&utm_medium=docs&utm_campaign=msbuild-2026)
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/mcp) - Integrate external tools via Model Context Protocol
 * [GitHub MCP Server Documentation](https://github.com/github/github-mcp-server)
 * [MCP Servers Directory](https://github.com/modelcontextprotocol/servers) - Explore more MCP servers

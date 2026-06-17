@@ -1399,9 +1399,7 @@ test.describe('LandingArticleGridWithFilter component', () => {
     // Should show "no articles found" message as well
     const noResultsMessage = page.getByTestId('no-articles-message')
     await expect(noResultsMessage).toBeVisible()
-    await expect(page.locator('[aria-live="polite"][aria-atomic="true"]')).toHaveText(
-      'No articles found matching your criteria.',
-    )
+    await expect(noResultsMessage).toHaveText('No articles found matching your criteria.')
   })
 
   test('responsive behavior on different screen sizes', async ({ page }) => {

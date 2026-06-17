@@ -11,6 +11,16 @@ redirect_from:
   - /graphql/reference/unions
   - /graphql/reference/input-objects
   - /graphql/reference/scalars
+  - /graphql/reference/audit-log
+  - /graphql/reference/billing
+  - /graphql/reference/code-scanning
+  - /graphql/reference/code-security
+  - /graphql/reference/codespaces
+  - /graphql/reference/collaborators
+  - /graphql/reference/interactions
+  - /graphql/reference/pages
+  - /graphql/reference/scim
+  - /graphql/reference/secret-scanning
 versions:
   fpt: '*'
   ghec: '*'

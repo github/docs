@@ -64,6 +64,21 @@ By default, you request reviews from {% data variables.product.prodname_copilot_
 
 {% data reusables.copilot.code-review.custom-instructions-information %}
 
+## MCP servers and agent skills
+
+{% data reusables.copilot.code-review.skills-and-mcp-preview-note %}
+
+{% data variables.copilot.copilot_code-review_short %} can use agent skills and MCP servers configured in the repository, when they are relevant to the review.
+
+To make these available for {% data variables.copilot.copilot_code-review_short %} on {% data variables.product.github %}, configure:
+
+* **Agent skills** in your repository (in `.github/skills`). If you want a skill to target review tasks, use a review-focused skill directory name such as `code-review`. For setup details, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills).
+* **MCP servers** in repository Copilot settings. The {% data variables.product.github %} MCP server and Playwright MCP server are enabled by default. For setup details, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers).
+
+{% data reusables.copilot.code-review.mcp-context-usage %}
+
+{% data reusables.copilot.code-review.mcp-tools-setting %}
+
 ## Further reading
 
 * [AUTOTITLE](/copilot/concepts/code-review)

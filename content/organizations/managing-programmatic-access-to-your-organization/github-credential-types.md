@@ -38,7 +38,7 @@ The following sections describe revocation options for each credential type base
 
 * If the token **belongs to you**, you can delete it via your personal account settings. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#deleting-a-personal-access-token).
 {% data reusables.credentials.revoke-via-api %}
-* **Organization owners** and **enterprise owners** do not have direct visibility into or control over individual tokens. However, they can:{% ifversion fpt or ghec or ghes > 3.17 %}
+* **Organization owners** and **enterprise owners** do not have direct visibility into or control over individual tokens. However, they can:{% ifversion fpt or ghec %}
    * Revoke them using the REST API, if the actual token value is known. See [AUTOTITLE](/rest/credentials/revoke?apiVersion=2022-11-28#revoke-a-list-of-credentials).{% endif %}
    * Restrict the access of {% data variables.product.pat_generic_plural %} to the organization or enterprise entirely. See [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization) and [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise).
 * **Organization owners and enterprise owners** on {% data variables.product.prodname_ghe_cloud %} with SSO enforced can revoke the SSO authorization for a specific {% data variables.product.pat_v1 %}. See [Revoking SSO authorization](#revoking-sso-authorization) for details.
@@ -49,7 +49,7 @@ The following sections describe revocation options for each credential type base
 * If the token **belongs to you**, you can delete it via your personal account settings. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#deleting-a-personal-access-token).
 {% data reusables.credentials.revoke-via-api %}
 * **Organization owners**: Can view and revoke individual tokens. Note, however, that when an organization owner revokes a {% data variables.product.pat_v2 %}, any SSH keys created by the token will continue to work and the token will still be able to read public resources within the organization. The revocation changes the resource owner from the organization to the user, and the user can reassign it back. See [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/reviewing-and-revoking-personal-access-tokens-in-your-organization).
-* **Organization owners** and **enterprise owners** can:{% ifversion fpt or ghec or ghes > 3.17 %}
+* **Organization owners** and **enterprise owners** can:{% ifversion fpt or ghec %}
    * Revoke the token using the REST API. See [AUTOTITLE](/rest/credentials/revoke?apiVersion=2022-11-28#revoke-a-list-of-credentials).{% endif %}
    * Restrict the access of {% data variables.product.pat_generic_plural %} to the organization or enterprise entirely. See [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization) and [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise).
 * **Revoked automatically** if pushed to a public repository or gist, or if unused for one year. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation).

@@ -1,5 +1,3 @@
->[!NOTE] Enterprise teams are in public preview and subject to change.
-
 ## 1. Navigate to the enterprise teams page
 
 {% data reusables.enterprise-accounts.access-enterprise %}

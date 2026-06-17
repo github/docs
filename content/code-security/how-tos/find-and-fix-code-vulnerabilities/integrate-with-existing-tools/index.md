@@ -13,7 +13,7 @@ redirect_from:
   - /code-security/secure-coding/integrating-with-code-scanning
   - /code-security/how-tos/scan-code-for-vulnerabilities/integrate-with-existing-tools
 children:
-  - /using-code-scanning-with-your-existing-ci-system
-  - /uploading-a-sarif-file-to-github
+  - /use-with-existing-ci-system
+  - /upload-sarif-file
 ---
 

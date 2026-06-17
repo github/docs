@@ -16,10 +16,6 @@ category:
 
 ## 1. Get access to {% data variables.product.prodname_copilot %}
 
-> [!IMPORTANT]
-> * {% data reusables.copilot.plans.individual-plans-paused %}
-> * {% data reusables.copilot.plans.copilot-max-upgrade-only %}
-
 There are a few ways that you can get access to {% data variables.product.prodname_copilot %}:
 
 * **Use {% data variables.copilot.copilot_free_short %}**. Get a limited experience of {% data variables.product.prodname_copilot_short %} with up to 2,000 inline suggestion requests and limited chat and agent usage-no paid plan required. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).

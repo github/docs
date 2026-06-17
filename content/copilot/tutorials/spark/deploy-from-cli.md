@@ -5,7 +5,7 @@ intro: 'Learn how to deploy your {% data variables.product.prodname_spark_short 
 allowTitleToDifferFromFilename: true
 versions:
   feature: spark
-product: '{% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_max_short %}, {% data variables.copilot.copilot_enterprise_short %}'
+product: '{% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_enterprise_short %}'
 category:
   - Rapid prototyping
   - Author and optimize with Copilot

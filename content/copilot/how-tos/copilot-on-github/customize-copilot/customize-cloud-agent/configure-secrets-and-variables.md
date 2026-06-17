@@ -14,7 +14,7 @@ category:
 When you delegate a task to {% data variables.copilot.copilot_cloud_agent %}, it works in its own ephemeral development environment, powered by {% data variables.product.prodname_actions %}. You may want to pass secrets and variables to the agent to:
 
 * Give {% data variables.product.prodname_copilot_short %} access to private resources, such as internal package registries, when it builds, tests, or validates your code in the agent's environment.
-* Configure MCP servers, by passing API keys, tokens, or other configuration to the servers. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp).
+* Configure MCP servers, by passing API keys, tokens, or other configuration to the servers. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers).
 * Set environment variables that are available to scripts and tools that {% data variables.product.prodname_copilot_short %} runs in its environment, including in `copilot-setup-steps.yml`. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment).
 
 {% data variables.copilot.copilot_cloud_agent %} has its own dedicated **Agents** secrets and variables, alongside the existing **Actions**, **Codespaces**, and **Dependabot** types. You can configure Agents secrets and variables at:
@@ -75,9 +75,9 @@ Names are case-insensitive. Lowercase letters are converted to uppercase. Names 
 
 If a variable or secret with the same name exists at multiple levels, the value at the lowest level takes precedence. For example, a repository-level secret will override an organization-level secret with the same name.
 
-For secrets and variables that you want to pass to MCP servers, the name must begin with the prefix `COPILOT_MCP_`. Only Agents secrets and variables with this prefix are available to your MCP configuration. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp).
+For secrets and variables that you want to pass to MCP servers, the name must begin with the prefix `COPILOT_MCP_`. Only Agents secrets and variables with this prefix are available to your MCP configuration. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers).
 
 ## Further reading
 
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)

@@ -22,6 +22,7 @@ For **ProductPricing** budgets or to query usage by product, use one of the foll
 * `copilot` - {% data variables.product.prodname_copilot %}
 * `ghas` - {% data variables.product.prodname_GH_advanced_security %}
 * `ghec` - {% data variables.product.prodname_ghe_cloud %}
+* `sandbox` - {% data variables.copilot.sandbox_caps %}
 
 ## SKU-level identifiers
 
@@ -92,6 +93,12 @@ For **SkuPricing** budgets or to query usage by SKU, use one of the following va
 * `ghas_code_security_licenses` - GHAS code security licenses
 * `ghas_licenses` - GHAS licenses
 * `ghas_secret_protection_licenses` - GHAS secret protection licenses
+
+### {% data variables.copilot.sandbox_caps %} SKUs
+
+* `sandbox_linux` - {% data variables.copilot.sandbox_short_caps %} Linux
+* `sandbox_memory` - {% data variables.copilot.sandbox_short_caps %} Memory
+* `sandbox_snapshot` - {% data variables.copilot.sandbox_short_caps %} Snapshot
 
 ### Other SKUs
 

@@ -34,7 +34,19 @@ When issue fields are enabled for your organization, four default fields are cre
 * **Start date** (date)
 * **Target date** (date)
 
+These default fields are pinned to issue types as follows:
+
+| Field | No type | Bug | Task | Feature |
+|-------|:-------:|:---:|:----:|:-------:|
+| Priority | {% octicon "check" aria-label="Pinned" %} | {% octicon "check" aria-label="Pinned" %} | {% octicon "check" aria-label="Pinned" %} | {% octicon "check" aria-label="Pinned" %} |
+| Effort | {% octicon "x" aria-label="Not pinned" %} | {% octicon "check" aria-label="Pinned" %} | {% octicon "check" aria-label="Pinned" %} | {% octicon "check" aria-label="Pinned" %} |
+| Start date | {% octicon "x" aria-label="Not pinned" %} | {% octicon "x" aria-label="Not pinned" %} | {% octicon "x" aria-label="Not pinned" %} | {% octicon "check" aria-label="Pinned" %} |
+| Target date | {% octicon "x" aria-label="Not pinned" %} | {% octicon "x" aria-label="Not pinned" %} | {% octicon "x" aria-label="Not pinned" %} | {% octicon "check" aria-label="Pinned" %} |
+
 These default fields are fully customizable. You can edit their names, descriptions, and options, or delete them if they don't fit your workflow.
+
+> [!TIP]
+> You can rename options, change their colors, reorder them, or add new values to match your team's workflow. For example, you could change Effort options to T-shirt sizes (XS, S, M, L, XL).
 
 ## Creating an issue field
 
@@ -73,6 +85,9 @@ When you delete an issue field, all values set on issues for that field are perm
 1. To the right of the field you want to delete, click {% octicon "kebab-horizontal" aria-label="open field options" %}.
 1. Click **Delete** and confirm the deletion.
 
+> [!TIP]
+> If you don't want to use issue fields, you can delete all default fields from your org settings. This removes them from all issues in your organization. You can re-create fields at any time.
+
 ## Reordering issue fields
 
 The order of pinned fields is managed per issue type. The field order determines how fields appear in the issue sidebar and the issue creation modal.
@@ -100,6 +115,8 @@ Pinned fields automatically appear in the issue sidebar based on the selected is
 > [!NOTE]
 > Fields must be pinned to at least one issue type, or to "Issues without a type", to appear in the issue sidebar. Fields that are not pinned to any type are only accessible via the **Add field** button or in projects.
 
+If a field is not appearing on your issues, check that it is pinned to the relevant issue type or to "Issues without a type". Fields that are not pinned and have no value set are hidden from the issue sidebar.
+
 ## Setting field visibility
 
 For organizations with public repositories, you can control whether each issue field is visible to everyone or only to organization members and collaborators.
@@ -118,7 +135,22 @@ By default, all new and existing fields are set to "Organization only". Visibili
 
 ## Issue fields and projects
 
-Issue fields are available in any project across your organization. For details on adding, removing, and editing issue fields in projects, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-and-managing-issue-fields#using-issue-fields-in-projects).
+Issue fields are available in any project across your organization, including public and internal projects. For details on adding, removing, and editing issue fields in projects, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/understanding-fields/about-issue-fields).
+
+### Visibility in public and internal projects
+
+Only fields with **Public** visibility are available in public and internal projects. Fields set to **Organization only** are not displayed. When adding fields to a public project, only public-visibility fields appear in the add-field dialog.
+
+If a field's visibility is changed from "Public" to "Organization only" while in use in a public project, the field is automatically removed from the project. To restore it, change the field's visibility back to "Public."
+
+### Migrating from project fields to issue fields
+
+If you already use project-level custom fields for metadata like priority or effort, you can adopt issue fields to centralize those values at the issue level.
+
+* Issue fields are the source of truth. The value lives on the issue and is consistent across all projects the issue belongs to.
+* Project fields are scoped to a single project. The same issue can have different project field values in different projects.
+* Both can coexist. You do not need to remove project fields immediately, but having both can cause confusion if they track the same concept (for example, two "Priority" fields).
+* To migrate, create the equivalent issue field, then remove the project-level field from your project views when your team is ready.
 
 ### Field limits in projects
 
@@ -129,6 +161,6 @@ Projects support up to 50 fields in total, and issue fields and system fields co
 | Resource | Limit |
 |----------|-------|
 | Issue fields per organization | 25 |
-| Options per single-select field | 50 |
+| Options per single-select field | 100 |
 | Pinned fields per issue type | 10 |
 | Total fields in a project (including issue fields and system fields) | 50 |

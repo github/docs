@@ -39,6 +39,7 @@ journeyTracks:
     title: 'Automating processes with GitHub Apps'
     description: 'Create and install apps to automate processes securely in your enterprise and organizations.'
     guides:
+      - href: '/enterprise-onboarding/github-apps/automations-in-your-enterprise'
       - href: '/enterprise-onboarding/github-apps/create-enterprise-apps'
       - href: '/enterprise-onboarding/github-apps/install-enterprise-apps'
   - id: 'support_for_your_enterprise'
@@ -58,4 +59,6 @@ children:
   - /support-for-your-enterprise
 redirect_from:
   - /enterprise-onboarding/feature-enhancements
+docsTeamMetrics:
+  - enterprise-onboarding
 ---

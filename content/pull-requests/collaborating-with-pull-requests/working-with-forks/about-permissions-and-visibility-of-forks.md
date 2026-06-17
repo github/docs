@@ -52,15 +52,11 @@ You cannot give push permissions to a fork owned by an organization.
 
 For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork).
 
-{% ifversion push-rulesets %}
-
 ### About push rulesets for forked repositories
 
 {% data reusables.repositories.rulesets-push-rulesets-fork-network-information %}
 
 For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#push-rulesets).
-
-{% endif %}
 
 ### Important security considerations
 

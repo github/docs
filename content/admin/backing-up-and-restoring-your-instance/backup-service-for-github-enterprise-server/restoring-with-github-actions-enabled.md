@@ -3,7 +3,7 @@ title: Restoring with GitHub Actions enabled
 shortTitle: Restore with Actions
 intro: Learn how to prepare for and restore backups when {% data variables.product.prodname_actions %} is enabled with external blob storage.
 versions:
-  ghes: '>= 3.17'
+  ghes: '*'
 contentType: how-tos
 category:
   - Back up and upgrade your instance

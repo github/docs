@@ -6,6 +6,8 @@ versions:
 allowTitleToDifferFromFilename: true
 shortTitle: Manage support entitlements
 contentType: how-tos
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 ## About support entitlements

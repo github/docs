@@ -31,6 +31,13 @@ When you create the password, we strongly recommend that you **enable two-factor
 
 Unlike provisioned managed users, the setup user cannot sign in via SSO. 
 
+If you need to access enterprise recovery codes:
+1. Navigate to github.com/login.
+1. Enter the setup user's username (for example, shortcode_admin) and password.
+1. Complete your 2FA challenge, or enter an enterprise recovery code if prompted. 
+
+Enterprise recovery codes are not the same as personal two-factor authentication recovery codes. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes).
+
 - **Without 2FA enabled**, you must provide an enterprise recovery code **every** time you sign in.
 - If **2FA is enabled**, you must sign in with a successful 2FA challenge response. You only need to enter an enterprise recovery code to access enterprise settings.
 

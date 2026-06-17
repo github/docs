@@ -23,8 +23,8 @@ As of June 1, 2026, {% data variables.product.github %} replaced request-based b
 ## What are my options as a {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %} user on an existing annual plan?
 
 If you're on an existing **annual plan** for {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %}, you have the option to:
-* **Stay** on your existing annual plan under premium request-based billing. When your annual plan ends, you'll be automatically downgraded to {% data variables.copilot.copilot_free_short %}.<!-- expires 2026-06-15 -->
-* **Cancel** your plan, receive a prorated refund, and optionally, re-subscribe to the equivalent monthly paid plan once sign ups have been re-enabled.<!-- end expires 2026-06-15 -->
+* **Stay** on your existing annual plan under premium request-based billing. When your annual plan ends, you'll be automatically downgraded to {% data variables.copilot.copilot_free_short %}.
+* **Cancel** your plan, receive a prorated refund, and optionally, re-subscribe to the equivalent monthly paid plan.
 * **Upgrade** to a monthly paid plan and receive prorated credits for the remaining value of the annual plan. For example, if you're on a {% data variables.copilot.copilot_pro_short %} annual plan, you can upgrade to a monthly {% data variables.copilot.copilot_pro_plus_short %} plan.
 
 ## What happens if I keep my annual plan?

@@ -1,3 +1,5 @@
+import type { OpenApiMediaType } from './openapi-types'
+
 // In the case that there are more than one example requests, and
 // no content responses, a request with an example key that matches the
 // status code of a response will be matched.
@@ -5,8 +7,29 @@ const DEFAULT_EXAMPLE_DESCRIPTION = 'Example'
 const DEFAULT_EXAMPLE_KEY = 'default'
 const DEFAULT_ACCEPT_HEADER = 'application/vnd.github.v3+json'
 
-// OpenAPI operation structure is dynamic and complex
-type Operation = any
+// These functions only read the request body, parameters, and responses of an
+// operation, so they accept a narrower shape than the full OpenApiOperation.
+// Content maps are typed as `unknown` values (cast to OpenApiMediaType at the
+// point of use) so the partial operation fixtures in tests remain assignable.
+interface CodeSampleParameter {
+  in?: string
+  name: string
+  examples?: Record<string, { value?: unknown }>
+  [key: string]: unknown
+}
+
+interface CodeSampleResponse {
+  description?: string
+  content?: unknown
+  [key: string]: unknown
+}
+
+interface CodeSampleOperation {
+  requestBody?: { content: Record<string, unknown>; [key: string]: unknown }
+  parameters?: CodeSampleParameter[]
+  responses?: Record<string, CodeSampleResponse>
+  [key: string]: unknown
+}
 
 interface RequestExample {
   key: string
@@ -14,8 +37,8 @@ interface RequestExample {
     contentType?: string
     description: string
     acceptHeader: string
-    bodyParameters?: any
-    parameters?: Record<string, any>
+    bodyParameters?: unknown
+    parameters?: Record<string, unknown>
   }
 }
 
@@ -25,25 +48,25 @@ interface ResponseExample {
     statusCode: string
     contentType?: string
     description: string
-    example?: any
-    schema?: any
+    example?: unknown
+    schema?: unknown
   }
 }
 
-interface MergedExample {
+export interface MergedExample {
   request: {
     contentType?: string
     description: string
     acceptHeader: string
-    bodyParameters?: any
-    parameters?: Record<string, any>
+    bodyParameters?: unknown
+    parameters?: Record<string, unknown>
   }
   response?: {
     statusCode: string
     contentType?: string
     description: string
-    example?: any
-    schema?: any
+    example?: unknown
+    schema?: unknown
   }
 }
 
@@ -51,7 +74,9 @@ interface MergedExample {
 // merge them to create matching request/response examples
 // The key used in the media type `examples` property is
 // used to match requests to responses.
-export default async function getCodeSamples(operation: Operation): Promise<MergedExample[]> {
+export default async function getCodeSamples(
+  operation: CodeSampleOperation,
+): Promise<MergedExample[]> {
   const responseExamples = getResponseExamples(operation)
   const requestExamples = getRequestExamples(operation)
 
@@ -66,7 +91,7 @@ export default async function getCodeSamples(operation: Operation): Promise<Merg
     }
 
     return mergedExamples.map((example, i) => {
-      delete (example as any).key
+      delete (example as { key?: string }).key
       return {
         ...example,
         request: {
@@ -81,7 +106,7 @@ export default async function getCodeSamples(operation: Operation): Promise<Merg
   }
 
   // Strip the key field — it's only needed during merging, not at runtime
-  for (const example of mergedExamples) delete (example as any).key
+  for (const example of mergedExamples) delete (example as { key?: string }).key
   return mergedExamples
 }
 
@@ -171,7 +196,7 @@ export function mergeExamples(
     }
   }
 */
-export function getRequestExamples(operation: Operation): RequestExample[] {
+export function getRequestExamples(operation: CodeSampleOperation): RequestExample[] {
   const requestExamples: RequestExample[] = []
   const parameterExamples = getParameterExamples(operation)
 
@@ -207,20 +232,21 @@ export function getRequestExamples(operation: Operation): RequestExample[] {
   // Requests can have multiple content types each with their own set of
   // examples.
   for (const contentType of Object.keys(operation.requestBody.content)) {
-    let examples: Record<string, any> = {}
+    const mediaType = operation.requestBody.content[contentType] as OpenApiMediaType
+    let examples: Record<string, { summary?: string; value?: unknown }> = {}
     // This is a fallback to allow using the `example` property in
     // the schema. If we start to enforce using examples vs. example using
     // a linter, we can remove the check for `example`.
     // For now, we'll use the key default, which is a common default
     // example name in the OpenAPI schema.
-    if (operation.requestBody.content[contentType].example) {
+    if (mediaType.example) {
       examples = {
         default: {
-          value: operation.requestBody.content[contentType].example,
+          value: mediaType.example,
         },
       }
-    } else if (operation.requestBody.content[contentType].examples) {
-      examples = operation.requestBody.content[contentType].examples
+    } else if (mediaType.examples) {
+      examples = mediaType.examples
     } else {
       // Example for this content type doesn't exist so we'll try and create one
       requestExamples.push({
@@ -268,12 +294,12 @@ export function getRequestExamples(operation: Operation): RequestExample[] {
   by the runtime rendering code, but they account for ~131 MB of the total
   schema.json size across all versions.
 */
-function stripSchemaExamples(schema: any): any {
+function stripSchemaExamples(schema: unknown): unknown {
   if (!schema || typeof schema !== 'object') return schema
   if (Array.isArray(schema)) return schema.map(stripSchemaExamples)
 
-  const result: any = {}
-  for (const [key, value] of Object.entries(schema)) {
+  const result: Record<string, unknown> = {}
+  for (const [key, value] of Object.entries(schema as Record<string, unknown>)) {
     if (key === 'example' || key === 'examples') continue
     result[key] = stripSchemaExamples(value)
   }
@@ -297,14 +323,16 @@ function stripSchemaExamples(schema: any): any {
     }
   }
 */
-export function getResponseExamples(operation: Operation): ResponseExample[] {
+export function getResponseExamples(operation: CodeSampleOperation): ResponseExample[] {
   const responseExamples: ResponseExample[] = []
-  for (const statusCode of Object.keys(operation.responses)) {
+  const responses = operation.responses as Record<string, CodeSampleResponse>
+  for (const statusCode of Object.keys(responses)) {
     // We don't want to create examples for error codes
     // Error codes are displayed in the status table in the docs
     if (parseInt(statusCode, 10) >= 400) continue
 
-    const content = operation.responses[statusCode].content
+    const response = responses[statusCode]
+    const content = response.content as Record<string, unknown> | undefined
 
     // A response doesn't always have content (ex:, status 304)
     // In this case we create a generic example for the status code
@@ -314,7 +342,7 @@ export function getResponseExamples(operation: Operation): ResponseExample[] {
         key: statusCode,
         response: {
           statusCode,
-          description: operation.responses[statusCode].description,
+          description: response.description ?? '',
         },
       }
       responseExamples.push(example)
@@ -324,20 +352,21 @@ export function getResponseExamples(operation: Operation): ResponseExample[] {
     // Responses can have multiple content types each with their own set of
     // examples.
     for (const contentType of Object.keys(content)) {
-      let examples: Record<string, any> = {}
+      const mediaType = content[contentType] as OpenApiMediaType
+      let examples: Record<string, { summary?: string; value?: unknown }> = {}
       // This is a fallback to allow using the `example` property in
       // the schema. If we start to enforce using examples vs. example using
       // a linter, we can remove the check for `example`.
       // We key by statusCode so that operations with multiple success
       // responses (e.g. 200 + 201) get unique keys instead of colliding.
-      if (operation.responses[statusCode].content[contentType].example) {
+      if (mediaType.example) {
         examples = {
           [statusCode]: {
-            value: operation.responses[statusCode].content[contentType].example,
+            value: mediaType.example,
           },
         }
-      } else if (operation.responses[statusCode].content[contentType].examples) {
-        examples = operation.responses[statusCode].content[contentType].examples
+      } else if (mediaType.examples) {
+        examples = mediaType.examples
       } else if (parseInt(statusCode, 10) < 300) {
         // Sometimes there are missing examples for say a 200 response and
         // the operation also has a 304 no content status. If we don't add
@@ -349,7 +378,7 @@ export function getResponseExamples(operation: Operation): ResponseExample[] {
           key: statusCode,
           response: {
             statusCode,
-            description: operation.responses[statusCode].description,
+            description: response.description ?? '',
           },
         }
         responseExamples.push(example)
@@ -370,15 +399,13 @@ export function getResponseExamples(operation: Operation): ResponseExample[] {
           response: {
             statusCode,
             contentType,
-            description: examples[key].summary || operation.responses[statusCode].description,
+            description: examples[key].summary || response.description || '',
             example: examples[key].value,
             // Note: Including the schema significantly increases JSON file size (~4x),
             // but it's necessary to support the schema/example toggle in the UI.
             // Users can switch between viewing the example response and the full schema.
             // example/examples annotation fields are stripped as they are not rendered.
-            schema: stripSchemaExamples(
-              operation.responses[statusCode].content[contentType].schema,
-            ),
+            schema: stripSchemaExamples(mediaType.schema),
           },
         }
         responseExamples.push(example)
@@ -399,12 +426,14 @@ export function getResponseExamples(operation: Operation): ResponseExample[] {
     }
   }
 */
-export function getParameterExamples(operation: Operation): Record<string, Record<string, any>> {
+export function getParameterExamples(
+  operation: CodeSampleOperation,
+): Record<string, Record<string, unknown>> {
   if (!operation.parameters) {
     return {}
   }
-  const parameters = operation.parameters.filter((param: any) => param.in === 'path')
-  const parameterExamples: Record<string, Record<string, any>> = {}
+  const parameters = operation.parameters.filter((param) => param.in === 'path')
+  const parameterExamples: Record<string, Record<string, unknown>> = {}
   for (const parameter of parameters) {
     const examples = parameter.examples
     // If there are no examples, create an example from the uppercase parameter

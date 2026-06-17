@@ -7,6 +7,8 @@ shortTitle: Create teams
 permissions: Enterprise owners or organization owners
 allowTitleToDifferFromFilename: true
 contentType: how-tos
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 {% data reusables.enterprise-onboarding.create-enterprise-teams %}

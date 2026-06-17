@@ -6,8 +6,6 @@ Teams are **groups of users** in an enterprise or organization. By creating team
 
 **Organization teams** are managed at the organization level and can only include members of a single organization. There are certain features of organization teams that are not currently supported for enterprise teams, such as CODEOWNER status.
 
->[!NOTE] Enterprise teams are in public preview and subject to change.
-
 ## Can I manage teams from an identity provider?
 
 {% ifversion ghes %}If you have enabled SCIM user provisioning on {% data variables.product.prodname_ghe_server %}{% else %}If you have integrated {% data variables.product.github %} with an identity provider (IdP){% endif %}, you can link teams on {% data variables.product.github %} with groups in your IdP. When membership of the IdP group changes, the change is reflected in the {% data variables.product.github %} team, allowing you to centralize access management.
@@ -43,8 +41,11 @@ You may need to create organization teams if the functionality you need is not c
 
 However, unlike organization teams, enterprise teams currently do **not** support:
 
+{%- ifversion enterprise-teams-ga %}
+{%- else %}
 * `@-mentions` of the team name in organizations
 * Review requests of the team in pull requests
+{%- endif %}
 * Adding the team to a project board
 {%- ifversion not ghes %}
 * Team sync if you use {% data variables.product.prodname_ghe_cloud %} with personal accounts

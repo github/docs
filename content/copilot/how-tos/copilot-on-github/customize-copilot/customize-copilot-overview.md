@@ -91,5 +91,5 @@ Your bug-fixer agent now appears in the agents dropdown on the agents tab. Selec
 
 * **[AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-personal-instructions)** — Set personal preferences that apply across all your repositories.
 * **[AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills)** — Add new capabilities to your agents.
-* **[AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/extend-cloud-agent-with-mcp)** — Connect agents to external tools and services.
+* **[AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)** — Configure repository MCP servers used by {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}.
 * **[AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/copilot-spaces/collaborate-with-others)** — Share your spaces with teammates.

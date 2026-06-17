@@ -92,3 +92,61 @@ Examples:
 * ❌ Incorrect: "The cat – which sat on a branch – smiled with a broad grin." (en dash with spaces)
 * ❌ Incorrect: "The cat-which sat on a branch-smiled with a broad grin." (hyphen without spaces)
 * ❌ Incorrect: "The cat - which sat on a branch - smiled with a broad grin." (hyphen with spaces)
+
+## Versioning
+
+Avoid `{% ifversion fpt %}`, `{% ifversion ghec %}`, and `{% ifversion fpt or ghec %}` in content files whenever possible. Instead of suggesting or adding version-gating within an article:
+
+* Write content that applies to all versions the article is versioned for
+* If content is truly version-specific, consider whether it is low-harm to show it to all readers (e.g., an enterprise-only row in a reference table)
+* Only use `{% ifversion %}` as a last resort when content would be actively misleading for readers on a different version
+
+**FPT and GHEC content**: When dotcom content applies to both products, version the page for `fpt` and `ghec` in the frontmatter. Do NOT use in-article Liquid versioning. Do NOT suggest adding `{% ifversion fpt or ghec %}` blocks as a fix for content that mentions a dotcom-only feature. Instead, suggest rewriting the content using the alternatives to inline versioning options listed below.
+
+**GHES content**: If versioning is necessary for GitHub Enterprise Server content, use feature-based versioning (FBV). GHES content should rely on feature flags defined in `data/features/` rather than inline `{% ifversion ghes %}` blocks. Feature flags allow centralized control of when content appears for specific GHES releases.
+
+### Alternatives to inline versioning
+
+Before resorting to in-article versioning, first consider whether the content is actually different across versions. Often procedures can be simplified to work at both levels.
+
+Use these strategies instead of `{% ifversion %}`, depending on the level of content:
+
+**At the article level:**
+
+* When the feature is only available in certain products, use the "Who can use this feature?" box to convey that the content of the article applies only to specific products
+* When an article only exists because the functionality is only available in older GHES releases (and not on {% data variables.product.prodname_dotcom_the_website %} or newer GHES releases), just remove that article
+
+**At the heading level:**
+
+* Use prose similar to "Who can use this feature?" to convey that the content of a section applies only to specific products
+
+**At the paragraph or sentence level:**
+
+* If you're briefly introducing a feature and then linking to an article, there's no need to specify versioning. Let readers learn availability when they follow the link, via the "Who can use this feature?" box
+* When necessary, start sentences with "With {% data variables.product.prodname_ghe_cloud %}...", "On {% data variables.product.prodname_dotcom_the_website %}...", etc.
+* End list items with "({% data variables.product.prodname_ghe_cloud %} only)", "({% data variables.product.prodname_dotcom_the_website %} only)", etc.
+* Specify if the feature is not available for GHES with "NAME-OF-FEATURE is not available for {% data variables.product.prodname_ghe_server %}", "... (not available in {% data variables.product.prodname_ghe_server %})", etc.
+
+### Example
+
+When documenting a feature that only applies to dotcom (not GHES):
+
+❌ Don't wrap content in version blocks:
+
+```markdown
+{% ifversion fpt or ghec %}
+
+## Immutable subject claims
+
+Repositories created after July 15, 2026 now use an immutable default subject format.
+
+{% endif %}
+```
+
+✅ Do use prose to indicate availability:
+
+```markdown
+## Immutable subject claims
+
+Repositories created after July 15, 2026 now use an immutable default subject format. This rollout does not include {% data variables.product.prodname_ghe_server %}.
+```

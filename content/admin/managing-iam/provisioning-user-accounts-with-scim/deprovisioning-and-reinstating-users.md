@@ -12,8 +12,6 @@ category:
   - Provision and manage enterprise users
 ---
 
-{% data reusables.scim.ghes-beta-note %}
-
 If you {% ifversion ghec %}use {% data variables.product.prodname_emus %}{% else %}have enabled SCIM for {% data variables.location.product_location %}{% endif %}, you will use SCIM to:
 
 * Deprovision users and groups to remove their access.

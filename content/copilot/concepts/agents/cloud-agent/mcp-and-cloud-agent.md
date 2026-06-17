@@ -21,7 +21,7 @@ The agent can use tools provided by local and remote MCP servers. Some MCP serve
 
 For more information on MCP, see [the official MCP documentation](https://modelcontextprotocol.io/introduction). For information on some of the currently available MCP servers, see [the MCP servers repository](https://github.com/modelcontextprotocol/servers/tree/main).
 
-{% data reusables.copilot.mcp.cloud-agent-limitations %}
+{% data reusables.copilot.mcp.repo-mcp-limitations %}
 
 ## Default MCP servers
 
@@ -35,13 +35,16 @@ The following MCP servers are configured automatically for {% data variables.cop
 
 ## Setting up MCP servers in a repository
 
-Repository administrators can configure MCP servers for use within that repository. This is done via a JSON-formatted configuration that specifies the details of the MCP servers that {% data variables.copilot.copilot_cloud_agent %} can use.
+Repository administrators can configure MCP servers for use within that repository. This is done via a JSON-formatted configuration in repository settings on {% data variables.product.github %}.
+
+> [!NOTE]
+> Repository MCP configuration on {% data variables.product.github %} applies to both {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}. MCP servers configured in repository MCP settings are available to both agents.
 
 Once MCP servers are configured for use within a repository, the tools specified in the configuration will be available to {% data variables.copilot.copilot_cloud_agent %} during each assigned task.
 
 {% data variables.product.prodname_copilot_short %} will use available tools autonomously, and will not ask for approval before use.
 
-For details of how to set up MCP servers for {% data variables.copilot.copilot_cloud_agent %} in a repository, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp).
+For details of how to set up MCP servers in a repository, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers).
 
 ## MCP servers for {% data variables.copilot.custom_agents_short %}
 

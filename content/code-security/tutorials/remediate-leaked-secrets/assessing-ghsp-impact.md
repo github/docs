@@ -143,7 +143,3 @@ Based on your analysis, determine the next steps.
 * Schedule regular reviews (weekly or monthly) of the security overview
 * Set up notifications for new {% data variables.secret-scanning.alerts %}
 * Track metrics over time to demonstrate continuous improvement
-
-## Further reading
-
-* To understand {% data variables.product.prodname_secret_scanning %} metrics in detail, see [AUTOTITLE](/code-security/security-overview/viewing-security-insights).

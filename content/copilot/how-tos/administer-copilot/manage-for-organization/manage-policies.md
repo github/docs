@@ -44,8 +44,9 @@ category:
 ## Enabling or disabling third-party coding agents in your repositories
 
 > [!NOTE]
-> * {% data reusables.gated-features.third-party-agents %}
+> * {% data reusables.copilot.plans.permission-paid-plans-no-purchase-link %}
 > * If your organization is owned by an enterprise, these settings are only visible if an enterprise admin has enabled third-party coding agents at the enterprise level. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
+>   * {% data variables.copilot.agent_apps_caps %} are not enabled here. They are controlled separately by a single "{% data variables.copilot.agent_apps %}" policy. For more information, see [AUTOTITLE](/copilot/concepts/agents/agent-apps).
 
 You can choose whether to allow the following coding agents to be enabled in your organization:
 
@@ -72,6 +73,4 @@ If your organization has a {% data variables.copilot.copilot_business_short %} o
 
 * [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-default-models)
 * [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-availability-of-default-models)
-* [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page)
-* [AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions)
-* [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise)
+* [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies)

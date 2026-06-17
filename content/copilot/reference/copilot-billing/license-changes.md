@@ -10,11 +10,6 @@ allowTitleToDifferFromFilename: true
 contentType: reference
 ---
 
-> [!IMPORTANT]
-> {% data reusables.copilot.plans.individual-plans-paused %} You can still downgrade or cancel plans. If you hit unexpected limits or these changes just don’t work for you, you can cancel your Pro or Pro+ subscription and receive a refund for the time remaining on your current subscription before May 20.
-> 1. To cancel and receive a refund for the time remaining, go to your [Billing settings](https://github.com/settings/billing/licensing).
-> 1. In the "{% data variables.product.prodname_copilot %}" section, select the **Manage subscription** dropdown on the right and then click **Cancel and refund subscription**.
-
 {% data variables.product.prodname_copilot_short %} follows the same billing rules as other license-based products on {% data variables.product.company_short %}.
 For the general concepts, see:
 

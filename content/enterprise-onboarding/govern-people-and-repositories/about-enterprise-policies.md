@@ -5,6 +5,8 @@ intro: Understand what policies are and why they are useful.
 versions:
   ghec: '*'
 contentType: concepts
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 {% data reusables.enterprise-onboarding.about-policies %}

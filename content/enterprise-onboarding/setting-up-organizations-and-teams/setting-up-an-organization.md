@@ -7,6 +7,8 @@ shortTitle: Set up an organization
 redirect_from:
   - /enterprise-onboarding/setting-up-organizations-and-teams/managing-your-organizations
 contentType: how-tos
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 During a trial, there are two ways to add organizations to your enterprise.

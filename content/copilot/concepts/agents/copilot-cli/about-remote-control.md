@@ -28,7 +28,7 @@ By default, {% data variables.copilot.copilot_cli %} sessions are only steerable
 
 Remote control requires:
 
-* **Policy enablement**: If your {% data variables.product.prodname_copilot_short %} seat comes from an organization, an enterprise or organization owner must enable the "Remote Control" policy (off by default). See [Administering remote control](#administering-remote-control) later in this article.
+* **Policy enablement**: If your {% data variables.product.prodname_copilot_short %} seat comes from an organization, an enterprise or organization owner must set the "Store local sessions in the Cloud" policy to "View and control" (unconfigured by default). See [Administering remote control](#administering-remote-control) later in this article.
 * **The machine must be online**: The CLI session must be actively running in a terminal on a machine with an internet connection. If the machine goes to sleep or loses its connection, remote control is unavailable until the machine is back online. See [Reconnection](#reconnection) later in this article.
 * **An interactive session**: Remote access is only available for interactive sessions. It is not available when you use the CLI programmatically with the `--prompt` command-line option, for example when you use the CLI in a script.
 
@@ -38,7 +38,7 @@ When you enable remote control for a {% data variables.copilot.copilot_cli_short
 
 Both the local terminal and the remote interface are active at the same time. You can enter commands in either interface. {% data variables.copilot.copilot_cli_short %} uses the first response it receives to any prompt or permission request.
 
-Your session continues to run on your local machine. The remote interface provides a way to interact with the session, but the CLI itself—and all the tools, shell commands, and file operations it runs—remain on the machine where you started the session.
+Your session continues to run on your local machine. The remote interface provides a way to interact with the session, but the CLI itself (and all the tools, shell commands, and file operations it runs) remains on the machine where you started the session.
 
 ## What you can do remotely
 
@@ -63,18 +63,21 @@ You can use the `/keep-alive` slash command to prevent your machine from going t
 
 ## Security and privacy
 
-Remote control is only available to you — the person signed in to {% data variables.product.prodname_dotcom %} with the same account that started the CLI session. No one else can view or interact with your sessions remotely. The session URL displayed in the CLI is session-specific and only accessible to authenticated users with the correct account.
+Remote control is only available to the person signed in to {% data variables.product.prodname_dotcom %} with the same account that started the CLI session. No one else can view or interact with your sessions remotely.
 
 When remote control is enabled:
 
 * Session events (conversation messages, tool execution events, and permission requests) are sent from your local machine to {% data variables.product.prodname_dotcom %}.
 * Remote commands are polled by {% data variables.copilot.copilot_cli_short %} from {% data variables.product.prodname_dotcom %} and injected into your local session.
-* The CLI continues to run locally — all shell commands, file operations, and tool executions happen on your machine. Remote control does not grant direct access to your machine beyond what the CLI agent can do within the session.
-
-The remote session link (displayed in the CLI when you enable remote control) points to a session-specific URL on {% data variables.product.prodname_dotcom_the_website %}. Only authenticated users with the correct account can access this URL.
+* The CLI continues to run locally. All shell commands, file operations, and tool executions happen on your machine. Remote control does not grant direct access to your machine beyond what the CLI agent can do within the session.
 
 ## Administering remote control
 
-Enterprise and organization owners control whether users can enable remote control, using the "Remote Control" policy. This policy is off by default.
+Enterprise and organization owners control whether users can enable remote control using the "Store local sessions in the Cloud" policy.
+
+* **Organization-level policy** (unconfigured by default): Organization owners can set this policy to "View from cloud" (syncing only) or "View and control" (syncing plus remote control). If the policy is disabled or unconfigured, neither session syncing nor remote control is available for the organization's users.
+* **Enterprise-level policy**: Enterprise owners can enforce a setting across all organizations, or select "Let organizations decide" to let each organization choose its own level. If the enterprise enforces "View and control," all organizations under it receive that setting.
+
+For remote control to be available, the applicable policy (enterprise-enforced or organization-level) must be set to "View and control."
 
 For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies) and [AUTOTITLE](/copilot/how-tos/copilot-cli/administer-copilot-cli-for-your-enterprise).

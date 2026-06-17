@@ -63,6 +63,26 @@ To use the CLI programmatically, include the `-p` or `--prompt` command-line opt
 > [!CAUTION]
 > If you use an automatic approval option such as `--allow-all-tools`, {% data variables.product.prodname_copilot_short %} has the same access as you do to files on your computer, and can run any shell commands that you can run, without getting your prior approval. See [Security considerations](#security-considerations), later in this article.
 
+## Running in a sandbox with {% data variables.copilot.sandbox %}
+
+{% data reusables.cli.public-preview-sandbox %}
+
+{% data variables.copilot.sandbox_caps %} provides isolated execution environments for {% data variables.copilot.copilot_cli_short %}, both locally and in the cloud. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
+
+### Local sandboxing
+
+You can enable local sandboxing inside a {% data variables.copilot.copilot_cli_short %} session to restrict {% data variables.product.prodname_copilot_short %}'s access to your filesystem, network, and system capabilities. To enable it, run `/sandbox enable` inside a session.
+
+### Cloud sandboxing
+
+You can start a {% data variables.copilot.copilot_cli_short %} session inside an isolated, cloud-hosted environment with cloud sandboxes. This is useful when you want to run code without affecting your local machine, keep a session's state between uses, continue a session from a different machine, or run multiple tasks in parallel. Cloud sandbox policies inherit from {% data variables.copilot.copilot_cloud_agent %} policies, so existing security controls like firewall rules extend to cloud sandboxes without additional setup.
+
+To start a cloud-backed session, run:
+
+```bash copy
+copilot --cloud
+```
+
 ## Use cases for {% data variables.copilot.copilot_cli %}
 
 The following sections provide examples of tasks you can complete with {% data variables.copilot.copilot_cli %}.
@@ -290,7 +310,9 @@ You can control which tools {% data variables.copilot.copilot_cli_short %} can u
 
 ### Risk mitigation
 
-You can mitigate the risks associated with using the automatic approval options by running {% data variables.copilot.copilot_cli_short %} in a restricted environment—such as a virtual machine, container, or dedicated system—with tightly controlled permissions and network access. This confines any potential damage that could occur when allowing {% data variables.product.prodname_copilot_short %} to execute commands that you have not reviewed and verified.
+You can mitigate the risks associated with using the automatic approval options by running {% data variables.copilot.copilot_cli_short %} in a sandboxed environment. {% data variables.copilot.sandbox_caps %} provides a first-party solution for this, with local sandboxing to restrict access on your machine and cloud sandboxing for fully isolated execution. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
+
+Alternatively, you can run {% data variables.copilot.copilot_cli_short %} in a virtual machine, container, or dedicated system with tightly controlled permissions and network access.
 
 ### Known MCP server policy limitations
 
