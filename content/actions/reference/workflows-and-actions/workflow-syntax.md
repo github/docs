@@ -265,6 +265,8 @@ A boolean specifying whether the input must be supplied.
 
 The value of this parameter is a string specifying the data type of the input. This must be one of: `boolean`, `choice`, `number`, `environment` or `string`.
 
+The `environment` type is a special case that lets the workflow runner present the repository's available environments as the input choices.
+
 ## `permissions`
 
 {% data reusables.actions.jobs.section-assigning-permissions-to-jobs %}

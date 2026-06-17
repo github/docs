@@ -1081,6 +1081,8 @@ You can configure custom-defined input properties, default input values, and req
 
 This example defines inputs called `logLevel`, `tags`, and `environment`. You pass values for these inputs to the workflow when you run it. This workflow then prints the values to the log, using the `inputs.logLevel`, `inputs.tags`, and `inputs.environment` context properties.
 
+When you use `type: environment`, GitHub shows the workflow's environment names as the available values for that input.
+
 ```yaml
 on:
   workflow_dispatch:
