@@ -37,6 +37,8 @@ In a public repository, you can set a maximum number of pull requests that a use
 
 This setting helps maintainers manage contribution volume by preventing users from opening an excessive number of pull requests, which can overwhelm review queues and trigger unnecessary CI runs. The limit only applies to users without write access — users with write access or higher are not affected.
 
+Draft pull requests do not count toward a user's limit. Only open, non-draft pull requests are counted when determining whether a user has reached the maximum.
+
 ### Adding trusted contributors to the bypass list
 
 Rather than granting full collaborator access, you can add trusted contributors to a bypass list, allowing them to exceed the pull request limit while keeping their permissions otherwise unchanged. This bypass is ideal for regular external contributors who routinely open multiple pull requests but do not need the additional permissions that come with collaborator access.
