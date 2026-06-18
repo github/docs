@@ -12,6 +12,27 @@ docsTeamMetrics:
   - copilot-cli
 ---
 
+## Quickstart
+
+If you are setting up {% data variables.copilot.copilot_cli_short %} for the first time:
+
+1. Install the CLI. See [Installing GitHub Copilot CLI](/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli).
+1. For interactive use, run `/login` or `copilot login` and complete the browser device flow. See [Authenticating with OAuth](#authenticating-with-oauth).
+1. For CI/CD, containers, or other non-interactive environments, set `COPILOT_GITHUB_TOKEN`, `GH_TOKEN`, or `GITHUB_TOKEN` to a supported token. See [Authenticating with environment variables](#authenticating-with-environment-variables).
+1. If authentication fails, see [Troubleshooting Copilot CLI authentication](/copilot/how-tos/copilot-cli/set-up-copilot-cli/troubleshoot-copilot-cli-auth).
+
+## Choose an authentication method
+
+| Method | Best for | How to set up | Notes |
+|--------|----------|---------------|-------|
+| OAuth device flow | Interactive local use | Run `/login` or `copilot login` | Default; token stored in the system keychain |
+| Environment variables | CI/CD, containers, automation | Set `COPILOT_GITHUB_TOKEN`, `GH_TOKEN`, or `GITHUB_TOKEN` | Highest priority; overrides stored OAuth tokens |
+| {% data variables.product.prodname_cli %} fallback | Developers already using `gh` | Install and authenticate `gh` | Used only when no env token or keychain token is available |
+| BYOK (no {% data variables.product.github %} auth) | Custom or local LLM providers | Configure BYOK provider environment variables | {% data variables.product.github %} authentication optional; {% data variables.product.github %}-hosted features unavailable |
+
+> [!TIP]
+> In shared CI environments, prefer a dedicated fine-grained PAT or GitHub App user-to-server token scoped to **{% data variables.product.prodname_copilot_short %} Requests** instead of reusing a broad token from another tool.
+
 ## About authentication
 
 If you use your own LLM provider API keys (BYOK), {% data variables.product.github %} authentication is not required.
