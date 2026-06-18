@@ -34,3 +34,4 @@ Your integration can use webhooks to learn when specific events happen on {% dat
 {% ifversion fpt or ghec %}
 If your integration uses generative AI, you can find and experiment with AI models for free on {% data variables.product.company_short %}. See [AUTOTITLE](/github-models/prototyping-with-ai-models).
 {% endif %}
+
