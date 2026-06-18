@@ -151,5 +151,39 @@ I am content.
       }
       expect(errors[0]).toEqual(expectedError)
     })
+
+    test('creates errors if contributor metadata does not conform to schema', () => {
+      const { errors } = parse(
+        `---
+title: Title
+versions:
+  fpt: '*'
+contributor:
+  name: GitHub
+  URL: not-a-url
+---`,
+        { schema: frontmatterSchema },
+      )
+
+      expect(errors.length).toBe(1)
+      expect(errors[0].property).toBe('contributor.URL.url')
+      expect(errors[0].reason).toBe('format')
+    })
+
+    test('passes if contributor metadata conforms to schema', () => {
+      const { errors } = parse(
+        `---
+title: Title
+versions:
+  fpt: '*'
+contributor:
+  name: GitHub
+  URL: https://github.com
+---`,
+        { schema: frontmatterSchema },
+      )
+
+      expect(errors.length).toBe(0)
+    })
   })
 })

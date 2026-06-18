@@ -5,6 +5,9 @@ import { createLogger } from '@/observability/logger'
 const logger = createLogger(import.meta.url)
 
 export function checkNodeVersion() {
+  if (process.env.IGNORE_NODE_VERSION === 'true') {
+    return
+  }
   const packageFile = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
   const { engines } = packageFile
 

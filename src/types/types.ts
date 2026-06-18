@@ -69,6 +69,10 @@ export type PageFrontmatter = {
   sidebarLink?: SidebarLink
   spotlight?: SpotlightItem[]
   filters?: Array<'category' | 'surface' | 'complexity'>
+  contributor?: {
+    name: string
+    URL: string
+  }
 }
 
 type FeaturedLinks = {

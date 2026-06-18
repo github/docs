@@ -441,6 +441,20 @@ category:
       },
       description: 'Array of category names to include in the article grid dropdown filter',
     },
+    contributor: {
+      type: 'object',
+      required: ['name', 'URL'],
+      properties: {
+        name: {
+          type: 'string',
+        },
+        URL: {
+          type: 'string',
+          format: 'url',
+        },
+      },
+      additionalProperties: false,
+    },
   },
 }
 
