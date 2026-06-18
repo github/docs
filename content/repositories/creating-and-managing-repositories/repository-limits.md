@@ -15,6 +15,20 @@ Certain types of repository resources can be quite large, requiring excessive pr
 
 Most of the limits below affect both {% data variables.product.github %} and the API.
 
+## Repository name
+
+Repository names must follow these rules:
+
+* **Maximum length**: 100 characters. Names exceeding this limit are rejected with the error message: "Name cannot be more than 100 characters."
+
+* **Allowed characters**: ASCII letters, digits, and the characters `.`, `-`, and `_`. If a name contains non-ASCII characters, {% data variables.product.github %} automatically converts them to `-` and creates the repository with the sanitized name.
+
+* **Reserved suffixes**:
+  * Names ending in `.git` have the suffix automatically removed.
+  * Names ending in `.wiki` are not allowed, because {% data variables.product.github %} reserves this suffix for the repository wiki.
+
+For more information on creating a repository, see [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository).
+
 ## Repository size
 
 To ensure optimal performance and manageability, we recommend staying within the following maximum limits for repository structure and size.
