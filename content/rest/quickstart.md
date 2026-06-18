@@ -63,8 +63,8 @@ jobs:
 
 If you are authenticating with a {% data variables.product.prodname_github_app %}, you can create an installation access token within your workflow:
 
-1. Store your {% data variables.product.prodname_github_app %}'s ID as a configuration variable. In the following example, replace `APP_ID` with the name of the configuration variable. You can find your app ID on the settings page for your app or through the API. For more information, see [AUTOTITLE](/rest/apps/apps#get-an-app). For more information about configuration variables, see [AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows).
-1. Generate a private key for your app. Store the contents of the resulting file as a secret. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following example, replace `APP_PEM` with the name of the secret. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps). For more information about secrets, see [AUTOTITLE](/actions/security-guides/encrypted-secrets).
+1. Store your {% data variables.product.prodname_github_app %}'s client ID as a configuration variable. In the following example, replace `APP_CLIENT_ID` with the name of the configuration variable. You can find your client ID on the settings page for your app or through the API. For more information, see [AUTOTITLE](/rest/apps/apps#get-an-app). For more information about configuration variables, see [AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows).
+1. Generate a private key for your app. Store the contents of the resulting file as a secret. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following example, replace `APP_PRIVATE_KEY` with the name of the secret. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps). For more information about secrets, see [AUTOTITLE](/actions/security-guides/encrypted-secrets).
 1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. {% ifversion fpt or ghec %}For example:{% else %}In the following example, replace `HOSTNAME` with the name of {% data variables.location.product_location %}. Replace `REPO-OWNER` with the name of the account that owns the repository. Replace `REPO-NAME` with the name of the repository.{% endif %}
 
    ```yaml copy
@@ -76,10 +76,10 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
        steps:
          - name: Generate token
            id: generate-token
-           uses: actions/create-github-app-token@v2
+           uses: actions/create-github-app-token@v3
            with:
-             app-id: {% raw %}${{ vars.APP_ID }}{% endraw %}
-             private-key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
+             client-id: {% raw %}${{ vars.APP_CLIENT_ID }}{% endraw %}
+             private-key: {% raw %}${{ secrets.APP_PRIVATE_KEY }}{% endraw %}
          - name: Use API
            env:
              GH_TOKEN: {% raw %}${{ steps.generate-token.outputs.token }}{% endraw %}
@@ -202,8 +202,8 @@ try {
 
 If you are authenticating with a {% data variables.product.prodname_github_app %}, you can create an installation access token within your workflow:
 
-1. Store your {% data variables.product.prodname_github_app %}'s ID as a configuration variable. In the following example, replace `APP_ID` with the name of the configuration variable. You can find your app ID on the settings page for your app or through the App API. For more information, see [AUTOTITLE](/rest/apps/apps#get-an-app). For more information about configuration variables, see [AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows).
-1. Generate a private key for your app. Store the contents of the resulting file as a secret. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following example, replace `APP_PEM` with the name of the secret. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps). For more information about secrets, see [AUTOTITLE](/actions/security-guides/encrypted-secrets).
+1. Store your {% data variables.product.prodname_github_app %}'s client ID as a configuration variable. In the following example, replace `APP_CLIENT_ID` with the name of the configuration variable. You can find your client ID on the settings page for your app or through the App API. For more information, see [AUTOTITLE](/rest/apps/apps#get-an-app). For more information about configuration variables, see [AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows).
+1. Generate a private key for your app. Store the contents of the resulting file as a secret. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following example, replace `APP_PRIVATE_KEY` with the name of the secret. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps). For more information about secrets, see [AUTOTITLE](/actions/security-guides/encrypted-secrets).
 1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
 
    ```yaml
@@ -227,10 +227,10 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 
          - name: Generate token
            id: generate-token
-           uses: actions/create-github-app-token@v2
+           uses: actions/create-github-app-token@v3
            with:
-             app-id: {% raw %}${{ vars.APP_ID }}{% endraw %}
-             private-key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
+             client-id: {% raw %}${{ vars.APP_CLIENT_ID }}{% endraw %}
+             private-key: {% raw %}${{ secrets.APP_PRIVATE_KEY }}{% endraw %}
 
          - name: Run script
            run: |
@@ -308,8 +308,8 @@ jobs:
 
 If you are authenticating with a {% data variables.product.prodname_github_app %}, you can create an installation access token within your workflow:
 
-1. Store your {% data variables.product.prodname_github_app %}'s ID as a configuration variable. In the following example, replace `APP_ID` with the name of the configuration variable. You can find your app ID on the settings page for your app or through the App API. For more information, see [AUTOTITLE](/rest/apps/apps#get-an-app). For more information about configuration variables, see [AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows).
-1. Generate a private key for your app. Store the contents of the resulting file as a secret. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following example, replace `APP_PEM` with the name of the secret. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps). For more information about storing secrets, see [AUTOTITLE](/actions/security-guides/encrypted-secrets).
+1. Store your {% data variables.product.prodname_github_app %}'s client ID as a configuration variable. In the following example, replace `APP_CLIENT_ID` with the name of the configuration variable. You can find your client ID on the settings page for your app or through the App API. For more information, see [AUTOTITLE](/rest/apps/apps#get-an-app). For more information about configuration variables, see [AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows).
+1. Generate a private key for your app. Store the contents of the resulting file as a secret. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following example, replace `APP_PRIVATE_KEY` with the name of the secret. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps). For more information about storing secrets, see [AUTOTITLE](/actions/security-guides/encrypted-secrets).
 1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. {% ifversion fpt or ghec %}For example:{% else %}In the following example, replace `HOSTNAME` with the name of {% data variables.location.product_location %}. Replace `REPO-OWNER` with the name of the account that owns the repository. Replace `REPO-NAME` with the name of the repository.{% endif %}
 
    ```yaml copy
@@ -321,10 +321,10 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
        steps:
          - name: Generate token
            id: generate-token
-           uses: actions/create-github-app-token@v2
+           uses: actions/create-github-app-token@v3
            with:
-             app-id: {% raw %}${{ vars.APP_ID }}{% endraw %}
-             private-key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
+             client-id: {% raw %}${{ vars.APP_CLIENT_ID }}{% endraw %}
+             private-key: {% raw %}${{ secrets.APP_PRIVATE_KEY }}{% endraw %}
 
          - name: Use API
            env:

@@ -4,6 +4,140 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>AddPullRequestCreationCapBypassUsersInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>AddPullRequestCreationCapBypassUsersInput</code></p>",
+          "<p>Input field <code>repositoryId</code> of type <code>ID!</code> was added to input object type <code>AddPullRequestCreationCapBypassUsersInput</code></p>",
+          "<p>Input field <code>userIds</code> of type '[ID!]!<code>was added to input object type</code>AddPullRequestCreationCapBypassUsersInput'</p>",
+          "<p>Type <code>AddPullRequestCreationCapBypassUsersPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>AddPullRequestCreationCapBypassUsersPayload</code></p>",
+          "<p>Field <code>repository</code> was added to object type <code>AddPullRequestCreationCapBypassUsersPayload</code></p>",
+          "<p>Type <code>PullRequestCreationCapConfig</code> was added</p>",
+          "<p>Field <code>bypassedUsers</code> was added to object type <code>PullRequestCreationCapConfig</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>PullRequestCreationCapConfig.bypassedUsers</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>PullRequestCreationCapConfig.bypassedUsers</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>PullRequestCreationCapConfig.bypassedUsers</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>PullRequestCreationCapConfig.bypassedUsers</code></p>",
+          "<p>Type <code>RemovePullRequestCreationCapBypassUsersInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>RemovePullRequestCreationCapBypassUsersInput</code></p>",
+          "<p>Input field <code>repositoryId</code> of type <code>ID!</code> was added to input object type <code>RemovePullRequestCreationCapBypassUsersInput</code></p>",
+          "<p>Input field <code>userIds</code> of type '[ID!]!<code>was added to input object type</code>RemovePullRequestCreationCapBypassUsersInput'</p>",
+          "<p>Type <code>RemovePullRequestCreationCapBypassUsersPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>RemovePullRequestCreationCapBypassUsersPayload</code></p>",
+          "<p>Field <code>repository</code> was added to object type <code>RemovePullRequestCreationCapBypassUsersPayload</code></p>",
+          "<p>Field <code>addPullRequestCreationCapBypassUsers</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: AddPullRequestCreationCapBypassUsersInput!</code> added to field <code>Mutation.addPullRequestCreationCapBypassUsers</code></p>",
+          "<p>Field <code>removePullRequestCreationCapBypassUsers</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: RemovePullRequestCreationCapBypassUsersInput!</code> added to field <code>Mutation.removePullRequestCreationCapBypassUsers</code></p>",
+          "<p>Field <code>pullRequestCreationCapConfig</code> was added to object type <code>Repository</code></p>",
+          "<p>Field <code>updatedAt</code> was added to object type <code>StatusContext</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-06-11"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>IssueCreationPolicy</code> was added</p>",
+          "<p>Enum value <code>ALL</code> was added to enum <code>IssueCreationPolicy</code></p>",
+          "<p>Enum value 'COLLABORATORS_ONLY<code>was added to enum</code>IssueCreationPolicy'</p>",
+          "<p>Field <code>issueCreationPolicy</code> was added to object type <code>Repository</code></p>",
+          "<p>Field <code>viewerCanCreateIssues</code> was added to object type <code>Repository</code></p>",
+          "<p>Field <code>issueCreationPolicy</code> was added to interface <code>RepositoryInfo</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-06-10"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Enum value <code>THREADS</code> was added to enum <code>SocialAccountProvider</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-06-09"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type 'ProjectV2ItemArchivedState' was added</p>",
+          "<p>Enum value <code>ARCHIVED</code> was added to enum 'ProjectV2ItemArchivedState'</p>",
+          "<p>Enum value 'NOT_ARCHIVED<code>was added to enum</code>ProjectV2ItemArchivedState'</p>",
+          "<p>Argument 'archivedStates: [ProjectV2ItemArchivedState!]' (with default value) added to field 'ProjectV2.items'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-06-08"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Input field <code>AddLabelsToLabelableInput.labelIds</code> changed type from '[ID!]!<code>to</code>[ID!]'</p>",
+          "<p>Field <code>displayTitle</code> was added to object type <code>WorkflowRun</code></p>",
+          "<p>Field <code>runAttempt</code> was added to object type <code>WorkflowRun</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-06-05"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>IssueFieldMultiSelect</code> was added</p>",
+          "<p><code>IssueFieldMultiSelect</code> object implements <code>IssueFieldCommon</code> interface</p>",
+          "<p><code>IssueFieldMultiSelect</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>createdAt</code> was added to object type <code>IssueFieldMultiSelect</code></p>",
+          "<p>Field <code>dataType</code> was added to object type <code>IssueFieldMultiSelect</code></p>",
+          "<p>Field <code>description</code> was added to object type <code>IssueFieldMultiSelect</code></p>",
+          "<p>Field <code>fullDatabaseId</code> was added to object type <code>IssueFieldMultiSelect</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>IssueFieldMultiSelect</code></p>",
+          "<p>Field <code>name</code> was added to object type <code>IssueFieldMultiSelect</code></p>",
+          "<p>Field <code>options</code> was added to object type <code>IssueFieldMultiSelect</code></p>",
+          "<p>Field <code>visibility</code> was added to object type <code>IssueFieldMultiSelect</code></p>",
+          "<p>Type <code>IssueFieldMultiSelectValue</code> was added</p>",
+          "<p><code>IssueFieldMultiSelectValue</code> object implements <code>IssueFieldValueCommon</code> interface</p>",
+          "<p><code>IssueFieldMultiSelectValue</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>field</code> was added to object type <code>IssueFieldMultiSelectValue</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>IssueFieldMultiSelectValue</code></p>",
+          "<p>Field <code>options</code> was added to object type <code>IssueFieldMultiSelectValue</code></p>",
+          "<p>Field <code>value</code> was added to object type <code>IssueFieldMultiSelectValue</code></p>",
+          "<p>Input field <code>multiSelectOptionIds</code> of type '[ID!]<code>was added to input object type</code>IssueFieldCreateOrUpdateInput'</p>",
+          "<p>Member <code>IssueFieldMultiSelectValue</code> was added to Union type <code>IssueFieldValue</code></p>",
+          "<p>Member <code>IssueFieldMultiSelect</code> was added to Union type <code>IssueFields</code></p>",
+          "<p>Member <code>IssueFieldMultiSelectValue</code> was added to Union type 'ProjectV2IssueFieldValues'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-06-04"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Enum value 'LOW_QUALITY<code>was added to enum</code>ReportedContentClassifiers'</p>"
         ]
       }

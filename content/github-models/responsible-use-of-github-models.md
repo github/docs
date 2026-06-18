@@ -4,7 +4,6 @@ shortTitle: Responsible use
 intro: Learn how to use {% data variables.product.prodname_github_models %} responsibly by understanding its purposes, capabilities, and limitations.
 versions:
   feature: github-models
-contentType: rai
 category:
   - Build with AI models
 ---

@@ -60,7 +60,6 @@ jobs:
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
 
       - uses: ./.github/actions/create-workflow-failure-issue
@@ -134,27 +133,28 @@ jobs:
               return
             }
 
-            const tableRows = redirectGroups.map(g => {
+            const directives = redirectGroups.map(g => {
               const occ = g.occurrences[0]
               const redirectTarget = occ?.redirectTarget ?? 'unknown'
               const file = occ?.file ?? 'unknown'
-              const lines = (occ?.lines ?? []).join(', ')
-              return `| \`${g.target}\` | \`${redirectTarget}\` | \`${file}\` | ${lines} |`
+              const lines = (occ?.lines ?? []).join(', ') || 'unknown'
+              return `- Update \`${g.target}\` to \`${redirectTarget}\` in \`${file}\` (line(s): ${lines})`
             }).join('\n')
 
             const artifactsUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}/artifacts`
 
             const bodyLines = [
-              'Copilot please fix the redirected internal links listed in the table below. All changes should be made within the `github/docs-internal` repository. For each entry, open the source file and replace the **Current Link** with the **Update To** path.',
+              'Copilot, fix the redirected internal links listed below. All changes should be made within the `github/docs-internal` repository.',
+              '',
+              'For each directive below, open the specified file and find the old link path. Replace it with the new link path exactly as shown. Do not invent or guess link paths — only use the exact paths provided in each directive.',
+              '',
               'When all changes are made, open a pull request in `github/docs-internal` with the fixes. The pull request description should reference this issue to create a link between them. When the pull request is open, leave a comment on this issue with a link to it.',
               '',
               `These are the first ${redirectGroups.length} of ${allRedirectGroups.length} redirects found.`,
               '',
-              '## Redirects to fix',
+              '## Redirects to update',
               '',
-              '| Current Link | Update To | File | Line(s) |',
-              '|---|---|---|---|',
-              tableRows,
+              directives,
             ]
 
             const MAX_ISSUE_BODY_LENGTH = 65536
@@ -179,7 +179,7 @@ jobs:
               agent_assignment: {
                 target_repo: 'github/docs-internal',
                 base_branch: 'main',
-                custom_instructions: 'For each entry in the table, open the source file in the github/docs-internal repository and replace the Current Link with the Update To path. When all changes are made, open a pull request in github/docs-internal with the fixes. When the pull request is open, leave a comment on this issue with a link to it.',
+                custom_instructions: 'Follow each directive in the issue exactly. Each directive specifies a file, the old link to find, and the new link to replace it with. Use only the exact paths provided — do not invent or guess any link paths. When all changes are made, open a pull request in github/docs-internal with the fixes. When the pull request is open, leave a comment on this issue with a link to it.',
               },
             })
 
@@ -188,7 +188,6 @@ jobs:
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
 
       - uses: ./.github/actions/create-workflow-failure-issue
@@ -255,7 +254,6 @@ jobs:
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
 
       - uses: ./.github/actions/create-workflow-failure-issue

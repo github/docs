@@ -1,4 +1,4 @@
-import { fetchWithRetry } from '@/frame/lib/fetch-utils'
+import { fetchWithRetry, readBodyWithTimeout } from '@/frame/lib/fetch-utils'
 import type { Response, NextFunction } from 'express'
 
 import patterns from '@/frame/lib/patterns'
@@ -100,7 +100,7 @@ export default async function archivedEnterpriseVersionsAssets(
       },
     )
 
-    const body = await r.arrayBuffer()
+    const body = await readBodyWithTimeout(r, () => r.arrayBuffer(), 8_000)
 
     res.set('accept-ranges', 'bytes')
     const contentType = r.headers.get('content-type')

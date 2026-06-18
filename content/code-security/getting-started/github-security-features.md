@@ -14,8 +14,6 @@ category:
 
 {% data variables.product.github %}'s security features help keep your code and secrets secure in repositories and across organizations.
 
-{% ifversion ghas-products %}
-
 {% ifversion fpt or ghec %}
 
 * Some features are available for all {% data variables.product.github %} plans.
@@ -31,15 +29,9 @@ category:
   * [{% data variables.product.prodname_GH_secret_protection %}](#available-with-github-secret-protection)
   * [{% data variables.product.prodname_GH_code_security %}](#available-with-github-code-security){% endif %}
 
-{%- else %}
-* Some features are available for all {% data variables.product.github %} plans.
-* Additional features are available to enterprises that purchase {% data variables.product.prodname_GHAS %}.
-
-{% endif %}
-
 ## Available for all {% data variables.product.github %} plans
 
-The following security features are available for you to use, regardless of the {% data variables.product.github %} plan you are on. {% ifversion ghas-products %}You don't need to purchase {% data variables.product.prodname_GH_cs_or_sp %} to use these features.{% endif %}
+The following security features are available for you to use, regardless of the {% data variables.product.github %} plan you are on. You don't need to purchase {% data variables.product.prodname_GH_cs_or_sp %} to use these features.
 
 {% ifversion fpt or ghec %}
 
@@ -124,8 +116,6 @@ Push protection for users automatically protects you from accidentally committin
 
 {% endif %}
 
-{% ifversion ghas-products %}
-
 ## Available with {% data variables.product.prodname_GH_secret_protection %}
 
 For accounts on {% ifversion fpt or ghec %}{% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %}{% endif %}{% ifversion ghes %} {% data variables.product.prodname_ghe_server %}{% endif %}, you can access additional security features when you purchase **{% data variables.product.prodname_GH_secret_protection %}**.
@@ -137,14 +127,6 @@ These features are available for all repository types. {% ifversion fpt or ghec 
 <!--Hiding information on setting up a trial for now, as there is no available link for fpt yet. Needs versioning for fpt, ghec and ghes.
 For information about how you can try {% data variables.product.prodname_GH_secret_protection %} for free, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security).
 -->
-
-{% else %}
-
-## Available with {% data variables.product.prodname_GHAS %}
-
-{% data variables.product.prodname_GHAS %} features are available for enterprises with a license for {% data variables.product.prodname_GHAS %}. The features are restricted to repositories owned by an organization.
-
-{% endif %}
 
 ### {% data variables.secret-scanning.user_alerts_caps %}
 
@@ -180,7 +162,6 @@ For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advan
 You can define custom patterns to identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}, such as patterns that are internal to your organization. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning).
 
 <!--Hiding security overview for earlier GHES versions, so it isn't duplicated below-->
-{% ifversion ghas-products %}
 
 ### Security overview
 
@@ -199,7 +180,6 @@ These features are available for all repository types. {% ifversion fpt or ghec 
 For information about how you can try {% data variables.product.prodname_GH_code_security %} for free, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security).
 
 -->
-{% endif %}
 
 ### {% data variables.product.prodname_code_scanning_caps %}
 

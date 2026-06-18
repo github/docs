@@ -1,11 +1,16 @@
 import { fastTextOnly } from '@/content-render/unified/text-only'
 import { createProcessor, createMarkdownOnlyProcessor } from '@/content-render/unified/processor'
+import type { Context } from '@/types'
 
 interface RenderOptions {
   textOnly?: boolean
 }
 
-export async function renderUnified(template: string, context: any, options: RenderOptions = {}) {
+export async function renderUnified(
+  template: string,
+  context: Context,
+  options: RenderOptions = {},
+) {
   const processor = createProcessor(context)
   const vFile = await processor.process(template)
   let html = vFile.toString()
@@ -17,7 +22,7 @@ export async function renderUnified(template: string, context: any, options: Ren
   return html.trim()
 }
 
-export async function renderMarkdown(template: string, context: any) {
+export async function renderMarkdown(template: string, context: Context) {
   const processor = createMarkdownOnlyProcessor(context)
   const vFile = await processor.process(template)
   const markdown = vFile.toString()

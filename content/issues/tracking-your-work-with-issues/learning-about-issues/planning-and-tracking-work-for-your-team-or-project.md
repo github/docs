@@ -185,18 +185,6 @@ We can also view the same project as a board.
 
 ![Screenshot of the board view of a project, with issues organized into columns for "No Status," "Todo," "In Progress," and "Done."](/assets/images/help/issues/quickstart-projects-board-view.png)
 
-{% ifversion projects-v1 %}
-
-You can also use the existing {% data variables.product.prodname_projects_v1 %} on {% data variables.product.prodname_dotcom %} to plan and track your or your team's work. {% data variables.projects.projects_v1_boards_caps %} are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. You can create {% data variables.projects.projects_v1_boards %} for feature work, high-level roadmaps, or even release checklists. For more information, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards).
-
-### {% data variables.projects.projects_v1_board_caps %} example
-
-Below is a {% data variables.projects.projects_v1_board %} for our example Project Octocat with the issue we created, and the smaller issues we broke it down into, added to it.
-
-![Screenshot of a {% data variables.projects.projects_v1_board %} called "Project Octocat Board," with issues organized into columns for "To do," "In progress," and "Done."](/assets/images/help/issues/quickstart-project-board.png)
-
-{% endif %}
-
 ## Next steps
 
 You have now learned about the tools {% data variables.product.prodname_dotcom %} offers for planning and tracking your work, and made a start in setting up your cross-functional team or project repository! Here are some helpful resources for further customizing your repository and organizing your work.
@@ -210,4 +198,3 @@ You have now learned about the tools {% data variables.product.prodname_dotcom %
 * [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels) for learning how to create, edit and delete labels{% ifversion sub-issues %}
 * [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues) for learning about adding sub-issues{% endif %}
 * [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists) for learning more about task lists
-{% ifversion projects-v1 %}- [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards) for learning how to manage {% data variables.projects.projects_v1_boards %}{% endif %}

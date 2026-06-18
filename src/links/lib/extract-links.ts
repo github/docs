@@ -303,7 +303,7 @@ export function createLiquidContext(
 
 // Cached reference to renderLiquid — avoids repeated dynamic-import overhead on every call.
 // A dynamic import is still used (not a top-level import) to prevent circular dependency issues.
-type RenderLiquidModule = (template: string, context: unknown) => Promise<string>
+type RenderLiquidModule = (template: string, context: Context) => Promise<string>
 let _renderLiquid: RenderLiquidModule | null = null
 async function getCachedRenderLiquid(): Promise<RenderLiquidModule> {
   if (!_renderLiquid) {

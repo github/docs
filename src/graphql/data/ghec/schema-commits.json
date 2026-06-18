@@ -2189,6 +2189,13 @@
           "type": "URI",
           "id": "uri",
           "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
         }
       ],
       "category": "commits"

@@ -44,40 +44,14 @@
         "name": "new_property_values",
         "description": "<p>The new custom property values.</p>",
         "isRequired": true,
-        "childParamsGroups": [
-          {
-            "type": "string",
-            "name": "property_name",
-            "description": "<p>The name of the property</p>",
-            "isRequired": true
-          },
-          {
-            "type": "null or string or array",
-            "name": "value",
-            "description": "<p>The value assigned to the property</p>",
-            "isRequired": true
-          }
-        ]
+        "childParamsGroups": []
       },
       {
         "type": "array of objects",
         "name": "old_property_values",
         "description": "<p>The old custom property values.</p>",
         "isRequired": true,
-        "childParamsGroups": [
-          {
-            "type": "string",
-            "name": "property_name",
-            "description": "<p>The name of the property</p>",
-            "isRequired": true
-          },
-          {
-            "type": "null or string or array",
-            "name": "value",
-            "description": "<p>The value assigned to the property</p>",
-            "isRequired": true
-          }
-        ]
+        "childParamsGroups": []
       }
     ],
     "availability": [

@@ -30,8 +30,9 @@ The locations where hooks run, and where you can store hook configuration files,
 
 * **{% data variables.copilot.copilot_cli_short %}** — hooks run on the developer's local machine in the same shell as the CLI. All hook events described in this article are supported by the CLI.
 
-  Hooks are loaded from the following sources in order (user, then project, then plugins) and combined. When the same event appears in multiple sources, all hook entries from all sources are run.
+  Hooks are loaded from the following sources in order (policy, then user, then project, then plugins) and combined. When the same event appears in multiple sources, all hook entries from all sources are run.
 
+  * **Policy-level hook files** — JSON files in the platform-appropriate policy directory, loaded in alphabetical order. Policy hooks are machine-wide and load before all other hooks. They cannot be disabled by `disableAllHooks` and are available regardless of folder trust state. See [Policy hooks](#policy-hooks) below.
   * **Repository-level hook files** — `.github/hooks/*.json` in the repository root.
   * **User-level hook files** — `*.json` files in the user-level hooks directory. By default this is `~/.copilot/hooks/` on macOS and Linux, or `%USERPROFILE%\.copilot\hooks\` on Windows. If `COPILOT_HOME` is set, it is `$COPILOT_HOME/hooks/`.
   * **Inline `hooks` block in repository settings** — the `hooks` field at the top level of `.github/copilot/settings.json` (Git committed) or `.github/copilot/settings.local.json` (typically gitignored and user specific) in the repository. Cross-tool `.claude/settings.json` and `.claude/settings.local.json` files in the repository are also read.
@@ -41,6 +42,24 @@ The locations where hooks run, and where you can store hook configuration files,
 * **{% data variables.copilot.copilot_cloud_agent %}** — hooks run inside the ephemeral Linux sandbox that cloud agent provisions for each job. The sandbox is non-interactive, has a constrained network, and is destroyed when the job ends. A subset of events fires, and only `bash` (or `command`) entries are honored.
 
   Hook configuration is loaded from `.github/hooks/*.json` files in the cloned repository.
+
+### Policy hooks
+
+> [!NOTE]
+> **{% data variables.copilot.copilot_cli_short %} only.** Policy hooks are not supported under {% data variables.copilot.copilot_cloud_agent %}.
+
+Policy hooks are machine-wide hooks loaded by administrators. They load before all other hooks and cannot be disabled by `disableAllHooks`.
+
+Policy hooks are discovered from two sources:
+
+* **Filesystem**: JSON files in the platform-appropriate policy directory, loaded in alphabetical order:
+  * Linux/macOS: `/etc/github-copilot/policy.d/*.json`
+  * Windows: `C:\ProgramData\GitHub\Copilot\policy.d\*.json`
+* **Windows Registry**: Values under `HKLM\Software\Policies\GitHub\Copilot` (each subkey holds a `Policy` REG_SZ value containing a JSON policy document).
+
+Policy hook files use the same hook configuration format as user and project hooks (`{ "version": 1, "hooks": { ... } }`). On POSIX systems, policy files must be owned by root and must not be group- or world-writable.
+
+Policy hooks are intended for use by enterprise IT administrators and require elevated privileges to install. End users cannot modify them.
 
 ## Cloud agent execution environment
 
@@ -74,10 +93,10 @@ Command hooks run shell scripts and are supported on all hook types.
     "preToolUse": [
       {
         "type": "command",
-        "bash": "your-bash-command",
-        "powershell": "your-powershell-command",
-        "cwd": "optional/working/directory",
-        "env": { "VAR": "value" },
+        "bash": "YOUR_BASH_COMMAND",
+        "powershell": "YOUR_POWERSHELL_COMMAND",
+        "cwd": "OPTIONAL/WORKING/DIRECTORY",
+        "env": { "VAR": "VALUE" },
         "timeoutSec": 30
       }
     ]
@@ -95,6 +114,34 @@ Command hooks run shell scripts and are supported on all hook types.
 | `timeout` | number | No | Alias for `timeoutSec`, in seconds. Used only when `timeoutSec` is absent; `timeoutSec` takes precedence when both are present. |
 | `timeoutSec` | number | No | Timeout in seconds. Default: `30`. |
 | `type` | `"command"` | No | Hook type. Defaults to `"command"` when omitted. |
+
+#### Progress messages
+
+Command hooks can emit progress status lines to the CLI timeline while executing. Write a `{"type": "progress", "message": "..."}` JSON object to stdout before writing the final output:
+
+```bash
+echo '{"type": "progress", "message": "Checking policy..."}'
+# ... perform work ...
+echo '{"permissionDecision": "allow"}'
+```
+
+Set `"temporary": true` to emit a transient status line. A transient line replaces the previous transient line and is cleared when the assistant responds, instead of accumulating in the timeline:
+
+```bash
+echo '{"type": "progress", "message": "Routing...", "temporary": true}'
+echo '{"type": "progress", "message": "Thinking...", "temporary": true}'
+# ... perform work ...
+echo '{"permissionDecision": "allow"}'
+```
+
+Progress messages are display-only and do not affect hook output or decision logic.
+
+**How stdout is parsed when progress messages are mixed in.** — The CLI scans stdout line-by-line as the hook runs. Any line that, after trimming, is a single complete JSON object with `"type": "progress"` is consumed as a progress event and **removed from the hook's output stream**. Every other line—blank lines, plain text, and JSON objects that are not progress messages—is preserved verbatim. When the hook exits, the preserved lines are concatenated, trimmed, and parsed with a single `JSON.parse` call: that result is the hook's output (the "hook output JSON" referenced elsewhere in this article). This means:
+
+* Emitting progress lines alongside a final decision object (as in the examples above) is safe and is the intended pattern—the progress lines never reach the JSON parser.
+* Each progress message must be on its own line and must be valid JSON on that single line. Multi-line / pretty-printed progress objects are not recognized as progress and will be left in the output stream, where they will likely cause the final `JSON.parse` to fail.
+* The final decision object, by contrast, may span multiple lines—only progress *recognition* is line-oriented; what remains after progress stripping is parsed as one JSON document, not as line-delimited JSON.
+* If the leftover output is empty, or fails to parse as JSON, the hook is treated as having produced no output and falls through to default behavior. Two or more non-progress JSON objects on stdout (for example, two `echo '{"permissionDecision": ...}'` calls) will therefore concatenate into invalid JSON and be ignored—emit exactly one final decision object.
 
 ### HTTP hooks
 
@@ -147,7 +194,7 @@ Prompt hooks auto-submit text as if the user typed it. They are only supported o
     "sessionStart": [
       {
         "type": "prompt",
-        "prompt": "Your prompt text or /slash-command"
+        "prompt": "YOUR_PROMPT_TEXT_OR_SLASH_COMMAND"
       }
     ]
   }
@@ -167,15 +214,15 @@ The table below lists every supported event. The **Cloud agent** column shows wh
 |-------|-----------|------------------|-------------|
 | `agentStop` | The main agent finishes a turn. | Yes — can block and force continuation. | Fires. `decision: "block"` forces another turn, which still counts against the job's timeout. |
 | `errorOccurred` | An error occurs during execution. | No | Fires. |
-| `notification` | Fires asynchronously when the CLI emits a system notification (shell completion, agent completion or idle, permission prompts, elicitation dialogs). Fire-and-forget: never blocks the session. Supports `matcher` regex on `notification_type`. | Optional — can inject `additionalContext` into the session. | **Does not fire.** Cloud agent does not surface notifications to a user (see the **Interactivity** row in the Cloud agent execution environment table above). |
-| `permissionRequest` | Fires before the permission service runs (rules engine, session approvals, auto-allow/auto-deny, and user prompting). If the merged hook output returns `behavior: "allow"` or `"deny"`, that decision short-circuits the normal permission flow. Supports `matcher` regex on `toolName`. | Yes — can allow or deny programmatically. | Tool calls are pre-approved, so this hook either does not fire or has no effect. Use `preToolUse` to make permission decisions instead. |
+| `notification` | Fires asynchronously when the CLI emits a system notification (shell completion, agent completion or idle, permission prompts, elicitation dialogs). Fire-and-forget: never blocks the session. Supports a `matcher` regex pattern (the value of the `matcher` field) on `notification_type`. | Optional — can inject `additionalContext` into the session. | **Does not fire.** Cloud agent does not surface notifications to a user (see the **Interactivity** row in the Cloud agent execution environment table above). |
+| `permissionRequest` | Fires before the permission service runs (rules engine, session approvals, auto-allow/auto-deny, and user prompting). If the merged hook output returns `behavior: "allow"` or `"deny"`, that decision short-circuits the normal permission flow. Supports a `matcher` regex pattern (the value of the `matcher` field) on `toolName`. | Yes — can allow or deny programmatically. | Tool calls are pre-approved, so this hook either does not fire or has no effect. Use `preToolUse` to make permission decisions instead. |
 | `postToolUse` | After each tool completes successfully. | Yes — can modify the tool result or inject additional context for the model. | Fires. |
 | `postToolUseFailure` | After a tool completes with a failure. | Yes — can provide recovery guidance via `additionalContext` (exit code `2` for command hooks). | Fires. |
-| `preCompact` | Context compaction is about to begin (manual or automatic). Supports `matcher` to filter by trigger (`"manual"` or `"auto"`). | No — notification only. | Fires only with `trigger: "auto"`. There is no user to request manual compaction. |
+| `preCompact` | Context compaction is about to begin (manual or automatic). Supports a `matcher` regex pattern (the value of the `matcher` field) to filter by trigger (`"manual"` or `"auto"`). | No — notification only. | Fires only with `trigger: "auto"`. There is no user to request manual compaction. |
 | `preToolUse` | Before each tool executes. | Yes — can allow, deny, or modify. | Fires. A decision of `"ask"` is treated as `"deny"` because no user is available to answer. |
 | `sessionEnd` | The session terminates. | No | Fires once per job. `reason` is typically `"complete"`, `"error"`, or `"timeout"`; `"abort"` and `"user_exit"` are not expected because there is no user. |
 | `sessionStart` | A new or resumed session begins. | Optional — can inject `additionalContext` into the session. | Fires once per job, as a new session (not a resume). See the Prompt hooks note above for the behavior of `prompt` entries under cloud agent. |
-| `subagentStart` | A subagent is spawned (before it runs). Supports `matcher` to filter by agent name. | Optional — cannot block creation, but `additionalContext` is prepended to the subagent's prompt. | Fires. |
+| `subagentStart` | A subagent is spawned (before it runs). Supports a `matcher` regex pattern (the value of the `matcher` field) to filter by agent name. | Optional — cannot block creation, but `additionalContext` is prepended to the subagent's prompt. | Fires. |
 | `subagentStop` | A subagent completes. | Yes — can block and force continuation. | Fires. |
 | `userPromptSubmitted` | The user submits a prompt. | No | Fires at most once, for the prompt supplied to the job. There is no follow-up user input. |
 
@@ -291,6 +338,30 @@ When configured with the PascalCase event name `PreToolUse`, the payload uses sn
     tool_input: unknown;    // Tool arguments (parsed from JSON string when possible)
 }
 ```
+
+**Claude-format matchers (PascalCase `PreToolUse`):** Hooks configured with the PascalCase event name `PreToolUse`—as used in Claude Code plugins and the Open Plugins format—apply Claude's matcher semantics instead of the native regex rule:
+
+* `*`, `**`, or an empty `matcher` value fires for every tool.
+* A literal name or `|`-separated alternation (for example, `Bash` or `Edit|Write`) fires when any token equals the runtime tool name or its Claude tool name from the table below.
+* Any other value is treated as a case-sensitive regex anchored as `^(?:PATTERN)$` tested against the Claude tool name (or the runtime name for tools with no Claude equivalent).
+
+Payloads for PascalCase `PreToolUse` report `tool_name` as the Claude tool name (for example, `Bash`, not `bash`).
+
+| Runtime tool | Claude tool name |
+|---|---|
+| `bash`, `powershell` | `Bash` |
+| `view` | `Read` |
+| `create` | `Write` |
+| `edit`, `str_replace_editor`, `apply_patch` | `Edit` |
+| `grep`, `rg` | `Grep` |
+| `glob` | `Glob` |
+| `web_fetch` | `WebFetch` |
+| `web_search` | `WebSearch` |
+| `ask_user` | `AskUserQuestion` |
+| `update_todo` | `TodoWrite` |
+| `task` | `Agent` (the literal `Task` is also accepted) |
+
+Tools with no Claude equivalent keep their runtime names.
 
 > [!IMPORTANT]
 > **Command vs HTTP fail behavior for `preToolUse`:** Command `preToolUse` hooks are **fail-closed**—a crash or non-zero exit denies the tool call. HTTP `preToolUse` hooks are **fail-open**—a network error, timeout, or non-2xx response falls through to the default permission flow. Choose the variant that matches your security requirements.
@@ -543,6 +614,16 @@ Return `{}` or empty output to keep the original successful result.
 > [!NOTE]
 > `modifiedResult` is honored by both SDK programmatic hooks and command/HTTP config-file `postToolUse` hooks.
 
+**Matcher:** Optional regex tested against `toolName`. The regex pattern is the value of the `matcher` field, compiled as `^(?:PATTERN)$`, and must match the entire tool name. If the pattern is not a valid regular expression, the hook is skipped. Omit `matcher` to receive results from all tools.
+
+```json
+{
+    "type": "command",
+    "matcher": "bash|edit",
+    "bash": "./scripts/log-tool.sh"
+}
+```
+
 ## `permissionRequest` decision control
 
 > [!NOTE]
@@ -552,7 +633,10 @@ The `permissionRequest` hook fires before the permission service runs—before r
 
 All configured `permissionRequest` hooks run for each request (except `read` and `hook` permission kinds, which short-circuit before hooks). Hook outputs are merged with later hook outputs overriding earlier ones.
 
-**Matcher:** Optional regex tested against `toolName`. Anchored as `^(?:pattern)$`; must match the full tool name. When set, the hook fires only for matching tool names.
+**Matcher:** Optional regex tested against `toolName`. The regex pattern is the value of the `matcher` field, anchored as `^(?:PATTERN)$`, and must match the full tool name. When set, the hook fires only for matching tool names.
+
+> [!NOTE]
+> **Claude-format matchers (PascalCase `PermissionRequest`):** Hooks configured with the PascalCase event name `PermissionRequest` use the same Claude matcher semantics as `PreToolUse`. See [Claude-format matchers (PascalCase PreToolUse)](#claude-format-matchers-pascalcase-pretooluse) for the matcher rules and tool name table.
 
 Output JSON to stdout to control the permission decision:
 
@@ -606,16 +690,17 @@ The `notification` hook fires asynchronously when the CLI emits a system notific
 
 If `additionalContext` is returned, the text is injected into the session as a prepended user message. This can trigger further agent processing if the session is idle. Return `{}` or empty output to take no action.
 
-**Matcher:** Optional regex on `notification_type`. The pattern is anchored as `^(?:pattern)$`. Omit `matcher` to receive all notification types.
+**Matcher:** Optional regex on `notification_type`. The regex pattern is the value of the `matcher` field, anchored as `^(?:PATTERN)$`. Omit `matcher` to receive all notification types.
 
 ## Matcher filtering
 
-Several events accept an optional `matcher` regex on each hook entry that filters which invocations the hook fires for. The pattern is anchored as `^(?:matcher)$` and must match the full value. Invalid regexes cause the hook entry to be skipped.
+Several events accept an optional `matcher` regex on each hook entry that filters which invocations the hook fires for. It is compiled as `^(?:PATTERN)$` and must match the full value. Invalid regexes cause the hook entry to be skipped.
 
 | Event | `matcher` is matched against |
 |-------|------------------------------|
 | `notification` | `notification_type` |
 | `permissionRequest` | `toolName` |
+| `postToolUse` | `toolName` |
 | `preCompact` | `trigger` (`"manual"` or `"auto"`) |
 | `preToolUse` | `toolName` |
 | `subagentStart` | `agentName` |
@@ -672,7 +757,7 @@ Set `disableAllHooks` to `true` at the top level to skip every hook in the file 
 Behavior depends on where you set the flag:
 
 * **Inside a single `.github/hooks/*.json` file** — only the hooks declared in that file are skipped. Honored by both {% data variables.copilot.copilot_cli_short %} and {% data variables.copilot.copilot_cloud_agent %}.
-* **At the top level of repository `settings.json`** — **{% data variables.copilot.copilot_cli_short %} only.** Every hook from every source (repository files, user files, plugins, and inline hook blocks) is skipped for sessions in that repository. Cloud agent does not load `settings.json`.
+* **At the top level of repository `settings.json`** — **{% data variables.copilot.copilot_cli_short %} only.** Every hook from every source (repository files, user files, plugins, and inline hook blocks) is skipped for sessions in that repository. Policy hooks are not affected and continue to run. Cloud agent does not load `settings.json`.
 
 ## Further reading
 

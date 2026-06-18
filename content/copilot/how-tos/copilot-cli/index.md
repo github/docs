@@ -44,7 +44,7 @@ children:
   - /content/copilot/reference/copilot-cli-reference/cli-plugin-reference
   - /content/copilot/reference/copilot-cli-reference/cli-programmatic-reference
   - /content/copilot/reference/hooks-reference
-  - /content/copilot/responsible-use/copilot-cli
+  - /content/copilot/responsible-use/agents
   - /content/copilot/tutorials/copilot-cli-hooks
   - /customize-copilot/add-custom-instructions
   - /customize-copilot/add-mcp-servers

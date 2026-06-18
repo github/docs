@@ -5,6 +5,8 @@ intro: Create custom organization roles with fine-grained permissions tailored t
 versions:
   ghec: '*'
 contentType: how-tos
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 {% data reusables.enterprise-onboarding.create-custom-roles %}

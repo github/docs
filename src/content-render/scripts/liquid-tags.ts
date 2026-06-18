@@ -36,6 +36,10 @@ const DATA_ROOT = path.resolve(path.join(ROOT, 'data'))
 const REUSABLES_ROOT = path.join(DATA_ROOT, 'reusables')
 const VARIABLES_ROOT = path.join(DATA_ROOT, 'variables')
 
+function getErrorMessage(error: unknown): string {
+  return error instanceof Error ? error.message : String(error)
+}
+
 // Regex pattern to match expanded content blocks
 const EXPANDED_PATTERN = /<!-- begin (reusable|variable)s\.([^>]+) -->(.+?)<!-- end \1s\.\2 -->/gs
 
@@ -268,8 +272,8 @@ async function expandReferences(options: ExpandOptions): Promise<void> {
           )
         }
       }
-    } catch (error: any) {
-      console.error(chalk.red(`Error processing ${filePath}: ${error.message}`))
+    } catch (error: unknown) {
+      console.error(chalk.red(`Error processing ${filePath}: ${getErrorMessage(error)}`))
     }
   }
 }
@@ -351,8 +355,8 @@ async function restoreReferences(options: ExpandOptions): Promise<void> {
       } else {
         console.log(chalk.gray(`No expanded references found in: ${filePath}`))
       }
-    } catch (error: any) {
-      console.error(chalk.red(`Error restoring ${filePath}: ${error.message}`))
+    } catch (error: unknown) {
+      console.error(chalk.red(`Error restoring ${filePath}: ${getErrorMessage(error)}`))
     }
   }
 }
@@ -408,9 +412,11 @@ async function expandFileContent(
           console.log(chalk.yellow(`  Warning: Could not expand ${ref.type}s.${ref.path}`))
         }
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       if (verbose) {
-        console.log(chalk.red(`  Error expanding ${ref.type}s.${ref.path}: ${error.message}`))
+        console.log(
+          chalk.red(`  Error expanding ${ref.type}s.${ref.path}: ${getErrorMessage(error)}`),
+        )
       }
     }
   }
@@ -490,14 +496,14 @@ function loadDataValue(type: 'reusable' | 'variable', dataPath: string): string 
       return contentWithoutFrontmatter.trim()
     } else {
       const yamlContent = fs.readFileSync(targetPath, 'utf8')
-      const data = yaml.load(yamlContent) as any
+      const data = yaml.load(yamlContent) as Record<string, unknown>
 
       // Navigate to the nested property
       const pathParts = dataPath.split('.')
-      let current = data
+      let current: unknown = data
       for (let i = 1; i < pathParts.length; i++) {
         if (current && typeof current === 'object' && pathParts[i] in current) {
-          current = current[pathParts[i]]
+          current = (current as Record<string, unknown>)[pathParts[i]]
         } else {
           return null
         }
@@ -693,18 +699,18 @@ function applyDataUpdates(
     } else {
       // For variables, update YAML structure
       const yamlContent = fs.readFileSync(targetPath, 'utf8')
-      const data = yaml.load(yamlContent) as any
+      const data = yaml.load(yamlContent) as Record<string, unknown>
 
       // Navigate to the nested property
       const pathParts = dataPath.split('.')
       const propertyPath = pathParts.slice(1) // Skip the file name
 
-      let current = data
+      let current: Record<string, unknown> = data
       for (let i = 0; i < propertyPath.length - 1; i++) {
         if (!current[propertyPath[i]]) {
           current[propertyPath[i]] = {}
         }
-        current = current[propertyPath[i]]
+        current = current[propertyPath[i]] as Record<string, unknown>
       }
 
       // Update the final property
@@ -729,9 +735,9 @@ function applyDataUpdates(
       }
     }
     return targetPath
-  } catch (error: any) {
+  } catch (error: unknown) {
     if (verbose) {
-      console.log(chalk.red(`  Error updating ${type}s.${dataPath}: ${error.message}`))
+      console.log(chalk.red(`  Error updating ${type}s.${dataPath}: ${getErrorMessage(error)}`))
     }
     return null
   }
@@ -783,9 +789,9 @@ async function resolveLiquidReference(
     } else if (ref.type === 'variable') {
       return await resolveVariable(ref.path, verbose)
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     if (verbose) {
-      console.log(chalk.red(`  Error resolving ${ref.type}: ${error.message}`))
+      console.log(chalk.red(`  Error resolving ${ref.type}: ${getErrorMessage(error)}`))
     }
   }
 
@@ -810,9 +816,11 @@ async function resolveReusable(reusablePath: string, verbose?: boolean): Promise
     // Remove any frontmatter if present
     const contentWithoutFrontmatter = content.replace(/^---[\s\S]*?---\s*/, '')
     return contentWithoutFrontmatter.trim()
-  } catch (error: any) {
+  } catch (error: unknown) {
     if (verbose) {
-      console.log(chalk.yellow(`  Error reading reusable ${reusablePath}: ${error.message}`))
+      console.log(
+        chalk.yellow(`  Error reading reusable ${reusablePath}: ${getErrorMessage(error)}`),
+      )
     }
     return null
   }
@@ -842,14 +850,14 @@ async function resolveVariable(variablePath: string, verbose?: boolean): Promise
 
   try {
     const yamlContent = fs.readFileSync(filePath, 'utf-8')
-    const data = yaml.load(yamlContent) as Record<string, any>
+    const data = yaml.load(yamlContent) as Record<string, unknown>
 
     // Navigate through the key path to find the value
     const [, ...keyPath] = pathParts // Skip filename, get remaining path
-    let value: any = data
+    let value: unknown = data
     for (const key of keyPath) {
       if (value && typeof value === 'object' && key in value) {
-        value = value[key]
+        value = (value as Record<string, unknown>)[key]
       } else {
         if (verbose) {
           console.log(chalk.yellow(`  Variable key not found: ${variablePath}`))
@@ -869,9 +877,11 @@ async function resolveVariable(variablePath: string, verbose?: boolean): Promise
       }
       return null
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     if (verbose) {
-      console.log(chalk.yellow(`  Error parsing variable ${variablePath}: ${error.message}`))
+      console.log(
+        chalk.yellow(`  Error parsing variable ${variablePath}: ${getErrorMessage(error)}`),
+      )
     }
     return null
   }

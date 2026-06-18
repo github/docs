@@ -30,6 +30,19 @@ interface ConversionResult {
   data: Frontmatter
 }
 
+// The conversion mutates the mdast tree as loosely typed node bags (changing
+// node.type, value, url, etc.), so model the handful of fields we touch.
+interface MdNode {
+  type: string
+  value: string
+  depth: number
+  lang?: string
+  meta?: string
+  url: string
+  title?: string
+  children: MdNode[]
+}
+
 const config: Config = JSON.parse(
   await readFile(path.join('src/codeql-cli/lib/config.json'), 'utf-8'),
 )
@@ -51,10 +64,11 @@ export async function convertContentToDocs(
   let depth = 0
   let secondaryOptions = false
   const frontmatter: Frontmatter = { title: '', ...frontmatterDefaults }
-  const akaMsLinkMatches: any[] = []
+  const akaMsLinkMatches: MdNode[] = []
 
   // Visit all heading nodes
-  visit(ast, 'heading', (node: any) => {
+  visit(ast, 'heading', (rawNode) => {
+    const node = rawNode as unknown as MdNode
     // This is the title of the article, so we want to store it to
     // the frontmatter
     if (node.depth === 1) {
@@ -85,7 +99,8 @@ export async function convertContentToDocs(
 
   // Visit heading and paragraph nodes to get intro text
   let currentNodeIsDescription = false
-  visit(ast, (node: any) => {
+  visit(ast, (rawNode) => {
+    const node = rawNode as unknown as MdNode
     if (node.type !== 'heading' && node.type !== 'paragraph') return false
 
     // The first paragraph sibling to the heading "Description" is the
@@ -105,10 +120,13 @@ export async function convertContentToDocs(
   const matchNodeTypes = ['text', 'code', 'link']
   visitParents(
     ast,
-    (node: any) => {
-      return node && matchNodeTypes.includes(node.type)
+    (rawNode) => {
+      const node = rawNode as unknown as MdNode
+      return Boolean(node && matchNodeTypes.includes(node.type))
     },
-    (node: any, ancestors: any[]) => {
+    (rawNode, rawAncestors) => {
+      const node = rawNode as unknown as MdNode
+      const ancestors = rawAncestors as unknown as MdNode[]
       // Add the copy button to the example command
       if (node.type === 'code' && node.value.startsWith(`codeql ${frontmatter.title}`)) {
         node.lang = 'shell'
@@ -166,7 +184,7 @@ export async function convertContentToDocs(
       if (node.type === 'text' && node.value.includes('{.interpreted-text')) {
         const paragraph = ancestors[ancestors.length - 1].children
         const docRoleTagChild = paragraph.findIndex(
-          (child: any) => child.value && child.value.includes('{.interpreted-text'),
+          (child: MdNode) => child.value && child.value.includes('{.interpreted-text'),
         )
         const link = paragraph[docRoleTagChild - 1]
         // If child node is already a link node, skip it
@@ -200,8 +218,8 @@ export async function convertContentToDocs(
           // Make the previous sibling node a link
           link.type = 'link'
           link.url = `${RELATIVE_LINK_PATH}/${linkPath}`
-          link.children = [{ type: 'text', value: linkText }]
-          delete link.value
+          link.children = [{ type: 'text', value: linkText }] as unknown as MdNode[]
+          delete (link as { value?: string }).value
         }
       }
 
@@ -226,18 +244,25 @@ export async function convertContentToDocs(
           nodeAfter.value = nodeAfter.value.slice(1)
         }
         // Change the node to an inline code node
-        node.type = 'inlineCode'
-        node.value = node.url
-        node.title = undefined
-        node.url = undefined
-        node.children = undefined
+        const inlineCode = node as {
+          type: string
+          value: string
+          url?: string
+          title?: string
+          children?: MdNode[]
+        }
+        inlineCode.type = 'inlineCode'
+        inlineCode.value = node.url
+        inlineCode.title = undefined
+        inlineCode.url = undefined
+        inlineCode.children = undefined
       }
     },
   )
 
   // Convert all aka.ms links to the docs.github.com relative path
   await Promise.all(
-    akaMsLinkMatches.map(async (node: any) => {
+    akaMsLinkMatches.map(async (node: MdNode) => {
       const url = await getRedirect(node.url)
       // The aka.ms urls are Markdown links in the ast already,
       // so we only need to update the url and description
@@ -250,11 +275,20 @@ export async function convertContentToDocs(
   )
 
   // remove the program section from the AST
-  remove(ast, (node: any) => node.value && node.value.startsWith(PROGRAM_SECTION))
+  remove(ast, (rawNode) => {
+    const node = rawNode as unknown as MdNode
+    return Boolean(node.value && node.value.startsWith(PROGRAM_SECTION))
+  })
   // remove the first heading from the AST because that becomes frontmatter
-  remove(ast, (node: any) => node.type === 'heading' && node.depth === 1)
+  remove(ast, (rawNode) => {
+    const node = rawNode as unknown as MdNode
+    return node.type === 'heading' && node.depth === 1
+  })
 
-  return { content: toMarkdown(ast, MARKDOWN_OPTIONS as any), data: frontmatter }
+  return {
+    content: toMarkdown(ast, MARKDOWN_OPTIONS as Parameters<typeof toMarkdown>[1]),
+    data: frontmatter,
+  }
 }
 
 // performs a get request for a aka.ms url and returns the redirect url

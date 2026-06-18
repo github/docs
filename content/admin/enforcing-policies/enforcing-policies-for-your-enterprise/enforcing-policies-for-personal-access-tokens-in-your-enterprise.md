@@ -30,8 +30,6 @@ Regardless of the chosen policy, {% data variables.product.pat_generic_caps_plur
 1. Under **{% data variables.product.pat_v2_caps_plural %}** or **Restrict {% data variables.product.pat_v1_plural %} from accessing your organizations**, select your access policy.
 1. Click **Save**.
 
-{% ifversion pats-maximum-lifetime %}
-
 ## Enforcing a maximum lifetime policy for {% data variables.product.pat_generic_plural %}
 
 Enterprise owners can set and remove maximum lifetime allowances for both {% data variables.product.pat_v2_plural %} and {% data variables.product.pat_v1_plural %} to help protect enterprise resources. Organization owners within the enterprise can further restrict the lifetime policies for their organizations. See [Enforcing a maximum lifetime policy for {% data variables.product.pat_generic_plural %}](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization#enforcing-a-maximum-lifetime-policy-for-personal-access-tokens).
@@ -55,7 +53,6 @@ When you set a policy, tokens with non-compliant lifetimes will be blocked from 
 1. Optionally, to exempt your enterprise administrators from this policy, check the **Exempt administrators** checkbox. You should exempt them from this policy if you use SCIM for user provisioning or have automation that has not migrated to {% data variables.product.prodname_github_app %} yet.
    >[!WARNING] If you use {% data variables.product.prodname_emus %}, you will be asked to accept the risk of service interruption unless you exempt your enterprise administrators. This ensures you are aware of the potential risk.
 1. Click **Save**.
-{% endif %}
 
 ## Enforcing an approval policy for {% data variables.product.pat_v2_plural %}
 

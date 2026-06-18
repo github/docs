@@ -89,5 +89,6 @@ runs:
         gh issue create \
           --repo "$ISSUE_REPO" \
           --label "workflow-failure" \
+          --label "workflow-generated" \
           --title "[Workflow Failure] $WORKFLOW_NAME" \
           --body "$body"

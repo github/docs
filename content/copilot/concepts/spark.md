@@ -4,6 +4,7 @@ shortTitle: Spark
 intro: 'Learn about building and deploying intelligent apps with natural language using {% data variables.product.prodname_spark %}.'
 versions:
   feature: spark
+product: '{% data variables.copilot.copilot_pro_plus_short %} and {% data variables.copilot.copilot_enterprise_short %}'
 contentType: concepts
 category: 
   - Learn about Copilot

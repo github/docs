@@ -1,5 +1,25 @@
 # Docs changelog
 
+**16 June 2026**
+
+We made some improvements to our documentation on Copilot policies:
+
+* Rewrote [GitHub Copilot policies for enterprises and organizations](https://docs.github.com/en/copilot/concepts/policies) to be more focused on common questions and points of confusion for enterprise customers, including more information on policy conflicts when users have multiple licenses
+* Published [Supported surfaces for policies](https://docs.github.com/en/copilot/reference/supported-surfaces-for-policies) to document which policies apply to which Copilot surfaces. Because the UI doesn't indicate which policies apply where, this allows customers to close governance gaps and be confident in the policy framework they set up
+
+<hr>
+
+**4 June 2026**
+
+We consolidated all Copilot and code security responsible use articles into structured application cards. Previously, each feature had its own standalone transparency note with inconsistent formatting. Now there are four standardized cards covering Chat, Agents, Inline Suggestions, and Code Security AI features, all following the same template with numbered sections for overview, key terms, capabilities, intended uses, models, limitations, and more.
+
+* [Application card: GitHub Copilot Chat](https://docs.github.com/en/copilot/responsible-use/chat)
+* [Application card: GitHub Copilot Agents](https://docs.github.com/en/copilot/responsible-use/agents)
+* [Application card: GitHub Copilot Inline Suggestions](https://docs.github.com/en/copilot/responsible-use/inline-suggestions)
+* [Application card: Security and code quality AI features](https://docs.github.com/en/code-security/responsible-use/security-and-quality-ai-features)
+
+<hr>
+
 **28 May 2026**
 
 We published a new guide for teams that run the CodeQL CLI in their own CI/CD systems and want faster scans. The article covers two techniques that can reduce scan times: diff-informed analysis (report only alerts in changed lines) and overlay analysis (reuse a cached base database instead of rebuilding from scratch).

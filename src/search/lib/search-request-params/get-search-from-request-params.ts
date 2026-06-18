@@ -33,7 +33,7 @@ export function getSearchFromRequestParams<Type extends SearchTypes>(
 
   for (const { key, default_, cast, validate, multiple } of searchParamsObject) {
     if (key in forceParams) {
-      ;(searchParams[key] as any) = forceParams[key] as any
+      ;(searchParams[key] as unknown) = forceParams[key]
       continue
     }
 
@@ -69,7 +69,7 @@ export function getSearchFromRequestParams<Type extends SearchTypes>(
       })
     }
 
-    ;(searchParams[key] as any) = value
+    ;(searchParams[key] as unknown) = value
   }
 
   let indexName = ''

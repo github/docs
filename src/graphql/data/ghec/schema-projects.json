@@ -1373,6 +1373,15 @@
               }
             },
             {
+              "name": "archivedStates",
+              "description": "<p>Filter items by their archived state. Defaults to only returning items that are not archived.</p>",
+              "type": {
+                "name": "[ProjectV2ItemArchivedState!]",
+                "id": "projectv2itemarchivedstate",
+                "href": "/graphql/reference/projects#enum-projectv2itemarchivedstate"
+              }
+            },
+            {
               "name": "before",
               "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
               "type": {
@@ -5120,6 +5129,24 @@
       "category": "projects"
     },
     {
+      "name": "ProjectV2ItemArchivedState",
+      "id": "projectv2itemarchivedstate",
+      "href": "/graphql/reference/projects#enum-projectv2itemarchivedstate",
+      "description": "<p>The possible archived states of a <code>ProjectV2Item</code>.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "ARCHIVED",
+          "description": "<p>A project item that is archived.</p>"
+        },
+        {
+          "name": "NOT_ARCHIVED",
+          "description": "<p>A project item that is not archived.</p>"
+        }
+      ],
+      "category": "projects"
+    },
+    {
       "name": "ProjectV2ItemFieldValueOrderField",
       "id": "projectv2itemfieldvalueorderfield",
       "href": "/graphql/reference/projects#enum-projectv2itemfieldvalueorderfield",
@@ -5499,6 +5526,11 @@
           "name": "IssueFieldDateValue",
           "id": "issuefielddatevalue",
           "href": "/graphql/reference/issues#object-issuefielddatevalue"
+        },
+        {
+          "name": "IssueFieldMultiSelectValue",
+          "id": "issuefieldmultiselectvalue",
+          "href": "/graphql/reference/issues#object-issuefieldmultiselectvalue"
         },
         {
           "name": "IssueFieldNumberValue",

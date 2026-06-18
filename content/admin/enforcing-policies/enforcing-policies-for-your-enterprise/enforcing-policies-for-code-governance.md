@@ -99,8 +99,6 @@ In the "Branch protections" or "Tag protections" section, select the rules you w
 
 {% data reusables.repositories.rulesets-create-and-insights-step %}
 
-{% ifversion push-rulesets %}
-
 ## Creating a push ruleset
 
 {% data reusables.repositories.push-rules-fork-network-note %}
@@ -147,5 +145,3 @@ Within your chosen organizations, you can target all repositories, or target a d
 ### Finalizing your push ruleset and next steps
 
 {% data reusables.repositories.rulesets-create-and-insights-step %}
-
-{% endif %}

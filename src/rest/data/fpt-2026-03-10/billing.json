@@ -28,7 +28,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 10).</p>",
+          "description": "<p>The number of results per page (max 100).</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -45,17 +45,27 @@
               "enterprise",
               "organization",
               "repository",
-              "cost_center"
+              "cost_center",
+              "multi_user_customer",
+              "user"
             ]
+          }
+        },
+        {
+          "name": "user",
+          "description": "<p>Filter consumed amount details for budgets by the specified user login.</p>",
+          "in": "query",
+          "schema": {
+            "type": "string"
           }
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Gets all budgets for an organization. The authenticated user must be an organization admin or billing manager.\nEach page returns up to 10 budgets.</p>",
+      "descriptionHTML": "<p>Gets all budgets for an organization. The authenticated user must be an organization admin or billing manager.\nEach page returns up to 100 budgets.</p>",
       "codeExamples": [
         {
           "request": {
-            "description": "Example",
+            "description": "Example 1: Status Code 200",
             "acceptHeader": "application/vnd.github.v3+json",
             "parameters": {
               "org": "ORG"
@@ -157,11 +167,23 @@
                       },
                       "budget_scope": {
                         "type": "string",
-                        "description": "The scope of the budget (enterprise, organization, repository, cost center)"
+                        "description": "The scope of the budget",
+                        "enum": [
+                          "enterprise",
+                          "organization",
+                          "repository",
+                          "cost_center",
+                          "multi_user_customer",
+                          "user"
+                        ]
                       },
                       "budget_entity_name": {
                         "type": "string",
                         "description": "The name of the entity for the budget (enterprise does not require a name)."
+                      },
+                      "user": {
+                        "type": "string",
+                        "description": "The user login when the budget is scoped to a single user (`user` scope)."
                       },
                       "budget_product_sku": {
                         "type": "string",
@@ -199,6 +221,226 @@
                     ]
                   },
                   "description": "Array of budget objects for the enterprise"
+                },
+                "user": {
+                  "type": "string",
+                  "description": "User login included when the response is scoped with the `user` query parameter."
+                },
+                "effective_budget": {
+                  "type": "object",
+                  "description": "Effective user-level budget details returned when the response is scoped with the `user` query parameter.",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "The unique identifier of the effective budget."
+                    },
+                    "budget_amount": {
+                      "type": "integer",
+                      "description": "The budget amount for the effective budget."
+                    },
+                    "consumed_amount": {
+                      "type": "number",
+                      "description": "The consumed amount for the specified user within the effective budget."
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "budget_amount",
+                    "consumed_amount"
+                  ]
+                },
+                "has_next_page": {
+                  "type": "boolean",
+                  "description": "Indicates if there are more pages of results available (maps to hasNextPage from billing platform)"
+                },
+                "total_count": {
+                  "type": "integer",
+                  "description": "Total number of budgets matching the query"
+                }
+              },
+              "required": [
+                "budgets"
+              ]
+            }
+          }
+        },
+        {
+          "request": {
+            "description": "Example 2: Status Code 200",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response when getting all budgets</p>",
+            "example": {
+              "budgets": [
+                {
+                  "id": "2066deda-923f-43f9-88d2-62395a28c0cdd",
+                  "budget_type": "ProductPricing",
+                  "budget_product_skus": [
+                    "actions"
+                  ],
+                  "budget_scope": "multi_user_customer",
+                  "budget_amount": 1000,
+                  "prevent_further_usage": true,
+                  "budget_alerting": {
+                    "will_alert": true,
+                    "alert_recipients": [
+                      "enterprise-admin",
+                      "billing-manager"
+                    ]
+                  }
+                },
+                {
+                  "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+                  "budget_type": "BundlePricing",
+                  "budget_product_skus": [
+                    "ai_credits"
+                  ],
+                  "budget_scope": "user",
+                  "budget_amount": 500,
+                  "prevent_further_usage": true,
+                  "budget_alerting": {
+                    "will_alert": true,
+                    "alert_recipients": [
+                      "org-owner"
+                    ]
+                  }
+                }
+              ],
+              "user": "octocat",
+              "effective_budget": {
+                "id": "9a7d04e8-6600-44f5-94ef-65ca92b95f0b",
+                "budget_amount": 1000,
+                "consumed_amount": 42
+              },
+              "has_next_page": false,
+              "total_count": 2
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "budgets": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "The unique identifier for the budget"
+                      },
+                      "budget_type": {
+                        "description": "The type of pricing for the budget",
+                        "oneOf": [
+                          {
+                            "type": "string",
+                            "enum": [
+                              "SkuPricing"
+                            ]
+                          },
+                          {
+                            "type": "string",
+                            "enum": [
+                              "ProductPricing"
+                            ]
+                          }
+                        ]
+                      },
+                      "budget_amount": {
+                        "type": "integer",
+                        "description": "The budget amount limit in whole dollars. For license-based products, this represents the number of licenses."
+                      },
+                      "prevent_further_usage": {
+                        "type": "boolean",
+                        "description": "The type of limit enforcement for the budget"
+                      },
+                      "budget_scope": {
+                        "type": "string",
+                        "description": "The scope of the budget",
+                        "enum": [
+                          "enterprise",
+                          "organization",
+                          "repository",
+                          "cost_center",
+                          "multi_user_customer",
+                          "user"
+                        ]
+                      },
+                      "budget_entity_name": {
+                        "type": "string",
+                        "description": "The name of the entity for the budget (enterprise does not require a name)."
+                      },
+                      "user": {
+                        "type": "string",
+                        "description": "The user login when the budget is scoped to a single user (`user` scope)."
+                      },
+                      "budget_product_sku": {
+                        "type": "string",
+                        "description": "A single product or sku to apply the budget to."
+                      },
+                      "budget_alerting": {
+                        "type": "object",
+                        "properties": {
+                          "will_alert": {
+                            "type": "boolean",
+                            "description": "Whether alerts are enabled for this budget"
+                          },
+                          "alert_recipients": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "Array of user login names who will receive alerts"
+                          }
+                        },
+                        "required": [
+                          "will_alert",
+                          "alert_recipients"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "budget_type",
+                      "budget_product_sku",
+                      "budget_scope",
+                      "budget_amount",
+                      "prevent_further_usage",
+                      "budget_alerting"
+                    ]
+                  },
+                  "description": "Array of budget objects for the enterprise"
+                },
+                "user": {
+                  "type": "string",
+                  "description": "User login included when the response is scoped with the `user` query parameter."
+                },
+                "effective_budget": {
+                  "type": "object",
+                  "description": "Effective user-level budget details returned when the response is scoped with the `user` query parameter.",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "The unique identifier of the effective budget."
+                    },
+                    "budget_amount": {
+                      "type": "integer",
+                      "description": "The budget amount for the effective budget."
+                    },
+                    "consumed_amount": {
+                      "type": "number",
+                      "description": "The consumed amount for the specified user within the effective budget."
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "budget_amount",
+                    "consumed_amount"
+                  ]
                 },
                 "has_next_page": {
                   "type": "boolean",
@@ -248,6 +490,257 @@
     },
     {
       "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/organizations/{org}/settings/billing/budgets",
+      "title": "Create a budget for an organization",
+      "category": "billing",
+      "subcategory": "budgets",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "integer",
+          "name": "budget_amount",
+          "description": "<p>The budget amount in whole dollars. For license-based products, this represents the number of licenses.</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "prevent_further_usage",
+          "description": "<p>Whether to prevent additional spending once the budget is exceeded. For <code>user</code> and <code>multi_user_customer</code> scopes, this must be <code>true</code>.</p>"
+        },
+        {
+          "type": "object",
+          "name": "budget_alerting",
+          "description": "",
+          "childParamsGroups": [
+            {
+              "type": "boolean",
+              "name": "will_alert",
+              "description": "<p>Whether alerts are enabled for this budget</p>"
+            },
+            {
+              "type": "array of strings",
+              "name": "alert_recipients",
+              "description": "<p>Array of user login names who will receive alerts</p>"
+            }
+          ]
+        },
+        {
+          "type": "string",
+          "name": "budget_scope",
+          "description": "<p>The scope of the budget for this organization. Use 'organization' for org-level budgets or 'repository' for repo-specific budgets within the organization. <code>user</code> and <code>multi_user_customer</code> scopes are only supported when <code>budget_product_sku</code> is <code>ai_credits</code> or <code>premium_requests</code>.</p>",
+          "enum": [
+            "organization",
+            "repository",
+            "multi_user_customer",
+            "user"
+          ]
+        },
+        {
+          "type": "string",
+          "name": "budget_entity_name",
+          "description": "<p>The name of the entity to apply the budget to</p>",
+          "default": ""
+        },
+        {
+          "type": "string",
+          "name": "budget_type",
+          "description": "<p>The type of pricing model used by the budget. Determines how <code>budget_product_sku</code> is interpreted.</p>\n<ul>\n<li><code>BundlePricing</code>: Covers all AI credit SKUs. Set <code>budget_product_sku</code> to <code>ai_credits</code>.</li>\n<li><code>ProductPricing</code>: Covers all SKUs that belong to a product. Set <code>budget_product_sku</code> to a product such as <code>actions</code> or <code>packages</code>.</li>\n<li><code>SkuPricing</code>: Covers a single, specific SKU. Set <code>budget_product_sku</code> to a SKU such as <code>actions_linux</code>.</li>\n</ul>"
+        },
+        {
+          "type": "string",
+          "name": "budget_product_sku",
+          "description": "<p>A single product or SKU that will be covered in the budget</p>"
+        },
+        {
+          "type": "string",
+          "name": "user",
+          "description": "<p>The username of the user for <code>user</code> scope budgets. This field is required when <code>budget_scope</code> is <code>user</code>.</p>"
+        }
+      ],
+      "descriptionHTML": "<p>Creates a new budget for an organization. The authenticated user must be an\norganization admin or billing manager.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Create organization budget example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "budget_amount": 500,
+              "prevent_further_usage": true,
+              "budget_scope": "organization",
+              "budget_entity_name": "",
+              "budget_type": "ProductPricing",
+              "budget_product_sku": "actions",
+              "budget_alerting": {
+                "will_alert": false,
+                "alert_recipients": []
+              }
+            },
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Budget created successfully</p>",
+            "example": {
+              "message": "Budget successfully created.",
+              "budget": {
+                "id": "f5236c62-157f-4d8f-a79e-ffb91058ee97",
+                "budget_type": "ProductPricing",
+                "budget_product_sku": "actions",
+                "budget_scope": "organization",
+                "budget_entity_name": "example-organization",
+                "budget_amount": 100,
+                "prevent_further_usage": true,
+                "budget_alerting": {
+                  "will_alert": false,
+                  "alert_recipients": []
+                }
+              }
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "A message indicating the result of the create operation"
+                },
+                "budget": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "ID of the budget."
+                    },
+                    "budget_scope": {
+                      "type": "string",
+                      "description": "The type of scope for the budget",
+                      "enum": [
+                        "enterprise",
+                        "organization",
+                        "repository",
+                        "cost_center",
+                        "multi_user_customer",
+                        "user"
+                      ]
+                    },
+                    "budget_entity_name": {
+                      "type": "string",
+                      "description": "The name of the entity to apply the budget to"
+                    },
+                    "budget_amount": {
+                      "type": "integer",
+                      "description": "The budget amount in whole dollars. For license-based products, this represents the number of licenses.",
+                      "minimum": 0
+                    },
+                    "prevent_further_usage": {
+                      "type": "boolean",
+                      "description": "Whether to prevent additional spending once the budget is exceeded"
+                    },
+                    "budget_product_sku": {
+                      "type": "string",
+                      "description": "A single product or sku to apply the budget to."
+                    },
+                    "budget_type": {
+                      "description": "The type of pricing for the budget",
+                      "oneOf": [
+                        {
+                          "type": "string",
+                          "enum": [
+                            "ProductPricing"
+                          ]
+                        },
+                        {
+                          "type": "string",
+                          "enum": [
+                            "SkuPricing"
+                          ]
+                        }
+                      ]
+                    },
+                    "budget_alerting": {
+                      "type": "object",
+                      "properties": {
+                        "will_alert": {
+                          "type": "boolean",
+                          "description": "Whether alerts are enabled for this budget"
+                        },
+                        "alert_recipients": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "Array of user login names who will receive alerts"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "message",
+                "budget"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Budget created successfully</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Insufficient permissions</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Feature not enabled or organization not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal server error</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" organization permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
       "verb": "get",
       "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}",
       "title": "Get a budget by ID for an organization",
@@ -274,7 +767,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Gets a budget by ID. The authenticated user must be an organization admin or billing manager.</p>",
+      "descriptionHTML": "<p>Gets a budget by ID. The authenticated user must be an organization admin or billing manager.</p>",
       "codeExamples": [
         {
           "request": {
@@ -319,12 +812,18 @@
                     "enterprise",
                     "organization",
                     "repository",
-                    "cost_center"
+                    "cost_center",
+                    "multi_user_customer",
+                    "user"
                   ]
                 },
                 "budget_entity_name": {
                   "type": "string",
                   "description": "The name of the entity to apply the budget to"
+                },
+                "user": {
+                  "type": "string",
+                  "description": "The user login when the budget is scoped to a single user (`user` scope)."
                 },
                 "budget_amount": {
                   "type": "integer",
@@ -460,7 +959,7 @@
         {
           "type": "boolean",
           "name": "prevent_further_usage",
-          "description": "<p>Whether to prevent additional spending once the budget is exceeded</p>"
+          "description": "<p>Whether to prevent additional spending once the budget is exceeded. For budgets with <code>user</code> or <code>multi_user_customer</code> scope, this must remain <code>true</code>.</p>"
         },
         {
           "type": "object",
@@ -487,7 +986,9 @@
             "enterprise",
             "organization",
             "repository",
-            "cost_center"
+            "cost_center",
+            "multi_user_customer",
+            "user"
           ]
         },
         {
@@ -498,15 +999,20 @@
         {
           "type": "string",
           "name": "budget_type",
-          "description": "<p>The type of pricing for the budget</p>"
+          "description": "<p>The type of pricing model used by the budget. Determines how <code>budget_product_sku</code> is interpreted.</p>\n<ul>\n<li><code>BundlePricing</code>: Covers all AI credit SKUs. Set <code>budget_product_sku</code> to <code>ai_credits</code>.</li>\n<li><code>ProductPricing</code>: Covers all SKUs that belong to a product. Set <code>budget_product_sku</code> to a product such as <code>actions</code> or <code>packages</code>.</li>\n<li><code>SkuPricing</code>: Covers a single, specific SKU. Set <code>budget_product_sku</code> to a SKU such as <code>actions_linux</code>.</li>\n</ul>"
         },
         {
           "type": "string",
           "name": "budget_product_sku",
           "description": "<p>A single product or SKU that will be covered in the budget</p>"
+        },
+        {
+          "type": "string",
+          "name": "user",
+          "description": "<p>The username of the user for <code>user</code> scope budgets.</p>"
         }
       ],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Updates an existing budget for an organization. The authenticated user must be an organization admin or billing manager.</p>",
+      "descriptionHTML": "<p>Updates an existing budget for an organization. The authenticated user must be an organization admin or billing manager.</p>",
       "codeExamples": [
         {
           "request": {
@@ -538,7 +1044,7 @@
                 "budget_product_sku": "actions_linux",
                 "budget_scope": "repository",
                 "budget_entity_name": "org-name/example-repo-name",
-                "budget_amount": 0,
+                "budget_amount": 10,
                 "prevent_further_usage": true,
                 "budget_alerting": {
                   "will_alert": true,
@@ -553,7 +1059,8 @@
               "type": "object",
               "properties": {
                 "message": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "A message indicating the result of the update operation"
                 },
                 "budget": {
                   "type": "object",
@@ -562,38 +1069,9 @@
                       "type": "string",
                       "description": "ID of the budget."
                     },
-                    "budget_amount": {
-                      "type": "number",
-                      "format": "float",
-                      "description": "The budget amount in whole dollars. For license-based products, this represents the number of licenses."
-                    },
-                    "prevent_further_usage": {
-                      "type": "boolean",
-                      "description": "Whether to prevent additional spending once the budget is exceeded"
-                    },
-                    "budget_alerting": {
-                      "type": "object",
-                      "required": [
-                        "will_alert",
-                        "alert_recipients"
-                      ],
-                      "properties": {
-                        "will_alert": {
-                          "type": "boolean",
-                          "description": "Whether alerts are enabled for this budget"
-                        },
-                        "alert_recipients": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          },
-                          "description": "Array of user login names who will receive alerts"
-                        }
-                      }
-                    },
                     "budget_scope": {
                       "type": "string",
-                      "description": "The scope of the budget",
+                      "description": "The type of scope for the budget",
                       "enum": [
                         "enterprise",
                         "organization",
@@ -603,8 +1081,20 @@
                     },
                     "budget_entity_name": {
                       "type": "string",
-                      "description": "The name of the entity to apply the budget to",
-                      "default": ""
+                      "description": "The name of the entity to apply the budget to"
+                    },
+                    "budget_amount": {
+                      "type": "integer",
+                      "description": "The budget amount in whole dollars. For license-based products, this represents the number of licenses.",
+                      "minimum": 0
+                    },
+                    "prevent_further_usage": {
+                      "type": "boolean",
+                      "description": "Whether to prevent additional spending once the budget is exceeded"
+                    },
+                    "budget_product_sku": {
+                      "type": "string",
+                      "description": "A single product or sku to apply the budget to."
                     },
                     "budget_type": {
                       "description": "The type of pricing for the budget",
@@ -623,13 +1113,29 @@
                         }
                       ]
                     },
-                    "budget_product_sku": {
-                      "type": "string",
-                      "description": "A single product or SKU that will be covered in the budget"
+                    "budget_alerting": {
+                      "type": "object",
+                      "properties": {
+                        "will_alert": {
+                          "type": "boolean",
+                          "description": "Whether alerts are enabled for this budget"
+                        },
+                        "alert_recipients": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "Array of user login names who will receive alerts"
+                        }
+                      }
                     }
                   }
                 }
-              }
+              },
+              "required": [
+                "budget",
+                "message"
+              ]
             }
           }
         }
@@ -704,7 +1210,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Deletes a budget by ID for an organization. The authenticated user must be an organization admin or billing manager.</p>",
+      "descriptionHTML": "<p>Deletes a budget by ID for an organization. The authenticated user must be an organization admin or billing manager.</p>",
       "codeExamples": [
         {
           "request": {
@@ -783,6 +1289,266 @@
     }
   ],
   "usage": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/settings/billing/ai_credit/usage",
+      "title": "Get billing AI credit usage report for an organization",
+      "category": "billing",
+      "subcategory": "usage",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "year",
+          "description": "<p>If specified, only return results for a single year. The value of <code>year</code> is an integer with four digits representing a year. For example, <code>2025</code>. Default value is the current year.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "month",
+          "description": "<p>If specified, only return results for a single month. The value of <code>month</code> is an integer between <code>1</code> and <code>12</code>. Default value is the current month. If no year is specified the default <code>year</code> is used.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "day",
+          "description": "<p>If specified, only return results for a single day. The value of <code>day</code> is an integer between <code>1</code> and <code>31</code>. If no <code>year</code> or <code>month</code> is specified, the default <code>year</code> and <code>month</code> are used.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "user",
+          "description": "<p>The user name to query usage for. The name is not case sensitive.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "model",
+          "description": "<p>The model name to query usage for. The name is not case sensitive.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "product",
+          "description": "<p>The product name to query usage for. The name is not case sensitive.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets a report of AI credit usage for an organization. To use this endpoint, you must be an administrator of an organization within an enterprise or an organization account.</p>\n<p><strong>Note:</strong> Only data from the past 24 months is accessible via this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response when getting a billing AI credit usage report</p>",
+            "example": {
+              "timePeriod": {
+                "year": 2025
+              },
+              "organization": "GitHub",
+              "usageItems": [
+                {
+                  "product": "Copilot",
+                  "sku": "Copilot AI Credits",
+                  "model": "GPT-5",
+                  "unitType": "credits",
+                  "pricePerUnit": 0.01,
+                  "grossQuantity": 100,
+                  "grossAmount": 1,
+                  "discountQuantity": 0,
+                  "discountAmount": 0,
+                  "netQuantity": 100,
+                  "netAmount": 1
+                }
+              ]
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "timePeriod": {
+                  "type": "object",
+                  "properties": {
+                    "year": {
+                      "type": "integer",
+                      "description": "The year for the usage report."
+                    },
+                    "month": {
+                      "type": "integer",
+                      "description": "The month for the usage report."
+                    },
+                    "day": {
+                      "type": "integer",
+                      "description": "The day for the usage report."
+                    }
+                  },
+                  "required": [
+                    "year"
+                  ]
+                },
+                "organization": {
+                  "type": "string",
+                  "description": "The unique identifier of the organization."
+                },
+                "user": {
+                  "type": "string",
+                  "description": "The name of the user for the usage report."
+                },
+                "product": {
+                  "type": "string",
+                  "description": "The product for the usage report."
+                },
+                "model": {
+                  "type": "string",
+                  "description": "The model for the usage report."
+                },
+                "usageItems": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "product": {
+                        "type": "string",
+                        "description": "Product name."
+                      },
+                      "sku": {
+                        "type": "string",
+                        "description": "SKU name."
+                      },
+                      "model": {
+                        "type": "string",
+                        "description": "Model name."
+                      },
+                      "unitType": {
+                        "type": "string",
+                        "description": "Unit type of the usage line item."
+                      },
+                      "pricePerUnit": {
+                        "type": "number",
+                        "description": "Price per unit of the usage line item."
+                      },
+                      "grossQuantity": {
+                        "type": "number",
+                        "description": "Gross quantity of the usage line item."
+                      },
+                      "grossAmount": {
+                        "type": "number",
+                        "description": "Gross amount of the usage line item."
+                      },
+                      "discountQuantity": {
+                        "type": "number",
+                        "description": "Discount quantity of the usage line item."
+                      },
+                      "discountAmount": {
+                        "type": "number",
+                        "description": "Discount amount of the usage line item."
+                      },
+                      "netQuantity": {
+                        "type": "number",
+                        "description": "Net quantity of the usage line item."
+                      },
+                      "netAmount": {
+                        "type": "number",
+                        "description": "Net amount of the usage line item."
+                      }
+                    },
+                    "required": [
+                      "product",
+                      "sku",
+                      "model",
+                      "unitType",
+                      "pricePerUnit",
+                      "grossQuantity",
+                      "grossAmount",
+                      "discountQuantity",
+                      "discountAmount",
+                      "netQuantity",
+                      "netAmount"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "timePeriod",
+                "organization",
+                "usageItems"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Response when getting a billing AI credit usage report</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" organization permissions": "read"
+          }
+        ]
+      }
+    },
     {
       "serverUrl": "https://api.github.com",
       "verb": "get",
@@ -1472,6 +2238,253 @@
         "permissions": [
           {
             "\"Administration\" organization permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/users/{username}/settings/billing/ai_credit/usage",
+      "title": "Get billing AI credit usage report for a user",
+      "category": "billing",
+      "subcategory": "usage",
+      "parameters": [
+        {
+          "name": "username",
+          "description": "<p>The handle for the GitHub user account.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "year",
+          "description": "<p>If specified, only return results for a single year. The value of <code>year</code> is an integer with four digits representing a year. For example, <code>2025</code>. Default value is the current year.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "month",
+          "description": "<p>If specified, only return results for a single month. The value of <code>month</code> is an integer between <code>1</code> and <code>12</code>. Default value is the current month. If no year is specified the default <code>year</code> is used.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "day",
+          "description": "<p>If specified, only return results for a single day. The value of <code>day</code> is an integer between <code>1</code> and <code>31</code>. If no <code>year</code> or <code>month</code> is specified, the default <code>year</code> and <code>month</code> are used.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "model",
+          "description": "<p>The model name to query usage for. The name is not case sensitive.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "product",
+          "description": "<p>The product name to query usage for. The name is not case sensitive.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets a report of AI credit usage for a user.</p>\n<p><strong>Note:</strong> Only data from the past 24 months is accessible via this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "username": "USERNAME"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response when getting a billing AI credit usage report</p>",
+            "example": {
+              "timePeriod": {
+                "year": 2025
+              },
+              "user": "monalisa",
+              "usageItems": [
+                {
+                  "product": "Copilot AI Credits",
+                  "sku": "AI Credit",
+                  "model": "GPT-5",
+                  "unitType": "ai-credits",
+                  "pricePerUnit": 0.01,
+                  "grossQuantity": 100,
+                  "grossAmount": 1,
+                  "discountQuantity": 0,
+                  "discountAmount": 0,
+                  "netQuantity": 100,
+                  "netAmount": 1
+                }
+              ]
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "timePeriod": {
+                  "type": "object",
+                  "properties": {
+                    "year": {
+                      "type": "integer",
+                      "description": "The year for the usage report."
+                    },
+                    "month": {
+                      "type": "integer",
+                      "description": "The month for the usage report."
+                    },
+                    "day": {
+                      "type": "integer",
+                      "description": "The day for the usage report."
+                    }
+                  },
+                  "required": [
+                    "year"
+                  ]
+                },
+                "user": {
+                  "type": "string",
+                  "description": "The unique identifier of the user."
+                },
+                "product": {
+                  "type": "string",
+                  "description": "The product for the usage report."
+                },
+                "model": {
+                  "type": "string",
+                  "description": "The model for the usage report."
+                },
+                "usageItems": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "product": {
+                        "type": "string",
+                        "description": "Product name."
+                      },
+                      "sku": {
+                        "type": "string",
+                        "description": "SKU name."
+                      },
+                      "model": {
+                        "type": "string",
+                        "description": "Model name."
+                      },
+                      "unitType": {
+                        "type": "string",
+                        "description": "Unit type of the usage line item."
+                      },
+                      "pricePerUnit": {
+                        "type": "number",
+                        "description": "Price per unit of the usage line item."
+                      },
+                      "grossQuantity": {
+                        "type": "number",
+                        "description": "Gross quantity of the usage line item."
+                      },
+                      "grossAmount": {
+                        "type": "number",
+                        "description": "Gross amount of the usage line item."
+                      },
+                      "discountQuantity": {
+                        "type": "number",
+                        "description": "Discount quantity of the usage line item."
+                      },
+                      "discountAmount": {
+                        "type": "number",
+                        "description": "Discount amount of the usage line item."
+                      },
+                      "netQuantity": {
+                        "type": "number",
+                        "description": "Net quantity of the usage line item."
+                      },
+                      "netAmount": {
+                        "type": "number",
+                        "description": "Net amount of the usage line item."
+                      }
+                    },
+                    "required": [
+                      "product",
+                      "sku",
+                      "model",
+                      "unitType",
+                      "pricePerUnit",
+                      "grossQuantity",
+                      "grossAmount",
+                      "discountQuantity",
+                      "discountAmount",
+                      "netQuantity",
+                      "netAmount"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "timePeriod",
+                "user",
+                "usageItems"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Response when getting a billing AI credit usage report</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": false,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Plan\" user permissions": "read"
           }
         ]
       }

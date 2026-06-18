@@ -198,9 +198,6 @@ You can use the `project` qualifier to find issues that are associated with a sp
 | Qualifier        | Example
 | ------------- | -------------
 | <code>project:<em>PROJECT_NUMBER</em></code> | **project:github/57** matches issues owned by GitHub that are associated with the organization's project 57.
-| {% ifversion projects-v1 %} |
-| <code>project:<em>REPOSITORY/PROJECT_NUMBER</em></code> | **project:github-linguist/linguist/1** matches issues that are associated with project 1 in @github's linguist repository.
-| {% endif %} |
 
 ## Search by commit status
 

@@ -86,17 +86,3 @@ Encourage individual developers to enable push protection for their personal acc
 ### 2. Detect existing secrets
 
 Use **{% data variables.product.prodname_secret_scanning %}** to continuously monitor your repositories for hardcoded secrets and generate alerts when credentials are detected, enabling you to revoke and rotate compromised credentials quickly. Beyond default detection of provider patterns, you can expand scanning to non-provider patterns and define custom patterns for organization-specific secrets. This helps you gain visibility into secret sprawl across your organization.
-
-## Next steps
-
-To protect your organization from secret leakage:
-{% ifversion secret-risk-assessment %}
-1. Run a free secret risk assessment to understand your current exposure. {% data variables.secret-scanning.secret-risk-assessment-cta-product %}
-{% endif %}
-1. Enable push protection to prevent new secrets from being committed.
-1. Enable {% data variables.product.prodname_secret_scanning %} to begin detecting existing secret leaks.
-1. Establish secure credential management practices for your development teams.
-
-{% ifversion secret-risk-assessment %}
-For an overview of {% data variables.product.github %}'s secret security features, see [AUTOTITLE](/code-security/concepts/secret-security/about-secret-security-with-github).
-{% endif %}

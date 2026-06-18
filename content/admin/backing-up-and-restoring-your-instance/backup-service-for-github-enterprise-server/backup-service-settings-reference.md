@@ -3,7 +3,7 @@ title: Backup service settings reference
 shortTitle: Backup settings
 intro: Reference for all configurable options available in the Backup Service section of the {% data variables.enterprise.management_console %}.
 versions:
-  ghes: '>= 3.17'
+  ghes: '*'
 contentType: reference
 category:
   - Back up and upgrade your instance
@@ -14,6 +14,9 @@ You can configure the following options in the "Backup Service" section of the {
 ## Snapshot retention
 
 * **Number of snapshots**: Sets how many backup snapshots to retain (default: `10`). Older snapshots are automatically pruned after each successful backup.
+
+> [!NOTE]
+> You can run the `ghe-backup-prune-snapshots` utility to prune old and invalid snapshots manually.
 
 ## Restore options
 

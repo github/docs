@@ -13,10 +13,7 @@ category:
   - Learn about Copilot
 ---
 
-> [!IMPORTANT]
-> * {% data reusables.copilot.plans.individual-plans-paused %}
-> * {% data reusables.copilot.plans.organization-plans-paused %}
-> * {% data reusables.copilot.plans.copilot-max-upgrade-only %}
+> [!IMPORTANT] {% data reusables.copilot.plans.organization-plans-paused %}
 
 {% data variables.product.company_short %} offers several plans for {% data variables.product.prodname_copilot %}, depending on your needs and whether you're using {% data variables.product.prodname_copilot_short %} as an individual or as part of an organization or enterprise.
 
@@ -48,10 +45,7 @@ For more information, see [AUTOTITLE](/copilot/about-github-copilot/github-copil
 
 Start using {% data variables.product.prodname_copilot_short %} by signing up for the plan that best fits your needs.
 
-> [!IMPORTANT]
-> * {% data reusables.copilot.plans.individual-plans-paused %}
-> * {% data reusables.copilot.plans.organization-plans-paused %}
-> * {% data reusables.copilot.plans.copilot-max-upgrade-only %}
+> [!IMPORTANT] {% data reusables.copilot.plans.organization-plans-paused %}
 
 * **{% data variables.copilot.copilot_free_short %}** — Try {% data variables.product.prodname_copilot_short %} with limited features and usage. [Start using {% data variables.copilot.copilot_free_short %}](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text&ref_plan=free).
 
@@ -59,7 +53,7 @@ Start using {% data variables.product.prodname_copilot_short %} by signing up fo
 
 * **{% data variables.copilot.copilot_pro_short %}** — Get unlimited completions and access to select models. [Subscribe to {% data variables.copilot.copilot_pro_short %}](https://github.com/github-copilot/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro).
 
-* **{% data variables.copilot.copilot_pro_plus_short %}** — Unlock premium AI models and extra capabilities. [Subscribe to {% data variables.copilot.copilot_pro_plus_short %}](https://github.com/github-copilot/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro).
+* **{% data variables.copilot.copilot_pro_plus_short %}** — Unlock premium AI models and extra capabilities. [Subscribe to {% data variables.copilot.copilot_pro_plus_short %}](https://github.com/github-copilot/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro-plus).
 
 * **{% data variables.copilot.copilot_max_short %}** — Unlock priority access to new AI models and our highest individual monthly allowance of {% data variables.product.prodname_ai_credits_short %}. [Upgrade to {% data variables.copilot.copilot_max_short %}](https://github.com/settings/billing/licensing?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=max).
 

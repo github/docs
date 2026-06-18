@@ -95,7 +95,7 @@ Ensure that you set the value for `Audience` on your IdP to the `EntityId` for {
 
 {% data reusables.saml.current-time-earlier-than-notbefore-condition %}
 
-{% ifversion ghes > 3.16 %}
+{% ifversion ghes %}
 
 ## Error: "failure - Updated SAML validation returned an invalid result"
 

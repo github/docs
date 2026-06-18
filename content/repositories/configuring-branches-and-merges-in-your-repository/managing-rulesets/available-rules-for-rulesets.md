@@ -14,15 +14,11 @@ category:
   - Manage branches and protect code
 ---
 
-You can create branch or tag rulesets to control how users can interact with selected branches and tags in a repository. {% ifversion push-rulesets %}You can also create push rulesets to block pushes to a private or internal repository and that repository's entire fork network.{% endif %}
+You can create branch or tag rulesets to control how users can interact with selected branches and tags in a repository. You can also create push rulesets to block pushes to a private or internal repository and that repository's entire fork network.
 
 When you create a ruleset, you can allow certain users to bypass the rules in the ruleset. This can be users with certain roles, specific teams, or {% data variables.product.prodname_github_apps %}.
 
-{% ifversion push-rulesets %}
-
 For push rulesets, bypass permissions apply to a repository and the repository's entire fork network. {% data reusables.repositories.rulesets-push-rulesets-bypass-permissions %}
-
-{% endif %}
 
 For more information on creating rulesets and bypass permissions, see {% ifversion ghec %}[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization) and {% endif %}[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository).
 
@@ -280,8 +276,6 @@ When you add metadata restrictions to an existing branch or tag, the rules are e
 
 {% endif %}
 
-{% ifversion push-rulesets %}
-
 ## Restrict file paths
 
 Prevent commits that include changes in specified file paths from being pushed to the repository. {% ifversion available-rules-limit %}Limit is 200 entries and up to 200 characters in each entry.{% endif %}
@@ -299,5 +293,3 @@ Prevent commits that include files with specified file extensions from being pus
 ## Restrict file size
 
 Prevent commits that exceed a specified file size limit from being pushed to the repository.
-
-{% endif %}

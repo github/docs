@@ -273,6 +273,8 @@ secret_scanning:
   filter_all: All
   filter_yes: 'Yes'
   filter_no: 'No'
+  clear_filters: Clear filters
+  clear_filters_aria_label: Clear all filters and search
   showing_patterns: 'Showing {filtered} of {total} patterns'
   column_provider: Provider
   column_secret: Secret

@@ -8,21 +8,22 @@ versions:
   ghec: '*'
 contentType: how-tos
 children:
-  - /customizing-auto-triage-rules-to-prioritize-dependabot-alerts
-  - /using-github-preset-rules-to-prioritize-dependabot-alerts
+  - /auto-triage-dependabot-alerts
+  - /prioritize-with-preset-rules
   - /customizing-dependabot-security-prs
   - /controlling-dependencies-updated
-  - /configuring-the-dependency-review-action
-  - /configuring-notifications-for-dependabot-alerts
-  - /configuring-access-to-private-registries-for-dependabot
-  - /removing-dependabot-access-to-public-registries
-  - /managing-pull-requests-for-dependency-updates
+  - /configure-dependency-review-action
+  - /configure-dependabot-notifications
+  - /configure-access-to-private-registries
+  - /remove-access-to-public-registries
+  - /manage-dependabot-prs
   - /configure-on-github-hosted-runners
   - /configure-on-self-hosted-runners
   - /re-run-dependabot-jobs
-  - /listing-dependencies-configured-for-version-updates
-  - /guidance-for-the-configuration-of-private-registries-for-dependabot
+  - /list-configured-dependencies
+  - /configure-private-registries
 redirect_from:
   - /code-security/dependabot/maintain-dependencies
   - /code-security/dependabot/dependabot-security-updates
 ---
+

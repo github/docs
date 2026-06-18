@@ -11,9 +11,6 @@ category:
 
 ## Get access to {% data variables.product.prodname_copilot %}
 
-> [!IMPORTANT]
-> {% data reusables.copilot.plans.individual-plans-paused %}
-
 {% data variables.copilot.copilot_free_short %} gives you up to 2,000 code completions and limited access to select {% data variables.product.prodname_copilot_short %} features, allowing you to try AI-powered coding assistance at no cost. [Start using {% data variables.copilot.copilot_free_short %}](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text&ref_plan=free).
 
 For higher limits and access to more models, subscribe to **{% data variables.copilot.copilot_pro_short %}**, **{% data variables.copilot.copilot_pro_plus_short %}**, or **{% data variables.copilot.copilot_max_short %}**. See [AUTOTITLE](/copilot/how-tos/manage-your-account/get-started-with-a-copilot-plan) for details on all plans, including free options for students, teachers, and open source maintainers.

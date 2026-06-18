@@ -68,6 +68,15 @@
   xcode: true
   jetbrains: true
 
+- name: Claude Fable 5
+  dotcom: true
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
 - name: Claude Sonnet 4.5
   dotcom: true
   cli: true
@@ -122,15 +131,6 @@
   xcode: true
   jetbrains: true
 
-- name: GPT-4.1
-  dotcom: true
-  cli: true
-  vscode: true
-  vs: true
-  eclipse: true
-  xcode: true
-  jetbrains: true
-
 - name: MAI-Code-1-Flash
   dotcom: false
   cli: false
@@ -141,24 +141,6 @@
   jetbrains: false
 
 - name: GPT-5 mini
-  dotcom: false
-  cli: true
-  vscode: true
-  vs: true
-  eclipse: true
-  xcode: true
-  jetbrains: true
-
-- name: GPT-5.2
-  dotcom: true
-  cli: true
-  vscode: true
-  vs: true
-  eclipse: true
-  xcode: true
-  jetbrains: true
-
-- name: GPT-5.2-Codex
   dotcom: false
   cli: true
   vscode: true

@@ -1,5 +1,6 @@
 ---
 title: Automatic dependency submission
+shortTitle: Automatic dependency submission
 intro: Network access requirements, troubleshooting, and ecosystem-specific behavior for automatic dependency submission.
 versions:
   feature: maven-transitive-dependencies

@@ -14,7 +14,7 @@ redirect_from:
 ---
 
 > [!NOTE]
-> Enterprise custom roles and enterprise teams are in public preview and subject to change.
+> Enterprise custom roles are in public preview and subject to change.
 
 ## Overview
 

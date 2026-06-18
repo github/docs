@@ -7,7 +7,7 @@ versions:
   ghec: '*'
 contentType: how-tos
 children:
-  - /configuring-default-setup-for-code-scanning
+  - /configure-code-scanning
   - /configuring-advanced-setup-for-code-scanning
 redirect_from:
   - /code-security/code-scanning/enabling-code-scanning

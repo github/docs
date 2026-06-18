@@ -2,6 +2,7 @@ import { describe, expect, test } from 'vitest'
 
 import { get } from '@/tests/helpers/e2etest'
 import { USER_VERSION_COOKIE_NAME } from '@/frame/lib/constants'
+import { latest } from '@/versions/lib/enterprise-server-releases'
 
 describe('version cookie redirects', () => {
   test('homepage redirects to preferred version from cookie', async () => {
@@ -48,11 +49,11 @@ describe('version cookie redirects', () => {
   test('homepage redirects to enterprise-server version from cookie', async () => {
     const res = await get('/', {
       headers: {
-        Cookie: `${USER_VERSION_COOKIE_NAME}=enterprise-server@3.16`,
+        Cookie: `${USER_VERSION_COOKIE_NAME}=enterprise-server@${latest}`,
       },
       followRedirects: false,
     })
     expect(res.statusCode).toBe(302)
-    expect(res.headers.location).toBe('/en/enterprise-server@3.16')
+    expect(res.headers.location).toBe(`/en/enterprise-server@${latest}`)
   })
 })

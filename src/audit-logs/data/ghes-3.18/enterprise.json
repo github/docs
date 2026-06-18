@@ -3062,7 +3062,7 @@
       "ref",
       "alert_numbers"
     ],
-    "docs_reference_titles": "About code scanning"
+    "docs_reference_titles": "Code scanning"
   },
   {
     "action": "code_scanning.alert_closed_became_fixed",
@@ -3096,7 +3096,7 @@
       "ref",
       "alert_numbers"
     ],
-    "docs_reference_titles": "About code scanning"
+    "docs_reference_titles": "Code scanning"
   },
   {
     "action": "code_scanning.alert_closed_became_outdated",
@@ -3129,7 +3129,7 @@
       "commit_oid",
       "ref"
     ],
-    "docs_reference_titles": "About code scanning"
+    "docs_reference_titles": "Code scanning"
   },
   {
     "action": "code_scanning.alert_closed_by_user",
@@ -3162,7 +3162,7 @@
       "alert_numbers",
       "dismissal_approver_id"
     ],
-    "docs_reference_titles": "About code scanning"
+    "docs_reference_titles": "Code scanning"
   },
   {
     "action": "code_scanning.alert_closure_approved",
@@ -3197,7 +3197,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "About code scanning"
+    "docs_reference_titles": "Code scanning"
   },
   {
     "action": "code_scanning.alert_closure_denied",
@@ -3232,7 +3232,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "About code scanning"
+    "docs_reference_titles": "Code scanning"
   },
   {
     "action": "code_scanning.alert_closure_requested",
@@ -3267,7 +3267,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "About code scanning"
+    "docs_reference_titles": "Code scanning"
   },
   {
     "action": "code_scanning.alert_created",
@@ -3301,7 +3301,7 @@
       "ref",
       "alert_numbers"
     ],
-    "docs_reference_titles": "About code scanning"
+    "docs_reference_titles": "Code scanning"
   },
   {
     "action": "code_scanning.alert_reappeared",
@@ -3335,7 +3335,7 @@
       "ref",
       "alert_numbers"
     ],
-    "docs_reference_titles": "About code scanning"
+    "docs_reference_titles": "Code scanning"
   },
   {
     "action": "code_scanning.alert_reopened_by_user",
@@ -3367,7 +3367,7 @@
       "alert_number",
       "alert_numbers"
     ],
-    "docs_reference_titles": "About code scanning"
+    "docs_reference_titles": "Code scanning"
   },
   {
     "action": "codespaces.allow_permissions",
@@ -12041,7 +12041,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "About push protection"
+    "docs_reference_titles": "Push protection"
   },
   {
     "action": "org_secret_scanning_push_protection_bypass_list.disable",
@@ -12074,7 +12074,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "About push protection"
+    "docs_reference_titles": "Push protection"
   },
   {
     "action": "org_secret_scanning_push_protection_bypass_list.enable",
@@ -12107,7 +12107,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "About push protection"
+    "docs_reference_titles": "Push protection"
   },
   {
     "action": "org_secret_scanning_push_protection_bypass_list.remove",
@@ -12140,7 +12140,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "About push protection"
+    "docs_reference_titles": "Push protection"
   },
   {
     "action": "org.secret_scanning_push_protection_custom_message_disabled",
@@ -12172,7 +12172,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "About push protection"
+    "docs_reference_titles": "Push protection"
   },
   {
     "action": "org.secret_scanning_push_protection_custom_message_enabled",
@@ -12204,7 +12204,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "About push protection"
+    "docs_reference_titles": "Push protection"
   },
   {
     "action": "org.secret_scanning_push_protection_custom_message_updated",
@@ -12236,7 +12236,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "About push protection"
+    "docs_reference_titles": "Push protection"
   },
   {
     "action": "org.secret_scanning_push_protection_disable",
@@ -12268,7 +12268,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "About push protection"
+    "docs_reference_titles": "Push protection"
   },
   {
     "action": "org.secret_scanning_push_protection_enable",
@@ -12300,7 +12300,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "About push protection"
+    "docs_reference_titles": "Push protection"
   },
   {
     "action": "org.secret_scanning_push_protection_new_repos_disable",
@@ -12332,7 +12332,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "About push protection"
+    "docs_reference_titles": "Push protection"
   },
   {
     "action": "org.secret_scanning_push_protection_new_repos_enable",
@@ -12364,7 +12364,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "About push protection"
+    "docs_reference_titles": "Push protection"
   },
   {
     "action": "org.security_center_export_code_scanning_metrics",
@@ -14632,7 +14632,7 @@
       "project_id",
       "project_kind"
     ],
-    "docs_reference_titles": "Closing a project (classic)"
+    "docs_reference_titles": "Planning and tracking with Projects"
   },
   {
     "action": "project_collaborator.add",
@@ -14933,7 +14933,7 @@
       "project_kind",
       "project_name"
     ],
-    "docs_reference_titles": "Reopening a closed project (classic)"
+    "docs_reference_titles": "Planning and tracking with Projects"
   },
   {
     "action": "project.rename",
@@ -20328,7 +20328,7 @@
       "operation_type",
       "public_repo"
     ],
-    "docs_reference_titles": "About secret scanning"
+    "docs_reference_titles": "Secret scanning"
   },
   {
     "action": "repository_secret_scanning.enable",
@@ -20460,7 +20460,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "About push protection"
+    "docs_reference_titles": "Push protection"
   },
   {
     "action": "repository_secret_scanning_push_protection_bypass_list.disable",
@@ -20494,7 +20494,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "About push protection"
+    "docs_reference_titles": "Push protection"
   },
   {
     "action": "repository_secret_scanning_push_protection_bypass_list.enable",
@@ -20528,7 +20528,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "About push protection"
+    "docs_reference_titles": "Push protection"
   },
   {
     "action": "repository_secret_scanning_push_protection_bypass_list.remove",
@@ -20561,7 +20561,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "About push protection"
+    "docs_reference_titles": "Push protection"
   },
   {
     "action": "repository_secret_scanning_push_protection.disable",
@@ -20594,7 +20594,7 @@
       "operation_type",
       "public_repo"
     ],
-    "docs_reference_titles": "About push protection"
+    "docs_reference_titles": "Push protection"
   },
   {
     "action": "repository_secret_scanning_push_protection.enable",
@@ -20627,7 +20627,7 @@
       "operation_type",
       "public_repo"
     ],
-    "docs_reference_titles": "About push protection"
+    "docs_reference_titles": "Push protection"
   },
   {
     "action": "repository_security_configuration.applied",
@@ -20813,7 +20813,7 @@
       "vulnerability_alert_rule_id",
       "vulnerability_alert_rule_name"
     ],
-    "docs_reference_titles": "About Dependabot auto-triage rules"
+    "docs_reference_titles": "Dependabot auto-triage rules"
   },
   {
     "action": "repository_vulnerability_alert.auto_reopen",
@@ -20852,7 +20852,7 @@
       "vulnerability_alert_rule_id",
       "vulnerability_alert_rule_name"
     ],
-    "docs_reference_titles": "About Dependabot auto-triage rules"
+    "docs_reference_titles": "Dependabot auto-triage rules"
   },
   {
     "action": "repository_vulnerability_alert.create",
@@ -20886,7 +20886,7 @@
       "created_at",
       "alert_number"
     ],
-    "docs_reference_titles": "About Dependabot alerts"
+    "docs_reference_titles": "Dependabot alerts"
   },
   {
     "action": "repository_vulnerability_alert.dismiss",
@@ -21498,7 +21498,7 @@
       "operation_type",
       "created_at"
     ],
-    "docs_reference_titles": "About secret scanning"
+    "docs_reference_titles": "Secret scanning"
   },
   {
     "action": "secret_scanning.enable",
@@ -21530,7 +21530,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "About secret scanning"
+    "docs_reference_titles": "Secret scanning"
   },
   {
     "action": "secret_scanning_new_repos.disable",
@@ -21562,7 +21562,7 @@
       "operation_type",
       "created_at"
     ],
-    "docs_reference_titles": "About secret scanning"
+    "docs_reference_titles": "Secret scanning"
   },
   {
     "action": "secret_scanning_new_repos.enable",
@@ -21594,7 +21594,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "About secret scanning"
+    "docs_reference_titles": "Secret scanning"
   },
   {
     "action": "secret_scanning_push_protection.bypass",
@@ -21633,7 +21633,7 @@
       "request_reviewer",
       "request_reviewer_id"
     ],
-    "docs_reference_titles": "About push protection"
+    "docs_reference_titles": "Push protection"
   },
   {
     "action": "secret_scanning_push_protection_request.approve",
@@ -21668,7 +21668,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "About push protection"
+    "docs_reference_titles": "Push protection"
   },
   {
     "action": "secret_scanning_push_protection_request.deny",
@@ -21704,7 +21704,7 @@
       "actor_is_bot",
       "request_reviewer_comment"
     ],
-    "docs_reference_titles": "About push protection"
+    "docs_reference_titles": "Push protection"
   },
   {
     "action": "secret_scanning_push_protection_request.request",
@@ -21781,7 +21781,7 @@
       "custom_pattern_name",
       "custom_pattern_scope"
     ],
-    "docs_reference_titles": "About secret scanning"
+    "docs_reference_titles": "Secret scanning"
   },
   {
     "action": "security_configuration.create",

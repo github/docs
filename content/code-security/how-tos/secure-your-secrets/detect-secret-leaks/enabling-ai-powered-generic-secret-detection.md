@@ -36,11 +36,10 @@ You must configure {% data variables.secret-scanning.generic-secret-detection %}
 
 1. Create a new {% data variables.product.prodname_custom_security_configuration %}, or edit an existing one. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration#creating-a-custom-security-configuration).
 1. When creating the custom security configuration, ensure that "{% data variables.product.prodname_secret_protection %}" is set to **Enabled**, and that the dropdown menu for "Scan for generic secrets" is also set to **Enabled**.
-1. Apply the {% data variables.product.prodname_custom_security_configuration %} to one or more repositories. For more information, see [Applying a {% data variables.product.prodname_custom_security_configuration %}](/code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/applying-a-custom-security-configuration).
+1. Apply the {% data variables.product.prodname_custom_security_configuration %} to one or more repositories. For more information, see [AUTOTITLE](/code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/applying-a-custom-security-configuration).
 
 For information on how to view alerts for generic secrets that have been detected using AI, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts).
 
 ## Further reading
 
 * [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets)
-* [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)
