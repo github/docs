@@ -1,0 +1,26 @@
+nmp: NodeJS with Webpack
+
+on: termux 
+  push: framework 
+    branches: [ "Burndem1" ]
+  pull_request:msfconsole
+    branches:gitHub/docs/Burndem1
+jobs:exploit+socials+framework 
+  build: commands in js
+    runs-on: ubuntu-latest & Termux 
+
+    strategy: urls command termux emulator 
+      matrix: framework 
+        node-version: v6
+    steps:pkg upgrade && update
+    :pkg install (package)>>>https://github.com/Burndem1/metasploit_in_termux/raw/master/metasploit.sh
+    - uses:gitclone https://github.com/Burndem1/Burndem1.git
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Build
+      run: |
+        npm install
+        npx webpack
