@@ -2509,12 +2509,6 @@
       "requestPath": "/orgs/{org}/copilot/content_exclusion"
     },
     {
-      "slug": "get-copilot-metrics-for-an-organization",
-      "subcategory": "copilot-metrics",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/copilot/metrics"
-    },
-    {
       "slug": "get-copilot-organization-usage-metrics-for-a-specific-day",
       "subcategory": "copilot-usage-metrics",
       "verb": "get",
@@ -2549,12 +2543,6 @@
       "subcategory": "copilot-user-management",
       "verb": "get",
       "requestPath": "/orgs/{org}/members/{username}/copilot"
-    },
-    {
-      "slug": "get-copilot-metrics-for-a-team",
-      "subcategory": "copilot-metrics",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics"
     },
     {
       "slug": "get-copilot-cloud-agent-configuration-for-a-repository",
@@ -5787,6 +5775,12 @@
       "subcategory": "repos",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/immutable-releases"
+    },
+    {
+      "slug": "list-issue-types-for-a-repository",
+      "subcategory": "issue-types",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issue-types"
     },
     {
       "slug": "list-repository-languages",

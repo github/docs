@@ -360,6 +360,12 @@ When you mention a parent team, members of its child teams also receive notifica
 
 Typing an <kbd>@</kbd> symbol will bring up a list of people or teams on a project. The list filters as you type, so once you find the name of the person or team you are looking for, you can use the arrow keys to select it and press either tab or enter to complete the name. For teams, enter the @organization/team-name and all members of that team will get subscribed to the conversation.
 
+{% ifversion enterprise-teams-ga %}
+
+You can also mention an enterprise team. Enterprise team slugs use an `ent:` prefix in the format `@/ent:TEAM-SLUG`, for example `@/ent:platform-sre`. You can mention an enterprise team from any organization the team is assigned to. See [AUTOTITLE](/admin/concepts/enterprise-fundamentals/teams-in-an-enterprise).
+
+{% endif %}
+
 The autocomplete results are restricted to repository collaborators and any other participants on the thread.
 
 ## Referencing issues and pull requests

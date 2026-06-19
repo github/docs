@@ -1,7 +1,7 @@
 ---
-title: Improving agent quality to optimize AI usage
+title: Optimizing your AI usage to maximize efficiency and reduce cost
 shortTitle: Optimize AI usage
-intro: 'Learn strategies for building higher-quality agents that complete tasks in fewer attempts and, as a result, use fewer {% data variables.product.prodname_ai_credits_short %}.'
+intro: 'Learn how to choose the right models, structure your prompts, and add guardrails so that {% data variables.product.prodname_copilot_short %} completes tasks more efficiently and uses fewer {% data variables.product.prodname_ai_credits_short %}.'
 versions:
   feature: copilot
 contentType: tutorials
@@ -11,13 +11,15 @@ category:
 
 ## Introduction
 
-When agents are well-scoped, well-instructed, and operating within clear guardrails, token efficiency improves as a natural outcome. High-quality agents complete tasks in fewer attempts, follow clearer workflows with less rework, and avoid expensive debugging and correction cycles.
-
-Follow the strategies outlined in this article to improve both agent quality and {% data variables.product.prodname_ai_credits_short %} efficiency.
+The strategies outlined in this article show you how to improve {% data variables.product.prodname_copilot_short %} efficiency and, as a result, use fewer {% data variables.product.prodname_ai_credits_short %}.
 
 ## 1. Choose the right model for the right task
 
-Model choice is one of the fastest ways to improve both agent quality and cost efficiency, but it is often overlooked. A common pattern is to default to the most capable model for every task—but this often increases token usage without improving the outcome. In some execution-heavy scenarios, overusing reasoning models can reduce quality because the model may overthink the task or introduce unnecessary changes.
+By selecting the right capability level for your task, configuring reasoning appropriately, and leveraging {% data variables.copilot.copilot_auto_model_selection_short %} and cheaper models for specific workloads, you can maintain quality while significantly reducing token consumption.
+
+### Select the right model
+
+Model choice is one of the fastest ways to improve cost efficiency, but it is often overlooked. A common pattern is to default to the most capable model for every task—but this often increases token usage without improving the outcome. In some execution-heavy scenarios, overusing reasoning models can reduce quality because the model may overthink the task or introduce unnecessary changes.
 
 Choose the model based on the work involved:
 
@@ -35,11 +37,23 @@ Some models also support configurable reasoning levels, which control how much t
 
 See [AUTOTITLE](/copilot/reference/ai-models/supported-models#models-with-extended-capabilities).
 
-### Use {% data variables.copilot.copilot_auto_model_selection %}
+### Use {% data variables.copilot.copilot_auto_model_selection %} as your default
 
-{% data variables.copilot.copilot_auto_model_selection %} chooses a capable model for you, based on the intent of your task.
+{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} chooses a capable model for you, based on the intent of your task.
 
-See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
+A small router looks at your prompt and sends it to the model that can **handle it most efficiently**, reserving expensive reasoning models for complex problems. It also avoids models that burn through a token budget quickly.
+
+{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} also **protects your cache**. It only changes models at natural cache boundaries, when a new session starts or after you run `/compact`, never mid-task. To understand more about why this matters, see [4. Preserve the cache](#4-preserve-the-cache).
+
+{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} also routes around degraded or busy models, so you hit fewer rate limits and errors.
+
+{% data reusables.copilot.auto-model-discount %}
+
+For information on the feature and its availability, see [AUTOTITLE](/copilot/concepts/models/auto-model-selection#copilot-chat-in-ides).
+
+### Use cheaper models for {% data variables.copilot.subagents_short %}
+
+Run {% data variables.copilot.subagents_short %} on cheaper models. {% data variables.copilot.subagents_caps_short %} run in their own session and don't inherit the main agent's conversation history. Because their context is scoped to a single focused task, a lighter model is often sufficient—and assigning one doesn't affect the main agent's cache the way a mid-session model switch would.
 
 ## 2. Provide clear guidance in your prompts
 
@@ -86,15 +100,52 @@ Large tool sets (for example, a full MCP server's worth of tools) add to the con
 
 See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/configure-toolsets).
 
-### Take advantage of context caching
+## 4. Preserve the cache
 
-{% data variables.product.prodname_copilot_short %} reuses context you've already sent through caching, which lowers the cost of follow-up turns. However, cached context expires after a period of inactivity and isn't reused when you switch models mid-session. In both cases, the context is re-sent and billed again as fresh input tokens. To get the most from caching, keep related work in one continuous session and avoid switching models partway through.
+Caching lets an AI model store portions of a conversation's context so they don't need to be reprocessed on every request. In agentic coding, where the same large context—system prompt, file contents, tool definitions—is sent repeatedly across many turns, caching has an impact: the cached portion from the previous response is reused rather than reprocessed, and cached tokens are typically billed at 10% of the normal input price. See [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing).
 
-## 4. Reduce repeated errors with a `copilot-instructions.md` file
+However, the following actions invalidate the cache, causing the full context to be re-sent and billed as fresh input tokens:
 
-Persistent instructions improve consistency across agent interactions, but their value depends entirely on how they are written. A `copilot-instructions.md` file at the repository level is the most direct way to encode this guidance. Personal and organization-level instructions can layer on top for broader consistency.
+* **Switching models mid-session**. A different model can't reuse another model's cache, so the next request rebuilds it from scratch. Pick a model (or use {% data variables.copilot.copilot_auto_model_selection %}) and stick with it for the session.
+* **Coming back to an old session**. Caches expire after a period of inactivity (24 hours for OpenAI models and 1 hour for most others). If you've been away a while, start a new session, or run `/compact` (in {% data variables.copilot.copilot_cli_short %}) so what gets rebuilt is a short summary rather than the full history.
+* **Changing reasoning mid-session**. Changing the reasoning effort level, context size, or the set of enabled tools and MCP servers during a session invalidates the cache. Configure these settings before you start and leave them unchanged for the session.
 
-The best instructions are short, specific, and grounded in real observed agent behavior—not generic best practices that sound good but don't apply to your system.
+## 5. Research, plan, then implement
+
+One of the biggest shifts in working effectively with agents is moving away from doing everything in a single session. When research, planning, and implementation all happen together, context grows quickly and irrelevant information accumulates.
+
+Break work into clear phases:
+
+* **Research:** Use the agent to explore the codebase, identify relevant files, and understand dependencies.
+* **Plan:** Create a detailed, structured plan or specification before making changes. This is where reasoning models are most valuable—always plan with a strong reasoning model, then implement the work with a cheaper model.
+   * In {% data variables.copilot.copilot_cli_short %}, use `/plan`.
+   * In {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}, select "Plan" from the agent dropdown, or type `plan` in the context window.
+* **Implement:** Execute against the plan using focused context and a model suited for execution.
+
+Starting a new session between phases prevents you from carrying unnecessary context forward, which can increase token usage and reduce clarity for the agent. Each phase should operate with only what it needs. For guidance on scoping sessions effectively, see [AUTOTITLE](/copilot/tutorials/cloud-agent/get-the-best-results).
+
+## 6. Utilize learnings to be more efficient at every turn
+
+### Use `/chronicle` to generate insights
+
+In {% data variables.copilot.copilot_cli_short %}, `/chronicle` can generate useful insights from your session history.
+
+* Use `/chronicle tips` to analyze your recent session history and surface opportunities to use {% data variables.product.prodname_copilot_short %} more efficiently.
+* Use `/chronicle cost-tips` to understand your token usage patterns and get insights into how to reduce cost.
+
+See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/chronicle#the-chronicle-slash-command).
+
+### Feed insights into a `copilot-instructions.md` file
+
+A `copilot-instructions.md` file at the repository level is the most direct way to encode guidance that's specific to your repository. Personal and organization-level instructions can layer on top for broader consistency.
+
+When `/chronicle` surfaces a recurring pattern—a tool being over-used, a prompt that keeps being misread—encode that observation directly in your `copilot-instructions.md` file. This turns a one-time insight into standing guidance that applies to every future session, without you having to repeat it.
+
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions).
+
+### Keep the `copilot-instructions.md` file specific and grounded
+
+Persistent instructions improve consistency across agent interactions, but their value depends entirely on how they are written. The best instructions are short, specific, and grounded in real observed agent behavior—not generic best practices that sound good but don't apply to your system.
 
 **What to include:**
 
@@ -113,23 +164,7 @@ The best instructions are short, specific, and grounded in real observed agent b
 
 Keep instructions updated as your codebase, architecture, standards, and workflows evolve. Because these instructions are included in the agent's context on every run, even small improvements can reduce repeated errors and lower wasted token usage over time.
 
-For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions).
-
-## 5. Research, plan, then implement
-
-One of the biggest shifts in working effectively with agents is moving away from doing everything in a single session. When research, planning, and implementation all happen together, context grows quickly, irrelevant information accumulates, and agent quality degrades over time.
-
-Break work into clear phases:
-
-* **Research:** Use the agent to explore the codebase, identify relevant files, and understand dependencies.
-* **Plan:** Create a detailed, structured plan or specification before making changes. This is where reasoning models are most valuable.
-   * In {% data variables.copilot.copilot_cli_short %}, use `/plan`.
-   * In {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}, select "Plan" from the agent dropdown, or type `plan` in the context window.
-* **Implement:** Execute against the plan using focused context and a model suited for execution.
-
-Starting a new session between phases prevents carrying unnecessary context forward. Carrying forward context from earlier phases can increase token usage, introduce bias, and reduce clarity for the agent. Each phase should operate with only what it needs. For guidance on scoping sessions effectively, see [AUTOTITLE](/copilot/tutorials/cloud-agent/get-the-best-results).
-
-## 6. Add deterministic guardrails
+## 7. Add deterministic guardrails
 
 Agents are non-deterministic and won't be correct every time, especially in multi-step workflows. Without guardrails, small errors can compound quickly: agents build on incorrect outputs, drift further from the goal, and make debugging more expensive and time-consuming.
 
@@ -145,8 +180,7 @@ Teams that invest in these guardrails see fewer retries, faster task completion,
 
 ## Next steps
 
-In addition to improving agent efficiency, you can also monitor and manage your spending to get the most out of your {% data variables.product.prodname_ai_credits_short %}:
+Monitor and manage your spending to get the most out of your {% data variables.product.prodname_ai_credits_short %}:
 
 * **Use your dashboard and budget controls**. The "AI usage" page, under https://github.com/settings/billing, breaks down consumption across every feature and model, so you can see where your credits are actually going and adjust accordingly. See [AUTOTITLE](/copilot/how-tos/manage-and-track-spending/monitor-ai-usage).
-* **Identify expensive patterns before they add up**. Within a {% data variables.copilot.copilot_cli_short %} session, use `/usage` to see session-level metrics and to spot expensive patterns as you work. In addition, `/chronicle tips` analyzes your recent session history and surfaces opportunities to use {% data variables.product.prodname_copilot_short %} more efficiently.
 * **Upgrade for a larger allowance**. If you regularly approach your monthly limit, a higher plan may be more economical than paying for additional usage, as higher plans have more {% data variables.product.prodname_ai_credit_singular %} allowance. See [AUTOTITLE](/copilot/concepts/billing/individual-plans#github-ai-credits-allowance-by-plan) and [AUTOTITLE](/copilot/how-tos/manage-your-account/view-and-change-your-copilot-plan).

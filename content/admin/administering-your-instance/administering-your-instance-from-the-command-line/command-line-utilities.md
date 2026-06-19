@@ -679,6 +679,24 @@ To show the full hook payload, result, and any exceptions for the delivery:
 ghe-webhook-logs -g DELIVERY_GUID
 ```
 
+## Backup and restore
+
+### ghe-backup-prune-snapshots
+
+This utility prunes old or invalid backup snapshot directories.
+
+```shell
+ghe-backup-prune-snapshots
+```
+
+### ghe-backup-healthcheck
+
+This utility quickly confirms that GHES backups are being written, are recent, and that the backup disk is not in a risky state. For example, if usage is 90% or higher, it reports an error because the backup disk may be close to full. Setting `-no-color` gives plain text output, for example in logs or monitoring systems.
+
+```shell
+ghe-backup-healthcheck
+```
+
 ## Clustering
 
 ### ghe-cluster-balance

@@ -48,7 +48,7 @@ To work on code, you need at least one repository connected to the app. If you s
 
 The sidebar gives you access to the main areas of the app:
 
-* **My work** - Browse and filter issues and pull requests from your repositories, check CI status, and leave reviews.
+* **My work** — Browse and filter issues and pull requests from your repositories, check CI status, and leave reviews.
 * **Automations** — Saved agent tasks that run on a schedule or on demand.
 * **Search** — Search across your repositories directly from the app.
 * **Sessions** — Active agent sessions, grouped by repository. This also includes **Quick chats**, which are general chat conversations.
