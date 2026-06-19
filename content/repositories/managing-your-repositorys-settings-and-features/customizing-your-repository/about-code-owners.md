@@ -63,6 +63,13 @@ To reduce the size of your CODEOWNERS file, consider using wildcard patterns to 
 
 A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files. The pattern is followed by one or more {% data variables.product.prodname_dotcom %} usernames or team names using the standard `@username` or `@org/team-name` format. Users and teams must have explicit `write` access to the repository, even if the team's members already have access.
 
+{% ifversion enterprise-teams %}
+
+> [!NOTE]
+> When using teams, only organization teams can be code owners. Enterprise teams are not supported as code owners. See [AUTOTITLE](/admin/concepts/enterprise-fundamentals/teams-in-an-enterprise).
+
+{% endif %}
+
 If you want to match two or more code owners with the same pattern, all the code owners must be on the same line. If the code owners are not on the same line, the pattern matches only the last mentioned code owner.
 
 {% ifversion fpt or ghec %}In most cases, you{% else %}You{% endif %} can also refer to a user by an email address that has been added to their account, for example `user@example.com`. {% ifversion fpt or ghec %} You cannot use an email address to refer to a {% data variables.enterprise.prodname_managed_user %}. For more information about {% data variables.enterprise.prodname_managed_users %}, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}{% endif %}

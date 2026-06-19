@@ -667,15 +667,6 @@
         "access": "write"
       },
       {
-        "category": "copilot",
-        "slug": "get-copilot-metrics-for-an-organization",
-        "subcategory": "copilot-metrics",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/copilot/metrics",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
         "category": "orgs",
         "slug": "list-saml-sso-authorizations-for-an-organization",
         "subcategory": "orgs",
@@ -998,15 +989,6 @@
         "requestPath": "/orgs/{org}/settings/immutable-releases/repositories/{repository_id}",
         "additional-permissions": true,
         "access": "write"
-      },
-      {
-        "category": "copilot",
-        "slug": "get-copilot-metrics-for-a-team",
-        "subcategory": "copilot-metrics",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics",
-        "additional-permissions": true,
-        "access": "read"
       },
       {
         "category": "orgs",
@@ -1844,28 +1826,10 @@
       },
       {
         "category": "copilot",
-        "slug": "get-copilot-metrics-for-an-organization",
-        "subcategory": "copilot-metrics",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/copilot/metrics",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "copilot",
         "slug": "get-copilot-seat-assignment-details-for-a-user",
         "subcategory": "copilot-user-management",
         "verb": "get",
         "requestPath": "/orgs/{org}/members/{username}/copilot",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "copilot",
-        "slug": "get-copilot-metrics-for-a-team",
-        "subcategory": "copilot-metrics",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics",
         "additional-permissions": true,
         "access": "read"
       }
@@ -5685,7 +5649,7 @@
         "subcategory": "artifact-metadata",
         "verb": "post",
         "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -5694,7 +5658,7 @@
         "subcategory": "artifact-metadata",
         "verb": "post",
         "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -5703,7 +5667,7 @@
         "subcategory": "artifact-metadata",
         "verb": "post",
         "requestPath": "/orgs/{org}/artifacts/metadata/storage-record",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -5712,7 +5676,7 @@
         "subcategory": "artifact-metadata",
         "verb": "get",
         "requestPath": "/orgs/{org}/artifacts/{subject_digest}/metadata/deployment-records",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "read"
       },
       {
@@ -5721,7 +5685,7 @@
         "subcategory": "artifact-metadata",
         "verb": "get",
         "requestPath": "/orgs/{org}/artifacts/{subject_digest}/metadata/storage-records",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "read"
       }
     ]
@@ -6265,51 +6229,6 @@
         "verb": "post",
         "requestPath": "/markdown",
         "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "orgs",
-        "slug": "create-an-artifact-deployment-record",
-        "subcategory": "artifact-metadata",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "orgs",
-        "slug": "set-cluster-deployment-records",
-        "subcategory": "artifact-metadata",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "orgs",
-        "slug": "create-artifact-metadata-storage-record",
-        "subcategory": "artifact-metadata",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/artifacts/metadata/storage-record",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "orgs",
-        "slug": "list-artifact-deployment-records",
-        "subcategory": "artifact-metadata",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/artifacts/{subject_digest}/metadata/deployment-records",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "orgs",
-        "slug": "list-artifact-storage-records",
-        "subcategory": "artifact-metadata",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/artifacts/{subject_digest}/metadata/storage-records",
-        "additional-permissions": true,
         "access": "read"
       },
       {
@@ -8094,6 +8013,15 @@
         "subcategory": "repos",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/hash-algorithm",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "repos",
+        "slug": "list-issue-types-for-a-repository",
+        "subcategory": "issue-types",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issue-types",
         "additional-permissions": false,
         "access": "read"
       },

@@ -36237,6 +36237,165 @@
       }
     }
   ],
+  "issue-types": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issue-types",
+      "title": "List issue types for a repository",
+      "category": "repos",
+      "subcategory": "issue-types",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Lists issue types available for a repository (inherited from its organization owner, with any per-repository overrides applied).\nOAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.\nFine-grained access tokens require the \"Metadata\" repository permission (read).</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": [
+              {
+                "id": 410,
+                "node_id": "IT_kwDNAd3NAZo",
+                "name": "Task",
+                "description": "A specific piece of work",
+                "created_at": "2024-12-11T14:39:09Z",
+                "updated_at": "2024-12-11T14:39:09Z"
+              },
+              {
+                "id": 411,
+                "node_id": "IT_kwDNAd3NAZs",
+                "name": "Bug",
+                "description": "An unexpected problem or behavior",
+                "created_at": "2024-12-11T14:39:09Z",
+                "updated_at": "2024-12-11T14:39:09Z"
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Issue Type",
+                "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "description": "The unique identifier of the issue type."
+                  },
+                  "node_id": {
+                    "type": "string",
+                    "description": "The node identifier of the issue type."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "The name of the issue type."
+                  },
+                  "description": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "The description of the issue type."
+                  },
+                  "color": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "The color of the issue type.",
+                    "enum": [
+                      "gray",
+                      "blue",
+                      "green",
+                      "yellow",
+                      "orange",
+                      "red",
+                      "pink",
+                      "purple",
+                      null
+                    ]
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "description": "The time the issue type created.",
+                    "format": "date-time"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "description": "The time the issue type last updated.",
+                    "format": "date-time"
+                  },
+                  "is_enabled": {
+                    "type": "boolean",
+                    "description": "The enabled state of the issue type."
+                  }
+                },
+                "required": [
+                  "id",
+                  "node_id",
+                  "name",
+                  "description"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Metadata\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    }
+  ],
   "lfs": [
     {
       "serverUrl": "https://api.github.com",

@@ -53,7 +53,7 @@
 - name: MAI-Code-1-Flash
   cloud_agent: false
   chat: true
-  cli: false
+  cli: true
 
 # Fine-tuned OAI models
 - name: Raptor mini

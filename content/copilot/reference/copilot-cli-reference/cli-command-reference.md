@@ -352,6 +352,7 @@ Use `--model=MODEL` or the `COPILOT_MODEL` environment variable to select the AI
 | `gpt-5.3-codex` | Code-focused tasks |
 | `gemini-3.1-pro-preview` | Google Gemini reasoning |
 | `gemini-3.5-flash` | Fast Google Gemini responses |
+| `mai-code-1-flash` | Fast, adaptive coding tasks |
 
 You can also switch models during an interactive session using the `/model` slash command.
 

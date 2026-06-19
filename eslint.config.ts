@@ -231,17 +231,6 @@ export default [
     },
   },
 
-  // Legacy files with @typescript-eslint/no-explicit-any violations (see github/docs-engineering#5797)
-  {
-    files: [
-      'src/article-api/transformers/rest-transformer.ts',
-      'src/frame/components/context/MainContext.tsx',
-    ],
-    rules: {
-      '@typescript-eslint/no-explicit-any': 'off',
-    },
-  },
-
   // Ignored patterns
   // CodeQL scripts included because cocofix is install manually by the workflow
   {

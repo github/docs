@@ -3603,13 +3603,7 @@
           "description": "<p>Internal Error</p>"
         }
       ],
-      "previews": [],
-      "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
-        "fineGrainedPat": false,
-        "permissions": []
-      }
+      "previews": []
     },
     {
       "serverUrl": "https://api.github.com",
@@ -4187,13 +4181,7 @@
           "description": "<p>Internal Error</p>"
         }
       ],
-      "previews": [],
-      "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
-        "fineGrainedPat": false,
-        "permissions": []
-      }
+      "previews": []
     },
     {
       "serverUrl": "https://api.github.com",
@@ -4761,20 +4749,7 @@
           "description": "<p>Internal Error</p>"
         }
       ],
-      "previews": [],
-      "progAccess": {
-        "userToServerRest": true,
-        "serverToServer": true,
-        "fineGrainedPat": true,
-        "permissions": [
-          {
-            "\"GitHub Copilot Business\" organization permissions": "read"
-          },
-          {
-            "\"Administration\" organization permissions": "read"
-          }
-        ]
-      }
+      "previews": []
     },
     {
       "serverUrl": "https://api.github.com",
@@ -5352,20 +5327,7 @@
           "description": "<p>Internal Error</p>"
         }
       ],
-      "previews": [],
-      "progAccess": {
-        "userToServerRest": true,
-        "serverToServer": true,
-        "fineGrainedPat": true,
-        "permissions": [
-          {
-            "\"GitHub Copilot Business\" organization permissions": "read"
-          },
-          {
-            "\"Administration\" organization permissions": "read"
-          }
-        ]
-      }
+      "previews": []
     }
   ],
   "copilot-usage-metrics": [

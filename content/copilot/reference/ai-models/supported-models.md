@@ -34,6 +34,8 @@ For all of the default AI models, input prompts and output completions run throu
 
 This table lists the AI models available in {% data variables.product.prodname_copilot_short %}, along with their release status.
 
+{% data reusables.copilot.model-fable-disabled %}
+
 {% rowheaders %}
 
 | Model name                                             | Provider  | Release status             |
@@ -106,6 +108,8 @@ The following table lists AI models that are retired or scheduled for retirement
 ## Supported AI models per client
 
 The following table shows which models are available in each client.
+
+{% data reusables.copilot.model-fable-disabled %}
 
 {% rowheaders %}
 

@@ -1,20 +1,39 @@
 name: Purge Fastly
 
-# **What it does**: Sends a soft-purge to Fastly.
-# **Why we have it**: So that, right after a production deploy, we start afresh
-# **Who does it impact**: Writers and engineers.
+# **What it does**: Purges Fastly after a deploy and on demand. Soft purge by
+#   default; can hard purge specific languages, or hard purge the ENTIRE cache.
+# **Why we have it**: So that, right after a production deploy, we start afresh,
+#   and so docs engineering can clear a bad cache state without the Fastly UI.
+# **Who does it impact**: Writers and engineers. A full purge impacts all readers,
+#   origin sees a traffic spike while the cache refills, so it's gated below.
 
 on:
   deployment_status:
   workflow_dispatch:
     inputs:
       languages:
-        description: "Comma separated languages. E.g. 'en,es,ja,pt,zh,ru,fr,ko,de' (defaults to en)"
+        description: "Languages: Comma separated languages, e.g. 'en,es,ja,pt,zh,ru,fr,ko,de'. Blank = all languages."
         required: false
-        default: 'en' # Temporary, only purge English on deploy. Set to empty string for all
+        default: 'en'
+      hard:
+        description: 'Hard purge: Evict immediately instead of the default soft purge. Use when a soft purge fails to clear stale content.'
+        type: boolean
+        required: false
+        default: false
+      everything:
+        description: 'Everything: Hard-purge the entire Fastly cache... every key, all readers. Ignores the languages/hard inputs. To confirm, type exactly: "purge everything". Otherwise leave blank.'
+        required: false
+        default: ''
 
 permissions:
   contents: read
+
+# Serialize full-cache purges so two can't overlap and leave the cache in an
+# unknown state. Every other run (per-deploy, per-language) gets a unique group
+# so those never block each other.
+concurrency:
+  group: ${{ (inputs.everything == 'purge everything' && 'purge-fastly-all') || format('purge-fastly-{0}', github.run_id) }}
+  cancel-in-progress: false
 
 env:
   FASTLY_TOKEN: ${{ secrets.FASTLY_TOKEN }}
@@ -22,8 +41,10 @@ env:
 
 jobs:
   send-purges:
-    # Run when workflow_dispatch is the event (manual) or when deployment_status is the event (automatic) and it's a successful production deploy.
-    # NOTE: This workflow triggers on all deployment_status events (including staging), but only runs for production.
+    # Run when workflow_dispatch is the event
+    # or when deployment_status is the event and it's a successful production deploy.
+    # NOTE: This workflow triggers on all deployment_status events,
+    # including staging, but only runs for production.
     # Non-production deploys will show as "skipped" - this is expected behavior.
     if: >-
       ${{
@@ -38,52 +59,50 @@ jobs:
 
       - uses: ./.github/actions/node-npm-setup
 
-      - name: Wait for production to match build commit SHA
-        if: github.event_name != 'workflow_dispatch'
-        # A single /_build match only proves *one* Moda instance is serving the
-        # new build; others can still be mid-rollout. If we purge then, Fastly's
-        # soft purge serves stale-while-revalidate and may revalidate against a
-        # lagging instance, re-caching old content as fresh for a full TTL. So we
-        # require several consecutive matches to confirm the rollout has settled
-        # across instances before purging.
-        run: |
-          needs=$(git rev-parse HEAD)
-          start_time=$(date +%s)
-          timeout_seconds=1200
-          required_matches=5
-          interval_seconds=10
-          consecutive=0
-          while [[ $consecutive -lt $required_matches ]]
-          do
-            if [[ $(($(date +%s) - $start_time)) -gt $timeout_seconds ]]
-            then
-              echo "Production did not reach $required_matches consecutive build matches within $timeout_seconds seconds"
-              exit 1
-            fi
-            if [[ $needs == $(curl -s --fail --retry-connrefused --retry 5 https://docs.github.com/_build) ]]
-            then
-              consecutive=$((consecutive + 1))
-              echo "Production matches the build commit ($consecutive/$required_matches)"
-            else
-              if [[ $consecutive -gt 0 ]]
-              then
-                echo "Production stopped matching the build commit; resetting consecutive count"
-              else
-                echo "Production is not up to date with the build commit"
-              fi
-              consecutive=0
-            fi
-            if [[ $consecutive -lt $required_matches ]]
-            then
-              sleep $interval_seconds
-            fi
-          done
-          echo "Production is up to date with the build commit ($required_matches consecutive matches)"
-
-      - name: Purge Fastly edge cache per language
+      - name: Validate confirmation input
+        # A full-cache purge only triggers on the exact string "purge everything".
+        # Any other non-empty value (e.g. a typo) would otherwise be silently
+        # ignored and fall through to a normal soft purge that finishes green, so
+        # an operator could think they evicted the whole cache when they didn't.
+        # Fail loudly instead.
         env:
-          LANGUAGES: ${{ inputs.languages || 'en' }} # Temporary, only purge English on deploy. Set to empty string for all
-        run: npm run purge-fastly-edge-cache-per-language
+          EVERYTHING_INPUT: ${{ inputs.everything }}
+        run: |
+          if [ -n "$EVERYTHING_INPUT" ] && [ "$EVERYTHING_INPUT" != "purge everything" ]; then
+            echo "::error::To purge the entire cache, the 'everything' input must be exactly 'purge everything'. Got: '$EVERYTHING_INPUT'. Leave it blank for a normal purge."
+            exit 1
+          fi
+
+      - name: Purge Fastly
+        # Auto post-deploy runs wait for the build, purge English only (temporary),
+        # and stay soft. A manual run uses the inputs: blank languages = all, the
+        # `hard` toggle, or a confirmed full-cache purge.
+        #
+        # Raw inputs are passed through the environment and quoted, never spliced
+        # into the command string, so a value like `en' --everything` can't break
+        # out of its argument and inject another flag.
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          LANGUAGES_INPUT: ${{ inputs.languages }}
+          HARD_INPUT: ${{ inputs.hard }}
+          EVERYTHING_INPUT: ${{ inputs.everything }}
+        run: |
+          args=()
+          if [ "$EVENT_NAME" != "workflow_dispatch" ]; then
+            args+=(--wait-for-build)
+          fi
+          if [ "$EVENT_NAME" = "deployment_status" ]; then
+            args+=(--languages en)
+          elif [ -n "$LANGUAGES_INPUT" ]; then
+            args+=(--languages "$LANGUAGES_INPUT")
+          fi
+          if [ "$HARD_INPUT" = "true" ]; then
+            args+=(--hard)
+          fi
+          if [ "$EVERYTHING_INPUT" = "purge everything" ]; then
+            args+=(--everything)
+          fi
+          npm run purge-fastly -- "${args[@]}"
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
