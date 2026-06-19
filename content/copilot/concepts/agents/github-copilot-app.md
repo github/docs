@@ -2,7 +2,7 @@
 title: About the GitHub Copilot app
 shortTitle: GitHub Copilot app
 intro: 'The {% data variables.copilot.github_copilot_app %} is a desktop application for agent-driven development that brings parallel workstreams, {% data variables.product.github %} integration, and PR lifecycle management into one place.'
-product: '{% data reusables.gated-features.github-app %}'
+product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_source=docs-about-app-signup&utm_medium=docs&utm_campaign=github-copilot-app-ga-2026" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 contentType: concepts
@@ -12,16 +12,17 @@ category:
   - Learn about Copilot
 ---
 
-> [!NOTE] The {% data variables.copilot.github_copilot_app %} is in {% data variables.release-phases.technical_preview %} and subject to change.
->
-> * **Existing {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}, {% data variables.copilot.copilot_pro_short %}, and {% data variables.copilot.copilot_pro_plus_short %} users** — Download and install from the [{% data variables.copilot.github_copilot_app %} repository](https://gh.io/github-copilot-app-repo?utm_source=docs-about-github-copilot-app-repo&utm_medium=docs&utm_campaign=msbuild-2026). For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, your organization or enterprise must enable preview features and {% data variables.copilot.copilot_cli_short %}.
-> * **{% data variables.copilot.copilot_free_short %} users and users without a {% data variables.product.prodname_copilot_short %} plan** do not currently have access to the {% data variables.copilot.github_copilot_app %}. Access is expected to expand over time.
+Install the app from the [download page for {% data variables.copilot.github_copilot_app %}](https://gh.io/app?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-about-app-download&utm_medium=docs&utm_campaign=github-copilot-app-ga-2026).
 
 ## Introduction
 
 The {% data variables.copilot.github_copilot_app %} is a desktop application purpose-built for agent-driven development. It gives you a single place to direct AI agents across parallel workstreams, work with {% data variables.product.github %} issues and pull requests, and manage the full development lifecycle—without context-switching between terminals, IDEs, and browser tabs.
 
 The app is built on {% data variables.copilot.copilot_cli %} and integrates natively with {% data variables.product.github %}, so your repositories, branches, and CI pipelines work out of the box. It's designed for workflows where you want to run multiple agents in parallel and stay focused on directing work rather than doing it all yourself.
+
+## Availability
+
+{% data reusables.gated-features.github-app %} {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} users must have the {% data variables.copilot.copilot_cli_short %} policy enabled by an administrator.
 
 ## Supported operating systems
 
@@ -62,9 +63,21 @@ A typical workflow in the {% data variables.copilot.github_copilot_app %} looks 
 
 You can run several of these workflows in parallel, each in its own workspace, and switch between them as needed.
 
+## Optimizing AI usage in the {% data variables.copilot.github_copilot_app %}
+
+Follow these practices to use {% data variables.product.prodname_ai_credits_short %} more efficiently in the app:
+
+* **Match model capability to task complexity.** Use lighter models for straightforward changes and higher-capability models for complex debugging, design decisions, and multi-step tasks.
+* **Choose the right session mode for the stage of work.** Use **Plan** mode to validate scope and approach, use **Interactive** mode when you want tighter steering, and move to **Autopilot** when the task is well-defined.
+* **Use quick chats to scope before opening a full session.** For early exploration, use **Quick chats** to clarify requirements and reduce rework before creating a dedicated session.
+* **Start a new session when you switch tasks.** A new session keeps context focused and avoids carrying irrelevant history into unrelated work.
+* **Use usage insights regularly.** Run `/chronicle cost tips` to find expensive patterns in your session usage and improve efficiency over time.
+
+For more detailed optimization tips, see [AUTOTITLE](/copilot/tutorials/optimize-ai-usage).
+
 ## Providing feedback
 
-The {% data variables.copilot.github_copilot_app %} is in {% data variables.release-phases.technical_preview %}. To share feedback, click the **Give feedback** icon in the bottom-left corner of the app.
+To share feedback, click the **Give feedback** icon in the bottom-left corner of the app.
 
 ## Public code
 

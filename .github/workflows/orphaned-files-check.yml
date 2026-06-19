@@ -1,6 +1,6 @@
 name: 'Orphaned files check'
 
-# **What it does**: Checks that there are no files in ./assets/ and ./data/reusables that aren't mentioned in any source file.
+# **What it does**: Checks that there are no files in ./assets/, ./data/reusables, or ./data/tables that aren't mentioned in any source file.
 # **Why we have it**: To avoid orphans into the repo.
 # **Who does it impact**: Docs content.
 
@@ -16,6 +16,7 @@ on:
       - 'package*.json'
       - src/assets/scripts/find-orphaned-assets.ts
       - src/content-render/scripts/reusables-cli/find/unused.ts
+      - src/data-directory/scripts/find-orphaned-tables.ts
       - src/workflows/walk-files.ts
       - src/languages/lib/languages.ts
       - .github/actions/clone-translations/action.yml
@@ -67,13 +68,17 @@ jobs:
           # information about the npm script alias.
           assetFilesToRemove=$(npm run -s find-orphaned-assets)
           reusableFilesToRemove=$(npm run -s reusables -- find unused | grep '^data/reusables' || true)
-          [ -z "$assetFilesToRemove" ] && [ -z "$reusableFilesToRemove" ] && exit 0
+          tableFilesToRemove=$(npm run -s find-orphaned-tables)
+          [ -z "$assetFilesToRemove" ] && [ -z "$reusableFilesToRemove" ] && [ -z "$tableFilesToRemove" ] && exit 0
 
           if [ -n "$assetFilesToRemove" ]; then
             echo $assetFilesToRemove | xargs git rm
           fi
           if [ -n "$reusableFilesToRemove" ]; then
             echo $reusableFilesToRemove | xargs git rm
+          fi
+          if [ -n "$tableFilesToRemove" ]; then
+            echo $tableFilesToRemove | xargs git rm
           fi
 
           git status
@@ -100,11 +105,11 @@ jobs:
           git push origin $branchname
 
           body=$(cat <<-EOM
-            Found with the `npm run find-orphaned-assets` and `npm run -s reusables -- find unused` scripts.
+            Found with the `npm run find-orphaned-assets`, `npm run -s reusables -- find unused`, and `npm run find-orphaned-tables` scripts.
 
             The orphaned files workflow file .github/workflows/orphaned-files-check.yml runs every Monday at 16:20 UTC / 8:20 PST.
 
-            If you are the first responder, please spot check some of the unused assets to make sure they aren't referenced anywhere. Then, approve and merge the pull request.
+            If you are the first responder, please spot check some of the unused assets, reusables, and tables to make sure they aren't referenced anywhere. Then, approve and merge the pull request.
 
             For more information, see [Doc: Orphaned Assets](https://github.com/github/docs-engineering/blob/main/docs/orphaned-assets.md) and [Doc: Reusables CLI](https://github.com/github/docs-internal/tree/main/src/content-render/scripts/reusables-cli).
 

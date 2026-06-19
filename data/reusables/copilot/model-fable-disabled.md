@@ -1,1 +1,1 @@
-> [!NOTE] Claude Fable 5 is currently unavailable. For more information, see [Anthropic's announcement](https://www.anthropic.com/news/fable-mythos-access).
+> [!NOTE] {% data variables.copilot.copilot_claude_fable_5 %} is currently unavailable. For more information, see [Anthropic's announcement](https://www.anthropic.com/news/fable-mythos-access).

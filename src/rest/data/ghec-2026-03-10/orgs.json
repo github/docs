@@ -6093,9 +6093,6 @@
         "fineGrainedPat": true,
         "permissions": [
           {
-            "\"Contents\" repository permissions": "write"
-          },
-          {
             "\"Artifact metadata\" repository permissions": "write"
           }
         ]
@@ -6355,9 +6352,6 @@
         "fineGrainedPat": true,
         "permissions": [
           {
-            "\"Contents\" repository permissions": "write"
-          },
-          {
             "\"Artifact metadata\" repository permissions": "write"
           }
         ]
@@ -6558,9 +6552,6 @@
         "fineGrainedPat": true,
         "permissions": [
           {
-            "\"Contents\" repository permissions": "write"
-          },
-          {
             "\"Artifact metadata\" repository permissions": "write"
           }
         ]
@@ -6715,9 +6706,6 @@
         "fineGrainedPat": true,
         "permissions": [
           {
-            "\"Contents\" repository permissions": "read"
-          },
-          {
             "\"Artifact metadata\" repository permissions": "read"
           }
         ]
@@ -6839,9 +6827,6 @@
         "serverToServer": true,
         "fineGrainedPat": true,
         "permissions": [
-          {
-            "\"Contents\" repository permissions": "read"
-          },
           {
             "\"Artifact metadata\" repository permissions": "read"
           }

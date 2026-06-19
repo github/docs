@@ -1133,17 +1133,6 @@
         "additional-permissions": true
       },
       {
-        "category": "copilot",
-        "slug": "get-copilot-metrics-for-an-organization",
-        "subcategory": "copilot-metrics",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/copilot/metrics",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
         "category": "dependabot",
         "slug": "lists-the-repositories-dependabot-can-access-in-an-organization",
         "subcategory": "repository-access",
@@ -1447,17 +1436,6 @@
         "verb": "delete",
         "requestPath": "/orgs/{org}/settings/immutable-releases/repositories/{repository_id}",
         "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "copilot",
-        "slug": "get-copilot-metrics-for-a-team",
-        "subcategory": "copilot-metrics",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics",
-        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": true
@@ -2256,32 +2234,10 @@
       },
       {
         "category": "copilot",
-        "slug": "get-copilot-metrics-for-an-organization",
-        "subcategory": "copilot-metrics",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/copilot/metrics",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "copilot",
         "slug": "get-copilot-seat-assignment-details-for-a-user",
         "subcategory": "copilot-user-management",
         "verb": "get",
         "requestPath": "/orgs/{org}/members/{username}/copilot",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "copilot",
-        "slug": "get-copilot-metrics-for-a-team",
-        "subcategory": "copilot-metrics",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -6669,7 +6625,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "orgs",
@@ -6680,7 +6636,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "orgs",
@@ -6691,7 +6647,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "orgs",
@@ -6702,7 +6658,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "orgs",
@@ -6713,7 +6669,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       }
     ]
   },
@@ -7472,61 +7428,6 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
-      },
-      {
-        "category": "orgs",
-        "slug": "create-an-artifact-deployment-record",
-        "subcategory": "artifact-metadata",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "orgs",
-        "slug": "set-cluster-deployment-records",
-        "subcategory": "artifact-metadata",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "orgs",
-        "slug": "create-artifact-metadata-storage-record",
-        "subcategory": "artifact-metadata",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/artifacts/metadata/storage-record",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "orgs",
-        "slug": "list-artifact-deployment-records",
-        "subcategory": "artifact-metadata",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/artifacts/{subject_digest}/metadata/deployment-records",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "orgs",
-        "slug": "list-artifact-storage-records",
-        "subcategory": "artifact-metadata",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/artifacts/{subject_digest}/metadata/storage-records",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
       },
       {
         "category": "repos",
@@ -9573,6 +9474,17 @@
         "subcategory": "repos",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/hash-algorithm",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "repos",
+        "slug": "list-issue-types-for-a-repository",
+        "subcategory": "issue-types",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issue-types",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,

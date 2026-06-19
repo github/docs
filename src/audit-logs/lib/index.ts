@@ -12,6 +12,8 @@ import type {
   RawAuditLogEventT,
   CategoryNotes,
   AuditLogConfig,
+  DeduplicatedAuditLogEntry,
+  AuditLogVersionIndex,
 } from '../types'
 import config from './config.json'
 
@@ -20,6 +22,86 @@ export const AUDIT_LOG_DATA_DIR = 'src/audit-logs/data'
 // cache of audit log data
 const auditLogEventsCache = new Map<string, Map<string, AuditLogEventT[]>>()
 const categorizedAuditLogEventsCache = new Map<string, Map<string, CategorizedEvents>>()
+
+// Shared dedup data — loaded once, shared across all versions
+let sharedEntries: DeduplicatedAuditLogEntry[] | null = null
+let sharedFieldsPool: string[][] | null = null
+let sharedVersionIndex: AuditLogVersionIndex | null = null
+let sharedFormatAvailable: boolean | null = null // null = not checked yet
+
+// A missing shared-format file is expected (per-version files are the fallback),
+// but a corrupt or unparseable file should fail loudly rather than silently
+// degrade to the per-version files and hide bad generated data.
+function isFileNotFoundError(err: unknown): boolean {
+  if (!(err instanceof Error) || !('code' in err)) return false
+  const code = (err as NodeJS.ErrnoException).code
+  return code === 'ENOENT' || code === 'ENOTDIR'
+}
+
+function loadSharedFormat(): boolean {
+  if (sharedFormatAvailable !== null) return sharedFormatAvailable
+  try {
+    sharedEntries = readCompressedJsonFileFallback(
+      path.join(AUDIT_LOG_DATA_DIR, 'shared', 'entries.json'),
+    ) as DeduplicatedAuditLogEntry[]
+    sharedFieldsPool = readCompressedJsonFileFallback(
+      path.join(AUDIT_LOG_DATA_DIR, 'shared', 'fields-pool.json'),
+    ) as string[][]
+    sharedVersionIndex = readCompressedJsonFileFallback(
+      path.join(AUDIT_LOG_DATA_DIR, 'version-index.json'),
+    ) as AuditLogVersionIndex
+    // Freeze pool data so reconstructed events (which return references into
+    // these pools) can't be mutated by downstream code and leak across versions.
+    Object.freeze(sharedEntries)
+    Object.freeze(sharedFieldsPool)
+    for (const fields of sharedFieldsPool) Object.freeze(fields)
+    sharedFormatAvailable = true
+  } catch (err) {
+    if (isFileNotFoundError(err)) {
+      // Shared files don't exist — fall back to per-version files silently.
+      sharedFormatAvailable = false
+    } else {
+      // Corrupt JSON, schema mismatch, etc. — surface this instead of hiding it.
+      console.error('Failed to load shared audit log dedup format (corrupt data?):', err)
+      throw err
+    }
+  }
+  return sharedFormatAvailable
+}
+
+function reconstructEventsFromSharedFormat(version: string, page: string): AuditLogEventT[] | null {
+  if (!loadSharedFormat()) return null
+  const indices = sharedVersionIndex?.[version]?.[page]
+  if (!indices) return null
+
+  return indices.map((idx) => {
+    if (idx < 0 || idx >= sharedEntries!.length) {
+      throw new RangeError(
+        `Audit log version-index references entry ${idx} for ${version}/${page}, ` +
+          `but the entries pool only has ${sharedEntries!.length} entries. ` +
+          `The shared dedup data may be stale or corrupt.`,
+      )
+    }
+    const entry = sharedEntries![idx]
+    const event: AuditLogEventT = {
+      action: entry.action,
+      description: entry.description,
+    }
+    if (entry.docs_reference_links) event.docs_reference_links = entry.docs_reference_links
+    if (entry.docs_reference_titles) event.docs_reference_titles = entry.docs_reference_titles
+    if (entry.fieldsIndex !== undefined) {
+      if (entry.fieldsIndex < 0 || entry.fieldsIndex >= sharedFieldsPool!.length) {
+        throw new RangeError(
+          `Audit log entry references fields index ${entry.fieldsIndex} for ${version}/${page}, ` +
+            `but the fields pool only has ${sharedFieldsPool!.length} entries. ` +
+            `The shared dedup data may be stale or corrupt.`,
+        )
+      }
+      event.fields = sharedFieldsPool![entry.fieldsIndex]
+    }
+    return event
+  })
+}
 
 type PipelineConfig = {
   sha: string
@@ -37,15 +119,34 @@ export type TitleResolutionContext = Context & {
   redirects: Record<string, string>
 }
 
+// Memoizes resolved reference links by their input string. The resolved markdown
+// only depends on the link string plus the pages/redirects indexes, and those
+// indexes are process-wide singletons that only change on deploy (a fresh
+// process). Without this, the audit-log pages re-render ~500 page titles on every
+// request (~90–150ms of repeated work). See docs-engineering#6650.
+const referenceLinksMarkdownCache = new Map<string, Promise<string>>()
+
 // Resolves docs_reference_links URLs to markdown links
-export async function resolveReferenceLinksToMarkdown(
+export function resolveReferenceLinksToMarkdown(
   docsReferenceLinks: string,
   context: TitleResolutionContext,
 ): Promise<string> {
   if (!docsReferenceLinks || docsReferenceLinks === 'N/A') {
-    return ''
+    return Promise.resolve('')
   }
 
+  let cached = referenceLinksMarkdownCache.get(docsReferenceLinks)
+  if (!cached) {
+    cached = computeReferenceLinksToMarkdown(docsReferenceLinks, context)
+    referenceLinksMarkdownCache.set(docsReferenceLinks, cached)
+  }
+  return cached
+}
+
+async function computeReferenceLinksToMarkdown(
+  docsReferenceLinks: string,
+  context: TitleResolutionContext,
+): Promise<string> {
   // Handle multiple comma-separated or space-separated links
   const links = docsReferenceLinks
     .split(/[,\s]+/)
@@ -150,21 +251,24 @@ async function resolveReferenceLinksToTitles(
 // ]
 export function getAuditLogEvents(page: string, version: string): AuditLogEventT[] {
   const openApiVersion = getOpenApiVersion(version)
-  const auditLogFileName = path.join(AUDIT_LOG_DATA_DIR, openApiVersion, `${page}.json`)
 
   // If the data isn't cached for an entire version or a particular page, read
-  // the data from the JSON file the first time around
+  // the data from the shared dedup format or fall back to per-version JSON files
   if (!auditLogEventsCache.has(openApiVersion)) {
     auditLogEventsCache.set(openApiVersion, new Map())
-    auditLogEventsCache.get(openApiVersion)?.set(page, [])
-    auditLogEventsCache
-      .get(openApiVersion)
-      ?.set(page, readCompressedJsonFileFallback(auditLogFileName) as AuditLogEventT[])
-  } else if (!auditLogEventsCache.get(openApiVersion)?.has(page)) {
-    auditLogEventsCache.get(openApiVersion)?.set(page, [])
-    auditLogEventsCache
-      .get(openApiVersion)
-      ?.set(page, readCompressedJsonFileFallback(auditLogFileName) as AuditLogEventT[])
+  }
+  if (!auditLogEventsCache.get(openApiVersion)?.has(page)) {
+    // Try shared deduplicated format first
+    const events = reconstructEventsFromSharedFormat(openApiVersion, page)
+    if (events) {
+      auditLogEventsCache.get(openApiVersion)?.set(page, events)
+    } else {
+      // Fall back to per-version JSON file
+      const auditLogFileName = path.join(AUDIT_LOG_DATA_DIR, openApiVersion, `${page}.json`)
+      auditLogEventsCache
+        .get(openApiVersion)
+        ?.set(page, readCompressedJsonFileFallback(auditLogFileName) as AuditLogEventT[])
+    }
   }
 
   const auditLogEvents = auditLogEventsCache.get(openApiVersion)?.get(page)

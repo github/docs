@@ -30,7 +30,7 @@ Users must upgrade to a supported client version for these standards to be appli
 
 ## How plugin standards work
 
-Enterprise plugin standards use a configuration file stored in your enterprise's `.github-private` repository. The configuration is defined in a `{% data variables.copilot.managed_setting_file %}` file at the following path: `.github/copilot/{% data variables.copilot.managed_setting_file %}`. This file was previously called `settings.json`, which is still supported.
+Enterprise plugin standards use a configuration file stored in your enterprise's `.github-private` repository. The configuration is defined in a `{% data variables.copilot.managed_setting_file %}` file at the following path: `copilot/{% data variables.copilot.managed_setting_file %}`. The legacy file path of `.github/copilot/settings.json` is also supported.
 
 For plugin standards, the file can define:
 

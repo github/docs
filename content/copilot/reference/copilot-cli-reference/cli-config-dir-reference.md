@@ -26,6 +26,7 @@ The `~/.copilot` directory contains the following top-level items.
 | `agents/` | Directory | Personal custom agent definitions |
 | `config.json` | File | Automatically managed application state (authentication, installed plugins, and other internal data) |
 | `copilot-instructions.md` | File | Personal custom instructions (applied to all sessions) |
+| `extensions/` | Directory | Personal extensions loaded by the CLI |
 | `hooks/` | Directory | User-level hook scripts |
 | `ide/` | Directory | IDE integration state |
 | `installed-plugins/` | Directory | Installed plugin files |
@@ -33,6 +34,8 @@ The `~/.copilot` directory contains the following top-level items.
 | `logs/` | Directory | Session log files |
 | `lsp-config.json` | File | User-level LSP server definitions |
 | `mcp-config.json` | File | User-level MCP server definitions |
+| `mcp-oauth-config/` | Directory | MCP OAuth token and registration fallback storage |
+| `mcp-secrets/` | Directory | Local fallback storage and index for MCP secret placeholders |
 | `permissions-config.json` | File | Saved tool and directory permissions per project |
 | `plugin-data/` | Directory | Persistent data for installed plugins |
 | `session-state/` | Directory | Session history and workspace data |
@@ -100,6 +103,12 @@ Store user-level hook scripts here. These hooks apply to all your sessions. You 
 
 For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/use-hooks).
 
+### `extensions/`
+
+Store user-level extension files here. Extensions in this directory are available across sessions.
+
+You can create files in this directory manually, or scaffold an extension and then edit the generated file.
+
 ## Automatically managed files
 
 The following items are managed by the CLI. You generally should not edit them manually.
@@ -138,6 +147,10 @@ If you delete this file, you can rebuild it using the `/chronicle reindex` comma
 
 Contains log files for CLI sessions. Each session creates a log file named `process-{timestamp}-{pid}.log`. These files are useful for debugging issues.
 
+The CLI may also create extension-specific logs under `logs/extensions/`.
+
+This is separate from `~/.copilot/extensions/`, which stores user-authored extension code.
+
 > [!TIP]
 > To find the log file for your current session, enter `/session` in an interactive session. The output includes the full path to the log file, along with other session details such as the session ID, duration, and working directory.
 
@@ -154,6 +167,14 @@ Contains persistent data for installed plugins, organized by marketplace and plu
 ### `ide/`
 
 Contains lock files and state for IDE integrations (for example, when {% data variables.copilot.copilot_cli_short %} connects to {% data variables.product.prodname_vscode %}). This directory is automatically managed.
+
+### `mcp-oauth-config/`
+
+Contains MCP OAuth token, registration, and PKCE fallback files when keychain-backed storage is unavailable. This directory is automatically managed.
+
+### `mcp-secrets/`
+
+Contains fallback file storage and an index for MCP secret placeholders when keychain-backed storage is unavailable. This directory is automatically managed.
 
 ## Changing the location of the configuration directory
 
@@ -181,10 +202,13 @@ To override the default `~/.copilot` location, set the `COPILOT_HOME` environmen
 | `agents/`, `skills/`, `hooks/` | Not recommended | You will lose your personal customizations. Back up first. |
 | `config.json` | With caution | Resets application state including authentication. You will need to re-authenticate and the CLI will re-detect internal state on next launch. |
 | `copilot-instructions.md`, `instructions/` | Not recommended | You will lose your personal custom instructions. Back up first. |
+| `extensions/` | Not recommended | You will lose your personal extensions. Back up first. |
 | `installed-plugins/` | Not recommended | Use `copilot plugin uninstall` instead, to ensure plugin metadata in `config.json` remains accurate. |
 | `logs/` | Yes | Log files are re-created each session. Deleting them has no functional impact. |
 | `lsp-config.json` | Not recommended | You will lose your user-level LSP server definitions. Back up first. |
 | `mcp-config.json` | Not recommended | You will lose your user-level MCP server definitions. Back up first. |
+| `mcp-oauth-config/` | With caution | Clears local MCP OAuth fallback state. You may need to re-authenticate MCP servers. |
+| `mcp-secrets/` | With caution | Clears local MCP secret fallback state and mappings. Secret-backed MCP servers may need reconfiguration. |
 | `permissions-config.json` | With caution | Resets all saved permissions. The CLI will prompt you again for tool and directory approvals. |
 | `plugin-data/` | Yes | Plugin persistent data is re-created as needed. |
 | `session-state/` | With caution | Deleting removes session history. You will no longer be able to resume past sessions. |
@@ -202,6 +226,8 @@ Settings cascade from user to repository to local, with more specific scopes ove
 | Repository | `.github/copilot/settings.json` | Shared repository configuration (committed to the repository). |
 | Local | `.github/copilot/settings.local.json` | Personal overrides (add this to `.gitignore`). |
 
+The CLI also reads `.claude/settings.json` and `.claude/settings.local.json` for the shared cross-tool subset of repository settings (such as `companyAnnouncements`, `disableAllHooks`, `enabledPlugins`, `extraKnownMarketplaces`, and `hooks`).
+
 ### User settings (`~/.copilot/settings.json`)
 
 These settings apply across all your sessions and repositories. You can use the `/settings` slash command to run an interactive dialog, or use specific slash commands to update individual values, or edit this file directly.
@@ -215,9 +241,10 @@ These settings apply across all your sessions and repositories. You can use the 
 | `banner` | `"always"` \| `"once"` \| `"never"` | `"once"` | Animated banner display frequency. |
 | `bashEnv` | `boolean` | `false` | Enable `BASH_ENV` support for bash shells. Can also be set with `--bash-env` or `--no-bash-env`. |
 | `beep` | `boolean` | `true` | Play an audible beep when attention is required. |
+| `beepOnSchedule` | `boolean` | `true` | Play an audible beep when a scheduled `/every` or `/after` run finishes. |
 | `builtInAgents.rubberDuck` | `boolean` | `true` | Enable the rubber-duck subagent that provides adversarial feedback on agent plans. |
 | `builtInAgents.rubberDuckAutoInvoke` | `boolean` | `false` | Include proactive prompting for automatic rubber-duck invocation. Set to `true` to opt into additional rubber-duck nudges during agent turns. |
-| `colorMode` | `"default"` \| `"dim"` \| `"high-contrast"` \| `"colorblind"` | `"default"` | Color contrast mode. Managed by the `/theme` slash command. |
+| `colorMode` | `"default"` \| `"github"` \| `"dim"` \| `"high-contrast"` \| `"colorblind"` | `"default"` | Color contrast mode. Managed by the `/settings` and `/theme` slash commands. |
 | `compactPaste` | `boolean` | `true` | Collapse large pastes (more than 10 lines) into compact tokens. |
 | `companyAnnouncements` | `string[]` | `[]` | Custom messages shown randomly on startup. One message is randomly selected each time the CLI starts. Useful for team announcements or reminders. |
 | `continueOnAutoMode` | `boolean` | `false` | Automatically switch to auto mode when rate-limited. When `true`, eligible rate limit errors trigger an automatic switch to auto mode and retry. Does not apply to global rate limits or BYOK providers. |
@@ -232,7 +259,7 @@ These settings apply across all your sessions and repositories. You can use the 
 | `enabledPlugins` | `Record<string, boolean>` | `{}` | Declarative plugin auto-install. Keys are plugin specs; values are `true` (enabled) or `false` (disabled). |
 | `experimental` | `boolean` | `false` | Enable experimental features. Can also be enabled with the `--experimental` command-line option or the `/experimental` slash command. |
 | `extraKnownMarketplaces` | `Record<string, {...}>` | `{}` | Additional plugin marketplaces. Each key is a marketplace name; the value specifies the source (`"directory"`, `"git"`, or `"github"`). |
-| `footer` | `object` | — | Controls which items appear in the status line. Sub-keys: `showModelEffort`, `showDirectory`, `showBranch`, `showContextWindow`, `showQuota`, `showAgent` (all `boolean`). Managed by the `/statusline` slash command. |
+| `footer` | `object` | — | Controls which items appear in the status line. Sub-keys include `showModelEffort`, `showDirectory`, `showBranch`, `showContextWindow`, `showQuota`, `showAgent`, `showAiUsed`, `showCodeChanges`, `showUsername`, `showSandbox`, `showYolo`, and `showCustom` (all `boolean`). Managed by the `/statusline` slash command. |
 | `hooks` | `object` | — | Inline user-level hook definitions, keyed by event name. Uses the same schema as `.github/hooks/*.json` files. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/use-hooks). |
 | `ide.autoConnect` | `boolean` | `true` | Automatically connect to an IDE workspace on startup. When `false`, you can still connect manually using the `/ide` command. |
 | `ide.openDiffOnEdit` | `boolean` | `true` | Open file edit diffs in the connected IDE for approval. When `false`, file edit approvals are shown only in the terminal. |
@@ -255,6 +282,8 @@ These settings apply across all your sessions and repositories. You can use the 
 | `storeTokenPlaintext` | `boolean` | `false` | Allow authentication tokens to be stored in plain text in `config.json` when no system keychain is available. |
 | `stream` | `boolean` | `true` | Enable streaming responses. |
 | `streamerMode` | `boolean` | `false` | Hide preview model names and quota details. Useful when demonstrating {% data variables.copilot.copilot_cli_short %} or screen sharing. |
+| `subagents.agents` | `object` | `{}` | Per-agent model configuration, keyed by agent name. Each value is an object with optional `model` (string), `effortLevel` (string), and `contextTier` (`"default"`, `"long_context"`, or `"inherit"`) fields. Set any field to `"inherit"` to use the parent session's value at dispatch time. Use the `/subagents` slash command to configure these settings interactively. |
+| `subagents.disabledSubagents` | `string[]` | `[]` | Agent names to prevent from being dispatched. The `explore`, `task`, and `rubber-duck` agents cannot be disabled. |
 | `tabs.enabled` | `boolean` | `true` | Show the home tab bar. Set to `false` to hide it entirely. |
 | `tabs.hide` | `string[]` | `[]` | Tab identifiers to hide. Accepted values: `"copilot"`, `"agents"`, `"issues"`, `"pull-requests"`, `"gists"` (matched case-insensitively). |
 | `tabs.sort` | `string[]` | `[]` | Order in which tabs are displayed. Tabs not listed keep their default relative order after the listed ones. Unknown identifiers are ignored. |

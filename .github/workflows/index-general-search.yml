@@ -231,8 +231,7 @@ jobs:
         env:
           FASTLY_TOKEN: ${{ secrets.FASTLY_TOKEN }}
           FASTLY_SERVICE_ID: ${{ secrets.FASTLY_SERVICE_ID }}
-          FASTLY_SURROGATE_KEY: api-search:${{ matrix.language }}
-        run: npm run purge-fastly-edge-cache
+        run: npm run purge-fastly -- --surrogate-key api-search:${{ matrix.language }}
 
       - name: Upload failures artifact
         if: ${{ steps.check-failures.outputs.has_failures == 'true' }}

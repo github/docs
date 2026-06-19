@@ -16,9 +16,6 @@ category:
   - Learn about Copilot
 ---
 
-> [!IMPORTANT]
-> * {% data reusables.copilot.plans.individual-plans-paused %}
-
 {% data variables.product.company_short %} offers multiple {% data variables.product.prodname_copilot_short %} plans for individual developers, as well as a dedicated student offering, each designed to meet different needs based on your coding habits, interest in AI models, and desired level of flexibility.
 
 You can choose from the following plans.
@@ -65,9 +62,7 @@ For developers who need maximum flexibility, premium access to available models,
 
 ## {% data variables.copilot.copilot_max %}
 
-> [!IMPORTANT] {% data reusables.copilot.plans.copilot-max-upgrade-only %}
-
-Designed for sustained, high-volume {% data variables.product.prodname_copilot_short %} users. 
+Designed for sustained, high-volume {% data variables.product.prodname_copilot_short %} users.
 
 * Everything in {% data variables.copilot.copilot_pro_plus_short %}, and:
 
@@ -107,11 +102,11 @@ For a detailed comparison of features and benefits, see [AUTOTITLE](/copilot/abo
 
 Consider the following to decide which plan is right for you:
 
-* **Just getting started?** Try {% data variables.copilot.copilot_free %} to explore basic functionality at no cost.
+* **Just getting started?** [Try {% data variables.copilot.copilot_free %}](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text&ref_plan=free) to explore basic functionality at no cost.
 * **Studying?** Choose {% data variables.copilot.copilot_student_short %} to access premium features at no cost.
-* **Coding regularly with AI?** Upgrade to {% data variables.copilot.copilot_pro %} for more flexibility and access to premium features.
-* **Want the best performance and premium model access?** Go with {% data variables.copilot.copilot_pro_plus %} to unlock everything {% data variables.product.prodname_copilot_short %} has to offer.
-* **Doing sustained high-volume {% data variables.product.prodname_copilot_short %} development?** {% data variables.copilot.copilot_max %} offers the highest monthly allowance of {% data variables.product.prodname_ai_credits_short %} for individual plans. 
+* **Coding regularly with AI?** [Subscribe to {% data variables.copilot.copilot_pro %}](https://github.com/github-copilot/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro) for more flexibility and access to premium features.
+* **Want the best performance and premium model access?** [Go with {% data variables.copilot.copilot_pro_plus %}](https://github.com/github-copilot/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro-plus) to unlock everything {% data variables.product.prodname_copilot_short %} has to offer.
+* **Doing sustained high-volume {% data variables.product.prodname_copilot_short %} development?** [Subscribe to {% data variables.copilot.copilot_max %}](https://github.com/github-copilot/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=max), which offers the highest monthly allowance of {% data variables.product.prodname_ai_credits_short %} for individual plans.
 
 To learn how to set up the plan that’s right for you, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/getting-started-with-a-copilot-plan).
 
