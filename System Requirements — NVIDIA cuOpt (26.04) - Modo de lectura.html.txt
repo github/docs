@@ -1,3 +1,5 @@
+
+
 System Requirements — NVIDIA cuOpt (26.04)
 Dependencies are installed automatically when using the pip and Conda installation methods. However, users would still need to make sure the system meets the minimum requirements.
 
@@ -97,7 +99,7 @@ The above configuration will provide optimal performance for large-scale optimiz
 Container#
 nvidia-container-toolkit needs to be installed
 
-Thin-client for Self-Hosted#
+Thin-client for Self-Hosted# @Edgarruiz8585
 OS: Linux
 
 System Architecture:
