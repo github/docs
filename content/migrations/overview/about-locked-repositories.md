@@ -35,6 +35,10 @@ While a migration is in progress, access to the destination repository is locked
 
 For information about how to unlock repositories that were locked by {% data variables.product.prodname_importer_proper_name %}, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#locked-repositories).
 
+## Repositories locked by {% data variables.product.prodname_elm %}
+
+{% data reusables.elm.locked-repo %}
+
 ## Repositories locked by the "Organization migrations" REST API
 
 When you call the [Start an organization migration](/rest/migrations/orgs#start-an-organization-migration) endpoint to generate a migration archive for a source repository, the repository is not locked by default. The repository is only locked if you set the `lock_repositories` parameter to `true`.

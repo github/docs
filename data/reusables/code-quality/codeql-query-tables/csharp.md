@@ -34,7 +34,6 @@
 | [Calls to unmanaged code](https://codeql.github.com/codeql-query-help/csharp/cs-call-to-unmanaged-code/) | Reliability | Recommendation |
 | [Cast of 'this' to a type parameter](https://codeql.github.com/codeql-query-help/csharp/cs-cast-of-this-to-type-parameter/) | Reliability | Recommendation |
 | [Character passed to StringBuilder constructor](https://codeql.github.com/codeql-query-help/csharp/cs-stringbuilder-initialized-with-character/) | Reliability | Error |
-| [Comparison is constant](https://codeql.github.com/codeql-query-help/csharp/cs-constant-comparison/) | Reliability | Warning |
 | [Comparison of identical values](https://codeql.github.com/codeql-query-help/csharp/cs-comparison-of-identical-expressions/) | Reliability | Warning |
 | [Container contents are never initialized](https://codeql.github.com/codeql-query-help/csharp/cs-empty-collection/) | Reliability | Error |
 | [Container size compared to zero](https://codeql.github.com/codeql-query-help/csharp/cs-test-for-negative-container-size/) | Reliability | Warning |

@@ -140,9 +140,9 @@ Prerequisites are information that people need to know before proceeding with a 
 * [AUTOTITLE](/enterprise-server@latest/admin/installation/installing-github-enterprise-server-on-aws)
 * [AUTOTITLE](/enterprise-server@latest/admin/configuration/enabling-subdomain-isolation)
 
-## Procedural content
+## How-to content
 
-Procedural content helps people complete tasks. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/procedural-content-type) in the content model.
+How-to content helps people complete tasks. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/how-to-content-type) in the content model.
 
 ## Troubleshooting content
 

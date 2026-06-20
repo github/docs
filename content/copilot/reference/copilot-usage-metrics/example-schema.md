@@ -249,3 +249,70 @@ The following are example schemas for the user-level and enterprise-level data r
   "entity_id_partition" : 2
 } ]
 ```
+
+The following user-teams report examples are returned by the `user-teams-1-day` endpoints and are intended to be joined with the per-user usage report on `user_id`, `day`, and the relevant entity id (`organization_id` for the organization scope, `enterprise_id` for the enterprise scope) to derive team-level metrics. For more guidance, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/team-level-metrics).
+
+> [!NOTE]
+> Teams with fewer than 5 seated {% data variables.product.prodname_copilot_short %} users are omitted from user-teams reports.
+
+## Organization user-teams schema example
+
+```json copy
+[
+  {
+    "user_id": 1001,
+    "user_login": "octocat",
+    "day": "2026-05-14",
+    "organization_id": "999",
+    "team_id": 42,
+    "slug": "frontend"
+  },
+  {
+    "user_id": 1001,
+    "user_login": "octocat",
+    "day": "2026-05-14",
+    "organization_id": "999",
+    "team_id": 43,
+    "slug": "backend"
+  },
+  {
+    "user_id": 1002,
+    "user_login": "hubot",
+    "day": "2026-05-14",
+    "organization_id": "999",
+    "team_id": 42,
+    "slug": "frontend"
+  }
+]
+```
+
+## Enterprise user-teams schema example
+
+```json copy
+[
+  {
+    "user_id": 1001,
+    "user_login": "octocat",
+    "day": "2026-05-14",
+    "enterprise_id": "1",
+    "team_id": 9001,
+    "slug": "eng-platform"
+  },
+  {
+    "user_id": 1001,
+    "user_login": "octocat",
+    "day": "2026-05-14",
+    "enterprise_id": "1",
+    "team_id": 7001,
+    "slug": "business-analytics"
+  },
+  {
+    "user_id": 1002,
+    "user_login": "hubot",
+    "day": "2026-05-14",
+    "enterprise_id": "1",
+    "team_id": 9001,
+    "slug": "eng-platform"
+  }
+]
+```

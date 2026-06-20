@@ -49,7 +49,3 @@ To view a record of agent activity, use the `actor:Copilot` search term. See [AU
 ## Retaining audit log history
 
 The audit log retains events for the last 180 days. We recommend streaming the audit log to a Security Information and Event Management (SIEM) platform, where you can view long-term history and set up alerts for anomalous activity. See [AUTOTITLE](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise).
-
-## Further reading
-
-* [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)

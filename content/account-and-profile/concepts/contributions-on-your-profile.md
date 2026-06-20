@@ -57,6 +57,6 @@ If you can't see certain events in your timeline, check to make sure you still h
 
 ## Next steps
 
-To learn the different ways to view your contributions, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile).
+To learn the different ways to view your contributions, see [AUTOTITLE](/account-and-profile/how-tos/contribution-settings/viewing-contributions-on-your-profile).
 
 To learn what counts as a contribution, see [AUTOTITLE](/account-and-profile/reference/why-are-my-contributions-not-showing-up-on-my-profile#what-counts-as-a-contribution)

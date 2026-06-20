@@ -47,6 +47,15 @@ Once an index has been created for a repository, it can be used by:
 
 > [!TIP] There is no limit to how many repositories you can index.
 
+## Semantic indexing for non-GitHub repositories
+
+{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode %} can use semantic indexing for workspace files from repositories hosted outside {% data variables.product.github %}, such as GitLab and local repositories.
+
+This feature is controlled by policy and is disabled by default. For organizations and enterprises with {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}, an enterprise owner or organization owner must explicitly set the `Semantic indexing for non-GitHub repositories` policy to **Enabled** before members can use it. If the policy remains **Unconfigured**, the feature stays unavailable. See:
+
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies)
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies)
+
 ## Excluding content from {% data variables.copilot.copilot_chat_short %} answers
 
 Enterprise or organization owners with a {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} plan can define content exclusions to control the behavior of {% data variables.product.prodname_copilot %} for the {% data variables.product.prodname_copilot_short %} seats they manage. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/excluding-content-from-github-copilot).

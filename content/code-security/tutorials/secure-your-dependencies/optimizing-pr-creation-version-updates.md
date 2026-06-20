@@ -60,7 +60,7 @@ See also [schedule](/code-security/dependabot/working-with-dependabot/dependabot
 
 ### Setting up a cooldown period for dependency updates
 
-You can use  `cooldown` with a combination of options to control when {% data variables.product.prodname_dependabot %} creates pull requests for **version updates**.
+You can use  `cooldown` with a combination of options to control when {% data variables.product.prodname_dependabot %} creates pull requests for **version updates**, but not **security updates**.
 
 The example `dependabot.yml` file below shows a cooldown period being applied to the dependencies `requests`, `numpy`, and those prefixed with `pandas` or `django`, but not to the dependency called `pandas` (exact match), which is excluded via the **exclude** list.
 

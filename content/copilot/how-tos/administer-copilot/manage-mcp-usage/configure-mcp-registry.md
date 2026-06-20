@@ -41,9 +41,9 @@ For more details and example JSON responses to requests, see the [Official MCP R
 
 #### Support for the v0.1 specification
 
-While the MCP registry launched using the v0 specification, that version is now considered unstable and should not be implemented. Instead, create your registry according to the v0.1 specification, which is supported in the following IDEs:
+While the MCP registry launched using the v0 specification, that version is now considered unstable and should not be implemented. Instead, create your registry according to the v0.1 specification, which is supported in the following surfaces:
 
-| IDE           | v0.1 support |
+| Surface       | v0.1 support |
 | ---------------------- | ----------------- |
 | {% data variables.product.prodname_vscode_shortname %} Insiders | {% octicon "check" aria-label="Supported" %}  |
 | {% data variables.product.prodname_vscode_shortname %}   | {% octicon "check" aria-label="Supported" %} |
@@ -51,6 +51,7 @@ While the MCP registry launched using the v0 specification, that version is now 
 | Eclipse | {% octicon "check" aria-label="Supported" %} |
 | JetBrains IDEs     | {% octicon "check" aria-label="Supported" %} |
 | Xcode    | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.copilot_cli_short %} | {% octicon "check" aria-label="Supported" %} |
 
 ### Cross-Origin Resource Sharing requirements
 

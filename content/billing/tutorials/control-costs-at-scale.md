@@ -81,16 +81,14 @@ Create one budget for each product, SKU, or group of SKUs that you want to contr
 
 1. On the  "Billing and licensing tab", click {% octicon "bell" aria-hidden="true" aria-label="bell" %} **Budgets and alerts** to display the existing budgets.
 1. Click **New budget** to open the "New monthly budget" page.
-1. Under "Budget Type" select **Product-level budget**, **SKU-level budget**, or **Bundled premium requests budget**.
+1. Under "Budget Type" select **Product-level budget**, **SKU-level budget**, or **Bundled {% data variables.product.prodname_ai_credits_short %} budget**.
 
    * To limit spending at the product level, in "Product-level budget", choose a product from the dropdown (for example, {% data variables.product.prodname_codespaces %}).
-   * To limit spending at the SKU level, in "SKU-level budget", choose a product and a SKU (for example, {% data variables.product.prodname_copilot_short %} and {% data variables.product.prodname_copilot_short %} Premium Request).
-   * To limit spending for all premium requests, use the "Bundled premium requests budget".
+   * To limit spending at the SKU level, in "SKU-level budget", choose a product and a SKU (for example, {% data variables.product.prodname_copilot_short %} and {% data variables.product.prodname_copilot_short %} {% data variables.product.prodname_ai_credits_short %}).
+   * To limit spending for all {% data variables.product.prodname_ai_credits_short %}, use the "Bundled {% data variables.product.prodname_ai_credits_short %} budget".
 
 1. Click **Next: Configure budget** to display "Budget scope" and set the scope of spending for this budget to the cost center you created earlier.
-1. Under "Budget", set a budget amount. To stop any usage and further spending once the budget limit is reached, select **Stop usage when budget limit is reached**. This is not available for licensed-based products.
-
-
+1. Under "Budget", set a budget amount. To stop any usage and further spending once the budget limit is reached, select **Stop usage when budget limit is reached**. This option is available for metered products and for {% data variables.product.prodname_AS %} SKU-level budgets. For more information about how hard budgets work for {% data variables.product.prodname_AS %}, see [AUTOTITLE](/billing/concepts/budgets-and-alerts#hard-budgets-for-github-advanced-security-skus).
 1. To receive an alert when usage reaches 75%, 90%, and 100% of the budget target, select **Receive budget threshold alerts** under "Alerts".  Account owners, billing managers, and any additional specified recipients will be notified via email. You may opt out at any time.
 
    Under "Alert Recipients", select any additional recipients to receive the alerts.
@@ -232,11 +230,11 @@ If the endpoint responds with `Problems parsing JSON`, use a JSON validator to c
 
 ## 5. Set budgets with the REST API
 
-You can create budgets programmatically to apply spending controls to the cost centers you've created. This is particularly useful for managing usage-based costs like premium requests at scale.
+You can create budgets programmatically to apply spending controls to the cost centers you've created. This is particularly useful for managing usage-based costs like {% data variables.product.prodname_ai_credits_short %} at scale.
 
-### Create a budget for premium requests
+### Create a budget for {% data variables.product.prodname_ai_credits_short %}
 
-This example shows how to create a SKU-level budget for {% data variables.product.prodname_copilot_short %} premium requests and apply it to your new cost center. This allows you to set a spending limit specifically for premium request usage by the resources in this cost center.
+This example shows how to create a SKU-level budget for {% data variables.product.prodname_copilot_short %} {% data variables.product.prodname_ai_credits_short %} and apply it to your new cost center. This allows you to set a spending limit specifically for {% data variables.product.prodname_ai_credits_short %} usage by the resources in this cost center.
 
 In your terminal, run the following command, replacing `ENTERPRISE`, `COST_CENTER_ID`, `USERNAME`, and `1000.0` with appropriate values.
 
@@ -247,7 +245,7 @@ gh api \
   -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
   /enterprises/ENTERPRISE/settings/billing/budgets \
   -f budget_type='SkuPricing' \
-  -f budget_product_sku='copilot_premium_request' \
+  -f budget_product_sku='copilot_ai_credits' \
   -f budget_scope='cost_center' \
   -f budget_entity_name='COST_CENTER_ID' \
   -F budget_amount=1000.0 \
@@ -261,7 +259,7 @@ The response confirms the budget was created and returns its configuration. Noti
 {
   "id": "budget-uuid-here",
   "budget_type": "SkuPricing",
-  "budget_product_sku": "copilot_premium_request",
+  "budget_product_sku": "copilot_ai_credits",
   "budget_scope": "cost_center",
   "budget_entity_name": "3312fdf2-5950-4f64-913d-e734124059c9",
   "budget_amount": 1000.0,
@@ -276,7 +274,7 @@ The response confirms the budget was created and returns its configuration. Noti
 ```
 
 > [!TIP]
-> You can create multiple budgets for the same cost center to control different products or SKUs independently. For example, you might set separate budgets for {% data variables.product.prodname_copilot_short %} premium requests, {% data variables.product.prodname_actions %} compute, and {% data variables.product.prodname_codespaces %} usage. See [AUTOTITLE](/billing/reference/product-and-sku-names).
+> You can create multiple budgets for the same cost center to control different products or SKUs independently. For example, you might set separate budgets for {% data variables.product.prodname_ai_credits_short %}, {% data variables.product.prodname_actions %} compute, and {% data variables.product.prodname_codespaces %} usage. See [AUTOTITLE](/billing/reference/product-and-sku-names).
 
 ## 6. Decide whether to automate
 
@@ -300,7 +298,7 @@ The **REST API** is valuable when you:
 
 If you decide that automation would benefit your organization, the REST API examples in this tutorial provide the foundation for building custom scripts. For details of other endpoints, see [AUTOTITLE](/rest/enterprise-admin/billing?apiVersion=2022-11-28).
 
-If you want to automate cost centers based on team membership or create a two-tier model for controlling costs of premium requests, [{% data variables.product.github %} Cost Center Automation](https://github.com/github/cost-center-automation?ref_product=copilot&ref_type=engagement&ref_style=text) provides a complete implementation using actions workflows that you can adapt for your needs.
+If you want to automate cost centers based on team membership or create a two-tier model for controlling costs of {% data variables.product.prodname_ai_credits_short %}, [{% data variables.product.github %} Cost Center Automation](https://github.com/github/cost-center-automation?ref_product=copilot&ref_type=engagement&ref_style=text) provides a complete implementation using actions workflows that you can adapt for your needs.
 
 ## Next steps
 

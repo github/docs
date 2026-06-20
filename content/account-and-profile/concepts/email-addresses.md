@@ -13,13 +13,13 @@ category:
 
 ## Adding an email address to your {% data variables.product.github %} account
 
-{% data variables.product.github %} allows you to add as many email addresses to your account as you like. For more information, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account).
+{% data variables.product.github %} allows you to add as many email addresses to your account as you like. For more information, see [AUTOTITLE](/account-and-profile/how-tos/email-preferences/adding-an-email-address-to-your-github-account).
 
 If you set an email address in your local Git configuration, you will need to add it to your account settings in order to connect your commits to your account. For more information about your email address and commits, see [Commit email addresses](#commit-email-addresses) below.
 
 ## Changing your primary email address
 
-You can change the email address associated with your personal account at any time. You cannot change your primary email address to an email that is already set to be your backup email address. For more information, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address).
+You can change the email address associated with your personal account at any time. You cannot change your primary email address to an email that is already set to be your backup email address. For more information, see [AUTOTITLE](/account-and-profile/how-tos/email-preferences/changing-your-primary-email-address).
 
 ## Email verification for personal accounts
 
@@ -59,5 +59,5 @@ For more information, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-an
 
 ## Next steps
 
-* For how-to procedures on managing your email preferences, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences).
+* For how-to procedures on managing your email preferences, see [AUTOTITLE](/account-and-profile/how-tos/email-preferences).
 * For email address reference information, see [AUTOTITLE](/account-and-profile/reference/email-addresses-reference).

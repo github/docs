@@ -1,3 +1,4 @@
+import { createLogger } from '@/observability/logger'
 import express from 'express'
 import { omit, without, mapValues } from 'lodash-es'
 import QuickLRU from 'quick-lru'
@@ -16,6 +17,8 @@ import { publish as _publish } from './lib/hydro'
 import { DOTCOM_USER_COOKIE_NAME, STAFFONLY_COOKIE_NAME } from '@/frame/lib/constants'
 import { analyzeComment, getGuessedLanguage } from './lib/analyze-comment'
 import { EventType, EventProps, EventPropsByType } from './types'
+
+const logger = createLogger(import.meta.url)
 
 const router = express.Router()
 const OMIT_FIELDS = ['type']
@@ -103,7 +106,7 @@ router.post(
           value: omit(body, OMIT_FIELDS),
         })
       } catch (eventError) {
-        console.error('Error validating event:', eventError)
+        logger.error('Error validating event', { error: eventError })
       }
     }
     if (validEvents.length > 0) {

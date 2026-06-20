@@ -15,7 +15,9 @@ children:
   - /ado
   - /importing-source-code
   - /using-github-enterprise-importer
+  - /elm
   - /using-ghe-migrator
+  - /troubleshooting
 includedCategories:
   - Plan your migration
   - Import source code

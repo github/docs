@@ -25,7 +25,6 @@ In our recommendations, we'll assume that you want the highest level of fidelity
 You can review the scope and tooling for your migration to {% data variables.product.prodname_dotcom_the_website %}, which includes migrations to {% data variables.product.prodname_ghe_cloud %}. You can also review any additional information or caveats.
 
 * [{% data variables.product.prodname_ghe_server %} 3.4.1 or newer to {% data variables.product.prodname_dotcom_the_website %}](#github-enterprise-server-341-or-newer-to-githubcom)
-* [{% data variables.product.prodname_ghe_server %} 3.4.0 or older to {% data variables.product.prodname_dotcom_the_website %}](#github-enterprise-server-340-or-older-to-githubcom)
 * [{% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_dotcom_the_website %}](#githubcom-to-githubcom)
 * [Azure DevOps Services (Azure DevOps Cloud) to {% data variables.product.prodname_dotcom_the_website %}](#azure-devops-services-azure-devops-cloud-to-githubcom)
 * [Azure DevOps Server to {% data variables.product.prodname_dotcom_the_website %}](#azure-devops-server-to-githubcom)
@@ -41,17 +40,6 @@ You can review the scope and tooling for your migration to {% data variables.pro
 * [{% data variables.enterprise.data_residency_site %} to {% data variables.product.prodname_dotcom_the_website %}](#ghecom-to-githubcom)
 
 ### {% data variables.product.prodname_ghe_server %} 3.4.1 or newer to {% data variables.product.prodname_dotcom_the_website %}
-
-* **Scope:** Source, history, and metadata
-* **Tooling:** {% data variables.product.prodname_importer_proper_name %}
-* **More information:**
-  * [AUTOTITLE](/migrations/using-github-enterprise-importer)
-  * [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
-* **Caveats:**
-  * {% data reusables.migrations.large-repositories-require-expert-services %}
-  * {% data reusables.migrations.migration-instructions-for-any-git-repository-to-githubcom %}
-
-### {% data variables.product.prodname_ghe_server %} 3.4.0 or older to {% data variables.product.prodname_dotcom_the_website %}
 
 * **Scope:** Source, history, and metadata
 * **Tooling:** {% data variables.product.prodname_importer_proper_name %}
@@ -170,8 +158,7 @@ Migrations to {% data variables.enterprise.data_residency_site %} use similar to
 
 Follow a link below to review the scope and tooling for your migration to {% data variables.enterprise.data_residency_site %}, plus any additional information or caveats.
 
-* [{% data variables.product.prodname_ghe_server %} 3.4.1 or newer to {% data variables.enterprise.data_residency_site %}](#github-enterprise-server-341-or-newer-to-ghecom)
-* [{% data variables.product.prodname_ghe_server %} 3.4.0 or older to {% data variables.enterprise.data_residency_site %}](#github-enterprise-server-340-or-older-to-ghecom)
+* [{% data variables.product.prodname_ghe_server %} to {% data variables.enterprise.data_residency_site %}](#github-enterprise-server-to-ghecom)
 * [{% data variables.product.prodname_dotcom_the_website %} to {% data variables.enterprise.data_residency_site %}](#githubcom-to-ghecom)
 * [Azure DevOps Services (Azure DevOps Cloud) to {% data variables.enterprise.data_residency_site %}](#azure-devops-services-azure-devops-cloud-to-ghecom)
 * [Azure DevOps Server to {% data variables.enterprise.data_residency_site %}](#azure-devops-server-to-ghecom)
@@ -185,23 +172,15 @@ Follow a link below to review the scope and tooling for your migration to {% dat
 * [Any Perforce repository to {% data variables.enterprise.data_residency_site %}](#any-perforce-repository-to-ghecom)
 * [Any other repository to {% data variables.enterprise.data_residency_site %}](#any-other-repository-to-ghecom)
 
-### {% data variables.product.prodname_ghe_server %} 3.4.1 or newer to {% data variables.enterprise.data_residency_site %}
+### {% data variables.product.prodname_ghe_server %} to {% data variables.enterprise.data_residency_site %}
 
 * **Scope:** Source, history, and metadata
-* **Tooling:** {% data variables.product.prodname_importer_proper_name %}
+* **Tooling:**
+  * **Version 3.4.1 or later**: {% data variables.product.prodname_importer_proper_name %}
+  * **Version 3.17 or later (in supported patch releases)**: {% data variables.product.prodname_importer_proper_name %} or {% data variables.product.prodname_elm %}
 * **More information:**
   * [AUTOTITLE](/migrations/using-github-enterprise-importer)
-  * [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
-* **Caveats:**
-  * {% data reusables.migrations.large-repositories-require-expert-services-ghecom %}
-  * {% data reusables.migrations.migration-instructions-for-any-git-repository-to-ghecom %}
-
-### {% data variables.product.prodname_ghe_server %} 3.4.0 or older to {% data variables.enterprise.data_residency_site %}
-
-* **Scope:** Source, history, and metadata
-* **Tooling:** {% data variables.product.prodname_importer_proper_name %}
-* **More information:**
-  * [AUTOTITLE](/migrations/using-github-enterprise-importer)
+  * [AUTOTITLE](/migrations/elm/about-live-migrations)
   * [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
 * **Caveats:**
   * {% data reusables.migrations.large-repositories-require-expert-services-ghecom %}

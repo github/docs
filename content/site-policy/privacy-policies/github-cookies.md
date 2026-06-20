@@ -24,7 +24,6 @@ GitHub | `app_manifest_token` | This cookie is used during the App Manifest flow
 GitHub | `color_mode` | This cookie is used to indicate the user selected theme preference. | Session
 GitHub | `_device_id` | This cookie is used to track recognized devices for security purposes. | One year
 GitHub | `dotcom_user` | This cookie is used to signal to us that the user is already logged in. | One year
-GitHub | `enterprise_trial_redirect_to` | This cookie is used to complete a redirect for trial users | 5 minutes
 GitHub | `fileTreeExpanded` | Used to indicate whether the file tree on the code view was last expanded or collapsed | 30 days
 GitHub | `ghcc` | This cookie validates user's choice about cookies | 180 Days
 GitHub | `_gh_ent` | This cookie is used for temporary application and framework state between pages like what step the customer is on in a multiple step form. | Two weeks

@@ -55,10 +55,10 @@ For system-critical issues, and prior to making modifications to your appliance,
 ### Recommendations
 
 * Memory of your instance is under-provisioned for your workload, data volume, given usage over time may exceed the [minimum recommended requirements](/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-aws#minimum-recommended-requirements).
-* Within the Nomad graphs, identify services with out of memory trends which are often followed by free memory trends after they get restarted. For more information, see [AUTOTITLE](/enterprise-server@3.14/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards#appliance-specific-system-services).
-* Check logs for processes going out of memory by running `rg -z 'kernel: Out of memory: Killed process' /var/log/syslog*` (for this, first log in to the administrative shell using SSH - see [AUTOTITLE](/enterprise-server@3.14/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh).)
+* Within the Nomad graphs, identify services with out of memory trends which are often followed by free memory trends after they get restarted. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards#appliance-specific-system-services).
+* Check logs for processes going out of memory by running `rg -z 'kernel: Out of memory: Killed process' /var/log/syslog*` (for this, first log in to the administrative shell using SSH - see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh).)
 * Ensure the correct ratio of memory to CPU services is met (at least `6.5:1`).
-* Check the amount of tasks queued for background processing - see [AUTOTITLE](/enterprise-server@3.14/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards#background-jobs).
+* Check the amount of tasks queued for background processing - see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards#background-jobs).
 
 ## Low disk space availability
 
@@ -75,7 +75,7 @@ Keep in mind that the root storage volume is split into two equally-sized partit
 
 * Check disk usage of `/var/log` folder by running (`sudo du -csh /var/log/*`) or manually force a log rotation (`sudo logrotate -f /etc/logrotate.conf`).
 * Check the disk for large files that have been deleted but still have open file handles (`ghe-check-disk-usage`).
-* Increase disk storage capacity - see [AUTOTITLE](/enterprise-server@3.14/admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-storage-capacity).
+* Increase disk storage capacity - see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-storage-capacity).
 
 ## Higher than usual response times
 
@@ -93,10 +93,10 @@ Keep in mind that the root storage volume is split into two equally-sized partit
 * Look for spikes or sustained numbers in the **Disk pending operations: Number of operations queued** graphs.
 * Check the **App request/response** panel to see if only certain services are affected.
 * After an upgrade, check whether background upgrade jobs have completed, by running `ghe-check-background-upgrade-jobs`.
-* Check the database logs for slow queries in `/var/log/github/exceptions.log` (for this, first log in to the administrative shell using SSH - see [AUTOTITLE](/enterprise-server@3.14/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh)), for example by checking for Top 10 slow requests by URL: `grep SlowRequest github-logs/exceptions.log | jq '.url' | sort | uniq -c | sort -rn | head`.
+* Check the database logs for slow queries in `/var/log/github/exceptions.log` (for this, first log in to the administrative shell using SSH - see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh)), for example by checking for Top 10 slow requests by URL: `grep SlowRequest github-logs/exceptions.log | jq '.url' | sort | uniq -c | sort -rn | head`.
 * Check the **Queued requests** graph for certain workers and consider adjusting their active worker count.
 * Increase the storage disks to ones with higher IOPS/throughput.
-* Check the amount of tasks queued for background processing - see [AUTOTITLE](/enterprise-server@3.14/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards#background-jobs).
+* Check the amount of tasks queued for background processing - see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards#background-jobs).
 
 ## Elevated error rates
 

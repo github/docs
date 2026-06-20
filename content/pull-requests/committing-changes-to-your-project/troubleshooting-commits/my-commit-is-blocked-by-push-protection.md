@@ -17,16 +17,16 @@ Leaked secrets can pose serious security risks to your repository and your suppl
 If the repository you're contributing to on {% data variables.product.github %} is secured by push protection, you'll encounter a push protection block whenever you:
 
 * **Push commits** containing recognized secrets **from the command line** to the remote repository.
-* **Commit changes** or upload files containing recognized secrets to a repository in the **{% data variables.product.github %} UI**. {% ifversion secret-scanning-push-protection-content-endpoints %}
-* **Make certain requests** containing recognized secrets in **the REST API**.{% endif %}
+* **Commit changes** or upload files containing recognized secrets to a repository in the **{% data variables.product.github %} UI**. 
+* **Make certain requests** containing recognized secrets in **the REST API**.
 
 ## Resolving a push protection block
 
-In order to resolve the block, you should remove the secret from the commit {% ifversion secret-scanning-push-protection-content-endpoints %}(or request){% endif %}. If you believe the secret is safe to push, you may be able to bypass the block. For more information on how to remove the secret or, if necessary, bypass the block, see:
+In order to resolve the block, you should remove the secret from the commit (or request). If you believe the secret is safe to push, you may be able to bypass the block. For more information on how to remove the secret or, if necessary, bypass the block, see:
 
 * [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line)
-* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui){% ifversion secret-scanning-push-protection-content-endpoints %}
-* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-rest-api){% endif %}
+* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui)
+* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-rest-api)
 
 ## Further reading
 

@@ -1,0 +1,249 @@
+name: 'Sync Copilot SDK docs'
+
+on:
+  # Event-driven sync — triggered by copilot-sdk when docs/ changes are pushed
+  repository_dispatch:
+    types: [sync-sdk-docs]
+
+  # Manual trigger for on-demand syncs and testing
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run — run normalization but skip push and PR creation'
+        required: false
+        default: 'false'
+        type: boolean
+      source_ref:
+        description: 'copilot-sdk ref to sync from (branch, tag, or SHA). Defaults to main.'
+        required: false
+        default: 'main'
+        type: string
+
+  # PR validation — dry-run only, verifies scripts work on CI
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - '.github/workflows/sync-sdk-docs.yml'
+      - 'src/scripts/sync-sdk-docs/**'
+
+concurrency:
+  group: sync-sdk-docs-${{ github.event_name }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync-docs:
+    name: 'Sync SDK docs'
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    env:
+      SDK_DOCS_TARGET: content/copilot/how-tos/copilot-sdk
+      SYNC_BRANCH: sdk-docs/auto-sync
+      ASSETS_TARGET: assets/images/help/copilot/copilot-sdk
+      SOURCE_REF: ${{ inputs.source_ref || 'main' }}
+
+    steps:
+      - name: Checkout docs-internal
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+
+      - name: Fetch SDK docs from copilot-sdk
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+        run: |
+          set -e
+          tmp=$(mktemp -d)
+          echo "Cloning copilot-sdk@$SOURCE_REF (sparse: docs/ only)..."
+          git clone --depth 1 --branch "$SOURCE_REF" --filter=blob:none --sparse \
+            "https://x-access-token:${GH_TOKEN}@github.com/github/copilot-sdk.git" "$tmp" 2>&1 | tail -1
+          cd "$tmp" && git sparse-checkout set docs 2>/dev/null
+          SDK_SHA=$(git -C "$tmp" rev-parse HEAD)
+          echo "SDK_SHA=$SDK_SHA" >> "$GITHUB_ENV"
+          echo "SDK_TMP=$tmp" >> "$GITHUB_ENV"
+          echo "Fetched copilot-sdk@${SDK_SHA::7}"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install mermaid-cli
+        run: npm install -g @mermaid-js/mermaid-cli@11
+
+      - name: Clean existing SDK docs
+        run: |
+          rm -rf "$SDK_DOCS_TARGET"
+
+      - name: Copy SDK docs
+        run: |
+          mkdir -p "$SDK_DOCS_TARGET"
+          rsync -av --exclude='.validation/' "$SDK_TMP/docs/" "$SDK_DOCS_TARGET/"
+          echo "Copied $(find "$SDK_DOCS_TARGET" -name '*.md' | wc -l | tr -d ' ') markdown files"
+
+      - name: Normalize content
+        run: |
+          npx tsx src/scripts/sync-sdk-docs/normalize-sdk-docs.ts \
+            --content-dir content \
+            --sdk-docs-dir "$SDK_DOCS_TARGET"
+
+      - name: Convert Mermaid diagrams to PNG
+        env:
+          PUPPETEER_CHROMIUM_REVISION: ''
+        run: |
+          # Puppeteer needs --no-sandbox on GitHub Actions runners
+          echo '{ "args": ["--no-sandbox", "--disable-setuid-sandbox"] }' > /tmp/puppeteer-config.json
+          npx tsx src/scripts/sync-sdk-docs/convert-mermaid.ts \
+            --sdk-docs-dir "$SDK_DOCS_TARGET" \
+            --assets-dir "$ASSETS_TARGET" \
+            --repo-root . \
+            --puppeteer-config /tmp/puppeteer-config.json
+
+      - name: Remove stale SDK assets
+        run: |
+          if [ ! -d "$ASSETS_TARGET" ]; then
+            echo "No assets directory — nothing to clean."
+            exit 0
+          fi
+          # Collect image filenames referenced in the current SDK docs
+          REFERENCED=$(grep -roh '/assets/images/help/copilot/copilot-sdk/[^)]*' "$SDK_DOCS_TARGET" \
+            | sed 's|.*/||' | sort -u)
+          STALE=0
+          for file in "$ASSETS_TARGET"/*.png; do
+            [ -f "$file" ] || continue
+            BASENAME=$(basename "$file")
+            if ! echo "$REFERENCED" | grep -qxF "$BASENAME"; then
+              echo "  STALE: $BASENAME"
+              rm "$file"
+              STALE=$((STALE + 1))
+            fi
+          done
+          echo "Removed $STALE stale asset(s)."
+
+      - name: Lint SDK content (non-blocking)
+        continue-on-error: true
+        run: |
+          SDK_FILES=$(find "$SDK_DOCS_TARGET" -name '*.md' | tr '\n' ' ')
+          if [ -z "$SDK_FILES" ]; then
+            echo "No SDK markdown files to lint."
+            exit 0
+          fi
+          echo "Linting $(echo "$SDK_FILES" | wc -w | tr -d ' ') SDK files..."
+          if npm run lint-content -- --paths $SDK_FILES; then
+            echo "✅ Content linter passed — no issues found."
+          else
+            echo ""
+            echo "⚠️ Content linter found issues (see above)."
+            echo "These will appear as CI failures on the generated PR."
+            echo "Fix them in the copilot-sdk source docs or update the normalize script."
+          fi
+
+      - name: Show diff summary
+        run: |
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes detected."
+            echo "has_changes=false" >> "$GITHUB_ENV"
+          else
+            echo "has_changes=true" >> "$GITHUB_ENV"
+            echo "Changes detected:"
+            git diff --cached --stat
+          fi
+
+      # --- PR-only: upload artifacts for review ---
+      - name: Upload normalized docs (PR validation)
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: normalized-sdk-docs
+          path: |
+            ${{ env.SDK_DOCS_TARGET }}
+            ${{ env.ASSETS_TARGET }}
+          retention-days: 7
+
+      # --- Push and PR (only on schedule/dispatch, not dry-run, and changes exist) ---
+      - name: Commit and push
+        if: >-
+          env.has_changes == 'true'
+          && github.event_name != 'pull_request'
+          && inputs.dry_run != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Fetch the sync branch if it exists so force-with-lease knows the remote state
+          git fetch origin "$SYNC_BRANCH" 2>/dev/null || true
+
+          git checkout -B "$SYNC_BRANCH"
+          git commit -m "Sync Copilot SDK docs from copilot-sdk@${SDK_SHA::7}
+
+          Source commit: https://github.com/github/copilot-sdk/commit/$SDK_SHA
+
+          This commit was automatically generated by the sync-sdk-docs workflow."
+
+          git push --force-with-lease origin "$SYNC_BRANCH"
+
+      - name: Create or update pull request
+        if: >-
+          env.has_changes == 'true'
+          && github.event_name != 'pull_request'
+          && inputs.dry_run != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+        run: |
+          PR_TITLE="Sync Copilot SDK docs (auto-generated)"
+          PR_BODY="## Summary
+
+          This PR syncs documentation from [\`github/copilot-sdk/docs\`](https://github.com/github/copilot-sdk/tree/main/docs) to \`content/copilot/how-tos/copilot-sdk/\`.
+
+          **Source commit:** https://github.com/github/copilot-sdk/commit/$SDK_SHA
+
+          ### What this PR does
+          - Copies SDK documentation from \`copilot-sdk\`
+          - Adds YAML frontmatter for docs.github.com publishing
+          - Converts internal links to AUTOTITLE format
+          - Converts Mermaid diagrams to PNG images
+          - Normalizes code fence languages and list formatting
+
+          > [!NOTE]
+          > This PR is auto-generated. Do not edit it directly — make changes in the [copilot-sdk docs](https://github.com/github/copilot-sdk/tree/main/docs) instead.
+
+          ---
+          _Generated by the [sync-sdk-docs workflow run]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)._"
+
+          EXISTING_PR=$(gh pr list --head "$SYNC_BRANCH" --json number --jq '.[0].number' 2>/dev/null || true)
+
+          if [ -n "$EXISTING_PR" ]; then
+            echo "Updating existing PR #$EXISTING_PR"
+            gh pr edit "$EXISTING_PR" --title "$PR_TITLE" --body "$PR_BODY"
+            gh pr comment "$EXISTING_PR" --body "🔄 Updated with changes from [\`${SDK_SHA::7}\`](https://github.com/github/copilot-sdk/commit/$SDK_SHA)."
+          else
+            echo "Creating new PR"
+            gh pr create \
+              --title "$PR_TITLE" \
+              --body "$PR_BODY" \
+              --base main \
+              --head "$SYNC_BRANCH" \
+              --label "copilot-sdk-docs,workflow-generated"
+          fi
+
+      - name: Cleanup
+        if: always()
+        run: rm -rf "$SDK_TMP"
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+      - uses: ./.github/actions/create-workflow-failure-issue
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}

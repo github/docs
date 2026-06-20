@@ -10,7 +10,7 @@
       "parameters": [
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -19,7 +19,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -1525,7 +1525,7 @@
                               },
                               "type": {
                                 "title": "Issue Type",
-                                "description": "The type of issue.",
+                                "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                                 "type": [
                                   "object",
                                   "null"
@@ -3351,6 +3351,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -3401,6 +3402,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -4547,7 +4578,7 @@
                               },
                               "type": {
                                 "title": "Issue Type",
-                                "description": "The type of issue.",
+                                "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                                 "type": [
                                   "object",
                                   "null"
@@ -6373,6 +6404,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -6423,6 +6455,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -9727,7 +9789,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -9736,7 +9798,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -11246,7 +11308,7 @@
                               },
                               "type": {
                                 "title": "Issue Type",
-                                "description": "The type of issue.",
+                                "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                                 "type": [
                                   "object",
                                   "null"
@@ -13072,6 +13134,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -13122,6 +13185,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -14268,7 +14361,7 @@
                               },
                               "type": {
                                 "title": "Issue Type",
-                                "description": "The type of issue.",
+                                "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                                 "type": [
                                   "object",
                                   "null"
@@ -16094,6 +16187,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -16144,6 +16238,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -19443,7 +19567,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -19452,7 +19576,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -20975,7 +21099,7 @@
                               },
                               "type": {
                                 "title": "Issue Type",
-                                "description": "The type of issue.",
+                                "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                                 "type": [
                                   "object",
                                   "null"
@@ -22801,6 +22925,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -22851,6 +22976,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -23997,7 +24152,7 @@
                               },
                               "type": {
                                 "title": "Issue Type",
-                                "description": "The type of issue.",
+                                "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                                 "type": [
                                   "object",
                                   "null"
@@ -25823,6 +25978,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -25873,6 +26029,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -29165,7 +29351,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -29174,7 +29360,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -30684,7 +30870,7 @@
                               },
                               "type": {
                                 "title": "Issue Type",
-                                "description": "The type of issue.",
+                                "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                                 "type": [
                                   "object",
                                   "null"
@@ -32510,6 +32696,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -32560,6 +32747,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -33706,7 +33923,7 @@
                               },
                               "type": {
                                 "title": "Issue Type",
-                                "description": "The type of issue.",
+                                "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                                 "type": [
                                   "object",
                                   "null"
@@ -35532,6 +35749,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -35582,6 +35800,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -38869,7 +39117,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -38878,7 +39126,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -40387,7 +40635,7 @@
                               },
                               "type": {
                                 "title": "Issue Type",
-                                "description": "The type of issue.",
+                                "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                                 "type": [
                                   "object",
                                   "null"
@@ -42213,6 +42461,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -42263,6 +42512,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -43409,7 +43688,7 @@
                               },
                               "type": {
                                 "title": "Issue Type",
-                                "description": "The type of issue.",
+                                "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                                 "type": [
                                   "object",
                                   "null"
@@ -45235,6 +45514,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -45285,6 +45565,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -48577,7 +48887,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -48586,7 +48896,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -50115,7 +50425,7 @@
                               },
                               "type": {
                                 "title": "Issue Type",
-                                "description": "The type of issue.",
+                                "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                                 "type": [
                                   "object",
                                   "null"
@@ -51941,6 +52251,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -51991,6 +52302,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -53137,7 +53478,7 @@
                               },
                               "type": {
                                 "title": "Issue Type",
-                                "description": "The type of issue.",
+                                "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                                 "type": [
                                   "object",
                                   "null"
@@ -54963,6 +55304,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -55013,6 +55355,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -58299,7 +58671,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -58308,7 +58680,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -59817,7 +60189,7 @@
                               },
                               "type": {
                                 "title": "Issue Type",
-                                "description": "The type of issue.",
+                                "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                                 "type": [
                                   "object",
                                   "null"
@@ -61643,6 +62015,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -61693,6 +62066,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -62839,7 +63242,7 @@
                               },
                               "type": {
                                 "title": "Issue Type",
-                                "description": "The type of issue.",
+                                "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                                 "type": [
                                   "object",
                                   "null"
@@ -64665,6 +65068,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -64715,6 +65119,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -67998,7 +68432,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -68007,7 +68441,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -69521,7 +69955,7 @@
                               },
                               "type": {
                                 "title": "Issue Type",
-                                "description": "The type of issue.",
+                                "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                                 "type": [
                                   "object",
                                   "null"
@@ -71347,6 +71781,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -71397,6 +71832,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -72543,7 +73008,7 @@
                               },
                               "type": {
                                 "title": "Issue Type",
-                                "description": "The type of issue.",
+                                "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                                 "type": [
                                   "object",
                                   "null"
@@ -74369,6 +74834,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -74419,6 +74885,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -77702,7 +78198,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -77711,7 +78207,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -79225,7 +79721,7 @@
                               },
                               "type": {
                                 "title": "Issue Type",
-                                "description": "The type of issue.",
+                                "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                                 "type": [
                                   "object",
                                   "null"
@@ -81051,6 +81547,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -81101,6 +81598,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -82247,7 +82774,7 @@
                               },
                               "type": {
                                 "title": "Issue Type",
-                                "description": "The type of issue.",
+                                "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                                 "type": [
                                   "object",
                                   "null"
@@ -84073,6 +84600,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -84123,6 +84651,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -87398,7 +87956,7 @@
       "subcategory": "feeds",
       "parameters": [],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists the feeds available to the authenticated user. The response provides a URL for each feed. You can then get a specific feed by sending a request to one of the feed URLs.</p>\n<ul>\n<li><strong>Timeline</strong>: The GitHub Enterprise Cloud global public timeline</li>\n<li><strong>User</strong>: The public timeline for any user, using <code>uri_template</code>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#hypermedia\">Hypermedia</a>.\"</li>\n<li><strong>Current user public</strong>: The public timeline for the authenticated user</li>\n<li><strong>Current user</strong>: The private timeline for the authenticated user</li>\n<li><strong>Current user actor</strong>: The private timeline for activity created by the authenticated user</li>\n<li><strong>Current user organizations</strong>: The private timeline for the organizations the authenticated user is a member of.</li>\n<li><strong>Security advisories</strong>: A collection of public announcements that provide information about security-related vulnerabilities in software on GitHub Enterprise Cloud.</li>\n</ul>\n<p>By default, timeline resources are returned in JSON. You can specify the <code>application/atom+xml</code> type in the <code>Accept</code> header to return timeline resources in Atom format. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nPrivate feeds are only returned when <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/authentication/authenticating-to-the-rest-api#using-basic-authentication\">authenticating via Basic Auth</a> since current feed URIs use the older, non revocable auth tokens.</p>\n</div>",
+      "descriptionHTML": "<p>Lists the feeds available to the authenticated user. The response provides a URL for each feed. You can then get a specific feed by sending a request to one of the feed URLs.</p>\n<ul>\n<li><strong>Timeline</strong>: The GitHub Enterprise Cloud global public timeline</li>\n<li><strong>User</strong>: The public timeline for any user, using <code>uri_template</code>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#hypermedia\">Hypermedia</a>.\"</li>\n<li><strong>Current user public</strong>: The public timeline for the authenticated user</li>\n<li><strong>Current user</strong>: The private timeline for the authenticated user</li>\n<li><strong>Current user actor</strong>: The private timeline for activity created by the authenticated user</li>\n<li><strong>Current user organizations</strong>: The private timeline for the organizations the authenticated user is a member of.</li>\n<li><strong>Security advisories</strong>: A collection of public announcements that provide information about security-related vulnerabilities in software on GitHub Enterprise Cloud.</li>\n</ul>\n<p>By default, timeline resources are returned in JSON. You can specify the <code>application/atom+xml</code> type in the <code>Accept</code> header to return timeline resources in Atom format. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nPrivate feeds are only returned when <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/authentication/authenticating-to-the-rest-api#using-basic-authentication\">authenticating via Basic Auth</a> since current feed URIs use the older, non revocable auth tokens.</p>\n</div>",
       "codeExamples": [
         {
           "request": {
@@ -87741,8 +88299,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -87751,13 +88308,12 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -87766,7 +88322,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 50). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 50). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -88711,7 +89267,7 @@
           "description": "<p>Whether the notification has been read.</p>"
         }
       ],
-      "descriptionHTML": "<p>Marks all notifications as \"read\" for the current user. If the number of notifications is too large to complete in one request, you will receive a <code>202 Accepted</code> status and GitHub Enterprise Cloud will run an asynchronous process to mark notifications as \"read.\" To check whether any \"unread\" notifications remain, you can use the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/activity/notifications#list-notifications-for-the-authenticated-user\">List notifications for the authenticated user</a> endpoint and pass the query parameter <code>all=false</code>.</p>",
+      "descriptionHTML": "<p>Marks all notifications as \"read\" for the current user. If the number of notifications is too large to complete in one request, you will receive a <code>202 Accepted</code> status and GitHub Enterprise Cloud will run an asynchronous process to mark notifications as \"read.\" To check whether any \"unread\" notifications remain, you can use the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/activity/notifications#list-notifications-for-the-authenticated-user\">List notifications for the authenticated user</a> endpoint and pass the query parameter <code>all=false</code>.</p>",
       "codeExamples": [
         {
           "request": {
@@ -88781,7 +89337,7 @@
       "parameters": [
         {
           "name": "thread_id",
-          "description": "<p>The unique identifier of the notification thread. This corresponds to the value returned in the <code>id</code> field when you retrieve notifications (for example with the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/activity/notifications#list-notifications-for-the-authenticated-user\"><code>GET /notifications</code> operation</a>).</p>",
+          "description": "<p>The unique identifier of the notification thread. This corresponds to the value returned in the <code>id</code> field when you retrieve notifications (for example with the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/activity/notifications#list-notifications-for-the-authenticated-user\"><code>GET /notifications</code> operation</a>).</p>",
           "in": "path",
           "required": true,
           "schema": {
@@ -89710,7 +90266,7 @@
       "parameters": [
         {
           "name": "thread_id",
-          "description": "<p>The unique identifier of the notification thread. This corresponds to the value returned in the <code>id</code> field when you retrieve notifications (for example with the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/activity/notifications#list-notifications-for-the-authenticated-user\"><code>GET /notifications</code> operation</a>).</p>",
+          "description": "<p>The unique identifier of the notification thread. This corresponds to the value returned in the <code>id</code> field when you retrieve notifications (for example with the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/activity/notifications#list-notifications-for-the-authenticated-user\"><code>GET /notifications</code> operation</a>).</p>",
           "in": "path",
           "required": true,
           "schema": {
@@ -89767,7 +90323,7 @@
       "parameters": [
         {
           "name": "thread_id",
-          "description": "<p>The unique identifier of the notification thread. This corresponds to the value returned in the <code>id</code> field when you retrieve notifications (for example with the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/activity/notifications#list-notifications-for-the-authenticated-user\"><code>GET /notifications</code> operation</a>).</p>",
+          "description": "<p>The unique identifier of the notification thread. This corresponds to the value returned in the <code>id</code> field when you retrieve notifications (for example with the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/activity/notifications#list-notifications-for-the-authenticated-user\"><code>GET /notifications</code> operation</a>).</p>",
           "in": "path",
           "required": true,
           "schema": {
@@ -89816,7 +90372,7 @@
       "parameters": [
         {
           "name": "thread_id",
-          "description": "<p>The unique identifier of the notification thread. This corresponds to the value returned in the <code>id</code> field when you retrieve notifications (for example with the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/activity/notifications#list-notifications-for-the-authenticated-user\"><code>GET /notifications</code> operation</a>).</p>",
+          "description": "<p>The unique identifier of the notification thread. This corresponds to the value returned in the <code>id</code> field when you retrieve notifications (for example with the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/activity/notifications#list-notifications-for-the-authenticated-user\"><code>GET /notifications</code> operation</a>).</p>",
           "in": "path",
           "required": true,
           "schema": {
@@ -89825,7 +90381,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>This checks to see if the current user is subscribed to a thread. You can also <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/activity/watching#get-a-repository-subscription\">get a repository subscription</a>.</p>\n<p>Note that subscriptions are only generated if a user is participating in a conversation--for example, they've replied to the thread, were <strong>@mentioned</strong>, or manually subscribe to a thread.</p>",
+      "descriptionHTML": "<p>This checks to see if the current user is subscribed to a thread. You can also <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/activity/watching#get-a-repository-subscription\">get a repository subscription</a>.</p>\n<p>Note that subscriptions are only generated if a user is participating in a conversation--for example, they've replied to the thread, were <strong>@mentioned</strong>, or manually subscribe to a thread.</p>",
       "codeExamples": [
         {
           "request": {
@@ -89931,7 +90487,7 @@
       "parameters": [
         {
           "name": "thread_id",
-          "description": "<p>The unique identifier of the notification thread. This corresponds to the value returned in the <code>id</code> field when you retrieve notifications (for example with the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/activity/notifications#list-notifications-for-the-authenticated-user\"><code>GET /notifications</code> operation</a>).</p>",
+          "description": "<p>The unique identifier of the notification thread. This corresponds to the value returned in the <code>id</code> field when you retrieve notifications (for example with the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/activity/notifications#list-notifications-for-the-authenticated-user\"><code>GET /notifications</code> operation</a>).</p>",
           "in": "path",
           "required": true,
           "schema": {
@@ -89947,7 +90503,7 @@
           "default": false
         }
       ],
-      "descriptionHTML": "<p>If you are watching a repository, you receive notifications for all threads by default. Use this endpoint to ignore future notifications for threads until you comment on the thread or get an <strong>@mention</strong>.</p>\n<p>You can also use this endpoint to subscribe to threads that you are currently not receiving notifications for or to subscribed to threads that you have previously ignored.</p>\n<p>Unsubscribing from a conversation in a repository that you are not watching is functionally equivalent to the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/activity/notifications#delete-a-thread-subscription\">Delete a thread subscription</a> endpoint.</p>",
+      "descriptionHTML": "<p>If you are watching a repository, you receive notifications for all threads by default. Use this endpoint to ignore future notifications for threads until you comment on the thread or get an <strong>@mention</strong>.</p>\n<p>You can also use this endpoint to subscribe to threads that you are currently not receiving notifications for or to subscribed to threads that you have previously ignored.</p>\n<p>Unsubscribing from a conversation in a repository that you are not watching is functionally equivalent to the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/activity/notifications#delete-a-thread-subscription\">Delete a thread subscription</a> endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -90057,7 +90613,7 @@
       "parameters": [
         {
           "name": "thread_id",
-          "description": "<p>The unique identifier of the notification thread. This corresponds to the value returned in the <code>id</code> field when you retrieve notifications (for example with the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/activity/notifications#list-notifications-for-the-authenticated-user\"><code>GET /notifications</code> operation</a>).</p>",
+          "description": "<p>The unique identifier of the notification thread. This corresponds to the value returned in the <code>id</code> field when you retrieve notifications (for example with the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/activity/notifications#list-notifications-for-the-authenticated-user\"><code>GET /notifications</code> operation</a>).</p>",
           "in": "path",
           "required": true,
           "schema": {
@@ -90066,7 +90622,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Mutes all future notifications for a conversation until you comment on the thread or get an <strong>@mention</strong>. If you are watching the repository of the thread, you will still receive notifications. To ignore future notifications for a repository you are watching, use the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/activity/notifications#set-a-thread-subscription\">Set a thread subscription</a> endpoint and set <code>ignore</code> to <code>true</code>.</p>",
+      "descriptionHTML": "<p>Mutes all future notifications for a conversation until you comment on the thread or get an <strong>@mention</strong>. If you are watching the repository of the thread, you will still receive notifications. To ignore future notifications for a repository you are watching, use the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/activity/notifications#set-a-thread-subscription\">Set a thread subscription</a> endpoint and set <code>ignore</code> to <code>true</code>.</p>",
       "codeExamples": [
         {
           "request": {
@@ -90160,8 +90716,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -90170,13 +90725,12 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -90185,7 +90739,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -91132,7 +91686,7 @@
           "description": "<p>Describes the last point that notifications were checked. Anything updated since this time will not be marked as read. If you omit this parameter, all notifications are marked as read. This is a timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a> format: <code>YYYY-MM-DDTHH:MM:SSZ</code>. Default: The current timestamp.</p>"
         }
       ],
-      "descriptionHTML": "<p>Marks all notifications in a repository as \"read\" for the current user. If the number of notifications is too large to complete in one request, you will receive a <code>202 Accepted</code> status and GitHub Enterprise Cloud will run an asynchronous process to mark notifications as \"read.\" To check whether any \"unread\" notifications remain, you can use the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/activity/notifications#list-repository-notifications-for-the-authenticated-user\">List repository notifications for the authenticated user</a> endpoint and pass the query parameter <code>all=false</code>.</p>",
+      "descriptionHTML": "<p>Marks all notifications in a repository as \"read\" for the current user. If the number of notifications is too large to complete in one request, you will receive a <code>202 Accepted</code> status and GitHub Enterprise Cloud will run an asynchronous process to mark notifications as \"read.\" To check whether any \"unread\" notifications remain, you can use the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/activity/notifications#list-repository-notifications-for-the-authenticated-user\">List repository notifications for the authenticated user</a> endpoint and pass the query parameter <code>all=false</code>.</p>",
       "codeExamples": [
         {
           "request": {
@@ -91216,7 +91770,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -91225,7 +91779,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -91234,7 +91788,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists the people that have starred the repository.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.star+json</code></strong>: Includes a timestamp of when the star was created.</li>\n</ul>",
+      "descriptionHTML": "<p>Lists the people that have starred the repository.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.star+json</code></strong>: Includes a timestamp of when the star was created.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -91860,11 +92414,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -91874,16 +92428,16 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -91892,7 +92446,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -91901,7 +92455,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists repositories the authenticated user has starred.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.star+json</code></strong>: Includes a timestamp of when the star was created.</li>\n</ul>",
+      "descriptionHTML": "<p>Lists repositories the authenticated user has starred.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.star+json</code></strong>: Includes a timestamp of when the star was created.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -93661,7 +94215,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Note that you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/getting-started-with-the-rest-api#http-method\">HTTP method</a>.\"</p>",
+      "descriptionHTML": "<p>Note that you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/getting-started-with-the-rest-api#http-method\">HTTP method</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -93817,11 +94371,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -93831,16 +94385,16 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -93849,7 +94403,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -93858,7 +94412,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists repositories a user has starred.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.star+json</code></strong>: Includes a timestamp of when the star was created.</li>\n</ul>",
+      "descriptionHTML": "<p>Lists repositories a user has starred.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.star+json</code></strong>: Includes a timestamp of when the star was created.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -95396,7 +95950,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -95405,7 +95959,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -95743,7 +96297,7 @@
           "description": "<p>Determines if all notifications should be blocked from this repository.</p>"
         }
       ],
-      "descriptionHTML": "<p>If you would like to watch a repository, set <code>subscribed</code> to <code>true</code>. If you would like to ignore notifications made within a repository, set <code>ignored</code> to <code>true</code>. If you would like to stop watching a repository, <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/activity/watching#delete-a-repository-subscription\">delete the repository's subscription</a> completely.</p>",
+      "descriptionHTML": "<p>If you would like to watch a repository, set <code>subscribed</code> to <code>true</code>. If you would like to ignore notifications made within a repository, set <code>ignored</code> to <code>true</code>. If you would like to stop watching a repository, <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/activity/watching#delete-a-repository-subscription\">delete the repository's subscription</a> completely.</p>",
       "codeExamples": [
         {
           "request": {
@@ -95857,7 +96411,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>This endpoint should only be used to stop watching a repository. To control whether or not you wish to receive notifications from a repository, <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/activity/watching#set-a-repository-subscription\">set the repository's subscription manually</a>.</p>",
+      "descriptionHTML": "<p>This endpoint should only be used to stop watching a repository. To control whether or not you wish to receive notifications from a repository, <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/activity/watching#set-a-repository-subscription\">set the repository's subscription manually</a>.</p>",
       "codeExamples": [
         {
           "request": {
@@ -95898,7 +96452,7 @@
       "parameters": [
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -95907,7 +96461,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -96824,7 +97378,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -96833,7 +97387,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",

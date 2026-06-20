@@ -7,6 +7,7 @@ versions:
   ghec: '*'
 contentType: reference
 children:
-  - /permission-levels-for-repository-security-advisories
-  - /security-overview-permissions
+  - /repository-security-advisory
+  - /security-overview
 ---
+

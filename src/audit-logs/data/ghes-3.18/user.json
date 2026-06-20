@@ -6274,7 +6274,7 @@
       "project_id",
       "project_kind"
     ],
-    "docs_reference_titles": "Closing a project (classic)"
+    "docs_reference_titles": "Planning and tracking with Projects"
   },
   {
     "action": "project_collaborator.add",
@@ -6575,7 +6575,7 @@
       "project_kind",
       "project_name"
     ],
-    "docs_reference_titles": "Reopening a closed project (classic)"
+    "docs_reference_titles": "Planning and tracking with Projects"
   },
   {
     "action": "project.rename",

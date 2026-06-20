@@ -207,7 +207,7 @@ For example, suppose @octocat created an issue on {% data variables.location.pro
 The way that attribution works differs between tools:
 
 * If you’re using `ghe-migrator`, `gl-exporter`, or `bbs-exporter`, you will decide how you want to attribute data ahead of time and include a mapping file when you import your data.
-* If you’re using {% data variables.product.prodname_importer_proper_name %}, data will be linked to placeholder identities called “mannequins”, and you can assign this history to real users after your data is migrated. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/reclaiming-mannequins-for-github-enterprise-importer).
+* If you’re using {% data variables.product.prodname_importer_proper_name %} or {% data variables.product.prodname_elm %}, data will be linked to placeholder identities called “mannequins”, and you can assign this history to real users after your data is migrated. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/reclaiming-mannequins-for-github-enterprise-importer).
 
 ### Managing teams and permissions
 

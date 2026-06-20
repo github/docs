@@ -25,7 +25,9 @@ You can use the following commands in the terminal to manage plugins for {% data
 | `copilot plugin install SPECIFICATION`         | Install a plugin. See [Plugin specification for `install` command](#plugin-specification-for-install-command) below. |
 | `copilot plugin uninstall NAME`                | Remove a plugin |
 | `copilot plugin list`                          | List installed plugins |
-| `copilot plugin update NAME`                   | Update a plugin |
+| `copilot plugin update NAME`                   | Update a named plugin. Use `--all` to update all installed plugins at once. |
+| `copilot plugin enable NAME`                   | Enable a previously disabled plugin |
+| `copilot plugin disable NAME`                  | Disable a plugin without uninstalling it |
 | `copilot plugin marketplace add SPECIFICATION` | Register a marketplace |
 | `copilot plugin marketplace list`              | List registered marketplaces |
 | `copilot plugin marketplace browse NAME`       | Browse marketplace plugins |
@@ -75,12 +77,60 @@ These tell the CLI where to find your plugin's components. All are optional. The
 | `skills`    | string \| string[] | `skills/`  | Path(s) to skill directories (`SKILL.md` files). |
 | `commands`  | string \| string[] | —          | Path(s) to command directories. |
 | `hooks`     | string \| object   | —          | Path to a hooks config file, or an inline hooks object. |
+| `extensions`| string \| string[] \| object | —          | Path(s) to extension directories. Use `{ paths: [...], exclusive: true }` to suppress built-in extensions. |
 | `mcpServers`| string \| object   | —          | Path to an MCP config file (e.g., `.mcp.json`), or inline server definitions. |
 | `lspServers`| string \| object   | —          | Path to an LSP config file, or inline server definitions. |
 
 ### Example `plugin.json` file
 
 {% data reusables.copilot.copilot-cli.cli-example-plugin-file %}
+
+### LSP server configuration
+
+To include LSP (Language Server Protocol) servers in a plugin, create a `lsp-config/servers.json` file in the plugin directory, or specify a path or inline object using the `lspServers` field in `plugin.json`.
+
+Example `lsp-config/servers.json` (or inline via `lspServers` in `plugin.json`):
+
+```json
+{
+    "lspServers": {
+        "my-lsp": {
+            "command": "my-language-server",
+            "fileExtensions": { ".myext": "mylang" }
+        }
+    }
+}
+```
+
+For cross-platform support, use `bash` and `powershell` instead of `command`:
+
+```json
+{
+    "lspServers": {
+        "my-lsp": {
+            "bash": "${PLUGIN_ROOT}/scripts/start-lsp.sh",
+            "powershell": "${PLUGIN_ROOT}/scripts/start-lsp.ps1",
+            "fileExtensions": { ".myext": "mylang" }
+        }
+    }
+}
+```
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `command` | string | * | Executable to launch the language server. |
+| `bash` | string | * | Bash script to launch the server (Linux/macOS); executed via `bash -c SCRIPT`. |
+| `powershell` | string | * | PowerShell script to launch the server (Windows); executed via `pwsh -c SCRIPT`. |
+| `cwd` | string | No | Working directory. Absolute or relative to the configuration file. Supports `${PLUGIN_ROOT}`. |
+| `args` | string[] | No | Arguments to pass to `command` (ignored for `bash` and `powershell`). |
+| `env` | object | No | Environment variables to set when spawning the server. |
+| `fileExtensions` | object | Yes | Map of file extensions to language IDs (for example, `{ ".ts": "typescript" }`). |
+| `rootUri` | string | No | Project root relative to the git root (default: `.`). |
+| `initializationOptions` | any | No | Options sent to the server in the LSP `initialize` request. |
+
+(*) At least one of `command`, `bash`, or `powershell` is required. When both `bash` and `powershell` are specified, the platform-appropriate one is selected automatically (PowerShell on Windows, Bash elsewhere).
+
+Use `${PLUGIN_ROOT}` to reference paths within the plugin directory.
 
 ## `marketplace.json`
 
@@ -146,9 +196,10 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 | Marketplace manifest | `marketplace.json`, `.plugin/marketplace.json`, `.github/plugin/marketplace.json`, or `.claude-plugin/marketplace.json` (checked in this order) |
 | Agents               | `agents/` (default, overridable in manifest) |
 | Skills               | `skills/` (default, overridable in manifest) |
-| Hooks config         | `hooks.json` or `hooks/hooks.json` |
-| MCP config           | `.mcp.json`, `.vscode/mcp.json`, `.devcontainer/devcontainer.json`, `.github/mcp.json` |
-| LSP config           | `lsp.json` or `.github/lsp.json` |
+| Hooks configuration  | `hooks.json` or `hooks/hooks.json` |
+| MCP configuration    | `.mcp.json`, `.github/mcp.json` |
+| LSP configuration    | `lsp.json` or `.github/lsp.json` |
+| Plugin data          | `${COPILOT_PLUGIN_DATA}` (also available as `${CLAUDE_PLUGIN_DATA}`). Points to a persistent, writable directory unique to each installed plugin. Use this for plugin-specific runtime data instead of paths inside the installed-plugins cache directory. |
 
 ## Loading order and precedence
 
@@ -178,11 +229,10 @@ The following diagram illustrates the loading order and precedence rules.
   │  1. ~/.copilot/agents/           (user, .github convention)         │
   │  2. <project>/.github/agents/    (project)                          │
   │  3. <parents>/.github/agents/    (inherited, monorepo)              │
-  │  4. ~/.claude/agents/            (user, .claude convention)         │
-  │  5. <project>/.claude/agents/    (project)                          │
-  │  6. <parents>/.claude/agents/    (inherited, monorepo)              │
-  │  7. PLUGIN: agents/ dirs         (plugin, by install order)         │
-  │  8. Remote org/enterprise agents (remote, via API)                  │
+  │  4. <project>/.claude/agents/    (project)                          │
+  │  5. <parents>/.claude/agents/    (inherited, monorepo)              │
+  │  6. PLUGIN: agents/ dirs         (plugin, by install order)         │
+  │  7. Remote org/enterprise agents (remote, via API)                  │
   └──────────────────────┬──────────────────────────────────────────────┘
                          │
   ┌──────────────────────▼──────────────────────────────────────────────┐
@@ -193,18 +243,16 @@ The following diagram illustrates the loading order and precedence rules.
   │  4. <parents>/.github/skills/ etc.   (inherited)                    │
   │  5. ~/.copilot/skills/               (personal-copilot)             │
   │  6. ~/.agents/skills/                (personal-agents)              │
-  │  7. ~/.claude/skills/                (personal-claude)              │
-  │  8. PLUGIN: skills/ dirs             (plugin)                       │
-  │  9. COPILOT_SKILLS_DIRS env + config (custom)                       │
+  │  7. PLUGIN: skills/ dirs             (plugin)                       │
+  │  8. COPILOT_SKILLS_DIRS env + config (custom)                       │
   │  --- then commands (.claude/commands/), skills override commands ---│
   └──────────────────────┬──────────────────────────────────────────────┘
                          │
   ┌──────────────────────▼──────────────────────────────────────────────┐
   │  MCP SERVERS - LAST LOADED IS USED (dedup by server name)           │
   │  1. ~/.copilot/mcp-config.json       (lowest priority)              │
-  │  2. .vscode/mcp.json                 (workspace)                    │
-  │  3. PLUGIN: MCP configs              (plugins)                      │
-  │  4. --additional-mcp-config flag     (highest priority)             │
+  │  2. PLUGIN: MCP configs              (plugins)                      │
+  │  3. --additional-mcp-config flag     (highest priority)             │
   └─────────────────────────────────────────────────────────────────────┘
 ```
 

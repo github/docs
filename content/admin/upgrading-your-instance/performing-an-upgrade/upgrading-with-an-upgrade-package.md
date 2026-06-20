@@ -53,6 +53,9 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
 
     See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-check-background-upgrade-jobs).
 
+   > [!NOTE]
+   > Background upgrade jobs only need to complete before you begin a subsequent feature upgrade. You don't need to wait for `ghe-check-background-upgrade-jobs` before upgrading replica or other additional nodes to the same release.
+
    To monitor progress of the configuration run, read the output in `/data/user/common/ghe-config.log`. For example, you can tail the log by running the following command:
 
    ```shell

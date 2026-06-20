@@ -1,6 +1,6 @@
 ---
 title: Best practices for securing accounts
-shortTitle: Securing accounts
+shortTitle: Secure accounts
 allowTitleToDifferFromFilename: true
 intro: Guidance on how to protect accounts with access to your software supply chain.
 versions:

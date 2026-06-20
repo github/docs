@@ -66,6 +66,34 @@ export class SecretScanningTransformer implements PageTransformer {
     context.markdownRequested = true
     let content = await page.render(context)
 
+    // Inject the full patterns table for agent/crawler access
+    // (The React DataTable is not rendered in markdown mode)
+    if (context.secretScanningData && context.secretScanningData.length > 0) {
+      const bool = (v: unknown) => (v ? '✓' : '✗')
+      const escape = (s: string) => s.replace(/\\/g, '\\\\').replace(/\|/g, '\\|')
+      // Strip HTML from secretType before inserting into markdown table rows.
+      // The isduplicate logic above appends <br/><a> HTML which would break
+      // single-line markdown table rows once <br/> is later converted to \n.
+      const cleanSecretType = (s: string) =>
+        s
+          .replace(
+            / <br\/><a href="#token-versions">Token versions<\/a>/,
+            ', [Token versions](#token-versions)',
+          )
+          .replace(/<br\s*\/?>/gi, ', ')
+          .replace(/<a\s+href="([^"]*)"[^>]*>([^<]*)<\/a>/gi, '[$2]($1)')
+          .replace(/<[^>]+>/g, '')
+      const header =
+        '| Provider | Secret | Secret type | Partner | User alert | Push protection | Validity check | Metadata | Base64 |'
+      const separator = '| --- | --- | --- | :---: | :---: | :---: | :---: | :---: | :---: |'
+      const rows = context.secretScanningData.map(
+        (entry: Record<string, unknown>) =>
+          `| ${escape(String(entry.provider))} | ${escape(String(entry.supportedSecret))} | ${escape(cleanSecretType(String(entry.secretType)))} | ${bool(entry.isPublic)} | ${bool(entry.isPrivateWithGhas)} | ${bool(entry.hasPushProtection)} | ${bool(entry.hasValidityCheck)} | ${bool(entry.hasExtendedMetadata)} | ${bool(entry.base64Supported)} |`,
+      )
+      const table = ['\n\n## Supported patterns\n', header, separator, ...rows].join('\n')
+      content += table
+    }
+
     // Strip HTML comments from the rendered content
     content = content.replace(/<!--.*?-->/gs, '')
 
@@ -75,11 +103,16 @@ export class SecretScanningTransformer implements PageTransformer {
     // Convert <br/> tags to newlines and <a href="...">text</a> to markdown links
     content = content.replace(/<br\s*\/?>/gi, '\n')
     content = content.replace(/<a\s+href="([^"]*)"[^>]*>([^<]*)<\/a>/gi, '[$2]($1)')
-    // Strip any remaining HTML tags (loop to handle nested/malformed tags)
+    // Strip any remaining HTML tags. Loop until stable to handle nested or
+    // malformed tags (e.g. "<scr<script>ipt>"). Limit iterations to prevent
+    // infinite loops on pathological input.
     let previous = ''
-    while (content !== previous) {
+    let iterations = 0
+    const MAX_STRIP_ITERATIONS = 10
+    while (content !== previous && iterations < MAX_STRIP_ITERATIONS) {
       previous = content
       content = content.replace(/<[^>]+>/g, '')
+      iterations++
     }
 
     // Normalize whitespace after stripping comments

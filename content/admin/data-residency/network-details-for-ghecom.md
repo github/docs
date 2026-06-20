@@ -200,6 +200,8 @@ Japan region:
 #### EU
 
 `*.blob.core.windows.net` can be replaced with:
+* `memoryalphaprodsdc01.blob.core.windows.net`
+* `memoryalphaprodweu01.blob.core.windows.net`
 * `prodsdc01resultssa0.blob.core.windows.net`
 * `prodsdc01resultssa1.blob.core.windows.net`
 * `prodsdc01resultssa2.blob.core.windows.net`
@@ -212,6 +214,7 @@ Japan region:
 #### Australia
 
 `*.blob.core.windows.net` can be replaced with:
+* `memoryalphaprodae01.blob.core.windows.net`
 * `prodae01resultssa0.blob.core.windows.net`
 * `prodae01resultssa1.blob.core.windows.net`
 * `prodae01resultssa2.blob.core.windows.net`
@@ -220,6 +223,7 @@ Japan region:
 #### Japan
 
 `*.blob.core.windows.net` can be replaced with:
+* `memoryalphaprodjpw01.blob.core.windows.net`
 * `prodjpw01resultssa0.blob.core.windows.net`
 * `prodjpw01resultssa1.blob.core.windows.net`
 * `prodjpw01resultssa2.blob.core.windows.net`

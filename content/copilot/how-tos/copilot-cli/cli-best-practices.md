@@ -94,12 +94,14 @@ Use `/model` to choose from available models based on your task complexity:
 
 | Model | Best For | Tradeoffs |
 | ----- | -------- | --------- |
-| **Claude Opus 4.5** (default) | Complex architecture, difficult debugging, nuanced refactoring | Most capable but uses more [premium requests](/copilot/concepts/billing/copilot-requests#model-multipliers) |
+| **Auto** | Reduced rate limiting and lower latency and errors | See [AUTOTITLE](/copilot/concepts/auto-model-selection#auto-model-selection-in-github-copilot-cli)|
+| **Claude Opus 4.5** (default) | Complex architecture, difficult debugging, nuanced refactoring | Most capable but more costly |
 | **Claude Sonnet 4.5** | Day-to-day coding, most routine tasks | Fast, cost-effective, handles most work well |
 | **GPT-5.2 Codex** | Code generation, code review, straightforward implementations | Excellent for reviewing code produced by other models |
 
 **Recommendations:**
 
+* **Auto** intelligently chooses models based on real time system health and model performance, reducing rate limiting and providing lower latency and errors.
 * **Opus 4.5** is ideal for tasks requiring deep reasoning, complex system design, subtle bug investigation, or extensive context understanding.
 * **Switch to Sonnet 4.5** for routine tasks where speed and cost efficiency matter—it handles the majority of everyday coding effectively.
 * **Use Codex** for high-volume code generation and as a second opinion for reviewing code produced by other models.
@@ -117,7 +119,7 @@ You can configure {% data variables.copilot.copilot_cli_short %} to use your own
 * Your model must support **tool calling** (function calling) and **streaming**. {% data variables.copilot.copilot_cli_short %} returns an error if either capability is missing.
 * For best results, use a model with a context window of at least 128k tokens.
 * Built-in sub-agents (`/review`, `/task`, explore, `/fleet`) automatically inherit your provider configuration.
-* Premium request cost estimates are hidden when using your own provider. Token usage (input, output, and cache counts) is still displayed.
+* Cost estimates are hidden when using your own provider. Token usage (input, output, and cache counts) is still displayed.
 * `/delegate` only works if you are also signed in to {% data variables.product.github %}. It transfers the session to {% data variables.product.github %}'s server-side {% data variables.product.prodname_copilot_short %}, not your provider.
 
 See [Using your own model provider](/copilot/concepts/agents/copilot-cli/about-copilot-cli#using-your-own-model-provider).
@@ -414,7 +416,7 @@ This multi-repository capability enables:
 
 ### Using images for UI work
 
-{% data variables.product.prodname_copilot_short %} can work with visual references. Simply **drag and drop** images directly into the CLI input, or reference image files:
+{% data variables.product.prodname_copilot_short %} can work with visual references. Simply **drag and drop** images directly into the CLI input, paste an image from the clipboard by using <kbd>Ctrl</kbd>+<kbd>V</kbd>, or reference image files in your prompt:
 
 ```copilot
 Implement this design: @mockup.png

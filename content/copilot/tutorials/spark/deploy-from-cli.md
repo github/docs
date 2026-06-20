@@ -18,7 +18,7 @@ If you’re developing your spark further in a {% data variables.product.github 
 
 ### Prerequisites
 
-* **Access to {% data variables.product.prodname_copilot %}**. You need a {% data variables.copilot.copilot_pro_plus_short %} or {% data variables.copilot.copilot_enterprise_short %} license to use {% data variables.product.prodname_spark_short %}. See [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
+* **Access to {% data variables.product.prodname_copilot %}**. You need a {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_max_short %}, or {% data variables.copilot.copilot_enterprise_short %} license to use {% data variables.product.prodname_spark_short %}. See [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
 * You must have **built a {% data variables.product.prodname_spark_short %} app** (a "spark"). To start building, navigate to [{% data variables.product.prodname_spark_short %}](https://github.com/spark).
 * You have **created a repository** for your spark on {% data variables.product.github %}. For instructions, see [AUTOTITLE](/copilot/tutorials/spark/build-apps-with-spark#step-8-invite-collaborators-with-a-repository).
 

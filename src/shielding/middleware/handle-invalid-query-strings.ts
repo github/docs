@@ -1,8 +1,11 @@
 import type { Response, NextFunction } from 'express'
 
+import { createLogger } from '@/observability/logger'
 import statsd from '@/observability/lib/statsd'
 import { noCacheControl, defaultCacheControl } from '@/frame/middleware/cache-control'
 import { ExtendedRequest } from '@/types'
+
+const logger = createLogger(import.meta.url)
 
 const STATSD_KEY = 'middleware.handle_invalid_querystrings'
 
@@ -136,7 +139,7 @@ export default function handleInvalidQuerystrings(
 
     if (keys.length >= MAX_UNFAMILIAR_KEYS_REDIRECT || badKeylessQuery || badToolsQuery) {
       if (process.env.NODE_ENV === 'development') {
-        console.warn(
+        logger.warn(
           'Redirecting because of a questionable query string, see https://github.com/github/docs/blob/main/src/shielding/README.md',
         )
       }

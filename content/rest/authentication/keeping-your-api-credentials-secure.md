@@ -57,6 +57,11 @@ Never hardcode authentication credentials like tokens, keys, or app-related secr
 
 If you find another user's {% data variables.product.pat_generic %} exposed on {% data variables.product.github %} or elsewhere, you can submit a revocation request through the REST API. See [AUTOTITLE](/rest/credentials/revoke#revoke-a-list-of-credentials).
 
+{% ifversion ghec %}
+> [!NOTE]
+> The credential revocation REST API is not currently available for enterprises that use {% data variables.enterprise.data_residency %}.
+
+{% endif %}
 {% endif %}
 
 When using a {% data variables.product.pat_generic %} in a script, consider storing your token as a {% data variables.product.prodname_actions %} secret and running your script through {% data variables.product.prodname_actions %}.{% ifversion fpt or ghec %} You can also store your token as a Codespaces secret and run your script in Codespaces.{% endif %} For more information, see [AUTOTITLE](/actions/security-guides/encrypted-secrets){% ifversion fpt or ghec %} and [AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces){% endif %}.

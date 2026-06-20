@@ -5,6 +5,8 @@ versions:
   ghec: '*'
 shortTitle: Billing
 contentType: concepts
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 ## About billing for your enterprise

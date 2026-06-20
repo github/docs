@@ -83,6 +83,13 @@ jobs:
           path: output/test/code-coverage.html
 ```
 
+{% ifversion code-quality %}
+
+> [!TIP]
+> To display code coverage results directly on pull requests instead of downloading artifacts, you can upload a Cobertura XML coverage report to {% data variables.product.prodname_code_quality_short %}. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/set-up-code-coverage).
+
+{% endif %}
+
 ## Configuring a custom artifact retention period
 
 You can define a custom retention period for individual artifacts created by a workflow. When using a workflow to create a new artifact, you can use `retention-days` with the `upload-artifact` action. This example demonstrates how to set a custom retention period of 5 days for the artifact named `my-artifact`:

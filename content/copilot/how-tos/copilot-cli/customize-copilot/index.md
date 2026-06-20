@@ -9,7 +9,7 @@ children:
   - /overview
   - /add-custom-instructions
   - /use-hooks
-  - /create-skills
+  - /add-skills
   - /add-mcp-servers
   - /create-custom-agents-for-cli
   - /use-byok-models

@@ -35,7 +35,7 @@ versions:
   ghes: '*'
 shortTitle: View product/license use
 permissions: '{% data reusables.permissions.enhanced-billing-cloud-all %}'
-product: Cloud only
+product: '{% data variables.product.prodname_ghe_cloud %} only'
 contentType: how-tos
 category:
   - Manage your plan and licenses
@@ -48,8 +48,9 @@ category:
 
 The options available to you vary according to your role and {% data variables.product.github %} plan.
 
-{% data variables.product.github %} cloud:
-* Anyone can view usage data for their own personal account unless their account is managed by their enterprise (EMU).
+{% data variables.product.prodname_ghe_cloud %}:
+
+* Anyone can view usage data for their own personal account unless a license for a metered product (for example, {% data variables.product.prodname_copilot_short %}) is assigned to them by an organization or enterprise account.
 * If you are an **owner** or **billing manager** of an enterprise, or an organization on {% data variables.product.prodname_team %}, you will also have access to usage data for that organization or enterprise account.
 
 {% data variables.product.prodname_ghe_server %}:
@@ -83,32 +84,30 @@ The metered usage chart and usage break down table both show your current choice
 
 {% ifversion fpt or ghec %}
 > [!TIP]
-> For GitHub Actions, you can also view the billable job execution minutes for an individual workflow run. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time).
+> For {% data variables.product.prodname_actions %}, you can also view the billable job execution minutes for an individual workflow run. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time).
 {% endif %}
 
-## Analyzing use of premium requests
+{% ifversion copilot %}
 
-{% data reusables.billing.premium-request-analytics-start %}
+## Analyzing {% data variables.product.prodname_ai_credits_short %} usage
 
-If you use premium requests, an additional **Premium request analytics** view is listed under **Usage**. You can use this view to dig deeper into how you are using included requests and where you are being billed for additional requests. For example:
+> [!NOTE]
+> Enterprise owners and billing managers can filter AI usage data by user. Organization owners cannot view user-level data directly—to see per-user consumption, download a usage report instead. See [Downloading usage reports](#downloading-usage-reports).
 
-* What's our total usage of premiums requests across all products?
-* Are users making good use of the premium requests included in their license for {% data variables.product.prodname_copilot_short %}?
-* Which users have consumed more than their monthly quota?
+If you use {% data variables.product.prodname_copilot_short %}, an additional **AI usage** view is listed under **Usage**. You can use this view to dig deeper into how your enterprise is consuming {% data variables.product.prodname_ai_credits_short %} and where additional spend is occurring. For example:
+
+* What's our total {% data variables.product.prodname_ai_credits_short %} consumption across all users?
+* Which users are the heaviest consumers, and are they within their budget?
+* Which models are driving the most spend?
 * How widespread is adoption in the organizations where we rolled out {% data variables.product.prodname_copilot_short %}?
 
-As you change the filter, "Timeframe", and "Group by", and options, all areas of the page are updated to reflect your choices. The chart shows the top 5 consumers and combines any other consumers into "All other".
+To understand how {% data variables.product.prodname_ai_credits_short %} are pooled across your enterprise and what the usage data represents, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
 
-![Screenshot of the premium request analytics chart, "Usage grouped by organization", and table. A "Show Usage Breakdown" arrow is outlined.](/assets/images/help/billing/premium-request-analytics-chart.png)
-
-To show more detailed information for the top 100 users or organizations consuming premium requests, use the {% octicon "chevron-right" aria-label="Show Usage Breakdown" aria-hidden="true" %} shown at the start of each row to expand and collapse data.
-
-![Screenshot of the premium request analytics table, "Usage breakdown" with the first row expanded to show a full breakdown of requests.](/assets/images/help/billing/premium-request-analytics-org-table.png)
+{% endif %}
 
 ## Downloading usage reports
 
-Visit the "Metered Usage" page to access a metered billing report for all products, or navigate to the "Premium request analytics" page for a specialized report tailored for Premium request activity tracking.
-
+1. Visit the "Metered Usage" page to access a metered billing report for all products{% ifversion copilot %}, or navigate to the "AI usage" page for a detailed report on {% data variables.product.prodname_ai_credits_short %} consumption.{% else %}.{% endif %}
 1. At the top of the page, click **Get usage report**.
 1. Specify the report details.
 1. Click **Email me the report**.
@@ -119,9 +118,9 @@ For details of the fields included in the reports, see [AUTOTITLE](/billing/refe
 
 ### Downloading the data plotted in the chart
 
-When the chart on the "Usage" or "Premium request analytics" page shows the data you want to download, click the {% octicon "kebab-horizontal" aria-label="Chart options" aria-hidden="true" %} "Chart options" button and select your preferred format.
+When the chart on the "Metered usage" {% ifversion copilot %}or "AI usage"{% endif %} page shows the data you want to download, click the {% octicon "kebab-horizontal" aria-label="Chart options" aria-hidden="true" %} button and select your preferred format.
 
-![Screenshot of the usage chart on the "Premium request analytics" page with "Chart options" open and outlined in dark orange.](/assets/images/help/billing/premium-request-analytics-chart-download.png)
+![Screenshot of the usage chart on the "AI usage" page with "Chart options" open and outlined in dark orange.](/assets/images/help/billing/premium-request-analytics-chart-download.png)
 
 ## Next steps
 

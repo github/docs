@@ -21,7 +21,7 @@ category:
 
 ## Commit was made less than 24 hours ago
 
-After making a commit that meets the requirements to count as a contribution, you may need to wait for up to 24 hours to see the contribution appear on your contributions graph. For more information, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/troubleshooting-commits-on-your-timeline).
+After making a commit that meets the requirements to count as a contribution, you may need to wait for up to 24 hours to see the contribution appear on your contributions graph. For more information, see [AUTOTITLE](/account-and-profile/how-tos/contribution-settings/viewing-commit-details-from-your-timeline).
 
 ## Your local Git commit email isn't connected to your account
 
@@ -41,6 +41,8 @@ Subject: [PATCH] updated index for better welcome message
 The email address in the `From:` field is the address that was set in the [local git config settings](/get-started/git-basics/set-up-git). In this example, the email address used for the commit is `octocat@nowhere.com`.
 
 If the email address used for the commit is not connected to your account on {% data variables.product.prodname_dotcom %}, you must [add the email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account) to your account on {% data variables.product.prodname_dotcom %}. Your contributions graph will be rebuilt automatically when you add the new address.
+
+If you remove an email address that was used to author older commits, or move that email to a different account, those historical contributions will no longer appear on your contributions graph. To restore attribution, add the exact historical commit email address back to your account. You do not need access to that mailbox. After adding or moving the email address, the contribution graph may take up to 24 hours to refresh. If qualifying contributions still have not returned after that time, confirm the commit author email using the `.patch` view described earlier in this article, then contact {% data variables.contact.contact_support_page %} with that information.
 
 {% ifversion fpt or ghec %}
 

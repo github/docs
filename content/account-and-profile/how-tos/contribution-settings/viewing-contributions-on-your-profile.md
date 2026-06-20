@@ -22,7 +22,7 @@ category:
 
 ## Prerequisites
 
-Before you view contributions on your profile, you should understand what counts as a contribution, and what other information your profile displays. See [AUTOTITLE](/account-and-profile/concepts/contributions-visible-on-your-profile).
+Before you view contributions on your profile, you should understand what counts as a contribution, and what other information your profile displays. See [AUTOTITLE](/account-and-profile/concepts/contributions-on-your-profile).
 
 ## Viewing contributions in a specific time range
 

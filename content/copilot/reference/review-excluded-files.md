@@ -79,6 +79,9 @@ Files matching these patterns are also excluded:
 * `**/*.map`
 * `**/out/**/*`
 * `**/vendor/**/*`
-* `**/bin/**/*`
 * `**/generated/**/*`
 * `**/generated-sources/**/*`
+* `**/bin/**/*`
+
+  > [!NOTE]
+  > Rust files matching `**/bin/**/*.rs` _are_ included for review.

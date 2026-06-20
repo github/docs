@@ -225,39 +225,6 @@
         "additional-permissions": true
       },
       {
-        "category": "dependabot",
-        "slug": "lists-the-repositories-dependabot-can-access-in-an-organization",
-        "subcategory": "repository-access",
-        "verb": "get",
-        "requestPath": "/organizations/{org}/dependabot/repository-access",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "dependabot",
-        "slug": "updates-dependabots-repository-access-list-for-an-organization",
-        "subcategory": "repository-access",
-        "verb": "patch",
-        "requestPath": "/organizations/{org}/dependabot/repository-access",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "dependabot",
-        "slug": "set-the-default-repository-access-level-for-dependabot",
-        "subcategory": "repository-access",
-        "verb": "put",
-        "requestPath": "/organizations/{org}/dependabot/repository-access/default-level",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
         "category": "orgs",
         "slug": "update-an-organization",
         "subcategory": "orgs",
@@ -586,6 +553,39 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": true
+      },
+      {
+        "category": "dependabot",
+        "slug": "lists-the-repositories-dependabot-can-access-in-an-organization",
+        "subcategory": "repository-access",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/dependabot/repository-access",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "dependabot",
+        "slug": "updates-dependabots-repository-access-list-for-an-organization",
+        "subcategory": "repository-access",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/dependabot/repository-access",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "dependabot",
+        "slug": "set-the-default-repository-access-level-for-dependabot",
+        "subcategory": "repository-access",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/dependabot/repository-access/default-level",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
       },
       {
         "category": "orgs",
@@ -5354,7 +5354,18 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": false
+        "additional-permissions": true
+      },
+      {
+        "category": "releases",
+        "slug": "update-a-release",
+        "subcategory": "releases",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
       },
       {
         "category": "releases",
@@ -8104,6 +8115,17 @@
         "subcategory": "releases",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/releases",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "releases",
+        "slug": "update-a-release",
+        "subcategory": "releases",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,

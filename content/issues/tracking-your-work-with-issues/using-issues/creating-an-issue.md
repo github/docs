@@ -45,24 +45,16 @@ Issues can be used to keep track of bugs, enhancements, or other requests. For m
    ![Screenshot of the template chooser for an issue. Below the template choices, a link, labeled "Open a blank issue," is outlined in dark orange.](/assets/images/help/issues/blank-issue-link.png)
 {% data reusables.repositories.type-issue-title-and-description %}
    To cross-reference a related discussion, paste the discussion's URL into the issue description.
+
+   {% ifversion fpt or ghec %}
+
+   > [!TIP]
+   > As you type, {% data variables.product.github %} may suggest potential duplicate issues that already exist in the repository. If a suggestion looks relevant, you can click through to the existing issue instead of creating a new one. These suggestions appear once the title is filled out and the body reaches 100 characters, and up to three existing issues may be shown. The suggestions are non-blocking and do not prevent you from creating your issue.
+
+   {% endif %}
+
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
-
-## Creating an issue with {% data variables.product.prodname_cli %}
-
-{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see [AUTOTITLE](/github-cli/github-cli/about-github-cli).
-
-To create an issue, use the `gh issue create` subcommand. To skip the interactive prompts, include the `--body` and the `--title` flags.
-
-```shell
-gh issue create --title "My new issue" --body "Here are more details."
-```
-
-You can also specify assignees, labels, milestones, and projects.
-
-```shell
-gh issue create --title "My new issue" --body "Here are more details." --assignee @me,monalisa --label "bug,help wanted" --project onboarding --milestone "learning codebase"
-```
 
 ## Creating an issue from a comment
 
@@ -119,14 +111,6 @@ When you create an issue from a discussion, the contents of the discussion post 
 1. Navigate to your project.
 {% data reusables.projects.create-issue-modal %}
 
-{% ifversion projects-v1 %}
-
-## Creating an issue from a {% data variables.projects.projects_v1_board %} note
-
-If you're using a {% data variables.projects.projects_v1_board %} to track and prioritize your work, you can convert notes to issues. For more information, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards) and [AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-notes-to-a-project-board#converting-a-note-to-an-issue).
-
-{% endif %}
-
 {% ifversion fpt or ghec %}
 
 ## Creating an issue from a task list item
@@ -158,6 +142,52 @@ Query parameter | Example
 
 {% ifversion fpt or ghec %}
 You can also use URL query parameters to fill custom text fields that you have defined in issue form templates. Query parameters for issue form fields can also be passed to the issue template chooser. For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys).
+{% endif %}
+
+## Creating an issue with {% data variables.product.prodname_cli %}
+
+{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see [AUTOTITLE](/github-cli/github-cli/about-github-cli).
+
+To create an issue, use the `gh issue create` subcommand. To skip the interactive prompts, include the `--body` and the `--title` flags.
+
+```shell
+gh issue create --title "TITLE" --body "ISSUE-DESCRIPTION"
+```
+
+You can also specify assignees, labels, milestones, and projects.
+
+```shell
+gh issue create --title "TITLE" --body "ISSUE-DESCRIPTION" --assignee @me,USERNAME --label "LABEL-1,LABEL-2" --project PROJECT-NAME --milestone "MILESTONE-NAME"
+```
+
+{% ifversion issue-types %}
+
+To set the issue type, use the `--type` flag.
+
+```shell
+gh issue create --title "TITLE" --body "ISSUE-DESCRIPTION" --type "ISSUE-TYPE"
+```
+
+{% endif %}
+
+{% ifversion sub-issues %}
+
+To create the issue as a sub-issue of an existing parent, use the `--parent` flag with an issue number or URL.
+
+```shell
+gh issue create --title "TITLE" --body "ISSUE-DESCRIPTION" --parent PARENT-ISSUE-NUMBER
+```
+
+{% endif %}
+
+{% ifversion fpt or ghec %}
+
+To create dependencies at the same time, use the `--blocked-by` and `--blocking` flags. Both accept a comma-separated list of issue numbers or URLs.
+
+```shell
+gh issue create --title "TITLE" --body "ISSUE-DESCRIPTION" --blocked-by BLOCKED-BY-ISSUE-NUMBER --blocking BLOCKING-ISSUE-NUMBER
+```
+
 {% endif %}
 
 {% ifversion copilot %}

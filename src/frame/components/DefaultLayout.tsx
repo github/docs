@@ -162,6 +162,9 @@ export const DefaultLayout = (props: Props) => {
         )}
         {page.contentType && <meta name="page-content-type" content={page.contentType} />}
         {page.documentType && <meta name="page-document-type" content={page.documentType} />}
+        {page.docsTeamMetrics && page.docsTeamMetrics.length > 0 && (
+          <meta name="docs-team-metrics" content={page.docsTeamMetrics.join(',')} />
+        )}
         {status && <meta name="status" content={status.toString()} />}
 
         {/* OpenGraph data */}

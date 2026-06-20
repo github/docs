@@ -7998,6 +7998,14 @@ upcoming_changes:
     date: '2026-07-01T00:00:00+00:00'
     criticality: breaking
     owner: peter-evans
+  - location: User.viewerRelevantRepositories
+    description:
+      '`viewerRelevantRepositories` will be removed. Use viewerCopilotChatRepositorySuggestions
+      instead.'
+    reason: '`viewerRelevantRepositories` has been renamed to `viewerCopilotChatRepositorySuggestions`.'
+    date: '2026-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/client-apps-platform
   - location: Artifact.databaseId
     description: '`databaseId` will be removed. Use `fullDatabaseId` instead.'
     reason:

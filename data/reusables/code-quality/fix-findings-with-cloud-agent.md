@@ -7,7 +7,7 @@ Alternatively, if you have a {% data variables.product.prodname_copilot_short %}
 You can track {% data variables.copilot.copilot_cloud_agent %}'s work:
 
 * In the pull request, the summary is updated as work progresses.
-* Using the [agents page](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text) or session logs, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/track-copilot-sessions).
+* Using the [agents page](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text) or session logs, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents).
 
 You need a {% data variables.product.prodname_copilot_short %} license to invoke {% data variables.copilot.copilot_cloud_agent %}.
 <br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>

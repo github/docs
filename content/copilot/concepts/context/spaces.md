@@ -62,10 +62,10 @@ You can use {% data variables.copilot.copilot_spaces %} in {% data variables.cop
 
 ## How does using {% data variables.copilot.copilot_spaces_short %} affect my usage?
 
-Questions you submit in a space count as {% data variables.copilot.copilot_chat_short %} requests.
+Questions you submit in a space count as {% data variables.copilot.copilot_chat_short %} requests and consume {% data variables.product.prodname_ai_credits_short %} based on the model used and the number of tokens processed.
 
 * If you're a {% data variables.copilot.copilot_free_short %} user, this usage counts toward your monthly chat limit.
-* If you use {% data variables.copilot.copilot_spaces_short %} with a premium model, this usage counts toward your premium usage quota. Every question you submit to a premium model counts as one premium request, multiplied by the model's multiplier. For information about the multipliers applied to each model, see [AUTOTITLE](/copilot/managing-copilot/understanding-and-managing-copilot-usage/understanding-and-managing-requests-in-copilot#model-multipliers).
+* For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, usage draws from your enterprise's shared {% data variables.product.prodname_ai_credits_short %} pool. For details on how consumption is calculated, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
 
 ## Next steps
 

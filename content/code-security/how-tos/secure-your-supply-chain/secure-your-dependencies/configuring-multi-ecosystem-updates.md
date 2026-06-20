@@ -69,7 +69,7 @@ Commit the changes to your `dependabot.yml` file.
 
 ## 4. Customize with additional keys (optional)
 
-You can add labels, reviewers, or other configuration options to your multi-ecosystem groups. See [`assignees`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#assignees--) and [`labels`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#labels--).
+You can add assignees, labels, or other configuration options to your multi-ecosystem groups. See [`assignees`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#assignees--) and [`labels`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#labels--).
 
 ```yaml copy
 multi-ecosystem-groups:

@@ -30,8 +30,8 @@ You can download a CSV file of the overview dashboard data for your organization
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. The overview page is the primary view that you will see after clicking on the **{% data variables.product.prodname_security_and_quality_tab %}** tab. To get to the dashboard from another security overview page, in the sidebar, click **{% octicon "graph" aria-hidden="true" aria-label="graph" %} Overview**.{% ifversion security-overview-3-tab-dashboard %}
-1. By default, the **Detection** tab is displayed. If you want to switch to another tab to see other metrics, click **Remediation** or **Prevention**.{% endif %}
+1. The overview page is the primary view that you will see after clicking on the **{% data variables.product.prodname_security_and_quality_tab %}** tab. To get to the dashboard from another security overview page, in the sidebar, click **{% octicon "graph" aria-hidden="true" aria-label="graph" %} Overview**.
+1. By default, the **Detection** tab is displayed. If you want to switch to another tab to see other metrics, click **Remediation** or **Prevention**.
 {% data reusables.security-overview.filter-and-toggle %}
 
 {% ifversion security-overview-dashboard-enterprise %}
@@ -39,8 +39,8 @@ You can download a CSV file of the overview dashboard data for your organization
 ## Viewing the security overview dashboard for your enterprise
 
 {% ifversion ghes %}{% data reusables.enterprise-accounts.access-enterprise-ghes %}{% else %}{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}{% endif %}
-{% data reusables.code-scanning.click-code-security-enterprise %}{% ifversion security-overview-3-tab-dashboard %}
-1. By default, the **Detection** tab is displayed. If you want to switch to another tab to see other metrics, click **Remediation** or **Prevention**.{% endif %}
+{% data reusables.code-scanning.click-code-security-enterprise %}
+1. By default, the **Detection** tab is displayed. If you want to switch to another tab to see other metrics, click **Remediation** or **Prevention**.
 {% data reusables.security-overview.filter-and-toggle %}
 
 {% data reusables.security-overview.enterprise-filters-tip %}

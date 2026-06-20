@@ -22,7 +22,7 @@ category:
 
 1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of your organization. For example, from [https://github.com/settings/organizations](https://github.com/settings/organizations?ref_product=github&ref_type=engagement&ref_style=text).
 {% data reusables.organizations.security-overview %}
-1. In the "Metrics" section of the sidebar, click {% octicon "code-square" aria-hidden="true" aria-label="code-square" %} **Code quality**.
+1. In the "Insights" section of the sidebar, click {% octicon "code-square" aria-hidden="true" aria-label="code-square" %} **Code quality**.
 
 > [!NOTE] The dashboard only displays data for repositories where the viewer can see code quality findings.
 

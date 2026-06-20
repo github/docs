@@ -1,5 +1,6 @@
 ---
 title: Custom patterns
+shortTitle: Custom patterns
 intro: 'Detect secret types specific to your organization with custom patterns.'
 versions:
   fpt: '*'

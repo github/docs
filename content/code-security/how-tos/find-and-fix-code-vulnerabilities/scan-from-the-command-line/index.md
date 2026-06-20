@@ -7,15 +7,16 @@ versions:
   ghec: '*'
 contentType: how-tos
 children:
-  - /setting-up-the-codeql-cli
+  - /set-up-codeql-cli
   - /write-custom-queries
   - /publish-and-use-packs
-  - /testing-custom-queries
-  - /testing-query-help-files
+  - /test-custom-queries
+  - /test-query-help-files
   - /download-databases
   - /check-out-source-code
-  - /specifying-command-options-in-a-codeql-configuration-file
-  - /creating-database-bundle-for-troubleshooting
+  - /incremental-analysis
+  - /specify-command-options
+  - /create-database-bundles
 redirect_from:
   - /code-security/codeql-cli/using-the-codeql-cli
   - /code-security/codeql-cli/getting-started-with-the-codeql-cli

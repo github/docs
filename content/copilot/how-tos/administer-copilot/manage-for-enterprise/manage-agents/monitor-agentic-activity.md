@@ -23,6 +23,4 @@ category:
 {% data reusables.enterprise-accounts.ai-controls-tab %}
 1. To see a list of agentic activity in your enterprise over the last 180 days, at the bottom of the page, click {% octicon "log" aria-hidden="true" aria-label="log" %} **Audit logs**.
 
-## Next steps
-
 For help interpreting the audit log events for agentic activity, see [AUTOTITLE](/copilot/reference/agentic-audit-log-events).

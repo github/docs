@@ -10,7 +10,7 @@ category:
   - Manage Copilot for a team
 ---
 
-You can manage Model Context Protocol (MCP) server usage in your organization or enterprise by configuring a series of MCP policies on {% data variables.product.prodname_dotcom_the_website %}. Through these policies, you can allow or block MCP server usage entirely, or restrict access to a list of servers that you define in an MCP registry.
+You can manage Model Context Protocol (MCP) server usage in your organization or enterprise by configuring a series of MCP policies on {% data variables.product.prodname_dotcom_the_website %}. Through these policies, you can allow or block MCP server usage entirely, or restrict access to a list of servers that you define in an MCP registry. These policies apply to supported IDEs and {% data variables.copilot.copilot_cli_short %}.
 
 ## MCP registries
 
@@ -20,6 +20,12 @@ After you create your MCP registry, you can make it available to your company, a
 * Curate a catalog of MCP servers your developers can discover and use without context switching
 * Restrict access to unapproved servers for increased security and compliance
 * Provide clarity to developers when a server is blocked by policy
+
+## Agent finder
+
+Agent finder is a discovery service that helps {% data variables.product.prodname_copilot %} find the right capabilities—such as MCP servers, tools, agents, and skills—for a task at runtime, instead of requiring every capability to be configured in advance. Like an MCP registry, it searches a catalog of capabilities and returns ranked matches that {% data variables.product.prodname_copilot %} can use on demand. Agent finder implements the open Agentic Resource Discovery (ARD) specification.
+
+To use agent finder, download the [agent finder skill](https://github.com/ards-project/connectors/blob/main/skills/github-copilot/SKILL.md) and add it to your `~/.copilot/skills` directory. For more information about agent skills, see [AUTOTITLE](/copilot/concepts/agents/about-agent-skills). To browse the catalog, see [GitHub Agent Finder](https://github.com/agentfinder).
 
 ## MCP policy settings
 
@@ -35,7 +41,7 @@ MCP management features are supported as follows:
 
 | Surface | Registry display | Allowlist enforcement |
 |---|:---:|:---:|
-| {% data variables.copilot.copilot_cli_short %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| {% data variables.copilot.copilot_cli_short %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_cloud_agent %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | Eclipse | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | JetBrains | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |

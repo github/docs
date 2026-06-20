@@ -34,10 +34,20 @@ jobs:
 
       - uses: ./.github/actions/node-npm-setup
 
+      - name: Generate GitHub App token
+        if: ${{ github.repository == 'github/docs-internal' }}
+        id: app-token
+        uses: actions/create-github-app-token@3ff1caaa28b64c9cc276ce0a02e2ff584f3900c5 # v2.0.2
+        with:
+          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
+          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
+          owner: github
+          repositories: docs-early-access
+
       - uses: ./.github/actions/get-docs-early-access
         if: ${{ github.repository == 'github/docs-internal' }}
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          token: ${{ steps.app-token.outputs.token }}
 
       - uses: ./.github/actions/cache-nextjs
 
@@ -49,9 +59,16 @@ jobs:
         uses: tj-actions/changed-files@22103cc46bda19c2b464ffe86db46df6922fd323 # v47.0.5
         with:
           files: 'content/**'
+          # Needed to expose `all_old_new_renamed_files` (old,new pairs for renames).
+          # Without this, files git classifies as renames (status R) are invisible to
+          # the deleted-file redirect check below and old URLs can silently 404.
+          include_all_old_new_renamed_files: true
 
       - name: Run tests
         env:
           CHANGED_FILES: ${{ steps.changed_files.outputs.all_modified_files }}
           DELETED_FILES: ${{ steps.changed_files.outputs.deleted_files }}
+          # Space-separated `oldPath,newPath` pairs. The test treats the old paths
+          # like deleted files so missing redirects on renames are caught.
+          RENAMED_FILES: ${{ steps.changed_files.outputs.all_old_new_renamed_files }}
         run: npm test -- src/content-render/tests/render-changed-and-deleted-files.ts

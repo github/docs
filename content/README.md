@@ -149,8 +149,7 @@ shortTitle: Contributing to projects
 ### `layout`
 
 - Purpose: Render the proper page layout.
-- Type: `String` that matches the name of the layout.
-For a layout named `components/landing`, the value would be `product-landing`.
+- Type: `String` that matches the name of a supported layout. See `layoutNames` in `src/frame/lib/frontmatter.ts` for the authoritative list (for example, `discovery-landing`, `journey-landing`, `bespoke-landing`, `category-landing`, `toc-landing`, `inline`).
 - Optional. If omitted, `DefaultLayout` is used.
 
 ### `children`

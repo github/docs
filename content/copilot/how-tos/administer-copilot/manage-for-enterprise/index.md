@@ -10,6 +10,7 @@ children:
   - /manage-enterprise-policies
   - /manage-agents
   - /manage-spark
+  - /manage-availability-of-default-models
   - /use-your-own-api-keys
   - /review-audit-logs
 redirect_from:

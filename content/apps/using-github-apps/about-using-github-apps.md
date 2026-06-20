@@ -35,8 +35,21 @@ Occasionally, the {% data variables.product.prodname_github_app %} will request 
 
 Before you install or authorize a {% data variables.product.prodname_github_app %}, you should make sure that you trust the app developer. If you no longer use the app, you should suspend or uninstall the app and/or revoke your authorization of the app. For more information, see [AUTOTITLE](/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#blocking-access) and [AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations).
 
-## {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}
+{% ifversion fpt or ghec %}
 
+## {% data variables.copilot.agent_apps_caps %}
+
+> [!NOTE] {% data reusables.copilot.agent-apps-preview %}
+
+{% data reusables.copilot.agent-apps-intro %} Powered by {% data variables.copilot.copilot_cloud_agent %}, you can trigger these agents from issues, pull requests, and the Agents UI.
+
+When you install an {% data variables.copilot.agent_app %}, you will be asked if you want to enable agent features. For more information, see [AUTOTITLE](/copilot/concepts/agents/agent-apps).
+
+If the app is installed in an organization owned by an enterprise, an administrator must also enable the "{% data variables.copilot.agent_apps %}" {% data variables.product.prodname_copilot_short %} policy before the agent features become available.
+
+{% endif %}
+
+## {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}
 {% data variables.product.company_short %} also supports {% data variables.product.prodname_oauth_apps %}. Unlike {% data variables.product.prodname_github_apps %}, you do not install an {% data variables.product.prodname_oauth_app %} or control what repositories it can access.
 
 Both {% data variables.product.prodname_oauth_apps %} and {% data variables.product.prodname_github_apps %} use OAuth 2.0.

@@ -129,10 +129,12 @@
 
 @media (max-width: 865px) {
   .landingHero {
-    height: 28rem;
+    height: auto;
+    min-height: 28rem;
     flex-direction: column;
     text-align: center;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: 3rem;
     background-color: var(--bgColor-muted, var(--color-canvas-subtle, #f6f8fa));
     position: relative;
 
@@ -184,12 +186,13 @@
 
 @media (max-width: 480px) {
   .landingHero {
-    height: 28rem;
+    height: auto;
+    min-height: 28rem;
     background-color: var(--bgColor-muted, var(--color-canvas-subtle, #f6f8fa));
     flex-direction: column;
     text-align: center;
-    padding: 1rem 0 1rem;
-    justify-content: center;
+    padding: 3rem 0 1rem;
+    justify-content: flex-start;
     position: relative;
 
     background-position: center right;

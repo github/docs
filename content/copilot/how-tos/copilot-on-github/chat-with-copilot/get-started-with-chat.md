@@ -44,6 +44,8 @@ Navigate to a pull request to ask about changes, reviews, or failing workflows.
 * {% prompt %}Summarize the changes in this PR.{% endprompt %}
 * {% prompt %}What's the purpose of this file?{% endprompt %}
 * {% prompt %}Tell me why this job failed{% endprompt %}
+* {% prompt %}What did {% data variables.product.prodname_copilot_short %} change in this PR and why?{% endprompt %}
+* {% prompt %}What did {% data variables.product.prodname_copilot_short %} validate before opening this PR?{% endprompt %}
 
 ## Security alert questions
 

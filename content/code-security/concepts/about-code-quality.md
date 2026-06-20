@@ -2,7 +2,7 @@
 title: About GitHub Code Quality
 shortTitle: GitHub Code Quality
 allowTitleToDifferFromFilename: true
-intro: Use {% data variables.product.prodname_code_quality %} to flag code quality issues in pull requests and repository scans, apply {% data variables.product.prodname_copilot_short %}-powered autofixes, and enforce standards with rulesets.
+intro: '{% data variables.product.prodname_code_quality %} flags code quality issues in pull requests and repository scans, applies {% data variables.product.prodname_copilot_short %}-powered autofixes, and enforces standards with rulesets.'
 product: '{% data reusables.gated-features.code-quality-availability %}'
 versions:
   feature: code-quality
@@ -30,16 +30,23 @@ With {% data variables.product.prodname_code_quality_short %}, you can:
 * Use **repository dashboards** to track reliability and maintainability scores, identify areas needing attention, and prioritize remediation.
 * Monitor **organization dashboards** to understand the code health of your repositories at a glance and determine which repositories to investigate further.
 * Set up **rulesets** for pull requests to enforce code quality standards and block changes that do not meet your criteria.
+* Upload **code coverage** reports to see test coverage metrics directly on pull requests, helping reviewers identify untested code.
 * Easily assign remediation work to **{% data variables.copilot.copilot_cloud_agent %}**, if you have a {% data variables.product.prodname_copilot_short %} license.
 
 ## Availability and usage costs
 
 {% data variables.product.prodname_code_quality %} is available for organization-owned repositories on {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %} plans.
 
-{% data variables.product.prodname_code_quality %} won't be billed during public preview. However, {% data variables.product.prodname_code_quality_short %} scans will consume {% data variables.product.prodname_actions %} minutes. See [AUTOTITLE](/billing/concepts/product-billing/github-code-quality).
+<!-- expires 2026-07-20 -->
+
+{% data variables.product.prodname_code_quality %} is currently in {% data variables.release-phases.public_preview %} and will become generally available on July 20, 2026. During {% data variables.release-phases.public_preview %}, {% data variables.product.prodname_code_quality_short %} scans will consume {% data variables.product.prodname_actions %} minutes but you will not be billed for other usage. From July 20, 2026, usage will incur additional charges. See [AUTOTITLE](/billing/concepts/product-billing/github-code-quality).
+
+If you want to avoid charges, disable {% data variables.product.prodname_code_quality_short %} before July 20, 2026. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/disable-code-quality).
+
+<!-- end expires 2026-07-20 -->
 
 > [!NOTE]
-> * You **don't** need a {% data variables.product.prodname_copilot_short %} or a {% data variables.product.prodname_code_security %} license to use {% data variables.product.prodname_code_quality_short %} or apply {% data variables.product.prodname_copilot_short %}-powered autofixes.
+> You **don't** need a {% data variables.product.prodname_copilot_short %} or a {% data variables.product.prodname_code_security %} license to use {% data variables.product.prodname_code_quality_short %} or apply {% data variables.product.prodname_copilot_short %}-powered autofixes.
 
 ## Supported languages
 
@@ -63,6 +70,8 @@ In addition, you'll see an AI-powered analysis of all recent pushes to the defau
 
 When {% data variables.product.prodname_codeql %} finds rule-based problems on pull requests, you'll see comments from the `{% data variables.code-quality.pr_commenter %}`. Where possible, each comment will include a {% data variables.copilot.copilot_autofix_short %} suggestion on how to fix the problem. See [AUTOTITLE](/code-security/code-quality/tutorials/fix-findings-in-prs).
 
+If you have set up code coverage, the `{% data variables.code-quality.pr_commenter %}` also posts a coverage summary showing the aggregate coverage percentage for the PR branch compared to the default branch. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/interpret-results#viewing-code-coverage-on-pull-requests).
+
 ### Default branch results
 
 {% data variables.product.prodname_code_quality_short %} findings on the default branch are reported on "{% data variables.code-quality.code_quality_ui %}" pages on the **{% data variables.product.prodname_security_and_quality_tab %}** tab for the repository:
@@ -76,5 +85,5 @@ Each {% data variables.product.prodname_codeql %} analysis will use {% data vari
 
 ## Next steps
 
-* **For your repository:** Turn on {% data variables.product.prodname_code_quality_short %} to start generating results. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/enable-code-quality).
+* **For your repository or organization:** Turn on {% data variables.product.prodname_code_quality_short %} to start generating results. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/enable-code-quality).
 * **For your enterprise:** Ensure repositories in your enterprise can enable {% data variables.product.prodname_code_quality_short %}. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/allow-github-code-quality-in-enterprise).

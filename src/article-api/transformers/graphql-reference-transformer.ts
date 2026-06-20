@@ -36,108 +36,78 @@ export class GraphQLReferenceTransformer implements PageTransformer {
   async transform(page: Page, pathname: string, context: Context): Promise<string> {
     const currentVersion = context.currentVersion!
 
-    // Determine the page type from the pathname
+    // Determine the page slug from the pathname
     const pathParts = pathname.split('/').filter(Boolean)
     const graphqlIndex = pathParts.indexOf('graphql')
-    const pageType = pathParts[graphqlIndex + 2] // specific page like 'queries', 'mutations', etc.
+    const pageType = pathParts[graphqlIndex + 2] // category slug like 'repos', 'issues', etc.
 
-    // Import GraphQL data functions dynamically
-    const { getGraphqlSchema } = await import('@/graphql/lib/index')
+    const { getGraphqlSchema, getAllGraphqlObjects } = await import('@/graphql/lib/index')
+    const { isValidCategory, ALL_KIND_KEYS, KIND_SLUG_PREFIX } =
+      await import('@/graphql/lib/categories')
 
-    // Map URL-friendly page type to internal schema key
-    const schemaKey = pageType === 'input-objects' ? 'inputObjects' : pageType
+    // Category pages render every kind in a fixed section order. The mini-toc
+    // and in-page anchors use kind-disambiguated slugs so items sharing a
+    // case-insensitive name across kinds (e.g. `Repository` object vs
+    // `repository` query) don't collide.
+    if (!isValidCategory(pageType)) {
+      // Defensive: legacy kind URLs redirect to /graphql/reference, so this
+      // transformer should never see them. Returning empty content lets the
+      // 404 path handle anything unexpected.
+      return ''
+    }
 
-    const schema = getGraphqlSchema(currentVersion, schemaKey)
+    const schema = getGraphqlSchema(currentVersion, pageType)
+    const allObjects = getAllGraphqlObjects(currentVersion)
 
-    // Prepare intro and manual content
     const intro = page.intro ? await page.renderProp('intro', context, { textOnly: true }) : ''
     const manualContent = await extractManualContent(page, context)
 
-    // Prepare the schema items based on page type
-    let preparedItems: Array<Record<string, unknown>> = []
-
-    switch (schemaKey) {
-      case 'queries':
-        preparedItems = await Promise.all(
-          (schema as QueryT[]).map((item) => this.prepareQuery(item)),
-        )
-        break
-      case 'mutations':
-        preparedItems = await Promise.all(
-          (schema as MutationT[]).map((item) => this.prepareMutation(item)),
-        )
-        break
-      case 'objects':
-        preparedItems = await Promise.all(
-          (schema as ObjectT[]).map((item) => this.prepareObject(item)),
-        )
-        break
-      case 'interfaces':
-        preparedItems = await Promise.all(
-          (schema as InterfaceT[]).map((item) => this.prepareInterface(item)),
-        )
-        break
-      case 'enums':
-        preparedItems = await Promise.all((schema as EnumT[]).map((item) => this.prepareEnum(item)))
-        break
-      case 'unions':
-        preparedItems = await Promise.all(
-          (schema as UnionT[]).map((item) => this.prepareUnion(item)),
-        )
-        break
-      case 'inputObjects':
-        preparedItems = await Promise.all(
-          (schema as InputObjectT[]).map((item) => this.prepareInputObject(item)),
-        )
-        break
-      case 'scalars':
-        preparedItems = await Promise.all(
-          (schema as ScalarT[]).map((item) => this.prepareScalar(item)),
-        )
-        break
+    // Flatten every kind into a single alphabetical list. Each prepared item
+    // carries its kind label so the template can render a "name - kind"
+    // disambiguator next to the heading without grouping by kind sections.
+    const KIND_DISPLAY: Record<string, string> = {
+      queries: 'query',
+      mutations: 'mutation',
+      objects: 'object',
+      interfaces: 'interface',
+      enums: 'enum',
+      unions: 'union',
+      inputObjects: 'input object',
+      scalars: 'scalar',
     }
 
-    // For objects pages, collapse Connection/Edge types that have only standard
-    // boilerplate fields into a summary. Types with additional fields are kept.
-    let connectionEdgeSummary: string[] | null = null
-    if (schemaKey === 'objects') {
-      const BOILERPLATE_CONNECTION_FIELDS = new Set(['edges', 'nodes', 'pageInfo', 'totalCount'])
-      const BOILERPLATE_EDGE_FIELDS = new Set(['cursor', 'node'])
-      const connEdgeNames: string[] = []
-      const filteredItems: Array<Record<string, unknown>> = []
-      for (const item of preparedItems) {
-        const name = item.name as string
-        const fields = item.fields as Array<Record<string, unknown>> | undefined
-        const fieldNames = new Set((fields || []).map((f) => f.name as string))
-
-        const isBoilerplateConnection =
-          name.endsWith('Connection') &&
-          fieldNames.size === BOILERPLATE_CONNECTION_FIELDS.size &&
-          [...fieldNames].every((f) => BOILERPLATE_CONNECTION_FIELDS.has(f))
-        const isBoilerplateEdge =
-          name.endsWith('Edge') &&
-          fieldNames.size === BOILERPLATE_EDGE_FIELDS.size &&
-          [...fieldNames].every((f) => BOILERPLATE_EDGE_FIELDS.has(f))
-
-        if (isBoilerplateConnection || isBoilerplateEdge) {
-          connEdgeNames.push(name)
-        } else {
-          filteredItems.push(item)
-        }
-      }
-      if (connEdgeNames.length > 0) {
-        connectionEdgeSummary = connEdgeNames.sort()
-        preparedItems = filteredItems
+    const flatEntries: Array<{ kind: string; item: Record<string, unknown> }> = []
+    for (const kind of ALL_KIND_KEYS) {
+      const items = (schema as Record<string, unknown[]>)[kind] as
+        | Array<{ name: string; [k: string]: unknown }>
+        | undefined
+      if (!items || items.length === 0) continue
+      const preparedKindItems = await Promise.all(
+        items.map(async (item) => {
+          const prepared = await this.prepareByKind(kind, item, allObjects, KIND_SLUG_PREFIX[kind])
+          prepared.kind = kind
+          prepared.kindLabel = KIND_DISPLAY[kind] ?? kind
+          return prepared
+        }),
+      )
+      for (const prepared of preparedKindItems) {
+        flatEntries.push({ kind, item: prepared })
       }
     }
+    flatEntries.sort((a, b) => {
+      const an = String(a.item.name ?? '').toLowerCase()
+      const bn = String(b.item.name ?? '').toLowerCase()
+      if (an < bn) return -1
+      if (an > bn) return 1
+      return a.kind < b.kind ? -1 : a.kind > b.kind ? 1 : 0
+    })
+    const items = flatEntries.map((e) => e.item)
 
     const templateData: Record<string, unknown> = {
       pageTitle: page.title,
       pageIntro: intro,
       manualContent,
-      items: preparedItems,
-      pageType: schemaKey,
-      connectionEdgeSummary,
+      items,
     }
 
     const templateContent = loadTemplate(this.templateName)
@@ -147,6 +117,56 @@ export class GraphQLReferenceTransformer implements PageTransformer {
       ...templateData,
       markdownRequested: true,
     })
+  }
+
+  // Dispatch an item to the appropriate prepare* helper based on kind. The
+  // resulting slug is kind-disambiguated to match the in-page anchors.
+  private async prepareByKind(
+    kind: string,
+    item: { name: string; [k: string]: unknown },
+    allObjects: Array<{ name: string; implements?: Array<{ name: string }>; href?: string }>,
+    slugPrefix: string,
+  ): Promise<Record<string, unknown>> {
+    let prepared: Record<string, unknown>
+    switch (kind) {
+      case 'queries':
+        prepared = await this.prepareQuery(item as never)
+        break
+      case 'mutations':
+        prepared = await this.prepareMutation(item as never)
+        break
+      case 'objects':
+        prepared = await this.prepareObject(item as never)
+        break
+      case 'interfaces': {
+        const base = (await this.prepareInterface(item as never)) as Record<string, unknown> & {
+          implementedBy?: unknown
+        }
+        const implementers = allObjects.filter(
+          (obj) => obj.implements && obj.implements.some((i) => i.name === item.name),
+        )
+        base.implementedBy = implementers.map((obj) => ({ name: obj.name, href: obj.href }))
+        prepared = base
+        break
+      }
+      case 'enums':
+        prepared = await this.prepareEnum(item as never)
+        break
+      case 'unions':
+        prepared = await this.prepareUnion(item as never)
+        break
+      case 'inputObjects':
+        prepared = await this.prepareInputObject(item as never)
+        break
+      case 'scalars':
+        prepared = await this.prepareScalar(item as never)
+        break
+      default:
+        prepared = {}
+    }
+    // Override `slug` with the kind-disambiguated form used by the React page.
+    prepared.slug = `${slugPrefix}-${(prepared.slug as string | undefined) ?? item.name.toLowerCase()}`
+    return prepared
   }
 
   /**
@@ -278,31 +298,49 @@ export class GraphQLReferenceTransformer implements PageTransformer {
     }
   }
 
+  private static STANDARD_PAGINATION_ARGS = new Set(['after', 'before', 'first', 'last'])
+
+  /**
+   * Check if a field has only the standard pagination arguments
+   * (after, before, first, last) with no additional args.
+   */
+  private hasOnlyStandardPaginationArgs(field: FieldT): boolean {
+    if (!field.arguments || field.arguments.length !== 4) return false
+    return field.arguments.every((arg) =>
+      GraphQLReferenceTransformer.STANDARD_PAGINATION_ARGS.has(arg.name),
+    )
+  }
+
   /**
    * Prepare fields for rendering
    */
   private async prepareFields(fields: FieldT[]): Promise<Array<Record<string, unknown>>> {
-    return fields.map((field) => ({
-      name: field.name,
-      type: field.type,
-      href: field.href,
-      description: field.description ? fastTextOnly(field.description) : '',
-      defaultValue: field.defaultValue,
-      isDeprecated: field.isDeprecated || false,
-      deprecationReason: field.deprecationReason
-        ? fastTextOnly(field.deprecationReason)
-        : undefined,
-      arguments: field.arguments
-        ? field.arguments.map((arg) => ({
-            name: arg.name,
-            description: arg.description ? fastTextOnly(arg.description) : '',
-            defaultValue: arg.defaultValue,
-            type: {
-              name: arg.type.name,
-              href: arg.type.href,
-            },
-          }))
-        : undefined,
-    }))
+    return fields.map((field) => {
+      const hasPaginationOnly = this.hasOnlyStandardPaginationArgs(field)
+      return {
+        name: field.name,
+        type: field.type,
+        href: field.href,
+        description: field.description ? fastTextOnly(field.description) : '',
+        defaultValue: field.defaultValue,
+        isDeprecated: field.isDeprecated || false,
+        deprecationReason: field.deprecationReason
+          ? fastTextOnly(field.deprecationReason)
+          : undefined,
+        hasPaginationOnly,
+        arguments:
+          field.arguments && !hasPaginationOnly
+            ? field.arguments.map((arg) => ({
+                name: arg.name,
+                description: arg.description ? fastTextOnly(arg.description) : '',
+                defaultValue: arg.defaultValue,
+                type: {
+                  name: arg.type.name,
+                  href: arg.type.href,
+                },
+              }))
+            : undefined,
+      }
+    })
   }
 }

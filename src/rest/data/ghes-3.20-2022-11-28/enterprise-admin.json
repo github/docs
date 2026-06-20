@@ -1714,8 +1714,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -2965,13 +2964,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "day",
             "enum": [
               "hour",
               "day",
               "week",
               "month"
-            ],
-            "default": "day"
+            ]
           }
         },
         {
@@ -2981,6 +2980,7 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "completed",
               "cancelled",
@@ -2990,8 +2990,7 @@
               "denied",
               "open",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -3828,8 +3827,7 @@
           {
             "\"Custom properties\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -4113,8 +4111,7 @@
           {
             "\"Custom properties\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -4300,8 +4297,7 @@
           {
             "\"Custom properties\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -4477,8 +4473,7 @@
           {
             "\"Custom properties\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -4709,8 +4704,7 @@
           {
             "\"Custom properties\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -4781,8 +4775,7 @@
           {
             "\"Custom properties\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ],
@@ -6344,8 +6337,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ],
@@ -8956,11 +8948,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -8970,12 +8962,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "name"
-            ],
-            "default": "created"
+            ]
           }
         }
       ],
@@ -9441,8 +9433,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -9566,8 +9557,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -9721,6 +9711,14 @@
                       "checks": {
                         "type": "string",
                         "description": "The level of permission to grant the access token for checks on code.",
+                        "enum": [
+                          "read",
+                          "write"
+                        ]
+                      },
+                      "code_quality": {
+                        "type": "string",
+                        "description": "The level of permission to grant the access token to view and manage code quality data.",
                         "enum": [
                           "read",
                           "write"
@@ -9955,12 +9953,13 @@
                         "type": "string",
                         "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                         "enum": [
+                          "read",
                           "write"
                         ]
                       },
                       "organization_copilot_agent_settings": {
                         "type": "string",
-                        "description": "The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.",
+                        "description": "The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.",
                         "enum": [
                           "read",
                           "write"
@@ -10195,8 +10194,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -10595,6 +10593,14 @@
                         "write"
                       ]
                     },
+                    "code_quality": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to view and manage code quality data.",
+                      "enum": [
+                        "read",
+                        "write"
+                      ]
+                    },
                     "codespaces": {
                       "type": "string",
                       "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -10824,12 +10830,13 @@
                       "type": "string",
                       "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                       "enum": [
+                        "read",
                         "write"
                       ]
                     },
                     "organization_copilot_agent_settings": {
                       "type": "string",
-                      "description": "The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.",
+                      "description": "The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.",
                       "enum": [
                         "read",
                         "write"
@@ -11226,8 +11233,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -11308,8 +11314,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -11443,8 +11448,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -11849,6 +11853,14 @@
                         "write"
                       ]
                     },
+                    "code_quality": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to view and manage code quality data.",
+                      "enum": [
+                        "read",
+                        "write"
+                      ]
+                    },
                     "codespaces": {
                       "type": "string",
                       "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -12078,12 +12090,13 @@
                       "type": "string",
                       "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                       "enum": [
+                        "read",
                         "write"
                       ]
                     },
                     "organization_copilot_agent_settings": {
                       "type": "string",
-                      "description": "The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.",
+                      "description": "The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.",
                       "enum": [
                         "read",
                         "write"
@@ -12479,8 +12492,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -12610,8 +12622,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -12745,8 +12756,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ],
@@ -13000,11 +13010,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -13013,12 +13023,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "name"
-            ],
-            "default": "created"
+            ]
           },
           "description": ""
         }
@@ -13774,11 +13784,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -13788,12 +13798,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "name"
-            ],
-            "default": "created"
+            ]
           }
         }
       ],
@@ -14633,11 +14643,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -14646,12 +14656,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "name"
-            ],
-            "default": "created"
+            ]
           },
           "description": ""
         }
@@ -15360,10 +15370,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "examples": [
-              "members"
-            ]
+            "type": "string"
           }
         },
         {
@@ -15373,11 +15380,7 @@
           "required": false,
           "schema": {
             "type": "integer",
-            "default": 1,
-            "format": "int32",
-            "examples": [
-              1
-            ]
+            "default": 1
           }
         },
         {
@@ -15387,11 +15390,7 @@
           "required": false,
           "schema": {
             "type": "integer",
-            "default": 30,
-            "format": "int32",
-            "examples": [
-              1
-            ]
+            "default": 30
           }
         },
         {
@@ -15648,8 +15647,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -15926,8 +15924,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -15944,10 +15941,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string",
-            "examples": [
-              "7fce0092-d52e-4f76-b727-3955bd72c939"
-            ]
+            "type": "string"
           }
         },
         {
@@ -15956,10 +15950,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "examples": [
-              "members"
-            ]
+            "type": "string"
           }
         },
         {
@@ -16173,8 +16164,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -16191,10 +16181,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string",
-            "examples": [
-              "7fce0092-d52e-4f76-b727-3955bd72c939"
-            ]
+            "type": "string"
           }
         },
         {
@@ -16634,8 +16621,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -16652,10 +16638,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string",
-            "examples": [
-              "7fce0092-d52e-4f76-b727-3955bd72c939"
-            ]
+            "type": "string"
           }
         },
         {
@@ -17104,8 +17087,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -17122,10 +17104,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string",
-            "examples": [
-              "7fce0092-d52e-4f76-b727-3955bd72c939"
-            ]
+            "type": "string"
           }
         },
         {
@@ -17195,8 +17174,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -17223,11 +17201,7 @@
           "required": false,
           "schema": {
             "type": "integer",
-            "default": 1,
-            "format": "int32",
-            "examples": [
-              1
-            ]
+            "default": 1
           }
         },
         {
@@ -17237,11 +17211,7 @@
           "required": false,
           "schema": {
             "type": "integer",
-            "default": 30,
-            "format": "int32",
-            "examples": [
-              1
-            ]
+            "default": 30
           }
         },
         {
@@ -17573,8 +17543,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -18298,8 +18267,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -18611,8 +18579,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -19083,8 +19050,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -19963,8 +19929,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -20051,8 +20016,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ],
@@ -20090,11 +20054,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -20103,12 +20067,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "accessed"
-            ],
-            "default": "created"
+            ]
           },
           "description": ""
         },
@@ -20650,6 +20614,14 @@
                                   "write"
                                 ]
                               },
+                              "code_quality": {
+                                "type": "string",
+                                "description": "The level of permission to grant the access token to view and manage code quality data.",
+                                "enum": [
+                                  "read",
+                                  "write"
+                                ]
+                              },
                               "codespaces": {
                                 "type": "string",
                                 "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -20879,12 +20851,13 @@
                                 "type": "string",
                                 "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                                 "enum": [
+                                  "read",
                                   "write"
                                 ]
                               },
                               "organization_copilot_agent_settings": {
                                 "type": "string",
-                                "description": "The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.",
+                                "description": "The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.",
                                 "enum": [
                                   "read",
                                   "write"
@@ -21955,6 +21928,14 @@
                                 "write"
                               ]
                             },
+                            "code_quality": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token to view and manage code quality data.",
+                              "enum": [
+                                "read",
+                                "write"
+                              ]
+                            },
                             "codespaces": {
                               "type": "string",
                               "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -22184,12 +22165,13 @@
                               "type": "string",
                               "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                               "enum": [
+                                "read",
                                 "write"
                               ]
                             },
                             "organization_copilot_agent_settings": {
                               "type": "string",
-                              "description": "The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.",
+                              "description": "The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.",
                               "enum": [
                                 "read",
                                 "write"
@@ -22851,6 +22833,14 @@
                                 "write"
                               ]
                             },
+                            "code_quality": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token to view and manage code quality data.",
+                              "enum": [
+                                "read",
+                                "write"
+                              ]
+                            },
                             "codespaces": {
                               "type": "string",
                               "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -23080,12 +23070,13 @@
                               "type": "string",
                               "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                               "enum": [
+                                "read",
                                 "write"
                               ]
                             },
                             "organization_copilot_agent_settings": {
                               "type": "string",
-                              "description": "The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.",
+                              "description": "The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.",
                               "enum": [
                                 "read",
                                 "write"

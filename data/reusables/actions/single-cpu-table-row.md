@@ -5,6 +5,6 @@
       <td>14 GB</td>
       <td> x64 </td>
       <td>
-        <code>ubuntu-slim</code>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu-slim/ubuntu-slim-Readme.md">ubuntu-slim</a></code>
       </td>
     </tr>

@@ -9,13 +9,13 @@ contentType: tutorials
 redirect_from:
   - /code-security/how-tos/scan-code-for-vulnerabilities/customize-code-scanning
 children:
-  - /evaluating-default-setup-for-code-scanning
-  - /preparing-your-code-for-codeql-analysis
-  - /analyzing-your-code-with-codeql-queries
-  - /uploading-codeql-analysis-results-to-github
-  - /running-codeql-code-scanning-in-a-container
-  - /customizing-analysis-with-codeql-packs
-  - /creating-codeql-query-suites
-  - /creating-and-working-with-codeql-packs
+  - /evaluate-default-setup
+  - /prepare-code-for-analysis
+  - /analyze-code
+  - /upload-results
+  - /run-in-a-container
+  - /customize-analysis
+  - /create-query-suites
+  - /create-and-work-with-codeql-packs
 ---
 

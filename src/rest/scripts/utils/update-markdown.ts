@@ -23,8 +23,8 @@ type MarkdownUpdate = {
     title: string
     shortTitle: string
     intro: string
-    versions: any
-    [key: string]: any
+    versions: { [key: string]: string }
+    [key: string]: unknown
   }
   content: string
 }

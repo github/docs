@@ -637,13 +637,13 @@ gh api graphql -f query='
 > [!NOTE]
 > You cannot use `updateProjectV2ItemFieldValue` to change `Assignees`, `Labels`, `Milestone`, or `Repository` because these fields are properties of pull requests and issues, not of project items. Instead, you may use the following mutations:
 >
-> * [addAssigneesToAssignable](/graphql/reference/mutations#addassigneestoassignable)
-> * [removeAssigneesFromAssignable](/graphql/reference/mutations#removeassigneesfromassignable)
-> * [addLabelsToLabelable](/graphql/reference/mutations#addlabelstolabelable)
-> * [removeLabelsFromLabelable](/graphql/reference/mutations#removelabelsfromlabelable)
-> * [updateIssue](/graphql/reference/mutations#updateissue)
-> * [updatePullRequest](/graphql/reference/mutations#updatepullrequest)
-> * [transferIssue](/graphql/reference/mutations#transferissue)
+> * [addAssigneesToAssignable](/graphql/reference/issues#mutation-addassigneestoassignable)
+> * [removeAssigneesFromAssignable](/graphql/reference/issues#mutation-removeassigneesfromassignable)
+> * [addLabelsToLabelable](/graphql/reference/issues#mutation-addlabelstolabelable)
+> * [removeLabelsFromLabelable](/graphql/reference/issues#mutation-removelabelsfromlabelable)
+> * [updateIssue](/graphql/reference/issues#mutation-updateissue)
+> * [updatePullRequest](/graphql/reference/pulls#mutation-updatepullrequest)
+> * [transferIssue](/graphql/reference/issues#mutation-transferissue)
 
 ### Updating a single select field
 

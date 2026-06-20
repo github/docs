@@ -1,6 +1,6 @@
 ---
 title: Using organization roles
-intro: 'Learn how to{% ifversion org-pre-defined-roles %} view organization role permissions and{% endif %} manage organization role assignments.'
+intro: 'Learn how to view organization role permissions and manage organization role assignments.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -22,8 +22,6 @@ In addition to pre-defined roles, you can also create up to 20 custom roles that
 
 {% endif %}
 
-{% ifversion org-pre-defined-roles %}
-
 ## Viewing organization role permissions
 
 {% data reusables.profile.access_org %}
@@ -31,8 +29,6 @@ In addition to pre-defined roles, you can also create up to 20 custom roles that
 1. In the "Access" section of the left sidebar, click **Organization roles**. Then click **Role management**.
 1. To the right of any role, click **{% octicon "fold" aria-label="Show role permissions" %}**.
 1. Optionally, to hide the role permissions again, click **{% octicon "fold" aria-label="Hide role permissions" %}**.
-
-{% endif %}
 
 ## Assigning an organization role
 

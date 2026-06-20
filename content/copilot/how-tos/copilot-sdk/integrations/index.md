@@ -1,10 +1,15 @@
 ---
-title: Copilot SDK integrations
-shortTitle: Integrations
-intro: Integrate {% data variables.copilot.copilot_sdk_short %} with third-party agent frameworks and orchestration platforms.
+title: Integrations
+intro: Guides for using the GitHub Copilot SDK with other platforms and frameworks.
 versions:
-  feature: copilot
+  fpt: '*'
+  ghec: '*'
 contentType: how-tos
 children:
   - /microsoft-agent-framework
 ---
+
+<!-- markdownlint-disable GHD046 GHD005 -->
+<!-- Suppressed: GHD046 (outdated release terminology), GHD005 (hardcoded data variable) -->
+
+

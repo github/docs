@@ -13,6 +13,9 @@ category:
 
 {% data reusables.copilot.byok-intro %}
 
+> [!NOTE]
+> This article covers custom models configured by organization owners. {% data variables.copilot.copilot_cli_short %} and {% data variables.product.prodname_vscode_shortname %} users can also configure their own LLM provider locally, without any administrator setup. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models) and [Add a model from a built in provider](https://code.visualstudio.com/docs/agent-customization/language-models#_add-a-model-from-a-built-in-provider) in the {% data variables.product.prodname_vscode_shortname %} documentation.
+
 ## Why bring your own API keys?
 
 As an organization owner, you may have specific requirements for governance, data security, and compliance. Setting up your own API keys allows you to address:
@@ -35,3 +38,4 @@ After you've added your key and selected one or more models, you and your organi
 
 * [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys) in our documentation for enterprise accounts.
 * [AUTOTITLE](/copilot/concepts/chat)
+* [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies)

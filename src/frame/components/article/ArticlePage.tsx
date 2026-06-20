@@ -17,6 +17,7 @@ import { RestRedirect } from '@/rest/components/RestRedirect'
 import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
 import { LinkPreviewPopover } from '@/links/components/LinkPreviewPopover'
 import { UtmPreserver } from '@/frame/components/UtmPreserver'
+import { CodeTabs } from '@/frame/components/CodeTabs'
 import { JourneyTrackCard, JourneyTrackNav } from '@/journeys/components'
 import { CopyMarkdownMenu } from './ViewMarkdownButton'
 import { ExperimentContentSwap } from '@/events/components/experiments/ExperimentContentSwap'
@@ -93,6 +94,7 @@ export const ArticlePage = () => {
     <DefaultLayout>
       <LinkPreviewPopover />
       <UtmPreserver />
+      <CodeTabs />
       {isDev && <ClientSideRefresh />}
       {router.pathname.includes('/rest/') && <RestRedirect />}
       {currentLayout === 'inline' ? (

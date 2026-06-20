@@ -8,18 +8,20 @@ children:
   - /completions
   - /chat
   - /agents
+  - /about-cloud-and-local-sandboxes
   - /spark
   - /copilot-usage-metrics
   - /prompting
   - /context
   - /tools
-  - /auto-model-selection
-  - /rate-limits
+  - /models
+  - /usage-limits
   - /billing
   - /about-enterprise-accounts-for-copilot-business
   - /policies
   - /mcp-management
   - /network-settings
-  - /fallback-and-lts-models
+  - /preparing-for-new-features-and-models
 contentType: concepts
 ---
+

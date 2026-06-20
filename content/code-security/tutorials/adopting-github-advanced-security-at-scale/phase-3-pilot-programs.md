@@ -29,13 +29,9 @@ If you haven't already enabled GHAS for your {% data variables.product.prodname_
 
 {% endif %}
 
-{% ifversion security-configurations %}
-
 ## Piloting all {% data variables.product.prodname_GHAS %} features
 
 {% data reusables.security-configurations.enable-security-features-with-gh-config %}
-
-{% endif %}
 
 ## Piloting {% data variables.product.prodname_code_scanning %}
 
@@ -63,17 +59,7 @@ To enable secret scanning for your {% data variables.product.prodname_ghe_server
 
 {% endif %}
 
-{% ifversion security-configurations %}
-
 You need to enable {% data variables.product.prodname_secret_scanning %} and push protection for each pilot project. You can do this with a {% data variables.product.prodname_security_configuration %}. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
-
-{% else %}
-
-You need to enable {% data variables.product.prodname_secret_scanning %} for each pilot project, either by enabling the feature for each repository or for all repositories in any organizations taking part in the project. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) or [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
-
-Next, enable push protection for each pilot project.
-
-{% endif %}
 
 If you plan to configure a link to a resource in the message that's displayed when a developer attempts to push a blocked secret, now would be a good time to test and start to refine the guidance that you plan to make available.
 

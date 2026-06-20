@@ -1,8 +1,8 @@
-import github from '@actions/github'
+import { context as github_context, getOctokit } from '@actions/github'
 import { setOutput } from '@actions/core'
 
 const { GITHUB_TOKEN } = process.env
-const context = github.context
+const context = github_context
 
 if (!GITHUB_TOKEN) {
   throw new Error(`GITHUB_TOKEN environment variable not set`)
@@ -26,7 +26,7 @@ type MainArgs = {
   headSHA: string
 }
 async function main({ owner, repo, baseSHA, headSHA }: MainArgs) {
-  const octokit = github.getOctokit(GITHUB_TOKEN as string)
+  const octokit = getOctokit(GITHUB_TOKEN as string)
   // get the list of file changes from the PR
   const response = await octokit.rest.repos.compareCommitsWithBasehead({
     owner,
@@ -40,10 +40,15 @@ async function main({ owner, repo, baseSHA, headSHA }: MainArgs) {
     throw new Error('No files found in the PR')
   }
 
+  // Auto-generated asset directories managed by sync pipelines.
+  // These are deleted and recreated on each sync, so deletions are expected.
+  const AUTO_GENERATED_ASSET_DIRS = ['assets/images/help/copilot/copilot-sdk/']
+
   const oldFilenames = []
   for (const file of files) {
     const { filename, status } = file
     if (!filename.startsWith('assets')) continue
+    if (AUTO_GENERATED_ASSET_DIRS.some((dir) => filename.startsWith(dir))) continue
     if (status === 'removed') {
       // Bad
       oldFilenames.push(filename)

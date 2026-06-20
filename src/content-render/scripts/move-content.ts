@@ -55,6 +55,10 @@ const REDIRECT_FROM_KEY = 'redirect_from'
 const CHILDREN_KEY = 'children'
 const CHILDGROUPS_KEY = 'childGroups'
 
+const STRINGIFY_OPTIONS = { lineWidth: 10000 } as unknown as Parameters<
+  typeof readFrontmatter.stringify
+>[2]
+
 program
   .description('Helps you move (rename) files or folders')
   .option('-v, --verbose', 'Verbose outputs')
@@ -354,7 +358,7 @@ function removeFromChildren(oldPath: string, opts: MoveOptions): PositionInfo {
 
   let childrenPosition = -1
   if (data && CHILDREN_KEY in data) {
-    data[CHILDREN_KEY] = data[CHILDREN_KEY].filter((entry: any, i: number) => {
+    data[CHILDREN_KEY] = data[CHILDREN_KEY].filter((entry: string, i: number) => {
       if (entry === oldName || entry === `/${oldName}`) {
         childrenPosition = i
         return false
@@ -372,7 +376,7 @@ function removeFromChildren(oldPath: string, opts: MoveOptions): PositionInfo {
   for (let i = 0; i < childGroups.length; i++) {
     const group = childGroups[i]
     if (group.children) {
-      group.children = group.children.filter((entry: any, j: number) => {
+      group.children = group.children.filter((entry: string, j: number) => {
         if (entry === oldName || entry === `/${oldName}`) {
           childGroupPositions.push([i, j])
           return false
@@ -385,7 +389,7 @@ function removeFromChildren(oldPath: string, opts: MoveOptions): PositionInfo {
   if (data) {
     fs.writeFileSync(
       parentFilePath,
-      readFrontmatter.stringify(content, data, { lineWidth: 10000 } as any),
+      readFrontmatter.stringify(content, data, STRINGIFY_OPTIONS),
       'utf-8',
     )
   }
@@ -407,7 +411,7 @@ function addToChildren(newPath: string, positions: PositionInfo, opts: MoveOptio
   if (childrenPosition > -1 && data) {
     const children = data[CHILDREN_KEY] || []
     let prefix = ''
-    if (children.every((entry: any) => entry.startsWith('/'))) {
+    if (children.every((entry: string) => entry.startsWith('/'))) {
       prefix += '/'
     }
     if (childrenPosition > -1 && childrenPosition < children.length) {
@@ -434,7 +438,7 @@ function addToChildren(newPath: string, positions: PositionInfo, opts: MoveOptio
   if (data) {
     fs.writeFileSync(
       parentFilePath,
-      readFrontmatter.stringify(content, data, { lineWidth: 10000 } as any),
+      readFrontmatter.stringify(content, data, STRINGIFY_OPTIONS),
       'utf-8',
     )
   }
@@ -507,11 +511,7 @@ function editFiles(files: FileTuple[], updateParent: boolean, opts: MoveOptions)
       data[REDIRECT_FROM_KEY] = []
     }
     data[REDIRECT_FROM_KEY].push(oldHref)
-    fs.writeFileSync(
-      newPath,
-      readFrontmatter.stringify(content, data, { lineWidth: 10000 } as any),
-      'utf-8',
-    )
+    fs.writeFileSync(newPath, readFrontmatter.stringify(content, data, STRINGIFY_OPTIONS), 'utf-8')
     if (verbose) {
       console.log(`Added ${oldHref} to 'redirects_from' in ${newPath}`)
     }
@@ -526,12 +526,16 @@ function editFiles(files: FileTuple[], updateParent: boolean, opts: MoveOptions)
     const filePaths = files.map(([, newPath]) => newPath)
     try {
       const cmd = ['run', 'add-content-type', '--', '--paths', ...filePaths]
-      const result = execFileSync('npm', cmd, { cwd: process.cwd(), encoding: 'utf8' }) as any
+      const result = execFileSync('npm', cmd, {
+        cwd: process.cwd(),
+        encoding: 'utf8',
+      })
       if (result.trim()) {
         console.log(result.trim())
       }
-    } catch (error: any) {
-      console.warn(`Warning: Failed to add contentType frontmatter: ${error.message}`)
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : String(error)
+      console.warn(`Warning: Failed to add contentType frontmatter: ${message}`)
     }
   }
 
@@ -559,17 +563,13 @@ function undoFiles(files: FileTuple[], updateParent: boolean, opts: MoveOptions)
     if (!data) continue
 
     data[REDIRECT_FROM_KEY] = (data[REDIRECT_FROM_KEY] || []).filter(
-      (entry: any) => entry !== oldHref,
+      (entry: string) => entry !== oldHref,
     )
     if (data[REDIRECT_FROM_KEY].length === 0) {
       delete data[REDIRECT_FROM_KEY]
     }
 
-    fs.writeFileSync(
-      newPath,
-      readFrontmatter.stringify(content, data, { lineWidth: 10000 } as any),
-      'utf-8',
-    )
+    fs.writeFileSync(newPath, readFrontmatter.stringify(content, data, STRINGIFY_OPTIONS), 'utf-8')
     if (updateParent) {
       addToChildren(newPath, removeFromChildren(oldPath, opts), opts)
     }
@@ -629,11 +629,7 @@ function changeFeaturedLinks(oldHref: string, newHref: string): void {
     }
 
     if (changed) {
-      fs.writeFileSync(
-        file,
-        readFrontmatter.stringify(content, data, { lineWidth: 10000 } as any),
-        'utf-8',
-      )
+      fs.writeFileSync(file, readFrontmatter.stringify(content, data, STRINGIFY_OPTIONS), 'utf-8')
     }
   }
 }

@@ -106,8 +106,6 @@ For more information, see [AUTOTITLE](/code-security/code-scanning/introduction-
 
 To help mitigate the risk of an exposed token, consider restricting the assigned permissions. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token).
 
-{% ifversion custom-org-roles %}
-
 ## Mitigating the risks of untrusted code checkout
 
 Similar to script injection attacks, untrusted pull request content that automatically triggers actions processing can also pose a security risk. The `pull_request_target` and `workflow_run` workflow triggers, when used with the checkout of an untrusted pull request, expose the repository to security compromises. These workflows are privileged, which means they share the same cache of the main branch with other privileged workflow triggers, and may have repository write access and access to referenced secrets. These vulnerabilities can be exploited to take over a repository.
@@ -115,6 +113,8 @@ Similar to script injection attacks, untrusted pull request content that automat
 For more information on these triggers, how to use them, and the associated risks, see [AUTOTITLE](/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#pull_request_target) and [AUTOTITLE](/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#workflow_run).
 
 For additional examples and guidance on the risks of untrusted code checkout, see [Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/) from {% data variables.product.prodname_security %} and the [Dangerous-Workflow](https://github.com/ossf/scorecard/blob/main/docs/checks.md#dangerous-workflow) documentation from OpenSSF Scorecard.
+
+For detailed guidance on deciding whether to use `pull_request_target`, hardening these workflows, and opting out of the `actions/checkout` protection, see [AUTOTITLE](/actions/reference/security/securely-using-pull_request_target).
 
 ### Good practices
 
@@ -125,8 +125,6 @@ For additional examples and guidance on the risks of untrusted code checkout, se
 * {% data variables.product.prodname_codeql %} can scan and detect potentially vulnerable {% data variables.product.prodname_actions %} workflows. You can configure default setup for the repository, and ensure that {% data variables.product.prodname_actions %} scanning is enabled. For more information, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning).
 
 * OpenSSF Scorecards can help you identify potentially vulnerable workflows, along with other security risks when using {% data variables.product.prodname_actions %}. See [Using OpenSSF Scorecards to secure workflow dependencies](#using-openssf-scorecards-to-secure-workflow-dependencies) later in this article.
-
-{% endif %}
 
 ## Using third-party actions
 
@@ -239,9 +237,7 @@ For more information on how to enable {% data variables.product.prodname_code_sc
 
 For {% data variables.product.prodname_dotcom %}-hosted runners created from images maintained by {% data variables.product.company_short %}, you can view a software bill of materials (SBOM) to see what software was pre-installed on the runner. You can provide your users with the SBOM which they can run through a vulnerability scanner to validate if there are any vulnerabilities in the product. If you are building artifacts, you can include this SBOM in your bill of materials for a comprehensive list of everything that went into creating your software.
 
-SBOMs are available for Ubuntu, Windows, and macOS runner images maintained by {% data variables.product.company_short %}. You can locate the SBOM for your build in the release assets at https://github.com/actions/runner-images/releases. An SBOM with a filename in the format of `sbom.IMAGE-NAME.json.zip` can be found in the attachments of each release.
-
-For third-party images, such as the images for ARM-powered runners, you can find details of the software that's included in the image in the [`actions/partner-runner-images` repository](https://github.com/actions/partner-runner-images).
+SBOMs are available for Ubuntu, Windows, and macOS runner images maintained by {% data variables.product.company_short %}, including ARM-powered runners. You can locate the SBOM for your build in the release assets at https://github.com/actions/runner-images/releases. An SBOM with a filename in the format of `sbom.IMAGE-NAME.json.zip` can be found in the attachments of each release.
 
 {% endif %}
 

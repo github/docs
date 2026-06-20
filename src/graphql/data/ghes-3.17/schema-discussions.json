@@ -1,0 +1,2859 @@
+{
+  "mutations": [
+    {
+      "name": "addDiscussionComment",
+      "id": "adddiscussioncomment",
+      "href": "/graphql/reference/discussions#mutation-adddiscussioncomment",
+      "description": "<p>Adds a comment to a Discussion, possibly as a reply to another comment.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddDiscussionCommentInput!",
+          "id": "adddiscussioncommentinput",
+          "href": "/graphql/reference/discussions#input-object-adddiscussioncommentinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "comment",
+          "type": "DiscussionComment",
+          "id": "discussioncomment",
+          "href": "/graphql/reference/discussions#object-discussioncomment",
+          "description": "<p>The newly created discussion comment.</p>"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "addDiscussionPollVote",
+      "id": "adddiscussionpollvote",
+      "href": "/graphql/reference/discussions#mutation-adddiscussionpollvote",
+      "description": "<p>Vote for an option in a discussion poll.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddDiscussionPollVoteInput!",
+          "id": "adddiscussionpollvoteinput",
+          "href": "/graphql/reference/discussions#input-object-adddiscussionpollvoteinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "pollOption",
+          "type": "DiscussionPollOption",
+          "id": "discussionpolloption",
+          "href": "/graphql/reference/discussions#object-discussionpolloption",
+          "description": "<p>The poll option that a vote was added to.</p>"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "addUpvote",
+      "id": "addupvote",
+      "href": "/graphql/reference/discussions#mutation-addupvote",
+      "description": "<p>Add an upvote to a discussion or discussion comment.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddUpvoteInput!",
+          "id": "addupvoteinput",
+          "href": "/graphql/reference/discussions#input-object-addupvoteinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "subject",
+          "type": "Votable",
+          "id": "votable",
+          "href": "/graphql/reference/discussions#interface-votable",
+          "description": "<p>The votable subject.</p>"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "closeDiscussion",
+      "id": "closediscussion",
+      "href": "/graphql/reference/discussions#mutation-closediscussion",
+      "description": "<p>Close a discussion.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CloseDiscussionInput!",
+          "id": "closediscussioninput",
+          "href": "/graphql/reference/discussions#input-object-closediscussioninput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "discussion",
+          "type": "Discussion",
+          "id": "discussion",
+          "href": "/graphql/reference/discussions#object-discussion",
+          "description": "<p>The discussion that was closed.</p>"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "createDiscussion",
+      "id": "creatediscussion",
+      "href": "/graphql/reference/discussions#mutation-creatediscussion",
+      "description": "<p>Create a discussion.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateDiscussionInput!",
+          "id": "creatediscussioninput",
+          "href": "/graphql/reference/discussions#input-object-creatediscussioninput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "discussion",
+          "type": "Discussion",
+          "id": "discussion",
+          "href": "/graphql/reference/discussions#object-discussion",
+          "description": "<p>The discussion that was just created.</p>"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "deleteDiscussion",
+      "id": "deletediscussion",
+      "href": "/graphql/reference/discussions#mutation-deletediscussion",
+      "description": "<p>Delete a discussion and all of its replies.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteDiscussionInput!",
+          "id": "deletediscussioninput",
+          "href": "/graphql/reference/discussions#input-object-deletediscussioninput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "discussion",
+          "type": "Discussion",
+          "id": "discussion",
+          "href": "/graphql/reference/discussions#object-discussion",
+          "description": "<p>The discussion that was just deleted.</p>"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "deleteDiscussionComment",
+      "id": "deletediscussioncomment",
+      "href": "/graphql/reference/discussions#mutation-deletediscussioncomment",
+      "description": "<p>Delete a discussion comment. If it has replies, wipe it instead.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteDiscussionCommentInput!",
+          "id": "deletediscussioncommentinput",
+          "href": "/graphql/reference/discussions#input-object-deletediscussioncommentinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "comment",
+          "type": "DiscussionComment",
+          "id": "discussioncomment",
+          "href": "/graphql/reference/discussions#object-discussioncomment",
+          "description": "<p>The discussion comment that was just deleted.</p>"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "markDiscussionCommentAsAnswer",
+      "id": "markdiscussioncommentasanswer",
+      "href": "/graphql/reference/discussions#mutation-markdiscussioncommentasanswer",
+      "description": "<p>Mark a discussion comment as the chosen answer for discussions in an answerable category.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "MarkDiscussionCommentAsAnswerInput!",
+          "id": "markdiscussioncommentasanswerinput",
+          "href": "/graphql/reference/discussions#input-object-markdiscussioncommentasanswerinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "discussion",
+          "type": "Discussion",
+          "id": "discussion",
+          "href": "/graphql/reference/discussions#object-discussion",
+          "description": "<p>The discussion that includes the chosen comment.</p>"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "removeUpvote",
+      "id": "removeupvote",
+      "href": "/graphql/reference/discussions#mutation-removeupvote",
+      "description": "<p>Remove an upvote to a discussion or discussion comment.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "RemoveUpvoteInput!",
+          "id": "removeupvoteinput",
+          "href": "/graphql/reference/discussions#input-object-removeupvoteinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "subject",
+          "type": "Votable",
+          "id": "votable",
+          "href": "/graphql/reference/discussions#interface-votable",
+          "description": "<p>The votable subject.</p>"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "reopenDiscussion",
+      "id": "reopendiscussion",
+      "href": "/graphql/reference/discussions#mutation-reopendiscussion",
+      "description": "<p>Reopen a discussion.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "ReopenDiscussionInput!",
+          "id": "reopendiscussioninput",
+          "href": "/graphql/reference/discussions#input-object-reopendiscussioninput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "discussion",
+          "type": "Discussion",
+          "id": "discussion",
+          "href": "/graphql/reference/discussions#object-discussion",
+          "description": "<p>The discussion that was reopened.</p>"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "unmarkDiscussionCommentAsAnswer",
+      "id": "unmarkdiscussioncommentasanswer",
+      "href": "/graphql/reference/discussions#mutation-unmarkdiscussioncommentasanswer",
+      "description": "<p>Unmark a discussion comment as the chosen answer for discussions in an answerable category.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UnmarkDiscussionCommentAsAnswerInput!",
+          "id": "unmarkdiscussioncommentasanswerinput",
+          "href": "/graphql/reference/discussions#input-object-unmarkdiscussioncommentasanswerinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "discussion",
+          "type": "Discussion",
+          "id": "discussion",
+          "href": "/graphql/reference/discussions#object-discussion",
+          "description": "<p>The discussion that includes the comment.</p>"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "updateDiscussion",
+      "id": "updatediscussion",
+      "href": "/graphql/reference/discussions#mutation-updatediscussion",
+      "description": "<p>Update a discussion.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateDiscussionInput!",
+          "id": "updatediscussioninput",
+          "href": "/graphql/reference/discussions#input-object-updatediscussioninput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "discussion",
+          "type": "Discussion",
+          "id": "discussion",
+          "href": "/graphql/reference/discussions#object-discussion",
+          "description": "<p>The modified discussion.</p>"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "updateDiscussionComment",
+      "id": "updatediscussioncomment",
+      "href": "/graphql/reference/discussions#mutation-updatediscussioncomment",
+      "description": "<p>Update the contents of a comment on a Discussion.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateDiscussionCommentInput!",
+          "id": "updatediscussioncommentinput",
+          "href": "/graphql/reference/discussions#input-object-updatediscussioncommentinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "comment",
+          "type": "DiscussionComment",
+          "id": "discussioncomment",
+          "href": "/graphql/reference/discussions#object-discussioncomment",
+          "description": "<p>The modified discussion comment.</p>"
+        }
+      ],
+      "category": "discussions"
+    }
+  ],
+  "objects": [
+    {
+      "name": "Discussion",
+      "id": "discussion",
+      "href": "/graphql/reference/discussions#object-discussion",
+      "description": "<p>A discussion in a repository.</p>",
+      "implements": [
+        {
+          "name": "Closable",
+          "id": "closable",
+          "href": "/graphql/reference/issues#interface-closable"
+        },
+        {
+          "name": "Comment",
+          "id": "comment",
+          "href": "/graphql/reference/issues#interface-comment"
+        },
+        {
+          "name": "Deletable",
+          "id": "deletable",
+          "href": "/graphql/reference/issues#interface-deletable"
+        },
+        {
+          "name": "Labelable",
+          "id": "labelable",
+          "href": "/graphql/reference/issues#interface-labelable"
+        },
+        {
+          "name": "Lockable",
+          "id": "lockable",
+          "href": "/graphql/reference/issues#interface-lockable"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "Reactable",
+          "id": "reactable",
+          "href": "/graphql/reference/reactions#interface-reactable"
+        },
+        {
+          "name": "RepositoryNode",
+          "id": "repositorynode",
+          "href": "/graphql/reference/repos#interface-repositorynode"
+        },
+        {
+          "name": "Subscribable",
+          "id": "subscribable",
+          "href": "/graphql/reference/activity#interface-subscribable"
+        },
+        {
+          "name": "Updatable",
+          "id": "updatable",
+          "href": "/graphql/reference/issues#interface-updatable"
+        },
+        {
+          "name": "Votable",
+          "id": "votable",
+          "href": "/graphql/reference/discussions#interface-votable"
+        }
+      ],
+      "fields": [
+        {
+          "name": "activeLockReason",
+          "description": "<p>Reason that the conversation was locked.</p>",
+          "type": "LockReason",
+          "id": "lockreason",
+          "href": "/graphql/reference/issues#enum-lockreason"
+        },
+        {
+          "name": "answer",
+          "description": "<p>The comment chosen as this discussion's answer, if any.</p>",
+          "type": "DiscussionComment",
+          "id": "discussioncomment",
+          "href": "/graphql/reference/discussions#object-discussioncomment"
+        },
+        {
+          "name": "answerChosenAt",
+          "description": "<p>The time when a user chose this discussion's answer, if answered.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "answerChosenBy",
+          "description": "<p>The user who chose this discussion's answer, if answered.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "author",
+          "description": "<p>The actor who authored the comment.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "authorAssociation",
+          "description": "<p>Author's association with the subject of the comment.</p>",
+          "type": "CommentAuthorAssociation!",
+          "id": "commentauthorassociation",
+          "href": "/graphql/reference/issues#enum-commentauthorassociation"
+        },
+        {
+          "name": "body",
+          "description": "<p>The main text of the discussion post.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "bodyHTML",
+          "description": "<p>The body rendered to HTML.</p>",
+          "type": "HTML!",
+          "id": "html",
+          "href": "/graphql/reference/other#scalar-html"
+        },
+        {
+          "name": "bodyText",
+          "description": "<p>The body rendered to text.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "category",
+          "description": "<p>The category for this discussion.</p>",
+          "type": "DiscussionCategory!",
+          "id": "discussioncategory",
+          "href": "/graphql/reference/discussions#object-discussioncategory"
+        },
+        {
+          "name": "closed",
+          "description": "<p>Indicates if the object is closed (definition of closed may depend on type).</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "closedAt",
+          "description": "<p>Identifies the date and time when the object was closed.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "comments",
+          "description": "<p>The replies to the discussion.</p>",
+          "type": "DiscussionCommentConnection!",
+          "id": "discussioncommentconnection",
+          "href": "/graphql/reference/discussions#object-discussioncommentconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "createdViaEmail",
+          "description": "<p>Check if this comment was created via an email reply.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "editor",
+          "description": "<p>The actor who edited the comment.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Discussion object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "includesCreatedEdit",
+          "description": "<p>Check if this comment was edited and includes an edit with the creation data.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isAnswered",
+          "description": "<p>Only return answered/unanswered discussions.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "labels",
+          "description": "<p>A list of labels associated with the object.</p>",
+          "type": "LabelConnection",
+          "id": "labelconnection",
+          "href": "/graphql/reference/issues#object-labelconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for labels returned from the connection.</p>",
+              "type": {
+                "name": "LabelOrder",
+                "id": "labelorder",
+                "href": "/graphql/reference/issues#input-object-labelorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "lastEditedAt",
+          "description": "<p>The moment the editor made the last edit.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "locked",
+          "description": "<p><code>true</code> if the object is locked.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "number",
+          "description": "<p>The number identifying this discussion within the repository.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "poll",
+          "description": "<p>The poll associated with this discussion, if one exists.</p>",
+          "type": "DiscussionPoll",
+          "id": "discussionpoll",
+          "href": "/graphql/reference/discussions#object-discussionpoll"
+        },
+        {
+          "name": "publishedAt",
+          "description": "<p>Identifies when the comment was published at.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "reactionGroups",
+          "description": "<p>A list of reactions grouped by content left on the subject.</p>",
+          "type": "[ReactionGroup!]",
+          "id": "reactiongroup",
+          "href": "/graphql/reference/reactions#object-reactiongroup"
+        },
+        {
+          "name": "reactions",
+          "description": "<p>A list of Reactions left on the Issue.</p>",
+          "type": "ReactionConnection!",
+          "id": "reactionconnection",
+          "href": "/graphql/reference/reactions#object-reactionconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "content",
+              "description": "<p>Allows filtering Reactions by emoji.</p>",
+              "type": {
+                "name": "ReactionContent",
+                "id": "reactioncontent",
+                "href": "/graphql/reference/reactions#enum-reactioncontent"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Allows specifying the order in which reactions are returned.</p>",
+              "type": {
+                "name": "ReactionOrder",
+                "id": "reactionorder",
+                "href": "/graphql/reference/reactions#input-object-reactionorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository associated with this node.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The path for this discussion.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "stateReason",
+          "description": "<p>Identifies the reason for the discussion's state.</p>",
+          "type": "DiscussionStateReason",
+          "id": "discussionstatereason",
+          "href": "/graphql/reference/discussions#enum-discussionstatereason"
+        },
+        {
+          "name": "title",
+          "description": "<p>The title of this discussion.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "upvoteCount",
+          "description": "<p>Number of upvotes that this subject has received.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "url",
+          "description": "<p>The URL for this discussion.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "userContentEdits",
+          "description": "<p>A list of edits to this content.</p>",
+          "type": "UserContentEditConnection",
+          "id": "usercontenteditconnection",
+          "href": "/graphql/reference/users#object-usercontenteditconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "viewerCanClose",
+          "description": "<p>Indicates if the object can be closed by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanDelete",
+          "description": "<p>Check if the current viewer can delete this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanLabel",
+          "description": "<p>Indicates if the viewer can edit labels for this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanReact",
+          "description": "<p>Can user react to this subject.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanReopen",
+          "description": "<p>Indicates if the object can be reopened by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanSubscribe",
+          "description": "<p>Check if the viewer is able to change their subscription status for the repository.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanUpdate",
+          "description": "<p>Check if the current viewer can update this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanUpvote",
+          "description": "<p>Whether or not the current user can add or remove an upvote on this subject.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerDidAuthor",
+          "description": "<p>Did the viewer author this comment.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerHasUpvoted",
+          "description": "<p>Whether or not the current user has already upvoted this subject.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerSubscription",
+          "description": "<p>Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.</p>",
+          "type": "SubscriptionState",
+          "id": "subscriptionstate",
+          "href": "/graphql/reference/activity#enum-subscriptionstate"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "DiscussionCategory",
+      "id": "discussioncategory",
+      "href": "/graphql/reference/discussions#object-discussioncategory",
+      "description": "<p>A category for discussions in a repository.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "RepositoryNode",
+          "id": "repositorynode",
+          "href": "/graphql/reference/repos#interface-repositorynode"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "description",
+          "description": "<p>A description of this category.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "emoji",
+          "description": "<p>An emoji representing this category.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "emojiHTML",
+          "description": "<p>This category's emoji rendered as HTML.</p>",
+          "type": "HTML!",
+          "id": "html",
+          "href": "/graphql/reference/other#scalar-html"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the DiscussionCategory object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "isAnswerable",
+          "description": "<p>Whether or not discussions in this category support choosing an answer with the markDiscussionCommentAsAnswer mutation.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of this category.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository associated with this node.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        },
+        {
+          "name": "slug",
+          "description": "<p>The slug of this category.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "DiscussionCategoryConnection",
+      "id": "discussioncategoryconnection",
+      "href": "/graphql/reference/discussions#object-discussioncategoryconnection",
+      "description": "<p>The connection type for DiscussionCategory.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[DiscussionCategoryEdge]",
+          "id": "discussioncategoryedge",
+          "href": "/graphql/reference/discussions#object-discussioncategoryedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[DiscussionCategory]",
+          "id": "discussioncategory",
+          "href": "/graphql/reference/discussions#object-discussioncategory"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "DiscussionCategoryEdge",
+      "id": "discussioncategoryedge",
+      "href": "/graphql/reference/discussions#object-discussioncategoryedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "DiscussionCategory",
+          "id": "discussioncategory",
+          "href": "/graphql/reference/discussions#object-discussioncategory"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "DiscussionComment",
+      "id": "discussioncomment",
+      "href": "/graphql/reference/discussions#object-discussioncomment",
+      "description": "<p>A comment on a discussion.</p>",
+      "implements": [
+        {
+          "name": "Comment",
+          "id": "comment",
+          "href": "/graphql/reference/issues#interface-comment"
+        },
+        {
+          "name": "Deletable",
+          "id": "deletable",
+          "href": "/graphql/reference/issues#interface-deletable"
+        },
+        {
+          "name": "Minimizable",
+          "id": "minimizable",
+          "href": "/graphql/reference/issues#interface-minimizable"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "Reactable",
+          "id": "reactable",
+          "href": "/graphql/reference/reactions#interface-reactable"
+        },
+        {
+          "name": "Updatable",
+          "id": "updatable",
+          "href": "/graphql/reference/issues#interface-updatable"
+        },
+        {
+          "name": "UpdatableComment",
+          "id": "updatablecomment",
+          "href": "/graphql/reference/issues#interface-updatablecomment"
+        },
+        {
+          "name": "Votable",
+          "id": "votable",
+          "href": "/graphql/reference/discussions#interface-votable"
+        }
+      ],
+      "fields": [
+        {
+          "name": "author",
+          "description": "<p>The actor who authored the comment.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "authorAssociation",
+          "description": "<p>Author's association with the subject of the comment.</p>",
+          "type": "CommentAuthorAssociation!",
+          "id": "commentauthorassociation",
+          "href": "/graphql/reference/issues#enum-commentauthorassociation"
+        },
+        {
+          "name": "body",
+          "description": "<p>The body as Markdown.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "bodyHTML",
+          "description": "<p>The body rendered to HTML.</p>",
+          "type": "HTML!",
+          "id": "html",
+          "href": "/graphql/reference/other#scalar-html"
+        },
+        {
+          "name": "bodyText",
+          "description": "<p>The body rendered to text.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "createdViaEmail",
+          "description": "<p>Check if this comment was created via an email reply.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "deletedAt",
+          "description": "<p>The time when this replied-to comment was deleted.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "discussion",
+          "description": "<p>The discussion this comment was created in.</p>",
+          "type": "Discussion",
+          "id": "discussion",
+          "href": "/graphql/reference/discussions#object-discussion"
+        },
+        {
+          "name": "editor",
+          "description": "<p>The actor who edited the comment.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the DiscussionComment object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "includesCreatedEdit",
+          "description": "<p>Check if this comment was edited and includes an edit with the creation data.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isAnswer",
+          "description": "<p>Has this comment been chosen as the answer of its discussion?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isMinimized",
+          "description": "<p>Returns whether or not a comment has been minimized.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "lastEditedAt",
+          "description": "<p>The moment the editor made the last edit.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "minimizedReason",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "publishedAt",
+          "description": "<p>Identifies when the comment was published at.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "reactionGroups",
+          "description": "<p>A list of reactions grouped by content left on the subject.</p>",
+          "type": "[ReactionGroup!]",
+          "id": "reactiongroup",
+          "href": "/graphql/reference/reactions#object-reactiongroup"
+        },
+        {
+          "name": "reactions",
+          "description": "<p>A list of Reactions left on the Issue.</p>",
+          "type": "ReactionConnection!",
+          "id": "reactionconnection",
+          "href": "/graphql/reference/reactions#object-reactionconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "content",
+              "description": "<p>Allows filtering Reactions by emoji.</p>",
+              "type": {
+                "name": "ReactionContent",
+                "id": "reactioncontent",
+                "href": "/graphql/reference/reactions#enum-reactioncontent"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Allows specifying the order in which reactions are returned.</p>",
+              "type": {
+                "name": "ReactionOrder",
+                "id": "reactionorder",
+                "href": "/graphql/reference/reactions#input-object-reactionorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "replies",
+          "description": "<p>The threaded replies to this comment.</p>",
+          "type": "DiscussionCommentConnection!",
+          "id": "discussioncommentconnection",
+          "href": "/graphql/reference/discussions#object-discussioncommentconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "replyTo",
+          "description": "<p>The discussion comment this comment is a reply to.</p>",
+          "type": "DiscussionComment",
+          "id": "discussioncomment",
+          "href": "/graphql/reference/discussions#object-discussioncomment"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The path for this discussion comment.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "upvoteCount",
+          "description": "<p>Number of upvotes that this subject has received.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "url",
+          "description": "<p>The URL for this discussion comment.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "userContentEdits",
+          "description": "<p>A list of edits to this content.</p>",
+          "type": "UserContentEditConnection",
+          "id": "usercontenteditconnection",
+          "href": "/graphql/reference/users#object-usercontenteditconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "viewerCanDelete",
+          "description": "<p>Check if the current viewer can delete this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanMarkAsAnswer",
+          "description": "<p>Can the current user mark this comment as an answer?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanMinimize",
+          "description": "<p>Check if the current viewer can minimize this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanReact",
+          "description": "<p>Can user react to this subject.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanUnmarkAsAnswer",
+          "description": "<p>Can the current user unmark this comment as an answer?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanUpdate",
+          "description": "<p>Check if the current viewer can update this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanUpvote",
+          "description": "<p>Whether or not the current user can add or remove an upvote on this subject.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCannotUpdateReasons",
+          "description": "<p>Reasons why the current viewer can not update this comment.</p>",
+          "type": "[CommentCannotUpdateReason!]!",
+          "id": "commentcannotupdatereason",
+          "href": "/graphql/reference/issues#enum-commentcannotupdatereason"
+        },
+        {
+          "name": "viewerDidAuthor",
+          "description": "<p>Did the viewer author this comment.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerHasUpvoted",
+          "description": "<p>Whether or not the current user has already upvoted this subject.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "DiscussionCommentConnection",
+      "id": "discussioncommentconnection",
+      "href": "/graphql/reference/discussions#object-discussioncommentconnection",
+      "description": "<p>The connection type for DiscussionComment.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[DiscussionCommentEdge]",
+          "id": "discussioncommentedge",
+          "href": "/graphql/reference/discussions#object-discussioncommentedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[DiscussionComment]",
+          "id": "discussioncomment",
+          "href": "/graphql/reference/discussions#object-discussioncomment"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "DiscussionCommentEdge",
+      "id": "discussioncommentedge",
+      "href": "/graphql/reference/discussions#object-discussioncommentedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "DiscussionComment",
+          "id": "discussioncomment",
+          "href": "/graphql/reference/discussions#object-discussioncomment"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "DiscussionConnection",
+      "id": "discussionconnection",
+      "href": "/graphql/reference/discussions#object-discussionconnection",
+      "description": "<p>The connection type for Discussion.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[DiscussionEdge]",
+          "id": "discussionedge",
+          "href": "/graphql/reference/discussions#object-discussionedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Discussion]",
+          "id": "discussion",
+          "href": "/graphql/reference/discussions#object-discussion"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "DiscussionEdge",
+      "id": "discussionedge",
+      "href": "/graphql/reference/discussions#object-discussionedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "Discussion",
+          "id": "discussion",
+          "href": "/graphql/reference/discussions#object-discussion"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "DiscussionPoll",
+      "id": "discussionpoll",
+      "href": "/graphql/reference/discussions#object-discussionpoll",
+      "description": "<p>A poll for a discussion.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "discussion",
+          "description": "<p>The discussion that this poll belongs to.</p>",
+          "type": "Discussion",
+          "id": "discussion",
+          "href": "/graphql/reference/discussions#object-discussion"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the DiscussionPoll object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "options",
+          "description": "<p>The options for this poll.</p>",
+          "type": "DiscussionPollOptionConnection",
+          "id": "discussionpolloptionconnection",
+          "href": "/graphql/reference/discussions#object-discussionpolloptionconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>How to order the options for the discussion poll.</p>",
+              "type": {
+                "name": "DiscussionPollOptionOrder",
+                "id": "discussionpolloptionorder",
+                "href": "/graphql/reference/discussions#input-object-discussionpolloptionorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "question",
+          "description": "<p>The question that is being asked by this poll.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "totalVoteCount",
+          "description": "<p>The total number of votes that have been cast for this poll.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "viewerCanVote",
+          "description": "<p>Indicates if the viewer has permission to vote in this poll.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerHasVoted",
+          "description": "<p>Indicates if the viewer has voted for any option in this poll.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "DiscussionPollOption",
+      "id": "discussionpolloption",
+      "href": "/graphql/reference/discussions#object-discussionpolloption",
+      "description": "<p>An option for a discussion poll.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the DiscussionPollOption object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "option",
+          "description": "<p>The text for this option.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "poll",
+          "description": "<p>The discussion poll that this option belongs to.</p>",
+          "type": "DiscussionPoll",
+          "id": "discussionpoll",
+          "href": "/graphql/reference/discussions#object-discussionpoll"
+        },
+        {
+          "name": "totalVoteCount",
+          "description": "<p>The total number of votes that have been cast for this option.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "viewerHasVoted",
+          "description": "<p>Indicates if the viewer has voted for this option in the poll.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "DiscussionPollOptionConnection",
+      "id": "discussionpolloptionconnection",
+      "href": "/graphql/reference/discussions#object-discussionpolloptionconnection",
+      "description": "<p>The connection type for DiscussionPollOption.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[DiscussionPollOptionEdge]",
+          "id": "discussionpolloptionedge",
+          "href": "/graphql/reference/discussions#object-discussionpolloptionedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[DiscussionPollOption]",
+          "id": "discussionpolloption",
+          "href": "/graphql/reference/discussions#object-discussionpolloption"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "DiscussionPollOptionEdge",
+      "id": "discussionpolloptionedge",
+      "href": "/graphql/reference/discussions#object-discussionpolloptionedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "DiscussionPollOption",
+          "id": "discussionpolloption",
+          "href": "/graphql/reference/discussions#object-discussionpolloption"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "PinnedDiscussion",
+      "id": "pinneddiscussion",
+      "href": "/graphql/reference/discussions#object-pinneddiscussion",
+      "description": "<p>A Pinned Discussion is a discussion pinned to a repository's index page.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "RepositoryNode",
+          "id": "repositorynode",
+          "href": "/graphql/reference/repos#interface-repositorynode"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "discussion",
+          "description": "<p>The discussion that was pinned.</p>",
+          "type": "Discussion!",
+          "id": "discussion",
+          "href": "/graphql/reference/discussions#object-discussion"
+        },
+        {
+          "name": "gradientStopColors",
+          "description": "<p>Color stops of the chosen gradient.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the PinnedDiscussion object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "pattern",
+          "description": "<p>Background texture pattern.</p>",
+          "type": "PinnedDiscussionPattern!",
+          "id": "pinneddiscussionpattern",
+          "href": "/graphql/reference/discussions#enum-pinneddiscussionpattern"
+        },
+        {
+          "name": "pinnedBy",
+          "description": "<p>The actor that pinned this discussion.</p>",
+          "type": "Actor!",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "preconfiguredGradient",
+          "description": "<p>Preconfigured background gradient option.</p>",
+          "type": "PinnedDiscussionGradient",
+          "id": "pinneddiscussiongradient",
+          "href": "/graphql/reference/discussions#enum-pinneddiscussiongradient"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository associated with this node.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "PinnedDiscussionConnection",
+      "id": "pinneddiscussionconnection",
+      "href": "/graphql/reference/discussions#object-pinneddiscussionconnection",
+      "description": "<p>The connection type for PinnedDiscussion.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[PinnedDiscussionEdge]",
+          "id": "pinneddiscussionedge",
+          "href": "/graphql/reference/discussions#object-pinneddiscussionedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[PinnedDiscussion]",
+          "id": "pinneddiscussion",
+          "href": "/graphql/reference/discussions#object-pinneddiscussion"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "PinnedDiscussionEdge",
+      "id": "pinneddiscussionedge",
+      "href": "/graphql/reference/discussions#object-pinneddiscussionedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "PinnedDiscussion",
+          "id": "pinneddiscussion",
+          "href": "/graphql/reference/discussions#object-pinneddiscussion"
+        }
+      ],
+      "category": "discussions"
+    }
+  ],
+  "interfaces": [
+    {
+      "name": "RepositoryDiscussionAuthor",
+      "id": "repositorydiscussionauthor",
+      "href": "/graphql/reference/discussions#interface-repositorydiscussionauthor",
+      "description": "<p>Represents an author of discussions in repositories.</p>",
+      "fields": [
+        {
+          "name": "repositoryDiscussions",
+          "description": "<p>Discussions this user has started.</p>",
+          "type": "DiscussionConnection!",
+          "id": "discussionconnection",
+          "href": "/graphql/reference/discussions#object-discussionconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "answered",
+              "description": "<p>Filter discussions to only those that have been answered or not. Defaults to\nincluding both answered and unanswered discussions.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "href": "/graphql/reference/other#scalar-boolean"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for discussions returned from the connection.</p>",
+              "type": {
+                "name": "DiscussionOrder",
+                "id": "discussionorder",
+                "href": "/graphql/reference/discussions#input-object-discussionorder"
+              }
+            },
+            {
+              "name": "repositoryId",
+              "description": "<p>Filter discussions to only those in a specific repository.</p>",
+              "type": {
+                "name": "ID",
+                "id": "id",
+                "href": "/graphql/reference/other#scalar-id"
+              }
+            },
+            {
+              "name": "states",
+              "description": "<p>A list of states to filter the discussions by.</p>",
+              "type": {
+                "name": "[DiscussionState!]",
+                "id": "discussionstate",
+                "href": "/graphql/reference/discussions#enum-discussionstate"
+              }
+            }
+          ]
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "RepositoryDiscussionCommentAuthor",
+      "id": "repositorydiscussioncommentauthor",
+      "href": "/graphql/reference/discussions#interface-repositorydiscussioncommentauthor",
+      "description": "<p>Represents an author of discussion comments in repositories.</p>",
+      "fields": [
+        {
+          "name": "repositoryDiscussionComments",
+          "description": "<p>Discussion comments this user has authored.</p>",
+          "type": "DiscussionCommentConnection!",
+          "id": "discussioncommentconnection",
+          "href": "/graphql/reference/discussions#object-discussioncommentconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "onlyAnswers",
+              "defaultValue": false,
+              "description": "<p>Filter discussion comments to only those that were marked as the answer.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "href": "/graphql/reference/other#scalar-boolean"
+              }
+            },
+            {
+              "name": "repositoryId",
+              "description": "<p>Filter discussion comments to only those in a specific repository.</p>",
+              "type": {
+                "name": "ID",
+                "id": "id",
+                "href": "/graphql/reference/other#scalar-id"
+              }
+            }
+          ]
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "Votable",
+      "id": "votable",
+      "href": "/graphql/reference/discussions#interface-votable",
+      "description": "<p>A subject that may be upvoted.</p>",
+      "fields": [
+        {
+          "name": "upvoteCount",
+          "description": "<p>Number of upvotes that this subject has received.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "viewerCanUpvote",
+          "description": "<p>Whether or not the current user can add or remove an upvote on this subject.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerHasUpvoted",
+          "description": "<p>Whether or not the current user has already upvoted this subject.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "discussions"
+    }
+  ],
+  "enums": [
+    {
+      "name": "DiscussionCloseReason",
+      "id": "discussionclosereason",
+      "href": "/graphql/reference/discussions#enum-discussionclosereason",
+      "description": "<p>The possible reasons for closing a discussion.</p>",
+      "values": [
+        {
+          "name": "DUPLICATE",
+          "description": "<p>The discussion is a duplicate of another.</p>"
+        },
+        {
+          "name": "OUTDATED",
+          "description": "<p>The discussion is no longer relevant.</p>"
+        },
+        {
+          "name": "RESOLVED",
+          "description": "<p>The discussion has been resolved.</p>"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "DiscussionOrderField",
+      "id": "discussionorderfield",
+      "href": "/graphql/reference/discussions#enum-discussionorderfield",
+      "description": "<p>Properties by which discussion connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order discussions by creation time.</p>"
+        },
+        {
+          "name": "UPDATED_AT",
+          "description": "<p>Order discussions by most recent modification time.</p>"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "DiscussionPollOptionOrderField",
+      "id": "discussionpolloptionorderfield",
+      "href": "/graphql/reference/discussions#enum-discussionpolloptionorderfield",
+      "description": "<p>Properties by which discussion poll option connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "AUTHORED_ORDER",
+          "description": "<p>Order poll options by the order that the poll author specified when creating the poll.</p>"
+        },
+        {
+          "name": "VOTE_COUNT",
+          "description": "<p>Order poll options by the number of votes it has.</p>"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "DiscussionState",
+      "id": "discussionstate",
+      "href": "/graphql/reference/discussions#enum-discussionstate",
+      "description": "<p>The possible states of a discussion.</p>",
+      "values": [
+        {
+          "name": "CLOSED",
+          "description": "<p>A discussion that has been closed.</p>"
+        },
+        {
+          "name": "OPEN",
+          "description": "<p>A discussion that is open.</p>"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "DiscussionStateReason",
+      "id": "discussionstatereason",
+      "href": "/graphql/reference/discussions#enum-discussionstatereason",
+      "description": "<p>The possible state reasons of a discussion.</p>",
+      "values": [
+        {
+          "name": "DUPLICATE",
+          "description": "<p>The discussion is a duplicate of another.</p>"
+        },
+        {
+          "name": "OUTDATED",
+          "description": "<p>The discussion is no longer relevant.</p>"
+        },
+        {
+          "name": "REOPENED",
+          "description": "<p>The discussion was reopened.</p>"
+        },
+        {
+          "name": "RESOLVED",
+          "description": "<p>The discussion has been resolved.</p>"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "PinnedDiscussionGradient",
+      "id": "pinneddiscussiongradient",
+      "href": "/graphql/reference/discussions#enum-pinneddiscussiongradient",
+      "description": "<p>Preconfigured gradients that may be used to style discussions pinned within a repository.</p>",
+      "values": [
+        {
+          "name": "BLUE_MINT",
+          "description": "<p>A gradient of blue to mint.</p>"
+        },
+        {
+          "name": "BLUE_PURPLE",
+          "description": "<p>A gradient of blue to purple.</p>"
+        },
+        {
+          "name": "PINK_BLUE",
+          "description": "<p>A gradient of pink to blue.</p>"
+        },
+        {
+          "name": "PURPLE_CORAL",
+          "description": "<p>A gradient of purple to coral.</p>"
+        },
+        {
+          "name": "RED_ORANGE",
+          "description": "<p>A gradient of red to orange.</p>"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "PinnedDiscussionPattern",
+      "id": "pinneddiscussionpattern",
+      "href": "/graphql/reference/discussions#enum-pinneddiscussionpattern",
+      "description": "<p>Preconfigured background patterns that may be used to style discussions pinned within a repository.</p>",
+      "values": [
+        {
+          "name": "CHEVRON_UP",
+          "description": "<p>An upward-facing chevron pattern.</p>"
+        },
+        {
+          "name": "DOT",
+          "description": "<p>A hollow dot pattern.</p>"
+        },
+        {
+          "name": "DOT_FILL",
+          "description": "<p>A solid dot pattern.</p>"
+        },
+        {
+          "name": "HEART_FILL",
+          "description": "<p>A heart pattern.</p>"
+        },
+        {
+          "name": "PLUS",
+          "description": "<p>A plus sign pattern.</p>"
+        },
+        {
+          "name": "ZAP",
+          "description": "<p>A lightning bolt pattern.</p>"
+        }
+      ],
+      "category": "discussions"
+    }
+  ],
+  "inputObjects": [
+    {
+      "name": "AddDiscussionCommentInput",
+      "id": "adddiscussioncommentinput",
+      "href": "/graphql/reference/discussions#input-object-adddiscussioncommentinput",
+      "description": "<p>Autogenerated input type of AddDiscussionComment.</p>",
+      "inputFields": [
+        {
+          "name": "body",
+          "description": "<p>The contents of the comment.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "discussionId",
+          "description": "<p>The Node ID of the discussion to comment on.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "replyToId",
+          "description": "<p>The Node ID of the discussion comment within this discussion to reply to.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "AddDiscussionPollVoteInput",
+      "id": "adddiscussionpollvoteinput",
+      "href": "/graphql/reference/discussions#input-object-adddiscussionpollvoteinput",
+      "description": "<p>Autogenerated input type of AddDiscussionPollVote.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "pollOptionId",
+          "description": "<p>The Node ID of the discussion poll option to vote for.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "AddUpvoteInput",
+      "id": "addupvoteinput",
+      "href": "/graphql/reference/discussions#input-object-addupvoteinput",
+      "description": "<p>Autogenerated input type of AddUpvote.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "subjectId",
+          "description": "<p>The Node ID of the discussion or comment to upvote.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "CloseDiscussionInput",
+      "id": "closediscussioninput",
+      "href": "/graphql/reference/discussions#input-object-closediscussioninput",
+      "description": "<p>Autogenerated input type of CloseDiscussion.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "discussionId",
+          "description": "<p>ID of the discussion to be closed.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "reason",
+          "description": "<p>The reason why the discussion is being closed.</p>",
+          "type": "DiscussionCloseReason",
+          "id": "discussionclosereason",
+          "href": "/graphql/reference/discussions#enum-discussionclosereason"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "CreateDiscussionInput",
+      "id": "creatediscussioninput",
+      "href": "/graphql/reference/discussions#input-object-creatediscussioninput",
+      "description": "<p>Autogenerated input type of CreateDiscussion.</p>",
+      "inputFields": [
+        {
+          "name": "body",
+          "description": "<p>The body of the discussion.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "categoryId",
+          "description": "<p>The id of the discussion category to associate with this discussion.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The id of the repository on which to create the discussion.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "title",
+          "description": "<p>The title of the discussion.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "DeleteDiscussionCommentInput",
+      "id": "deletediscussioncommentinput",
+      "href": "/graphql/reference/discussions#input-object-deletediscussioncommentinput",
+      "description": "<p>Autogenerated input type of DeleteDiscussionComment.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node id of the discussion comment to delete.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "DeleteDiscussionInput",
+      "id": "deletediscussioninput",
+      "href": "/graphql/reference/discussions#input-object-deletediscussioninput",
+      "description": "<p>Autogenerated input type of DeleteDiscussion.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The id of the discussion to delete.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "DiscussionOrder",
+      "id": "discussionorder",
+      "href": "/graphql/reference/discussions#input-object-discussionorder",
+      "description": "<p>Ways in which lists of discussions can be ordered upon return.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order discussions by the specified field.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field by which to order discussions.</p>",
+          "type": "DiscussionOrderField!",
+          "id": "discussionorderfield",
+          "href": "/graphql/reference/discussions#enum-discussionorderfield"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "DiscussionPollOptionOrder",
+      "id": "discussionpolloptionorder",
+      "href": "/graphql/reference/discussions#input-object-discussionpolloptionorder",
+      "description": "<p>Ordering options for discussion poll option connections.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order poll options by.</p>",
+          "type": "DiscussionPollOptionOrderField!",
+          "id": "discussionpolloptionorderfield",
+          "href": "/graphql/reference/discussions#enum-discussionpolloptionorderfield"
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "MarkDiscussionCommentAsAnswerInput",
+      "id": "markdiscussioncommentasanswerinput",
+      "href": "/graphql/reference/discussions#input-object-markdiscussioncommentasanswerinput",
+      "description": "<p>Autogenerated input type of MarkDiscussionCommentAsAnswer.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the discussion comment to mark as an answer.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "RemoveUpvoteInput",
+      "id": "removeupvoteinput",
+      "href": "/graphql/reference/discussions#input-object-removeupvoteinput",
+      "description": "<p>Autogenerated input type of RemoveUpvote.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "subjectId",
+          "description": "<p>The Node ID of the discussion or comment to remove upvote.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "ReopenDiscussionInput",
+      "id": "reopendiscussioninput",
+      "href": "/graphql/reference/discussions#input-object-reopendiscussioninput",
+      "description": "<p>Autogenerated input type of ReopenDiscussion.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "discussionId",
+          "description": "<p>ID of the discussion to be reopened.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "UnmarkDiscussionCommentAsAnswerInput",
+      "id": "unmarkdiscussioncommentasanswerinput",
+      "href": "/graphql/reference/discussions#input-object-unmarkdiscussioncommentasanswerinput",
+      "description": "<p>Autogenerated input type of UnmarkDiscussionCommentAsAnswer.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the discussion comment to unmark as an answer.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "UpdateDiscussionCommentInput",
+      "id": "updatediscussioncommentinput",
+      "href": "/graphql/reference/discussions#input-object-updatediscussioncommentinput",
+      "description": "<p>Autogenerated input type of UpdateDiscussionComment.</p>",
+      "inputFields": [
+        {
+          "name": "body",
+          "description": "<p>The new contents of the comment body.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "commentId",
+          "description": "<p>The Node ID of the discussion comment to update.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "discussions"
+    },
+    {
+      "name": "UpdateDiscussionInput",
+      "id": "updatediscussioninput",
+      "href": "/graphql/reference/discussions#input-object-updatediscussioninput",
+      "description": "<p>Autogenerated input type of UpdateDiscussion.</p>",
+      "inputFields": [
+        {
+          "name": "body",
+          "description": "<p>The new contents of the discussion body.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "categoryId",
+          "description": "<p>The Node ID of a discussion category within the same repository to change this discussion to.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "discussionId",
+          "description": "<p>The Node ID of the discussion to update.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "title",
+          "description": "<p>The new discussion title.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "discussions"
+    }
+  ]
+}

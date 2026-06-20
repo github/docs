@@ -1,5 +1,6 @@
 ---
 title: Exit codes
+shortTitle: Exit codes
 intro: Exit codes signify the status of a command after the {% data variables.product.prodname_codeql_cli %} runs it.
 product: '{% data reusables.gated-features.codeql %}'
 versions:

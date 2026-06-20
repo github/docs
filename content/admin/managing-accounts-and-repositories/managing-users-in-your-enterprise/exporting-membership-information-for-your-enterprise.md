@@ -27,7 +27,7 @@ The membership information report includes the following information.
   * Username and primary email addresses on any {% data variables.product.prodname_ghe_server %} instances where {% data variables.product.prodname_github_connect %} is configured
   * User, subscription email address, and license status for {% data variables.visual_studio.prodname_vss_ghe %}
 
-You can also use {% data variables.product.prodname_dotcom %}'s APIs to retrieve information about your enterprise's members. For more information, see the [GraphQL API](/graphql/reference/objects#user) and [REST API](/rest/users) documentation.
+You can also use {% data variables.product.prodname_dotcom %}'s APIs to retrieve information about your enterprise's members. For more information, see the [GraphQL API](/graphql/reference/users#object-user) and [REST API](/rest/users) documentation.
 
 Organization owners can also export membership information for an organization. For more information, see [AUTOTITLE](/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization).
 

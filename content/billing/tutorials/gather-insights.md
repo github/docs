@@ -42,9 +42,6 @@ You can view the usage of your personal account and download the usage data for 
 
 1. To request a CSV usage report, select **Get usage report** in the upper-right corner of the page.
 
-   * For a breakdown of all metered usage, click **Metered billing usage report**.
-   * For a per user breakdown of premium requests, click **{% data variables.product.prodname_copilot_short %} premium requests usage report**.
-
    You can choose a pre-selected option or use the "Custom range" option to specify a date range of up to 31 days.
 
 {% endif %}
@@ -66,7 +63,7 @@ You can view the usage of your personal account and download the usage data for 
 
 {% endif %}
 
-1. Click **Usage**.
+1. Click **Usage**, then click **Metered usage** or **AI usage**.
 1. To search or filter the graph, click the search bar. Then click the filter you want to use.
 1. To further filter the graph, use the dropdown menus.
 
@@ -78,12 +75,7 @@ You can view the usage of your personal account and download the usage data for 
 
    >[!NOTE] The usage graph is configured to represent the start of the month to the end of the month, not your specific billing period.
 
-1. To request a CSV usage report, select **Get usage report** in the upper-right corner of the page.
-
-   * For a breakdown of all metered usage, click **Metered billing usage report**.
-   * For a per user breakdown of premium requests for the last 45 days, click **{% data variables.product.prodname_copilot_short %} premium requests usage report**.
-
-   >[!TIP] The premium request usage report includes all premium requests, both within and beyond the allowance.
+1. To request a CSV usage report, select **{% octicon "download" aria-hidden="true" aria-label="download" %} Get usage report** in the upper-right corner of the page.
 
 {% data reusables.billing.usage-reports-api-limitation %}
 

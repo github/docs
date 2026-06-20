@@ -1,15 +1,16 @@
 ---
-title: 'Tutorials for {% data variables.product.prodname_copilot %}'
+title: Tutorials for {% data variables.product.prodname_copilot %}
 shortTitle: Tutorials
-intro: 'Build skills and knowledge about {% data variables.product.prodname_copilot %} through examples and hands-on activities.'
+intro: Build skills and knowledge about {% data variables.product.prodname_copilot %} through examples and hands-on activities.
 versions:
   feature: copilot
 children:
-  - /copilot-chat-cookbook
+  - /copilot-cookbook
   - /customization-library
   - /cloud-agent
+  - /budgets
   - /spark
-  - /use-custom-instructions
+  - /customize-code-review
   - /enhance-agent-mode-with-mcp
   - /compare-ai-models
   - /speed-up-development-work
@@ -19,6 +20,7 @@ children:
   - /explore-pull-requests
   - /write-tests
   - /refactor-code
+  - /optimize-ai-usage
   - /optimize-code-reviews
   - /reduce-technical-debt
   - /review-ai-generated-code
@@ -30,6 +32,7 @@ children:
   - /vibe-coding
   - /upgrade-projects
   - /copilot-cli-hooks
+  - /use-an-ai-sme
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot
 contentType: tutorials
@@ -40,7 +43,7 @@ sidebarLink:
   href: /copilot/tutorials
 carousels:
   recommended:
-    - /copilot/tutorials/copilot-chat-cookbook
+    - /copilot/tutorials/copilot-cookbook
     - /copilot/tutorials/customization-library
     - /copilot/tutorials/roll-out-at-scale
 includedCategories:

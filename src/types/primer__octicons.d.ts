@@ -6,7 +6,7 @@ declare module '@primer/octicons' {
     'aria-hidden'?: string | boolean
     class?: string
     fill?: string
-    [key: string]: any
+    [key: string]: string | number | boolean | undefined
   }
 
   interface Octicon {

@@ -1,7 +1,6 @@
 import { describe, expect, test, vi } from 'vitest'
 
 import { getDOM } from '@/tests/helpers/e2etest'
-import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
 
 describe('featuredLinks', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
@@ -24,21 +23,10 @@ describe('featuredLinks', () => {
     )
   })
 
-  test('Enterprise intro links have expected values', async () => {
+  test('Enterprise get-started landing renders', async () => {
     const $ = await getDOM('/en/enterprise-server@latest/get-started')
-    const $featuredLinks = $('[data-testid=article-list] a')
-    expect($featuredLinks.length).toBeGreaterThan(0)
-
-    // Fixture content expectations (CI environment)
-    expect($featuredLinks.eq(0).attr('href')).toBe(
-      `/en/enterprise-server@${enterpriseServerReleases.latestStable}/get-started/foo/bar`,
-    )
-    expect($featuredLinks.eq(0).find('[data-testid=link-with-intro-title]').text()).toMatch(
-      'Bar Usually Comes After Foo',
-    )
-    expect($featuredLinks.eq(0).find('[data-testid=link-with-intro-intro]').text()).toMatch(
-      "This page doesn't really have an intro",
-    )
+    // get-started uses discovery-landing, so it has hero/spotlight, not article-list.
+    expect($('h1').text()).toMatch(/Getting started/)
   })
 
   // This is an important test because one of the popular links,

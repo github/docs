@@ -63,6 +63,26 @@ To use the CLI programmatically, include the `-p` or `--prompt` command-line opt
 > [!CAUTION]
 > If you use an automatic approval option such as `--allow-all-tools`, {% data variables.product.prodname_copilot_short %} has the same access as you do to files on your computer, and can run any shell commands that you can run, without getting your prior approval. See [Security considerations](#security-considerations), later in this article.
 
+## Running in a sandbox with {% data variables.copilot.sandbox %}
+
+{% data reusables.cli.public-preview-sandbox %}
+
+{% data variables.copilot.sandbox_caps %} provides isolated execution environments for {% data variables.copilot.copilot_cli_short %}, both locally and in the cloud. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
+
+### Local sandboxing
+
+You can enable local sandboxing inside a {% data variables.copilot.copilot_cli_short %} session to restrict {% data variables.product.prodname_copilot_short %}'s access to your filesystem, network, and system capabilities. To enable it, run `/sandbox enable` inside a session.
+
+### Cloud sandboxing
+
+You can start a {% data variables.copilot.copilot_cli_short %} session inside an isolated, cloud-hosted environment with cloud sandboxes. This is useful when you want to run code without affecting your local machine, keep a session's state between uses, continue a session from a different machine, or run multiple tasks in parallel. Cloud sandbox policies inherit from {% data variables.copilot.copilot_cloud_agent %} policies, so existing security controls like firewall rules extend to cloud sandboxes without additional setup.
+
+To start a cloud-backed session, run:
+
+```bash copy
+copilot --cloud
+```
+
 ## Use cases for {% data variables.copilot.copilot_cli %}
 
 The following sections provide examples of tasks you can complete with {% data variables.copilot.copilot_cli %}.
@@ -174,7 +194,7 @@ You can customize {% data variables.copilot.copilot_cli %} in a number of ways:
 * **Custom instructions**: Custom instructions allow you to give {% data variables.product.prodname_copilot_short %} additional context on your project and how to build, test and validate its changes. All custom instruction files now combine instead of using priority-based fallbacks. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions).
 * **Model Context Protocol (MCP) servers**: MCP servers allow you to give {% data variables.product.prodname_copilot_short %} access to different data sources and tools. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli#add-an-mcp-server).
 * **{% data variables.copilot.custom_agents_caps_short %}**: {% data variables.copilot.custom_agents_caps_short %} allow you to create different specialized versions of {% data variables.product.prodname_copilot_short %} for different tasks. For example, you could customize {% data variables.product.prodname_copilot_short %} to be an expert frontend engineer following your team's guidelines. {% data variables.copilot.copilot_cli %} includes specialized {% data variables.copilot.custom_agents_short %} that it automatically delegates common tasks to. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli#use-custom-agents).
-* **Hooks**: Hooks allow you to execute custom shell commands at key points during agent execution, enabling you to add validation, logging, security scanning, or workflow automation. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-hooks).
+* **Hooks**: Hooks allow you to execute custom shell commands at key points during agent execution, enabling you to add validation, logging, security scanning, or workflow automation. See [AUTOTITLE](/copilot/concepts/agents/hooks).
 * **Skills**: Skills allow you to enhance the ability of {% data variables.product.prodname_copilot_short %} to perform specialized tasks with instructions, scripts, and resources. For more information, see [AUTOTITLE](/copilot/concepts/agents/about-agent-skills).
 * **{% data variables.copilot.copilot_memory %}**: {% data variables.copilot.copilot_memory %} allows {% data variables.product.prodname_copilot_short %} to build a persistent understanding of your repository by storing "memories", which are pieces of information about coding conventions, patterns, and preferences that {% data variables.product.prodname_copilot_short %} deduces as it works. This reduces the need to repeatedly explain context in your prompts and makes future sessions more productive. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-memory).
 
@@ -290,7 +310,9 @@ You can control which tools {% data variables.copilot.copilot_cli_short %} can u
 
 ### Risk mitigation
 
-You can mitigate the risks associated with using the automatic approval options by running {% data variables.copilot.copilot_cli_short %} in a restricted environment—such as a virtual machine, container, or dedicated system—with tightly controlled permissions and network access. This confines any potential damage that could occur when allowing {% data variables.product.prodname_copilot_short %} to execute commands that you have not reviewed and verified.
+You can mitigate the risks associated with using the automatic approval options by running {% data variables.copilot.copilot_cli_short %} in a sandboxed environment. {% data variables.copilot.sandbox_caps %} provides a first-party solution for this, with local sandboxing to restrict access on your machine and cloud sandboxing for fully isolated execution. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
+
+Alternatively, you can run {% data variables.copilot.copilot_cli_short %} in a virtual machine, container, or dedicated system with tightly controlled permissions and network access.
 
 ### Known MCP server policy limitations
 
@@ -303,11 +325,19 @@ For more information about these policies, see [AUTOTITLE](/copilot/concepts/mcp
 
 ## Model usage
 
-The default model used by {% data variables.copilot.copilot_cli %} is {% data variables.copilot.copilot_claude_sonnet_45 %}. {% data variables.product.github %} reserves the right to change this model.
-
 You can change the model used by {% data variables.copilot.copilot_cli %} by using the `/model` slash command or the `--model` command-line option. Enter this command, then select a model from the list.
 
-Each time you submit a prompt to {% data variables.product.prodname_copilot_short %} in {% data variables.copilot.copilot_cli_short %}'s interactive interface, and each time you use {% data variables.copilot.copilot_cli_short %} programmatically, your monthly quota of {% data variables.product.prodname_copilot_short %} premium requests is reduced by one, multiplied by the multiplier shown in parentheses in the model list. For example, `Claude Sonnet 4.5 (1x)` indicates that with this model each time you submit a prompt your quota of premium requests is reduced by one. For information about premium requests, see [AUTOTITLE](/copilot/concepts/billing/copilot-requests).
+Each time you interact with {% data variables.product.prodname_copilot_short %} in {% data variables.copilot.copilot_cli_short %}'s interactive interface, or use {% data variables.copilot.copilot_cli_short %} programmatically, {% data variables.product.prodname_ai_credits_short %} are consumed based on the number of tokens processed. The amount consumed per interaction varies depending on the model used. See [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing).
+
+### Models with extended capabilities
+
+The latest models support a 1 million token context window, so you can work across larger codebases, longer documents, and complex multi-file projects without losing context. After you select a supported model, you will be prompted to choose between the default context size or an extended (1 million token) context.
+
+In addition, these models also support configurable reasoning levels, which control the depth of the model's reasoning process before it generates a response.
+
+Choosing a larger context window or higher reasoning will impact {% data variables.product.prodname_ai_credits_short %} consumption; more tokens will be consumed, so more credits will be used. For this reason, we recommend that you use the regular context window and regular reasoning by default, selecting the larger context window and higher reasoning for more complex tasks only.
+
+For a list of models that support these capabilities, see [Models with extended capabilities](/copilot/reference/ai-models/supported-models#models-with-extended-capabilities).
 
 ### Using your own model provider
 

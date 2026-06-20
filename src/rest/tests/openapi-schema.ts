@@ -5,18 +5,18 @@ import walk from 'walk-sync'
 import { isPlainObject, difference } from 'lodash-es'
 
 import { isApiVersioned, allVersions } from '@/versions/lib/all-versions'
-import getRest, { getRestCategories } from '../lib/index'
+import getRest, { getRestCategories, type RestOperationCategory } from '../lib/index'
 import readFrontmatter from '@/frame/lib/read-frontmatter'
 import frontmatter from '@/frame/lib/frontmatter'
 import getApplicableVersions from '../../versions/lib/get-applicable-versions'
 import { getAutomatedMarkdownFiles } from '../scripts/test-open-api-schema'
 import { nonAutomatedRestPaths } from '../lib/config'
+import type { Operation } from '@/rest/components/types'
 
 const schemasPath = 'src/rest/data'
 
-// Operations have dynamic structure from OpenAPI schema - using any to avoid complex type definitions
-async function getFlatListOfOperations(version: string): Promise<any[]> {
-  const flatList = []
+async function getFlatListOfOperations(version: string): Promise<Operation[]> {
+  const flatList: Operation[] = []
 
   if (isApiVersioned(version)) {
     for (const apiVersion of allVersions[version].apiVersions) {
@@ -38,16 +38,17 @@ async function getFlatListOfOperations(version: string): Promise<any[]> {
 describe('markdown for each rest version', () => {
   // Unique set of all categories across all versions of the OpenAPI schema
   const allCategories = new Set<string>()
-  // Entire schema including categories and subcategories - using any due to dynamic OpenAPI structure
-  const openApiSchema: Record<string, any> = {}
+  // Entire schema including categories and subcategories, keyed by version then category
+  const openApiSchema: Record<string, Record<string, RestOperationCategory>> = {}
   // All applicable version of categories based on frontmatter in the categories index.md file
-  const categoryApplicableVersions: Record<string, any> = {}
+  const categoryApplicableVersions: Record<string, string[]> = {}
 
   function getApplicableVersionFromFile(file: string) {
     const currentFile = fs.readFileSync(file, 'utf8')
-    // Frontmatter data structure is dynamic based on file content
-    const { data } = frontmatter(currentFile) as { data: any }
-    return getApplicableVersions(data.versions, file)
+    const fm = frontmatter(currentFile) as unknown as {
+      data?: { versions?: string | Record<string, string | string[]> }
+    }
+    return getApplicableVersions(fm.data?.versions, file)
   }
 
   function getCategorySubcategory(file: string) {
@@ -127,12 +128,15 @@ describe('markdown for each rest version', () => {
 describe('rest file structure', () => {
   test('children of content/rest/index.md are in alphabetical order', async () => {
     const indexContent = fs.readFileSync('content/rest/index.md', 'utf8')
-    // Frontmatter data structure is dynamic based on file content
-    const { data } = readFrontmatter(indexContent) as { data: any }
+    const fm = readFrontmatter(indexContent) as unknown as {
+      data?: { children?: string[] }
+    }
+    const children = fm.data?.children
+    expect(Array.isArray(children)).toBe(true)
     const nonAutomatedChildren = nonAutomatedRestPaths.map((child: string) =>
       child.replace('/rest', ''),
     )
-    const sortableChildren = data.children.filter(
+    const sortableChildren = (children as string[]).filter(
       (child: string) => !nonAutomatedChildren.includes(child),
     )
     expect(sortableChildren).toStrictEqual([...sortableChildren].sort())
@@ -203,11 +207,12 @@ describe('code examples are defined', () => {
       }
 
       const operation = await findOperation(version, 'GET', '/repos/{owner}/{repo}')
+      expect(operation).toBeDefined()
+      if (!operation) continue
       expect(operation.serverUrl).toBe(domain)
       expect(isPlainObject(operation)).toBe(true)
       expect(operation.codeExamples).toBeDefined()
-      // Code examples have dynamic structure from OpenAPI schema
-      for (const example of operation.codeExamples as any[]) {
+      for (const example of operation.codeExamples) {
         expect(isPlainObject(example.request)).toBe(true)
         expect(isPlainObject(example.response)).toBe(true)
       }

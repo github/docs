@@ -33,6 +33,8 @@ If you require SSH certificates for your enterprise, enterprise members should u
 
 ## Deleting an SSH certificate authority
 
+Deleting an SSH CA from your organization immediately prevents {% data variables.product.github %} from accepting SSH certificates signed by that CA, including certificates that have not yet expired. For CA rotation guidance, see [AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities#certificate-revocation-and-ca-rotation).
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}

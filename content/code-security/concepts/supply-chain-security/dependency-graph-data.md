@@ -54,9 +54,17 @@ To enable automatic dependency submission, see [AUTOTITLE](/code-security/supply
 
 ## {% data variables.product.prodname_dependabot %} graph jobs
 
-This method uses a special type of {% data variables.product.prodname_dependabot %} job that builds a dependency snapshot and uploads it to the dependency submission API. This is currently only supported for **Go** dependencies.
+{% data variables.product.prodname_dependabot %} graph jobs use a special type of {% data variables.product.prodname_dependabot %} job to build a dependency snapshot and upload it to the dependency submission API. {% data variables.product.prodname_dependabot %} graph jobs are currently supported for **Go** and **Python** dependencies.
+
+For supported ecosystems, {% data variables.product.prodname_dependabot %} graph jobs provide:
+
+* Full transitive dependency coverage, which means {% data variables.product.prodname_dependabot %} can alert you to vulnerabilities in indirect dependencies that static analysis may miss.
+* Private registry access through {% data variables.product.prodname_dependabot %} secrets configured at the organization or repository level. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot).
+* Private packages that are not accessible through configured {% data variables.product.prodname_dependabot %} secrets are gracefully omitted from the dependency graph without causing a failure.
 
 This approach is similar to automatic dependency submission, but does not incur charges for {% data variables.product.prodname_actions %} minutes. It can also access organization-wide configurations for private registries you've set up for {% data variables.product.prodname_dependabot %}.
+
+> [!NOTE] {% data variables.product.prodname_dependabot %} graph jobs take precedence over automatic dependency submission. For example, if your Python repository previously used automatic dependency submission, those jobs will no longer run once {% data variables.product.prodname_dependabot %} graph jobs are active. The only requirement is that the dependency graph is enabled for your repository.
 
 {% endif %}
 

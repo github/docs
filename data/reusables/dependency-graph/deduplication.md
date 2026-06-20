@@ -4,6 +4,7 @@ Dependency graph displays only one instance of each manifest file using the foll
 
 1. **User submissions** take the highest priority, because they are usually created during artifact builds they have the most complete information.
    * If there are multiple manual snapshots from different detectors, they are sorted alphabetically by correlator and the first one used.
-   * If there are two correlators with the same detector, the resolved dependencies are merged. For more information about correlators and detectors, see [AUTOTITLE](/rest/dependency-graph/dependency-submission).
-1. **Automatic submissions** have the second-highest priority since they are also created during artifact builds, but are not submitted by users.
+   * If there are two correlators with the same detector, the resolved dependencies are merged. For more information about correlators and detectors, see [AUTOTITLE](/rest/dependency-graph/dependency-submission).{% ifversion fpt or ghec %}
+1. **{% data variables.product.prodname_dependabot %} graph jobs** have the second-highest priority. For ecosystems where {% data variables.product.prodname_dependabot %} graph jobs are available (currently Go and Python), they take precedence over automatic dependency submission.{% endif %}
+1. **Automatic submissions** have the next priority since they are also created during artifact builds, but are not submitted by users.
 1. **Static analysis results** are used when no other data is available.

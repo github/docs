@@ -30,25 +30,19 @@ category:
 
 Before enabling {% data variables.copilot.copilot_cloud_agent %} for members, understand how {% data variables.copilot.copilot_cloud_agent %} will fit into your organization. This will help you evaluate whether {% data variables.copilot.copilot_cloud_agent %} is suitable for your needs and plan communications and training sessions for developers.
 
-1. Learn about {% data variables.copilot.copilot_cloud_agent %}, including the costs, built-in security features, and how it differs from other AI tools your developers may be used to. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
+1. Learn about {% data variables.copilot.copilot_cloud_agent %}, including the costs and how it differs from other AI tools your developers may be used to. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
 1. Learn about the tasks that {% data variables.copilot.copilot_cloud_agent %} is best suited for. These are generally well-defined and scoped issues, such as increasing test coverage, fixing bugs or flaky tests, or updating config files or documentation. See [AUTOTITLE](/copilot/tutorials/cloud-agent/get-the-best-results).
 1. Consider how {% data variables.copilot.copilot_cloud_agent %} fits alongside other tools in your organization's workflows. For an example scenario that walks through how to use {% data variables.copilot.copilot_cloud_agent %} alongside other AI features on {% data variables.product.github %}, see [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/enabling-developers/integrating-agentic-ai).
 
 ## 2. Secure
 
-All AI models are trained to meet a request, even if they don't have all the information needed to provide a good answer, and this can lead them to make mistakes. By following best practices, you can build on the default security features of {% data variables.copilot.copilot_cloud_agent %}.
-
-1. Give {% data variables.product.prodname_copilot_short %} the information it needs to work successfully in a repository using a `copilot-instructions.md` file. See [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot).
-1. Set up the {% data variables.product.prodname_copilot_short %} development environment for a repository with access to the tools and package repositories approved by the organization using a `copilot-setup-steps.yml` file and local MCP servers. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment) and [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp).
-1. Follow best practices for storing secrets securely. See [AUTOTITLE](/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions).
-1. Enable code security features to further lower the risk of leaking secrets and introducing vulnerabilities into the code. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
-1. Configure your branch rulesets to ensure that all pull requests raised by {% data variables.product.prodname_copilot_short %} are approved by a second user with write permissions (a sub-option of "Require a pull request before merging"). See {% ifversion ghec %}[AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-governance), {% endif %}[AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization) and [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-a-pull-request-before-merging).
+Build on {% data variables.copilot.copilot_cloud_agent %}'s built-in protections before enabling it in an organization. See [AUTOTITLE](/copilot/tutorials/cloud-agent/build-guardrails).
 
 ## 3. Pilot
 
-<a href="https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=trial&ref_style=button&ref_plan=enterprise" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+<a href="https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=button&ref_plan=cfb" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Contact Sales</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
-> [!TIP] You need {% data variables.copilot.copilot_pro %}, {% data variables.copilot.copilot_pro_plus %}, {% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %} to use {% data variables.copilot.copilot_cloud_agent %}.
+> [!TIP] You need a paid {% data variables.product.prodname_copilot_short %} plan to use {% data variables.copilot.copilot_cloud_agent %}.
 
 As with any other change to working practices, it's important to run a trial to learn how to deploy {% data variables.copilot.copilot_cloud_agent %} effectively in your organization or enterprise.
 
@@ -63,7 +57,7 @@ As with any other change to working practices, it's important to run a trial to 
 
 Over the course of the trial, the team should iterate on the repository instructions, installed tools, access to MCP servers, and issue definition to identify how your organization can get the most from {% data variables.copilot.copilot_cloud_agent %}. This process will help you identify your organization's best practices for working with {% data variables.product.prodname_copilot_short %} and plan an effective rollout strategy.
 
-In addition to giving you insight into how to set up {% data variables.copilot.copilot_cloud_agent %} for success, you'll learn how {% data variables.product.prodname_copilot_short %} uses premium requests and actions minutes. This will be valuable when you come to set and manage your budget for a broader trial or full rollout. See [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/assigning-licenses/managing-your-companys-spending-on-github-copilot).
+In addition to giving you insight into how to set up {% data variables.copilot.copilot_cloud_agent %} for success, you'll learn how {% data variables.product.prodname_copilot_short %} consumes {% data variables.product.prodname_ai_credits_short %} and {% data variables.product.prodname_actions %} minutes. This will be valuable when you come to set and manage your budget for a broader trial or full rollout. See [AUTOTITLE](/copilot/tutorials/budgets/optimizing-your-budget-configuration).
 
 ### Enhancing with MCP
 

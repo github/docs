@@ -13,8 +13,9 @@ children:
   - /copilot-cli-reference
   - /custom-agents-configuration
   - /custom-instructions-support
-  - /hooks-configuration
+  - /hooks-reference
   - /policy-conflicts
+  - /supported-surfaces-for-policies
   - /copilot-allowlist-reference
   - /mcp-allowlist-enforcement
   - /metrics-data

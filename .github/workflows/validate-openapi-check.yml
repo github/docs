@@ -12,7 +12,7 @@ on:
       - 'src/rest/scripts/openapi-check.ts'
       - 'src/rest/scripts/utils/get-operations.ts'
       - 'src/rest/scripts/utils/operation.ts'
-      # In case dependencies change
+      - 'src/rest/fixtures/openapi-check-fixture.json'
       - 'package.json'
       - 'package-lock.json'
       - 'tsconfig.json'
@@ -39,10 +39,10 @@ jobs:
 
       - name: Test Docker image with sample OpenAPI file
         run: |
-          docker run --rm openapi-decorator:test -f "src/rest/data/fpt-2022-11-28/schema.json"
+          docker run --rm openapi-decorator:test -f "src/rest/fixtures/openapi-check-fixture.json"
 
       - name: Test Docker image with multiple OpenAPI files
         run: |
           docker run --rm openapi-decorator:test \
-            -f "src/rest/data/fpt-2022-11-28/schema.json" \
-            "src/rest/data/ghec-2022-11-28/schema.json"
+            -f "src/rest/fixtures/openapi-check-fixture.json" \
+            "src/rest/fixtures/openapi-check-fixture.json"

@@ -74,7 +74,11 @@ If you don't already have single sign-on recovery codes for your enterprise, dow
 
 1. Use a recovery code to sign into {% data variables.product.prodname_dotcom %} as the setup user, whose username is your enterprise's shortcode suffixed with `_admin`. For more information about the setup user, see [AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users).
 1. Disable authentication for your enterprise. For more information, see [AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/disabling-authentication-for-enterprise-managed-users#disabling-authentication).
-1. Wait up to an hour for {% data variables.product.github %} to suspend your enterprise's members, delete the linked SCIM identities, and delete the SCIM-provisioned IdP groups.
+1. Wait for {% data variables.product.github %} to suspend your enterprise's members, delete the linked SCIM identities, and delete the SCIM-provisioned IdP groups.
+
+> [!NOTE]
+> * After you disable authentication, GitHub runs multiple background tasks which must complete before you continue with the remaining steps in this article. For large enterprises, this can take several hours or even days.
+> * To confirm completion, go to the authentication settings page for your enterprise (Enterprise settings → Authentication security). While the tasks are still running, the "Enable OIDC configuration" or "Add SAML configuration" button will be disabled, and you’ll see a warning like “Previous SAML provider is being removed.” 
 
 ### 5. Validate suspension of your enterprise's members
 

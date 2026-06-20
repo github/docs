@@ -8,7 +8,7 @@
  *
  */
 
-import github from '@actions/github'
+import { context as github_context, getOctokit } from '@actions/github'
 import { setOutput } from '@actions/core'
 import { program } from 'commander'
 
@@ -19,7 +19,7 @@ if (!GITHUB_TOKEN) {
 }
 
 if (GITHUB_REPOSITORY) {
-  const context = github.context
+  const context = github_context
 
   const owner = context.repo.owner
   const repo = context.payload.repository!.name
@@ -43,7 +43,7 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
   if (!GITHUB_TOKEN) {
     throw new Error(`GITHUB_TOKEN environment variable not set`)
   }
-  const octokit = github.getOctokit(GITHUB_TOKEN)
+  const octokit = getOctokit(GITHUB_TOKEN)
   // get the list of file changes from the PR
   const response = await octokit.rest.repos.compareCommitsWithBasehead({
     owner,

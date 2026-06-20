@@ -297,6 +297,13 @@ steps:
     pytest tests.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
 ```
 
+{% ifversion code-quality %}
+
+> [!TIP]
+> This example already produces a Cobertura XML coverage report (`--cov-report=xml`). To display coverage results directly on pull requests, upload the report using the `actions/upload-code-coverage` action. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/set-up-code-coverage).
+
+{% endif %}
+
 ### Using Ruff to lint and/or format code
 
 The following example installs or upgrades `ruff` and uses it to lint all files. For more information, see [Ruff](https://docs.astral.sh/ruff).

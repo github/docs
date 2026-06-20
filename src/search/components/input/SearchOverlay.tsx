@@ -22,6 +22,7 @@ import type { AIReference } from '../types'
 import type { AutocompleteSearchHit, GeneralSearchHit } from '@/search/types'
 
 import { sanitizeSearchQuery } from '@/search/lib/sanitize-search-query'
+import { MAX_QUERY_LENGTH } from '@/search/lib/ai-search-constants'
 
 import {
   SearchContext,
@@ -34,7 +35,7 @@ import styles from './SearchOverlay.module.scss'
 
 type Props = {
   searchOverlayOpen: boolean
-  parentRef: RefObject<HTMLElement>
+  parentRef: RefObject<HTMLElement | null>
   debug: boolean
   onClose: () => void
   params: {
@@ -189,7 +190,7 @@ export function SearchOverlay({
       generalWithView.push({
         title: t('search.overlay.view_all_search_results'),
         isViewAllResults: true,
-      } as any)
+      } as unknown as GeneralSearchHitWithOptions)
     } else if (autoCompleteSearchError) {
       if (urlSearchInputQuery.trim() !== '') {
         generalWithView.push({
@@ -202,7 +203,7 @@ export function SearchOverlay({
       generalWithView.push({
         title: t('search.overlay.no_results_found'),
         isNoResultsFound: true,
-      } as any)
+      } as unknown as GeneralSearchHitWithOptions)
     } else {
       generalWithView = []
     }
@@ -422,7 +423,7 @@ export function SearchOverlay({
         // If it's the "no results found" option, skip it
         if (
           newIndex >= selectedIndex &&
-          (combinedOptions[newIndex]?.option as any)?.isNoResultsFound
+          (combinedOptions[newIndex]?.option as GeneralSearchHitWithOptions)?.isNoResultsFound
         ) {
           newIndex += 1
         }
@@ -453,7 +454,7 @@ export function SearchOverlay({
         // If it's the "no results found" option, skip it
         if (
           newIndex <= selectedIndex &&
-          (combinedOptions[newIndex]?.option as any)?.isNoResultsFound
+          (combinedOptions[newIndex]?.option as GeneralSearchHitWithOptions)?.isNoResultsFound
         ) {
           newIndex -= 1
         }
@@ -693,6 +694,7 @@ export function SearchOverlay({
             ref={inputRef}
             value={urlSearchInputQuery}
             onChange={handleSearchQueryChange}
+            maxLength={MAX_QUERY_LENGTH}
             leadingVisual={<SearchIcon />}
             role="combobox"
             // In AskAI the search input not longer "controls" the suggestions list, because there is no list, so we remove the aria-controls attribute

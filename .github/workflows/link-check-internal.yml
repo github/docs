@@ -14,6 +14,16 @@ on:
         type: string
         required: true
         default: 'en'
+      create_copilot_issue:
+        description: 'Create a Copilot-assigned issue with the top 10 redirects to fix'
+        type: boolean
+        required: false
+        default: false
+      create_report:
+        description: 'Create the combined broken links report issue in docs-content'
+        type: boolean
+        required: false
+        default: true
 
 permissions:
   contents: read
@@ -50,7 +60,6 @@ jobs:
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
 
       - uses: ./.github/actions/create-workflow-failure-issue
@@ -101,10 +110,84 @@ jobs:
           retention-days: 5
           if-no-files-found: ignore
 
+      - name: Create Copilot redirect issue
+        if: inputs.create_copilot_issue
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+        with:
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            const fs = require('fs')
+            const reportFile = 'artifacts/link-report-${{ matrix.version }}-${{ matrix.language }}.json'
+
+            if (!fs.existsSync(reportFile)) {
+              core.info('No JSON report found — all links valid, skipping Copilot issue.')
+              return
+            }
+
+            const report = JSON.parse(fs.readFileSync(reportFile, 'utf8'))
+            const allRedirectGroups = report.groups.filter(g => g.isWarning)
+            const redirectGroups = allRedirectGroups.slice(0, 10)
+
+            if (redirectGroups.length === 0) {
+              core.info('No redirect groups found, skipping Copilot issue.')
+              return
+            }
+
+            const directives = redirectGroups.map(g => {
+              const occ = g.occurrences[0]
+              const redirectTarget = occ?.redirectTarget ?? 'unknown'
+              const file = occ?.file ?? 'unknown'
+              const lines = (occ?.lines ?? []).join(', ') || 'unknown'
+              return `- Update \`${g.target}\` to \`${redirectTarget}\` in \`${file}\` (line(s): ${lines})`
+            }).join('\n')
+
+            const artifactsUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}/artifacts`
+
+            const bodyLines = [
+              'Copilot, fix the redirected internal links listed below. All changes should be made within the `github/docs-internal` repository.',
+              '',
+              'For each directive below, open the specified file and find the old link path. Replace it with the new link path exactly as shown. Do not invent or guess link paths — only use the exact paths provided in each directive.',
+              '',
+              'When all changes are made, open a pull request in `github/docs-internal` with the fixes. The pull request description should reference this issue to create a link between them. When the pull request is open, leave a comment on this issue with a link to it.',
+              '',
+              `These are the first ${redirectGroups.length} of ${allRedirectGroups.length} redirects found.`,
+              '',
+              '## Redirects to update',
+              '',
+              directives,
+            ]
+
+            const MAX_ISSUE_BODY_LENGTH = 65536
+            const artifactNote = `\n\n> [!NOTE]\n> The report was truncated because it exceeded the issue body length limit. [View the complete redirect report in the workflow artifacts](${artifactsUrl}).`
+
+            let body = bodyLines.join('\n')
+            if (body.length > MAX_ISSUE_BODY_LENGTH) {
+              const truncatedLength = MAX_ISSUE_BODY_LENGTH - artifactNote.length
+              const lastNewline = body.lastIndexOf('\n', truncatedLength)
+              body = body.slice(0, lastNewline > 0 ? lastNewline : truncatedLength) + artifactNote
+            }
+
+            // Use the REST API with agent_assignment to properly trigger Copilot cloud agent.
+            // See: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions#using-the-rest-api
+            const issue = await github.request('POST /repos/{owner}/{repo}/issues', {
+              owner: 'github',
+              repo: 'docs-content',
+              title: '[Copilot Task] Fix top redirect links: ${{ matrix.version }}/${{ matrix.language }}',
+              body,
+              labels: ['broken link report'],
+              assignees: ['copilot-swe-agent[bot]'],
+              agent_assignment: {
+                target_repo: 'github/docs-internal',
+                base_branch: 'main',
+                custom_instructions: 'Follow each directive in the issue exactly. Each directive specifies a file, the old link to find, and the new link to replace it with. Use only the exact paths provided — do not invent or guess any link paths. When all changes are made, open a pull request in github/docs-internal with the fixes. When the pull request is open, leave a comment on this issue with a link to it.',
+              },
+            })
+
+            core.info(`Created Copilot redirect issue: ${issue.data.html_url}`)
+
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
 
       - uses: ./.github/actions/create-workflow-failure-issue
@@ -159,7 +242,7 @@ jobs:
           fi
 
       - name: Create issue if broken links found
-        if: steps.combine.outputs.has_reports == 'true'
+        if: steps.combine.outputs.has_reports == 'true' && (github.event_name != 'workflow_dispatch' || inputs.create_report != false)
         uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v5
         with:
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
@@ -171,7 +254,6 @@ jobs:
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
 
       - uses: ./.github/actions/create-workflow-failure-issue

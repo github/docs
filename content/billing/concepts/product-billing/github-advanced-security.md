@@ -25,15 +25,9 @@ category:
 
 ## Licenses for {% data variables.product.prodname_GHAS %}
 
-{% ifversion ghas-products %}
-
 The {% data variables.product.prodname_AS %} product has two license SKUs (stock keeping units):
 
 {% data reusables.advanced-security.ghas-products-bullets+ghas %}
-
-{% else %}
-You can make extra features available to users by buying a license for {% data variables.product.prodname_AS %} products.
-{% endif %}
 
 For more information, see [feature summary and pricing information](https://github.com/enterprise/advanced-security#pricing) and [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 
@@ -52,7 +46,7 @@ Each **active committer** to at least one repository with an {% data variables.p
 
 > [!NOTE] When a repository is migrated to {% data variables.product.github %} using {% data variables.product.prodname_importer_proper_name %}, {% data variables.product.prodname_GHAS %} only consumes licenses for commits and pushes made _after_ migration. Historic contributions from _before_ the migration are not considered. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer).
 
-{% ifversion security-configurations %}You can see the active and unique committers to an organization on the Global settings page for {% data variables.product.UI_advanced_security %}. Under "{% data variables.product.prodname_secret_protection %} repositories" and "{% data variables.product.prodname_code_security %} repositories", summaries and repository-level details are reported. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization).{% endif %}
+You can see the active and unique committers to an organization on the Global settings page for {% data variables.product.UI_advanced_security %}. Under "{% data variables.product.prodname_secret_protection %} repositories" and "{% data variables.product.prodname_code_security %} repositories", summaries and repository-level details are reported. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization).
 
 ## Free use of {% data variables.product.prodname_GHAS %} features
 
@@ -126,6 +120,26 @@ The options available for managing committers and costs depend on your billing m
 You can control usage and costs with budgets and alerts. If you use {% data variables.product.prodname_ghe_cloud %}, then you can also use cost centers and policies to control costs.
 See {% data reusables.advanced-security.control-use-cost-links %}.
 
+{% ifversion enhanced-billing-platform %}
+
+#### Hard budgets for {% data variables.product.prodname_GHAS %} SKUs
+
+SKU-level budgets for {% data variables.product.prodname_AS %} products ({% data variables.product.prodname_secret_protection %} and {% data variables.product.prodname_code_security %}) support the **Limit usage when budget limit is reached** option. For {% data variables.product.prodname_AS %}, this option prevents new enablement. It does **not** disable {% data variables.product.prodname_AS %} on repositories where it is already active.
+
+When the budget limit is reached:
+
+* Repositories where {% data variables.product.prodname_AS %} is already enabled continue to function normally. Active committers in those repositories are still counted and billed.
+* {% data variables.product.prodname_AS %} cannot be enabled on any additional repositories until the budget is increased or a new billing cycle begins.
+
+There are two scenarios where usage may exceed the budget:
+
+* A new committer becomes active in a repository where {% data variables.product.prodname_AS %} is already enabled. You are billed for the additional license cost.
+* When you enable {% data variables.product.prodname_AS %} on a repository with more active committers than the remaining budget allows, the enablement succeeds but you are billed for any usage beyond the budget limit.
+
+For more information about budgets, see [AUTOTITLE](/billing/concepts/budgets-and-alerts).
+
+{% endif %}
+
 {% data reusables.billing.actions-usage-delay %}
 
 If your enterprise uses {% data variables.product.prodname_AS %} on both {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}, you can ensure users don't consume multiple licenses unnecessarily by synchronizing license usage between environments. See [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud).
@@ -158,11 +172,8 @@ See [AUTOTITLE](/billing/how-tos/products/disable-ghas-for-enterprise).
 
 ## Further reading
 
-{%- ifversion fpt or ghec or ghes > 3.15 %}
-* [AUTOTITLE](/code-security/trialing-github-advanced-security/planning-a-trial-of-ghas){% endif %}
-{%- ifversion fpt or ghec or ghes > 3.14 %}
-* [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale){% endif %}
-{%- ifversion fpt or ghec or ghes > 3.15 %}
-* [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/about-security-configurations){% else %}
-* [AUTOTITLE](/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise){% endif %}
+* [AUTOTITLE](/code-security/trialing-github-advanced-security/planning-a-trial-of-ghas)
+* [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)
+* [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/about-security-configurations)
+
 * [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)

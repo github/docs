@@ -166,6 +166,8 @@ You can use the `repo_property_*` claims in your cloud provider's trust conditio
 
 {% endif %}
 
+{% ifversion dependabot-oidc-support %}
+
 ## OIDC support for {% data variables.product.prodname_dependabot %}
 
 {% data variables.product.prodname_dependabot %} can use OIDC to authenticate with private registries, eliminating the need to store long-lived credentials as repository secrets. With OIDC-based authentication, {% data variables.product.prodname_dependabot %} update jobs can dynamically obtain short-lived credentials from your cloud identity provider.
@@ -179,6 +181,8 @@ The benefits of OIDC authentication for {% data variables.product.prodname_depen
 * **Avoid rate limiting:** Dynamic credentials help you avoid hitting rate limits associated with static tokens.
 
 For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#using-oidc-for-authentication).
+
+{% endif %}
 
 ## Next steps
 

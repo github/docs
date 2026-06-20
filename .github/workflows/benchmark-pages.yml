@@ -44,7 +44,7 @@ jobs:
           npx tsx src/workflows/benchmark-pages.ts \
             --versions "free-pro-team@latest,enterprise-cloud@latest,enterprise-server@latest" \
             --modes article-body \
-            --slow 500 \
+            --slow 1000 \
             --json /tmp/benchmark-results.json | tee /tmp/benchmark-output.txt
 
       - name: Check results and create issue if needed
@@ -108,7 +108,7 @@ jobs:
             echo "**Total pages:** $TOTAL"
             echo "**Stats:** p50=${P50}ms · p99=${P99}ms · max=${MAX}ms"
             echo "**Errors:** $ERRORS"
-            echo "**Slow (≥500ms):** $SLOW"
+            echo "**Slow (≥1000ms):** $SLOW"
           } > "$BODY_FILE"
 
           if [ "$ERRORS" -gt 0 ]; then
@@ -116,9 +116,9 @@ jobs:
               echo ""
               echo "### Errors"
               echo ""
-              echo "| Status | Mode | Path |"
-              echo "|--------|------|------|"
-              jq -r '.errors[] | "| \(.status) | \(.mode) | \(.path) |"' /tmp/benchmark-results.json
+              echo "| Status | Mode | Path | Error |"
+              echo "|--------|------|------|-------|"
+              jq -r '.errors[] | "| \(.status) | \(.mode) | \(.path) | \(.errorBody // "" | gsub("\\|"; "\\|") | gsub("\r"; " ") | gsub("\n"; " ")) |"' /tmp/benchmark-results.json
             } >> "$BODY_FILE"
           fi
 
@@ -161,7 +161,6 @@ jobs:
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
 
       - uses: ./.github/actions/create-workflow-failure-issue

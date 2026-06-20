@@ -1,6 +1,6 @@
 ---
 title: GitHub Actions Documentation
-layout: product-landing
+layout: discovery-landing
 children:
   - /hidden
   - /not-hidden

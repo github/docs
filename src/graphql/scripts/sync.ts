@@ -9,6 +9,9 @@ import { allVersions } from '@/versions/lib/all-versions'
 import processPreviews from './utils/process-previews'
 import processUpcomingChanges from './utils/process-upcoming-changes'
 import processSchemas from './utils/process-schemas'
+import { bucketSchemaByCategory, writeCategoryFiles } from './utils/bucket-by-category'
+import { syncCategoryContentFiles, type CategoryPresence } from './utils/sync-category-content'
+import { ALL_KIND_KEYS } from '@/graphql/lib/categories'
 import {
   prependDatedEntry,
   createChangelogEntry,
@@ -64,6 +67,12 @@ if (!process.env.GITHUB_TOKEN) {
 
 const versionsToBuild = Object.keys(allVersions)
 
+// Tracks, per category, the set of docs versions in which the category has at
+// least one type. Populated inside the per-version loop and consumed after it
+// to manage the per-category content pages. Declared before `main()` runs so
+// the loop never reads it in the temporal dead zone.
+const categoryPresence: CategoryPresence = new Map()
+
 main()
 
 const allIgnoredChanges: IgnoredChange[] = []
@@ -110,11 +119,50 @@ async function main() {
       ...preview,
       toggled_by: [preview.toggled_by].flat(),
     }))
-    const schemaJsonPerVersion = await processSchemas(latestSchema, previewsForSchema) // This is slow!
-    await updateStaticFile(
-      schemaJsonPerVersion,
-      path.join(graphqlStaticDir, graphqlVersion, 'schema.json'),
-    )
+    // Fallback category source for GHES versions that pre-date the upstream
+    // `@docsCategory` DSL (DSL landed on master 2026-05-07; GHES 3.16-3.21
+    // were cut at the 3.21 freeze 2026-03-19). Without this, every type on
+    // those versions gets bucketed as "other". GHES 3.22+ is expected to
+    // include the DSL natively so it's excluded from the fallback.
+    let fallbackCategoryMap: Record<string, Record<string, string>> | undefined
+    const ghesMatch = /^ghes-(\d+)\.(\d+)$/.exec(graphqlVersion)
+    if (ghesMatch) {
+      const major = Number(ghesMatch[1])
+      const minor = Number(ghesMatch[2])
+      if (major < 3 || (major === 3 && minor < 22)) {
+        try {
+          fallbackCategoryMap = JSON.parse(
+            await fs.readFile(path.join(graphqlStaticDir, 'fpt', 'category-map.json'), 'utf8'),
+          )
+          console.log(`Using fpt/category-map.json as @docsCategory fallback for ${graphqlVersion}`)
+        } catch {
+          // fpt hasn't been processed yet (shouldn't happen given iteration
+          // order, but stay defensive). Without it, ghes types fall to "other".
+        }
+      }
+    }
+    const schemaJsonPerVersion = await processSchemas(
+      latestSchema,
+      previewsForSchema,
+      fallbackCategoryMap,
+    ) // This is slow!
+
+    // Split the schema by category so the runtime can lazily load only the
+    // bucket it needs for a given page request. The monolithic `schema.json`
+    // is no longer written; per-category files are the only on-disk format.
+    const perCategoryFiles = bucketSchemaByCategory(schemaJsonPerVersion)
+    await writeCategoryFiles(path.join(graphqlStaticDir, graphqlVersion), perCategoryFiles)
+
+    // Record which categories have at least one type in this version so the
+    // content pages and their `versions` frontmatter can be managed after the
+    // loop. `version` is the docs version key (e.g. `enterprise-server@3.22`),
+    // which is the format `convertVersionsToFrontmatter` expects.
+    for (const [cat, bucket] of perCategoryFiles.entries()) {
+      const hasTypes = ALL_KIND_KEYS.some((kind) => (bucket[kind]?.length ?? 0) > 0)
+      if (!hasTypes) continue
+      if (!categoryPresence.has(cat)) categoryPresence.set(cat, new Set())
+      categoryPresence.get(cat)!.add(version)
+    }
 
     // 4. UPDATE CHANGELOG
     if (allVersions[version].nonEnterpriseDefault) {
@@ -143,6 +191,11 @@ async function main() {
       }
     }
   }
+
+  // Manage the per-category content pages (create new categories, delete
+  // emptied ones, narrow `versions` frontmatter) plus the reference index
+  // children and disappearance redirects, based on the presence collected above.
+  await syncCategoryContentFiles(categoryPresence)
 
   // Ensure the YAML linter runs before checkinging in files
   execSync('npx prettier -w "**/*.{yml,yaml}"')

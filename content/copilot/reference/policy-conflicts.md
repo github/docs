@@ -35,6 +35,7 @@ Feature, model, and privacy settings for users are set according to the **least 
 | Policy | Availability matches | More information |
 | :---- | :---- | :---- |
 | {% data variables.product.prodname_copilot_short %} Metrics API | Most restrictive organization | {% ifversion ghec %}[AUTOTITLE](/rest/copilot/copilot-usage-metrics){% else %}Not applicable{% endif %} |
+| Semantic indexing for non-GitHub repositories | Most restrictive organization (only available when all organizations explicitly set **Enabled**; **Unconfigured** behaves as disabled) | [AUTOTITLE](/copilot/concepts/context/repository-indexing) |
 | Suggestions matching public code (privacy policy) | Most restrictive organization | [AUTOTITLE](/copilot/concepts/completions/code-suggestions) |
 | Allow members without a {% data variables.product.prodname_copilot_short %} license to use {% data variables.copilot.copilot_code-review_short %} in {% data variables.product.prodname_dotcom_the_website %} | Most restrictive organization | [AUTOTITLE](/copilot/responsible-use/code-review) |
 | {% data variables.product.prodname_copilot_short %} can search the web | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat-in-github#leveraging-a-web-search-to-answer-a-question) |
@@ -49,8 +50,15 @@ Feature, model, and privacy settings for users are set according to the **least 
 | {% data variables.copilot.copilot_cli_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/copilot-cli) |
 | Editor preview features | Least restrictive organization | [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) |
 | {% data variables.product.prodname_github_models %}, one policy per model | Least restrictive organization | [AUTOTITLE](/github-models/github-models-at-scale/manage-models-at-scale) |
-| MCP servers in {% data variables.product.prodname_copilot_short %} | Least restrictive organization | [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp) |
+| MCP servers in {% data variables.product.prodname_copilot_short %} | Least restrictive organization | [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers) |
 | {% data variables.product.prodname_copilot_short %}-generated commit messages | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/copilot-commit-message-generation) |
+
+## Availability for members with {% data variables.product.prodname_copilot_short %} from multiple enterprises
+
+If a user receives a license from multiple different enterprises, the **most restrictive** policy usually applies. The exceptions are:
+
+* AI credit paid usage (this applies to each enterprise, not the user)
+* {% data variables.product.prodname_spark %}
 
 ## Next steps
 

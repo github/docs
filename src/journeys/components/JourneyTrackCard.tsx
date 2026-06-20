@@ -27,7 +27,7 @@ export function JourneyTrackCard({ journey }: Props) {
             {trackTitle}
           </Link>
         </h2>
-        <span className="f5 color-fg-muted">
+        <span role="status" className="f5 color-fg-muted">
           {t('current_progress')
             .replace('{n}', `${numberOfGuides}`)
             .replace('{i}', `${currentGuideIndex + 1}`)}

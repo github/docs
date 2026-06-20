@@ -34,7 +34,7 @@ Before upgrading your instance, it's crucial to verify that your system meets th
 1. **Compare utilization with CPU load average.**
    The comparison helps identify possible disk saturation.
 
-   {% ifversion ghes > 3.15 %}
+   
    * Go to **Operational Health view** and check the `Load` graph.
    * In the matrix, find the value where the `shortterm` row intersects with the `avg` column.
    * Calculate load average percentage:
@@ -44,24 +44,6 @@ Before upgrading your instance, it's crucial to verify that your system meets th
      ```
 
    * In the same view, check the `CPU` graph. In the matrix, find the value where the `idle` row intersects with the `avg` column. Subtract this value from 100 to get utilization.
-   {% endif %}
-
-   {% ifversion ghes < 3.16 %}
-   * On the `Load` graph, click **short-term** to show only the short-term line. Find the peak load value.
-   * On the `CPU` graph, click **idle** to show only the idle line. Note the idle value at the same timestamp.
-   * Calculate utilization:
-
-     ```text
-     100 – idle
-     ```
-
-   * Calculate load average percentage:
-
-     ```text
-     (peak load value ÷ number of vCPUs) × 100
-     ```
-
-   {% endif %}
 
 1. **Interpret the results.**
 
@@ -92,12 +74,7 @@ Before upgrading your instance, it's crucial to verify that your system meets th
    * Compare Y-axis values with your provider’s specifications (not the maximum scale shown on the graph).
    * Review both data and root disks.
 
-   {% ifversion ghes < 3.16 %}
-   These graphs are available in the default dashboards on the monitor page.
-   {% endif %}
-   {% ifversion ghes > 3.15 %}
    These graphs are available in the "System & Application Insights" view.
-   {% endif %}
 
 1. **Interpret the results.**
    If disk usage is approaching provider-defined maximums, the disk is saturated. In this case, the system does not meet the criteria to upgrade.
@@ -107,12 +84,11 @@ Before upgrading your instance, it's crucial to verify that your system meets th
 1. **Check the queued requests graph.**
    In the {% data variables.enterprise.management_console %}, go to the monitor page (`https://HOSTNAME.com:8443/setup/monitor`) and view the `Queued Requests` graph.
 
-   {% ifversion ghes < 3.16 %}
-   This graph is available in the default dashboards on the monitor page.
-   {% endif %}
-   {% ifversion ghes > 3.15 %}
+   
+
+   
    This graph is available in the "System & Application Insights" view.
-   {% endif %}
+   
 
 1. **Interpret the results.**
 
@@ -133,12 +109,11 @@ Before upgrading your instance, it's crucial to verify that your system meets th
 1. **Check the Aqueduct queue depth.**
    In the {% data variables.enterprise.management_console %}, go to the monitor page (`https://HOSTNAME.com:8443/setup/monitor`) and view the `Aqueduct queue depth` graph.
 
-   {% ifversion ghes < 3.16 %}
-   This graph appears in the default dashboards on the monitor page.
-   {% endif %}
-   {% ifversion ghes > 3.15 %}
+   
+
+   
    This graph is available in the "System & Application Insights" view.
-   {% endif %}
+   
 
 1. **Interpret the results.**
 

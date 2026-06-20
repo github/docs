@@ -28,7 +28,7 @@ As more users join {% data variables.location.product_location %}, you may need 
 
 ### Minimum recommended requirements
 
-{% ifversion ghes > 3.14 %}{% data reusables.enterprise_installation.hardware-rec-table %}{% else %}{% data reusables.enterprise_installation.hardware-rec-table-legacy %}{% endif %}
+{% data reusables.enterprise_installation.hardware-rec-table %}
 
 Root storage refers to the total size of your instance's root disk. The available space on the root filesystem is 50% of the total storage available on the root disk. For more information, see [AUTOTITLE](/admin/overview/system-overview#storage-architecture).
 

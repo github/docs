@@ -30,22 +30,4 @@ You can find full instructions on setting up {% data variables.product.prodname_
 
 You can find information about planning a trial of {% data variables.product.prodname_GHAS %} and exploring the additional options available with {% data variables.product.prodname_ghe_cloud %} in the [AUTOTITLE](/code-security/trialing-github-advanced-security) articles.
 
-## Part 4: Setting up {% data variables.copilot.copilot_for_business %}
 
-Setting up your {% data variables.copilot.copilot_business_short %} trial involves three phases, and each phase must be completed by different people.
-
-### 1. Configure {% data variables.copilot.copilot_business_short %} for your enterprise
-
-Configure {% data variables.copilot.copilot_business_short %} for your enterprise and decide how {% data variables.product.prodname_copilot_short %} will be used across your organization.
-
-You can choose to assign licenses directly from the enterprise or enable {% data variables.product.prodname_copilot_short %} for specific organizations.
-
-For detailed setup steps, see [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise).
-
-### 2. Enable {% data variables.copilot.copilot_business_short %} for your organization (optional)
-
-Let **organization owners** know that they can enable {% data variables.copilot.copilot_business_short %} for their organizations. For detailed instructions, see [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization).
-
-### 3. Enable {% data variables.copilot.copilot_business_short %} for individual users
-
-Let users know that once their **personal account** has been granted a seat in an organization with {% data variables.copilot.copilot_business_short %} enabled, they can turn on {% data variables.copilot.copilot_business_short %} for their own account. For detailed instructions, see [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself).

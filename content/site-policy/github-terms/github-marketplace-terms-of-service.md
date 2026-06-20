@@ -13,7 +13,7 @@ Welcome to GitHub Marketplace ("Marketplace")! We're happy you're here. Please r
 
 By using Marketplace, you are agreeing to be bound by these Marketplace Terms.
 
-Effective Date: August 1, 2024
+Effective Date: April 27, 2026
 
 ## A. GitHub.com's Terms of Service
 
@@ -35,7 +35,7 @@ We are not a party to the agreement between you and the Product Provider with re
 
 ## D. Payment, Billing Schedule, and Cancellation
 
-All payments for Developer Products will go through GitHub. The terms of your payment and fees will be governed by [Section K. Payment](/site-policy/github-terms/github-terms-of-service#k-payment), or the analogous section of your applicable GitHub Terms. By using the Marketplace, you agree to pay GitHub any charge incurred in connection with your purchase of the Developer Product. Each purchase is an electronic contract between you and GitHub, and you and the Product Provider. You are responsible for providing us with a valid means of payment for purchases of Developer Products. If you are only purchasing free Developer Products, you are not required to provide payment information.
+All payments for Developer Products will go through GitHub. The terms of your payment and fees will be governed by [Section L. Payment](/site-policy/github-terms/github-terms-of-service#l-payment), or the analogous section of your applicable GitHub Terms. By using the Marketplace, you agree to pay GitHub any charge incurred in connection with your purchase of the Developer Product. Each purchase is an electronic contract between you and GitHub, and you and the Product Provider. You are responsible for providing us with a valid means of payment for purchases of Developer Products. If you are only purchasing free Developer Products, you are not required to provide payment information.
 
 **Billing Schedule; No Refunds.** Your payment schedule is determined by the payment schedule you chose when you created your GitHub account (e.g. free, monthly, annual). For monthly or yearly payment plans, Marketplace purchases are billed in advance on a monthly or yearly basis respectively and are non-refundable. There will be no refunds or credits for partial months of service, downgrade refunds, or refunds for months unused; however, the service will remain active for the length of the paid billing period. If you would like to cancel the Developer Product services, you can do so by going into your Settings in the global navigation bar at the top of the screen.
 
