@@ -1,0 +1,7 @@
+  "remoteUser": "node",
+
+  "hostRequirements": {
+    "memory": "16gb",
+    "cpus": "4"
+  }
+}
