@@ -1,58 +1,236 @@
----
-title: Quickstart for GitHub Pages
-intro: You can use {% data variables.product.prodname_pages %} to showcase some open source projects, host a blog, or even share your résumé. This guide will help get you started on creating your next website.
-allowTitleToDifferFromFilename: true
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
-shortTitle: Quickstart
-product: '{% data reusables.gated-features.pages %}'
-category:
-  - Set up a GitHub Pages site
-contentType: get-started
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorry Sarkar ❤️</title>
 
-## Introduction
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-In this guide, you'll create a user site at `<username>.github.io`.
+<style>
 
-## Creating your website
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-{% data reusables.repositories.create_new %}
-1. Enter `username.github.io` as the repository name. Replace `username` with your {% data variables.product.prodname_dotcom %} username. For example, if your username is `octocat`, the repository name should be `octocat.github.io`.
-   ![Screenshot of {% data variables.product.prodname_pages %} settings in a repository. The repository name field contains the text "octocat.github.io" and is outlined in dark orange.](/assets/images/help/pages/create-repository-name-pages.png)
-{% data reusables.repositories.choose-repo-visibility %}
-{% data reusables.repositories.initialize-with-readme %}
-{% data reusables.repositories.create-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-1. Under "Build and deployment", under "Source", select **Deploy from a branch**.
-1. Under "Build and deployment", under "Branch", use the branch dropdown menu and select a publishing source.
-   ![Screenshot of Pages settings in a {% data variables.product.prodname_dotcom %} repository. A menu to select a branch for a publishing source, labeled "None," is outlined in dark orange.](/assets/images/help/pages/publishing-source-drop-down.png)
-1. Optionally, open the `README.md` file of your repository. The `README.md` file is where you will write the content for your site. You can edit the file or keep the default content for now.
-1. Visit `username.github.io` to view your new website. Note that it can take up to 10 minutes for changes to your site to publish after you push the changes to {% data variables.product.github %}.
+body{
+font-family:'Poppins',sans-serif;
+height:100vh;
+overflow:hidden;
+background:linear-gradient(-45deg,#ff9a9e,#fad0c4,#ffd1ff,#ffc3a0);
+background-size:400% 400%;
+animation:bg 10s ease infinite;
+display:flex;
+justify-content:center;
+align-items:center;
+}
 
-## Changing the title and description
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
 
-By default, the title of your site is `username.github.io`. You can change the title by editing the `_config.yml` file in your repository. You can also add a description for your site.
+.card{
+width:90%;
+max-width:450px;
+padding:30px;
+border-radius:25px;
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(15px);
+box-shadow:0 8px 32px rgba(0,0,0,.2);
+text-align:center;
+color:white;
+}
 
-1. Click the **Code** tab of your repository.
-1. In the file list, click `_config.yml` to open the file.
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the file.
-1. The `_config.yml` file already contains a line that specifies the theme for your site. Add a new line with `title:` followed by the title you want. Add a new line with `description:` followed by the description you want. For example:
+h1{
+font-family:'Great Vibes',cursive;
+font-size:55px;
+margin-bottom:15px;
+text-shadow:0 0 15px #ff4d6d;
+}
 
-   ```yaml
-   theme: jekyll-theme-minimal
-   title: Octocat's homepage
-   description: Bookmark this to keep an eye on my project updates!
-   ```
+p{
+font-size:22px;
+font-weight:600;
+}
 
-1. When you are finished editing the file, click **Commit changes**.
+button{
+border:none;
+padding:14px 35px;
+margin:10px;
+font-size:18px;
+font-weight:bold;
+border-radius:50px;
+cursor:pointer;
+transition:.3s;
+}
 
-## Next Steps
+#yesBtn{
+background:#00c853;
+color:white;
+}
 
-You've successfully created, personalized, and published your first {% data variables.product.prodname_pages %} website but there's so much more to explore! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_pages %}:
+#noBtn{
+background:#ff1744;
+color:white;
+}
 
-* [AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/adding-content-to-your-github-pages-site-using-jekyll#about-content-in-jekyll-sites): This guide explains how to add additional pages to your site.
-{% ifversion fpt or ghec %}* [AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site): You can host your site on {% data variables.product.prodname_dotcom %}'s `github.io` domain or your own custom domain.{% endif %}
+#yesBtn:hover,
+#noBtn:hover{
+transform:scale(1.1);
+}
+
+.heart{
+position:absolute;
+color:red;
+font-size:25px;
+animation:float 6s linear forwards;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0);
+opacity:1;
+}
+100%{
+transform:translateY(-110vh);
+opacity:0;
+}
+}
+
+.balloon{
+position:absolute;
+bottom:-100px;
+font-size:30px;
+animation:balloon 8s linear forwards;
+}
+
+@keyframes balloon{
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+
+</style>
+</head>
+<body>
+
+<div class="card" id="page1">
+
+<h1>Assalamualaikum ❤️</h1>
+
+<p>Click Below 👇</p>
+
+<br>
+
+<button onclick="startWebsite()">
+Walikumassalam
+</button>
+
+</div>
+
+<div class="card" id="page2" style="display:none;">
+
+<h1>Sorry Sarkar ❤️</h1>
+
+<p>Will You Accept My Sorry?</p>
+
+<br>
+
+<button id="yesBtn" onclick="thankYou()">
+Yes ❤️
+</button>
+
+<button id="noBtn" onclick="growButton()">
+No 😒
+</button>
+
+</div>
+
+<div class="card" id="page3" style="display:none;">
+
+<h1 style="font-size:65px;">
+Thank You Sarkar ❤️
+</h1>
+
+<p>
+You Made My Day 💖
+</p>
+
+</div>
+
+<script>
+
+function startWebsite(){
+
+document.getElementById("page1").style.display="none";
+document.getElementById("page2").style.display="block";
+
+for(let i=0;i<25;i++){
+
+let b=document.createElement("div");
+
+b.className="balloon";
+
+b.innerHTML="🎈";
+
+b.style.left=Math.random()*100+"vw";
+
+b.style.animationDuration=
+(Math.random()*4+5)+"s";
+
+document.body.appendChild(b);
+
+}
+
+}
+
+let size=18;
+
+function growButton(){
+
+size+=10;
+
+document.getElementById("yesBtn").style.fontSize=size+"px";
+
+document.getElementById("yesBtn").style.padding=
+(size/2)+"px "+size+"px";
+
+}
+
+function thankYou(){
+
+document.getElementById("page2").style.display="none";
+
+document.getElementById("page3").style.display="block";
+
+}
+
+setInterval(()=>{
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML="❤️";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.bottom="0px";
+
+document.body.appendChild(h);
+
+setTimeout(()=>{
+h.remove();
+},6000);
+
+},400);
+
+</script>
+
+</body>
+</html>
