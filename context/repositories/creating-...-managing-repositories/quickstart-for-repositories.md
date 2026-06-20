@@ -1,11 +1,4 @@
----
-title: Quickstart for repositories
-redirect_from:
-  - /create-a-repo
-  - /articles/create-a-repo
-  - /github/getting-started-with-github/create-a-repo
-  - /github/getting-started-with-github/quickstart/create-a-repo
-  - /get-started/quickstart/create-a-repo
+
 intro: Learn how to create a new repository and commit your first change in 5 minutes.
 versions:
   fpt: '*'
