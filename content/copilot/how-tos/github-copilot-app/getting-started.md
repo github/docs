@@ -19,7 +19,7 @@ For a conceptual overview of the {% data variables.copilot.github_copilot_app %}
 ## Prerequisites
 
 * [Git](https://github.com/git-guides/install-git) installed on your computer.
-* A paid {% data variables.product.prodname_copilot_short %} plan.
+* A free or paid {% data variables.product.prodname_copilot_short %} plan.
 * If you use {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}, your plan administrator must enable the **{% data variables.copilot.copilot_cli_short %}** policy. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies) or [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
 
 ## Installing the {% data variables.copilot.github_copilot_app %}
