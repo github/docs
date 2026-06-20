@@ -16,11 +16,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: concepts
-topics:
-  - Auditing
-  - Enterprise
-  - Logging
-  - Security
+category:
+  - Secure and govern your enterprise
 ---
 
 {% data reusables.enterprise-onboarding.about-audit-logs %}

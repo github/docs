@@ -10,9 +10,9 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Accounts
 shortTitle: Enterprise Server trial
+category:
+  - Get started with GitHub Enterprise
 ---
 
 ## About trials of {% data variables.product.prodname_ghe_server %}

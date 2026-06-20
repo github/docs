@@ -10,6 +10,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Publish and manage packages
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

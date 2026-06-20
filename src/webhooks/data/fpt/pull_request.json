@@ -1,0 +1,1555 @@
+{
+  "assigned": {
+    "descriptionHtml": "<p>A pull request was assigned to a user.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity on a pull request. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests\">About pull requests</a>.\" For information about the APIs to manage pull requests, see <a href=\"https://docs.github.com/graphql/reference/objects#pullrequest\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/rest/pulls/pulls\">Pulls</a>\" in the REST API documentation.</p>\n<p>For activity related to pull request reviews, pull request review comments, pull request comments, or pull request review threads, use the <code>pull_request_review</code>, <code>pull_request_review_comment</code>, <code>issue_comment</code>, or <code>pull_request_review_thread</code> events instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Pull requests\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "assigned"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object or null",
+        "name": "assignee",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "integer",
+        "name": "number",
+        "description": "<p>The pull request number.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "pull_request",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "assigned",
+    "category": "pull_request"
+  },
+  "auto_merge_disabled": {
+    "descriptionHtml": "<p>Auto merge was disabled for a pull request. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request\">Automatically merging a pull request</a>.\"</p>",
+    "summaryHtml": "<p>This event occurs when there is activity on a pull request. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests\">About pull requests</a>.\" For information about the APIs to manage pull requests, see <a href=\"https://docs.github.com/graphql/reference/objects#pullrequest\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/rest/pulls/pulls\">Pulls</a>\" in the REST API documentation.</p>\n<p>For activity related to pull request reviews, pull request review comments, pull request comments, or pull request review threads, use the <code>pull_request_review</code>, <code>pull_request_review_comment</code>, <code>issue_comment</code>, or <code>pull_request_review_thread</code> events instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Pull requests\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "auto_merge_disabled"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "integer",
+        "name": "number",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "pull_request",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "reason",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "auto_merge_disabled",
+    "category": "pull_request"
+  },
+  "auto_merge_enabled": {
+    "descriptionHtml": "<p>Auto merge was enabled for a pull request. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request\">Automatically merging a pull request</a>.\"</p>",
+    "summaryHtml": "<p>This event occurs when there is activity on a pull request. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests\">About pull requests</a>.\" For information about the APIs to manage pull requests, see <a href=\"https://docs.github.com/graphql/reference/objects#pullrequest\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/rest/pulls/pulls\">Pulls</a>\" in the REST API documentation.</p>\n<p>For activity related to pull request reviews, pull request review comments, pull request comments, or pull request review threads, use the <code>pull_request_review</code>, <code>pull_request_review_comment</code>, <code>issue_comment</code>, or <code>pull_request_review_thread</code> events instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Pull requests\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "auto_merge_enabled"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "integer",
+        "name": "number",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "pull_request",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "reason",
+        "description": "",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "auto_merge_enabled",
+    "category": "pull_request"
+  },
+  "closed": {
+    "descriptionHtml": "<p>A pull request was closed. If <code>merged</code> is false in the webhook payload, the pull request was closed with unmerged commits. If <code>merged</code> is true in the webhook payload, the pull request was merged.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity on a pull request. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests\">About pull requests</a>.\" For information about the APIs to manage pull requests, see <a href=\"https://docs.github.com/graphql/reference/objects#pullrequest\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/rest/pulls/pulls\">Pulls</a>\" in the REST API documentation.</p>\n<p>For activity related to pull request reviews, pull request review comments, pull request comments, or pull request review threads, use the <code>pull_request_review</code>, <code>pull_request_review_comment</code>, <code>issue_comment</code>, or <code>pull_request_review_thread</code> events instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Pull requests\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "closed"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "integer",
+        "name": "number",
+        "description": "<p>The pull request number.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "pull_request",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "closed",
+    "category": "pull_request"
+  },
+  "converted_to_draft": {
+    "descriptionHtml": "<p>A pull request was converted to a draft. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request\">Changing the stage of a pull request</a>.\"</p>",
+    "summaryHtml": "<p>This event occurs when there is activity on a pull request. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests\">About pull requests</a>.\" For information about the APIs to manage pull requests, see <a href=\"https://docs.github.com/graphql/reference/objects#pullrequest\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/rest/pulls/pulls\">Pulls</a>\" in the REST API documentation.</p>\n<p>For activity related to pull request reviews, pull request review comments, pull request comments, or pull request review threads, use the <code>pull_request_review</code>, <code>pull_request_review_comment</code>, <code>issue_comment</code>, or <code>pull_request_review_thread</code> events instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Pull requests\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "converted_to_draft"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "integer",
+        "name": "number",
+        "description": "<p>The pull request number.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "pull_request",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "converted_to_draft",
+    "category": "pull_request"
+  },
+  "demilestoned": {
+    "descriptionHtml": "<p>A pull request was removed from a milestone.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity on a pull request. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests\">About pull requests</a>.\" For information about the APIs to manage pull requests, see <a href=\"https://docs.github.com/graphql/reference/objects#pullrequest\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/rest/pulls/pulls\">Pulls</a>\" in the REST API documentation.</p>\n<p>For activity related to pull request reviews, pull request review comments, pull request comments, or pull request review threads, use the <code>pull_request_review</code>, <code>pull_request_review_comment</code>, <code>issue_comment</code>, or <code>pull_request_review_thread</code> events instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Pull requests\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "demilestoned"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "milestone",
+        "description": "<p>A collection of related issues and pull requests.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "integer",
+        "name": "number",
+        "description": "<p>The pull request number.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "pull_request",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "demilestoned",
+    "category": "pull_request"
+  },
+  "dequeued": {
+    "descriptionHtml": "<p>A pull request was removed from the merge queue.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity on a pull request. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests\">About pull requests</a>.\" For information about the APIs to manage pull requests, see <a href=\"https://docs.github.com/graphql/reference/objects#pullrequest\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/rest/pulls/pulls\">Pulls</a>\" in the REST API documentation.</p>\n<p>For activity related to pull request reviews, pull request review comments, pull request comments, or pull request review threads, use the <code>pull_request_review</code>, <code>pull_request_review_comment</code>, <code>issue_comment</code>, or <code>pull_request_review_thread</code> events instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Pull requests\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "dequeued"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "integer",
+        "name": "number",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "pull_request",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "reason",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "UNKNOWN_REMOVAL_REASON",
+          "MANUAL",
+          "MERGE",
+          "MERGE_CONFLICT",
+          "CI_FAILURE",
+          "CI_TIMEOUT",
+          "ALREADY_MERGED",
+          "QUEUE_CLEARED",
+          "ROLL_BACK",
+          "BRANCH_PROTECTIONS",
+          "GIT_TREE_INVALID",
+          "INVALID_MERGE_COMMIT"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "dequeued",
+    "category": "pull_request"
+  },
+  "edited": {
+    "descriptionHtml": "<p>The title or body of a pull request was edited, or the base branch of a pull request was changed.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity on a pull request. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests\">About pull requests</a>.\" For information about the APIs to manage pull requests, see <a href=\"https://docs.github.com/graphql/reference/objects#pullrequest\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/rest/pulls/pulls\">Pulls</a>\" in the REST API documentation.</p>\n<p>For activity related to pull request reviews, pull request review comments, pull request comments, or pull request review threads, use the <code>pull_request_review</code>, <code>pull_request_review_comment</code>, <code>issue_comment</code>, or <code>pull_request_review_thread</code> events instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Pull requests\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "edited"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "changes",
+        "description": "<p>The changes to the comment if the action was <code>edited</code>.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "integer",
+        "name": "number",
+        "description": "<p>The pull request number.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "pull_request",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "edited",
+    "category": "pull_request"
+  },
+  "enqueued": {
+    "descriptionHtml": "<p>A pull request was added to the merge queue.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity on a pull request. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests\">About pull requests</a>.\" For information about the APIs to manage pull requests, see <a href=\"https://docs.github.com/graphql/reference/objects#pullrequest\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/rest/pulls/pulls\">Pulls</a>\" in the REST API documentation.</p>\n<p>For activity related to pull request reviews, pull request review comments, pull request comments, or pull request review threads, use the <code>pull_request_review</code>, <code>pull_request_review_comment</code>, <code>issue_comment</code>, or <code>pull_request_review_thread</code> events instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Pull requests\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "enqueued"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "integer",
+        "name": "number",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "pull_request",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "enqueued",
+    "category": "pull_request"
+  },
+  "labeled": {
+    "descriptionHtml": "<p>A label was added to a pull request.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity on a pull request. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests\">About pull requests</a>.\" For information about the APIs to manage pull requests, see <a href=\"https://docs.github.com/graphql/reference/objects#pullrequest\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/rest/pulls/pulls\">Pulls</a>\" in the REST API documentation.</p>\n<p>For activity related to pull request reviews, pull request review comments, pull request comments, or pull request review threads, use the <code>pull_request_review</code>, <code>pull_request_review_comment</code>, <code>issue_comment</code>, or <code>pull_request_review_thread</code> events instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Pull requests\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "labeled"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "label",
+        "description": "",
+        "childParamsGroups": []
+      },
+      {
+        "type": "integer",
+        "name": "number",
+        "description": "<p>The pull request number.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "pull_request",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "labeled",
+    "category": "pull_request"
+  },
+  "locked": {
+    "descriptionHtml": "<p>Conversation on a pull request was locked. For more information, see \"<a href=\"https://docs.github.com/communities/moderating-comments-and-conversations/locking-conversations\">Locking conversations</a>.\"</p>",
+    "summaryHtml": "<p>This event occurs when there is activity on a pull request. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests\">About pull requests</a>.\" For information about the APIs to manage pull requests, see <a href=\"https://docs.github.com/graphql/reference/objects#pullrequest\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/rest/pulls/pulls\">Pulls</a>\" in the REST API documentation.</p>\n<p>For activity related to pull request reviews, pull request review comments, pull request comments, or pull request review threads, use the <code>pull_request_review</code>, <code>pull_request_review_comment</code>, <code>issue_comment</code>, or <code>pull_request_review_thread</code> events instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Pull requests\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "locked"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "integer",
+        "name": "number",
+        "description": "<p>The pull request number.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "pull_request",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "locked",
+    "category": "pull_request"
+  },
+  "milestoned": {
+    "descriptionHtml": "<p>A pull request was added to a milestone.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity on a pull request. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests\">About pull requests</a>.\" For information about the APIs to manage pull requests, see <a href=\"https://docs.github.com/graphql/reference/objects#pullrequest\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/rest/pulls/pulls\">Pulls</a>\" in the REST API documentation.</p>\n<p>For activity related to pull request reviews, pull request review comments, pull request comments, or pull request review threads, use the <code>pull_request_review</code>, <code>pull_request_review_comment</code>, <code>issue_comment</code>, or <code>pull_request_review_thread</code> events instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Pull requests\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "milestoned"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "milestone",
+        "description": "<p>A collection of related issues and pull requests.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "integer",
+        "name": "number",
+        "description": "<p>The pull request number.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "pull_request",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "milestoned",
+    "category": "pull_request"
+  },
+  "opened": {
+    "descriptionHtml": "<p>A pull request was created</p>",
+    "summaryHtml": "<p>This event occurs when there is activity on a pull request. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests\">About pull requests</a>.\" For information about the APIs to manage pull requests, see <a href=\"https://docs.github.com/graphql/reference/objects#pullrequest\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/rest/pulls/pulls\">Pulls</a>\" in the REST API documentation.</p>\n<p>For activity related to pull request reviews, pull request review comments, pull request comments, or pull request review threads, use the <code>pull_request_review</code>, <code>pull_request_review_comment</code>, <code>issue_comment</code>, or <code>pull_request_review_thread</code> events instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Pull requests\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "opened"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "integer",
+        "name": "number",
+        "description": "<p>The pull request number.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "pull_request",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "opened",
+    "category": "pull_request"
+  },
+  "ready_for_review": {
+    "descriptionHtml": "<p>A draft pull request was marked as ready for review. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request\">Changing the stage of a pull request</a>.\"</p>",
+    "summaryHtml": "<p>This event occurs when there is activity on a pull request. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests\">About pull requests</a>.\" For information about the APIs to manage pull requests, see <a href=\"https://docs.github.com/graphql/reference/objects#pullrequest\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/rest/pulls/pulls\">Pulls</a>\" in the REST API documentation.</p>\n<p>For activity related to pull request reviews, pull request review comments, pull request comments, or pull request review threads, use the <code>pull_request_review</code>, <code>pull_request_review_comment</code>, <code>issue_comment</code>, or <code>pull_request_review_thread</code> events instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Pull requests\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "ready_for_review"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "integer",
+        "name": "number",
+        "description": "<p>The pull request number.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "pull_request",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "ready_for_review",
+    "category": "pull_request"
+  },
+  "reopened": {
+    "descriptionHtml": "<p>A previously closed pull request was reopened.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity on a pull request. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests\">About pull requests</a>.\" For information about the APIs to manage pull requests, see <a href=\"https://docs.github.com/graphql/reference/objects#pullrequest\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/rest/pulls/pulls\">Pulls</a>\" in the REST API documentation.</p>\n<p>For activity related to pull request reviews, pull request review comments, pull request comments, or pull request review threads, use the <code>pull_request_review</code>, <code>pull_request_review_comment</code>, <code>issue_comment</code>, or <code>pull_request_review_thread</code> events instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Pull requests\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "reopened"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "integer",
+        "name": "number",
+        "description": "<p>The pull request number.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "pull_request",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "reopened",
+    "category": "pull_request"
+  },
+  "review_request_removed": {
+    "descriptionHtml": "<p>A request for review by a person or team was removed from a pull request.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity on a pull request. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests\">About pull requests</a>.\" For information about the APIs to manage pull requests, see <a href=\"https://docs.github.com/graphql/reference/objects#pullrequest\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/rest/pulls/pulls\">Pulls</a>\" in the REST API documentation.</p>\n<p>For activity related to pull request reviews, pull request review comments, pull request comments, or pull request review threads, use the <code>pull_request_review</code>, <code>pull_request_review_comment</code>, <code>issue_comment</code>, or <code>pull_request_review_thread</code> events instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Pull requests\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "review_request_removed"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "integer",
+        "name": "number",
+        "description": "<p>The pull request number.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "pull_request",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object or null",
+        "name": "requested_reviewer",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "requested_team",
+        "description": "<p>Groups of organization members that gives permissions on specified repositories.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "review_request_removed",
+    "category": "pull_request"
+  },
+  "review_requested": {
+    "descriptionHtml": "<p>Review by a person or team was requested for a pull request. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review\">Requesting a pull request review</a>.\"</p>",
+    "summaryHtml": "<p>This event occurs when there is activity on a pull request. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests\">About pull requests</a>.\" For information about the APIs to manage pull requests, see <a href=\"https://docs.github.com/graphql/reference/objects#pullrequest\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/rest/pulls/pulls\">Pulls</a>\" in the REST API documentation.</p>\n<p>For activity related to pull request reviews, pull request review comments, pull request comments, or pull request review threads, use the <code>pull_request_review</code>, <code>pull_request_review_comment</code>, <code>issue_comment</code>, or <code>pull_request_review_thread</code> events instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Pull requests\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "review_requested"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "integer",
+        "name": "number",
+        "description": "<p>The pull request number.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "pull_request",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object or null",
+        "name": "requested_reviewer",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "requested_team",
+        "description": "<p>Groups of organization members that gives permissions on specified repositories.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "review_requested",
+    "category": "pull_request"
+  },
+  "synchronize": {
+    "descriptionHtml": "<p>A pull request's head branch was updated. For example, the head branch was updated from the base branch or new commits were pushed to the head branch.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity on a pull request. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests\">About pull requests</a>.\" For information about the APIs to manage pull requests, see <a href=\"https://docs.github.com/graphql/reference/objects#pullrequest\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/rest/pulls/pulls\">Pulls</a>\" in the REST API documentation.</p>\n<p>For activity related to pull request reviews, pull request review comments, pull request comments, or pull request review threads, use the <code>pull_request_review</code>, <code>pull_request_review_comment</code>, <code>issue_comment</code>, or <code>pull_request_review_thread</code> events instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Pull requests\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "synchronize"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "after",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "before",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "integer",
+        "name": "number",
+        "description": "<p>The pull request number.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "pull_request",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "synchronize",
+    "category": "pull_request"
+  },
+  "unassigned": {
+    "descriptionHtml": "<p>A user was unassigned from a pull request.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity on a pull request. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests\">About pull requests</a>.\" For information about the APIs to manage pull requests, see <a href=\"https://docs.github.com/graphql/reference/objects#pullrequest\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/rest/pulls/pulls\">Pulls</a>\" in the REST API documentation.</p>\n<p>For activity related to pull request reviews, pull request review comments, pull request comments, or pull request review threads, use the <code>pull_request_review</code>, <code>pull_request_review_comment</code>, <code>issue_comment</code>, or <code>pull_request_review_thread</code> events instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Pull requests\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "unassigned"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object or null",
+        "name": "assignee",
+        "description": "",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "integer",
+        "name": "number",
+        "description": "<p>The pull request number.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "pull_request",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "unassigned",
+    "category": "pull_request"
+  },
+  "unlabeled": {
+    "descriptionHtml": "<p>A label was removed from a pull request.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity on a pull request. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests\">About pull requests</a>.\" For information about the APIs to manage pull requests, see <a href=\"https://docs.github.com/graphql/reference/objects#pullrequest\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/rest/pulls/pulls\">Pulls</a>\" in the REST API documentation.</p>\n<p>For activity related to pull request reviews, pull request review comments, pull request comments, or pull request review threads, use the <code>pull_request_review</code>, <code>pull_request_review_comment</code>, <code>issue_comment</code>, or <code>pull_request_review_thread</code> events instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Pull requests\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "unlabeled"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "label",
+        "description": "",
+        "childParamsGroups": []
+      },
+      {
+        "type": "integer",
+        "name": "number",
+        "description": "<p>The pull request number.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "pull_request",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "unlabeled",
+    "category": "pull_request"
+  },
+  "unlocked": {
+    "descriptionHtml": "<p>Conversation on a pull request was unlocked. For more information, see \"<a href=\"https://docs.github.com/communities/moderating-comments-and-conversations/locking-conversations\">Locking conversations</a>.\"</p>",
+    "summaryHtml": "<p>This event occurs when there is activity on a pull request. For more information, see \"<a href=\"https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests\">About pull requests</a>.\" For information about the APIs to manage pull requests, see <a href=\"https://docs.github.com/graphql/reference/objects#pullrequest\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/rest/pulls/pulls\">Pulls</a>\" in the REST API documentation.</p>\n<p>For activity related to pull request reviews, pull request review comments, pull request comments, or pull request review threads, use the <code>pull_request_review</code>, <code>pull_request_review_comment</code>, <code>issue_comment</code>, or <code>pull_request_review_thread</code> events instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Pull requests\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "unlocked"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "integer",
+        "name": "number",
+        "description": "<p>The pull request number.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "pull_request",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "unlocked",
+    "category": "pull_request"
+  }
+}

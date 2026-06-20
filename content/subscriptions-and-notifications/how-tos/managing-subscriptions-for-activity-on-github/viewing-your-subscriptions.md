@@ -1,6 +1,6 @@
 ---
 title: Viewing your subscriptions
-intro: 'To understand where your notifications are coming from and your notifications volume, we recommend reviewing your subscriptions and watched repositories regularly.'
+intro: To understand where your notifications are coming from and your notifications volume, we recommend reviewing your subscriptions and watched repositories regularly.
 redirect_from:
   - /articles/subscribing-to-conversations
   - /articles/unsubscribing-from-conversations
@@ -22,9 +22,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Notifications
 shortTitle: View subscriptions
+contentType: how-tos
+category:
+  - Manage subscriptions and triage your inbox
 ---
 You receive notifications for your subscriptions of ongoing activity on {% data variables.product.github %}. There are many reasons you can be subscribed to a conversation. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications#notifications-and-subscriptions).
 

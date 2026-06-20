@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 children:
   - /sharing-your-github-app
   - /making-your-github-app-available-for-github-enterprise-server

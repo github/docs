@@ -13,6 +13,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Work with Git
 ---
 ## Configuring ignored files for a single repository
 

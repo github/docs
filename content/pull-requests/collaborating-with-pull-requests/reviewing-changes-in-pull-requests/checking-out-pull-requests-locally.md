@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Check out a PR locally
+category:
+  - Review pull requests
 ---
 
 > [!NOTE]
@@ -65,7 +65,7 @@ Anyone can work with a previously opened pull request to continue working on it,
    ![Screenshot of the title of a pull request. The pull request's ID number is outlined in dark orange.](/assets/images/help/pull_requests/pull-request-id-number.png)
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-1. Fetch the reference to the pull request based on its ID number, creating a new branch in the process.
+1. Fetch the reference to the pull request based on its ID number, creating a new branch in the process. Use the pull request ID and the name of the local branch you want to create in the command.
 
    ```shell
    git fetch origin pull/ID/head:BRANCH_NAME

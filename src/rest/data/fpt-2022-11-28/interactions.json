@@ -1,0 +1,814 @@
+{
+  "orgs": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/interaction-limits",
+      "title": "Get interaction restrictions for an organization",
+      "category": "interactions",
+      "subcategory": "orgs",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Shows which type of GitHub user can interact with this organization and when the restriction expires. If there is no restrictions, you will see an empty response.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "limit": "collaborators_only",
+              "origin": "organization",
+              "expires_at": "2018-08-17T04:18:39Z"
+            },
+            "schema": {
+              "anyOf": [
+                {
+                  "title": "Interaction Limits",
+                  "description": "Interaction limit settings.",
+                  "type": "object",
+                  "properties": {
+                    "limit": {
+                      "type": "string",
+                      "description": "The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.",
+                      "enum": [
+                        "existing_users",
+                        "contributors_only",
+                        "collaborators_only"
+                      ]
+                    },
+                    "origin": {
+                      "type": "string"
+                    },
+                    "expires_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  },
+                  "required": [
+                    "limit",
+                    "origin",
+                    "expires_at"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": false
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" organization permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/interaction-limits",
+      "title": "Set interaction restrictions for an organization",
+      "category": "interactions",
+      "subcategory": "orgs",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "limit",
+          "description": "<p>The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.</p>",
+          "isRequired": true,
+          "enum": [
+            "existing_users",
+            "contributors_only",
+            "collaborators_only"
+          ]
+        },
+        {
+          "type": "string",
+          "name": "expiry",
+          "description": "<p>The duration of the interaction restriction. Default: <code>one_day</code>.</p>",
+          "enum": [
+            "one_day",
+            "three_days",
+            "one_week",
+            "one_month",
+            "six_months"
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Temporarily restricts interactions to a certain type of GitHub user in any public repository in the given organization. You must be an organization owner to set these restrictions. Setting the interaction limit at the organization level will overwrite any interaction limits that are set for individual repositories owned by the organization.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "limit": "collaborators_only",
+              "expiry": "one_month"
+            },
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "limit": "collaborators_only",
+              "origin": "organization",
+              "expires_at": "2018-08-17T04:18:39Z"
+            },
+            "schema": {
+              "title": "Interaction Limits",
+              "description": "Interaction limit settings.",
+              "type": "object",
+              "properties": {
+                "limit": {
+                  "type": "string",
+                  "description": "The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.",
+                  "enum": [
+                    "existing_users",
+                    "contributors_only",
+                    "collaborators_only"
+                  ]
+                },
+                "origin": {
+                  "type": "string"
+                },
+                "expires_at": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "required": [
+                "limit",
+                "origin",
+                "expires_at"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" organization permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/interaction-limits",
+      "title": "Remove interaction restrictions for an organization",
+      "category": "interactions",
+      "subcategory": "orgs",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Removes all interaction restrictions from public repositories in the given organization. You must be an organization owner to remove restrictions.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>Response</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>No Content</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" organization permissions": "write"
+          }
+        ]
+      }
+    }
+  ],
+  "repos": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/interaction-limits",
+      "title": "Get interaction restrictions for a repository",
+      "category": "interactions",
+      "subcategory": "repos",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Shows which type of GitHub user can interact with this repository and when the restriction expires. If there are no restrictions, you will see an empty response.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "limit": "collaborators_only",
+              "origin": "repository",
+              "expires_at": "2018-08-17T04:18:39Z"
+            },
+            "schema": {
+              "anyOf": [
+                {
+                  "title": "Interaction Limits",
+                  "description": "Interaction limit settings.",
+                  "type": "object",
+                  "properties": {
+                    "limit": {
+                      "type": "string",
+                      "description": "The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.",
+                      "enum": [
+                        "existing_users",
+                        "contributors_only",
+                        "collaborators_only"
+                      ]
+                    },
+                    "origin": {
+                      "type": "string"
+                    },
+                    "expires_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  },
+                  "required": [
+                    "limit",
+                    "origin",
+                    "expires_at"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": false
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" repository permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/interaction-limits",
+      "title": "Set interaction restrictions for a repository",
+      "category": "interactions",
+      "subcategory": "repos",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "limit",
+          "description": "<p>The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.</p>",
+          "isRequired": true,
+          "enum": [
+            "existing_users",
+            "contributors_only",
+            "collaborators_only"
+          ]
+        },
+        {
+          "type": "string",
+          "name": "expiry",
+          "description": "<p>The duration of the interaction restriction. Default: <code>one_day</code>.</p>",
+          "enum": [
+            "one_day",
+            "three_days",
+            "one_week",
+            "one_month",
+            "six_months"
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Temporarily restricts interactions to a certain type of GitHub user within the given repository. You must have owner or admin access to set these restrictions. If an interaction limit is set for the user or organization that owns this repository, you will receive a <code>409 Conflict</code> response and will not be able to use this endpoint to change the interaction limit for a single repository.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example request body",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "limit": "collaborators_only",
+              "expiry": "one_day"
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "limit": "collaborators_only",
+              "origin": "repository",
+              "expires_at": "2018-08-17T04:18:39Z"
+            },
+            "schema": {
+              "title": "Interaction Limits",
+              "description": "Interaction limit settings.",
+              "type": "object",
+              "properties": {
+                "limit": {
+                  "type": "string",
+                  "description": "The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.",
+                  "enum": [
+                    "existing_users",
+                    "contributors_only",
+                    "collaborators_only"
+                  ]
+                },
+                "origin": {
+                  "type": "string"
+                },
+                "expires_at": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "required": [
+                "limit",
+                "origin",
+                "expires_at"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" repository permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/interaction-limits",
+      "title": "Remove interaction restrictions for a repository",
+      "category": "interactions",
+      "subcategory": "repos",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Removes all interaction restrictions from the given repository. You must have owner or admin access to remove restrictions. If the interaction limit is set for the user or organization that owns this repository, you will receive a <code>409 Conflict</code> response and will not be able to use this endpoint to change the interaction limit for a single repository.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>Response</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>No Content</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" repository permissions": "write"
+          }
+        ]
+      }
+    }
+  ],
+  "user": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/user/interaction-limits",
+      "title": "Get interaction restrictions for your public repositories",
+      "category": "interactions",
+      "subcategory": "user",
+      "parameters": [],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Shows which type of GitHub user can interact with your public repositories and when the restriction expires.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json"
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Default response</p>",
+            "example": {
+              "limit": "collaborators_only",
+              "origin": "organization",
+              "expires_at": "2018-08-17T04:18:39Z"
+            },
+            "schema": {
+              "anyOf": [
+                {
+                  "title": "Interaction Limits",
+                  "description": "Interaction limit settings.",
+                  "type": "object",
+                  "properties": {
+                    "limit": {
+                      "type": "string",
+                      "description": "The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.",
+                      "enum": [
+                        "existing_users",
+                        "contributors_only",
+                        "collaborators_only"
+                      ]
+                    },
+                    "origin": {
+                      "type": "string"
+                    },
+                    "expires_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  },
+                  "required": [
+                    "limit",
+                    "origin",
+                    "expires_at"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": false
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Default response</p>"
+        },
+        {
+          "httpStatusCode": "204",
+          "description": "<p>Response when there are no restrictions</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": false,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Interaction limits\" user permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "put",
+      "requestPath": "/user/interaction-limits",
+      "title": "Set interaction restrictions for your public repositories",
+      "category": "interactions",
+      "subcategory": "user",
+      "parameters": [],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "limit",
+          "description": "<p>The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.</p>",
+          "isRequired": true,
+          "enum": [
+            "existing_users",
+            "contributors_only",
+            "collaborators_only"
+          ]
+        },
+        {
+          "type": "string",
+          "name": "expiry",
+          "description": "<p>The duration of the interaction restriction. Default: <code>one_day</code>.</p>",
+          "enum": [
+            "one_day",
+            "three_days",
+            "one_week",
+            "one_month",
+            "six_months"
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Temporarily restricts which type of GitHub user can interact with your public repositories. Setting the interaction limit at the user level will overwrite any interaction limits that are set for individual repositories owned by the user.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "limit": "collaborators_only",
+              "expiry": "one_month"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "limit": "collaborators_only",
+              "origin": "user",
+              "expires_at": "2018-08-17T04:18:39Z"
+            },
+            "schema": {
+              "title": "Interaction Limits",
+              "description": "Interaction limit settings.",
+              "type": "object",
+              "properties": {
+                "limit": {
+                  "type": "string",
+                  "description": "The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.",
+                  "enum": [
+                    "existing_users",
+                    "contributors_only",
+                    "collaborators_only"
+                  ]
+                },
+                "origin": {
+                  "type": "string"
+                },
+                "expires_at": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "required": [
+                "limit",
+                "origin",
+                "expires_at"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": false,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Interaction limits\" user permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "delete",
+      "requestPath": "/user/interaction-limits",
+      "title": "Remove interaction restrictions from your public repositories",
+      "category": "interactions",
+      "subcategory": "user",
+      "parameters": [],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Removes any interaction restrictions from your public repositories.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json"
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>Response</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>No Content</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": false,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Interaction limits\" user permissions": "write"
+          }
+        ]
+      }
+    }
+  ]
+}

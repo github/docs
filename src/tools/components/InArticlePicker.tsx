@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import Cookies from '@/frame/components/lib/cookies'
 import { UnderlineNav } from '@primer/react'
 import { sendEvent } from '@/events/components/events'
@@ -6,6 +6,8 @@ import { EventType } from '@/events/types'
 import { useRouter } from 'next/router'
 
 import styles from './InArticlePicker.module.scss'
+
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
 type Option = {
   value: string
@@ -63,7 +65,11 @@ export const InArticlePicker = ({
 
   const [asPathRoot, asPathQuery = ''] = router.asPath.split('#')[0].split('?')
 
-  useEffect(() => {
+  // Use a layout effect so the DOM mutation (hiding non-matching .ghd-tool
+  // content) happens before the browser paints. With React 19's stricter
+  // effect timing, a regular useEffect could leave non-matching content
+  // visible on initial page load until after first paint.
+  useIsomorphicLayoutEffect(() => {
     // This will make the hook run this callback on mount and on change.
     // That's important because even though the user hasn't interacted
     // and made an overriding choice, we still want to run this callback

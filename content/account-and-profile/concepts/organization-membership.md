@@ -12,10 +12,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
 shortTitle: Organization membership
 contentType: concepts
+category:
+  - Participate in organizations
 ---
 An organization owner can invite you to join their organization as a member, billing manager, or owner. An organization owner or member with admin privileges for a repository can invite you to collaborate in one or more repositories as an outside collaborator. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization).
 

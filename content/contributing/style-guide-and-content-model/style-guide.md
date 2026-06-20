@@ -7,7 +7,13 @@ versions:
   ghes: '*'
 redirect_from:
   - /contributing/writing-for-github-docs/style-guide
+category:
+  - Follow the style guide and content model
 ---
+
+<!--
+A condensed version of this style guide is available at `.github/instructions/style-guide-summary.instructions.md`, optimized for AI agents and quick reference. If you make significant changes to this full guide, update the summary file as well.
+-->
 
 > [!NOTE]
 > These guidelines are specific to {% data variables.product.company_short %}'s documentation. For general style questions or guidance on topics not covered here, see the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs). For any questions about the GitHub brand, see our [GitHub Brand Guide](https://brand.github.com).<!-- markdownlint-disable-line search-replace -->
@@ -151,34 +157,28 @@ A CTA is an explicit direction to the user to take an immediate action, such as 
 
 For example, the CTA on [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud) links to [an enterprise sales page](https://github.com/account/enterprises/new?ref_product=ghec&ref_type=trial&ref_style=text&ref_plan=enterprise) on {% data variables.product.prodname_dotcom_the_website %}.
 
-### Required CTA parameters
+### Building CTAs
 
-* `ref_product`:
-  * **Purpose**: The GitHub product the CTA leads users to.
-  * **Allowed values**: `copilot`, `ghec`, `desktop`, `code-quality`
-  * **Example**: `ref_product=copilot`
-* `ref_type`:
-  * **Purpose**: The type of action the CTA encourages users to take.
-  * **Allowed values**: `trial`, `purchase`, `engagement`
-  * **Example**: `ref_type=purchase`
-* `ref_style`:
-  * **Purpose**: The way we are formatting the CTA in the docs.
-  * **Allowed values**: `button` or `text`
-  * **Example**: `ref_style=button`
-* `ref_plan` (_optional_):
-  * **Purpose**: For links to sign up for or trial a plan, the specific plan we link to.
-  * **Allowed values**: `enterprise`, `business`, `pro`, `free`
-  * **Example**: `ref_plan=business`
+To build a valid CTA URL with the correct parameters, use the CTA builder script in your docs repository checkout:
 
-Replace the placeholders with the relevant information for your CTA, where `DESTINATION/URL` is the URL that the button should navigate to:
-
-```html
-{% raw %}<a href="https://github.com/DESTINATION/URL?ref_product=PRODUCT&ref_type=TYPE&ref_style=STYLE&ref_plan=PLAN" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try PRODUCT NAME</span> {% octicon "link-external" height:16 %}</a>{% endraw %}
+```shell
+npm run cta-builder
 ```
 
-### Getting help with CTAs
+The script will guide you through an interactive process to:
+* Select the appropriate {% data variables.product.company_short %} product (`ref_product`)
+  * Use `github` as the default when the link is not specific to a particular feature or product
+* Choose the type of action (`ref_type`)
+* Specify the formatting style (`ref_style`)
+* Optionally select a specific plan (`ref_plan`)
 
-For help building a valid CTA URL, you can enter the command `npm run cta-builder` in your docs repo checkout. Answer each question and at the end you'll see your valid CTA.
+The script provides all available options for each parameter and generates a complete, valid CTA URL at the end. Use this tool to ensure you're using current, approved values for CTA parameters.
+
+For example, the script might generate a URL like:
+
+```
+https://github.com/account/enterprises/new?ref_product=ghec&ref_type=trial&ref_style=button&ref_plan=enterprise
+```
 
 ## Code
 
@@ -1010,12 +1010,8 @@ Each release note in a set describes one of the following changes.
 * [Bug fixes](#bug-fixes): fixes to flaws or unexpected behavior
 * [Changes](#changes): notable changes to past behavior
 * [Known issues](#known-issues): issues that {% data variables.product.company_short %} has identified, but cannot or has not yet prioritized
-{%- ifversion ghes < 3.16 %}
-* [Deprecations](#deprecations): removal of a feature or behavior
-{%- else %}
 * [Closing down](#closing-down): the process of being retired and should no longer be relied upon for future work
 * [Retired](#retired): end of a product or feature lifecycle
-{%- endif %}
 * [Errata](#errata): correction to inaccurate release note or documentation
 
 You can also review guidelines for updating release notes in [Adding or updating a release note](#adding-or-updating-a-release-note) and [Removing a release note](#removing-a-release-note).
@@ -1158,36 +1154,6 @@ A release note for a known issue answers the following questions.
 
 * > After an administrator begins a configuration run, a `No such object error` may occur during the validation phase for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
 
-{% ifversion ghes < 3.16 %}
-
-### Deprecations
-
-A deprecation release note summarizes a behavior or feature that {% data variables.product.company_short %} has removed or plans to remove. Generally, notes for deprecations are only part of feature releases.
-
-#### Writing release notes for deprecations
-
-A release note for a deprecation answers the following questions.
-
-1. Does this existing functionality apply to me, with my role or access?
-1. What is the functionality that's being deprecated?
-1. If applicable, what replaces the deprecated functionality?
-1. If applicable, where can I read more?
-
-> _AUDIENCE_ (**1**) _DESCRIPTION OF DEPRECATED FUNCTIONALITY_ (**2**) _REPLACEMENT FUNCTIONALITY_ (**3**) For more information, see [_ARTICLE TITLE_](/) (**4**).
-
-* Notes are in the present tense, or the future tense for upcoming changes. If applicable, specify the upcoming release where the deprecation will occur.
-* To reduce repetition and unnecessary words, "now" is usually implied.
-* To clarify actors and impact, avoid passive language when possible.
-* Categorize each feature in a section, under a feature heading.
-
-#### Examples of release notes for deprecations
-
-* > **Upcoming deprecation:** In {% data variables.product.prodname_ghe_server %} 3.8 and later, to ensure instance security, unsecure algorithms will be disabled for SSH connections to the administrative shell.
-
-* > Commit comments, which are comments that users add directly to a commit outside of a pull request, no longer appear in the pull request timeline. Users could not reply to or resolve these comments. The Timeline events REST API and the GraphQL API's `PullRequest` object also no longer return commit comments.
-
-{% else %}
-
 ### Closing down
 
 A release note for a feature that is closing down summarizes a behavior or feature that {% data variables.product.github %} plans to remove. These features are still available for production use and come with the associated support SLAs and technical support obligations. However, they are in the process of being retired and should no longer be relied upon for future work. Closing down is a transitional stage where users are advised to stop using the feature and prepare for its retirement.
@@ -1237,8 +1203,6 @@ A release note for a retired feature answers the following questions.
 #### Examples of release notes for retired features
 
 * > **Retired:** {% data variables.product.github %} no longer supports required workflows for {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %} 3.11 and later. Use repository rulesets instead. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging).
-
-{% endif %}
 
 ### Errata
 
@@ -1661,7 +1625,7 @@ Unless the content is about administering an enterprise product, describe an ind
 With {% data variables.product.company_short %}'s enterprise products, administrators manage an enterprise account. An enterprise account can own multiple organizations, and people's user accounts can be members of the organizations. For more information, see the "Roles in an enterprise" article for each product.
 
 * [{% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
-* [{% data variables.product.prodname_ghe_server %}](/enterprise-server/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
+* [{% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
 
 If the reader manages an enterprise account, and you're describing the people's accounts that they manage, use "user account." This applies to the following products.
 

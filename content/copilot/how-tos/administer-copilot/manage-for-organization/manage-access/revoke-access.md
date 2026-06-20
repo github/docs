@@ -5,8 +5,6 @@ intro: 'Remove access to {% data variables.product.prodname_copilot %} for some 
 permissions: 'Organization owners for organizations with a {% ifversion ghec %}{% data variables.copilot.copilot_enterprise_short %} or{% endif %} {% data variables.copilot.copilot_business_short %} plan.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-github-copilot-in-your-organization/revoking-access-to-copilot-for-members-of-your-organization
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/revoking-access-to-copilot-for-members-of-your-organization

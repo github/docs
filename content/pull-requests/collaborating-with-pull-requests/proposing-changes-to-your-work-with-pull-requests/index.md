@@ -9,8 +9,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 children:
   - /about-branches
   - /creating-and-deleting-branches-within-your-repository

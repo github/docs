@@ -10,8 +10,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
+category:
+  - Create and set up a repository
 ---
 ## About cloning a repository
 

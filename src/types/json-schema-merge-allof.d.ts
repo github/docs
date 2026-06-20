@@ -9,7 +9,7 @@ declare module 'json-schema-merge-allof' {
     type?: string | string[]
     items?: JSONSchema | JSONSchema[]
     additionalProperties?: boolean | JSONSchema
-    [key: string]: any // JSON Schema allows arbitrary additional properties per spec
+    [key: string]: unknown // JSON Schema allows arbitrary additional properties per spec
   }
 
   /**
@@ -23,7 +23,7 @@ declare module 'json-schema-merge-allof' {
      */
     resolvers?: Record<
       string,
-      (values: any[], path: string[], mergeSchemas: any, options: any) => any
+      (values: unknown[], path: string[], mergeSchemas: unknown, options: unknown) => unknown
     >
 
     /**

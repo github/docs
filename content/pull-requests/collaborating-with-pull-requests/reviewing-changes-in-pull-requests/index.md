@@ -10,8 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 children:
   - /about-pull-request-reviews
   - /reviewing-proposed-changes-in-a-pull-request

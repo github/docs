@@ -1,1 +1,1 @@
-1. Under "{% data variables.product.prodname_dependabot_alerts %}", click {% octicon "gear" aria-label="The Gear icon" %} close to "{% data variables.product.prodname_dependabot %} rules".
+1. In the "{% data variables.product.prodname_dependabot %}" section, to the right of "{% data variables.product.prodname_dependabot %} rules", click {% octicon "gear" aria-label="Configure Dependabot rules" %}.

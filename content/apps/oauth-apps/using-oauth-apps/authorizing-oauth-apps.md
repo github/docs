@@ -10,9 +10,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
+category:
+  - Install and authorize apps
 ---
 When an {% data variables.product.prodname_oauth_app %} wants to identify you by your account on {% data variables.product.github %}, you'll see a page with the app's developer contact information and a list of the specific data that's being requested.
 

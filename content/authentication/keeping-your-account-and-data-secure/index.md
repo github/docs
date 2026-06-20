@@ -8,9 +8,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 children:
   - /about-authentication-to-github
   - /creating-a-strong-password

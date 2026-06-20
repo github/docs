@@ -1,0 +1,1169 @@
+{
+  "queries": [
+    {
+      "name": "id",
+      "type": "ID!",
+      "id": "id",
+      "href": "/graphql/reference/other#scalar-id",
+      "description": "<p>ID of the object.</p>",
+      "args": [],
+      "category": "other"
+    },
+    {
+      "name": "relay",
+      "type": "Query!",
+      "id": "query",
+      "href": "/graphql/reference/other#object-query",
+      "description": "<p>Workaround for re-exposing the root query object. (Refer to\n<a href=\"https://github.com/facebook/relay/issues/112\">https://github.com/facebook/relay/issues/112</a> for more information.).</p>",
+      "args": [],
+      "category": "other"
+    }
+  ],
+  "mutations": [
+    {
+      "name": "addEnterpriseAdmin",
+      "id": "addenterpriseadmin",
+      "href": "/graphql/reference/other#mutation-addenterpriseadmin",
+      "description": "<p>Adds an administrator to the global enterprise account.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddEnterpriseAdminInput!",
+          "id": "addenterpriseadmininput",
+          "href": "/graphql/reference/other#input-object-addenterpriseadmininput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "admin",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user",
+          "description": "<p>The user who was added as an administrator.</p>"
+        },
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "enterprise",
+          "type": "Enterprise",
+          "id": "enterprise",
+          "href": "/graphql/reference/enterprise-admin#object-enterprise",
+          "description": "<p>The updated enterprise.</p>"
+        },
+        {
+          "name": "role",
+          "type": "EnterpriseAdministratorRole",
+          "id": "enterpriseadministratorrole",
+          "href": "/graphql/reference/enterprise-admin#enum-enterpriseadministratorrole",
+          "description": "<p>The role of the administrator.</p>"
+        },
+        {
+          "name": "viewer",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user",
+          "description": "<p>The viewer performing the mutation.</p>"
+        }
+      ],
+      "category": "other"
+    }
+  ],
+  "objects": [
+    {
+      "name": "PageInfo",
+      "id": "pageinfo",
+      "href": "/graphql/reference/other#object-pageinfo",
+      "description": "<p>Information about pagination in a connection.</p>",
+      "fields": [
+        {
+          "name": "endCursor",
+          "description": "<p>When paginating forwards, the cursor to continue.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "hasNextPage",
+          "description": "<p>When paginating forwards, are there more items?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "hasPreviousPage",
+          "description": "<p>When paginating backwards, are there more items?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "startCursor",
+          "description": "<p>When paginating backwards, the cursor to continue.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "other"
+    }
+  ],
+  "enums": [
+    {
+      "name": "IssueTimelineItemsItemType",
+      "id": "issuetimelineitemsitemtype",
+      "href": "/graphql/reference/other#enum-issuetimelineitemsitemtype",
+      "description": "<p>The possible item types found in a timeline.</p>",
+      "values": [
+        {
+          "name": "ADDED_TO_PROJECT_EVENT",
+          "description": "<p>Represents a<code>added_to_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "ADDED_TO_PROJECT_V2_EVENT",
+          "description": "<p>Represents a<code>added_to_project_v2</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "ASSIGNED_EVENT",
+          "description": "<p>Represents an<code>assigned</code>event on any assignable object.</p>"
+        },
+        {
+          "name": "BLOCKED_BY_ADDED_EVENT",
+          "description": "<p>Represents a<code>blocked_by_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKED_BY_REMOVED_EVENT",
+          "description": "<p>Represents a<code>blocked_by_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_ADDED_EVENT",
+          "description": "<p>Represents a<code>blocking_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_REMOVED_EVENT",
+          "description": "<p>Represents a<code>blocking_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "CLOSED_EVENT",
+          "description": "<p>Represents a<code>closed</code>event on any <code>Closable</code>.</p>"
+        },
+        {
+          "name": "COMMENT_DELETED_EVENT",
+          "description": "<p>Represents a<code>comment_deleted</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONNECTED_EVENT",
+          "description": "<p>Represents a<code>connected</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_FROM_DRAFT_EVENT",
+          "description": "<p>Represents a<code>converted_from_draft</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_NOTE_TO_ISSUE_EVENT",
+          "description": "<p>Represents a<code>converted_note_to_issue</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_TO_DISCUSSION_EVENT",
+          "description": "<p>Represents a<code>converted_to_discussion</code>event on a given issue.</p>"
+        },
+        {
+          "name": "CROSS_REFERENCED_EVENT",
+          "description": "<p>Represents a mention made by one issue or pull request to another.</p>"
+        },
+        {
+          "name": "DEMILESTONED_EVENT",
+          "description": "<p>Represents a<code>demilestoned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "DISCONNECTED_EVENT",
+          "description": "<p>Represents a<code>disconnected</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT",
+          "description": "<p>Represents a comment on an Issue.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT_PINNED_EVENT",
+          "description": "<p>Represents a<code>issue_comment_pinned</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT_UNPINNED_EVENT",
+          "description": "<p>Represents a<code>issue_comment_unpinned</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_FIELD_ADDED_EVENT",
+          "description": "<p>Represents a<code>issue_field_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_FIELD_CHANGED_EVENT",
+          "description": "<p>Represents a<code>issue_field_changed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_FIELD_REMOVED_EVENT",
+          "description": "<p>Represents a<code>issue_field_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_ADDED_EVENT",
+          "description": "<p>Represents a<code>issue_type_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_CHANGED_EVENT",
+          "description": "<p>Represents a<code>issue_type_changed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>issue_type_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "LABELED_EVENT",
+          "description": "<p>Represents a<code>labeled</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "LOCKED_EVENT",
+          "description": "<p>Represents a<code>locked</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MARKED_AS_DUPLICATE_EVENT",
+          "description": "<p>Represents a<code>marked_as_duplicate</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MENTIONED_EVENT",
+          "description": "<p>Represents a<code>mentioned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MILESTONED_EVENT",
+          "description": "<p>Represents a<code>milestoned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MOVED_COLUMNS_IN_PROJECT_EVENT",
+          "description": "<p>Represents a<code>moved_columns_in_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "PARENT_ISSUE_ADDED_EVENT",
+          "description": "<p>Represents a<code>parent_issue_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "PARENT_ISSUE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>parent_issue_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "PINNED_EVENT",
+          "description": "<p>Represents a<code>pinned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "PROJECT_V2_ITEM_STATUS_CHANGED_EVENT",
+          "description": "<p>Represents a<code>project_v2_item_status_changed</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REFERENCED_EVENT",
+          "description": "<p>Represents a<code>referenced</code>event on a given <code>ReferencedSubject</code>.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_PROJECT_EVENT",
+          "description": "<p>Represents a<code>removed_from_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_PROJECT_V2_EVENT",
+          "description": "<p>Represents a<code>removed_from_project_v2</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "RENAMED_TITLE_EVENT",
+          "description": "<p>Represents a<code>renamed</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REOPENED_EVENT",
+          "description": "<p>Represents a<code>reopened</code>event on any <code>Closable</code>.</p>"
+        },
+        {
+          "name": "SUBSCRIBED_EVENT",
+          "description": "<p>Represents a<code>subscribed</code>event on a given <code>Subscribable</code>.</p>"
+        },
+        {
+          "name": "SUB_ISSUE_ADDED_EVENT",
+          "description": "<p>Represents a<code>sub_issue_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "SUB_ISSUE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>sub_issue_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "TRANSFERRED_EVENT",
+          "description": "<p>Represents a<code>transferred</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNASSIGNED_EVENT",
+          "description": "<p>Represents an<code>unassigned</code>event on any assignable object.</p>"
+        },
+        {
+          "name": "UNLABELED_EVENT",
+          "description": "<p>Represents an<code>unlabeled</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNLOCKED_EVENT",
+          "description": "<p>Represents an<code>unlocked</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNMARKED_AS_DUPLICATE_EVENT",
+          "description": "<p>Represents an<code>unmarked_as_duplicate</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNPINNED_EVENT",
+          "description": "<p>Represents an<code>unpinned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNSUBSCRIBED_EVENT",
+          "description": "<p>Represents an<code>unsubscribed</code>event on a given <code>Subscribable</code>.</p>"
+        },
+        {
+          "name": "USER_BLOCKED_EVENT",
+          "description": "<p>Represents a<code>user_blocked</code>event on a given user.</p>"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "PullRequestTimelineItemsItemType",
+      "id": "pullrequesttimelineitemsitemtype",
+      "href": "/graphql/reference/other#enum-pullrequesttimelineitemsitemtype",
+      "description": "<p>The possible item types found in a timeline.</p>",
+      "values": [
+        {
+          "name": "ADDED_TO_MERGE_QUEUE_EVENT",
+          "description": "<p>Represents an<code>added_to_merge_queue</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "ADDED_TO_PROJECT_EVENT",
+          "description": "<p>Represents a<code>added_to_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "ADDED_TO_PROJECT_V2_EVENT",
+          "description": "<p>Represents a<code>added_to_project_v2</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "ASSIGNED_EVENT",
+          "description": "<p>Represents an<code>assigned</code>event on any assignable object.</p>"
+        },
+        {
+          "name": "AUTOMATIC_BASE_CHANGE_FAILED_EVENT",
+          "description": "<p>Represents a<code>automatic_base_change_failed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTOMATIC_BASE_CHANGE_SUCCEEDED_EVENT",
+          "description": "<p>Represents a<code>automatic_base_change_succeeded</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_MERGE_DISABLED_EVENT",
+          "description": "<p>Represents a<code>auto_merge_disabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_MERGE_ENABLED_EVENT",
+          "description": "<p>Represents a<code>auto_merge_enabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_REBASE_ENABLED_EVENT",
+          "description": "<p>Represents a<code>auto_rebase_enabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_SQUASH_ENABLED_EVENT",
+          "description": "<p>Represents a<code>auto_squash_enabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "BASE_REF_CHANGED_EVENT",
+          "description": "<p>Represents a<code>base_ref_changed</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "BASE_REF_DELETED_EVENT",
+          "description": "<p>Represents a<code>base_ref_deleted</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "BASE_REF_FORCE_PUSHED_EVENT",
+          "description": "<p>Represents a<code>base_ref_force_pushed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "BLOCKED_BY_ADDED_EVENT",
+          "description": "<p>Represents a<code>blocked_by_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKED_BY_REMOVED_EVENT",
+          "description": "<p>Represents a<code>blocked_by_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_ADDED_EVENT",
+          "description": "<p>Represents a<code>blocking_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_REMOVED_EVENT",
+          "description": "<p>Represents a<code>blocking_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "CLOSED_EVENT",
+          "description": "<p>Represents a<code>closed</code>event on any <code>Closable</code>.</p>"
+        },
+        {
+          "name": "COMMENT_DELETED_EVENT",
+          "description": "<p>Represents a<code>comment_deleted</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONNECTED_EVENT",
+          "description": "<p>Represents a<code>connected</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_FROM_DRAFT_EVENT",
+          "description": "<p>Represents a<code>converted_from_draft</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_NOTE_TO_ISSUE_EVENT",
+          "description": "<p>Represents a<code>converted_note_to_issue</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_TO_DISCUSSION_EVENT",
+          "description": "<p>Represents a<code>converted_to_discussion</code>event on a given issue.</p>"
+        },
+        {
+          "name": "CONVERT_TO_DRAFT_EVENT",
+          "description": "<p>Represents a<code>convert_to_draft</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "CROSS_REFERENCED_EVENT",
+          "description": "<p>Represents a mention made by one issue or pull request to another.</p>"
+        },
+        {
+          "name": "DEMILESTONED_EVENT",
+          "description": "<p>Represents a<code>demilestoned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "DEPLOYED_EVENT",
+          "description": "<p>Represents a<code>deployed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "DEPLOYMENT_ENVIRONMENT_CHANGED_EVENT",
+          "description": "<p>Represents a<code>deployment_environment_changed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "DISCONNECTED_EVENT",
+          "description": "<p>Represents a<code>disconnected</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "HEAD_REF_DELETED_EVENT",
+          "description": "<p>Represents a<code>head_ref_deleted</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "HEAD_REF_FORCE_PUSHED_EVENT",
+          "description": "<p>Represents a<code>head_ref_force_pushed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "HEAD_REF_RESTORED_EVENT",
+          "description": "<p>Represents a<code>head_ref_restored</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT",
+          "description": "<p>Represents a comment on an Issue.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT_PINNED_EVENT",
+          "description": "<p>Represents a<code>issue_comment_pinned</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT_UNPINNED_EVENT",
+          "description": "<p>Represents a<code>issue_comment_unpinned</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_FIELD_ADDED_EVENT",
+          "description": "<p>Represents a<code>issue_field_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_FIELD_CHANGED_EVENT",
+          "description": "<p>Represents a<code>issue_field_changed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_FIELD_REMOVED_EVENT",
+          "description": "<p>Represents a<code>issue_field_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_ADDED_EVENT",
+          "description": "<p>Represents a<code>issue_type_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_CHANGED_EVENT",
+          "description": "<p>Represents a<code>issue_type_changed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>issue_type_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "LABELED_EVENT",
+          "description": "<p>Represents a<code>labeled</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "LOCKED_EVENT",
+          "description": "<p>Represents a<code>locked</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MARKED_AS_DUPLICATE_EVENT",
+          "description": "<p>Represents a<code>marked_as_duplicate</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MENTIONED_EVENT",
+          "description": "<p>Represents a<code>mentioned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MERGED_EVENT",
+          "description": "<p>Represents a<code>merged</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "MILESTONED_EVENT",
+          "description": "<p>Represents a<code>milestoned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MOVED_COLUMNS_IN_PROJECT_EVENT",
+          "description": "<p>Represents a<code>moved_columns_in_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "PARENT_ISSUE_ADDED_EVENT",
+          "description": "<p>Represents a<code>parent_issue_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "PARENT_ISSUE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>parent_issue_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "PINNED_EVENT",
+          "description": "<p>Represents a<code>pinned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "PROJECT_V2_ITEM_STATUS_CHANGED_EVENT",
+          "description": "<p>Represents a<code>project_v2_item_status_changed</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "PULL_REQUEST_COMMIT",
+          "description": "<p>Represents a Git commit part of a pull request.</p>"
+        },
+        {
+          "name": "PULL_REQUEST_COMMIT_COMMENT_THREAD",
+          "description": "<p>Represents a commit comment thread part of a pull request.</p>"
+        },
+        {
+          "name": "PULL_REQUEST_REVIEW",
+          "description": "<p>A review object for a given pull request.</p>"
+        },
+        {
+          "name": "PULL_REQUEST_REVIEW_THREAD",
+          "description": "<p>A threaded list of comments for a given pull request.</p>"
+        },
+        {
+          "name": "PULL_REQUEST_REVISION_MARKER",
+          "description": "<p>Represents the latest point in the pull request timeline for which the viewer has seen the pull request's commits.</p>"
+        },
+        {
+          "name": "READY_FOR_REVIEW_EVENT",
+          "description": "<p>Represents a<code>ready_for_review</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "REFERENCED_EVENT",
+          "description": "<p>Represents a<code>referenced</code>event on a given <code>ReferencedSubject</code>.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_MERGE_QUEUE_EVENT",
+          "description": "<p>Represents a<code>removed_from_merge_queue</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_PROJECT_EVENT",
+          "description": "<p>Represents a<code>removed_from_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_PROJECT_V2_EVENT",
+          "description": "<p>Represents a<code>removed_from_project_v2</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "RENAMED_TITLE_EVENT",
+          "description": "<p>Represents a<code>renamed</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REOPENED_EVENT",
+          "description": "<p>Represents a<code>reopened</code>event on any <code>Closable</code>.</p>"
+        },
+        {
+          "name": "REVIEW_DISMISSED_EVENT",
+          "description": "<p>Represents a<code>review_dismissed</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REVIEW_REQUESTED_EVENT",
+          "description": "<p>Represents an<code>review_requested</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "REVIEW_REQUEST_REMOVED_EVENT",
+          "description": "<p>Represents an<code>review_request_removed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "SUBSCRIBED_EVENT",
+          "description": "<p>Represents a<code>subscribed</code>event on a given <code>Subscribable</code>.</p>"
+        },
+        {
+          "name": "SUB_ISSUE_ADDED_EVENT",
+          "description": "<p>Represents a<code>sub_issue_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "SUB_ISSUE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>sub_issue_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "TRANSFERRED_EVENT",
+          "description": "<p>Represents a<code>transferred</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNASSIGNED_EVENT",
+          "description": "<p>Represents an<code>unassigned</code>event on any assignable object.</p>"
+        },
+        {
+          "name": "UNLABELED_EVENT",
+          "description": "<p>Represents an<code>unlabeled</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNLOCKED_EVENT",
+          "description": "<p>Represents an<code>unlocked</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNMARKED_AS_DUPLICATE_EVENT",
+          "description": "<p>Represents an<code>unmarked_as_duplicate</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNPINNED_EVENT",
+          "description": "<p>Represents an<code>unpinned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNSUBSCRIBED_EVENT",
+          "description": "<p>Represents an<code>unsubscribed</code>event on a given <code>Subscribable</code>.</p>"
+        },
+        {
+          "name": "USER_BLOCKED_EVENT",
+          "description": "<p>Represents a<code>user_blocked</code>event on a given user.</p>"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "RepositoryRuleType",
+      "id": "repositoryruletype",
+      "href": "/graphql/reference/other#enum-repositoryruletype",
+      "description": "<p>The rule types supported in rulesets.</p>",
+      "values": [
+        {
+          "name": "AUTHORIZATION",
+          "description": "<p>Authorization.</p>"
+        },
+        {
+          "name": "BRANCH_NAME_PATTERN",
+          "description": "<p>Branch name pattern.</p>"
+        },
+        {
+          "name": "CODE_SCANNING",
+          "description": "<p>Choose which tools must provide code scanning results before the reference is\nupdated. When configured, code scanning must be enabled and have results for\nboth the commit and the reference being updated.</p>"
+        },
+        {
+          "name": "COMMITTER_EMAIL_PATTERN",
+          "description": "<p>Committer email pattern.</p>"
+        },
+        {
+          "name": "COMMIT_AUTHOR_EMAIL_PATTERN",
+          "description": "<p>Commit author email pattern.</p>"
+        },
+        {
+          "name": "COMMIT_MESSAGE_PATTERN",
+          "description": "<p>Commit message pattern.</p>"
+        },
+        {
+          "name": "COPILOT_CODE_REVIEW",
+          "description": "<p>Request Copilot code review for new pull requests automatically if the author\nhas access to Copilot code review and their premium requests quota has not\nreached the limit.</p>"
+        },
+        {
+          "name": "CREATION",
+          "description": "<p>Only allow users with bypass permission to create matching refs.</p>"
+        },
+        {
+          "name": "DELETION",
+          "description": "<p>Only allow users with bypass permissions to delete matching refs.</p>"
+        },
+        {
+          "name": "FILE_EXTENSION_RESTRICTION",
+          "description": "<p>Prevent commits that include files with specified file extensions from being pushed to the commit graph.</p>"
+        },
+        {
+          "name": "FILE_PATH_RESTRICTION",
+          "description": "<p>Prevent commits that include changes in specified file and folder paths from\nbeing pushed to the commit graph. This includes absolute paths that contain file names.</p>"
+        },
+        {
+          "name": "LOCK_BRANCH",
+          "description": "<p>Branch is read-only. Users cannot push to the branch.</p>"
+        },
+        {
+          "name": "MAX_FILE_PATH_LENGTH",
+          "description": "<p>Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.</p>"
+        },
+        {
+          "name": "MAX_FILE_SIZE",
+          "description": "<p>Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.</p>"
+        },
+        {
+          "name": "MAX_REF_UPDATES",
+          "description": "<p>Max ref updates.</p>"
+        },
+        {
+          "name": "MERGE_QUEUE",
+          "description": "<p>Merges must be performed via a merge queue.</p>"
+        },
+        {
+          "name": "MERGE_QUEUE_LOCKED_REF",
+          "description": "<p>Merge queue locked ref.</p>"
+        },
+        {
+          "name": "NON_FAST_FORWARD",
+          "description": "<p>Prevent users with push access from force pushing to refs.</p>"
+        },
+        {
+          "name": "PULL_REQUEST",
+          "description": "<p>Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.</p>"
+        },
+        {
+          "name": "REQUIRED_DEPLOYMENTS",
+          "description": "<p>Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule.</p>"
+        },
+        {
+          "name": "REQUIRED_LINEAR_HISTORY",
+          "description": "<p>Prevent merge commits from being pushed to matching refs.</p>"
+        },
+        {
+          "name": "REQUIRED_REVIEW_THREAD_RESOLUTION",
+          "description": "<p>When enabled, all conversations on code must be resolved before a pull request\ncan be merged into a branch that matches this rule.</p>"
+        },
+        {
+          "name": "REQUIRED_SIGNATURES",
+          "description": "<p>Commits pushed to matching refs must have verified signatures.</p>"
+        },
+        {
+          "name": "REQUIRED_STATUS_CHECKS",
+          "description": "<p>Choose which status checks must pass before the ref is updated. When enabled,\ncommits must first be pushed to another ref where the checks pass.</p>"
+        },
+        {
+          "name": "REQUIRED_WORKFLOW_STATUS_CHECKS",
+          "description": "<p>Require all commits be made to a non-target branch and submitted via a pull\nrequest and required workflow checks to pass before they can be merged.</p>"
+        },
+        {
+          "name": "SECRET_SCANNING",
+          "description": "<p>Secret scanning.</p>"
+        },
+        {
+          "name": "TAG",
+          "description": "<p>Tag.</p>"
+        },
+        {
+          "name": "TAG_NAME_PATTERN",
+          "description": "<p>Tag name pattern.</p>"
+        },
+        {
+          "name": "UPDATE",
+          "description": "<p>Only allow users with bypass permission to update matching refs.</p>"
+        },
+        {
+          "name": "WORKFLOWS",
+          "description": "<p>Require all changes made to a targeted branch to pass the specified workflows before they can be merged.</p>"
+        },
+        {
+          "name": "WORKFLOW_UPDATES",
+          "description": "<p>Workflow files cannot be modified.</p>"
+        }
+      ],
+      "category": "other"
+    }
+  ],
+  "unions": [
+    {
+      "name": "RuleParameters",
+      "id": "ruleparameters",
+      "href": "/graphql/reference/other#union-ruleparameters",
+      "description": "<p>Types which can be parameters for <code>RepositoryRule</code> objects.</p>",
+      "possibleTypes": [
+        {
+          "name": "BranchNamePatternParameters",
+          "id": "branchnamepatternparameters",
+          "href": "/graphql/reference/branches#object-branchnamepatternparameters"
+        },
+        {
+          "name": "CodeScanningParameters",
+          "id": "codescanningparameters",
+          "href": "/graphql/reference/repos#object-codescanningparameters"
+        },
+        {
+          "name": "CommitAuthorEmailPatternParameters",
+          "id": "commitauthoremailpatternparameters",
+          "href": "/graphql/reference/commits#object-commitauthoremailpatternparameters"
+        },
+        {
+          "name": "CommitMessagePatternParameters",
+          "id": "commitmessagepatternparameters",
+          "href": "/graphql/reference/commits#object-commitmessagepatternparameters"
+        },
+        {
+          "name": "CommitterEmailPatternParameters",
+          "id": "committeremailpatternparameters",
+          "href": "/graphql/reference/commits#object-committeremailpatternparameters"
+        },
+        {
+          "name": "CopilotCodeReviewParameters",
+          "id": "copilotcodereviewparameters",
+          "href": "/graphql/reference/pulls#object-copilotcodereviewparameters"
+        },
+        {
+          "name": "FileExtensionRestrictionParameters",
+          "id": "fileextensionrestrictionparameters",
+          "href": "/graphql/reference/repos#object-fileextensionrestrictionparameters"
+        },
+        {
+          "name": "FilePathRestrictionParameters",
+          "id": "filepathrestrictionparameters",
+          "href": "/graphql/reference/repos#object-filepathrestrictionparameters"
+        },
+        {
+          "name": "MaxFilePathLengthParameters",
+          "id": "maxfilepathlengthparameters",
+          "href": "/graphql/reference/repos#object-maxfilepathlengthparameters"
+        },
+        {
+          "name": "MaxFileSizeParameters",
+          "id": "maxfilesizeparameters",
+          "href": "/graphql/reference/repos#object-maxfilesizeparameters"
+        },
+        {
+          "name": "MergeQueueParameters",
+          "id": "mergequeueparameters",
+          "href": "/graphql/reference/pulls#object-mergequeueparameters"
+        },
+        {
+          "name": "PullRequestParameters",
+          "id": "pullrequestparameters",
+          "href": "/graphql/reference/pulls#object-pullrequestparameters"
+        },
+        {
+          "name": "RequiredDeploymentsParameters",
+          "id": "requireddeploymentsparameters",
+          "href": "/graphql/reference/deployments#object-requireddeploymentsparameters"
+        },
+        {
+          "name": "RequiredStatusChecksParameters",
+          "id": "requiredstatuschecksparameters",
+          "href": "/graphql/reference/branches#object-requiredstatuschecksparameters"
+        },
+        {
+          "name": "TagNamePatternParameters",
+          "id": "tagnamepatternparameters",
+          "href": "/graphql/reference/repos#object-tagnamepatternparameters"
+        },
+        {
+          "name": "UpdateParameters",
+          "id": "updateparameters",
+          "href": "/graphql/reference/repos#object-updateparameters"
+        },
+        {
+          "name": "WorkflowsParameters",
+          "id": "workflowsparameters",
+          "href": "/graphql/reference/actions#object-workflowsparameters"
+        }
+      ],
+      "category": "other"
+    }
+  ],
+  "inputObjects": [
+    {
+      "name": "AddEnterpriseAdminInput",
+      "id": "addenterpriseadmininput",
+      "href": "/graphql/reference/other#input-object-addenterpriseadmininput",
+      "description": "<p>Autogenerated input type of AddEnterpriseAdmin.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "enterpriseId",
+          "description": "<p>The ID of the enterprise account to which the administrator should be added.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "login",
+          "description": "<p>The login of the user to add as an administrator.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "RuleParametersInput",
+      "id": "ruleparametersinput",
+      "href": "/graphql/reference/other#input-object-ruleparametersinput",
+      "description": "<p>Specifies the parameters for a <code>RepositoryRule</code> object. Only one of the fields should be specified.</p>",
+      "inputFields": [
+        {
+          "name": "branchNamePattern",
+          "description": "<p>Parameters used for the <code>branch_name_pattern</code> rule type.</p>",
+          "type": "BranchNamePatternParametersInput",
+          "id": "branchnamepatternparametersinput",
+          "href": "/graphql/reference/branches#input-object-branchnamepatternparametersinput"
+        },
+        {
+          "name": "codeScanning",
+          "description": "<p>Parameters used for the <code>code_scanning</code> rule type.</p>",
+          "type": "CodeScanningParametersInput",
+          "id": "codescanningparametersinput",
+          "href": "/graphql/reference/repos#input-object-codescanningparametersinput"
+        },
+        {
+          "name": "commitAuthorEmailPattern",
+          "description": "<p>Parameters used for the <code>commit_author_email_pattern</code> rule type.</p>",
+          "type": "CommitAuthorEmailPatternParametersInput",
+          "id": "commitauthoremailpatternparametersinput",
+          "href": "/graphql/reference/commits#input-object-commitauthoremailpatternparametersinput"
+        },
+        {
+          "name": "commitMessagePattern",
+          "description": "<p>Parameters used for the <code>commit_message_pattern</code> rule type.</p>",
+          "type": "CommitMessagePatternParametersInput",
+          "id": "commitmessagepatternparametersinput",
+          "href": "/graphql/reference/commits#input-object-commitmessagepatternparametersinput"
+        },
+        {
+          "name": "committerEmailPattern",
+          "description": "<p>Parameters used for the <code>committer_email_pattern</code> rule type.</p>",
+          "type": "CommitterEmailPatternParametersInput",
+          "id": "committeremailpatternparametersinput",
+          "href": "/graphql/reference/commits#input-object-committeremailpatternparametersinput"
+        },
+        {
+          "name": "copilotCodeReview",
+          "description": "<p>Parameters used for the <code>copilot_code_review</code> rule type.</p>",
+          "type": "CopilotCodeReviewParametersInput",
+          "id": "copilotcodereviewparametersinput",
+          "href": "/graphql/reference/pulls#input-object-copilotcodereviewparametersinput"
+        },
+        {
+          "name": "fileExtensionRestriction",
+          "description": "<p>Parameters used for the <code>file_extension_restriction</code> rule type.</p>",
+          "type": "FileExtensionRestrictionParametersInput",
+          "id": "fileextensionrestrictionparametersinput",
+          "href": "/graphql/reference/repos#input-object-fileextensionrestrictionparametersinput"
+        },
+        {
+          "name": "filePathRestriction",
+          "description": "<p>Parameters used for the <code>file_path_restriction</code> rule type.</p>",
+          "type": "FilePathRestrictionParametersInput",
+          "id": "filepathrestrictionparametersinput",
+          "href": "/graphql/reference/repos#input-object-filepathrestrictionparametersinput"
+        },
+        {
+          "name": "maxFilePathLength",
+          "description": "<p>Parameters used for the <code>max_file_path_length</code> rule type.</p>",
+          "type": "MaxFilePathLengthParametersInput",
+          "id": "maxfilepathlengthparametersinput",
+          "href": "/graphql/reference/repos#input-object-maxfilepathlengthparametersinput"
+        },
+        {
+          "name": "maxFileSize",
+          "description": "<p>Parameters used for the <code>max_file_size</code> rule type.</p>",
+          "type": "MaxFileSizeParametersInput",
+          "id": "maxfilesizeparametersinput",
+          "href": "/graphql/reference/repos#input-object-maxfilesizeparametersinput"
+        },
+        {
+          "name": "mergeQueue",
+          "description": "<p>Parameters used for the <code>merge_queue</code> rule type.</p>",
+          "type": "MergeQueueParametersInput",
+          "id": "mergequeueparametersinput",
+          "href": "/graphql/reference/pulls#input-object-mergequeueparametersinput"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>Parameters used for the <code>pull_request</code> rule type.</p>",
+          "type": "PullRequestParametersInput",
+          "id": "pullrequestparametersinput",
+          "href": "/graphql/reference/pulls#input-object-pullrequestparametersinput"
+        },
+        {
+          "name": "requiredDeployments",
+          "description": "<p>Parameters used for the <code>required_deployments</code> rule type.</p>",
+          "type": "RequiredDeploymentsParametersInput",
+          "id": "requireddeploymentsparametersinput",
+          "href": "/graphql/reference/deployments#input-object-requireddeploymentsparametersinput"
+        },
+        {
+          "name": "requiredStatusChecks",
+          "description": "<p>Parameters used for the <code>required_status_checks</code> rule type.</p>",
+          "type": "RequiredStatusChecksParametersInput",
+          "id": "requiredstatuschecksparametersinput",
+          "href": "/graphql/reference/branches#input-object-requiredstatuschecksparametersinput"
+        },
+        {
+          "name": "tagNamePattern",
+          "description": "<p>Parameters used for the <code>tag_name_pattern</code> rule type.</p>",
+          "type": "TagNamePatternParametersInput",
+          "id": "tagnamepatternparametersinput",
+          "href": "/graphql/reference/repos#input-object-tagnamepatternparametersinput"
+        },
+        {
+          "name": "update",
+          "description": "<p>Parameters used for the <code>update</code> rule type.</p>",
+          "type": "UpdateParametersInput",
+          "id": "updateparametersinput",
+          "href": "/graphql/reference/repos#input-object-updateparametersinput"
+        },
+        {
+          "name": "workflows",
+          "description": "<p>Parameters used for the <code>workflows</code> rule type.</p>",
+          "type": "WorkflowsParametersInput",
+          "id": "workflowsparametersinput",
+          "href": "/graphql/reference/actions#input-object-workflowsparametersinput"
+        }
+      ],
+      "category": "other"
+    }
+  ],
+  "scalars": [
+    {
+      "name": "Base64String",
+      "id": "base64string",
+      "href": "/graphql/reference/other#scalar-base64string",
+      "description": "<p>A (potentially binary) string encoded using base64.</p>",
+      "category": "other"
+    },
+    {
+      "name": "BigInt",
+      "id": "bigint",
+      "href": "/graphql/reference/other#scalar-bigint",
+      "description": "<p>Represents non-fractional signed whole numeric values. Since the value may\nexceed the size of a 32-bit integer, it's encoded as a string.</p>",
+      "category": "other"
+    },
+    {
+      "name": "Boolean",
+      "description": "<p>Represents <code>true</code> or <code>false</code> values.</p>",
+      "id": "boolean",
+      "href": "/graphql/reference/other#other-other-scalar-boolean",
+      "category": "other"
+    },
+    {
+      "name": "CustomPropertyValue",
+      "id": "custompropertyvalue",
+      "href": "/graphql/reference/other#scalar-custompropertyvalue",
+      "description": "<p>A custom property value can be either a string or an array of strings. All\nproperty types support only a single string value, except for the multi-select\ntype, which supports only a string array.</p>",
+      "category": "other"
+    },
+    {
+      "name": "Date",
+      "id": "date",
+      "href": "/graphql/reference/other#scalar-date",
+      "description": "<p>An ISO-8601 encoded date string.</p>",
+      "category": "other"
+    },
+    {
+      "name": "DateTime",
+      "id": "datetime",
+      "href": "/graphql/reference/other#scalar-datetime",
+      "description": "<p>An ISO-8601 encoded UTC date string.</p>",
+      "category": "other"
+    },
+    {
+      "name": "Float",
+      "description": "<p>Represents signed double-precision fractional values as specified by <a href=\"https://en.wikipedia.org/wiki/IEEE_floating_point\">IEEE 754</a>.</p>",
+      "id": "float",
+      "href": "/graphql/reference/other#other-other-scalar-float",
+      "category": "other"
+    },
+    {
+      "name": "GitObjectID",
+      "id": "gitobjectid",
+      "href": "/graphql/reference/other#scalar-gitobjectid",
+      "description": "<p>A Git object ID.</p>",
+      "category": "other"
+    },
+    {
+      "name": "GitRefname",
+      "id": "gitrefname",
+      "href": "/graphql/reference/other#scalar-gitrefname",
+      "description": "<p>A fully qualified reference name (e.g. <code>refs/heads/master</code>).</p>",
+      "category": "other"
+    },
+    {
+      "name": "GitSSHRemote",
+      "id": "gitsshremote",
+      "href": "/graphql/reference/other#scalar-gitsshremote",
+      "description": "<p>Git SSH string.</p>",
+      "category": "other"
+    },
+    {
+      "name": "GitTimestamp",
+      "id": "gittimestamp",
+      "href": "/graphql/reference/other#scalar-gittimestamp",
+      "description": "<p>An ISO-8601 encoded date string. Unlike the DateTime type, GitTimestamp is not converted in UTC.</p>",
+      "category": "other"
+    },
+    {
+      "name": "HTML",
+      "id": "html",
+      "href": "/graphql/reference/other#scalar-html",
+      "description": "<p>A string containing HTML code.</p>",
+      "category": "other"
+    },
+    {
+      "name": "ID",
+      "description": "<p>Represents a unique identifier that is Base64 obfuscated. It is often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as <code>\"VXNlci0xMA==\"</code>) or integer (such as <code>4</code>) input value will be accepted as an ID.</p>",
+      "id": "id",
+      "href": "/graphql/reference/other#other-other-scalar-id",
+      "category": "other"
+    },
+    {
+      "name": "Int",
+      "description": "<p>Represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.</p>",
+      "id": "int",
+      "href": "/graphql/reference/other#other-other-scalar-int",
+      "category": "other"
+    },
+    {
+      "name": "PreciseDateTime",
+      "id": "precisedatetime",
+      "href": "/graphql/reference/other#scalar-precisedatetime",
+      "description": "<p>An ISO-8601 encoded UTC date string with millisecond precision.</p>",
+      "category": "other"
+    },
+    {
+      "name": "String",
+      "description": "<p>Represents textual data as UTF-8 character sequences. This type is most often used by GraphQL to represent free-form human-readable text.</p>",
+      "id": "string",
+      "href": "/graphql/reference/other#other-other-scalar-string",
+      "category": "other"
+    },
+    {
+      "name": "URI",
+      "id": "uri",
+      "href": "/graphql/reference/other#scalar-uri",
+      "description": "<p>An RFC 3986, RFC 3987, and RFC 6570 (level 4) compliant URI string.</p>",
+      "category": "other"
+    },
+    {
+      "name": "X509Certificate",
+      "id": "x509certificate",
+      "href": "/graphql/reference/other#scalar-x509certificate",
+      "description": "<p>A valid x509 certificate string.</p>",
+      "category": "other"
+    }
+  ]
+}

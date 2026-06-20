@@ -9,10 +9,9 @@ redirect_from:
 permissions: Organization owners can manage team synchronization for an organization.
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Manage team synchronization
+category:
+  - Configure SAML single sign-on
 ---
 
 {% data reusables.enterprise-accounts.emu-scim-note %}

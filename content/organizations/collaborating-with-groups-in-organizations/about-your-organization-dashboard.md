@@ -8,10 +8,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Organization dashboard
+category:
+  - Set up your organization
 ---
 
 ## Accessing your organization dashboard

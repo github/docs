@@ -5,6 +5,7 @@ import { describe, expect, test, vi } from 'vitest'
 
 import Page from '@/frame/lib/page'
 import findPage from '@/frame/lib/find-page'
+import type { Page as PageType } from '@/types'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -31,7 +32,7 @@ describe('find page', () => {
 
     const redirectedPage = findPage(
       redirectToFind,
-      pageMap as any, // Using any due to type conflicts between different Page type definitions
+      pageMap as unknown as Record<string, PageType>,
       page.buildRedirects(),
     )
     expect(redirectedPage).toBeDefined()

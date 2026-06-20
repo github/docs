@@ -4,14 +4,12 @@ intro: You can stop and start your codespace to save resources and to pause work
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
-  - Fundamentals
-  - Developer
 shortTitle: Stop a codespace
 redirect_from:
   - /codespaces/developing-in-codespaces/stopping-and-starting-a-codespace
+contentType: how-tos
+category:
+  - Create and manage codespaces
 ---
 
 ## About stopping and starting a codespace

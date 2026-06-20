@@ -10,8 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 children:
   - /about-status-checks
   - /troubleshooting-required-status-checks

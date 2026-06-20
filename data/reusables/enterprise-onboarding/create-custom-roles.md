@@ -1,5 +1,3 @@
->[!NOTE] The ability for enterprise owners to create custom roles for an organization or enterprise is in public preview and subject to change.
-
 To tailor access management to your company's needs, you can create custom roles for your{% ifversion enterprise-custom-roles %} enterprise account and{% endif %} organizations.
 
 Custom roles are sets of permissions for settings and resources that you can assign to users and teams.{% ifversion enterprise-custom-roles %} To learn best practices for using roles on {% data variables.product.github %}, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/identify-role-requirements).{% endif %}
@@ -7,6 +5,8 @@ Custom roles are sets of permissions for settings and resources that you can ass
 {% ifversion enterprise-custom-roles %}
 
 ## Creating enterprise custom roles
+
+>[!NOTE] This feature is in {% data variables.release-phases.public_preview %} and subject to change.
 
 Enterprise custom roles grant access to a subset of enterprise settings, such as viewing audit logs and creating organizations. {% data variables.product.github %} plans to expand the list of available permissions over time.
 

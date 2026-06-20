@@ -14,10 +14,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Accounts
 shortTitle: Merge multiple accounts
 contentType: how-tos
+category:
+  - Change or close your account
 ---
 
 {% ifversion ghec %}

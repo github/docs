@@ -9,10 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 shortTitle: Review security log
+category:
+  - Manage access credentials
 ---
 
 ## Accessing your security log

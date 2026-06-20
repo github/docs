@@ -4,13 +4,11 @@ intro: 'Discover {% data variables.product.github %} support and set up a suppor
 allowTitleToDifferFromFilename: true
 versions:
   ghec: '*'
-topics:
-  - Enterprise
-  - Set up
-  - Support
 shortTitle: Create a support model
 children:
   - /understanding-support
   - /using-the-support-portal
   - /managing-support-entitlements
+docsTeamMetrics:
+  - enterprise-onboarding
 ---

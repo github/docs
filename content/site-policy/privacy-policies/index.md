@@ -2,14 +2,10 @@
 title: Privacy Policies
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 children:
   - /github-general-privacy-statement
   - /github-subprocessors
   - /github-cookies
-  - /github-codespaces-privacy-statement
   - /github-candidate-privacy-policy
 redirect_from:
   - /github/site-policy/github-data-protection-addendum

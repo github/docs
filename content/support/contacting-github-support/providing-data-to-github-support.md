@@ -12,8 +12,8 @@ redirect_from:
   - /enterprise/admin/enterprise-support/providing-data-to-github-support
   - /admin/enterprise-support/providing-data-to-github-support
   - /admin/enterprise-support/receiving-help-from-github-support/providing-data-to-github-support
-topics:
-  - Support
+category:
+  - Contact GitHub
 ---
 
 ## About diagnostic files and support bundles

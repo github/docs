@@ -7,6 +7,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Quickstart
+category:
+  - Get started with packages
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

@@ -15,6 +15,8 @@ versions:
 authors:
   - GitHub
 shortTitle: Learning resources
+category:
+  - Set up your account on GitHub
 ---
 
 ## Using {% data variables.product.github %}

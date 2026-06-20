@@ -15,13 +15,13 @@ redirect_from:
   - /actions/managing-workflow-runs-and-deployments/managing-workflow-deployments/managing-environments-for-deployment
   - /actions/managing-workflow-runs-and-deployments/managing-deployments/managing-environments-for-deployment
   - /actions/how-tos/managing-workflow-runs-and-deployments/managing-deployments/managing-environments-for-deployment
-topics:
-  - CD
-  - Deployment
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Deploy to environments
+contentType: how-tos
 ---
 
 ## Prerequisites
@@ -112,7 +112,7 @@ You can also delete environments through the REST API. For more information, see
 
 {% data reusables.actions.environment-deployment-event %}
 
-You can access these objects through the REST API or GraphQL API. You can also subscribe to these webhook events. For more information, see [AUTOTITLE](/rest/repos#deployments), [AUTOTITLE](/graphql/reference/objects#deployment) (GraphQL API), or [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment).
+You can access these objects through the REST API or GraphQL API. You can also subscribe to these webhook events. For more information, see [AUTOTITLE](/rest/repos#deployments), [AUTOTITLE](/graphql/reference/deployments#object-deployment) (GraphQL API), or [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment).
 
 ## Next steps
 

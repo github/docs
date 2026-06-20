@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: With multiple authors
+category:
+  - Commit changes
 ---
 ## Required co-author information
 

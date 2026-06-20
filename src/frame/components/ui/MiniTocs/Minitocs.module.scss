@@ -2,8 +2,17 @@
 @import "@primer/css/support/mixins/layout.scss";
 @import "src/frame/stylesheets/breakpoint-xxl.scss";
 
-.indentNested {
-  padding-inline-start: 0;
+// Wrapper `<ul>` for the second level of a nested mini-TOC. Indents the
+// nested items relative to their parent so a two-level TOC (e.g. the GraphQL
+// reference category pages, which group items by kind) reads as a tree
+// rather than a flat list. Single-level mini-TOCs never render this element
+// (see `MiniTocs.tsx`), so this rule has no effect on existing pages.
+//
+// `ul.indentNested.indentNested` raises specificity to (0,2,1), beating
+// Primer's `.prc-ActionList-… ul { padding: 0 }` reset (specificity 0,1,1)
+// that would otherwise zero out the indent.
+ul.indentNested.indentNested {
+  padding-inline-start: 1rem;
 }
 
 .nested {

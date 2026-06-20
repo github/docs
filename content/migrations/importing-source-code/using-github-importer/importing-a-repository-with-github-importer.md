@@ -11,6 +11,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Import a repository
+category:
+  - Import source code
 ---
 
 ## About repository imports with {% data variables.product.prodname_importer %}

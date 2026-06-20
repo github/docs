@@ -13,19 +13,20 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Packages
-  - Spending limits
 shortTitle: GitHub Packages
 contentType: concepts
+category:
+  - Understand product costs
 ---
 
 ## How use of {% data variables.product.prodname_registry %} is measured
 
 {% data variables.product.prodname_registry %} usage is **free** for **public packages**. In addition, data transferred in from any source is free.
 
-For **private** repositories, each {% data variables.product.github %} account receives a quota of storage and data transfer for use with {% data variables.product.prodname_registry %}, depending on the account's plan. Any usage beyond the included amounts is billed to your account. Data transfer resets every month, while storage usage does not.
+For **private** repositories, each {% data variables.product.github %} account receives a quota of storage and data transfer for use with {% data variables.product.prodname_registry %}, depending on the account's plan. Any usage beyond the included amounts is billed to your account. 
+
+* **Data transfer** Your free quota resets at the start of each billing cycle. 
+* **Storage:** Charges accrue continuously throughout the month based on your hourly usage. At the start of each billing cycle, your accrued storage total resets to zero and begins accumulating again.
 
 Working in a private repository with packages:
 
@@ -57,8 +58,10 @@ Plan | Storage | Data transfer (per month)
 
 {% endrowheaders %}
 
+The storage amounts shown are **shared** with {% data variables.product.prodname_actions %}. This means your total storage across Packages, Actions artifacts, and Actions caches cannot exceed the included amount for your plan.
+
 > [!NOTE]
-> **Billing for container image storage:** Container image storage and bandwidth for the {% data variables.product.prodname_container_registry %} is currently free. If you use {% data variables.product.prodname_container_registry %}, you'll be informed at least one month in advance of any change to this policy. For more information about the {% data variables.product.prodname_container_registry %}, see [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry).
+> * **Billing for container image storage:** Container image storage and bandwidth for the {% data variables.product.prodname_container_registry %} is currently free. If you use {% data variables.product.prodname_container_registry %}, you'll be informed at least one month in advance of any change to this policy. For more information about the {% data variables.product.prodname_container_registry %}, see [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry).
 
 ### Package downloads by {% data variables.product.prodname_actions %}
 
@@ -81,7 +84,7 @@ If your account does not have a valid payment method on file, usage is blocked o
 
 You pay for any additional use above your quota using the payment method set up for your {% data variables.product.github %} account. See [AUTOTITLE](/billing/how-tos/set-up-payment/manage-payment-info).
 
-Data transfer is billed for each GB of data transfered. Storage is billed by calculating an hourly usage rate.
+Data transfer is billed for each GB of data transferred. Storage is billed by calculating an hourly usage rate.
 
 * {% data reusables.dotcom_billing.pricing_calculator.pricing_cal_packages %}
 * To view your current storage and bandwidth, see [AUTOTITLE](/billing/managing-billing-for-your-products/viewing-your-product-usage).
@@ -115,7 +118,7 @@ The projected 1.6 GB of storage usage for the month would not exceed your 2 GB l
 
 {% data reusables.billing.default-over-quota-behavior %}
 
-{% data reusables.billing.migrated-budgets %}
+You can also receive email notifications when your included {% data variables.product.prodname_registry %} usage reaches 90% and 100% during a billing period. For more information, see [AUTOTITLE](/billing/concepts/budgets-and-alerts#included-usage-alerts).
 
 ## Further reading
 

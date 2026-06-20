@@ -19,8 +19,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
 children:
   - /upgrade-plan
   - /downgrade-plan

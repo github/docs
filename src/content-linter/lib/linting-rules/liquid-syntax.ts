@@ -33,6 +33,7 @@ export const frontmatterLiquidSyntax = {
 
     for (const key of keysWithLiquid) {
       const value = fm[key]
+      if (typeof value !== 'string') continue
       try {
         liquid.parse(value)
       } catch (error) {

@@ -8,9 +8,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const fixturesDir = path.join(__dirname, 'orphaned-features', 'fixtures')
 
 // Import the actual helper functions from the orphaned features script
-const { getVariableFiles, getReusableFiles } = await import(
-  '@/data-directory/scripts/find-orphaned-features/find'
-)
+const { getVariableFiles, getReusableFiles } =
+  await import('@/data-directory/scripts/find-orphaned-features/find')
 
 describe('orphaned features detection', () => {
   test('getVariableFiles finds all yml files in variables directory', () => {

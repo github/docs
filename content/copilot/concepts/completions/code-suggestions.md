@@ -6,10 +6,8 @@ intro: 'Learn about {% data variables.product.prodname_copilot_short %} code sug
 versions:
   feature: copilot
 defaultTool: vscode
-topics:
-  - Copilot
 contentType: concepts
-category: 
+category:
   - Learn about Copilot
 ---
 
@@ -19,10 +17,13 @@ category:
 
 {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode %} provides two kinds of code suggestions:
 
+* **{% data variables.copilot.next_edit_suggestions_caps %}**
+
+  Based on the edits you are making, {% data variables.product.prodname_copilot_short %} both predicts the location of the next edit you'll want to make and what that edit should be. To enable {% data variables.copilot.next_edit_suggestions %}, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-your-environment#enabling-next-edit-suggestions).
+
 * **Ghost text suggestions**
-   * {% data variables.product.prodname_copilot_short %} offers coding suggestions as you type. You can also describe something you want to do using natural language within a comment, and {% data variables.product.prodname_copilot_short %} will suggest the code to accomplish your goal.
-* **{% data variables.copilot.next_edit_suggestions_caps %} ({% data variables.release-phases.public_preview %})**
-   * Based on the edits you are making, {% data variables.product.prodname_copilot_short %} will predict the location of the next edit you are likely to make and suggest a completion for it. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change. To enable {% data variables.copilot.next_edit_suggestions %}, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-your-environment#enabling-next-edit-suggestions).
+
+  {% data variables.product.prodname_copilot_short %} offers coding suggestions as you type. Start typing in the editor, and Copilot provides dimmed ghost text suggestions at your current cursor location. You can also describe something you want to do using natural language within a comment, and {% data variables.product.prodname_copilot_short %} will suggest the code to accomplish your goal.
 
 {% data reusables.copilot.supported-languages %}
 
@@ -45,9 +46,12 @@ category:
 {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vs %} provides two kinds of code suggestions:
 
 * **Ghost text suggestions**
-   * {% data variables.product.prodname_copilot_short %} offers coding suggestions as you type.
+
+  {% data variables.product.prodname_copilot_short %} offers coding suggestions as you type.
+
 * **{% data variables.copilot.next_edit_suggestions_caps %} ({% data variables.release-phases.public_preview %})**
-   * Based on the edits you are making, {% data variables.product.prodname_copilot_short %} will predict the location of the next edit you are likely to make and suggest a completion for it. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change. To enable {% data variables.copilot.next_edit_suggestions %}, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-your-environment#enabling-next-edit-suggestions).
+
+  Based on the edits you are making, {% data variables.product.prodname_copilot_short %} will predict the location of the next edit you are likely to make and suggest a completion for it. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change. To enable {% data variables.copilot.next_edit_suggestions %}, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-your-environment#enabling-next-edit-suggestions).
 
 {% data reusables.copilot.supported-languages %}
 
@@ -73,7 +77,12 @@ category:
 
 ## About code suggestions in Xcode
 
-{% data variables.product.prodname_copilot %} offers inline suggestions as you type.
+{% data variables.product.prodname_copilot %} in Xcode provides two kinds of code suggestions:
+
+* **Ghost text suggestions**
+   * {% data variables.product.prodname_copilot_short %} offers coding suggestions as you type. You can also describe something you want to do using natural language within a comment, and {% data variables.product.prodname_copilot_short %} will suggest the code to accomplish your goal.
+* **{% data variables.copilot.next_edit_suggestions_caps %} ({% data variables.release-phases.public_preview %})**
+   * Based on the edits you are making, {% data variables.product.prodname_copilot_short %} will predict the location of the next edit you are likely to make and suggest a completion for it. Suggestions may span an entire line, or multiple lines, depending on the scope of the potential change. {% data variables.copilot.next_edit_suggestions_caps %} are enabled by default. To disable, see [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-in-ide?tool=xcode#enabling-next-edit-suggestions-2).
 
 {% endxcode %}
 
@@ -81,17 +90,20 @@ category:
 
 ## About code suggestions in Eclipse
 
-{% data variables.product.prodname_copilot %} offers inline suggestions as you type.
+{% data variables.product.prodname_copilot %} in Eclipse provides two kinds of code suggestions:
+
+* **Ghost text suggestions**
+   * {% data variables.product.prodname_copilot_short %} offers coding suggestions as you type. You can also describe something you want to do using natural language within a comment, and {% data variables.product.prodname_copilot_short %} will suggest the code to accomplish your goal.
+* **{% data variables.copilot.next_edit_suggestions_caps %} ({% data variables.release-phases.public_preview %})**
+   * Based on the edits you are making, {% data variables.product.prodname_copilot_short %} will predict the location of the next edit you are likely to make and suggest a completion for it. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change. To enable {% data variables.copilot.next_edit_suggestions %}, see [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-in-ide?tool=eclipse#enabling-next-edit-suggestions-3).
+
+{% data reusables.copilot.supported-languages %}
 
 {% endeclipse %}
 
 ## Code suggestions that match public code
 
-{% data variables.product.prodname_copilot %} checks each suggestion for matches with publicly available code. Any matches are discarded or suggested with a code reference, based on the setting of the "Suggestions matching public code" policy for your account or organization. See [AUTOTITLE](/copilot/concepts/completions/code-referencing).
-
-## About the AI model used for {% data variables.product.prodname_copilot_short %} inline suggestions
-
-{% data variables.product.prodname_copilot_short %} inline suggestions use the {% data variables.copilot.copilot_gpt_41 %} {% data variables.product.prodname_copilot_short %} model. The {% data variables.copilot.copilot_gpt_41 %} {% data variables.product.prodname_copilot_short %} model was trained on a wide range of high quality public {% data variables.product.github %} repositories, providing coverage of over 30 programming languages. See [Programming languages included in the default model](#programming-languages-included-in-the-default-model) below.
+{% data variables.product.prodname_copilot %} checks each suggestion for matches with publicly available code. Matches may be discarded or suggested with a code reference, based on the setting of the "Suggestions matching public code" policy for your account or organization. See [AUTOTITLE](/copilot/concepts/completions/code-referencing).
 
 {% vscode %}
 

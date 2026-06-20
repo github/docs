@@ -12,13 +12,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
-topics:
-  - Jenkins
-  - Migration
-  - CI
-  - CD
 shortTitle: Migrate from Jenkins
+contentType: tutorials
+category:
+  - Migrate to GitHub Actions
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 redirect_from:
   - /contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs
+category:
+  - Write and format content
 ---
 
 ## About using Markdown and Liquid in {% data variables.product.prodname_docs %}

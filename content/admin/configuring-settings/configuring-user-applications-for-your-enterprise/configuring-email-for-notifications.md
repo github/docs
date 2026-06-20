@@ -1,6 +1,6 @@
 ---
 title: Configuring email for notifications
-intro: 'To make it easy for users to respond quickly to activity, you can configure {% data variables.location.product_location %} to send email notifications for issue, pull request, and commit comments.'
+intro: To make it easy for users to respond quickly to activity, you can configure {% data variables.location.product_location %} to send email notifications for issue, pull request, and commit comments.
 redirect_from:
   - /enterprise/admin/guides/installation/email-configuration
   - /enterprise/admin/articles/configuring-email
@@ -13,13 +13,10 @@ redirect_from:
 permissions: Site administrators can configure email for notifications.
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Notifications
 shortTitle: Configure email notifications
+contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## Configuring SMTP for your enterprise

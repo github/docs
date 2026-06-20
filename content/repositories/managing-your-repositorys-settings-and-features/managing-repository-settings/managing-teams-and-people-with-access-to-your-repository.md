@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Repositories
 shortTitle: Teams & people
+category:
+  - Manage access and repository policies
 ---
 
 ## About access management for repositories

@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Get set up to contribute
 ---
 
 This article describes the process of creating a topic branch for the documentation repository, committing changes, and pushing your changes back up to the remote repository.

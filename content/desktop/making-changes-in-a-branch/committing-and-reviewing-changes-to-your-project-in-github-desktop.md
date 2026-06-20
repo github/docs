@@ -11,6 +11,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Commit & review changes
+category:
+  - Work with branches and pull requests
 ---
 ## About commits
 
@@ -115,6 +117,10 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
 
    ![Screenshot of the "Changes" tab. In the corner of the "Description" field, the icon for adding a co-author is outlined in orange.](/assets/images/help/desktop/add-co-author-commit.png)
 {% data reusables.desktop.commit-button %}
+
+   > [!TIP]
+   > If your repository has pre-commit or commit-msg hooks, they will run automatically when you commit. You can bypass hooks for a specific commit by clicking {% octicon "gear" aria-label="Commit options" %} next to the commit message field and selecting **Bypass Commit Hooks**. For more information, see [AUTOTITLE](/desktop/making-changes-in-a-branch/working-with-git-hooks-in-github-desktop).
+
 1. If the branch you're trying to commit to is protected, Desktop will warn you.
     * To move your changes, click **switch branches**.
     * To commit your changes to the protected branch, click **Commit to BRANCH**.
@@ -135,3 +141,4 @@ If you need to undo a commit or revise your commit history (to make it easier fo
 ## Further reading
 
 * [AUTOTITLE](/get-started/using-git)
+* [AUTOTITLE](/desktop/making-changes-in-a-branch/working-with-git-hooks-in-github-desktop)

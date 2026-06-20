@@ -1,0 +1,1 @@
+With {% data variables.copilot.copilot_automations %}, you can set up {% data variables.copilot.copilot_cloud_agent %} to run automatically, either on a schedule or in response to an event in a repository. {% data variables.copilot.copilot_automations_cap %} can take action within the repository where they are configured, such as opening a pull request or labeling an issue.

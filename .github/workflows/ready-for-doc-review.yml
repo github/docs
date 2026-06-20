@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo content
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           repository: github/docs-internal
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
@@ -33,15 +33,19 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm install @octokit/graphql
+        run: npm ci
 
       - name: Set AUTHOR_LOGIN
         run: |
-          if [[ "${{ github.event.pull_request.assignee.login && github.event.pull_request.user.login == 'docs-bot' }}" ]]; then
-            echo "AUTHOR_LOGIN=${{ github.event.pull_request.assignee.login }}" >> $GITHUB_ENV
+          if [[ "${IS_DOCS_BOT_ASSIGNEE}" == "true" ]]; then
+            echo "AUTHOR_LOGIN=${ASSIGNEE_LOGIN}" >> $GITHUB_ENV
           else
-            echo "AUTHOR_LOGIN=${{ github.event.pull_request.user.login }}" >> $GITHUB_ENV
+            echo "AUTHOR_LOGIN=${USER_LOGIN}" >> $GITHUB_ENV
           fi
+        env:
+          IS_DOCS_BOT_ASSIGNEE: ${{ github.event.pull_request.assignee.login && github.event.pull_request.user.login == 'docs-bot' }}
+          ASSIGNEE_LOGIN: ${{ github.event.pull_request.assignee.login }}
+          USER_LOGIN: ${{ github.event.pull_request.user.login }}
 
       - name: Run script
         run: |

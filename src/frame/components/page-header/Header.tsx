@@ -19,7 +19,6 @@ import { HeaderSearchAndWidgets } from './HeaderSearchAndWidgets'
 import { useInnerWindowWidth } from './hooks/useInnerWindowWidth'
 import { useMultiQueryParams } from '@/search/components/hooks/useMultiQueryParams'
 import { SearchOverlayContainer } from '@/search/components/input/SearchOverlayContainer'
-import { useCTAPopoverContext } from '@/frame/components/context/CTAContext'
 import { useSearchOverlayContext } from '@/search/components/context/SearchOverlayContext'
 
 import styles from './Header.module.scss'
@@ -43,16 +42,22 @@ export const Header = () => {
   const isEarlyAccessPage = currentProduct && currentProduct.id === 'early-access'
   const { width } = useInnerWindowWidth()
   const returnFocusRef = useRef(null)
-  const searchButtonRef = useRef<HTMLButtonElement>(null)
-  const { initializeCTA } = useCTAPopoverContext()
+  const searchButtonRefLarge = useRef<HTMLButtonElement>(null)
+  const searchButtonRefSmall = useRef<HTMLButtonElement>(null)
   const { isSearchOpen, setIsSearchOpen } = useSearchOverlayContext()
+
+  // The lg breakpoint (1012px) determines which search button is visible.
+  // Pass the correct ref to SearchOverlayContainer so Primer's Overlay
+  // restores focus to the visible trigger element on close.
+  const isLargeViewport = width !== null && width >= 1012
+  const searchButtonRef = isLargeViewport ? searchButtonRefLarge : searchButtonRefSmall
 
   const SearchButtonLarge: JSX.Element = (
     <SearchBarButton
       isSearchOpen={isSearchOpen}
       setIsSearchOpen={setIsSearchOpen}
       params={params}
-      searchButtonRef={searchButtonRef}
+      searchButtonRef={searchButtonRefLarge}
       instanceId="large"
     />
   )
@@ -62,13 +67,10 @@ export const Header = () => {
       isSearchOpen={isSearchOpen}
       setIsSearchOpen={setIsSearchOpen}
       params={params}
-      searchButtonRef={searchButtonRef}
+      searchButtonRef={searchButtonRefSmall}
       instanceId="small"
     />
   )
-
-  // Initialize the CTA(s)
-  initializeCTA()
 
   useEffect(() => {
     function onScroll() {
@@ -90,17 +92,18 @@ export const Header = () => {
     return () => window.removeEventListener('keydown', close)
   }, [])
 
-  // For the UI in smaller browser widths, and focus the picker menu button when the search
-  // input is closed.
+  // For the UI in smaller browser widths, focus the picker menu button when
+  // the sidebar is closed (not when the search overlay is closed — the
+  // overlay's returnFocusRef handles focus restoration to the search button).
   useEffect(() => {
-    if (!isSearchOpen && isMounted.current && menuButtonRef.current) {
+    if (!isSidebarOpen && isMounted.current && menuButtonRef.current) {
       menuButtonRef.current.focus()
     }
 
     if (!isMounted.current) {
       isMounted.current = true
     }
-  }, [isSearchOpen])
+  }, [isSidebarOpen])
 
   // When the sidebar overlay is opened, prevent the main content from being
   // scrollable.

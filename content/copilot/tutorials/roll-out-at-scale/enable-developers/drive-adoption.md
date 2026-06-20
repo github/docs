@@ -4,8 +4,6 @@ shortTitle: Drive adoption
 intro: Learn how to plan an effective enablement process to drive Copilot adoption.
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/rolling-out-github-copilot-at-scale/driving-copilot-adoption-in-your-company
   - /copilot/rolling-out-github-copilot-at-scale/enabling-developers/driving-copilot-adoption-in-your-company

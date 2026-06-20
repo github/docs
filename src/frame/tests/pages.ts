@@ -60,14 +60,15 @@ describe('pages module', () => {
 
       // Page objects have dynamic properties from chain/lodash that aren't fully typed
       for (const page of englishPages) {
-        for (const redirect of (page as any).redirect_from) {
-          for (const version of (page as any).applicableVersions) {
+        const pageObj = page as Record<string, unknown>
+        for (const redirect of pageObj.redirect_from as string[]) {
+          for (const version of pageObj.applicableVersions as string[]) {
             const versioned = removeFPTFromPath(path.posix.join('/', version, redirect))
-            versionedRedirects.push({ path: versioned, file: (page as any).fullPath })
+            versionedRedirects.push({ path: versioned, file: pageObj.fullPath as string })
             if (!redirectToFiles.has(versioned)) {
               redirectToFiles.set(versioned, new Set<string>())
             }
-            redirectToFiles.get(versioned)!.add((page as any).fullPath)
+            redirectToFiles.get(versioned)!.add(pageObj.fullPath as string)
           }
         }
       }
@@ -97,7 +98,7 @@ describe('pages module', () => {
             page.languageCode === 'en' && // only check English
             !page.relativePath.includes('index.md') && // ignore TOCs
             // Page class has dynamic frontmatter properties like 'allowTitleToDifferFromFilename' not in type definition
-            !(page as any).allowTitleToDifferFromFilename && // ignore docs with override
+            !(page as Record<string, unknown>).allowTitleToDifferFromFilename && // ignore docs with override
             slugger.slug(decode(page.title)) !== path.basename(page.relativePath, '.md') &&
             slugger.slug(decode(page.shortTitle || '')) !== path.basename(page.relativePath, '.md')
           )
@@ -129,7 +130,7 @@ describe('pages module', () => {
       const frontmatterErrors = chain(pages)
         // .filter(page => page.languageCode === 'en')
         // Page class has dynamic error properties like 'frontmatterErrors' not in type definition
-        .map((page) => (page as any).frontmatterErrors)
+        .map((page) => (page as Record<string, unknown>).frontmatterErrors)
         .filter(Boolean)
         .flatten()
         .value()
@@ -149,7 +150,7 @@ describe('pages module', () => {
 
       for (const page of pages) {
         // Page class has dynamic properties like 'raw' markdown not in type definition
-        const markdown = (page as any).raw
+        const markdown = (page as Record<string, unknown>).raw as string
         if (!patterns.hasLiquid.test(markdown)) continue
         try {
           await liquid.parse(markdown)

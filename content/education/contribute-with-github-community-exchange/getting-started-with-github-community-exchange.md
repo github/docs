@@ -4,6 +4,8 @@ shortTitle: Get started
 intro: 'Learn how to access {% data variables.product.prodname_community_exchange %} and submit your repository.'
 versions:
   fpt: '*'
+category:
+  - Participate in campus and community programs
 ---
 
 ## Introduction

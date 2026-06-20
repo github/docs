@@ -2,8 +2,6 @@
 title: Using GitHub Copilot to migrate a project to another programming language
 allowTitleToDifferFromFilename: true
 intro: '{% data variables.copilot.copilot_chat %} can help you move a project to a different language. This guide describes what''s involved in a migration process and gives an example of a PHP to Python migration.'
-topics:
-  - Copilot
 versions:
   feature: copilot
 shortTitle: Migrate a project
