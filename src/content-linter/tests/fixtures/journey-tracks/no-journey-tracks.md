@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Testing
 ---
 
 # Journey without Journey Tracks

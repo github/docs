@@ -4,12 +4,15 @@ import { cuss } from 'cuss'
 import { cuss as cussPt } from 'cuss/pt'
 import { cuss as cussFr } from 'cuss/fr'
 import { cuss as cussEs } from 'cuss/es'
-let language: any = null
+interface LanguageGuesser {
+  guessBest(text: string, langs: string[]): { alpha2: string } | null
+}
+let language: LanguageGuesser | null = null
 
 async function getLanguageInstance() {
   if (!language) {
     const { Language } = await import('@horizon-rs/language-guesser')
-    language = new Language()
+    language = new Language() as LanguageGuesser
   }
   return language
 }

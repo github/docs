@@ -4,8 +4,6 @@ shortTitle: Back up and restore
 intro: 'You can configure backups for your instance and troubleshoot common backup problems.'
 versions:
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /configuring-backups-on-your-instance
   - /backup-service-for-github-enterprise-server

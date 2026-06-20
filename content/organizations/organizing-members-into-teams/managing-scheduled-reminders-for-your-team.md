@@ -7,10 +7,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Scheduled reminders
+category:
+  - Organize teams
 ---
 
 ## About scheduled reminders for teams

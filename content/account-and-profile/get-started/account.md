@@ -5,10 +5,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
 shortTitle: Account
 contentType: get-started
+category:
+  - Set up your account
 ---
 
 ## About your {% data variables.product.github %} account
@@ -25,10 +25,10 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 
 ## Next steps
 
-* For conceptual information about accounts, see [AUTOTITLE](/account-and-profile/concepts/personal-account-management).
-* For information about managing your account, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github).
+* For conceptual information about accounts, see [AUTOTITLE](/account-and-profile/concepts/account-management).
+* For information about managing your account, see [AUTOTITLE](/account-and-profile/how-tos).
 * For reference information, see [AUTOTITLE](/account-and-profile/reference/personal-account-reference).
 {%- ifversion ghec %}
 * For information about {% data variables.enterprise.prodname_managed_users %}, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users).
-* For information about managing multiple accounts, see [AUTOTITLE](/account-and-profile/concepts/personal-account-management#about-management-of-multiple-accounts).
+* For information about managing multiple accounts, see [AUTOTITLE](/account-and-profile/concepts/account-management#about-management-of-multiple-accounts).
 {%- endif %}

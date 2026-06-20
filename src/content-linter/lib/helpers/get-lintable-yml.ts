@@ -37,9 +37,13 @@ ajv.addKeyword({
   type: 'string',
   // For docs on defining validate see
   // https://ajv.js.org/keywords.html#define-keyword-with-validate-function
-  // Using any for validate function params because AJV's type definitions for custom keywords are complex
-  validate: (compiled: any, data: any, schema: any, parentInfo: any): boolean => {
-    mdDict.set(parentInfo.instancePath, data)
+  validate: (
+    _compiled: boolean,
+    data: string,
+    _schema: unknown,
+    parentInfo?: { instancePath: string },
+  ): boolean => {
+    if (parentInfo) mdDict.set(parentInfo.instancePath, data)
     return true
   },
   errors: false,

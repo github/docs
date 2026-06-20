@@ -18,8 +18,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
+category:
+  - Manage, move, and archive a repository
 ---
 ## About repository transfers
 

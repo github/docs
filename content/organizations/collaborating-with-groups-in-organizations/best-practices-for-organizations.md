@@ -6,9 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
+category:
+  - Set up your organization
 ---
 
 ## Assign multiple owners

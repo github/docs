@@ -12,8 +12,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
+category:
+  - Customize and configure a repository
 ---
 The people you choose as code owners must have write permissions for the repository. When the code owner is a team, that team must be visible and it must have write permissions, even if all the individual members of the team already have write permissions directly, through organization membership, or through another team membership.
 
@@ -62,6 +62,13 @@ To reduce the size of your CODEOWNERS file, consider using wildcard patterns to 
 > * Using `[ ]` to define a character range doesn't work
 
 A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files. The pattern is followed by one or more {% data variables.product.prodname_dotcom %} usernames or team names using the standard `@username` or `@org/team-name` format. Users and teams must have explicit `write` access to the repository, even if the team's members already have access.
+
+{% ifversion enterprise-teams %}
+
+> [!NOTE]
+> When using teams, only organization teams can be code owners. Enterprise teams are not supported as code owners. See [AUTOTITLE](/admin/concepts/enterprise-fundamentals/teams-in-an-enterprise).
+
+{% endif %}
 
 If you want to match two or more code owners with the same pattern, all the code owners must be on the same line. If the code owners are not on the same line, the pattern matches only the last mentioned code owner.
 

@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CI
 shortTitle: Go
 redirect_from:
   - /actions/automating-builds-and-tests/building-and-testing-go
@@ -14,6 +12,9 @@ redirect_from:
   - /actions/how-tos/use-cases-and-examples/building-and-testing/building-and-testing-go
   - /actions/how-tos/writing-workflows/building-and-testing/building-and-testing-go
   - /actions/tutorials/build-and-test-code/building-and-testing-go
+category:
+  - Build and test code
+contentType: tutorials
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

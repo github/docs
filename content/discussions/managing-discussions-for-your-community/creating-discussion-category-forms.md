@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Manage and moderate discussions
 ---
 
 ## About discussion category forms

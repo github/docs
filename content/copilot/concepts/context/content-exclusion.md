@@ -5,8 +5,6 @@ intro: You can prevent {% data variables.product.prodname_copilot_short %} from 
 product: '{% data reusables.gated-features.copilot-business-and-enterprise %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/concepts/content-exclusion-for-github-copilot
   - /copilot/concepts/content-exclusion

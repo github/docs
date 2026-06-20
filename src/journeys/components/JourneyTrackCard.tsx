@@ -13,9 +13,8 @@ export function JourneyTrackCard({ journey }: Props) {
   const { locale } = useRouter()
   const { currentVersion } = useVersion()
   const { t } = useTranslation('journey_track_nav')
-  const { trackTitle, journeyTitle, journeyPath, nextGuide, numberOfGuides, currentGuideIndex } =
-    journey
-  const fullPath = `/${locale}/${currentVersion}${journeyPath}?feature=journey-landing`
+  const { trackTitle, journeyPath, nextGuide, numberOfGuides, currentGuideIndex } = journey
+  const fullPath = `/${locale}/${currentVersion}${journeyPath}`
 
   return (
     <div
@@ -25,11 +24,10 @@ export function JourneyTrackCard({ journey }: Props) {
       <div className="d-flex flex-column width-full">
         <h2 className="h4">
           <Link href={fullPath} className="mb-1 text-underline">
-            {journeyTitle}
+            {trackTitle}
           </Link>
         </h2>
-        <span className="f6 color-fg-muted mb-2">{trackTitle}</span>
-        <span className="f5 color-fg-muted">
+        <span role="status" className="f5 color-fg-muted">
           {t('current_progress')
             .replace('{n}', `${numberOfGuides}`)
             .replace('{i}', `${currentGuideIndex + 1}`)}
@@ -49,6 +47,12 @@ export function JourneyTrackCard({ journey }: Props) {
             </Link>
           )}
         </span>
+        {journey.alternativeNextStep && (
+          <div
+            className="mt-4"
+            dangerouslySetInnerHTML={{ __html: journey.alternativeNextStep }}
+          ></div>
+        )}
       </div>
     </div>
   )

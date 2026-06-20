@@ -6,10 +6,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 redirect_from:
   - /rest/overview/keeping-your-api-credentials-secure
+category:
+  - Authenticate API requests
 ---
 
 ## Choose an appropriate authentication method
@@ -30,7 +30,7 @@ When creating a {% data variables.product.pat_generic %}, only select the minimu
 
 When creating a {% data variables.product.prodname_github_app %}, select the minimum permissions that your {% data variables.product.prodname_github_app %} will need. For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app).
 
-When authenticating with `GITHUB_TOKEN` in a {% data variables.product.prodname_actions %} workflow, only give the minimum amount of permissions needed. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token).
+When authenticating with `GITHUB_TOKEN` in a {% data variables.product.prodname_actions %} workflow, only give the minimum amount of permissions needed. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token).
 
 ## Store your authentication credentials securely
 
@@ -57,6 +57,11 @@ Never hardcode authentication credentials like tokens, keys, or app-related secr
 
 If you find another user's {% data variables.product.pat_generic %} exposed on {% data variables.product.github %} or elsewhere, you can submit a revocation request through the REST API. See [AUTOTITLE](/rest/credentials/revoke#revoke-a-list-of-credentials).
 
+{% ifversion ghec %}
+> [!NOTE]
+> The credential revocation REST API is not currently available for enterprises that use {% data variables.enterprise.data_residency %}.
+
+{% endif %}
 {% endif %}
 
 When using a {% data variables.product.pat_generic %} in a script, consider storing your token as a {% data variables.product.prodname_actions %} secret and running your script through {% data variables.product.prodname_actions %}.{% ifversion fpt or ghec %} You can also store your token as a Codespaces secret and run your script in Codespaces.{% endif %} For more information, see [AUTOTITLE](/actions/security-guides/encrypted-secrets){% ifversion fpt or ghec %} and [AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces){% endif %}.

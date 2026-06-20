@@ -13,10 +13,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CD
-  - Containers
-  - Amazon ECS
+category:
+  - Deploy to environments
+contentType: how-tos
 ---
 
 ## Prerequisites

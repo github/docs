@@ -1,0 +1,81 @@
+# Model multipliers for {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %} annual subscribers
+# Multiplier rates effective June 1, 2026.
+#
+# Column keys:
+# - model: The model name.
+# - new_multiplier: The multiplier rate effective June 1, 2026.
+
+- model: 'Claude Haiku 4.5'
+  new_multiplier: '0.33'
+
+- model: 'Claude Opus 4.5'
+  new_multiplier: '15'
+
+- model: 'Claude Opus 4.6'
+  new_multiplier: '27'
+
+- model: 'Claude Opus 4.7'
+  new_multiplier: '27'
+
+- model: 'Claude Opus 4.8'
+  new_multiplier: '27'
+
+- model: 'Claude Sonnet 4.5'
+  new_multiplier: '6'
+
+- model: 'Claude Sonnet 4.6'
+  new_multiplier: '9'
+
+- model: 'Gemini 2.5 Pro'
+  new_multiplier: '1'
+
+- model: 'Gemini 3 Flash'
+  new_multiplier: '0.33'
+
+- model: 'Gemini 3 Pro'
+  new_multiplier: '6'
+
+- model: 'Gemini 3.1 Pro'
+  new_multiplier: '6'
+
+- model: 'Gemini 3.5 Flash'
+  new_multiplier: '14'
+
+- model: 'GPT-4o'
+  new_multiplier: '0.33'
+
+- model: 'GPT-4o mini'
+  new_multiplier: '0.33'
+
+- model: 'GPT-5.1'
+  new_multiplier: '3'
+
+- model: 'GPT-5.1-Codex'
+  new_multiplier: '3'
+
+- model: 'GPT-5.1-Codex-Mini'
+  new_multiplier: '0.33'
+
+- model: 'GPT-5.1-Codex-Max'
+  new_multiplier: '3'
+
+- model: 'GPT-5.3-Codex'
+  new_multiplier: '6'
+
+- model: 'GPT-5.4'
+  new_multiplier: '6'
+
+- model: 'GPT-5.4 mini'
+  new_multiplier: '6'
+
+- model: 'GPT-5.5'
+  new_multiplier: '57'
+
+- model: 'GPT-5 mini'
+  new_multiplier: '0.33'
+
+- model: 'Raptor mini'
+  new_multiplier: '0.33'
+
+- model: 'MAI-Code-1-Flash'
+  new_multiplier: '0.33'

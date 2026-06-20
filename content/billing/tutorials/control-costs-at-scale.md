@@ -5,15 +5,13 @@ shortTitle: 'Control costs at scale'
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Enterprise
-  - Billing
-  - REST
 permissions: 'Enterprise owners and billing managers'
 product: '{% data reusables.billing.cta-ghec-cost-centers %}'
 contentType: tutorials
 audience:
   - driver
+category:
+  - Track spending and control costs
 ---
 
 Cost centers help you track and control {% data variables.product.github %} costs by mapping them to your company's financial structure.
@@ -47,14 +45,13 @@ Follow these steps to plan your cost centers:
 
 Now you'll create your first cost center using the user interface (UI) to familiarize yourself with how cost centers work. Choose one of the cost centers you've identified as an example—it's best to start with a small financial entity.
 
-1. Navigate to your enterprise. For example, from [https://github.com/settings/enterprises](https://github.com/settings/enterprises?ref_product=ghec&ref_type=engagement&ref_style=text).
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.billing.enterprise-billing-menu %}
-1. Click **Cost centers**.
-1. Click **New cost center** in the upper-right corner.
+{% data reusables.billing.cost-center-click-new %}
 1. In the text box under "Name", enter the name of the financial entity you want to track costs for.
 1. Optionally, if this financial entity has a separate Azure subscription, you can add the Azure subscription to the cost center to charge usage directly to it. The credentials will be verified against Azure to ensure the Azure ID associated with the account is available.
 1. Under **Resources**, select the users, organizations, and repositories to track as part of this cost center.
-1. Click **Create cost center**.
+{% data reusables.billing.cost-center-create-button %}
 
 Your new cost center is now active and usage will begin to attribute to the cost center immediately. Future billing reports will include this cost center with an entry in the `cost_center_name` column for usage allocated to it. You'll also be able to filter usage charts by this cost center.
 
@@ -84,21 +81,19 @@ Create one budget for each product, SKU, or group of SKUs that you want to contr
 
 1. On the  "Billing and licensing tab", click {% octicon "bell" aria-hidden="true" aria-label="bell" %} **Budgets and alerts** to display the existing budgets.
 1. Click **New budget** to open the "New monthly budget" page.
-1. Under "Budget Type" select **Product-level budget**, **SKU-level budget**, or **Bundled premium requests budget**.
+1. Under "Budget Type" select **Product-level budget**, **SKU-level budget**, or **Bundled {% data variables.product.prodname_ai_credits_short %} budget**.
 
    * To limit spending at the product level, in "Product-level budget", choose a product from the dropdown (for example, {% data variables.product.prodname_codespaces %}).
-   * To limit spending at the SKU level, in "SKU-level budget", choose a product and a SKU (for example, {% data variables.product.prodname_copilot_short %} and {% data variables.product.prodname_copilot_short %} Premium Request).
-   * To limit spending for all premium requests, use the "Bundled premium requests budget".
+   * To limit spending at the SKU level, in "SKU-level budget", choose a product and a SKU (for example, {% data variables.product.prodname_copilot_short %} and {% data variables.product.prodname_copilot_short %} {% data variables.product.prodname_ai_credits_short %}).
+   * To limit spending for all {% data variables.product.prodname_ai_credits_short %}, use the "Bundled {% data variables.product.prodname_ai_credits_short %} budget".
 
 1. Click **Next: Configure budget** to display "Budget scope" and set the scope of spending for this budget to the cost center you created earlier.
-1. Under "Budget", set a budget amount. To stop any usage and further spending once the budget limit is reached, select **Stop usage when budget limit is reached**. This is not available for licensed-based products.
-
-
+1. Under "Budget", set a budget amount. To stop any usage and further spending once the budget limit is reached, select **Stop usage when budget limit is reached**. This option is available for metered products and for {% data variables.product.prodname_AS %} SKU-level budgets. For more information about how hard budgets work for {% data variables.product.prodname_AS %}, see [AUTOTITLE](/billing/concepts/budgets-and-alerts#hard-budgets-for-github-advanced-security-skus).
 1. To receive an alert when usage reaches 75%, 90%, and 100% of the budget target, select **Receive budget threshold alerts** under "Alerts".  Account owners, billing managers, and any additional specified recipients will be notified via email. You may opt out at any time.
 
    Under "Alert Recipients", select any additional recipients to receive the alerts.
 
-1. Click **Create budget**.
+{% data reusables.billing.budget-create-button %}
 
 ### Review existing budgets for conflicts
 
@@ -135,7 +130,7 @@ In your terminal, run the following command, replacing `ENTERPRISE` with the slu
 ```shell copy
 gh api \
   -H "Accept: application/vnd.github+json" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
+  -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
   /enterprises/ENTERPRISE/settings/billing/cost-centers
 ```
 
@@ -177,7 +172,7 @@ In your terminal, run the following command, replacing `ENTERPRISE` and `NAME` w
 gh api \
   --method POST \
   -H "Accept: application/vnd.github+json" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
+  -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
   /enterprises/ENTERPRISE/settings/billing/cost-centers \
    -f 'name=NAME'
 ```
@@ -203,7 +198,7 @@ In your terminal, run the following command, replacing `COST_CENTER_ID` with the
 gh api \
   --method POST \
   -H "Accept: application/vnd.github+json" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
+  -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
   /enterprises/ENTERPRISE/settings/billing/cost-centers/COST_CENTER_ID/resource \
   --input - <<< '{
   "users": [
@@ -235,11 +230,11 @@ If the endpoint responds with `Problems parsing JSON`, use a JSON validator to c
 
 ## 5. Set budgets with the REST API
 
-You can create budgets programmatically to apply spending controls to the cost centers you've created. This is particularly useful for managing usage-based costs like premium requests at scale.
+You can create budgets programmatically to apply spending controls to the cost centers you've created. This is particularly useful for managing usage-based costs like {% data variables.product.prodname_ai_credits_short %} at scale.
 
-### Create a budget for premium requests
+### Create a budget for {% data variables.product.prodname_ai_credits_short %}
 
-This example shows how to create a SKU-level budget for {% data variables.product.prodname_copilot_short %} premium requests and apply it to your new cost center. This allows you to set a spending limit specifically for premium request usage by the resources in this cost center.
+This example shows how to create a SKU-level budget for {% data variables.product.prodname_copilot_short %} {% data variables.product.prodname_ai_credits_short %} and apply it to your new cost center. This allows you to set a spending limit specifically for {% data variables.product.prodname_ai_credits_short %} usage by the resources in this cost center.
 
 In your terminal, run the following command, replacing `ENTERPRISE`, `COST_CENTER_ID`, `USERNAME`, and `1000.0` with appropriate values.
 
@@ -247,10 +242,10 @@ In your terminal, run the following command, replacing `ENTERPRISE`, `COST_CENTE
 gh api \
   --method POST \
   -H "Accept: application/vnd.github+json" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
+  -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
   /enterprises/ENTERPRISE/settings/billing/budgets \
   -f budget_type='SkuPricing' \
-  -f budget_product_sku='copilot_premium_request' \
+  -f budget_product_sku='copilot_ai_credits' \
   -f budget_scope='cost_center' \
   -f budget_entity_name='COST_CENTER_ID' \
   -F budget_amount=1000.0 \
@@ -264,7 +259,7 @@ The response confirms the budget was created and returns its configuration. Noti
 {
   "id": "budget-uuid-here",
   "budget_type": "SkuPricing",
-  "budget_product_sku": "copilot_premium_request",
+  "budget_product_sku": "copilot_ai_credits",
   "budget_scope": "cost_center",
   "budget_entity_name": "3312fdf2-5950-4f64-913d-e734124059c9",
   "budget_amount": 1000.0,
@@ -279,7 +274,7 @@ The response confirms the budget was created and returns its configuration. Noti
 ```
 
 > [!TIP]
-> You can create multiple budgets for the same cost center to control different products or SKUs independently. For example, you might set separate budgets for {% data variables.product.prodname_copilot_short %} premium requests, {% data variables.product.prodname_actions %} compute, and {% data variables.product.prodname_codespaces %} usage. See [AUTOTITLE](/billing/reference/product-and-sku-names).
+> You can create multiple budgets for the same cost center to control different products or SKUs independently. For example, you might set separate budgets for {% data variables.product.prodname_ai_credits_short %}, {% data variables.product.prodname_actions %} compute, and {% data variables.product.prodname_codespaces %} usage. See [AUTOTITLE](/billing/reference/product-and-sku-names).
 
 ## 6. Decide whether to automate
 
@@ -303,7 +298,7 @@ The **REST API** is valuable when you:
 
 If you decide that automation would benefit your organization, the REST API examples in this tutorial provide the foundation for building custom scripts. For details of other endpoints, see [AUTOTITLE](/rest/enterprise-admin/billing?apiVersion=2022-11-28).
 
-If you want to automate cost centers based on team membership or create a two-tier model for controlling costs of premium requests, [{% data variables.product.github %} Cost Center Automation](https://github.com/github/cost-center-automation?ref_product=copilot&ref_type=engagement&ref_style=text) provides a complete implementation using actions workflows that you can adapt for your needs.
+If you want to automate cost centers based on team membership or create a two-tier model for controlling costs of {% data variables.product.prodname_ai_credits_short %}, [{% data variables.product.github %} Cost Center Automation](https://github.com/github/cost-center-automation?ref_product=copilot&ref_type=engagement&ref_style=text) provides a complete implementation using actions workflows that you can adapt for your needs.
 
 ## Next steps
 

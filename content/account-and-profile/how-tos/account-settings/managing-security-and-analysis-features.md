@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Accounts
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-security-and-analysis-settings-for-your-user-account
@@ -17,6 +15,8 @@ redirect_from:
   - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-security-and-analysis-features
 shortTitle: Security and analysis
 contentType: how-tos
+category:
+  - Configure account settings
 ---
 
 > [!NOTE] This topic tells you how you can manage the security and analysis features for all your existing or new repositories. For information on managing these settings for individual repositories, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository).

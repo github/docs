@@ -1,27 +1,21 @@
 ---
-title: 'About user provisioning with SCIM on GitHub Enterprise Server'
-shortTitle: 'About SCIM provisioning'
-intro: 'Learn about managing the lifecycle of user accounts with SCIM on {% data variables.location.product_location %}.'
+title: About user provisioning with SCIM on GitHub Enterprise Server
+shortTitle: About SCIM provisioning
+intro: Learn about managing the lifecycle of user accounts with SCIM on {% data variables.location.product_location %}.
 permissions: ''
 versions:
   ghes: '*'
 allowTitleToDifferFromFilename: true
-type: how_to
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
-  - SSO
 redirect_from:
   - /admin/authentication/configuring-user-provisioning-for-your-enterprise
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/configuring-user-provisioning-for-your-enterprise
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-for-your-enterprise
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise
   - /admin/managing-iam/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise
+contentType: how-tos
+category:
+  - Provision and manage enterprise users
 ---
-
-{% data reusables.scim.ghes-beta-note %}
 
 ## About user provisioning for {% data variables.product.prodname_ghe_server %}
 
@@ -43,7 +37,9 @@ The following IdPs are partner IdPs. They offer an application that you can use 
 * Okta
 * PingFederate ({% data variables.release-phases.public_preview %})
 
-When you use a single partner IdP for both authentication and provisioning, {% data variables.product.company_short %} provides support for the application on the partner IdP and the IdP's integration with {% data variables.product.prodname_dotcom %}. Support for PingFederate is in {% data variables.release-phases.public_preview %}.
+When you use a single partner IdP for both authentication and provisioning, {% data variables.product.company_short %} provides support for the application on the partner IdP and the IdP's integration with {% data variables.product.prodname_dotcom %}. The same application must be used for both SAML authentication and SCIM provisioning. Support for PingFederate is in {% data variables.release-phases.public_preview %}.
+
+We do not have a supported partner application when using Entra ID for Azure Government.
 
 ### Other identity management systems
 
@@ -57,7 +53,7 @@ If you cannot use a single partner IdP for both authentication and provisioning,
 
 {% data reusables.enterprise_user_management.scim-manages-user-lifecycle %}
 
-When SCIM is enabled, you will no longer be able to delete, suspend, or promote SCIM-provisioned users directly on {% data variables.product.prodname_ghe_server %}. You must manage these processes from your IdP.{% ifversion scim-for-ghes-ga %} If an issue arises with your IdP and you need to manage a user directly, you will need to use the SCIM REST API to manage the user identities on your appliance (see [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api)).{% endif %}
+When SCIM is enabled, you will no longer be able to delete, suspend, or promote SCIM-provisioned users directly on {% data variables.product.prodname_ghe_server %}. You must manage these processes from your IdP. If an issue arises with your IdP and you need to manage a user directly, you will need to use the SCIM REST API to manage the user identities on your appliance (see [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api)).
 
 To view suspended members, navigate to the "Suspended Members" tab of your enterprise settings.  This page will be present when SCIM is enabled on {% data variables.product.prodname_ghe_server %}.
 
@@ -71,15 +67,13 @@ If you currently use SAML SSO, and you are enabling SCIM, you should be aware of
 
 * Existing users with SAML mappings will **not be able to sign in** until their identities have been provisioned by SCIM.
 * Existing users created with **Built in authentication** will only be able to sign in if **Built in authentication** is still enabled.
-{%- ifversion scim-for-ghes-ga %}
 * {% data variables.product.prodname_ghe_server %} will no longer store SAML mappings for users. Instead, SCIM identities will be stored for users when a user is provisioned.
 * You will no longer see the "SAML authentication" section on the `https://HOSTNAME/users/USER/security` site admin page for users. It will not be possible to view or update SAML NameID mappings that were previously visible in this section, since these stored SAML mappings are no longer evaluated during SAML authentication when SCIM is enabled.
-{%- endif %}
 * When your instance receives a SCIM request, SCIM identities are matched to existing users by **comparing the SCIM `userName` attribute value with the {% data variables.product.prodname_ghe_server %} username**. This means that an existing {% data variables.product.prodname_ghe_server %} user account, regardless of whether it was originally created as a local user account or via SAML JIT-provisioning, can be converted into a SCIM-linked user account if these two values match.
   * If a user account with a matching username does exist, {% data variables.product.prodname_ghe_server %} links the SCIM identity to this user account.
   * If a user account with a matching username doesn't exist, {% data variables.product.prodname_ghe_server %} creates a new user account and links it to this SCIM identity.
 * If {% data variables.product.prodname_dotcom %} successfully matches a user who is authenticating via SAML with an existing user account, but account details such as email address, first name, or last name don't match, the instance **overwrites the details** with values from the IdP. Any email addresses other than the primary email provisioned by SCIM will also be deleted from the user account.
-{% ifversion scim-for-ghes-ga %}* {% data reusables.scim.ghe-scim-identities-csv %}{% endif %}
+* {% data reusables.scim.ghe-scim-identities-csv %}
 
 ## What happens during SAML authentication?
 

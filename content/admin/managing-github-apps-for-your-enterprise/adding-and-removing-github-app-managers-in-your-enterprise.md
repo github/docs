@@ -3,15 +3,13 @@ title: Adding and removing GitHub App managers in your enterprise
 intro: Enterprise owners can grant or revoke access for a user to manage {% data variables.product.prodname_github_apps %} owned by the enterprise.
 versions:
   feature: enterprise-app-manager
-type: how_to
-topics:
-  - Enterprise
-  - GitHub Apps
 permissions: Enterprise owners.
 shortTitle: Add app managers
 redirect_from:
   - /admin/managing-your-enterprise-account/adding-and-removing-github-app-managers-in-your-enterprise
-contentType: other
+contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About {% data variables.product.prodname_github_app %} managers
@@ -47,9 +45,13 @@ The user must be a member of the enterprise to be granted {% data variables.prod
 1. In the left sidebar, click **App managers**.
 1. Under "App managers", next to the person you want to remove {% data variables.product.prodname_github_app %} manager permissions from, click **Revoke**.
 
+{% ifversion enterprise-custom-roles %}
+
 ## Granting the ability to manage all enterprise-owned apps
 
 Enterprise app manager is a predefined role that grants access to all app registrations owned by the enterprise. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/assign-roles).
+
+{% endif %}
 
 ## Further reading
 

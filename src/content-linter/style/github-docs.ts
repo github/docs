@@ -187,6 +187,11 @@ const githubDocsConfig = {
     'partial-markdown-files': true,
     'yml-files': true,
   },
+  'rai-app-card-structure': {
+    // GHD064
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
 }
 
 export const githubDocsFrontmatterConfig = {
@@ -198,12 +203,6 @@ export const githubDocsFrontmatterConfig = {
   },
   'frontmatter-hidden-docs': {
     // GHD010
-    severity: 'error',
-    'partial-markdown-files': false,
-    'yml-files': false,
-  },
-  'frontmatter-video-transcripts': {
-    // GHD011
     severity: 'error',
     'partial-markdown-files': false,
     'yml-files': false,
@@ -242,7 +241,7 @@ export const githubDocsFrontmatterConfig = {
     'partial-markdown-files': false,
     'yml-files': false,
   },
-  'frontmatter-landing-recommended': {
+  'frontmatter-landing-carousels': {
     // GHD056
     severity: 'error',
     'partial-markdown-files': false,
@@ -280,6 +279,30 @@ export const githubDocsFrontmatterConfig = {
   },
   'frontmatter-intro-links': {
     // GHD062
+    severity: 'error',
+    'partial-markdown-files': false,
+    'yml-files': false,
+  },
+  'frontmatter-children': {
+    // GHD063
+    severity: 'error',
+    'partial-markdown-files': false,
+    'yml-files': false,
+  },
+  'frontmatter-curly-quotes': {
+    // GHD034
+    severity: 'error',
+    'partial-markdown-files': false,
+    'yml-files': false,
+  },
+  'frontmatter-content-type': {
+    // GHD065
+    severity: 'error',
+    'partial-markdown-files': false,
+    'yml-files': false,
+  },
+  'frontmatter-docs-team-metrics': {
+    // GHD066
     severity: 'error',
     'partial-markdown-files': false,
     'yml-files': false,

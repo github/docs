@@ -1,16 +1,15 @@
 ---
-  title: Upgrading with an upgrade package
-  intro: 'Learn how to use an upgrade package to upgrade {% data variables.product.prodname_ghe_server %} to a newer feature release.'
-  redirect_from:
-    - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#upgrading-a-standalone-instance-using-an-upgrade-package
-    - /admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#upgrading-with-an-upgrade-package
-  versions:
-    ghes: '*'
-  type: how_to
-  topics:
-    - Enterprise
-    - Upgrades
-  shortTitle: Upgrade with an upgrade package
+title: Upgrading with an upgrade package
+intro: Learn how to use an upgrade package to upgrade {% data variables.product.prodname_ghe_server %} to a newer feature release.
+redirect_from:
+  - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#upgrading-a-standalone-instance-using-an-upgrade-package
+  - /admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#upgrading-with-an-upgrade-package
+versions:
+  ghes: '*'
+shortTitle: Upgrade with an upgrade package
+contentType: how-tos
+category:
+  - Back up and upgrade your instance
 ---
 
 Using the administrative shell, you can install an upgrade package with the `ghe-upgrade` utility.
@@ -53,6 +52,9 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
    To check the status of background jobs, use the `ghe-check-background-upgrade-jobs` utility. If you're running back-to-back upgrades, you must ensure background jobs are complete before proceeding with the following upgrade to a feature release.
 
     See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-check-background-upgrade-jobs).
+
+   > [!NOTE]
+   > Background upgrade jobs only need to complete before you begin a subsequent feature upgrade. You don't need to wait for `ghe-check-background-upgrade-jobs` before upgrading replica or other additional nodes to the same release.
 
    To monitor progress of the configuration run, read the output in `/data/user/common/ghe-config.log`. For example, you can tail the log by running the following command:
 

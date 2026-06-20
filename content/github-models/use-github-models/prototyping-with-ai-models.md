@@ -6,6 +6,8 @@ versions:
   feature: github-models
 redirect_from:
   - /github-models/prototyping-with-ai-models
+category:
+  - Build with AI models
 ---
 
 If you want to develop a generative AI application, you can use {% data variables.product.prodname_github_models %} to find and experiment with AI models for free. Once you are ready to bring your application to production, [opt in to paid usage](/billing/managing-billing-for-your-products/about-billing-for-github-models) for your enterprise.

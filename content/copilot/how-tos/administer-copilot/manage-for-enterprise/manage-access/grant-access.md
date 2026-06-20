@@ -6,8 +6,6 @@ permissions: Enterprise owners
 product: '{% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-access-to-copilot-in-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise
@@ -17,7 +15,7 @@ redirect_from:
   - /copilot/how-tos/administer/manage-for-enterprise/manage-access/enable-for-organizations
   - /copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/enable-for-organizations
 contentType: how-tos
-category: 
+category:
   - Manage Copilot for a team
 ---
 
@@ -44,9 +42,10 @@ When you assign licenses to an enterprise team, users receive or lose access to 
 
    ![Screenshot of the Licensing page, with the "Manage" button highlighted in orange.](/assets/images/help/copilot/manage-licenses.png)
 
-1. Click the **Users** or **Enterprise Teams** tab.
-1. Click **Assign Licenses**.
+1. Click the **All members** or **Enterprise Teams** tab.
+1. Click **Assign licenses**.
 1. Search for users or teams, then click **Add licenses**.
+1. Optionally, disable {% data variables.product.prodname_copilot_short %} for organizations to prevent organization owners from assigning licenses. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/disable-for-organizations).
 
 ## Enabling {% data variables.product.prodname_copilot_short %} for organizations
 
@@ -63,11 +62,4 @@ If your enterprise has a {% data variables.copilot.copilot_enterprise_short %} p
        * If your enterprise has a {% data variables.copilot.copilot_business_short %} plan, click **Enabled**.
        * If your enterprise has a {% data variables.copilot.copilot_enterprise_short %} plan, click either **Copilot: Enterprise** or **Copilot: Business** to assign a specific Copilot plan to the organization.
 
-### Next steps
-
 After you've enabled {% data variables.product.prodname_copilot_short %} for an organization in your enterprise, owners of the organization can grant access to some or all members of the organization. See [AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-access-for-copilot-business-in-your-organization).
-
-## Further reading
-
-* [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)
-* [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise)

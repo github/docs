@@ -6,12 +6,11 @@ versions:
   ghes: '*'
 shortTitle: Policies
 contentType: concepts
-topics:
-  - Enterprise
-  - Policies
 redirect_from:
   - /admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies
   - /admin/enforcing-policies/enforcing-policies-for-your-enterprise/about-enterprise-policies
+category:
+  - Secure and govern your enterprise
 ---
 
 ## What are enterprise policies and why are they important?

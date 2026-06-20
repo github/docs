@@ -1,19 +1,11 @@
 ---
 title: Enforcing policies for code security and analysis for your enterprise
-intro: 'You can enforce policies to manage the use of code security and analysis features within your enterprise''s organizations.'
-permissions: 'Enterprise owners'
+intro: You can enforce policies to manage the use of code security and analysis features within your enterprise's organizations.
+permissions: Enterprise owners
 product: '{% data reusables.gated-features.ghas-ghec %}'
 versions:
   ghec: '*'
   ghes: '*'
-type: how_to
-topics:
-  - Advanced Security
-  - Code scanning
-  - Enterprise
-  - Policies
-  - Secret scanning
-  - Security
 redirect_from:
   - /admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise
   - /github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account
@@ -27,6 +19,9 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise
 shortTitle: Security & analysis
+contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About policies for using security features in your enterprise
@@ -50,6 +45,9 @@ Disallowing {% data variables.product.prodname_GH_sp_cs_and_cq_or_as %} for an o
 {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
 {% data reusables.enterprise-accounts.advanced-security-organization-policy-drop-down %}
 {% data reusables.enterprise-accounts.advanced-security-individual-organization-policy-drop-down %}
+
+> [!NOTE]
+> If {% data variables.product.prodname_actions %} is not available for an organization, {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_code_quality %} will be unable to run even if they are made available with this policy. See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#policies).
 
 {% ifversion ghec %}
 
@@ -90,28 +88,9 @@ Across all of your enterprise's organizations, you can allow or disallow people 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
-{% ifversion ghas-products %}
 1. In the "Policies" section, under "Repository administrators can enable or disable `PRODUCT`", use the dropdown menu to define whether repository administrators can change the enablement of {% data variables.product.prodname_GH_sp_cs_and_cq_or_as %}.
-{% else %}
-1. In the "{% data variables.product.prodname_GHAS %} policies" section, under "Enable or disable {% data variables.product.prodname_GHAS %} by repository admins", select the dropdown menu and click a policy.
-{% endif %}
 
-{% ifversion ghas-products %}
 <!--This option is included automatically by the "Repository Admins can Enable or Disable Secret Protection" option, which is why this section is omitted for `ghas-products` versions.-->
-{% else %}
-
-## Enforcing a policy to manage the use of {% data variables.product.prodname_secret_scanning %} in your enterprise's repositories
-
-Across all of your enterprise's organizations, you can allow or disallow people with admin access to repositories to manage and configure {% data variables.product.prodname_secret_scanning %} for the repositories. {% data variables.product.prodname_GHAS %} must be enabled for the organization for this policy to take effect.
-
-{% data reusables.enterprise.role-permission-hierarchy %}
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
-1. In the "Policies" section, under "Enable or disable {% data variables.product.prodname_secret_scanning %} by repository admins", select the dropdown menu and click a policy.
-
-{% endif %}
 
 {% ifversion secret-scanning-ai-generic-secret-detection %}
 

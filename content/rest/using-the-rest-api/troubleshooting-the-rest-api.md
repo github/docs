@@ -10,8 +10,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
+category:
+  - Learn about the REST API
 ---
 
 ## Rate limit errors

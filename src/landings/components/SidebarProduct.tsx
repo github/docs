@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavList } from '@primer/react'
 
 import { ProductTreeNode, useMainContext } from '@/frame/components/context/MainContext'
@@ -146,8 +146,6 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
         },
         { rootMargin: '0px 0px -85% 0px' },
       )
-      // TODO: When we add the ## About the {title} API to each operation
-      // we can remove the h2 here
       const headingsList = Array.from(document.querySelectorAll('h2, h3'))
 
       for (const heading of headingsList) {
@@ -174,8 +172,8 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
               <NavList.Item
                 defaultOpen={routePath.includes(childPage.href)}
                 key={childPage.href}
-                // Using any because Primer React's NavList doesn't export proper event types
-                onClick={(event: any) => {
+                // Using React.MouseEvent because Primer React's NavList doesn't export proper event types
+                onClick={(event: React.MouseEvent<HTMLElement>) => {
                   event.preventDefault()
                   push(childPage.href)
                 }}

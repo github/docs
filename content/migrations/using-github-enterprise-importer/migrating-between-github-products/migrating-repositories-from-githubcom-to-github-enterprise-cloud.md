@@ -11,6 +11,8 @@ redirect_from:
   - /early-access/enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-to-github-enterprise-cloud/migrating-repositories-from-githubcom-to-github-enterprise-cloud
   - /early-access/enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-githubcom-to-github-enterprise-cloud
   - /migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-githubcom-to-github-enterprise-cloud
+category:
+  - Run an enterprise migration
 ---
 
 ## About repository migrations with {% data variables.product.prodname_importer_proper_name %}
@@ -27,7 +29,7 @@ Migrations to {% data variables.product.prodname_ghe_cloud %} include migrations
 {% endapi %}
 
 {% ifversion repo-rules-enterprise %}
-{% data reusables.enterprise-migration-tool.deploy-key-bypass %}
+{% data reusables.enterprise-migration-tool.repository-migrations-bypass %}
 {% endif %}
 
 ## Prerequisites

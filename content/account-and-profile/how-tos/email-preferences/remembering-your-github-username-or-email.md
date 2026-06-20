@@ -14,11 +14,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Notifications
 shortTitle: Find your username or email
 contentType: how-tos
+category:
+  - Manage your email
 ---
 
 

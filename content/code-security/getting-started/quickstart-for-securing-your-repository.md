@@ -1,6 +1,6 @@
 ---
 title: Quickstart for securing your repository
-intro: 'Manage access to your code. Find and fix vulnerable code and dependencies automatically.'
+intro: Manage access to your code. Find and fix vulnerable code and dependencies automatically.
 permissions: '{% data reusables.permissions.security-repo-enable %}'
 redirect_from:
   - /github/administering-a-repository/about-securing-your-repository
@@ -10,14 +10,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Repositories
-  - Dependencies
-  - Vulnerabilities
-  - Code Security
-  - Secret Protection
+contentType: get-started
 shortTitle: Secure repository quickstart
+category:
+  - Plan your security strategy
 ---
 
 ## Introduction
@@ -109,7 +105,7 @@ You can enable {% data variables.product.prodname_dependabot %} to automatically
 To enable {% data variables.product.prodname_dependabot_version_updates %}, you must create a `dependabot.yml` configuration file. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates).
 {% endif %}
 
-## Configuring {% ifversion ghas-products %}{% data variables.product.prodname_code_security %}{% else %}{% data variables.product.prodname_code_scanning %}{% endif %}
+## Configuring {% data variables.product.prodname_code_security %}
 
 {% ifversion fpt or ghec %}
 
@@ -118,21 +114,20 @@ To enable {% data variables.product.prodname_dependabot_version_updates %}, you 
 
 {% endif %}
 
-{% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} includes {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_codeql_cli %} and {% data variables.copilot.copilot_autofix_short %}, as well as other features that find and fix vulnerabilities in your codebase.{% endif %}
+{% data variables.product.prodname_GH_code_security %} includes {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_codeql_cli %} and {% data variables.copilot.copilot_autofix_short %}, as well as other features that find and fix vulnerabilities in your codebase.
 
 You can configure {% data variables.product.prodname_code_scanning %} to automatically identify vulnerabilities and errors in the code stored in your repository by using a {% data variables.code-scanning.codeql_workflow %} or third-party tool. Depending on the programming languages in your repository, you can configure {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %} using default setup, in which {% data variables.product.github %} automatically determines the languages to scan, query suites to run, and events that will trigger a new scan. For more information, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning).
 
 1. From the main page of your repository, click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**.
-1. In the "Security" section of the sidebar, click **{% octicon "shield-lock" aria-hidden="true" aria-label="shield-lock" %} {% data variables.product.UI_advanced_security %}**.{% ifversion ghas-products %}
+1. In the "Security" section of the sidebar, click **{% octicon "shield-lock" aria-hidden="true" aria-label="shield-lock" %} {% data variables.product.UI_advanced_security %}**.
 1. If "{% data variables.product.prodname_code_security %}" or "{% data variables.product.prodname_GHAS %}" is not already enabled, click **Enable**.
-1. To the right of "CodeQL analysis", select **Set up** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %}, then click **Default**.{% else %}
-1. In the "{% data variables.product.prodname_code_scanning_caps %}" section, select **Set up** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %}, then click **Default**.{% endif %}
+1. To the right of "CodeQL analysis", select **Set up** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %}, then click **Default**.
 1. In the pop-up window that appears, review the default configuration settings for your repository, then click **Enable {% data variables.product.prodname_codeql %}**.{% ifversion code-scanning-autofix %}
 1. Choose whether you want to enable addition features, such as {% data variables.copilot.copilot_autofix_short %}.{% endif %}
 
 As an alternative to default setup, you can use advanced setup, which generates a workflow file you can edit to customize your {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql).
 
-## Configuring {% ifversion ghas-products %}{% data variables.product.prodname_secret_protection %}{% else %}{% data variables.product.prodname_secret_scanning %}{% endif %}
+## Configuring {% data variables.product.prodname_secret_protection %}
 
 {% ifversion fpt or ghec %}
 
@@ -141,20 +136,20 @@ As an alternative to default setup, you can use advanced setup, which generates 
 
 {% endif %}
 
-{% ifversion ghas-products %}{% data variables.product.prodname_GH_secret_protection %} includes {% data variables.product.prodname_secret_scanning %} and push protection, as well as other features that help you detect and prevent secret leaks in your repository.{% endif %}
+{% data variables.product.prodname_GH_secret_protection %} includes {% data variables.product.prodname_secret_scanning %} and push protection, as well as other features that help you detect and prevent secret leaks in your repository.
 
 1. From the main page of your repository, click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**.
 1. Click **{% data variables.product.UI_advanced_security %}**.
 1. If "{% data variables.product.prodname_secret_protection %}" or "{% data variables.product.prodname_GHAS %}" is not already enabled, click **Enable**.
-1. If the option "{% data variables.product.prodname_secret_scanning_caps %}" is shown, click **Enable**.{% ifversion ghas-products %}
-1. Choose whether you want to enable additional features, such as scanning for non-provider patterns and push protection.{% endif %}
+1. If the option "{% data variables.product.prodname_secret_scanning_caps %}" is shown, click **Enable**.
+1. Choose whether you want to enable additional features, such as scanning for non-provider patterns and push protection.
 
 ## Setting a security policy
 
-If you are a repository maintainer, it's good practice to specify a security policy for your repository by creating a file named `SECURITY.md` in the repository. This file instructs users about how to best contact you and collaborate with you when they want to report security vulnerabilities in your repository. You can view the security policy of a repository from the repository’s **Security** tab.
+If you are a repository maintainer, it's good practice to specify a security policy for your repository by creating a file named `SECURITY.md` in the repository. This file instructs users about how to best contact you and collaborate with you when they want to report security vulnerabilities in your repository. You can view the security policy of a repository from the repository’s **{% data variables.product.prodname_security_and_quality_tab %}** tab.
 
-1. From the main page of your repository, click **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Security**.
-1. In the left sidebar, under "Reporting", click **{% octicon "law" aria-hidden="true" aria-label="law" %} Policy**.
+1. From the main page of your repository, click **{% data variables.product.prodname_security_and_quality_tab %}**.
+1. In the left sidebar, under "Reporting", click **{% octicon "law" aria-hidden="true" aria-label="law" %} Security policy**.
 1. Click **Start setup**.
 1. Add information about supported versions of your project and how to report vulnerabilities.
 

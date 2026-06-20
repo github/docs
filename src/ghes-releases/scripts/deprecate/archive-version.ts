@@ -112,6 +112,8 @@ async function main() {
       } catch (err) {
         console.error('scraping error')
         console.error(err)
+        server.close(() => process.exit(1))
+        return
       }
 
       fs.renameSync(
@@ -127,11 +129,11 @@ async function main() {
       } else {
         console.log('🏁 Scraping a single page is complete')
       }
-      server.close()
+      server.close(() => process.exit(0))
     })
     .on('error', (err) => {
       console.log('error listening to port ', port, err)
-      server.close()
+      server.close(() => process.exit(1))
     })
 }
 

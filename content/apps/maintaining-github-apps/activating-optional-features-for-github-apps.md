@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 shortTitle: Activate optional features
+category:
+  - Maintain and share your app
 ---
 
 > [!WARNING]

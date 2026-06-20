@@ -17,18 +17,13 @@ redirect_from:
   - /admin/configuration/configuring-backups-on-your-appliance
   - /admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance
   - /admin/configuration/configuring-your-enterprise/configuring-backups-on-your-instance
-intro: 'As part of a disaster recovery plan, you can protect production data on {% data variables.location.product_location %} by configuring automated backups.'
+intro: As part of a disaster recovery plan, you can protect production data on {% data variables.location.product_location %} by configuring automated backups.
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Backups
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
+contentType: how-tos
+category:
+  - Back up and upgrade your instance
 ---
-
-{% ifversion ghes > 3.16 %}
 
 ## About backup options for {% data variables.product.prodname_ghe_server %}
 
@@ -36,8 +31,6 @@ topics:
 
 * **{% data variables.product.prodname_enterprise_backup_utilities %}**: An open-source backup system that you install on a separate host. For more information, see the sections below.
 * **{% data variables.product.prodname_enterprise_backup_service %} (in {% data variables.release-phases.public_preview %})**: A managed backup service available in {% data variables.product.prodname_ghe_server %}. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/backup-service-for-github-enterprise-server).
-
-{% endif %}
 
 ## About {% data variables.product.prodname_enterprise_backup_utilities %}
 

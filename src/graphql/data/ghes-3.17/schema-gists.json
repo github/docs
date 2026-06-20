@@ -1,0 +1,814 @@
+{
+  "objects": [
+    {
+      "name": "Gist",
+      "id": "gist",
+      "href": "/graphql/reference/gists#object-gist",
+      "description": "<p>A Gist.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "Starrable",
+          "id": "starrable",
+          "href": "/graphql/reference/activity#interface-starrable"
+        },
+        {
+          "name": "UniformResourceLocatable",
+          "id": "uniformresourcelocatable",
+          "href": "/graphql/reference/meta#interface-uniformresourcelocatable"
+        }
+      ],
+      "fields": [
+        {
+          "name": "comments",
+          "description": "<p>A list of comments associated with the gist.</p>",
+          "type": "GistCommentConnection!",
+          "id": "gistcommentconnection",
+          "href": "/graphql/reference/gists#object-gistcommentconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "description",
+          "description": "<p>The gist description.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "files",
+          "description": "<p>The files in this gist.</p>",
+          "type": "[GistFile]",
+          "id": "gistfile",
+          "href": "/graphql/reference/gists#object-gistfile",
+          "arguments": [
+            {
+              "name": "limit",
+              "defaultValue": "10",
+              "description": "<p>The maximum number of files to return.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "oid",
+              "description": "<p>The oid of the files to return.</p>",
+              "type": {
+                "name": "GitObjectID",
+                "id": "gitobjectid",
+                "href": "/graphql/reference/other#scalar-gitobjectid"
+              }
+            }
+          ]
+        },
+        {
+          "name": "forks",
+          "description": "<p>A list of forks associated with the gist.</p>",
+          "type": "GistConnection!",
+          "id": "gistconnection",
+          "href": "/graphql/reference/gists#object-gistconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for gists returned from the connection.</p>",
+              "type": {
+                "name": "GistOrder",
+                "id": "gistorder",
+                "href": "/graphql/reference/gists#input-object-gistorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Gist object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "isFork",
+          "description": "<p>Identifies if the gist is a fork.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isPublic",
+          "description": "<p>Whether the gist is public or not.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "name",
+          "description": "<p>The gist name.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "owner",
+          "description": "<p>The gist owner.</p>",
+          "type": "RepositoryOwner",
+          "id": "repositoryowner",
+          "href": "/graphql/reference/repos#interface-repositoryowner"
+        },
+        {
+          "name": "pushedAt",
+          "description": "<p>Identifies when the gist was last pushed to.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTML path to this resource.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "stargazerCount",
+          "description": "<p>Returns a count of how many stargazers there are on this object.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "stargazers",
+          "description": "<p>A list of users who have starred this starrable.</p>",
+          "type": "StargazerConnection!",
+          "id": "stargazerconnection",
+          "href": "/graphql/reference/users#object-stargazerconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Order for connection.</p>",
+              "type": {
+                "name": "StarOrder",
+                "id": "starorder",
+                "href": "/graphql/reference/activity#input-object-starorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this Gist.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "viewerHasStarred",
+          "description": "<p>Returns a boolean indicating whether the viewing user has starred this starrable.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "gists"
+    },
+    {
+      "name": "GistComment",
+      "id": "gistcomment",
+      "href": "/graphql/reference/gists#object-gistcomment",
+      "description": "<p>Represents a comment on an Gist.</p>",
+      "implements": [
+        {
+          "name": "Comment",
+          "id": "comment",
+          "href": "/graphql/reference/issues#interface-comment"
+        },
+        {
+          "name": "Deletable",
+          "id": "deletable",
+          "href": "/graphql/reference/issues#interface-deletable"
+        },
+        {
+          "name": "Minimizable",
+          "id": "minimizable",
+          "href": "/graphql/reference/issues#interface-minimizable"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "Updatable",
+          "id": "updatable",
+          "href": "/graphql/reference/issues#interface-updatable"
+        },
+        {
+          "name": "UpdatableComment",
+          "id": "updatablecomment",
+          "href": "/graphql/reference/issues#interface-updatablecomment"
+        }
+      ],
+      "fields": [
+        {
+          "name": "author",
+          "description": "<p>The actor who authored the comment.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "authorAssociation",
+          "description": "<p>Author's association with the gist.</p>",
+          "type": "CommentAuthorAssociation!",
+          "id": "commentauthorassociation",
+          "href": "/graphql/reference/issues#enum-commentauthorassociation"
+        },
+        {
+          "name": "body",
+          "description": "<p>Identifies the comment body.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "bodyHTML",
+          "description": "<p>The body rendered to HTML.</p>",
+          "type": "HTML!",
+          "id": "html",
+          "href": "/graphql/reference/other#scalar-html"
+        },
+        {
+          "name": "bodyText",
+          "description": "<p>The body rendered to text.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "createdViaEmail",
+          "description": "<p>Check if this comment was created via an email reply.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "editor",
+          "description": "<p>The actor who edited the comment.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "gist",
+          "description": "<p>The associated gist.</p>",
+          "type": "Gist!",
+          "id": "gist",
+          "href": "/graphql/reference/gists#object-gist"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the GistComment object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "includesCreatedEdit",
+          "description": "<p>Check if this comment was edited and includes an edit with the creation data.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isMinimized",
+          "description": "<p>Returns whether or not a comment has been minimized.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "lastEditedAt",
+          "description": "<p>The moment the editor made the last edit.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "minimizedReason",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "publishedAt",
+          "description": "<p>Identifies when the comment was published at.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "userContentEdits",
+          "description": "<p>A list of edits to this content.</p>",
+          "type": "UserContentEditConnection",
+          "id": "usercontenteditconnection",
+          "href": "/graphql/reference/users#object-usercontenteditconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "viewerCanDelete",
+          "description": "<p>Check if the current viewer can delete this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanMinimize",
+          "description": "<p>Check if the current viewer can minimize this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanUpdate",
+          "description": "<p>Check if the current viewer can update this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCannotUpdateReasons",
+          "description": "<p>Reasons why the current viewer can not update this comment.</p>",
+          "type": "[CommentCannotUpdateReason!]!",
+          "id": "commentcannotupdatereason",
+          "href": "/graphql/reference/issues#enum-commentcannotupdatereason"
+        },
+        {
+          "name": "viewerDidAuthor",
+          "description": "<p>Did the viewer author this comment.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "gists"
+    },
+    {
+      "name": "GistCommentConnection",
+      "id": "gistcommentconnection",
+      "href": "/graphql/reference/gists#object-gistcommentconnection",
+      "description": "<p>The connection type for GistComment.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[GistCommentEdge]",
+          "id": "gistcommentedge",
+          "href": "/graphql/reference/gists#object-gistcommentedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[GistComment]",
+          "id": "gistcomment",
+          "href": "/graphql/reference/gists#object-gistcomment"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "gists"
+    },
+    {
+      "name": "GistCommentEdge",
+      "id": "gistcommentedge",
+      "href": "/graphql/reference/gists#object-gistcommentedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "GistComment",
+          "id": "gistcomment",
+          "href": "/graphql/reference/gists#object-gistcomment"
+        }
+      ],
+      "category": "gists"
+    },
+    {
+      "name": "GistConnection",
+      "id": "gistconnection",
+      "href": "/graphql/reference/gists#object-gistconnection",
+      "description": "<p>The connection type for Gist.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[GistEdge]",
+          "id": "gistedge",
+          "href": "/graphql/reference/gists#object-gistedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Gist]",
+          "id": "gist",
+          "href": "/graphql/reference/gists#object-gist"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "gists"
+    },
+    {
+      "name": "GistEdge",
+      "id": "gistedge",
+      "href": "/graphql/reference/gists#object-gistedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "Gist",
+          "id": "gist",
+          "href": "/graphql/reference/gists#object-gist"
+        }
+      ],
+      "category": "gists"
+    },
+    {
+      "name": "GistFile",
+      "id": "gistfile",
+      "href": "/graphql/reference/gists#object-gistfile",
+      "description": "<p>A file in a gist.</p>",
+      "fields": [
+        {
+          "name": "encodedName",
+          "description": "<p>The file name encoded to remove characters that are invalid in URL paths.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "encoding",
+          "description": "<p>The gist file encoding.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "extension",
+          "description": "<p>The file extension from the file name.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "isImage",
+          "description": "<p>Indicates if this file is an image.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isTruncated",
+          "description": "<p>Whether the file's contents were truncated.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "language",
+          "description": "<p>The programming language this file is written in.</p>",
+          "type": "Language",
+          "id": "language",
+          "href": "/graphql/reference/repos#object-language"
+        },
+        {
+          "name": "name",
+          "description": "<p>The gist file name.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "size",
+          "description": "<p>The gist file size in bytes.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "text",
+          "description": "<p>UTF8 text data or null if the file is binary.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "arguments": [
+            {
+              "name": "truncate",
+              "description": "<p>Optionally truncate the returned file to this length.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        }
+      ],
+      "category": "gists"
+    }
+  ],
+  "enums": [
+    {
+      "name": "GistOrderField",
+      "id": "gistorderfield",
+      "href": "/graphql/reference/gists#enum-gistorderfield",
+      "description": "<p>Properties by which gist connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order gists by creation time.</p>"
+        },
+        {
+          "name": "PUSHED_AT",
+          "description": "<p>Order gists by push time.</p>"
+        },
+        {
+          "name": "UPDATED_AT",
+          "description": "<p>Order gists by update time.</p>"
+        }
+      ],
+      "category": "gists"
+    },
+    {
+      "name": "GistPrivacy",
+      "id": "gistprivacy",
+      "href": "/graphql/reference/gists#enum-gistprivacy",
+      "description": "<p>The privacy of a Gist.</p>",
+      "values": [
+        {
+          "name": "ALL",
+          "description": "<p>Gists that are public and secret.</p>"
+        },
+        {
+          "name": "PUBLIC",
+          "description": "<p>Public.</p>"
+        },
+        {
+          "name": "SECRET",
+          "description": "<p>Secret.</p>"
+        }
+      ],
+      "category": "gists"
+    }
+  ],
+  "inputObjects": [
+    {
+      "name": "GistOrder",
+      "id": "gistorder",
+      "href": "/graphql/reference/gists#input-object-gistorder",
+      "description": "<p>Ordering options for gist connections.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order repositories by.</p>",
+          "type": "GistOrderField!",
+          "id": "gistorderfield",
+          "href": "/graphql/reference/gists#enum-gistorderfield"
+        }
+      ],
+      "category": "gists"
+    }
+  ]
+}

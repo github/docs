@@ -1,21 +1,16 @@
 ---
 title: Configuring SSH connections to your instance
 shortTitle: Configure SSH connections
-intro: 'You can increase the security of {% data variables.location.product_location %} by configuring the SSH algorithms that clients can use to establish a connection.'
+intro: You can increase the security of {% data variables.location.product_location %} by configuring the SSH algorithms that clients can use to establish a connection.
 permissions: Site administrators
 redirect_from:
   - /admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance
   - /admin/configuration/hardening-security-for-your-enterprise/configuring-ssh-connections-to-your-instance
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Authentication
-  - Enterprise
-  - Infrastructure
-  - Networking
-  - Security
-  - SSH
+contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About SSH connections to your instance
@@ -23,6 +18,12 @@ topics:
 {% data reusables.enterprise.about-ssh-ports %}
 
 To accommodate the SSH clients in your environment, you can configure the types of connections that {% data variables.location.product_location %} will accept.
+
+{% ifversion ghes > 3.18 %}
+
+You can also configure the cryptographic algorithms (ciphers, MAC algorithms, key exchange algorithms, and signature types) that {% data variables.location.product_location %} uses for SSH connections. For more information, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/configuring-tls-and-ssh-ciphers).
+
+{% endif %}
 
 ## Configuring SSH connections with RSA keys
 

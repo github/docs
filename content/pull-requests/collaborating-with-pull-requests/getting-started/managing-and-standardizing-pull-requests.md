@@ -5,9 +5,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Manage and standardize pull requests
+category:
+  - Create pull requests
 ---
 
 If you are a repository maintainer, there are several ways that you can manage and standardize the pull requests that contributors create in your repository. These steps can help you ensure that pull requests are reviewed by the right people, and that they meet your repository's standards.
@@ -38,15 +38,11 @@ Rulesets are especially useful for maintaining repository security when combined
 * You can use rulesets to enforce the dependency review action, a workflow that blocks pull requests that are introducing vulnerable dependencies into your codebase. See [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/enforcing-dependency-review-across-an-organization).
 * If your repository is configured with {% data variables.product.prodname_code_scanning %}, you can use rulesets to set {% data variables.product.prodname_code_scanning %} merge protection, which prevents pull requests from being merged if there is a {% data variables.product.prodname_code_scanning %} alert of a certain severity, or if a {% data variables.product.prodname_code_scanning %} analysis is still in progress. See [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection).
 
-{% ifversion push-rulesets %}
-
 ## Using push rulesets
 
 {% data reusables.repositories.push-rulesets-overview %}
 
 For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#push-rulesets).
-
-{% endif %}
 
 ## Using automated tools to review code styling
 

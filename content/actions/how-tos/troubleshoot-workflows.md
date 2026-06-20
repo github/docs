@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting workflows
 shortTitle: Troubleshoot workflows
-intro: 'You can use the tools in {% data variables.product.prodname_actions %} to debug your workflows.'
+intro: You can use the tools in {% data variables.product.prodname_actions %} to debug your workflows.
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,6 +13,9 @@ redirect_from:
   - /actions/how-tos/troubleshooting-workflows
   - /actions/monitoring-and-troubleshooting-workflows/troubleshooting-workflows/using-copilot-to-troubleshoot-workflows
   - /actions/monitoring-and-troubleshooting-workflows/troubleshooting-workflows
+category:
+  - Manage and monitor workflow runs
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -68,6 +71,8 @@ To analyze the efficiency and reliability of your workflows using metrics, see [
 
 ## Troubleshooting workflow triggers
 
+First, make sure that your workflow wasn't disabled manually, see [AUTOTITLE](/actions/how-tos/manage-workflow-runs/disable-and-enable-workflows). A disabled workflow does not respond to its triggers.
+
 You can review your workflow's `on:` field to understand what is expected to trigger the workflow. For more information, see [AUTOTITLE](/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow).
 
 For a full list of available events, see [AUTOTITLE](/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows).
@@ -98,6 +103,23 @@ For path filtering, evaluating diffs is limited to the first 300 files. If there
 
 Workflow execution involves any issues seen after the workflow was triggered and a workflow run has been created.
 
+{% ifversion fpt or ghec %}
+
+### Debugging job conditions
+
+If a job was skipped unexpectedly, or ran when you expected it to be skipped, you can view the expression evaluation to understand why:
+
+1. Click on the job in the workflow run.
+1. Download the log archive from the job's menu.
+1. Open the `JOB-NAME/system.txt` file.
+1. Look for the `Evaluating`, `Expanded`, and `Result` lines.
+
+The `Expanded` line shows the actual runtime values that were substituted into your `if` condition, making it clear why the expression evaluated to `true` or `false`.
+
+For more information, see [AUTOTITLE](/actions/how-tos/monitor-workflows/view-job-condition-logs).
+
+{% endif %}
+
 ### Canceling Workflows
 
 If standard cancellation through the [UI](/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/canceling-a-workflow) or [API](/rest/actions/workflow-runs?apiVersion=2022-11-28#cancel-a-workflow-run) does not process as expected, there may be a conditional statement configured for your running workflow job(s) that causes it to not cancel.
@@ -121,6 +143,14 @@ We recommend using unique label names for larger and self-hosted runners. If a l
 If you use self-hosted runners, you can view their activity and diagnose common issues.
 
 For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/monitor-and-troubleshoot).
+
+{% ifversion fpt or ghec %}
+
+### Runner IP addresses flagged by security scanners
+
+{% data reusables.actions.runner-ip-reputation %}
+
+{% endif %}
 
 ## Networking troubleshooting suggestions
 

@@ -3,9 +3,9 @@ title: Searching GitHub Models
 intro: 'You can search for models that are available on {% data variables.product.prodname_github_models %}.'
 versions:
   feature: github-models
-topics:
-  - GitHub search
 shortTitle: Search GitHub Models
+category:
+  - Find repositories and resources
 ---
 
 ## About searching {% data variables.product.prodname_github_models %}

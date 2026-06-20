@@ -11,8 +11,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
+category:
+  - Maintain and share your app
 ---
 
 > [!NOTE]

@@ -1,25 +1,38 @@
 import { renderContent } from '@/content-render/index'
 import Page from '@/frame/lib/page'
 import { TitleFromAutotitleError } from '@/content-render/unified/rewrite-local-links'
-import type { Context } from '@/types'
+import type { Context, Page as PageType } from '@/types'
 
 export class EmptyTitleError extends Error {}
 
-interface LiquidToken {
+export interface LiquidToken {
   file?: string
   getPosition?: () => [number, number]
 }
 
-interface LiquidError extends Error {
+/**
+ * Custom error class for Liquid rendering errors with proper type safety.
+ * Use this instead of creating Error objects and mutating them with type assertions.
+ *
+ * @example
+ * const error = new LiquidError('Unknown tag', 'ParseError')
+ * error.token = { file: '/content/test.md', getPosition: () => [1, 5] }
+ */
+export class LiquidError extends Error {
   token?: LiquidToken
   originalError?: Error
+
+  constructor(message: string, name: 'ParseError' | 'RenderError' | 'TokenizationError') {
+    super(message)
+    this.name = name
+  }
 }
 
 interface RenderOptions {
   throwIfEmpty?: boolean
   textOnly?: boolean
-  cache?: boolean | ((template: string, context: any) => string)
-  [key: string]: any
+  cache?: boolean | ((template: string, context: Context) => string)
+  [key: string]: unknown
 }
 
 const LIQUID_ERROR_NAMES = new Set(['RenderError', 'ParseError', 'TokenizationError'])
@@ -104,9 +117,10 @@ export function createTranslationFallbackComment(error: Error, property: string)
 // higher level than `lib/`) how to use the URL to figure out the
 // equivalent English page instance.
 export async function renderContentWithFallback(
-  // Using `any` type for page because the actual Page class from @/frame/lib/page
-  // has more properties than the Page interface defined in @/types, causing type conflicts
-  page: any,
+  // Typed as the @/types Page interface (not the Page class) for caller
+  // compatibility. The runtime contract is stricter: the value must be an
+  // actual Page instance (enforced by the `page instanceof Page` check below).
+  page: PageType,
   property: string,
   context: Context,
   options?: RenderOptions,
@@ -117,7 +131,7 @@ export async function renderContentWithFallback(
   if (typeof property !== 'string') {
     throw new Error(`The second argument has to be a string (not ${typeof property})`)
   }
-  const template = (page as any)[property] as string
+  const template = (page as unknown as Record<string, string>)[property]
   try {
     const output = await renderContent(template, context, options)
     if (options && options.throwIfEmpty && !output.trim()) {
@@ -129,7 +143,7 @@ export async function renderContentWithFallback(
     // on English for.
     if (isFallbackableError(error) && context.getEnglishPage) {
       const enPage = context.getEnglishPage(context)
-      const englishTemplate = (enPage as any)[property] as string
+      const englishTemplate = (enPage as unknown as Record<string, string>)[property]
       // If you don't change the context, it'll confuse the liquid plugins
       // like `data.ts` that uses `environment.scope.currentLanguage`
       const enContext = Object.assign({}, context, { currentLanguage: 'en' })

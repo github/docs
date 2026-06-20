@@ -1,18 +1,17 @@
 ---
 title: Using the Visual Studio Code Command Palette in GitHub Codespaces
-intro: 'You can use the Command Palette feature of {% data variables.product.prodname_vscode %} to access many commands in {% data variables.product.prodname_github_codespaces %}.'
+intro: You can use the Command Palette feature of {% data variables.product.prodname_vscode %} to access many commands in {% data variables.product.prodname_github_codespaces %}.
 versions:
   fpt: '*'
   ghec: '*'
-type: reference
-topics:
-  - Codespaces
-  - Visual Studio Code
 shortTitle: VS Code Command Palette
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /codespaces/codespaces-reference/using-the-command-palette-in-codespaces
   - /codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces
+contentType: reference
+category:
+  - Write code in a codespace
 ---
 
 ## About the {% data variables.product.prodname_vscode_command_palette %}

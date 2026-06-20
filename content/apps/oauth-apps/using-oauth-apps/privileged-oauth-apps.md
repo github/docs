@@ -8,6 +8,8 @@ versions:
 shortTitle: Privileged apps
 redirect_from: 
   - /apps/oauth-apps/using-oauth-apps/internal-oauth-apps
+category:
+  - Install and authorize apps
 ---
 
 Some {% data variables.product.prodname_oauth_apps %} are privileged apps. These apps are owned by {% data variables.product.company_short %} and are granted special capabilities. For example, even if an organization owner has restricted access by {% data variables.product.prodname_oauth_apps %} to the organization's data, users can still authorize these apps and use them to access data from the organization.
@@ -23,6 +25,7 @@ These {% data variables.product.prodname_oauth_apps %} are :
 * {% data variables.product.prodname_android %}
 * {% data variables.product.prodname_cli %}
 * {% data variables.product.prodname_github_codespaces %} for JetBrains
+* {% data variables.copilot.copilot_cli %}
 * {% data variables.product.prodname_desktop %}
 * {% data variables.product.prodname_education %}
 * github-importer-production <!-- markdownlint-disable-line GHD034 -->

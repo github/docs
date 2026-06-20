@@ -11,8 +11,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /communicating-information-to-users-in-your-enterprise
   - /managing-users-in-your-enterprise

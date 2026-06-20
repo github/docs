@@ -1,7 +1,7 @@
 ---
 title: Running jobs on larger runners
 shortTitle: Use larger runners
-intro: 'You can speed up your workflows by configuring them to run on {% data variables.actions.hosted_runner %}s.'
+intro: You can speed up your workflows by configuring them to run on {% data variables.actions.hosted_runner %}s.
 permissions: '{% data reusables.actions.larger-runner-permissions %}'
 defaultPlatform: linux
 versions:
@@ -12,6 +12,9 @@ redirect_from:
   - /actions/using-github-hosted-runners/using-larger-runners/running-jobs-on-larger-runners
   - /actions/how-tos/using-github-hosted-runners/using-larger-runners/running-jobs-on-larger-runners
   - /actions/how-tos/using-larger-runners/running-jobs-on-larger-runners
+category:
+  - Use and manage runners
+contentType: how-tos
 ---
 
 ## Running jobs on your runner
@@ -41,9 +44,6 @@ Once your runner type has been defined, you can update your workflow YAML files 
 Use the labels in the table below to run your workflows on the corresponding macOS {% data variables.actions.hosted_runner %}.
 
 {% data reusables.actions.larger-runners-table %}
-
-> [!NOTE]
-> For macOS {% data variables.actions.hosted_runner %}s, the `-latest` runner label uses the macOS 12 runner image. For macOS Xlarge, the `-latest` runner label uses the macOS 13 runner image
 
 {% endmac %}
 
@@ -85,7 +85,7 @@ Use the labels in the table below to run your workflows on the corresponding mac
 
 {% data reusables.actions.runner-labels-implicit %}
 
-In this example, the `runs-on` key sends the job to any available runner that has been assigned the `ubuntu-20.04-16core` label:
+In this example, the `runs-on` key sends the job to any available runner that has been assigned the `ubuntu-24.04-16core` label:
 
 ```yaml
 name: learn-github-actions
@@ -93,7 +93,7 @@ on: [push]
 jobs:
   check-bats-version:
     runs-on:
-      labels: ubuntu-20.04-16core
+      labels: ubuntu-24.04-16core
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - uses: {% data reusables.actions.action-setup-node %}
@@ -148,7 +148,7 @@ name: learn-github-actions-testing
 on: [push]
 jobs:
   build:
-    runs-on: macos-13-xlarge
+    runs-on: macos-26-xlarge
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - name: Build

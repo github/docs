@@ -1,0 +1,56 @@
+{
+  "anonymous_access_disabled": {
+    "descriptionHtml": "<p>Anonymous Git read access was disabled.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to anonymous Git read access in an enterprise. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access\">Enforcing repository management policies in your enterprise</a>.\"</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "anonymous_access_disabled"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "business"
+    ],
+    "action": "anonymous_access_disabled",
+    "category": "enterprise"
+  },
+  "anonymous_access_enabled": {
+    "descriptionHtml": "<p>Anonymous Git read access was enabled.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to anonymous Git read access in an enterprise. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access\">Enforcing repository management policies in your enterprise</a>.\"</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "anonymous_access_enabled"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "business"
+    ],
+    "action": "anonymous_access_enabled",
+    "category": "enterprise"
+  }
+}

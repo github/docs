@@ -1,6 +1,6 @@
 ---
 title: Increasing storage capacity
-intro: 'You can increase or change the amount of storage available for Git repositories, databases, search indexes, and other persistent application data.'
+intro: You can increase or change the amount of storage available for Git repositories, databases, search indexes, and other persistent application data.
 redirect_from:
   - /enterprise/admin/installation/increasing-storage-capacity
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
@@ -9,13 +9,10 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-storage-capacity
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Infrastructure
-  - Performance
-  - Storage
 shortTitle: Increase storage capacity
+contentType: how-tos
+category:
+  - Scale your instance
 ---
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
@@ -31,7 +28,7 @@ As more users join {% data variables.location.product_location %}, you may need 
 
 ### Minimum recommended requirements
 
-{% ifversion ghes > 3.14 %}{% data reusables.enterprise_installation.hardware-rec-table %}{% else %}{% data reusables.enterprise_installation.hardware-rec-table-legacy %}{% endif %}
+{% data reusables.enterprise_installation.hardware-rec-table %}
 
 Root storage refers to the total size of your instance's root disk. The available space on the root filesystem is 50% of the total storage available on the root disk. For more information, see [AUTOTITLE](/admin/overview/system-overview#storage-architecture).
 

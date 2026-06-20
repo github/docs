@@ -1,14 +1,13 @@
 ---
 title: Deployment environments
-intro: 'You can create and deploy to different environments.'
+intro: You can create and deploy to different environments.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
-topics:
-  - Actions
-  - Workflows
+contentType: concepts
+category:
+  - Deploy to environments
 ---
 
 {% data reusables.actions.about-environments %}

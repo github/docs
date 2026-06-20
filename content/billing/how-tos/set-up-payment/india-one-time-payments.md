@@ -8,20 +8,18 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Sponsors
-  - Policy
 shortTitle: India one-time payments
 contentType: how-tos
+category:
+  - Set up payment
 ---
-
 
 ## About the Reserve Bank of India's recurring payments regulation
 
 A new payments regulation from the Reserve Bank of India (RBI) recently came into effect. This regulation places additional requirements on recurring online transactions and has prevented some {% data variables.product.company_short %} customers in India from making recurring payments. Customers using payment methods issued in India for any recurring transactions on {% data variables.product.github %} may find that their payments are declined by their banks or card issuers. For more information, see [the RBI's press release](https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=51353).
 
 The regulation applies to all recurring transactions, including:
+
 * {% data variables.product.prodname_dotcom %} plan subscriptions (Pro, Team, Enterprise)
 * {% data variables.product.prodname_marketplace %} purchases
 * {% data variables.product.prodname_sponsors %} transactions
@@ -52,7 +50,7 @@ In the meantime, we are actively working with our payment partners to restore re
 
 Existing sponsorships will remain in place during this period and maintainers will continue to be paid out as expected. Payments for the accrued sponsorship amounts from the funding account will be collected at the same time as other accrued charges.
 
-## Making a one-time payment for a GitHub subscription
+## Making a one-time payment for a {% data variables.product.github %} subscription
 
 > [!NOTE]
 > Affected customers will receive an email notification with a link to their billing settings when payment is due. Two further reminder emails will be sent 7 and 14 days later if payment has not been made. After 14 days, paid features and services will be locked until payment is made.
@@ -63,4 +61,8 @@ Existing sponsorships will remain in place during this period and maintainers wi
 1. Review your billing and payment information.
 1. Optionally, if you need to make an edit, click **Edit** next to the relevant section.
 1. Click **Submit payment**.
+
+   > [!NOTE]
+   > PayPal is not supported as a payment method for one-time payments. If your saved payment method is a PayPal account, **Submit payment** will be disabled. To complete your payment, update your payment method to a credit or debit card. You can enter card details directly on the payment page.
+
 1. Once payment for the current billing cycle has been successfully made, the **Pay now** button on your "Billing & plans" page will be disabled until your next payment is due.

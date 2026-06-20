@@ -1,6 +1,6 @@
 ---
 title: Commenting on an issue when a label is added
-intro: 'You can use {% data variables.product.prodname_actions %} to automatically comment on issues when a specific label is applied.'
+intro: You can use {% data variables.product.prodname_actions %} to automatically comment on issues when a specific label is applied.
 redirect_from:
   - /actions/guides/commenting-on-an-issue-when-a-label-is-added
   - /actions/managing-issues-and-pull-requests/commenting-on-an-issue-when-a-label-is-added
@@ -11,11 +11,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
-topics:
-  - Workflows
-  - Project management
 shortTitle: Add comments with labels
+contentType: tutorials
+category:
+  - Reuse and share automations
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

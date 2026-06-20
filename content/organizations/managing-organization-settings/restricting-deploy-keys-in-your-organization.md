@@ -4,10 +4,9 @@ intro: To protect your organization's data, you can configure permissions for cr
 permissions: Organization owners.
 versions:
   feature: deploy-keys-enterprise-org-policy
-topics:
-  - Organizations
-  - Policies
 shortTitle: Restrict deploy keys
+category:
+  - Set repository policies
 ---
 
 You can choose whether members can create deploy keys for repositories in your organization.

@@ -1,0 +1,41 @@
+{
+  "objects": [
+    {
+      "name": "CopilotEndpoints",
+      "id": "copilotendpoints",
+      "href": "/graphql/reference/copilot#object-copilotendpoints",
+      "description": "<p>Copilot endpoint information.</p>",
+      "fields": [
+        {
+          "name": "api",
+          "description": "<p>Copilot API endpoint.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "originTracker",
+          "description": "<p>Copilot origin tracker endpoint.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "proxy",
+          "description": "<p>Copilot proxy endpoint.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "telemetry",
+          "description": "<p>Copilot telemetry endpoint.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "copilot"
+    }
+  ]
+}

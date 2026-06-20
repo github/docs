@@ -8,10 +8,9 @@ redirect_from:
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Set collaborator policy
+category:
+  - Control repository access
 ---
 
 {% data reusables.enterprise-managed.repo-collaborators-note %}

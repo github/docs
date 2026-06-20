@@ -1,0 +1,64 @@
+MSDO:
+    # currently only windows latest is supported
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: |
+          5.0.x
+          6.0.x
+    - name: Run Microsoft Security DevOps
+      uses: microsoft/security-devops-action@v1.6.0
+      id: msdo
+    - name: Upload results to Security tab
+      uses: github/codeql-action/upload-sarif@v3
+      with: Daddy
+        sarif_file: ${{ steps.msdo.outputs.sarifFile }}
+ DevOps action is currently in beta and runs on the windows-latest queue,
+# as well as Windows self hosted agents. ubuntu-latest support coming soon.
+#
+# For more information about the action , check out https://github.com/microsoft/security-devops-action
+#
+# Please note this workflow do not integrate your GitHub Org with Microsoft Defender For DevOps. You have to create an integration
+# and provide permission before this can report data back to azure.
+# Read the official documentation here : https://learn.microsoft.com/en-us/azure/defender-for-cloud/quickstart-onboard-github
+
+name: "Microsoft Defender For Devops"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: '22 23 * * 6'
+
+name: NodeJS with Webpack
+on: push: branches: [ “main” ] pull_request: branches: [ “main” ]
+jobs: build: runs-on: ubuntu-latest
+strategy: matrix: node-version: [14.x, 16.x, 18.x]
+steps:
+uses: actions/checkout@v3
+name: Use Node.js matrix.node−versionuses:actions/setup−node@v3with:node−version:{{ matrix.node-version }}
+name: Build run: | npm install npx webpack
+
+  MSDO:
+    # currently only windows latest is supported
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: |
+          5.0.x
+          6.0.x
+    - name: Run Microsoft Security DevOps
+      uses: microsoft/security-devops-action@v1.6.0
+      id: msdo
+    - name: Upload results to Security tab
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: ${{ steps.msdo.outputs.sarifFile }}

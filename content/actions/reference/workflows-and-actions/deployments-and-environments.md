@@ -1,13 +1,16 @@
 ---
 title: Deployments and environments
 shortTitle: Deployments and environments
-intro: 'Find information about deployment protection rules, environment secrets, and environment variables.'
+intro: Find information about deployment protection rules, environment secrets, and environment variables.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 redirect_from:
   - /actions/reference/deployments-and-environments
+category:
+  - Deploy to environments
+contentType: reference
 ---
 
 ## Deployment protection rules
@@ -56,7 +59,7 @@ Use deployment branches and tags to restrict which branches and tags can deploy 
 
 * **Selected branches and tags:** Only branches and tags that match your specified name patterns can deploy to the environment.
 
-  If you specify `releases/*` as a deployment branch or tag rule, only a branch or tag whose name begins with `releases/` can deploy to the environment. (Wildcard characters will not match `/`. To match branches or tags that begin with `release/` and contain an additional single slash, use `release/*/*`.) If you add `main` as a branch rule, a branch named `main` can also deploy to the environment. For more information about syntax options for deployment branches, see the [Ruby `File.fnmatch` documentation](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch).
+  The deployment branch or tag rule is matched against the `GITHUB_REF` of the workflow run. For values of `GITHUB_REF` for each workflow trigger, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows). If you specify `releases/*` as a deployment branch or tag rule, only a `GITHUB_REF` whose name begins with `releases/` can deploy to the environment. Adding another branch rule for `refs/pull/*/merge` would also allow workflows triggered by `pull_request` events to deploy to the environment. Wildcard characters will not match `/`, to match branches or tags that begin with `release/` and contain an additional single slash, use `release/*/*`. For more information about syntax options for deployment branches, see the [Ruby `File.fnmatch` documentation](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch).
 
   {% data reusables.actions.branch-and-tag-deployment-rules-configuration %}
 

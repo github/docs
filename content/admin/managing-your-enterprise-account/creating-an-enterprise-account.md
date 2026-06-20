@@ -1,28 +1,25 @@
 ---
 title: Creating an enterprise account
-intro: "Learn the steps and effects of creating an enterprise account."
+intro: Learn the steps and effects of creating an enterprise account.
 versions:
   ghec: '*'
-type: how_to
-topics:
-  - Accounts
-  - Enterprise
-  - Fundamentals
 permissions: Organization owners
 product: '{% data variables.product.prodname_ghe_cloud %}'
 shortTitle: Create enterprise account
 redirect_from:
   - /admin/overview/creating-an-enterprise-account
+contentType: how-tos
+category:
+  - Get started with GitHub Enterprise
 ---
 
-<!-- expires 2026-01-30 -->
+<!-- expires 2027-01-30 -->
 
-<!-- When this expires, check with the stakeholder for release #4079 on whether or not the content is still needed -->
-<!-- If the content is no longer needed, delete this entire article and all links to it. -->
+<!-- When this expires, check with the stakeholder for release #4079 on whether or not the content is still needed. See https://github.com/github/releases/issues/4079#issuecomment-3954280272 for context. If the content is no longer needed, delete this entire article and all links to it. -->
 
 {% data reusables.enterprise.single-organizations-enterprise-migration %}
 
-<!-- end expires 2026-01-30 -->
+<!-- end expires 2027-01-30 -->
 
 ## When should I create an enterprise account?
 
@@ -71,7 +68,7 @@ The following changes also apply to single organizations that are automatically 
 
 ## Next steps
 
-Follow the [Get started with your enterprise account](/admin/guides#get-started-with-your-enterprise-account) learning path.
+Set up your new enterprise with our [AUTOTITLE](/enterprise-cloud@latest/enterprise-onboarding) journey for {% data variables.product.prodname_ghe_cloud %}.
 
 ## Further reading
 

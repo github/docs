@@ -11,22 +11,20 @@ export function addFixErrorDetail(
   actual: string,
   // Using flexible type to accommodate different range formats from various linting rules
   range: [number, number] | number[] | null,
-  // Using any for fixInfo as markdownlint-rule-helpers accepts various fix info structures
-  fixInfo: any,
+  // Using unknown for fixInfo as markdownlint-rule-helpers accepts various fix info structures
+  fixInfo: unknown,
 ): void {
   addError(onError, lineNumber, `Expected: ${expected}`, ` Actual: ${actual}`, range, fixInfo)
 }
 
-export function forEachInlineChild(
+export function forEachInlineChild<T = MarkdownToken>(
   params: RuleParams,
   type: string,
-  // Using any for child and token types because different linting rules pass tokens with varying structures
-  // beyond the base MarkdownToken interface (e.g., ImageToken with additional properties)
-  handler: (child: any, token: any) => void,
+  handler: (child: T, token?: MarkdownToken) => void | Promise<void>,
 ): void {
   filterTokens(params, 'inline', (token: MarkdownToken) => {
     for (const child of token.children!.filter((c) => c.type === type)) {
-      handler(child, token)
+      handler(child as unknown as T, token)
     }
   })
 }
@@ -146,8 +144,8 @@ export const docsDomains = ['docs.github.com', 'help.github.com', 'developer.git
 // This is the format we get from Markdownlint.
 // Returns null if the lines do not contain
 // frontmatter properties.
-// Returns frontmatter as a Record with any values since YAML can contain various types
-export function getFrontmatter(lines: string[]): Record<string, any> | null {
+// Returns frontmatter as a Record with unknown values since YAML can contain various types
+export function getFrontmatter(lines: string[]): Record<string, unknown> | null {
   const fmString = lines.join('\n')
   const { data } = matter(fmString)
   // If there is no frontmatter or the frontmatter contains

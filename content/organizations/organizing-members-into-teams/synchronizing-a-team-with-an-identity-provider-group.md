@@ -7,10 +7,9 @@ permissions: 'Organization owners can synchronize a {% data variables.product.gi
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Synchronize with an IdP
+category:
+  - Organize teams
 ---
 
 {% data reusables.enterprise-accounts.emu-scim-note %}
@@ -76,7 +75,6 @@ You must authenticate using SAML SSO. For more information, see [AUTOTITLE](/aut
 {% elsif ghes %}
 You must configure user provisioning with SCIM for {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise).
 
-{% data reusables.scim.ghes-beta-note %}
 {% endif %}
 
 ## Connecting an IdP group to a team

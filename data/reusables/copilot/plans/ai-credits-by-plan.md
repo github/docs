@@ -1,0 +1,7 @@
+| Plan | Price per month | Base credits | Flex allotment | Total monthly {% data variables.product.prodname_ai_credits_short %} |
+| --- | --- | --- | --- | --- |
+| {% data variables.copilot.copilot_pro_short %} | {% data variables.copilot.cfi_price_per_month %} | {% data variables.copilot.ai_credits_per_user_pro %} | {% data variables.copilot.ai_credits_per_user_pro_flex %} | {% data variables.copilot.ai_credits_per_user_pro_total %} |
+| {% data variables.copilot.copilot_pro_plus_short %} | {% data variables.copilot.cpp_price_per_month %} | {% data variables.copilot.ai_credits_per_user_pro_plus %} | {% data variables.copilot.ai_credits_per_user_pro_plus_flex %} | {% data variables.copilot.ai_credits_per_user_pro_plus_total %} |
+| {% data variables.copilot.copilot_max_short %} | {% data variables.copilot.cm_price_per_month %} | {% data variables.copilot.ai_credits_per_user_max %} | {% data variables.copilot.ai_credits_per_user_max_flex %} | {% data variables.copilot.ai_credits_per_user_max_total %} |
+
+{% data variables.copilot.copilot_free_short %} and {% data variables.copilot.copilot_student_short %} both have an allowance of {% data variables.product.prodname_ai_credits_short %} and access to select models. {% data variables.copilot.copilot_free_short %} includes 2000 code completions per month and {% data variables.copilot.copilot_student_short %} includes unlimited code completions.

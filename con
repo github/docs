@@ -1,0 +1,16 @@
+*** Begin Patch
+*** Update File: content/repositories/creating-and-managing-repositories/quickstart-for-repositories.md
+@@
+-Congratulations! You've successfully created your first repository, and initialized it with a _README_ file.
++Congratulations — you've successfully created your first repository and initialized it with a README file (`README.md`).
+@@
+-Now that you have created a project, you can start committing changes.
+-
+-_README_ files are a great place to describe your project in more detail, or add some documentation such as how to install or use your project. The contents of your _README_ file are automatically[...]
++Now that you have created a project, you can start committing changes.
++
++`README.md` files are a great place to describe your project in more detail, or add documentation such as how to install or use your project. The contents of your `README.md` file are automatically shown in the repository UI.
+@@
+-You have now created a repository, including a _README_ file, and created your first commit on {% data variables.product.prodname_dotcom %}.
++You have now created a repository and made your first commit on {% data variables.product.prodname_dotcom %}.
+*** End Patch

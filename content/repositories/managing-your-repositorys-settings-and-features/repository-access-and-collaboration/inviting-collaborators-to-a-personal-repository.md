@@ -15,11 +15,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Repositories
 shortTitle: Invite collaborators
 contentType: other
+category:
+  - Manage access and repository policies
 ---
 
 ## Inviting a collaborator to a personal repository

@@ -13,10 +13,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Profiles
 shortTitle: Organization profile
 contentType: concepts
+category:
+  - Participate in organizations
 ---
 
 You can customize your organization's profile by adding any of the following:

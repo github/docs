@@ -11,10 +11,9 @@ redirect_from:
   - /admin/administering-your-instance/command-line-utilities
 versions:
   ghes: '*'
-type: reference
-topics:
-  - Enterprise
-  - SSH
+contentType: reference
+category:
+  - Install and configure your instance
 ---
 
 You can execute these commands from anywhere on the VM after signing in as an SSH admin user. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
@@ -135,7 +134,7 @@ $ ghe-config app.github.rate-limiting-exempt-users "hubot github-actions[bot]"
 
 ### ghe-config-apply
 
-This utility applies {% data variables.enterprise.management_console %} settings, reloads system services, prepares a storage device, reloads application services, and runs any pending database migrations. It is equivalent to clicking **Save settings** in the {% data variables.enterprise.management_console %}'s web UI or to sending a POST request to [the `/manage/v1/config/apply` endpoint](/rest/enterprise-admin/manage-ghes#trigger-a-ghe-config-apply-run). {% ifversion ghes > 3.15 %} Starting in version 3.16, this utility applies configuration changes conditionally to relevant settings. You can force it to run unconditionally by using `-f` flag. {% endif %}
+This utility applies {% data variables.enterprise.management_console %} settings, reloads system services, prepares a storage device, reloads application services, and runs any pending database migrations. It is equivalent to clicking **Save settings** in the {% data variables.enterprise.management_console %}'s web UI or to sending a POST request to [the `/manage/v1/config/apply` endpoint](/rest/enterprise-admin/manage-ghes#trigger-a-ghe-config-apply-run). Starting in version 3.16, this utility applies configuration changes conditionally to relevant settings. You can force it to run unconditionally by using `-f` flag.
 
 ```shell
 ghe-config-apply
@@ -225,7 +224,7 @@ To check SSH ciphers:
 ghe-crypto check ssh-ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com
 ```
 
-For more information about configuring cipher suites and cryptographic algorithms, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/configuring-tls#configuring-cipher-suites-and-cryptographic-algorithms).
+For more information about configuring cipher suites and cryptographic algorithms, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/configuring-tls-and-ssh-ciphers).
 
 {% endif %}
 
@@ -376,12 +375,8 @@ ghe-reactivate-admin-login
 
 ### ghe-saml-mapping-csv
 
-{% ifversion scim-for-ghes-ga %}
-
 > [!NOTE]
 > This utility does not work with configurations that use SAML with SCIM provisioning. For the SCIM version of this tool, please refer to [`ghe-scim-identities-csv` utility](#ghe-scim-identities-csv).
-
-{% endif %}
 
 This utility allows administrators to output or update the SAML `NameID` mappings for users on an instance. The utility can output a CSV file that lists all existing mappings. You can also update mappings for users on your instance by editing the resulting file, then using the utility to assign new mappings from the file.
 
@@ -407,8 +402,6 @@ To update SAML mappings on the instance with new values from the file, run the f
 ghe-saml-mapping-csv -u -f /PATH/TO/FILE
 ```
 
-{% ifversion scim-for-ghes-ga %}
-
 ### ghe-scim-identities-csv
 
 > [!NOTE]
@@ -429,8 +422,6 @@ ghe-scim-identities-csv -f /PATH/TO/FILE
 ```
 
 We recommend writing to a file in `/data/user/tmp`.
-
-{% endif %}
 
 ### ghe-service-list
 
@@ -686,6 +677,24 @@ To show the full hook payload, result, and any exceptions for the delivery:
 
 ```shell
 ghe-webhook-logs -g DELIVERY_GUID
+```
+
+## Backup and restore
+
+### ghe-backup-prune-snapshots
+
+This utility prunes old or invalid backup snapshot directories.
+
+```shell
+ghe-backup-prune-snapshots
+```
+
+### ghe-backup-healthcheck
+
+This utility quickly confirms that GHES backups are being written, are recent, and that the backup disk is not in a risky state. For example, if usage is 90% or higher, it reports an error because the backup disk may be close to full. Setting `-no-color` gives plain text output, for example in logs or monitoring systems.
+
+```shell
+ghe-backup-healthcheck
 ```
 
 ## Clustering
@@ -1288,6 +1297,12 @@ GHE_LICENSE_FILE=/path/license ghe-license import
 # License synchronized.
 ```
 
+## Migrations
+
+### elm
+
+`elm` is the command-line tool for {% data variables.product.prodname_elm %}, a tool for live migrations to {% data variables.enterprise.data_residency_site %}. See [AUTOTITLE](/migrations/elm/elm-cli-reference).
+
 ## Security
 
 ### ghe-find-insecure-git-operations
@@ -1369,11 +1384,14 @@ In this example, `ghe-repl-status -vv` sends verbose status information from a r
 
 ### ghe-check-background-upgrade-jobs
 
-During an upgrade to a feature release, this utility displays the status of background jobs on {% data variables.location.product_location %}. If you're running back-to-back upgrades, you should use this utility to check that all background jobs are complete before proceeding with the next upgrade.
+During an upgrade to a feature release, this utility displays the status of background upgrade jobs, such as Elasticsearch index migrations, on {% data variables.location.product_location %}. If you're running back-to-back upgrades, you should use this utility to check that all background jobs are complete before proceeding with the next feature upgrade.
 
 ```shell
 ghe-check-background-upgrade-jobs
 ```
+
+> [!NOTE]
+> This utility only gates a **subsequent feature upgrade**. It is not a prerequisite for upgrading replica or other additional nodes to the same release.
 
 ### ghe-migrations
 

@@ -1,4 +1,6 @@
 import type { GetServerSideProps } from 'next'
+import type { Response } from 'express'
+import type { ExtendedRequest } from '@/types'
 
 import {
   MainContextT,
@@ -30,18 +32,18 @@ export default function Page({ mainContext, searchContext }: Props) {
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const req = context.req as any
-  const res = context.res as any
+  const req = context.req as unknown as ExtendedRequest
+  const res = context.res as unknown as Response
 
   const mainContext = await getMainContext(req, res)
   addUINamespaces(req, mainContext.data.ui, ['search_results'])
 
-  if (!req.context.search) {
+  if (!req.context?.search) {
     // This should have been done by the middleware.
     throw new Error('Expected req.context to be populated with .search')
   }
 
-  const searchObject = req.context.search as SearchOnReqObject<'generalSearch'>
+  const searchObject = (req.context?.search ?? {}) as SearchOnReqObject<'generalSearch'>
 
   // The `req.context.search` is similar to what's needed to React
   // render the search result page.
