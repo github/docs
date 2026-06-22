@@ -840,7 +840,7 @@ session, err := client.CreateSession(ctx, &copilot.SessionConfig{
 ```
 
 {% endcodetab %}
-{% codetab csharp %}
+{% codetab dotnet %}
 
 <!-- docs-validate: skip -->
 
