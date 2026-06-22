@@ -107,10 +107,10 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
-        swift: ["5.2", "5.3"]
+        swift: ["6.1", "6.2", "6.3"]
     runs-on: {% raw %}${{ matrix.os }}{% endraw %}
     steps:
-      - uses: swift-actions/setup-swift@65540b95f51493d65f5e59e97dcef9629ddf11bf
+      - uses: swift-actions/setup-swift@7ca6abe6b3b0e8b5421b88be48feee39cbf52c6a # v2.4.0
         with:
           swift-version: {% raw %}${{ matrix.swift }}{% endraw %}
       - uses: {% data reusables.actions.action-checkout %}
@@ -122,16 +122,16 @@ jobs:
 
 ### Using a single specific Swift version
 
-You can configure your job to use a single specific version of Swift, such as `5.3.3`.
+You can configure your job to use a single specific version of Swift, such as `6.3`.
 
 ```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 steps:
-  - uses: swift-actions/setup-swift@65540b95f51493d65f5e59e97dcef9629ddf11bf
+  - uses: swift-actions/setup-swift@7ca6abe6b3b0e8b5421b88be48feee39cbf52c6a # v2.4.0
     with:
-      swift-version: "5.3.3"
+      swift-version: "6.3"
   - name: Get swift version
-    run: swift --version # Swift 5.3.3
+    run: swift --version # Swift 6.3
 ```
 
 ## Building and testing your code
@@ -142,11 +142,283 @@ You can use the same commands that you use locally to build and test your code u
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 steps:
   - uses: {% data reusables.actions.action-checkout %}
-  - uses: swift-actions/setup-swift@65540b95f51493d65f5e59e97dcef9629ddf11bf
+  - uses: swift-actions/setup-swift@7ca6abe6b3b0e8b5421b88be48feee39cbf52c6a # v2.4.0
     with:
-      swift-version: "5.3.3"
+      swift-version: "6.3"
   - name: Build
     run: swift build
   - name: Run tests
     run: swift test
+```
+
+## Building and testing on Linux with a container
+
+On {% data variables.product.prodname_dotcom %}-hosted Linux runners, you can run your job inside an official Swift container image, which already includes the Swift toolchain. This means you don't need a separate step to install Swift.
+
+Released Swift versions are published as the [`swift`](https://hub.docker.com/_/swift) official images on Docker Hub (for example, `swift:6.3` or `swift:6.3-noble`). To test against unreleased toolchains, use the nightly snapshot images published as [`swiftlang/swift`](https://hub.docker.com/r/swiftlang/swift) (for example, `swiftlang/swift:nightly-main` or `swiftlang/swift:nightly-6.2-noble`). For more information, see [Swift on Docker](https://www.swift.org/documentation/docker/) on Swift.org.
+
+```yaml copy
+name: Swift
+
+on: [push]
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    container: swift:6.3
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+      - name: Build
+        run: swift build
+      - name: Run tests
+        run: swift test
+```
+
+To test against a nightly toolchain, use a `swiftlang/swift` snapshot image instead.
+
+```yaml copy
+name: Swift
+
+on: [push]
+
+jobs:
+  nightly:
+    runs-on: ubuntu-latest
+    container: swiftlang/swift:nightly-main
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+      - name: Build
+        run: swift build
+      - name: Run tests
+        run: swift test
+```
+
+## Building and testing for Apple platforms with Xcode
+
+To build and test for a specific Apple platform such as iOS, watchOS, tvOS, or visionOS, use `xcodebuild` on a macOS runner and select a simulator with the `-destination` option. {% data variables.product.prodname_dotcom %}-hosted macOS runners come with Xcode and Apple platform simulators preinstalled. To check which Xcode versions, platform SDKs, OS versions, and simulators are available on each macOS runner, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software).
+
+```yaml copy
+name: Swift
+
+on: [push]
+
+jobs:
+  ios:
+    runs-on: macos-latest
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+      - name: Build and test for iOS
+        run: |
+          xcodebuild test \
+            -scheme MyPackage \
+            -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5'
+```
+
+To target a different platform, change the `-destination` value. For example, use `platform=watchOS Simulator,name=Apple Watch Series 9 (45mm)`, `platform=tvOS Simulator,name=Apple TV`, `platform=visionOS Simulator,name=Apple Vision Pro`, or `platform=macOS` for native macOS. To select a specific installed Xcode version, run `sudo xcode-select -s /Applications/Xcode_16.4.app` before building.
+
+If you target a platform whose simulator runtime is not preinstalled on the runner, the build fails until the runtime is available. Download it first with `xcodebuild -downloadPlatform iOS` (replacing `iOS` with the platform you need), or choose a simulator and OS version that the runner already provides.
+
+## Building and testing on Windows
+
+To build and test on Windows, install the Swift toolchain with the [`compnerd/gha-setup-swift`](https://github.com/compnerd/gha-setup-swift) action, then run `swift build` and `swift test`.
+
+```yaml copy
+
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
+name: Swift
+
+on: [push]
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: compnerd/gha-setup-swift@eeda069c5bc95ac8a9ac5cea7d4f588ae5420ca5 # v0.4.0
+        with:
+          swift-version: swift-6.3-release
+          swift-build: 6.3-RELEASE
+      - uses: {% data reusables.actions.action-checkout %}
+      - name: Build
+        run: swift build
+      - name: Run tests
+        run: swift test
+```
+
+## Building and testing on Android
+
+To build and test on Android, use the [`skiptools/swift-android-action`](https://github.com/skiptools/swift-android-action) action, which installs the Swift SDK for Android and can run your tests on an emulator.
+
+```yaml copy
+
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
+name: Swift
+
+on: [push]
+
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: skiptools/swift-android-action@2044b79660f201ccef8cbce62877e4ec5409f9c8 # v2.9.5
+        with:
+          swift-version: "6.3"
+          android-api-level: 28
+```
+
+## Building and testing across multiple platforms with one action
+
+If you want to build and test across several of the platforms above from a single workflow, you can use a community action that wraps the platform-specific setup. For example, the [`brightdigit/swift-build`](https://github.com/brightdigit/swift-build) action can target macOS, Linux, Windows, Apple devices (iOS, watchOS, tvOS, and visionOS), Android, and WebAssembly, selected with its `type` input. It uses `xcodebuild` for Apple platforms, [`compnerd/gha-setup-swift`](https://github.com/compnerd/gha-setup-swift) for Windows, and [`skiptools/swift-android-action`](https://github.com/skiptools/swift-android-action) for Android.
+
+```yaml copy
+
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
+name: Swift
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: brightdigit/swift-build@b0a63a89ea85b47a8b43dff122e12856ad661f33 # v1.5.7
+        with:
+          scheme: MyPackage
+```
+
+### Apple platforms
+
+To target a specific Apple platform, set the `type` input (`ios`, `watchos`, `tvos`, `visionos`, or `macos`) and, for simulator-based platforms, the `deviceName` and `osVersion`. To check which simulators and OS versions are preinstalled on each macOS runner, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software). If the simulator runtime you request is not already installed on the runner, set `download-platform: true` so the action downloads it before testing.
+
+```yaml copy
+
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
+name: Swift
+
+on: [push]
+
+jobs:
+  ios:
+    runs-on: macos-latest
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: brightdigit/swift-build@b0a63a89ea85b47a8b43dff122e12856ad661f33 # v1.5.7
+        with:
+          scheme: MyPackage
+          type: ios
+          deviceName: iPhone 15
+          osVersion: "17.5"
+          download-platform: true
+```
+
+### Linux
+
+On Linux, run the action inside an official Swift container image.
+
+```yaml copy
+
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
+name: Swift
+
+on: [push]
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    container: swift:6.3
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: brightdigit/swift-build@b0a63a89ea85b47a8b43dff122e12856ad661f33 # v1.5.7
+        with:
+          scheme: MyPackage
+```
+
+### Windows
+
+```yaml copy
+
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
+name: Swift
+
+on: [push]
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: brightdigit/swift-build@b0a63a89ea85b47a8b43dff122e12856ad661f33 # v1.5.7
+        with:
+          windows-swift-version: swift-6.3-release
+          windows-swift-build: 6.3-RELEASE
+```
+
+### Android
+
+```yaml copy
+
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
+name: Swift
+
+on: [push]
+
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: brightdigit/swift-build@b0a63a89ea85b47a8b43dff122e12856ad661f33 # v1.5.7
+        with:
+          scheme: MyPackage
+          type: android
+          android-swift-version: "6.3"
+          android-api-level: "28"
+```
+
+### WebAssembly
+
+WebAssembly builds require Swift 6.2.3 or later. Run the action inside a Swift container image and set `type` to `wasm`.
+
+```yaml copy
+
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
+name: Swift
+
+on: [push]
+
+jobs:
+  wasm:
+    runs-on: ubuntu-latest
+    container: swift:6.3-jammy
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: brightdigit/swift-build@b0a63a89ea85b47a8b43dff122e12856ad661f33 # v1.5.7
+        with:
+          scheme: MyPackage
+          type: wasm
 ```
