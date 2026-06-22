@@ -15,13 +15,12 @@ You can open the {% data variables.copilot.github_copilot_app %} from {% data va
 
 ## Launcher URL format
 
-Use the hosted launcher URL with an `entry_point` value and an encoded app link in `open`.
+Use the hosted launcher URL with an encoded app link in `open`.
 
 ```text
-https://github.com/copilot/app/launch?entry_point=ENTRY_POINT&open=ENCODED_APP_LINK
+https://github.com/copilot/app/launch?open=ENCODED_APP_LINK
 ```
 
-- `entry_point` identifies the source of the link. Use a stable, low-cardinality value, such as the name of the surface that renders the link.
 - `open` is the URL-encoded app link to open.
 
 Public examples should use the `ghapp://` scheme. The app also accepts `github-app://` and `gh://` links.
@@ -103,7 +102,7 @@ ghapp://github.com/OWNER/REPO
 For example:
 
 ```text
-https://github.com/copilot/app/launch?entry_point=docs_repo_link&open=ghapp%3A%2F%2Fgithub.com%2FOWNER%2FREPO
+https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fgithub.com%2FOWNER%2FREPO
 ```
 
 ## Issue link
@@ -117,7 +116,7 @@ ghapp://github.com/OWNER/REPO/issues/123
 For example:
 
 ```text
-https://github.com/copilot/app/launch?entry_point=docs_issue_link&open=ghapp%3A%2F%2Fgithub.com%2FOWNER%2FREPO%2Fissues%2F123
+https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fgithub.com%2FOWNER%2FREPO%2Fissues%2F123
 ```
 
 ## Pull request link
@@ -131,7 +130,7 @@ ghapp://github.com/OWNER/REPO/pull/123
 For example:
 
 ```text
-https://github.com/copilot/app/launch?entry_point=docs_pull_request_link&open=ghapp%3A%2F%2Fgithub.com%2FOWNER%2FREPO%2Fpull%2F123
+https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fgithub.com%2FOWNER%2FREPO%2Fpull%2F123
 ```
 
 ## Agent task link
@@ -145,7 +144,7 @@ ghapp://github.com/OWNER/REPO/tasks/TASK_ID
 For example:
 
 ```text
-https://github.com/copilot/app/launch?entry_point=docs_agent_task_link&open=ghapp%3A%2F%2Fgithub.com%2FOWNER%2FREPO%2Ftasks%2FTASK_ID
+https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fgithub.com%2FOWNER%2FREPO%2Ftasks%2FTASK_ID
 ```
 
 Use the GitHub task ID for `TASK_ID`. Do not use a runtime session ID or an app-local session URL for links that resume Copilot agent tasks from {% data variables.product.github %}.
@@ -161,7 +160,7 @@ ghapp://automations
 For example:
 
 ```text
-https://github.com/copilot/app/launch?entry_point=docs_automations_link&open=ghapp%3A%2F%2Fautomations
+https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fautomations
 ```
 
 To open a new automation draft, encode an app link in this format.
@@ -173,7 +172,7 @@ ghapp://automations/new?name=Daily%20triage&trigger=daily&time=09%3A00&prompt=Su
 For example:
 
 ```text
-https://github.com/copilot/app/launch?entry_point=docs_new_automation_link&open=ghapp%3A%2F%2Fautomations%2Fnew%3Fname%3DDaily%2520triage%26trigger%3Ddaily%26time%3D09%253A00%26prompt%3DSummarize%2520new%2520issues
+https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fautomations%2Fnew%3Fname%3DDaily%2520triage%26trigger%3Ddaily%26time%3D09%253A00%26prompt%3DSummarize%2520new%2520issues
 ```
 
 The new automation link opens a pre-filled draft for review. It does not create the automation until the user confirms in the app. Do not include secrets or sensitive information in automation prompts that are embedded in URLs.
@@ -188,8 +187,8 @@ ghapp://automations/AUTOMATION_ID/RUN_ID
 For example:
 
 ```text
-https://github.com/copilot/app/launch?entry_point=docs_automation_link&open=ghapp%3A%2F%2Fautomations%2FAUTOMATION_ID
-https://github.com/copilot/app/launch?entry_point=docs_automation_run_link&open=ghapp%3A%2F%2Fautomations%2FAUTOMATION_ID%2FRUN_ID
+https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fautomations%2FAUTOMATION_ID
+https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fautomations%2FAUTOMATION_ID%2FRUN_ID
 ```
 
 Automation links open local automations by default. To open a cloud automation, add `mode=cloud` to the app link before encoding it.
@@ -202,10 +201,6 @@ ghapp://automations/AUTOMATION_ID/RUN_ID?mode=cloud
 For example:
 
 ```text
-https://github.com/copilot/app/launch?entry_point=docs_cloud_automation_link&open=ghapp%3A%2F%2Fautomations%2FAUTOMATION_ID%3Fmode%3Dcloud
-https://github.com/copilot/app/launch?entry_point=docs_cloud_automation_run_link&open=ghapp%3A%2F%2Fautomations%2FAUTOMATION_ID%2FRUN_ID%3Fmode%3Dcloud
+https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fautomations%2FAUTOMATION_ID%3Fmode%3Dcloud
+https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fautomations%2FAUTOMATION_ID%2FRUN_ID%3Fmode%3Dcloud
 ```
-
-## Attribution and privacy
-
-Use `entry_point` to attribute the link source without duplicating details from the `open` target. Keep the value generic and stable, and do not include repository names, issue or pull request numbers, branch names, task IDs, automation IDs, run IDs, prompts, or raw app links in analytics events.
