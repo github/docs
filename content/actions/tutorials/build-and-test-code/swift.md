@@ -126,6 +126,9 @@ You can configure your job to use a single specific version of Swift, such as `6
 
 ```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 steps:
   - uses: swift-actions/setup-swift@7ca6abe6b3b0e8b5421b88be48feee39cbf52c6a # v2.4.0
     with:
@@ -140,6 +143,9 @@ You can use the same commands that you use locally to build and test your code u
 
 ```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 steps:
   - uses: {% data reusables.actions.action-checkout %}
   - uses: swift-actions/setup-swift@7ca6abe6b3b0e8b5421b88be48feee39cbf52c6a # v2.4.0
@@ -195,7 +201,7 @@ jobs:
 
 ## Building and testing for Apple platforms with Xcode
 
-To build and test for a specific Apple platform such as iOS, watchOS, tvOS, or visionOS, use `xcodebuild` on a macOS runner and select a simulator with the `-destination` option. {% data variables.product.prodname_dotcom %}-hosted macOS runners come with Xcode and Apple platform simulators preinstalled. To check which Xcode versions, platform SDKs, OS versions, and simulators are available on each macOS runner, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software).
+To build and test for a specific Apple platform such as iOS, watchOS, tvOS, or visionOS, use `xcodebuild` on a macOS runner and select a simulator with the `-destination` option. {% data variables.product.prodname_dotcom %}-hosted macOS runners come with Xcode and Apple platform simulators preinstalled. To check which Xcode versions, platform SDKs, OS versions, and simulators are available on each macOS runner, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software), or open the README for the macOS version you want in the [{% data variables.product.prodname_actions %} Runner Images repository](https://github.com/actions/runner-images/tree/main/images/macos). For the runner labels you can use with `runs-on` (for example, `macos-15`, `macos-14`, or `macos-13`), see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#standard-github-hosted-runners-for-public-repositories).
 
 ```yaml copy
 name: Swift
@@ -298,7 +304,7 @@ jobs:
 
 ### Apple platforms
 
-To target a specific Apple platform, set the `type` input (`ios`, `watchos`, `tvos`, `visionos`, or `macos`) and, for simulator-based platforms, the `deviceName` and `osVersion`. To check which simulators and OS versions are preinstalled on each macOS runner, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software). If the simulator runtime you request is not already installed on the runner, set `download-platform: true` so the action downloads it before testing.
+To target a specific Apple platform, set the `type` input (`ios`, `watchos`, `tvos`, `visionos`, or `macos`) and, for simulator-based platforms, the `deviceName` and `osVersion`. To check which simulators and OS versions are preinstalled on each macOS runner, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software), or open the README for the macOS version you want in the [{% data variables.product.prodname_actions %} Runner Images repository](https://github.com/actions/runner-images/tree/main/images/macos). If the simulator runtime you request is not already installed on the runner, set `download-platform: true` so the action downloads it before testing.
 
 ```yaml copy
 
