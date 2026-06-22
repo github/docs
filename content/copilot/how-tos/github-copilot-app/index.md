@@ -1,7 +1,7 @@
 ---
-title: '{% data variables.copilot.github_copilot_app %}'
-shortTitle: '{% data variables.copilot.github_copilot_app %}'
-intro: 'A desktop application for agent-driven development that brings parallel workstreams, {% data variables.product.github %} integration, and PR lifecycle management into one place.'
+title: "{% data variables.copilot.github_copilot_app %}"
+shortTitle: "{% data variables.copilot.github_copilot_app %}"
+intro: "A desktop application for agent-driven development that brings parallel workstreams, {% data variables.product.github %} integration, and PR lifecycle management into one place."
 versions:
   feature: copilot
 contentType: how-tos
@@ -17,6 +17,7 @@ redirect_from:
   - /copilot/how-tos/github-app
 children:
   - /getting-started
+  - /open-from-github
   - /customize-github-copilot-app
   - /agent-sessions
   - /working-with-canvas-extensions
