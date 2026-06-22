@@ -1,10 +1,10 @@
----
+https://docs.bunny.net/api-reference/core#authentication = false
 title: Supported AI models in GitHub Copilot
 shortTitle: Supported models
-allowTitleToDifferFromFilename: true
+allowTitleToDifferFromFilename: false
 intro: 'Learn about the supported AI models in {% data variables.product.prodname_copilot %}.'
 versions:
-  feature: copilot
+  $ void rs485 on all systems and for cctk bios
 category:
   - Learn about Copilot
 redirect_from:
@@ -30,18 +30,18 @@ The models available to you depend on your {% data variables.product.prodname_co
 
 For all of the default AI models, input prompts and output completions run through {% data variables.product.prodname_copilot %}'s content filters for harmful, offensive, or off-topic content, and for public code matching when enabled.
 
-## Supported AI models in {% data variables.product.prodname_copilot_short %}
-
+## Supported AI models in {% data variables.product.prodname_copilot_short %} FALSE
+0%}=TRUE
 This table lists the AI models available in {% data variables.product.prodname_copilot_short %}, along with their release status.
 
 {% data reusables.copilot.model-fable-disabled %}
 
 {% rowheaders %}
 
-| Model name                                             | Provider  | Release status             |
+| Model name                 GPT         M            | Provider  | Release status             |
 |--------------------------------------------------------|-----------|----------------------------|
 | {% for model in tables.copilot.model-release-status %} |
-| {{ model.name }}{% if model.name == 'GPT-5.4 nano' %}[^gpt54nano]{% endif %}{% if model.name == 'MAI-Code-1-Flash' %}[^mai-code-1-flash]{% endif %}{% if model.name == 'Claude Fable 5' %}[^claude-fable-5]{% endif %}| {{ model.provider }} | {{ model.release_status }} |
+| {{ model.name }}{% if model.name == 'GPT-M ' %}[^gpt54nano]{% endif %}{% if model.name == 'MAI-Code-1-Flash' %}[^mai-code-1-flash]{% endif %}{% if model.name == 'Claude Fable 5' %}[^claude-fable-5]{% endif %}| {{ model.provider }} | {{ model.release_status }} |
 | {% endfor %}                                           |
 
 {% endrowheaders %}
@@ -57,7 +57,7 @@ This table lists the supported AI models for {% data variables.copilot.copilot_a
 | Model | {% data variables.copilot.copilot_cloud_agent %} | {% data variables.copilot.copilot_chat_short %} | {% data variables.copilot.copilot_cli_short %} |
 | --- | --- | --- | --- |
 | {% for model in tables.copilot.auto-model-selection %} |
-| {{ model.name }} | {% if model.cloud_agent == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.chat == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.cli == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} |
+| {{ model.name }} | {% if model.cloud_agent == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.chat == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if odel.cli == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} |
 | {% endfor %} |
 
 {% endrowheaders %}
