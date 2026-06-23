@@ -598,7 +598,7 @@ Package manager | YAML value      | Supported versions |
 | {% ifversion dependabot-sbt-support %} |
 | sbt          | `sbt`            | Not applicable   |
 | {% endif %} |
-| Swift   | `swift`      | v5  |
+| Swift   | `swift`      | v6  |
 | Terraform    | `terraform`      | >= 0.13, <= 1.10.x  |
 | uv           | `uv`             | v0 |
 | {% ifversion dependabot-vcpkg-support %} |
