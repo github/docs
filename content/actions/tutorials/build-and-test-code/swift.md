@@ -159,7 +159,7 @@ steps:
 
 ## Building and testing on Linux with a container
 
-On {% data variables.product.prodname_dotcom %}-hosted Linux runners, you can run your job inside an official Swift container image, which already includes the Swift toolchain. This means you don't need a separate step to install Swift.
+On {% data variables.product.prodname_dotcom %}-hosted Linux runners, you can run your job inside an official Swift container image, that includes the Swift toolchain. With these images, you don't need a separate step to install Swift.
 
 Released Swift versions are published as the [`swift`](https://hub.docker.com/_/swift) official images on Docker Hub (for example, `swift:6.3` or `swift:6.3-noble`). To test against unreleased toolchains, use the nightly snapshot images published as [`swiftlang/swift`](https://hub.docker.com/r/swiftlang/swift) (for example, `swiftlang/swift:nightly-main` or `swiftlang/swift:nightly-6.2-noble`). For more information, see [Swift on Docker](https://www.swift.org/documentation/docker/) on Swift.org.
 
