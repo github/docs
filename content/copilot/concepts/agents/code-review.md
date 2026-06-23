@@ -53,7 +53,7 @@ The second policy has these characteristics:
 
 * It is disabled by default.
 * Once this policy is set at the enterprise level, it becomes **visible, but not editable** at the organization level.
-* The policy is **most restrictive**.
+* The policy is **most restrictive**. {% data variables.copilot.copilot_code-review_short %} is only available in repositories under an organization where you have explicitly enabled the policy.
 
 ### How it works for users without a license
 
