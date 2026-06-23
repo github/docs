@@ -76,6 +76,12 @@ The identity data on this page will include the SCIM data that was sent to {% da
 
 {% data reusables.saml.about-authorized-credentials %}
 
+{% ifversion single_user_cred_revocation %}
+
+You can also revoke SSO authorizations for individual users or all users. For enterprises with {% data variables.product.prodname_emus %}, you can delete credentials entirely. This is useful for responding to security incidents. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents/revoke-authorizations-or-tokens).
+
+{% endif %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.saml.click-person-revoke-credentials %}

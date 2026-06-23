@@ -35,7 +35,7 @@ export const TableOfContents = (props: Props) => {
         })}
 
       {variant === 'compact' && (
-        <ul className="list-style-none f4">
+        <ul role="list" className="list-style-none f4">
           {items.map((item) => {
             const { fullPath, title, childTocItems } = item
             return (
@@ -44,7 +44,7 @@ export const TableOfContents = (props: Props) => {
                   {title}
                 </Link>
                 {(childTocItems || []).filter(Boolean).length > 0 && (
-                  <ul className="pl-4 list-style-none">
+                  <ul role="list" className="pl-4 list-style-none">
                     {(childTocItems || []).filter(Boolean).map((childItem) => (
                       <li key={childItem.fullPath} className="mb-2">
                         <Link href={childItem.fullPath} className="text-underline">
