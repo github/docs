@@ -240,6 +240,15 @@ export function correctTranslatedContentStrings(
         'tienen prioridad sobre el envío automático de dependencias.{% endif %}\n',
       )
     }
+
+    // [SCRAPE-6642] admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-with-okta.md
+    // (title): `{% ifversion ghec %}SCIM{% else %} con Okta` is never closed —
+    // the `{% endif %}` is missing. The corrector runs on the PARSED title
+    // value, so match the unquoted substring (no trailing YAML quote).
+    content = content.replaceAll(
+      '{% ifversion ghec %}SCIM{% else %} con Okta',
+      '{% ifversion ghec %}SCIM{% else %} con Okta{% endif %}',
+    )
   }
 
   if (context.code === 'ja') {
@@ -864,6 +873,15 @@ export function correctTranslatedContentStrings(
       '{% else %} 的访问权限。',
       '{% else %}组织的设置{% endif %} 的访问权限。',
     )
+
+    // [SCRAPE-6642] admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-with-okta.md
+    // (intro): `{% endif %}` appears before `{% ifversion ghec %}` — the two
+    // tags are swapped, leaving an orphan endif and an unclosed ifversion.
+    // Restore the English pattern: enterprise{% ifversion ghec %} on X or Y{% endif %}.
+    content = content.replaceAll(
+      '在{% data variables.product.prodname_dotcom_the_website %}或{% data variables.enterprise.data_residency_site %}{% endif %}上的企业{% ifversion ghec %}进行通信。',
+      '的企业{% ifversion ghec %}在{% data variables.product.prodname_dotcom_the_website %}或{% data variables.enterprise.data_residency_site %}{% endif %}进行通信。',
+    )
   }
 
   if (context.code === 'ru') {
@@ -1177,6 +1195,17 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll(
       '{% ifversion enterprise-licensing-language %}license-language%else %}licenses{% license seats{% endif %}',
       '{% ifversion enterprise-licensing-language %}licenses{% else %}licensed seats{% endif %}',
+    )
+
+    // [SCRAPE-6642] admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-with-okta.md
+    // (title): translator swapped the ghec/non-ghec branches and the `{% else %}`
+    // ended up as an orphan after the `{% endif %}` already closed the block.
+    // Reconstruct to match English: Configuring {% ifversion ghec %}SCIM{% else %}authentication and{% endif %} provisioning with Okta.
+    // The corrector runs on the PARSED title value, so match the unquoted
+    // substring (no trailing YAML quote).
+    content = content.replaceAll(
+      '{% ifversion ghec %}аутентификации и{% endif %} провизионирования SCIM{% else %}с помощью Okta',
+      '{% ifversion ghec %}SCIM{% else %}аутентификации и{% endif %} провизионирования с помощью Okta',
     )
   }
 
@@ -1535,6 +1564,16 @@ export function correctTranslatedContentStrings(
       '{% else %}에 대한 액세스를 제어할 수 있습니다.',
       '{% else %}조직의 설정{% endif %}에 대한 액세스를 제어할 수 있습니다.',
     )
+
+    // [SCRAPE-6642] code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configuring-code-scanning-for-your-appliance.md
+    // (intro): the second `{% ifversion default-setup-self-hosted-runners-GHEC %}`
+    // is a corruption — it should be `{% endif %}` to close the first one.
+    // This left the `{% ifversion %}` block unclosed and broke the
+    // /ko/code-security landing page scrape. Restore the endif.
+    content = content.replaceAll(
+      '{% data variables.product.prodname_dotcom %}.{% ifversion default-setup-self-hosted-runners-GHEC %}',
+      '{% data variables.product.prodname_dotcom %}.{% endif %}',
+    )
   }
 
   if (context.code === 'de') {
@@ -1717,6 +1756,26 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll(
       'Mit angepassten Organisationsrollen kannst du den Zugriff auf die Einstellungen deiner {% ifversion org-custom-role-with-repo-permissions %}Organisation und die Repositories{% else %}einer Organisation steuern.',
       'Mit angepassten Organisationsrollen kannst du den Zugriff auf die Einstellungen deiner {% ifversion org-custom-role-with-repo-permissions %}Organisation und die Repositories{% else %}einer Organisation{% endif %} steuern.',
+    )
+
+    // [SCRAPE-6642] admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-pingfederate.md
+    // (intro): translator swapped the ghes/non-ghes branches. The EMU/dotcom/data-residency
+    // text ended up inside `{% ifversion ghes %}...{% endif %}`, the `{% endif %}` closed
+    // the block too early, and `{% else %}` was left as an orphan after it.
+    // Reconstruct to match English: {% ifversion ghes %}centrally manage...{% else %}for EMUs on dotcom...{% endif %}.
+    content = content.replaceAll(
+      '{% ifversion ghes %}ein, um Authentifizierung und Provisionierung für {% data variables.product.prodname_emus %} auf {% data variables.product.prodname_dotcom_the_website %} oder {% data variables.enterprise.data_residency_site %}{% endif %} für Ihr Unternehmen{% else %} zentral zu verwalten.',
+      '{% ifversion ghes %}ein, um Authentifizierung und Provisionierung für Ihr Unternehmen zentral zu verwalten{% else %}für {% data variables.product.prodname_emus %} auf {% data variables.product.prodname_dotcom_the_website %} oder {% data variables.enterprise.data_residency_site %}{% endif %}.',
+    )
+
+    // [SCRAPE-6642] code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries.md
+    // (intro): `{% endif %}` was replaced by a duplicate
+    // `{% data variables.product.prodname_dependabot %}` reference, leaving
+    // `{% ifversion dependabot-on-actions-self-hosted %}` unclosed. This broke
+    // the /de/code-security landing page scrape. Restore the endif.
+    content = content.replaceAll(
+      'auf selbst-gehosteten Runnern ausführen.{% data variables.product.prodname_dependabot %}',
+      'auf selbst-gehosteten Runnern ausführen.{% endif %}',
     )
   }
 

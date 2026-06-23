@@ -5477,9 +5477,6 @@
         "fineGrainedPat": true,
         "permissions": [
           {
-            "\"Contents\" repository permissions": "write"
-          },
-          {
             "\"Artifact metadata\" repository permissions": "write"
           }
         ]
@@ -5605,8 +5602,11 @@
                   "status": "deployed",
                   "deployment_name": "deployment-pod",
                   "tags": {
-                    "runtime-risk": "sensitive-data"
-                  }
+                    "owning-team": "platform"
+                  },
+                  "runtime_risks": [
+                    "sensitive-data"
+                  ]
                 }
               ]
             },
@@ -5735,9 +5735,6 @@
         "serverToServer": true,
         "fineGrainedPat": true,
         "permissions": [
-          {
-            "\"Contents\" repository permissions": "write"
-          },
           {
             "\"Artifact metadata\" repository permissions": "write"
           }
@@ -5939,9 +5936,6 @@
         "fineGrainedPat": true,
         "permissions": [
           {
-            "\"Contents\" repository permissions": "write"
-          },
-          {
             "\"Artifact metadata\" repository permissions": "write"
           }
         ]
@@ -6096,9 +6090,6 @@
         "fineGrainedPat": true,
         "permissions": [
           {
-            "\"Contents\" repository permissions": "read"
-          },
-          {
             "\"Artifact metadata\" repository permissions": "read"
           }
         ]
@@ -6132,7 +6123,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>List a collection of artifact storage records with a given subject digest that are associated with repositories owned by an organization.</p>\n<p>The collection of storage records returned by this endpoint is filtered according to the authenticated user's permissions; if the authenticated user cannot read a repository, the attestations associated with that repository will not be included in the response. In addition, when using a fine-grained access token the <code>content:read</code> permission is required.</p>",
+      "descriptionHTML": "<p>List artifact storage records with a given subject digest for repositories owned by an organization.</p>\n<p>Results are filtered by the authenticated user's permissions; records for repositories the user cannot read are omitted. Fine-grained access tokens require the <code>artifact-metadata:read</code> permission.</p>",
       "codeExamples": [
         {
           "request": {
@@ -6220,9 +6211,6 @@
         "serverToServer": true,
         "fineGrainedPat": true,
         "permissions": [
-          {
-            "\"Contents\" repository permissions": "read"
-          },
           {
             "\"Artifact metadata\" repository permissions": "read"
           }

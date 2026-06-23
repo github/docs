@@ -44,6 +44,12 @@ You can revoke your authorization of a {% data variables.product.prodname_github
 
 Once an authorization is revoked, any tokens associated with the authorization will be revoked as well. To reauthorize an application, follow the instructions from the third-party application or website to connect your account on {% data variables.product.prodname_dotcom %} again.
 
+{% ifversion single_user_cred_revocation %}
+
+You can also revoke all your credentials at once from your account settings. This is useful if you believe your account may be compromised or your hardware was lost or stolen. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/revoking-your-credentials).
+
+{% endif %}
+
 {% ifversion fpt or ghec %}
 
 ## Token revoked by a third party
@@ -77,3 +83,13 @@ The owner of an {% data variables.product.prodname_oauth_app %} can revoke an ac
 ## User token expired due to {% data variables.product.prodname_github_app %} configuration
 
 User access tokens created by a {% data variables.product.prodname_github_app %} will expire after eight hours by default, and then must be regenerated using the included refresh token. Owners of {% data variables.product.prodname_github_apps %} can optionally configure these tokens to never expire instead, but this is not recommended due to the security implications. For more information about configuring your {% data variables.product.prodname_github_app %}'s user access tokens, see [AUTOTITLE](/apps/maintaining-github-apps/activating-optional-features-for-github-apps).
+
+{% ifversion fpt or ghec %}
+
+## Token revoked by enterprise owners
+
+Enterprise owners on {% data variables.product.prodname_ghe_cloud %} can revoke SSO authorizations or delete credentials{% ifversion single_user_cred_revocation %} for individual users or{% endif %} in bulk when responding to security incidents. Revoking SSO authorizations removes access to SSO-protected organization resources, while deleting credentials (available for {% data variables.product.prodname_emus %} only) removes the credentials entirely.
+
+For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents/revoke-authorizations-or-tokens).
+
+{% endif %}

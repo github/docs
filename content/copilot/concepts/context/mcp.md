@@ -54,7 +54,7 @@ MCP is supported across the following clients:
 
 * **IDEs**: There is broad support for local MCP servers in clients such as {% data variables.product.prodname_vscode %}, JetBrains IDEs, Xcode, and others. Support for remote MCP servers is growing, with editors like {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Xcode, Eclipse, Cursor, and Windsurf providing this functionality with OAuth or PAT. To find out if your preferred editor supports remote MCP servers, check the documentation for your specific editor.
 * **{% data variables.copilot.copilot_cli_short %}**: {% data variables.copilot.copilot_cli %} supports both local and remote MCP servers. The {% data variables.product.github %} MCP server is built in and available without additional configuration.
-* **{% data variables.copilot.github_copilot_app %}**: The {% data variables.copilot.github_copilot_app %} (in {% data variables.release-phases.technical_preview %}) supports MCP servers configured in your repository or {% data variables.copilot.copilot_cli_short %} and lets you add additional MCP servers in app settings.
+* **{% data variables.copilot.github_copilot_app %}**: The {% data variables.copilot.github_copilot_app %} supports MCP servers configured in your repository or {% data variables.copilot.copilot_cli_short %} and lets you add additional MCP servers in app settings.
 * **{% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}**: {% data variables.product.prodname_dotcom_the_website %} supports MCP servers configured at the repository level. The configuration applies to both {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}. The {% data variables.product.github %} MCP server and Playwright MCP server are configured by default.
 
 ## About the {% data variables.product.github %} MCP server
@@ -105,7 +105,6 @@ The {% data variables.product.github %} MCP Registry is a curated list of MCP se
 ## Next steps
 
 * [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/extend-copilot-chat-with-mcp)—Add MCP servers to {% data variables.copilot.copilot_chat_short %} in your IDE
-* [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers)—Add MCP servers to {% data variables.copilot.copilot_cli_short %}
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)—Configure repository MCP servers for {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}
 * [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/set-up-the-github-mcp-server)—Set up the {% data variables.product.github %} MCP server
 * [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/use-the-github-mcp-server)—Use the {% data variables.product.github %} MCP server

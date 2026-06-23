@@ -13,10 +13,7 @@ docsTeamMetrics:
   - copilot-cli
 ---
 
-> [!NOTE]
-> The new tabbed interface is currently in {% data variables.release-phases.public_preview %} and is subject to change.
-
-An interactive {% data variables.copilot.copilot_cli_short %} session has four tabs at the top of the screen:
+By default, interactive {% data variables.copilot.copilot_cli_short %} sessions for Git repositories have four tabs at the top of the screen:
 * **Session**: The regular chat experience where you enter prompts for {% data variables.product.prodname_copilot_short %}.
 * **Issues**: Open issues in the current repository on {% data variables.product.prodname_dotcom %}.
 * **Pull requests**: Open pull requests in the current repository on {% data variables.product.prodname_dotcom %}.
@@ -28,15 +25,19 @@ The **Issues**, **Pull requests**, and **Gists** tabs let you browse content fro
 * **Pull an item into your chat** — quickly insert a reference to the selected item into the prompt box so that you can ask {% data variables.product.prodname_copilot_short %} to investigate, fix, comment on, or review it.
 * **Jump to an item on {% data variables.product.prodname_dotcom_the_website %}** — for example when you want to comment on an issue, merge a pull request, or edit a gist.
 
+> [!NOTE]
+> The **Issues** and **Pull requests** tabs are only shown when {% data variables.copilot.copilot_cli_short %} is running inside a {% data variables.product.prodname_dotcom %} repository. In other directories, only the **Session** and **Gists** tabs are shown.
+
 ## Switching between tabs
 
 * Press <kbd>Tab</kbd> to move to the next tab.
 * Press <kbd>Shift</kbd>+<kbd>Tab</kbd> to move to the previous tab.
-
-Tab switching is paused while another part of the CLI—such as the slash command picker—is observing your keystrokes.
+* Use the mouse to click on a tab to switch to it.
 
 > [!NOTE]
-> The **Issues** and **Pull requests** tabs are only shown when {% data variables.copilot.copilot_cli_short %} is running inside a {% data variables.product.prodname_dotcom %} repository. In other directories, only the **Session** and **Gists** tabs are shown.
+> Clicking tabs requires mouse support. This is enabled by default but can be disabled with the `--no-mouse` command-line option. Use the `--mouse=on` option to re-enable mouse support if it has been disabled.
+
+Tab switching is paused while another part of the CLI—such as the slash command picker—is observing your keystrokes.
 
 ## Common keyboard controls
 
@@ -47,6 +48,7 @@ The **Issues**, **Pull requests**, and **Gists** tabs all use the same controls.
 * Press <kbd>Enter</kbd> to display a detailed view of the highlighted item. Press <kbd>Esc</kbd> in the details view to return to the list.
 * Press <kbd>o</kbd> to open the highlighted item (or, in the detailed view, the current item) on {% data variables.product.prodname_dotcom_the_website %}.
 * Press <kbd>c</kbd> to insert a reference to the item into the prompt input area and jump back to the **Session** tab.
+* Press <kbd>/</kbd> (on the **Issues** and **Pull requests** tabs) to search {% data variables.product.prodname_dotcom %} with a custom query. Type a query, press <kbd>Enter</kbd> to run it, and <kbd>Esc</kbd> to cancel or clear it.
 
 For the full set of keypresses you can use, see [Keyboard reference](#keyboard-reference) at the end of this article.
 
@@ -73,6 +75,16 @@ Pressing <kbd>c</kbd> inserts a reference to the pull request into the prompt bo
 ```copilot
 #5678 check this out and run tests
 ```
+
+## Searching issues and pull requests
+
+By default, the **Issues** and **Pull requests** tabs show items that involve you. Press <kbd>a</kbd> to toggle between this (`involves:@me`) and all open items.
+
+To run your own search, press <kbd>/</kbd>. An inline search box opens where you can type a {% data variables.product.prodname_dotcom %} search query, then press <kbd>Enter</kbd> to run it.
+
+Press <kbd>Esc</kbd> to cancel while typing, or to clear an applied search and return to the default list.
+
+You can use the same set of search qualifiers that are available on {% data variables.product.prodname_dotcom_the_website %}. See [AUTOTITLE](/search-github/searching-on-github/searching-issues-and-pull-requests).
 
 ## Browsing your gists
 
@@ -103,6 +115,24 @@ The **Issues**, **Pull requests**, and **Gists** tabs are read-only environments
   https://gist.github.com/USERNAME/GIST-ID delete this
   ```
 
+## Customizing the tabs
+
+You can reorder, hide, or turn off the tabs in your settings file (`~/.copilot/settings.json`) using the `tabs` object:
+
+```json copy
+{
+    "tabs": {
+        "enabled": true,
+        "sort": ["copilot", "pull-requests", "issues", "gists"],
+        "hide": ["gists"]
+    }
+}
+```
+
+* `enabled`: set to `false` to turn off the tabbed interface entirely.
+* `sort`: the order in which tabs appear. Use the identifiers `copilot` (the **Session** tab), `issues`, `pull-requests`, and `gists`. Any tabs you omit keep their default order after the ones you list. Unknown identifiers are ignored.
+* `hide`: tabs to hide, using the same identifiers. The **Session** tab (`copilot`) cannot be hidden.
+
 ## Keyboard reference
 
 The footer hint bar in the **Issues**, **Pull requests**, and **Gists** tabs summarizes the available keys:
@@ -116,4 +146,7 @@ The footer hint bar in the **Issues**, **Pull requests**, and **Gists** tabs sum
 | <kbd>o</kbd> | List view or details view | Open the highlighted item on {% data variables.product.prodname_dotcom_the_website %} in your browser. |
 | <kbd>c</kbd> | List view or details view | Insert a reference to the item into the prompt input area and jump back to the **Session** tab. |
 | <kbd>a</kbd> | List view on **Issues** and **Pull requests** tabs | Toggle between showing only items that involve you and showing every open item in the repository. |
+| <kbd>/</kbd> | List view on **Issues** and **Pull requests** tabs | Open a search box. |
+| <kbd>Enter</kbd> | Search box | Run the search query. |
+| <kbd>Esc</kbd> | Search box / applied search | Cancel the search box, or dismiss the search results. |
 | <kbd>Esc</kbd> | Details view | Return to the list view. |

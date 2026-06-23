@@ -50,7 +50,7 @@ The following language server operations are supported:
 
 For {% data variables.copilot.copilot_cli_short %} to be able to use an LSP server, you must first install the server software on your local machine and then configure it in one of the configuration files that {% data variables.copilot.copilot_cli_short %} reads on startup. See [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/add-lsp-servers).
 
-An LSP server may also be added as part of a CLI plugin that you choose to install. A plugin might include an LSP server if, for example, it's designed to work with an uncommon programming language or a framework-specific file type. LSP servers included as part of a plugin are automatically available when you install the plugin—no additional configuration is needed. If you uninstall the plugin, the LSP server is removed. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-cli-plugins).
+An LSP server may also be added as part of a CLI plugin that you choose to install. A plugin might include an LSP server if, for example, it's designed to work with an uncommon programming language or a framework-specific file type. LSP servers included as part of a plugin are automatically available when you install the plugin—no additional configuration is needed. If you uninstall the plugin, the LSP server is removed. For more information, see [AUTOTITLE](/copilot/concepts/agents/about-plugins).
 
 ## How LSP servers are loaded
 

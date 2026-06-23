@@ -16,7 +16,7 @@ docsTeamMetrics:
 
 ## Introduction
 
-Plugins are packages that extend the functionality of {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-cli-plugins).
+Plugins are packages that extend the functionality of {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot/concepts/agents/about-plugins).
 
 {% data reusables.copilot.copilot-cli.cli-help-note %}
 

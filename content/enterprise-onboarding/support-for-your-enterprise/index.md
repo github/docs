@@ -9,4 +9,6 @@ children:
   - /understanding-support
   - /using-the-support-portal
   - /managing-support-entitlements
+docsTeamMetrics:
+  - enterprise-onboarding
 ---

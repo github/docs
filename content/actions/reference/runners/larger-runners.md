@@ -40,9 +40,7 @@ You can choose from several specifications for {% data variables.actions.hosted_
 | 64  | 256 GB        | 2040 GB       | x64          | Ubuntu, Windows       |
 | 96 | 384 GB         | 2040 GB       | x64          | Ubuntu, Windows        |
 
->[!NOTE] The 4-vCPU Windows runner only works with the Windows Server 2025 or the Base Windows 11 Desktop image.
-
->[!NOTE] The 5-vCPU macOS runner is in public preview and subject to change.
+> [!NOTE] The 4-vCPU Windows runner only works with the Windows Server 2025 or the Base Windows 11 Desktop image.
 
 ### Specifications for GPU {% data variables.actions.hosted_runners %}
 

@@ -285,7 +285,7 @@
   secretType: asaas_api_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: false
@@ -296,7 +296,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -306,7 +306,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
@@ -456,7 +456,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   hasExtendedMetadata: false
   base64Supported: true
   isduplicate: true
@@ -1085,7 +1085,7 @@
   secretType: baiduai_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -1325,7 +1325,7 @@
   secretType: cfxre_server_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -1440,6 +1440,16 @@
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
+- provider: Cloudsmith
+  supportedSecret: Cloudsmith API Key
+  secretType: cloudsmith_api_key
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
 - provider: Cockroach Labs
   supportedSecret: CockroachDB Cloud API Key
   secretType: ccdb_api_key
@@ -1456,7 +1466,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -1555,7 +1565,7 @@
   secretType: databricks_federated_account_session_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -1615,7 +1625,7 @@
   secretType: databricks_scoped_api_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -1669,6 +1679,16 @@
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
+  isduplicate: true
+- provider: Datadog
+  supportedSecret: Datadog Personal Access Token
+  secretType: datadog_pat
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
   isduplicate: false
 - provider: Datadog
   supportedSecret: Datadog RCM
@@ -1676,6 +1696,16 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Datadog
+  supportedSecret: Datadog Service Account Token
+  secretType: datadog_sat
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -1695,7 +1725,7 @@
   secretType: deepseek_api_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: false
@@ -1965,7 +1995,7 @@
   secretType: easypost_test_api_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -2225,7 +2255,7 @@
   secretType: gitlab_deploy_token
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -2730,7 +2760,7 @@
   isPublic: true
   isPrivateWithGhas: false
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -2859,7 +2889,7 @@
   secretType: lark_app_secret
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -3170,7 +3200,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -3210,7 +3240,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -3421,7 +3451,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: NuGet
@@ -3509,7 +3539,7 @@
   secretType: onesignal_rich_authentication_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -4111,7 +4141,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Rootly
@@ -4359,7 +4389,7 @@
   secretType: shopify_marketplace_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -4499,7 +4529,7 @@
   secretType: sourcegraph_access_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: false
@@ -4519,7 +4549,7 @@
   secretType: sourcegraph_instance_identifier_access_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: false
@@ -4889,7 +4919,7 @@
   secretType: vercel_app_user_access_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -4989,7 +5019,7 @@
   secretType: weatherstack_api_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false

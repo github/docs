@@ -14,5 +14,7 @@ children:
   - /creating-teams
   - /assigning-roles-to-teams-and-users
   - /use-innersource
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 

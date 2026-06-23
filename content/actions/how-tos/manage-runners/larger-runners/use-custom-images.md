@@ -44,6 +44,7 @@ To create a custom image, you must first set up an image-generation runner. When
    * **Platform**: Select a supported platform that matches the platform of the image you plan to create (Linux x64, Linux ARM64, or Windows x64).
    * **Image**: Select an image to build on, then enable the checkbox **Enable this runner to generate custom images**.
      * You can start from a {% data variables.product.github %}-owned image or choose a base image to start from a clean OS.
+     * You can start from an existing custom image as the base, enabling layered image workflows.
      * For ARM64 platforms, you can also select an ARM-maintained image with preinstalled tooling.
    * **Runner group**: Select the group for your runner to be a member of. Once the custom image is created, only runners in this runner group can generate new versions of that image.
 
@@ -138,6 +139,12 @@ If you specify an older major version in the YAML (for example, version: 1.* whe
 
 > [!NOTE]
 > {% data variables.actions.github_hosted_larger_runner %} creation does not support wildcards in image version selection.
+
+## Expiration for images built from custom images
+
+When a custom image is built from another custom image, the derived image inherits the expiration timeline of its base image. The maximum version age is calculated from when the base custom image was built, not when the derived image was created.
+
+For example, if Custom Image A is built on Day 2 and Custom Image B is built from A on Day 4 with a 7-day maximum version age policy, both A and B expire on Day 9.
 
 ## Billing and storage for custom images
 

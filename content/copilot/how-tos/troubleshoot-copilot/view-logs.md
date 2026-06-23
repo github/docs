@@ -65,6 +65,23 @@ If you find the log file doesn't contain enough information to resolve an issue,
 1. Keep using your IDE until you encounter the issue again, then collect the log file as described in [Collecting log files](#collecting-log-files).
 1. When you have the information you need, disable debug mode by removing `#com.github.copilot:trace` from the "Custom Debug Log Configuration" window.
 
+## Using the Agent Debug Panel
+
+> [!NOTE]
+> This feature is in {% data variables.release-phases.public_preview %} and subject to change.
+
+The Agent Debug Panel shows a chronological event log of agent interactions during a {% data variables.copilot.copilot_cli_short %} session. Use the panel to debug {% data variables.copilot.custom_agents_short %} and subagent workflows.
+
+1. Open {% data variables.copilot.copilot_chat_short %} in your JetBrains IDE.
+1. In the agent picker, select {% data variables.copilot.copilot_cli_short %}.
+1. In the top-right corner of the chat panel, click the settings icon, then click **Agent Debug Panel**.
+1. For full support across current and historical sessions, enable debug file logging.
+   1. Open **Settings**.
+   1. In the sidebar, click **Tools**, then **{% data variables.product.prodname_copilot_short %}**, then **Chat**.
+   1. Select **Enable Agent debug File Logging**.
+
+If you use {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}, ask your administrator to enable the Editor preview features policy before you use this feature.
+
 ## Viewing network connectivity diagnostics logs
 
 If you encounter problems connecting to {% data variables.product.prodname_copilot %} due to network restrictions, firewalls, or your proxy setup, use the following troubleshooting steps.

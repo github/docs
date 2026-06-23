@@ -5,6 +5,8 @@ intro: Learn how {% data variables.product.prodname_github_apps %}, external ser
 versions:
   ghec: '*'
 contentType: concepts
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 {% data reusables.enterprise-onboarding.automations %}

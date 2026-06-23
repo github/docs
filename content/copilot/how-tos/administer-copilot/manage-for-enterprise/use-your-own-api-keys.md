@@ -11,7 +11,10 @@ category:
   - Manage Copilot for a team
 ---
 
-{% data reusables.copilot.byok-intro %} {% data reusables.copilot.byok-no-subscription-required %}
+{% data reusables.copilot.byok-intro %}
+
+> [!NOTE]
+> This article covers custom models configured by enterprise owners. {% data variables.copilot.copilot_cli_short %} and {% data variables.product.prodname_vscode_shortname %} users can also use their own LLM keys locally. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models) and [Add a model from a built in provider](https://code.visualstudio.com/docs/agent-customization/language-models#_add-a-model-from-a-built-in-provider) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 ## Why bring your own API keys?
 
@@ -55,3 +58,4 @@ You can choose whether the models you have added are available to organizations 
 
 * [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/use-your-own-api-keys) in our documentation for organizations.
 * [AUTOTITLE](/copilot/concepts/chat)
+* [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies)

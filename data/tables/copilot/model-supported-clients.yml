@@ -132,13 +132,13 @@
   jetbrains: true
 
 - name: MAI-Code-1-Flash
-  dotcom: false
-  cli: false
+  dotcom: true
+  cli: true
   vscode: true
-  vs: false
-  eclipse: false
-  xcode: false
-  jetbrains: false
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
 
 - name: GPT-5 mini
   dotcom: false

@@ -30,13 +30,13 @@ Moving via backup and restore will not require any changes to your live environm
 
 ## Moving platforms using backup and restore
 
-1. Setup backups for your existing {% data variables.product.prodname_ghe_server %} instance. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance).
+1. Setup backups for your existing {% data variables.product.prodname_ghe_server %} instance. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/about-the-backup-service-for-github-enterprise-server).
 1. Set up a new {% data variables.product.prodname_ghe_server %} instance on your chosen platform. See [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance).
 1. Communicate the upcoming downtime to your users and enable maintenance mode. For more information, see the following articles.
 
    * [AUTOTITLE](/admin/managing-accounts-and-repositories/communicating-information-to-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-mandatory-message)
    * [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode)
-1. Create a new backup of your existing {% data variables.product.prodname_ghe_server %} instance.
+1. Create a new backup of your existing {% data variables.product.prodname_ghe_server %} instance. Copy this backup to your new {% data variables.product.prodname_ghe_server %} instance.
 1. Restore the backup to your new {% data variables.product.prodname_ghe_server %} instance. If you are using {% data variables.product.prodname_actions %}, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)
 1. Update the DNS to point to the address of your new {% data variables.product.prodname_ghe_server %} instance.
 1. Disable maintenance mode and let users know they can continue normal operations.
@@ -45,4 +45,4 @@ Moving via backup and restore will not require any changes to your live environm
 
 * [AUTOTITLE](/admin/overview/about-github-enterprise-server)
 * [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-high-availability/about-high-availability-configuration)
-* [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance#about-github-enterprise-server-backup-utilities)
+* [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/about-the-backup-service-for-github-enterprise-server)

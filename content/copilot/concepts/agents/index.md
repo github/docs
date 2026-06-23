@@ -10,8 +10,10 @@ children:
   - /copilot-cli
   - /github-copilot-app
   - /code-review
+  - /about-github-agentic-workflows
   - /copilot-memory
   - /hooks
+  - /about-plugins
   - /about-enterprise-plugin-standards
   - /about-third-party-coding-agents
   - /agent-apps

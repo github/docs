@@ -63,11 +63,13 @@ The process you must follow to apply an upgrade package depends on how many node
 Check if you need to upgrade the following applications:
 
 * {% data variables.product.prodname_actions %} runners must be updated if {% data variables.location.product_location %} uses ephemeral self-hosted runners for {% data variables.product.prodname_actions %} and automatic updates are disabled. Upgrade runners to the minimum version of application required by your upgraded instance, before performing your upgrade. To find the minimum required version for your release, see [AUTOTITLE](/admin/all-releases#minimum-github-actions-runner-application-versions).
+{% ifversion ghes < 3.22 %}
 * {% data variables.product.prodname_enterprise_backup_utilities %}. Your {% data variables.product.prodname_enterprise_backup_utilities %} version needs to be the same version as, or at most two versions ahead of {% data variables.location.product_location %}.
-  * You may need to upgrade {% data variables.product.prodname_enterprise_backup_utilities %} to a newer version, prior to upgrading your instance.
   * You may also want to plan to upgrade {% data variables.product.prodname_enterprise_backup_utilities %} to a newer version after upgrading your instance.
+     See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/about-the-backup-service-for-github-enterprise-server).
+  * The same does not apply to {% data variables.product.prodname_enterprise_backup_service %}, which is bundled with the appliance.
+{% endif %}
 
-   See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance) and the [README](https://github.com/github/backup-utils#readme) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
 
 ### Plan a maintenance window
 
@@ -90,7 +92,7 @@ Check if you need to upgrade the following applications:
 
 ### Create a backup snapshot
 
-Ensure you have a recent, successful backup snapshot of your instance's primary node before you start the upgrade process. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance) and the [README](https://github.com/github/backup-utils#readme) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
+Ensure you have a recent, successful backup snapshot of your instance's primary node before you start the upgrade process. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/about-the-backup-service-for-github-enterprise-server) and the [README](https://github.com/github/backup-utils#readme) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
 
 ### Create a VM snapshot
 

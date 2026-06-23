@@ -170,11 +170,16 @@ Use slash commands to avoid writing complex prompts for common scenarios. To use
 
 Available slash commands may vary, depending on your environment and the context of your chat. To view a list of currently available slash commands, type `/` in the chat prompt box of your current environment. Below is a list of some of the most common slash commands for using {% data variables.copilot.copilot_chat_short %}.
 
+If you run interactive {% data variables.copilot.copilot_cli_short %} sessions in JetBrains, you can also use CLI-specific slash commands from that session.
+
 | Command | Description |
 | --- | --- |
+| `/chronicle` | Review and analyze your session history. Available subcommands: `standup`, `tips`, `search`, and `improve`. For more details on these subcommands, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/chronicle). |
+| `/compact` | Manually compress the current {% data variables.copilot.copilot_cli_short %} session context to keep a long-running session manageable. |
 | `/explain` | Explain how the code in your active editor works. |
 | `/fix` | Propose a fix for problems in the selected code. |
 | `/help` | Quick reference and basics of using {% data variables.product.prodname_copilot %}. |
+| `/remote` | ({% data variables.copilot.copilot_cli_short %} session only) Enable or manage remote control for the current session so you can access it from {% data variables.product.prodname_dotcom_the_website %} or {% data variables.product.prodname_mobile %}. |
 | `/tests` | Generate unit tests for the selected code. |
 
 {% endjetbrains %}

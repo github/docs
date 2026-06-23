@@ -13,6 +13,7 @@ import { mkdirp } from 'mkdirp'
 import path from 'path'
 
 import { filterByAllowlistValues, filterAndUpdateGhesDataByAllowlistValues } from '../lib/index'
+import { writeDeduplicatedAuditLogData } from '../lib/deduplicate'
 import { getContents, getCommitSha } from '@/workflows/git-utils'
 import { latest, latestStable, releaseCandidate } from '@/versions/lib/enterprise-server-releases'
 import { loadPages, loadPageMap } from '@/frame/lib/page-data'
@@ -209,6 +210,9 @@ async function main() {
       }
     }
   }
+
+  // Write deduplicated shared format
+  await writeDeduplicatedAuditLogData(auditLogData)
 }
 
 main()

@@ -5,11 +5,7 @@ import { announce } from '@primer/live-region-element'
 import Cookies from '@/frame/components/lib/cookies'
 import cx from 'classnames'
 
-import hljs from 'highlight.js/lib/core'
-import json from 'highlight.js/lib/languages/json'
-import javascript from 'highlight.js/lib/languages/javascript'
 import { generateExampleOptions } from '@/rest/lib/code-example-utils'
-import hljsCurl from 'highlightjs-curl'
 
 import { useTranslation } from '@/languages/components/useTranslation'
 import useClipboard from '@/rest/components/useClipboard'
@@ -19,6 +15,7 @@ import {
   getGHExample,
   getJSExample,
 } from '@/rest/components/get-rest-code-samples'
+import { HighlightedCode } from '@/frame/components/HighlightedCode'
 import styles from './RestCodeSamples.module.scss'
 import { RestMethod } from './RestMethod'
 import type { Operation, ExampleT } from './types'
@@ -34,33 +31,17 @@ type Props = {
 
 const responseSelectOptions = Object.values(ResponseKeys)
 
-// Add as needed. It's pretty cheap to add but please don't use
-// highlight.js import that loads all and everything.
-hljs.registerLanguage('json', json)
-hljs.registerLanguage('javascript', javascript)
-hljs.registerLanguage('curl', hljsCurl)
-
+// Map a REST code-sample language to the highlight language name passed to
+// <HighlightedCode>. Add cases as needed.
 function getLanguageHighlight(selectedLanguage: string) {
   return selectedLanguage === CodeSampleKeys.javascript ? 'javascript' : 'curl'
-}
-
-function highlightElement(element: HTMLElement) {
-  element.className = 'hljs'
-  // If the element was already highlighted, remove the dataset property
-  // otherwise the `hljs.highlightElement` function will not highlight.
-  delete element.dataset.highlighted
-  hljs.highlightElement(element)
 }
 
 export function RestCodeSamples({ operation, slug, heading }: Props) {
   const { t } = useTranslation(['rest_reference'])
   const { isEnterpriseServer, isEnterpriseCloud } = useVersion()
 
-  // Refs to track the request example, response example
-  // and the first render
-  const requestCodeExample = useRef<HTMLSpanElement>(null)
-  const responseCodeExample = useRef<HTMLSpanElement>(null)
-  const firstRender = useRef(true)
+  // Ref for resetting scroll position when switching response views.
   const scrollRef = useRef<HTMLDivElement>(null)
 
   const { currentVersion } = useVersion()
@@ -129,58 +110,14 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
     }
   }, [])
 
-  // Handle syntax highlighting when the language changes or
-  // a cookie is set
+  // Reset scroll position to the top when switching between example response and
+  // response schema. Highlighting is handled React-natively by <HighlightedCode>.
   useEffect(() => {
-    const reqElem = requestCodeExample.current
-
-    // Do not highlight on the first render because the
-    // intersection observer syntax highlighting
-    // (ClientSideHighlightJS) will have already handled highlighting
-    if (reqElem && !firstRender.current) {
-      highlightElement(reqElem)
-    }
-  }, [selectedLanguage])
-
-  // Handle syntax highlighting and scroll position when the language changes or
-  // a cookie is set, changing the default language
-  useEffect(() => {
-    const reqElem = responseCodeExample.current
     const scrollElem = scrollRef.current
-
-    // Reset scroll position to the top when switching between example response and
-    // response schema
     if (scrollElem) {
       scrollElem.scrollTop = 0
     }
-    // Do not highlight on the first render because the
-    // intersection observer syntax highlighting
-    // (ClientSideHighlightJS) will have already handled highlighting
-    if (reqElem && !firstRender.current) {
-      highlightElement(reqElem)
-    }
   }, [selectedResponse])
-
-  // Handle highlighting when there is more than one example and
-  // the example changes.
-  useEffect(() => {
-    const reqElem = requestCodeExample.current
-    if (reqElem) {
-      highlightElement(reqElem)
-    }
-
-    const resElem = responseCodeExample.current
-    if (resElem) {
-      highlightElement(resElem)
-    }
-  }, [selectedExample])
-
-  // Keep track of the first render so we can skip highlighting
-  useEffect(() => {
-    if (firstRender.current) {
-      firstRender.current = false
-    }
-  }, [])
 
   const [isCopied, setCopied] = useClipboard(displayedExample[selectedLanguage] as string, {
     successDuration: 1400,
@@ -280,11 +217,13 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
             styles.requestCodeBlock,
             `border-top rounded-1 my-0 ${getLanguageHighlight(selectedLanguage)}`,
           )}
-          data-highlight={getLanguageHighlight(selectedLanguage)}
           // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
           tabIndex={0}
         >
-          <code ref={requestCodeExample}>{displayedExample[selectedLanguage]}</code>
+          <HighlightedCode
+            language={getLanguageHighlight(selectedLanguage)}
+            code={String(displayedExample[selectedLanguage] ?? '')}
+          />
         </div>
       </div>
 
@@ -336,15 +275,17 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
                 styles.responseCodeBlock,
                 'border-top rounded-1 my-0',
               )}
-              data-highlight={'json'}
               // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
               tabIndex={0}
             >
-              <code ref={responseCodeExample}>
-                {selectedResponse === ResponseKeys.example
-                  ? displayedExampleResponse
-                  : displayedExampleSchema}
-              </code>
+              <HighlightedCode
+                language="json"
+                code={String(
+                  (selectedResponse === ResponseKeys.example
+                    ? displayedExampleResponse
+                    : displayedExampleSchema) ?? '',
+                )}
+              />
             </div>
           )}
         </div>

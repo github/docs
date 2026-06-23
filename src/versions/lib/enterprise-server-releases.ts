@@ -36,7 +36,7 @@ export const nextNext = '3.23'
 export const supported = ['3.21', '3.20', '3.19', '3.18', '3.17']
 
 // Set to version number when in RC phase, null when no RC is active
-export const releaseCandidate = '3.21'
+export const releaseCandidate = null
 
 // Deprecated versions with functional redirect handling (3.0+)
 // When archiving a new version, add it here and update the archival process

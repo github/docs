@@ -33,9 +33,9 @@ A repository must meet all the following criteria to be eligible for default set
 
 You can enable default setup for all eligible repositories in your organization. For more information, see [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale).
 
-### Extending {% data variables.product.prodname_codeql %} coverage in default setup
+### Configuring default setup features
 
-Through your organization's security settings page, you can extend coverage in default setup using model packs for all eligible repositories in your organization. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#extending-coverage-for-all-repositories-in-an-organization).
+Through your organization's security settings page, you can customize default setup for all eligible repositories, such as extending coverage using model packs. See [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup).
 
 ## Configuring default setup for a subset of repositories in an organization
 

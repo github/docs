@@ -267,7 +267,9 @@ This flag combines:
 * `--allow-all-paths` (disable path verification).
 * `--allow-all-urls` (disables URL verification).
 
-> [!TIP] During an interactive session, you can also enable all permissions with the `/allow-all` or `/yolo` slash commands.
+During an interactive session, you can also enable all permissions with the `/allow-all` or `/yolo` slash commands.
+
+{% data reusables.copilot.disable-bypass %}
 
 ## Further reading
 

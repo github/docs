@@ -59,4 +59,6 @@ children:
   - /support-for-your-enterprise
 redirect_from:
   - /enterprise-onboarding/feature-enhancements
+docsTeamMetrics:
+  - enterprise-onboarding
 ---

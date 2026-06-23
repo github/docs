@@ -62,10 +62,14 @@ The models available for {% data variables.product.prodname_copilot_short %} var
 * {% data variables.copilot.copilot_gpt_54_nano %}
 * {% data variables.copilot.copilot_gpt_55 %}
 * {% data variables.copilot.copilot_claude_haiku_45 %}
-* {% data variables.copilot.copilot_claude_sonnet_45 %}
 * {% data variables.copilot.copilot_claude_opus_45 %}
-* {% data variables.copilot.copilot_claude_sonnet_46 %}
 * {% data variables.copilot.copilot_claude_opus_46 %}
+* {% data variables.copilot.copilot_claude_opus_47 %}
+* {% data variables.copilot.copilot_claude_opus_48 %}
+* {% data variables.copilot.copilot_claude_sonnet_45 %}
+* {% data variables.copilot.copilot_claude_sonnet_46 %}
+* {% data variables.copilot.copilot_gemini_31_pro %}
+* {% data variables.copilot.copilot_gemini_35_flash %}
 
 ## Pricing changes
 

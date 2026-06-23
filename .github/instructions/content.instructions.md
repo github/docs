@@ -92,3 +92,47 @@ Examples:
 * ❌ Incorrect: "The cat – which sat on a branch – smiled with a broad grin." (en dash with spaces)
 * ❌ Incorrect: "The cat-which sat on a branch-smiled with a broad grin." (hyphen without spaces)
 * ❌ Incorrect: "The cat - which sat on a branch - smiled with a broad grin." (hyphen with spaces)
+
+## Versioning
+
+Follow one of these sets of instructions, depending on how articles are versioned in the frontmatter. Articles may be versioned for FPT and GHEC, for GHES only, or for all three. Articles may also be versioned using feature-based versioning defined in `data/features`. Feature-based versioning allows centralized control of when content appears for specific GHES releases.
+
+### FPT/GHEC-only articles
+
+All articles that are ONLY for FPT and GHEC should be versioned for these versions in the frontmatter.
+
+For such content, DO NOT use in-article Liquid versioning such as `{% ifversion fpt %}`, `{% ifversion ghec %}`, and `{% ifversion fpt or ghec %}`.
+
+### GHES-only articles
+
+All articles that are ONLY for GitHub Enterprise Server (GHES) should be versioned in the frontmatter using feature-based versioning defined in `data/features/`. 
+
+### FPT, GHEC, GHES articles
+
+All articles that are versioned for all of FPT, GHEC, and GHES in the frontmatter MAY require certain blocks of content to be versioned using in-article Liquid versioning. Before recommending this, check if this is really the case.
+
+#### Check in-article versioning is required
+
+Before resorting to in-article versioning, first consider whether the content is actually different across versions. Often procedures can be simplified to work at both levels.
+
+Use these strategies instead of `{% ifversion %}`, depending on the level of content:
+
+**At the article level:**
+
+* When the feature is only available in certain products, use the "Who can use this feature?" box to convey that the content of the article applies only to specific products
+* When an article only exists because the functionality is only available in older GHES releases (and not on {% data variables.product.prodname_dotcom_the_website %} or newer GHES releases), just remove that article
+
+**At the heading level:**
+
+* Use prose similar to "Who can use this feature?" to convey that the content of a section applies only to specific products
+
+**At the paragraph or sentence level:**
+
+* If you're briefly introducing a feature and then linking to an article, there's no need to specify versioning. Let readers learn availability when they follow the link, via the "Who can use this feature?" box
+* When necessary, start sentences with "With {% data variables.product.prodname_ghe_cloud %}...", "On {% data variables.product.prodname_dotcom_the_website %}...", etc.
+* End list items with "({% data variables.product.prodname_ghe_cloud %} only)", "({% data variables.product.prodname_dotcom_the_website %} only)", etc.
+* Specify if the feature is not available for GHES with "NAME-OF-FEATURE is not available for {% data variables.product.prodname_ghe_server %}", "... (not available in {% data variables.product.prodname_ghe_server %})", etc.
+
+#### If in-article versioning is required
+
+In-article versioning is required if a block of content in an article is definitely ONLY relevant for GHES, but the article itself is otherwise versioned in the frontmatter for all of FPT, GHEC, and GHES. In this situation, use feature-based versioning (FBV) wherever possible, using `{% ifversion FBV %}` blocks, where FBV is defined in `data/features/`. If it's not possible to use FBV, use {% ifversion ghes %} blocks, which will version the content block for all versions of GHES.
