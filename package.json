@@ -322,7 +322,7 @@
     "eslint-plugin-primer-react": "^8.5.2",
     "event-to-promise": "^0.8.0",
     "globals": "^17.3.0",
-    "graphql": "^16.12.0",
+    "graphql": "^17.0.0",
     "http-status-code": "^2.1.0",
     "husky": "^9.1.7",
     "jiti": "^2.6.1",
