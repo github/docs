@@ -3,18 +3,13 @@ title: Working with canvas extensions in the GitHub Copilot app
 shortTitle: Canvas extensions
 intro: 'Use canvases in the {% data variables.copilot.github_copilot_app %} to build shared, agent-driven artifacts and interfaces for human-agent collaboration.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.github-app %}'
+product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_source=docs-canvas-extensions-signup&utm_medium=docs&utm_campaign=github-copilot-app-ga-2026" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 contentType: how-tos
 category:
   - Author and optimize with Copilot
 ---
-
-> [!NOTE] The {% data variables.copilot.github_copilot_app %} is in {% data variables.release-phases.technical_preview %} and subject to change.
->
-> * **Existing {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}, {% data variables.copilot.copilot_pro_short %}, and {% data variables.copilot.copilot_pro_plus_short %} users** — Download and install from the [{% data variables.copilot.github_copilot_app %} repository](https://gh.io/github-copilot-app-repo?utm_source=docs-github-copilot-app-canvas&utm_medium=docs&utm_campaign=msbuild-2026). For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, your organization or enterprise must enable preview features and {% data variables.copilot.copilot_cli_short %}.
-> * **{% data variables.copilot.copilot_free_short %} users and users without a {% data variables.product.prodname_copilot_short %} plan** do not currently have access to the {% data variables.copilot.github_copilot_app %}. Access is expected to expand over time.
 
 ## About canvas extensions
 

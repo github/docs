@@ -48,7 +48,7 @@ For more information, see the following articles.
 * [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/removing-yourself-from-an-organization)
 * [AUTOTITLE](/account-and-profile/reference/personal-account-reference#account-deletion)
 
-To delete your personal account, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/deleting-your-personal-account).
+To delete your personal account, see [AUTOTITLE](/account-and-profile/how-tos/account-management/deleting-your-personal-account).
 
 ## About unlinking your email address
 

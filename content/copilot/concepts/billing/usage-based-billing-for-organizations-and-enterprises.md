@@ -68,12 +68,12 @@ Additional usage budgets are set in US dollars, and usage is shown in {% data va
 
 ## How can I control costs with budgets?
 
-Budget controls let you govern how individual users draw from the shared pool and cap any additional spending once it's exhausted. You can set budgets at four levels:
+Budget controls let you govern how individual users draw from the shared pool and cap any additional spending once it's exhausted. You can set budgets at multiple levels:
 
 * **User-level budgets** cap how much an individual user can consume per billing cycle, from both the shared pool and additional usage. A $0 USD user-level budget blocks the user immediately.
 * **Cost-center budgets** cap metered charges for a defined group of users after the pool is exhausted.
 * **Enterprise spending limits** cap total metered charges across your entire enterprise after the pool is exhausted.
-* **Organization-level budgets** track spending for all repositories in the organization.
+* **Organization-level budgets** cap metered charges for users whose {% data variables.product.prodname_copilot_short %} seats are billed to the organization, after the pool is exhausted.
 
 For a full explanation of how these controls work together and when usage gets blocked, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
 
@@ -90,7 +90,7 @@ For the best experience with usage-based billing, update your IDE, client, and {
 | --- | --- |
 | {% data variables.product.prodname_vscode_shortname %} | 1.120 |
 | {% data variables.product.prodname_vs %} 2022 (17.x) | 17.14.33 |
-| {% data variables.product.prodname_vs %} 2025 (18.x) | 18.6.0 |
+| {% data variables.product.prodname_vs %} 2026 (18.x) | 18.6.0 |
 | SQL Server Management Studio | 22.6 |
 | JetBrains IDEs (plugin) | 1.9.1 |
 | Eclipse (plugin) | 0.18.0 |

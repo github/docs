@@ -109,6 +109,8 @@ You found suspicious code in your repository, a security researcher reported an 
 
 * Review the **Actions** tab for unexpected workflow runs, especially those triggered by unfamiliar users or at unusual times.
 * Inspect workflow run logs for suspicious output.
+* Review the credentials accessible to suspicious workflow runs, including the default `GITHUB_TOKEN`, any {% data variables.product.pat_generic_plural %}, {% data variables.product.prodname_github_app %} tokens, or other credentials stored as secrets. The `GITHUB_TOKEN` is scoped to the job and expires when the job completes, but other credentials have their own lifecycle and do not expire with the job. Any credential that may have been exposed should be treated as compromised and rotated or replaced immediately.
+* Be aware that workflow run logs only capture standard output from workflow steps. Activity that does not write to standard output (such as network calls, file system modifications, or background processes) will not appear in the logs. For a more comprehensive investigation, correlate with audit log events.
 * Use {% data variables.product.github %} code search to find suspicious files or code additions, particularly in workflow files (`.github/workflows/`), shell scripts, or configuration files.
 * Use the Activity view to check for pushes to unusual branch names, force pushes, pushes from unexpected actors.
 * Check the audit logs for changes to security settings or disablement actions (look for events like `repository_ruleset.destroy`, `repository_secret_scanning_push_protection.disable`, or other `.delete`, `.disable`, `.destroy` events).
@@ -127,6 +129,8 @@ You found suspicious code in your repository, a security researcher reported an 
 ### Key resources
 
 * [Containment actions](/code-security/tutorials/secure-your-organization/responding-to-security-incidents#step-2-contain-the-threat)
+* [AUTOTITLE](/actions/concepts/security/github_token)
+* [AUTOTITLE](/actions/reference/security/secure-use)
 
 {% ifversion fpt or ghec %}
 

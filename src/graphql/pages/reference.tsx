@@ -1,4 +1,5 @@
 import { GetServerSideProps } from 'next'
+import type { Response } from 'express'
 
 import { GraphqlCategoryPage, type CategorySchema } from '@/graphql/components/GraphqlCategoryPage'
 import {
@@ -114,7 +115,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     })
   }
 
-  const mainContext = await getMainContext(req, res)
+  const mainContext = await getMainContext(req, res as unknown as Response)
   addUINamespaces(req, mainContext.data.ui, ['graphql'])
 
   return {

@@ -42,7 +42,7 @@ Once enabled, commands that {% data variables.product.prodname_copilot_short %} 
 
 ### Cross-platform support
 
-Local sandboxing is available across macOS, Linux, and Windows, delivering a consistent isolation experience regardless of your operating system.
+Local sandboxing is available on macOS and Linux. Sandboxing support and isolation behavior vary by platform because each operating system uses a different sandboxing backend. Windows is supported on Windows Insiders builds. For details on current limitations, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings).
 
 ### Enterprise policy enforcement
 
@@ -111,5 +111,5 @@ For more information about how cloud sandbox usage is measured and billed, see [
 ## Further reading
 
 * [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli)
-* [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/enabling-or-disabling-cloud-and-local-sandboxes-for-your-organization)
+* [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/enabling-or-disabling-cloud-sandboxes-for-your-organization)
 * [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-cli)

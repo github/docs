@@ -5,6 +5,8 @@ versions:
   ghec: '*'
 shortTitle: Identify role requirements
 contentType: how-tos
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 {% data reusables.enterprise-onboarding.identify-role-requirements %}

@@ -7,6 +7,8 @@ shortTitle: Use the audit log
 redirect_from:
   - /enterprise-onboarding/feature-enhancements/about-the-audit-log-for-your-enterprise
 contentType: concepts
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 {% data reusables.enterprise-onboarding.about-audit-logs %}

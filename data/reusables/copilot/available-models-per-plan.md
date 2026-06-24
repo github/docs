@@ -1,4 +1,4 @@
-> [!NOTE] {% data variables.copilot.copilot_student_short %} and {% data variables.copilot.copilot_free_short %} users have access to a selection of models, which are subject to change.
+> [!NOTE] {% data variables.copilot.copilot_student_short %} and {% data variables.copilot.copilot_free_short %} users have access to models through {% data variables.copilot.copilot_auto_model_selection_short %} only.
 
 {% rowheaders %}
 

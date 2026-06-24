@@ -35,11 +35,20 @@ jobs:
     steps:
       - name: Check out repo's default branch
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
+          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
+          owner: github
+          repositories: github,docs-engineering
+
       - uses: ./.github/actions/node-npm-setup
 
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          token: ${{ steps.app-token.outputs.token }}
           repository: github/github
           ref: master
           path: github
@@ -56,7 +65,7 @@ jobs:
       - name: Update config/docs-urls.json in github/github (possibly)
         if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           npm run validate-github-github-docs-urls -- generate-new-json checks.json github/config/docs-urls.json
 
@@ -87,7 +96,7 @@ jobs:
       - name: Clean up old branches in github/github
         if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           npm run validate-github-github-docs-urls -- clean-up-old-branches --prefix update-docs-urls
 
@@ -115,7 +124,7 @@ jobs:
         if: ${{ github.event_name == 'pull_request' && steps.changed_files.outputs.any_modified == 'true' }}
         env:
           CHANGED_FILES: ${{ steps.changed_files.outputs.all_modified_files }}
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
           ISSUE_NUMBER: ${{ github.event.pull_request.number }}
           REPOSITORY: ${{ github.repository }}
         run: |
@@ -129,4 +138,4 @@ jobs:
       - uses: ./.github/actions/create-workflow-failure-issue
         if: ${{ failure() && github.event_name == 'schedule' }}
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          token: ${{ steps.app-token.outputs.token }}

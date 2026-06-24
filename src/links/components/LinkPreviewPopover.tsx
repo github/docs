@@ -555,6 +555,9 @@ export function LinkPreviewPopover() {
       link.addEventListener('mouseover', showPopover)
       link.addEventListener('mouseout', hidePopover)
       link.addEventListener('keydown', keyboardHandler)
+      // Expose the keyboard shortcut to assistive technologies so screen
+      // reader users can discover how to open the link preview hovercard.
+      link.setAttribute('aria-keyshortcuts', 'Alt+ArrowUp')
     }
 
     document.addEventListener('keydown', escapeHandler)
@@ -564,6 +567,7 @@ export function LinkPreviewPopover() {
         link.removeEventListener('mouseover', showPopover)
         link.removeEventListener('mouseout', hidePopover)
         link.removeEventListener('keydown', keyboardHandler)
+        link.removeAttribute('aria-keyshortcuts')
       }
       document.removeEventListener('keydown', escapeHandler)
     }

@@ -372,6 +372,18 @@ To share feedback about {% data variables.copilot.copilot_chat_short %}, you can
 
 {% data reusables.copilot.chat-access-denied %}
 
+## {% data variables.copilot.copilot_chat_short %} agents
+
+The agent picker in the {% data variables.copilot.copilot_chat_short %} panel lets you choose which agent drives your conversation. To switch agents, use the Agents dropdown at the bottom of the chat panel.
+
+The following agents are available:
+
+* **Agent mode** (default): Full agentic experience with autonomous task execution.
+* **Ask mode**: Get quick answers and assistance without making code changes.
+* **Plan mode**: Collaborate on planning before implementation—{% data variables.product.prodname_copilot_short %} analyzes your request and builds a structured plan for your review.
+* **{% data variables.copilot.copilot_cli_short %}**: Runs {% data variables.product.prodname_copilot_short %} through {% data variables.copilot.copilot_cli_short %}, providing a terminal-first agentic experience with support for multiple isolation modes, live session progress, and tool call visibility. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli).
+* **Custom agents**: Use personalized agents tailored to your specific needs. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-custom-agents).
+
 ## Submitting prompts
 
 You can ask {% data variables.copilot.copilot_chat_short %} to give you code suggestions, explain code, generate unit tests, and suggest code fixes.

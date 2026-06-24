@@ -55,7 +55,7 @@ You can also choose to block commits you push from the command line that expose 
 
 To ensure that commits are attributed to you and appear in your contributions graph, use an email address that is connected to your account on {% data variables.product.github %}{% ifversion fpt or ghec %}, or the `noreply` email address provided to you in your email settings{% endif %}.
 
-For more information, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address).
+For more information, see [AUTOTITLE](/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address).
 
 ## Next steps
 

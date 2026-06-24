@@ -141,7 +141,6 @@ const MyApp = ({ Component, pageProps, languagesContext, stagingName }: MyAppPro
         colorMode={theme.component.colorMode}
         dayScheme={theme.component.dayScheme}
         nightScheme={theme.component.nightScheme}
-        preventSSRMismatch
       >
         <LanguagesContext.Provider value={languagesContext}>
           <SharedUIContextProvider>

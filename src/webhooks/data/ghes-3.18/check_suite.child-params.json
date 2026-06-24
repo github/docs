@@ -1128,6 +1128,15 @@
               },
               {
                 "type": "string",
+                "name": "drives",
+                "description": "",
+                "enum": [
+                  "read",
+                  "write"
+                ]
+              },
+              {
+                "type": "string",
                 "name": "emails",
                 "description": "",
                 "enum": [
@@ -2004,6 +2013,15 @@
               {
                 "type": "string",
                 "name": "discussions",
+                "description": "",
+                "enum": [
+                  "read",
+                  "write"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "drives",
                 "description": "",
                 "enum": [
                   "read",

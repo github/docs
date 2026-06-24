@@ -7,6 +7,8 @@ versions:
 redirect_from:
   - /enterprise-onboarding/feature-enhancements/about-rulesets
 contentType: how-tos
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 {% data reusables.enterprise-onboarding.rulesets-intro %}

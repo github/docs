@@ -5,6 +5,7 @@ intro: Manage and track spending on Copilot for your company.
 versions:
   feature: copilot
 children:
+  - /monitor-ai-usage
   - /manage-company-spending
 redirect_from:
   - /copilot/how-tos/premium-requests

@@ -3,7 +3,7 @@ title: Using automations in the GitHub Copilot app
 shortTitle: Automations
 intro: 'Automate recurring agent tasks so they run on a schedule or on demand, without manual intervention.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.github-app %}'
+product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_source=docs-automations-signup&utm_medium=docs&utm_campaign=github-copilot-app-ga-2026" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 contentType: how-tos
@@ -14,28 +14,48 @@ category:
   - Author and optimize with Copilot
 ---
 
-> [!NOTE] The {% data variables.copilot.github_copilot_app %} is in {% data variables.release-phases.technical_preview %} and subject to change.
->
-> * **Existing {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}, {% data variables.copilot.copilot_pro_short %}, and {% data variables.copilot.copilot_pro_plus_short %} users** — Download and install from the [{% data variables.copilot.github_copilot_app %} repository](https://gh.io/github-copilot-app-repo?utm_source=docs-github-copilot-app-automations&utm_medium=docs&utm_campaign=msbuild-2026). For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, your organization or enterprise must enable preview features and {% data variables.copilot.copilot_cli_short %}.
-> * **{% data variables.copilot.copilot_free_short %} users and users without a {% data variables.product.prodname_copilot_short %} plan** do not currently have access to the {% data variables.copilot.github_copilot_app %}. Access is expected to expand over time.
+## About {% data variables.copilot.copilot_automations %}
 
-## About automations
+{% data variables.copilot.copilot_automations_cap %} let you save recurring agent tasks and run them on a schedule or on demand. For example, you can create an {% data variables.copilot.copilot_automation %} that triages new issues daily or checks your open pull requests for review status each morning.
 
-Automations let you save recurring agent tasks and run them on a schedule or on demand. For example, you can create an automation that triages new issues daily or checks your open pull requests for review status each morning.
+You can create and manage {% data variables.copilot.copilot_automations %} from:
 
-If you enable **Run in the cloud** when creating an automation, the automation runs in cloud sandboxes (public preview) hosted by {% data variables.product.github %}. This lets the automation keep running even when your computer is off. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
+* The **Agents** tab in a repository on {% data variables.product.github %}, in the **{% data variables.copilot.copilot_automations_cap %}** pane.
+* The **{% data variables.copilot.copilot_automations_cap %}** tab in the {% data variables.copilot.github_copilot_app %}.
 
-Click **Automations** in the sidebar to see your saved automations. Each automation shows its name, schedule, associated repository, and last run status.
+For an overview of {% data variables.copilot.copilot_automations %}, including triggers, tools, visibility, and security, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-automations).
 
-## Creating an automation
+The {% data variables.copilot.github_copilot_app %} supports two types of {% data variables.copilot.copilot_automations %}:
+
+* **Local {% data variables.copilot.copilot_automations %}**, which run from your local environment.
+* **Cloud {% data variables.copilot.copilot_automations %}**, which run in a cloud environment.
+
+Click **Automations** in the sidebar to see your saved {% data variables.copilot.copilot_automations %}. Each {% data variables.copilot.copilot_automation %} shows its name, schedule, associated repository, and last run status.
+
+## Prerequisites for using cloud {% data variables.copilot.copilot_automations %}
+
+To use cloud {% data variables.copilot.copilot_automations %}, make sure the following settings are enabled.
+
+* {% data variables.copilot.copilot_cloud_agent %} must be enabled for the repository. If you have {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}, an administrator must enable the {% data variables.copilot.copilot_cloud_agent %} policy. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/access-management).
+* The organization must allow both {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_automations %} in the repository (both are enabled by default). See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/add-copilot-cloud-agent).
+* If you want to create {% data variables.copilot.copilot_automations %} that can listen to events triggered by users without write access, disable the "Only allow automations to be triggered by users with write access" setting in {% data variables.copilot.copilot_cloud_agent %} repository settings.
+
+## Creating an {% data variables.copilot.copilot_automation %}
 
 1. Click **New automation** in the top-right corner.
-1. Give the automation a name and write a prompt describing the task. You can type `/` to add skills.
-1. Set the interval—either a recurring schedule (for example, daily at 9:00 AM) or manual.
-1. Optionally, configure the session mode, project, model, and reasoning effort.
-1. Optionally, enable **Run in the cloud** to let the automation run in a cloud sandbox, allowing the automation to run even when your computer is off.
-1. Click **Create** to save, or select **Create and run** to save and test the automation immediately.
+1. Enter a **name** for the {% data variables.copilot.copilot_automation %}.
+1. Select one or more **triggers** that determine when the {% data variables.copilot.copilot_automation %} runs:
 
-## Running an automation on demand
+   * **Manual**: Run the {% data variables.copilot.copilot_automation %} manually.
+   * **On a schedule**: choose a recurring interval, either hourly, daily, or weekly.
+   * **When an issue is created**: the {% data variables.copilot.copilot_automation %} runs each time an issue is opened in the repository. You can add a search query filter for specific issues.
+1. Optionally, enable **Run in the cloud** to let the {% data variables.copilot.copilot_automation %} run in a cloud environment, allowing the {% data variables.copilot.copilot_automation %} to run even when your computer is off.
 
-You can trigger any saved automation manually by clicking the play button on its card on the "Automations" page, without waiting for its next scheduled run.
+    For cloud {% data variables.copilot.copilot_automations %}, you can also use the **Tools** dropdown to select the tools {% data variables.product.prodname_copilot_short %} can use when the automation runs, such as pushing changes, updating issue labels, or creating a pull request. Select only the tools the task requires. The tools you select control what actions {% data variables.product.prodname_copilot_short %} can take in your repository.
+1. In the **prompt** field, describe the task you want {% data variables.product.prodname_copilot_short %} to perform each time the {% data variables.copilot.copilot_automation %} runs.
+1. Optionally, select the **project** and **model** you want {% data variables.product.prodname_copilot_short %} to use.
+1. Click **Create** to save, or select **Create and run** to save and test the {% data variables.copilot.copilot_automation %} immediately.
+
+## Running an {% data variables.copilot.copilot_automation %} on demand
+
+You can trigger any saved {% data variables.copilot.copilot_automation %} manually by clicking the play button on its card on the "Automations" page, without waiting for its next scheduled run.

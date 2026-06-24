@@ -5,6 +5,8 @@ intro: Create GitHub Apps that can access enterprise-level resources and automat
 versions:
   ghec: '*'
 contentType: how-tos
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 {% data reusables.enterprise-onboarding.create-enterprise-apps %}

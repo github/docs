@@ -25,7 +25,7 @@ If your migration encounters a problem, check the migration status with `elm mig
 | **Cutting over** | The source repository is locked and remaining changes are being applied to the destination | Monitor; the status will transition to **Completed** |
 | **Completed** | The migration has finished successfully | Verify the destination repository and reclaim mannequins |
 | **Failed** | The migration encountered an unrecoverable failure | Investigate the error (see below) |
-| **Paused** | The migration is paused | Resume the migration |
+| **Paused** | The migration is paused | Check the pause reason and resolve (see below) |
 | **Terminated** | The migration was cancelled | N/A |
 | **Degraded** | The destination is unreachable | Check network connectivity between the GitHub Enterprise Server appliance and GHE.com (see below) |
 
@@ -37,11 +37,55 @@ To investigate, run `elm migration status --migration-id MIGRATION-ID` and revie
 
 After resolving the underlying issue, abort the failed migration with `elm migration cancel --migration-id MIGRATION-ID` and start a new migration.
 
+## Migration status is "Paused"
+
+A migration enters the **Paused** status when an issue requires your intervention before it can continue. Run `elm migration status --migration-id MIGRATION-ID` and check the pause reason.
+
+Common pause reasons:
+
+* **Credential expiry**: One of the {% data variables.product.pat_v1_plural %} has expired. Create a new token with the required scopes and update it with `elm credential update`. Then restart the migration.
+* **Rate limiting**: The migration hit API rate limits. Wait a few minutes, then restart.
+
+To restart a paused migration after resolving the underlying issue:
+
+```shell
+elm migration start --migration-id MIGRATION-ID
+```
+
 ## Migration status is "Degraded"
 
 A **Degraded** status means the migration service on the {% data variables.product.prodname_ghe_server %} appliance cannot reach the destination enterprise. The migration continues on the source side, but the destination status is unknown.
 
 Check network connectivity between the {% data variables.product.prodname_ghe_server %} appliance and your subdomain of {% data variables.enterprise.data_residency_site %}, then run `elm migration status --migration-id MIGRATION-ID` again. The status response includes a timestamp for the last successful contact with the destination, which can help you assess how long the connectivity issue has been occurring.
+
+## Migration stuck in "Exporting"
+
+If your migration remains in the **Exporting** status with no progress change for 30 minutes or more, the exporter may be stuck.
+
+1. Run `elm migration status --migration-id MIGRATION-ID` and note whether resource counts are changing.
+1. If counts are static, check the appliance's network connectivity to the destination.
+1. Review exporter logs on the {% data variables.product.prodname_ghe_server %} appliance (requires SSH admin access):
+
+   ```shell copy
+   journalctl -t elm-exporter-backfiller --since "1 hour ago" | tail -50
+   journalctl -t elm-exporter-sender --since "1 hour ago" | tail -50
+   ```
+
+1. If the exporter task has crashed, it should recover automatically. If it does not, contact {% data variables.contact.github_support %}.
+
+## Git synchronization not completing
+
+If `elm migration status` shows that the initial Git push has not completed after an extended period, check the Git syncer logs:
+
+```shell copy
+journalctl -t elm-exporter-git-syncer --since "2 hours ago"
+```
+
+Look for:
+
+* **`connection refused`**: A network issue between the {% data variables.product.prodname_ghe_server %} appliance and the destination. Check firewall rules and DNS resolution.
+* **`authentication failed`**: The {% data variables.product.pat_v1 %} may lack the required scopes or has expired.
+* **`remote: error`**: The destination may be rejecting the push. Contact {% data variables.contact.github_support %} with the error details.
 
 ## Some resources failed to import
 
@@ -69,6 +113,26 @@ If your migration fails with an authentication error, check that:
 * The tokens have the scopes specified in [AUTOTITLE](/migrations/elm/migrate-your-repository#1-create-access-tokens).
 * If the destination organization enforces SAML single sign-on, the token must be authorized for SSO.
 
+If you recently rotated a token, the migration picks up new credentials automatically. You do not need to run `ghe-config-apply` or restart the migration service.
+
 ## The source GHES URL was rejected
 
 {% data variables.product.prodname_elm %} requires the {% data variables.product.prodname_ghe_server %} URL to use HTTPS. If the URL is configured with HTTP, the migration will fail preflight validation.
+
+## Collecting logs for support
+
+When contacting {% data variables.contact.github_support %}, the most useful artifacts are:
+
+1. **A support bundle** (preferred): Run `ghe-support-bundle -u` on the {% data variables.product.prodname_ghe_server %} appliance. This captures all ELM logs automatically.
+1. **Migration status output**: `elm migration status --migration-id MIGRATION-ID`
+1. **The migration ID** and approximate time of failure (with timezone)
+1. **Any correlation IDs** from error messages
+
+If a support bundle is not possible, you can collect logs manually:
+
+```shell copy
+journalctl -t elm-exporter-migration-manager --since "24 hours ago" > migration-manager.log
+journalctl -t elm-exporter-backfiller --since "24 hours ago" > backfiller.log
+journalctl -t elm-exporter-sender --since "24 hours ago" > sender.log
+journalctl -t elm-exporter-git-syncer --since "24 hours ago" > git-syncer.log
+```

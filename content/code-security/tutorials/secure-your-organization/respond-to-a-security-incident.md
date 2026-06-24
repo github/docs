@@ -104,9 +104,9 @@ For exposed or exploited credentials, the most immediate action you can take is 
 {% ifversion fpt or ghec %}
 
 * **Revoke via the API**
-  
+
   If the token is one of the following types, and the literal value of the token is known, you (or anybody) can revoke it by **submitting a request via the REST API**. See [AUTOTITLE](/rest/credentials/revoke?apiVersion=2022-11-28#revoke-a-list-of-credentials).
-  
+
   * {% data variables.product.pat_v1_caps %}
   * {% data variables.product.pat_v2_caps %}
   * {% data variables.product.prodname_oauth_app %} access token
@@ -119,6 +119,12 @@ For exposed or exploited credentials, the most immediate action you can take is 
 
   There are additional options for blocking credential access. For a full list by credential type, see [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/github-credential-types).
 
+{% ifversion single_user_cred_revocation %}
+* **Revoke or delete credentials for a specific user**
+
+  If you've identified a specific compromised account, enterprise owners on {% data variables.product.prodname_ghe_cloud %} can revoke SSO authorizations for that individual user. For enterprises with {% data variables.product.prodname_emus %}, you can also delete credentials entirely. This is less disruptive than bulk actions while still containing the threat. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents/revoke-authorizations-or-tokens#taking-action-against-individual-members).
+
+{% endif %}
 * **Emergency actions (major incident)**
 
   Enterprise owners on {% data variables.product.prodname_ghe_cloud %} can take bulk emergency actions to lock down access across their enterprise. For enterprises with {% data variables.product.prodname_emus %}, this includes **deleting all user tokens and keys**. These are high-impact actions that will break automations and should be reserved for major incidents. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents).
@@ -135,12 +141,12 @@ To restrict access to the enterprise, organization or repository, there are seve
 
   Remove the user or suspend the account. See {% ifversion remove-enterprise-members %}[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise) (enterprise admins) and {% endif %}[AUTOTITLE](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization) (organization owners).
 
-* **Change repository visibility to private** 
+* **Change repository visibility to private**
 
   Change the affected repository's visibility to private, and restrict the ability of others to make further changes. For example, if sensitive code was exposed in a public repository belonging to the organization, or if a malicious actor changed the repository's visibility setting from private to public, you can change the visibility of the repository. See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility) (repository administrators and organization owners) and [AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization) (organization owners).
 
-* **Emergency actions (major incident)** 
-  
+* **Emergency actions (major incident)**
+
   Enterprise owners on {% data variables.product.prodname_ghe_cloud %} can take bulk emergency actions to lock down access across their enterprise. These include **locking down SSO** to block all non-owner access and **revoking all user SSO authorizations across organizations**. These are high-impact actions that will break automations and should be reserved for major incidents. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents).
 
 ### Disable malicious artifacts and activity
@@ -153,11 +159,11 @@ To restrict access to the enterprise, organization or repository, there are seve
    * Remove self-hosted runners. See [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/remove-runners).
 
 * **Disable webhooks**
-  
+
   If you suspect that a compromised repository or organization webhook is being used as a live data exfiltration channel, you can disable it. See [AUTOTITLE](/webhooks/using-webhooks/disabling-webhooks).
 
 * **Delete malicious branches**
-  
+
   If you've identified branches that contain malicious code or workflows, delete them immediately to prevent execution. See [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch).
 
 ## Step 3: Investigate fully
@@ -168,7 +174,7 @@ After immediate containment, the goal now is to understand the full scope and im
 
 1. Based on the signals you've seen and the evidence gathered so far, develop a **working hypothesis** of what has happened and decide what additional evidence you will need to prove or disprove that hypothesis.
 1. Consider the different **investigation areas** outlined in [AUTOTITLE](/code-security/reference/security-incident-response/investigation-areas) to help guide your investigation.
-   
+
    Don't limit your investigation to a single line of inquiry. Many attacks use a combination of techniques, such as malicious package installation combined with credential exploitation, workflow file injections, and data exfiltration. Ensure that you are investigating all potential attack vectors.
 1. **Document** all known IoCs so far, searching for traces across all surfaces of {% data variables.product.github %}.
 1. **Inventory** all the affected workflows, repositories, and organizations to capture the scope of the incident systematically.

@@ -1,9 +1,10 @@
 import { createContext, useContext } from 'react'
 import pick from 'lodash/pick'
+import type { Response } from 'express'
 
 import type { BreadcrumbT } from '@/frame/components/page-header/Breadcrumbs'
 import type { FeatureFlags } from '@/frame/components/hooks/useFeatureFlags'
-import type { SidebarLink } from '@/types'
+import type { ExtendedRequest, Permalink, SidebarLink } from '@/types'
 
 export type ProductT = {
   external: boolean
@@ -106,7 +107,7 @@ export type MainContextT = {
   currentProduct?: ProductT
   currentProductName: string
   currentProductTree?: ProductTreeNode | null
-  currentLayoutName?: string
+  currentLayoutName?: string | null
   currentVersion?: string
   data: DataT
   enterpriseServerReleases: EnterpriseServerReleases
@@ -127,7 +128,7 @@ export type MainContextT = {
     applicableVersions: string[]
     docsTeamMetrics: string[] | null
   } | null
-  relativePath?: string
+  relativePath?: string | null
   sidebarTree?: ProductTreeNode | null
   status: number
   xHost?: string
@@ -154,8 +155,8 @@ const DEFAULT_UI_NAMESPACES = [
   'cookbook_landing',
 ]
 
-export function addUINamespaces(req: any, ui: UIStrings, namespaces: string[]) {
-  const pool = req.context.site.data.ui
+export function addUINamespaces(req: ExtendedRequest, ui: UIStrings, namespaces: string[]) {
+  const pool = req.context!.site!.data.ui
   for (const namespace of namespaces) {
     if (!(namespace in pool)) {
       throw new Error(
@@ -168,22 +169,26 @@ export function addUINamespaces(req: any, ui: UIStrings, namespaces: string[]) {
   }
 }
 
-export const getMainContext = async (req: any, res: any): Promise<MainContextT> => {
+export const getMainContext = async (
+  req: ExtendedRequest,
+  res: Response,
+): Promise<MainContextT> => {
+  const context = req.context!
   // Our current translation process adds 'ms.*' frontmatter properties to files
   // it translates including when data/ui.yml is translated. We don't use these
   // properties and their syntax (e.g. 'ms.openlocfilehash',
   // 'ms.sourcegitcommit', etc.) causes problems so just delete them.
-  if (req.context.site.data.ui.ms) {
-    delete req.context.site.data.ui.ms
+  if (context.site!.data.ui.ms) {
+    delete context.site!.data.ui.ms
   }
 
-  const { page } = req.context
+  const { page } = context
 
   const documentType = page ? (page.documentType as string) : undefined
 
   const ui: UIStrings = {}
   addUINamespaces(req, ui, DEFAULT_UI_NAMESPACES)
-  if (req.context.currentJourneyTrack?.trackId) {
+  if (context.currentJourneyTrack?.trackId) {
     addUINamespaces(req, ui, ['journey_track_nav'])
   }
 
@@ -197,26 +202,26 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
   // To know whether we need this key, we need to match this
   // with the business logic in `DeprecationBanner.tsx` which is as follows:
   if (
-    req.context.enterpriseServerReleases.releasesWithOldestDeprecationDate.includes(
-      req.context.currentRelease,
+    context.enterpriseServerReleases!.releasesWithOldestDeprecationDate.includes(
+      context.currentRelease as string,
     )
   ) {
     reusables.enterprise_deprecation = {
-      version_was_deprecated: req.context.getDottedData(
+      version_was_deprecated: context.getDottedData!(
         'reusables.enterprise_deprecation.version_was_deprecated',
-      ),
-      version_will_be_deprecated: req.context.getDottedData(
+      ) as string,
+      version_will_be_deprecated: context.getDottedData!(
         'reusables.enterprise_deprecation.version_will_be_deprecated',
-      ),
-      deprecation_details: req.context.getDottedData(
+      ) as string,
+      deprecation_details: context.getDottedData!(
         'reusables.enterprise_deprecation.deprecation_details',
-      ),
+      ) as string,
     }
   }
 
   // This is a number, like 3.13 or it's possibly null if there is no
   // supported release candidate at the moment.
-  const { releaseCandidate } = req.context.enterpriseServerReleases
+  const { releaseCandidate } = context.enterpriseServerReleases!
   // Combine the version number with the prefix so it can appear
   // as a full version string if the release candidate is set.
   const releaseCandidateVersion = releaseCandidate ? `enterprise-server@${releaseCandidate}` : null
@@ -224,38 +229,38 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
   const pageInfo =
     (page && {
       documentType,
-      contentType: req.context.page.contentType || null,
-      title: req.context.page.title,
-      fullTitle: req.context.page.fullTitle || null,
-      introPlainText: req.context.page?.introPlainText || null,
-      applicableVersions: req.context.page?.permalinks.map((obj: any) => obj.pageVersion) || [],
-      hidden: req.context.page.hidden || false,
-      noEarlyAccessBanner: req.context.page.noEarlyAccessBanner || false,
-      docsTeamMetrics: req.context.page.docsTeamMetrics || null,
+      contentType: page.contentType || null,
+      title: page.title,
+      fullTitle: page.fullTitle || null,
+      introPlainText: page.introPlainText || null,
+      applicableVersions: page.permalinks.map((obj: Permalink) => obj.pageVersion),
+      hidden: page.hidden || false,
+      noEarlyAccessBanner: page.noEarlyAccessBanner || false,
+      docsTeamMetrics: page.docsTeamMetrics || null,
     }) ||
     null
 
-  const currentProduct: ProductT = req.context.productMap[req.context.currentProduct] || null
-  const currentProductName: string = req.context.currentProductName || ''
+  const currentProduct = (context.productMap?.[context.currentProduct || ''] || null) as ProductT
+  const currentProductName: string = context.currentProductName || ''
 
   const props: MainContextT = {
-    allVersions: minimalAllVersions(req.context.allVersions),
-    breadcrumbs: req.context.breadcrumbs || {},
-    communityRedirect: req.context.page?.communityRedirect || {},
-    currentCategory: req.context.currentCategory || '',
-    currentLayoutName: req.context.currentLayoutName || null,
-    currentPathWithoutLanguage: req.context.currentPathWithoutLanguage,
+    allVersions: minimalAllVersions(context.allVersions!),
+    breadcrumbs: (context.breadcrumbs || {}) as MainContextT['breadcrumbs'],
+    communityRedirect: (context.page?.communityRedirect || {}) as MainContextT['communityRedirect'],
+    currentCategory: context.currentCategory || '',
+    currentLayoutName: context.currentLayoutName || null,
+    currentPathWithoutLanguage: context.currentPathWithoutLanguage!,
     currentProduct,
     currentProductName,
-    // This is a slimmed down version of `req.context.currentProductTree`
+    // This is a slimmed down version of `context.currentProductTree`
     // that only has the minimal titles stuff needed for sidebars and
     // any page that is hidden is omitted.
     // However, it's not needed on most pages. For example, on article pages,
     // you don't need it. It's similar to the minimal product tree but,
     // has the full length titles and not just the short titles.
     currentProductTree:
-      (includeFullProductTree && req.context.currentProductTreeTitlesExcludeHidden) || null,
-    currentVersion: req.context.currentVersion,
+      (includeFullProductTree && context.currentProductTreeTitlesExcludeHidden) || null,
+    currentVersion: context.currentVersion,
     data: {
       ui,
       reusables,
@@ -265,24 +270,24 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
         },
       },
     },
-    enterpriseServerReleases: pick(req.context.enterpriseServerReleases, [
+    enterpriseServerReleases: pick(context.enterpriseServerReleases!, [
       'isOldestReleaseDeprecated',
       'oldestSupported',
       'nextDeprecationDate',
       'supported',
       'releasesWithOldestDeprecationDate',
-    ]),
-    enterpriseServerVersions: req.context.enterpriseServerVersions,
-    error: req.context.error ? req.context.error.toString() : '',
+    ]) as EnterpriseServerReleases,
+    enterpriseServerVersions: context.enterpriseServerVersions!,
+    error: context.error ? context.error.toString() : '',
     featureFlags: {},
     fullUrl: `${req.protocol}://${req.hostname}${req.originalUrl}`, // does not include port for localhost
-    isHomepageVersion: req.context.page?.documentType === 'homepage',
-    nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
-    page: pageInfo,
-    relativePath: req.context.page?.relativePath || null,
+    isHomepageVersion: context.page?.documentType === 'homepage',
+    nonEnterpriseDefaultVersion: context.nonEnterpriseDefaultVersion!,
+    page: pageInfo as MainContextT['page'],
+    relativePath: context.page?.relativePath || null,
     // The minimal product tree is needed on all pages that depend on
     // the product sidebar or the rest sidebar.
-    sidebarTree: (includeSidebarTree && req.context.sidebarTree) || null,
+    sidebarTree: (includeSidebarTree && context.sidebarTree) || null,
     status: res.statusCode,
     xHost: req.get('x-host') || '',
   }

@@ -66,7 +66,7 @@ export const contentTypesEnum = [
 
 // Values supported in the docsTeamMetrics frontmatter property. Used to track
 // related articles (e.g. by feature or subject) that may span different directories.
-export const docsTeamMetricsEnum = ['copilot-cli']
+export const docsTeamMetricsEnum = ['copilot-cli', 'enterprise-onboarding']
 
 export const schema: Schema = {
   type: 'object',

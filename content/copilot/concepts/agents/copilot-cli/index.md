@@ -11,7 +11,6 @@ children:
   - /cancel-and-roll-back
   - /about-remote-control
   - /about-custom-agents
-  - /about-cli-plugins
   - /autopilot
   - /fleet
   - /research

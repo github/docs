@@ -1,15 +1,16 @@
 import { ActionList, ActionMenu, Flash } from '@primer/react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import useSWR from 'swr'
-import { useRouter } from 'next/router'
 import { slug } from 'github-slugger'
 import cx from 'classnames'
+import { announce } from '@primer/live-region-element'
 
 import { useVersion } from '@/versions/components/useVersion'
 import { HeadingLink } from '@/frame/components/article/HeadingLink'
 import { useTranslation } from '@/languages/components/useTranslation'
 import type { WebhookAction, WebhookData } from './types'
 import { ParameterTable } from '@/automated-pipelines/components/parameter-table/ParameterTable'
+import { HighlightedCode } from '@/frame/components/HighlightedCode'
 
 import styles from './WebhookPayloadExample.module.scss'
 
@@ -31,7 +32,6 @@ export function Webhook({ webhook }: Props) {
   // Get version for requests to switch webhook action type
   const version = useVersion()
   const { t, tObject } = useTranslation('webhooks')
-  const router = useRouter()
 
   // Get more user friendly language for the different availability options in
   // the webhook schema (we can't change it directly in the schema).  Note that
@@ -46,12 +46,27 @@ export function Webhook({ webhook }: Props) {
   // The index of the selected action type so we can highlight which one is selected
   // in the action type dropdown
   const [selectedActionTypeIndex, setSelectedActionTypeIndex] = useState(0)
+  // Tracks whether we need to announce once data loads (first interaction only,
+  // before SWR cache is populated).
+  const [pendingAnnouncement, setPendingAnnouncement] = useState('')
 
   const webhookSlug = slug(webhook.data.category)
   const webhookFetchUrl = `/api/webhooks/v1?${new URLSearchParams({
     category: webhook.data.category,
     version: version.currentVersion,
   })}`
+
+  // fires when the webhook action type changes or someone clicks on a nested
+  // body param for the first time.  In either case, we now have all the data
+  // for a webhook (i.e. all the data for each action type and all of their
+  // nested parameters)
+  const { data, error } = useSWR<WebhookData, Error>(
+    clickedBodyParameterName || selectedWebhookActionType ? webhookFetchUrl : null,
+    webhookFetcher,
+    {
+      revalidateOnFocus: false,
+    },
+  )
 
   // When you load the page we want to support linking to a specific webhook type
   // so this effect sets the webhook type if it's provided in the URL e.g.:
@@ -70,6 +85,20 @@ export function Webhook({ webhook }: Props) {
     }
   }, [])
 
+  // Build a plain-text announcement from the webhook action data.
+  const buildAnnouncement = useCallback(
+    (type: string, actionData: { descriptionHtml: string }) => {
+      const tempEl = document.createElement('div')
+      tempEl.innerHTML = actionData.descriptionHtml
+      const description = tempEl.textContent?.trim() || ''
+      return t('action_type_selected')
+        .replace('{{ actionType }}', type)
+        .replace('{{ description }}', description)
+        .trim()
+    },
+    [t],
+  )
+
   // callback for the action type dropdown -- sets the action type to the given
   // type, index is the index of the selected type so we can highlight it as
   // selected.
@@ -84,22 +113,26 @@ export function Webhook({ webhook }: Props) {
     setSelectedWebhookActionType(type)
     setSelectedActionTypeIndex(index)
 
-    const { asPath, locale } = router
-    let [pathRoot, pathQuery = ''] = asPath.split('?')
-    const params = new URLSearchParams(pathQuery)
-
-    if (pathRoot.includes('#')) {
-      pathRoot = pathRoot.split('#')[0]
+    // If SWR data is already cached, announce immediately. Otherwise, flag
+    // the type so the effect can announce once data arrives.
+    if (data && data[type]) {
+      // Use setTimeout so the announcement fires after the ActionMenu closes
+      // and VoiceOver finishes reading the button. Compute message eagerly to
+      // avoid stale closures if data changes before the timeout fires.
+      const message = buildAnnouncement(type, data[type])
+      setTimeout(() => {
+        announce(message, { politeness: 'assertive' })
+      }, 150)
+    } else {
+      setPendingAnnouncement(type)
     }
 
-    params.set('actionType', type)
-    router.push(
-      { pathname: `/${locale}${pathRoot}`, query: params.toString(), hash: webhookSlug },
-      undefined,
-      {
-        shallow: true,
-      },
-    )
+    // Update the URL without triggering Next.js router navigation, which causes
+    // VoiceOver to re-read the page title and swallow live-region announcements.
+    const url = new URL(location.href)
+    url.searchParams.set('actionType', type)
+    url.hash = webhookSlug
+    window.history.replaceState(window.history.state, '', url.toString())
   }
 
   // callback to trigger useSWR() hook after a nested property is clicked
@@ -107,20 +140,21 @@ export function Webhook({ webhook }: Props) {
     setClickedBodyParameterName(target.closest('details')?.dataset.nestedParamId)
   }
 
-  // fires when the webhook action type changes or someone clicks on a nested
-  // body param for the first time.  In either case, we now have all the data
-  // for a webhook (i.e. all the data for each action type and all of their
-  // nested parameters)
-  const { data, error } = useSWR<WebhookData, Error>(
-    clickedBodyParameterName || selectedWebhookActionType ? webhookFetchUrl : null,
-    webhookFetcher,
-    {
-      revalidateOnFocus: false,
-    },
-  )
-
   const currentWebhookActionType = selectedWebhookActionType || webhook.data.action
   const currentWebhookAction = (data && data[currentWebhookActionType]) || webhook.data
+
+  // Announce content changes when data arrives for the first time (before SWR
+  // cache is populated). Subsequent changes are announced directly in the handler.
+  useEffect(() => {
+    if (!pendingAnnouncement || !data || !data[pendingAnnouncement]) return
+    const type = pendingAnnouncement
+    setPendingAnnouncement('')
+
+    const message = buildAnnouncement(type, data[type])
+    setTimeout(() => {
+      announce(message, { politeness: 'assertive' })
+    }, 150)
+  }, [data, pendingAnnouncement, buildAnnouncement])
 
   return (
     <div>
@@ -203,8 +237,11 @@ export function Webhook({ webhook }: Props) {
       {webhook.data.payloadExample && (
         <>
           <h3>{t('webhook_payload_example')}</h3>
-          <div className={cx(styles.payloadExample, 'border rounded-1 my-0')} data-highlight="json">
-            <code>{JSON.stringify(webhook.data.payloadExample, null, 2)}</code>
+          <div className={cx(styles.payloadExample, 'border rounded-1 my-0')}>
+            <HighlightedCode
+              language="json"
+              code={JSON.stringify(webhook.data.payloadExample, null, 2)}
+            />
           </div>
         </>
       )}

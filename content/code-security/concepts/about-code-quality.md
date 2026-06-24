@@ -2,7 +2,7 @@
 title: About GitHub Code Quality
 shortTitle: GitHub Code Quality
 allowTitleToDifferFromFilename: true
-intro: Use {% data variables.product.prodname_code_quality %} to flag code quality issues in pull requests and repository scans, apply {% data variables.product.prodname_copilot_short %}-powered autofixes, and enforce standards with rulesets.
+intro: '{% data variables.product.prodname_code_quality %} flags code quality issues in pull requests and repository scans, applies {% data variables.product.prodname_copilot_short %}-powered autofixes, and enforces standards with rulesets.'
 product: '{% data reusables.gated-features.code-quality-availability %}'
 versions:
   feature: code-quality
@@ -37,10 +37,16 @@ With {% data variables.product.prodname_code_quality_short %}, you can:
 
 {% data variables.product.prodname_code_quality %} is available for organization-owned repositories on {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %} plans.
 
-{% data variables.product.prodname_code_quality %} won't be billed during public preview. However, {% data variables.product.prodname_code_quality_short %} scans will consume {% data variables.product.prodname_actions %} minutes. See [AUTOTITLE](/billing/concepts/product-billing/github-code-quality).
+<!-- expires 2026-07-20 -->
+
+{% data variables.product.prodname_code_quality %} is currently in {% data variables.release-phases.public_preview %} and will become generally available on July 20, 2026. During {% data variables.release-phases.public_preview %}, {% data variables.product.prodname_code_quality_short %} scans will consume {% data variables.product.prodname_actions %} minutes but you will not be billed for other usage. From July 20, 2026, usage will incur additional charges. See [AUTOTITLE](/billing/concepts/product-billing/github-code-quality).
+
+If you want to avoid charges, disable {% data variables.product.prodname_code_quality_short %} before July 20, 2026. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/disable-code-quality).
+
+<!-- end expires 2026-07-20 -->
 
 > [!NOTE]
-> * You **don't** need a {% data variables.product.prodname_copilot_short %} or a {% data variables.product.prodname_code_security %} license to use {% data variables.product.prodname_code_quality_short %} or apply {% data variables.product.prodname_copilot_short %}-powered autofixes.
+> You **don't** need a {% data variables.product.prodname_copilot_short %} or a {% data variables.product.prodname_code_security %} license to use {% data variables.product.prodname_code_quality_short %} or apply {% data variables.product.prodname_copilot_short %}-powered autofixes.
 
 ## Supported languages
 
@@ -79,5 +85,5 @@ Each {% data variables.product.prodname_codeql %} analysis will use {% data vari
 
 ## Next steps
 
-* **For your repository:** Turn on {% data variables.product.prodname_code_quality_short %} to start generating results. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/enable-code-quality).
+* **For your repository or organization:** Turn on {% data variables.product.prodname_code_quality_short %} to start generating results. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/enable-code-quality).
 * **For your enterprise:** Ensure repositories in your enterprise can enable {% data variables.product.prodname_code_quality_short %}. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/allow-github-code-quality-in-enterprise).

@@ -36,7 +36,7 @@ function RenderTocItem(item: MiniTocItem) {
         {item.contents.title}
       </NavList.Item>
       {item.items && item.items.length > 0 && (
-        <ul className={cx(styles.indentNested)}>
+        <ul role="list" className={cx(styles.indentNested)}>
           {item.items.map((toc) => (
             <RenderTocItem
               key={toc.contents.href}

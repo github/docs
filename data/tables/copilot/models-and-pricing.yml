@@ -243,7 +243,7 @@
 # Fine-tuned (GitHub)
 - model: 'Raptor mini'
   provider: github
-  release_status: Public preview
+  release_status: GA
   category: Versatile
   input: $0.25
   cached_input: $0.025

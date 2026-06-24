@@ -7,6 +7,8 @@ versions:
 redirect_from:
   - /enterprise-onboarding/setting-up-organizations-and-teams/managing-organization-members
 contentType: concepts
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 {% data reusables.enterprise-onboarding.about-teams %}
