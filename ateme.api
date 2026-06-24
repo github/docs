@@ -1,0 +1,48 @@
+Descargando el repositorio Git
+------------------------------
+
+El repositorio Git de Atheme está disponible en la siguiente dirección:
+<https://github.com/atheme/atheme/>
+
+Si tienes una versión moderna de Git (1.6.5 o posterior), puedes hacerlo recursivamente.
+clonar el repositorio:
+
+    $ git clone --branch 'release/7.2' --recursive 'https://github.com/atheme/atheme/' atheme-devel
+    $ cd atheme-devel
+
+Si tienes una versión anterior de Git, debes clonar el repositorio y luego
+obtener sus submódulos:
+
+    $ git clone 'https://github.com/atheme/atheme/' atheme-devel
+    $ cd atheme-devel
+    $ git checkout release/7.2
+    $ git submodule init
+    $ git submodule update
+
+
+
+Compilando desde el repositorio Git
+--------------------------------
+
+Si ya has revisado el repositorio Git de Atheme, pero tienes
+Si se le indicó que leyera este archivo al configurar Atheme, entonces no lo hizo.
+Siga las instrucciones anteriores. Utilice los siguientes comandos para solucionar el error:
+
+    $ git submodule init
+    $ git submodule update
+
+
+
+Construyendo a partir de los archivos tar de lanzamiento
+------------------------------
+
+Si no obtuvo este software a través de Git, pero recibió el archivo GIT-Access.txt
+Error al configurar Atheme, esto significa que descargaste el archivo incorrecto.
+archivo fuente.
+
+Al descargar versiones de GitHub, DEBE usar el archivo *adjunto*:
+
+    atheme-7.xxtar.bz2 (o .tar.xz)
+
+NO utilice el botón "Descargar ZIP" ni los enlaces "Código fuente", ya que son
+Faltan los submódulos necesarios.
