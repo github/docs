@@ -15,9 +15,9 @@ category:
 ## Request a review from {% data variables.product.prodname_copilot_short %}
 
 1. On {% data variables.product.prodname_dotcom_the_website %}, create or open a pull request.
-1. Open the **Reviewers** menu, then select **{% data variables.product.prodname_copilot_short %}**.
+1. Under "Reviewers" in the right sidebar, next to **{% data variables.product.prodname_copilot_short %}**, click **Request**.
 
-   ![Screenshot of selecting '{% data variables.product.prodname_copilot_short %}' from the 'Reviewers' menu.](/assets/images/help/copilot/code-review/request-review@2x.png)
+   ![Screenshot of {% data variables.product.prodname_copilot_short %} with 'Request' button under 'Reviewers'.](/assets/images/help/copilot/code-review/request-review@2x.png)
 
 1. Wait for {% data variables.product.prodname_copilot_short %} to finish reviewing. This usually takes less than 30 seconds.
 
@@ -29,14 +29,16 @@ category:
 
 {% data variables.product.prodname_copilot_short %}'s review comments work like comments from human reviewers. Add reactions, reply, resolve, or hide them. Any replies you add are visible to other people but not to {% data variables.product.prodname_copilot_short %}.
 
+You can also request a review from {% data variables.product.prodname_copilot_short %} through the {% data variables.product.github %} REST API by requesting `copilot-pull-request-reviewer[bot]` as a reviewer. For more information, see [AUTOTITLE](/rest/pulls/review-requests#request-reviewers-for-a-pull-request).
+
 ## Work with suggested changes
 
 {% data variables.product.prodname_copilot_short %}'s feedback often includes suggested changes you can apply in a few clicks. Accept a single suggestion or group multiple suggestions into one commit. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request).
 
 To have {% data variables.copilot.copilot_cloud_agent %} implement suggested changes directly:
 
-1. Opt into the {% data variables.release-phases.public_preview %} for {% data variables.copilot.copilot_code-review-tools_short %} and enable {% data variables.copilot.copilot_cloud_agent %}.
-1. On a review comment from {% data variables.copilot.copilot_code-review %}, click **Implement suggestion**. This creates a draft comment where you instruct {% data variables.product.prodname_copilot_short %} to address specific feedback. {% data variables.product.prodname_copilot_short %} then creates a new pull request against your branch with the suggestions applied.
+1. Enable {% data variables.copilot.copilot_code-review %} and {% data variables.copilot.copilot_cloud_agent %}.
+1. On a review comment from {% data variables.copilot.copilot_code-review %}, click **Fix with Copilot**. This creates a draft comment where you instruct {% data variables.product.prodname_copilot_short %} to address specific feedback. You can choose whether {% data variables.product.prodname_copilot_short %} creates a new pull request against your branch or commits directly to the same pull request.
 
 ## Provide feedback on reviews
 
@@ -52,7 +54,11 @@ Rate {% data variables.product.prodname_copilot_short %}'s comments to help impr
 
 ## Request a re-review
 
-{% data variables.product.prodname_copilot_short %} does not automatically re-review when you push new changes. To request a re-review, click the {% octicon "sync" aria-label="Re-request review" %} button next to {% data variables.product.prodname_copilot_short %}'s name in the **Reviewers** menu.
+When you push new changes to a pull request that {% data variables.product.prodname_copilot_short %} has reviewed, it does not automatically re-review unless you've configured automatic reviews to include new pushes.
+
+To manually request a re-review, click the {% octicon "sync" aria-label="Re-request review" %} button next to {% data variables.product.prodname_copilot_short %}'s name in the **Reviewers** menu. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review).
+
+To automatically request re-reviews on every push, enable automatic code review and select **Review new pushes** in the ruleset settings. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review#configuring-automatic-code-review-for-repositories-in-an-organization).
 
 When re-reviewing, {% data variables.product.prodname_copilot_short %} may repeat previous comments, even if you resolved or downvoted them.
 
