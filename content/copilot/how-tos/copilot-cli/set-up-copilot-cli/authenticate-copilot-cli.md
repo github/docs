@@ -197,4 +197,4 @@ To revoke the OAuth app authorization on {% data variables.product.github %} and
 
 ## Next steps
 
-If you run into authentication problems, see [Troubleshooting authentication in {% data variables.copilot.copilot_cli_short %}](/copilot/how-tos/copilot-cli/set-up-copilot-cli/troubleshoot-copilot-cli-auth).
+If you run into authentication problems, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/troubleshoot-copilot-cli-auth).
