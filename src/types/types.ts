@@ -280,7 +280,7 @@ export type SecretScanningData = {
   isPrivateWithGhas: boolean
   hasPushProtection: boolean
   hasValidityCheck: boolean | string
-  hasExtendedMetadata?: boolean
+  hasExtendedMetadata?: boolean | string
   base64Supported: boolean
   isduplicate: boolean
 }

@@ -80,6 +80,7 @@
     "prettier-check": "prettier -c \"**/*.{ts,tsx,scss,yml,yaml}\"",
     "prevent-pushes-to-main": "tsx src/workflows/prevent-pushes-to-main.ts",
     "purge-fastly": "tsx src/workflows/purge-fastly.ts",
+    "purge-fastly-changed-content": "tsx src/workflows/purge-fastly-changed-content.ts",
     "readability-report": "tsx src/workflows/experimental/readability-report.ts",
     "ready-for-docs-review": "tsx src/workflows/ready-for-docs-review.ts",
     "release-banner": "tsx src/ghes-releases/scripts/release-banner.ts",
