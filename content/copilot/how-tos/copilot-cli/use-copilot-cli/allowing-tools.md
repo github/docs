@@ -24,7 +24,7 @@ You can allow or deny permissions for tools either when you start the CLI or dur
 
 ## Persisted permissions
 
-If you answer "yes, always" or otherwise choose the option to allow similar requests for the current location, the approval is saved in `~/.copilot/permissions-config.json`. The saved approval is then applied the next time you start the CLI in the same repository or directory.
+If you answer "yes, always" or otherwise choose the option to allow similar requests for the current location, the approval is saved to `permissions-config.json` in your configuration directory (by default, `~/.copilot/permissions-config.json`).
 
 Command-line options such as `--allow-tool` and `--deny-tool` apply only to the current session and aren't written to `permissions-config.json`. Deny rules still take precedence over saved approvals.
 
