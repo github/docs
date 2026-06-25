@@ -177,7 +177,7 @@
     "@octokit/plugin-retry": "8.0.1",
     "@octokit/request-error": "7.0.0",
     "@opentelemetry/api": "^1.9.0",
-    "@opentelemetry/core": "^2.5.1",
+    "@opentelemetry/core": "^2.8.0",
     "@opentelemetry/exporter-trace-otlp-proto": "^0.215.0",
     "@opentelemetry/instrumentation-express": "^0.63.0",
     "@opentelemetry/instrumentation-http": "^0.215.0",
@@ -221,7 +221,7 @@
     "highlightjs-curl": "^1.3.0",
     "hot-shots": "^16.0.0",
     "html-entities": "^2.5.6",
-    "http-proxy-middleware": "^4.0.0",
+    "http-proxy-middleware": "^4.1.1",
     "imurmurhash": "^0.1.4",
     "is-svg": "6.0.0",
     "javascript-stringify": "^2.1.0",
@@ -352,7 +352,18 @@
     "path-to-regexp": "^8.4.0",
     "apache-arrow": "file:src/search/vendor/apache-arrow-stub",
     "uuid": "^14.0.0",
-    "postcss": "^8.5.10"
+    "postcss": "^8.5.10",
+    "@grpc/proto-loader": {
+      "protobufjs": "^7.6.4"
+    },
+    "@opentelemetry/otlp-transformer": {
+      "protobufjs": "^8.6.5"
+    },
+    "undici": "^6.27.0",
+    "cheerio": {
+      "undici": "^7.28.0"
+    },
+    "markdown-it": "^14.2.0"
   },
   "optionalDependencies": {
     "esm": "^3.2.25"

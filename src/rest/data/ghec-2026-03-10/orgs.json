@@ -1667,7 +1667,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists all credential authorizations for an organization that uses SAML single sign-on (SSO). The credentials can be personal access tokens, SSH keys, OAuth app access tokens, or user-to-server tokens from GitHub Apps that organization members have authorized for the organization. For more information, see <a href=\"https://docs.github.com/enterprise-cloud@latest/articles/about-authentication-with-saml-single-sign-on\">About authentication with SAML single sign-on</a>.</p>\n<p>The authenticated user must be an organization owner to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Lists all credential authorizations for an organization that uses SAML single sign-on (SSO). The credentials are either personal access tokens or SSH keys that organization members have authorized for the organization. For more information, see <a href=\"https://docs.github.com/enterprise-cloud@latest/articles/about-authentication-with-saml-single-sign-on\">About authentication with SAML single sign-on</a>.</p>\n<p>The authenticated user must be an organization owner to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1689,7 +1689,6 @@
                 "token_last_eight": "71c3fc11",
                 "credential_authorized_at": "2011-01-26T19:06:43Z",
                 "credential_accessed_at": "2011-01-26T19:06:43Z",
-                "authorized_credential_id": 12345678,
                 "authorized_credential_expires_at": "2011-02-25T19:06:43Z",
                 "scopes": [
                   "user",
@@ -1702,47 +1701,11 @@
                 "credential_type": "personal access token",
                 "token_last_eight": "Ae178B4a",
                 "credential_authorized_at": "2019-03-29T19:06:43Z",
-                "credential_accessed_at": "2019-04-15T19:06:43Z",
-                "authorized_credential_id": 12345679,
+                "credential_accessed_at": "2011-01-26T19:06:43Z",
                 "authorized_credential_expires_at": "2019-04-28T19:06:43Z",
                 "scopes": [
                   "repo"
                 ]
-              },
-              {
-                "login": "octocat",
-                "credential_id": 161197,
-                "credential_type": "OAuth app token",
-                "token_last_eight": "9f2c4d1e",
-                "credential_authorized_at": "2023-05-15T19:06:43Z",
-                "credential_accessed_at": "2023-05-16T19:06:43Z",
-                "authorized_credential_id": 12345680,
-                "authorized_credential_expires_at": "2023-06-14T19:06:43Z",
-                "scopes": [
-                  "repo",
-                  "read:org"
-                ]
-              },
-              {
-                "login": "hubot",
-                "credential_id": 161198,
-                "credential_type": "GitHub app token",
-                "token_last_eight": "3b7a0c52",
-                "credential_authorized_at": "2023-05-15T19:06:43Z",
-                "credential_accessed_at": "2023-05-16T19:06:43Z",
-                "authorized_credential_id": 12345681,
-                "authorized_credential_expires_at": "2023-06-14T19:06:43Z",
-                "scopes": []
-              },
-              {
-                "login": "octocat",
-                "credential_id": 161199,
-                "credential_type": "SSH key",
-                "credential_authorized_at": "2023-05-15T19:06:43Z",
-                "credential_accessed_at": "2023-05-16T19:06:43Z",
-                "authorized_credential_id": 12345682,
-                "fingerprint": "jklmnop12345678",
-                "authorized_credential_title": "my ssh key"
               }
             ],
             "schema": {
@@ -1762,17 +1725,11 @@
                   },
                   "credential_type": {
                     "type": "string",
-                    "description": "Human-readable description of the credential type.",
-                    "enum": [
-                      "personal access token",
-                      "SSH key",
-                      "OAuth app token",
-                      "GitHub app token"
-                    ]
+                    "description": "Human-readable description of the credential type."
                   },
                   "token_last_eight": {
                     "type": "string",
-                    "description": "Last eight characters of the credential. Only included in responses with a credential_type of personal access token, OAuth app token, or GitHub app token."
+                    "description": "Last eight characters of the credential. Only included in responses with credential_type of personal access token."
                   },
                   "credential_authorized_at": {
                     "type": "string",
@@ -1781,14 +1738,14 @@
                   },
                   "scopes": {
                     "type": "array",
-                    "description": "List of OAuth scopes the token has been granted.",
+                    "description": "List of oauth scopes the token has been granted.",
                     "items": {
                       "type": "string"
                     }
                   },
                   "fingerprint": {
                     "type": "string",
-                    "description": "Unique string to distinguish the credential. Only included in responses with a credential_type of SSH key."
+                    "description": "Unique string to distinguish the credential. Only included in responses with credential_type of SSH Key."
                   },
                   "credential_accessed_at": {
                     "type": [
@@ -1803,7 +1760,7 @@
                       "integer",
                       "null"
                     ],
-                    "description": "The ID of the underlying token or key that was authorized by the user. This will remain unchanged across authorizations of the token or key."
+                    "description": "The ID of the underlying token that was authorized by the user. This will remain unchanged across authorizations of the token."
                   },
                   "authorized_credential_title": {
                     "type": [
@@ -1887,7 +1844,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Removes a credential authorization for an organization that uses SAML SSO. The credential can be a personal access token, an SSH key, an OAuth app access token, or a user-to-server token from a GitHub App. Once you remove someone's credential authorization, they will need to authorize the credential again for the organization they want to access.</p>\n<p>The authenticated user must be an organization owner to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Removes a credential authorization for an organization that uses SAML SSO. Once you remove someone's credential authorization, they will need to create a new personal access token or SSH key and authorize it for the organization they want to access.</p>\n<p>The authenticated user must be an organization owner to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
