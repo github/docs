@@ -284,7 +284,7 @@ Approve file writes and one MCP server for a repository:
 }
 ```
 
-Approve one MCP tool and memory writes:
+Approve one MCP tool, memory writes, and extension permission access:
 
 ```json copy
 {
@@ -298,6 +298,10 @@ Approve one MCP tool and memory writes:
         },
         {
           "kind": "memory"
+        },
+        {
+          "kind": "extension-permission-access",
+          "extensionName": "my-extension"
         }
       ]
     }

@@ -22,7 +22,11 @@ While read-only operations like searching, reading files, and running read-only 
 
 You can allow or deny permissions for tools either when you start the CLI or during your interactive session. If you haven't granted permission prior to starting a session, {% data variables.copilot.copilot_cli_short %} will prompt you for permission each time it needs to perform a potentially destructive action. You can choose to allow the tool this one time, or for the remainder of the session.
 
-If you choose the option to allow similar requests for the current location, the approval is saved in `permissions-config.json` in your {% data variables.copilot.copilot_cli_short %} configuration directory. The saved approval is then applied the next time you start the CLI in the same repository or directory. Command-line options such as `--allow-tool` and `--deny-tool` apply only to the current session and aren't written to `permissions-config.json`; deny rules still take precedence over saved approvals.
+## Persisted permissions
+
+If you answer "yes, always" or otherwise choose the option to allow similar requests for the current location, the approval is saved in `~/.copilot/permissions-config.json`. The saved approval is then applied the next time you start the CLI in the same repository or directory.
+
+Command-line options such as `--allow-tool` and `--deny-tool` apply only to the current session and aren't written to `permissions-config.json`. Deny rules still take precedence over saved approvals.
 
 For details about where saved approvals are stored, how locations are matched, and the full `permissions-config.json` schema, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#permissions-configjson).
 
