@@ -125,7 +125,7 @@ Stores internal application state that is managed automatically by the CLI, incl
 Stores your saved tool and directory permission decisions, organized by project location. When you approve a tool or grant access to a directory for the current location, the CLI records the decision here so you aren't prompted again in the same repository or directory.
 
 > [!NOTE]
-> If you want to reset permissions for a project, you can delete the relevant entry from this file. However, editing the file while a session is running may cause unexpected behavior.
+> If you want to reset permissions for a project, you can delete the relevant entry from this file. However, editing the file while a session is running may cause unexpected behavior. The CLI automatically removes entries whose location path no longer exists on disk.
 
 #### File location
 
