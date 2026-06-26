@@ -180,7 +180,7 @@ The file must contain a JSON object.
 | `operation` | String | No, for `extension-management` | Omitted | Extension operation name | Extension-management operation to approve. Omit this field to approve all extension-management operations. |
 | `extensionName` | String | Yes, for `extension-permission-access` | None | Extension name | Extension whose access to permission-gated capabilities is approved. |
 
-`permissions-config.json` doesn't support deny rules, "ask" rules, default modes, URL rules, tool filtering, or repository-local shared policy. For those behaviors, use command-line options such as `--deny-tool`, `--available-tools`, `--excluded-tools`, `--allow-url`, and `--deny-url`. Saved URL rules are stored in `config.json`, not in `permissions-config.json`.
+`permissions-config.json` doesn't support deny rules, "ask" rules, default modes, URL rules, tool filtering, or repository-local shared policy. For those behaviors, use command-line options such as `--deny-tool`, `--available-tools`, `--excluded-tools`, `--allow-url`, and `--deny-url`. Saved URL rules are stored in `settings.json`, not in `permissions-config.json`.
 
 Unknown fields aren't part of the schema. The CLI may ignore them, and later writes may remove them.
 
