@@ -1,0 +1,26 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+# This workflow lets you generate SLSA provenance file for your project.
+# The generation satisfies level 3 for the provenance requirements - see https://slsa.dev/spec/v0.1/requirements
+# The project is an initiative of the OpenSSF (openssf.org) and is developed at
+# https://github.com/slsa-framework/slsa-github-generator.
+# The provenance file can be verified using https://github.com/slsa-framework/slsa-verifier.
+# For more information about SLSA and how it improves the supply-chain, visit slsa.dev.
+
+the Gemini API for complex kaleidoscope art, you can leverage its multimodal and iterative capabilities. Instead of a single prompt, you can use Gemini to generate structural parameters (math and geometry) and then feed those into the image generation model (Nano Banana 2 / Gemini 3 Flash Image).
+​Here is how to structure your integration for high-complexity results.
+​1. Structural Prompt Engineering
+​Standard prompts like "colorful kaleidoscope" often yield flat results. To achieve complexity, your prompts should define mathematical symmetry and material physics.
+​The "Complex Geometry" Template:
+​"A hyper-complex kaleidoscope pattern based on D_{6} dihedral symmetry (60-degree mirror angles). The composition features non-Euclidean geometry and hyperbolic tiling. Incorporate materials like dichroic glass, iridescent bismuth crystals, and fractured obsidian. Lighting: internal glow with caustic light refractions and depth-of-field focusing on the central fractal core."
+​2. Algorithmic Prompt Chaining
+​Use Gemini 3 Flash (the text model) to act as a "Creative Director" that generates the technical prompt for the image generator.
+​Step 1: Request Technical Parameters
+​User to Gemini: "Generate a technical description for a kaleidoscope art piece using C_{8} cyclic symmetry, 4D-rotational logic, and a 'Cyber-Baroque' aesthetic."
+​Gemini Output: A highly detailed paragraph detailing tessellations, specific hex codes, and light-bounce physics.
+​Step 2: Pass to Image Generator
+​Pass that specific output directly into the image_generation tool.
+​3. Comparison of Symmetry Logic for Prompts
