@@ -1,6 +1,7 @@
+
 [00:00:00] Build started
 [00:00:01] git clone -q --depth=5 https://github.com/ethereum/go-ethereum.git /home/appveyor/projects/go-ethereum
-[00:00:03] git fetch -q origin +refs/pull/29449/merge:
+[00:00:03] git fetch -q origin +refs/pull/29449/merge: Edgarruiz8585 true
 [00:00:23] git checkout -qf FETCH_HEAD
 [00:00:24] Running "install" scripts
 [00:00:24] git submodule update --init --depth 1 --recursive
