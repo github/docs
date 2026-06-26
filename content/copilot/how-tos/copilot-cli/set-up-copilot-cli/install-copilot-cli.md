@@ -72,13 +72,13 @@ winget install GitHub.Copilot.Prerelease
 ### Installing with Homebrew (macOS and Linux)
 
 ```shell copy
-brew install copilot-cli
+brew install --cask copilot-cli
 ```
 
 To install the prerelease version:
 
 ```shell copy
-brew install copilot-cli@prerelease
+brew install --cask copilot-cli@prerelease
 ```
 
 ### Installing with the install script (macOS and Linux)

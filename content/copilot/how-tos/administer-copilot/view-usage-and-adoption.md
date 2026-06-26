@@ -26,7 +26,7 @@ After your initial rollout, the {% data variables.product.prodname_copilot_short
 {% data reusables.copilot.access-copilot-metrics-dashboard %}
 1. In the left sidebar, click **{% data variables.product.prodname_copilot_short %} usage**.
 
-Data in the dashboard is based only on IDE telemetry, and may appear up to three full UTC days behind the current date. See [AUTOTITLE](/copilot/concepts/copilot-metrics).
+Data in the dashboard is primarily based on IDE telemetry and is supplemented by server-side telemetry to capture additional active users. Data may appear up to three full UTC days behind the current date. See [AUTOTITLE](/copilot/concepts/copilot-metrics).
 
 ## Using {% data variables.copilot.copilot_chat_short %} to analyze exported data
 

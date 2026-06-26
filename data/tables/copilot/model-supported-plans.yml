@@ -158,10 +158,3 @@
   max: true
   business: false
   enterprise: false
-
-- name: Goldeneye
-  pro: false
-  pro_plus: false
-  max: false
-  business: false
-  enterprise: false

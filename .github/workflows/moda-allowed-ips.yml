@@ -20,6 +20,14 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
+          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
+          owner: github
+          repositories: docs-engineering
 
       - name: Update list of allowed IPs
         run: |
@@ -63,4 +71,4 @@ jobs:
       - uses: ./.github/actions/create-workflow-failure-issue
         if: ${{ failure() }}
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          token: ${{ steps.app-token.outputs.token }}

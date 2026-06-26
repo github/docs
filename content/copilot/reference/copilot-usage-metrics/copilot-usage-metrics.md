@@ -120,7 +120,7 @@ Per-user reports contain one record per user for the reporting period. The 28-da
 
 ### Aggregated enterprise and organization report fields
 
-Aggregated reports contain one record per enterprise or organization, summarizing all users for the day. The following tables list the active-user counts, then the activity totals and breakdowns.
+Aggregated reports contain one record per enterprise or organization, summarizing all users for the day. Active-user counts include users identified through both client-side and server-side telemetry. Users surfaced only through server-side telemetry are counted in active-user totals but may not appear in the dimensional breakdown arrays (`totals_by_ide`, `totals_by_feature`, and similar). The following tables list the active-user counts, then the activity totals and breakdowns.
 
 Active-user counts:
 

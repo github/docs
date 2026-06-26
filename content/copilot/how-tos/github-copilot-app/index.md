@@ -23,4 +23,5 @@ children:
   - /managing-issues-and-pull-requests
   - /using-automations
   - /use-byok-models
+  - /open-with-deep-links
 ---

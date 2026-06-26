@@ -5303,6 +5303,30 @@
       }
     ]
   },
+  "code_quality": {
+    "title": "Code quality",
+    "displayTitle": "Repository permissions for \"Code quality\"",
+    "permissions": [
+      {
+        "category": "code-quality",
+        "slug": "list-code-quality-findings-for-a-repository",
+        "subcategory": "code-quality",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-quality/findings",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "code-quality",
+        "slug": "get-a-code-quality-finding",
+        "subcategory": "code-quality",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-quality/findings/{finding_number}",
+        "additional-permissions": false,
+        "access": "read"
+      }
+    ]
+  },
   "security_events": {
     "title": "Code scanning alerts",
     "displayTitle": "Repository permissions for \"Code scanning alerts\"",

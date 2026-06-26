@@ -3,6 +3,538 @@
     {
       "serverUrl": "https://api.github.com",
       "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/code-quality/findings",
+      "title": "List code quality findings for a repository",
+      "category": "code-quality",
+      "subcategory": "code-quality",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 30
+          }
+        },
+        {
+          "name": "direction",
+          "description": "<p>The direction to sort the results by.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "default": "desc",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          }
+        },
+        {
+          "name": "before",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "after",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "state",
+          "description": "<p>If specified, only code quality findings with this state will be returned.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "enum": [
+              "open",
+              "dismissed"
+            ]
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Lists code quality findings for a repository.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": [
+              {
+                "number": 42,
+                "state": "open",
+                "url": "https://api.github.com/repos/octocat/hello-world/code-quality/findings/42",
+                "rule": {
+                  "id": "java/useless-null-check",
+                  "title": "Useless null check",
+                  "description": "Checking whether an expression is null when that expression cannot possibly be null is useless.",
+                  "severity": "warning",
+                  "category": "maintainability"
+                },
+                "location": {
+                  "path": "java/UselessNullCheck.java",
+                  "start_line": 9,
+                  "start_column": 4,
+                  "end_line": 9,
+                  "end_column": 18
+                },
+                "message": {
+                  "text": "This check is useless. o cannot be null at this check, since it is guarded by instanceof.",
+                  "markdown": "This check is useless. [o](java/UselessNullCheck.java#L9C4-L9C18) cannot be null at this check, since it is guarded by [...instanceof...](java/UselessNullCheck.java#L7C13-L7C25)."
+                },
+                "created_at": "2026-01-23T12:34:56Z"
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "description": "Code quality finding",
+                "type": "object",
+                "properties": {
+                  "number": {
+                    "description": "The finding number.",
+                    "type": "integer"
+                  },
+                  "state": {
+                    "description": "State of the code quality finding.",
+                    "type": "string",
+                    "enum": [
+                      "open",
+                      "dismissed"
+                    ]
+                  },
+                  "url": {
+                    "description": "The REST API URL of the code quality finding resource.",
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "rule": {
+                    "description": "Code quality rule",
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "description": "A unique identifier for the rule used to detect the finding.",
+                        "type": "string"
+                      },
+                      "title": {
+                        "description": "The name of the rule used to detect the finding.",
+                        "type": "string"
+                      },
+                      "description": {
+                        "description": "A short description of the rule used to detect the finding.",
+                        "type": "string"
+                      },
+                      "help": {
+                        "description": "A detailed description of the rule used to detect the finding.",
+                        "type": "string"
+                      },
+                      "severity": {
+                        "description": "The severity of the rule used to detect the finding.",
+                        "type": "string",
+                        "enum": [
+                          "error",
+                          "warning",
+                          "note",
+                          "none"
+                        ]
+                      },
+                      "category": {
+                        "description": "The category of the rule used to detect the finding.",
+                        "type": "string",
+                        "enum": [
+                          "none",
+                          "maintainability",
+                          "reliability"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "title",
+                      "description",
+                      "severity",
+                      "category"
+                    ]
+                  },
+                  "location": {
+                    "description": "Code quality file location",
+                    "type": "object",
+                    "properties": {
+                      "path": {
+                        "description": "The file path where the finding was detected.",
+                        "type": "string"
+                      },
+                      "start_line": {
+                        "description": "The line number where the finding starts.",
+                        "type": "integer"
+                      },
+                      "start_column": {
+                        "description": "The column number where the finding starts.",
+                        "type": "integer"
+                      },
+                      "end_line": {
+                        "description": "The line number where the finding ends.",
+                        "type": "integer"
+                      },
+                      "end_column": {
+                        "description": "The column number where the finding ends.",
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "path"
+                    ]
+                  },
+                  "message": {
+                    "description": "Code quality finding message",
+                    "type": "object",
+                    "properties": {
+                      "text": {
+                        "description": "The message text of the code quality finding.",
+                        "type": "string"
+                      },
+                      "markdown": {
+                        "description": "The message text of the code quality finding in markdown format.",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "text",
+                      "markdown"
+                    ]
+                  },
+                  "created_at": {
+                    "description": "The time the code quality finding was created.",
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [
+                  "number",
+                  "state",
+                  "url",
+                  "rule",
+                  "location",
+                  "message"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Response if the user is not authorized to access Code quality for this repository.</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Code quality\" repository permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/code-quality/findings/{finding_number}",
+      "title": "Get a code quality finding",
+      "category": "code-quality",
+      "subcategory": "code-quality",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "finding_number",
+          "in": "path",
+          "description": "<p>The number that identifies a finding.</p>",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets a single code quality finding.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "finding_number": "FINDING_NUMBER"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "number": 42,
+              "state": "open",
+              "url": "https://api.github.com/repos/octocat/hello-world/code-quality/findings/42",
+              "rule": {
+                "id": "java/useless-null-check",
+                "title": "Useless null check",
+                "description": "Checking whether an expression is null when that expression cannot possibly be null is useless.",
+                "help": "# Useless null check\nSometimes you can guarantee that a particular variable will never be null. For example when that variable has just been assigned a newly created object or is the exception caught by a `catch` clause. A null check on such a variable is ...",
+                "severity": "warning",
+                "category": "maintainability"
+              },
+              "location": {
+                "path": "java/UselessNullCheck.java",
+                "start_line": 9,
+                "start_column": 4,
+                "end_line": 9,
+                "end_column": 18
+              },
+              "message": {
+                "text": "This check is useless. o cannot be null at this check, since it is guarded by instanceof.",
+                "markdown": "This check is useless. [o](java/UselessNullCheck.java#L9C4-L9C18) cannot be null at this check, since it is guarded by [...instanceof...](java/UselessNullCheck.java#L7C13-L7C25)."
+              },
+              "created_at": "2026-01-23T12:34:56Z"
+            },
+            "schema": {
+              "description": "Code quality finding",
+              "type": "object",
+              "properties": {
+                "number": {
+                  "description": "The finding number.",
+                  "type": "integer"
+                },
+                "state": {
+                  "description": "State of the code quality finding.",
+                  "type": "string",
+                  "enum": [
+                    "open",
+                    "dismissed"
+                  ]
+                },
+                "url": {
+                  "description": "The REST API URL of the code quality finding resource.",
+                  "type": "string",
+                  "format": "uri"
+                },
+                "rule": {
+                  "description": "Code quality rule",
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "A unique identifier for the rule used to detect the finding.",
+                      "type": "string"
+                    },
+                    "title": {
+                      "description": "The name of the rule used to detect the finding.",
+                      "type": "string"
+                    },
+                    "description": {
+                      "description": "A short description of the rule used to detect the finding.",
+                      "type": "string"
+                    },
+                    "help": {
+                      "description": "A detailed description of the rule used to detect the finding.",
+                      "type": "string"
+                    },
+                    "severity": {
+                      "description": "The severity of the rule used to detect the finding.",
+                      "type": "string",
+                      "enum": [
+                        "error",
+                        "warning",
+                        "note",
+                        "none"
+                      ]
+                    },
+                    "category": {
+                      "description": "The category of the rule used to detect the finding.",
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "maintainability",
+                        "reliability"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "description",
+                    "severity",
+                    "category"
+                  ]
+                },
+                "location": {
+                  "description": "Code quality file location",
+                  "type": "object",
+                  "properties": {
+                    "path": {
+                      "description": "The file path where the finding was detected.",
+                      "type": "string"
+                    },
+                    "start_line": {
+                      "description": "The line number where the finding starts.",
+                      "type": "integer"
+                    },
+                    "start_column": {
+                      "description": "The column number where the finding starts.",
+                      "type": "integer"
+                    },
+                    "end_line": {
+                      "description": "The line number where the finding ends.",
+                      "type": "integer"
+                    },
+                    "end_column": {
+                      "description": "The column number where the finding ends.",
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "path"
+                  ]
+                },
+                "message": {
+                  "description": "Code quality finding message",
+                  "type": "object",
+                  "properties": {
+                    "text": {
+                      "description": "The message text of the code quality finding.",
+                      "type": "string"
+                    },
+                    "markdown": {
+                      "description": "The message text of the code quality finding in markdown format.",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "text",
+                    "markdown"
+                  ]
+                },
+                "created_at": {
+                  "description": "The time the code quality finding was created.",
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "required": [
+                "number",
+                "state",
+                "url",
+                "rule",
+                "location",
+                "message"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Response if the user is not authorized to access Code quality for this repository.</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Code quality\" repository permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/code-quality/setup",
       "title": "Get a code quality setup configuration",
       "category": "code-quality",

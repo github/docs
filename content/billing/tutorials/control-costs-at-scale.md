@@ -18,9 +18,13 @@ Cost centers help you track and control {% data variables.product.github %} cost
 
 This tutorial guides you through planning, creating, and managing cost centers using both the user interface and the REST API, helping you decide which approach best fits your organization's needs.
 
+As your enterprise grows, you can layer increasingly granular controls on top of cost centers to keep {% data variables.product.prodname_copilot_short %} spending predictable:
+
+* **Group at scale.** Assign whole enterprise teams to a cost center so membership stays current automatically as people join and leave.
+
 ## 1. Plan your cost center strategy
 
-Cost centers allow you to group {% data variables.product.github %} resources—users, organizations, and repositories—for separate cost tracking and reporting. Each cost center should represent a segment of your company that you want to report on or control costs for as a separate entity.
+Cost centers allow you to group {% data variables.product.github %} resources—users, enterprise teams, organizations, and repositories—for separate cost tracking and reporting. Each cost center should represent a segment of your company that you want to report on or control costs for as a separate entity.
 
 If you use Azure billing, you can assign a different billing identity to each cost center.
 
@@ -33,6 +37,8 @@ Follow these steps to plan your cost centers:
 1. **Map to financial entities**: Create one cost center for each financial entity you want to track internally (such as departments, business units, or project teams).
 
 1. **Identify users**: List the users who belong to each financial entity. Assigning users directly to a cost center ensures their license and product usage is allocated correctly.
+
+1. **Identify enterprise teams**: If you manage groups of users with enterprise teams, you can assign a whole team to a cost center instead of listing its members. Team membership flows into the cost center and stays current automatically.
 
 1. **Identify organizations**: List the organizations that belong to each financial entity. Assigning organizations to a cost center allocates their usage of actions, {% data variables.product.prodname_codespaces %}, packages, and other products correctly.
 
@@ -50,12 +56,14 @@ Now you'll create your first cost center using the user interface (UI) to famili
 {% data reusables.billing.cost-center-click-new %}
 1. In the text box under "Name", enter the name of the financial entity you want to track costs for.
 1. Optionally, if this financial entity has a separate Azure subscription, you can add the Azure subscription to the cost center to charge usage directly to it. The credentials will be verified against Azure to ensure the Azure ID associated with the account is available.
-1. Under **Resources**, select the users, organizations, and repositories to track as part of this cost center.
+1. Under **Resources**, select the users, enterprise teams, organizations, and repositories to track as part of this cost center.
 {% data reusables.billing.cost-center-create-button %}
 
 Your new cost center is now active and usage will begin to attribute to the cost center immediately. Future billing reports will include this cost center with an entry in the `cost_center_name` column for usage allocated to it. You'll also be able to filter usage charts by this cost center.
 
-## 3. Set budgets to control costs
+{% data reusables.billing.enterprise-teams-in-cost-centers %}
+
+## 3. Set budgets to control additional spending
 
 Creating a cost center allows you to track costs separately for different financial entities. To actually control costs, you need to apply budgets to your cost centers.
 
@@ -83,9 +91,9 @@ Create one budget for each product, SKU, or group of SKUs that you want to contr
 1. Click **New budget** to open the "New monthly budget" page.
 1. Under "Budget Type" select **Product-level budget**, **SKU-level budget**, or **Bundled {% data variables.product.prodname_ai_credits_short %} budget**.
 
+   * To limit spending for all {% data variables.product.prodname_ai_credits_short %}, use the "Bundled {% data variables.product.prodname_ai_credits_short %} budget".
    * To limit spending at the product level, in "Product-level budget", choose a product from the dropdown (for example, {% data variables.product.prodname_codespaces %}).
    * To limit spending at the SKU level, in "SKU-level budget", choose a product and a SKU (for example, {% data variables.product.prodname_copilot_short %} and {% data variables.product.prodname_copilot_short %} {% data variables.product.prodname_ai_credits_short %}).
-   * To limit spending for all {% data variables.product.prodname_ai_credits_short %}, use the "Bundled {% data variables.product.prodname_ai_credits_short %} budget".
 
 1. Click **Next: Configure budget** to display "Budget scope" and set the scope of spending for this budget to the cost center you created earlier.
 1. Under "Budget", set a budget amount. To stop any usage and further spending once the budget limit is reached, select **Stop usage when budget limit is reached**. This option is available for metered products and for {% data variables.product.prodname_AS %} SKU-level budgets. For more information about how hard budgets work for {% data variables.product.prodname_AS %}, see [AUTOTITLE](/billing/concepts/budgets-and-alerts#hard-budgets-for-github-advanced-security-skus).
@@ -305,3 +313,7 @@ If you want to automate cost centers based on team membership or create a two-ti
 To find out about the endpoints you can use to automate reporting of usage and costs, see [AUTOTITLE](/billing/tutorials/automate-usage-reporting).
 
 If there are any paid products that you want to block all access to, you can disable the feature using an enterprise policy. See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/about-enterprise-policies).
+
+To go deeper on the controls in this tutorial:
+
+* For how resources are allocated to cost centers, including enterprise team membership, see [AUTOTITLE](/billing/reference/cost-center-allocation).

@@ -903,6 +903,143 @@ The maximum number of minutes to run the step before killing the process. Maximu
 
 Fractional values are not supported. `timeout-minutes` must be a positive integer.
 
+{% ifversion actions-nga %}
+
+## `jobs.<job_id>.steps[*].background`
+
+Runs a step asynchronously so the job continues to the next step without waiting for it to finish. Use `background: true` for long-running processes, such as databases, servers, or monitoring tasks, that need to run alongside other steps. You synchronize with background steps later using [`wait`](#jobsjob_idstepswait) or [`wait-all`](#jobsjob_idstepswait-all) or stop them with [`cancel`](#jobsjob_idstepscancel).
+
+You can use `background` on steps that use `run` or `uses`. To reference a background step from [`wait`](#jobsjob_idstepswait) or [`cancel`](#jobsjob_idstepscancel), give it an [`id`](#jobsjob_idstepsid). A maximum of 10 background steps can run concurrently in a single job; additional background steps are queued until a slot is free.
+
+Outputs and environment changes from a background step are only available after you run a `wait` or `wait-all` step that includes it. If a background step fails, the job fails at the next `wait` or `wait-all` that includes it (unless [`continue-on-error`](#jobsjob_idstepscontinue-on-error) is set on that step). An implicit `wait-all` runs before any post-job cleanup.
+
+Use `background` when you need fine-grained control: starting a long-running process (like a server or database) that stays up while later steps run, referencing a specific step with [`wait`](#jobsjob_idstepswait) or [`cancel`](#jobsjob_idstepscancel), or interleaving background work with other steps. If you instead have a self-contained group of steps that should all finish before the job continues, [`parallel`](#jobsjob_idstepsparallel) is a more convenient shorthand.
+
+### Example: Running a step in the background
+
+```yaml
+steps:
+  - name: Start server
+    id: server
+    run: npm start
+    background: true
+
+  - name: Run tests against the server
+    run: npm test
+
+  - name: Wait for the server step to finish
+    wait: server
+```
+
+## `jobs.<job_id>.steps[*].wait`
+
+Pauses the job until one or more background steps complete. A `wait` step performs no work itself, it only blocks until the referenced background steps finish. Provide a single step `id` as a string, or multiple step `id`s as an array.
+
+After a `wait` step completes, the outputs of the referenced background steps become available to subsequent steps. If a referenced background step failed, the `wait` step fails too.
+
+### Example: Waiting for specific background steps
+
+```yaml
+steps:
+  - name: Build frontend
+    id: build-frontend
+    run: npm run build:frontend
+    background: true
+
+  - name: Build backend
+    id: build-backend
+    run: npm run build:backend
+    background: true
+
+  - name: Run linter while builds run
+    run: npm run lint
+
+  - name: Wait for both builds to finish
+    wait: [build-frontend, build-backend]
+
+  - name: Run tests
+    run: npm test
+```
+
+## `jobs.<job_id>.steps[*].wait-all`
+
+Pauses the job until all active background steps complete. This is useful when several background steps are running and you want them all to finish before continuing. Like `wait`, the `wait-all` step fails if any of the background steps it waits on failed, unless you set [`continue-on-error`](#jobsjob_idstepscontinue-on-error) to `true`.
+
+The `wait-all` keyword takes no arguments.
+
+### Example: Waiting for all background steps
+
+```yaml
+steps:
+  - name: Start database
+    id: db
+    run: docker run -d postgres:15
+    background: true
+
+  - name: Start cache
+    id: cache
+    run: docker run -d redis:7
+    background: true
+
+  - name: Run integration tests
+    run: npm run test:integration
+
+  - name: Wait for all services to stop
+    wait-all:
+```
+
+## `jobs.<job_id>.steps[*].cancel`
+
+Gracefully terminates a running background step. The runner sends the step's process a termination signal (`SIGTERM`) so it can clean up, and forcibly stops it (`SIGKILL`) if it does not exit within a short grace period. The `cancel` keyword targets a single background step by its `id`.
+
+### Example: Canceling a background step
+
+```yaml
+steps:
+  - name: Start long-running monitor
+    id: monitor
+    run: ./scripts/monitor.sh
+    background: true
+
+  - name: Run the main task
+    run: npm test
+
+  - name: Stop the monitor
+    cancel: monitor
+```
+
+## `jobs.<job_id>.steps[*].parallel`
+
+Runs a group of steps concurrently, then waits for all of them to finish before continuing. The `parallel` keyword is shorthand: every step in the group runs as a background step, with an implicit `wait` at the end of the group. Use it when you have an independent group of steps that can run at the same time and you don't need to reference them individually.
+
+Use `parallel` when you have a self-contained group of steps that should all finish before the job moves on, such as building several components at once. Use [`background`](#jobsjob_idstepsbackground) when you need finer control: starting a long-running process (like a server or database) that stays up while later steps run, referencing a specific step with [`wait`](#jobsjob_idstepswait) or [`cancel`](#jobsjob_idstepscancel), or interleaving background work with other steps. In short, `parallel` is more limited but more convenient for the "run this group at once" case, while `background` is the general-purpose primitive.
+
+Each step in the group is subject to the same 10-step concurrency limit as other background steps.
+
+### Example: Running steps in parallel
+
+```yaml
+steps:
+  - uses: {% data reusables.actions.action-checkout %}
+
+  - parallel:
+      - name: Build frontend
+        run: npm run build:frontend
+
+      - name: Build backend
+        run: npm run build:backend
+
+      - name: Build docs
+        run: npm run build:docs
+
+  - name: Run tests after all builds complete
+    run: npm test
+```
+
+The group above is equivalent to declaring each step with `background: true` followed by a `wait` step.
+
+{% endif %}
+
 ## `jobs.<job_id>.timeout-minutes`
 
 The maximum number of minutes to let a job run before {% data variables.product.prodname_dotcom %} automatically cancels it. Default: 360

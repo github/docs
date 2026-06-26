@@ -83,3 +83,5 @@ For more information on the rubber duck agent, see [AUTOTITLE](/copilot/concepts
 ## Keyboard shortcuts
 
 The {% data variables.copilot.github_copilot_app %} supports keyboard shortcuts to help you navigate sessions, switch between workspaces, and perform common actions. To see available shortcuts, open the app, go to **Help**, then **Keyboard Shortcuts**.
+
+You can also start a session directly in the app using deep links from markdown files, third-party tools, or scripts. For more information, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/open-with-deep-links).

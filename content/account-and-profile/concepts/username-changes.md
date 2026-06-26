@@ -63,4 +63,4 @@ After changing your username, CODEOWNERS files that include your old username wi
 
 ## Next steps
 
-To change your username, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/changing-your-username).
+To change your username, see [AUTOTITLE](/account-and-profile/how-tos/account-management/changing-your-username).

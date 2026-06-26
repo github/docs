@@ -4268,7 +4268,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Creates an autofix for a code scanning alert.</p>\n<p>If a new autofix is to be created as a result of this request or is currently being generated, then this endpoint will return a 202 Accepted response.</p>\n<p>If an autofix already exists for a given alert, then this endpoint will return a 200 OK response.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
+      "descriptionHTML": "<p>Creates an autofix for a code scanning alert from the repository's default branch.</p>\n<p>If a new autofix is to be created as a result of this request or is currently being generated, then this endpoint will return a 202 Accepted response.</p>\n<p>If an autofix already exists for a given alert, then this endpoint will return a 200 OK response.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
       "codeExamples": [
         {
           "request": {

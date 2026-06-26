@@ -23,16 +23,18 @@ category:
 > [!NOTE]
 > An enterprise can create up to 500 cost centers.
 
-Create cost centers to monitor and manage expenses for specific organizations or repositories. Multiple organizations, repositories, and users can be assigned to one cost center.
+Create cost centers to monitor and manage expenses for specific organizations or repositories. Multiple organizations, repositories, users, and enterprise teams can be assigned to one cost center.
 
-When you create a cost center, you can add **organizations**, **repositories**, or **users**. The cost center will then track spending for the selected entities.
+When you create a cost center, you can add **organizations**, **repositories**, **users**, or **enterprise teams**. The cost center will then track spending for the selected entities.
+
+{% data reusables.billing.enterprise-teams-in-cost-centers %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.billing.enterprise-billing-menu %}
 {% data reusables.billing.cost-center-click-new %}
 1. In the text box under "Name", enter a name for your cost center.
 1. If your account is billed to Azure, you have the option to add an Azure ID. Your credentials will be verified against Azure to ensure the Azure IDs associated to your account are available.
-1. Under **Resources**, select the organizations, repositories, and/or users that will be a part of the cost center.
+1. Under **Resources**, select the organizations, repositories, users, and/or enterprise teams that will be a part of the cost center.
 
    >[!NOTE] A resource (organization, repository, or user) can only be assigned to one cost center at a time. If you add a resource that belongs to a different cost center, it will be moved to the new cost center and you will be notified.
 

@@ -27,6 +27,7 @@ on:
 
 permissions:
   contents: read
+  deployments: read
 
 # Serialize full-cache purges so two can't overlap and leave the cache in an
 # unknown state. Every other run (per-deploy, per-language) gets a unique group
@@ -103,6 +104,20 @@ jobs:
             args+=(--everything)
           fi
           npm run purge-fastly -- "${args[@]}"
+
+      - name: Hard-purge changed English content URLs
+        # Prod deploys only. The soft purge above just marks `language:en` stale,
+        # so stale-while-revalidate can keep serving the pre-deploy copy of a
+        # just-changed page for a while. This evicts the specific English URLs
+        # whose content/ files changed in this deploy, so the next request fetches
+        # fresh. By the time the deploy succeeds the old pods are already gone, so
+        # the refill is deterministically the new content. data/ changes stay
+        # covered by the soft purge above (too many URLs to enumerate cheaply).
+        if: ${{ github.event_name == 'deployment_status' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEAD_SHA: ${{ github.event.deployment.sha }}
+        run: npm run purge-fastly-changed-content
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}

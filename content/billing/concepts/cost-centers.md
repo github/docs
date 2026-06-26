@@ -17,7 +17,9 @@ Cost centers allow you to attribute usage and spending to business units, improv
 * **Enterprise owners and billing managers** can create and edit cost centers for **any resource**.
 * **Organization owners** can create and edit cost centers that contain **resources in their organization**.
 
-When you create a cost center, you define which resources it contains from users, repositories, and organizations. If your account is billed through Azure, you can also add an Azure subscription to bill usage to a different Azure subscription than the enterprise default.
+When you create a cost center, you define which resources it contains from users, repositories, organizations, and enterprise teams. If your account is billed through Azure, you can also add an Azure subscription to bill usage to a different Azure subscription than the enterprise default.
+
+{% data reusables.billing.enterprise-teams-in-cost-centers %}
 
 To get started with cost centers, see [AUTOTITLE](/billing/tutorials/control-costs-at-scale).
 

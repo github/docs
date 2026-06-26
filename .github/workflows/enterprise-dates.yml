@@ -25,13 +25,21 @@ jobs:
     steps:
       - name: Checkout repository code
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
+          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
+          owner: github
+          repositories: docs-internal,docs-engineering
 
       - uses: ./.github/actions/node-npm-setup
 
       - name: Run src/ghes-releases/scripts/update-enterprise-dates.ts
         run: npm run update-enterprise-dates
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
       - name: Create pull request
         id: create-pull-request
@@ -41,7 +49,7 @@ jobs:
           HUSKY: '0'
         with:
           # need to use a token with repo and workflow scopes for this step
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          token: ${{ steps.app-token.outputs.token }}
           commit-message: '🤖 ran src/ghes-releases/scripts/update-enterprise-dates.ts'
           title: 🤖 src/ghes-releases/lib/enterprise-dates.json update
           body:
@@ -54,7 +62,7 @@ jobs:
       - name: Enable GitHub auto-merge
         if: ${{ steps.create-pull-request.outputs.pull-request-number }}
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
           AUTOMERGE_PR_NUMBER: ${{ steps.create-pull-request.outputs.pull-request-number }}
         run: npm run enable-automerge
 
@@ -77,4 +85,4 @@ jobs:
       - uses: ./.github/actions/create-workflow-failure-issue
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          token: ${{ steps.app-token.outputs.token }}

@@ -25,7 +25,7 @@ You can choose from the following plans.
 For developers looking to get started with {% data variables.product.prodname_copilot_short %}.
 
 * Includes up to **2,000 code completions** and an allowance of {% data variables.product.prodname_ai_credits %}
-* Limited chat and agent usage and a selection of models
+* Limited chat and agent usage with models available through {% data variables.copilot.copilot_auto_model_selection_short %} only
 * Designed to give you a limited taste of {% data variables.product.prodname_copilot_short %}'s capabilities
 * No subscription or payment required
 * Intended for **personal use only**, not for users managed by an organization or enterprise
@@ -36,7 +36,7 @@ For developers looking to get started with {% data variables.product.prodname_co
 Verified students can access unlimited completions and additional models at no cost.
 
 * Includes **unlimited** code completions and an allowance of {% data variables.product.prodname_ai_credits %}
-* Limited chat and agent usage and a selection of models
+* Limited chat and agent usage with models available through {% data variables.copilot.copilot_auto_model_selection_short %} only
 * Free for verified students
 
 ## {% data variables.copilot.copilot_pro %}
