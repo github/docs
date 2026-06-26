@@ -19,7 +19,7 @@ contentType: concepts
 
 Storing your code in a "repository" on {% data variables.product.github %} allows you to:
 * **Showcase or share** your work.
-* **Track and manage** changes to your code over time.
+* **View and Manage** the history of your code changes tracked by Git.
 * Let others **review** your code, and make suggestions to improve it.
 * **Collaborate** on a shared project, without worrying that your changes will impact the work of your collaborators before you're ready to integrate them.
 
@@ -27,7 +27,7 @@ Collaborative working, one of {% data variables.product.github %}’s fundamenta
 
 ## About Git
 
-Git is a version control system that intelligently tracks changes in files. Git is particularly useful when you and a group of people are all making changes to the same files at the same time.
+Git is a version control system that intelligently tracks changes in files locally on your computer. Git is particularly useful when you and a group of people are all making changes to the same files at the same time.
 
 Typically, to do this in a Git-based workflow, you would:
 * **Create a branch** off from the main copy of files that you (and your collaborators) are working on.
