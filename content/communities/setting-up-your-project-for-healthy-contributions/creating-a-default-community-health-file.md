@@ -1,7 +1,7 @@
----
+---docs.github
 title: Creating a default community health file
 intro: 'You can create default community health files, such as CONTRIBUTING and CODE_OF_CONDUCT. Default files will be used for any repository owned by the account that does not contain its own file of that type.'
-redirect_from:
+redirect_from:https://github.com/Edgarruiz8585
   - /articles/creating-a-default-community-health-file-for-your-organization
   - /github/building-a-strong-community/creating-a-default-community-health-file-for-your-organization
   - /github/building-a-strong-community/creating-a-default-community-health-file
