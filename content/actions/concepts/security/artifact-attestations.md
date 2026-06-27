@@ -1,12 +1,12 @@
 ---
 title: Artifact attestations
-intro: 'Understand the usage and security benefits of artifact attestations.'
-topics:
-  - Actions
-  - Security
+intro: Understand the usage and security benefits of artifact attestations.
 versions:
   fpt: '*'
   ghec: '*'
+category:
+  - Secure your workflows
+contentType: concepts
 ---
 
 ## Overview

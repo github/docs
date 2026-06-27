@@ -3,6 +3,7 @@ import { getLoggerContext } from '@/observability/logger/lib/logger-context'
 import type { NextFunction, Request, Response } from 'express'
 import { getLogLevelNumber, useProductionLogging } from '@/observability/logger/lib/log-levels'
 import { toLogfmt } from '@/observability/logger/lib/to-logfmt'
+import { POD_IDENTITY } from '@/observability/logger/lib/pod-identity'
 
 /**
  * Check if automatic development logging is enabled.
@@ -33,7 +34,7 @@ export function getAutomaticRequestLogger() {
     const originalEnd = res.end
 
     // Override res.end to log when response completes
-    res.end = function (chunk?: any, encoding?: any) {
+    res.end = function (...args: unknown[]) {
       const responseTime = Date.now() - startTime
       const status = res.statusCode || 200
       const contentLength = res.getHeader('content-length') || '-'
@@ -45,9 +46,10 @@ export function getAutomaticRequestLogger() {
         const loggerContext = getLoggerContext()
         console.log(
           toLogfmt({
+            ...POD_IDENTITY,
             ...loggerContext,
             status,
-            responseTime: responseTime + ' ms',
+            responseTime: `${responseTime} ms`,
             contentLength: String(contentLength),
             method,
             url,
@@ -59,7 +61,7 @@ export function getAutomaticRequestLogger() {
 
         // Don't log `/_next/` requests unless LOG_LEVEL is `debug` or higher
         if (url?.startsWith('/_next/') && logLevelNum < 3) {
-          return originalEnd.call(this, chunk, encoding)
+          return originalEnd.apply(this, args as Parameters<typeof originalEnd>)
         }
 
         // Choose color based on status code
@@ -71,7 +73,7 @@ export function getAutomaticRequestLogger() {
           chalk.reset(method),
           chalk.reset(url),
           chalk[color](status),
-          chalk.reset(responseTime + ' ms'),
+          chalk.reset(`${responseTime} ms`),
           chalk.reset('-'),
           chalk.reset(String(contentLength)),
         ].join(' ')
@@ -80,7 +82,7 @@ export function getAutomaticRequestLogger() {
       }
 
       // Call the original end method to complete the response
-      return originalEnd.call(this, chunk, encoding)
+      return originalEnd.apply(this, args as Parameters<typeof originalEnd>)
     }
 
     next()

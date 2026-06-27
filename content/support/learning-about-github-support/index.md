@@ -12,6 +12,7 @@ redirect_from:
 children:
   - about-github-support
   - about-github-premium-support
+  - about-github-special-events-support
   - about-copilot-in-github-support
   - about-ticket-priority
   - github-marketplace-support

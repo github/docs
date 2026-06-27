@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 redirect_from:
   - /contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs
+category:
+  - Write and format content
 ---
 
 ## About using Markdown and Liquid in {% data variables.product.prodname_docs %}
@@ -469,7 +471,7 @@ For more information about links, see [AUTOTITLE](/contributing/style-guide-and-
 Because the site is dynamic, it does not build HTML files for each different version of an article. Instead it generates a "permalink" for every version of the article. It does this based on the article's [`versions` frontmatter](/contributing/syntax-and-versioning-for-github-docs/using-yaml-frontmatter#versions).
 
 > [!NOTE]
-> As of early 2021, the `free-pro-team@latest` version is not included in URLs. A helper function called `lib/remove-fpt-from-path.js` removes the version from URLs.
+> As of early 2021, the `free-pro-team@latest` version is not included in URLs. A helper function called `lib/remove-fpt-from-path.ts` removes the version from URLs.
 
 For example, an article that is available in currently supported versions will have permalink URLs like the following:
 

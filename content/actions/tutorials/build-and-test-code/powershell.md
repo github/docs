@@ -14,10 +14,10 @@ versions:
   ghec: '*'
 authors:
   - potatoqualitee
-topics:
-  - CI
-  - PowerShell
 shortTitle: PowerShell
+category:
+  - Build and test code
+contentType: tutorials
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

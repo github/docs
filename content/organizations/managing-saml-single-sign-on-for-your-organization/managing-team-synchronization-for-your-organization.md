@@ -9,10 +9,9 @@ redirect_from:
 permissions: Organization owners can manage team synchronization for an organization.
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Manage team synchronization
+category:
+  - Configure SAML single sign-on
 ---
 
 {% data reusables.enterprise-accounts.emu-scim-note %}
@@ -111,3 +110,7 @@ For help on provisioning users that have missing a missing SCIM linked identity,
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 1. Under "Team synchronization", click **Disable team synchronization**.
+
+## Offboarding users with team synchronization
+
+If you plan to use team synchronization to offboard users from your enterprise completely, you should disable the policy for unaffiliated users. See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/control-offboarding).

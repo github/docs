@@ -13,6 +13,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Create an issue or PR
+category:
+  - Work with branches and pull requests
 ---
 ## About issues and pull requests
 

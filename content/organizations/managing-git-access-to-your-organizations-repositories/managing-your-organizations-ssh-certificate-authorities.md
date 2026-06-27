@@ -7,11 +7,10 @@ redirect_from:
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Manage SSH authorities
 permissions: Organization owners can manage an organization's SSH certificate authorities (CA).
+category:
+  - Manage authentication methods
 ---
 
 You can allow members to access your organization's repositories using SSH certificates you provide by adding an SSH CA to your organization. {% data reusables.organizations.can-require-ssh-cert %} For more information, see [AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities).
@@ -33,6 +32,8 @@ If you require SSH certificates for your enterprise, enterprise members should u
 {% data reusables.organizations.require-ssh-cert %}
 
 ## Deleting an SSH certificate authority
+
+Deleting an SSH CA from your organization immediately prevents {% data variables.product.github %} from accepting SSH certificates signed by that CA, including certificates that have not yet expired. For CA rotation guidance, see [AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities#certificate-revocation-and-ca-rotation).
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

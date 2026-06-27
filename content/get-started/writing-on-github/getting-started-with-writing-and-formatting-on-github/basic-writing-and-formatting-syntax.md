@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Basic formatting syntax
+category:
+  - Write and format content
 ---
 ## Headings
 
@@ -24,7 +26,7 @@ To create a heading, add one to six <kbd>#</kbd> symbols before your heading tex
 
 ![Screenshot of rendered GitHub Markdown showing sample h1, h2, and h3 headers, which descend in type size and visual weight to show hierarchy level.](/assets/images/help/writing/headings-rendered.png)
 
-When you use two or more headings, GitHub automatically generates a table of contents that you can access by clicking {% octicon "list-unordered" aria-label="The unordered list icon" %} within the file header. Each heading title is listed in the table of contents and you can click a title to navigate to the selected section.
+When you use two or more headings, GitHub automatically generates a table of contents that you can access by clicking the "Outline" menu icon {% octicon "list-unordered" aria-label="Table of Contents" %} within the file header. Each heading title is listed in the table of contents and you can click a title to navigate to the selected section.
 
 ![Screenshot of a README file with the drop-down menu for the table of contents exposed. The table of contents icon is outlined in dark orange.](/assets/images/help/repository/headings-toc.png)
 
@@ -358,6 +360,12 @@ When you mention a parent team, members of its child teams also receive notifica
 
 Typing an <kbd>@</kbd> symbol will bring up a list of people or teams on a project. The list filters as you type, so once you find the name of the person or team you are looking for, you can use the arrow keys to select it and press either tab or enter to complete the name. For teams, enter the @organization/team-name and all members of that team will get subscribed to the conversation.
 
+{% ifversion enterprise-teams-ga %}
+
+You can also mention an enterprise team. Enterprise team slugs use an `ent:` prefix in the format `@/ent:TEAM-SLUG`, for example `@/ent:platform-sre`. You can mention an enterprise team from any organization the team is assigned to. See [AUTOTITLE](/admin/concepts/enterprise-fundamentals/teams-in-an-enterprise).
+
+{% endif %}
+
 The autocomplete results are restricted to repository collaborators and any other participants on the thread.
 
 ## Referencing issues and pull requests
@@ -400,8 +408,8 @@ Here is a simple footnote[^1].
 A footnote can also have multiple lines[^2].
 
 [^1]: My reference.
-[^2]: To add line breaks within a footnote, prefix new lines with 2 spaces.
-  This is a second line.
+[^2]: To add line breaks within a footnote, add 2 spaces to the end of a line.  
+This is a second line.
 ```
 
 The footnote will render like this:
@@ -413,7 +421,7 @@ The footnote will render like this:
 
 ## Alerts
 
-Alerts are a Markdown extension based on the blockquote syntax that you can use to emphasize critical information. On {% data variables.product.github %}, they are displayed with distinctive colors and icons to indicate the significance of the content.
+**Alerts**, also sometimes known as **callouts** or **admonitions**, are a Markdown extension based on the blockquote syntax that you can use to emphasize critical information. On {% data variables.product.github %}, they are displayed with distinctive colors and icons to indicate the significance of the content.
 
 Use alerts only when they are crucial for user success and limit them to one or two per article to prevent overloading the reader. Additionally, you should avoid placing alerts consecutively. Alerts cannot be nested within other elements.
 

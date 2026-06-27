@@ -25,14 +25,14 @@ export const RestReferencePage = ({ restOperations }: StructuredContentT) => {
   useEffect(() => {
     const codeBlocks = document.querySelectorAll<HTMLPreElement>('pre')
 
-    codeBlocks.forEach((codeBlock) => {
+    for (const codeBlock of codeBlocks) {
       if (
         codeBlock.scrollWidth > codeBlock.clientWidth ||
         codeBlock.scrollHeight > codeBlock.clientHeight
       ) {
         codeBlock.setAttribute('tabindex', '0')
       }
-    })
+    }
   }, [])
 
   return (

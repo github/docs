@@ -8,10 +8,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Create accounts for people
+category:
+  - Manage members
 ---
 
 ## About personal accounts

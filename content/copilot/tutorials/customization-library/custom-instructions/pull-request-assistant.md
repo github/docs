@@ -1,17 +1,17 @@
 ---
 title: Pull request assistant
-intro: 'Generate comprehensive pull request descriptions and reviews.'
+intro: Generate comprehensive pull request descriptions and reviews.
 versions:
   feature: copilot
 category:
   - Custom instructions
   - GitHub flows
+  - Configure Copilot
+  - Scale institutional knowledge
 complexity:
   - Simple
 octicon: book
-topics:
-  - Copilot
-  - Pull requests
+contentType: tutorials
 ---
 
 {% data reusables.copilot.customization-examples-note %}
@@ -32,7 +32,7 @@ When creating pull request descriptions or reviewing PRs:
 
 **Testing**
 - [ ] Unit tests pass and cover new functionality
-- [ ] Manual testing completed for user-facing changes  
+- [ ] Manual testing completed for user-facing changes
 - [ ] Performance/security considerations addressed
 
 **Breaking Changes**

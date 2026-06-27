@@ -36,11 +36,11 @@ export const UtmPreserver = () => {
     }
 
     // Add UTM parameters to a URL
-    const addUtmParamsToUrl = (url: string, utmParams: URLSearchParams): string => {
+    const addUtmParamsToUrl = (url: string, params: URLSearchParams): string => {
       try {
         const urlObj = new URL(url)
 
-        for (const [key, value] of utmParams) {
+        for (const [key, value] of params) {
           urlObj.searchParams.set(key, value)
         }
 
@@ -55,11 +55,11 @@ export const UtmPreserver = () => {
     const applyUtmToLinks = (): void => {
       const links = document.querySelectorAll<HTMLAnchorElement>('a[href]')
 
-      links.forEach((link) => {
+      for (const link of links) {
         if (link.href && shouldPreserveUtm(link.href)) {
           link.href = addUtmParamsToUrl(link.href, utmParams)
         }
-      })
+      }
     }
 
     // Handle click events for dynamic link modification

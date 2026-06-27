@@ -3,14 +3,10 @@
 | Rule ID | Rule Name(s) | Description | Severity | Tags |
 | ------- | ------------ | ----------- | -------- | ---- |
 | [MD001](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md001.md) | heading-increment | Heading levels should only increment by one level at a time | error | headings |
-| [MD004](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md004.md) | ul-style | Unordered list style | error | bullet, ul |
-| [MD009](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md009.md) | no-trailing-spaces | Trailing spaces | error | whitespace |
 | [MD011](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md011.md) | no-reversed-links | Reversed link syntax | error | links |
-| [MD012](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md012.md) | no-multiple-blanks | Multiple consecutive blank lines | error | whitespace, blank_lines |
 | [MD014](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md014.md) | commands-show-output | Dollar signs used before commands without showing output | error | code |
 | [MD018](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md018.md) | no-missing-space-atx | No space after hash on atx style heading | error | headings, atx, spaces |
 | [MD019](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md019.md) | no-multiple-space-atx | Multiple spaces after hash on atx style heading | error | headings, atx, spaces |
-| [MD022](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md022.md) | blanks-around-headings | Headings should be surrounded by blank lines | error | headings, blank_lines |
 | [MD023](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md023.md) | heading-start-left | Headings must start at the beginning of the line | error | headings, spaces |
 | [MD027](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md027.md) | no-multiple-space-blockquote | Multiple spaces after blockquote symbol | error | blockquote, whitespace, indentation |
 | [MD029](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md029.md) | ol-prefix | Ordered list item prefix | error | ol |
@@ -20,8 +16,6 @@
 | [MD039](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md039.md) | no-space-in-links | Spaces inside link text | error | whitespace, links |
 | [MD040](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md040.md) | fenced-code-language | Fenced code blocks should have a language specified | error | code, language |
 | [MD042](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md042.md) | no-empty-links | No empty links | error | links |
-| [MD047](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md047.md) | single-trailing-newline | Files should end with a single newline character | error | blank_lines |
-| [MD049](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md049.md) | emphasis-style | Emphasis style | error | emphasis |
 | [MD050](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md050.md) | strong-style | Strong style | error | emphasis |
 | [GH001](https://github.com/github/markdownlint-github/blob/main/docs/rules/GH001-no-default-alt-text.md) | no-default-alt-text | Images should have meaningful alternative text (alt text) | error | accessibility, images |
 | [GH002](https://github.com/github/markdownlint-github/blob/main/docs/rules/GH002-no-generic-link-text.md) | no-generic-link-text | Avoid using generic link text like `Learn more` or `Click here` | error | accessibility, links |
@@ -35,7 +29,6 @@
 | GHD008 | early-access-references | Files that are not early access should not reference early-access or early-access files | error | feature, early-access |
 | GHD009 | frontmatter-early-access-references | Files that are not early access should not have frontmatter that references early-access | error | frontmatter, feature, early-access |
 | GHD010 | frontmatter-hidden-docs | Articles with frontmatter property `hidden` can only be located in specific products | error | frontmatter, feature, early-access |
-| GHD011 | frontmatter-video-transcripts | Video transcript must be configured correctly | error | frontmatter, feature, video-transcripts |
 | GHD012 | frontmatter-schema | Frontmatter must conform to the schema | error | frontmatter, schema |
 | GHD013 | github-owned-action-references | GitHub-owned action references should not be hardcoded | error | feature, actions |
 | GHD014 | liquid-data-references-defined | Liquid data or indented data references were found in content that have no value or do not exist in the data directory | error | liquid |
@@ -47,11 +40,10 @@
 | GHD020 | liquid-ifversion-tags | Liquid `ifversion` tags should contain valid version names as arguments | error | liquid, versioning |
 | GHD021 | yaml-scheduled-jobs | YAML snippets that include scheduled workflows must not run on the hour and must be unique | error | feature, actions |
 | GHD022 | liquid-ifversion-versions | Liquid `ifversion`, `elsif`, and `else` tags should be valid and not contain unsupported versions. | error | liquid, versioning |
-| GHD030 | code-fence-line-length | Code fence lines should not exceed a maximum length | warning | code, accessibility |
 | GHD031 | image-alt-text-exclude-words | Alternate text for images should not begin with words like "image" or "graphic" | error | accessibility, images |
 | GHD032 | image-alt-text-end-punctuation | Alternate text for images should end with punctuation | error | accessibility, images |
-| GHD033 | incorrect-alt-text-length | Images alternate text should be between 40-150 characters | warning | accessibility, images |
-| GHD034 | list-first-word-capitalization | First word of list item should be capitalized | warning | ul, ol |
+| GHD033 | incorrect-alt-text-length | Images alternate text should be between 40-150 characters | error | accessibility, images |
+| GHD034 | frontmatter-curly-quotes | Frontmatter title and intro should not contain curly quotes | error | frontmatter, format |
 | GHD035 | rai-reusable-usage | RAI articles and reusables can only reference reusable content in the data/reusables/rai directory | error | feature, rai |
 | GHD036 | image-no-gif | Image must not be a gif, styleguide reference: contributing/style-guide-and-content-model/style-guide.md#images | error | images |
 | GHD038 | expired-content | Expired content must be remediated. | warning | expired |
@@ -60,22 +52,23 @@
 | GHD041 | third-party-action-pinning | Code examples that use third-party actions must always pin to a full length commit SHA | error | feature, actions |
 | GHD042 | liquid-tag-whitespace | Liquid tags should start and end with one whitespace. Liquid tag arguments should be separated by only one whitespace. | error | liquid, format |
 | GHD043 | link-quotation | Internal link titles must not be surrounded by quotations | error | links, url |
-| GHD044 | octicon-aria-labels | Octicons should always have an aria-label attribute even if aria-hidden. | warning | accessibility, octicons |
-| GHD045 | code-annotation-comment-spacing | Code comments in annotation blocks must have exactly one space after the comment character(s) | warning | code, comments, annotate, spacing |
-| GHD046 | outdated-release-phase-terminology | Outdated release phase terminology should be replaced with current GitHub terminology | warning | terminology, consistency, release-phases |
-| GHD047 | table-column-integrity | Tables must have consistent column counts across all rows | warning | tables, accessibility, formatting |
-| GHD048 | british-english-quotes | Periods and commas should be placed inside quotation marks (American English style) | warning | punctuation, quotes, style, consistency |
-| GHD049 | note-warning-formatting | Note and warning tags should be formatted according to style guide | warning | formatting, callouts, notes, warnings, style |
-| GHD050 | multiple-emphasis-patterns | Do not use more than one emphasis/strong, italics, or uppercase for a string | warning | formatting, emphasis, style |
-| GHD051 | frontmatter-versions-whitespace | Versions frontmatter should not contain unnecessary whitespace | warning | frontmatter, versions |
-| GHD053 | header-content-requirement | Headers must have content between them, such as an introduction | warning | headers, structure, content |
-| GHD054 | third-party-actions-reusable | Code examples with third-party actions must include disclaimer reusable | warning | actions, reusable, third-party |
-| GHD055 | frontmatter-validation | Frontmatter properties must meet character limits and required property requirements | warning | frontmatter, character-limits, required-properties |
-| GHD056 | frontmatter-landing-recommended | Only landing pages can have recommended articles, there should be no duplicate recommended articles, and all recommended articles must exist | error | frontmatter, landing, recommended |
+| GHD045 | code-annotation-comment-spacing | Code comments in annotation blocks must have exactly one space after the comment character(s) | error | code, comments, annotate, spacing |
+| GHD046 | outdated-release-phase-terminology | Outdated release phase terminology should be replaced with current GitHub terminology | error | terminology, consistency, release-phases |
+| GHD047 | table-column-integrity | Tables must have consistent column counts across all rows | error | tables, accessibility, formatting |
+| GHD051 | frontmatter-versions-whitespace | Versions frontmatter should not contain unnecessary whitespace | error | frontmatter, versions |
+| GHD054 | third-party-actions-reusable | Code examples with third-party actions must include disclaimer reusable | error | actions, reusable, third-party |
+| GHD056 | frontmatter-landing-carousels | Only landing pages can have carousels, there should be no duplicate articles, and all articles must exist | error | frontmatter, landing, carousels |
 | GHD057 | ctas-schema | CTA URLs must conform to the schema | error | ctas, schema, urls |
 | GHD058 | journey-tracks-liquid | Journey track properties must use valid Liquid syntax | error | frontmatter, journey-tracks, liquid |
 | GHD059 | journey-tracks-guide-path-exists | Journey track guide paths must reference existing content files | error | frontmatter, journey-tracks |
 | GHD060 | journey-tracks-unique-ids | Journey track IDs must be unique within a page | error | frontmatter, journey-tracks, unique-ids |
+| GHD061 | frontmatter-hero-image | Hero image paths must be absolute, extensionless, and point to valid images in /assets/images/banner-images/ | error | frontmatter, images |
+| GHD062 | frontmatter-intro-links | introLinks keys must be valid keys defined in data/ui.yml under product_landing | error | frontmatter, single-source |
+| GHD063 | frontmatter-children | Children frontmatter paths must exist. Supports relative paths and absolute /content/ paths for cross-product inclusion. | error | frontmatter, children |
+| GHD064 | rai-app-card-structure | RAI application/platform card articles must follow the required template structure | error | feature, rai |
+| GHD065 | frontmatter-content-type | Content files in content-type directories must have a contentType frontmatter property that matches the parent directory. | error | frontmatter, content-type |
+| GHD066 | frontmatter-docs-team-metrics | Articles whose path contains a path-enforced docsTeamMetrics value must include that value in their docsTeamMetrics frontmatter property. | error | frontmatter, docs-team-metrics |
+| GHD067 | frontmatter-rest-api-category | Autogenerated REST API endpoint files must have a valid `category` frontmatter property | error | frontmatter, rest, category |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | deprecated liquid syntax: octicon-<icon-name> | The octicon liquid syntax used is deprecated. Use this format instead `octicon "<octicon-name>" aria-label="<Octicon aria label>"` | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | deprecated liquid syntax: site.data | Catch occurrences of deprecated liquid data syntax. | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | developer-domain | Catch occurrences of developer.github.com domain. | error |  |

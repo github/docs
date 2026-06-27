@@ -34,7 +34,7 @@ export default async function ghesReleaseNotesContext(
   // Otherwise, 404.
   if (!Object.keys(ghesReleaseNotes).includes(requestedRelease.replace(/\./, '-'))) {
     return all.includes(requestedRelease)
-      ? res.redirect(`https://enterprise.github.com/releases/${requestedRelease}.0/notes`)
+      ? res.safeRedirect(`https://enterprise.github.com/releases/${requestedRelease}.0/notes`)
       : next()
   }
 
@@ -71,12 +71,10 @@ export default async function ghesReleaseNotesContext(
         // notes instead.
         enContext.ghesReleases = formatReleases(ghesReleaseNotes)
 
-        const matchedReleaseNotes = enContext.ghesReleases!.find(
-          (r) => r.version === requestedRelease,
-        )
-        if (!matchedReleaseNotes) throw new Error('Release notes not found')
-        const currentReleaseNotes = matchedReleaseNotes.patches
-        return renderPatchNotes(currentReleaseNotes, enContext)
+        const enMatchedNotes = enContext.ghesReleases!.find((r) => r.version === requestedRelease)
+        if (!enMatchedNotes) throw new Error('Release notes not found')
+        const enCurrentNotes = enMatchedNotes.patches
+        return renderPatchNotes(enCurrentNotes, enContext)
       },
     )
   } finally {
@@ -90,11 +88,11 @@ export default async function ghesReleaseNotesContext(
   req.context.latestRelease = latestStable
 
   // Add convenience props for "Supported releases" section on GHES Admin landing page (NOT release notes).
-  req.context.ghesReleases.forEach((release) => {
+  for (const release of req.context.ghesReleases) {
     release.firstPreviousRelease = all[all.findIndex((v) => v === release.version) + 1]
     release.secondPreviousRelease =
       all[all.findIndex((v) => v === release.firstPreviousRelease) + 1]
-  })
+  }
 
   return next()
 }

@@ -1,5 +1,5 @@
 ---
-title: GitHub’s plans
+title: GitHub's plans
 intro: 'An overview of {% data variables.product.prodname_dotcom %}''s pricing plans.'
 redirect_from:
   - /articles/github-s-products
@@ -12,12 +12,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - CLI
-  - Mobile
-  - Desktop
-  - Security
+category:
+  - Explore GitHub plans and features
 ---
 ## About {% data variables.product.prodname_dotcom %}'s plans
 
@@ -82,12 +78,11 @@ In addition to the features available with {% data variables.product.prodname_fr
 * {% data variables.contact.github_support %} via email
 * 3,000 {% data variables.product.prodname_actions %} minutes per month
 * 2 GB {% data variables.product.prodname_registry %} storage
-{%- ifversion ghas-products %}
 * The option to purchase {% data variables.product.prodname_GHAS %} products:
   * {% data variables.product.prodname_GH_code_security %}
   * {% data variables.product.prodname_GH_secret_protection %}
-  
-  For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).{%- endif %}
+
+  For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 
 * Advanced tools and insights in private repositories:
   * Required pull request reviewers
@@ -101,8 +96,8 @@ In addition to the features available with {% data variables.product.prodname_fr
     > [!NOTE]
     > To publish a {% data variables.product.prodname_pages %} site privately, you need to have an organization account. Additionally, your organization must use {% data variables.product.prodname_ghe_cloud %}.
 
-  * Wikis{% ifversion ghas-products %}
-  * Security overview{% endif %}
+  * Wikis
+  * Security overview
   * Repository insights graphs: Pulse, contributors, traffic, commits, code frequency, network, and forks
     {% data reusables.repositories.repo-insights-commit-limit %}
 {%- ifversion fpt or ghec %}
@@ -125,9 +120,8 @@ In addition to the features available with {% data variables.product.prodname_te
 * Authentication with SAML single sign-on
 * Access provisioning with SAML or SCIM
 * Deployment protection rules with {% data variables.product.prodname_actions %} for private or internal repositories
-* {% data variables.product.prodname_github_connect %}{%- ifversion ghas-products %}{% else %}
-* The option to purchase {% data variables.product.prodname_GHAS %}. For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security){% endif %}
-* Additional features such as internal repositories{%- ifversion ghas-products %}{% else %}, security overview,{% endif %} and repository rules.
+* {% data variables.product.prodname_github_connect %}
+* Additional features such as internal repositories and repository rules.
 
 {% data variables.product.prodname_ghe_cloud %} specifically includes:
 * 50,000 {% data variables.product.prodname_actions %} minutes per month
@@ -143,7 +137,7 @@ In addition to the features available with {% data variables.product.prodname_te
 
 For a detailed list of the features available with {% data variables.product.prodname_enterprise %}, see our [Pricing](https://github.com/pricing) page.
 
-To see how {% data variables.product.github %} compares to GitLab, Bitbucket, and Jenkins, see [Comparing GitHub to other DevOps solutions](https://resources.github.com/devops/tools/compare/).
+To see how {% data variables.product.github %} compares to GitLab, Bitbucket, and Jenkins, see [Comparing GitHub to other DevOps solutions](https://github.com/resources/articles/devops-tools-comparison).
 
 You can set up trials to evaluate {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud) and [AUTOTITLE](/enterprise-server@latest/admin/overview/setting-up-a-trial-of-github-enterprise-server).
 

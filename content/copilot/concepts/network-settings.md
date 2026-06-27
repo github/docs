@@ -5,11 +5,11 @@ intro: 'You can connect to {% data variables.product.prodname_copilot %} through
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Copilot
 redirect_from:
   - /copilot/concepts/network-settings-for-github-copilot
 contentType: concepts
+category: 
+  - Manage Copilot for a team
 ---
 
 The network settings for {% data variables.product.prodname_copilot %} allow you to connect to {% data variables.product.prodname_dotcom %} through an HTTP proxy and use custom certificates.

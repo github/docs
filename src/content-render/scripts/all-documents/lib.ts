@@ -1,6 +1,6 @@
 import type { Response } from 'express'
 
-import type { ExtendedRequest, Page } from '@/types'
+import type { ExtendedRequest, Page, Context } from '@/types'
 import contextualize from '@/frame/middleware/context/context'
 import features from '@/versions/middleware/features'
 import shortVersions from '@/versions/middleware/short-versions'
@@ -34,7 +34,7 @@ export async function allDocuments(options: Options): Promise<AllDocument[]> {
 
   const site = await warmServer(options.languages)
   const pages: Page[] = site.pageList
-  const allDocuments: AllDocument[] = []
+  const allDocumentsResult: AllDocument[] = []
 
   type ByVersion = Map<string, Document[]>
   const byLanguage = new Map<string, ByVersion>()
@@ -55,7 +55,7 @@ export async function allDocuments(options: Options): Promise<AllDocument[]> {
       const next = () => {}
       const res = {}
       const pagePath = permalink.href
-      const context: any = {}
+      const context: Partial<Context> = {}
       const req = {
         path: pagePath,
         language: permalink.languageCode,
@@ -68,7 +68,7 @@ export async function allDocuments(options: Options): Promise<AllDocument[]> {
       await contextualize(req as ExtendedRequest, res as Response, next)
       await shortVersions(req as ExtendedRequest, res as Response, next)
       req.context.page = page
-      features(req as any, res as any, next)
+      features(req as ExtendedRequest, res as Response, next)
 
       const title = fields.includes('title')
         ? await page.renderProp('title', req.context, { textOnly: true })
@@ -96,8 +96,8 @@ export async function allDocuments(options: Options): Promise<AllDocument[]> {
   }
   for (const [language, byVersion] of byLanguage) {
     for (const [version, documents] of byVersion) {
-      allDocuments.push({ version, language, documents })
+      allDocumentsResult.push({ version, language, documents })
     }
   }
-  return allDocuments
+  return allDocumentsResult
 }

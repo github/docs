@@ -1,1 +1,0 @@
-For examples of repository custom instructions used to configure {% data variables.copilot.copilot_code-review_short %}, see [AUTOTITLE](/copilot/how-tos/agents/copilot-code-review/using-copilot-code-review?tool=webui#customizing-copilots-reviews-with-custom-instructions).

@@ -6,8 +6,6 @@ permissions: Enterprise owners
 product: 'Enterprises with a {% data variables.copilot.copilot_business_short %} plan'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/upgrading-copilot-for-your-enterprise
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-the-copilot-subscription-for-your-enterprise/upgrading-copilot-for-your-enterprise
@@ -17,21 +15,17 @@ redirect_from:
   - /copilot/how-tos/administer/enterprises/manage-plan/upgrade-plan
   - /copilot/how-tos/administer/manage-for-enterprise/manage-plan/upgrade-plan
 contentType: how-tos
+category: 
+  - Manage Copilot for a team
 ---
 
 >[!NOTE]
 > You must already have a paid {% data variables.copilot.copilot_business_short %} plan to upgrade to {% data variables.copilot.copilot_enterprise_short %}. Trial plans are not eligible for upgrade.
 
-<!-- expires 2025-10-28 -->
-<!-- Temporarily documents the old and new UI for direct Copilot licensing -->
-<!-- Will be addressed by Driver team once the rollout is complete, docs issue 18525 -->
-
-{% data reusables.enterprise-accounts.copilot-access-management-tmp %}
-1. If you don't already see a list of organizations, under "{% data variables.product.prodname_copilot_short %} access", click the **{% octicon "organization" aria-hidden="true" aria-label="organization" %} Organizations** tab.
+{% data reusables.enterprise-accounts.copilot-licensing %}
+1. Click the **{% octicon "organization" aria-hidden="true" aria-label="organization" %} Organizations** tab.
 1. Locate the organization for which you want to upgrade {% data variables.product.prodname_copilot_short %}.
 1. To the right of the organization name, select the **{% data variables.product.prodname_copilot_short %}** dropdown menu, and click **{% data variables.copilot.copilot_enterprise_short %}**.
-
-<!-- end expires 2025-10-28 -->
 
 ## Next steps
 
@@ -50,7 +44,7 @@ If you see a trial expiration notice but have an active paid subscription, this 
 Some migrations cannot be completed through self-service options.
 
 * **Changing between {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}**: If you need to migrate between these plans within your enterprise and the option isn't available in your "Billing & Licensing" settings, contact {% data variables.contact.contact_support_page %} or your account manager for assistance.
-* **Non-enterprise to enterprise environment migrations**: When moving from standalone {% data variables.product.prodname_copilot_short %} plans to a {% data variables.product.prodname_enterprise %} environment, contact {% data variables.contact.contact_support_page %} or your account manager for assistance to avoid service interruption.
+* **Non-enterprise to enterprise environment migrations**: When moving from standalone {% data variables.product.prodname_copilot_short %} plans to a {% data variables.product.prodname_enterprise %} environment, contact {% data variables.contact.contact_support_page %} or your account manager to coordinate a migration. Attempting to complete this transition without explicit and careful coordination with your account team and support representatives may result in duplicate billing of {% data variables.product.prodname_copilot_short %} seats for the remainder of the billing cycle. See [AUTOTITLE](/copilot/reference/copilot-billing/license-changes#removing-seats-1).
 
 ## Further reading
 

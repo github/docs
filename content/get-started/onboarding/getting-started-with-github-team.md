@@ -3,6 +3,8 @@ title: Getting started with GitHub Team
 intro: 'With {% data variables.product.prodname_team %} groups of people can collaborate across many projects at the same time in an organization account.'
 versions:
   fpt: '*'
+category:
+  - Set up your account on GitHub
 ---
 
 This guide will walk you through setting up, configuring and managing your {% data variables.product.prodname_team %} account as an organization owner.

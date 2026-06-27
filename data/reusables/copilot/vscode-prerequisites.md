@@ -1,2 +1,2 @@
-* **Latest version of {% data variables.product.prodname_vscode %}**. See the [{% data variables.product.prodname_vscode %} download page](https://code.visualstudio.com/Download).
+* **Latest version of {% data variables.product.prodname_vscode %}**. See the [{% data variables.product.prodname_vscode %} download page](https://code.visualstudio.com/Download?ref_product=copilot&ref_type=engagement&ref_style=text).
 * **Sign in to {% data variables.product.company_short %} in {% data variables.product.prodname_vscode %}**. If you experience authentication issues, see [AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat#troubleshooting-authentication-issues-in-your-editor).

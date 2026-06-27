@@ -19,8 +19,7 @@ export function createTranslationFunctions(uiData: UIStrings, namespaces: string
   if (missingNamespaces.length > 0) {
     console.warn(
       `Missing namespaces [${missingNamespaces.join(', ')}] in UI data. ` +
-        'Available namespaces: ' +
-        Object.keys(uiData).sort().join(', '),
+        `Available namespaces: ${Object.keys(uiData).sort().join(', ')}`,
     )
 
     // For 404 pages, we can't afford to throw errors; create defensive fallbacks
@@ -88,7 +87,7 @@ export function createTranslationFunctions(uiData: UIStrings, namespaces: string
         return {} as UIStrings
       }
     },
-    t: (strings: TemplateStringsArray | string, ...values: Array<any>) => {
+    t: (strings: TemplateStringsArray | string, ...values: Array<unknown>) => {
       const key = typeof strings === 'string' ? strings : String.raw(strings, ...values)
       // Provide specific fallbacks for common 404 page keys
       const commonFallbacks: Record<string, string> = {

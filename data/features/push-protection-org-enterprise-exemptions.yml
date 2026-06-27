@@ -1,0 +1,6 @@
+# Issue 21808
+# Push protection exemptions available for actors at the organization and enterprise levels.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.20'

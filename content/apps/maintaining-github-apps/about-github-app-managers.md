@@ -5,12 +5,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Enterprise
-  - Teams
-  - GitHub Apps
 shortTitle: GitHub App managers
+category:
+  - Maintain and share your app
 ---
 
 {% data reusables.apps.github-app-managers %}

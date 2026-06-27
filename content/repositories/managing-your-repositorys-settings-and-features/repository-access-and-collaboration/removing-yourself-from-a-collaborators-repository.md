@@ -16,11 +16,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Repositories
 shortTitle: Remove yourself
 contentType: other
+category:
+  - Manage access and repository policies
 ---
 {% data reusables.user-settings.access_settings %}
 1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "repo" aria-hidden="true" aria-label="repo" %} Repositories**.

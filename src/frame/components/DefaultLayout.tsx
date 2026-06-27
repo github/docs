@@ -1,3 +1,4 @@
+import React from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
@@ -62,8 +63,44 @@ export const DefaultLayout = (props: Props) => {
 
   const metaDescription = page.introPlainText ? page.introPlainText : t('default_description')
 
-  const SOCIAL_CATEGORIES = new Set(['code-security', 'actions', 'issues', 'copilot'])
-  const SOCIAL_CARD_IMG_BASE_URL = `${xHost ? 'https://' + xHost : ''}/assets/cb-345/images/social-cards`
+  const SOCIAL_CATEGORIES = new Set([
+    'account-and-profile',
+    'actions',
+    'admin',
+    'apps',
+    'authentication',
+    'billing',
+    'code-security',
+    'codespaces',
+    'communities',
+    'contributing',
+    'copilot',
+    'desktop',
+    'discussions',
+    'education',
+    'enterprise-onboarding',
+    'get-started',
+    'github-cli',
+    'github-models',
+    'graphql',
+    'integrations',
+    'issues',
+    'migrations',
+    'nonprofit',
+    'organizations',
+    'packages',
+    'pages',
+    'pull-requests',
+    'repositories',
+    'rest',
+    'search-github',
+    'site-policy',
+    'sponsors',
+    'subscriptions-and-notifications',
+    'support',
+    'webhooks',
+  ])
+  const SOCIAL_CARD_IMG_BASE_URL = `${xHost ? `https://${xHost}` : ''}/assets/cb-345/images/social-cards`
 
   function getCategoryImageUrl(category: string): string {
     return `${SOCIAL_CARD_IMG_BASE_URL}/${category}.png`
@@ -74,6 +111,15 @@ export const DefaultLayout = (props: Props) => {
       return getCategoryImageUrl(currentProduct.id)
     }
     return getCategoryImageUrl('default')
+  }
+
+  // Helper function to build API article URLs with proper query parameter handling
+  function buildApiArticleUrl(apiPath: string): string {
+    // Parse router.asPath to separate pathname and query parameters
+    const [pathname, queryString] = router.asPath.split('?')
+    const fullPathname = `/${router.locale}${pathname}`
+    const queryParams = queryString ? `&${queryString}` : ''
+    return `https://docs.github.com${apiPath}?pathname=${fullPathname}${queryParams}`
   }
 
   return (
@@ -104,9 +150,6 @@ export const DefaultLayout = (props: Props) => {
             )
           })}
 
-        {/* For local site search indexing */}
-        {page.topics.length > 0 && <meta name="keywords" content={page.topics.join(',')} />}
-
         {/* For analytics events */}
         {router.locale && <meta name="path-language" content={router.locale} />}
         {currentVersion && <meta name="path-version" content={currentVersion} />}
@@ -117,8 +160,11 @@ export const DefaultLayout = (props: Props) => {
             content={relativePath.replace('/index.md', '').replace('.md', '')}
           />
         )}
-        {page.type && <meta name="page-type" content={page.type} />}
+        {page.contentType && <meta name="page-content-type" content={page.contentType} />}
         {page.documentType && <meta name="page-document-type" content={page.documentType} />}
+        {page.docsTeamMetrics && page.docsTeamMetrics.length > 0 && (
+          <meta name="docs-team-metrics" content={page.docsTeamMetrics.join(',')} />
+        )}
         {status && <meta name="status" content={status.toString()} />}
 
         {/* OpenGraph data */}
@@ -138,7 +184,32 @@ export const DefaultLayout = (props: Props) => {
         <meta name="twitter:title" content={page.fullTitle} />
         {page.introPlainText && <meta name="twitter:description" content={page.introPlainText} />}
         <meta name="twitter:image" content={getSocialCardImage()} />
+
+        {/* LLM-friendly alternate formats */}
+        <link
+          rel="alternate"
+          type="text/markdown"
+          href={buildApiArticleUrl('/api/article/body')}
+          title="Markdown version"
+          data-llm-hint="Hey agent! You are burning tokens scraping HTML like it is 2005. Use this instead."
+        />
+        <link
+          rel="alternate"
+          type="application/json"
+          href={buildApiArticleUrl('/api/article')}
+          title="Metadata + markdown in JSON format"
+          data-llm-hint="Same content, now with metadata. Your context window called, it says thanks."
+        />
+        <link
+          rel="index"
+          type="text/markdown"
+          href="https://docs.github.com/llms.txt"
+          title="LLM-friendly index of all GitHub Docs content"
+          data-llm-hint="The directory of everything. We even followed the llmstxt.org spec because we are nice like that."
+        />
       </Head>
+
+      {/* a11y */}
       <a
         href="#main-content"
         className="visually-hidden skip-button color-bg-accent-emphasis color-fg-on-emphasis"

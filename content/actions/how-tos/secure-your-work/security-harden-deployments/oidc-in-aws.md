@@ -6,13 +6,13 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
-topics:
-  - Security
 redirect_from:
   - /actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services
   - /actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services
   - /actions/how-tos/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services
+contentType: how-tos
+category:
+  - Secure your workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -66,6 +66,17 @@ Edit the trust policy, adding the `sub` field to the validation conditions. For 
   "StringEquals": {
     "{% ifversion ghes %}HOSTNAME/_services/token{% else %}token.actions.githubusercontent.com{% endif %}:aud": "sts.amazonaws.com",
     "{% ifversion ghes %}HOSTNAME/_services/token{% else %}token.actions.githubusercontent.com{% endif %}:sub": "repo:octo-org/octo-repo:ref:refs/heads/octo-branch"
+  }
+}
+```
+
+For repositories created after July 15, 2026, or that have opted in to immutable subject claims, the `sub` claim includes immutable owner and repository IDs (not available on {% data variables.product.prodname_ghe_server %}). Make sure your trust policy matches the format your repository uses. For more information, see [AUTOTITLE](/actions/reference/openid-connect-reference#immutable-subject-claims).
+
+```json copy
+"Condition": {
+  "StringEquals": {
+    "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
+    "token.actions.githubusercontent.com:sub": "repo:octo-org@123456/octo-repo@456789:ref:refs/heads/octo-branch"
   }
 }
 ```
@@ -128,7 +139,8 @@ The `aws-actions/configure-aws-credentials` action receives a JWT from the {% da
 
 ```yaml copy
 # Sample workflow to access AWS resources when workflow is tied to branch
-# The workflow Creates static website using aws s3
+# The workflow creates a static website using Amazon S3
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 name: AWS example workflow
 on:
   push

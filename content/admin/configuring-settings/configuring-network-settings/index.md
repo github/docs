@@ -11,8 +11,6 @@ redirect_from:
 intro: 'Configure {% data variables.product.prodname_ghe_server %} with the DNS nameservers and hostname required in your network. You can also configure a proxy server or firewall rules. You must allow access to certain ports for administrative and user purposes.'
 versions:
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /configuring-the-ip-address-using-the-virtual-machine-console
   - /configuring-dns-nameservers

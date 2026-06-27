@@ -4,6 +4,8 @@ shortTitle: Manage your submissions
 intro: 'You can manage the purpose, topics, and offers assigned to each of your repositories in the {% data variables.product.prodname_community_exchange %} gallery, or delete your repository submissions.'
 versions:
   fpt: '*'
+category:
+  - Participate in campus and community programs
 ---
 
 ## About your submissions

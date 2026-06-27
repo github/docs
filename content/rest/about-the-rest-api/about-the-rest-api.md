@@ -6,10 +6,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 redirect_from:
   - /rest/overview/about-the-rest-api
+category:
+  - Learn about the REST API
 ---
 
 You can use {% data variables.product.company_short %}'s API to build scripts and applications that automate processes, integrate with {% data variables.product.company_short %}, and extend {% data variables.product.company_short %}. For example, you could use the API to triage issues, build an analytics dashboard, or manage releases.

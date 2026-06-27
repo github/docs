@@ -5,6 +5,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Get set up to contribute
 ---
 
 You can use labels to locate a particular type of issue. The examples below show some commonly used labels that can help you get started. Each label links to a filtered list of open issues in the github/docs repository.

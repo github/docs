@@ -12,9 +12,9 @@ redirect_from:
 versions:
   ghec: '*'
   feature: scim-for-ghes-public-beta
-topics:
-  - Enterprise
 shortTitle: View & manage SAML access
+category:
+  - Manage accounts and repositories
 ---
 
 ## About SAML access to your enterprise account
@@ -75,6 +75,12 @@ The identity data on this page will include the SCIM data that was sent to {% da
 ## Viewing and revoking authorized credentials
 
 {% data reusables.saml.about-authorized-credentials %}
+
+{% ifversion single_user_cred_revocation %}
+
+You can also revoke SSO authorizations for individual users or all users. For enterprises with {% data variables.product.prodname_emus %}, you can delete credentials entirely. This is useful for responding to security incidents. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents/revoke-authorizations-or-tokens).
+
+{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}

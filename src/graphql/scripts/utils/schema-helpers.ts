@@ -9,7 +9,10 @@ import {
   isInputObjectType,
   GraphQLSchema,
 } from 'graphql'
+import type { ConstDirectiveNode, TypeNode, InputValueDefinitionNode } from 'graphql/language'
 import path from 'path'
+
+import { slugPrefixForUrlKind } from '@/graphql/lib/categories'
 
 interface GraphQLTypeInfo {
   type: string
@@ -19,32 +22,20 @@ interface GraphQLTypeInfo {
 interface TypeInfo {
   name: string
   id: string
-  kind: string
   href: string
 }
 
 interface ArgumentInfo {
   name: string
-  defaultValue?: any // GraphQL default values can be of various types
+  // GraphQL scalar default values come through the AST as a string or boolean.
+  defaultValue?: string | boolean
   description: string
   type: TypeInfo
 }
 
 interface FieldNode {
   name: { value: string }
-  type: any // GraphQL AST type nodes have complex nested structure
-}
-
-interface ArgumentNode {
-  name: { value: string }
-  defaultValue?: { value: any } // GraphQL default values can be of various types
-  description: { value: string }
-  type: any // GraphQL AST type nodes have complex nested structure
-}
-
-interface DirectiveNode {
-  name: { value: string }
-  arguments: Array<{ value: { value: string; kind?: string } }>
+  type: TypeNode
 }
 
 interface SchemaMember {
@@ -63,11 +54,11 @@ const graphqlTypes: GraphQLTypeInfo[] = JSON.parse(
 const singleQuotesInsteadOfBackticks = / '(\S+?)' /
 
 function addPeriod(string: string): string {
-  return string.endsWith('.') ? string : string + '.'
+  return string.endsWith('.') ? string : `${string}.`
 }
 
 async function getArguments(
-  args: ArgumentNode[],
+  args: readonly InputValueDefinitionNode[],
   schema: GraphQLSchema,
 ): Promise<ArgumentInfo[] | undefined> {
   if (!args.length) return
@@ -78,16 +69,20 @@ async function getArguments(
     const newArg: Partial<ArgumentInfo> = {}
     const type: Partial<TypeInfo> = {}
     newArg.name = arg.name.value
-    newArg.defaultValue = arg.defaultValue ? arg.defaultValue.value : undefined
-    newArg.description = await getDescription(arg.description.value)
+    newArg.defaultValue =
+      arg.defaultValue && 'value' in arg.defaultValue ? arg.defaultValue.value : undefined
+    newArg.description = arg.description ? await getDescription(arg.description.value) : ''
     const typeName = getType(arg)
     if (!typeName) continue // Skip if type cannot be determined
     type.name = typeName
     type.id = getId(typeName)
     const typeKind = getTypeKind(typeName, schema)
     if (!typeKind) continue // Skip if type kind cannot be determined
-    type.kind = typeKind
-    type.href = getFullLink(typeKind, type.id)
+    // process-schemas always emits legacy `/graphql/reference/<urlKind>#<id>`
+    // hrefs. bucket-by-category rewrites them into the category-aware form
+    // when splitting into per-category files, so monolithic schema.json stays
+    // byte-stable with what the existing runtime expects.
+    type.href = getFullLink(typeKind, type.id!)
     newArg.type = type as TypeInfo
     newArgs.push(newArg as ArgumentInfo)
   }
@@ -95,8 +90,15 @@ async function getArguments(
   return newArgs
 }
 
+// Build a category-aware anchor link for a type, e.g.
+// `/graphql/reference/repos#object-repository`. Exposed for the bucketer's
+// href-rewrite pass; process-schemas itself uses the legacy `getFullLink`.
+export function buildCategoryHref(category: string, urlKind: string, id: string): string {
+  return `/graphql/reference/${category}#${slugPrefixForUrlKind(urlKind)}-${id}`
+}
+
 async function getDeprecationReason(
-  directives: DirectiveNode[],
+  directives: readonly ConstDirectiveNode[],
   schemaMember: SchemaMember,
 ): Promise<string | undefined> {
   if (!schemaMember.isDeprecated) return
@@ -108,10 +110,14 @@ async function getDeprecationReason(
   if (deprecationDirective.length > 1)
     console.log(`more than one deprecation found for ${schemaMember.name}`)
 
-  return renderContent(deprecationDirective[0].arguments[0].value.value)
+  const arg = deprecationDirective[0]?.arguments?.[0]
+  if (!arg) return
+  const value = arg.value
+  if (!value || value.kind !== 'StringValue' || !value.value) return
+  return renderContent(value.value)
 }
 
-function getDeprecationStatus(directives: DirectiveNode[]): boolean | undefined {
+function getDeprecationStatus(directives: readonly ConstDirectiveNode[]): boolean | undefined {
   if (!directives.length) return
 
   return directives[0].name.value === 'deprecated'
@@ -127,8 +133,20 @@ function getFullLink(baseType: string, id: string): string {
   return `/graphql/reference/${baseType}#${id}`
 }
 
-function getId(path: string): string {
-  return removeMarkers(path).toLowerCase()
+// Extract the `@docsCategory(name: "...")` value from a directive list.
+// Returns undefined when the directive is absent.
+function getDocsCategory(directives: readonly ConstDirectiveNode[]): string | undefined {
+  const directive = directives.find((dir) => dir.name.value === 'docsCategory')
+  if (!directive) return
+  const nameArg = directive.arguments?.find((arg) => arg.name.value === 'name')
+  if (!nameArg) return
+  const value = nameArg.value
+  if (!value || value.kind !== 'StringValue') return
+  return value.value
+}
+
+function getId(typeName: string): string {
+  return removeMarkers(typeName).toLowerCase()
 }
 
 // e.g., given `ObjectTypeDefinition`, get `objects`
@@ -137,7 +155,7 @@ function getKind(type: string): string {
 }
 
 async function getPreview(
-  directives: DirectiveNode[],
+  directives: readonly ConstDirectiveNode[],
   schemaMember: SchemaMember,
   previewsPerVersion: PreviewInfo[],
 ): Promise<PreviewInfo | undefined> {
@@ -152,9 +170,12 @@ async function getPreview(
     console.log(`more than one preview found for ${schemaMember.name}`)
 
   // an input object's input field may have a ListValue directive that is not relevant to previews
-  if (previewDirective[0].arguments[0].value.kind !== 'StringValue') return
+  const firstArg = previewDirective[0]?.arguments?.[0]
+  if (!firstArg) return
+  const argValue = firstArg.value
+  if (!argValue || argValue.kind !== 'StringValue') return
 
-  const previewName = previewDirective[0].arguments[0].value.value
+  const previewName = argValue.value
 
   const preview = previewsPerVersion.find((p) => p.toggled_by.includes(previewName))
   if (!preview) console.error(`cannot find "${previewName}" in graphql_previews.yml`)
@@ -253,6 +274,7 @@ export default {
   getDeprecationReason,
   getDeprecationStatus,
   getDescription,
+  getDocsCategory,
   getFullLink,
   getId,
   getKind,

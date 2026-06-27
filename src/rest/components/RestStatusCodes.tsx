@@ -30,11 +30,7 @@ export function RestStatusCodes({ statusCodes, slug, heading }: Props) {
                 <code>{statusCode.httpStatusCode}</code>
               </td>
               <td>
-                {statusCode.description ? (
-                  <div dangerouslySetInnerHTML={{ __html: statusCode.description }} />
-                ) : (
-                  statusCode.httpStatusMessage
-                )}
+                <div dangerouslySetInnerHTML={{ __html: statusCode.description }} />
               </td>
             </tr>
           ))}

@@ -6,13 +6,13 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
-topics:
-  - Security
 redirect_from:
   - /actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-hashicorp-vault
   - /actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-hashicorp-vault
   - /actions/how-tos/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-hashicorp-vault
+contentType: how-tos
+category:
+  - Secure your workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -128,6 +128,7 @@ This example demonstrates how to create a job that requests a secret from HashiC
 * `SECRET-PATH`: Replace this with the path to the secret you're retrieving from HashiCorp Vault. For example: `secret/data/production/ci npmToken`.
 
 ```yaml copy
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 jobs:
   retrieve-secret:
     runs-on: ubuntu-latest
@@ -161,6 +162,7 @@ By default, the Vault server will automatically revoke access tokens when their 
 1. Add a step to call the [Revoke a Token (Self)](https://www.vaultproject.io/api/auth/token#revoke-a-token-self) Vault API to revoke the access token.
 
 ```yaml copy
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 jobs:
   retrieve-secret:
     runs-on: ubuntu-latest

@@ -31,8 +31,20 @@ export function RestAuth({ progAccess, slug, operationTitle }: Props) {
   // There are some operations that have no progAccess access defined
   // For those operations, we shouldn't display this component
   if (!progAccess) return null
-  const { userToServerRest, serverToServer, fineGrainedPat, basicAuth = false } = progAccess
+  const {
+    userToServerRest,
+    serverToServer,
+    fineGrainedPat,
+    basicAuth = false,
+    allowPermissionlessAccess = false,
+  } = progAccess
   const noFineGrainedAccess = !(userToServerRest || serverToServer || fineGrainedPat)
+
+  // For endpoints on dotcom that do not support any fine-grained token types
+  // and allow permissionless (unauthenticated) access, do not render a
+  // fine-grained access section. Note: allowPermissionlessAccess is dotcom-only;
+  // GHES versions may still require authentication for these endpoints.
+  if (!basicAuth && noFineGrainedAccess && allowPermissionlessAccess) return null
 
   const heading = basicAuth ? t('basic_auth_heading') : t('fine_grained_access')
   const headingId = heading.replace('{{ RESTOperationTitle }}', operationTitle)
@@ -75,7 +87,7 @@ function FineGrainedAccess({ progAccess }: FineGrainedProps) {
   // Each object represents a set of permissions containing one
   // or more key-value pairs. All permissions in a set are required.
   // If there is more than one set of permissions, any set can be used.
-  const formattedPermissions = progAccess.permissions.map((permissionSet: Object, index) => {
+  const formattedPermissions = progAccess.permissions.map((permissionSet: object, index) => {
     // Given the example above, the first object is now an array of tuples
     // [['"Actions" repository permissions', 'read'], ['"Administration" organization permissions', 'read']]
     // that can be formatted as a string like `"Administration" organization permissions (write)'
@@ -106,8 +118,8 @@ function FineGrainedAccess({ progAccess }: FineGrainedProps) {
     numPermissionSets === 0
       ? t('no_permission_sets')
       : numPermissionSets > 1
-        ? t('permission_sets') + ':'
-        : t('permission_set') + ':'
+        ? `${t('permission_sets')}:`
+        : `${t('permission_set')}:`
   const publicAccessMsg =
     numPermissionSets === 0
       ? t('allows_public_read_access_no_permissions')

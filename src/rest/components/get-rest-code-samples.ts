@@ -26,7 +26,7 @@ function escapeShellValue(value: string): string {
   return value.replace(/'/g, "'\\''")
 }
 
-type CodeExamples = Record<string, any>
+type CodeExamples = Record<string, unknown>
 
 // If the content type is application/x-www-form-urlencoded the format of
 // the shell example is --data-urlencode param1=value1 --data-urlencode param2=value2
@@ -101,10 +101,10 @@ export function getShellExample(
       const { bodyParameters } = codeSample.request
       if (bodyParameters && typeof bodyParameters === 'object' && !Array.isArray(bodyParameters)) {
         const paramNames = Object.keys(bodyParameters)
-        paramNames.forEach((elem) => {
+        for (const elem of paramNames) {
           const escapedValue = escapeShellValue(String(bodyParameters[elem]))
           requestBodyParams = `${requestBodyParams} ${CURL_CONTENT_TYPE_MAPPING[contentType]} '${elem}=${escapedValue}'`
-        })
+        }
       } else {
         const escapedValue = escapeShellValue(String(bodyParameters))
         requestBodyParams = `${CURL_CONTENT_TYPE_MAPPING[contentType]} "${escapedValue}"`
@@ -216,7 +216,7 @@ export function getGHExample(
       if (hasArrays || isGistEndpoint) {
         const jsonBody = JSON.stringify(
           bodyParameters,
-          (key: string, value: any) => {
+          (key: string, value: unknown) => {
             // Convert numeric strings back to numbers for API compatibility
             if (typeof value === 'string' && /^\d+$/.test(value)) {
               return parseInt(value, 10)

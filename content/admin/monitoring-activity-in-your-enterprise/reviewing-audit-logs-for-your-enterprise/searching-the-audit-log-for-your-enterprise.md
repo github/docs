@@ -2,7 +2,7 @@
 title: Searching the audit log for your enterprise
 intro: You can search an extensive list of audited actions in your enterprise.
 shortTitle: Search audit logs
-permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can search the audit log.'
+permissions: Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can search the audit log.
 redirect_from:
   - /enterprise/admin/articles/searching-the-audit-log
   - /enterprise/admin/installation/searching-the-audit-log
@@ -12,11 +12,9 @@ redirect_from:
 versions:
   ghes: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Auditing
-  - Enterprise
-  - Logging
+contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 ## About search for the enterprise audit log
@@ -60,7 +58,7 @@ The `key:value` pairs that can be used in a search query are:
 | Key          | Value |
 | ------------ | ----- |
 | `action` | Name of the audited action. |
-| `actor` | Name of the user account that initiated the action. |
+| `actor` | Name of the account that initiated the action. |
 | {% ifversion ghes %} |
 | `actor_id` | ID of the user account that initiated the action.
 | {% endif %} |
@@ -105,7 +103,7 @@ The `key:value` pairs that can be used in a search query are:
 |  {% ifversion ghes %} |
 | `user_id`      | ID of the user affected by the action. |
 |  {% endif %} |
-| `user`         | Name of the user affected by the action. |
+| `user`         | Name of the user affected by the action. If the action was performed by an agent, this field contains the name of the user for whom the agent acted. |
 
 To see actions grouped by category, you can also use the action qualifier as a `key:value` pair. For more information, see [Search based on the action performed](#search-based-on-the-action-performed).
 

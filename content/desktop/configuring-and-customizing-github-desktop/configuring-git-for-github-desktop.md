@@ -10,6 +10,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Configure and customize GitHub Desktop
 ---
 ## About Git configuration for {% data variables.product.prodname_desktop %}
 
@@ -43,7 +45,7 @@ Configuring your global author information in {% data variables.product.prodname
 {% data reusables.desktop.windows-choose-options %}
 1. In the "Options" window, click **Git**.
 
-   ![Screenshot of the "Git" pane in the "Options" window. In the left sidebar, an option labeled "Git" is highlighted in blue and outlined in orange.](/assets/images/help/desktop/windows-select-git-pane.png)
+   ![Screenshot of the "Git" pane in the "Options" window. In the left sidebar, an option labeled "Git" is highlighted in blue.](/assets/images/help/desktop/windows-select-git-pane.png)
 
 {% data reusables.desktop.name-field-git-config %}
 {% data reusables.desktop.select-email-git-config %}
@@ -89,7 +91,8 @@ You can configure the default branch that will be used when you create a new rep
 
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.settings-git-pane %}
-1. Optional, under "Default branch name for new repositories" edit the name of the default branch as needed.
+1. Click the **Default branch** tab.
+1. Edit the name of the default branch as needed.
 {% data reusables.desktop.click-save-git-config %}
 
 {% endmac %}
@@ -97,14 +100,52 @@ You can configure the default branch that will be used when you create a new rep
 {% windows %}
 
 {% data reusables.desktop.windows-choose-options %}
-1. In the Options window, click **Git**.
+1. In the "Options" window, click **Git**.
 
-   ![Screenshot of the "Git" pane in the "Options" window. In the left sidebar, an option labeled "Git" is highlighted in blue and outlined in orange.](/assets/images/help/desktop/windows-select-git-pane.png)
+  ![Screenshot of the "Git" pane in the "Options" window. In the left sidebar, an option labeled "Git" is highlighted in blue.](/assets/images/help/desktop/windows-select-git-pane.png)
 
-1. Under "Default branch name for new repositories", select the default branch name you would like to use, or, to enter a custom name, select "Other...".
+1. Click the **Default branch** tab.
+1. Edit the name of the default branch as needed.
 {% data reusables.desktop.click-save-git-config %}
 
 {% endwindows %}
+
+## Configuring your shell environment for Git hooks
+
+{% data variables.product.prodname_desktop %} runs Git hooks in your configured shell environment. This means hooks have access to the same environment variables, shell configuration files (such as `.bash_profile` or `.zshrc`), and tools as when you run Git from the command line. Tools installed via version managers, such as `nvm` or `rbenv`, will also be available to your hooks.
+
+You can configure hook environment settings in the **Hooks** tab of the **Git** settings pane.
+
+{% mac %}
+
+{% data reusables.desktop.mac-select-desktop-menu %}
+{% data reusables.desktop.settings-git-pane %}
+1. Click the **Hooks** tab.
+
+{% endmac %}
+
+{% windows %}
+
+{% data reusables.desktop.windows-choose-options %}
+1. In the "Options" window, click **Git**.
+
+  ![Screenshot of the "Git" pane in the "Options" window. In the left sidebar, an option labeled "Git" is highlighted in blue.](/assets/images/help/desktop/windows-select-git-pane.png)
+
+1. Click the **Hooks** tab.
+
+{% endwindows %}
+
+The following settings are available:
+
+* **Load Git hook environment variables from shell**: When enabled, {% data variables.product.prodname_desktop %} loads environment variables from your shell when executing Git hooks. Enable this if your hooks depend on tools installed via version managers such as `nvm`, `rbenv`, or `asdf`.
+
+{% mac %}
+
+* **Cache Git hook environment variables**: Caches hook environment variables to improve performance. Disable this if your hooks rely on frequently changing environment variables.
+
+{% endmac %}
+
+For more information about Git hooks in {% data variables.product.prodname_desktop %}, see [AUTOTITLE](/desktop/making-changes-in-a-branch/working-with-git-hooks-in-github-desktop).
 
 ## Further reading
 

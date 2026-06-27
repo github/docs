@@ -1,4 +1,3 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
 import { getRange, quotePrecedesLinkOpen } from '../helpers/utils'
 import { escapeRegExp } from 'lodash-es'
@@ -26,7 +25,7 @@ export const linkQuotation: Rule = {
         } else if (inLinkWithPrecedingQuotes && child.type === 'text') {
           content.push(escapeRegExp((child.content || '').trim()))
         } else if (inLinkWithPrecedingQuotes && child.type === 'code_inline') {
-          content.push('`' + escapeRegExp((child.content || '').trim()) + '`')
+          content.push(`\`${escapeRegExp((child.content || '').trim())}\``)
         } else if (child.type === 'link_close') {
           const title = content.join(' ')
           const regex = new RegExp(`"\\[${title}\\]\\(${linkUrl}\\)({%.*%})?(!|\\.|\\?|,)?"`)
@@ -44,7 +43,7 @@ export const linkQuotation: Rule = {
               newLine = newLine.slice(0, -1)
             }
             if (newLine.endsWith('".')) {
-              newLine = newLine.slice(0, -2) + '.'
+              newLine = `${newLine.slice(0, -2)}.`
             }
             const lineNumber = child.lineNumber
             addError(

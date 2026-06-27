@@ -1,5 +1,5 @@
 ---
-title: About your organization’s news feed
+title: About your organization's news feed
 intro: You can use your organization's news feed to keep up with recent activity on repositories owned by that organization.
 redirect_from:
   - /articles/news-feed
@@ -10,10 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Organization news feed
+category:
+  - Set up your organization
 ---
 
 

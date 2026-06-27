@@ -4,8 +4,8 @@ shortTitle: Keyboard shortcuts
 intro: 'Find a list of keyboard shortcuts for {% data variables.product.prodname_copilot %} in the IDEs that support it.'
 versions:
   feature: copilot
-topics:
-  - Copilot
+category:
+  - Author and optimize with Copilot
 redirect_from:
   - /copilot/reference/keyboard-shortcuts-for-github-copilot-in-the-ide
 contentType: reference

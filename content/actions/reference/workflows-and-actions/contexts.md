@@ -1,7 +1,7 @@
 ---
 title: Contexts reference
 shortTitle: Contexts
-intro: 'Find information about contexts available in {% data variables.product.prodname_actions %} workflows, including available properties, access methods, and usage examples.'
+intro: Find information about contexts available in {% data variables.product.prodname_actions %} workflows, including available properties, access methods, and usage examples.
 redirect_from:
   - /articles/contexts-and-expression-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/contexts-and-expression-syntax-for-github-actions
@@ -17,6 +17,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Write workflows
+contentType: reference
 ---
 
 ## Available contexts
@@ -171,7 +174,7 @@ The `github` context contains information about the workflow run and the event t
 |---------------|------|-------------|
 | `github` | `object` | The top-level context available during any job or step in a workflow. This object contains all the properties listed below. |
 | `github.action` | `string` | The name of the action currently running, or the [`id`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsid) of a step. {% data variables.product.prodname_dotcom %} removes special characters, and uses the name `__run` when the current step runs a script without an `id`. If you use the same action more than once in the same job, the name will include a suffix with the sequence number with underscore before it. For example, the first script you run will have the name `__run`, and the second script will be named `__run_2`. Similarly, the second invocation of `actions/checkout` will be `actionscheckout2`. |
-| `github.action_path` | `string` | The path where an action is located. This property is only supported in composite actions. You can use this path to access files located in the same repository as the action, for example by changing directories to the path: {% raw %} `cd ${{ github.action_path }}` {% endraw %}. |
+| `github.action_path` | `string` | The path where an action is located. This property is only supported in composite actions. You can use this path to access files located in the same repository as the action, for example by changing directories to the path (using the corresponding environment variable): {% raw %} `cd "$GITHUB_ACTION_PATH"` {% endraw %}. For more information on environment variables, see [AUTOTITLE](/actions/reference/security/secure-use#use-an-intermediate-environment-variable). |
 | `github.action_ref` | `string` | For a step executing an action, this is the ref of the action being executed. For example, `v2`.<br><br>{% data reusables.actions.composite-actions-unsupported-refs %} |
 | `github.action_repository` | `string` | For a step executing an action, this is the owner and repository name of the action. For example, `actions/checkout`.<br><br>{% data reusables.actions.composite-actions-unsupported-refs %} |
 | `github.action_status` | `string` | For a composite action, the current result of the composite action. |
@@ -375,15 +378,23 @@ The `job` context contains information about the currently running job.
 | `job.services.<service_id>.network` | `string` | The ID of the service container network. The runner creates the network used by all containers in a job. |
 | `job.services.<service_id>.ports` | `object` | The exposed ports of the service container. |
 | `job.status` | `string` | The current status of the job. Possible values are `success`, `failure`, or `cancelled`. |
+| `job.workflow_ref` | `string` | The full ref of the workflow file that defines the current job. For example, `octo-org/octo-repo/.github/workflows/deploy.yml@refs/heads/main`. For jobs defined directly in a workflow file, this is the same as `github.workflow_ref`. For jobs defined in a [AUTOTITLE](/actions/using-workflows/reusing-workflows), this refers to the reusable workflow file. (not available on {% data variables.product.prodname_ghe_server %}) |
+| `job.workflow_sha` | `string` | The commit SHA of the workflow file that defines the current job. (not available on {% data variables.product.prodname_ghe_server %}) |
+| `job.workflow_repository` | `string` | The `owner/repo` of the repository containing the workflow file that defines the current job. For example, `octo-org/octo-repo`. (not available on {% data variables.product.prodname_ghe_server %}) |
+| `job.workflow_file_path` | `string` | The file path of the workflow file that defines the current job, relative to the repository root. For example, `.github/workflows/deploy.yml`. (not available on {% data variables.product.prodname_ghe_server %}) |
 
 ### Example contents of the `job` context
 
-This example `job` context uses a PostgreSQL service container with mapped ports. If there are no containers or service containers used in a job, the `job` context only contains the `status` and `check_run_id` properties.
+This example `job` context uses a PostgreSQL service container with mapped ports. If there are no containers or service containers used in a job, the `job` context only contains `status`. The `check_run_id` and workflow identity properties (`workflow_ref`, `workflow_sha`, `workflow_repository`, `workflow_file_path`) are not available on {% data variables.product.prodname_ghe_server %}.
 
 ```json
 {
   "status": "success",
-  {% ifversion fpt or ghec %}"check_run_id": 51725241954,{% endif %}
+  "check_run_id": 51725241954,
+  "workflow_ref": "octo-org/octo-repo/.github/workflows/deploy.yml@refs/heads/main",
+  "workflow_sha": "abc123def456789abc123def456789abc123def4",
+  "workflow_repository": "octo-org/octo-repo",
+  "workflow_file_path": ".github/workflows/deploy.yml",
   "container": {
     "network": "github_network_53269bd575974817b43f4733536b200c"
   },
@@ -422,6 +433,32 @@ jobs:
     steps:
       - run: pg_isready -h localhost -p {% raw %}${{ job.services.postgres.ports[5432] }}{% endraw %}
       - run: echo "Run tests against Postgres"
+```
+
+### Example usage of `job` context workflow identity
+
+> [!NOTE]
+> The `job.workflow_*` context properties are not available on {% data variables.product.prodname_ghe_server %}.
+
+This example reusable workflow uses `job.workflow_repository` and `job.workflow_sha` to check out its own source code, rather than the caller's repository. This is useful when a reusable workflow needs to access files co-located with the workflow definition.
+
+```yaml copy
+# In a reusable workflow (e.g., octo-org/shared-workflows/.github/workflows/deploy.yml)
+name: Reusable deploy workflow
+on:
+  workflow_call:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+        with:
+          repository: {% raw %}${{ job.workflow_repository }}{% endraw %}
+          ref: {% raw %}${{ job.workflow_sha }}{% endraw %}
+
+      - run: echo "Deploying from {% raw %}${{ job.workflow_ref }}{% endraw %}"
+      - run: echo "Workflow file path is {% raw %}${{ job.workflow_file_path }}{% endraw %}"
 ```
 
 ## `jobs` context

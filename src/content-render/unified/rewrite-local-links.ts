@@ -8,6 +8,7 @@ import { distance } from 'fastest-levenshtein'
 import { getPathWithoutLanguage, getVersionStringFromPath } from '@/frame/lib/path-utils'
 import { getNewVersionedPath } from '@/archives/lib/old-versions-utils'
 import patterns from '@/frame/lib/patterns'
+import { createLogger } from '@/observability/logger'
 import { deprecated, latest } from '@/versions/lib/enterprise-server-releases'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
 import { allVersions } from '@/versions/lib/all-versions'
@@ -15,6 +16,8 @@ import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path'
 import readJsonFile from '@/frame/lib/read-json-file'
 import findPage from '@/frame/lib/find-page'
 import type { Context, Page } from '@/types'
+
+const logger = createLogger(import.meta.url)
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -47,7 +50,8 @@ function logError(file: string, line: number, message: string, title = 'Error') 
       message.replace(/%/g, '%25').replace(/\r/g, '%0D').replace(/\n/g, '%0A'),
     )
     const error = `::error file=${file},line=${line},title=${title}::${message}`
-    console.log(error)
+    process.stdout.write(`${error}\n`)
+    logger.info('GitHub Actions error annotation', { annotation: error })
   }
 }
 
@@ -101,14 +105,15 @@ export default function rewriteLocalLinks(context?: Context) {
       const linkRefNode = node as LinkReference
       const definition = definitions.get(linkRefNode.identifier)
       if (definition) {
-        // Replace the LinkReference node with a Link node
-        // Using 'as any' because we're mutating the node type at runtime,
-        // which TypeScript doesn't allow as LinkReference and Link are incompatible types
-        ;(linkRefNode as any).type = 'link'
-        ;(linkRefNode as any).url = definition.url
-        ;(linkRefNode as any).title = definition.title
+        // Replace the LinkReference node with a Link node by mutating its
+        // properties at runtime. Using 'as unknown as' because LinkReference
+        // and Link are structurally incompatible in TypeScript.
+        const mutableNode = linkRefNode as unknown as Link
+        mutableNode.type = 'link'
+        mutableNode.url = definition.url
+        mutableNode.title = definition.title
       } else {
-        console.warn(`Definition not found for identifier: ${linkRefNode.identifier}`)
+        logger.warn('Definition not found for identifier', { identifier: linkRefNode.identifier })
       }
     })
 
@@ -185,14 +190,14 @@ function processLinkNode(node: Link, language: string, version: string, nodes: N
         language === 'en'
       ) {
         // Throw if the link text *almost*  is AUTOTITLE
-        const textChild = child as Text
+        const childText = child as Text
         if (
-          textChild.value.toUpperCase() === 'AUTOTITLE' ||
-          distance(textChild.value.toUpperCase(), 'AUTOTITLE') <= 2
+          childText.value.toUpperCase() === 'AUTOTITLE' ||
+          distance(childText.value.toUpperCase(), 'AUTOTITLE') <= 2
         ) {
           throw new Error(
-            `Found link text '${textChild.value}', expected 'AUTOTITLE'. ` +
-              `Find the mention of the link text '${textChild.value}' and change it to 'AUTOTITLE'. Case matters.`,
+            `Found link text '${childText.value}', expected 'AUTOTITLE'. ` +
+              `Find the mention of the link text '${childText.value}' and change it to 'AUTOTITLE'. Case matters.`,
           )
         }
       }
@@ -245,13 +250,9 @@ function getNewHref(node: LinkNode, languageCode: string, version: string): stri
     // This can happen if you have something
     // like `/enterprise-servr@3.9/foo/bar` which is a typo. I.e.
     // `enterprise-servr` is not a valid plan, but it has a `@` character  in it.
-    console.warn(
-      `
-Warning! The first segment of the internal link has a '@' character in it
-but the plan is not recognized. This is likely a typo.
-Please inspect the link and fix it if it's a typo.
-Look for an internal link that starts with '${url}'.
-    `,
+    logger.warn(
+      'First segment of internal link has @ character but plan is not recognized, likely a typo',
+      { url },
     )
   }
 
@@ -274,7 +275,7 @@ Look for an internal link that starts with '${url}'.
   newHref = newHref.replace('/enterprise-server@latest/', `/enterprise-server@${latest}/`)
 
   if (newHref === url) {
-    // start clean with no language (TOC pages already include the lang codes via lib/liquid-tags/link.js)
+    // start clean with no language (TOC pages already include the lang codes via lib/liquid-tags/link.ts)
     const hrefWithoutLang = getPathWithoutLanguage(url)
 
     // normalize any legacy links so they conform to new link structure

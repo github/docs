@@ -12,9 +12,9 @@ versions:
   ghes: '*'
   ghec: '*'
 permissions: 'People with write permissions can delete files or directories in a repository.'
-topics:
-  - Repositories
 shortTitle: Delete files
+category:
+  - Work with files
 ---
 ## About file and directory deletion
 

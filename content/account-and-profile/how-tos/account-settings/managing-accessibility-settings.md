@@ -12,6 +12,8 @@ redirect_from:
   - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-accessibility-settings
   - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-accessibility-settings
 contentType: how-tos
+category:
+  - Configure account settings
 ---
 
 > [!NOTE] This article will help you customize your experience on the {% data variables.product.github %} website as a whole. For information on using specific {% data variables.product.github %} products with screen readers and other assistive technologies, see the [{% data variables.product.github %} Accessibility Documentation](https://accessibility.github.com/documentation).

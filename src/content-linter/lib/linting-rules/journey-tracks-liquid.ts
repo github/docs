@@ -1,4 +1,3 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 
 import { getFrontmatter } from '../helpers/utils'
@@ -10,8 +9,7 @@ export const journeyTracksLiquid = {
   description: 'Journey track properties must use valid Liquid syntax',
   tags: ['frontmatter', 'journey-tracks', 'liquid'],
   function: (params: RuleParams, onError: RuleErrorCallback) => {
-    // Using any for frontmatter as it's a dynamic YAML object with varying properties
-    const fm: any = getFrontmatter(params.lines)
+    const fm: Record<string, unknown> = getFrontmatter(params.lines) as Record<string, unknown>
     if (!fm || !fm.journeyTracks || !Array.isArray(fm.journeyTracks)) return
     if (!fm.layout || fm.layout !== 'journey-landing') return
 
@@ -23,7 +21,8 @@ export const journeyTracksLiquid = {
       ? params.lines.indexOf(journeyTracksLine) + 1
       : 1
 
-    fm.journeyTracks.forEach((track: any, trackIndex: number) => {
+    for (let trackIndex = 0; trackIndex < fm.journeyTracks.length; trackIndex++) {
+      const track = (fm.journeyTracks as Array<Record<string, unknown>>)[trackIndex]
       // Try to find the line number for this specific journey track so we can use that for the error
       // line number.  Getting the exact line number is probably more work than it's worth for this
       // particular rule.
@@ -58,37 +57,60 @@ export const journeyTracksLiquid = {
         { name: 'description', value: track.description },
       ]
 
-      properties.forEach((prop) => {
+      for (const prop of properties) {
         if (prop.value && typeof prop.value === 'string') {
           try {
             liquid.parse(prop.value)
-          } catch (error: any) {
+          } catch (error: unknown) {
             addError(
               onError,
               trackLineNumber,
-              `Invalid Liquid syntax in journey track ${prop.name} (track ${trackIndex + 1}): ${error.message}`,
+              `Invalid Liquid syntax in journey track ${prop.name} (track ${trackIndex + 1}): ${error instanceof Error ? error.message : String(error)}`,
               prop.value,
             )
           }
         }
-      })
+      }
 
       if (track.guides && Array.isArray(track.guides)) {
-        track.guides.forEach((guide: string, guideIndex: number) => {
-          if (typeof guide === 'string') {
+        for (let guideIndex = 0; guideIndex < track.guides.length; guideIndex++) {
+          const guideObj = track.guides[guideIndex]
+
+          // Validate guide is an object with expected properties
+          if (!guideObj || typeof guideObj !== 'object') continue
+
+          // Validate href property
+          if ('href' in guideObj && typeof guideObj.href === 'string') {
             try {
-              liquid.parse(guide)
-            } catch (error: any) {
+              liquid.parse(guideObj.href)
+            } catch (error: unknown) {
               addError(
                 onError,
                 trackLineNumber,
-                `Invalid Liquid syntax in journey track guide (track ${trackIndex + 1}, guide ${guideIndex + 1}): ${error.message}`,
-                guide,
+                `Invalid Liquid syntax in journey track guide href (track ${trackIndex + 1}, guide ${guideIndex + 1}): ${error instanceof Error ? error.message : String(error)}`,
+                guideObj.href,
               )
             }
           }
-        })
+
+          // Validate alternativeNextStep property if present
+          if (
+            'alternativeNextStep' in guideObj &&
+            typeof guideObj.alternativeNextStep === 'string'
+          ) {
+            try {
+              liquid.parse(guideObj.alternativeNextStep)
+            } catch (error: unknown) {
+              addError(
+                onError,
+                trackLineNumber,
+                `Invalid Liquid syntax in journey track guide alternativeNextStep (track ${trackIndex + 1}, guide ${guideIndex + 1}): ${error instanceof Error ? error.message : String(error)}`,
+                guideObj.alternativeNextStep,
+              )
+            }
+          }
+        }
       }
-    })
+    }
   },
 }

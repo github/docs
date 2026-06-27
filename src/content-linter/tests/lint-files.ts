@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { fileURLToPath } from 'url'
 import path from 'path'
 import yaml from 'js-yaml'
@@ -9,7 +8,7 @@ import walk from 'walk-sync'
 import { zip } from 'lodash-es'
 import { beforeAll, describe, expect, test } from 'vitest'
 
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import { getDiffFiles } from '../lib/diff-files'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -188,21 +187,28 @@ const FbvYamlRelPaths = FbvYamlAbsPaths.map((p) => slash(path.relative(rootDir, 
 const fbvTuples = zip(FbvYamlRelPaths, FbvYamlAbsPaths)
 
 // Put all the yaml files together
-ymlToLint = [].concat(
+ymlToLint = ([] as Array<[string | undefined, string | undefined]>).concat(
   variableYamlTuples, // These "tuples" not tested independently; they are only tested as part of ymlToLint.
   glossariesYamlTuples,
   fbvTuples,
 )
 
-function formatLinkError(message, links) {
+function formatLinkError(message: string, links: string[]) {
   return `${message}\n  - ${links.join('\n  - ')}`
 }
 
 // Returns `content` if its a string, or `content.description` if it can.
 // Used for getting the nested `description` key in glossary files.
-function getContent(content) {
+// Using any because content can be string | { description: string } | other YAML structures
+function getContent(content: unknown) {
   if (typeof content === 'string') return content
-  if (typeof content.description === 'string') return content.description
+  if (
+    content &&
+    typeof content === 'object' &&
+    'description' in content &&
+    typeof (content as { description: unknown }).description === 'string'
+  )
+    return (content as { description: string }).description
   return null
 }
 
@@ -224,9 +230,10 @@ if (diffFiles.length > 0) {
       return name
     }),
   )
-  const filterFiles = (tuples) =>
+  const filterFiles = (tuples: Array<[string | undefined, string | undefined]>) =>
     tuples.filter(
-      ([relativePath, absolutePath]) => only.has(relativePath) || only.has(absolutePath),
+      ([relativePath, absolutePath]: [string | undefined, string | undefined]) =>
+        only.has(relativePath!) || only.has(absolutePath!),
     )
   ymlToLint = filterFiles(ymlToLint)
 }
@@ -239,195 +246,200 @@ if (ymlToLint.length === 0) {
 } else {
   describe('lint yaml content', () => {
     if (ymlToLint.length < 1) return
-    describe.each(ymlToLint)('%s', (yamlRelPath, yamlAbsPath) => {
-      let dictionary, isEarlyAccess, fileContents
-      // This variable is used to determine if the file was parsed successfully.
-      // When `yaml.load()` fails to parse the file, it is overwritten with the error message.
-      // `false` is intentionally chosen since `null` and `undefined` are valid return values.
-      let dictionaryError = false
+    describe.each(ymlToLint)(
+      '%s',
+      (yamlRelPath: string | undefined, yamlAbsPath: string | undefined) => {
+        let dictionary: unknown // YAML structure varies by file type (variables, glossaries, features)
+        let isEarlyAccess: boolean
+        let fileContents: string
+        // This variable is used to determine if the file was parsed successfully.
+        // When `yaml.load()` fails to parse the file, it is overwritten with the error message.
+        // `false` is intentionally chosen since `null` and `undefined` are valid return values.
+        let dictionaryError: unknown = false
 
-      beforeAll(async () => {
-        fileContents = await fs.readFile(yamlAbsPath, 'utf8')
-        try {
-          dictionary = yaml.load(fileContents, { filename: yamlRelPath })
-        } catch (error) {
-          dictionaryError = error
-        }
+        beforeAll(async () => {
+          fileContents = await fs.readFile(yamlAbsPath!, 'utf8')
+          try {
+            dictionary = yaml.load(fileContents, { filename: yamlRelPath })
+          } catch (error) {
+            dictionaryError = error
+          }
 
-        isEarlyAccess = yamlRelPath.split('/').includes('early-access')
-      })
+          isEarlyAccess = yamlRelPath!.split('/').includes('early-access')
+        })
 
-      test('it can be parsed as a single yaml document', () => {
-        expect(dictionaryError).toBe(false)
-      })
+        test('it can be parsed as a single yaml document', () => {
+          expect(dictionaryError).toBe(false)
+        })
 
-      test('placeholder string is not present in any yaml files', () => {
-        const matches = fileContents.match(placeholderRegex) || []
-        const errorMessage = `
+        test('placeholder string is not present in any yaml files', () => {
+          const matches = fileContents.match(placeholderRegex) || []
+          const errorMessage = `
         Found ${matches.length} placeholder string '${placeholder}'! Please update all placeholders.
       `
-        expect(matches.length, errorMessage).toBe(0)
-      })
+          expect(matches.length, errorMessage).toBe(0)
+        })
 
-      test('relative URLs must start with "/"', async () => {
-        const matches = []
-
-        for (const [key, content] of Object.entries(dictionary)) {
-          const contentStr = getContent(content)
-          if (!contentStr) continue
-          const valMatches = contentStr.match(relativeArticleLinkRegex) || []
-          if (valMatches.length > 0) {
-            matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
-          }
-        }
-
-        const errorMessage = formatLinkError(relativeArticleLinkErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
-
-      test('must not leak Early Access doc URLs', async () => {
-        // Only execute for docs that are NOT Early Access
-        if (!isEarlyAccess) {
+        test('relative URLs must start with "/"', async () => {
           const matches = []
 
-          for (const [key, content] of Object.entries(dictionary)) {
+          for (const [key, content] of Object.entries(dictionary as Record<string, unknown>)) {
             const contentStr = getContent(content)
             if (!contentStr) continue
-            const valMatches = contentStr.match(earlyAccessLinkRegex) || []
+            const valMatches = contentStr.match(relativeArticleLinkRegex) || []
             if (valMatches.length > 0) {
-              matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
+              matches.push(...valMatches.map((match: string) => `Key "${key}": ${match}`))
             }
           }
 
-          const errorMessage = formatLinkError(earlyAccessLinkErrorText, matches)
+          const errorMessage = formatLinkError(relativeArticleLinkErrorText, matches)
           expect(matches.length, errorMessage).toBe(0)
-        }
-      })
+        })
 
-      test('must not leak Early Access image URLs', async () => {
-        // Only execute for docs that are NOT Early Access
-        if (!isEarlyAccess) {
+        test('must not leak Early Access doc URLs', async () => {
+          // Only execute for docs that are NOT Early Access
+          if (!isEarlyAccess) {
+            const matches = []
+
+            for (const [key, content] of Object.entries(dictionary as Record<string, unknown>)) {
+              const contentStr = getContent(content)
+              if (!contentStr) continue
+              const valMatches = contentStr.match(earlyAccessLinkRegex) || []
+              if (valMatches.length > 0) {
+                matches.push(...valMatches.map((match: string) => `Key "${key}": ${match}`))
+              }
+            }
+
+            const errorMessage = formatLinkError(earlyAccessLinkErrorText, matches)
+            expect(matches.length, errorMessage).toBe(0)
+          }
+        })
+
+        test('must not leak Early Access image URLs', async () => {
+          // Only execute for docs that are NOT Early Access
+          if (!isEarlyAccess) {
+            const matches = []
+
+            for (const [key, content] of Object.entries(dictionary as Record<string, unknown>)) {
+              const contentStr = getContent(content)
+              if (!contentStr) continue
+              const valMatches = contentStr.match(earlyAccessImageRegex) || []
+              if (valMatches.length > 0) {
+                matches.push(...valMatches.map((match: string) => `Key "${key}": ${match}`))
+              }
+            }
+
+            const errorMessage = formatLinkError(earlyAccessImageErrorText, matches)
+            expect(matches.length, errorMessage).toBe(0)
+          }
+        })
+
+        test('must have correctly formatted Early Access image URLs', async () => {
+          // Execute for ALL docs (not just Early Access) to ensure non-EA docs
+          // are not leaking incorrectly formatted EA image URLs
           const matches = []
 
-          for (const [key, content] of Object.entries(dictionary)) {
+          for (const [key, content] of Object.entries(dictionary as Record<string, unknown>)) {
             const contentStr = getContent(content)
             if (!contentStr) continue
-            const valMatches = contentStr.match(earlyAccessImageRegex) || []
+            const valMatches = contentStr.match(badEarlyAccessImageRegex) || []
             if (valMatches.length > 0) {
-              matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
+              matches.push(...valMatches.map((match: string) => `Key "${key}": ${match}`))
             }
           }
 
-          const errorMessage = formatLinkError(earlyAccessImageErrorText, matches)
+          const errorMessage = formatLinkError(badEarlyAccessImageErrorText, matches)
           expect(matches.length, errorMessage).toBe(0)
-        }
-      })
+        })
 
-      test('must have correctly formatted Early Access image URLs', async () => {
-        // Execute for ALL docs (not just Early Access) to ensure non-EA docs
-        // are not leaking incorrectly formatted EA image URLs
-        const matches = []
+        test('URLs must not contain a hard-coded language code', async () => {
+          const matches = []
 
-        for (const [key, content] of Object.entries(dictionary)) {
-          const contentStr = getContent(content)
-          if (!contentStr) continue
-          const valMatches = contentStr.match(badEarlyAccessImageRegex) || []
-          if (valMatches.length > 0) {
-            matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
+          for (const [key, content] of Object.entries(dictionary as Record<string, unknown>)) {
+            const contentStr = getContent(content)
+            if (!contentStr) continue
+            const valMatches = contentStr.match(languageLinkRegex) || []
+            if (valMatches.length > 0) {
+              matches.push(...valMatches.map((match: string) => `Key "${key}": ${match}`))
+            }
           }
-        }
 
-        const errorMessage = formatLinkError(badEarlyAccessImageErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
+          const errorMessage = formatLinkError(languageLinkErrorText, matches)
+          expect(matches.length, errorMessage).toBe(0)
+        })
 
-      test('URLs must not contain a hard-coded language code', async () => {
-        const matches = []
+        test('URLs must not contain a hard-coded version number', async () => {
+          const matches = []
 
-        for (const [key, content] of Object.entries(dictionary)) {
-          const contentStr = getContent(content)
-          if (!contentStr) continue
-          const valMatches = contentStr.match(languageLinkRegex) || []
-          if (valMatches.length > 0) {
-            matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
+          for (const [key, content] of Object.entries(dictionary as Record<string, unknown>)) {
+            const contentStr = getContent(content)
+            if (!contentStr) continue
+            const valMatches = contentStr.match(versionLinkRegEx) || []
+            if (valMatches.length > 0) {
+              matches.push(...valMatches.map((match: string) => `Key "${key}": ${match}`))
+            }
           }
-        }
 
-        const errorMessage = formatLinkError(languageLinkErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
+          const errorMessage = formatLinkError(versionLinkErrorText, matches)
+          expect(matches.length, errorMessage).toBe(0)
+        })
 
-      test('URLs must not contain a hard-coded version number', async () => {
-        const matches = []
+        test('URLs must not contain a hard-coded domain name', async () => {
+          const matches = []
 
-        for (const [key, content] of Object.entries(dictionary)) {
-          const contentStr = getContent(content)
-          if (!contentStr) continue
-          const valMatches = contentStr.match(versionLinkRegEx) || []
-          if (valMatches.length > 0) {
-            matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
+          for (const [key, content] of Object.entries(dictionary as Record<string, unknown>)) {
+            const contentStr = getContent(content)
+            if (!contentStr) continue
+            const valMatches = contentStr.match(domainLinkRegex) || []
+            if (valMatches.length > 0) {
+              matches.push(...valMatches.map((match: string) => `Key "${key}": ${match}`))
+            }
           }
-        }
 
-        const errorMessage = formatLinkError(versionLinkErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
+          const errorMessage = formatLinkError(domainLinkErrorText, matches)
+          expect(matches.length, errorMessage).toBe(0)
+        })
 
-      test('URLs must not contain a hard-coded domain name', async () => {
-        const matches = []
+        test('does not use old site.data variable syntax', async () => {
+          const matches = []
 
-        for (const [key, content] of Object.entries(dictionary)) {
-          const contentStr = getContent(content)
-          if (!contentStr) continue
-          const valMatches = contentStr.match(domainLinkRegex) || []
-          if (valMatches.length > 0) {
-            matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
+          for (const [key, content] of Object.entries(dictionary as Record<string, unknown>)) {
+            const contentStr = getContent(content)
+            if (!contentStr) continue
+            const valMatches = contentStr.match(oldVariableRegex) || []
+            if (valMatches.length > 0) {
+              matches.push(
+                ...valMatches.map((match: string) => {
+                  const example = match.replace(
+                    /{{\s*?site\.data\.([a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]+)+)\s*?}}/g,
+                    '{% data $1 %}',
+                  )
+                  return `Key "${key}": ${match} => ${example}`
+                }),
+              )
+            }
           }
-        }
 
-        const errorMessage = formatLinkError(domainLinkErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
+          const errorMessage = formatLinkError(oldVariableErrorText, matches)
+          expect(matches.length, errorMessage).toBe(0)
+        })
 
-      test('does not use old site.data variable syntax', async () => {
-        const matches = []
+        test('does not use old octicon variable syntax', async () => {
+          const matches = []
 
-        for (const [key, content] of Object.entries(dictionary)) {
-          const contentStr = getContent(content)
-          if (!contentStr) continue
-          const valMatches = contentStr.match(oldVariableRegex) || []
-          if (valMatches.length > 0) {
-            matches.push(
-              ...valMatches.map((match) => {
-                const example = match.replace(
-                  /{{\s*?site\.data\.([a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]+)+)\s*?}}/g,
-                  '{% data $1 %}',
-                )
-                return `Key "${key}": ${match} => ${example}`
-              }),
-            )
+          for (const [key, content] of Object.entries(dictionary as Record<string, unknown>)) {
+            const contentStr = getContent(content)
+            if (!contentStr) continue
+            const valMatches = contentStr.match(oldOcticonRegex) || []
+            if (valMatches.length > 0) {
+              matches.push(...valMatches.map((match: string) => `Key "${key}": ${match}`))
+            }
           }
-        }
 
-        const errorMessage = formatLinkError(oldVariableErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
-
-      test('does not use old octicon variable syntax', async () => {
-        const matches = []
-
-        for (const [key, content] of Object.entries(dictionary)) {
-          const contentStr = getContent(content)
-          if (!contentStr) continue
-          const valMatches = contentStr.match(oldOcticonRegex) || []
-          if (valMatches.length > 0) {
-            matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
-          }
-        }
-
-        const errorMessage = formatLinkError(oldOcticonErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
-    })
+          const errorMessage = formatLinkError(oldOcticonErrorText, matches)
+          expect(matches.length, errorMessage).toBe(0)
+        })
+      },
+    )
   })
 }

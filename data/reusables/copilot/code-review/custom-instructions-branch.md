@@ -1,0 +1,1 @@
+When reviewing a pull request, {% data variables.product.prodname_copilot_short %} uses the custom instructions in the base branch of the pull request. For example, if your pull request seeks to merge `my-feature-branch` into `main`, {% data variables.product.prodname_copilot_short %} will use the custom instructions in `main`.

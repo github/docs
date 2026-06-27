@@ -4,8 +4,7 @@ intro: Get reminders in Slack when you or your team have pull requests waiting f
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Accounts
+  ghes: '*'
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-your-scheduled-reminders
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/managing-your-scheduled-reminders
@@ -14,6 +13,8 @@ redirect_from:
   - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/managing-your-scheduled-reminders
 shortTitle: Manage scheduled reminders
 contentType: how-tos
+category:
+  - Set up and customize delivery
 ---
 
 ## Creating scheduled reminders for your personal account

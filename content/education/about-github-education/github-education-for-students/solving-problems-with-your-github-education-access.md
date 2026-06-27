@@ -16,6 +16,8 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: Troubleshooting access
+category:
+  - Apply for GitHub Education
 ---
 
 ## Why wasn't my application approved?
@@ -51,6 +53,18 @@ For more information, see:
 * [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/merging-multiple-personal-accounts)
 * [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username)
 * [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)
+
+### Why does the application require an academic email?
+
+{% data variables.product.github %}'s verification process is individually tailored. When the system detects that recent applicants from your school successfully verified using their academic email, future applicants from the same school must also use an academic email.
+
+**What to do:**
+
+* **Get your academic email:** Contact your school's IT or administrative office. This is the fastest path to verification.
+* **School doesn't issue academic emails?** Provide official documentation (such as a school webpage or a letter on school letterhead) explaining the policy.
+* **School domain not recognized?** [Contact GitHub Education Support](https://support.github.com/contact/education) and include your school's full name, website URL, and the domain you are attempting to use.
+* **Email formatting issues:** Ensure your email address is all lowercase and doesn't use plus-addressing (such as "user+school@example.com"). If needed, delete and re-add it under **Settings > Emails**.
+* **Tried everything and still stuck?** [Contact {% data variables.product.prodname_global_campus %} Support](https://support.github.com/contact/education) and include which steps you attempted, what happened at each step, and where you encountered an issue.
 
 ### Ineligible student status
 

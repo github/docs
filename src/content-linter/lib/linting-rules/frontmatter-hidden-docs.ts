@@ -1,4 +1,3 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 import type { RuleParams, RuleErrorCallback } from '../../types'
 
@@ -17,12 +16,7 @@ export const frontmatterHiddenDocs = {
     if (fm.hasExperimentalAlternative) return
 
     // Hidden docs can be located in these content directories:
-    const allowedProductPaths = [
-      'content/early-access',
-      'content/site-policy',
-      'content/search',
-      'content/video-transcripts',
-    ]
+    const allowedProductPaths = ['content/early-access', 'content/site-policy', 'content/search']
 
     if (allowedProductPaths.some((allowedPath) => params.name.includes(allowedPath))) return
 

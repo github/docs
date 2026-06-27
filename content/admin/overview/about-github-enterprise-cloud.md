@@ -1,12 +1,11 @@
 ---
 title: About GitHub Enterprise Cloud
-intro: 'Learn about {% data variables.product.prodname_ghe_cloud %}, its features, and management options for large businesses and teams.'
+intro: Learn about {% data variables.product.prodname_ghe_cloud %}, its features, and management options for large businesses and teams.
 versions:
   ghec: '*'
-type: overview
-topics:
-  - Enterprise
-  - Fundamentals
+contentType: concepts
+category:
+  - Get started with GitHub Enterprise
 ---
 
 {% data variables.product.prodname_ghe_cloud %} is a deployment option for {% data variables.product.prodname_enterprise %}, adding advanced features to {% data variables.product.prodname_dotcom %}, including:
@@ -26,6 +25,8 @@ For a full list of features included with {% data variables.product.prodname_ghe
 A key difference between {% data variables.product.prodname_ghe_cloud %} and other {% data variables.product.prodname_dotcom %} plans is access to an enterprise account, which gives administrators a central point for managing multiple organizations. See [AUTOTITLE](/admin/overview/about-enterprise-accounts).
 
 {% data reusables.enterprise.ghe-includes-ghec-and-ghes %} For more information about {% data variables.product.prodname_ghe_server %} and how it differs from {% data variables.product.prodname_ghe_cloud %}, see [AUTOTITLE](/admin/overview/about-github-for-enterprises#about-deployment-options).
+
+## About enterprise types
 
 {% data reusables.enterprise.enterprise-types %}
 

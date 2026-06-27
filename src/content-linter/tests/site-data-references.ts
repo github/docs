@@ -43,14 +43,14 @@ describe('data references', () => {
       variables.map(async (variablesPerFile) => {
         const variableRefs = getDataReferences(JSON.stringify(variablesPerFile))
 
-        variableRefs.forEach((key: string) => {
+        for (const key of variableRefs) {
           const value = getDataByLanguage(key, 'en')
           if (typeof value !== 'string') {
             const filename = getFilenameByValue(allVariables, variablesPerFile)
             const variableFile = path.join('data/variables', filename || '')
             errors.push({ key, value, variableFile })
           }
-        })
+        }
       }),
     )
 

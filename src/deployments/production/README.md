@@ -1,6 +1,6 @@
 # Production deploys
 
-For internal Docs relating to our production deploys see [TODO Docs-Engineering URL]
+
 
 ## Auto deploys
 

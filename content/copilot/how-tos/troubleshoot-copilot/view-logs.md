@@ -10,14 +10,12 @@ redirect_from:
   - /copilot/troubleshooting-github-copilot/viewing-logs-for-github-copilot-in-your-environment
   - /copilot/how-tos/troubleshoot/viewing-logs-for-github-copilot-in-your-environment
   - /copilot/how-tos/troubleshoot/view-logs
-topics:
-  - Copilot
-  - Logging
-  - Troubleshooting
 versions:
   feature: copilot
 shortTitle: View logs
 contentType: how-tos
+category:
+  - Troubleshooting Copilot
 ---
 
 {% jetbrains %}
@@ -66,6 +64,23 @@ If you find the log file doesn't contain enough information to resolve an issue,
 
 1. Keep using your IDE until you encounter the issue again, then collect the log file as described in [Collecting log files](#collecting-log-files).
 1. When you have the information you need, disable debug mode by removing `#com.github.copilot:trace` from the "Custom Debug Log Configuration" window.
+
+## Using the Agent Debug Panel
+
+> [!NOTE]
+> This feature is in {% data variables.release-phases.public_preview %} and subject to change.
+
+The Agent Debug Panel shows a chronological event log of agent interactions during a {% data variables.copilot.copilot_cli_short %} session. Use the panel to debug {% data variables.copilot.custom_agents_short %} and subagent workflows.
+
+1. Open {% data variables.copilot.copilot_chat_short %} in your JetBrains IDE.
+1. In the agent picker, select {% data variables.copilot.copilot_cli_short %}.
+1. In the top-right corner of the chat panel, click the settings icon, then click **Agent Debug Panel**.
+1. For full support across current and historical sessions, enable debug file logging.
+   1. Open **Settings**.
+   1. In the sidebar, click **Tools**, then **{% data variables.product.prodname_copilot_short %}**, then **Chat**.
+   1. Select **Enable Agent debug File Logging**.
+
+If you use {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}, ask your administrator to enable the Editor preview features policy before you use this feature.
 
 ## Viewing network connectivity diagnostics logs
 
@@ -118,6 +133,22 @@ Alternatively, you can open the log folder for {% data variables.product.prodnam
       * Use: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>
 1. Type "Logs", and then select **Developer: Open Extension Logs Folder** from the list.
 
+## Enabling debug mode
+
+If you find the log file doesn't contain enough information to resolve an issue, it may help to enable debug logging temporarily. This can be especially helpful for debugging network-related issues.
+
+1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %}
+   * For Mac:
+      * Use: <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd>
+   * For Windows or Linux:
+      * Use: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>
+1. Type "Developer", then select **Developer: Set Log Level**.
+1. Type "{% data variables.product.github %}", then select the {% data variables.product.github %} extension you're troubleshooting:
+    * **{% data variables.copilot.copilot_chat %}** for the {% data variables.copilot.copilot_chat_short %} extension.
+    * **{% data variables.product.github %}** for the {% data variables.copilot.copilot_extension %}.
+1. Select **Trace** from the dropdown list.
+1. When you have the information you need, disable debug mode by repeating steps 1 through 4 and returning the logging level to **Info**.
+
 ## Viewing network connectivity diagnostics logs
 
 If you encounter problems connecting to {% data variables.product.prodname_copilot %} due to network restrictions, firewalls, or your proxy setup, use the following troubleshooting steps.
@@ -127,7 +158,7 @@ If you encounter problems connecting to {% data variables.product.prodname_copil
       * Use: <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd>
    * For Windows or Linux:
       * Use: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>
-1. Type "Diagnostics", and then select **{% data variables.product.prodname_copilot %}: Collect Diagnostics** from the list. This opens a new editor with the relevant information that you can inspect yourself or share with the support team.
+1. Type "Diagnostics", and then select **Developer: Chat Diagnostics** from the list. This opens a new editor with the relevant information that you can inspect yourself or share with the support team.
 1. Check the section on **Reachability** to determine if {% data variables.product.prodname_copilot %} can actually access the necessary services.
 
 ## Viewing Electron logs

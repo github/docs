@@ -5,12 +5,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Projects
 shortTitle: Project visibility permissions
 allowTitleToDifferFromFilename: true
 permissions: 'Organization owners can allow {% data variables.projects.project_v2_and_v1 %} visibility changes for an organization.'
+category:
+  - Manage projects
 ---
 
 ## About visibility changes for projects
@@ -33,6 +32,4 @@ This option may not be available to you if an enterprise owner restricts visibil
 
 ## Further reading
 
-* [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects){%- ifversion projects-v1 %}
-* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)
-{% endif %}
+* [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects)

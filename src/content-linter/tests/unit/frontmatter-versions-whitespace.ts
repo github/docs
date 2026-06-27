@@ -153,7 +153,7 @@ This is a test.
 
 describe(frontmatterVersionsWhitespace.names.join(' - '), () => {
   describe('valid cases', () => {
-    validCases.forEach(({ name, content }) => {
+    for (const { name, content } of validCases) {
       test(`${name} should pass`, async () => {
         const result = await runRule(frontmatterVersionsWhitespace, {
           strings: { content },
@@ -161,11 +161,11 @@ describe(frontmatterVersionsWhitespace.names.join(' - '), () => {
         })
         expect(result.content.length).toBe(0)
       })
-    })
+    }
   })
 
   describe('invalid cases', () => {
-    invalidCases.forEach(({ name, content, expectedErrors, expectedMessage }) => {
+    for (const { name, content, expectedErrors, expectedMessage } of invalidCases) {
       test(`${name} should fail`, async () => {
         const result = await runRule(frontmatterVersionsWhitespace, {
           strings: { content },
@@ -177,7 +177,7 @@ describe(frontmatterVersionsWhitespace.names.join(' - '), () => {
           expect(result.content[0].errorDetail).toBe(expectedMessage)
         }
       })
-    })
+    }
   })
 
   describe('fixable errors', () => {

@@ -7,15 +7,16 @@ redirect_from:
   - /organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Dependency insights
 permissions: '{% data reusables.permissions.dependency-graph-view-org-insights %}'
+category:
+  - Configure organization features
 ---
 
 > [!NOTE]
 > To view organization dependency insights, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+>
+> {% data reusables.data-residency.dependency-graph-data-availability %}
 
 ## Viewing organization dependency insights
 

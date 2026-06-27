@@ -8,10 +8,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Allow issue deletion
+category:
+  - Configure organization features
 ---
 
 By default, issues cannot be deleted in an organization's repositories. An organization owner must enable this feature for all of the organization's repositories first.

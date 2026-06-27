@@ -1,4 +1,3 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
 
 import { getFrontmatter } from '@/content-linter/lib/helpers/utils'
@@ -6,7 +5,7 @@ import type { RuleParams, RuleErrorCallback, MarkdownToken } from '@/content-lin
 
 interface Frontmatter {
   layout?: string
-  [key: string]: any
+  [key: string]: unknown
 }
 
 export const codeAnnotations = {

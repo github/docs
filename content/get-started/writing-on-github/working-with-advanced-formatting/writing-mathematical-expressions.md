@@ -7,6 +7,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Mathematical expressions
+category:
+  - Write and format content
 ---
 
 ## About writing mathematical expressions

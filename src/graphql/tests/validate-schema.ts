@@ -5,6 +5,7 @@ import readJsonFile from '@/frame/lib/read-json-file'
 import { schemaValidator, previewsValidator, upcomingChangesValidator } from '../lib/validator'
 import { formatAjvErrors } from '@/tests/helpers/schemas'
 import { allVersions } from '@/versions/lib/all-versions'
+import { CATEGORIES } from '../lib/categories'
 import { GRAPHQL_DATA_DIR } from '../lib/index'
 
 const allVersionValues = Object.values(allVersions)
@@ -19,20 +20,29 @@ const upcomingChangesValidate = getJsonValidator(upcomingChangesValidator)
 describe('graphql json files', () => {
   vi.setConfig({ testTimeout: 3 * 60 * 1000 })
 
-  // The typeObj is repeated thousands of times in each .json file
-  // so use a cache of which we've already validated to speed this
-  // test up significantly.
+  // The typeObj is repeated thousands of times across the per-category files
+  // so cache validated objects to speed this test up significantly.
   const typeObjsTested = new Set<string>()
-  graphqlVersions.forEach((version) => {
-    const schemaJsonPerVersion = readJsonFile(
-      `${GRAPHQL_DATA_DIR}/${version}/schema.json`,
-    ) as Record<string, Array<{ kind: string; name: string }>>
-    // all graphql types are arrays except for queries
-    graphqlTypes.forEach((type) => {
+  for (const version of graphqlVersions) {
+    // Merge every per-category schema-*.json into one in-memory shape
+    // mirroring the legacy monolithic schema.json so the rest of the test
+    // logic stays unchanged.
+    const schemaJsonPerVersion: Record<string, Array<{ name: string }>> = {}
+    for (const type of graphqlTypes) schemaJsonPerVersion[type] = []
+    for (const category of CATEGORIES) {
+      const bucket = readJsonFile(
+        `${GRAPHQL_DATA_DIR}/${version}/schema-${category}.json`,
+      ) as Record<string, Array<{ name: string }> | undefined>
+      for (const type of graphqlTypes) {
+        const items = bucket[type]
+        if (items?.length) schemaJsonPerVersion[type].push(...items)
+      }
+    }
+    for (const type of graphqlTypes) {
       test(`${version} schemas object validation for ${type}`, () => {
-        schemaJsonPerVersion[type].forEach((typeObj) => {
+        for (const typeObj of schemaJsonPerVersion[type]) {
           const key = JSON.stringify(typeObj) + type
-          if (typeObjsTested.has(key)) return
+          if (typeObjsTested.has(key)) continue
           typeObjsTested.add(key)
 
           const { isValid, errors } = validateJson(
@@ -40,23 +50,21 @@ describe('graphql json files', () => {
             typeObj,
           )
 
-          let formattedErrors: any = errors // Can be either raw errors array or formatted string
+          let formattedErrors: string | undefined
           if (!isValid) {
-            formattedErrors = `kind: ${typeObj.kind}, name: ${typeObj.name}: ${formatAjvErrors(
-              errors || [],
-            )}`
+            formattedErrors = `name: ${typeObj.name}: ${formatAjvErrors(errors || [])}`
           }
 
           expect(isValid, formattedErrors).toBe(true)
-        })
+        }
       })
-    })
-  })
+    }
+  }
 
   test('previews object validation', () => {
-    graphqlVersions.forEach((version) => {
-      const previews = readJsonFile(`${GRAPHQL_DATA_DIR}/${version}/previews.json`) as Array<any> // GraphQL preview schema structure is dynamic
-      previews.forEach((preview) => {
+    for (const version of graphqlVersions) {
+      const previews = readJsonFile(`${GRAPHQL_DATA_DIR}/${version}/previews.json`) as unknown[]
+      for (const preview of previews) {
         const isValid = previewsValidate(preview)
         let errors: string | undefined
 
@@ -65,18 +73,18 @@ describe('graphql json files', () => {
         }
 
         expect(isValid, errors).toBe(true)
-      })
-    })
+      }
+    }
   })
 
   test('upcoming changes object validation', () => {
-    graphqlVersions.forEach((version) => {
+    for (const version of graphqlVersions) {
       const upcomingChanges = readJsonFile(
         `${GRAPHQL_DATA_DIR}/${version}/upcoming-changes.json`,
-      ) as Record<string, Array<any>> // GraphQL change object structure is dynamic
+      ) as Record<string, unknown[]>
       for (const changes of Object.values(upcomingChanges)) {
         // each object value is an array of changes
-        changes.forEach((changeObj) => {
+        for (const changeObj of changes) {
           const isValid = upcomingChangesValidate(changeObj)
           let errors: string | undefined
 
@@ -85,8 +93,8 @@ describe('graphql json files', () => {
           }
 
           expect(isValid, errors).toBe(true)
-        })
+        }
       }
-    })
+    }
   })
 })

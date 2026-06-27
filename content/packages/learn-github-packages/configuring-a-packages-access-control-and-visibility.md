@@ -10,6 +10,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Access control & visibility
+category:
+  - Publish and manage packages
 ---
 {% data reusables.package_registry.container-registry-ghes-beta %}
 
@@ -112,6 +114,12 @@ The specified repository does not need to be the repository where the source cod
 
 {% ifversion packages-inherit-permissions %}
 If you publish a package that is linked to a repository, {% data variables.product.prodname_actions %} workflows in the linked repository automatically get access to the package, unless your organization has disabled the automatic inheritance of access permissions. For more information, see [About inheritance of access permissions](#about-inheritance-of-access-permissions) above.
+{% endif %}
+
+{% ifversion org-automatic-registry-access %}
+ 
+Granting a repository access here also allows {% data variables.product.prodname_dependabot %} to pull from this package automatically, without requiring {% data variables.product.pat_generic_plural %} or `dependabot.yml` registry configuration. See [AUTOTITLE](/code-security/concepts/supply-chain-security/automatic-dependabot-access-to-github-registries).
+ 
 {% endif %}
 
 > [!NOTE]

@@ -1,16 +1,13 @@
 ---
 title: Deleting users from your instance
-intro: "You can delete a user's account to permanently remove their data from {% data variables.location.product_location %}."
+intro: You can delete a user's account to permanently remove their data from {% data variables.location.product_location %}.
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Access management
-  - Enterprise
-  - Security
-  - User account
 shortTitle: Delete a user
 permissions: Site administrators
+contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 ## What happens when I delete a user account?
@@ -40,7 +37,7 @@ As an alternative to deleting or suspending a user account, to stop a user's rep
 
 ## Deleting a user from the site admin dashboard
 
-Before deleting a user account, you should consider if a backup or copy of the repositories, private forks, wikis, issues, and pull requests owned by the user account is required. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance) and [AUTOTITLE](/repositories/archiving-a-github-repository/backing-up-a-repository).
+Before deleting a user account, you should consider if a backup or copy of the repositories, private forks, wikis, issues, and pull requests owned by the user account is required. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/about-the-backup-service-for-github-enterprise-server) and [AUTOTITLE](/repositories/archiving-a-github-repository/backing-up-a-repository).
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user %}

@@ -1,7 +1,7 @@
 ---
 title: Inviting people to manage your enterprise
-intro: 'You can {% ifversion ghec %}invite{% else %}add{% endif %} and remove enterprise owners{% ifversion ghec %} and billing managers{% endif %} for your enterprise account.'
-permissions: 'Enterprise owners can {% ifversion ghec %}invite other people to become{% elsif ghes %}add{% endif %} additional enterprise administrators.'
+intro: You can {% ifversion ghec %}invite{% else %}add{% endif %} and remove enterprise owners{% ifversion ghec %} and billing managers{% endif %} for your enterprise account.
+permissions: Enterprise owners can {% ifversion ghec %}invite other people to become{% elsif ghes %}add{% endif %} additional enterprise administrators.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
   - /github/setting-up-and-managing-your-enterprise-account/inviting-people-to-manage-your-enterprise-account
@@ -12,12 +12,10 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-type: how_to
-topics:
-  - Administrator
-  - Enterprise
-  - User account
 shortTitle: Invite people to manage
+contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 ## About administrator management
@@ -58,16 +56,21 @@ You can see all pending invitations to become an administrator of your enterpris
 
 Only enterprise owners can remove other enterprise administrators from the enterprise account.
 
-{% ifversion ghec %}
-If the administrator you want to remove is a member of any organizations owned by the enterprise, you can choose **Convert to member**, which will remove their administrative role but retain their organization memberships, or **Remove from enterprise**, which will remove both their administrative role and organization memberships.
-{% endif %}
-
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-{% data reusables.enterprise-accounts.administrators-tab %}
-1. Next to the username of the person you'd like to remove, select the {% octicon "kebab-horizontal" aria-label="Administrator settings" %} dropdown menu, then click **Convert to member**{% ifversion ghec %} or **Remove from enterprise**{% endif %}.
+{% data reusables.enterprise-accounts.administrators-tab %}{% ifversion ghes %}
+1. Next to the username of the person you'd like to remove, select the {% octicon "kebab-horizontal" aria-label="Administrator settings" %} dropdown menu, then click **Convert to member**.{% endif %}{% ifversion ghec %}
+1. Next to the username of the person you'd like to remove, select the {% octicon "kebab-horizontal" aria-label="Administrator settings" %} dropdown menu.
+
    ![Screenshot of a user in the enterprise administrators list. A dropdown menu, labeled with a kebab icon, is highlighted with an orange outline.](/assets/images/help/business-accounts/administrator-settings.png)
-1. Read the confirmation, then click **Yes, convert USERNAME to member**{% ifversion ghec %} or **Yes, remove USERNAME**{% endif %}.
+
+1. Choose one of the following:
+
+   * **Remove from enterprise**: Removes both the administrative role and all organization memberships.
+   * **Convert to member**: Removes the administrative role but keeps the user’s organization memberships.
+   * **Change role**, and then **Unaffiliated member**: If the user has no organization memberships, removes the administrative role but keeps the user in the enterprise as an unaffiliated member.{% endif %}
+
+1. Read the confirmation message, then confirm.
 
 ## Further reading
 

@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavList } from '@primer/react'
 
 import { ProductTreeNode, useMainContext } from '@/frame/components/context/MainContext'
 import { useAutomatedPageContext } from '@/automated-pipelines/components/AutomatedPageContext'
 import { nonAutomatedRestPaths } from '@/rest/lib/config'
 
-import styles from './SidebarProduct.module.css'
+import styles from './SidebarProduct.module.scss'
 
 export const SidebarProduct = () => {
   const router = useRouter()
@@ -133,26 +133,24 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
     if (nonAutomatedRestPaths.every((item: string) => !asPath.includes(item))) {
       const observer = new IntersectionObserver(
         (entries) => {
-          entries.forEach((entry) => {
+          for (const entry of entries) {
             if (entry.target.id) {
-              const anchor = '#' + entry.target.id.split('--')[0]
+              const anchor = `#${entry.target.id.split('--')[0]}`
               if (entry.isIntersecting === true) setVisibleAnchor(anchor)
             } else if (asPath.includes('#')) {
-              setVisibleAnchor('#' + asPath.split('#')[1])
+              setVisibleAnchor(`#${asPath.split('#')[1]}`)
             } else {
               setVisibleAnchor('')
             }
-          })
+          }
         },
         { rootMargin: '0px 0px -85% 0px' },
       )
-      // TODO: When we add the ## About the {title} API to each operation
-      // we can remove the h2 here
       const headingsList = Array.from(document.querySelectorAll('h2, h3'))
 
-      headingsList.forEach((heading) => {
+      for (const heading of headingsList) {
         observer.observe(heading)
-      })
+      }
 
       return () => {
         observer.disconnect()
@@ -174,7 +172,8 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
               <NavList.Item
                 defaultOpen={routePath.includes(childPage.href)}
                 key={childPage.href}
-                onClick={(event) => {
+                // Using React.MouseEvent because Primer React's NavList doesn't export proper event types
+                onClick={(event: React.MouseEvent<HTMLElement>) => {
                   event.preventDefault()
                   push(childPage.href)
                 }}

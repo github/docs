@@ -11,9 +11,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Collaborative development
+category:
+  - Create pull requests
 ---
 ## Fork and pull model
 

@@ -1,3 +1,7 @@
+/**
+ * @purpose Writer tool
+ * @description Create or remove a release candidate banner for a GHES version
+ */
 // [start-readme]
 //
 // This script creates or removes a release candidate banner for a specified version.
@@ -9,7 +13,7 @@ import { program } from 'commander'
 
 import { allVersions } from '@/versions/lib/all-versions'
 
-const releaseCandidateJSFile = 'src/versions/lib/enterprise-server-releases.js'
+const releaseCandidateJSFile = 'src/versions/lib/enterprise-server-releases.ts'
 const allowedActions = ['create', 'remove'] as const
 
 type AllowedAction = (typeof allowedActions)[number]
@@ -68,7 +72,9 @@ async function main(): Promise<void> {
 `)
 }
 
-main().catch((error) => {
+try {
+  await main()
+} catch (error) {
   console.error('Error:', error)
   process.exit(1)
-})
+}

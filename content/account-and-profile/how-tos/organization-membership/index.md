@@ -11,14 +11,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
 children:
   - /accessing-an-organization
   - /viewing-peoples-roles-in-an-organization
   - /requesting-organization-approval-for-oauth-apps
   - /publicizing-or-hiding-organization-membership
   - /removing-yourself-from-an-organization
+  - /removing-yourself-from-an-enterprise
 shortTitle: Organization membership
 contentType: how-tos
 ---

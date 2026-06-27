@@ -3,16 +3,7 @@ import dereferenceJsonSchema from 'dereference-json-schema'
 import { existsSync } from 'fs'
 import { readFile, readdir } from 'fs/promises'
 
-// OpenAPI 3.0 schema interface with the properties we need to access
-// The dereference-json-schema library returns a DereferencedJSONSchema type
-// but the actual object contains OpenAPI-specific properties that aren't in that type
-interface OpenAPISchema {
-  openapi?: string
-  info?: any
-  servers?: any[]
-  paths?: Record<string, Record<string, any>>
-  [key: string]: any
-}
+import type { OpenApiSchema, OpenApiServer } from './openapi-types'
 
 export const MODELS_GATEWAY_ROOT = 'models-gateway'
 const MODELS_GATEWAY_PATH = 'docs/api'
@@ -21,7 +12,10 @@ const MODELS_GATEWAY_PATH = 'docs/api'
 // We "inject" the descriptions from that repo into the core GitHub API descriptions so that
 // from the perspective of our app code,
 // models descriptions are part of the same REST API schema and don't need additional processing
-export async function injectModelsSchema(schema: any, schemaName: string): Promise<any> {
+export async function injectModelsSchema(
+  schema: OpenApiSchema,
+  schemaName: string,
+): Promise<OpenApiSchema> {
   if (!schemaName.includes('fpt')) {
     return schema
   }
@@ -44,15 +38,15 @@ export async function injectModelsSchema(schema: any, schemaName: string): Promi
     const yamlContent = await readFile(endpointPath, 'utf8')
     const loadedYaml = yaml.load(yamlContent) as {
       openapi: string
-      info: any
-      servers: any[]
-      paths: { [x: string]: any }
+      info?: unknown
+      servers?: OpenApiServer[]
+      paths?: Record<string, Record<string, unknown>>
     }
     const deferencedYaml = dereferenceJsonSchema.dereferenceSync(loadedYaml)
 
     // Copy over top-level OpenAPI fields
-    // Cast to OpenAPISchema because dereference-json-schema doesn't include OpenAPI-specific properties in its type
-    const openApiYaml = deferencedYaml as OpenAPISchema
+    // Cast to OpenApiSchema because dereference-json-schema doesn't include OpenAPI-specific properties in its type
+    const openApiYaml = deferencedYaml as unknown as OpenApiSchema
     schema.openapi = schema.openapi || openApiYaml.openapi
     schema.info = schema.info || openApiYaml.info
     schema.servers = schema.servers || openApiYaml.servers
@@ -64,36 +58,18 @@ export async function injectModelsSchema(schema: any, schemaName: string): Promi
 
         // Use values from the YAML where possible
         const name = operationObject.summary || ''
-        const description = operationObject.description || ''
-        const category = operationObject['x-github']?.category || 'models'
 
         console.log(`⏳ Processing operation: ${name} (${path} ${operation})`)
 
-        // Create enhanced operation preserving all original fields
-        // TODO this should be cleaned up, most can be removed
+        // Create enhanced operation with custom fields needed for our REST docs
+        // The spread operator preserves all original OpenAPI fields
         const enhancedOperation = {
-          ...operationObject, // Keep all original fields
-          operationId: operationObject.operationId, // Preserve original operationId with namespace
-          tags: operationObject.tags || ['models'], // Only use 'models' if no tags present
+          ...operationObject,
+          // Add custom fields for our docs processing
           verb: operation,
           requestPath: path,
-          category: category,
-          subcategory: operationObject['x-github']?.subcategory || '',
-          summary: name,
-          description: description,
-          'x-github': {
-            ...operationObject['x-github'], // Preserve all x-github metadata
-            category: category,
-            enabledForGitHubApps: operationObject['x-github']?.enabledForGitHubApps,
-            githubCloudOnly: operationObject['x-github']?.githubCloudOnly,
-            permissions: operationObject['x-github']?.permissions || {},
-            externalDocs: operationObject['x-github']?.externalDocs || {},
-          },
-          parameters: operationObject.parameters || [],
-          responses: {
-            ...operationObject.responses,
-            '200': operationObject.responses?.['200'],
-          },
+          // Override tags with default if not present
+          tags: operationObject.tags || ['models'],
         }
 
         // Preserve operation-level servers if present
@@ -103,6 +79,7 @@ export async function injectModelsSchema(schema: any, schemaName: string): Promi
         }
 
         // Add the enhanced operation to the schema
+        if (!schema.paths) schema.paths = {}
         schema.paths[path] = schema.paths[path] || {}
         schema.paths[path][operation] = enhancedOperation
 

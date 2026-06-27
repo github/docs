@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-the-default-branch-name-for-your-repositories
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories
@@ -16,6 +14,8 @@ redirect_from:
   - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories
 shortTitle: Manage default branch name
 contentType: other
+category:
+  - Manage access and repository policies
 ---
 ## About management of the default branch name
 
@@ -27,7 +27,7 @@ When you create a new repository on {% data variables.product.github %}, the rep
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.repo-tab %}
-1. In the text field, type the default name that you would like to use for new branches.
+1. In the text field, type the default name that you would like to use for new repositories.
 1. Click **Update**.
 
 ## Further reading

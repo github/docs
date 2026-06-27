@@ -243,7 +243,7 @@ describe('getProgAccessData', () => {
   })
 })
 
-// Helper function to simulate the data processing logic from sync.js
+// Helper function to simulate the data processing logic from sync.ts
 // without needing to set up the full file system or remote API calls
 async function processProgAccessDataMock(
   progAccessDataRaw: ProgAccessDataRaw[],

@@ -1,23 +1,23 @@
 ---
 title: Using a staging environment
-intro: 'Learn about using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_ghe_server %} staging instances.'
+intro: Learn about using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_ghe_server %} staging instances.
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Actions
-  - Enterprise
-  - Infrastructure
-  - Upgrades
 redirect_from:
   - /admin/github-actions/using-a-staging-environment
   - /admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment
 shortTitle: Use staging environment
+contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About staging environments for {% data variables.product.prodname_ghe_server %}
 
 It can be useful to have a staging or testing environment for {% data variables.location.product_location %}, so that you can test updates or new features before implementing them in your production environment. For more information, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance).
+
+> [!TIP]
+> If you are migrating {% data variables.product.prodname_actions %} external storage to a new bucket, account, or region on the same provider, rehearse the migration in a staging environment first. See [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/migrating-github-actions-external-storage).
 
 ## Using a staging environment with {% data variables.product.prodname_actions %}
 

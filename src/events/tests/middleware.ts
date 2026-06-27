@@ -1,11 +1,12 @@
 import { describe, expect, test, vi } from 'vitest'
 
 import { post } from '@/tests/helpers/e2etest'
+import { contentTypesEnum } from '@/frame/lib/frontmatter'
 
 describe('POST /events', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 
-  async function checkEvent(data: any) {
+  async function checkEvent(data: unknown) {
     if (!Array.isArray(data)) {
       data = [data]
     }
@@ -52,6 +53,9 @@ describe('POST /events', () => {
       // Location information
       timezone: -7,
       user_language: 'en-US',
+      ip: '192.0.2.1',
+      user_agent:
+        'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36',
     },
   }
 
@@ -88,6 +92,9 @@ describe('POST /events', () => {
       // Location information
       timezone: -7,
       user_language: 'en-US',
+      ip: '192.0.2.1',
+      user_agent:
+        'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36',
     },
   }
 
@@ -154,6 +161,86 @@ describe('POST /events', () => {
         ...pageExample.context,
         token: 'zxcv',
       },
+    })
+    expect(statusCode).toBe(400)
+  })
+
+  test('should accept content_type field', async () => {
+    const { statusCode } = await checkEvent({
+      ...pageExample,
+      context: {
+        ...pageExample.context,
+        content_type: 'how-tos',
+      },
+    })
+    expect(statusCode).toBe(200)
+  })
+
+  test('should accept valid content_type values from EDI content models', async () => {
+    for (const contentType of contentTypesEnum) {
+      const { statusCode } = await checkEvent({
+        ...pageExample,
+        context: {
+          ...pageExample.context,
+          content_type: contentType,
+        },
+      })
+      expect(statusCode).toBe(200)
+    }
+  })
+
+  test('should accept a link event with markdown-source-menu container', async () => {
+    const { statusCode } = await checkEvent({
+      type: 'link',
+      context: pageExample.context,
+      link_url: 'https://docs.github.com/api/article/body?pathname=/en/copilot/overview',
+      link_samesite: false,
+      link_container: 'markdown-source-menu',
+    })
+    expect(statusCode).toBe(200)
+  })
+
+  test('should reject a link event with an invalid link_container', async () => {
+    const { statusCode } = await checkEvent({
+      type: 'link',
+      context: pageExample.context,
+      link_url: 'https://docs.github.com/api/article/body?pathname=/en/copilot/overview',
+      link_samesite: false,
+      link_container: 'not-a-valid-container',
+    })
+    expect(statusCode).toBe(400)
+  })
+
+  test('should accept a tableInteraction filter event', async () => {
+    const { statusCode } = await checkEvent({
+      type: 'tableInteraction',
+      context: pageExample.context,
+      table_interaction_name: 'secret-scanning-patterns',
+      table_interaction_type: 'filter',
+      table_interaction_field_name: 'pushProtection',
+      table_interaction_field_value: 'yes',
+    })
+    expect(statusCode).toBe(200)
+  })
+
+  test('should accept a tableInteraction event without optional fields', async () => {
+    const { statusCode } = await checkEvent({
+      type: 'tableInteraction',
+      context: pageExample.context,
+      table_interaction_name: 'secret-scanning-patterns',
+      table_interaction_type: 'reset',
+    })
+    expect(statusCode).toBe(200)
+  })
+
+  test('should reject a tableInteraction event with an invalid interaction type', async () => {
+    const { statusCode } = await checkEvent({
+      type: 'tableInteraction',
+      context: pageExample.context,
+      table_interaction_name: 'secret-scanning-patterns',
+      table_interaction_type: 'not-a-valid-type',
+      table_interaction_field_name: 'pushProtection',
+      table_interaction_field_value: 'yes',
     })
     expect(statusCode).toBe(400)
   })

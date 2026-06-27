@@ -9,8 +9,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
+category:
+  - Manage, move, and archive a repository
 ---
 When you rename a repository, all existing information, with the exception of project site URLs, is automatically redirected to the new name, including:
 

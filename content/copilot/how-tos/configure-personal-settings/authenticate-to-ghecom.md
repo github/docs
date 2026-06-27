@@ -5,13 +5,13 @@ intro: 'Update your development environment to access a {% data variables.produc
 versions:
   feature: copilot
 defaultTool: vscode
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom
   - /copilot/how-tos/personal-settings/using-github-copilot-with-an-account-on-ghecom
   - /copilot/how-tos/personal-settings/authenticate-to-ghecom
 contentType: how-tos
+category:
+  - Configure Copilot
 ---
 
 To use {% data variables.product.prodname_copilot %} in an IDE or the command line, you must authenticate to an account on {% data variables.product.github %} that has a {% data variables.product.prodname_copilot_short %} license.
@@ -53,10 +53,12 @@ If you ever need to switch to an account on {% data variables.product.prodname_d
 To authenticate to {% data variables.enterprise.data_residency_site %} in a JetBrains editor, you must install version 1.4.11 or later of the {% data variables.product.prodname_copilot_short %} extension. You must then configure the extension to work with {% data variables.enterprise.data_residency_site %}.
 
 1. To open the editor preferences or settings dialog, press <kbd>Command</kbd>+<kbd>,</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd> (Windows).
-1. In the left sidebar, expand the "Languages & Frameworks" section, then click **{% data variables.product.prodname_copilot %}**.
-1. In the "Authentication Provider" field, enter the hostname where you access {% data variables.product.github %}. For example: `{% data variables.enterprise.data_residency_example_domain %}`.
+1. In the left sidebar, expand the "Tools" section, then click **{% data variables.product.prodname_copilot %}**.
+1. In the "General" section, look for the "Authentication Provider" field and enter the hostname where you access {% data variables.product.github %}. For example: `{% data variables.enterprise.data_residency_example_domain %}`.
 1. To save your changes, click **OK**.
-1. To sign in, open the **Tools** menu, then select **{% data variables.product.prodname_copilot %}** > **Login to {% data variables.product.github %}**. Follow the prompts to sign in.
+1. Follow the prompts to sign in to use {% data variables.product.prodname_copilot %}.
+
+To sign in and out of {% data variables.product.github %} at any time, click the **{% data variables.copilot.copilot_chat_short %}** icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar, then click **Login to {% data variables.product.github %}**. Follow the prompts to sign in.
 
 If you ever need to switch to an account on {% data variables.product.prodname_dotcom_the_website %}, remove the value you entered in the "Authentication Provider" field.
 
@@ -73,29 +75,25 @@ If you ever need to switch to an account on {% data variables.product.prodname_d
 
 {% endxcode %}
 
-{% cli %}
+{% copilotcli %}
 
 ## Authenticating from the command line
 
-To use the `gh-copilot` extension for the {% data variables.product.prodname_cli %}, you must:
+To use {% data variables.copilot.copilot_cli_short %}, you must:
 
-1. Download and install the extension. To do this, you must be authenticated to an account on {% data variables.product.prodname_dotcom_the_website %}. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-github-copilot-in-the-cli#installing-copilot-in-the-cli).
-1. Authenticate to the account on {% data variables.enterprise.data_residency_site %} where you receive your {% data variables.product.prodname_copilot_short %} license.
+1. Download and install {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli).
+1. Authenticate to the account on {% data variables.enterprise.data_residency_site %} where you receive your {% data variables.product.prodname_copilot_short %} license with `copilot login --host {% data variables.enterprise.data_residency_domain %}`.
 
-{% data variables.product.prodname_dotcom_the_website %} is the default destination of {% data variables.product.prodname_cli %} requests. To use `gh copilot`, you must ensure requests are sent to {% data variables.enterprise.data_residency_site %}, where you receive your license. You have the following options:
-* Include the flag `--hostname SUBDOMAIN.ghe.com` in all `gh copilot` commands.
-* Set the `GH_HOST` environment variable to change the default host for all {% data variables.product.prodname_cli %} commands.
-* Sign out of {% data variables.product.prodname_dotcom_the_website %} with `gh auth logout`. However, you will need to sign back in to get updates to `gh-copilot`.
 
-For general information on using the {% data variables.product.prodname_cli %} across platforms, see [AUTOTITLE](/github-cli/github-cli/using-multiple-accounts).
+For general information on using {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/how-tos/copilot-cli).
 
-{% endcli %}
+{% endcopilotcli %}
 
 {% visualstudio %}
 
 ## Authenticating from Visual Studio
 
-To authenticate from Visual Studio, follow the steps in [Add your GitHub accounts to your Visual Studio keychain](https://learn.microsoft.com/en-us/visualstudio/ide/work-with-github-accounts?view=vs-2022#enabling-github-enterprise-accounts) on Microsoft Learn.
+To authenticate from Visual Studio, follow the steps in [Add your GitHub accounts to your Visual Studio keychain](https://learn.microsoft.com/en-us/visualstudio/ide/work-with-github-accounts?view=vs-2022&ref_product=copilot&ref_type=engagement&ref_style=text&ref_plan=enterprise#enabling-github-enterprise-accounts) on Microsoft Learn.
 
 For the "{% data variables.product.prodname_enterprise %} URL" field, enter the URL where you access {% data variables.product.github %}. For example: `https://{% data variables.enterprise.data_residency_example_domain %}`.
 

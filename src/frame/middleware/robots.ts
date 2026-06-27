@@ -17,7 +17,7 @@ export default function robots(req: ExtendedRequest, res: Response, next: NextFu
 
   const host = req.get('x-host') || req.get('x-forwarded-host') || req.get('host')
 
-  // only include robots.txt when it's our production domain and adding localhost for robots-txt.js test
+  // only include robots.txt when it's our production domain and adding localhost for robots-txt.ts test
   if (
     host === 'docs.github.com' ||
     req.hostname === 'docs.github.com' ||

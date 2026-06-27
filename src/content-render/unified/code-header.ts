@@ -7,55 +7,60 @@ import yaml from 'js-yaml'
 import fs from 'fs'
 import { visit } from 'unist-util-visit'
 import { h } from 'hastscript'
-// @ts-ignore - no types available for @primer/octicons
 import octicons from '@primer/octicons'
 import { parse } from 'parse5'
 import { fromParse5 } from 'hast-util-from-parse5'
 import murmur from 'imurmurhash'
 import { getPrompt } from './copilot-prompt'
-import type { Element } from 'hast'
+import { generatePromptId } from '../lib/prompt-id'
+import type { Element, Root } from 'hast'
 
 interface LanguageConfig {
   name: string
-  [key: string]: any
+  [key: string]: string | string[] | boolean | undefined
 }
 
 type Languages = Record<string, LanguageConfig>
 
 const languages = yaml.load(fs.readFileSync('./data/code-languages.yml', 'utf8')) as Languages
 
-// Using any due to conflicting unist/hast type definitions between dependencies
-const matcher = (node: any): boolean =>
-  node.type === 'element' &&
-  node.tagName === 'pre' &&
-  // For now, limit to ones with the copy or prompt meta,
-  // but we may enable for all examples later.
-  (getPreMeta(node).copy || getPreMeta(node).prompt) &&
-  // Don't add this header for annotated examples.
-  !getPreMeta(node).annotate
-
 export default function codeHeader() {
-  // Using any due to conflicting unist/hast type definitions between dependencies
-  return (tree: any) => {
-    // Using any due to conflicting unist/hast type definitions between dependencies
-    visit(tree, matcher, (node: any, index: number | undefined, parent: any) => {
-      if (index !== undefined && parent) {
-        parent.children[index] = wrapCodeExample(node, tree)
+  return (tree: Root) => {
+    visit(tree, 'element', (node, index, parent) => {
+      const el = node as Element
+      if (
+        el.tagName !== 'pre' ||
+        !(getPreMeta(el).copy || getPreMeta(el).prompt) ||
+        getPreMeta(el).annotate
+      )
+        return
+      if (index !== undefined && parent && 'children' in parent) {
+        ;(parent as Element).children[index] = wrapCodeExample(el, tree)
       }
     })
   }
 }
 
-// Using any due to conflicting unist/hast type definitions between dependencies
-function wrapCodeExample(node: any, tree: any): Element {
-  const lang: string = node.children[0].properties.className?.[0].replace('language-', '')
-  const code: string = node.children[0].children[0].value
+function wrapCodeExample(node: Element, tree: Root): Element {
+  const codeChild = node.children[0] as Element
+  const classNames = codeChild.properties.className as string[] | undefined
+  const lang: string = classNames?.[0]?.replace('language-', '') ?? ''
+  const textNode = codeChild.children[0] as { value: string }
+  const code: string = textNode.value
 
-  const subnav = null // getSubnav() lives in annotate.js, not needed for normal code blocks
-  const prompt = getPrompt(node, tree, code) // returns null if there's no prompt
+  const subnav = null // getSubnav() lives in annotate.ts, not needed for normal code blocks
+  const hasPrompt: boolean = Boolean(getPreMeta(node).prompt)
+  const promptResult = hasPrompt ? getPrompt(node, tree, code) : null
   const hasCopy: boolean = Boolean(getPreMeta(node).copy) // defaults to true
 
-  const headerHast = header(lang, code, subnav, prompt, hasCopy)
+  const headerHast = header(
+    lang,
+    code,
+    subnav,
+    promptResult?.element ?? null,
+    hasCopy,
+    promptResult?.promptContent,
+  )
 
   return h('div', { className: 'code-example' }, [headerHast, node])
 }
@@ -66,6 +71,7 @@ export function header(
   subnav: Element | null = null,
   prompt: Element | null = null,
   hasCopy: boolean = true,
+  promptContent?: string,
 ): Element {
   const codeId: string = murmur('js-btn-copy').hash(code).result().toString()
 
@@ -100,6 +106,9 @@ export function header(
           )
         : null,
       h('pre', { hidden: true, 'data-clipboard': codeId }, code),
+      promptContent
+        ? h('pre', { hidden: true, id: generatePromptId(promptContent) }, promptContent)
+        : null,
     ],
   )
 }
@@ -107,14 +116,14 @@ export function header(
 function btnIcon(): Element {
   const btnIconHtml: string = octicons.copy.toSVG()
   const btnIconAst = parse(String(btnIconHtml), { sourceCodeLocationInfo: true })
-  // @ts-ignore - fromParse5 file option typing issue
-  const btnIcon = fromParse5(btnIconAst, { file: btnIconHtml })
-  return btnIcon as Element
+  const btnIconElement = fromParse5(btnIconAst)
+  return btnIconElement as Element
 }
 
-// Using any due to conflicting unist/hast type definitions between dependencies
-export function getPreMeta(node: any): Record<string, any> {
+// node can be various hast element types, return value contains meta properties from code blocks
+export function getPreMeta(node: Element): Record<string, unknown> {
   // Here's why this monstrosity works:
   // https://github.com/syntax-tree/mdast-util-to-hast/blob/c87cd606731c88a27dbce4bfeaab913a9589bf83/lib/handlers/code.js#L40-L42
-  return node.children[0]?.data?.meta || {}
+  const firstChild = node.children[0] as Element | undefined
+  return (firstChild?.data as Record<string, Record<string, unknown>> | undefined)?.meta || {}
 }

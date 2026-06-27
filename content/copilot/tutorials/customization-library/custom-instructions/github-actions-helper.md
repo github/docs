@@ -1,6 +1,6 @@
 ---
 title: GitHub Actions helper
-intro: 'Generate and improve {% data variables.product.prodname_actions %} workflows.'
+intro: Generate and improve {% data variables.product.prodname_actions %} workflows.
 versions:
   feature: copilot
 category:
@@ -8,12 +8,12 @@ category:
   - GitHub flows
   - Path-specific
   - Repository
+  - Configure Copilot
+  - Scale institutional knowledge
 complexity:
   - Simple
 octicon: book
-topics:
-  - Copilot
-  - Actions
+contentType: tutorials
 ---
 
 {% data reusables.copilot.customization-examples-note %}

@@ -5,6 +5,8 @@ versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can edit assignments for that classroom. {% data reusables.classroom.classroom-admins-link %}'
 shortTitle: Edit an assignment
+category:
+  - Create and manage assignments
 ---
 ## About editing assignments
 

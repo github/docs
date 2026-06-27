@@ -7,9 +7,8 @@ redirect_from:
   - /site-policy/github-terms/github-copilot-pre-release-license-terms
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
+category:
+  - Review product and program terms
 ---
 
 ## GitHub Pre-release License Terms
@@ -64,7 +63,7 @@ These terms apply to the pre-release software made available to you by GitHub. T
   * For pre-release software that uses AI:
       * You retain ownership of the code that you input to the software.
       * GitHub does not own the output sent to you by the software.
-      * GitHub will not use your inputs or the outputs generated to train AI language models, unless you have instructed us in writing to do so.
+      * GitHub will not use Copilot Business or Copilot Enterprise Inputs or the Outputs generated to train AI language models, unless you have instructed us in writing to do so.
 
   c. **Processing of Personal Data.** GitHub is the data controller in relation to the Personal Data processed in connection with the pre-release software.
 

@@ -10,6 +10,9 @@ redirect_from:
   - /actions/using-jobs/using-conditions-to-control-job-execution
   - /actions/writing-workflows/choosing-when-your-workflow-runs/using-conditions-to-control-job-execution
   - /actions/how-tos/writing-workflows/choosing-when-your-workflow-runs/using-conditions-to-control-job-execution
+category:
+  - Write workflows
+contentType: how-tos
 ---
 
 You can use the `jobs.<job_id>.if` conditional to prevent a job from running unless a condition is met. {% data reusables.actions.if-supported-contexts %}
@@ -37,3 +40,9 @@ Skipped jobs display the message "This check was skipped."
 
 > [!NOTE]
 > A job that is skipped will report its status as "Success". It will not prevent a pull request from merging, even if it is a required check.
+
+{% ifversion fpt or ghec %}
+
+To debug why a job was skipped or ran unexpectedly, you can view job condition expression logs. For more information, see [AUTOTITLE](/actions/how-tos/monitor-workflows/view-job-condition-logs).
+
+{% endif %}

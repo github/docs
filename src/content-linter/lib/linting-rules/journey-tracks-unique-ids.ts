@@ -1,4 +1,3 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 
 import { getFrontmatter } from '../helpers/utils'
@@ -11,9 +10,11 @@ export const journeyTracksUniqueIds = {
   tags: ['frontmatter', 'journey-tracks', 'unique-ids'],
   function: function GHD060(params: RuleParams, onError: RuleErrorCallback) {
     // Using any for frontmatter as it's a dynamic YAML object with varying properties
-    const fm: any = getFrontmatter(params.lines)
-    if (!fm || !fm.journeyTracks || !Array.isArray(fm.journeyTracks)) return
-    if (!fm.layout || fm.layout !== 'journey-landing') return
+    const fm: unknown = getFrontmatter(params.lines)
+    if (!fm || typeof fm !== 'object' || !('journeyTracks' in fm)) return
+    const fmObj = fm as Record<string, unknown>
+    if (!Array.isArray(fmObj.journeyTracks)) return
+    if (!('layout' in fmObj) || fmObj.layout !== 'journey-landing') return
 
     // Find the base journeyTracks line
     const journeyTracksLine: string | undefined = params.lines.find((line: string) =>
@@ -38,7 +39,7 @@ export const journeyTracksUniqueIds = {
           trackCount++
 
           // Stop once we've found all the tracks we know exist
-          if (fm && fm.journeyTracks && trackCount >= fm.journeyTracks.length) {
+          if (Array.isArray(fmObj.journeyTracks) && trackCount >= fmObj.journeyTracks.length) {
             break
           }
         }
@@ -49,11 +50,13 @@ export const journeyTracksUniqueIds = {
     // Track seen journey track IDs and line number for error reporting
     const seenIds = new Map<string, number>()
 
-    fm.journeyTracks.forEach((track: any, index: number) => {
-      if (!track || typeof track !== 'object') return
+    for (let index = 0; index < fmObj.journeyTracks.length; index++) {
+      const track: unknown = fmObj.journeyTracks[index]
+      if (!track || typeof track !== 'object' || !('id' in track)) continue
 
-      const trackId = track.id
-      if (!trackId || typeof trackId !== 'string') return
+      const trackObj = track as Record<string, unknown>
+      const trackId = trackObj.id
+      if (!trackId || typeof trackId !== 'string') continue
 
       const currentLineNumber = getTrackLineNumber(index)
 
@@ -67,6 +70,6 @@ export const journeyTracksUniqueIds = {
       } else {
         seenIds.set(trackId, currentLineNumber)
       }
-    })
+    }
   },
 }

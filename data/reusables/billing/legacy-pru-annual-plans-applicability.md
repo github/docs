@@ -1,0 +1,1 @@
+> [!IMPORTANT] This article only applies to {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %} subscribers on an existing annual plan who remained on legacy premium request-based billing after June 1, 2026.

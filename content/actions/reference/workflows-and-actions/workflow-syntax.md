@@ -15,6 +15,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Write workflows
+contentType: reference
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -276,7 +279,7 @@ The value of this parameter is a string specifying the data type of the input. T
 
 ## How permissions are calculated for a workflow job
 
-The permissions for the `GITHUB_TOKEN` are initially set to the default setting for the enterprise, organization, or repository. If the default is set to the restricted permissions at any of these levels then this will apply to the relevant repositories. For example, if you choose the restricted default at the organization level then all repositories in that organization will use the restricted permissions as the default. The permissions are then adjusted based on any configuration within the workflow file, first at the workflow level and then at the job level. Finally, if the workflow was triggered by a pull request from a forked repository, and the **Send write tokens to workflows from pull requests** setting is not selected, the permissions are adjusted to change any write permissions to read only.
+The permissions for the `GITHUB_TOKEN` are initially set to the default setting for the enterprise, organization, or repository. If the default is set to the restricted permissions at any of these levels then this will apply to the relevant repositories. For example, if you choose the restricted default at the organization level then all repositories in that organization will use the restricted permissions as the default. The permissions are then adjusted based on any configuration within the workflow file, first at the workflow level and then at the job level. Finally, if the workflow was triggered by a pull request event other than `pull_request_target` from a forked repository, and the **Send write tokens to workflows from pull requests** setting is not selected, the permissions are adjusted to change any write permissions to read only.
 
 ### Setting the `GITHUB_TOKEN` permissions for all jobs in a workflow
 
@@ -382,6 +385,14 @@ env:
 ### Choosing runners in a group
 
 {% data reusables.actions.jobs.choosing-runner-group %}
+
+{% ifversion not ghes %}
+
+## `jobs.<job_id>.snapshot`
+
+{% data reusables.actions.jobs.choosing-runner-custom-images %}
+
+{% endif %}
 
 ## `jobs.<job_id>.environment`
 
@@ -642,7 +653,9 @@ jobs:
 
 ### Example: Using an action inside a different private repository than the workflow
 
-Your workflow must checkout the private repository and reference the action locally. Generate a {% data variables.product.pat_generic %} and add the token as a secret. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) and [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
+If the action is in an internal repository, or in a private repository configured to allow access from your workflow's repository, you can reference the action directly. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository) and [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository).
+
+If the action isn't in a repository configured to allow access, you need to check out the repository and reference the action locally. Generate a {% data variables.product.pat_generic %} and add the token as a secret. The following example shows this method for referencing an action. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) and [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
 
 Replace `PERSONAL_ACCESS_TOKEN` in the example with the name of your secret.
 
@@ -890,6 +903,143 @@ The maximum number of minutes to run the step before killing the process. Maximu
 
 Fractional values are not supported. `timeout-minutes` must be a positive integer.
 
+{% ifversion actions-nga %}
+
+## `jobs.<job_id>.steps[*].background`
+
+Runs a step asynchronously so the job continues to the next step without waiting for it to finish. Use `background: true` for long-running processes, such as databases, servers, or monitoring tasks, that need to run alongside other steps. You synchronize with background steps later using [`wait`](#jobsjob_idstepswait) or [`wait-all`](#jobsjob_idstepswait-all) or stop them with [`cancel`](#jobsjob_idstepscancel).
+
+You can use `background` on steps that use `run` or `uses`. To reference a background step from [`wait`](#jobsjob_idstepswait) or [`cancel`](#jobsjob_idstepscancel), give it an [`id`](#jobsjob_idstepsid). A maximum of 10 background steps can run concurrently in a single job; additional background steps are queued until a slot is free.
+
+Outputs and environment changes from a background step are only available after you run a `wait` or `wait-all` step that includes it. If a background step fails, the job fails at the next `wait` or `wait-all` that includes it (unless [`continue-on-error`](#jobsjob_idstepscontinue-on-error) is set on that step). An implicit `wait-all` runs before any post-job cleanup.
+
+Use `background` when you need fine-grained control: starting a long-running process (like a server or database) that stays up while later steps run, referencing a specific step with [`wait`](#jobsjob_idstepswait) or [`cancel`](#jobsjob_idstepscancel), or interleaving background work with other steps. If you instead have a self-contained group of steps that should all finish before the job continues, [`parallel`](#jobsjob_idstepsparallel) is a more convenient shorthand.
+
+### Example: Running a step in the background
+
+```yaml
+steps:
+  - name: Start server
+    id: server
+    run: npm start
+    background: true
+
+  - name: Run tests against the server
+    run: npm test
+
+  - name: Wait for the server step to finish
+    wait: server
+```
+
+## `jobs.<job_id>.steps[*].wait`
+
+Pauses the job until one or more background steps complete. A `wait` step performs no work itself, it only blocks until the referenced background steps finish. Provide a single step `id` as a string, or multiple step `id`s as an array.
+
+After a `wait` step completes, the outputs of the referenced background steps become available to subsequent steps. If a referenced background step failed, the `wait` step fails too.
+
+### Example: Waiting for specific background steps
+
+```yaml
+steps:
+  - name: Build frontend
+    id: build-frontend
+    run: npm run build:frontend
+    background: true
+
+  - name: Build backend
+    id: build-backend
+    run: npm run build:backend
+    background: true
+
+  - name: Run linter while builds run
+    run: npm run lint
+
+  - name: Wait for both builds to finish
+    wait: [build-frontend, build-backend]
+
+  - name: Run tests
+    run: npm test
+```
+
+## `jobs.<job_id>.steps[*].wait-all`
+
+Pauses the job until all active background steps complete. This is useful when several background steps are running and you want them all to finish before continuing. Like `wait`, the `wait-all` step fails if any of the background steps it waits on failed, unless you set [`continue-on-error`](#jobsjob_idstepscontinue-on-error) to `true`.
+
+The `wait-all` keyword takes no arguments.
+
+### Example: Waiting for all background steps
+
+```yaml
+steps:
+  - name: Start database
+    id: db
+    run: docker run -d postgres:15
+    background: true
+
+  - name: Start cache
+    id: cache
+    run: docker run -d redis:7
+    background: true
+
+  - name: Run integration tests
+    run: npm run test:integration
+
+  - name: Wait for all services to stop
+    wait-all:
+```
+
+## `jobs.<job_id>.steps[*].cancel`
+
+Gracefully terminates a running background step. The runner sends the step's process a termination signal (`SIGTERM`) so it can clean up, and forcibly stops it (`SIGKILL`) if it does not exit within a short grace period. The `cancel` keyword targets a single background step by its `id`.
+
+### Example: Canceling a background step
+
+```yaml
+steps:
+  - name: Start long-running monitor
+    id: monitor
+    run: ./scripts/monitor.sh
+    background: true
+
+  - name: Run the main task
+    run: npm test
+
+  - name: Stop the monitor
+    cancel: monitor
+```
+
+## `jobs.<job_id>.steps[*].parallel`
+
+Runs a group of steps concurrently, then waits for all of them to finish before continuing. The `parallel` keyword is shorthand: every step in the group runs as a background step, with an implicit `wait` at the end of the group. Use it when you have an independent group of steps that can run at the same time and you don't need to reference them individually.
+
+Use `parallel` when you have a self-contained group of steps that should all finish before the job moves on, such as building several components at once. Use [`background`](#jobsjob_idstepsbackground) when you need finer control: starting a long-running process (like a server or database) that stays up while later steps run, referencing a specific step with [`wait`](#jobsjob_idstepswait) or [`cancel`](#jobsjob_idstepscancel), or interleaving background work with other steps. In short, `parallel` is more limited but more convenient for the "run this group at once" case, while `background` is the general-purpose primitive.
+
+Each step in the group is subject to the same 10-step concurrency limit as other background steps.
+
+### Example: Running steps in parallel
+
+```yaml
+steps:
+  - uses: {% data reusables.actions.action-checkout %}
+
+  - parallel:
+      - name: Build frontend
+        run: npm run build:frontend
+
+      - name: Build backend
+        run: npm run build:backend
+
+      - name: Build docs
+        run: npm run build:docs
+
+  - name: Run tests after all builds complete
+    run: npm test
+```
+
+The group above is equivalent to declaring each step with `background: true` followed by a `wait` step.
+
+{% endif %}
+
 ## `jobs.<job_id>.timeout-minutes`
 
 The maximum number of minutes to let a job run before {% data variables.product.prodname_dotcom %} automatically cancels it. Default: 360
@@ -945,7 +1095,7 @@ jobs:
   example_matrix:
     strategy:
       matrix:
-        os: [ubuntu-22.04, ubuntu-20.04]
+        os: [ubuntu-22.04, ubuntu-24.04]
         version: [10, 12, 14]
     runs-on: {% raw %}${{ matrix.os }}{% endraw %}
     steps:
@@ -1170,6 +1320,45 @@ Additional Docker container resource options. For a list of options, see [`docke
 
 > [!WARNING]
 > The `--network` option is not supported.
+
+{% ifversion fpt or ghec %}
+
+## `jobs.<job_id>.services.<service_id>.command`
+
+Overrides the Docker image's default command (`CMD`). The value is passed as arguments after the image name in the `docker create` command. If you also specify `entrypoint`, `command` provides the arguments to that entrypoint.
+
+### Example of `jobs.<job_id>.services.<service_id>.command`
+
+```yaml
+services:
+  mysql:
+    image: mysql:8
+    command: --sql_mode=STRICT_TRANS_TABLES --max_allowed_packet=512M
+    env:
+      MYSQL_ROOT_PASSWORD: test
+    ports:
+      - 3306:3306
+```
+
+## `jobs.<job_id>.services.<service_id>.entrypoint`
+
+Overrides the Docker image's default `ENTRYPOINT`. The value is a single string defining the executable to run. Use this when you need to replace the image's entrypoint entirely. You can combine `entrypoint` with `command` to pass arguments to the custom entrypoint.
+
+### Example of `jobs.<job_id>.services.<service_id>.entrypoint`
+
+```yaml
+services:
+  etcd:
+    image: quay.io/coreos/etcd:v3.5.17
+    entrypoint: etcd
+    command: >-
+      --listen-client-urls http://0.0.0.0:2379
+      --advertise-client-urls http://0.0.0.0:2379
+    ports:
+      - 2379:2379
+```
+
+{% endif %}
 
 ## `jobs.<job_id>.uses`
 

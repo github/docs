@@ -24,14 +24,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Organizations
-  - Troubleshooting
-  - Upgrades
-  - User account
 shortTitle: Upgrade plan
 contentType: how-tos
+category:
+  - Manage your plan and licenses
 ---
 
 ## Upgrading your personal account's plan

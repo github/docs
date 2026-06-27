@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Commit to PR branch from fork
+category:
+  - Create pull requests
 ---
 You can only make commits on pull request branches that:
 * Are opened in a repository that you have push access to and that were created from a fork of that repository

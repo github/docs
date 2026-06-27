@@ -1,4 +1,4 @@
-1. Install {% data variables.product.prodname_cli %} on macOS, Windows, or Linux. For more information, see [Installation](https://github.com/cli/cli#installation) in the {% data variables.product.prodname_cli %} repository.
+1. Install {% data variables.product.prodname_cli %} on macOS, Windows, or Linux. For more information, see [Installation](https://github.com/cli/cli?ref_product=cli&ref_type=engagement&ref_style=text#installation) in the {% data variables.product.prodname_cli %} repository.
 1. To authenticate to {% data variables.product.github %}, run the following command from your terminal.
 
    ```shell

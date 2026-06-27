@@ -5,14 +5,11 @@ intro: 'Learn how to automatically manage access to your enterprise account on {
 product: '{% data reusables.gated-features.emus %}'
 versions:
   feature: oidc-for-emu
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - SSO
 redirect_from:
   - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users
   - /admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-oidc-for-enterprise-managed-users
+category:
+  - Provision and manage enterprise users
 ---
 
 {% data reusables.enterprise-accounts.azure-emu-support-oidc %}
@@ -39,14 +36,18 @@ To change the lifetime policy property, you will need the object ID associated w
 
 Support for OIDC is available for customers using Entra ID.
 
+{% data reusables.enterprise-accounts.gov-cloud-idp-not-supported %}
+
 Each Entra ID tenant can support only one OIDC integration with {% data variables.product.prodname_emus %}. If you want to connect Entra ID to more than one enterprise on {% data variables.product.prodname_dotcom %}, use SAML instead. See [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users).
 
 OIDC does not support IdP-initiated authentication.
 
+>[!NOTE] Custom OIDC claims and attributes are not supported.
+
 ## Configuring OIDC for Enterprise Managed Users
 
 1. Sign into {% data variables.product.prodname_dotcom %} as the setup user for your new enterprise with the username **@SHORT-CODE_admin**.
-{% data reusables.enterprise-accounts.access-enterprise-emu %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.identity-provider-tab %}
 {% data reusables.enterprise-accounts.sso-configuration %}
 1. Under "OIDC single sign-on", select **Enable OIDC configuration**.

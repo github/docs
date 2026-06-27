@@ -72,7 +72,7 @@ const reusablesToMove: string[] = []
 const imagesToMove: string[] = []
 
 // 2. Add redirects to and update frontmatter in the to-be-migrated early access files BEFORE moving them.
-filesToMigrate.forEach((filepath) => {
+for (const filepath of filesToMigrate) {
   const { content, data } = frontmatter(fs.readFileSync(filepath, 'utf8'))
   const redirectString: string = filepath
     .replace('content/', '/')
@@ -95,12 +95,18 @@ filesToMigrate.forEach((filepath) => {
   variablesToMove.push(...variables)
   reusablesToMove.push(...reusables)
   imagesToMove.push(...images)
-})
+}
 
 // 3. Move the data files and images.
-Array.from(new Set(variablesToMove)).forEach((varRef) => moveVariable(varRef))
-Array.from(new Set(reusablesToMove)).forEach((varRef) => moveReusable(varRef))
-Array.from(new Set(imagesToMove)).forEach((imageRef) => moveImage(imageRef))
+for (const varRef of Array.from(new Set(variablesToMove))) {
+  moveVariable(varRef)
+}
+for (const varRef of Array.from(new Set(reusablesToMove))) {
+  moveReusable(varRef)
+}
+for (const imageRef of Array.from(new Set(imagesToMove))) {
+  moveImage(imageRef)
+}
 
 // 4. Move the content files.
 execFileSync('mv', [oldPath, migratePath])
@@ -177,34 +183,33 @@ function moveVariable(dataRef: string): void {
   const nonAltPath: string = newVariablePath.replace('-alt.yml', '.yml')
   const oldAltPath: string = oldVariablePath.replace('.yml', '-alt.yml')
 
-  let oldPath: string = oldVariablePath
+  let oldVariableFinalPath: string = oldVariablePath
 
   // If the old variable path doesn't exist, assume no migration needed.
-  if (!fs.existsSync(oldVariablePath)) {
+  if (!fs.existsSync(oldVariableFinalPath)) {
     if (!fs.existsSync(newVariablePath)) {
       console.log(`Problem migrating files for ${dataRef}`)
       return
     }
     if (fs.existsSync(oldAltPath)) {
-      oldPath = oldAltPath
+      oldVariableFinalPath = oldAltPath
     } else {
       return
     }
   }
 
-  const variableFileContent: Record<string, any> = yaml.load(
-    fs.readFileSync(oldPath, 'utf8'),
-  ) as Record<string, any>
-  const value: any = variableFileContent[variableKey]
+  const variableFileContent: Record<string, unknown> = yaml.load(
+    fs.readFileSync(oldVariableFinalPath, 'utf8'),
+  ) as Record<string, unknown>
+  const value: unknown = variableFileContent[variableKey]
 
   // If the variable file already exists, add the key/value pair.
   if (fs.existsSync(nonAltPath)) {
-    const content: Record<string, any> = yaml.load(fs.readFileSync(nonAltPath, 'utf8')) as Record<
-      string,
-      any
-    >
+    const content: Record<string, unknown> = yaml.load(
+      fs.readFileSync(nonAltPath, 'utf8'),
+    ) as Record<string, unknown>
     if (!content[variableKey]) {
-      const newString = `\n\n${variableKey}: ${value}`
+      const newString = `\n\n${variableKey}: ${String(value)}`
       fs.appendFileSync(nonAltPath, newString)
     }
   } else {

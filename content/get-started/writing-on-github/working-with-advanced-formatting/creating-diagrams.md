@@ -7,6 +7,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Create diagrams
+category:
+  - Write and format content
 ---
 
 ## About creating diagrams

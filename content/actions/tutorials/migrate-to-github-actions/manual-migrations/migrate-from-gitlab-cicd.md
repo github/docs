@@ -12,13 +12,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
-topics:
-  - GitLab
-  - Migration
-  - CI
-  - CD
 shortTitle: Migrate from GitLab CI/CD
+contentType: tutorials
+category:
+  - Migrate to GitHub Actions
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

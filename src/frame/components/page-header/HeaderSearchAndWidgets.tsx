@@ -1,4 +1,5 @@
 import cx from 'classnames'
+import type { JSX } from 'react'
 import { KebabHorizontalIcon, LinkExternalIcon } from '@primer/octicons-react'
 import { IconButton, ActionMenu, ActionList } from '@primer/react'
 

@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Git Large File Storage
+category:
+  - Store large files with Git LFS
 ---
 
 ## About {% data variables.large_files.product_name_long %}

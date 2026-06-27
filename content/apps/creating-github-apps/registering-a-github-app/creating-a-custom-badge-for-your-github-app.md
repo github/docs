@@ -11,9 +11,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 shortTitle: Custom badge
+category:
+  - Register and configure a GitHub App
 ---
 
 ## About badges

@@ -18,9 +18,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Connections between repositories
+category:
+  - Track repository activity
 ---
 
 ## Viewing a repository's network

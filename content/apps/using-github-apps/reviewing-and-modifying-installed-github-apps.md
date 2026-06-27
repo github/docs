@@ -6,8 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
+category:
+  - Install and authorize apps
 ---
 
 ## About installed {% data variables.product.prodname_github_apps %}

@@ -7,6 +7,8 @@ versions:
   ghec: '*'
   ghes: '*'
 allowTitleToDifferFromFilename: true
+category:
+  - Write and format content
 ---
 
 ## About diagrams in {% data variables.product.prodname_docs %}

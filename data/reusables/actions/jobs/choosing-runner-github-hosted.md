@@ -4,7 +4,7 @@
 
 If you use a {% data variables.product.prodname_dotcom %}-hosted runner, each job runs in a fresh instance of a runner image specified by `runs-on`.
 
-The value for runs-on, when you are using a {% data variables.product.prodname_dotcom %}-hosted runner, is a runner label or the name of a runner group. The labels for the standard {% data variables.product.prodname_dotcom %}-hosted runners are shown in the following tables.
+The value for runs-on, when you are using a {% data variables.product.prodname_dotcom %}-hosted runner, is a workflow label or the name of a runner group. The labels for the standard {% data variables.product.prodname_dotcom %}-hosted runners are shown in the following tables.
 
 For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners).
 

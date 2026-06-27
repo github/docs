@@ -1,12 +1,69 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { graphql } from '@octokit/graphql'
 
 // Shared functions for managing projects (memex)
 
+export interface ProjectV2FieldNode {
+  name: string
+  id: string
+  options?: Array<{ name: string; id: string }>
+}
+
+export interface ProjectV2Data {
+  organization: {
+    projectV2: {
+      id: string
+      fields: {
+        nodes: ProjectV2FieldNode[]
+      }
+    }
+  }
+}
+
+interface TeamMemberData {
+  organization: {
+    team: {
+      members: {
+        nodes: Array<{ login: string }>
+      }
+    }
+  }
+}
+
+interface OrgMemberData {
+  user: {
+    organization: { name: string } | null
+  }
+}
+
+interface MutationResult {
+  [key: string]: { item: { id: string } }
+}
+
+export interface FileNode {
+  path: string
+  additions: number
+  deletions: number
+}
+
+export interface ItemData {
+  item: {
+    __typename: string
+    files: {
+      nodes: FileNode[]
+    }
+    author?: {
+      login: string
+    }
+    assignees?: {
+      nodes: Array<{ login: string }>
+    }
+  }
+}
+
 // Pull out the node ID of a project field
-export function findFieldID(fieldName: string, data: Record<string, any>) {
+export function findFieldID(fieldName: string, data: ProjectV2Data) {
   const field = data.organization.projectV2.fields.nodes.find(
-    (field: Record<string, any>) => field.name === fieldName,
+    (fieldNode) => fieldNode.name === fieldName,
   )
 
   if (field && field.id) {
@@ -20,18 +77,16 @@ export function findFieldID(fieldName: string, data: Record<string, any>) {
 export function findSingleSelectID(
   singleSelectName: string,
   fieldName: string,
-  data: Record<string, any>,
+  data: ProjectV2Data,
 ) {
   const field = data.organization.projectV2.fields.nodes.find(
-    (field: Record<string, any>) => field.name === fieldName,
+    (fieldData) => fieldData.name === fieldName,
   )
   if (!field) {
     throw new Error(`A field called "${fieldName}" was not found. Check if the field was renamed.`)
   }
 
-  const singleSelect = field.options.find(
-    (field: Record<string, any>) => field.name === singleSelectName,
-  )
+  const singleSelect = field.options?.find((option) => option.name === singleSelectName)
 
   if (singleSelect && singleSelect.id) {
     return singleSelect.id
@@ -67,7 +122,7 @@ export async function addItemsToProject(items: string[], project: string) {
   }
   `
 
-  const newItems: Record<string, any> = await graphql(mutation, {
+  const newItems: MutationResult = await graphql(mutation, {
     project,
     headers: {
       authorization: `token ${process.env.TOKEN}`,
@@ -99,7 +154,7 @@ export async function isDocsTeamMember(login: string) {
     return true
   }
   // Get all members of the docs team
-  const data: Record<string, any> = await graphql(
+  const data: TeamMemberData = await graphql(
     `
       query {
         organization(login: "github") {
@@ -120,9 +175,7 @@ export async function isDocsTeamMember(login: string) {
     },
   )
 
-  const teamMembers = data.organization.team.members.nodes.map(
-    (entry: Record<string, any>) => entry.login,
-  )
+  const teamMembers = data.organization.team.members.nodes.map((entry) => entry.login)
 
   return teamMembers.includes(login)
 }
@@ -130,7 +183,7 @@ export async function isDocsTeamMember(login: string) {
 // Given a GitHub login, returns a bool indicating
 // whether the login is part of the GitHub org
 export async function isGitHubOrgMember(login: string) {
-  const data: Record<string, any> = await graphql(
+  const data: OrgMemberData = await graphql(
     `
       query {
         user(login: "${login}") {
@@ -203,7 +256,7 @@ export function generateUpdateProjectV2ItemFieldMutation({
   // Build the mutation to update a single project field
   // Specify literal=true to indicate that the value should be used as a string, not a variable
   function generateMutationToUpdateField({
-    item,
+    item: itemId,
     fieldID,
     value,
     fieldType,
@@ -220,12 +273,12 @@ export function generateUpdateProjectV2ItemFieldMutation({
     // Strip all non-alphanumeric out of the item ID when creating the mutation ID to avoid a GraphQL parsing error
     // (statistically, this should still give us a unique mutation ID)
     return `
-      set_${fieldID.slice(1)}_item_${item.replaceAll(
+      set_${fieldID.slice(1)}_item_${itemId.replaceAll(
         /[^a-z0-9]/g,
         '',
       )}: updateProjectV2ItemFieldValue(input: {
         projectId: $project
-        itemId: "${item}"
+        itemId: "${itemId}"
         fieldId: ${fieldID}
         value: { ${parsedValue} }
       }) {
@@ -303,13 +356,13 @@ export function generateUpdateProjectV2ItemFieldMutation({
 }
 
 // Guess the affected docs sets based on the files that the PR changed
-export function getFeature(data: Record<string, any>) {
+export function getFeature(data: ItemData) {
   // For issues, just use an empty string
   if (data.item.__typename !== 'PullRequest') {
     return ''
   }
 
-  const paths = data.item.files.nodes.map((node: Record<string, any>) => node.path)
+  const paths = data.item.files.nodes.map((node) => node.path)
 
   // For docs and docs-internal and docs-early-access PRs,
   // determine the affected docs sets by looking at which
@@ -321,12 +374,12 @@ export function getFeature(data: Record<string, any>) {
     process.env.REPO === 'github/docs-early-access'
   ) {
     const features: Set<string> = new Set([])
-    paths.forEach((path: string) => {
+    for (const path of paths as string[]) {
       const pathComponents = path.split('/')
       if (pathComponents[0] === 'content') {
         features.add(pathComponents[1])
       }
-    })
+    }
     const feature = Array.from(features).join()
 
     return feature
@@ -337,7 +390,7 @@ export function getFeature(data: Record<string, any>) {
     const features: Set<string> = new Set([])
     if (paths.some((path: string) => path.startsWith('app/api/description'))) {
       features.add('OpenAPI')
-      paths.forEach((path: string) => {
+      for (const path of paths as string[]) {
         if (path.startsWith('app/api/description/operations')) {
           features.add(path.split('/')[4])
           features.add('rest')
@@ -349,7 +402,7 @@ export function getFeature(data: Record<string, any>) {
         if (path.startsWith('app/api/description/components/schemas/webhooks')) {
           features.add('webhooks')
         }
-      })
+      }
     }
 
     const feature = Array.from(features).join()
@@ -365,7 +418,7 @@ export function getFeature(data: Record<string, any>) {
 }
 
 // Guess the size of an item
-export function getSize(data: Record<string, any>) {
+export function getSize(data: ItemData) {
   // We need to set something in case this is an issue, so just guesstimate small
   if (data.item.__typename !== 'PullRequest') {
     return 'S'
@@ -375,13 +428,13 @@ export function getSize(data: Record<string, any>) {
   if (process.env.REPO === 'github/github') {
     let numFiles = 0
     let numChanges = 0
-    data.item.files.nodes.forEach((node: Record<string, any>) => {
+    for (const node of data.item.files.nodes) {
       if (node.path.startsWith('app/api/description')) {
         numFiles += 1
         numChanges += node.additions
         numChanges += node.deletions
       }
-    })
+    }
     if (numFiles < 5 && numChanges < 10) {
       return 'XS'
     } else if (numFiles < 10 && numChanges < 50) {
@@ -395,11 +448,11 @@ export function getSize(data: Record<string, any>) {
     // Otherwise, estimated the size based on all files
     let numFiles = 0
     let numChanges = 0
-    data.item.files.nodes.forEach((node: Record<string, any>) => {
+    for (const node of data.item.files.nodes) {
       numFiles += 1
       numChanges += node.additions
       numChanges += node.deletions
-    })
+    }
     if (numFiles < 5 && numChanges < 10) {
       return 'XS'
     } else if (numFiles < 10 && numChanges < 50) {

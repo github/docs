@@ -9,9 +9,9 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Accounts
 shortTitle: Enterprise Cloud trial
+category:
+  - Get started with GitHub Enterprise
 ---
 
 {% data reusables.enterprise.about-ghec %} See [AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud).
@@ -19,6 +19,8 @@ shortTitle: Enterprise Cloud trial
 To set up a trial, you must be signed in to a personal account. If you don't have a personal account, see [AUTOTITLE](/free-pro-team@latest/get-started/start-your-journey/creating-an-account-on-github).
 
 <a href="https://github.com/account/enterprises/new?ref_product=ghec&ref_type=trial&ref_style=button&ref_plan=enterprise" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Set up a trial of {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+
+## About enterprise types
 
 {% data reusables.enterprise.enterprise-types %}
 
@@ -29,7 +31,6 @@ To set up a trial, you must be signed in to a personal account. If you don't hav
 The trial lasts for **{% data reusables.enterprise.ghec-trial-length %} days** and includes the following features.
 
 * Access to **most** {% data variables.product.prodname_ghe_cloud %} features.
-* {% data variables.copilot.copilot_for_business %}
 * {% data variables.product.prodname_GH_cs_and_sp %} ({% data variables.product.prodname_dotcom_the_website %} trials only)
 * Access to the **new billing platform**.{% ifversion enhanced-billing-platform %} See [AUTOTITLE](/billing/using-the-new-billing-platform/about-the-new-billing-platform-for-enterprises).{% endif %}
 * An **enterprise account**, which allows you to manage multiple organizations. See [AUTOTITLE](/enterprise-cloud@latest/get-started/learning-about-github/types-of-github-accounts).
@@ -42,6 +43,7 @@ Your trial **won't** include access to {% data variables.product.prodname_ghe_se
 
 * {% data variables.product.prodname_github_codespaces %}
 * {% data variables.copilot.copilot_enterprise %}
+* {% data variables.copilot.copilot_for_business %}
 * {% data variables.product.prodname_sponsors %}
 * Paid {% data variables.product.prodname_marketplace %} apps
 * {% data variables.product.prodname_github_connect %}
@@ -52,7 +54,7 @@ If you invite an existing organization into your trial enterprise, **all of thes
 
 ## Do I need to provide a payment method?
 
-You do not need to provide a payment method to start a trial. If you want to use {% data variables.copilot.copilot_business_short %} during the trial, you need to provide a credit card. You **won't** be charged for using {% data variables.copilot.copilot_business_short %} during the trial.
+You do not need to provide a payment method to start a trial.
 
 ## During the trial
 
@@ -76,9 +78,9 @@ You can end your trial at any time by purchasing {% data variables.product.prodn
 
 If you **purchase {% data variables.product.prodname_enterprise %}**:
 
-* You can use usage-based billing for {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %} products{% endif %}, which means you pay monthly for the number of licenses you use. You will not need to buy a predefined number of licenses in advance. See [AUTOTITLE](/billing/using-the-new-billing-platform/about-usage-based-billing-for-licenses).
+* You can use usage-based billing for {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_GHAS %} products, which means you pay monthly for the number of licenses you use. You will not need to buy a predefined number of licenses in advance. See [AUTOTITLE](/billing/using-the-new-billing-platform/about-usage-based-billing-for-licenses).
 
-  If you did not set up a free trial and you want to use usage-based billing to pay for {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %} products{% endif %} after the {% data variables.product.prodname_ghe_cloud %} trial ends, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
+  If you did not set up a free trial and you want to use usage-based billing to pay for {% data variables.product.prodname_GHAS %} products after the {% data variables.product.prodname_ghe_cloud %} trial ends, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
 
 * You can generate a {% data variables.product.prodname_ghe_server %} license file for the same quantity of users who are consuming a {% data variables.product.prodname_ghe_cloud %} license.
 
@@ -112,7 +114,7 @@ You can cancel a trial at any time. Once the trial has expired, you can delete t
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. Under **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**, click **Profile**.
+1. Under **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**, click **General**.
 1. At the bottom of the page, in the "Danger zone" section, click **Cancel trial** or **Delete trial**.
 
 ## Further reading
