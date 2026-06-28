@@ -1,4 +1,4 @@
-<  
+
 4. FILING FEEINFORMATION 
 You must pay filing fees when you submit most registration statements under the Securities Act of 1933 and transactional filings such as merger proxy statements under the Securities Exchange Act of 1934. You do not pay an initial registration fee for mutual fund, unit investment trust, or non-variable annuity registration statements, but you pay fees each year when you file your Form 24F-2. 
 If your filing is fee-bearing and adequate funds are not available in your account, the filing will eventually be suspended. Fees are charged for fee-bearing filings regardless of the type of tool used to construct your filing. 
