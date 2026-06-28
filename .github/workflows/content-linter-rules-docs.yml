@@ -1,5 +1,5 @@
 name: 'Check content-linter rules docs'
-
+tab
 # **What it does**: Makes sure the content-linter-rules.md is up-to-date.
 # **Why we have it**: So what's automated doesn't fall behind
 # **Who does it impact**: Docs content.
