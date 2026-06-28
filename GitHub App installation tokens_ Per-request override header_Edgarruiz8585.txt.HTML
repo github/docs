@@ -1,0 +1,49 @@
+"GitHub App installation tokens: Per-request override header
+Tal como se anunció en abril de 2026 , GitHub implementará un nuevo formato de token para la instalación de aplicaciones. Para ayudarte a validar tus aplicaciones y flujos de trabajo antes de que se implemente, te proporcionamos un encabezado de solicitud temporal que te permite forzar el uso de cualquiera de los dos formatos de token según lo necesites.
+
+La configuración X-GitHub-Stateless-S2S-Tokenen una POST /app/installations/:installation_id/access_tokenssolicitud anula la decisión de despliegue del lado del servidor para esa solicitud en particular.
+
+Valor del encabezado	Efecto
+enabled	Devuelve un token sin estado (en formato JWT), independientemente de la fase del despliegue en la que te encuentres.
+disabled	Devuelve un token con estado (opaco clásico), incluso si su integración ya está incluida en el despliegue.
+(ausente)	Comportamiento normal de despliegue (es decir, sin anulación).
+Cualquier otro valor ( true, false, 1, 0, etc.) se ignora silenciosamente y se le da el comportamiento de despliegue estándar.
+
+El encabezado es compatible con la POST /app/installations/:installation_id/access_tokensAPI REST.
+
+Cómo usarlo
+Antes de que la actualización llegue a tu aplicación, realiza pruebas de forma proactiva.
+Úselo enabledpara solicitar un token sin estado bajo demanda y validar que su aplicación lo gestione correctamente.
+
+Al crear un token de acceso de instalación, envíe el X-GitHub-Stateless-S2S-Token: enabledencabezado de la solicitud para forzar el nuevo formato de token en la respuesta. Para obtener detalles completos del punto final y ejemplos de solicitudes, consulte la documentación de la API REST para crear un token de acceso de instalación para una aplicación .
+
+Un token sin estado es un ghs_JWT con prefijo . Es más largo (~520 caracteres) y contiene dos puntos . En cambio, un token con estado es una cadena opaca corta sin puntos .
+
+Aspectos que debes revisar en tu aplicación:
+
+No se han establecido suposiciones fijas sobre la longitud del token.
+Cualquier expresión regular utilizada para validar un token de instalación se actualiza para manejar guiones bajos adicionales y la presencia de un JWT. Nuestra expresión regular recomendada para coincidir con los tokens de formato nuevo y actual es ghs_[A-Za-z0-9\.\-_]{36,}.
+Las columnas de la base de datos para el almacenamiento de tokens y la configuración del encabezado aceptan al menos 520 caracteres.
+Cualquier código de introspección o validación de tokens trata ghs_los tokens como cadenas opacas.
+Nota del editor (26 de mayo de 2026): Se ha actualizado la guía sobre el formato de expresiones regulares.
+
+Durante el lanzamiento, puede optar por no participar temporalmente si necesita más tiempo.
+Si el despliegue llega a tu aplicación antes de que estés listo, puedes configurar el encabezado disabledpara seguir recibiendo tokens de estado mientras actualizas tu aplicación.
+
+Verificación del tipo de token
+Puedes verificar el tipo de token comprobando el número de puntos después del ghs_prefijo: un token sin estado en formato JWT tiene dos puntos, mientras que un token opaco con estado no tiene puntos.
+
+Alcance
+El encabezado es temporal. En el futuro, cuando se anuncie por separado en las próximas semanas, dejará de tenerse en cuenta. En ese momento, todas las aplicaciones elegibles recibirán tokens sin estado sin condiciones. Elimine el encabezado de su código de producción una vez que haya validado ambos formatos de token.
+Los tokens de instalación de aplicaciones existentes seguirán funcionando hasta que caduquen.
+Este cambio se aplica a los entornos de GitHub Enterprise Cloud y Data Residency. GitHub Enterprise Server no se ve afectado por este cambio.
+Las próximas implementaciones aplicarán el nuevo formato de token únicamente a los tokens de instalación de la aplicación de GitHub de servidor a servidor, incluidos los tokens GITHUB_TOKEN de Actions.
+En las próximas semanas compartiremos más detalles sobre los cambios de formato previstos para los tokens de usuario a servidor utilizados en los flujos de revisión de código de Copilot.
+Cómo prepararse
+Prueba con enabled: Llama al punto final con el encabezado de suscripción y verifica que tu aplicación acepte el nuevo formato de token de extremo a extremo.
+Prueba con disabled: Confirma que tu aplicación también funciona con el formato opaco clásico, de modo que se degrada correctamente si los tokens sin estado no están disponibles temporalmente.
+Eliminar el encabezado: Una vez validadas ambas rutas, elimine el encabezado. El despliegue de GitHub gestionará automáticamente el formato del token.
+Únete a la conversación en la comunidad de GitHub .
+
+Nota del editor (10 de junio de 2026): Se eliminó el enlace para contactar con el servicio de asistencia, ya que estaba causando confusión."
+ https://github.blog/changelog/2026-05-15-github-app-installation-tokens-per-request-override-header/

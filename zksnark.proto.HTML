@@ -1,0 +1,33 @@
+syntax = "proto3";
+package protocol;
+
+import "core/Tron.proto";
+
+option java_package = "org.tron.api"; //Specify the name of the package that generated the Java file
+option java_outer_classname = "ZksnarkGrpcAPI"; //Specify the class name of the generated Java file
+option go_package = "github.com/tronprotocol/grpc-gateway/api";
+
+service TronZksnark {
+  rpc CheckZksnarkProof (ZksnarkRequest) returns (ZksnarkResponse) {
+  }
+};
+
+message ZksnarkRequest {
+  Transaction transaction = 1;
+  bytes sighash = 2;
+  int64 valueBalance = 3;
+  string txId = 4;
+}
+
+message ZksnarkResponse {
+  enum Code {
+    SUCCESS = 0;
+    FAILED = 1;
+  }
+
+  Code code = 1;
+}
+
+
+
+
