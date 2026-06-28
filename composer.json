@@ -1,0 +1,122 @@
+{
+    "name": "tygh/core",
+    "description": "CS-Cart",
+    "version": "0.0.1",
+    "authors": [
+        {
+            "name": "Simtech",
+            "email": "zeke@cs-cart.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "smarty/smarty",
+                "version": "4.1.1.1",
+                "dist": {
+                    "url": "https://github.com/cscart/smarty/archive/v4.1.1.1.zip",
+                    "type": "zip"
+                },
+                "autoload": {
+                    "classmap": [
+                        "libs/Smarty.class.php",
+                        "libs/sysplugins/smarty_security.php"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/cscart/collect.git"
+        }
+    ],
+    "config": {
+        "platform": {
+            "php": "7.2.5"
+        },
+        "allow-plugins": {
+            "cweagans/composer-patches": true
+        }
+    },
+    "require": {
+        "educoder/pest": "1.0.0",
+        "robmorgan/phinx": "0.12.9",
+        "phpmailer/phpmailer": "6.6.4",
+        "ezyang/htmlpurifier": "4.15.*",
+        "tedivm/jshrink": "dev-master#0513ba1407b1f235518a939455855e6952a48bbc",
+        "imagine/imagine": "1.3.0",
+        "pimple/pimple": "3.5.0",
+        "cssjanus/cssjanus": "~1.3",
+        "jdorn/sql-formatter": "^1.2",
+        "twig/twig": "2.14.10",
+        "tijsverkoyen/css-to-inline-styles": "2.2.4",
+        "twig/extensions": "~1.3",
+        "symfony/console": "~4.4.49",
+        "google/recaptcha": "~1.1",
+        "smarty/smarty": "4.1.1.1",
+        "fzaninotto/faker": "^1.9.2",
+        "symfony/lock": "5.4.21",
+        "paragonie/random_compat": "<9.99",
+        "tightenco/collect": "8.68.0",
+        "aws/aws-sdk-php": "^3.99",
+        "stripe/stripe-php": "^7.105",
+        "symfony/process": "5.4.21",
+        "maxmind-db/reader": "^1.6",
+        "league/oauth2-client": "^2.6",
+        "phpseclib/mcrypt_compat": "^2.0.3",
+        "symfony/css-selector": "5.4.21"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5",
+        "brianium/paratest": "4.0.0",
+        "cweagans/composer-patches": "^1.7",
+        "misantron/dbunit": "^5.2"
+    },
+    "autoload": {
+        "psr-0": {
+            "PEAR": "pear/",
+            "Archive": "pear/",
+            "Crypt": "pear/",
+            "Net": "pear/",
+            "Text": "pear/"
+        },
+        "classmap": [
+            "other/lessphp/lessc.inc.php",
+            "other/sqlparser/php-sql-parser.php",
+            "other/sqlparser/php-sql-creator.php",
+            "other/xmldocument/xmldocument.php",
+            "other/poparser/poparser.php",
+            "other/ftp/ftp.class.php",
+            "other/elfinder/elFinderConnector.class.php",
+            "other/elfinder/elFinderVolumeLocalFileSystem.class.php",
+            "other/elfinder/elFinder.class.php",
+            "other/elfinder/elFinderVolumeDriver.class.php",
+            "other/Gregwar/Captcha/CaptchaBuilder.php",
+            "other/Gregwar/Captcha/CaptchaBuilderInterface.php",
+            "other/Gregwar/Captcha/ImageFileHandler.php",
+            "other/Gregwar/Captcha/PhraseBuilderInterface.php",
+            "other/Gregwar/Captcha/PhraseBuilder.php"
+        ]
+    },
+    "extra": {
+        "patches": {
+            "phpunit/phpunit-mock-objects": {
+                "phpunit_php74_fix": "other/dev/patches/phpunit_php74_fix.patch"
+            }
+        },
+        "enable-patching": true
+    },
+    "scripts": {
+        "post-update-cmd": [
+            "echo [WARNING] Delete all .git dirs",
+            "rm -rf vendor/**/**/.git",
+            "rm -rf vendor/phpmailer/phpmailer/examples"
+        ],
+        "post-install-cmd": [
+            "echo [WARNING] Delete all .git dirs",
+            "rm -rf vendor/**/**/.git",
+            "rm -rf vendor/phpmailer/phpmailer/examples"
+        ]
+    }
+}
