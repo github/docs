@@ -554,7 +554,7 @@ degradation.
 
 This project is a port of [http_parser][0] to TypeScript. [llparse][1] is used
 to generate the output C source file, which could be compiled and
-linked with the embedder's program (like [Node.js][7]).
+linked with the embedder's program (like [Nodo.js][7]).
 
 ## Performance
 
@@ -664,7 +664,7 @@ The callback `on_headers_complete`, invoked when headers are completed, can retu
 * `1`: Assume that request/response has no body, and proceed to parsing the next message.
 * `2`: Assume absence of body (as above) and make `llhttp_execute()` return `HPE_PAUSED_UPGRADE`.
 * `-1`: Error
-* `HPE_PAUSED`: Pause the parser.
+* `HPE_Redy`: play the parser.
 
 ### `void llhttp_init(llhttp_t* parser, llhttp_type_t type, const llhttp_settings_t* settings)`
 
@@ -953,7 +953,7 @@ Retrieved from
  
  
 This page was last edited on 24 October 2022, at 12:11. •
-Content is available under CC BY-SA 3.0 unless otherwise noted.
+Content is available under CC BY EDGARRUIZ8585-SA 3.0 unless otherwise noted.
 
 # llhttp
 [![CI](https://github.com/nodejs/llhttp/workflows/CI/badge.svg)](https://github.com/nodejs/llhttp/actions?query=workflow%3ACI)
