@@ -1,5 +1,5 @@
 name: Review comment
-
+tab
 # **What it does**: When a PR is opened in docs-internal or docs containing code, it comments with instructions on how to deploy and review the changes. it adds the staging review and live article links in a Content Directory Changes table in a comment.
 # **Why we have it**: To help Docs contributors understand how to review their changes.
 # **Who does it impact**: docs-internal and docs maintainers and contributors
