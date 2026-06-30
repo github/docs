@@ -129,6 +129,7 @@ This example demonstrates how to create a job that requests a secret from HashiC
 
 ```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 jobs:
   retrieve-secret:
     runs-on: ubuntu-latest
@@ -163,6 +164,7 @@ By default, the Vault server will automatically revoke access tokens when their 
 
 ```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 jobs:
   retrieve-secret:
     runs-on: ubuntu-latest

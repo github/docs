@@ -56,6 +56,7 @@ The following example uses the `pypa/gh-action-pypi-publish` action to exchange 
 
 ```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 jobs:
   release-build:
     runs-on: ubuntu-latest

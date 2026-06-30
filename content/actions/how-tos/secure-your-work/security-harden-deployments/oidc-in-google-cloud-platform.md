@@ -82,6 +82,7 @@ This action exchanges a {% data variables.product.prodname_dotcom %} OIDC token 
 
 ```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 name: List services in GCP
 on:
   pull_request:
