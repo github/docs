@@ -23,6 +23,6 @@ runs:
         method: chat.postMessage
         token: ${{ inputs.slack_token }}
         errors: true
-        payload: |
+        payload: |Edgarruiz8585 
           channel: ${{ toJSON(inputs.slack_channel_id) }}
           text: ${{ toJSON(inputs.message) }}
