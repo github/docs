@@ -1,0 +1,163 @@
+Sun Nov 26 15:52:06 CST 2023 V [Auth]OneDriveAuthenticator getAuthToken - Cached valid token available for: service::onedrivemobile.live.com::MBI_SSL 
+Sun Nov 26 15:52:06 CST 2023 V PackageUtils_v1.6.10 Package com.microsoft.office.outlook is signed with b9:25:13:6f:3e:a7:c0:a1:95:16:90:a1:ab:31:39:10:da:81:f4:09:94:a8:53:42:ec:62:28:88:f1:28:70:51 
+Sun Nov 26 15:52:06 CST 2023 V TokenSharingManager_v1.6.10 Connecting to com.microsoft.office.outlook ver:1.6.4 
+Sun Nov 26 15:52:06 CST 2023 V [Auth]OneDriveAuthenticator getAuthToken - Cached valid token available for:https://github.com/settings/security-log?q=action%3Aoauth_access.regenerate+hashed_token%3A%22e71Au%2FkkhK2yH6YzgE0TlXPKatYr6R00jExn5%2BKlDsk%3D%22 service::onedrivemobile.live.com::MBI_SSL 
+Sun Nov 26 15:52:06 CST 2023 V TokenSharingManager_v1.6.10 Connected to com.microsoft.office.outlook 
+Sun Nov 26 15:52:06 CST 2023 DATA QueryBasedCursor Closing cursor with 1 items 
+Sun Nov 26 15:52:06 CST 2023 DATA QueryBasedCursor Cursor closed 
+Sun Nov 26 15:52:06 CST 2023 DATA QueryBasedCursor Closing cursor with 1 items 
+Sun Nov 26 15:52:06 CST 2023 DATA QueryBasedCursor Cursor closed 
+Sun Nov 26 15:52:06 CST 2023 DATA QueryBasedCursor Closing cursor with 0 items 
+Sun Nov 26 15:52:06 CST 2023 DATA QueryBasedCursor Cursor closed 
+Sun Nov 26 15:52:06 CST 2023 DATA DeviceAndApplicationInfo Network status is: WifiConnection 
+Sun Nov 26 15:52:06 CST 2023 W OnThisDayStatusProcessor processDay():  The property cursor is null with the network status WifiConnection 
+Sun Nov 26 15:52:06 CST 2023 DATA OnThisDayStatusProcessor Spent 81 milliseconds processing the On This Day information for 2023-11-29 with result:
+2023-11-29:
+	coverPhotoDownloaded: false
+	enoughThumbnailsDownloaded: false
+	hasNotificationBeenShown: false
+	hasPhotos: false
+	hasFinishScanForPhotos: false
+	hasUserSeenDay: false
+	isToday: false
+	numberOfCoverDownloadAttempts: 0
+	numberOfPhotosFoundWhenDownloading: 0
+	numberOfScanAttempts: 0
+	numberOfThumbnailDownloadAttempts: 0
+	percentageOfThumbnailsDownloaded: 0.0
+	shouldClearNotification: true
+	shouldDayBeProcessed: true
+	shouldTryToShowNotification: false
+	thumbnailDownloadThreshold: 0.9
+	 
+Sun Nov 26 15:52:06 CST 2023 DATA DeviceAndApplicationInfo Network status is: WifiConnection 
+Sun Nov 26 15:52:06 CST 2023 DATA OneDrivePrivacyDelegate (Q) QoS RequiredServiceData OneDriveAccount 3b6ca5bfcad4519d true 
+Sun Nov 26 15:52:06 CST 2023 DATA OnThisDayBackgroundProcessor onRunDailyJob(): shouldDayBeProcessed "2023-11-30" "true" 
+Sun Nov 26 15:52:06 CST 2023 DATA OnThisDayBackgroundProcessor onRunDailyJob(): Processing 2023-11-30 
+Sun Nov 26 15:52:06 CST 2023 V [Auth]OneDriveAuthenticator getAuthToken - Cached valid token available for: service::onedrivemobile.live.com::MBI_SSL 
+Sun Nov 26 15:52:06 CST 2023 DATA QueryBasedCursor Closing cursor with 1 items 
+Sun Nov 26 15:52:06 CST 2023 DATA QueryBasedCursor Cursor closed 
+Sun Nov 26 15:52:06 CST 2023 V [Auth]OneDriveAuthenticator getAuthToken - Cached valid token available for: service::onedrivemobile.live.com::MBI_SSL 
+Sun Nov 26 15:52:06 CST 2023 DATA QueryBasedCursor Closing cursor with 1 items 
+Sun Nov 26 15:52:06 CST 2023 DATA QueryBasedCursor Cursor closed 
+Sun Nov 26 15:52:06 CST 2023 DATA QueryBasedCursor Closing cursor with 0 items 
+Sun Nov 26 15:52:06 CST 2023 V [Auth]OneDriveAuthenticator getAuthToken - Cached valid token available for: service::onedrivemobile.live.com::MBI_SSL 
+Sun Nov 26 15:52:06 CST 2023 DATA QueryBasedCursor Cursor closed 
+Sun Nov 26 15:52:06 CST 2023 DATA DeviceAndApplicationInfo Network status is: WifiConnection 
+Sun Nov 26 15:52:06 CST 2023 W OnThisDayStatusProcessor processDay():  The property cursor is null with the network status WifiConnection 
+Sun Nov 26 15:52:06 CST 2023 DATA OnThisDayStatusProcessor Spent 83 milliseconds processing the On This Day information for 2023-11-30 with result:
+2023-11-30:
+	coverPhotoDownloaded: false
+	enoughThumbnailsDownloaded: false
+	hasNotificationBeenShown: false
+	hasPhotos: false
+	hasFinishScanForPhotos: false
+	hasUserSeenDay: false
+	isToday: false
+	numberOfCoverDownloadAttempts: 0
+	numberOfPhotosFoundWhenDownloading: 0
+	numberOfScanAttempts: 0
+	numberOfThumbnailDownloadAttempts: 0
+	percentageOfThumbnailsDownloaded: 0.0
+	shouldClearNotification: true
+	shouldDayBeProcessed: true
+	shouldTryToShowNotification: false
+	thumbnailDownloadThreshold: 0.9
+	 
+Sun Nov 26 15:52:06 CST 2023 DATA DeviceAndApplicationInfo Network status is: WifiConnection 
+Sun Nov 26 15:52:06 CST 2023 V [Auth]OneDriveAuthenticator getAuthToken - Cached valid token available for: service::onedrivemobile.live.com::MBI_SSL 
+Sun Nov 26 15:52:06 CST 2023 DATA OneDrivePrivacyDelegate (Q) QoS RequiredServiceData OneDriveAccount 3b6ca5bfcad4519d true 
+Sun Nov 26 15:52:06 CST 2023 DATA OnThisDayBackgroundProcessor onRunDailyJob(): Processed 5 days 
+Sun Nov 26 15:52:06 CST 2023 DATA OnThisDayBackgroundProcessor onRunDailyJob(): Clearing previous days 
+Sun Nov 26 15:52:06 CST 2023 DATA DayStatus Removed 0 stale keys 
+Sun Nov 26 15:52:06 CST 2023 DATA OneDrivePrivacyDelegate (Q) QoS RequiredServiceData OneDriveAccount 3b6ca5bfcad4519d true 
+Sun Nov 26 15:52:06 CST 2023 DATA OnThisDayBackgroundProcessor onRunDailyJob(): Battery end state: BatteryStatus(isCharging=false, percentage=98) 
+Sun Nov 26 15:52:06 CST 2023 V [Auth]OneDriveAuthenticator getAuthToken - Cached valid token available for: service::onedrivemobile.live.com::MBI_SSL 
+Sun Nov 26 15:52:06 CST 2023 DATA OneDrivePrivacyDelegate (Q) QoS RequiredServiceData OneDriveAccount 3b6ca5bfcad4519d true 
+Sun Nov 26 15:52:06 CST 2023 DATA DailyJob com.microsoft.skydrive.photos.onthisday.OnThisDayBackgroundProcessor.onStartJob(): Thread's finally block 
+Sun Nov 26 15:52:06 CST 2023 DATA DailyJob Received request for com.microsoft.skydrive.photos.onthisday.OnThisDayBackgroundProcessor to run between 0:00:00.000 and 23:59:59.999 (absolute time of day) 
+Sun Nov 26 15:52:06 CST 2023 DATA DailyJob Scheduled time for com.microsoft.skydrive.photos.onthisday.OnThisDayBackgroundProcessor is to run between 8:22:51.000 and 32:22:50.999 from now 
+Sun Nov 26 15:52:06 CST 2023 DATA OnThisDayBackgroundProcessor onStopJob() called with userDisabledNotification: false and shouldBeProcessed: true 
+Sun Nov 26 15:52:06 CST 2023 V TokenSharingManager_v1.6.10 Fetched token from com.microsoft.office.outlook 
+Sun Nov 26 15:52:06 CST 2023 V TokenSharingManager_v1.6.10 Disconnecting from com.microsoft.office.outlook 
+Sun Nov 26 15:52:06 CST 2023 DATA OneAuthNetworkTasks DiscoverAccounts returned with result0 and with accountnull 
+Sun Nov 26 15:52:06 CST 2023 DATA OneAuthNetworkTasks DiscoverAccounts completed 
+Sun Nov 26 15:52:06 CST 2023 DATA re.f Oneauth MSA ramp is: false 
+Sun Nov 26 15:52:06 CST 2023 V TokenSharingManager_v1.6.10 Disconnecting from com.microsoft.office.officehubrow 
+Sun Nov 26 15:52:06 CST 2023 W CreationTimeTracker Skipping launch time telemetry because ramp is disabled 
+Sun Nov 26 15:52:06 CST 2023 DATA DeviceAndApplicationInfo Pre: false 
+Sun Nov 26 15:52:06 CST 2023 DATA hg.d Galaxy Store: false 
+Sun Nov 26 15:52:06 CST 2023 DATA DeviceAndApplicationInfo Pre: false 
+Sun Nov 26 15:52:06 CST 2023 DATA DeviceAndApplicationInfo Pre: false 
+Sun Nov 26 15:52:06 CST 2023 DATA DeviceAndApplicationInfo Pre: false 
+Sun Nov 26 15:52:06 CST 2023 V [Auth]OneDriveAuthenticator hasFeatures() FEATURE_QUOTA 
+Sun Nov 26 15:52:06 CST 2023 DATA QuotaRefreshNetworkTask USQ Service Ramp Status Enabled 
+Sun Nov 26 15:52:06 CST 2023 V [Auth]OneDriveAuthenticator getAuthToken - Cached valid token available for: service::onedrivemobile.live.com::MBI_SSL 
+Sun Nov 26 15:52:07 CST 2023 DATA OneDrivePrivacyDelegate (Q) QoS RequiredServiceData OneDriveAccount 3b6ca5bfcad4519d true 
+Sun Nov 26 15:52:07 CST 2023 V AccountQuotaHelper Updating storage info 
+Sun Nov 26 15:52:07 CST 2023 DATA QueryBasedCursor Cursor closed 
+Sun Nov 26 15:52:07 CST 2023 DATA QueryBasedCursor Cursor closed 
+Sun Nov 26 15:52:07 CST 2023 DATA QueryBasedCursor Cursor closed 
+Sun Nov 26 15:52:07 CST 2023 DATA QueryBasedCursor Cursor closed 
+Sun Nov 26 15:52:07 CST 2023 DATA QueryBasedCursor Cursor closed 
+Sun Nov 26 15:52:07 CST 2023 DATA QueryBasedCursor Cursor closed 
+Sun Nov 26 15:52:07 CST 2023 DATA QueryBasedCursor Cursor closed 
+Sun Nov 26 16:10:02 CST 2023 DATA OneDSUtils OneDS mitigation checks passed 
+Sun Nov 26 16:10:02 CST 2023 DATA com.microsoft.odsp.l Ramps updated from ECS 
+Sun Nov 26 16:10:02 CST 2023 DATA com.microsoft.odsp.l Removing cached ramps not found on the backend 
+Sun Nov 26 16:10:02 CST 2023 DATA hg.d Build model matches: false 
+Sun Nov 26 16:10:02 CST 2023 DATA re.f Oneauth AAD ramp state is set and locked to true for remainder of this session 
+Sun Nov 26 16:10:02 CST 2023 DATA OneAuth Set configuration in SkyDriveApplication#attachBaseContext 
+Sun Nov 26 16:10:02 CST 2023 DATA OneDSUtils OneDS mitigation checks passed 
+Sun Nov 26 16:10:02 CST 2023 I com.microsoft.crossplaform.interop.n loadStaticLibraries 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Application is not started (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/onedrivelib.cpp:67) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Starting application (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/onedrivelib.cpp:89) 
+Sun Nov 26 16:10:03 CST 2023 W com.microsoft.odsp.crossplatform.core.LogWriterInterface WARNING: QApplication was not created in the main() thread. (:0) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Opening database  "/data/user/0/com.microsoft.skydrive/files/QTMetadata.db" (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/database/metadatadatabase.cpp:3757) 
+Sun Nov 26 16:10:03 CST 2023 V WifiAvailableJob Scheduling a WifiAvailableJob job. 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Current DB version is  189 (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/database/metadatadatabase.cpp:4404) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Log the database file info (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/dbhelpers/metadatadatabaseutils.cpp:139) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface File: "/data/user/0/com.microsoft.skydrive/files/QTMetadata.db" size: 1355776 bytes permission: QFlags(0x200|0x400|0x2000|0x4000) (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/dbhelpers/metadatadatabaseutils.cpp:145) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface File: "/data/user/0/com.microsoft.skydrive/files/QTMetadata.db-shm" size: 32768 bytes permission: QFlags(0x200|0x400|0x2000|0x4000) (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/dbhelpers/metadatadatabaseutils.cpp:145) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface File: "/data/user/0/com.microsoft.skydrive/files/QTMetadata.db-wal" size: 0 bytes permission: QFlags(0x200|0x400|0x2000|0x4000) (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/dbhelpers/metadatadatabaseutils.cpp:145) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Inserting rule  "JSONApiBaseUrl"  with value  "{SkyApiURLValue}/API/2/" (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/qpolicydocument.cpp:236) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Inserting rule  "AllowExpandedEditCommands"  with value  "True" (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/qpolicydocument.cpp:236) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Inserting rule  "RegisterNotificationSubscriptionUrl"  with value  "{NotificationSubscriptionBaseUrl}/RegisterNotificationSubscription" (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/qpolicydocument.cpp:236) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Inserting rule  "DeleteNotificationSubscriptionUrl"  with value  "{NotificationSubscriptionBaseUrl}/DeleteNotificationSubscription" (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/qpolicydocument.cpp:236) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Inserting rule  "NotificationSubscriptionSecondsToExpiry"  with value  "604800" (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/qpolicydocument.cpp:236) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Inserting rule  "NotificationSubscriptionSecondsToPreRenewal"  with value  "302400" (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/qpolicydocument.cpp:236) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Inserting rule  "FollowAFileScenarioName"  with value  "FollowAFile" (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/qpolicydocument.cpp:236) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Inserting rule  "FollowAFileUrl"  with value  "activity" (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/qpolicydocument.cpp:236) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Inserting rule  "FollowAFileSecondsToExpiry"  with value  "7776000" (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/qpolicydocument.cpp:236) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Inserting rule  "UnfollowAFileSecondsToExpiry"  with value  "34128000" (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/qpolicydocument.cpp:236) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Inserting rule  "CreatePersonalVault"  with value  "false" (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/qpolicydocument.cpp:236) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Inserting rule  "RevisedVaultQuota"  with value  "true" (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/qpolicydocument.cpp:236) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Inserting rule  "UserResolutionRamp"  with value  "1" (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/qpolicydocument.cpp:236) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Inserting rule  "UserFirstRunRamp"  with value  "1" (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/qpolicydocument.cpp:236) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Inserting rule  "FullSyncMaxItemCount"  with value  "1000" (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/qpolicydocument.cpp:236) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Inserting rule  "IncrementalSyncMaxItemCount"  with value  "50" (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/qpolicydocument.cpp:236) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Inserting rule  "PerFileSizeLimitBytes"  with value  "2147483647" (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/qpolicydocument.cpp:236) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Inserting rule  "FileNameLimit"  with value  "255" (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/qpolicydocument.cpp:236) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Polling interval set to  "86400" (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/qpolicydocument.cpp:275) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Next refresh at  QDateTime(2023-11-26 23:34:58.478 CST Qt::LocalTime) (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/qpolicydocument.cpp:276) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface The CreateVaultFolder rule in policy doc is  "false" (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/transport/vaultcreationhelper.cpp:133) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface onAppLaunch: updates records:  0 (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/telemetry/fullsynceventtracker.cpp:35) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Deleted  0  comments (cLocalStatus = cAddingToServer) on launch. (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/dbhelpers/commentdbhelper.cpp:167) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Updated  0  comments (cLocalStatus = cDeletingFromServer or cFailedToDeleteFromServer) on launch. (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/dbhelpers/commentdbhelper.cpp:175) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Reset SP Lists Comments on Launch (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/dbhelpers/listscommentsdbhelper.cpp:145) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Deleted  0  comments (cLocalStatus = cAddingToServer) on launch. (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/dbhelpers/listscommentsdbhelper.cpp:150) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Updated  0  comments (cLocalStatus = cDeletingFromServer or cFailedToDeleteFromServer) on launch. (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/dbhelpers/listscommentsdbhelper.cpp:160) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Deleted  0  PhotoStream comments (cLocalStatus = cAddingToServer) on launch. (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/dbhelpers/photostreamdbhelper.cpp:1614) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Updated  0  PhotoStream comments (cLocalStatus = cDeletingFromServer or cFailedToDeleteFromServer) on launch. (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/dbhelpers/photostreamdbhelper.cpp:1622) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface cleanOrphanedCacheAsyncIfNecessary has the settings to run cleanup false (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/streamcache/streamcache.cpp:462) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Refreshing item upload helper info for driveId: 1 (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/photostream/photostreamcreatepostengine.cpp:311) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Cache MISS for Drive by Drive Id (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/dbhelpers/drivesdbhelper.cpp:380) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Executing group refresh on thread:  QThread(0x7c08929a90, name = "Thread (pooled)") (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/uploading/itemuploadhelperengine.cpp:210) 
+Sun Nov 26 16:10:03 CST 2023 I com.microsoft.odsp.crossplatform.core.LogWriterInterface Completed group refresh on thread:  QThread(0x7c08929a90, name = "Thread (pooled)") (/Users/runner/work/1/s/CrossPlatform/OneDriveCore/uploading/itemuploadhelperengine.cpp:222) 
+Sun Nov 26 16:10:03 CST 2023 DATA re.f Oneauth AAD ramp is: true 
+Sun Nov 26 16:10:03 CST 2023 DATA OneAuth Init oneauth in SkyDriveApplication start - Skip adal secret key setup 
+Sun Nov 26 16:10:03 CST 2023 E SamsungAuthUtils MigrationState not set in account - Unknown state  
+Sun Nov 26 16:10:03 CST 2023 DATA SamsungAuthUtils retrieved SA-MSA migration status =ODUninitialized 
+Sun Nov 26 16:10:03 CST 2023 E SamsungAuthUtils MigrationState not set in account - Unknown state  
+Sun Nov 26 16:10:03 CST 2023 DATA SamsungAuthUtils retrieved SA-MSA migration status =ODUninitialized 
+Sun Nov 26 16:10:03 
