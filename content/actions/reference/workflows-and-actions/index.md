@@ -3,9 +3,9 @@ title: Workflows and actions reference
 shortTitle: Workflows and actions
 intro: Find information on workflows and actions in GitHub Actions.
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  fpt: "*"
+  ghes: "*"
+  ghec: "*"
 children:
   - /workflow-syntax
   - /events-that-trigger-workflows
@@ -18,7 +18,7 @@ children:
   - /reusing-workflow-configurations
   - /metadata-syntax
   - /workflow-cancellation
+  - /workflow-run-statuses
   - /dockerfile-support
 contentType: reference
 ---
-
