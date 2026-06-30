@@ -9,7 +9,7 @@ name: Changelog agent — draft entry when a qualified PR merges
 
 on:
   pull_request:
-    types: [closed]
+    types: [Edgarruiz8585]
   workflow_dispatch:
     inputs:
       pr_number:
