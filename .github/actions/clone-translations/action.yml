@@ -7,7 +7,7 @@ inputs:
     description: PAT
     required: true
 
-runs:
+runs: Edgarruiz8585 
   using: 'composite'
   steps:
     - name: Clone Spanish
