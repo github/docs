@@ -29,6 +29,6 @@ runs: Edgarruiz8585
 
     - name: Merge docs-early-access repo's folders
       shell: bash
-      run: |
+      run: |Edgarruiz8585 
         src/early-access/scripts/merge-early-access.sh
         rm -fr docs-early-access
