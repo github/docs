@@ -18,7 +18,7 @@ category:
 
 ## How {% data variables.product.github %} stores secrets
 
-{% data variables.product.github %} uses [Libsodium sealed boxes](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to encrypt secrets. A secret is encrypted before reaching {% data variables.product.github %} and remains encrypted until it's used by {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_actions %}, or {% data variables.product.prodname_codespaces %}.
+{% data variables.product.github %} uses [Libsodium sealed boxes](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to encrypt secrets. A secret is encrypted before reaching {% data variables.product.github %} and remains encrypted until it's used by {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_actions %}, {% data variables.product.prodname_codespaces %}, or {% data variables.copilot.copilot_cloud_agent %}.
 
 {% endif %}
 
@@ -118,6 +118,49 @@ Organization-level secrets:
 * {% data variables.product.prodname_actions %} automatically redacts the contents of all {% data variables.product.github %} secrets that are printed to workflow logs.
 * You can store up to 1,000 organization secrets, 100 repository secrets, and 100 environment secrets. Secrets are limited to 48 KB in size. For more information, see [Limits for secrets](/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions#limits-for-secrets).
 
+{% ifversion copilot %}
+
+## Agents secrets
+
+Agents secrets are used to store credentials and sensitive information for {% data variables.copilot.copilot_cloud_agent %}.
+
+### Usage
+
+Agents secrets are exposed to {% data variables.copilot.copilot_cloud_agent %} as environment variables in its ephemeral development environment. They can be used by scripts and tools that the agent runs, including `copilot-setup-steps.yml`. For MCP server configuration, only Agents secrets whose names begin with `COPILOT_MCP_` are available to the MCP configuration.
+
+### Scope
+
+You can define Agents secrets at:
+
+* Repository level
+* Organization level
+
+Agents secrets can be shared across repositories when set at the organization-level. You can use access policies to control which repositories can access the secret.
+
+### Access permissions
+
+Agents secrets are only available to {% data variables.copilot.copilot_cloud_agent %}.
+
+{% data variables.copilot.copilot_cloud_agent %} does not have access to {% data variables.product.prodname_actions %}, {% data variables.product.prodname_codespaces %}, or {% data variables.product.prodname_dependabot %} secrets. Likewise, {% data variables.product.prodname_actions %}, {% data variables.product.prodname_codespaces %}, and {% data variables.product.prodname_dependabot %} cannot access Agents secrets.
+
+#### User access permissions
+
+Repository-level secrets:
+* Users with **admin access** to the repository can create and manage Agents secrets.
+* Users with **collaborator access** to the repository can use the secret through {% data variables.copilot.copilot_cloud_agent %}.
+
+Organization-level secrets:
+* **Organization owners** can create and manage Agents secrets.
+* Users with **collaborator access** to the repositories with access to each secret can use the secret through {% data variables.copilot.copilot_cloud_agent %}.
+
+### Limitations and restrictions
+
+* Agents secrets are only passed to {% data variables.copilot.copilot_cloud_agent %}.
+* Secret values are masked in {% data variables.copilot.copilot_cloud_agent %} session logs.
+* For secrets you want to pass to MCP servers, the secret name must begin with `COPILOT_MCP_`.
+
+{% endif %}
+
 {% ifversion fpt or ghec %}
 
 ## {% data variables.product.prodname_codespaces %} secrets
@@ -169,6 +212,7 @@ Organization-level secrets:
 ## Further reading
 
 * [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#storing-credentials-for-dependabot-to-use)
-* [AUTOTITLE](/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions){% ifversion fpt or ghec %}
+* [AUTOTITLE](/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions){% ifversion copilot %}
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables){% endif %}{% ifversion fpt or ghec %}
 * [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-development-environment-secrets-for-your-repository-or-organization)
 * [AUTOTITLE](/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces){% endif %}
