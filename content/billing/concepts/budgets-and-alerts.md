@@ -24,7 +24,12 @@ For metered products such as {% data variables.product.prodname_actions %}, {% d
 Each budget has a type and a scope that define which paid use contributes to spending against the budget.
 
 * **Type**: Defines which metered product or SKU is measured.
-* **Scope**: Defines whether the budget applies to the whole account, or to a subset of repositories, organizations, cost centers (enterprise only), or users. User-scoped budgets are currently only supported for {% data variables.product.prodname_copilot_short %} {% data variables.product.prodname_ai_credits_short %}. There are two types: a universal budget that applies to all licensed users by default, and individual budgets that override the universal for specific users. See [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
+* **Scope**: Defines whether the budget applies to the whole account, or to a subset of repositories, organizations, cost centers (enterprise only), or users. User-scoped budgets are currently only supported for {% data variables.product.prodname_copilot_short %} {% data variables.product.prodname_ai_credits_short %}, and have three scopes:
+  * **Universal**: applies to all licensed users by default
+  * **Cost center user-level**: applies to every user in a cost center
+  * **Individual**: overrides the above for specific users
+
+For more information about how user-level budgets work and how they interact with other budget controls, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
 
 ## Budget alerts
 

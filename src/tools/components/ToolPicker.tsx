@@ -2,6 +2,7 @@ import { preserveAnchorNodePosition } from 'scroll-anchoring'
 
 import { useArticleContext } from '@/frame/components/context/ArticleContext'
 import { InArticlePicker } from './InArticlePicker'
+import { useSelection } from './SelectionContext'
 import { TOOL_PREFERRED_COOKIE_NAME } from '@/frame/lib/constants'
 
 // example: http://localhost:4000/en/codespaces/developing-in-codespaces/creating-a-codespace
@@ -58,7 +59,8 @@ function getDefaultTool(defaultTool: string | undefined, detectedTools: Array<st
 const toolQueryKey = 'tool'
 export const ToolPicker = () => {
   // allTools comes from the ArticleContext which contains the list of tools available
-  const { defaultTool, detectedTools, allTools } = useArticleContext()
+  const { defaultTool, detectedTools, allTools, renderedPageHast } = useArticleContext()
+  const { setTool } = useSelection()
 
   if (!detectedTools.length) return null
 
@@ -72,9 +74,14 @@ export const ToolPicker = () => {
       cookieKey={TOOL_PREFERRED_COOKIE_NAME}
       queryStringKey={toolQueryKey}
       onValue={(value: string) => {
-        preserveAnchorNodePosition(document, () => {
-          showToolSpecificContent(value, Object.keys(allTools))
-        })
+        // Drive visibility through React state on the hast path (#6619). Only the
+        // string fallback still needs the imperative DOM mutation.
+        setTool(value)
+        if (!renderedPageHast) {
+          preserveAnchorNodePosition(document, () => {
+            showToolSpecificContent(value, Object.keys(allTools))
+          })
+        }
       }}
       preferenceName="application"
       ariaLabel="Tool"

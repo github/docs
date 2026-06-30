@@ -19,6 +19,15 @@ jobs:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
+          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
+          owner: github
+          repositories: docs-content,docs-engineering
+
       - name: Check that gh CLI is installed
         run: gh --version
 
@@ -37,7 +46,7 @@ jobs:
       - name: Open issue in docs-content
         if: ${{ always() && steps.linting-content-data.outcome == 'failure' }}
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
           REPORT_AUTHOR: docs-bot
           REPORT_LABEL: broken content markdown report
           REPORT_REPOSITORY: github/docs-content
@@ -51,4 +60,4 @@ jobs:
       - uses: ./.github/actions/create-workflow-failure-issue
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          token: ${{ steps.app-token.outputs.token }}

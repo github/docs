@@ -239,6 +239,12 @@ You can create skills to enhance the ability of {% data variables.product.prodna
 
 For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-skills).
 
+### Use hooks
+
+You can use hooks to extend and customize the behavior of {% data variables.copilot.copilot_cli_short %}. Hooks allow you to run custom shell commands automatically at key points during a CLI session.
+
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/use-hooks).
+
 ### Add an MCP server
 
 {% data variables.copilot.copilot_cli_short %} comes with the {% data variables.product.github %} MCP server already configured. This MCP server allows you to interact with resources on {% data variables.product.prodname_dotcom_the_website %}—for example, allowing you to merge pull requests from the CLI.

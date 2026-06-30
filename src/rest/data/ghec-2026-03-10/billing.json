@@ -1254,12 +1254,22 @@
                         "enterprise",
                         "organization",
                         "repository",
-                        "cost_center"
+                        "cost_center",
+                        "multi_user_customer",
+                        "user"
                       ]
                     },
                     "budget_entity_name": {
                       "type": "string",
                       "description": "The name of the entity to apply the budget to"
+                    },
+                    "user": {
+                      "type": "string",
+                      "description": "The user login when the budget is scoped to a single user (`user` scope)."
+                    },
+                    "consumed_amount": {
+                      "type": "number",
+                      "description": "The consumed amount for the specified user within the budget. Only included for `user`-scoped budgets."
                     },
                     "budget_amount": {
                       "type": "integer",
@@ -1460,6 +1470,198 @@
         "fineGrainedPat": false,
         "permissions": []
       }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets/{budget_id}/user-states",
+      "title": "Get user states for a multi-user budget",
+      "category": "billing",
+      "subcategory": "budgets",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "budget_id",
+          "description": "<p>The ID corresponding to the budget.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "page",
+          "description": "<p>The page number of results to fetch.</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page.</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "sort_order",
+          "description": "<p>Sort order for results. <code>0</code> for descending, <code>1</code> for ascending.</p>",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "0",
+              "1"
+            ]
+          }
+        },
+        {
+          "name": "user",
+          "description": "<p>Filter user states to a specific user login.</p>",
+          "in": "query",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "threshold_lower_bound",
+          "description": "<p>Filter user states whose threshold percentage is at or above this value.</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "threshold_upper_bound",
+          "description": "<p>Filter user states whose threshold percentage is at or below this value.</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Lists per-user budget state for a multi-user customer scoped budget. The authenticated user must be an enterprise admin or billing manager.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "budget_id": "BUDGET_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response when getting per-user states for a multi-user budget</p>",
+            "example": {
+              "user_states": [
+                {
+                  "user": "octocat",
+                  "consumed_amount": 50.5,
+                  "target_amount": 1000
+                },
+                {
+                  "user": "monalisa",
+                  "consumed_amount": 250,
+                  "target_amount": 1000,
+                  "override_budget_id": "2066deda-923f-43f9-88d2-62395a28c0cdd"
+                }
+              ],
+              "has_next_page": false,
+              "total_count": 2
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user_states": {
+                  "type": "array",
+                  "description": "Per-user state entries for the budget.",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "user": {
+                        "type": "string",
+                        "description": "The login of the user, when the user record is available."
+                      },
+                      "consumed_amount": {
+                        "type": "number",
+                        "description": "The amount currently consumed by this user against the budget."
+                      },
+                      "target_amount": {
+                        "type": "number",
+                        "description": "The target amount allocated to this user within the budget."
+                      },
+                      "override_budget_id": {
+                        "type": "string",
+                        "description": "The ID of a user-scoped budget that overrides the per-user allocation, when present."
+                      }
+                    },
+                    "required": [
+                      "consumed_amount",
+                      "target_amount"
+                    ]
+                  }
+                },
+                "has_next_page": {
+                  "type": "boolean",
+                  "description": "Indicates if there are more pages of results available."
+                },
+                "total_count": {
+                  "type": "integer",
+                  "description": "Total number of user state entries matching the query."
+                }
+              },
+              "required": [
+                "user_states",
+                "has_next_page",
+                "total_count"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Response when getting per-user states for a multi-user budget</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
     }
   ],
   "cost-centers": [
@@ -1524,6 +1726,10 @@
                     {
                       "type": "Repo",
                       "name": "octocat/hello-world"
+                    },
+                    {
+                      "type": "Team",
+                      "name": "enterprise-team-1"
                     }
                   ]
                 },
@@ -1535,6 +1741,10 @@
                     {
                       "type": "User",
                       "name": "Octocat"
+                    },
+                    {
+                      "type": "Team",
+                      "name": "enterprise-team-2"
                     }
                   ]
                 }
@@ -1960,96 +2170,7 @@
         }
       ],
       "descriptionHTML": "<p>Updates an existing cost center name.</p>",
-      "codeExamples": [
-        {
-          "request": {
-            "contentType": "application/json",
-            "description": "Update cost center name example",
-            "acceptHeader": "application/vnd.github.v3+json",
-            "bodyParameters": {
-              "name": "New Cost Center Name"
-            },
-            "parameters": {
-              "enterprise": "ENTERPRISE",
-              "cost_center_id": "COST_CENTER_ID"
-            }
-          },
-          "response": {
-            "statusCode": "200",
-            "contentType": "application/json",
-            "description": "<p>Response when updating a cost center</p>",
-            "example": {
-              "id": "2eeb8ffe-6903-11ee-8c99-0242ac120002",
-              "name": "Cost Center Name",
-              "state": "active",
-              "azure_subscription": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
-              "resources": [
-                {
-                  "type": "User",
-                  "name": "Monalisa"
-                },
-                {
-                  "type": "Repo",
-                  "name": "octocat/hello-world"
-                }
-              ]
-            },
-            "schema": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string",
-                  "description": "ID of the cost center."
-                },
-                "name": {
-                  "type": "string",
-                  "description": "Name of the cost center."
-                },
-                "azure_subscription": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "description": "Azure subscription ID associated with the cost center. Only present for cost centers linked to Azure subscriptions."
-                },
-                "state": {
-                  "type": "string",
-                  "description": "State of the cost center.",
-                  "enum": [
-                    "active",
-                    "deleted"
-                  ]
-                },
-                "resources": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "description": "Type of the resource."
-                      },
-                      "name": {
-                        "type": "string",
-                        "description": "Name of the resource."
-                      }
-                    },
-                    "required": [
-                      "type",
-                      "name"
-                    ]
-                  }
-                }
-              },
-              "required": [
-                "id",
-                "name",
-                "resources"
-              ]
-            }
-          }
-        }
-      ],
+      "codeExamples": [],
       "statusCodes": [
         {
           "httpStatusCode": "200",
@@ -2246,6 +2367,11 @@
           "type": "array of strings",
           "name": "repositories",
           "description": "<p>The repositories to add to the cost center.</p>"
+        },
+        {
+          "type": "array of strings",
+          "name": "enterprise_teams",
+          "description": "<p>The enterprise teams to add to the cost center.</p>"
         }
       ],
       "descriptionHTML": "<p>Adds resources to a cost center.</p>\n<p>The usage for the resources will be charged to the cost center's budget. The authenticated user must be an enterprise admin in order to use this endpoint.</p>",
@@ -2286,6 +2412,11 @@
                   "resource_type": "repository",
                   "name": "octo-repo",
                   "previous_cost_center": "yet-another-cost-center"
+                },
+                {
+                  "resource_type": "team",
+                  "name": "octo-enterprise-team",
+                  "previous_cost_center": "old-cost-center"
                 }
               ]
             },
@@ -2399,6 +2530,11 @@
           "type": "array of strings",
           "name": "repositories",
           "description": "<p>The repositories to remove from the cost center.</p>"
+        },
+        {
+          "type": "array of strings",
+          "name": "enterprise_teams",
+          "description": "<p>The enterprise teams to remove from the cost center.</p>"
         }
       ],
       "descriptionHTML": "<p>Remove resources from a cost center.</p>\n<p>The usage for the resources will no longer be charged to the cost center's budget. The authenticated user must be an enterprise admin in order to use this endpoint.</p>",

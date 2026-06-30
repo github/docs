@@ -31,6 +31,14 @@ jobs:
     steps:
       - name: Checkout repository code
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
+          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
+          owner: github
+          repositories: semmle-code,docs-internal
 
         # Check out a nested repository inside of previous checkout
       - name: Checkout semmle-code repo
@@ -38,7 +46,7 @@ jobs:
         with:
           # By default, only the most recent commit of the `main` branch
           # will be checked out
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          token: ${{ steps.app-token.outputs.token }}
           repository: github/semmle-code
           path: semmle-code
           ref: ${{ inputs.SOURCE_BRANCH }}
@@ -75,7 +83,7 @@ jobs:
       - name: Create pull request
         env:
           # Needed for gh
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           # If nothing to commit, exit now. It's fine. No orphans.
           changes=$(git diff --name-only | wc -l)

@@ -11,7 +11,7 @@ category:
   - Manage Copilot for a team
 ---
 
-Every {% data variables.product.prodname_copilot_short %} license includes {% data variables.product.prodname_ai_credits_short %} that are pooled across your enterprise. Budget controls let you govern how individual users draw from that pool, and cap any additional spending once it's exhausted. This article explains what each budget control does, how the system evaluates them, and what happens when a limit is reached.
+Every {% data variables.product.prodname_copilot_short %} license includes {% data variables.product.prodname_ai_credits_short %} that are pooled across your enterprise. Budget controls let you govern how individual users draw from that pool and cap any additional spending once the pool is exhausted. This article explains what each control does, how the system evaluates them, and what happens when a limit is reached.
 
 ## Understanding budget controls
 
@@ -21,10 +21,13 @@ You have budget controls at the user, organization, cost center, and enterprise 
 
 The user-level budget (ULB) caps how many {% data variables.product.prodname_ai_credits_short %} a single user can consume in a billing cycle—both from the shared pool and from additional (metered) usage. This is the only control that is active during both the pool phase and the metered phase. ULBs always enforce a hard stop; there is no option to allow usage to continue beyond the limit. A $0 USD budget blocks the user immediately.
 
-There are two types:
+There are three types, listed from the broadest scope to the most specific:
 
 * **Universal user-level budget:** A default budget applied to every {% data variables.product.prodname_copilot_short %}-licensed user in your enterprise. This is your primary tool for ensuring fair access to the shared pool.
-* **Individual user-level budget:** A budget set for a specific user, which overrides the universal default and takes precedence over it entirely. Use this for power users who need higher limits, or to restrict specific users to a lower amount.
+* **Cost center user-level budget:** A default budget applied to every user in a single cost center, sometimes called a group-scoped user-level budget. You set one per-user amount on the cost center and it applies to every current and future member, so you can give different departments different per-user limits—for example, $20 USD per user for engineering and $5 USD per user for marketing—without creating thousands of individual budgets. It overrides the universal budget for members of that cost center.
+* **Individual user-level budget:** A budget set for a specific user, which overrides both the universal default and any cost center user-level budget. Use this for power users who need higher limits, or to restrict specific users to a lower amount.
+
+When more than one type applies to a user, the most specific budget wins: an individual user-level budget takes precedence over a cost center user-level budget, which takes precedence over the universal user-level budget.
 
 #### When users appear in a universal user-level budget
 
@@ -36,7 +39,12 @@ For a complete view of all licensed users regardless of activity, use the **AI u
 
 A cost center budget caps metered charges for a defined group of users or an organization. It does not limit how much a team draws from the pool. It is only active after the shared pool is exhausted. A cost center budget **does not extend or override a user-level budget**: if a user has reached their user-level budget, they are blocked even if their cost center still has remaining budget.
 
+Members of a cost center can be assigned directly, through an organization, or through an enterprise team. For how usage is allocated when more than one assignment applies to a user, see [AUTOTITLE](/billing/reference/cost-center-allocation).
+
 When a cost center's budget is exhausted, only users in that cost center are blocked. Other users and cost centers are unaffected.
+
+> [!NOTE]
+> A cost center budget is different from a cost center user-level budget. A cost center budget caps the team's **total metered charges** after the pool is exhausted. A cost center user-level budget caps **each member's individual consumption** across both the pool and metered phases, the same way other user-level budgets do. You can apply both to the same cost center.
 
 ### Organization budget
 
@@ -58,7 +66,8 @@ The enterprise budget caps total metered charges across your entire enterprise. 
 | Control | What it caps | When it's active | Scope | Hard stop? |
 | --- | --- | --- | --- | --- |
 | Universal user-level budget | Each user's total {% data variables.product.prodname_ai_credit_singular %} consumption | Always (pool + metered) | Per user | Always |
-| Individual user-level budget | A specific user's total consumption (overrides universal) | Always (pool + metered) | Per user | Always |
+| Cost center user-level budget | Each member's total consumption, set per cost center (overrides universal) | Always (pool + metered) | Per user, by cost center | Always |
+| Individual user-level budget | A specific user's total consumption (overrides universal and cost center user-level budgets) | Always (pool + metered) | Per user | Always |
 | Cost center budget | A team's metered charges after pool exhaustion | Metered phase only | Per cost center | Only if "Stop usage when budget limit is reached" is enabled |
 | Organization budget | An organization's metered charges after pool exhaustion | Metered phase only | Per organization | Only if "Stop usage when budget limit is reached" is enabled |
 | Enterprise budget | Total enterprise metered charges after pool exhaustion | Metered phase only | Enterprise-wide | Only if "Stop usage when budget limit is reached" is enabled |
@@ -74,7 +83,7 @@ When someone in your enterprise uses {% data variables.product.prodname_copilot_
 
 Each request for an {% data variables.product.prodname_ai_credit_singular %}-consuming feature goes through these checks:
 
-1. **User-level budget check.** The system first checks whether the user has exceeded their user-level budget. If yes, the request is blocked immediately. ULBs are always a hard stop, and no other budget can override or supplement them. If no (or no ULB is set), the request continues.
+1. **User-level budget check.** The system first checks whether the user has exceeded their user-level budget. When a user has more than one type of user-level budget, the most specific one applies: an individual budget if set, otherwise the budget for the user's cost center, otherwise the universal budget. If the applicable budget is exceeded, the request is blocked immediately. ULBs are always a hard stop, and no other budget can override or supplement them. If no user-level budget is set, the request continues.
 1. **Shared pool check.** Next, the system checks whether the shared pool has {% data variables.product.prodname_ai_credits_short %} remaining. If yes, the request is served from the pool at no extra cost. If the pool is empty, the request moves to metered usage at {% data variables.product.prodname_ai_credits_value %} per {% data variables.product.prodname_ai_credit_singular %}.
 1. **Cost center, organization, or enterprise check.** For metered usage, the system checks budgets in the following order:
 

@@ -40,11 +40,21 @@ export class SecretScanningTransformer implements PageTransformer {
 
         // Process Liquid in values
         for (const entry of data) {
-          // Only process Liquid for the hasValidityCheck field, as in the middleware
+          // Process Liquid for the hasValidityCheck field, as in the middleware
           if (typeof entry.hasValidityCheck === 'string' && entry.hasValidityCheck.includes('{%')) {
             // Render Liquid and parse as YAML to get correct boolean type
             entry.hasValidityCheck = load(
               await liquid.parseAndRender(entry.hasValidityCheck, context),
+            ) as boolean
+          }
+
+          // Process Liquid for the hasExtendedMetadata field, as in the middleware
+          if (
+            typeof entry.hasExtendedMetadata === 'string' &&
+            entry.hasExtendedMetadata.includes('{%')
+          ) {
+            entry.hasExtendedMetadata = load(
+              await liquid.parseAndRender(entry.hasExtendedMetadata, context),
             ) as boolean
           }
 

@@ -29,7 +29,7 @@ export function GHESReleaseNotes({ context }: Props) {
             className={cx('position-sticky border-md-left no-print flex-shrink-0', styles.aside)}
           >
             <nav className="height-full overflow-auto">
-              <ul className="list-style-none py-2 px-0 my-0">
+              <ul role="list" className="list-style-none py-2 px-0 my-0">
                 {currentRelease.patches.map((patch) => {
                   return (
                     <li key={patch.version} className="my-2 px-3 f4 d-inline-block d-md-block">

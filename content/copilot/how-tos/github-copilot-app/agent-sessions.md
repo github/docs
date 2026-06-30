@@ -37,6 +37,8 @@ The session mode controls how much autonomy the agent has. You can set the mode 
 
 You can select a model and reasoning effort from the dropdowns above the prompt field. Higher reasoning effort gives the agent more time to think through complex problems but may take longer. You can change both settings at any time during a session.
 
+If you configured your own model provider in the app using bring your own key (BYOK), those models also appear in the picker. For setup steps, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/use-byok-models).
+
 Hover over the {% octicon "info" aria-label="the info icon" %} icon in the model picker to see model details.
 
 ## Using quick chats
@@ -81,3 +83,5 @@ For more information on the rubber duck agent, see [AUTOTITLE](/copilot/concepts
 ## Keyboard shortcuts
 
 The {% data variables.copilot.github_copilot_app %} supports keyboard shortcuts to help you navigate sessions, switch between workspaces, and perform common actions. To see available shortcuts, open the app, go to **Help**, then **Keyboard Shortcuts**.
+
+You can also start a session directly in the app using deep links from markdown files, third-party tools, or scripts. For more information, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/open-with-deep-links).

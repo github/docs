@@ -1,7 +1,7 @@
 ---
 title: Resolving a block on your pull request
 shortTitle: Unblock your PR
-intro: Identify and resolve a code quality block on your pull request so you can merge your changes.
+intro: Identify and resolve a code quality or coverage threshold block on your pull request so you can merge your changes.
 versions:
   feature: code-quality
 permissions: '{% data reusables.permissions.code-quality-see-repo-findings %}'
@@ -16,10 +16,14 @@ category:
 
 ## Understanding why your pull request is blocked
 
-Repository administrators can set code quality gates for maintainability and reliability using {% data variables.product.prodname_code_quality %}. When you open a pull request, a scan automatically runs to check your changes against these standards.
+Repository administrators can set quality gates using {% data variables.product.prodname_code_quality %}. When you open a pull request, checks automatically run to evaluate your changes against these standards.
 
-If your pull request introduces code that falls below the required quality threshold, you’ll see a merge block banner at the bottom of the pull request in the Checks section:
-"Merging is blocked: Code quality findings were detected."
+There are two types of blocks:
+
+* **Code quality findings**: your changes introduce issues that fall below the required quality threshold.
+* **Coverage threshold**: your changes cause code coverage to fall below a required minimum, or cause coverage to drop by more than a permitted amount relative to the default branch.
+
+If your pull request introduces code that falls below the required quality threshold, you'll see a merge block banner at the bottom of the pull request in the "Checks" section: "Merging is blocked: Code quality findings were detected."
 
 ![Screenshot of the merge block banner in the Checks section of a pull request.](/assets/images/help/code-quality/code-quality-merge-block.png)
 
@@ -63,6 +67,19 @@ In order to unblock your pull request, you need to resolve each required finding
 ## Verifying that you've met the requirements
 
 To see if you've met the code quality requirements, look at the "Checks" section at the bottom of your pull request. The merge block banner should no longer be present, and you should be able to merge your changes as usual.
+
+## Resolving a coverage threshold block
+
+If your pull request is blocked by a coverage threshold rule, you'll see a merge block banner in the "Checks" section with a message describing which threshold was not met. For example:
+
+* "Coverage 22.0% is below minimum 50.0%": your pull request branch coverage is below the minimum coverage percentage configured in the ruleset.
+* "Coverage decreased by 2.5%, maximum allowed drop is 1.0%": your changes caused coverage to drop by more than the permitted amount relative to the default branch.
+
+To unblock your pull request, you need to add or modify tests so that more of the codebase is executed:
+
+1. Review the coverage summary comment on your pull request to identify which files or areas lack coverage.
+1. Add or update tests to increase execution coverage.
+1. Push your changes. The coverage check will re-run automatically.
 
 ## Next steps
 

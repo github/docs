@@ -7,5 +7,6 @@
     - /preparing-to-upgrade
     - /performing-an-upgrade
     - /troubleshooting-upgrades
+    - /automation-via-cli-api
   shortTitle: Upgrade your instance
 ---

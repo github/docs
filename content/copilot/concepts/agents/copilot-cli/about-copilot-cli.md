@@ -184,7 +184,7 @@ You can interact with {% data variables.product.prodname_copilot_short %} while 
 {% data variables.copilot.copilot_cli %} automatically manages your conversation context:
 
 * **Auto-compaction**: When your conversation approaches 95% of the token limit, {% data variables.product.prodname_copilot_short %} automatically compresses your history in the background without interrupting your workflow. This enables virtually infinite sessions.
-* **Manual control**: Use `/compact` to manually compress context anytime. Press <kbd>Escape</kbd> to cancel if you change your mind.
+* **Manual control**: Use `/compact` to manually compress context anytime. Press <kbd>Esc</kbd> to cancel if you change your mind.
 * **Visualize usage**: The `/context` command shows a detailed token usage breakdown so you can understand how your context window is being used.
 
 ## Customizing {% data variables.copilot.copilot_cli %}

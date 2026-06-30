@@ -67,7 +67,7 @@ export const SimpleFooter = () => {
   return (
     <footer className="py-6">
       <div className="container-xl px-3 px-md-6">
-        <ul className="d-flex flex-wrap list-style-none">
+        <ul role="list" className="d-flex flex-wrap list-style-none">
           <li className="d-flex mr-xl-3 color-fg-muted">
             <span>&copy; {new Date().getFullYear()} GitHub, Inc.</span>
           </li>

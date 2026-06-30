@@ -10,6 +10,7 @@ redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain
 children:
   - supply-chain-security
+  - open-source-license-compliance
   - best-practices-for-maintaining-dependencies
   - dependency-graph
   - dependency-graph-data
@@ -22,10 +23,10 @@ children:
   - dependabot-pull-requests
   - multi-ecosystem-updates
   - about-the-dependabot-yml-file
+  - automatic-dependabot-access-to-github-registries
   - dependabot-auto-triage-rules
   - dependabot-on-actions
   - dependabot-job-logs
   - immutable-releases
   - linked-artifacts
 ---
-

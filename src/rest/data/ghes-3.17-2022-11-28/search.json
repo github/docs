@@ -2784,6 +2784,10 @@
                               "type": "integer",
                               "format": "int64"
                             },
+                            "issue_field_name": {
+                              "description": "The human-readable name of the issue field.",
+                              "type": "string"
+                            },
                             "node_id": {
                               "type": "string"
                             },
@@ -5058,6 +5062,30 @@
                                     "required": [
                                       "pinned_at",
                                       "pinned_by"
+                                    ]
+                                  }
+                                ]
+                              },
+                              "minimized": {
+                                "anyOf": [
+                                  {
+                                    "type": "null"
+                                  },
+                                  {
+                                    "title": "Minimized Issue Comment",
+                                    "description": "Details about why an issue comment was minimized.",
+                                    "type": "object",
+                                    "properties": {
+                                      "reason": {
+                                        "description": "The reason the comment was minimized.",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "reason"
                                     ]
                                   }
                                 ]
@@ -5593,6 +5621,10 @@
                               "type": "integer",
                               "format": "int64"
                             },
+                            "issue_field_name": {
+                              "description": "The human-readable name of the issue field.",
+                              "type": "string"
+                            },
                             "node_id": {
                               "type": "string"
                             },
@@ -7867,6 +7899,30 @@
                                     "required": [
                                       "pinned_at",
                                       "pinned_by"
+                                    ]
+                                  }
+                                ]
+                              },
+                              "minimized": {
+                                "anyOf": [
+                                  {
+                                    "type": "null"
+                                  },
+                                  {
+                                    "title": "Minimized Issue Comment",
+                                    "description": "Details about why an issue comment was minimized.",
+                                    "type": "object",
+                                    "properties": {
+                                      "reason": {
+                                        "description": "The reason the comment was minimized.",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "reason"
                                     ]
                                   }
                                 ]

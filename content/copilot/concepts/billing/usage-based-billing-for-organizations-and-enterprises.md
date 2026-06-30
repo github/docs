@@ -90,7 +90,7 @@ For the best experience with usage-based billing, update your IDE, client, and {
 | --- | --- |
 | {% data variables.product.prodname_vscode_shortname %} | 1.120 |
 | {% data variables.product.prodname_vs %} 2022 (17.x) | 17.14.33 |
-| {% data variables.product.prodname_vs %} 2025 (18.x) | 18.6.0 |
+| {% data variables.product.prodname_vs %} 2026 (18.x) | 18.6.0 |
 | SQL Server Management Studio | 22.6 |
 | JetBrains IDEs (plugin) | 1.9.1 |
 | Eclipse (plugin) | 0.18.0 |

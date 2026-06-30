@@ -18,9 +18,13 @@ category:
   - Manage Copilot for a team
 ---
 
-## How revoking access affects billing
+## About organization-level revocation
 
-Revoking access takes effect from the start of the next billing cycle. If you remove a seat during a cycle, the user will have access to {% data variables.product.prodname_copilot_short %} for the remainder of the billing cycle. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
+Revoking access at the organization level only removes access for people who receive {% data variables.product.prodname_copilot_short %} through the organization. If a person also has access through an enterprise team or as an individual, they will retain it.
+
+To remove access for those users, an enterprise owner must remove them from the enterprise team or unassign their license in the enterprise settings, which revokes access immediately. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/grant-access#assigning-licenses-to-users-or-teams).
+
+For people whose access is revoked through organization-level revocation, the removal takes effect from the start of the next billing cycle. If you remove a seat during a cycle, the user will have access to {% data variables.product.prodname_copilot_short %} for the remainder of the billing cycle. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
 
 ## Revoking access to {% data variables.product.prodname_copilot_short %} for your whole organization
 

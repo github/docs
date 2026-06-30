@@ -13,16 +13,12 @@ import { mkdirp } from 'mkdirp'
 import path from 'path'
 
 import { filterByAllowlistValues, filterAndUpdateGhesDataByAllowlistValues } from '../lib/index'
+import { writeDeduplicatedAuditLogData } from '../lib/deduplicate'
 import { getContents, getCommitSha } from '@/workflows/git-utils'
 import { latest, latestStable, releaseCandidate } from '@/versions/lib/enterprise-server-releases'
 import { loadPages, loadPageMap } from '@/frame/lib/page-data'
 import loadRedirects from '@/redirects/lib/precompile'
-import type {
-  AuditLogEventT,
-  VersionedAuditLogData,
-  DeduplicatedAuditLogEntry,
-  AuditLogVersionIndex,
-} from '../types'
+import type { AuditLogEventT, VersionedAuditLogData } from '../types'
 
 if (!process.env.GITHUB_TOKEN) {
   throw new Error('GITHUB_TOKEN environment variable must be set to run this script')
@@ -216,76 +212,7 @@ async function main() {
   }
 
   // Write deduplicated shared format
-  await writeDeduplicatedFormat(auditLogData)
-}
-
-async function writeDeduplicatedFormat(auditLogData: VersionedAuditLogData) {
-  console.log(`\n▶️  Writing deduplicated audit log data...\n`)
-
-  // Build fields pool: unique fields arrays
-  const fieldsPool: string[][] = []
-  const fieldsMap = new Map<string, number>() // JSON key → index
-
-  function getFieldsIndex(fields: string[] | undefined): number | undefined {
-    if (!fields || fields.length === 0) return undefined
-    const key = JSON.stringify(fields)
-    if (fieldsMap.has(key)) return fieldsMap.get(key)!
-    const index = fieldsPool.length
-    fieldsPool.push(fields)
-    fieldsMap.set(key, index)
-    return index
-  }
-
-  // Build entries pool: unique events (with fields replaced by index)
-  const entriesPool: DeduplicatedAuditLogEntry[] = []
-  const entriesMap = new Map<string, number>() // JSON key → index
-
-  function getEntryIndex(event: AuditLogEventT): number {
-    const fieldsIndex = getFieldsIndex(event.fields)
-    const entry: DeduplicatedAuditLogEntry = {
-      action: event.action,
-      description: event.description,
-    }
-    if (event.docs_reference_links) entry.docs_reference_links = event.docs_reference_links
-    if (event.docs_reference_titles) entry.docs_reference_titles = event.docs_reference_titles
-    if (fieldsIndex !== undefined) entry.fieldsIndex = fieldsIndex
-
-    const key = JSON.stringify(entry)
-    if (entriesMap.has(key)) return entriesMap.get(key)!
-    const index = entriesPool.length
-    entriesPool.push(entry)
-    entriesMap.set(key, index)
-    return index
-  }
-
-  // Build version index
-  const versionIndex: AuditLogVersionIndex = {}
-  let totalEntries = 0
-
-  for (const [version, pages] of Object.entries(auditLogData)) {
-    versionIndex[version] = {}
-    for (const [page, events] of Object.entries(pages)) {
-      versionIndex[version][page] = events.map((event) => getEntryIndex(event))
-      totalEntries += events.length
-    }
-  }
-
-  // Write shared files
-  const sharedDir = path.join(AUDIT_LOG_DATA_DIR, 'shared')
-  if (!existsSync(sharedDir)) {
-    await mkdirp(sharedDir)
-  }
-
-  await writeFile(path.join(sharedDir, 'entries.json'), JSON.stringify(entriesPool))
-  await writeFile(path.join(sharedDir, 'fields-pool.json'), JSON.stringify(fieldsPool))
-  await writeFile(path.join(AUDIT_LOG_DATA_DIR, 'version-index.json'), JSON.stringify(versionIndex))
-
-  const uniqueEntries = entriesPool.length
-  const uniqueFields = fieldsPool.length
-  const dedupRate = totalEntries > 0 ? ((1 - uniqueEntries / totalEntries) * 100).toFixed(1) : '0'
-  console.log(
-    `✅ Deduplicated audit log data: ${totalEntries} total → ${uniqueEntries} unique entries (${dedupRate}% dedup), ${uniqueFields} unique field lists`,
-  )
+  await writeDeduplicatedAuditLogData(auditLogData)
 }
 
 main()

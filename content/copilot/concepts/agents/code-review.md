@@ -52,14 +52,15 @@ To allow organization members without a {% data variables.product.prodname_copil
 The second policy has these characteristics:
 
 * It is disabled by default.
-* Once this policy is set it at the enterprise level, it becomes **visible, but not editable** at the organization level.
-* The policy is **most restrictive**. {% data variables.copilot.copilot_code-review_short %} is only available in repositories where you explicitly enable the policy.
+* Once this policy is set at the enterprise level, it becomes **visible, but not editable** at the organization level.
+* The policy is **most restrictive**. {% data variables.copilot.copilot_code-review_short %} is only available in repositories under an organization where you have explicitly enabled the policy.
 
 ### How it works for users without a license
 
 When both policies are enabled, users without a {% data variables.product.prodname_copilot_short %} license can request a review from {% data variables.copilot.copilot_code-review_short %} on their pull requests in the organization's repositories.
 
-In repositories where automatic code review is enabled, {% data variables.product.prodname_copilot_short %} automatically reviews all pull requests. This happens regardless of whether the author has a {% data variables.product.prodname_copilot_short %} license.
+In repositories where automatic code review is enabled, {% data variables.product.prodname_copilot_short %} automatically reviews all pull requests. This happens regardless of whether the author has a {% data variables.product.prodname_copilot_short %} license. For more information about how to configure automatic code review, see [AUTOTITLE](/copilot/how-tos/agents/copilot-code-review/configuring-automatic-code-review-by-copilot).
+
 
 {% data variables.copilot.copilot_code-review_short %} for users without a license is not available in IDEs.
 

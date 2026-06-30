@@ -212,4 +212,5 @@ You can append instructions to guide the pull request creation. For example:
 ## Further reading
 
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/allowing-tools)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/browse-issues-prs-gists)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)

@@ -64,12 +64,17 @@ export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
   return (
     <div
       role="tooltip"
-      className={cx(className, transition200, isVisible ? opacity100 : opacity0)}
-      aria-hidden={!isVisible}
+      className={cx(
+        className,
+        transition200,
+        isVisible ? opacity100 : opacity0,
+        styles.scrollWrapper,
+      )}
+      aria-hidden={!show}
     >
       <button
         onClick={onClick}
-        tabIndex={isVisible ? 0 : -1}
+        tabIndex={show ? 0 : -1}
         className={cx(
           'ghd-scroll-to-top', // for data tracking, see events.ts
           'tooltipped tooltipped-n tooltipped-no-delay btn circle border-1',

@@ -116,6 +116,12 @@ The specified repository does not need to be the repository where the source cod
 If you publish a package that is linked to a repository, {% data variables.product.prodname_actions %} workflows in the linked repository automatically get access to the package, unless your organization has disabled the automatic inheritance of access permissions. For more information, see [About inheritance of access permissions](#about-inheritance-of-access-permissions) above.
 {% endif %}
 
+{% ifversion org-automatic-registry-access %}
+ 
+Granting a repository access here also allows {% data variables.product.prodname_dependabot %} to pull from this package automatically, without requiring {% data variables.product.pat_generic_plural %} or `dependabot.yml` registry configuration. See [AUTOTITLE](/code-security/concepts/supply-chain-security/automatic-dependabot-access-to-github-registries).
+ 
+{% endif %}
+
 > [!NOTE]
 > * Syncing your package with a repository {% data variables.package_registry.package-settings-actions-access-menu %} is different than connecting your package to a repository. For more information about linking a repository to your package, see [AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package).
 > * You can choose to limit permissions to workflow jobs usings the `permissions` key and `packages` scope. For more information, see [AUTOTITLE](/actions/using-jobs/assigning-permissions-to-jobs).

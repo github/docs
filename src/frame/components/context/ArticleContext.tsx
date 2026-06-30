@@ -17,6 +17,7 @@ export type ArticleContextT = {
   intro: string
   effectiveDate: string
   renderedPage: string | JSX.Element[]
+  renderedPageHast?: import('hast').Root
   miniTocItems: Array<MiniTocItem>
   permissions?: string
   includesPlatformSpecificContent: boolean
@@ -60,6 +61,7 @@ interface ContextRequest {
   context: {
     page: Record<string, unknown> & { fullPath: string; title: string; intro: string }
     renderedPage?: string
+    renderedPageHast?: import('hast').Root
     miniTocItems?: MiniTocItem[]
     currentJourneyTrack?: JourneyContext
     currentLayoutName?: string
@@ -97,6 +99,7 @@ export const getArticleContextFromRequest = (req: ContextRequest): ArticleContex
     intro: page.intro,
     effectiveDate,
     renderedPage: (req.context.renderedPage as string) || '',
+    renderedPageHast: req.context.renderedPageHast,
     miniTocItems: req.context.miniTocItems || [],
     permissions: (page.permissions as string) || '',
     includesPlatformSpecificContent: (page.includesPlatformSpecificContent as boolean) || false,

@@ -20,22 +20,29 @@ You can apply settings to control users' available plugin marketplaces and defau
 1. Add your plugin policy configuration to the file. The `{% data variables.copilot.managed_setting_file %}` file supports the following top-level properties:
 
    ```json copy
-   {
-     "extraKnownMarketplaces": {
-       "MARKETPLACE-NAME": {
-         "source": {
-           "source": "github",
-           "repo": "OWNER/REPO"
-         }
-       }
-     },
-     "enabledPlugins": {
-       "PLUGIN-NAME@MARKETPLACE-NAME": true
-     }
-   }
+    {
+      "extraKnownMarketplaces": {
+        "agent-skills": {
+          "source": {
+            "source": "github",
+            "repo": "OWNER/REPO"
+          }
+        }
+      },
+      "strictKnownMarketplaces": [
+        {
+          "source": "github",
+          "repo": "OWNER/REPO"
+        }
+      ],
+      "enabledPlugins": {
+        "PLUGIN-NAME@MARKETPLACE-NAME": true
+      }
+    }
    ```
 
    * `extraKnownMarketplaces`: Defines additional plugin marketplaces available to users. Each entry is a named marketplace object containing a `source` property that specifies the provider (`"github"`) and the repository in `OWNER/REPO` format.
+   * `strictKnownMarketplaces`: Restricts plugin installation to only the marketplaces explicitly defined by the enterprise. Each entry is a marketplace object containing a `source` property.  The `source` specifies the provider as either `"github"` with a `repo` in `OWNER/REPO` format, or `"git"` with a `url` pointing to a git repository. 
    * `enabledPlugins`: Defines plugins that are automatically installed for all enterprise users. Each entry uses the format `PLUGIN-NAME@MARKETPLACE-NAME` as the key, with a boolean value of `true` to enable the plugin.
 
 1. Commit and push your changes to the default branch of the `.github-private` repository.

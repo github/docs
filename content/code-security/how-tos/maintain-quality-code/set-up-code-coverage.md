@@ -127,3 +127,4 @@ jobs:
 ## Next steps
 
 * **Interpret results:** Understand coverage metrics and per-file breakdowns on your pull requests. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/interpret-results).
+* **Enforce coverage thresholds:** Block pull requests that don't meet a minimum coverage percentage or that cause coverage to drop. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/restrict-code-coverage).

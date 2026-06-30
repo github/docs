@@ -2509,12 +2509,6 @@
       "requestPath": "/orgs/{org}/copilot/content_exclusion"
     },
     {
-      "slug": "get-copilot-metrics-for-an-organization",
-      "subcategory": "copilot-metrics",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/copilot/metrics"
-    },
-    {
       "slug": "get-copilot-organization-usage-metrics-for-a-specific-day",
       "subcategory": "copilot-usage-metrics",
       "verb": "get",
@@ -2549,12 +2543,6 @@
       "subcategory": "copilot-user-management",
       "verb": "get",
       "requestPath": "/orgs/{org}/members/{username}/copilot"
-    },
-    {
-      "slug": "get-copilot-metrics-for-a-team",
-      "subcategory": "copilot-metrics",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics"
     },
     {
       "slug": "get-copilot-cloud-agent-configuration-for-a-repository",
@@ -3105,6 +3093,12 @@
       "requestPath": "/enterprises/{enterprise}/credential-authorizations/revoke-all"
     },
     {
+      "slug": "revoke-credential-authorizations-for-a-user-in-an-enterprise",
+      "subcategory": "credential-authorizations",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/credential-authorizations/{username}/revoke"
+    },
+    {
       "slug": "get-all-enterprise-roles-for-an-enterprise",
       "subcategory": "enterprise-roles",
       "verb": "get",
@@ -3585,6 +3579,24 @@
       "subcategory": "repos",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/interaction-limits"
+    },
+    {
+      "slug": "get-pull-request-creation-cap-bypass-list-for-a-repository",
+      "subcategory": "repos",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/bypass-list"
+    },
+    {
+      "slug": "add-users-to-the-pull-request-creation-cap-bypass-list-for-a-repository",
+      "subcategory": "repos",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/bypass-list"
+    },
+    {
+      "slug": "remove-users-from-the-pull-request-creation-cap-bypass-list-for-a-repository",
+      "subcategory": "repos",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/bypass-list"
     }
   ],
   "issues": [
@@ -5787,6 +5799,12 @@
       "subcategory": "repos",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/immutable-releases"
+    },
+    {
+      "slug": "list-issue-types-for-a-repository",
+      "subcategory": "issue-types",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issue-types"
     },
     {
       "slug": "list-repository-languages",

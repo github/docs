@@ -117,7 +117,8 @@ As the owner of an enterprise or organization account, or as a billing manager, 
    * **Cost center**: Tracks spending for a single cost center.
    * **Users**: Sets a per-user budget. Available when you select **Bundled {% data variables.product.prodname_ai_credits_short %} budget** as the budget type. 
      * Leave the user field empty to create a universal budget that applies to all {% data variables.product.prodname_copilot_short %}-licensed users. 
-     * Select a specific user to create an individual budget that overrides the universal default for that user.
+     * Select a cost center to create a user-level budget that applies to every user in that cost center. This sets one per-user amount for all current and future members, and overrides the universal budget for them.
+     * Select a specific user to create an individual budget that overrides both the universal budget and any cost center user-level budget for that user.
 
 1. Under "Budget", set a budget amount or license count.
 

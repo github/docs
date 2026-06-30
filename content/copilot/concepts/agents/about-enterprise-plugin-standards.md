@@ -23,7 +23,7 @@ Enterprise-managed plugin standards allow administrators to **define and enforce
 
 Plugin standards apply to all users on the enterprise's {% data variables.product.prodname_copilot_short %} plan, across the following clients:
 
-* **{% data variables.copilot.copilot_cli_short %}**: see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-cli-plugins)
+* **{% data variables.copilot.copilot_cli_short %} and {% data variables.copilot.copilot_cloud_agent %}**: see [AUTOTITLE](/copilot/concepts/agents/about-plugins)
 * **{% data variables.product.prodname_vscode_shortname %}** (version 1.122 and later): see [Agent plugins in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/agent-customization/agent-plugins) in the {% data variables.product.prodname_vscode_shortname %} documentation
 
 Users must upgrade to a supported client version for these standards to be applied.

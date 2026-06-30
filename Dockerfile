@@ -10,7 +10,7 @@
 # ---------------------------------------------------------------
 # To update the sha:
 # https://github.com/github/gh-base-image/pkgs/container/gh-base-image%2Fgh-base-noble
-FROM ghcr.io/github/gh-base-image/gh-base-noble:20260611-183630-g2a7c4449e@sha256:1ed595f8af068c9d8aa3afc113db1576a02e9492e513198c271c7bb3cd87c944 AS base
+FROM ghcr.io/github/gh-base-image/gh-base-noble:20260625-083609-gedf42de01@sha256:bf0a2f43957531d73dcb2abceabf2228560f1f67d14e23f5bb0c0ccbabd77dee AS base
 
 # Install curl for Node install and determining the early access branch
 # Install git for cloning docs-early-access & translations repos

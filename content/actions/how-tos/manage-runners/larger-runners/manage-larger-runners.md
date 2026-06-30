@@ -17,9 +17,6 @@ category:
 contentType: how-tos
 ---
 
-> [!NOTE]
-> * {% data reusables.actions.windows-linux-larger-runners-note %}
-
 {% ifversion ghec %}
 
 ## Adding a {% data variables.actions.hosted_runner %} to an enterprise
@@ -67,6 +64,8 @@ Once a repository has access to {% data variables.actions.hosted_runner %}s, the
 > [!WARNING]
 > {% data reusables.actions.hosted-runner-security %}
 > For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners).
+
+If you want to require workflows to target runners only through runner groups, you can disable standard {% data variables.product.github %}-hosted runners at the organization or enterprise level. See [AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization) and [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise).
 
 ## Changing the name of a {% data variables.actions.hosted_runner %}
 
@@ -193,7 +192,8 @@ You can control the maximum number of jobs allowed to run concurrently for speci
 ## Creating static IP addresses for {% data variables.actions.hosted_runner %}s
 
 > [!NOTE]
-> To use static IP addresses, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+> * To use static IP addresses, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+> * macOS {% data variables.actions.hosted_runner %}s do not support static IP addresses.
 
 You can enable static IP addresses for {% data variables.actions.hosted_runner %}s. When you do this, the {% data variables.actions.hosted_runner %}s are assigned static IP address ranges. All IP addresses in the range assigned are usable. By default, you can configure up to 10 different {% data variables.actions.hosted_runner %}s with IP ranges for your account. {% data reusables.actions.larger-runner-static-ip-contact-support %}
 

@@ -16,6 +16,9 @@ category:
 
 It can be useful to have a staging or testing environment for {% data variables.location.product_location %}, so that you can test updates or new features before implementing them in your production environment. For more information, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance).
 
+> [!TIP]
+> If you are migrating {% data variables.product.prodname_actions %} external storage to a new bucket, account, or region on the same provider, rehearse the migration in a staging environment first. See [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/migrating-github-actions-external-storage).
+
 ## Using a staging environment with {% data variables.product.prodname_actions %}
 
 A common way to create the staging environment is to restore a backup of your production {% data variables.product.prodname_ghe_server %} instance to a new virtual machine in the staging environment. If you use a staging instance and plan to test {% data variables.product.prodname_actions %} functionality, you should review your storage configuration in the staging environment.
