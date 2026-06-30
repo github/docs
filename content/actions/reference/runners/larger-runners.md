@@ -29,16 +29,16 @@ You can choose from several specifications for {% data variables.actions.hosted_
 
 | CPU | Memory (RAM)  | Storage (SSD) | Architecture | Operating system (OS) |
 | --- | ------------- | ------------- | ------------ | --------------------- |
-| 5   | 14 GB         | 14 GB         | arm64 (M2)   | macOS                 |
-| 12  | 30 GB         | 14 GB         | x64 (Intel)  | macOS                 |
-| 2   | 8 GB          | 75 GB         | x64, arm64   | Ubuntu                |
-| 4   | 16 GB         | 150 GB        | x64, arm64   | Ubuntu, Windows       |
-| 8   | 32 GB         | 300 GB        | x64, arm64   | Ubuntu, Windows       |
-| 16  | 64 GB         | 600 GB        | x64, arm64   | Ubuntu, Windows       |
-| 32  | 128 GB        | 1200 GB       | x64, arm64   | Ubuntu, Windows       |
-| 64  | 208 GB        | 2040 GB       | arm64        | Ubuntu, Windows       |
-| 64  | 256 GB        | 2040 GB       | x64          | Ubuntu, Windows       |
-| 96 | 384 GB         | 2040 GB       | x64          | Ubuntu, Windows        |
+| 5   | 14 GiB         | 14 GiB         | arm64 (M2)   | macOS                 |
+| 12  | 30 GiB         | 14 GiB         | x64 (Intel)  | macOS                 |
+| 2   | 8 GiB          | 75 GiB         | x64, arm64   | Ubuntu                |
+| 4   | 16 GiB         | 150 GiB        | x64, arm64   | Ubuntu, Windows       |
+| 8   | 32 GiB         | 300 GiB        | x64, arm64   | Ubuntu, Windows       |
+| 16  | 64 GiB         | 600 GiB        | x64, arm64   | Ubuntu, Windows       |
+| 32  | 128 GiB        | 1200 GiB       | x64, arm64   | Ubuntu, Windows       |
+| 64  | 208 GiB        | 2040 GiB       | arm64        | Ubuntu, Windows       |
+| 64  | 256 GiB        | 2040 GiB       | x64          | Ubuntu, Windows       |
+| 96 | 384 GiB         | 2040 GiB       | x64          | Ubuntu, Windows        |
 
 > [!NOTE] The 4-vCPU Windows runner only works with the Windows Server 2025 or the Base Windows 11 Desktop image.
 
@@ -46,7 +46,7 @@ You can choose from several specifications for {% data variables.actions.hosted_
 
 | CPU | GPU | GPU card | Memory (RAM) | GPU memory (VRAM) | Storage (SSD) | Operating system (OS) |
 | --- | --- | -------- | ------------ | ----------------- | ------------- | --------------------- |
-| 4   | 1   | Tesla T4 | 28 GB        | 16 GB             | 176 GB        | Ubuntu, Windows       |
+| 4   | 1   | Tesla T4 | 28 GiB        | 16 GiB             | 176 GiB        | Ubuntu, Windows       |
 
 ## Runner images
 
