@@ -85,12 +85,17 @@ The following are example schemas for the user-level and enterprise-level data r
   "used_agent": false,
   "used_chat": false,
   "used_cli": true,
+  "used_copilot_coding_agent": false,
+  "used_copilot_cloud_agent": false,
+  "ai_adoption_phase": {
+    "phase_number": 2,
+    "phase": "Phase 2",
+    "version": "v1"
+  },
   "user_id": 1,
   "user_login": "login1",
   "user_initiated_interaction_count": 0,
-  "etl_id": "green",
-  "day_partition": "2025-10-01",
-  "entity_id_partition": 1
+  "ai_credits_used": 500
 }]
 ```
 
@@ -175,10 +180,7 @@ The following are example schemas for the user-level and enterprise-level data r
   } ],
   "enterprise_id" : "1",
   "report_end_day" : "2025-10-01",
-  "report_start_day" : "2025-09-04",
-  "etl_id" : "green",
-  "day_partition" : "2025-10-01",
-  "entity_id_partition" : 1
+  "report_start_day" : "2025-09-04"
 }, {
   "day_totals" : [ {
     "code_acceptance_activity_count" : 1,
@@ -243,10 +245,7 @@ The following are example schemas for the user-level and enterprise-level data r
   } ],
   "enterprise_id" : "2",
   "report_end_day" : "2025-10-01",
-  "report_start_day" : "2025-09-04",
-  "etl_id" : "green",
-  "day_partition" : "2025-10-01",
-  "entity_id_partition" : 2
+  "report_start_day" : "2025-09-04"
 } ]
 ```
 
