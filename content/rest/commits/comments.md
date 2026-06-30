@@ -14,6 +14,6 @@ category:
 
 ## About commit comments
 
-You can create, edit, and view commit comments using the REST API. A commit comment is a comment made on a specific commit. For more information, see [AUTOTITLE](/rest/guides/working-with-comments#commit-comments).
+You can create, edit, and view commit comments using the REST API. A commit comment is a comment made on a specific commit. {% ifversion fpt or ghec or ghes > 3.21 %}For repositories that belong to organizations, commit comments can be disabled at the organization or repository level. If commit comments are disabled, people cannot create new commit comments, and requests to create a commit comment may return `403 Forbidden`. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-commit-comments-for-your-organization). {% endif %}For more information, see [AUTOTITLE](/rest/guides/working-with-comments#commit-comments).
 
 <!-- Content after this section is automatically generated -->

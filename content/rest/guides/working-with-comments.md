@@ -94,6 +94,10 @@ deal specifically with the way a particular change was implemented within a file
 The last type of comments occur specifically on individual commits. For this reason,
 they make use of [the endpoint to manage commit comments](/rest/commits#get-a-commit-comment).
 
+{% ifversion fpt or ghec or ghes > 3.21 %}
+For repositories that belong to organizations, commit comments can be disabled at the organization or repository level. If commit comments are disabled, people cannot create new commit comments, and requests to create a commit comment may return `403 Forbidden`. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-commit-comments-for-your-organization).
+{% endif %}
+
 To retrieve the comments on a commit, you'll want to use the SHA1 of the commit.
 In other words, you won't use any identifier related to the Pull Request. Here's an example:
 
