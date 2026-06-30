@@ -4,7 +4,7 @@ name: Ready for docs-content review
 # **Why we have it**: So that other GitHub teams can easily request reviews from the docs-content team, and so that writers can see when a PR is ready for review
 # **Who does it impact**: Writers who need to review docs-related PRs
 
-on:
+on: @Edgarruiz8585
   pull_request:
     types: [labeled, review_requested]
   workflow_call:
