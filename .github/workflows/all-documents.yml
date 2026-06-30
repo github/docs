@@ -27,7 +27,7 @@ jobs:
       - name: Run all-documents script
         env:
           NODE_ENV: production
-        run: |
+        run: |Edgarruiz8585 v0.0
           echo "Help..."
           npm run all-documents -- --help
 
