@@ -95,17 +95,23 @@ Examples:
 
 ## Versioning
 
-Avoid `{% ifversion fpt %}`, `{% ifversion ghec %}`, and `{% ifversion fpt or ghec %}` in content files whenever possible. Instead of suggesting or adding version-gating within an article:
+Follow one of these sets of instructions, depending on how articles are versioned in the frontmatter. Articles may be versioned for FPT and GHEC, for GHES only, or for all three. Articles may also be versioned using feature-based versioning defined in `data/features`. Feature-based versioning allows centralized control of when content appears for specific GHES releases.
 
-* Write content that applies to all versions the article is versioned for
-* If content is truly version-specific, consider whether it is low-harm to show it to all readers (e.g., an enterprise-only row in a reference table)
-* Only use `{% ifversion %}` as a last resort when content would be actively misleading for readers on a different version
+### FPT/GHEC-only articles
 
-**FPT and GHEC content**: When dotcom content applies to both products, version the page for `fpt` and `ghec` in the frontmatter. Do NOT use in-article Liquid versioning. Do NOT suggest adding `{% ifversion fpt or ghec %}` blocks as a fix for content that mentions a dotcom-only feature. Instead, suggest rewriting the content using the alternatives to inline versioning options listed below.
+All articles that are ONLY for FPT and GHEC should be versioned for these versions in the frontmatter.
 
-**GHES content**: If versioning is necessary for GitHub Enterprise Server content, use feature-based versioning (FBV). GHES content should rely on feature flags defined in `data/features/` rather than inline `{% ifversion ghes %}` blocks. Feature flags allow centralized control of when content appears for specific GHES releases.
+For such content, DO NOT use in-article Liquid versioning such as `{% ifversion fpt %}`, `{% ifversion ghec %}`, and `{% ifversion fpt or ghec %}`.
 
-### Alternatives to inline versioning
+### GHES-only articles
+
+All articles that are ONLY for GitHub Enterprise Server (GHES) should be versioned in the frontmatter using feature-based versioning defined in `data/features/`. 
+
+### FPT, GHEC, GHES articles
+
+All articles that are versioned for all of FPT, GHEC, and GHES in the frontmatter MAY require certain blocks of content to be versioned using in-article Liquid versioning. Before recommending this, check if this is really the case.
+
+#### Check in-article versioning is required
 
 Before resorting to in-article versioning, first consider whether the content is actually different across versions. Often procedures can be simplified to work at both levels.
 
@@ -127,26 +133,6 @@ Use these strategies instead of `{% ifversion %}`, depending on the level of con
 * End list items with "({% data variables.product.prodname_ghe_cloud %} only)", "({% data variables.product.prodname_dotcom_the_website %} only)", etc.
 * Specify if the feature is not available for GHES with "NAME-OF-FEATURE is not available for {% data variables.product.prodname_ghe_server %}", "... (not available in {% data variables.product.prodname_ghe_server %})", etc.
 
-### Example
+#### If in-article versioning is required
 
-When documenting a feature that only applies to dotcom (not GHES):
-
-❌ Don't wrap content in version blocks:
-
-```markdown
-{% ifversion fpt or ghec %}
-
-## Immutable subject claims
-
-Repositories created after July 15, 2026 now use an immutable default subject format.
-
-{% endif %}
-```
-
-✅ Do use prose to indicate availability:
-
-```markdown
-## Immutable subject claims
-
-Repositories created after July 15, 2026 now use an immutable default subject format. This rollout does not include {% data variables.product.prodname_ghe_server %}.
-```
+In-article versioning is required if a block of content in an article is definitely ONLY relevant for GHES, but the article itself is otherwise versioned in the frontmatter for all of FPT, GHEC, and GHES. In this situation, use feature-based versioning (FBV) wherever possible, using `{% ifversion FBV %}` blocks, where FBV is defined in `data/features/`. If it's not possible to use FBV, use {% ifversion ghes %} blocks, which will version the content block for all versions of GHES.

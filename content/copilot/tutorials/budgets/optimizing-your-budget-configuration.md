@@ -28,7 +28,7 @@ The relationship between user-level budgets (ULB) and other budgets is the most 
 
 Here's how to estimate:
 
-1. Calculate the maximum total consumption your user-level budgets allow: multiply the number of regular users by the universal ULB, then add the sum of any individual ULB overrides.
+1. Calculate the maximum total consumption your user-level budgets allow. For users on the universal budget, multiply their number by the universal ULB. Add the total for any cost center user-level budgets—the per-user amount multiplied by the number of users in each cost center. Then add the sum of any individual ULB overrides.
 1. Calculate your pool value: multiply your {% data variables.copilot.copilot_business_short %} seats by {% data variables.copilot.cfb_price_per_month %} and your {% data variables.copilot.copilot_enterprise_short %} seats by {% data variables.copilot.ce_price_per_month %}, then add them together.
 1. Subtract the pool value from the maximum total consumption. The result is the maximum metered charges your budgets need to cover.
 
@@ -88,6 +88,20 @@ This is the simplest configuration and a good starting point for most enterprise
 With this configuration, each business unit has its own metered spending cap. When a cost center's budget runs out, only users in that cost center are blocked, other business units are unaffected. The enterprise budget catches any users who aren't assigned to a cost center.
 
 Consider enabling **cost center exclusion** if you want business units to operate independently of the enterprise budget. This allows cost center users to keep spending even if the enterprise budget reaches $0 USD, but it means their metered charges are only capped by their own cost center budget.
+
+### Differentiate per-user limits by team
+
+**Situation:** Different departments need different per-user limits, for example, engineering needs more capacity per developer than marketing, but you don't want to manage thousands of individual budgets.
+
+**Configuration:**
+
+* Create **cost centers** for each department and assign users directly. See [AUTOTITLE](/billing/how-tos/products/use-cost-centers).
+* Set a **cost center user-level budget** for each department to give every member of that cost center the same per-user limit.
+* Set **individual user-level budget overrides** for any specific users who need a different limit than their department's default.
+* Set an **enterprise budget** as a failsafe for metered charges.
+* Enable **"Stop usage when budget limit is reached"** on the enterprise budget.
+
+A cost center user-level budget sets one per-user amount that applies to every current and future member of the cost center, so you can adjust a department's limit in one place instead of editing budgets user by user. Precedence runs from most specific to least specific: an individual budget overrides a cost center user-level budget, which overrides the universal budget.
 
 ### Power users within business units
 

@@ -1037,3 +1037,22 @@ For more information about  OIDC support for {% data variables.product.prodname_
 ### `url` and `replaces-base`
 
 The `url` parameter defines where to access a registry. When the optional `replaces-base` parameter is enabled (`true`), {% data variables.product.prodname_dependabot %} resolves dependencies using the value of `url` rather than the base URL of that specific ecosystem.
+
+{% ifversion dependabot-npm-scope %}
+
+### `scope`
+
+The `scope` parameter is available for `npm-registry` type registries. It specifies which npm scope should be associated with the registry. The value must start with `@`, for example `@my-company`. To associate multiple scopes with the same registry URL, create a separate registry entry for each scope.
+
+When `scope` is provided, {% data variables.product.prodname_dependabot %} generates the `.npmrc` configuration from your registry credentials. This generated configuration takes precedence over any committed `.npmrc` file or lockfile-based inference.
+
+#### Priority order for npm registry resolution
+
+When determining which registry to use for npm dependencies, {% data variables.product.prodname_dependabot %} follows this priority order:
+
+1. **Credential-based generation (`scope` or `replaces-base`):** If `scope` or `replaces-base` is configured on any `npm-registry` credential in `dependabot.yml`, {% data variables.product.prodname_dependabot %} generates the `.npmrc` from those credentials. This always takes priority, overriding any committed `.npmrc` file.
+1. **Committed `.npmrc` in the repository:** If no `scope` is set, {% data variables.product.prodname_dependabot %} uses any `.npmrc` file committed to the repository.
+1. **Lockfile inference (transitional):** If there is no `scope` and no committed `.npmrc`, {% data variables.product.prodname_dependabot %} attempts to infer registry configuration from the lockfile.
+1. **Error generation:** If none of the above methods succeed, {% data variables.product.prodname_dependabot %} reports an error with guidance to add explicit configuration.
+
+{% endif %}

@@ -70,7 +70,7 @@ The following procedure will guide you through installation of the {% data varia
 
    {% data reusables.copilot.jetbrains-compatible-ides %}
 
-1. Install the {% data variables.product.prodname_copilot %} plugin for JetBrains. See [{% data variables.product.prodname_copilot %} plugin](https://plugins.jetbrains.com/plugin/17718-github-copilot?ref_product=copilot&ref_type=engagement&ref_style=text) in the JetBrains Marketplace.
+1. In your JetBrains IDE, open the **Plugins** settings, search the **Marketplace** for the {% data variables.product.prodname_copilot %} plugin, then click **Install**. For more information, see [{% data variables.product.prodname_copilot %} plugin](https://plugins.jetbrains.com/plugin/17718-github-copilot?ref_product=copilot&ref_type=engagement&ref_style=text) in the JetBrains Marketplace.
 
 1. After {% data variables.product.prodname_copilot %} is installed, click **Restart IDE**.
 
@@ -84,7 +84,9 @@ The following procedure will guide you through installation of the {% data varia
 
    ![Screenshot of the "Sign in to {% data variables.product.prodname_dotcom %}" dialog. A device code is displayed above a button labeled "Copy and Open".](/assets/images/help/copilot/device-code-copy-and-open.png)
 
-1. A device activation window will open in your browser. Paste the device code, then click **Continue**.
+1. A device activation window will open in your browser. If prompted to sign in to {% data variables.product.prodname_dotcom %}, sign in with your {% data variables.product.github %} account, or click **Continue with Google** or **Continue with Apple**.
+
+1. Paste the device code, then click **Continue**.
 
 1. {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_copilot %} Plugin**.
 

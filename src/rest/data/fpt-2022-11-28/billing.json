@@ -1076,12 +1076,22 @@
                         "enterprise",
                         "organization",
                         "repository",
-                        "cost_center"
+                        "cost_center",
+                        "multi_user_customer",
+                        "user"
                       ]
                     },
                     "budget_entity_name": {
                       "type": "string",
                       "description": "The name of the entity to apply the budget to"
+                    },
+                    "user": {
+                      "type": "string",
+                      "description": "The user login when the budget is scoped to a single user (`user` scope)."
+                    },
+                    "consumed_amount": {
+                      "type": "number",
+                      "description": "The consumed amount for the specified user within the budget. Only included for `user`-scoped budgets."
                     },
                     "budget_amount": {
                       "type": "integer",

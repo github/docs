@@ -45,6 +45,14 @@ Issues can be used to keep track of bugs, enhancements, or other requests. For m
    ![Screenshot of the template chooser for an issue. Below the template choices, a link, labeled "Open a blank issue," is outlined in dark orange.](/assets/images/help/issues/blank-issue-link.png)
 {% data reusables.repositories.type-issue-title-and-description %}
    To cross-reference a related discussion, paste the discussion's URL into the issue description.
+
+   {% ifversion fpt or ghec %}
+
+   > [!TIP]
+   > As you type, {% data variables.product.github %} may suggest potential duplicate issues that already exist in the repository. If a suggestion looks relevant, you can click through to the existing issue instead of creating a new one. These suggestions appear once the title is filled out and the body reaches 100 characters, and up to three existing issues may be shown. The suggestions are non-blocking and do not prevent you from creating your issue.
+
+   {% endif %}
+
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 

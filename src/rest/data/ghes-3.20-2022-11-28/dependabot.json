@@ -7327,7 +7327,7 @@
         {
           "type": "array of strings",
           "name": "assignees",
-          "description": "<p>Usernames to assign to this Dependabot Alert.\nPass one or more user logins to <em>replace</em> the set of assignees on this alert.\nSend an empty array (<code>[]</code>) to clear all assignees from the alert.</p>"
+          "description": "<p>Usernames to assign to this Dependabot Alert.\nPass one or more user logins to <em>replace</em> the set of assignees on this alert.\nSend an empty array (<code>[]</code>) to clear all assignees from the alert.\nTo assign an AI agent, include the bot login (for example, <code>copilot-swe-agent[bot]</code>).</p>"
         }
       ],
       "descriptionHTML": "<p>The authenticated user must have access to security alerts for the repository to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts\">Granting access to security alerts</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint. If this endpoint is only used with public repositories, the token can use the <code>public_repo</code> scope instead.</p>",

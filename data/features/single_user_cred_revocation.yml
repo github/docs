@@ -1,0 +1,7 @@
+# Single user credential revocation feature
+# Enables enterprise admins and users with the "Manage enterprise credentials" permission
+# to revoke SSO authorizations or delete credentials for individual users
+
+versions:
+  fpt: '*'
+  ghec: '*'

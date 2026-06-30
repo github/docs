@@ -16,8 +16,8 @@ category:
 
 When you work in an interactive {% data variables.copilot.copilot_cli_short %} session, you can press <kbd>Esc</kbd> or <kbd>Ctrl</kbd>+<kbd>C</kbd> to control what {% data variables.product.prodname_copilot_short %} is doing. Both keypresses can cancel operations, but they work slightly differently:
 
-* <kbd>Ctrl</kbd>+<kbd>C</kbd> immediately stops the current operation.
-* A single <kbd>Esc</kbd> keypress gives you more gradual control—letting you dismiss dialogs, clear queued prompts, or cancel an operation in stages.
+* <kbd>Ctrl</kbd>+<kbd>C</kbd> acts immediately, without a confirming second press—removing any queued prompts first (one per press), then canceling the current operation.
+* A single <kbd>Esc</kbd> keypress gives you more gradual, staged control. While {% data variables.product.prodname_copilot_short %} is actively working, a single <kbd>Esc</kbd> doesn't cancel right away—it shows a reminder, and a second press carries out the next step: removing the most recently queued prompt, or canceling the operation once nothing is queued.
 
 If {% data variables.product.prodname_copilot_short %} has already made changes and you want to undo them, you can roll back your workspace to a previous point in the session. {% data variables.copilot.copilot_cli_short %} takes a snapshot of your workspace state each time you enter a prompt, and this allows you to rewind to an earlier state by pressing <kbd>Esc</kbd> twice when {% data variables.product.prodname_copilot_short %} is idle and the input area is empty.
 
@@ -27,8 +27,9 @@ Pressing <kbd>Esc</kbd> once performs different actions depending on the current
 
 | Current state | What pressing <kbd>Esc</kbd> does |
 | ------------- | ------------------------ |
-| {% data variables.product.prodname_copilot_short %} is active with no queued prompts. | Cancels the running operation. |
-| {% data variables.product.prodname_copilot_short %} is active and there are queued prompts. | Clears the queued prompts without stopping the current operation. |
+| {% data variables.product.prodname_copilot_short %} is active with no queued prompts. | Shows an "Esc again to cancel" reminder. The running operation is canceled only if you press <kbd>Esc</kbd> again within half a second. |
+| {% data variables.product.prodname_copilot_short %} is active and there are queued prompts. | Shows the "Esc again to cancel" reminder. Pressing <kbd>Esc</kbd> again removes the most recently queued prompt. |
+| A permission dialog is open. | A single <kbd>Esc</kbd> denies the pending request (no second press needed). |
 | A dialog, overlay, or picker is open. | Closes the dialog, overlay, or picker. |
 | {% data variables.product.prodname_copilot_short %} is idle. | Shows a brief reminder that pressing <kbd>Esc</kbd> again quickly will open the rewind picker. See [Rolling back changes](#rolling-back-changes). |
 
@@ -36,9 +37,9 @@ Pressing <kbd>Esc</kbd> once performs different actions depending on the current
 
 The main difference between these two ways of canceling an operation is that <kbd>Esc</kbd> is designed for gradual, targeted intervention, while <kbd>Ctrl</kbd>+<kbd>C</kbd> is a hard stop.
 
-Use <kbd>Esc</kbd> when you want to interact with {% data variables.product.prodname_copilot_short %} without necessarily ending the current operation. For example, if a permission dialog appears and you want to deny that specific request, pressing <kbd>Esc</kbd> dismisses the dialog and {% data variables.product.prodname_copilot_short %} continues working—it just won't use the tool you denied. Similarly, if you've queued follow-up prompts and want to cancel them without interrupting the work already in progress, <kbd>Esc</kbd> clears the queue while the current operation keeps running. Pressing <kbd>Esc</kbd> only cancels the operation outright if there are no dialogs open and no queued prompts to clear first.
+Use <kbd>Esc</kbd> when you want to interact with {% data variables.product.prodname_copilot_short %} without necessarily ending the current operation. For example, if a permission dialog appears and you want to deny that specific request, pressing <kbd>Esc</kbd> dismisses the dialog and {% data variables.product.prodname_copilot_short %} continues working—it just won't use the tool you denied. Similarly, if you've queued follow-up prompts and want to cancel them without interrupting the work already in progress, pressing <kbd>Esc</kbd> removes the most recently queued prompt (repeat to remove earlier ones), while the current operation keeps running.
 
-Use <kbd>Ctrl</kbd>+<kbd>C</kbd> when you want to stop everything at once. It immediately cancels the active operation and clears any queued prompts in a single keypress. Any file write that is already in progress will complete—files are not left corrupted mid-write—but any remaining planned changes are abandoned. Pressing <kbd>Ctrl</kbd>+<kbd>C</kbd> a second time within two seconds, when the input area is empty, exits the session entirely.
+Use <kbd>Ctrl</kbd>+<kbd>C</kbd> when you want to cancel without the confirming second press that <kbd>Esc</kbd> requires. If no prompts are queued, a single <kbd>Ctrl</kbd>+<kbd>C</kbd> immediately cancels the active operation. If you have queued prompts, each <kbd>Ctrl</kbd>+<kbd>C</kbd> removes the most recently queued prompt—one per press—and cancels the active operation only once the queue is empty. Any file write that is already in progress will complete—files are not left corrupted mid-write—but any remaining planned changes are abandoned. Pressing <kbd>Ctrl</kbd>+<kbd>C</kbd> a second time within two seconds, when the input area is empty, exits the session entirely.
 
 As a rule of thumb, use <kbd>Esc</kbd> when you want to intervene selectively, and <kbd>Ctrl</kbd>+<kbd>C</kbd> when you want to stop and start over.
 

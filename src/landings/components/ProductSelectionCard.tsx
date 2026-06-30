@@ -77,7 +77,7 @@ export const ProductSelectionCard = ({ group }: ProductSelectionCardProps) => {
         </div>
 
         <div className="pt-2 mb-4 text-normal">
-          <ul className="list-style-none">
+          <ul role="list" className="list-style-none">
             {group.children.map((product) => {
               return (
                 <li key={product.name} className="pt-2">

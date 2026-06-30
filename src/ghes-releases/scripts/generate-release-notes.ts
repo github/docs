@@ -3,7 +3,7 @@
  * @description Generate GHES release notes from github/releases issues using Copilot CLI
  *
  * Generate GHES release notes by:
- * 1. Querying github/releases for open issues labeled "GHES <version>"
+ * 1. Querying github/releases issues labeled "GHES <version>" (all states by default)
  * 2. Finding corresponding changelog PRs in github/blog
  * 3. Running each through the ghes-release-notes agent via Copilot CLI
  * 4. Stitching the YAML outputs into a release notes file
@@ -25,6 +25,12 @@ import {
   buildReleaseNotesYaml,
   appendNoteLines,
 } from '@/ghes-releases/lib/parse-release-notes'
+import {
+  type IssueState,
+  buildReleaseIssueListArgs,
+  isExcludedReleaseIssue,
+  parseIssueState,
+} from '@/ghes-releases/lib/release-issues'
 
 // ─── Ctrl+C handling ─────────────────────────────────────────────────────────
 // Copilot CLI puts the terminal in raw mode, so we catch Ctrl+C (0x03) manually.
@@ -94,25 +100,12 @@ function gh(args: string[]): string {
 }
 
 /**
- * Fetch open release issues labeled "GHES <version>"
+ * Fetch release issues labeled "GHES <version>" using the selected issue state.
  */
-function fetchReleaseIssues(version: string): ReleaseIssue[] {
-  const label = `GHES ${version}`
-  const output = gh([
-    'issue',
-    'list',
-    '--repo',
-    'github/releases',
-    '--label',
-    label,
-    '--state',
-    'open',
-    '--limit',
-    '200',
-    '--json',
-    'number,title,url,body,labels',
-  ])
-  return JSON.parse(output) as ReleaseIssue[]
+function fetchReleaseIssues(version: string, issueState: IssueState): ReleaseIssue[] {
+  const output = gh(buildReleaseIssueListArgs(version, issueState))
+  const issues = JSON.parse(output) as ReleaseIssue[]
+  return issues.filter((issue) => !isExcludedReleaseIssue(issue))
 }
 
 interface ChangelogInfo {
@@ -485,6 +478,11 @@ program
   })
   .option('--stdout', 'Print output to console instead of writing to file')
   .option(
+    '--issue-state <state>',
+    'Issue state filter for github/releases issues (open, closed, all). Defaults to all.',
+    'all',
+  )
+  .option(
     '-i, --issue <value>',
     'Process a single issue by number or URL (replaces its entry if it already exists)',
     (val: string) => {
@@ -507,12 +505,20 @@ program
       release: string
       rc: boolean
       stdout?: boolean
+      issueState?: string
       issue?: number
       force?: boolean
     }) => {
       const { release, stdout, issue: singleIssue, force } = options
       const rc = options.rc ?? false
       const spinner = ora()
+      let issueState: IssueState
+      try {
+        issueState = parseIssueState(options.issueState)
+      } catch (error) {
+        console.error(`Error: ${(error as Error).message}`)
+        process.exit(1)
+      }
 
       // ── Prerequisite checks ──
       try {
@@ -560,6 +566,12 @@ program
             'number,title,url,body,labels',
           ])
           const issue = JSON.parse(output) as ReleaseIssue
+          if (isExcludedReleaseIssue(issue)) {
+            spinner.fail(
+              `Issue #${singleIssue} is excluded by label (public roadmap or not planned).`,
+            )
+            process.exit(0)
+          }
           issues = [issue]
           spinner.succeed(`Fetched issue #${singleIssue}: ${issue.title}`)
         } catch (error) {
@@ -567,10 +579,12 @@ program
           process.exit(1)
         }
       } else {
-        spinner.start(`Fetching open issues labeled "GHES ${release}"...`)
+        spinner.start(`Fetching issues labeled "GHES ${release}" (state: ${issueState})...`)
         try {
-          issues = fetchReleaseIssues(release)
-          spinner.succeed(`Found ${issues.length} open issues labeled "GHES ${release}"`)
+          issues = fetchReleaseIssues(release, issueState)
+          spinner.succeed(
+            `Found ${issues.length} issues labeled "GHES ${release}" (state: ${issueState})`,
+          )
         } catch (error) {
           spinner.fail(`Failed to fetch issues: ${(error as Error).message}`)
           process.exit(1)

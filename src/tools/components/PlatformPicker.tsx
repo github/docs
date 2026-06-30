@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useArticleContext } from '@/frame/components/context/ArticleContext'
 import { parseUserAgent } from '@/events/components/user-agent'
 import { InArticlePicker } from './InArticlePicker'
+import { useSelection } from './SelectionContext'
 import { OS_PREFERRED_COOKIE_NAME } from '@/frame/lib/constants'
 
 const platformQueryKey = 'platform'
@@ -47,7 +48,8 @@ function showPlatformSpecificContent(platform: string) {
 }
 
 export const PlatformPicker = () => {
-  const { defaultPlatform, detectedPlatforms } = useArticleContext()
+  const { defaultPlatform, detectedPlatforms, renderedPageHast } = useArticleContext()
+  const { setPlatform } = useSelection()
 
   const [defaultUA, setDefaultUA] = useState('')
   useEffect(() => {
@@ -75,7 +77,13 @@ export const PlatformPicker = () => {
       }
       cookieKey={OS_PREFERRED_COOKIE_NAME}
       queryStringKey={platformQueryKey}
-      onValue={showPlatformSpecificContent}
+      onValue={(value: string) => {
+        // Drive visibility through React state on the hast path (#6619). Only the
+        // string fallback (renderedPageHast undefined) still needs the imperative
+        // DOM mutation, since that markup isn't React-owned.
+        setPlatform(value)
+        if (!renderedPageHast) showPlatformSpecificContent(value)
+      }}
       preferenceName="os"
       ariaLabel="Platform"
       options={options}

@@ -231,14 +231,21 @@ export default [
     },
   },
 
-  // Legacy files with @typescript-eslint/no-explicit-any violations (see github/docs-engineering#5797)
+  // Allow role="list" on list-style:none <ul> elements in these components.
+  // Chromium drops the implicit `list` role from the accessibility tree when
+  // list-style:none is set, so NVDA/JAWS lose list semantics; role="list" restores
+  // them and is not actually redundant here. See github/accessibility-audits#16815.
   {
     files: [
-      'src/article-api/transformers/rest-transformer.ts',
-      'src/frame/components/context/MainContext.tsx',
+      'src/frame/components/ui/MiniTocs/MiniTocs.tsx',
+      'src/landings/components/TableOfContents.tsx',
+      'src/frame/components/GenericError.tsx',
+      'src/frame/components/page-footer/LegalFooter.tsx',
+      'src/landings/components/ProductSelectionCard.tsx',
+      'src/release-notes/components/GHESReleaseNotes.tsx',
     ],
     rules: {
-      '@typescript-eslint/no-explicit-any': 'off',
+      'jsx-a11y/no-redundant-roles': ['error', { nav: ['navigation'], ul: ['list'] }],
     },
   },
 

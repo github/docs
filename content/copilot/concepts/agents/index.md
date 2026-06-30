@@ -13,6 +13,7 @@ children:
   - /about-github-agentic-workflows
   - /copilot-memory
   - /hooks
+  - /about-plugins
   - /about-enterprise-plugin-standards
   - /about-third-party-coding-agents
   - /agent-apps

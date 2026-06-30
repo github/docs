@@ -50,7 +50,7 @@ You can set up a staging instance to test modifications, plan for disaster recov
 
 ### 7. Designating backups and disaster recovery
 
-To protect your production data, you can configure automated backups of {% data variables.location.product_location %} with {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance).
+To protect your production data, you can configure automated backups of {% data variables.location.product_location %} with {% data variables.product.prodname_enterprise_backup_service %}. For more information, see [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/about-the-backup-service-for-github-enterprise-server).
 
 ### 8. Managing billing for your enterprise
 

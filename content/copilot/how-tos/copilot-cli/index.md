@@ -26,7 +26,7 @@ children:
   - /automate-copilot-cli/run-cli-programmatically
   - /automate-copilot-cli/schedule-prompts
   - /content/copilot/concepts/agents/about-agent-skills
-  - /content/copilot/concepts/agents/copilot-cli/about-cli-plugins
+  - /content/copilot/concepts/agents/about-plugins
   - /content/copilot/concepts/agents/copilot-cli/about-copilot-cli
   - /content/copilot/concepts/agents/copilot-cli/about-custom-agents
   - /content/copilot/concepts/agents/copilot-cli/about-remote-control
@@ -35,6 +35,7 @@ children:
   - /content/copilot/concepts/agents/copilot-cli/chronicle
   - /content/copilot/concepts/agents/copilot-cli/comparing-cli-features
   - /content/copilot/concepts/agents/copilot-cli/context-management
+  - /content/copilot/concepts/agents/copilot-cli/tool-search
   - /content/copilot/concepts/agents/copilot-cli/fleet
   - /content/copilot/concepts/agents/copilot-cli/lsp-servers
   - /content/copilot/concepts/agents/copilot-cli/research

@@ -65,4 +65,4 @@ For more information, see [AUTOTITLE](/copilot/concepts/context/mcp).
 
 They bundle multiple customization components together into a single installable unit. You can install plugins directly from a repository, from a plugin marketplace, or from a local path.
 
-For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-cli-plugins).
+For more information, see [AUTOTITLE](/copilot/concepts/agents/about-plugins).

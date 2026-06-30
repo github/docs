@@ -35,18 +35,29 @@ export const TableOfContents = (props: Props) => {
         })}
 
       {variant === 'compact' && (
-        <ul className="list-style-none f4">
-          {items.map((item) => {
+        <ul role="list" className="list-style-none f4">
+          {items.map((item, index) => {
             const { fullPath, title, childTocItems } = item
+            const filteredChildren = (childTocItems || []).filter(Boolean)
             return (
-              <li key={fullPath} className="mb-2">
+              <li
+                key={fullPath}
+                className="mb-2"
+                aria-setsize={items.length}
+                aria-posinset={index + 1}
+              >
                 <Link href={fullPath} className="text-underline mb-2 d-block">
                   {title}
                 </Link>
-                {(childTocItems || []).filter(Boolean).length > 0 && (
-                  <ul className="pl-4 list-style-none">
-                    {(childTocItems || []).filter(Boolean).map((childItem) => (
-                      <li key={childItem.fullPath} className="mb-2">
+                {filteredChildren.length > 0 && (
+                  <ul role="list" className="pl-4 list-style-none">
+                    {filteredChildren.map((childItem, childIndex) => (
+                      <li
+                        key={childItem.fullPath}
+                        className="mb-2"
+                        aria-setsize={filteredChildren.length}
+                        aria-posinset={childIndex + 1}
+                      >
                         <Link href={childItem.fullPath} className="text-underline">
                           {childItem.title}
                         </Link>

@@ -47,7 +47,9 @@ Each {% data variables.copilot.copilot_code-review_short %} consumes {% data var
 * **Continuous billing:** Storage charges accrue every hour based on your actual usage throughout the month
 * **Monthly total:** Your bill reflects the total storage used throughout the month, measured in GB-Hours
 * **Included amount:** The free storage allowance for your plan (for example, 50 GB on the Enterprise plan) is converted to an hourly rate for billing calculations
-* **Shared storage:** Actions artifacts, Actions caches, and {% data variables.product.prodname_registry %} storage all share the same pooled allowance. For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-packages).
+* **Shared storage:** Actions artifacts and {% data variables.product.prodname_registry %} storage share the same pooled allowance. See [AUTOTITLE](/billing/concepts/product-billing/github-packages).
+* **Cache storage:** Actions cache storage is a separate allowance of 10 GB per repository. Cache storage is not shared with artifacts or {% data variables.product.prodname_registry %}.
+* **Custom image storage:** Storage for custom images used with {% data variables.actions.github_hosted_larger_runners %} has its own included allowance based on your plan.
 
 ### Understanding current vs. accrued storage
 
@@ -112,8 +114,7 @@ For example:
 * If you run a workflow on a Linux runner and it takes 10 minutes to complete, you'll use 10 minutes of the repository owner's allowance. If the workflow generates a 10 MB artifact, then you'll also use 10 MB of the repository owner's artifact storage allowance.
 * If you run a workflow that normally takes 10 minutes and it fails after 5 minutes because a dependency isn't available, you'll use 5 minutes of the repository owner's allowance. If you fix the problem and re-run the workflow successfully, in total you'll use 15 minutes of the repository owner's allowance.
 * If you run a workflow that generates many log files and a long job summary, these files do not count towards the repository owner's artifact storage allowance.
-* Cache storage usage is measured by the peak usage for each hour. Included usage is 10 GB per repository. For a given hour, if a repository has a peak cache usage of 15 GB, then the repository owner will be charged for the 5 GB of usage above the 10 GB included for that hour. The repository owner will only be charged if the repository cache storage limit has been configured higher than the included usage.
-* Additional cache storage is $0.07 per GiB, per month.
+* Cache storage usage is measured by the peak usage for each hour. The included allowance is 10 GB per repository. For a given hour, if a repository has a peak cache usage of 15 GB, then the repository owner will be charged for the 5 GB of usage above the 10 GB included for that repository. The repository owner will only be charged if the repository cache storage limit has been configured higher than the included usage.
 
 ## Free use of {% data variables.product.prodname_actions %}
 
@@ -130,7 +131,7 @@ The use of standard {% data variables.product.github %}-hosted runners is free:
 > [!NOTE]
 >
 > * Larger runners are always charged for, even when used by public repositories or when you have quota available from your plan.
-> * The storage amounts shown are **shared** with {% data variables.product.prodname_registry %}. This means your total storage across Actions artifacts, Actions caches, and Packages cannot exceed the included amount for your plan.
+> * The artifact storage amounts shown are **shared** with {% data variables.product.prodname_registry %}. This means your total storage across Actions artifacts and {% data variables.product.prodname_registry %} storage cannot exceed the included amount for your plan. Cache storage and custom image storage are separate allowances.
 > * {% data variables.copilot.copilot_code-review_short %} consumes {% data variables.product.prodname_actions %} minutes on private repositories. For public repositories, {% data variables.product.prodname_actions %} minutes remain free.
 
 ## Using more than your included quota
@@ -158,6 +159,16 @@ For example, jobs that run on Windows and macOS runners hosted by {% data variab
 {% data reusables.billing.actions-standard-runner-prices %}
 
 For full details of minute costs for different types of runners, see [AUTOTITLE](/billing/reference/actions-runner-pricing).
+
+### Storage pricing
+
+Usage beyond your included allowances is billed at the following rates:
+
+| Storage type | Price per GB/month |
+| --- | --- |
+| Shared storage (artifacts and {% data variables.product.prodname_registry %}) | $0.25 USD |
+| Actions cache | $0.07 USD |
+| Custom image storage | $0.07 USD |
 
 ### Example minutes cost calculation for {% data variables.product.github %}-hosted runners
 

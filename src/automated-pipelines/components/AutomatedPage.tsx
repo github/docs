@@ -8,7 +8,6 @@ import { ArticleGridLayout } from '@/frame/components/article/ArticleGridLayout'
 import { ArticleInlineLayout } from '@/frame/components/article/ArticleInlineLayout'
 import { MiniTocs } from '@/frame/components/ui/MiniTocs'
 import { useAutomatedPageContext } from '@/automated-pipelines/components/AutomatedPageContext'
-import { ClientSideHighlight } from '@/frame/components/ClientSideHighlight'
 import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
 import { JourneyTrackCard, JourneyTrackNav } from '@/journeys/components'
 
@@ -60,8 +59,6 @@ export const AutomatedPage = ({ children, rawChildren, fullWidth }: Props) => {
 
   return (
     <DefaultLayout>
-      <ClientSideHighlight />
-
       {currentLayout === 'inline' ? (
         <>
           <ArticleInlineLayout

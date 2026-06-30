@@ -134,6 +134,10 @@ WRITING NOTE: The following tables have been written using HTML rather than Mark
 
 ## JetBrains IDEs
 
+In JetBrains IDEs, you can manage supported customizations from the Agent Customizations editor. In the {% data variables.copilot.copilot_chat %} panel, click the settings icon in the top-right, then click **Customizations**.
+
+The editor lets you work with workspace customizations for the current project or personal customizations that follow you across projects. You can use it to view and edit {% data variables.copilot.custom_agents_short %}, manage reusable skills and prompt files, and configure instructions. For more information, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions-in-your-ide/add-repository-instructions-in-your-ide) and [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents-in-your-ide).
+
 <table>
   <thead>
     <tr>
@@ -146,6 +150,7 @@ WRITING NOTE: The following tables have been written using HTML rather than Mark
       <td>{% data variables.copilot.copilot_chat_short %} </td>
       <td>
         <ul style="list-style: none; padding-left: 1.5em; margin-left: 0;">
+          {% data reusables.copilot.ci-support-personal %}
           {% data reusables.copilot.ci-support-repository %}
           {% data reusables.copilot.ci-support-path %}
         </ul>

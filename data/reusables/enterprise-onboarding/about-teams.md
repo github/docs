@@ -35,9 +35,17 @@ Team sync with personal accounts is only available with organization teams, and 
 
 To simplify administration at scale, {% data variables.product.company_short %} recommends using enterprise teams for any use cases that apply to the enterprise account or to multiple organizations. Organization teams are useful when the need for the team is scoped to a single organization and the team can be managed by an organization administrator.
 
-You may need to create organization teams if the functionality you need is not covered by enterprise teams. {% data variables.product.company_short %} plans to address some limitations in the near future.
+You may need to create organization teams if the functionality you need is not covered by enterprise teams. The limitations listed below reflect the current capabilities of enterprise teams and may change over time.
 
 {% data reusables.enterprise.enterprise-teams-can %}
+
+{%- ifversion enterprise-teams-ga %}
+
+To @-mention an enterprise team, or request a review from the team, use the team's slug in the format `@/ent:TEAM-SLUG`. {% data variables.product.github %} generates the slug from the team's name and adds the `ent:` prefix, so an enterprise team named `Platform SRE` has the slug `ent:platform-sre`. 
+
+To mention the team from an organization it is assigned to, such as `octo-org`, use `@octo-org/ent:platform-sre`. You can mention an enterprise team from any organization the team is assigned to.
+
+{%- endif %}
 
 However, unlike organization teams, enterprise teams currently do **not** support:
 

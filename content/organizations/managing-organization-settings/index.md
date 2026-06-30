@@ -20,6 +20,7 @@ children:
   - /managing-the-forking-policy-for-your-organization
   - /managing-pull-request-reviews-in-your-organization
   - /disabling-or-limiting-github-actions-for-your-organization
+  - /actions-policies
   - /about-networking-for-hosted-compute-products-in-your-organization
   - /about-azure-private-networking-for-github-hosted-runners-in-your-organization
   - /configuring-private-networking-for-github-hosted-runners-in-your-organization
@@ -55,3 +56,4 @@ children:
   - /managing-or-restricting-github-models-for-your-organization
 shortTitle: Manage organization settings
 ---
+

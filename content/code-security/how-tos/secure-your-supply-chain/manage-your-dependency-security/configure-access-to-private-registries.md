@@ -29,7 +29,40 @@ For specific ecosystems, you can configure {% data variables.product.prodname_de
 
 {% ifversion dependabot-on-actions-self-hosted %}To allow {% data variables.product.prodname_dependabot %} access to registries hosted privately or restricted to internal networks, configure {% data variables.product.prodname_dependabot %} to run on {% data variables.product.prodname_actions %} self-hosted runners. For more information, see [AUTOTITLE](/code-security/dependabot/maintain-dependencies/managing-dependabot-on-self-hosted-runners).{% endif %}
 
+{% ifversion org-automatic-registry-access %}
+
+## Configuring private {% data variables.product.github %}-hosted registries
+
+For packages stored in {% data variables.product.prodname_registry %} or {% data variables.product.prodname_container_registry %}, {% data variables.product.prodname_dependabot %} can authenticate automatically using its `GITHUB_TOKEN`. This uses the same "Manage Actions access" grants that {% data variables.product.prodname_actions %} workflows use. No {% data variables.product.pat_generic_plural %} or `dependabot.yml` registry entries are required.git push
+
+The `dependabot.yml` registry configuration using {% data variables.product.pat_generic_title_case %}-based registry entries and described in [Configuring private third-party registries](#configuring-private-third-party-registries) is still required for third-party private registries (such as Artifactory, Azure Artifacts, or Nexus).
+ 
+To grant {% data variables.product.prodname_dependabot %} access to a private package:
+
+ {% data reusables.package_registry.package-settings-from-org-level %}
+ {% data reusables.package_registry.package-settings-option %}
+ {% data reusables.package_registry.package-settings-actions-access %}
+ 1. {% data reusables.package_registry.package-settings-add-repo %}. 
+    Search for the repository where {% data variables.product.prodname_dependabot %} runs, and select it.
+ {% data reusables.package_registry.package-settings-actions-access-role-repo %}
+    Select **Read** as the access level. {% data variables.product.prodname_dependabot %} only needs read access to pull packages.
+
+You need to repeat these steps for each private package that you want {% data variables.product.prodname_dependabot %} to access.
+ 
+Once access is granted, {% data variables.product.prodname_dependabot %} can pull from those packages automatically. You can remove any {% data variables.product.pat_generic %}-based registry entries in `dependabot.yml` that you previously configured for these packages.
+ 
+> [!NOTE]
+> This method works for every {% data variables.product.prodname_registry %} ecosystem that {% data variables.product.prodname_dependabot %} supports, including container images in {% data variables.product.prodname_container_registry %}.
+ 
+For more information about how automatic access works, see [AUTOTITLE](/code-security/concepts/supply-chain-security/automatic-dependabot-access-to-github-registries). For more information about package access settings, see [AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package).
+
+## Configuring private third-party registries
+
+{% else %}
+
 ## Configuring private registries
+
+{% endif %}
 
 {% ifversion org-private-registry %}
 
@@ -525,6 +558,34 @@ registries:
 {% endraw %}
 
 For security reasons, {% data variables.product.prodname_dependabot %} does not set environment variables. Yarn (v2 and later) requires that any accessed environment variables are set. When accessing environment variables in your `.yarnrc.yml` file, you should provide a fallback value such as {% raw %}`${ENV_VAR-fallback}`{% endraw %} or {% raw %}`${ENV_VAR:-fallback}`{% endraw %}. For more information, see [Yarnrc files](https://yarnpkg.com/configuration/yarnrc) in the Yarn documentation.
+
+{% ifversion dependabot-npm-scope %}
+
+#### Using `scope` to map npm scopes to registries
+
+You can use the `scope` parameter to associate an npm scope with a private registry. When `scope` is configured, {% data variables.product.prodname_dependabot %} generates the `.npmrc` from your registry credentials, which takes precedence over any committed `.npmrc` file or lockfile-based inference. The scope value must start with `@`, for example `@my-company`. To associate multiple scopes with the same registry, create a separate registry entry for each scope.
+
+In the following example, packages under `@my-company` and `@my-other-org` are both routed to the private {% data variables.product.github %} npm registry, each with its own registry entry.
+
+{% raw %}
+
+```yaml copy
+registries:
+  npm-github-company:
+    type: npm-registry
+    url: https://npm.pkg.github.com
+    scope: "@my-company"
+    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+  npm-github-other-org:
+    type: npm-registry
+    url: https://npm.pkg.github.com
+    scope: "@my-other-org"
+    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+```
+
+{% endraw %}
+
+{% endif %}
 
 ### `nuget-feed`
 

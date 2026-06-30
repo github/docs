@@ -171,6 +171,15 @@
   output: $25.00
   cache_write: $6.25
 
+- model: Claude Opus 4.8 (fast mode) (preview)
+  provider: anthropic
+  release_status: GA
+  category: Powerful
+  input: $10.00
+  cached_input: $1.00
+  output: $50.00
+  cache_write: $12.50
+
 - model: Claude Fable 5
   provider: anthropic
   release_status: GA
@@ -243,7 +252,7 @@
 # Fine-tuned (GitHub)
 - model: 'Raptor mini'
   provider: github
-  release_status: Public preview
+  release_status: GA
   category: Versatile
   input: $0.25
   cached_input: $0.025

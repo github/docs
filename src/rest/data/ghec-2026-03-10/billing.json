@@ -1254,12 +1254,22 @@
                         "enterprise",
                         "organization",
                         "repository",
-                        "cost_center"
+                        "cost_center",
+                        "multi_user_customer",
+                        "user"
                       ]
                     },
                     "budget_entity_name": {
                       "type": "string",
                       "description": "The name of the entity to apply the budget to"
+                    },
+                    "user": {
+                      "type": "string",
+                      "description": "The user login when the budget is scoped to a single user (`user` scope)."
+                    },
+                    "consumed_amount": {
+                      "type": "number",
+                      "description": "The consumed amount for the specified user within the budget. Only included for `user`-scoped budgets."
                     },
                     "budget_amount": {
                       "type": "integer",
@@ -1435,6 +1445,198 @@
         {
           "httpStatusCode": "400",
           "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets/{budget_id}/user-states",
+      "title": "Get user states for a multi-user budget",
+      "category": "billing",
+      "subcategory": "budgets",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "budget_id",
+          "description": "<p>The ID corresponding to the budget.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "page",
+          "description": "<p>The page number of results to fetch.</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page.</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "sort_order",
+          "description": "<p>Sort order for results. <code>0</code> for descending, <code>1</code> for ascending.</p>",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "0",
+              "1"
+            ]
+          }
+        },
+        {
+          "name": "user",
+          "description": "<p>Filter user states to a specific user login.</p>",
+          "in": "query",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "threshold_lower_bound",
+          "description": "<p>Filter user states whose threshold percentage is at or above this value.</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "threshold_upper_bound",
+          "description": "<p>Filter user states whose threshold percentage is at or below this value.</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Lists per-user budget state for a multi-user customer scoped budget. The authenticated user must be an enterprise admin or billing manager.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "budget_id": "BUDGET_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response when getting per-user states for a multi-user budget</p>",
+            "example": {
+              "user_states": [
+                {
+                  "user": "octocat",
+                  "consumed_amount": 50.5,
+                  "target_amount": 1000
+                },
+                {
+                  "user": "monalisa",
+                  "consumed_amount": 250,
+                  "target_amount": 1000,
+                  "override_budget_id": "2066deda-923f-43f9-88d2-62395a28c0cdd"
+                }
+              ],
+              "has_next_page": false,
+              "total_count": 2
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user_states": {
+                  "type": "array",
+                  "description": "Per-user state entries for the budget.",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "user": {
+                        "type": "string",
+                        "description": "The login of the user, when the user record is available."
+                      },
+                      "consumed_amount": {
+                        "type": "number",
+                        "description": "The amount currently consumed by this user against the budget."
+                      },
+                      "target_amount": {
+                        "type": "number",
+                        "description": "The target amount allocated to this user within the budget."
+                      },
+                      "override_budget_id": {
+                        "type": "string",
+                        "description": "The ID of a user-scoped budget that overrides the per-user allocation, when present."
+                      }
+                    },
+                    "required": [
+                      "consumed_amount",
+                      "target_amount"
+                    ]
+                  }
+                },
+                "has_next_page": {
+                  "type": "boolean",
+                  "description": "Indicates if there are more pages of results available."
+                },
+                "total_count": {
+                  "type": "integer",
+                  "description": "Total number of user state entries matching the query."
+                }
+              },
+              "required": [
+                "user_states",
+                "has_next_page",
+                "total_count"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Response when getting per-user states for a multi-user budget</p>"
         },
         {
           "httpStatusCode": "403",

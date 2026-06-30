@@ -34,12 +34,15 @@ This means that in a very long session, {% data variables.product.prodname_copil
 
 ## Checking your context usage
 
-You can check how much of the context window is currently in use by entering the `/context` slash command. This displays a visual breakdown of your token usage, showing:
+You can use the `/context` slash command to visualize your current context window usage. The first line of the output shows the active model and the number of tokens currently in use out of the model's total context window capacity. The remainder of the output shows token usage, and context window percentage, for:
 
-* **System/Tools**: The fixed overhead of system instructions and tool definitions.
-* **Messages**: The space used by your conversation history.
-* **Free Space**: How much room is left for new messages.
-* **Buffer**: A reserved portion that triggers automatic context management.
+* **System Prompt**: the base system prompt.
+* **Custom Instructions**: your loaded custom instructions (shown only when present).
+* **System Tools**: built-in tool definitions.
+* **MCP Tools**: tool definitions contributed by MCP servers.
+* **Messages**: your conversation history.
+* **Free Space**: unused context still available.
+* **Buffer**: capacity reserved for the model's response and headroom.
 
 ![Screenshot of the output of the '/context' CLI command.](/assets/images/help/copilot/copilot-cli-context-usage.png)
 
