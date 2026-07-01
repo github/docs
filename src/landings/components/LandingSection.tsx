@@ -1,6 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 import { HeadingLink } from '@/frame/components/article/HeadingLink'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type Props = {
   title?: string
@@ -18,9 +19,7 @@ export const LandingSection = ({ title, children, className, sectionLink, descri
             {title}
           </HeadingLink>
         )}
-        {description && (
-          <div className="color-fg-muted f4" dangerouslySetInnerHTML={{ __html: description }} />
-        )}
+        {description && <RenderedHTML as="div" className="color-fg-muted f4" html={description} />}
       </div>
       {children}
     </div>

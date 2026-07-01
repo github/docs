@@ -33,13 +33,6 @@
   business: true
   enterprise: true
 
-- name: Claude Opus 4.6 (fast mode) (preview)
-  pro: false
-  pro_plus: false
-  max: false
-  business: false
-  enterprise: true
-
 - name: Claude Opus 4.7
   pro: false
   pro_plus: true
@@ -48,6 +41,13 @@
   enterprise: true
 
 - name: Claude Opus 4.8
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Claude Opus 4.8 (fast mode) (preview)
   pro: false
   pro_plus: true
   max: true
@@ -69,6 +69,13 @@
   enterprise: true
 
 - name: Claude Sonnet 4.6
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Claude Sonnet 5
   pro: true
   pro_plus: true
   max: true

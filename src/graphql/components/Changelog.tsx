@@ -3,6 +3,7 @@ import cx from 'classnames'
 import GithubSlugger from 'github-slugger'
 
 import { HeadingLink } from '@/frame/components/article/HeadingLink'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 import { ChangelogItemT } from './types'
 import styles from '@/frame/components/ui/MarkdownContent/MarkdownContent.module.scss'
 
@@ -47,7 +48,7 @@ export function Changelog({ changelogItems, years, currentYear }: Props) {
             <p>{change.title}</p>
             <ul>
               {change.changes.map((changeItem) => (
-                <li key={changeItem} dangerouslySetInnerHTML={{ __html: changeItem }} />
+                <RenderedHTML as="li" key={changeItem} html={changeItem} />
               ))}
             </ul>
           </React.Fragment>
@@ -57,7 +58,7 @@ export function Changelog({ changelogItems, years, currentYear }: Props) {
             <p>{change.title}</p>
             <ul>
               {change.changes.map((changeItem) => (
-                <li key={changeItem} dangerouslySetInnerHTML={{ __html: changeItem }} />
+                <RenderedHTML as="li" key={changeItem} html={changeItem} />
               ))}
             </ul>
           </React.Fragment>
@@ -67,7 +68,7 @@ export function Changelog({ changelogItems, years, currentYear }: Props) {
             <p>{change.title}</p>
             <ul>
               {change.changes.map((changeItem) => (
-                <li key={changeItem} dangerouslySetInnerHTML={{ __html: changeItem }} />
+                <RenderedHTML as="li" key={changeItem} html={changeItem} />
               ))}
             </ul>
           </React.Fragment>

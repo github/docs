@@ -22,6 +22,7 @@ import type { Operation, ExampleT } from './types'
 import { ResponseKeys, CodeSampleKeys } from './types'
 import { useVersion } from '@/versions/components/useVersion'
 import { useMainContext } from '@/frame/components/context/MainContext'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type Props = {
   slug: string
@@ -141,10 +142,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
       {isEnterpriseCloud && selectedLanguage === CodeSampleKeys.curl ? (
         <span className="f5">
           <InfoIcon className="d-inline mx-1" />
-          <p
-            className="d-inline"
-            dangerouslySetInnerHTML={{ __html: t('data_residency_notice') }}
-          />
+          <RenderedHTML as="p" className="d-inline" html={t('data_residency_notice')} />
         </span>
       ) : null}
 
@@ -228,12 +226,11 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
       </div>
 
       {/* Response section */}
-      <h4
+      <RenderedHTML
+        as="h4"
         className="mt-5 mb-2 h5"
-        dangerouslySetInnerHTML={{
-          __html: displayedExample.response.description || t('response'),
-        }}
-      ></h4>
+        html={displayedExample.response.description || t('response')}
+      />
       <div className="border rounded-1 pt-2">
         {displayedExample.response.schema ? (
           <SegmentedControl

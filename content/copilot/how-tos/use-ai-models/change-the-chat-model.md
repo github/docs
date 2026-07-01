@@ -142,6 +142,9 @@ For reasoning models that support configurable thinking effort, you can control 
 
 {% data reusables.copilot.auto-model-option %}
 
+> [!TIP]
+> Model selection is also available when using {% data variables.product.prodname_copilot_short %} through JetBrains AI Assistant. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-in-jetbrains).
+
 {% endjetbrains %}
 
 {% eclipse %}

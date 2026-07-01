@@ -18,8 +18,8 @@ children:
   - /rubber-duck
   - /lsp-servers
   - /context-management
+  - /tool-search
 contentType: concepts
 docsTeamMetrics:
   - copilot-cli
 ---
-

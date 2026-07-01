@@ -915,6 +915,9 @@ Outputs and environment changes from a background step are only available after 
 
 Use `background` when you need fine-grained control: starting a long-running process (like a server or database) that stays up while later steps run, referencing a specific step with [`wait`](#jobsjob_idstepswait) or [`cancel`](#jobsjob_idstepscancel), or interleaving background work with other steps. If you instead have a self-contained group of steps that should all finish before the job continues, [`parallel`](#jobsjob_idstepsparallel) is a more convenient shorthand.
 
+> [!NOTE]
+> You cannot use `background` on steps inside a composite action. A composite action can itself run as a background step, but it cannot declare background steps internally.
+
 ### Example: Running a step in the background
 
 ```yaml
@@ -936,6 +939,9 @@ steps:
 Pauses the job until one or more background steps complete. A `wait` step performs no work itself, it only blocks until the referenced background steps finish. Provide a single step `id` as a string, or multiple step `id`s as an array.
 
 After a `wait` step completes, the outputs of the referenced background steps become available to subsequent steps. If a referenced background step failed, the `wait` step fails too.
+
+> [!NOTE]
+> A `wait` step always runs and does not support the [`if`](#jobsjob_idstepsif) conditional.
 
 ### Example: Waiting for specific background steps
 
@@ -967,6 +973,9 @@ Pauses the job until all active background steps complete. This is useful when s
 
 The `wait-all` keyword takes no arguments.
 
+> [!NOTE]
+> A `wait-all` step always runs and does not support the [`if`](#jobsjob_idstepsif) conditional.
+
 ### Example: Waiting for all background steps
 
 ```yaml
@@ -992,6 +1001,9 @@ steps:
 
 Gracefully terminates a running background step. The runner sends the step's process a termination signal (`SIGTERM`) so it can clean up, and forcibly stops it (`SIGKILL`) if it does not exit within a short grace period. The `cancel` keyword targets a single background step by its `id`.
 
+> [!NOTE]
+> A `cancel` step always runs and does not support the [`if`](#jobsjob_idstepsif) conditional.
+
 ### Example: Canceling a background step
 
 ```yaml
@@ -1015,6 +1027,9 @@ Runs a group of steps concurrently, then waits for all of them to finish before 
 Use `parallel` when you have a self-contained group of steps that should all finish before the job moves on, such as building several components at once. Use [`background`](#jobsjob_idstepsbackground) when you need finer control: starting a long-running process (like a server or database) that stays up while later steps run, referencing a specific step with [`wait`](#jobsjob_idstepswait) or [`cancel`](#jobsjob_idstepscancel), or interleaving background work with other steps. In short, `parallel` is more limited but more convenient for the "run this group at once" case, while `background` is the general-purpose primitive.
 
 Each step in the group is subject to the same 10-step concurrency limit as other background steps.
+
+> [!NOTE]
+> You cannot use `parallel` inside a composite action.
 
 ### Example: Running steps in parallel
 

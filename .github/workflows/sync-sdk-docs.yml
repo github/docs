@@ -24,7 +24,7 @@ on:
     types: [opened, synchronize, reopened]
     paths:
       - '.github/workflows/sync-sdk-docs.yml'
-      - 'src/scripts/sync-sdk-docs/**'
+      - 'src/workflows/sync-sdk-docs/**'
 
 concurrency:
   group: sync-sdk-docs-${{ github.event_name }}
@@ -88,7 +88,7 @@ jobs:
 
       - name: Normalize content
         run: |
-          npx tsx src/scripts/sync-sdk-docs/normalize-sdk-docs.ts \
+          npx tsx src/workflows/sync-sdk-docs/normalize-sdk-docs.ts \
             --content-dir content \
             --sdk-docs-dir "$SDK_DOCS_TARGET"
 
@@ -98,7 +98,7 @@ jobs:
         run: |
           # Puppeteer needs --no-sandbox on GitHub Actions runners
           echo '{ "args": ["--no-sandbox", "--disable-setuid-sandbox"] }' > /tmp/puppeteer-config.json
-          npx tsx src/scripts/sync-sdk-docs/convert-mermaid.ts \
+          npx tsx src/workflows/sync-sdk-docs/convert-mermaid.ts \
             --sdk-docs-dir "$SDK_DOCS_TARGET" \
             --assets-dir "$ASSETS_TARGET" \
             --repo-root . \

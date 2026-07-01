@@ -1,19 +1,24 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 import { defaultCSSTheme } from '@/color-schemes/components/useTheme'
+import { colorModeScript } from '@/color-schemes/lib/color-mode-script'
 
 export default class MyDocument extends Document {
   render() {
     return (
       <Html
         // These values are always the SSR rendering defaults.
-        // The will get updated later in a useEffect hook, in the client,
-        // in the MyApp component.
+        // Before the browser's first paint, the inline `colorModeScript`
+        // below updates them on the client from the `color_mode` cookie, so
+        // the page paints with the user's real theme and doesn't flash. The
+        // SSR defaults stay constant, so the HTML remains shared-cacheable.
         data-color-mode={defaultCSSTheme.colorMode}
         data-light-theme={defaultCSSTheme.lightTheme}
         data-dark-theme={defaultCSSTheme.darkTheme}
       >
-        <Head />
+        <Head>
+          <script dangerouslySetInnerHTML={{ __html: colorModeScript }} />
+        </Head>
         <body>
           <Main />
           <NextScript />

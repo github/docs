@@ -222,7 +222,7 @@
         },
         {
           "name": "scope",
-          "description": "<p>Filter budgets by scope type.</p>",
+          "description": "<p>Filter budgets by scope type.</p>\n<ul>\n<li><code>enterprise</code>: Budgets that apply to the entire enterprise.</li>\n<li><code>organization</code>: Budgets scoped to an organization in the enterprise.</li>\n<li><code>repository</code>: Budgets scoped to a repository.</li>\n<li><code>cost_center</code>: Budgets scoped to a cost center.</li>\n<li><code>multi_user_customer</code>: Universal budgets that apply to all users in the enterprise.</li>\n<li><code>multi_user_cost_center</code>: Universal budgets that apply to all users in a cost center.</li>\n<li><code>user</code>: Budgets scoped to an individual user.</li>\n</ul>",
           "in": "query",
           "schema": {
             "type": "string",
@@ -232,6 +232,7 @@
               "repository",
               "cost_center",
               "multi_user_customer",
+              "multi_user_cost_center",
               "user"
             ]
           }
@@ -359,6 +360,7 @@
                           "repository",
                           "cost_center",
                           "multi_user_customer",
+                          "multi_user_cost_center",
                           "user"
                         ]
                       },
@@ -552,6 +554,7 @@
                           "repository",
                           "cost_center",
                           "multi_user_customer",
+                          "multi_user_cost_center",
                           "user"
                         ]
                       },
@@ -719,7 +722,7 @@
         {
           "type": "string",
           "name": "budget_scope",
-          "description": "<p>The scope of the budget. <code>user</code> and <code>multi_user_customer</code> scopes are only supported when <code>budget_product_sku</code> is <code>ai_credits</code> or <code>premium_requests</code>.</p>",
+          "description": "<p>The scope of the budget.</p>\n<ul>\n<li><code>enterprise</code>: Apply the budget to the entire enterprise.</li>\n<li><code>organization</code>: Apply the budget to a specific organization in the enterprise.</li>\n<li><code>repository</code>: Apply the budget to a specific repository.</li>\n<li><code>cost_center</code>: Apply the budget to a specific cost center.</li>\n<li><code>multi_user_customer</code>: Apply a universal budget to all users in the enterprise.</li>\n<li><code>multi_user_cost_center</code>: Apply a universal budget to all users in a cost center.</li>\n<li><code>user</code>: Apply the budget to a single user.</li>\n</ul>\n<p><code>user</code>, <code>multi_user_customer</code>, and <code>multi_user_cost_center</code> scopes are only supported when <code>budget_product_sku</code> is <code>ai_credits</code> or <code>premium_requests</code>.</p>",
           "isRequired": true,
           "enum": [
             "enterprise",
@@ -727,6 +730,7 @@
             "repository",
             "cost_center",
             "multi_user_customer",
+            "multi_user_cost_center",
             "user"
           ]
         },
@@ -819,6 +823,7 @@
                         "repository",
                         "cost_center",
                         "multi_user_customer",
+                        "multi_user_cost_center",
                         "user"
                       ]
                     },
@@ -996,6 +1001,7 @@
                     "repository",
                     "cost_center",
                     "multi_user_customer",
+                    "multi_user_cost_center",
                     "user"
                   ]
                 },
@@ -1159,13 +1165,14 @@
         {
           "type": "string",
           "name": "budget_scope",
-          "description": "<p>The scope of the budget</p>",
+          "description": "<p>The scope of the budget.</p>\n<ul>\n<li><code>enterprise</code>: Apply the budget to the entire enterprise.</li>\n<li><code>organization</code>: Apply the budget to a specific organization in the enterprise.</li>\n<li><code>repository</code>: Apply the budget to a specific repository.</li>\n<li><code>cost_center</code>: Apply the budget to a specific cost center.</li>\n<li><code>multi_user_customer</code>: Apply a universal budget to all users in the enterprise.</li>\n<li><code>multi_user_cost_center</code>: Apply a universal budget to all users in a cost center.</li>\n<li><code>user</code>: Apply the budget to a single user.</li>\n</ul>",
           "enum": [
             "enterprise",
             "organization",
             "repository",
             "cost_center",
             "multi_user_customer",
+            "multi_user_cost_center",
             "user"
           ]
         },
@@ -1254,12 +1261,23 @@
                         "enterprise",
                         "organization",
                         "repository",
-                        "cost_center"
+                        "cost_center",
+                        "multi_user_customer",
+                        "multi_user_cost_center",
+                        "user"
                       ]
                     },
                     "budget_entity_name": {
                       "type": "string",
                       "description": "The name of the entity to apply the budget to"
+                    },
+                    "user": {
+                      "type": "string",
+                      "description": "The user login when the budget is scoped to a single user (`user` scope)."
+                    },
+                    "consumed_amount": {
+                      "type": "number",
+                      "description": "The consumed amount for the specified user within the budget. Only included for `user`-scoped budgets."
                     },
                     "budget_amount": {
                       "type": "integer",
@@ -1716,6 +1734,10 @@
                     {
                       "type": "Repo",
                       "name": "octocat/hello-world"
+                    },
+                    {
+                      "type": "Team",
+                      "name": "enterprise-team-1"
                     }
                   ]
                 },
@@ -1727,6 +1749,10 @@
                     {
                       "type": "User",
                       "name": "Octocat"
+                    },
+                    {
+                      "type": "Team",
+                      "name": "enterprise-team-2"
                     }
                   ]
                 }
@@ -2152,96 +2178,7 @@
         }
       ],
       "descriptionHTML": "<p>Updates an existing cost center name.</p>",
-      "codeExamples": [
-        {
-          "request": {
-            "contentType": "application/json",
-            "description": "Update cost center name example",
-            "acceptHeader": "application/vnd.github.v3+json",
-            "bodyParameters": {
-              "name": "New Cost Center Name"
-            },
-            "parameters": {
-              "enterprise": "ENTERPRISE",
-              "cost_center_id": "COST_CENTER_ID"
-            }
-          },
-          "response": {
-            "statusCode": "200",
-            "contentType": "application/json",
-            "description": "<p>Response when updating a cost center</p>",
-            "example": {
-              "id": "2eeb8ffe-6903-11ee-8c99-0242ac120002",
-              "name": "Cost Center Name",
-              "state": "active",
-              "azure_subscription": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
-              "resources": [
-                {
-                  "type": "User",
-                  "name": "Monalisa"
-                },
-                {
-                  "type": "Repo",
-                  "name": "octocat/hello-world"
-                }
-              ]
-            },
-            "schema": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string",
-                  "description": "ID of the cost center."
-                },
-                "name": {
-                  "type": "string",
-                  "description": "Name of the cost center."
-                },
-                "azure_subscription": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "description": "Azure subscription ID associated with the cost center. Only present for cost centers linked to Azure subscriptions."
-                },
-                "state": {
-                  "type": "string",
-                  "description": "State of the cost center.",
-                  "enum": [
-                    "active",
-                    "deleted"
-                  ]
-                },
-                "resources": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "description": "Type of the resource."
-                      },
-                      "name": {
-                        "type": "string",
-                        "description": "Name of the resource."
-                      }
-                    },
-                    "required": [
-                      "type",
-                      "name"
-                    ]
-                  }
-                }
-              },
-              "required": [
-                "id",
-                "name",
-                "resources"
-              ]
-            }
-          }
-        }
-      ],
+      "codeExamples": [],
       "statusCodes": [
         {
           "httpStatusCode": "200",
@@ -2438,6 +2375,11 @@
           "type": "array of strings",
           "name": "repositories",
           "description": "<p>The repositories to add to the cost center.</p>"
+        },
+        {
+          "type": "array of strings",
+          "name": "enterprise_teams",
+          "description": "<p>The enterprise teams to add to the cost center.</p>"
         }
       ],
       "descriptionHTML": "<p>Adds resources to a cost center.</p>\n<p>The usage for the resources will be charged to the cost center's budget. The authenticated user must be an enterprise admin in order to use this endpoint.</p>",
@@ -2478,6 +2420,11 @@
                   "resource_type": "repository",
                   "name": "octo-repo",
                   "previous_cost_center": "yet-another-cost-center"
+                },
+                {
+                  "resource_type": "team",
+                  "name": "octo-enterprise-team",
+                  "previous_cost_center": "old-cost-center"
                 }
               ]
             },
@@ -2591,6 +2538,11 @@
           "type": "array of strings",
           "name": "repositories",
           "description": "<p>The repositories to remove from the cost center.</p>"
+        },
+        {
+          "type": "array of strings",
+          "name": "enterprise_teams",
+          "description": "<p>The enterprise teams to remove from the cost center.</p>"
         }
       ],
       "descriptionHTML": "<p>Remove resources from a cost center.</p>\n<p>The usage for the resources will no longer be charged to the cost center's budget. The authenticated user must be an enterprise admin in order to use this endpoint.</p>",

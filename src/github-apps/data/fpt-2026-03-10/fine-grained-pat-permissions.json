@@ -4699,7 +4699,7 @@
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/bypass-list",
         "additional-permissions": false,
-        "access": "read"
+        "access": "write"
       },
       {
         "category": "interactions",

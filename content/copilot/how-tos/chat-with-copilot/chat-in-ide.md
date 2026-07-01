@@ -384,6 +384,9 @@ The following agents are available:
 * **{% data variables.copilot.copilot_cli_short %}**: Runs {% data variables.product.prodname_copilot_short %} through {% data variables.copilot.copilot_cli_short %}, providing a terminal-first agentic experience with support for multiple isolation modes, live session progress, and tool call visibility. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli).
 * **Custom agents**: Use personalized agents tailored to your specific needs. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-custom-agents).
 
+> [!TIP]
+> You can also access {% data variables.product.prodname_copilot_short %} from JetBrains AI Assistant without installing the {% data variables.product.prodname_copilot_short %} plugin. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-in-jetbrains).
+
 ## Submitting prompts
 
 You can ask {% data variables.copilot.copilot_chat_short %} to give you code suggestions, explain code, generate unit tests, and suggest code fixes.

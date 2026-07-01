@@ -41,15 +41,6 @@
   xcode: true
   jetbrains: true
 
-- name: Claude Opus 4.6 (fast mode) (preview)
-  dotcom: false
-  cli: true
-  vscode: true
-  vs: false
-  eclipse: false
-  xcode: false
-  jetbrains: false
-
 - name: Claude Opus 4.7
   dotcom: true
   cli: true
@@ -61,6 +52,15 @@
 
 - name: Claude Opus 4.8
   dotcom: true
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
+- name: Claude Opus 4.8 (fast mode) (preview)
+  dotcom: false
   cli: true
   vscode: true
   vs: true
@@ -87,6 +87,15 @@
   jetbrains: true
 
 - name: Claude Sonnet 4.6
+  dotcom: true
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: false
+  xcode: false
+  jetbrains: false
+
+- name: Claude Sonnet 5
   dotcom: true
   cli: true
   vscode: true

@@ -1,5 +1,5 @@
 ---
-applyTo: "content/**,data/**,**/*.md"
+applyTo: "content/**,data/**"
 ---
 
 # Copilot content instructions for docs.github.com

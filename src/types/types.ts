@@ -178,6 +178,7 @@ export type Context = {
   productGroups?: ProductGroup[]
   featuredLinks?: FeaturedLinksExpanded
   renderedPage?: string
+  renderedPageHast?: import('hast').Root
   miniTocItems?: MiniTocItem[]
   markdownRequested?: boolean
   markdownViaUrl?: boolean

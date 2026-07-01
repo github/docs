@@ -35,6 +35,7 @@ children:
   - /content/copilot/concepts/agents/copilot-cli/chronicle
   - /content/copilot/concepts/agents/copilot-cli/comparing-cli-features
   - /content/copilot/concepts/agents/copilot-cli/context-management
+  - /content/copilot/concepts/agents/copilot-cli/tool-search
   - /content/copilot/concepts/agents/copilot-cli/fleet
   - /content/copilot/concepts/agents/copilot-cli/lsp-servers
   - /content/copilot/concepts/agents/copilot-cli/research

@@ -212,6 +212,20 @@ If your repositories are configured with {% data variables.product.prodname_code
 
 For more information, see [AUTOTITLE](/code-security/code-quality/concepts/about-code-quality) and [AUTOTITLE](/code-security/code-quality/how-tos/set-pr-thresholds).
 
+## Restrict code coverage
+
+> [!NOTE]
+> This feature is in {% data variables.release-phases.public_preview %} and subject to change.
+
+If your repository has {% data variables.product.prodname_code_quality %} enabled and code coverage data is being uploaded, you can use rulesets to prevent pull requests from being merged based on code coverage thresholds. For more information about uploading coverage data, see [AUTOTITLE](/code-security/how-tos/maintain-quality-code/set-up-code-coverage).
+
+This rule blocks a pull request from being merged when either of two code coverage thresholds is not met:
+
+* **Minimum coverage percentage**: the aggregated code coverage for the pull request branch is below the configured percentage.
+* **Maximum coverage drop**: code coverage drops by more than the configured number of percentage points relative to the default branch.
+
+For how to configure the thresholds, the prerequisite for uploading coverage data, and how to roll the rule out safely, see [AUTOTITLE](/code-security/how-tos/maintain-quality-code/restrict-code-coverage).
+
 {% endif %}
 
 {% ifversion repo-rules-required-workflows %}

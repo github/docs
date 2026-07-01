@@ -21,6 +21,7 @@ This tutorial guides you through planning, creating, and managing cost centers u
 As your enterprise grows, you can layer increasingly granular controls on top of cost centers to keep {% data variables.product.prodname_copilot_short %} spending predictable:
 
 * **Group at scale.** Assign whole enterprise teams to a cost center so membership stays current automatically as people join and leave.
+* **Cap per-user spending.** Set a cost center user-level budget so every member of a cost center inherits the same per-person limit. See [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
 
 ## 1. Plan your cost center strategy
 
@@ -316,4 +317,5 @@ If there are any paid products that you want to block all access to, you can dis
 
 To go deeper on the controls in this tutorial:
 
+* For how cost center budgets and user-level budgets interact across the pool and metered phases, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
 * For how resources are allocated to cost centers, including enterprise team membership, see [AUTOTITLE](/billing/reference/cost-center-allocation).

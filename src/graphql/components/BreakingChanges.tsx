@@ -2,6 +2,7 @@ import React from 'react'
 import cx from 'classnames'
 
 import { HeadingLink } from '@/frame/components/article/HeadingLink'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 import { BreakingChangesT } from './types'
 import styles from '@/frame/components/ui/MarkdownContent/MarkdownContent.module.scss'
 
@@ -39,10 +40,10 @@ export function BreakingChanges({ schema, headings }: Props) {
                 A change will be made to <code>{item.location}</code>.
                 <div>
                   <b>Description: </b>
-                  <span dangerouslySetInnerHTML={{ __html: item.description }} />
+                  <RenderedHTML as="span" html={item.description} />
                 </div>
                 <div>
-                  <b>Reason: </b> <span dangerouslySetInnerHTML={{ __html: item.reason }} />
+                  <b>Reason: </b> <RenderedHTML as="span" html={item.reason} />
                 </div>
               </li>
             </ul>
