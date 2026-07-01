@@ -49,8 +49,8 @@ Repository administrators can configure MCP servers by following these steps:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the "Code & automation" section of the sidebar, click **{% data variables.product.prodname_copilot_short %}** then **Cloud Agent**.
-1. On the "Cloud Agent" page, in the "Model Context Protocol (MCP)" section, add your configuration in the "MCP configuration" section.
+1. In the "Code & automation" section of the sidebar, click **{% data variables.product.prodname_copilot_short %}** then **{% data variables.copilot.copilot_cloud_agent_short_cap_c %}**.
+1. On the "{% data variables.copilot.copilot_cloud_agent_short_cap_c %}" page, in the "Model Context Protocol (MCP)" section, add your configuration in the "MCP configuration" section.
 
    The following sections in this article explain how to write the JSON configuration that you need to enter here.
 
