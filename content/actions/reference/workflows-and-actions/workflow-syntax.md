@@ -72,6 +72,34 @@ run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 
 {% data reusables.actions.workflows.triggering-workflow-branches4 %}
 
+## `on.merge_group.<branches|branches-ignore>`
+
+When using the `merge_group` event, you can configure a workflow to run only for merge groups that target specific branches.
+
+Use the `branches` filter when you want to include branch name patterns. Use the `branches-ignore` filter when you only want to exclude branch name patterns. You cannot use both the `branches` and `branches-ignore` filters for the same event in a workflow.
+
+The `branches` and `branches-ignore` keywords accept glob patterns that use characters like `*`, `**`, `+`, `?`, `!` and others to match more than one branch name. If a name contains any of these characters and you want a literal match, escape each of these special characters with `\`. For more information about glob patterns, see the [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet).
+
+### Example: Including branches for merge groups
+
+```yaml
+on:
+  merge_group:
+    branches:
+      - main
+      - 'releases/**'
+```
+
+### Example: Excluding branches for merge groups
+
+```yaml
+on:
+  merge_group:
+    branches-ignore:
+      - 'mona/octocat'
+      - 'releases/**-alpha'
+```
+
 ## `on.push.<branches|tags|branches-ignore|tags-ignore>`
 
 {% data reusables.actions.workflows.run-on-specific-branches-or-tags1 %}
