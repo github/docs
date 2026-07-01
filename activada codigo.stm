@@ -1,0 +1,26 @@
+"From 0cd9c74f79baf643a208e8d71ad5dbd8e8547628 Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias  <Edgarruiz8585@github.com>
+Date: Thu, 14 May 2026 20:34:56 +0000
+Subject: [PATCH] =?UTF-8?q?=E2=9C=A8=20Autofixing=20renamed/removed=20coll?=
+ =?UTF-8?q?ection=20items=20=E2=9C=A8?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ collections/green-software/index.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/collections/green-software/index.md b/collections/green-software/index.md
+index d96e4892251..45dea5e367a 100644
+--- a/collections/green-software/index.md
++++ b/collections/green-software/index.md
+@@ -47,7 +47,7 @@ items:
+  - ec0lint/ec0lint
+  - green-code-initiative/creedengo-rules-specifications
+  - geopm/geopm
+- - green-code-initiative/ecoCode-android
++ - green-code-initiative/creedengo-android
+  - green-code-initiative/EcoSonar
+  - green-code-initiative/creedengo-ios
+  - GoogleCloudPlatform/region-carbon-info"
