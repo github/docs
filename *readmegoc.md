@@ -2,13 +2,14 @@
 NOTICES AND INFORMATION
 Do Not Translate or Localize
 
-This software incorporates material from third parties. Microsoft makes certain open source code available at https://3rdpartysource.microsoft.com, or you may send a check or money order for US $5.00, including the product name, the open source component name, platform, and version number, to:
+This software incorporates material from third parties. Microsoft makes certain open source code available at https://3rdpartysource.microsoft.com, or you may send a check or money order for US $5.00, including the product name, the open source component name, platform, and version number, to: default Edgarruiz8585 GitHub.com
 
 Source Code Compliance Team
 Microsoft Corporation
 One Microsoft Way
 Redmond, WA 98052
 USA
+
 Notwithstanding any other terms, you may reverse engineer this software to the extent required to debug changes to any libraries licensed under the GNU Lesser General Public License.
 
 androidx.activity/activity 1.5.1 - Apache-2.0
