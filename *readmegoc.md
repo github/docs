@@ -198,3 +198,4 @@ Apart from any logos or marks that may be contained in this repo, this work is l
 [gpc-logo]: https://pbs.twimg.com/profile_banners/1311398695162703872/1601662219/1500x500
 - > by: Edgar Manuel Ruiz Arias @Edgarruiz8585 
 - > ruizariasedgarmanuel@gmail.com 
+ + > Edgarruiz8585@github.com
