@@ -2,8 +2,11 @@
 title: Plugin directories
 shortTitle: Plugin Directories
 intro: >-
-  Use plugin directories to load skills, hooks, MCP servers, custom agents, and
-  LSP settings from a single manifest.
+  A **plugin** is a directory that bundles SDK extensions — skills, hooks, MCP
+  servers, custom agents, and LSP configuration — behind a single manifest.
+  Pointing the SDK at a plugin directory loads everything the plugin
+  contributes, so you can ship reusable capability packs without writing
+  per-extension wiring in every host application.
 versions:
   fpt: '*'
   ghec: '*'

@@ -2,7 +2,7 @@ import assert from 'assert'
 import fs from 'fs'
 import path from 'path'
 import walk from 'walk-sync'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import { isRegExp, setWith } from 'lodash-es'
 import filenameToKey from './filename-to-key'
 import matter from '@gr2m/gray-matter'
@@ -74,7 +74,7 @@ export default function dataDirectory(
         setWith(data, key, JSON.parse(processedContent), Object)
         break
       case '.yml':
-        setWith(data, key, yaml.load(processedContent, { filename }), Object)
+        setWith(data, key, load(processedContent, { filename }), Object)
         break
       case '.md':
       case '.markdown':

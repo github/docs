@@ -267,3 +267,12 @@
   cached_input: $0.025
   output: $2.00
   notes: Uses GPT-5 mini pricing
+
+# Open-weight models
+- model: 'Kimi K2.7 Code'
+  provider: moonshot_ai
+  release_status: GA
+  category: Versatile
+  input: $0.95
+  cached_input: $0.19
+  output: $4.00

@@ -17,6 +17,10 @@ export default class MyDocument extends Document {
         data-dark-theme={defaultCSSTheme.darkTheme}
       >
         <Head>
+          {/* Inline color-mode script must run before paint to avoid a flash; it
+              injects executable JS (not content HTML), so RenderedHTML/hast do
+              not apply here. */}
+          {/* eslint-disable-next-line custom-rules/no-dangerously-set-inner-html */}
           <script dangerouslySetInnerHTML={{ __html: colorModeScript }} />
         </Head>
         <body>

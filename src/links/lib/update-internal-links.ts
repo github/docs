@@ -3,7 +3,7 @@ import fs from 'fs'
 import { visit, Test } from 'unist-util-visit'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { toMarkdown } from 'mdast-util-to-markdown'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import { type Node, type Nodes, type Definition, type Link } from 'mdast'
 
 import type { Context, Page } from '@/types'
@@ -101,7 +101,7 @@ async function updateFile(file: string, context: LinkContext, opts: typeof Optio
   // And since the Yaml file might contain arrays of internal linked
   // pathnames, we have to re-read it fully.
   if (file.endsWith('.yml')) {
-    Object.assign(data, yaml.load(content))
+    Object.assign(data, load(content))
   }
 
   let newContent = content

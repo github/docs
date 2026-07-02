@@ -124,6 +124,12 @@ You can configure {% data variables.copilot.copilot_cli_short %} to use your own
 
 See [Using your own model provider](/copilot/concepts/agents/copilot-cli/about-copilot-cli#using-your-own-model-provider).
 
+### Set {% data variables.product.prodname_ai_credit_singular %} session limits
+
+You can cap the amount of {% data variables.product.prodname_ai_credits_short %} that {% data variables.product.prodname_copilot_short %} can spend on a single session so that long-running or complex tasks don't consume more resources than you expect. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/set-session-limit).
+
+For more information on how to optimize your {% data variables.product.prodname_ai_credits_short %} usage generally, see [AUTOTITLE](/copilot/tutorials/optimize-ai-usage).
+
 ## 2. Plan before you code
 
 ### Plan mode

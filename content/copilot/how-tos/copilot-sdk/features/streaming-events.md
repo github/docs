@@ -65,7 +65,7 @@ session.on("assistant.message_delta", (event) => {
 
 ```python
 from copilot import CopilotClient
-from copilot.generated.session_events import SessionEventType
+from copilot.session_events import SessionEventType
 
 client = CopilotClient()
 
@@ -79,7 +79,7 @@ def handle(event):
 ```
 
 ```python
-from copilot.generated.session_events import SessionEventType
+from copilot.session_events import SessionEventType
 
 def handle(event):
     if event.type == SessionEventType.ASSISTANT_MESSAGE_DELTA:

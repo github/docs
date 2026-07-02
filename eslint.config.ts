@@ -103,6 +103,10 @@ export default [
       // Custom rules
       'custom-rules/use-custom-logger': 'error',
 
+      // Disallow dangerouslySetInnerHTML; render trusted HTML via RenderedHTML /
+      // renderHTMLString or a hast tree instead (github/docs-engineering#6619).
+      'custom-rules/no-dangerously-set-inner-html': 'error',
+
       // Prevent direct res.redirect() usage — use res.safeRedirect() instead
       // to avoid open redirect vulnerabilities via protocol-relative URLs.
       'no-restricted-syntax': [

@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import matter from '@gr2m/gray-matter'
 import { merge, get } from 'lodash-es'
 
@@ -126,7 +126,7 @@ export const getDataByLanguage = memoize((dottedPath: string, langCode: string):
     return value
   } catch (error) {
     if (error instanceof Error && (error as YAMLException).mark && error.message) {
-      // It's a yaml.load() generated error!
+      // It's a load() generated error!
       // Remember, the file that we read might have been a .yml or a .md
       // file. If it was a .md file, with corrupt front-matter that too
       // would have caused a YAMLException
@@ -331,7 +331,7 @@ const getYamlContent = memoize(
       root = englishRoot
     }
     const fileContent = getFileContent(root, relPath, englishRoot)
-    return yaml.load(fileContent, { filename: relPath })
+    return load(fileContent, { filename: relPath })
   },
 )
 
@@ -390,7 +390,7 @@ function memoize<Args extends unknown[], Return>(
       // As a median, it takes **0.5ms to read 10 files from disk**
       // all in a sync manner.
       // Since most files coming through here is `.yml` files (e.g.
-      // product.yml and ui.yml) if you also do the `yaml.load()` of the
+      // product.yml and ui.yml) if you also do the `load()` of the
       // read content, that number becomes **2.1ms to read and parse 10 files**.
       // So in conclusion, not a lot of time.
       return func(...args)

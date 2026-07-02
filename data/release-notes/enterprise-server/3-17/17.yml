@@ -2,7 +2,7 @@ date: '2026-06-30'
 sections:
   security_fixes:
     - |
-      **HIGH**: Current configurations of the GitHub API access controls could allow an attacker to create issues in any public repository via a u2s token without requiring the underlying installation to have issues write permission. This therefore allows an attacker to impersonate the victim in public repositories by creating issues and commit comments.
+      **MEDIUM**: An attacker could create issues, issue comments, commit comments, and private vulnerability reports in public repositories they did not have write access to. This was possible by using a user-to-server token against endpoints that validated repository read access but did not validate the required write permission for those operations. GitHub has requested CVE ID [CVE-2026-14340](https://www.cve.org/cverecord?id=CVE-2026-14340) for this vulnerability, which was reported via the [GitHub Bug Bounty](https://bounty.github.com/) program.
     - |
       **MEDIUM**: An attacker with site administrator privileges could extract arbitrary data from the instance's database, including user password hashes, by exploiting a blind SQL injection vulnerability in the `dependenciesPrefers` argument of the `dependencyGraphManifests` GraphQL field. This vulnerability affected instances with the dependency graph enabled and was reported via the GitHub Bug Bounty program.
     - |

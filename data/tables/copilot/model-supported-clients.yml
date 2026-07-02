@@ -203,6 +203,15 @@
   xcode: true
   jetbrains: true
 
+- name: Kimi-K2.7-Code
+  dotcom: true
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: false
+  xcode: false
+  jetbrains: true
+
 - name: Raptor mini
   dotcom: false
   cli: false

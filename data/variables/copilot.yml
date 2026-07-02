@@ -240,6 +240,8 @@ copilot_qwen_25: 'Qwen2.5'
 copilot_mai_code_1_flash: 'MAI-Code-1-Flash'
 # Microsoft fine-tuned:
 copilot_raptor_mini: 'Raptor mini'
+# Open-weight models:
+copilot_kimi_k27_code: 'Kimi K2.7 Code'
 
 ## Current model used by Copilot cloud agent and Copilot CLI
 cca_current_model: '{% data variables.copilot.copilot_claude_opus_46 %}'

@@ -32,7 +32,7 @@ Copilot: In Tokyo it's 75°F and sunny. Great day to be outside!
 
 Before you begin, make sure you have:
 
-* **GitHub Copilot CLI** installed and authenticated (the Node.js, Python, and .NET SDKs bundle the CLI automatically—see [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/bundled-cli). Required for Go, Java, and Rust unless using their application-level CLI bundling features.)
+* **GitHub Copilot CLI** installed and authenticated (the Node.js, Python, and .NET SDKs provide the CLI automatically—see [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/bundled-cli). Required for Go, Java, and Rust unless using their application-level CLI bundling features.)
 * Your preferred language runtime:
   * **Node.js** 20+ or **Python** 3.11+ or **Go** 1.24+ or **Rust** 1.94+ or **Java** 17+ or **.NET** 8.0+
 
@@ -408,7 +408,7 @@ import asyncio
 import sys
 from copilot import CopilotClient
 from copilot.session import PermissionHandler
-from copilot.generated.session_events import SessionEventType
+from copilot.session_events import SessionEventType
 
 async def main():
     client = CopilotClient()
@@ -652,7 +652,7 @@ unsubscribeIdle();
 
 ```python
 from copilot import CopilotClient, PermissionDecisionApproveOnce
-from copilot.generated.session_events import SessionEvent, SessionEventType
+from copilot.session_events import SessionEvent, SessionEventType
 
 client = CopilotClient()
 
@@ -920,7 +920,7 @@ import sys
 from copilot import CopilotClient
 from copilot.session import PermissionHandler
 from copilot.tools import define_tool
-from copilot.generated.session_events import SessionEventType
+from copilot.session_events import SessionEventType
 from pydantic import BaseModel, Field
 
 # Define the parameters for the tool using Pydantic
@@ -1336,7 +1336,7 @@ import sys
 from copilot import CopilotClient
 from copilot.session import PermissionHandler
 from copilot.tools import define_tool
-from copilot.generated.session_events import SessionEventType
+from copilot.session_events import SessionEventType
 from pydantic import BaseModel, Field
 
 class GetWeatherParams(BaseModel):
@@ -1870,11 +1870,13 @@ const session = await client.createSession({
 });
 ```
 
-Available section IDs: `identity`, `tone`, `tool_efficiency`, `environment_context`, `code_change_rules`, `guidelines`, `safety`, `tool_instructions`, `custom_instructions`, `runtime_instructions`, `last_instructions`.
+Available section IDs: `preamble`, `identity`, `tone`, `tool_efficiency`, `environment_context`, `code_change_rules`, `guidelines`, `safety`, `tool_instructions`, `custom_instructions`, `runtime_instructions`, `last_instructions`.
 
-Each override supports four actions: `replace`, `remove`, `append`, and `prepend`. Unknown section IDs are handled gracefully—content is appended to additional instructions and a warning is emitted; `remove` on unknown sections is silently ignored.
+`identity` and `tool_instructions` are section *groups*: they target a collection of related sub-sections as a unit. Use `preamble` to target just the identity preamble without affecting its sibling sub-sections.
 
-See the language-specific SDK READMEs for examples in [TypeScript](https://github.com/github/copilot-sdk/tree/main/nodejs/README.md?utm_source=docs-copilot-sdk-typescript-readme&utm_medium=docs&utm_campaign=msbuild-2026), [Python](https://github.com/github/copilot-sdk/tree/main/python/README.md?utm_source=docs-copilot-sdk-python-readme&utm_medium=docs&utm_campaign=msbuild-2026), [Go](https://github.com/github/copilot-sdk/tree/main/go/README.md?utm_source=docs-copilot-sdk-go-readme&utm_medium=docs&utm_campaign=msbuild-2026), [Rust](https://github.com/github/copilot-sdk/tree/main/rust/README.md?utm_source=docs-copilot-sdk-rust-readme&utm_medium=docs&utm_campaign=msbuild-2026), [Java](https://github.com/github/copilot-sdk/tree/main/java/README.md?utm_source=docs-copilot-sdk-java-readme&utm_medium=docs&utm_campaign=msbuild-2026), and [C#](https://github.com/github/copilot-sdk/tree/main/dotnet/README.md?utm_source=docs-copilot-sdk-csharp-readme&utm_medium=docs&utm_campaign=msbuild-2026).
+Each override supports five actions: `replace`, `remove`, `append`, `prepend`, and `preserve`. The `preserve` action is a no-op that opts an individually-addressable section out of a group-level `remove` (for example, keep `tone` when removing the `identity` group). Unknown section IDs are handled gracefully: content from `replace`/`append`/`prepend` overrides is appended to additional instructions, and `remove` overrides are silently ignored.
+
+See the language-specific SDK READMEs for examples in [TypeScript](https://github.com/github/copilot-sdk/tree/main/nodejs/README.md), [Python](https://github.com/github/copilot-sdk/tree/main/python/README.md), [Go](https://github.com/github/copilot-sdk/tree/main/go/README.md), [Rust](https://github.com/github/copilot-sdk/tree/main/rust/README.md), [Java](https://github.com/github/copilot-sdk/tree/main/java/README.md), and [C#](https://github.com/github/copilot-sdk/tree/main/dotnet/README.md).
 
 ## Connecting to an external CLI server
 
@@ -2172,10 +2174,13 @@ Dependency: `io.opentelemetry:opentelemetry-api`
 | Option | Node.js | Python | Go | Rust | Java | .NET | Description |
 |---|---|---|---|---|---|---|---|
 | OTLP endpoint | `otlpEndpoint` | `otlp_endpoint` | `OTLPEndpoint` | `otlp_endpoint` | `otlpEndpoint` | `OtlpEndpoint` | OTLP HTTP endpoint URL |
+| OTLP protocol | `otlpProtocol` | `otlp_protocol` | `OTLPProtocol` | `otlp_protocol` | `otlpProtocol` | `OtlpProtocol` | OTLP HTTP protocol for all signals: `"http/json"` or `"http/protobuf"` |
 | File path | `filePath` | `file_path` | `FilePath` | `file_path` | `filePath` | `FilePath` | File path for JSON-lines trace output |
 | Exporter type | `exporterType` | `exporter_type` | `ExporterType` | `exporter_type` | `exporterType` | `ExporterType` | `"otlp-http"` or `"file"` |
 | Source name | `sourceName` | `source_name` | `SourceName` | `source_name` | `sourceName` | `SourceName` | Instrumentation scope name |
 | Capture content | `captureContent` | `capture_content` | `CaptureContent` | `capture_content` | `captureContent` | `CaptureContent` | Whether to capture message content |
+
+The OTLP protocol field configures the CLI's `"otlp-http"` exporter for all signals. Leave it unset to use the CLI default, or set it to `"http/protobuf"` to export protobuf over HTTP.
 
 ### File export
 
@@ -2205,12 +2210,12 @@ Trace context is propagated automatically—no manual instrumentation is needed:
 
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/auth/authenticate) - GitHub OAuth, environment variables, and BYOK
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/auth/byok) - Use your own API keys from Azure AI Foundry, OpenAI, etc.
-* [Node.js SDK Reference](https://github.com/github/copilot-sdk/tree/main/nodejs/README.md?utm_source=docs-copilot-sdk-nodejs-reference&utm_medium=docs&utm_campaign=msbuild-2026)
-* [Python SDK Reference](https://github.com/github/copilot-sdk/tree/main/python/README.md?utm_source=docs-copilot-sdk-python-reference&utm_medium=docs&utm_campaign=msbuild-2026)
-* [Go SDK Reference](https://github.com/github/copilot-sdk/tree/main/go/README.md?utm_source=docs-copilot-sdk-go-reference&utm_medium=docs&utm_campaign=msbuild-2026)
-* [Rust SDK Reference](https://github.com/github/copilot-sdk/tree/main/rust/README.md?utm_source=docs-copilot-sdk-rust-reference&utm_medium=docs&utm_campaign=msbuild-2026)
-* [.NET SDK Reference](https://github.com/github/copilot-sdk/tree/main/dotnet/README.md?utm_source=docs-copilot-sdk-dotnet-reference&utm_medium=docs&utm_campaign=msbuild-2026)
-* [Java SDK Reference](https://github.com/github/copilot-sdk/tree/main/java/README.md?utm_source=docs-copilot-sdk-java-reference&utm_medium=docs&utm_campaign=msbuild-2026)
+* [Node.js SDK Reference](https://github.com/github/copilot-sdk/tree/main/nodejs/README.md)
+* [Python SDK Reference](https://github.com/github/copilot-sdk/tree/main/python/README.md)
+* [Go SDK Reference](https://github.com/github/copilot-sdk/tree/main/go/README.md)
+* [Rust SDK Reference](https://github.com/github/copilot-sdk/tree/main/rust/README.md)
+* [.NET SDK Reference](https://github.com/github/copilot-sdk/tree/main/dotnet/README.md)
+* [Java SDK Reference](https://github.com/github/copilot-sdk/tree/main/java/README.md)
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/mcp) - Integrate external tools via Model Context Protocol
 * [GitHub MCP Server Documentation](https://github.com/github/github-mcp-server)
 * [MCP Servers Directory](https://github.com/modelcontextprotocol/servers) - Explore more MCP servers

@@ -34,8 +34,6 @@ For all of the default AI models, input prompts and output completions run throu
 
 This table lists the AI models available in {% data variables.product.prodname_copilot_short %}, along with their release status.
 
-{% data reusables.copilot.model-fable-disabled %}
-
 {% rowheaders %}
 
 | Model name                                             | Provider  | Release status             |
@@ -110,8 +108,6 @@ The following table lists AI models that are retired or scheduled for retirement
 
 The following table shows which models are available in each client.
 
-{% data reusables.copilot.model-fable-disabled %}
-
 {% rowheaders %}
 
 | Model | {% data variables.product.prodname_dotcom_the_website %} | {% data variables.copilot.copilot_cli_short %} | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vs %} | Eclipse | Xcode | JetBrains IDEs |
@@ -161,7 +157,7 @@ The following table shows which AI models are available in each {% data variable
 {% data reusables.copilot.available-models-per-plan %}
 
 > [!NOTE]
-> If you're an organization or enterprise owner, you can enable or restrict access to specific models for your members. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models#setup-for-organization-and-enterprise-use).
+> * If you're an organization or enterprise owner, you can enable or restrict access to specific models for your members. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models#setup-for-organization-and-enterprise-use).
 
 ## Fallback and long-term support (LTS) models
 

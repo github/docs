@@ -1,14 +1,15 @@
 date: '2026-06-30'
 sections:
+  features:
+    - |
+      You can now run the pre-upgrade stage of an upgrade outside the maintenance window using `ghe-upgrade --phase pre-upgrade -y UPGRADE-PACKAGE-FILENAME`. Running the pre-upgrade stage in advance can reduce in-maintenance upgrade time by up to 20 minutes. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-upgrade). Additional functionality and documentation will be available when you upgrade to 3.22 and later versions.
   security_fixes:
     - |
-      **HIGH**: Current configurations of the GitHub API access controls could allow an attacker to create issues in any public repository via a u2s token without requiring the underlying installation to have issues write permission. This therefore allows an attacker to impersonate the victim in public repositories by creating issues and commit comments.
+      **MEDIUM**: An attacker could create issues, issue comments, commit comments, and private vulnerability reports in public repositories they did not have write access to. This was possible by using a user-to-server token against endpoints that validated repository read access but did not validate the required write permission for those operations. GitHub has requested CVE ID [CVE-2026-14340](https://www.cve.org/cverecord?id=CVE-2026-14340) for this vulnerability, which was reported via the [GitHub Bug Bounty](https://bounty.github.com/) program.
     - |
       **MEDIUM**: An attacker with site administrator privileges could extract arbitrary data from the instance's database, including user password hashes, by exploiting a blind SQL injection vulnerability in the `dependenciesPrefers` argument of the `dependencyGraphManifests` GraphQL field. This vulnerability affected instances with the dependency graph enabled and was reported via the GitHub Bug Bounty program.
     - |
       **MEDIUM**: An attacker could gain unintended access to an organization's runner management by directing a user to authorize an OAuth app whose requested manage_runners:org scope was not displayed on the authorization consent screen. GitHub has requested CVE ID [CVE-2026-9106](https://www.cve.org/cverecord?id=CVE-2026-9106) for this vulnerability, which was reported via the [GitHub Bug Bounty](https://bounty.github.com/) program.
-    - |
-      **MEDIUM**: An attacker who could execute code within a Copilot coding agent session, for example through a malicious dependency or repository setup steps, could use the agent's server-to-server token to create, modify, or delete releases and release assets in that repository via the REST API, exceeding the agent's documented push-only restriction. GitHub has requested CVE ID [CVE-2026-12373](https://www.cve.org/cverecord?id=CVE-2026-12373) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
     - |
       GitHub has updated `dnsmasq` to fix the following vulnerabilities: CVE-2026-4891, CVE-2026-4890, CVE-2026-4892, CVE-2026-4893, CVE-2026-5172, CVE-2026-2291.
     - |
@@ -88,3 +89,6 @@ sections:
       On instances with multiple Git storage nodes in a voting configuration, including cluster and geo-replication high availability topologies, upgrading may fail to correctly install Actions that ship with the new version. In some cases, previous versions of these Actions remain on the instance. To resolve this issue, run the following commands on the primary node: `ghe-config --unset 'app.actions.actions-repos-sha1sum'`, `ghe-config-apply`, and `/usr/local/share/enterprise/ghe-run-init-actions-graph`.
     - |
       Users attempting to clone repositories via HTTPS receive an "Internal Server Error" message, and the clone operation fails with a 500 error. This issue affects all deployment topologies including cluster, standalone, high availability, and geo-replication configurations.
+  errata:
+    - |
+      A note about running the pre-upgrade stage outside the maintenance window has been added to the release notes. [Updated: 2026-06-30]

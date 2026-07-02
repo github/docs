@@ -108,3 +108,8 @@
 - name: 'Raptor mini'
   provider: 'Fine-tuned GPT-5 mini'
   release_status: 'GA'
+
+# Open-weight models
+- name: 'Kimi-K2.7-Code'
+  provider: 'Moonshot AI'
+  release_status: 'GA'

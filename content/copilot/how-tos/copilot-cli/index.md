@@ -76,6 +76,7 @@ children:
   - /use-copilot-cli/speed-up-task-completion
   - /use-copilot-cli/steer-agents
   - /use-copilot-cli/steer-remotely
+  - /use-copilot-cli/set-session-limit
 carousels:
   recommended:
     - /copilot/how-tos/copilot-cli/use-copilot-cli/overview

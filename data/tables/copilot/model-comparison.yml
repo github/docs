@@ -110,3 +110,9 @@
   task_area: General-purpose coding and writing
   excels_at: Fast, accurate code completions and explanations
   further_reading: 'Coming soon'
+
+# Open-weight models
+- name: Kimi K2.7 Code
+  task_area: General-purpose coding and agent tasks
+  excels_at: Fast, reliable answers to lightweight coding questions
+  further_reading: '[Kimi K2.7 Code model card](https://huggingface.co/moonshotai/Kimi-K2.7-Code)'

@@ -43,8 +43,6 @@ All prices are **per 1 million tokens**.
 
 Anthropic models include a cache write cost in addition to cached input.
 
-{% data reusables.copilot.model-fable-disabled %}
-
 | Model | Release status | Category | Input | Cached input | Cache write | Output |
 | --- | --- | --- | ---: | ---: | ---: | ---: |
 | {% for entry in tables.copilot.models-and-pricing %}{% if entry.provider == "anthropic" %} |
@@ -74,6 +72,14 @@ Anthropic models include a cache write cost in addition to cached input.
 | Model | Release status | Category | Input | Cached input | Output |
 | --- | --- | --- | ---: | ---: | ---: |
 | {% for entry in tables.copilot.models-and-pricing %}{% if entry.provider == "microsoft" %} |
+| {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
+| {% endif %}{% endfor %} |
+
+### Moonshot AI
+
+| Model | Release status | Category | Input | Cached input | Output |
+| --- | --- | --- | ---: | ---: | ---: |
+| {% for entry in tables.copilot.models-and-pricing %}{% if entry.provider == "moonshot_ai" %} |
 | {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
 | {% endif %}{% endfor %} |
 

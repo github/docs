@@ -40,5 +40,4 @@ The "Configuration summary" on the settings page will display the settings taken
 
 ## Next steps
 * [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents)
-* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/disable-automatic-commands)
 * [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-plugin-standards)

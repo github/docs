@@ -165,3 +165,10 @@
   max: true
   business: false
   enterprise: false
+
+- name: Kimi-K2.7-Code
+  pro: true
+  pro_plus: true
+  max: true
+  business: false
+  enterprise: false

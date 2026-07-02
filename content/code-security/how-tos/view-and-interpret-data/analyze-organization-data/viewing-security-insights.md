@@ -45,6 +45,10 @@ You can download a CSV file of the overview dashboard data for your organization
 
 {% data reusables.security-overview.enterprise-filters-tip %}
 
+{% ifversion secret-scanning-public-monitoring %}
+The enterprise security overview also includes a **Public monitoring** page, where you can view alerts for secrets leaked by enterprise members in public repositories outside your enterprise. See [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-public-monitoring-alerts).
+{% endif %}
+
 {% endif %}
 
 ## Next steps
