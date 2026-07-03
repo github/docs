@@ -51,7 +51,7 @@
 
 # Microsoft
 - name: MAI-Code-1-Flash
-  cloud_agent: false
+  cloud_agent: true
   chat: true
   cli: true
 

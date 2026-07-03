@@ -103,6 +103,10 @@ export default [
       // Custom rules
       'custom-rules/use-custom-logger': 'error',
 
+      // Disallow dangerouslySetInnerHTML; render trusted HTML via RenderedHTML /
+      // renderHTMLString or a hast tree instead (github/docs-engineering#6619).
+      'custom-rules/no-dangerously-set-inner-html': 'error',
+
       // Prevent direct res.redirect() usage — use res.safeRedirect() instead
       // to avoid open redirect vulnerabilities via protocol-relative URLs.
       'no-restricted-syntax': [
@@ -228,6 +232,28 @@ export default [
     ],
     rules: {
       'import/no-namespace': 'off',
+    },
+  },
+
+  // Allow role="list" on list-style:none <ul> elements in these components.
+  // Chromium drops the implicit `list`/`listitem` roles from the accessibility tree
+  // when list-style:none is set, so NVDA/JAWS lose list semantics and the item count;
+  // role="list" on the <ul> and role="listitem" on each <li> restore them and are not
+  // actually redundant here. See github/accessibility-audits#16815.
+  {
+    files: [
+      'src/frame/components/ui/MiniTocs/MiniTocs.tsx',
+      'src/landings/components/TableOfContents.tsx',
+      'src/frame/components/GenericError.tsx',
+      'src/frame/components/page-footer/LegalFooter.tsx',
+      'src/landings/components/ProductSelectionCard.tsx',
+      'src/release-notes/components/GHESReleaseNotes.tsx',
+    ],
+    rules: {
+      'jsx-a11y/no-redundant-roles': [
+        'error',
+        { nav: ['navigation'], ul: ['list'], li: ['listitem'] },
+      ],
     },
   },
 

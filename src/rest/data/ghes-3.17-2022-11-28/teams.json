@@ -10102,7 +10102,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Team members will include the members of child teams.</p>\n<p>To list members in a team, the team must be visible to the authenticated user.</p>",
+      "descriptionHTML": "<p>Team members will include the members of child teams.</p>\n<p>Each member includes their <code>role</code> on the team (<code>member</code> or <code>maintainer</code>) and an <code>inherited</code> flag indicating whether the membership is inherited from a child team (<code>true</code>) or is a direct membership (<code>false</code>). These fields let you read a member's role and direct/inherited status without additional requests.</p>\n<p>To list members in a team, the team must be visible to the authenticated user.</p>",
       "codeExamples": [
         {
           "request": {
@@ -10136,14 +10136,16 @@
                 "events_url": "https://api.github.com/users/octocat/events{/privacy}",
                 "received_events_url": "https://api.github.com/users/octocat/received_events",
                 "type": "User",
-                "site_admin": false
+                "site_admin": false,
+                "role": "member",
+                "inherited": false
               }
             ],
             "schema": {
               "type": "array",
               "items": {
-                "title": "Simple User",
-                "description": "A GitHub user.",
+                "title": "Team Member",
+                "description": "A user that is a member of a team, including their role on the team and whether the membership is inherited from a child team.",
                 "type": "object",
                 "properties": {
                   "name": {
@@ -10229,6 +10231,18 @@
                   },
                   "user_view_type": {
                     "type": "string"
+                  },
+                  "role": {
+                    "type": "string",
+                    "description": "The member's role on the team. Only present on the `List team members` endpoint, and only when the feature is enabled for the organization.",
+                    "enum": [
+                      "member",
+                      "maintainer"
+                    ]
+                  },
+                  "inherited": {
+                    "type": "boolean",
+                    "description": "Whether the user is a member of the team only through a child team. `true` means the membership is inherited from a child team; `false` means the user is a direct (immediate) member of the team. Only present on the `List team members` endpoint, and only when the feature is enabled for the organization."
                   }
                 },
                 "required": [
@@ -10654,7 +10668,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Endpoint closing down notice:</strong> This endpoint route is closing down and will be removed from the Teams API. We recommend migrating your existing code to use the new <a href=\"https://docs.github.com/enterprise-server@3.17/rest/teams/members#list-team-members\"><code>List team members</code></a> endpoint.</p>\n</div>\n<p>Team members will include the members of child teams.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Endpoint closing down notice:</strong> This endpoint route is closing down and will be removed from the Teams API. We recommend migrating your existing code to use the new <a href=\"https://docs.github.com/enterprise-server@3.17/rest/teams/members#list-team-members\"><code>List team members</code></a> endpoint.</p>\n</div>\n<p>Team members will include the members of child teams.</p>\n<p>Each member includes their <code>role</code> on the team (<code>member</code> or <code>maintainer</code>) and an <code>inherited</code> flag indicating whether the membership is inherited from a child team (<code>true</code>) or is a direct membership (<code>false</code>).</p>",
       "codeExamples": [
         {
           "request": {
@@ -10687,14 +10701,16 @@
                 "events_url": "https://api.github.com/users/octocat/events{/privacy}",
                 "received_events_url": "https://api.github.com/users/octocat/received_events",
                 "type": "User",
-                "site_admin": false
+                "site_admin": false,
+                "role": "member",
+                "inherited": false
               }
             ],
             "schema": {
               "type": "array",
               "items": {
-                "title": "Simple User",
-                "description": "A GitHub user.",
+                "title": "Team Member",
+                "description": "A user that is a member of a team, including their role on the team and whether the membership is inherited from a child team.",
                 "type": "object",
                 "properties": {
                   "name": {
@@ -10780,6 +10796,18 @@
                   },
                   "user_view_type": {
                     "type": "string"
+                  },
+                  "role": {
+                    "type": "string",
+                    "description": "The member's role on the team. Only present on the `List team members` endpoint, and only when the feature is enabled for the organization.",
+                    "enum": [
+                      "member",
+                      "maintainer"
+                    ]
+                  },
+                  "inherited": {
+                    "type": "boolean",
+                    "description": "Whether the user is a member of the team only through a child team. `true` means the membership is inherited from a child team; `false` means the user is a direct (immediate) member of the team. Only present on the `List team members` endpoint, and only when the feature is enabled for the organization."
                   }
                 },
                 "required": [

@@ -1,6 +1,6 @@
 ---
 title: Larger runners
-intro: Learn about the types and uses of {% data variables.product.prodname_dotcom %}-hosted {% data variables.actions.hosted_runners %}.
+intro: Organize and govern your workflows with {% data variables.product.prodname_dotcom %}-hosted larger runners using runner groups, concurrency policies, and granular access controls.
 permissions: '{% data reusables.actions.larger-runner-permissions %}'
 versions:
   fpt: '*'
@@ -25,7 +25,20 @@ To learn about larger runners, see [the {% data variables.product.prodname_ghe_c
 
 {% data reusables.actions.about-larger-runners %}
 
-{% data variables.product.prodname_dotcom %} offers {% data variables.actions.hosted_runners %} with macOS, Ubuntu, or Windows operating systems, and different features and sizes are available depending on which operating system you use.
+## What you can do with larger runners
+
+All {% data variables.actions.hosted_runners %} support the following capabilities:
+
+* **Runner groups**: Organize runners and control which repositories can use them
+* **Autoscaling**: Scale runners up or down based on workload demand
+* **Concurrency controls**: Limit how many jobs can run at the same time
+
+The following capabilities are available only on Linux and Windows runners:
+
+* **Static IP addresses**: Assign static IP addresses from a specific range to runners, allowing you to configure firewall allowlists.
+* **Custom images**: Use custom runner images to pre-install dependencies and reduce setup time.
+* **Azure private networking**: Connect your runners to Azure private networks.
+
 
 {% ifversion default-setup-larger-runners %}
 
@@ -41,23 +54,6 @@ For more information on configuring {% data variables.actions.hosted_runners %} 
 
 {% endif %}
 
-## About Ubuntu and Windows {% data variables.actions.hosted_runners %}
-
-{% data variables.actions.hosted_runner_caps %}s with Ubuntu or Windows operating systems are configured in your organization or enterprise. When you add a {% data variables.actions.hosted_runner %}, you are defining a type of machine from a selection of available hardware specifications and operating system images.
-
-With Ubuntu and Windows {% data variables.actions.hosted_runners %}, you can:
-
-* Assign runners static IP addresses from a specific range, allowing you to use this range to configure a firewall allowlist
-* Control access to your resources by assigning runners to runner groups
-* Use autoscaling to simplify runner management and control your costs
-* Use your runners with Azure private networking
-
-## About macOS {% data variables.actions.hosted_runners %}
-
-{% data variables.actions.hosted_runner_caps %}s with a macOS operating system are not manually added to your organization or enterprise, but are instead used by updating the `runs-on` key of a workflow file to one of the {% data variables.product.company_short %}-defined macOS {% data variables.actions.hosted_runner %} labels.
-
-Since macOS {% data variables.actions.hosted_runners %} are not preconfigured, they have limitations that Ubuntu and Windows {% data variables.actions.hosted_runners %} do not. For more information, see [AUTOTITLE](/actions/reference/larger-runners-reference#limitations-for-macos-larger-runners).
-
 ## Billing
 
 > [!NOTE]
@@ -67,10 +63,9 @@ Compared to standard {% data variables.product.github %}-hosted runners, {% data
 
 ## Next steps
 
-To start using Windows or Ubuntu {% data variables.actions.hosted_runners %}, see [AUTOTITLE](/actions/how-tos/using-github-hosted-runners/using-larger-runners/managing-larger-runners).
-
-To start using macOS {% data variables.actions.hosted_runners %}, see [AUTOTITLE](/actions/how-tos/using-github-hosted-runners/using-larger-runners/running-jobs-on-larger-runners?platform=mac).
+To start using larger runners, see [AUTOTITLE](/actions/how-tos/using-github-hosted-runners/using-larger-runners/managing-larger-runners).
 
 To find reference information about using {% data variables.actions.hosted_runners %}, see [AUTOTITLE](/actions/reference/larger-runners-reference).
 
 {% endif %}
+

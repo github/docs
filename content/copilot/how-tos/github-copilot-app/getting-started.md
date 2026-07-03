@@ -90,3 +90,4 @@ Find out more about using the {% data variables.copilot.github_copilot_app %}:
 * [AUTOTITLE](/copilot/how-tos/github-copilot-app/working-with-canvas-extensions)
 * [AUTOTITLE](/copilot/how-tos/github-copilot-app/managing-issues-and-pull-requests)
 * [AUTOTITLE](/copilot/how-tos/github-copilot-app/using-automations)
+* [AUTOTITLE](/copilot/how-tos/github-copilot-app/open-with-deep-links)

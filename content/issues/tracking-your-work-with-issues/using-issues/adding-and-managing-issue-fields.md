@@ -10,8 +10,6 @@ category:
   - Create and work with issues
 ---
 
-{% data reusables.issues.issue-fields-public-preview-note %}
-
 Issue fields appear in the right-hand sidebar of issues, alongside system fields like assignees, labels, and type. You can set values when creating or editing an issue. When you select an issue type while creating an issue, any fields pinned to that type automatically appear in the sidebar.
 
 > [!NOTE]

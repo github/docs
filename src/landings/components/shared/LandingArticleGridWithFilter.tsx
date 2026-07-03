@@ -266,6 +266,7 @@ export const ArticleGrid = ({
           <div className={styles.categoryDropdown}>
             <ActionMenu>
               <ActionMenu.Button>
+                {t('article_grid.filter_by_category')}:{' '}
                 {categories[selectedCategoryIndex] === ALL_CATEGORIES
                   ? t('article_grid.all_categories')
                   : categories[selectedCategoryIndex]}

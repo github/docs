@@ -112,10 +112,13 @@ let client = Client::start(ClientOptions::new()
 | Option | Node.js | Python | Go | .NET | Java | Rust | Description |
 |---|---|---|---|---|---|---|---|
 | OTLP endpoint | `otlpEndpoint` | `otlp_endpoint` | `OTLPEndpoint` | `OtlpEndpoint` | `otlpEndpoint` | `otlp_endpoint` | OTLP HTTP endpoint URL |
+| OTLP protocol | `otlpProtocol` | `otlp_protocol` | `OTLPProtocol` | `OtlpProtocol` | `otlpProtocol` | `otlp_protocol` | OTLP HTTP protocol for all signals: `"http/json"` or `"http/protobuf"` |
 | File path | `filePath` | `file_path` | `FilePath` | `FilePath` | `filePath` | `file_path` | File path for JSON-lines trace output |
 | Exporter type | `exporterType` | `exporter_type` | `ExporterType` | `ExporterType` | `exporterType` | `exporter_type` | `"otlp-http"` or `"file"` |
 | Source name | `sourceName` | `source_name` | `SourceName` | `SourceName` | `sourceName` | `source_name` | Instrumentation scope name |
 | Capture content | `captureContent` | `capture_content` | `CaptureContent` | `CaptureContent` | `captureContent` | `capture_content` | Whether to capture message content |
+
+The OTLP protocol field configures the CLI's `"otlp-http"` exporter for all signals. Leave it unset to use the CLI default, or set it to `"http/protobuf"` to export protobuf over HTTP.
 
 ### Trace context propagation
 

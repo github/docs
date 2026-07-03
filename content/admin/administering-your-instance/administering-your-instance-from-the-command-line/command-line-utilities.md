@@ -1443,6 +1443,27 @@ To install an upgrade package:
 ghe-upgrade UPGRADE-PACKAGE-FILENAME
 ```
 
+
+{% ifversion ghes > 3.20 %}
+
+Beginning with upgrades in version 3.21 operators may run many of the upgrade operations without requiring a maintenance window using phased execution. 
+
+First run operations which do not require a maintenance window by triggering the pre-upgrade phase
+
+```shell
+ghe-upgrade --phase pre-upgrade UPGRADE-PACKAGE-FILENAME
+```
+
+Once that is complete operators may complete the upgrade by running the final steps after a maintenance window has been scheduled
+
+```shell
+ghe-upgrade --phase upgrade UPGRADE-PACKAGE-FILENAME
+```
+
+The upgraded {% data variables.product.prodname_enterprise %} host will be rebooted by this operation.
+
+{% endif %}
+
 {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
 
 ### ghe-upgrade-scheduler

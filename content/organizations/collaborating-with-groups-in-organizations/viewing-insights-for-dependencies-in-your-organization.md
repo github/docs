@@ -15,6 +15,8 @@ category:
 
 > [!NOTE]
 > To view organization dependency insights, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+>
+> {% data reusables.data-residency.dependency-graph-data-availability %}
 
 ## Viewing organization dependency insights
 

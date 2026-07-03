@@ -11282,6 +11282,30 @@
                                       ]
                                     }
                                   ]
+                                },
+                                "minimized": {
+                                  "anyOf": [
+                                    {
+                                      "type": "null"
+                                    },
+                                    {
+                                      "title": "Minimized Issue Comment",
+                                      "description": "Details about why an issue comment was minimized.",
+                                      "type": "object",
+                                      "properties": {
+                                        "reason": {
+                                          "description": "The reason the comment was minimized.",
+                                          "type": [
+                                            "string",
+                                            "null"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "reason"
+                                      ]
+                                    }
+                                  ]
                                 }
                               },
                               "required": [
@@ -11332,6 +11356,10 @@
                                 "description": "Unique identifier for the issue field.",
                                 "type": "integer",
                                 "format": "int64"
+                              },
+                              "issue_field_name": {
+                                "description": "The human-readable name of the issue field.",
+                                "type": "string"
                               },
                               "node_id": {
                                 "type": "string"
@@ -12239,6 +12267,15 @@
                                 "enum": [
                                   "enterprise",
                                   "organization"
+                                ]
+                              },
+                              "access_source": {
+                                "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                "type": "string",
+                                "enum": [
+                                  "direct",
+                                  "organization",
+                                  "enterprise"
                                 ]
                               },
                               "organization_id": {
@@ -17237,6 +17274,30 @@
                                       ]
                                     }
                                   ]
+                                },
+                                "minimized": {
+                                  "anyOf": [
+                                    {
+                                      "type": "null"
+                                    },
+                                    {
+                                      "title": "Minimized Issue Comment",
+                                      "description": "Details about why an issue comment was minimized.",
+                                      "type": "object",
+                                      "properties": {
+                                        "reason": {
+                                          "description": "The reason the comment was minimized.",
+                                          "type": [
+                                            "string",
+                                            "null"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "reason"
+                                      ]
+                                    }
+                                  ]
                                 }
                               },
                               "required": [
@@ -17287,6 +17348,10 @@
                                 "description": "Unique identifier for the issue field.",
                                 "type": "integer",
                                 "format": "int64"
+                              },
+                              "issue_field_name": {
+                                "description": "The human-readable name of the issue field.",
+                                "type": "string"
                               },
                               "node_id": {
                                 "type": "string"
@@ -18194,6 +18259,15 @@
                                 "enum": [
                                   "enterprise",
                                   "organization"
+                                ]
+                              },
+                              "access_source": {
+                                "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                "type": "string",
+                                "enum": [
+                                  "direct",
+                                  "organization",
+                                  "enterprise"
                                 ]
                               },
                               "organization_id": {
@@ -23192,6 +23266,30 @@
                                       ]
                                     }
                                   ]
+                                },
+                                "minimized": {
+                                  "anyOf": [
+                                    {
+                                      "type": "null"
+                                    },
+                                    {
+                                      "title": "Minimized Issue Comment",
+                                      "description": "Details about why an issue comment was minimized.",
+                                      "type": "object",
+                                      "properties": {
+                                        "reason": {
+                                          "description": "The reason the comment was minimized.",
+                                          "type": [
+                                            "string",
+                                            "null"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "reason"
+                                      ]
+                                    }
+                                  ]
                                 }
                               },
                               "required": [
@@ -23242,6 +23340,10 @@
                                 "description": "Unique identifier for the issue field.",
                                 "type": "integer",
                                 "format": "int64"
+                              },
+                              "issue_field_name": {
+                                "description": "The human-readable name of the issue field.",
+                                "type": "string"
                               },
                               "node_id": {
                                 "type": "string"
@@ -24149,6 +24251,15 @@
                                 "enum": [
                                   "enterprise",
                                   "organization"
+                                ]
+                              },
+                              "access_source": {
+                                "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                "type": "string",
+                                "enum": [
+                                  "direct",
+                                  "organization",
+                                  "enterprise"
                                 ]
                               },
                               "organization_id": {
@@ -29149,6 +29260,30 @@
                                       ]
                                     }
                                   ]
+                                },
+                                "minimized": {
+                                  "anyOf": [
+                                    {
+                                      "type": "null"
+                                    },
+                                    {
+                                      "title": "Minimized Issue Comment",
+                                      "description": "Details about why an issue comment was minimized.",
+                                      "type": "object",
+                                      "properties": {
+                                        "reason": {
+                                          "description": "The reason the comment was minimized.",
+                                          "type": [
+                                            "string",
+                                            "null"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "reason"
+                                      ]
+                                    }
+                                  ]
                                 }
                               },
                               "required": [
@@ -29199,6 +29334,10 @@
                                 "description": "Unique identifier for the issue field.",
                                 "type": "integer",
                                 "format": "int64"
+                              },
+                              "issue_field_name": {
+                                "description": "The human-readable name of the issue field.",
+                                "type": "string"
                               },
                               "node_id": {
                                 "type": "string"
@@ -30106,6 +30245,15 @@
                                 "enum": [
                                   "enterprise",
                                   "organization"
+                                ]
+                              },
+                              "access_source": {
+                                "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                "type": "string",
+                                "enum": [
+                                  "direct",
+                                  "organization",
+                                  "enterprise"
                                 ]
                               },
                               "organization_id": {
@@ -43337,6 +43485,30 @@
                                       ]
                                     }
                                   ]
+                                },
+                                "minimized": {
+                                  "anyOf": [
+                                    {
+                                      "type": "null"
+                                    },
+                                    {
+                                      "title": "Minimized Issue Comment",
+                                      "description": "Details about why an issue comment was minimized.",
+                                      "type": "object",
+                                      "properties": {
+                                        "reason": {
+                                          "description": "The reason the comment was minimized.",
+                                          "type": [
+                                            "string",
+                                            "null"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "reason"
+                                      ]
+                                    }
+                                  ]
                                 }
                               },
                               "required": [
@@ -43387,6 +43559,10 @@
                                 "description": "Unique identifier for the issue field.",
                                 "type": "integer",
                                 "format": "int64"
+                              },
+                              "issue_field_name": {
+                                "description": "The human-readable name of the issue field.",
+                                "type": "string"
                               },
                               "node_id": {
                                 "type": "string"
@@ -44294,6 +44470,15 @@
                                 "enum": [
                                   "enterprise",
                                   "organization"
+                                ]
+                              },
+                              "access_source": {
+                                "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                "type": "string",
+                                "enum": [
+                                  "direct",
+                                  "organization",
+                                  "enterprise"
                                 ]
                               },
                               "organization_id": {
@@ -49292,6 +49477,30 @@
                                       ]
                                     }
                                   ]
+                                },
+                                "minimized": {
+                                  "anyOf": [
+                                    {
+                                      "type": "null"
+                                    },
+                                    {
+                                      "title": "Minimized Issue Comment",
+                                      "description": "Details about why an issue comment was minimized.",
+                                      "type": "object",
+                                      "properties": {
+                                        "reason": {
+                                          "description": "The reason the comment was minimized.",
+                                          "type": [
+                                            "string",
+                                            "null"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "reason"
+                                      ]
+                                    }
+                                  ]
                                 }
                               },
                               "required": [
@@ -49342,6 +49551,10 @@
                                 "description": "Unique identifier for the issue field.",
                                 "type": "integer",
                                 "format": "int64"
+                              },
+                              "issue_field_name": {
+                                "description": "The human-readable name of the issue field.",
+                                "type": "string"
                               },
                               "node_id": {
                                 "type": "string"
@@ -50249,6 +50462,15 @@
                                 "enum": [
                                   "enterprise",
                                   "organization"
+                                ]
+                              },
+                              "access_source": {
+                                "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                "type": "string",
+                                "enum": [
+                                  "direct",
+                                  "organization",
+                                  "enterprise"
                                 ]
                               },
                               "organization_id": {
@@ -55247,6 +55469,30 @@
                                       ]
                                     }
                                   ]
+                                },
+                                "minimized": {
+                                  "anyOf": [
+                                    {
+                                      "type": "null"
+                                    },
+                                    {
+                                      "title": "Minimized Issue Comment",
+                                      "description": "Details about why an issue comment was minimized.",
+                                      "type": "object",
+                                      "properties": {
+                                        "reason": {
+                                          "description": "The reason the comment was minimized.",
+                                          "type": [
+                                            "string",
+                                            "null"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "reason"
+                                      ]
+                                    }
+                                  ]
                                 }
                               },
                               "required": [
@@ -55297,6 +55543,10 @@
                                 "description": "Unique identifier for the issue field.",
                                 "type": "integer",
                                 "format": "int64"
+                              },
+                              "issue_field_name": {
+                                "description": "The human-readable name of the issue field.",
+                                "type": "string"
                               },
                               "node_id": {
                                 "type": "string"
@@ -56204,6 +56454,15 @@
                                 "enum": [
                                   "enterprise",
                                   "organization"
+                                ]
+                              },
+                              "access_source": {
+                                "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                "type": "string",
+                                "enum": [
+                                  "direct",
+                                  "organization",
+                                  "enterprise"
                                 ]
                               },
                               "organization_id": {
@@ -61204,6 +61463,30 @@
                                       ]
                                     }
                                   ]
+                                },
+                                "minimized": {
+                                  "anyOf": [
+                                    {
+                                      "type": "null"
+                                    },
+                                    {
+                                      "title": "Minimized Issue Comment",
+                                      "description": "Details about why an issue comment was minimized.",
+                                      "type": "object",
+                                      "properties": {
+                                        "reason": {
+                                          "description": "The reason the comment was minimized.",
+                                          "type": [
+                                            "string",
+                                            "null"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "reason"
+                                      ]
+                                    }
+                                  ]
                                 }
                               },
                               "required": [
@@ -61254,6 +61537,10 @@
                                 "description": "Unique identifier for the issue field.",
                                 "type": "integer",
                                 "format": "int64"
+                              },
+                              "issue_field_name": {
+                                "description": "The human-readable name of the issue field.",
+                                "type": "string"
                               },
                               "node_id": {
                                 "type": "string"
@@ -62161,6 +62448,15 @@
                                 "enum": [
                                   "enterprise",
                                   "organization"
+                                ]
+                              },
+                              "access_source": {
+                                "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                "type": "string",
+                                "enum": [
+                                  "direct",
+                                  "organization",
+                                  "enterprise"
                                 ]
                               },
                               "organization_id": {

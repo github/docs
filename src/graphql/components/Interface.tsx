@@ -3,6 +3,7 @@ import { GraphqlItem, headingTag } from './GraphqlItem'
 import { Table } from './Table'
 import { useTranslation } from '@/languages/components/useTranslation'
 import type { ObjectT, InterfaceT } from './types'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type Props = {
   item: InterfaceT
@@ -37,11 +38,7 @@ export function Interface({ item, objects, headingLevel = 2 }: Props) {
       </ul>
       {item.fields && (
         <>
-          <SubHeading
-            dangerouslySetInnerHTML={{
-              __html: heading2,
-            }}
-          />
+          <RenderedHTML as={SubHeading} html={heading2} />
           <Table fields={item.fields} />
         </>
       )}

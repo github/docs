@@ -3095,6 +3095,24 @@
       "requestPath": "/repos/{owner}/{repo}/interaction-limits"
     },
     {
+      "slug": "get-pull-request-creation-cap-bypass-list-for-a-repository",
+      "subcategory": "repos",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/bypass-list"
+    },
+    {
+      "slug": "add-users-to-the-pull-request-creation-cap-bypass-list-for-a-repository",
+      "subcategory": "repos",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/bypass-list"
+    },
+    {
+      "slug": "remove-users-from-the-pull-request-creation-cap-bypass-list-for-a-repository",
+      "subcategory": "repos",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/bypass-list"
+    },
+    {
       "slug": "get-interaction-restrictions-for-your-public-repositories",
       "subcategory": "user",
       "verb": "get",

@@ -20,6 +20,7 @@ children:
   - /mcp
   - /plugin-directories
   - /remote-sessions
+  - /session-limits
   - /session-persistence
   - /skills
   - /steering-and-queueing

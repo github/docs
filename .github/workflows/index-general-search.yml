@@ -49,6 +49,15 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.result }}
     steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
+          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
+          owner: github
+          repositories: docs-engineering
+
       - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         id: set-matrix
         with:
@@ -102,7 +111,7 @@ jobs:
       - uses: ./.github/actions/create-workflow-failure-issue
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          token: ${{ steps.app-token.outputs.token }}
 
   updateElasticsearchIndexes:
     needs: figureOutMatrix
@@ -126,20 +135,28 @@ jobs:
     steps:
       - name: Check out repo
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
+          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
+          owner: github
+          repositories: docs-internal-data,docs-internal.es-es,docs-internal.ja-jp,docs-internal.pt-br,docs-internal.zh-cn,docs-internal.ru-ru,docs-internal.fr-fr,docs-internal.ko-kr,docs-internal.de-de,docs-engineering
 
       - name: Clone docs-internal-data
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           repository: github/docs-internal-data
           # This works because user `docs-bot` has read access to that private repo.
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          token: ${{ steps.app-token.outputs.token }}
           path: docs-internal-data
 
       - name: Clone all translations
         if: ${{ matrix.language != 'en' }}
         uses: ./.github/actions/clone-translations
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          token: ${{ steps.app-token.outputs.token }}
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -249,7 +266,7 @@ jobs:
       - uses: ./.github/actions/create-workflow-failure-issue
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          token: ${{ steps.app-token.outputs.token }}
 
   notifyScrapingFailures:
     name: Notify scraping failures
@@ -259,6 +276,14 @@ jobs:
     steps:
       - name: Check out repo
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
+          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
+          owner: github
+          repositories: docs-engineering
 
       - name: Download all failure artifacts
         uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 # v8.0.0
@@ -294,7 +319,7 @@ jobs:
       - name: Comment on or create scraping failure issue
         if: ${{ steps.check-artifacts.outputs.has_artifacts == 'true' && fromJSON(steps.aggregate.outputs.result || '{"hasFailures":false}').hasFailures }}
         env:
-          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
           FAILURE_MESSAGE: ${{ fromJSON(steps.aggregate.outputs.result || '{"message":""}').message }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           FILE_URL: ${{ github.server_url }}/${{ github.repository }}/blob/main/.github/workflows/index-general-search.yml
@@ -393,4 +418,4 @@ jobs:
       - uses: ./.github/actions/create-workflow-failure-issue
         if: ${{ failure() }}
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          token: ${{ steps.app-token.outputs.token }}

@@ -19,7 +19,7 @@ More than just a model picker, {% data variables.copilot.copilot_auto_model_sele
 
 ### Auto with task optimization
 
-> [!NOTE] {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} with task optimization is generally available in {% data variables.copilot.copilot_chat_short %} on the {% data variables.product.github %} website and in {% data variables.product.prodname_vscode_shortname %}.
+> [!NOTE] {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} with task optimization is generally available in {% data variables.copilot.copilot_chat_short %} on the {% data variables.product.github %} website, in {% data variables.product.prodname_vscode_shortname %}, and in {% data variables.copilot.copilot_cli_short %}.
 
 {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} with task optimization combines two systems to provide high quality results and better reliability. One system tracks real-time system health and availability, while the other evaluates task complexity. Putting these together, {% data variables.copilot.copilot_auto_model_selection_short %} routes the task to the optimal model.
 
@@ -60,7 +60,7 @@ When you select **Auto**, {% data variables.copilot.copilot_auto_model_selection
 
 ## {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} in {% data variables.product.prodname_copilot_short %}
 
-{% data variables.copilot.copilot_auto_model_selection_short_cap_a %}, optimized for model reliability and availability, is available in these {% data variables.product.prodname_copilot_short %} products: 
+{% data variables.copilot.copilot_auto_model_selection_short_cap_a %}, optimized for model reliability and availability, is available in these {% data variables.product.prodname_copilot_short %} products:
 * {% data variables.copilot.copilot_chat_short %}, on the {% data variables.product.github %} website and supported IDEs
 * {% data variables.copilot.copilot_cli_short %}
 * {% data variables.copilot.copilot_cloud_agent %}

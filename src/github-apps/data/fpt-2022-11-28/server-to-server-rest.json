@@ -1847,6 +1847,18 @@
   ],
   "code-quality": [
     {
+      "slug": "list-code-quality-findings-for-a-repository",
+      "subcategory": "code-quality",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/code-quality/findings"
+    },
+    {
+      "slug": "get-a-code-quality-finding",
+      "subcategory": "code-quality",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/code-quality/findings/{finding_number}"
+    },
+    {
       "slug": "get-a-code-quality-setup-configuration",
       "subcategory": "code-quality",
       "verb": "get",
@@ -3163,6 +3175,24 @@
       "subcategory": "repos",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/interaction-limits"
+    },
+    {
+      "slug": "get-pull-request-creation-cap-bypass-list-for-a-repository",
+      "subcategory": "repos",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/bypass-list"
+    },
+    {
+      "slug": "add-users-to-the-pull-request-creation-cap-bypass-list-for-a-repository",
+      "subcategory": "repos",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/bypass-list"
+    },
+    {
+      "slug": "remove-users-from-the-pull-request-creation-cap-bypass-list-for-a-repository",
+      "subcategory": "repos",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/bypass-list"
     }
   ],
   "issues": [

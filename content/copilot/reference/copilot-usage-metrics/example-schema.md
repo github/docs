@@ -19,6 +19,7 @@ The following are example schemas for the user-level and enterprise-level data r
 
 ```json copy
 [{
+  "ai_credits_used": 12.5,
   "code_acceptance_activity_count": 1,
   "code_generation_activity_count": 1,
   "day": "2025-10-01",

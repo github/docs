@@ -21,7 +21,7 @@ sections:
           During the upgrade to 3.17, the database transitions will be run concurrently. You may notice the upgrade taking less time.
         # https://github.com/github/releases/issues/5675
         - |
-          GitHub Enterprise Server Backup Service is a managed backup solution built directly into the appliance. It provides simplified alternative to the `backup-utils`. The backup service is in public preview. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/backup-service-for-github-enterprise-server/about-the-backup-service-for-github-enterprise-server).
+          GitHub Enterprise Server Backup Service is a managed backup solution built directly into the appliance. It provides simplified alternative to the `backup-utils`. The backup service is in public preview. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/about-the-backup-service-for-github-enterprise-server).
 
     - heading: Secret Protection and Code Security
       notes:

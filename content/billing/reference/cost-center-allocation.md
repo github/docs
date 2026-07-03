@@ -36,7 +36,10 @@ To ensure your cost centers reflect spending as intended, it's important to unde
 | User associated with a cost center | License granted | License and product costs charged |
 |--|--|--|
 | Direct assignment | By any organization | To the **cost center** the user is assigned to. |
+| By enterprise team membership | By any organization | To the **cost center** the user's enterprise team is assigned to. Direct assignment to another cost center takes precedence; if the user is in multiple enterprise teams assigned to different cost centers, the team created first applies. |
 | By organization membership only | By an organization assigned to a cost center | To the **cost center** the organization belongs to. If the organization does not belong to a cost center, to the **enterprise**. |
+
+When you assign an enterprise team to a cost center, its members are allocated to that cost center the same way other group-based assignments are, and membership stays current automatically as people join or leave the team. If a user is also assigned to a different cost center directly, the direct assignment takes precedence. If a user belongs to more than one enterprise team, and those teams are assigned to different cost centers, the user is associated with the cost center of the enterprise team that was created first.
 
 Users who belong to multiple organizations in an enterprise or who receive a {% data variables.product.prodname_copilot_short %} license from multiple organizations:
 

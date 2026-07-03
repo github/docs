@@ -32,6 +32,7 @@ import {
 } from './SearchContext'
 import { SearchGroups } from './SearchGroups'
 import styles from './SearchOverlay.module.scss'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type Props = {
   searchOverlayOpen: boolean
@@ -741,9 +742,10 @@ export function SearchOverlay({
         {OverlayContents}
         <ActionList.Divider className={styles.dividerFullWidth} />
         <div key="description" className={styles.footer}>
-          <p
+          <RenderedHTML
+            as="p"
             className={styles.privacyDisclaimer}
-            dangerouslySetInnerHTML={{ __html: t('search.overlay.privacy_disclaimer') }}
+            html={t('search.overlay.privacy_disclaimer')}
           />
         </div>
         <div aria-live="assertive" className={styles.screenReaderOnly}>

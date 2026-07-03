@@ -77,3 +77,11 @@ Validity checks are separate from {% data variables.product.prodname_secret_scan
 ## How can I access this feature?
 
 {% data reusables.gated-features.secret-scanning %}
+
+{% ifversion secret-scanning-public-monitoring %}
+
+## Public monitoring
+
+In addition to scanning repositories your enterprise owns, you can enable public monitoring to detect secrets leaked by your enterprise members in public repositories across {% data variables.product.github %}. This extends {% data variables.product.prodname_secret_scanning %} beyond the repositories your enterprise owns to follow your members' activity across the platform. See [AUTOTITLE](/code-security/concepts/secret-security/public-monitoring).
+
+{% endif %}

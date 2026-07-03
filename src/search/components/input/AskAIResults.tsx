@@ -24,6 +24,7 @@ import { generateAISearchLinksJson } from '../helpers/ai-search-links-json'
 import { ASK_AI_EVENT_GROUP } from '@/events/components/event-groups'
 
 import type { AIReference } from '../types'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type AIQueryResultsProps = {
   query: string
@@ -398,7 +399,7 @@ export function AskAIResults({
         <article aria-busy={responseLoading} aria-live="assertive">
           {!aiCouldNotAnswer && message !== '' ? (
             <span ref={disclaimerRef} className={styles.disclaimerText}>
-              <span dangerouslySetInnerHTML={{ __html: t('search.ai.disclaimer') }} />
+              <RenderedHTML as="span" html={t('search.ai.disclaimer')} />
             </span>
           ) : null}
           <UnrenderedMarkdownContent

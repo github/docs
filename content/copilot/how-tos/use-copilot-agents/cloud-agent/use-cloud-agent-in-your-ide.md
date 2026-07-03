@@ -57,7 +57,12 @@ To directly open agent sessions in {% data variables.product.prodname_vscode_sho
 
 ## Starting a session
 
-1. Open {% data variables.copilot.copilot_chat %} in your JetBrains IDE.
+1. Enable {% data variables.copilot.copilot_cloud_agent %} in your JetBrains IDE.
+   1. Open **Settings**.
+   1. In the sidebar, click **Tools**, then **{% data variables.product.prodname_copilot_short %}**, then **Chat**.
+   1. Select **Enable Cloud Agent**.
+1. If you use {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}, ask your administrator to enable the Editor preview features policy.
+1. Open {% data variables.copilot.copilot_chat_short %} in your JetBrains IDE.
 1. Type a prompt explaining what you want {% data variables.product.prodname_copilot_short %} to do.
 
    For example, `Put backticks around file names and variables in output`
@@ -68,9 +73,13 @@ To directly open agent sessions in {% data variables.product.prodname_vscode_sho
 
 ## Tracking your sessions
 
-You can see a list of your running and past agent sessions for a project in JetBrains IDEs with the {% data variables.copilot.copilot_chat %} extension. See [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension?tool=jetbrains).
+You can see a list of your running and past agent sessions for a project in JetBrains IDEs with the {% data variables.copilot.copilot_chat_short %} extension. See [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension?tool=jetbrains).
 
-You can see all of {% data variables.product.prodname_copilot_short %}'s sessions by clicking the **GitHub Cloud Agent Jobs** button in the sidebar or by clicking the **Open Job List** button after delegating a task to {% data variables.product.prodname_copilot_short %} from {% data variables.copilot.copilot_chat %}.
+Cloud agent sessions appear in the unified sessions view in the {% data variables.copilot.copilot_chat_short %} panel alongside local and {% data variables.copilot.copilot_cli_short %} sessions.
+
+You can open the unified sessions view by clicking the **GitHub Cloud Agent Jobs** button in the sidebar or by clicking the **Open Job List** button after delegating a task to {% data variables.product.prodname_copilot_short %} from {% data variables.copilot.copilot_chat_short %}.
+
+You can filter sessions by agent type or status to find the session you want.
 
 For each session listed, you can see its status at a glance. Click **Open in Browser** to open the pull request in your browser, or right-click on a running job then click **Cancel Job** to cancel.
 

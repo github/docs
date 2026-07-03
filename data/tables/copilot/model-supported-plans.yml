@@ -33,13 +33,6 @@
   business: true
   enterprise: true
 
-- name: Claude Opus 4.6 (fast mode) (preview)
-  pro: false
-  pro_plus: false
-  max: false
-  business: false
-  enterprise: true
-
 - name: Claude Opus 4.7
   pro: false
   pro_plus: true
@@ -48,6 +41,13 @@
   enterprise: true
 
 - name: Claude Opus 4.8
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Claude Opus 4.8 (fast mode) (preview)
   pro: false
   pro_plus: true
   max: true
@@ -69,6 +69,13 @@
   enterprise: true
 
 - name: Claude Sonnet 4.6
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Claude Sonnet 5
   pro: true
   pro_plus: true
   max: true
@@ -102,13 +109,6 @@
   max: true
   business: true
   enterprise: true
-
-- name: MAI-Code-1-Flash
-  pro: true
-  pro_plus: true
-  max: true
-  business: false
-  enterprise: false
 
 - name: GPT-5 mini
   pro: true
@@ -152,6 +152,13 @@
   business: true
   enterprise: true
 
+- name: MAI-Code-1-Flash
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
 - name: Raptor mini
   pro: true
   pro_plus: true
@@ -159,9 +166,9 @@
   business: false
   enterprise: false
 
-- name: Goldeneye
-  pro: false
-  pro_plus: false
-  max: false
+- name: Kimi-K2.7-Code
+  pro: true
+  pro_plus: true
+  max: true
   business: false
   enterprise: false

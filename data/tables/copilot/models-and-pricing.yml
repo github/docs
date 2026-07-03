@@ -171,6 +171,24 @@
   output: $25.00
   cache_write: $6.25
 
+- model: Claude Sonnet 5[^sonnet-5-promo]
+  provider: anthropic
+  release_status: GA
+  category: Versatile
+  input: $2.00
+  cached_input: $0.20
+  output: $10.00
+  cache_write: $2.50
+
+- model: Claude Opus 4.8 (fast mode) (preview)
+  provider: anthropic
+  release_status: GA
+  category: Powerful
+  input: $10.00
+  cached_input: $1.00
+  output: $50.00
+  cache_write: $12.50
+
 - model: Claude Fable 5
   provider: anthropic
   release_status: GA
@@ -243,9 +261,18 @@
 # Fine-tuned (GitHub)
 - model: 'Raptor mini'
   provider: github
-  release_status: Public preview
+  release_status: GA
   category: Versatile
   input: $0.25
   cached_input: $0.025
   output: $2.00
   notes: Uses GPT-5 mini pricing
+
+# Open-weight models
+- model: 'Kimi K2.7 Code'
+  provider: moonshot_ai
+  release_status: GA
+  category: Versatile
+  input: $0.95
+  cached_input: $0.19
+  output: $4.00
