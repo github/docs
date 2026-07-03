@@ -9,7 +9,6 @@ import { sanitizeSearchQuery } from '@/search/lib/sanitize-search-query'
 // Search context values for identifying each search event
 export const GENERAL_SEARCH_CONTEXT = 'general-search'
 export const AI_SEARCH_CONTEXT = 'ai-search'
-export const COMBINED_SEARCH_CONTEXT = 'combined-search'
 
 // The logic that redirects to the /search page with the proper query params
 // The query params will be consumed in the general search middleware

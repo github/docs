@@ -21,6 +21,7 @@ children:
   - /automate-copilot-cli
   - /customize-copilot
   - /administer-copilot-cli-for-your-enterprise
+  - /use-copilot-cli-in-actions
   - /automate-copilot-cli/automate-with-actions
   - /automate-copilot-cli/quickstart
   - /automate-copilot-cli/run-cli-programmatically

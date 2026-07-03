@@ -8,6 +8,7 @@ versions:
 children:
   - /about-copilot-cli
   - /comparing-cli-features
+  - /copilot-cli-in-github-actions
   - /cancel-and-roll-back
   - /about-remote-control
   - /about-custom-agents

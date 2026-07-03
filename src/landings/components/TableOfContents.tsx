@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Link } from '@/frame/components/Link'
 import type { TocItem } from '@/landings/types'
 import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'

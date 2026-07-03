@@ -443,6 +443,24 @@ Ephemeral. Context window utilization snapshot.
 | `currentTokens` | `number` | ✅ | Current tokens in the context window |
 | `messagesLength` | `number` | ✅ | Current message count in the conversation |
 
+### `session.session_limits_changed`
+
+Session limits changed for the current accounting window. A `null` `sessionLimits` value means no limits are active.
+
+| Data Field | Type | Required | Description |
+|------------|------|----------|-------------|
+| `sessionLimits` | `SessionLimitsConfig \| null` | ✅ | Current session limits, or `null` when no limits are active |
+| `sessionLimits.maxAiCredits` | `number` | | Maximum AI Credits allowed across the session's current accounting window |
+
+### `session.usage_checkpoint`
+
+Durable aggregate usage checkpoint used to reconstruct accounting when a session is resumed.
+
+| Data Field | Type | Required | Description |
+|------------|------|----------|-------------|
+| `totalNanoAiu` | `number` | ✅ | Session-wide accumulated nano-AI units cost at checkpoint time |
+| `totalPremiumRequests` | `number` | | Total number of premium API requests used at checkpoint time |
+
 ### `session.task_complete`
 
 The agent has completed its assigned task.
@@ -692,6 +710,27 @@ Ephemeral. A queued command was resolved.
 |------------|------|----------|-------------|
 | `requestId` | `string` | ✅ | Matches the corresponding `command.queued` |
 
+### `session_limits_exhausted.requested`
+
+Ephemeral. The current session budget was exhausted and the runtime needs a user decision before continuing.
+
+| Data Field | Type | Required | Description |
+|------------|------|----------|-------------|
+| `requestId` | `string` | ✅ | Use this ID when responding to the pending exhausted-limit request |
+| `maxAiCredits` | `number` | ✅ | Configured max AI Credits for the current accounting window |
+| `usedAiCredits` | `number` | ✅ | AI Credits already consumed in the current accounting window |
+
+### `session_limits_exhausted.completed`
+
+Ephemeral. A pending exhausted-limit request was resolved.
+
+| Data Field | Type | Required | Description |
+|------------|------|----------|-------------|
+| `requestId` | `string` | ✅ | Matches the corresponding `session_limits_exhausted.requested` event |
+| `response.action` | `"add" \| "set" \| "unset" \| "cancel"` | ✅ | Action selected for the exhausted-limit request |
+| `response.additionalAiCredits` | `number` | | AI Credits to add to the current max when `response.action` is `"add"` |
+| `response.maxAiCredits` | `number` | | New absolute max AI Credits when `response.action` is `"set"` |
+
 ## Quick reference: agentic turn flow
 
 A typical agentic turn emits events in this order:
@@ -744,6 +783,8 @@ session.idle                  → Ready for next message (ephemeral)
 | `session.title_changed` | ✅ | Session | `title` |
 | `session.context_changed` | | Session | `cwd`, `gitRoot?`, `repository?`, `branch?` |
 | `session.usage_info` | ✅ | Session | `tokenLimit`, `currentTokens`, `messagesLength` |
+| `session.session_limits_changed` | | Session | `sessionLimits` |
+| `session.usage_checkpoint` | | Session | `totalNanoAiu`, `totalPremiumRequests?` |
 | `session.task_complete` | | Session | `summary?` |
 | `session.shutdown` | | Session | `shutdownType`, `codeChanges`, `modelMetrics` |
 | `permission.requested` | ✅ | Permission | `requestId`, `permissionRequest` |
@@ -765,5 +806,7 @@ session.idle                  → Ready for next message (ephemeral)
 | `external_tool.completed` | ✅ | External Tool | `requestId` |
 | `command.queued` | ✅ | Command | `requestId`, `command` |
 | `command.completed` | ✅ | Command | `requestId` |
+| `session_limits_exhausted.requested` | ✅ | Session | `requestId`, `maxAiCredits`, `usedAiCredits` |
+| `session_limits_exhausted.completed` | ✅ | Session | `requestId`, `response.action` |
 | `exit_plan_mode.requested` | ✅ | Plan Mode | `requestId`, `summary`, `planContent`, `actions` |
 | `exit_plan_mode.completed` | ✅ | Plan Mode | `requestId` |

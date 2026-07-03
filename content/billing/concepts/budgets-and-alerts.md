@@ -25,15 +25,23 @@ Each budget has a type and a scope that define which paid use contributes to spe
 
 * **Type**: Defines which metered product or SKU is measured.
 * **Scope**: Defines whether the budget applies to the whole account, or to a subset of repositories, organizations, cost centers (enterprise only), or users. User-scoped budgets are currently only supported for {% data variables.product.prodname_copilot_short %} {% data variables.product.prodname_ai_credits_short %}, and have three scopes:
+
   * **Universal**: applies to all licensed users by default
   * **Cost center user-level**: applies to every user in a cost center
   * **Individual**: overrides the above for specific users
 
-For more information about how user-level budgets work and how they interact with other budget controls, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
+For {% data variables.product.prodname_copilot_short %}, cost centers can also have included usage controls, which cap how much of the shared {% data variables.product.prodname_ai_credits_short %} pool a cost center can use before metered usage begins. This is a separate control from the budgets and the included usage alerts described below. See [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing#included-usage-controls-for-cost-centers).
+
+## Roles and access for budgets
+
+Enterprise owners and billing managers can create and edit enterprise and cost center budgets, and they receive budget alerts by default. Organization owners can set budgets for their own organization, and personal account owners can set budgets for their own account. Each of these roles can view usage for the scopes they manage.
 
 ## Budget alerts
 
-You can enable alerts for budgets to receive emails when usage reaches 75%, 90%, and 100% of the budget amount. Emails are sent to account owners and billing managers by default. Additional recipients can be added as needed.
+You can enable alerts for budgets to be notified when usage reaches 75%, 90%, and 100% of the budget amount. Alerts are shown in the {% data variables.product.github %} UI and sent by email. By default, alerts go to account owners and billing managers, and you can add additional recipients as needed. Budget alerts are available for budgets scoped to your enterprise, a cost center, an organization, or a repository.
+
+> [!NOTE]
+> Alerting for user-level budgets is not consistently available in all scenarios. Don't rely on user-level budget alerts as your only signal, also monitor usage at the cost center or enterprise level.
 
 ## Included usage alerts
 
