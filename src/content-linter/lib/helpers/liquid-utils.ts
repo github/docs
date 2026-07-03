@@ -30,8 +30,6 @@ export function getLiquidTokens(
 
 export const OUTPUT_OPEN = '{%'
 export const OUTPUT_CLOSE = '%}'
-export const TAG_OPEN = '{{'
-export const TAG_CLOSE = '}}'
 
 export const conditionalTags = ['if', 'elseif', 'unless', 'case', 'ifversion']
 

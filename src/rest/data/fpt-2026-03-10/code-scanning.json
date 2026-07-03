@@ -4215,8 +4215,8 @@
           "description": "<p>Resource not found</p>"
         },
         {
-          "httpStatusCode": "503",
-          "description": "<p>Service unavailable</p>"
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
         }
       ],
       "previews": [],
@@ -4405,8 +4405,8 @@
           "description": "<p>Unprocessable Entity</p>"
         },
         {
-          "httpStatusCode": "503",
-          "description": "<p>Service unavailable</p>"
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
         }
       ],
       "previews": [],

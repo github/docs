@@ -4,6 +4,7 @@ import { Link } from '@/frame/components/Link'
 import type { JourneyContext } from '@/journeys/lib/journey-path-resolver'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { useVersion } from '@/versions/components/useVersion'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type Props = {
   journey: JourneyContext
@@ -48,10 +49,7 @@ export function JourneyTrackCard({ journey }: Props) {
           )}
         </span>
         {journey.alternativeNextStep && (
-          <div
-            className="mt-4"
-            dangerouslySetInnerHTML={{ __html: journey.alternativeNextStep }}
-          ></div>
+          <RenderedHTML as="div" className="mt-4" html={journey.alternativeNextStep} />
         )}
       </div>
     </div>

@@ -3,6 +3,7 @@ import cx from 'classnames'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { ChildBodyParametersRows } from './ChildBodyParametersRows'
 import type { ChildParameter } from './types'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type Props = {
   rowParams: ChildParameter
@@ -83,7 +84,7 @@ export function ParameterRow({
             </div>
 
             <div className={cx('pl-1 f5', `${rowParams.description ? 'pt-2' : 'pt-0'}`)}>
-              <div dangerouslySetInnerHTML={{ __html: rowParams.description }} />
+              <RenderedHTML as="div" html={rowParams.description} />
               {numPreviews > 0 && (
                 <a href={`#${slug}-preview-notices`} className="d-inline">
                   {numPreviews > 1 ? ` ${t('see_preview_notices')}` : ` ${t('see_preview_notice')}`}

@@ -413,7 +413,7 @@ func main() {
                     Name: "My Custom Model",
                     Capabilities: copilot.ModelCapabilities{
                         Supports: copilot.ModelSupports{Vision: false, ReasoningEffort: false},
-                        Limits:   copilot.ModelLimits{MaxContextWindowTokens: 128000},
+                        Limits:   copilot.ModelLimits{MaxContextWindowTokens: copilot.Int(128000)},
                     },
                 },
             }, nil
@@ -479,7 +479,7 @@ When using BYOK, be aware of these limitations:
 
 ### Identity limitations
 
-BYOK authentication uses **static credentials only**. 
+BYOK authentication uses **static credentials only**.
 
 You must use an API key or static bearer token that you manage yourself.
 

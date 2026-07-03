@@ -2,7 +2,7 @@ import fs from 'fs/promises'
 import { appendFileSync } from 'fs'
 import path from 'path'
 import { mkdirp } from 'mkdirp'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import { execSync } from 'child_process'
 import { getContents, hasMatchingRef } from '@/workflows/git-utils'
 import { allVersions } from '@/versions/lib/all-versions'
@@ -86,7 +86,7 @@ async function main() {
 
     // 1. UPDATE PREVIEWS
     const previewsPath = getDataFilepath('previews', graphqlVersion)
-    const rawPreviews = yaml.load(
+    const rawPreviews = load(
       await getRemoteRawContent(previewsPath, graphqlVersion),
     ) as RawPreview[]
     const safeForPublicPreviews: RawPreview[] = Array.isArray(rawPreviews) ? rawPreviews : []
@@ -98,7 +98,7 @@ async function main() {
 
     // 2. UPDATE UPCOMING CHANGES
     const upcomingChangesPath = getDataFilepath('upcomingChanges', graphqlVersion)
-    const previousUpcomingChanges = yaml.load(
+    const previousUpcomingChanges = load(
       await fs.readFile(upcomingChangesPath, 'utf8'),
     ) as UpcomingChangesDocument
     const safeForPublicChanges = await getRemoteRawContent(upcomingChangesPath, graphqlVersion)
@@ -172,7 +172,7 @@ async function main() {
         latestSchema,
         safeForPublicPreviews,
         previousUpcomingChanges.upcoming_changes,
-        (yaml.load(safeForPublicChanges) as UpcomingChangesDocument).upcoming_changes,
+        (load(safeForPublicChanges) as UpcomingChangesDocument).upcoming_changes,
       )
       if (changelogEntry) {
         prependDatedEntry(

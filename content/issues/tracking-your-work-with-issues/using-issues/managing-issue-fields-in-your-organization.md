@@ -12,8 +12,6 @@ category:
   - Triage and organize issues
 ---
 
-{% data reusables.issues.issue-fields-public-preview-note %}
-
 Issue fields let you add structured metadata to issues across your organization. Instead of relying on labels or free-text workarounds, you can create fields like priority, effort, impact, or any custom category your team needs. Fields are defined at the organization level and apply across all repositories in your organization.
 
 ## About issue field types

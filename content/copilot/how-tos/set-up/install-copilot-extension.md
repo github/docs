@@ -92,6 +92,10 @@ The following procedure will guide you through installation of the {% data varia
 
 1. After the permissions have been approved, your JetBrains IDE will show a confirmation. To begin using {% data variables.product.prodname_copilot %}, click **OK**.
 
+## Other ways to access {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_jetbrains_ides %}
+
+The plugin provides the full {% data variables.product.prodname_copilot_short %} experience, but you can also access {% data variables.product.prodname_copilot_short %} through JetBrains AI Assistant or {% data variables.copilot.copilot_cli_short %} without installing the plugin. For a comparison of what each entry point offers, see [AUTOTITLE](/copilot/concepts/agents/copilot-in-jetbrains).
+
 {% endjetbrains %}
 
 {% vimneovim %}

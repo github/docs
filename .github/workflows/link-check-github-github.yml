@@ -55,6 +55,9 @@ jobs:
           curl --retry-connrefused --retry 5 -I http://localhost:4000/
 
       - name: Run broken github/github link check
+        env:
+          # Needs a token with access to github/github; the app token is scoped to it above
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           npm run check-github-github-links -- broken_github_github_links.md
 

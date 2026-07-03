@@ -26,6 +26,7 @@ export const TocLanding = () => {
     variant,
     featuredLinks,
     renderedPage,
+    renderedPageHast,
     permissions,
   } = useTocLandingContext()
   const { t } = useTranslation('toc')
@@ -69,9 +70,11 @@ export const TocLanding = () => {
               </div>
             )}
 
-            {renderedPage && (
+            {(renderedPage || renderedPageHast) && (
               <div id="article-contents" className="mb-5">
-                <MarkdownContent>{renderedPage}</MarkdownContent>
+                <MarkdownContent hast={renderedPageHast ?? undefined}>
+                  {renderedPage}
+                </MarkdownContent>
               </div>
             )}
 

@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import walkFiles from 'walk-sync'
 
 import frontmatter from '@/frame/lib/read-frontmatter'
@@ -30,7 +30,7 @@ export function updateContentFiles() {
     if (data.versions.feature) {
       const featureFilePath = `data/features/${data.versions.feature}.yml`
       const featureContent = fs.readFileSync(featureFilePath, 'utf8')
-      featureData = yaml.load(featureContent) as featureDataType
+      featureData = load(featureContent) as featureDataType
       if (!featureData || !featureData.versions)
         throw new Error(`Could not load feature versions from ${featureFilePath}`)
     }

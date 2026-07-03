@@ -400,7 +400,19 @@ To override the default `~/.copilot` location, set the `COPILOT_HOME` environmen
 
 ## Configuration file settings
 
-Settings cascade from user to repository to local, with more specific scopes overriding more general ones. Command-line options and environment variables always take the highest precedence.
+Settings are applied in this order (later overrides earlier):
+
+<!-- markdownlint-disable MD029 -->
+1. Built-in defaults
+2. Mobile Device Management (MDM) managed settings
+3. User settings (`~/.copilot/settings.json`)
+4. Repository settings (`.github/copilot/settings.json`)
+5. Local settings (`.github/copilot/settings.local.json`)
+6. Environment variables
+7. Command-line flags
+<!-- markdownlint-enable MD029 -->
+
+MDM managed settings load at startup and merge with user settings as a policy baseline. For most keys, user settings can override that baseline. For `permissions.disableBypassPermissionsMode`, an MDM value of `"disable"` always wins. For more information, see [MDM managed settings](#mdm-managed-settings).
 
 | Scope | Location | Purpose |
 |-------|----------|---------|
@@ -436,6 +448,7 @@ These settings apply across all your sessions and repositories. You can use the 
 | `disableAllHooks` | `boolean` | `false` | Disable all hooks (both repository-level and user-level). |
 | `disabledMcpServers` | `string[]` | `[]` | MCP server names to disable. Listed servers are configured but not started. |
 | `disabledSkills` | `string[]` | `[]` | Skill names to disable. Listed skills are discovered but not loaded. |
+| `dynamicRetrieval` | `{ skills?: boolean }` | unset | Per-category control of embeddings-based dynamic instruction retrieval. Set `skills` to `false` to disable retrieval for skills. Can also be set with `--dynamic-retrieval` (for example, `--dynamic-retrieval skills=off`); using the flag persists the preference to this file. |
 | `effortLevel` | `string` | `"medium"` | Reasoning effort level for extended thinking: `"low"`, `"medium"`, `"high"`, or `"xhigh"`. Higher levels use more compute. |
 | `enabledMcpServers` | `string[]` | `[]` | Enable built-in MCP servers that are disabled by default (for example, `"computer-use"`). |
 | `enabledPlugins` | `Record<string, boolean>` | `{}` | Declarative plugin auto-install. Keys are plugin specs; values are `true` (enabled) or `false` (disabled). |
@@ -453,11 +466,14 @@ These settings apply across all your sessions and repositories. You can use the 
 | `mouse` | `boolean` | `true` | Enable mouse support. Can also be set with `--mouse` or `--no-mouse`. |
 | `permissions.disableBypassPermissionsMode` | `string` | — | When set to `"disable"`, all allow-all flags (`--allow-all-tools`, `--allow-all-paths`, `--allow-all-urls`, `--allow-all`, `--yolo`) are suppressed at startup and cannot be used to grant elevated permissions. |
 | `powershellFlags` | `string[]` | `["-NoProfile", "-NoLogo"]` | Flags passed to PowerShell on startup. On Windows, the CLI prefers PowerShell 7+ (`pwsh`) and falls back to Windows PowerShell (`powershell.exe`) when `pwsh` is unavailable. Windows only. |
+| `proxyKerberosServicePrincipal` | `string` | unset | Service principal name (SPN) for Kerberos/Negotiate proxy authentication, overriding the derived `HTTP/<proxy-host>`. |
+| `proxyUrl` | `string` | unset | Proxy URL for HTTP(S) requests (for example, `http://proxy.corp.example:3128`). Overridden by the `HTTP_PROXY` or `HTTPS_PROXY` environment variables (any casing). |
 | `remote` | `"on"` \| `"off"` | `"on"` | Controls session syncing and remote access. Set to `"off"` to keep session data local only and disable remote control. Can also be set with `--remote` or `--no-remote`. |
 | `renderMarkdown` | `boolean` | `true` | Render Markdown in terminal output. |
 | `remoteExport` | `boolean` | `true` | Export sessions remotely when session sync is available. Set to `false` to opt out of remote export by default. The `remoteSessions` setting when set to `true`, or the `--remote` flag, still enables export and steering regardless of this setting. |
 | `respectGitignore` | `boolean` | `true` | Exclude gitignored files from the `@` file mention picker. When `false`, the picker includes files normally excluded by `.gitignore`. |
 | `screenReader` | `boolean` | `false` | Enable screen reader optimizations. |
+| `scrollbar` | `boolean` | `true` | Show the scrollbar in scrollable views. Set to `false` to hide it and use the full terminal width. |
 | `showTipsOnStartup` | `boolean` | `true` | Show a random command tip when the CLI starts. |
 | `skillDirectories` | `string[]` | `[]` | Additional directories to search for custom skill definitions (in addition to `~/.copilot/skills/`). |
 | `statusLine` | `object` | — | Custom status line display. `type`: must be `"command"`. `command`: path to an executable script that receives session JSON on stdin and prints status content to stdout. `padding`: optional number of left-padding spaces. |
@@ -465,12 +481,13 @@ These settings apply across all your sessions and repositories. You can use the 
 | `stream` | `boolean` | `true` | Enable streaming responses. |
 | `streamerMode` | `boolean` | `false` | Hide preview model names and quota details. Useful when demonstrating {% data variables.copilot.copilot_cli_short %} or screen sharing. |
 | `subagents.agents` | `object` | `{}` | Per-agent model configuration, keyed by agent name. Each value is an object with optional `model` (string), `effortLevel` (string), and `contextTier` (`"default"`, `"long_context"`, or `"inherit"`) fields. Set any field to `"inherit"` to use the parent session's value at dispatch time. Use the `/subagents` slash command to configure these settings interactively. |
-| `subagents.disabledSubagents` | `string[]` | `[]` | Agent names to prevent from being dispatched. The `explore`, `task`, and `rubber-duck` agents cannot be disabled. |
+| `subagents.disabledSubagents` | `string[]` | `[]` | Agent names to prevent from being dispatched. Only the `rubber-duck` agent cannot be disabled via this setting. All other built-in agents—including `explore`, `task`, `code-review`, `general-purpose`, `research`, and `security-review`—can be disabled. |
 | `tabs.enabled` | `boolean` | `true` | Show the home tab bar. Set to `false` to hide it entirely. |
 | `tabs.hide` | `string[]` | `[]` | Tab identifiers to hide. Accepted values: `"copilot"`, `"agents"`, `"issues"`, `"pull-requests"`, `"gists"` (matched case-insensitively). |
 | `tabs.sort` | `string[]` | `[]` | Order in which tabs are displayed. Tabs not listed keep their default relative order after the listed ones. Unknown identifiers are ignored. |
 | `terminalProgress` | `boolean` | `true` | Emit OSC 9;4 terminal progress indicators while the agent is working. Supported terminals include Windows Terminal, iTerm2, Ghostty, and ConEmu. |
 | `theme` | `"auto"` \| `"dark"` \| `"light"` | `"auto"` | Terminal color theme. `"auto"` detects the terminal background and chooses accordingly. |
+| `toolSearch` | `boolean` | model- and feature-dependent | Controls tool search (deferred tool loading). Set `toolSearch: false` to opt out of tool search. |
 | `updateTerminalTitle` | `boolean` | `true` | Show the current intent in the terminal tab or window title. |
 
 ### Repository settings (`.github/copilot/settings.json`)
@@ -496,6 +513,49 @@ Only the keys listed in the following table are supported at the repository leve
 Create `.github/copilot/settings.local.json` in the repository for personal overrides that should not be committed. Add this file to `.gitignore`.
 
 The local configuration file uses the same schema as the repository configuration file (`.github/copilot/settings.json`) and takes precedence over it.
+
+## MDM managed settings
+
+IT administrators can push baseline policy using Mobile Device Management (MDM) managed settings instead of requiring per-user configuration. These settings apply device-level defaults for supported keys and load before user settings.
+
+### MDM managed settings sources
+
+{% data variables.copilot.copilot_cli_short %} reads managed settings from platform-specific MDM or file-based locations.
+
+| Platform | Source type | Location |
+|----------|-------------|---------|
+| macOS | MDM plist | `com.github.copilot` |
+| macOS | File | `/Library/Application Support/GitHubCopilot/managed-settings.json` |
+| Windows | MDM registry | `HKLM\SOFTWARE\Policies\GitHubCopilot` |
+| Windows | File | `%ProgramFiles%\GitHubCopilot\managed-settings.json` |
+| Linux | File | `/etc/github-copilot/managed-settings.json` |
+
+> [!NOTE]
+> On POSIX systems, {% data variables.copilot.copilot_cli_short %} rejects file-based managed settings that are symlinks, not owned by root, or world-writable.
+
+### File format
+
+Write file-based managed settings as JSON.
+
+```json
+{
+    "permissions": {
+        "disableBypassPermissionsMode": "disable"
+    }
+}
+```
+
+### Supported keys
+
+Only the following keys are supported in MDM managed settings.
+
+| Key | Description |
+|-----|-------------|
+| `enabledPlugins` | Enable or disable specific plugins |
+| `extraKnownMarketplaces` | Add trusted plugin marketplaces |
+| `model` | Set a default model for all users (overridden by the `--model` flag or a resumed-session model) |
+| `permissions` | Set managed permissions, including `disableBypassPermissionsMode` |
+| `strictKnownMarketplaces` | Restrict plugins to known marketplaces |
 
 ## Further reading
 

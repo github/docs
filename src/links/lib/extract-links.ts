@@ -356,22 +356,6 @@ export async function renderAndExtractLinks(
 }
 
 /**
- * Read a file and extract links
- */
-export async function extractLinksFromFile(
-  filePath: string,
-  context?: Context,
-): Promise<LinkExtractionResult> {
-  const content = fs.readFileSync(filePath, 'utf-8')
-
-  if (context) {
-    return extractLinksWithLiquid(content, context)
-  }
-
-  return extractLinksFromMarkdown(content)
-}
-
-/**
  * Get relative path from content root
  */
 export function getRelativePath(filePath: string): string {

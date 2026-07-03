@@ -1,7 +1,7 @@
 import fs from 'fs'
 import { difference } from 'lodash-es'
 import walkFiles from 'walk-sync'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 
 import { isInAllGhes, isFeatureDeprecated } from '../version-utils'
 import type { MarkdownFrontmatter } from '@/types'
@@ -80,7 +80,7 @@ function updateFeatureData() {
 
   for (const file of dataFeatures) {
     const dataFeatureContent = fs.readFileSync(file, 'utf8')
-    const data = yaml.load(dataFeatureContent) as MarkdownFrontmatter
+    const data = load(dataFeatureContent) as MarkdownFrontmatter
     if (!data) throw new Error(`Could not load feature versions from ${file}`)
 
     if (isFeatureDeprecated(data.versions)) {

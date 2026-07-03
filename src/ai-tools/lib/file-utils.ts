@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import readFrontmatter from '@/frame/lib/read-frontmatter'
 import { schema } from '@/frame/lib/frontmatter'
 
@@ -96,7 +96,7 @@ export function mergeFrontmatterProperties(filePath: string, newPropertiesYaml: 
     cleanedYaml = cleanedYaml.replace(/\n```\s*$/i, '')
     cleanedYaml = cleanedYaml.trim()
 
-    const newProperties = yaml.load(cleanedYaml) as FrontmatterProperties
+    const newProperties = load(cleanedYaml) as FrontmatterProperties
 
     // Security: Validate against prototype pollution using the official frontmatter schema
     const allowedKeys = Object.keys(schema.properties)

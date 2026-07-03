@@ -27,8 +27,6 @@ You can also use `gh skill` in {% data variables.product.prodname_cli %} to disc
 * Project skills, stored in your repository (`.github/skills`, `.claude/skills`, or `.agents/skills`)
 * Personal skills, stored in your home directory and shared across projects (`~/.copilot/skills` or `~/.agents/skills`)
 
-Support for organization-level and enterprise-level skills is coming soon.
-
 ## Next steps
 
 To create or add agent skills, see:

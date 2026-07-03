@@ -2425,6 +2425,12 @@
       "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/users-28-day/latest"
     },
     {
+      "slug": "get-copilot-usage-records-for-an-enterprise",
+      "subcategory": "copilot-usage-metrics",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/usage-records"
+    },
+    {
       "slug": "get-copilot-seat-information-and-settings-for-an-organization",
       "subcategory": "copilot-user-management",
       "verb": "get",
@@ -3091,6 +3097,12 @@
       "subcategory": "credential-authorizations",
       "verb": "post",
       "requestPath": "/enterprises/{enterprise}/credential-authorizations/revoke-all"
+    },
+    {
+      "slug": "revoke-credential-authorizations-for-a-user-in-an-enterprise",
+      "subcategory": "credential-authorizations",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/credential-authorizations/{username}/revoke"
     },
     {
       "slug": "get-all-enterprise-roles-for-an-enterprise",

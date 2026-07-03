@@ -95,6 +95,20 @@ To add a specific file to your prompt, use `@` followed by the relative path to 
 
 When you start typing a file path, the matching paths are displayed below the prompt box. Use the arrow keys to select a path and press <kbd>Tab</kbd> to complete the path in your prompt.
 
+### Attach images and PDFs
+
+You can attach images and PDFs to your prompts when using a model that supports image input.
+
+{% data reusables.copilot.supported-attachment-file-types %}
+
+{% data reusables.copilot.image-pdf-attachment-handling %}
+
+You can attach a file in the following ways during an interactive session:
+
+* Reference the file in your prompt using `@` followed by the path to the file.
+* Drag and drop a file into the interactive session.
+* Copy an image to your clipboard, then paste it as an attachment.
+
 ### Work with files in a different location
 
 To complete a task, {% data variables.product.prodname_copilot_short %} may need to work with files that are outside the current working directory. If a prompt you have entered in an interactive session requires {% data variables.product.prodname_copilot_short %} to modify a file outside the current location, it will ask you to approve access to the file's directory.
@@ -238,6 +252,12 @@ For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-
 You can create skills to enhance the ability of {% data variables.product.prodname_copilot_short %} to perform specialized tasks with instructions, scripts, and resources.
 
 For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-skills).
+
+### Use hooks
+
+You can use hooks to extend and customize the behavior of {% data variables.copilot.copilot_cli_short %}. Hooks allow you to run custom shell commands automatically at key points during a CLI session.
+
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/use-hooks).
 
 ### Add an MCP server
 

@@ -49,6 +49,8 @@ Each paid plan includes the following:
 
 Your base credits are used first. If you go beyond your base credits, the flex allotment is applied automatically at the same rates across your IDE, {% data variables.product.prodname_dotcom_the_website %}, and {% data variables.copilot.copilot_cli_short %}. No additional setup is required. Your usage dashboard shows your available allowance and what you've used.
 
+Included {% data variables.product.prodname_ai_credits_short %} do not carry over between months. Unused credits are forfeited, and your allowance resets to the full monthly amount at 00:00:00 UTC on the first day of each calendar month. This reset date is fixed and does not change based on your subscription billing date. See [AUTOTITLE](/billing/concepts/billing-cycles#billing-cycles-for-metered-products).
+
 ### {% data variables.product.prodname_ai_credits %} allowance by plan
 
 The following table shows what's included with each paid plan.
@@ -78,6 +80,8 @@ More complex interactions consume more of your usage allowance. The main factors
 * **Model choice**: Different models have different costs per token. More capable models designed for complex reasoning cost more than lighter models suited to quick tasks. Switching to a less expensive model is one way to extend your usage allowance.
 
 > [!NOTE] {% data reusables.copilot.auto-model-discount %}
+
+For guidance on how to optimize your usage and reduce spend, including how to set session limits to cap spend for agent tasks, see [AUTOTITLE](/copilot/tutorials/optimize-ai-usage).
 
 ## What happens if I exceed my included {% data variables.product.prodname_ai_credits_short %}?
 

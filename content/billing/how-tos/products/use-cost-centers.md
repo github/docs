@@ -36,7 +36,8 @@ When you create a cost center, you can add **organizations**, **repositories**, 
 1. If your account is billed to Azure, you have the option to add an Azure ID. Your credentials will be verified against Azure to ensure the Azure IDs associated to your account are available.
 1. Under **Resources**, select the organizations, repositories, users, and/or enterprise teams that will be a part of the cost center.
 
-   >[!NOTE] A resource (organization, repository, or user) can only be assigned to one cost center at a time. If you add a resource that belongs to a different cost center, it will be moved to the new cost center and you will be notified.
+   > [!NOTE]
+   > A resource (organization, repository, user, or enterprise team) can only be assigned to one cost center at a time. If you add a resource that belongs to a different cost center, it will be moved to the new cost center and you will be notified.
 
 {% data reusables.billing.cost-center-create-button %}
 

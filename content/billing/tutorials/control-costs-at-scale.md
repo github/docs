@@ -21,6 +21,7 @@ This tutorial guides you through planning, creating, and managing cost centers u
 As your enterprise grows, you can layer increasingly granular controls on top of cost centers to keep {% data variables.product.prodname_copilot_short %} spending predictable:
 
 * **Group at scale.** Assign whole enterprise teams to a cost center so membership stays current automatically as people join and leave.
+* **Cap per-user spending.** Set a cost center user-level budget so every member of a cost center inherits the same per-person limit. See [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
 
 ## 1. Plan your cost center strategy
 
@@ -105,7 +106,7 @@ Create one budget for each product, SKU, or group of SKUs that you want to contr
 
 ### Review existing budgets for conflicts
 
-After creating your cost center budgets, check existing enterprise-wide budgets to ensure they don't conflict with or override your new cost center budgets.
+After creating your cost center budgets, check existing enterprise-wide budgets to ensure they don't conflict with or override your new cost center budgets. When budgets overlap, the most restrictive one applies, so a low budget at a higher scope can block a cost center before its own budget is reached.
 
 Navigate to the "Budgets and alerts" page. You'll see two lists of budgets:
 
@@ -119,6 +120,14 @@ Review whether any enterprise budgets apply to the same products or SKUs as your
 #### View your cost center budgets
 
 Filter the other budgets list to show a scope of **Cost Centers**. You should see your new cost center with a row for each budget you created. Initially, usage will be near zero, but within a few days you'll see costs accumulating as users and repositories consume products beyond the allowance in their plan.
+
+### Troubleshooting budget conflicts
+
+Keep these limits in mind as you combine budgets across scopes:
+
+* **Budgets overlap, and the most restrictive one applies.** A user can be covered by an individual, cost center, organization, and enterprise budget at the same time. Whichever has the least headroom remaining blocks them first. If someone is blocked unexpectedly, review every scope that applies to them. For the full evaluation order, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
+* **You can't set different budgets for teams in the same cost center.** A budget applies to the whole cost center, not to teams within it. If two teams need separate budgets, create a separate cost center for each. Separate cost centers can still share the same Azure billing identity.
+* **Budgets don't add up across levels.** An enterprise budget isn't the sum of your cost center budgets, and raising one doesn't raise another. When you change a budget at one level, reconcile the totals at the others yourself.
 
 ## 4. Create a cost center with the REST API
 
@@ -316,4 +325,5 @@ If there are any paid products that you want to block all access to, you can dis
 
 To go deeper on the controls in this tutorial:
 
+* For how cost center budgets and user-level budgets interact across the pool and metered phases, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
 * For how resources are allocated to cost centers, including enterprise team membership, see [AUTOTITLE](/billing/reference/cost-center-allocation).
