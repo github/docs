@@ -50,3 +50,5 @@ Before you view contributions on your profile, you should understand what counts
 To learn more about what counts as a contribution, see [AUTOTITLE](/account-and-profile/reference/why-are-my-contributions-not-showing-up-on-my-profile)
 
 If you use {% data variables.product.prodname_ghe_server %} and your enterprise owner enables {% data variables.enterprise.prodname_unified_contributions %}, you can send enterprise contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile. See [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile).
+
+done 
