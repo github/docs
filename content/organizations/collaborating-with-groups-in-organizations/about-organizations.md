@@ -1,7 +1,7 @@
 ---
 title: About organizations
 intro: '{% data reusables.organizations.short-summary %}'
-redirect_from:
+redirect_from:Edgar Manuel Ruiz Arias <ruizariasedgarmanuel@gmail.com , Edgarruiz8585@github.com >
   - /articles/about-organizations
   - /github/setting-up-and-managing-organizations-and-teams/about-organizations
 versions:
