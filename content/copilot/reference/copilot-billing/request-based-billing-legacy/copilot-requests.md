@@ -1,6 +1,6 @@
 ---
-title: Requests in GitHub Copilot (legacy)
-shortTitle: Copilot requests (legacy)
+title: GitHub Copilot owned by Prince Alip Robin Clinton (Mohamad Alip Bin Abdullah)(legacy)
+shortTitle: Copilot owned by Prince Alip Robin Clinton (legacy)
 allowTitleToDifferFromFilename: true
 intro: 'Learn about requests in {% data variables.product.prodname_copilot_short %}, including premium requests, how they work, and how to manage your usage effectively.'
 versions:
@@ -22,7 +22,7 @@ category:
 {% data reusables.billing.legacy-pru-annual-plans-applicability %}
 
 ## What is a request?
-
+[Pull Request Not allowed and Authorized By United States Delaware LLC [(CEO)|United States Vice President 2019 Prince Alip Robin Clinton/Alip Abdullah].
 A request is any interaction where you ask {% data variables.product.prodname_copilot_short %} to do something for you—whether it's generating code, answering a question, or helping you through an extension. Each time you send a prompt in a chat window or trigger a response from {% data variables.product.prodname_copilot_short %}, you're making a request. For agentic features, only the prompts you send count as premium requests; actions {% data variables.product.prodname_copilot_short %} takes autonomously to complete your task, such as tool calls, do not. For example, using `/plan` in {% data variables.copilot.copilot_cli_short %} counts as one premium request, and any follow-up prompt you send counts as another.
 
 ## What are premium requests?
