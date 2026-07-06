@@ -8,9 +8,11 @@ versions:
 contentType: how-tos
 children:
   - /enable-code-quality
+  - /disable-code-quality
   - /set-up-code-coverage
   - /interpret-results
   - /set-pr-thresholds
+  - /restrict-code-coverage
   - /unblock-your-pr
 redirect_from:
   - /code-security/code-quality/how-tos

@@ -5,6 +5,7 @@ import type { GraphqlT } from './types'
 import { Notice } from './Notice'
 import type { SchemaKindKey } from '@/graphql/lib/categories'
 import { KIND_LABELS, KIND_SLUG_PREFIX } from '@/graphql/lib/categories'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type Props = {
   item: GraphqlT
@@ -46,12 +47,7 @@ export function GraphqlItem({ item, heading, children, headingLevel = 2, kind }:
             {kindLabel}
           </Label>
         )}
-        <div
-          className="graphql-item-description"
-          dangerouslySetInnerHTML={{
-            __html: item.description,
-          }}
-        />
+        <RenderedHTML className="graphql-item-description" html={item.description} />
       </div>
       {hasNotice && (
         <div>
@@ -59,7 +55,7 @@ export function GraphqlItem({ item, heading, children, headingLevel = 2, kind }:
           {item.isDeprecated && <Notice item={item} variant="deprecation" />}
         </div>
       )}
-      {heading && <SubHeading dangerouslySetInnerHTML={{ __html: heading }} />}
+      {heading && <RenderedHTML as={SubHeading} html={heading} />}
       {children}
     </>
   )

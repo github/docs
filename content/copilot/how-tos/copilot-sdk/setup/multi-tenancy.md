@@ -2,8 +2,12 @@
 title: Multi-tenancy and server deployments
 shortTitle: Multi Tenancy
 intro: >-
-    Run the Copilot SDK in multi-user server deployments with per-session
-    isolation for state, authentication, and tools.
+  Multi-user server mode means running the Copilot SDK from backend code that
+  serves more than one human, tenant, workspace, or integration account. In this
+  setup, the application owns request routing and authorization, while the SDK
+  and runtime provide per-session state, per-session authentication, and
+  explicit tool registration so one user's session does not inherit another
+  user's tools or identity.
 versions:
   fpt: '*'
   ghec: '*'
@@ -112,7 +116,7 @@ func main() {
 	runtimeInstanceID := "instance-1"
 	runtimeURL := "http://127.0.0.1:8080"
 	requestID := "req-1"
-	user := appUser{ID: "alice", GitHubToken: "YOUR_GITHUB_TOKEN"}
+	user := appUser{ID: "alice", GitHubToken: "gho_xxx"}
 
     client := copilot.NewClient(&copilot.ClientOptions{
         Mode:                      copilot.ModeEmpty,
@@ -157,7 +161,7 @@ using GitHub.Copilot;
 var runtimeInstanceId = "instance-1";
 var runtimeUrl = "http://127.0.0.1:8080";
 var requestId = "req-1";
-var user = new { Id = "alice", GitHubToken = "YOUR_GITHUB_TOKEN" };
+var user = new { Id = "alice", GitHubToken = "gho_xxx" };
 
 var client = new CopilotClient(new CopilotClientOptions
 {

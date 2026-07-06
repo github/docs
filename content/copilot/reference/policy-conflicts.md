@@ -53,6 +53,13 @@ Feature, model, and privacy settings for users are set according to the **least 
 | MCP servers in {% data variables.product.prodname_copilot_short %} | Least restrictive organization | [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers) |
 | {% data variables.product.prodname_copilot_short %}-generated commit messages | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/copilot-commit-message-generation) |
 
+## Availability for members with {% data variables.product.prodname_copilot_short %} from multiple enterprises
+
+If a user receives a license from multiple different enterprises, the **most restrictive** policy usually applies. The exceptions are:
+
+* AI credit paid usage (this applies to each enterprise, not the user)
+* {% data variables.product.prodname_spark %}
+
 ## Next steps
 
 * [AUTOTITLE](/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization)

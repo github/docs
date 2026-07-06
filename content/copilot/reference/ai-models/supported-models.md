@@ -21,29 +21,30 @@ redirect_from:
 contentType: reference
 ---
 
-{% data variables.product.prodname_copilot %} supports multiple models, each with different strengths. Some models prioritize speed and cost-efficiency, while others are optimized for accuracy, reasoning, or working with multimodal inputs (like images and code together).
+{% data variables.product.prodname_copilot %} supports multiple AI models, each with different strengths. Some prioritize speed and cost-efficiency, while others are optimized for accuracy, reasoning, or multimodal inputs. The right model depends on your task. For a side-by-side comparison to help you choose, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
 
-Depending on your {% data variables.product.prodname_copilot_short %} plan and where you're using it—such as {% data variables.product.prodname_dotcom_the_website %} or an IDE—you may have access to different models.
+The models available to you depend on your {% data variables.product.prodname_copilot_short %} plan and where you're using {% data variables.product.prodname_copilot_short %}, such as {% data variables.product.prodname_dotcom_the_website %} or an IDE.
 
 > [!NOTE]
-> * Model availability is subject to change. Some models may be replaced or updated over time.
-> * In {% data variables.product.prodname_vscode %} you can add more models than those that are available by default with your {% data variables.product.prodname_copilot_short %} subscription. See [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-chat-model?tool=vscode#adding-more-models).
+> Model availability is subject to change. Some models may be replaced or updated over time.
 
 For all of the default AI models, input prompts and output completions run through {% data variables.product.prodname_copilot %}'s content filters for harmful, offensive, or off-topic content, and for public code matching when enabled.
 
 ## Supported AI models in {% data variables.product.prodname_copilot_short %}
 
-This table lists the AI models available in {% data variables.product.prodname_copilot_short %}, along with their release status and availability in different modes.
+This table lists the AI models available in {% data variables.product.prodname_copilot_short %}, along with their release status.
 
 {% rowheaders %}
 
-| Model name                                             | Provider  | Release status             | Agent mode | Ask mode | Edit mode |
-|--------------------------------------------------------|-----------|----------------------------|------------|----------|-----------|
+| Model name                                             | Provider  | Release status             |
+|--------------------------------------------------------|-----------|----------------------------|
 | {% for model in tables.copilot.model-release-status %} |
-| {{ model.name }}{% if model.name == 'GPT-5.4 nano' %}[^gpt54nano]{% endif %}{% if model.name == 'MAI-Code-1-Flash' %}[^mai-code-1-flash]{% endif %} | {{ model.provider }} | {{ model.release_status }} | {% if model.agent_mode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.ask_mode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.edit_mode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} |
+| {{ model.name }}{% if model.name == 'GPT-5.4 nano' %}[^gpt54nano]{% endif %}{% if model.name == 'MAI-Code-1-Flash' %}[^mai-code-1-flash]{% endif %}{% if model.name == 'Claude Fable 5' %}[^claude-fable-5]{% endif %}| {{ model.provider }} | {{ model.release_status }} |
 | {% endfor %}                                           |
 
 {% endrowheaders %}
+
+[^claude-fable-5]: When {% data variables.copilot.copilot_claude_fable_5 %} is used, Anthropic retains data, including prompts and outputs, to operate safety classifiers that detect harmful use. Other Claude models in {% data variables.product.prodname_copilot %} remain covered by {% data variables.product.github %}'s existing data retention agreements, as documented at [AUTOTITLE](/copilot/reference/ai-models/model-hosting#anthropic-models). Enterprise and business users need to enable the {% data variables.copilot.copilot_claude_fable_5 %} model to make it available for your organization. You can read more about Anthropic's data handling practices for this model under section F of their [Service Specific Terms](https://www.anthropic.com/legal/service-specific-terms). To enable {% data variables.copilot.copilot_claude_fable_5 %}, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models).
 
 ## Supported AI models in {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}
 
@@ -78,9 +79,11 @@ Choosing a larger context window or higher reasoning will impact {% data variabl
 | --- | --- | --- |
 | {% data variables.copilot.copilot_claude_sonnet_46 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_claude_opus_46 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.copilot_claude_opus_46_fast %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_claude_opus_47 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_claude_opus_48 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.copilot_claude_sonnet_5 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.copilot_claude_opus_48_fast %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.copilot_claude_fable_5 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_gpt_53_codex %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_gpt_54 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_gpt_55 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
@@ -115,6 +118,9 @@ The following table shows which models are available in each client.
 
 {% endrowheaders %}
 
+> [!NOTE]
+> In {% data variables.product.prodname_vscode %} you can add more models than those that are available by default with your {% data variables.product.prodname_copilot_short %} subscription. See [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-chat-model?tool=vscode#adding-more-models).
+
 ## Minimum IDE versions for recent models
 
 Some {% data variables.product.prodname_copilot_short %} models require minimum versions of supported IDEs or {% data variables.product.prodname_copilot_short %} extensions or plugins. The table below lists the minimum versions known from changelog entries or provided release guidance. This information is tentative and subject to change as model support rolls out. For best results, keep your IDE and {% data variables.product.prodname_copilot_short %} extension or plugin updated to the latest available version.
@@ -131,8 +137,10 @@ Some {% data variables.product.prodname_copilot_short %} models require minimum 
 | {% data variables.copilot.copilot_gpt_54 %}              | `v1.104.1` and later | `17.14.19` and later                     | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
 | {% data variables.copilot.copilot_gpt_54_mini %}         | `v1.104.1` and later | `17.14.19` and later                     | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
 | {% data variables.copilot.copilot_gpt_55 %}              | `v1.117` and later   | `17.14.19` and later                     | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
-| {% data variables.copilot.copilot_claude_opus_48 %}      | `v1.118` and later   | `17.14.19` and later                     | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_mai_code_1_flash %}    | `v1.121` and later   | Not available                            | Not available | Not available | Not available |
+| {% data variables.copilot.copilot_claude_opus_48 %}      | `v1.118` and later   | `17.14.6` and later                     | TBD | TBD | TBD |
+| {% data variables.copilot.copilot_claude_sonnet_5 %}  | `v1.124` and later | `17.14.6` and later | TBD | TBD | TBD |
+| {% data variables.copilot.copilot_claude_fable_5 %}      | `v1.124` and later   | `17.14.6` and later                    | TBD | TBD | TBD |
+| {% data variables.copilot.copilot_mai_code_1_flash %}    | `v1.121` and later   | TBD                            | TBD | TBD | TBD |
 
 {% endrowheaders %}
 
@@ -148,18 +156,22 @@ The following table shows which AI models are available in each {% data variable
 
 {% data reusables.copilot.available-models-per-plan %}
 
+> [!NOTE]
+> * If you're an organization or enterprise owner, you can enable or restrict access to specific models for your members. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models#setup-for-organization-and-enterprise-use).
+
 ## Fallback and long-term support (LTS) models
 
 For more information about fallback and LTS models, see [AUTOTITLE](/copilot/concepts/fallback-and-lts-models).
 
 ## Evaluation models
+
 {% data variables.product.prodname_copilot %} offers access to evaluation models.
 
 > [!IMPORTANT]
-> * Testing revealed evaluation models may perform worse than other models on security-related, or other categories of prompts. 
+> * Testing revealed evaluation models may perform worse than other models on security-related, or other categories of prompts.
 > * Users should always carefully review and validate code, including code security, using a range of models and with a thorough human review before incorporating suggestions into production.
 
-Evaluation models may appear in product with codenames rather than official model or provider names. These models come from, or are fine-tuned by, one or more of the following providers: Microsoft, OpenAI, Anthropic, Google. Data handling for each provider is limited to GitHub's existing agreement with that provider, and evaluation models undergo GitHub and Microsoft testing and verification before release.
+Evaluation models may appear in the product with codenames rather than official model or provider names. These models come from or are fine-tuned by one or more of the following providers: Microsoft, OpenAI, Anthropic, and Google. Data handling for each provider is limited to {% data variables.product.github %}'s existing agreement with that provider, and evaluation models undergo {% data variables.product.github %} and Microsoft testing and verification before release.
 
 Evaluation models may be added, updated, or removed without notice. Availability and rate limits may differ from generally available models.
 
@@ -179,8 +191,6 @@ Utility models power background features across surfaces, and cannot be disabled
 
 ## Next steps
 
-* For task-based guidance on selecting a model, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
-* To configure which models are available to you, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/configuring-access-to-ai-models-in-copilot).
-* To learn how to change your current model, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat) or [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-completion-model).
+* To get up and running with {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/get-started/quickstart).
+* To configure which models are available to you, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models).
 * To learn more about Responsible Use and Responsible AI, see [{% data variables.product.prodname_copilot_short %} Trust Center](https://copilot.github.trust.page/) and [AUTOTITLE](/copilot/responsible-use-of-github-copilot-features).
-* To learn how {% data variables.copilot.copilot_chat_short %} serves different AI models, see [AUTOTITLE](/copilot/reference/ai-models/model-hosting).

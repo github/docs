@@ -82,10 +82,6 @@ If you’re already using {% data variables.copilot.copilot_free_short %} and re
 
 ## Subscribing to {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %}
 
-> [!IMPORTANT]
-> * {% data reusables.copilot.plans.individual-plans-paused %}
-> * {% data reusables.copilot.plans.copilot-max-upgrade-only %}
-
 You can subscribe to {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} at any time to unlock advanced AI features, higher usage limits, and access to additional models.
 
 > [!TIP] Not sure which plan to choose? For a side-by-side comparison, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/about-individual-copilot-plans-and-benefits).

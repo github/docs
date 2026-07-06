@@ -15,8 +15,8 @@ permissions:
   discussions: read|write|none
   packages: read|write|none
   pages: read|write|none
-  pull-requests: read|write|none{% ifversion projects-v1 %}
-  repository-projects: read|write|none{% endif %}
+  pull-requests: read|write|none
+
   security-events: read|write|none
   statuses: read|write|none{% ifversion vulnerability-alerts-permission %}
   vulnerability-alerts: read|none{% endif %}

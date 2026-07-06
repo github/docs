@@ -2,7 +2,7 @@ import { languageKeys } from '@/languages/lib/languages-server'
 import { allVersionKeys } from '@/versions/lib/all-versions'
 import { productIds } from '@/products/lib/all-products'
 import { allTools } from '@/tools/lib/all-tools'
-import { codeLanguages } from '@/code-tabs/lib/languages'
+import { codeLanguages } from '@/content-render/lib/code-languages'
 import { contentTypesEnum } from '@/frame/lib/frontmatter'
 
 const versionPattern = '^\\d+(\\.\\d+)?(\\.\\d+)?$'
@@ -646,6 +646,39 @@ const preference = {
   },
 }
 
+const tableInteraction = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['type', 'context', 'table_interaction_name', 'table_interaction_type'],
+  properties: {
+    context,
+    type: {
+      type: 'string',
+      pattern: '^tableInteraction$',
+    },
+    table_interaction_name: {
+      type: 'string',
+      description:
+        'Identifier for the table being interacted with (e.g. "secret-scanning-patterns").',
+    },
+    table_interaction_type: {
+      type: 'string',
+      enum: ['search', 'filter', 'sort', 'paginate', 'reset'],
+      description: 'The kind of interaction the user performed with the table.',
+    },
+    table_interaction_field_name: {
+      type: 'string',
+      description:
+        'The field/column the interaction targeted (e.g. "pushProtection"). Omitted for whole-table actions.',
+    },
+    table_interaction_field_value: {
+      type: 'string',
+      description:
+        'The value applied to the field (e.g. the filter value, search query, sort direction, or page number).',
+    },
+  },
+}
+
 const validation = {
   type: 'object',
   additionalProperties: false,
@@ -682,6 +715,7 @@ export const schemas = {
   clipboard,
   print,
   preference,
+  tableInteraction,
   validation,
 }
 
@@ -699,6 +733,7 @@ export const hydroNames = {
   clipboard: 'docs.v0.ClipboardEvent',
   print: 'docs.v0.PrintEvent',
   preference: 'docs.v0.PreferenceEvent',
+  tableInteraction: 'docs.v0.TableInteractionEvent',
   validation: 'docs.v0.ValidationEvent',
 } as Record<keyof typeof schemas, string>
 

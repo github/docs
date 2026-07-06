@@ -25,11 +25,11 @@ carousels:
     - /code-security/getting-started/quickstart-for-securing-your-repository
     - /code-security/getting-started/github-security-features
     - /code-security/tutorials/trialing-github-advanced-security/planning-a-trial-of-ghas
-    - /code-security/concepts/secret-security/about-secret-scanning
-    - /code-security/concepts/code-scanning/about-code-scanning
-    - /code-security/tutorials/secure-your-dependencies/dependabot-quickstart-guide
+    - /code-security/concepts/secret-security/secret-scanning
+    - /code-security/concepts/code-scanning/code-scanning
+    - /code-security/tutorials/secure-your-dependencies/dependabot-quickstart
     - /code-security/tutorials/improve-code-quality/quickstart
-    - /code-security/tutorials/secure-your-organization/best-practices-for-preventing-data-leaks-in-your-organization
+    - /code-security/tutorials/secure-your-organization/prevent-data-leaks
     - /code-security/concepts/supply-chain-security/best-practices-for-maintaining-dependencies
 versions:
   fpt: '*'

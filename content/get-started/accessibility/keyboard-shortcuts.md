@@ -46,9 +46,6 @@ The following sections list some of the available keyboard shortcuts, organized 
 |<kbd>G</kbd> <kbd>I</kbd> | Go to the **Issues** tab. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues).
 |<kbd>G</kbd> <kbd>P</kbd> | Go to the **Pull requests** tab. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 |<kbd>G</kbd> <kbd>A</kbd> | Go to the **Actions** tab. For more information, see [AUTOTITLE](/actions/learn-github-actions).
-| {% ifversion projects-v1 %} |
-|<kbd>G</kbd> <kbd>B</kbd> | Go to the **Projects** tab. For more information, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards).
-| {% endif %} |
 |<kbd>G</kbd> <kbd>W</kbd> | Go to the **Wiki** tab. For more information, see [AUTOTITLE](/communities/documenting-your-project-with-wikis/about-wikis). |
 |<kbd>G</kbd> <kbd>G</kbd> | Go to the **Discussions** tab. For more information, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions).
 |<kbd>G</kbd> <kbd>S</kbd> | Go to the repository's **{% data variables.product.prodname_security_and_quality_tab %}** tab. For more information, see [AUTOTITLE](/code-security/getting-started/github-security-features).
@@ -212,50 +209,6 @@ If you view a code file in a repository using the **Code** view and click on any
 |<kbd>Command</kbd>+<kbd>←</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>←</kbd> (Windows/Linux) | Move card(s) to the leftmost column |
 |<kbd>→</kbd> | Move card(s) right |
 |<kbd>Command</kbd>+<kbd>→</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>→</kbd> (Windows/Linux) | Move card(s) to the rightmost column |
-
-{% ifversion projects-v1 %}
-
-## {% data variables.product.prodname_projects_v1_caps %}
-
-### Moving a column
-
-| Keyboard shortcut | Description |
-|-----------|------------ |
-|<kbd>Enter</kbd> or <kbd>Space</kbd> | Start moving the focused column |
-|<kbd>Esc</kbd> | Cancel the move in progress |
-|<kbd>Enter</kbd> | Complete the move in progress |
-|<kbd>←</kbd> or <kbd>H</kbd> | Move column to the left |
-|<kbd>Command</kbd>+<kbd>←</kbd> or <kbd>Command</kbd>+<kbd>H</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>←</kbd> or <kbd>Ctrl</kbd>+<kbd>H</kbd> (Windows/Linux) | Move column to the leftmost position |
-|<kbd>→</kbd> or <kbd>L</kbd> | Move column to the right |
-|<kbd>Command</kbd>+<kbd>→</kbd> or <kbd>Command</kbd>+<kbd>L</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>→</kbd> or <kbd>Ctrl</kbd>+<kbd>L</kbd> (Windows/Linux) | Move column to the rightmost position |
-
-### Moving a card
-
-| Keyboard shortcut | Description |
-|-----------|------------ |
-|<kbd>Enter</kbd> or <kbd>Space</kbd> | Start moving the focused card |
-|<kbd>Esc</kbd> | Cancel the move in progress |
-|<kbd>Enter</kbd> | Complete the move in progress |
-|<kbd>↓</kbd> or <kbd>J</kbd> | Move card down |
-|<kbd>Command</kbd>+<kbd>↓</kbd> or <kbd>Command</kbd>+<kbd>J</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>↓</kbd> or <kbd>Ctrl</kbd>+<kbd>J</kbd> (Windows/Linux) | Move card to the bottom of the column |
-|<kbd>↑</kbd> or <kbd>K</kbd> | Move card up |
-|<kbd>Command</kbd>+<kbd>↑</kbd> or <kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>↑</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Move card to the top of the column |
-|<kbd>←</kbd> or <kbd>H</kbd> | Move card to the bottom of the column on the left |
-|<kbd>Shift</kbd>+<kbd>←</kbd> or <kbd>Shift</kbd>+<kbd>H</kbd> | Move card to the top of the column on the left |
-|<kbd>Command</kbd>+<kbd>←</kbd> or <kbd>Command</kbd>+<kbd>H</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>←</kbd> or <kbd>Ctrl</kbd>+<kbd>H</kbd> (Windows/Linux) | Move card to the bottom of the leftmost column |
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>←</kbd> or <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>←</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> (Windows/Linux) | Move card to the top of the leftmost column
-|<kbd>→</kbd> | Move card to the bottom of the column on the right |
-|<kbd>Shift</kbd>+<kbd>→</kbd> or <kbd>Shift</kbd>+<kbd>L</kbd> | Move card to the top of the column on the right |
-|<kbd>Command</kbd>+<kbd>→</kbd> or <kbd>Command</kbd>+<kbd>L</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>→</kbd> or <kbd>Ctrl</kbd>+<kbd>L</kbd> (Windows/Linux) | Move card to the bottom of the rightmost column |
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>→</kbd> or <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>→</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> (Windows/Linux) | Move card to the bottom of the rightmost column |
-
-### Previewing a card
-
-| Keyboard shortcut | Description |
-|-----------|------------ |
-|<kbd>Esc</kbd> | Close the card preview pane |
-
-{% endif %}
 
 {% ifversion fpt or ghec %}
 

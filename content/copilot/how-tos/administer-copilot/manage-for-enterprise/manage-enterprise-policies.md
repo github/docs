@@ -47,3 +47,4 @@ If you enable "{% data variables.product.prodname_copilot_short %} in {% data va
 ## Further reading
 
 * [AUTOTITLE](/copilot/reference/policy-conflicts)
+* [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies)

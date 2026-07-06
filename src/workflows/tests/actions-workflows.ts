@@ -3,7 +3,7 @@ import path from 'path'
 import fs from 'fs'
 
 import { describe, expect, test } from 'vitest'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import { flatten } from 'flat'
 import { chain, get } from 'lodash-es'
 
@@ -48,7 +48,7 @@ const workflows: WorkflowMeta[] = fs
   .filter((filename) => !filename.endsWith('.lock.yml')) // Skip auto-generated agentic workflow lock files
   .map((filename) => {
     const fullpath = path.join(workflowsDir, filename)
-    const data = yaml.load(fs.readFileSync(fullpath, 'utf8')) as WorkflowMeta['data']
+    const data = load(fs.readFileSync(fullpath, 'utf8')) as WorkflowMeta['data']
     return { filename, fullpath, data }
   })
 

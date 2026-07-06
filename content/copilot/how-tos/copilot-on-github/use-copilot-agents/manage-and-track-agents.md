@@ -107,6 +107,16 @@ Show me sessions where the agent struggled or I had to correct it multiple times
 
 For CLI-specific session querying and `/chronicle` commands, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/chronicle). For conceptual information about how session data is stored and synced, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/chronicle).
 
+## Continue a session's work in {% data variables.copilot.copilot_chat %}
+
+You can pass context between {% data variables.copilot.copilot_chat_short %} and your {% data variables.copilot.copilot_cloud_agent %} sessions on {% data variables.product.github %}.
+
+When you start a session from {% data variables.copilot.copilot_chat_short %}, it incorporates the context of your conversation, and while the session runs, {% data variables.copilot.copilot_chat_short %} reflects its status so you can ask follow-up questions.
+
+When a session is complete, or when you are viewing a pull request {% data variables.product.prodname_copilot_short %} created, you can ask what changed, what was validated, and why, and {% data variables.product.prodname_copilot_short %} will answer by drawing on the session logs. You can also start another session directly from {% data variables.copilot.copilot_chat_short %}.
+
+For more information, see [AUTOTITLE](/copilot/concepts/chat) and [AUTOTITLE](/copilot/tutorials/explore-pull-requests).
+
 ## Further reading
 
 * [AUTOTITLE](/copilot/tutorials/cloud-agent/get-the-best-results)

@@ -443,143 +443,64 @@ ides:
         0.0.0: not-supported
   Visual Studio:
     versions:
-      - 18.0.0
-      - 17.14.13
-      - 17.14.6
+      - 18.6.0
       - 17.14.0
-      - 17.13.0
-      - 0.0.0
     versionGroups:
       latest releases:
-        - 18.0.0
-        - 17.14.13
-        - 17.14.6
+        - 18.6.0
         - 17.14.0
-        - 17.13.0
-      2025 releases:
-        - 18.0.0
-        - 17.14.13
-        - 17.14.6
-        - 17.14.0
-        - 17.13.0
     features:
       .NET Upgrade Agent:
-        18.0.0: supported
-        17.14.13: preview
-        17.14.6: preview
-        17.14.0: preview
-        17.13.0: preview
-        0.0.0: preview
+        18.6.0: supported
+        17.14.0: supported
       Agent skills:
-        18.0.0: not-supported
-        17.14.13: not-supported
-        17.14.6: not-supported
+        18.6.0: supported
         17.14.0: not-supported
-        17.13.0: not-supported
-        0.0.0: not-supported
       Agent mode:
-        18.0.0: supported
-        17.14.13: supported
-        17.14.6: supported
-        17.14.0: preview
-        17.13.0: not-supported
-        0.0.0: not-supported
+        18.6.0: supported
+        17.14.0: supported
       BYOK:
-        18.0.0: supported
-        17.14.13: not-supported
-        17.14.6: not-supported
-        17.14.0: not-supported
-        17.13.0: not-supported
-        0.0.0: not-supported
+        18.6.0: supported
+        17.14.0: supported
       Chat:
-        18.0.0: supported
-        17.14.13: supported
-        17.14.6: supported
+        18.6.0: supported
         17.14.0: supported
-        17.13.0: supported
-        0.0.0: supported
       Checkpoints:
-        18.0.0: supported
-        17.14.13: supported
-        17.14.6: supported
+        18.6.0: supported
         17.14.0: supported
-        17.13.0: not-supported
       Code completion:
-        18.0.0: supported
-        17.14.13: supported
-        17.14.6: supported
+        18.6.0: supported
         17.14.0: supported
-        17.13.0: supported
-        0.0.0: supported
       Code referencing:
-        18.0.0: supported
-        17.14.13: supported
-        17.14.6: supported
+        18.6.0: supported
         17.14.0: supported
-        17.13.0: supported
-        0.0.0: not-supported
       Copilot code review:
-        18.0.0: supported
-        17.14.13: supported
-        17.14.6: supported
+        18.6.0: supported
         17.14.0: supported
-        17.13.0: supported
-        0.0.0: supported
       Custom agents:
-        18.0.0: preview
-        17.14.13: not-supported
-        17.14.6: not-supported
+        18.6.0: supported
         17.14.0: not-supported
-        17.13.0: not-supported
-        0.0.0: not-supported
       Custom instructions:
-        18.0.0: supported
-        17.14.13: supported
-        17.14.6: supported
+        18.6.0: supported
         17.14.0: supported
-        17.13.0: supported
-        0.0.0: supported
       Edit mode:
-        18.0.0: closing-down
-        17.14.6: supported
-        17.14.0: supported
-        17.13.0: supported
-        0.0.0: not-supported
+        18.6.0: not-supported
+        17.14.0: not-supported
       MCP:
-        18.0.0: supported
-        17.14.13: supported
-        17.14.6: preview
-        17.14.0: preview
-        17.13.0: not-supported
-        0.0.0: not-supported
+        18.6.0: supported
+        17.14.0: supported
       Next edit suggestions:
-        18.0.0: supported
-        17.14.13: supported
-        17.14.6: supported
+        18.6.0: supported
         17.14.0: supported
-        17.13.0: not-supported
-        0.0.0: not-supported
       Prompt files:
-        18.0.0: supported
-        17.14.13: not-supported
-        17.14.6: not-supported
-        17.14.0: not-supported
-        17.13.0: not-supported
-        0.0.0: not-supported
-      Vision:
-        18.0.0: supported
-        17.14.13: supported
-        17.14.6: supported
+        18.6.0: supported
         17.14.0: supported
-        17.13.0: preview
-        0.0.0: preview
+      Vision:
+        18.6.0: supported
+        17.14.0: supported
       Workspace indexing:
-        18.0.0: supported
-        17.14.13: not-supported
-        17.14.6: not-supported
+        18.6.0: supported
         17.14.0: not-supported
-        17.13.0: not-supported
-        0.0.0: not-supported
   JetBrains:
     versions:
       - 1.5.66

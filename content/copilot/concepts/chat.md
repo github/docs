@@ -7,7 +7,7 @@ versions:
 redirect_from:
   - /copilot/concepts/about-github-copilot-chat
 contentType: concepts
-category: 
+category:
   - Learn about Copilot
 ---
 
@@ -29,6 +29,14 @@ Different environments may have different features and capabilities, but the cor
 ## Limitations
 
 {% data variables.copilot.copilot_chat_short %} is designed to assist with coding tasks, but you remain responsible for reviewing and validating the code it generates. It may not always produce correct or optimal solutions, and it can sometimes generate code that contains security vulnerabilities or other issues. Always test and review the code before using it in production.
+
+## Passing context between {% data variables.copilot.copilot_chat_short %} and {% data variables.copilot.copilot_cloud_agent %} sessions
+
+On {% data variables.product.github %}, {% data variables.copilot.copilot_chat_short %} and {% data variables.copilot.copilot_cloud_agent %} can share context. When you start an agent session from a chat, the session incorporates the context of your conversation, and while the session runs you can continue chatting with {% data variables.product.prodname_copilot_short %} about its progress.
+
+{% data variables.copilot.copilot_chat_short %} can also answer questions about pull requests created by {% data variables.product.prodname_copilot_short %} by pulling in the relevant agent session logs, so you can ask what changed, what was validated, and why, without leaving the conversation.
+
+This context passing is scoped to the {% data variables.copilot.copilot_chat_short %} and {% data variables.copilot.copilot_cloud_agent_short %} sessions you are actively working with. It is distinct from {% data variables.copilot.copilot_memory %}, which builds a longer-term, persistent understanding of your repositories and preferences across sessions. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents).
 
 ## Customizing {% data variables.copilot.copilot_chat_short %} responses
 

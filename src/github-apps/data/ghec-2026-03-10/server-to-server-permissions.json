@@ -1,4 +1,21 @@
 {
+  "enterprise_copilot_usage": {
+    "title": "Copilot usage records",
+    "displayTitle": "Enterprise permissions for \"Copilot usage records\"",
+    "permissions": [
+      {
+        "category": "copilot",
+        "slug": "get-copilot-usage-records-for-an-enterprise",
+        "subcategory": "copilot-usage-metrics",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/copilot/usage-records",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      }
+    ]
+  },
   "enterprise_custom_enterprise_roles": {
     "title": "Custom enterprise roles",
     "displayTitle": "Enterprise permissions for \"Custom enterprise roles\"",
@@ -468,6 +485,17 @@
         "subcategory": "credential-authorizations",
         "verb": "post",
         "requestPath": "/enterprises/{enterprise}/credential-authorizations/revoke-all",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "revoke-credential-authorizations-for-a-user-in-an-enterprise",
+        "subcategory": "credential-authorizations",
+        "verb": "post",
+        "requestPath": "/enterprises/{enterprise}/credential-authorizations/{username}/revoke",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -1742,17 +1770,6 @@
         "additional-permissions": true
       },
       {
-        "category": "copilot",
-        "slug": "get-copilot-metrics-for-an-organization",
-        "subcategory": "copilot-metrics",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/copilot/metrics",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
         "category": "orgs",
         "slug": "list-saml-sso-authorizations-for-an-organization",
         "subcategory": "orgs",
@@ -2144,17 +2161,6 @@
         "verb": "delete",
         "requestPath": "/orgs/{org}/settings/immutable-releases/repositories/{repository_id}",
         "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "copilot",
-        "slug": "get-copilot-metrics-for-a-team",
-        "subcategory": "copilot-metrics",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics",
-        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": true
@@ -3163,32 +3169,10 @@
       },
       {
         "category": "copilot",
-        "slug": "get-copilot-metrics-for-an-organization",
-        "subcategory": "copilot-metrics",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/copilot/metrics",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "copilot",
         "slug": "get-copilot-seat-assignment-details-for-a-user",
         "subcategory": "copilot-user-management",
         "verb": "get",
         "requestPath": "/orgs/{org}/members/{username}/copilot",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "copilot",
-        "slug": "get-copilot-metrics-for-a-team",
-        "subcategory": "copilot-metrics",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -7371,6 +7355,39 @@
         "additional-permissions": false
       },
       {
+        "category": "interactions",
+        "slug": "get-pull-request-creation-cap-bypass-list-for-a-repository",
+        "subcategory": "repos",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/bypass-list",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "interactions",
+        "slug": "add-users-to-the-pull-request-creation-cap-bypass-list-for-a-repository",
+        "subcategory": "repos",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/bypass-list",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "interactions",
+        "slug": "remove-users-from-the-pull-request-creation-cap-bypass-list-for-a-repository",
+        "subcategory": "repos",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/bypass-list",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
         "category": "collaborators",
         "slug": "list-repository-invitations",
         "subcategory": "invitations",
@@ -7947,7 +7964,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "orgs",
@@ -7958,7 +7975,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "orgs",
@@ -7969,7 +7986,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "orgs",
@@ -7980,7 +7997,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "orgs",
@@ -7991,7 +8008,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       }
     ]
   },
@@ -8783,61 +8800,6 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
-      },
-      {
-        "category": "orgs",
-        "slug": "create-an-artifact-deployment-record",
-        "subcategory": "artifact-metadata",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "orgs",
-        "slug": "set-cluster-deployment-records",
-        "subcategory": "artifact-metadata",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "orgs",
-        "slug": "create-artifact-metadata-storage-record",
-        "subcategory": "artifact-metadata",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/artifacts/metadata/storage-record",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "orgs",
-        "slug": "list-artifact-deployment-records",
-        "subcategory": "artifact-metadata",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/artifacts/{subject_digest}/metadata/deployment-records",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "orgs",
-        "slug": "list-artifact-storage-records",
-        "subcategory": "artifact-metadata",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/artifacts/{subject_digest}/metadata/storage-records",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
       },
       {
         "category": "repos",
@@ -11016,6 +10978,17 @@
         "subcategory": "repos",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/hash-algorithm",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "repos",
+        "slug": "list-issue-types-for-a-repository",
+        "subcategory": "issue-types",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issue-types",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,

@@ -95,6 +95,20 @@ To add a specific file to your prompt, use `@` followed by the relative path to 
 
 When you start typing a file path, the matching paths are displayed below the prompt box. Use the arrow keys to select a path and press <kbd>Tab</kbd> to complete the path in your prompt.
 
+### Attach images and PDFs
+
+You can attach images and PDFs to your prompts when using a model that supports image input.
+
+{% data reusables.copilot.supported-attachment-file-types %}
+
+{% data reusables.copilot.image-pdf-attachment-handling %}
+
+You can attach a file in the following ways during an interactive session:
+
+* Reference the file in your prompt using `@` followed by the path to the file.
+* Drag and drop a file into the interactive session.
+* Copy an image to your clipboard, then paste it as an attachment.
+
 ### Work with files in a different location
 
 To complete a task, {% data variables.product.prodname_copilot_short %} may need to work with files that are outside the current working directory. If a prompt you have entered in an interactive session requires {% data variables.product.prodname_copilot_short %} to modify a file outside the current location, it will ask you to approve access to the file's directory.
@@ -239,6 +253,12 @@ You can create skills to enhance the ability of {% data variables.product.prodna
 
 For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-skills).
 
+### Use hooks
+
+You can use hooks to extend and customize the behavior of {% data variables.copilot.copilot_cli_short %}. Hooks allow you to run custom shell commands automatically at key points during a CLI session.
+
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/use-hooks).
+
 ### Add an MCP server
 
 {% data variables.copilot.copilot_cli_short %} comes with the {% data variables.product.github %} MCP server already configured. This MCP server allows you to interact with resources on {% data variables.product.prodname_dotcom_the_website %}—for example, allowing you to merge pull requests from the CLI.
@@ -282,6 +302,18 @@ You can run {% data variables.copilot.copilot_cli_short %} sessions inside a san
 ### Toggle reasoning visibility
 
 Press <kbd>Ctrl</kbd>+<kbd>T</kbd> to show or hide the model's reasoning process while it generates a response. This setting persists across sessions, allowing you to observe how {% data variables.product.prodname_copilot_short %} works through complex problems.
+
+### Configure settings
+
+You can view and change {% data variables.copilot.copilot_cli_short %} settings using the `/settings` slash command.
+
+* Run `/settings` to open an interactive settings dialog, where you can search for a setting by name and edit it.
+* Run `/settings KEY VALUE` to set a setting inline, where KEY is the name of the setting and VALUE is the value you want to set. This also works in scripts and in programmatic sessions started with `-p`.
+* Run `/settings reset KEY` to restore a setting to its default value.
+
+Some settings, such as the color mode, take effect immediately when you save them.
+
+For the full list of available settings, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#configuration-file-settings).
 
 ## Find out more
 

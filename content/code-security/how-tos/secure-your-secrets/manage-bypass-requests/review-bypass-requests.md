@@ -44,14 +44,12 @@ The following statuses are assigned to a request:
 
 |Status|Description|
 |---------|-----------|
-|{% ifversion fpt or ghec or ghes > 3.16 %}|
 |`Approved`|The request has been approved, but the commit(s) have not yet been pushed to the repository.|
-|{% endif %}|
 |`Cancelled`|The request has been cancelled by the contributor.|
-|`Completed`|The request has been approved and the commit(s) have been pushed to the repository{% ifversion fpt or ghec or ghes > 3.16 %}, or the request was rejected{% endif %}.|
+|`Completed`|The request has been approved and the commit(s) have been pushed to the repository, or the request was rejected.|
 |`Denied`|The request has been reviewed and denied.|
 |`Expired`|The request has expired. Requests are valid for 7 days.|
-|`Open`|The request has {% ifversion ghes < 3.17 %}either not yet been reviewed, or has been approved but the commit(s) have not been pushed to the repository{% else %}not yet been reviewed{% endif %}.|
+|`Open`|The request has not yet been reviewed.|
 
 ## Further reading
 

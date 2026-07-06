@@ -49,6 +49,8 @@ Each paid plan includes the following:
 
 Your base credits are used first. If you go beyond your base credits, the flex allotment is applied automatically at the same rates across your IDE, {% data variables.product.prodname_dotcom_the_website %}, and {% data variables.copilot.copilot_cli_short %}. No additional setup is required. Your usage dashboard shows your available allowance and what you've used.
 
+Included {% data variables.product.prodname_ai_credits_short %} do not carry over between months. Unused credits are forfeited, and your allowance resets to the full monthly amount at 00:00:00 UTC on the first day of each calendar month. This reset date is fixed and does not change based on your subscription billing date. See [AUTOTITLE](/billing/concepts/billing-cycles#billing-cycles-for-metered-products).
+
 ### {% data variables.product.prodname_ai_credits %} allowance by plan
 
 The following table shows what's included with each paid plan.
@@ -79,16 +81,17 @@ More complex interactions consume more of your usage allowance. The main factors
 
 > [!NOTE] {% data reusables.copilot.auto-model-discount %}
 
+For guidance on how to optimize your usage and reduce spend, including how to set session limits to cap spend for agent tasks, see [AUTOTITLE](/copilot/tutorials/optimize-ai-usage).
+
 ## What happens if I exceed my included {% data variables.product.prodname_ai_credits_short %}?
 
 When your {% data variables.product.prodname_ai_credits_short %} are exhausted, you can:
 
-* Set a budget for additional usage and pay extra to continue working
-* Wait until the next monthly cycle when your included usage resets
+* **Upgrade your plan.** As you approach your usage limits, {% data variables.product.prodname_copilot_short %} prompts you to upgrade to the next tier. The upgrade cost is only the price difference between your current plan and the new plan, _not_ the full price of the new plan. Your usage from earlier in the billing cycle is counted within the new plan's larger allowance, so the additional credits are available to you immediately. You won't be charged for both plans for the same period.
+* **Stay on your existing plan and pay for more usage.**  If your included credits are exhausted, you can continue working by setting a budget for **additional usage**. Note that additional usage **may be capped**, so to keep working, you'll need to pay off any additional usage you've already consumed in order to continue.
+* Alternatively, wait until the next monthly cycle when your included usage resets.
 
 Your additional usage budget is set in US dollars, and your usage is shown in {% data variables.product.prodname_ai_credits %}. {% data variables.product.prodname_ai_credits %} draw down your budget at a fixed rate: 1 {% data variables.product.prodname_ai_credits_short %} = {% data variables.product.prodname_ai_credits_value %}, so a $10 budget covers 1,000 {% data variables.product.prodname_ai_credits_short %}.
-
-{% data reusables.copilot.plans.ai-cap-recommend-upgrade %}
 
 To set up a budget for {% data variables.product.prodname_ai_credits %}, see [AUTOTITLE](/billing/how-tos/set-up-budgets#managing-budgets-for-your-personal-account).
 

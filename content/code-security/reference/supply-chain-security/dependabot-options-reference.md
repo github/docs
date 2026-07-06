@@ -99,10 +99,10 @@ For most package managers, you should define a value that will match the depende
 | Dependency types | Supported by package managers | Allow updates |
 |------------------|-------------------------------|--------|
 | `direct` | All | All explicitly defined dependencies. |
-| `indirect` | `bundler`, `pip`, `composer`, `cargo`, `gomod`{% ifversion dependabot-uv-support %}, `uv`{% endif %} | Dependencies of direct dependencies (also known as sub-dependencies, or transitive dependencies).|
-| `all` | All | All explicitly defined dependencies. For `bundler`, `pip`, `composer`, `cargo`, `gomod`{% ifversion dependabot-uv-support %}, `uv`{% endif %}, also the dependencies of direct dependencies.|
-| `production` | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip`{% ifversion dependabot-uv-support %}, `uv`{% endif %} (not all managers) | Only to dependencies defined by the package manager as production dependencies. |
-| `development`| `bundler`, `composer`, `mix`, `maven`, `npm`, `pip`{% ifversion dependabot-uv-support %}, `uv`{% endif %} (not all managers) | Only to dependencies defined by the package manager as development dependencies. |
+| `indirect` | `bundler`, `pip`, `composer`, `cargo`, `gomod`, `uv` | Dependencies of direct dependencies (also known as sub-dependencies, or transitive dependencies).|
+| `all` | All | All explicitly defined dependencies. For `bundler`, `pip`, `composer`, `cargo`, `gomod`, `uv`, also the dependencies of direct dependencies.|
+| `production` | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip`, `uv` (not all managers) | Only to dependencies defined by the package manager as production dependencies. |
+| `development`| `bundler`, `composer`, `mix`, `maven`, `npm`, `pip`, `uv` (not all managers) | Only to dependencies defined by the package manager as development dependencies. |
 
 {% ifversion dependabot-allow-update-types %}
 
@@ -170,11 +170,7 @@ When `commit-message` is defined:
 
 ### `prefix-development`
 
-{% ifversion dependabot-uv-support %}
 Supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, `pip`, and `uv`.
-{% else %}
-Supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
-{% endif %}
 
 * Used only for commit messages that update dependencies in the Development dependency group.
 * Otherwise, the parameter behaves exactly as the `prefix` parameter.
@@ -552,9 +548,7 @@ Package manager | YAML value      | Supported versions |
 | {% ifversion dependabot-bazel-support %} |
 | Bazel         | `bazel`          | v7, v8, v9               |
 | {% endif %} |
-| {% ifversion dependabot-bun-support %} |
 | Bun | `bun`         | >=v1.2.5              |
-| {% endif %} |
 | Bundler | `bundler` | v2 |
 | Cargo       | `cargo`          | v1               |
 | Composer       | `composer`       | v2         |
@@ -566,9 +560,7 @@ Package manager | YAML value      | Supported versions |
 | {% endif %} |
 | Dev containers | `devcontainers`         | Not applicable               |
 | Docker         | `docker`         | v1               |
-| {% ifversion dependabot-docker-compose-support %} |
 | Docker Compose | `docker-compose`         | v2, v3               |
-| {% endif %} |
 | .NET SDK       | `dotnet-sdk`         | >=.NET Core 3.1           |
 | {% ifversion dependabot-helm-support %} |
 | Helm Charts            | `helm`            | v3               |
@@ -608,9 +600,7 @@ Package manager | YAML value      | Supported versions |
 | {% endif %} |
 | Swift   | `swift`      | v5  |
 | Terraform    | `terraform`      | >= 0.13, <= 1.10.x  |
-| {% ifversion dependabot-uv-support %} |
 | uv           | `uv`             | v0 |
-| {% endif %} |
 | {% ifversion dependabot-vcpkg-support %} |
 | vcpkg       | `vcpkg`          | Not applicable   |
 | {% endif %} |
@@ -876,11 +866,7 @@ Supported values: `true` or `false`
 
 ## `versioning-strategy` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
-{% ifversion dependabot-uv-support %}
 Supported by: `bundler`, `cargo`, `composer`, `helm`, `mix`, `npm`, `pip`, `pub`, and `uv`
-{% else %}
-Supported by: `bundler`, `cargo`, `composer`, `helm`, `mix`, `npm`, `pip`, and `pub`
-{% endif %}
 
 Define how {% data variables.product.prodname_dependabot %} should edit manifest files. For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#defining-a-versioning-strategy).
 
@@ -1051,3 +1037,22 @@ For more information about  OIDC support for {% data variables.product.prodname_
 ### `url` and `replaces-base`
 
 The `url` parameter defines where to access a registry. When the optional `replaces-base` parameter is enabled (`true`), {% data variables.product.prodname_dependabot %} resolves dependencies using the value of `url` rather than the base URL of that specific ecosystem.
+
+{% ifversion dependabot-npm-scope %}
+
+### `scope`
+
+The `scope` parameter is available for `npm-registry` type registries. It specifies which npm scope should be associated with the registry. The value must start with `@`, for example `@my-company`. To associate multiple scopes with the same registry URL, create a separate registry entry for each scope.
+
+When `scope` is provided, {% data variables.product.prodname_dependabot %} generates the `.npmrc` configuration from your registry credentials. This generated configuration takes precedence over any committed `.npmrc` file or lockfile-based inference.
+
+#### Priority order for npm registry resolution
+
+When determining which registry to use for npm dependencies, {% data variables.product.prodname_dependabot %} follows this priority order:
+
+1. **Credential-based generation (`scope` or `replaces-base`):** If `scope` or `replaces-base` is configured on any `npm-registry` credential in `dependabot.yml`, {% data variables.product.prodname_dependabot %} generates the `.npmrc` from those credentials. This always takes priority, overriding any committed `.npmrc` file.
+1. **Committed `.npmrc` in the repository:** If no `scope` is set, {% data variables.product.prodname_dependabot %} uses any `.npmrc` file committed to the repository.
+1. **Lockfile inference (transitional):** If there is no `scope` and no committed `.npmrc`, {% data variables.product.prodname_dependabot %} attempts to infer registry configuration from the lockfile.
+1. **Error generation:** If none of the above methods succeed, {% data variables.product.prodname_dependabot %} reports an error with guidance to add explicit configuration.
+
+{% endif %}

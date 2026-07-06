@@ -27,12 +27,21 @@ jobs:
 
       - uses: ./.github/actions/node-npm-setup
 
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
+          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
+          owner: github
+          repositories: docs-internal,docs-internal-data
+
       - uses: ./.github/actions/setup-elasticsearch
         if: ${{ github.event_name == 'pull_request' }}
 
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          token: ${{ steps.app-token.outputs.token }}
           repository: github/docs-internal-data
           path: docs-internal-data
 
@@ -48,10 +57,9 @@ jobs:
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name == 'schedule' }}
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
 
       - uses: ./.github/actions/create-workflow-failure-issue
         if: ${{ failure() && github.event_name == 'schedule' }}
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          token: ${{ steps.app-token.outputs.token }}

@@ -120,9 +120,6 @@ Some of the features listed below are limited to organizations using {% data var
 | {% endif %} |
 | Manage [topics](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics) | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
 | Enable wikis and restrict wiki editors | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
-| {% ifversion projects-v1 %} |
-| Enable {% data variables.projects.projects_v1_boards %} | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
-| {% endif %} |
 | Configure [pull request merges](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges) | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
 | Configure [a publishing source for {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
 | {% ifversion copilot %} |
@@ -214,5 +211,4 @@ In this section, you can find the access required for security features, such as
 ## Further reading
 
 * [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories)
-* [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization){% ifversion projects-v1 %}
-* [AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization){% endif %}
+* [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)

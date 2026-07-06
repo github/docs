@@ -303,7 +303,7 @@ export function createLiquidContext(
 
 // Cached reference to renderLiquid — avoids repeated dynamic-import overhead on every call.
 // A dynamic import is still used (not a top-level import) to prevent circular dependency issues.
-type RenderLiquidModule = (template: string, context: unknown) => Promise<string>
+type RenderLiquidModule = (template: string, context: Context) => Promise<string>
 let _renderLiquid: RenderLiquidModule | null = null
 async function getCachedRenderLiquid(): Promise<RenderLiquidModule> {
   if (!_renderLiquid) {
@@ -353,22 +353,6 @@ export async function renderAndExtractLinks(
     logger.warn('Liquid rendering failed, falling back to raw extraction', { error })
     return { renderedMarkdown: content, result: extractLinksFromMarkdown(content) }
   }
-}
-
-/**
- * Read a file and extract links
- */
-export async function extractLinksFromFile(
-  filePath: string,
-  context?: Context,
-): Promise<LinkExtractionResult> {
-  const content = fs.readFileSync(filePath, 'utf-8')
-
-  if (context) {
-    return extractLinksWithLiquid(content, context)
-  }
-
-  return extractLinksFromMarkdown(content)
 }
 
 /**

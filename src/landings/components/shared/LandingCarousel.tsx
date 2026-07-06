@@ -6,6 +6,7 @@ import type { ResolvedArticle } from '@/types'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { useVersion } from '@/versions/components/useVersion'
 import styles from './LandingCarousel.module.scss'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type LandingCarouselProps = {
   heading?: string
@@ -177,12 +178,7 @@ export const LandingCarousel = ({
             <h3 className={styles.articleTitle}>
               <span className={styles.articleLink}>{article.title}</span>
             </h3>
-            <div
-              className={styles.articleDescription}
-              dangerouslySetInnerHTML={{
-                __html: article.intro as TrustedHTML,
-              }}
-            />
+            <RenderedHTML as="div" className={styles.articleDescription} html={article.intro} />
           </a>
         ))}
       </div>

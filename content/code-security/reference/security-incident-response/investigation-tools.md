@@ -156,7 +156,8 @@ Read access to the repository.
 
 * Confirm what executed in CI/CD at a given time (such as the commands executed, or the dependency installed).
 * Investigate suspicious workflow runs, such as those triggered by an unfamiliar user or at an unusual time, to see what actions were performed, which secrets were accessed, and what code was executed.
-* Determine whether a workflow had access to any secrets.
+* Review what credentials a workflow job had access to, including the default `GITHUB_TOKEN`, any {% data variables.product.pat_generic_plural %}, {% data variables.product.prodname_github_app %} tokens, other credentials stored as secrets, and access tokens obtained during the workflow run.
+* Retrieve logs programmatically via the REST API for archival, forensic, or automation purposes.
 
 #### Permissions required
 
@@ -166,8 +167,22 @@ Read access to the repository.
 
 * [AUTOTITLE](/actions/how-tos/monitor-workflows/view-workflow-run-history)
 * [AUTOTITLE](/actions/how-tos/monitor-workflows/use-workflow-run-logs)
+* [AUTOTITLE](/actions/how-tos/manage-workflow-runs/download-workflow-artifacts)
+* [AUTOTITLE](/actions/concepts/security/github_token)
+* [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets)
+* [AUTOTITLE](/actions/reference/security/secure-use)
+* [AUTOTITLE](/rest/actions/workflow-runs)
+* [AUTOTITLE](/rest/actions/workflow-jobs)
+* [AUTOTITLE](/code-security/tutorials/implement-supply-chain-best-practices/securing-builds)
 
 ### Notes and limitations
 
 * {% data variables.product.github %} automatically redacts secrets from workflow logs.
-* By default, workflow logs are retained by {% data variables.product.github %} for 90 days, but you can configure this retention period to be longer (up to 400 days for private repositories).
+* By default, workflow logs are retained by {% data variables.product.github %} for 90 days, but you can configure this retention period. {% ifversion fpt or ghec %}For public repositories, the maximum retention is 90 days. For private{% ifversion ghec %} and internal{% endif %} repositories, the maximum is 400 days.{% else %}The maximum retention is 400 days.{% endif %} Retention can be configured at the enterprise, organization, or repository level. If a workflow run occurred outside of your configured retention window, the logs may no longer be available. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository), [AUTOTITLE](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization), or [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise).
+* Workflow runs (including their logs) can also be deleted via the REST API. To check whether a run was deleted, query for `workflows.delete_workflow_run` events in the audit log.
+* The default `GITHUB_TOKEN` issued to each job is scoped to that job and expires when the job finishes or after its effective maximum lifetime (up to 24 hours on self-hosted runners). Even if a step captured the token, it cannot be reused after the job finishes. For more information, see [AUTOTITLE](/actions/concepts/security/github_token).
+* Other credentials referenced in workflows, such as {% data variables.product.pat_generic_plural %}, {% data variables.product.prodname_github_app %} installation tokens, or third-party API keys stored as secrets, have their own lifecycle and do not expire when the job ends. If a workflow step exposed one of these credentials, the token remains valid until it is revoked or expires according to its own policy. Any credential that may have been exposed should be treated as compromised and rotated or replaced immediately. Review the workflow file and the repository, organization, and environment secrets to determine which credentials were accessible. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
+* You can download logs for an entire workflow run or for a specific job programmatically using the REST API. Both endpoints return a redirect URL that is valid for one minute. For more information, see [AUTOTITLE](/rest/actions/workflow-runs) and [AUTOTITLE](/rest/actions/workflow-jobs).
+* Workflow run logs only capture standard output from workflow steps. Activity that does not write to standard output, such as network calls, file system modifications, or background processes, does not appear in the logs.
+* For {% data variables.product.github %}-hosted runners, the runner environment is ephemeral and destroyed after the job completes. {% data variables.product.github %} does not retain any data beyond the workflow run logs for these runners. For self-hosted runners, additional host-level or network telemetry may be available from your own infrastructure.
+* For a more comprehensive investigation, correlate workflow run logs with audit log events. Events such as `git.clone`, `git.fetch`, `git.push`, `protected_branch.create`, and `protected_branch.policy_override` can provide additional context. Because Git events in {% data variables.product.github %}-hosted audit logs are currently retained for only 7 days for enterprises, setting up streamed enterprise audit logs ahead of time is important for this type of investigation. For more information, see [AUTOTITLE](/code-security/tutorials/secure-your-organization/preparing-for-security-incidents).

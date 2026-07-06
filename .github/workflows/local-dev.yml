@@ -21,10 +21,20 @@ jobs:
 
       - uses: ./.github/actions/node-npm-setup
 
+      - name: Generate GitHub App token
+        if: ${{ github.repository == 'github/docs-internal' }}
+        id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
+          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
+          owner: github
+          repositories: docs-early-access
+
       - uses: ./.github/actions/get-docs-early-access
         if: ${{ github.repository == 'github/docs-internal' }}
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          token: ${{ steps.app-token.outputs.token }}
 
       - name: Disable Next.js telemetry
         run: npx next telemetry disable

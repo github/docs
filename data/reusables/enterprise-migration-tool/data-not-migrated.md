@@ -12,9 +12,9 @@
 * {% data variables.large_files.product_name_short %} objects and large binaries (repositories using {% data variables.large_files.product_name_short %} are still supported, see [Limitations of {% data variables.product.prodname_importer_proper_name %}](#limitations-of-github-enterprise-importer))
 * Links from commits to pull requests that were rebase merged
 * Mentions of users, teams, and organizations in pull request, issue, release, and comment bodies (the username originally mentioned is retained)
-* Packages in {% data variables.product.prodname_registry %}{% ifversion projects-v1 %}
-* Projects (classic) at the organization level{% endif %}
+* Packages in {% data variables.product.prodname_registry %}
 * {% data variables.product.prodname_projects_v2 %} (the new projects experience)
+* Reciprocal links from mentions of issues, pull requests, discussions, teams, or milestones
 * References between pull requests and issues in different repositories (see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls))
 * Remediation states of {% data variables.product.prodname_secret_scanning %} results
 * Repositories owned by user accounts

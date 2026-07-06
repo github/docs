@@ -76,7 +76,7 @@ Jenkins uses directives to manage _Declarative Pipelines_. These directives defi
 
 ### Parallel job processing
 
-Jenkins can run the `stages` and `steps` in parallel, while {% data variables.product.prodname_actions %} currently only runs jobs in parallel.
+{% ifversion actions-nga %}Jenkins can run the `stages` and `steps` in parallel. {% data variables.product.prodname_actions %} runs jobs in parallel and can also run steps concurrently within a job using step-level syntax. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstepsbackground).{% else %}Jenkins can run the `stages` and `steps` in parallel, while {% data variables.product.prodname_actions %} currently only runs jobs in parallel.{% endif %}
 
 | Jenkins Parallel | {% data variables.product.prodname_actions %} |
 | ------------- | ------------- |

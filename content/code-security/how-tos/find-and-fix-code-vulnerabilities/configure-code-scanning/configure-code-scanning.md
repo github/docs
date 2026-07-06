@@ -50,15 +50,7 @@ Your repository is eligible for default setup for {% data variables.product.prod
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 {% data reusables.repositories.code-scanning-enable %}
 
-   {% ifversion ghas-products %}
-
    ![Screenshot of the "{% data variables.product.prodname_code_scanning_caps %}" section of "{% data variables.product.UI_advanced_security %}" settings. The "Default setup" button is highlighted with an orange outline.](/assets/images/help/security/default-code-scanning-setup-ghas.png)
-
-   {% else %}
-
-   ![Screenshot of the "{% data variables.product.UI_code_security_scanning %}" section of "{% data variables.product.UI_advanced_security %}" settings. The "Default setup" button is highlighted with an orange outline.](/assets/images/help/security/default-code-scanning-setup.png)
-
-   {% endif %}
 
    You will then see a "{% data variables.product.prodname_codeql %} default configuration" dialog summarizing the {% data variables.product.prodname_code_scanning %} configuration automatically created by default setup.
 
@@ -85,7 +77,7 @@ Your repository is eligible for default setup for {% data variables.product.prod
 1. Optionally, to view your default setup configuration after enablement, select {% octicon "kebab-horizontal" aria-label="Menu" %}, then click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} View {% data variables.product.prodname_codeql %} configuration**.
 
 > [!NOTE]
-> If no pushes and pull requests have occurred in a repository with default setup enabled for 6 months, the weekly schedule will be disabled to save your {% data variables.product.prodname_actions %} minutes.
+> If no pushes and pull requests have occurred in a repository with default setup enabled for 6 months, the weekly schedule will be disabled to save your {% data variables.product.prodname_actions %} minutes.{% ifversion code-scanning-inactive-repos %} Organization owners can enable monthly scans of inactive repositories. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#continuing-scans-on-inactive-repositories).{% endif %}
 
 {% ifversion fpt or ghec %}
 

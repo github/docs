@@ -60,9 +60,6 @@ You can start using {% data variables.product.prodname_copilot_short %} in sever
 
 ### Individuals
 
-> [!IMPORTANT]
-> {% data reusables.copilot.plans.individual-plans-paused %}
-
 * **Try {% data variables.product.prodname_copilot_short %} for free.** Use {% data variables.copilot.copilot_free_short %} to explore core features with no paid plan required.
 * **Subscribe to a paid plan.** Upgrade to {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} for access to premium features, increased access to models, and higher available monthly allowance of {% data variables.product.prodname_ai_credits_short %}.
 * **Get free access if you're eligible.** Students, teachers, and open source maintainers may qualify for access to premium features at no cost. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students) and [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-teachers-and-os-maintainers).

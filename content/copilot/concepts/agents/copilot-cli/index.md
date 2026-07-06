@@ -8,10 +8,10 @@ versions:
 children:
   - /about-copilot-cli
   - /comparing-cli-features
+  - /copilot-cli-in-github-actions
   - /cancel-and-roll-back
   - /about-remote-control
   - /about-custom-agents
-  - /about-cli-plugins
   - /autopilot
   - /fleet
   - /research
@@ -19,8 +19,8 @@ children:
   - /rubber-duck
   - /lsp-servers
   - /context-management
+  - /tool-search
 contentType: concepts
 docsTeamMetrics:
   - copilot-cli
 ---
-

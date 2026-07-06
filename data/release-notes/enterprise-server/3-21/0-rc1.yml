@@ -1,6 +1,6 @@
 date: '2026-05-12'
 release_candidate: true
-deprecated: false
+deprecated: true
 intro: |
   > [!NOTE] Release candidate (RC) builds are intended solely for use in a test environment. Do not install an RC in a production environment.
   >
@@ -280,8 +280,6 @@ sections:
       When applying an enterprise security configuration to all repositories (for example, enabling Secret Scanning or Code Scanning across all repositories), the system immediately enqueues enablement jobs for every organization in the enterprise simultaneously. For enterprises with a large number of repositories, this can result in significant system load and potential performance degradation. If you manage a large enterprise with many organizations and repositories, we recommend applying security configurations at the organization level rather than at the enterprise level in the UI. This allows you to enable security features incrementally and monitor system performance as you roll out changes.
     - |
       On instances with multiple Git storage nodes in a voting configuration, including cluster and geo-replication high availability topologies, upgrading may fail to correctly install Actions that ship with the new version. In some cases, previous versions of these Actions remain on the instance. To resolve this issue, run the following commands on the primary node: `ghe-config --unset 'app.actions.actions-repos-sha1sum'`, `ghe-config-apply`, and `/usr/local/share/enterprise/ghe-run-init-actions-graph`.
-    - |
-      `git clone` may fail after upgrading to the {% data variables.product.prodname_ghe_server %} version 3.21 release candidate image.
 
   closing_down:
     # https://github.com/github/releases/issues/7007

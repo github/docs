@@ -48,8 +48,9 @@ category:
 
 The options available to you vary according to your role and {% data variables.product.github %} plan.
 
-{% data variables.product.github %} cloud:
-* Anyone can view usage data for their own personal account unless their account is managed by their enterprise (EMU).
+{% data variables.product.prodname_ghe_cloud %}:
+
+* Anyone can view usage data for their own personal account unless a license for a metered product (for example, {% data variables.product.prodname_copilot_short %}) is assigned to them by an organization or enterprise account.
 * If you are an **owner** or **billing manager** of an enterprise, or an organization on {% data variables.product.prodname_team %}, you will also have access to usage data for that organization or enterprise account.
 
 {% data variables.product.prodname_ghe_server %}:

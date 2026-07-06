@@ -35,7 +35,9 @@ While a migration is in progress, access to the destination repository is locked
 
 For information about how to unlock repositories that were locked by {% data variables.product.prodname_importer_proper_name %}, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#locked-repositories).
 
-## Repositories locked by {% data variables.product.prodname_elm %}
+## Repositories archived by {% data variables.product.prodname_elm %}
+
+In the latest {% data variables.product.prodname_ghe_server %} releases, {% data variables.product.prodname_elm %} archives, rather than locks, the source repository. This keeps the repository available for read operations.
 
 {% data reusables.elm.locked-repo %}
 

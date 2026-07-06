@@ -25,13 +25,15 @@
         "type": "string",
         "name": "pusher_type",
         "description": "<p>The pusher type for the event. Can be either <code>user</code> or a deploy key.</p>",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": []
       },
       {
         "type": "string",
         "name": "ref",
         "description": "<p>The <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/git/refs#get-a-reference\"><code>git ref</code></a> resource.</p>",
-        "isRequired": true
+        "isRequired": true,
+        "childParamsGroups": []
       },
       {
         "type": "string",
@@ -41,7 +43,8 @@
         "enum": [
           "tag",
           "branch"
-        ]
+        ],
+        "childParamsGroups": []
       },
       {
         "type": "object",

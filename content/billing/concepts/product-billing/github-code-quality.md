@@ -10,14 +10,20 @@ category:
   - Understand product costs
 ---
 
+<!-- expires 2026-07-20 -->
+
 > [!NOTE]
-> {% data variables.product.prodname_code_quality %} is currently in {% data variables.release-phases.public_preview %} and subject to change.
+> {% data variables.product.prodname_code_quality %} will become generally available on July 20, 2026, at which point usage will incur charges. To avoid being charged, disable {% data variables.product.prodname_code_quality_short %} before that date. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/disable-code-quality).
+
+<!-- end expires 2026-07-20 -->
 
 ## How use of {% data variables.product.prodname_code_quality %} is measured
 
-{% data variables.product.prodname_code_quality_short %} billing depends on whether the product is generally available or in {% data variables.release-phases.public_preview %}. The product is anticipated to move from public preview to generally available in July, 2026, and this page will be updated accordingly.
+<!-- expires 2026-07-20 -->
 
-### For the {% data variables.release-phases.public_preview %}
+{% data variables.product.prodname_code_quality_short %} billing depends on whether the product is generally available or in {% data variables.release-phases.public_preview %}. The feature will move from {% data variables.release-phases.public_preview %} to general availability on July 20, 2026.
+
+### During the {% data variables.release-phases.public_preview %} (until July 20, 2026)
 
 When you scan private repositories during the {% data variables.release-phases.public_preview %}, you **will not be billed** for {% data variables.product.prodname_ai_credits_short %} or active committer usage, but {% data variables.product.prodname_actions %} minutes **will be consumed**.
 
@@ -26,7 +32,12 @@ To view consumption of actions by the `{% data variables.code-quality.workflow_n
 > [!NOTE]
 > {% data reusables.code-quality.shared-workflow-preview %}
 
-### For general availability
+<!-- end expires 2026-07-20 -->
+
+<!-- expires 2026-07-20 -->
+### After general availability (from July 20, 2026)
+<!-- end expires 2026-07-20 -->
+<!-- On July 20, 2026, replace the heading above with a generic heading, such as "Billing for Code Quality" -->
 
 When {% data variables.product.prodname_code_quality_short %} is generally available, use of the product will incur three types of costs for an organization:
 * **{% data variables.product.prodname_actions %} minutes** — {% data variables.product.prodname_code_quality_short %} scans run as {% data variables.product.prodname_actions %} workflows and consume {% data variables.product.prodname_actions %} minutes, unless you use self-hosted runners. For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-actions).

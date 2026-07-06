@@ -24,23 +24,18 @@ contentType: concepts
 
 To help you triage alerts more effectively, {% data variables.product.company_short %} separates alerts into two lists:
 
-* **Default** alerts{% ifversion secret-scanning-generic-tab %}
-* **Generic** alerts{% elsif ghes = 3.16 %}
-* **Experimental** alerts{% endif %}
-
-{% ifversion ghes = 3.16 %}
-![Screenshot of the {% data variables.product.prodname_secret_scanning %} alert view. The button to toggle between "Default" and "Experimental" alerts is highlighted with an orange outline.](/assets/images/enterprise/3.16/help/security/secret-scanning-default-alert-view.png)
-{% endif %}
+* **Default** alerts
+* **Generic** alerts
 
 ### Default alerts list
 
 The default alerts list displays alerts that relate to supported patterns and specified custom patterns. This is the main view for alerts.
 
-### {% ifversion secret-scanning-generic-tab %}Generic{% elsif ghes = 3.16 %}Experimental{% endif %} alerts list
+### Generic alerts list
 
-The {% ifversion secret-scanning-generic-tab %}generic{% elsif ghes = 3.16 %}experimental{% endif %} alerts list displays alerts that relate to non-provider patterns (such as private keys){% ifversion secret-scanning-ai-generic-secret-detection %}, or generic secrets detected using AI (such as passwords){% endif %}. These types of alerts can have a higher rate of false positives or secrets used in tests. You can toggle to the {% ifversion secret-scanning-generic-tab %}generic{% elsif ghes = 3.16 %}experimental{% endif %} alerts list from the default alerts list.
+The generic alerts list displays alerts that relate to non-provider patterns (such as private keys){% ifversion secret-scanning-ai-generic-secret-detection %}, or generic secrets detected using AI (such as passwords){% endif %}. These types of alerts can have a higher rate of false positives or secrets used in tests. You can toggle to the generic alerts list from the default alerts list.
 
-{% data variables.product.github %} will continue to release new patterns and secret types to the {% ifversion secret-scanning-generic-tab %}generic{% elsif ghes = 3.16 %}experimental{% endif %} alerts list and will promote them to the default list when feature-complete (that is, when they have an appropriately low volume and false positive rate).
+{% data variables.product.github %} will continue to release new patterns and secret types to the generic alerts list and will promote them to the default list when feature-complete (that is, when they have an appropriately low volume and false positive rate).
 
 In addition, alerts that fall into this category:
 * Are limited in quantity to 5000 alerts per repository (this includes open and closed alerts).

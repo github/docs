@@ -19,6 +19,13 @@ You can export the current state of the dependency graph for your repository as 
 
 SBOMs include an inventory of a project's dependencies and associated information such as {% ifversion ghes %}versions and package identifiers{% else %}versions, package identifiers, licenses, transitive paths, and copyright information{% endif %}. SBOMs do not include dependents (other projects that rely on your project).
 
+{% ifversion ghec %}
+
+> [!NOTE]
+> {% data reusables.data-residency.dependency-graph-data-availability %}
+
+{% endif %}
+
 ## Exporting a software bill of materials for your repository from the UI
 
 {% data reusables.repositories.navigate-to-repo %}

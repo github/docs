@@ -170,15 +170,15 @@ describe('get-data', () => {
     {
       const result = getUIDataMerged('en')
       expect(result.key).toBe('Value')
-      expect(result.deep.er).toBe('Depth')
+      expect((result.deep as Record<string, string>).er).toBe('Depth')
     }
     // In a specific language
     {
       const result = getUIDataMerged('ja')
       expect(result.key).toBe('価値')
-      expect(result.deep.er).toBe('深さ')
+      expect((result.deep as Record<string, string>).er).toBe('深さ')
       // Note how it falls back to English on that key
-      expect(result.deep.est).toBe('Deepest')
+      expect((result.deep as Record<string, string>).est).toBe('Deepest')
     }
   })
 
@@ -186,8 +186,8 @@ describe('get-data', () => {
     // The most basic test
     {
       const result = getDeepDataByLanguage('variables', 'en')
-      expect(result.stuff.foo).toBe('Foo')
-      expect(result.stuff.bar).toBe('Bar')
+      expect((result.stuff as Record<string, string>).foo).toBe('Foo')
+      expect((result.stuff as Record<string, string>).bar).toBe('Bar')
     }
     // All reusables
     {

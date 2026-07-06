@@ -50,7 +50,7 @@ You can set up a staging instance to test modifications, plan for disaster recov
 
 ### 7. Designating backups and disaster recovery
 
-To protect your production data, you can configure automated backups of {% data variables.location.product_location %} with {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance).
+To protect your production data, you can configure automated backups of {% data variables.location.product_location %} with {% data variables.product.prodname_enterprise_backup_service %}. For more information, see [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/about-the-backup-service-for-github-enterprise-server).
 
 ### 8. Managing billing for your enterprise
 
@@ -112,7 +112,7 @@ You can implement required status checks and commit verifications to enforce you
 
 ### 4. Enabling {% data variables.product.prodname_GHAS %} features
 
-You can upgrade your {% data variables.product.prodname_ghe_server %} license to include {% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}{% else %}{% data variables.product.prodname_GHAS %}{% endif %}. Upgrading will provide extra features that help users find and fix security problems in their code, such as code and secret scanning. For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise).
+You can upgrade your {% data variables.product.prodname_ghe_server %} license to include {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}. Upgrading will provide extra features that help users find and fix security problems in their code, such as code and secret scanning. For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise).
 
 ## Part 4: Customizing and automating your enterprise's work on {% data variables.product.github %}
 

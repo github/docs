@@ -1,4 +1,6 @@
 import { GetServerSideProps } from 'next'
+import type { Response } from 'express'
+import type { ExtendedRequest } from '@/types'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
@@ -78,8 +80,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const { getInitialPageWebhooks } = await import('@/webhooks/lib')
   const { getAutomatedPageMiniTocItems } = await import('@/frame/lib/get-mini-toc-items')
 
-  const req = context.req as object
-  const res = context.res as object
+  const req = context.req as unknown as ExtendedRequest
+  const res = context.res as unknown as Response
   const currentVersion = context.query.versionId as string
   const mainContext = await getMainContext(req, res)
   addUINamespaces(req, mainContext.data.ui, ['parameter_table', 'webhooks'])

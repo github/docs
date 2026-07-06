@@ -78,9 +78,9 @@ You can end your trial at any time by purchasing {% data variables.product.prodn
 
 If you **purchase {% data variables.product.prodname_enterprise %}**:
 
-* You can use usage-based billing for {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %} products{% endif %}, which means you pay monthly for the number of licenses you use. You will not need to buy a predefined number of licenses in advance. See [AUTOTITLE](/billing/using-the-new-billing-platform/about-usage-based-billing-for-licenses).
+* You can use usage-based billing for {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_GHAS %} products, which means you pay monthly for the number of licenses you use. You will not need to buy a predefined number of licenses in advance. See [AUTOTITLE](/billing/using-the-new-billing-platform/about-usage-based-billing-for-licenses).
 
-  If you did not set up a free trial and you want to use usage-based billing to pay for {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %} products{% endif %} after the {% data variables.product.prodname_ghe_cloud %} trial ends, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
+  If you did not set up a free trial and you want to use usage-based billing to pay for {% data variables.product.prodname_GHAS %} products after the {% data variables.product.prodname_ghe_cloud %} trial ends, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
 
 * You can generate a {% data variables.product.prodname_ghe_server %} license file for the same quantity of users who are consuming a {% data variables.product.prodname_ghe_cloud %} license.
 

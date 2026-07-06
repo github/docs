@@ -38,20 +38,24 @@ spec:
       containers:
         - name: webapp
           image: docs-internal
+          # Retune using 2 weeks of data
+          # https://app.datadoghq.com/dashboard/6vx-iun-ghs/moda-resource-recommendations?tpl_var_kube_namespace%5B0%5D=docs-internal-production&from_ts=0&to_ts=1209600000&live=true
+          # Moda budget is requests * replicas * clusters
           resources:
             requests:
-              cpu: 1500m
-              # Absolute minimum to start app is 1000m
-              # Node is single-threaded but we want more CPUs
-              # for OS and image resizing, and other binary executions
-              # Better to increase replicas or memory than CPU
-              memory: 5000Mi
-              # Absolute minimum to start app is 4500Mi
-              # Would increase with more pages, versions, or languages supported
-              # The additional memory helps during traffic surges
+              # requests.cpu: median pod p99 (0.32 cores) * 2
+              # for failover headroom
+              cpu: 640m
+              # requests.memory: highest-peak pod p99 (4740Mi) * 1.1
+              # for working-set padding
+              memory: 5214Mi
             limits:
-              cpu: 8000m
-              memory: 14.0Gi
+              # limits.cpu: highest-peak pod max [warmup peak] (2.42 cores) * 3
+              # for start up insurance; compressible; does not count towards budget
+              cpu: 7260m
+              # limits.memory: highest-peak pod max (4813Mi) * 2
+              # over-limit means OOMkill; non-compressible
+              memory: 9626Mi
           ports:
             - name: http
               containerPort: 4000

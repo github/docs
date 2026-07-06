@@ -57,7 +57,7 @@ In order to use grouped security updates, you must first enable the following fe
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "{% ifversion ghas-products %}{% data variables.product.prodname_dependabot %}{% else %}{% data variables.product.UI_advanced_security %}{% endif %}," to the right of "Grouped security updates," click **Enable** to enable the feature or **Disable** to disable it.
+1. Under "{% data variables.product.prodname_dependabot %}," to the right of "Grouped security updates," click **Enable** to enable the feature or **Disable** to disable it.
 
 ### Enabling or disabling grouped {% data variables.product.prodname_dependabot_security_updates %} for an organization
 

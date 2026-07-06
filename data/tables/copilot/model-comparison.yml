@@ -33,15 +33,15 @@
   further_reading: '[GPT-5.5 model card](https://deploymentsafety.openai.com/gpt-5-5/gpt-5-5.pdf)'
 
 # Anthropic
+- name: Claude Fable 5
+  task_area: Long-horizon, autonomous coding and knowledge-work
+  excels_at: First-attempt correctness through upfront reasoning, aggressive parallel tool batching, and proactive verification of pre-existing test state before debugging
+  further_reading: '[Claude Fable 5 model card](https://anthropic.com/claude-fable-5-mythos-5-system-card)'
+
 - name: Claude Haiku 4.5
   task_area: Fast help with simple or repetitive tasks
   excels_at: Fast, reliable answers to lightweight coding questions
   further_reading: '[Claude Haiku 4.5 model card](https://assets.anthropic.com/m/99128ddd009bdcb/Claude-Haiku-4-5-System-Card.pdf)'
-
-- name: Claude Opus 4.6 (fast mode) (preview)
-  task_area: Deep reasoning and debugging
-  excels_at: Complex problem-solving challenges, sophisticated reasoning
-  further_reading: 'Not available'
 
 - name: Claude Opus 4.7
   task_area: Deep reasoning and debugging
@@ -49,6 +49,11 @@
   further_reading: '[Claude Opus 4.7 model card](https://cdn.sanity.io/files/4zrzovbb/website/037f06850df7fbe871e206dad004c3db5fd50340.pdf)'
 
 - name: Claude Opus 4.8
+  task_area: Deep reasoning and debugging
+  excels_at: Complex problem-solving challenges, sophisticated reasoning
+  further_reading: 'Not available'
+
+- name: Claude Opus 4.8 (fast mode) (preview)
   task_area: Deep reasoning and debugging
   excels_at: Complex problem-solving challenges, sophisticated reasoning
   further_reading: 'Not available'
@@ -62,6 +67,11 @@
   task_area: General-purpose coding and agent tasks
   excels_at: Complex problem-solving challenges, sophisticated reasoning
   further_reading: '[Claude Sonnet 4.6 model card](https://www-cdn.anthropic.com/78073f739564e986ff3e28522761a7a0b4484f84.pdf)'
+
+- name: Claude Sonnet 5
+  task_area: General-purpose coding and agent tasks
+  excels_at: Complex problem-solving challenges, sophisticated reasoning
+  further_reading: 'Not available'
 
 # Google
 - name: Gemini 2.5 Pro
@@ -100,3 +110,9 @@
   task_area: General-purpose coding and writing
   excels_at: Fast, accurate code completions and explanations
   further_reading: 'Coming soon'
+
+# Open-weight models
+- name: Kimi K2.7 Code
+  task_area: General-purpose coding and agent tasks
+  excels_at: Fast, reliable answers to lightweight coding questions
+  further_reading: '[Kimi K2.7 Code model card](https://huggingface.co/moonshotai/Kimi-K2.7-Code)'

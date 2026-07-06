@@ -1,7 +1,7 @@
 ---
-title: Configuring backups on your instance using Backup Utilities
+title: Configuring backups on your instance with Backup Utilities
 allowTitleToDifferFromFilename: true
-shortTitle: Configuring backups
+shortTitle: Backup Utilities (legacy)
 redirect_from:
   - /enterprise/admin/categories/backups-and-restores
   - /enterprise/admin/articles/backup-and-recovery
@@ -19,22 +19,13 @@ redirect_from:
   - /admin/configuration/configuring-your-enterprise/configuring-backups-on-your-instance
 intro: As part of a disaster recovery plan, you can protect production data on {% data variables.location.product_location %} by configuring automated backups.
 versions:
-  ghes: '*'
+  ghes: '< 3.22'
 contentType: how-tos
 category:
   - Back up and upgrade your instance
 ---
 
-{% ifversion ghes > 3.16 %}
-
-## About backup options for {% data variables.product.prodname_ghe_server %}
-
-{% data variables.product.company_short %} offers two options for backing up your {% data variables.product.prodname_ghe_server %} instance:
-
-* **{% data variables.product.prodname_enterprise_backup_utilities %}**: An open-source backup system that you install on a separate host. For more information, see the sections below.
-* **{% data variables.product.prodname_enterprise_backup_service %} (in {% data variables.release-phases.public_preview %})**: A managed backup service available in {% data variables.product.prodname_ghe_server %}. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/backup-service-for-github-enterprise-server).
-
-{% endif %}
+>[!IMPORTANT] [{% data variables.product.prodname_enterprise_backup_service %}](/admin/backing-up-and-restoring-your-instance/about-the-backup-service-for-github-enterprise-server) is now the preferred solution for backing up a {% data variables.product.prodname_ghe_server %} appliance. {% data variables.product.prodname_enterprise_backup_utilities %} is scheduled for removal in {% data variables.product.prodname_ghe_server %} version 3.22
 
 ## About {% data variables.product.prodname_enterprise_backup_utilities %}
 
@@ -58,7 +49,7 @@ Physical storage requirements will vary based on Git repository disk usage and e
 
 | Hardware | Recommendation |
 | -------- | --------- |
-| **vCPUs**  | 4 |
+| **vCPUs** | 4 |
 | **Memory** | 8 GB |
 | **Storage** | Five times the primary instance's allocated storage |
 

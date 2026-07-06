@@ -1,6 +1,38 @@
 {
   "mutations": [
     {
+      "name": "addPullRequestCreationCapBypassUsers",
+      "id": "addpullrequestcreationcapbypassusers",
+      "href": "/graphql/reference/pulls#mutation-addpullrequestcreationcapbypassusers",
+      "description": "<p>Add users to the pull request creation cap bypass list. Bypassed users can\ncreate pull requests regardless of the configured cap. Only repository admins\ncan manage the bypass list. You can add a maximum of 100 users per request.\nThe bypass list can only hold a maximum of 100 users.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddPullRequestCreationCapBypassUsersInput!",
+          "id": "addpullrequestcreationcapbypassusersinput",
+          "href": "/graphql/reference/pulls#input-object-addpullrequestcreationcapbypassusersinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "repository",
+          "type": "Repository",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository",
+          "description": "<p>The repository with the updated bypass list.</p>"
+        }
+      ],
+      "category": "pulls"
+    },
+    {
       "name": "addPullRequestReview",
       "id": "addpullrequestreview",
       "href": "/graphql/reference/pulls#mutation-addpullrequestreview",
@@ -614,6 +646,38 @@
           "id": "pullrequest",
           "href": "/graphql/reference/pulls#object-pullrequest",
           "description": "<p>The pull request that was merged.</p>"
+        }
+      ],
+      "category": "pulls"
+    },
+    {
+      "name": "removePullRequestCreationCapBypassUsers",
+      "id": "removepullrequestcreationcapbypassusers",
+      "href": "/graphql/reference/pulls#mutation-removepullrequestcreationcapbypassusers",
+      "description": "<p>Remove users from the pull request creation cap bypass list. Only repository admins can manage the bypass list.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "RemovePullRequestCreationCapBypassUsersInput!",
+          "id": "removepullrequestcreationcapbypassusersinput",
+          "href": "/graphql/reference/pulls#input-object-removepullrequestcreationcapbypassusersinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "repository",
+          "type": "Repository",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository",
+          "description": "<p>The repository with the updated bypass list.</p>"
         }
       ],
       "category": "pulls"
@@ -4893,6 +4957,61 @@
       "category": "pulls"
     },
     {
+      "name": "PullRequestCreationCapConfig",
+      "id": "pullrequestcreationcapconfig",
+      "href": "/graphql/reference/pulls#object-pullrequestcreationcapconfig",
+      "description": "<p>Users who are exempt from the pull request creation cap on a repository.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "bypassedUsers",
+          "description": "<p>Users who are exempt from the pull request creation cap.</p>",
+          "type": "UserConnection!",
+          "id": "userconnection",
+          "href": "/graphql/reference/users#object-userconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        }
+      ],
+      "category": "pulls"
+    },
+    {
       "name": "PullRequestEdge",
       "id": "pullrequestedge",
       "href": "/graphql/reference/pulls#object-pullrequestedge",
@@ -8616,6 +8735,38 @@
   ],
   "inputObjects": [
     {
+      "name": "AddPullRequestCreationCapBypassUsersInput",
+      "id": "addpullrequestcreationcapbypassusersinput",
+      "href": "/graphql/reference/pulls#input-object-addpullrequestcreationcapbypassusersinput",
+      "description": "<p>Autogenerated input type of AddPullRequestCreationCapBypassUsers.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The Node ID of the repository.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "userIds",
+          "description": "<p>The Node IDs of the users to add to the bypass list.</p>",
+          "type": "[ID!]!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "pulls"
+    },
+    {
       "name": "AddPullRequestReviewCommentInput",
       "id": "addpullrequestreviewcommentinput",
       "href": "/graphql/reference/pulls#input-object-addpullrequestreviewcommentinput",
@@ -9591,6 +9742,38 @@
           "type": "[RequiredReviewerConfigurationInput!]",
           "id": "requiredreviewerconfigurationinput",
           "href": "/graphql/reference/pulls#input-object-requiredreviewerconfigurationinput"
+        }
+      ],
+      "category": "pulls"
+    },
+    {
+      "name": "RemovePullRequestCreationCapBypassUsersInput",
+      "id": "removepullrequestcreationcapbypassusersinput",
+      "href": "/graphql/reference/pulls#input-object-removepullrequestcreationcapbypassusersinput",
+      "description": "<p>Autogenerated input type of RemovePullRequestCreationCapBypassUsers.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The Node ID of the repository.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "userIds",
+          "description": "<p>The Node IDs of the users to remove from the bypass list.</p>",
+          "type": "[ID!]!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
         }
       ],
       "category": "pulls"

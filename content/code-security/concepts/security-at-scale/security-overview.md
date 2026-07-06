@@ -64,7 +64,7 @@ There are dedicated views for each type of security alert. You can limit your an
 
 ## About security overview for organizations
 
-The application security team at your company can use the different views for both broad and specific analyses of your organization's security status. For example, the team can use the "Overview" dashboard view to track your organization's security landscape and progression. 
+The application security team at your company can use the different views for both broad and specific analyses of your organization's security status. For example, the team can use the "Overview" dashboard view to track your organization's security landscape and progression.
 
 You can find security overview on the **{% data variables.product.prodname_security_and_quality_tab %}** tab for any organization. Each view shows a summary of the data that you have access to. As you add filters, all data and metrics across the view change to reflect the repositories or alerts that you've selected.
 
@@ -72,8 +72,8 @@ Security overview has multiple views that provide different ways to explore enab
 
 * **Overview:** visualize trends in **Detection**, **Remediation**, and **Prevention** of security alerts. For information about accessing and using the dashboard, see [AUTOTITLE](/code-security/security-overview/viewing-security-insights). For detailed explanations of metrics and calculations, see [AUTOTITLE](/code-security/reference/security-at-scale/security-overview-dashboard-metrics).
 * **Risk:** explore the risk from security alerts of all types or focus on a single alert type and identify your risk from specific vulnerable dependencies, code weaknesses, or leaked secrets, see [AUTOTITLE](/code-security/security-overview/assessing-code-security-risk).
-* **Coverage:** assess the adoption of security features across repositories in the organization, see [AUTOTITLE](/code-security/security-overview/assessing-adoption-code-security).{% ifversion ghas-products %}{% ifversion secret-risk-assessment %}
-* **Assessments:** regardless of the enablement status of {% data variables.product.prodname_AS %} features, organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in the organization for leaked secrets, see [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment).{% endif %}{% endif %}{% ifversion security-campaigns %}
+* **Coverage:** assess the adoption of security features across repositories in the organization, see [AUTOTITLE](/code-security/security-overview/assessing-adoption-code-security).{% ifversion secret-risk-assessment %}
+* **Assessments:** regardless of the enablement status of {% data variables.product.prodname_AS %} features, organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in the organization for leaked secrets, see [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment).{% endif %}{% ifversion security-campaigns %}
 * **Campaigns:** coordinate and measure targeted remediation efforts, grouping related security tasks across repositories, assigning owners, and tracking progress toward defined risk‑reduction goals.{% endif %}
 * **Enablement:** see how quickly different teams are adopting security features.
 * **{% data variables.product.prodname_codeql %} pull requests:** assess the impact of running {% data variables.product.prodname_codeql %} on pull requests and how development teams are resolving {% data variables.product.prodname_code_scanning %} alerts, see [AUTOTITLE](/code-security/security-overview/viewing-metrics-for-pull-request-alerts).{% ifversion dependabot-metrics %}

@@ -17,7 +17,7 @@ sections:
 
         # https://github.com/github/releases/issues/4888
         - |
-          The backup service, previously in public preview, is now generally available in {% data variables.product.prodname_ghe_server %} 3.20. The managed, built-in service provides an alternative to {% data variables.product.prodname_ghe_server %} backup utilities and does not require a separate host for backup software. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/backup-service-for-github-enterprise-server/about-the-backup-service-for-github-enterprise-server). Please note that [Backup Utilities](https://github.com/github/backup-utils/) will be retired starting in version 3.22. 
+          The backup service, previously in public preview, is now generally available in {% data variables.product.prodname_ghe_server %} 3.20. The managed, built-in service provides an alternative to {% data variables.product.prodname_ghe_server %} backup utilities and does not require a separate host for backup software. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/about-the-backup-service-for-github-enterprise-server). Please note that [Backup Utilities](https://github.com/github/backup-utils/) will be retired starting in version 3.22. 
 
         # https://github.com/github/releases/issues/8043
         - |

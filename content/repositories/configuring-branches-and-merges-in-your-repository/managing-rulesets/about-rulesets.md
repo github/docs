@@ -24,11 +24,7 @@ For organizations on the {% data variables.product.prodname_enterprise %} plan, 
 
 {% endif %}
 
-{% ifversion push-rulesets %}
-
 You can use rulesets to target branches or tags in a repository or to block pushes to a repository and the repository's entire fork network.
-
-{% endif %}
 
 {% ifversion push-rule-delegated-bypass %}
 
@@ -42,13 +38,9 @@ You can create rulesets to control how people can interact with selected branche
 
 For each ruleset you create, you specify which branches or tags in your repository{% ifversion repo-rules-enterprise %}, or which repositories in your organization,{% endif %} the ruleset applies to. You can use `fnmatch` syntax to define a pattern to target specific {% ifversion repo-rules-enterprise %}branches, tags, and repositories{% else %}branches and tags{% endif %}. For example, you could use the pattern `releases/**/*` to target all branches in your repository whose name starts with the string `releases/`. For more information on `fnmatch` syntax, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#using-fnmatch-syntax).
 
-{% ifversion push-rulesets %}
-
 ### Push rulesets
 
 {% data reusables.repositories.push-rulesets-overview %}
-
-{% endif %}
 
 ## About rulesets and protected branches
 
