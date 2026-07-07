@@ -1534,3 +1534,38 @@ test.describe('Non-child page resolution', () => {
     // The detailed sidebar filtering is tested by the survey test which verifies no duplicate entries
   })
 })
+
+test.describe('copy as markdown button', () => {
+  // The article-body fetch backing this button is served for this fixture page
+  // (see src/fixtures/tests/api-article-body.ts), so the copy path succeeds.
+  const articlePath = '/en/get-started/start-your-journey/api-article-body-test-page'
+
+  test('swaps the copy icon for a checkmark after a successful copy', async ({ page, context }) => {
+    // The click handler writes the article markdown to the clipboard.
+    await context.grantPermissions(['clipboard-read', 'clipboard-write'])
+
+    await page.goto(articlePath)
+    await turnOffExperimentsInPage(page)
+
+    const copyButton = page.getByRole('button', { name: 'Copy as Markdown' })
+    await expect(copyButton).toBeVisible()
+
+    // Before clicking, the leading icon is the copy icon, not the checkmark.
+    await expect(copyButton.locator('.octicon-copy')).toBeVisible()
+    await expect(copyButton.locator('.octicon-check')).toHaveCount(0)
+
+    await copyButton.click()
+
+    // After a successful copy, the icon swaps to a checkmark...
+    await expect(copyButton.locator('.octicon-check')).toBeVisible()
+    await expect(copyButton.locator('.octicon-copy')).toHaveCount(0)
+
+    // ...and the article markdown lands on the clipboard.
+    const clipboardText = await page.evaluate(() => navigator.clipboard.readText())
+    expect(clipboardText).toContain('About GitHub')
+
+    // The checkmark is temporary and reverts to the copy icon (2s timeout).
+    await expect(copyButton.locator('.octicon-copy')).toBeVisible({ timeout: 5000 })
+    await expect(copyButton.locator('.octicon-check')).toHaveCount(0)
+  })
+})

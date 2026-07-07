@@ -1,4 +1,21 @@
 {
+  "enterprise_copilot_usage": {
+    "title": "Copilot usage records",
+    "displayTitle": "Enterprise permissions for \"Copilot usage records\"",
+    "permissions": [
+      {
+        "category": "copilot",
+        "slug": "get-copilot-usage-records-for-an-enterprise",
+        "subcategory": "copilot-usage-metrics",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/copilot/usage-records",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      }
+    ]
+  },
   "enterprise_custom_enterprise_roles": {
     "title": "Custom enterprise roles",
     "displayTitle": "Enterprise permissions for \"Custom enterprise roles\"",
@@ -7343,7 +7360,7 @@
         "subcategory": "repos",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/bypass-list",
-        "access": "read",
+        "access": "write",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false

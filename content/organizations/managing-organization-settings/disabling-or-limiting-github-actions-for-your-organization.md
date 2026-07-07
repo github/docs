@@ -75,6 +75,18 @@ If a repository already has self-hosted runners when you disable their use, thes
    1. Select the check boxes for the repositories for which you want to allow self-hosted runners.
    1. Click **Select repositories**.
 
+## Disabling standard hosted runners
+
+You can disable standard {% data variables.product.github %}-hosted runners at the organization level. This setting requires workflows to target runners through runner groups and helps enforce consistent access controls and governance.
+
+For information about job concurrency limits for {% data variables.product.github %}-hosted runners, see [AUTOTITLE](/actions/reference/limits#job-concurrency-limits-for-github-hosted-runners).
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
+1. Scroll to the "Standard hosted runners" section and click **Disable for all repositories**.
+1. Click **Save**.
+
 {% ifversion fpt or ghec %}
 
 ## Configuring required approval for workflows from public forks

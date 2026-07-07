@@ -28,7 +28,7 @@ Contributing rules:
 `annotate` must come before the `highlight` plugin.
 */
 
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import fs from 'fs'
 import { chunk, last } from 'lodash-es'
 import { visit } from 'unist-util-visit'
@@ -83,7 +83,7 @@ interface ElementNode {
   }
 }
 
-const languages = yaml.load(fs.readFileSync('./data/code-languages.yml', 'utf8')) as Record<
+const languages = load(fs.readFileSync('./data/code-languages.yml', 'utf8')) as Record<
   string,
   LanguageConfig
 >

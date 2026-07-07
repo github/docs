@@ -112,6 +112,18 @@ In the "Runners" section, you can mediate these risks by disabling the use of re
 
 {% data reusables.actions.disable-selfhosted-runners-note %}
 
+## Disabling standard hosted runners
+
+You can disable standard {% data variables.product.github %}-hosted runners at the enterprise level. This setting requires workflows to target runners through runner groups and helps enforce consistent access controls and governance.
+
+For information about job concurrency limits for {% data variables.product.github %}-hosted runners, see [AUTOTITLE](/actions/reference/limits#job-concurrency-limits-for-github-hosted-runners).
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+1. Scroll to the "Standard hosted runners" section and click **Disable for all organizations**.
+1. Click **Save**.
+
 ## Custom images
 
 In the "Custom images" section, you can control which organizations in your enterprise are allowed to create and manage custom images with the following access policy:

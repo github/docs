@@ -1,6 +1,7 @@
 import { useTranslation } from '@/languages/components/useTranslation'
 import { GraphqlItem } from './GraphqlItem'
 import type { EnumT } from './types'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type Props = {
   item: EnumT
@@ -26,11 +27,7 @@ export function Enum({ item, headingLevel = 2 }: Props) {
               <td>
                 <code>{value.name}</code>
               </td>
-              <td
-                dangerouslySetInnerHTML={{
-                  __html: value.description,
-                }}
-              />
+              <RenderedHTML as="td" html={value.description} />
             </tr>
           ))}
         </tbody>

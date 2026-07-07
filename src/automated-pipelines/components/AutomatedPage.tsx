@@ -22,6 +22,7 @@ export const AutomatedPage = ({ children, rawChildren, fullWidth }: Props) => {
     title,
     intro,
     renderedPage,
+    renderedPageHast,
     miniTocItems,
     product,
     permissions,
@@ -33,7 +34,11 @@ export const AutomatedPage = ({ children, rawChildren, fullWidth }: Props) => {
 
   const articleContents = (
     <div id="article-contents">
-      {renderedPage && <MarkdownContent className="pt-3 pb-4">{renderedPage}</MarkdownContent>}
+      {(renderedPage || renderedPageHast) && (
+        <MarkdownContent className="pt-3 pb-4" hast={renderedPageHast ?? undefined}>
+          {renderedPage}
+        </MarkdownContent>
+      )}
       {children && <MarkdownContent className="pt-3 pb-4">{children}</MarkdownContent>}
       {rawChildren && <div className="pt-3 pb-4">{rawChildren}</div>}
     </div>

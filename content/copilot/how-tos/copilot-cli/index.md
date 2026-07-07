@@ -21,6 +21,7 @@ children:
   - /automate-copilot-cli
   - /customize-copilot
   - /administer-copilot-cli-for-your-enterprise
+  - /use-copilot-cli-in-actions
   - /automate-copilot-cli/automate-with-actions
   - /automate-copilot-cli/quickstart
   - /automate-copilot-cli/run-cli-programmatically
@@ -35,6 +36,7 @@ children:
   - /content/copilot/concepts/agents/copilot-cli/chronicle
   - /content/copilot/concepts/agents/copilot-cli/comparing-cli-features
   - /content/copilot/concepts/agents/copilot-cli/context-management
+  - /content/copilot/concepts/agents/copilot-cli/tool-search
   - /content/copilot/concepts/agents/copilot-cli/fleet
   - /content/copilot/concepts/agents/copilot-cli/lsp-servers
   - /content/copilot/concepts/agents/copilot-cli/research
@@ -75,6 +77,7 @@ children:
   - /use-copilot-cli/speed-up-task-completion
   - /use-copilot-cli/steer-agents
   - /use-copilot-cli/steer-remotely
+  - /use-copilot-cli/set-session-limit
 carousels:
   recommended:
     - /copilot/how-tos/copilot-cli/use-copilot-cli/overview

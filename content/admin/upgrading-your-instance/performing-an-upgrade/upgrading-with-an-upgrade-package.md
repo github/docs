@@ -95,3 +95,26 @@ To upgrade a multi-node {% data variables.product.prodname_ghe_server %} environ
 {% data reusables.enterprise_installation.replication-status %} {% data reusables.enterprise_installation.replication-status-upgrade %}
 {% data reusables.enterprise_installation.multiple-node-repeat-upgrade-process %}
 {% data reusables.enterprise_installation.disable-maintenance-mode-after-replica-upgrade %}
+
+## Upgrading an instance using phased upgrade execution
+
+Phased upgrade execution allows {% data variables.product.prodname_ghe_server %} operators running versions 3.22 or greater better control over downtime-inducing actions by isolating those actions to their own phase. To use phased execution perform the following after downloading the upgrade package:
+1. Run the package's pre-upgrade phase
+
+   ```shell
+   ghe-upgrade --phase pre-upgrade GITHUB-UPGRADE.pkg
+   ```
+
+1. Enable maintenance mode and wait for all active processes to complete on the {% data variables.product.prodname_ghe_server %} instance. See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
+
+   > [!NOTE] When upgrading the primary node in a high availability configuration, the instance should already be in maintenance mode if you are following the instructions in [Upgrading the primary node with an upgrade package](#upgrading-the-primary-node-with-an-upgrade-package).
+1. Run the upgrade phase
+
+   ```shell
+   ghe-upgrade --phase pre-upgrade GITHUB-UPGRADE.pkg
+   ```
+
+1. Optionally, after the upgrade, validate the upgrade by configuring an IP exception list to allow access to a specified list of IP addresses. See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list).
+1. For single node upgrades, perform any post-upgrade tasks including disabling maintenance mode so users can use {% data variables.location.product_location %}.
+
+    > [!NOTE] After you upgrade an instance in a high availability configuration, you should remain in maintenance mode until you have upgraded all of the replica nodes and replication is current. See [Upgrading additional nodes with an upgrade package](#upgrading-additional-nodes-with-an-upgrade-package).

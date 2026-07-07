@@ -9,6 +9,7 @@ export type AutomatedPageContextT = {
   title: string
   intro: string
   renderedPage: string | JSX.Element[]
+  renderedPageHast?: import('hast').Root | null
   miniTocItems: Array<MiniTocItem>
   product?: string
   permissions?: string
@@ -57,6 +58,7 @@ export const getAutomatedPageContextFromRequest = (
     title: page.title,
     intro: page.intro,
     renderedPage,
+    renderedPageHast: context.renderedPageHast ?? null,
     miniTocItems,
     product: page.product ?? '',
     permissions: page.permissions ?? page.rawPermissions ?? '',

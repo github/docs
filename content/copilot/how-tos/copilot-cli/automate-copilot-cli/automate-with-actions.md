@@ -17,11 +17,18 @@ docsTeamMetrics:
 
 You can run {% data variables.copilot.copilot_cli %} in a {% data variables.product.prodname_actions %} workflow to automate AI-powered tasks as part of your CI/CD process. For example, you can summarize recent repository activity, generate reports, or scaffold project content. {% data variables.copilot.copilot_cli %} runs on the Actions runner like any other CLI tool, so you can install it during a job and invoke it from workflow steps.
 
+## Recommended approach: {% data variables.product.github %} Agentic Workflows
+
+For most automation use cases, we recommend using [{% data variables.product.github %} Agentic Workflows](https://github.com/github/gh-aw) rather than invoking `copilot` directly in workflow steps. Agentic workflows use `GITHUB_TOKEN` authentication by default and include additional guardrails suited for automated environments.
+
+For setup instructions, see [Quick Start](https://github.github.com/gh-aw/setup/quick-start/) in the {% data variables.product.github %} Agentic Workflows documentation.
+
 ## Using {% data variables.copilot.copilot_cli_short %} in an Actions workflow
 
 You can define a job in a {% data variables.product.prodname_actions %} workflow that: installs {% data variables.copilot.copilot_cli_short %} on the runner, authenticates it, runs it in programmatic mode, and then handles the results. Programmatic mode is designed for scripts and automation and lets you pass a prompt non-interactively.
 
 Workflows can follow this pattern:
+
 1. **Trigger**: Start the workflow on a schedule, in response to repository events, or manually.
 1. **Setup**: Checkout code, set up environment.
 1. **Install**: Install {% data variables.copilot.copilot_cli %} on the runner.
@@ -118,14 +125,19 @@ In this example, the workflow installs {% data variables.copilot.copilot_cli %} 
 
 ## Authenticate
 
-To allow {% data variables.copilot.copilot_cli_short %} to run on an Actions runner, you need to authenticate a {% data variables.product.github %} user account with a valid {% data variables.product.prodname_copilot_short %} license.
+To allow {% data variables.copilot.copilot_cli_short %} to run on an Actions runner, you need to provide authentication credentials. There are two options:
 
-**Step 1: Create a {% data variables.product.pat_generic %} (PAT) with the "Copilot Requests" permission:**
+* **Using `GITHUB_TOKEN`** (recommended for organization-owned repositories): No PAT or stored secrets required. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli-in-actions).
+* **Using a {% data variables.product.pat_generic %}**: An alternative to `GITHUB_TOKEN`, for example if your organization has not enabled the policy, or if you want usage billed to a specific user's {% data variables.product.prodname_copilot_short %} seat. Follow the steps below.
+
+**Step 1: Create a {% data variables.product.pat_generic %} (PAT) with the "{% data variables.product.prodname_copilot_short %} Requests" permission:**
+
 1. Go to your personal settings for creating a {% data variables.product.pat_v2 %}: [github.com/settings/personal-access-tokens/new](https://github.com/settings/personal-access-tokens/new?ref_product=copilot&ref_type=engagement&ref_style=text).
-1. Create a new PAT with the "Copilot Requests" permission.
+1. Create a new PAT with the "{% data variables.product.prodname_copilot_short %} Requests" permission.
 1. Copy the token value.
 
 **Step 2: Store the PAT as an Actions repository secret:**
+
 1. In your repository, go to **Settings** > **Secrets and variables** > **Actions** and click **New repository secret**.
 1. Give the secret a name that you will use in the workflow. In this example we're using `PERSONAL_ACCESS_TOKEN` as the name of the secret.
 1. Paste the token value into the "Secret" field and click **Add secret**.

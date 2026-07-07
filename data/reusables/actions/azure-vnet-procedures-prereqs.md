@@ -2,24 +2,51 @@ You will use a script to automate configuring your Azure resources.
 
 ### Prerequisites
 
-* Use an Azure account with the Subscription Contributor role and the Network Contributor role. These roles enable you to register the `GitHub.Network` resource provider and delegate the subnet. For more information, see [Azure built-in roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles) on Microsoft Learn.
+* Use an Azure account with the Subscription Contributor role and the Network Contributor role. These roles enable you to register the `GitHub.Network` resource provider and delegate the subnet. For more information, see [Azure built-in roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles) in the Azure documentation.
 
 * To correctly associate the subnets with the right user, Azure `NetworkSettings` resources must be created in the same subscriptions where virtual networks are created.
 
 * To ensure resource availability/data residency, resources must be created in the same Azure region.
 
-* Outbound network traffic from the subnet **must not** be subject to TLS interception as our Virtual Machines will not be configured to trust intermediate certificates that your network uses to perform TLS interception. For more details, see [Certificates used by Azure Firewall Premium](https://learn.microsoft.com/en-us/azure/firewall/premium-certificates#certificates-used-by-azure-firewall-premium) in the Microsoft documentation.
-   
+* Outbound network traffic from the subnet **must not** be subject to TLS interception as our Virtual Machines will not be configured to trust intermediate certificates that your network uses to perform the interception.
+
    If you need to use TLS interception, you can install intermediate certificates via a custom image. See [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners/use-custom-images).
 
-* Save the following `.bicep` file. Name the file `actions-nsg-deployment.bicep`.
+* We recommend some level of network traffic control over your Azure VNET and to use DNS/domain-based controls. The previously recommended IP addresses will be closed on or after July 1, 2026. 
+
+
+#### DNS/domain control (recommended)
+
+If you control the outbound access of your {% data variables.product.company_short %}-hosted runners with Azure VNET using DNS or domains, you allow-list a set of domains for {% data variables.product.prodname_actions %} functionality. This is the recommended approach because the domains are published on the {% data variables.product.github %} meta endpoint, which {% data variables.product.github %} keeps up to date as network requirements change. For a breakdown of the domains by function, see the "Communication" section in [AUTOTITLE](/actions/reference/runners/self-hosted-runners#communication).
+
+You can find the domains to allow-list on the {% data variables.product.github %} meta endpoint at [https://api.github.com/meta](https://api.github.com/meta). For more information on the meta endpoint, see [AUTOTITLE](/rest/meta/meta#get-github-meta-information).
+
+There are three sections on the meta endpoint you can choose to allow-list based on:
+
+* `domains.actions_inbound.full_domains`: An extremely specific list of exact domains needed for {% data variables.product.prodname_actions %} functionality, with no wildcarded domains.
+* `domains.actions`: A middle-ground domain list, with some {% data variables.product.github %}-owned domains wildcarded, but other domains listed specifically.
+* `domains.actions_inbound.wildcard_domains`: A list with primarily wildcarded domains. This will be the most stable from a domain change perspective.
+
+> [!WARNING]
+> Required domains on the meta endpoint are subject to change. {% data variables.product.github %} ensures a domain is on the meta endpoint for at least one week before it goes into use. The meta endpoint does not provide a "last updated" date, so you cannot rely on a timestamp to detect changes.
+>
+> If you plan to use the more specific domain lists, you must check for new domains on a weekly basis and update your network control systems appropriately, or your {% data variables.product.prodname_actions %} jobs may experience unintended issues. Because new domains are published at least a week before they are required, a weekly check leaves enough lead time to apply changes before they take effect. The middle-ground list that allows for some {% data variables.product.github %} domain wildcards will be much more stable, and the full wildcard list should see very little change.
+
+You can use any technology of your choice for doing DNS/domain control on your Azure VNET. This guidance is for the minimal required domains for basic functionality; you may need to add more domains to your allow-list system for additional scenarios.
+
+#### IP address controls
+
+> [!WARNING]
+> The IP-based `.bicep` template below is {% data variables.release-phases.closing_down %} and will be removed on or after July 1, 2026. It remains available to support migration to DNS/domain-based control (see "DNS/domain control" above). Customers who hard-code or template this IP list (for example, in Terraform) are at risk of broken traffic when the underlying Azure IP ranges change, because this static list is not kept up to date. Migrate to the meta endpoint domains before this template is removed.
+
+  > [!NOTE]
+ > To determine the appropriate subnet IP address range, we recommend adding a 30% buffer to the maximum job concurrency you anticipate. For instance, if your network configuration's runners are set to a maximum job concurrency of 300, it's recommended to utilize a subnet IP address range that can accommodate at least 390 runners. This buffer helps ensure that your network can handle unexpected increases in VM needs to meet job concurrency without running out of IP addresses.
+
+If you control outbound access using IP addresses during the transition period, save the following `.bicep` file. Name the file `actions-nsg-deployment.bicep`.
 
   The `.bicep` file we provide contains the minimal set of rules to use {% data variables.product.company_short %}-hosted runners with Azure VNET. You may need to add rules for your specific use case.
 
   If you use {% data variables.enterprise.data_residency %}, in the `AllowOutBoundGitHub` section, you must also include the ingress IP ranges for {% data variables.enterprise.data_residency_site %}. See [AUTOTITLE](/admin/data-residency/network-details-for-ghecom#ranges-for-ingress-traffic).
-
-  > [!NOTE]
-  > As an alternative to using the following file, to allow {% data variables.product.prodname_actions %} to communicate with the runners, you can allow the same firewall domains that are required for communication between self-hosted runners and {% data variables.product.github %}. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/communicating-with-self-hosted-runners). To determine the appropriate subnet IP address range, we recommend adding a 30% buffer to the maximum job concurrency you anticipate. For instance, if your network configuration's runners are set to a maximum job concurrency of 300, it's recommended to utilize a subnet IP address range that can accommodate at least 390 runners. This buffer helps ensure that your network can handle unexpected increases in VM needs to meet job concurrency without running out of IP addresses.
 
   ```bicep copy
   @description('NSG for outbound rules')

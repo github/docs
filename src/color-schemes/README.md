@@ -35,6 +35,15 @@ Primer React uses slightly different terminology than the underlying CSS or the 
 - CSS `light` -> Component `day`
 - CSS `dark` -> Component `night`
 
+### Pre-paint Inline Script
+
+`useTheme` only runs after the React bundle hydrates, so the page would first paint with the SSR default theme and then switch, causing a visible flash. To avoid that, `src/color-schemes/lib/color-mode-script.ts` exports `colorModeScript`: a small synchronous script that `_document.tsx` inlines in the `<head>`. It runs before the first paint, reads the `color_mode` cookie, and sets `data-color-mode`, `data-light-theme`, and `data-dark-theme` on `<html>`.
+
+Key properties:
+- **Cache-safe**: The script is identical for every request, so the HTML stays shared-cacheable in the CDN. The theme is never server-rendered from the cookie (that would vary per user and poison the cache).
+- **No drift**: Its validation allowlists and defaults are derived from the same `CssColorMode`, `SupportedTheme`, and `defaultCSSTheme` exports used by `useTheme`. A test in `tests/color-mode-script.ts` runs the script against a fake `document` and asserts parity with `getCssTheme`.
+- **CSP**: Because the script is inline, `src/frame/middleware/helmet.ts` adds its `sha256` hash to the `script-src` directive. The hash is computed from the exact script string at startup, so it never needs manual maintenance, and a hash (not a nonce) keeps the response cacheable.
+
 ## Setup & Usage
 
 To access the current theme in a component:
@@ -66,7 +75,8 @@ This hook is primarily used at the root of the application (e.g., in `src/frame/
 
 ## Current State & Known Issues
 
-- **Hydration Mismatch / Flash of Unstyled Content**: Since the theme is read from a cookie on the client side (in `useEffect`), there can be a brief moment where the default theme is applied before the user's preference loads.
+- **Page background flash (fixed)**: The page-level theme (the `<html>` `data-*` attributes that drive the background color) is now set before first paint by the inline `colorModeScript`, so there is no longer a light-to-dark flash of the page background on load.
+- **Primer component theming**: Primer React components still resolve their theme from the post-hydration `useTheme` state, so component-level theming applies slightly after the page background. The `setTimeout` workaround below is still required for that path.
 - **Race Condition Workaround**: There is a `setTimeout` hack in `useTheme.ts` to delay the theme application. This is necessary to prevent Primer React's internal logic from overriding the user's preference with `auto` on initial load.
   - *Reference*: [Primer React Issue #2229](https://github.com/primer/react/issues/2229)
 - **Future**: The long-term goal is to rely entirely on CSS variables, removing the need for complex JavaScript state management for theming.

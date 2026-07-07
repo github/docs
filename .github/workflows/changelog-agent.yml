@@ -591,7 +591,7 @@ jobs:
               body: prBody,
               head: branchName,
               base: 'main',
-              draft: true,
+              draft: false,
             });
 
             // Add labels
@@ -600,22 +600,22 @@ jobs:
                 owner: 'github',
                 repo: 'docs-content',
                 issue_number: pullRequest.number,
-                labels: ['ready-for-doc-review', 'skip FR board', 'llm-generated'],
+                labels: ['skip FR board', 'llm-generated'],
               });
             } catch (err) {
               core.warning(`Failed to add labels: ${err.message}`);
             }
 
-            // Assign to PR author
+            // Request review from PR author
             try {
-              await github.rest.issues.addAssignees({
+              await github.rest.pulls.requestReviewers({
                 owner: 'github',
                 repo: 'docs-content',
-                issue_number: pullRequest.number,
-                assignees: [process.env.PR_AUTHOR],
+                pull_number: pullRequest.number,
+                reviewers: [process.env.PR_AUTHOR],
               });
             } catch (err) {
-              core.warning(`Failed to assign PR to @${process.env.PR_AUTHOR}: ${err.message}`);
+              core.warning(`Failed to request review from @${process.env.PR_AUTHOR}: ${err.message}`);
             }
 
             core.setOutput('changelog_pr_url', pullRequest.html_url);

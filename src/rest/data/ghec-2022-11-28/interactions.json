@@ -602,7 +602,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists the users that are on the pull request creation cap bypass list for a\nrepository. Users on this list can create pull requests regardless of any\nconfigured pull request creation cap.</p>\n<p>Only repository admins can view the bypass list.</p>",
+      "descriptionHTML": "<p>Lists the users that are on the pull request creation cap bypass list for a\nrepository. Users on this list can create pull requests regardless of any\nconfigured pull request creation cap.</p>\n<p>Only users with maintainer permissions can view the bypass list.</p>",
       "codeExamples": [
         {
           "request": {
@@ -777,7 +777,7 @@
         "fineGrainedPat": true,
         "permissions": [
           {
-            "\"Administration\" repository permissions": "read"
+            "\"Administration\" repository permissions": "write"
           }
         ]
       }
@@ -817,7 +817,7 @@
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>Adds users to the pull request creation cap bypass list for a repository.\nUsers on this list can create pull requests regardless of any configured\npull request creation cap.</p>\n<p>Only repository admins can modify the bypass list.\nYou can add a maximum of 100 users per request.\nThe bypass list can only hold a maximum of 100 users.</p>",
+      "descriptionHTML": "<p>Adds users to the pull request creation cap bypass list for a repository.\nUsers on this list can create pull requests regardless of any configured\npull request creation cap.</p>\n<p>Only users with maintainer permissions can modify the bypass list.\nYou can add a maximum of 100 users per request.\nThe bypass list can only hold a maximum of 100 users.</p>",
       "codeExamples": [
         {
           "request": {
@@ -906,7 +906,7 @@
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>Removes users from the pull request creation cap bypass list for a repository.\nRemoved users will be subject to any configured pull request creation cap.</p>\n<p>Only repository admins can modify the bypass list.\nYou can remove a maximum of 100 users per request.</p>",
+      "descriptionHTML": "<p>Removes users from the pull request creation cap bypass list for a repository.\nRemoved users will be subject to any configured pull request creation cap.</p>\n<p>Only users with maintainer permissions can modify the bypass list.\nYou can remove a maximum of 100 users per request.</p>",
       "codeExamples": [
         {
           "request": {

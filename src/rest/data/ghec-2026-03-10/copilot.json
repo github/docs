@@ -3566,6 +3566,190 @@
     {
       "serverUrl": "https://api.github.com",
       "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/usage-records",
+      "title": "Get Copilot usage records for an enterprise",
+      "category": "copilot",
+      "subcategory": "copilot-usage-metrics",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "phrase",
+          "description": "<p>A search phrase to filter usage records. Supported qualifiers: <code>type</code> (request/response), <code>user_id</code>, <code>created</code>.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page (max 25). Values are clamped to the range <code>[1, 25]</code>.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer",
+            "default": 25
+          }
+        },
+        {
+          "name": "after",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for events after this cursor.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "before",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for events before this cursor.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "order",
+          "description": "<p>The order of audit log events. To list newest events first, specify <code>desc</code>. To list oldest events first, specify <code>asc</code>.</p>\n<p>The default is <code>desc</code>.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "enum": [
+              "desc",
+              "asc"
+            ]
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Use this endpoint to retrieve Copilot agent session activity records for a specific enterprise. The endpoint provides comprehensive observability into Copilot session data across your enterprise.</p>\n<p>The response includes detailed usage records aggregated and forwarded from all Copilot clients where your end users operate under enterprise-paid Copilot licenses. This includes cloud agents operating on github.com and data resident deployments on ghe.com, Copilot CLI, VS Code, Visual Studio, and partner IDEs such as those provided by JetBrains and Eclipse.</p>\n<p>Only EMU (GHEC and GHEC with Data Residency) enterprise owners can access this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:enterprise</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": [
+              {
+                "type": "request",
+                "user_id": 12345,
+                "enterprise_id": 1,
+                "github_request_id": "req-abc-123",
+                "endpoint": "/chat/completions",
+                "body": "{\"messages\":[{\"role\":\"user\",\"content\":\"Hello\"}]}",
+                "@timestamp": 1719600000000
+              },
+              {
+                "type": "response",
+                "user_id": 12345,
+                "enterprise_id": 1,
+                "github_request_id": "req-abc-123",
+                "endpoint": "/chat/completions",
+                "body": "{\"choices\":[{\"message\":{\"content\":\"Hi there!\"}}]}",
+                "@timestamp": 1719600000500
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "description": "The record type (request or response)."
+                  },
+                  "user_id": {
+                    "type": "integer",
+                    "description": "The ID of the user who made the request."
+                  },
+                  "enterprise_id": {
+                    "type": "integer",
+                    "description": "The ID of the enterprise."
+                  },
+                  "github_request_id": {
+                    "type": "string",
+                    "description": "The GitHub request ID."
+                  },
+                  "endpoint": {
+                    "type": "string",
+                    "description": "The API endpoint called."
+                  },
+                  "body": {
+                    "type": "string",
+                    "description": "The request or response body."
+                  },
+                  "@timestamp": {
+                    "type": "integer",
+                    "description": "Milliseconds since Unix epoch."
+                  },
+                  "event_id": {
+                    "type": "string",
+                    "description": "The source-assigned event ID."
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Copilot usage records\" enterprise permissions": "read"
+          },
+          {
+            "\"Enterprise administration\" enterprise permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
       "requestPath": "/orgs/{org}/copilot/metrics/reports/organization-1-day",
       "title": "Get Copilot organization usage metrics for a specific day",
       "category": "copilot",

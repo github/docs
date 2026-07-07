@@ -37,7 +37,7 @@
         },
         {
           "name": "scope",
-          "description": "<p>Filter budgets by scope type.</p>",
+          "description": "<p>Filter budgets by scope type.</p>\n<ul>\n<li><code>organization</code>: Budgets scoped to the organization.</li>\n<li><code>repository</code>: Budgets scoped to a repository.</li>\n<li><code>multi_user_customer</code>: Universal budgets that apply to all users in the organization.</li>\n<li><code>user</code>: Budgets scoped to an individual user.</li>\n</ul>",
           "in": "query",
           "schema": {
             "type": "string",
@@ -174,6 +174,7 @@
                           "repository",
                           "cost_center",
                           "multi_user_customer",
+                          "multi_user_cost_center",
                           "user"
                         ]
                       },
@@ -367,6 +368,7 @@
                           "repository",
                           "cost_center",
                           "multi_user_customer",
+                          "multi_user_cost_center",
                           "user"
                         ]
                       },
@@ -537,7 +539,7 @@
         {
           "type": "string",
           "name": "budget_scope",
-          "description": "<p>The scope of the budget for this organization. Use 'organization' for org-level budgets or 'repository' for repo-specific budgets within the organization. <code>user</code> and <code>multi_user_customer</code> scopes are only supported when <code>budget_product_sku</code> is <code>ai_credits</code> or <code>premium_requests</code>.</p>",
+          "description": "<p>The scope of the budget for this organization.</p>\n<ul>\n<li><code>organization</code>: Apply the budget to the organization.</li>\n<li><code>repository</code>: Apply the budget to a specific repository in the organization.</li>\n<li><code>multi_user_customer</code>: Apply a universal budget to all users in the organization.</li>\n<li><code>user</code>: Apply the budget to a single user in the organization.</li>\n</ul>\n<p><code>user</code> and <code>multi_user_customer</code> scopes are only supported when\n<code>budget_product_sku</code> is <code>ai_credits</code> or <code>premium_requests</code>.</p>",
           "enum": [
             "organization",
             "repository",
@@ -633,6 +635,7 @@
                         "repository",
                         "cost_center",
                         "multi_user_customer",
+                        "multi_user_cost_center",
                         "user"
                       ]
                     },
@@ -814,6 +817,7 @@
                     "repository",
                     "cost_center",
                     "multi_user_customer",
+                    "multi_user_cost_center",
                     "user"
                   ]
                 },
@@ -981,7 +985,7 @@
         {
           "type": "string",
           "name": "budget_scope",
-          "description": "<p>The scope of the budget</p>",
+          "description": "<p>The scope of the budget for this organization.</p>\n<ul>\n<li><code>organization</code>: Apply the budget to the organization.</li>\n<li><code>repository</code>: Apply the budget to a specific repository in the organization.</li>\n<li><code>multi_user_customer</code>: Apply a universal budget to all users in the organization.</li>\n<li><code>user</code>: Apply the budget to a single user in the organization.</li>\n</ul>",
           "enum": [
             "enterprise",
             "organization",
@@ -1078,6 +1082,7 @@
                         "repository",
                         "cost_center",
                         "multi_user_customer",
+                        "multi_user_cost_center",
                         "user"
                       ]
                     },

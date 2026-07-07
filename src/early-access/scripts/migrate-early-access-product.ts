@@ -6,7 +6,7 @@
 
 import fs from 'fs'
 import path from 'path'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import { last } from 'lodash-es'
 import { program } from 'commander'
 import { execFileSync } from 'child_process'
@@ -198,16 +198,17 @@ function moveVariable(dataRef: string): void {
     }
   }
 
-  const variableFileContent: Record<string, unknown> = yaml.load(
+  const variableFileContent: Record<string, unknown> = load(
     fs.readFileSync(oldVariableFinalPath, 'utf8'),
   ) as Record<string, unknown>
   const value: unknown = variableFileContent[variableKey]
 
   // If the variable file already exists, add the key/value pair.
   if (fs.existsSync(nonAltPath)) {
-    const content: Record<string, unknown> = yaml.load(
-      fs.readFileSync(nonAltPath, 'utf8'),
-    ) as Record<string, unknown>
+    const content: Record<string, unknown> = load(fs.readFileSync(nonAltPath, 'utf8')) as Record<
+      string,
+      unknown
+    >
     if (!content[variableKey]) {
       const newString = `\n\n${variableKey}: ${String(value)}`
       fs.appendFileSync(nonAltPath, newString)

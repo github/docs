@@ -13,6 +13,7 @@ import { RestAuth } from './RestAuth'
 import { Operation } from './types'
 
 import styles from './RestOperation.module.scss'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type Props = {
   operation: Operation
@@ -71,9 +72,10 @@ export function RestOperation({ operation }: Props) {
       </HeadingLink>
       <div className="d-flex flex-wrap gutter mt-4">
         <div className="col-md-12 col-lg-6">
-          <div
+          <RenderedHTML
+            as="div"
             className={cx(styles.codeBlock)}
-            dangerouslySetInnerHTML={{ __html: operation.descriptionHTML }}
+            html={operation.descriptionHTML}
           />
 
           <RestAuth

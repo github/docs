@@ -2,8 +2,10 @@
 title: Cloud sessions
 shortTitle: Cloud Sessions
 intro: >-
-  Run Copilot sessions on GitHub-hosted compute through Mission Control instead
-  of local CLI sessions.
+  Cloud sessions run Copilot work on GitHub-hosted compute through Mission
+  Control. Use them when your app should create a session that executes remotely
+  instead of starting a local Copilot CLI session on the user's machine or your
+  server.
 versions:
   fpt: '*'
   ghec: '*'

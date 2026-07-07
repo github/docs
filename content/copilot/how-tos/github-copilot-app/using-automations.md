@@ -59,3 +59,5 @@ To use cloud {% data variables.copilot.copilot_automations %}, make sure the fol
 ## Running an {% data variables.copilot.copilot_automation %} on demand
 
 You can trigger any saved {% data variables.copilot.copilot_automation %} manually by clicking the play button on its card on the "Automations" page, without waiting for its next scheduled run.
+
+You can also open {% data variables.copilot.copilot_automations %} directly in the app using deep links from markdown files, third-party tools, or scripts. For more information, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/open-with-deep-links).

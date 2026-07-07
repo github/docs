@@ -9,6 +9,7 @@ import { sendEvent } from '@/events/components/events'
 import { EventType } from '../types'
 
 import styles from './Survey.module.scss'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 enum ViewState {
   START = 'START',
@@ -219,10 +220,7 @@ export const Survey = () => {
             )}
           </div>
 
-          <span
-            className="f6 color-fg-muted"
-            dangerouslySetInnerHTML={{ __html: t`not_support` }}
-          ></span>
+          <RenderedHTML as="span" className="f6 color-fg-muted" html={t`not_support`} />
           <div className="d-flex flex-justify-end flex-items-center mt-3">
             <button
               type="button"

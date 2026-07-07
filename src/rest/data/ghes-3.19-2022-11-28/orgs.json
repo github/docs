@@ -8771,7 +8771,7 @@
         {
           "request": {
             "contentType": "application/json",
-            "description": "Example",
+            "description": "Example 1: Status Code 200",
             "acceptHeader": "application/vnd.github.v3+json",
             "bodyParameters": {
               "state": "active"
@@ -8783,7 +8783,309 @@
           "response": {
             "statusCode": "200",
             "contentType": "application/json",
-            "description": "<p>Response</p>",
+            "description": "<p>The user's organization invitation was accepted synchronously.</p>",
+            "example": {
+              "url": "https://api.github.com/orgs/octocat/memberships/defunkt",
+              "state": "active",
+              "role": "admin",
+              "organization_url": "https://api.github.com/orgs/octocat",
+              "organization": {
+                "login": "github",
+                "id": 1,
+                "node_id": "MDEyOk9yZ2FuaXphdGlvbjE=",
+                "url": "https://api.github.com/orgs/github",
+                "repos_url": "https://api.github.com/orgs/github/repos",
+                "events_url": "https://api.github.com/orgs/github/events",
+                "hooks_url": "https://api.github.com/orgs/github/hooks",
+                "issues_url": "https://api.github.com/orgs/github/issues",
+                "members_url": "https://api.github.com/orgs/github/members{/member}",
+                "public_members_url": "https://api.github.com/orgs/github/public_members{/member}",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "description": "A great organization"
+              },
+              "user": {
+                "login": "octocat",
+                "id": 1,
+                "node_id": "MDQ6VXNlcjE=",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/octocat",
+                "html_url": "https://github.com/octocat",
+                "followers_url": "https://api.github.com/users/octocat/followers",
+                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                "organizations_url": "https://api.github.com/users/octocat/orgs",
+                "repos_url": "https://api.github.com/users/octocat/repos",
+                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/octocat/received_events",
+                "type": "User",
+                "site_admin": false
+              }
+            },
+            "schema": {
+              "title": "Org Membership",
+              "description": "Org Membership",
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "state": {
+                  "type": "string",
+                  "description": "The state of the member in the organization. The `pending` state indicates the user has not yet accepted an invitation.",
+                  "enum": [
+                    "active",
+                    "pending"
+                  ]
+                },
+                "role": {
+                  "type": "string",
+                  "description": "The user's membership type in the organization.",
+                  "enum": [
+                    "admin",
+                    "member",
+                    "billing_manager"
+                  ]
+                },
+                "direct_membership": {
+                  "type": "boolean",
+                  "description": "Whether the user has direct membership in the organization."
+                },
+                "enterprise_teams_providing_indirect_membership": {
+                  "type": "array",
+                  "description": "The slugs of the enterprise teams providing the user with indirect membership in the organization.\nA limit of 100 enterprise team slugs is returned.",
+                  "maxItems": 100,
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "organization_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "organization": {
+                  "title": "Organization Simple",
+                  "description": "A GitHub organization.",
+                  "type": "object",
+                  "properties": {
+                    "login": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "integer"
+                    },
+                    "node_id": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "repos_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "events_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "hooks_url": {
+                      "type": "string"
+                    },
+                    "issues_url": {
+                      "type": "string"
+                    },
+                    "members_url": {
+                      "type": "string"
+                    },
+                    "public_members_url": {
+                      "type": "string"
+                    },
+                    "avatar_url": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "login",
+                    "url",
+                    "id",
+                    "node_id",
+                    "repos_url",
+                    "events_url",
+                    "hooks_url",
+                    "issues_url",
+                    "members_url",
+                    "public_members_url",
+                    "avatar_url",
+                    "description"
+                  ]
+                },
+                "user": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "title": "Simple User",
+                      "description": "A GitHub user.",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "email": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "login": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "integer",
+                          "format": "int64"
+                        },
+                        "node_id": {
+                          "type": "string"
+                        },
+                        "avatar_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "gravatar_id": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "followers_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "following_url": {
+                          "type": "string"
+                        },
+                        "gists_url": {
+                          "type": "string"
+                        },
+                        "starred_url": {
+                          "type": "string"
+                        },
+                        "subscriptions_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "organizations_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "repos_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "events_url": {
+                          "type": "string"
+                        },
+                        "received_events_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "site_admin": {
+                          "type": "boolean"
+                        },
+                        "starred_at": {
+                          "type": "string"
+                        },
+                        "user_view_type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "avatar_url",
+                        "events_url",
+                        "followers_url",
+                        "following_url",
+                        "gists_url",
+                        "gravatar_id",
+                        "html_url",
+                        "id",
+                        "node_id",
+                        "login",
+                        "organizations_url",
+                        "received_events_url",
+                        "repos_url",
+                        "site_admin",
+                        "starred_url",
+                        "subscriptions_url",
+                        "type",
+                        "url"
+                      ]
+                    }
+                  ]
+                },
+                "permissions": {
+                  "type": "object",
+                  "properties": {
+                    "can_create_repository": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "can_create_repository"
+                  ]
+                }
+              },
+              "required": [
+                "state",
+                "role",
+                "organization_url",
+                "url",
+                "organization",
+                "user"
+              ]
+            }
+          }
+        },
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example 2: Status Code 202",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "state": "active"
+            },
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "202",
+            "contentType": "application/json",
+            "description": "<p>The acceptance of the user's organization invitation is being processed asynchronously.</p>",
             "example": {
               "url": "https://api.github.com/orgs/octocat/memberships/defunkt",
               "state": "active",
@@ -9074,7 +9376,11 @@
       "statusCodes": [
         {
           "httpStatusCode": "200",
-          "description": "<p>OK</p>"
+          "description": "<p>The user's organization invitation was accepted synchronously.</p>"
+        },
+        {
+          "httpStatusCode": "202",
+          "description": "<p>The acceptance of the user's organization invitation is being processed asynchronously.</p>"
         },
         {
           "httpStatusCode": "403",

@@ -1,4 +1,4 @@
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import dereferenceJsonSchema from 'dereference-json-schema'
 import { existsSync } from 'fs'
 import { readFile, readdir } from 'fs/promises'
@@ -36,7 +36,7 @@ export async function injectModelsSchema(
     }
 
     const yamlContent = await readFile(endpointPath, 'utf8')
-    const loadedYaml = yaml.load(yamlContent) as {
+    const loadedYaml = load(yamlContent) as {
       openapi: string
       info?: unknown
       servers?: OpenApiServer[]

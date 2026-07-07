@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
   # merge_group:
   pull_request:
-    types: [labeled, opened, synchronize, reopened]
+    types: [opened, synchronize, reopened]
 
 permissions:
   contents: read
@@ -24,9 +24,7 @@ jobs:
   check-links:
     name: Check links
     runs-on: ubuntu-latest
-    if: |
-      (github.repository == 'github/docs-internal' || github.repository == 'github/docs') &&
-      (github.event_name == 'workflow_dispatch' || contains(github.event.pull_request.labels.*.name, 'check-links'))
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     steps:
       - name: Checkout
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
@@ -61,12 +59,14 @@ jobs:
 
       - name: Check links in changed files
         if: steps.changed-files.outputs.any_changed == 'true'
+        # Work in progress: never fail the PR. The comment is informational only.
+        continue-on-error: true
         env:
           FILES_CHANGED: ${{ steps.changed-files.outputs.all_changed_files }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           SHOULD_COMMENT: ${{ secrets.DOCS_BOT_APP_ID != '' }}
-          FAIL_ON_FLAW: true
+          FAIL_ON_FLAW: false
           ENABLED_LANGUAGES: en
         run: npm run check-links-pr
 

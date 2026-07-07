@@ -15,6 +15,9 @@ import type { SearchQueryContentT } from '@/search/components/types'
 import type { GeneralSearchHitWithoutIncludes, GeneralSearchResponse } from '@/search/types'
 import type { estypes } from '@elastic/elasticsearch'
 import { GENERAL_SEARCH_RESULTS } from '@/events/components/event-groups'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
+import { renderHTMLString } from '@/frame/components/ui/RenderedHTML/render-html-string'
+import { markdownComponents } from '@/frame/components/ui/MarkdownContent/markdownComponents'
 
 type Props = {
   results: GeneralSearchResponse
@@ -118,7 +121,6 @@ function SearchResultHit({
         <Link
           href={hit.url}
           className="color-fg-accent search-result-link"
-          dangerouslySetInnerHTML={{ __html: title }}
           data-group-key={GENERAL_SEARCH_RESULTS}
           onClick={() => {
             sendEvent({
@@ -132,9 +134,11 @@ function SearchResultHit({
               eventGroupId: eventGroupId.current,
             })
           }}
-        ></Link>
+        >
+          {renderHTMLString(title, markdownComponents)}
+        </Link>
       </h2>
-      {content && <div dangerouslySetInnerHTML={{ __html: content }}></div>}
+      {content && <RenderedHTML as="div" html={content} />}
       {debug && (
         <p className={styles.debugText}>
           score: <code className={styles.debugCode}>{hit.score}</code> popularity:{' '}

@@ -10,3 +10,4 @@
 * Claude Opus 4.5
 * Claude Sonnet 4.6
 * Claude Opus 4.6
+* MAI-Code-1-Flash

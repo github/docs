@@ -32,7 +32,7 @@ jobs:
           app-id: ${{ secrets.DOCS_BOT_APP_ID }}
           private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
           owner: github
-          repositories: docs-internal,docs-engineering
+          repositories: docs-internal,docs-engineering,enterprise-releases
 
       - uses: ./.github/actions/node-npm-setup
 
