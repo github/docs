@@ -1,0 +1,52 @@
+default namespace =
+  "http://purl.oclc.org/ooxml/officeDocument/customProperties"
+namespace o = "urn:schemas-microsoft-com:office:office"
+namespace s = "http://purl.oclc.org/ooxml/officeDocument/sharedTypes"
+namespace shdCstm =
+  "http://purl.oclc.org/ooxml/officeDocument/customProperties"
+namespace v = "urn:schemas-microsoft-com:vml"
+namespace vt =
+  "http://purl.oclc.org/ooxml/officeDocument/docPropsVTypes"
+namespace w10 = "urn:schemas-microsoft-com:office:word"
+namespace x = "urn:schemas-microsoft-com:office:excel"
+
+shdCstm_Properties = element Properties { shdCstm_CT_Properties }
+shdCstm_CT_Properties = element property { shdCstm_CT_Property }*
+shdCstm_CT_Property =
+  attribute fmtid { s_ST_Guid },
+  attribute pid { xsd:int },
+  attribute name { xsd:string }?,
+  attribute linkTarget { xsd:string }?,
+  (vt_vector
+   | vt_array
+   | vt_blob
+   | vt_oblob
+   | vt_empty
+   | vt_null
+   | vt_i1
+   | vt_i2
+   | vt_i4
+   | vt_i8
+   | vt_int
+   | vt_ui1
+   | vt_ui2
+   | vt_ui4
+   | vt_ui8
+   | vt_uint
+   | vt_r4
+   | vt_r8
+   | vt_decimal
+   | vt_lpstr
+   | vt_lpwstr
+   | vt_bstr
+   | vt_date
+   | vt_filetime
+   | vt_bool
+   | vt_cy
+   | vt_error
+   | vt_stream
+   | vt_ostream
+   | vt_storage
+   | vt_ostorage
+   | vt_vstream
+   | vt_clsid)

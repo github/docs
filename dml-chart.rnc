@@ -1,0 +1,946 @@
+default namespace = "http://purl.oclc.org/ooxml/drawingml/chart"
+namespace a = "http://purl.oclc.org/ooxml/drawingml/main"
+namespace cdr = "http://purl.oclc.org/ooxml/drawingml/chartDrawing"
+namespace dchrt = "http://purl.oclc.org/ooxml/drawingml/chart"
+namespace o = "urn:schemas-microsoft-com:office:office"
+namespace r = "http://purl.oclc.org/ooxml/officeDocument/relationships"
+namespace s = "http://purl.oclc.org/ooxml/officeDocument/sharedTypes"
+namespace v = "urn:schemas-microsoft-com:vml"
+namespace w10 = "urn:schemas-microsoft-com:office:word"
+namespace x = "urn:schemas-microsoft-com:office:excel"
+
+dchrt_CT_Boolean =
+  
+  ## default value: true
+  attribute val { xsd:boolean }?
+dchrt_CT_Double = attribute val { xsd:double }
+dchrt_CT_UnsignedInt = attribute val { xsd:unsignedInt }
+dchrt_CT_RelId = r_id
+dchrt_CT_Extension =
+  attribute uri { xsd:token }?,
+  dchrt_CT_Extension_any
+dchrt_CT_Extension_any =
+  element * - (o:* | v:* | w10:* | x:*) {
+    anyAttribute*,
+    mixed { anyElement* }
+  }
+dchrt_CT_ExtensionList = element ext { dchrt_CT_Extension }*
+dchrt_CT_NumVal =
+  attribute idx { xsd:unsignedInt },
+  attribute formatCode { s_ST_Xstring }?,
+  element v { s_ST_Xstring }
+dchrt_CT_NumData =
+  element formatCode { s_ST_Xstring }?,
+  element ptCount { dchrt_CT_UnsignedInt }?,
+  element pt { dchrt_CT_NumVal }*,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_NumRef =
+  element f { xsd:string },
+  element numCache { dchrt_CT_NumData }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_NumDataSource =
+  element numRef { dchrt_CT_NumRef }
+  | element numLit { dchrt_CT_NumData }
+dchrt_CT_StrVal =
+  attribute idx { xsd:unsignedInt },
+  element v { s_ST_Xstring }
+dchrt_CT_StrData =
+  element ptCount { dchrt_CT_UnsignedInt }?,
+  element pt { dchrt_CT_StrVal }*,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_StrRef =
+  element f { xsd:string },
+  element strCache { dchrt_CT_StrData }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_Tx =
+  element strRef { dchrt_CT_StrRef }
+  | element rich { a_CT_TextBody }
+dchrt_CT_TextLanguageID = attribute val { s_ST_Lang }
+dchrt_CT_Lvl = element pt { dchrt_CT_StrVal }*
+dchrt_CT_MultiLvlStrData =
+  element ptCount { dchrt_CT_UnsignedInt }?,
+  element lvl { dchrt_CT_Lvl }*,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_MultiLvlStrRef =
+  element f { xsd:string },
+  element multiLvlStrCache { dchrt_CT_MultiLvlStrData }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_AxDataSource =
+  element multiLvlStrRef { dchrt_CT_MultiLvlStrRef }
+  | element numRef { dchrt_CT_NumRef }
+  | element numLit { dchrt_CT_NumData }
+  | element strRef { dchrt_CT_StrRef }
+  | element strLit { dchrt_CT_StrData }
+dchrt_CT_SerTx =
+  element strRef { dchrt_CT_StrRef }
+  | element v { s_ST_Xstring }
+dchrt_ST_LayoutTarget = string "inner" | string "outer"
+dchrt_CT_LayoutTarget =
+  
+  ## default value: outer
+  attribute val { dchrt_ST_LayoutTarget }?
+dchrt_ST_LayoutMode = string "edge" | string "factor"
+dchrt_CT_LayoutMode =
+  
+  ## default value: factor
+  attribute val { dchrt_ST_LayoutMode }?
+dchrt_CT_ManualLayout =
+  element layoutTarget { dchrt_CT_LayoutTarget }?,
+  element xMode { dchrt_CT_LayoutMode }?,
+  element yMode { dchrt_CT_LayoutMode }?,
+  element wMode { dchrt_CT_LayoutMode }?,
+  element hMode { dchrt_CT_LayoutMode }?,
+  element x { dchrt_CT_Double }?,
+  element y { dchrt_CT_Double }?,
+  element w { dchrt_CT_Double }?,
+  element h { dchrt_CT_Double }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_Layout =
+  element manualLayout { dchrt_CT_ManualLayout }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_Title =
+  element tx { dchrt_CT_Tx }?,
+  element layout { dchrt_CT_Layout }?,
+  element overlay { dchrt_CT_Boolean }?,
+  element spPr { a_CT_ShapeProperties }?,
+  element txPr { a_CT_TextBody }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_ST_RotX = xsd:byte { minInclusive = "-90" maxInclusive = "90" }
+dchrt_CT_RotX =
+  
+  ## default value: 0
+  attribute val { dchrt_ST_RotX }?
+dchrt_ST_HPercent = dchrt_ST_HPercentWithSymbol
+dchrt_ST_HPercentWithSymbol =
+  xsd:string {
+    pattern = "0*(([5-9])|([1-9][0-9])|([1-4][0-9][0-9])|500)%"
+  }
+dchrt_CT_HPercent =
+  
+  ## default value: 100%
+  attribute val { dchrt_ST_HPercent }?
+dchrt_ST_RotY =
+  xsd:unsignedShort { minInclusive = "0" maxInclusive = "360" }
+dchrt_CT_RotY =
+  
+  ## default value: 0
+  attribute val { dchrt_ST_RotY }?
+dchrt_ST_DepthPercent = dchrt_ST_DepthPercentWithSymbol
+dchrt_ST_DepthPercentWithSymbol =
+  xsd:string {
+    pattern =
+      "0*(([2-9][0-9])|([1-9][0-9][0-9])|(1[0-9][0-9][0-9])|2000)%"
+  }
+dchrt_CT_DepthPercent =
+  
+  ## default value: 100%
+  attribute val { dchrt_ST_DepthPercent }?
+dchrt_ST_Perspective =
+  xsd:unsignedByte { minInclusive = "0" maxInclusive = "240" }
+dchrt_CT_Perspective =
+  
+  ## default value: 30
+  attribute val { dchrt_ST_Perspective }?
+dchrt_CT_View3D =
+  element rotX { dchrt_CT_RotX }?,
+  element hPercent { dchrt_CT_HPercent }?,
+  element rotY { dchrt_CT_RotY }?,
+  element depthPercent { dchrt_CT_DepthPercent }?,
+  element rAngAx { dchrt_CT_Boolean }?,
+  element perspective { dchrt_CT_Perspective }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_Surface =
+  element thickness { dchrt_CT_Thickness }?,
+  element spPr { a_CT_ShapeProperties }?,
+  element pictureOptions { dchrt_CT_PictureOptions }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_ST_Thickness = dchrt_ST_ThicknessPercent
+dchrt_ST_ThicknessPercent = xsd:string { pattern = "([0-9]+)%" }
+dchrt_CT_Thickness = attribute val { dchrt_ST_Thickness }
+dchrt_CT_DTable =
+  element showHorzBorder { dchrt_CT_Boolean }?,
+  element showVertBorder { dchrt_CT_Boolean }?,
+  element showOutline { dchrt_CT_Boolean }?,
+  element showKeys { dchrt_CT_Boolean }?,
+  element spPr { a_CT_ShapeProperties }?,
+  element txPr { a_CT_TextBody }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_ST_GapAmount = dchrt_ST_GapAmountPercent
+dchrt_ST_GapAmountPercent =
+  xsd:string {
+    pattern = "0*(([0-9])|([1-9][0-9])|([1-4][0-9][0-9])|500)%"
+  }
+dchrt_CT_GapAmount =
+  
+  ## default value: 150%
+  attribute val { dchrt_ST_GapAmount }?
+dchrt_ST_Overlap = dchrt_ST_OverlapPercent
+dchrt_ST_OverlapPercent =
+  xsd:string { pattern = "(-?0*(([0-9])|([1-9][0-9])|100))%" }
+dchrt_CT_Overlap =
+  
+  ## default value: 0%
+  attribute val { dchrt_ST_Overlap }?
+dchrt_ST_BubbleScale = dchrt_ST_BubbleScalePercent
+dchrt_ST_BubbleScalePercent =
+  xsd:string {
+    pattern = "0*(([0-9])|([1-9][0-9])|([1-2][0-9][0-9])|300)%"
+  }
+dchrt_CT_BubbleScale =
+  
+  ## default value: 100%
+  attribute val { dchrt_ST_BubbleScale }?
+dchrt_ST_SizeRepresents = string "area" | string "w"
+dchrt_CT_SizeRepresents =
+  
+  ## default value: area
+  attribute val { dchrt_ST_SizeRepresents }?
+dchrt_ST_FirstSliceAng =
+  xsd:unsignedShort { minInclusive = "0" maxInclusive = "360" }
+dchrt_CT_FirstSliceAng =
+  
+  ## default value: 0
+  attribute val { dchrt_ST_FirstSliceAng }?
+dchrt_ST_HoleSize = dchrt_ST_HoleSizePercent
+dchrt_ST_HoleSizePercent =
+  xsd:string { pattern = "0*([1-9]|([1-8][0-9])|90)%" }
+dchrt_CT_HoleSize =
+  
+  ## default value: 10%
+  attribute val { dchrt_ST_HoleSize }?
+dchrt_ST_SplitType =
+  string "auto"
+  | string "cust"
+  | string "percent"
+  | string "pos"
+  | string "val"
+dchrt_CT_SplitType =
+  
+  ## default value: auto
+  attribute val { dchrt_ST_SplitType }?
+dchrt_CT_CustSplit = element secondPiePt { dchrt_CT_UnsignedInt }*
+dchrt_ST_SecondPieSize = dchrt_ST_SecondPieSizePercent
+dchrt_ST_SecondPieSizePercent =
+  xsd:string { pattern = "0*(([5-9])|([1-9][0-9])|(1[0-9][0-9])|200)%" }
+dchrt_CT_SecondPieSize =
+  
+  ## default value: 75%
+  attribute val { dchrt_ST_SecondPieSize }?
+dchrt_CT_NumFmt =
+  attribute formatCode { s_ST_Xstring },
+  attribute sourceLinked { xsd:boolean }?
+dchrt_ST_LblAlgn = string "ctr" | string "l" | string "r"
+dchrt_CT_LblAlgn = attribute val { dchrt_ST_LblAlgn }
+dchrt_ST_DLblPos =
+  string "bestFit"
+  | string "b"
+  | string "ctr"
+  | string "inBase"
+  | string "inEnd"
+  | string "l"
+  | string "outEnd"
+  | string "r"
+  | string "t"
+dchrt_CT_DLblPos = attribute val { dchrt_ST_DLblPos }
+dchrt_EG_DLblShared =
+  element numFmt { dchrt_CT_NumFmt }?,
+  element spPr { a_CT_ShapeProperties }?,
+  element txPr { a_CT_TextBody }?,
+  element dLblPos { dchrt_CT_DLblPos }?,
+  element showLegendKey { dchrt_CT_Boolean }?,
+  element showVal { dchrt_CT_Boolean }?,
+  element showCatName { dchrt_CT_Boolean }?,
+  element showSerName { dchrt_CT_Boolean }?,
+  element showPercent { dchrt_CT_Boolean }?,
+  element showBubbleSize { dchrt_CT_Boolean }?,
+  element separator { xsd:string }?
+dchrt_Group_DLbl =
+  element layout { dchrt_CT_Layout }?,
+  element tx { dchrt_CT_Tx }?,
+  dchrt_EG_DLblShared
+dchrt_CT_DLbl =
+  element idx { dchrt_CT_UnsignedInt },
+  (element delete { dchrt_CT_Boolean }
+   | dchrt_Group_DLbl),
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_Group_DLbls =
+  dchrt_EG_DLblShared,
+  element showLeaderLines { dchrt_CT_Boolean }?,
+  element leaderLines { dchrt_CT_ChartLines }?
+dchrt_CT_DLbls =
+  element dLbl { dchrt_CT_DLbl }*,
+  (element delete { dchrt_CT_Boolean }
+   | dchrt_Group_DLbls),
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_ST_MarkerStyle =
+  string "circle"
+  | string "dash"
+  | string "diamond"
+  | string "dot"
+  | string "none"
+  | string "picture"
+  | string "plus"
+  | string "square"
+  | string "star"
+  | string "triangle"
+  | string "x"
+  | string "auto"
+dchrt_CT_MarkerStyle = attribute val { dchrt_ST_MarkerStyle }
+dchrt_ST_MarkerSize =
+  xsd:unsignedByte { minInclusive = "2" maxInclusive = "72" }
+dchrt_CT_MarkerSize =
+  
+  ## default value: 5
+  attribute val { dchrt_ST_MarkerSize }?
+dchrt_CT_Marker =
+  element symbol { dchrt_CT_MarkerStyle }?,
+  element size { dchrt_CT_MarkerSize }?,
+  element spPr { a_CT_ShapeProperties }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_DPt =
+  element idx { dchrt_CT_UnsignedInt },
+  element invertIfNegative { dchrt_CT_Boolean }?,
+  element marker { dchrt_CT_Marker }?,
+  element bubble3D { dchrt_CT_Boolean }?,
+  element explosion { dchrt_CT_UnsignedInt }?,
+  element spPr { a_CT_ShapeProperties }?,
+  element pictureOptions { dchrt_CT_PictureOptions }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_ST_TrendlineType =
+  string "exp"
+  | string "linear"
+  | string "log"
+  | string "movingAvg"
+  | string "poly"
+  | string "power"
+dchrt_CT_TrendlineType =
+  
+  ## default value: linear
+  attribute val { dchrt_ST_TrendlineType }?
+dchrt_ST_Order =
+  xsd:unsignedByte { minInclusive = "2" maxInclusive = "6" }
+dchrt_CT_Order =
+  
+  ## default value: 2
+  attribute val { dchrt_ST_Order }?
+dchrt_ST_Period =
+  xsd:unsignedInt { minInclusive = "2" }
+dchrt_CT_Period =
+  
+  ## default value: 2
+  attribute val { dchrt_ST_Period }?
+dchrt_CT_TrendlineLbl =
+  element layout { dchrt_CT_Layout }?,
+  element tx { dchrt_CT_Tx }?,
+  element numFmt { dchrt_CT_NumFmt }?,
+  element spPr { a_CT_ShapeProperties }?,
+  element txPr { a_CT_TextBody }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_Trendline =
+  element name { xsd:string }?,
+  element spPr { a_CT_ShapeProperties }?,
+  element trendlineType { dchrt_CT_TrendlineType },
+  element order { dchrt_CT_Order }?,
+  element period { dchrt_CT_Period }?,
+  element forward { dchrt_CT_Double }?,
+  element backward { dchrt_CT_Double }?,
+  element intercept { dchrt_CT_Double }?,
+  element dispRSqr { dchrt_CT_Boolean }?,
+  element dispEq { dchrt_CT_Boolean }?,
+  element trendlineLbl { dchrt_CT_TrendlineLbl }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_ST_ErrDir = string "x" | string "y"
+dchrt_CT_ErrDir = attribute val { dchrt_ST_ErrDir }
+dchrt_ST_ErrBarType = string "both" | string "minus" | string "plus"
+dchrt_CT_ErrBarType =
+  
+  ## default value: both
+  attribute val { dchrt_ST_ErrBarType }?
+dchrt_ST_ErrValType =
+  string "cust"
+  | string "fixedVal"
+  | string "percentage"
+  | string "stdDev"
+  | string "stdErr"
+dchrt_CT_ErrValType =
+  
+  ## default value: fixedVal
+  attribute val { dchrt_ST_ErrValType }?
+dchrt_CT_ErrBars =
+  element errDir { dchrt_CT_ErrDir }?,
+  element errBarType { dchrt_CT_ErrBarType },
+  element errValType { dchrt_CT_ErrValType },
+  element noEndCap { dchrt_CT_Boolean }?,
+  element plus { dchrt_CT_NumDataSource }?,
+  element minus { dchrt_CT_NumDataSource }?,
+  element val { dchrt_CT_Double }?,
+  element spPr { a_CT_ShapeProperties }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_UpDownBar = element spPr { a_CT_ShapeProperties }?
+dchrt_CT_UpDownBars =
+  element gapWidth { dchrt_CT_GapAmount }?,
+  element upBars { dchrt_CT_UpDownBar }?,
+  element downBars { dchrt_CT_UpDownBar }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_EG_SerShared =
+  element idx { dchrt_CT_UnsignedInt },
+  element order { dchrt_CT_UnsignedInt },
+  element tx { dchrt_CT_SerTx }?,
+  element spPr { a_CT_ShapeProperties }?
+dchrt_CT_LineSer =
+  dchrt_EG_SerShared,
+  element marker { dchrt_CT_Marker }?,
+  element dPt { dchrt_CT_DPt }*,
+  element dLbls { dchrt_CT_DLbls }?,
+  element trendline { dchrt_CT_Trendline }*,
+  element errBars { dchrt_CT_ErrBars }?,
+  element cat { dchrt_CT_AxDataSource }?,
+  element val { dchrt_CT_NumDataSource }?,
+  element smooth { dchrt_CT_Boolean }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_ScatterSer =
+  dchrt_EG_SerShared,
+  element marker { dchrt_CT_Marker }?,
+  element dPt { dchrt_CT_DPt }*,
+  element dLbls { dchrt_CT_DLbls }?,
+  element trendline { dchrt_CT_Trendline }*,
+  element errBars { dchrt_CT_ErrBars }*,
+  element xVal { dchrt_CT_AxDataSource }?,
+  element yVal { dchrt_CT_NumDataSource }?,
+  element smooth { dchrt_CT_Boolean }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_RadarSer =
+  dchrt_EG_SerShared,
+  element marker { dchrt_CT_Marker }?,
+  element dPt { dchrt_CT_DPt }*,
+  element dLbls { dchrt_CT_DLbls }?,
+  element cat { dchrt_CT_AxDataSource }?,
+  element val { dchrt_CT_NumDataSource }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_BarSer =
+  dchrt_EG_SerShared,
+  element invertIfNegative { dchrt_CT_Boolean }?,
+  element pictureOptions { dchrt_CT_PictureOptions }?,
+  element dPt { dchrt_CT_DPt }*,
+  element dLbls { dchrt_CT_DLbls }?,
+  element trendline { dchrt_CT_Trendline }*,
+  element errBars { dchrt_CT_ErrBars }?,
+  element cat { dchrt_CT_AxDataSource }?,
+  element val { dchrt_CT_NumDataSource }?,
+  element shape { dchrt_CT_Shape }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_AreaSer =
+  dchrt_EG_SerShared,
+  element pictureOptions { dchrt_CT_PictureOptions }?,
+  element dPt { dchrt_CT_DPt }*,
+  element dLbls { dchrt_CT_DLbls }?,
+  element trendline { dchrt_CT_Trendline }*,
+  element errBars { dchrt_CT_ErrBars }*,
+  element cat { dchrt_CT_AxDataSource }?,
+  element val { dchrt_CT_NumDataSource }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_PieSer =
+  dchrt_EG_SerShared,
+  element explosion { dchrt_CT_UnsignedInt }?,
+  element dPt { dchrt_CT_DPt }*,
+  element dLbls { dchrt_CT_DLbls }?,
+  element cat { dchrt_CT_AxDataSource }?,
+  element val { dchrt_CT_NumDataSource }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_BubbleSer =
+  dchrt_EG_SerShared,
+  element invertIfNegative { dchrt_CT_Boolean }?,
+  element dPt { dchrt_CT_DPt }*,
+  element dLbls { dchrt_CT_DLbls }?,
+  element trendline { dchrt_CT_Trendline }*,
+  element errBars { dchrt_CT_ErrBars }*,
+  element xVal { dchrt_CT_AxDataSource }?,
+  element yVal { dchrt_CT_NumDataSource }?,
+  element bubbleSize { dchrt_CT_NumDataSource }?,
+  element bubble3D { dchrt_CT_Boolean }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_SurfaceSer =
+  dchrt_EG_SerShared,
+  element cat { dchrt_CT_AxDataSource }?,
+  element val { dchrt_CT_NumDataSource }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_ST_Grouping =
+  string "percentStacked" | string "standard" | string "stacked"
+dchrt_CT_Grouping =
+  
+  ## default value: standard
+  attribute val { dchrt_ST_Grouping }?
+dchrt_CT_ChartLines = element spPr { a_CT_ShapeProperties }?
+dchrt_EG_LineChartShared =
+  element grouping { dchrt_CT_Grouping },
+  element varyColors { dchrt_CT_Boolean }?,
+  element ser { dchrt_CT_LineSer }*,
+  element dLbls { dchrt_CT_DLbls }?,
+  element dropLines { dchrt_CT_ChartLines }?
+dchrt_CT_LineChart =
+  dchrt_EG_LineChartShared,
+  element hiLowLines { dchrt_CT_ChartLines }?,
+  element upDownBars { dchrt_CT_UpDownBars }?,
+  element marker { dchrt_CT_Boolean }?,
+  element smooth { dchrt_CT_Boolean }?,
+  element axId { dchrt_CT_UnsignedInt }+,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_Line3DChart =
+  dchrt_EG_LineChartShared,
+  element gapDepth { dchrt_CT_GapAmount }?,
+  element axId { dchrt_CT_UnsignedInt }+,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_StockChart =
+  element ser { dchrt_CT_LineSer }+,
+  element dLbls { dchrt_CT_DLbls }?,
+  element dropLines { dchrt_CT_ChartLines }?,
+  element hiLowLines { dchrt_CT_ChartLines }?,
+  element upDownBars { dchrt_CT_UpDownBars }?,
+  element axId { dchrt_CT_UnsignedInt }+,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_ST_ScatterStyle =
+  string "none"
+  | string "line"
+  | string "lineMarker"
+  | string "marker"
+  | string "smooth"
+  | string "smoothMarker"
+dchrt_CT_ScatterStyle =
+  
+  ## default value: marker
+  attribute val { dchrt_ST_ScatterStyle }?
+dchrt_CT_ScatterChart =
+  element scatterStyle { dchrt_CT_ScatterStyle },
+  element varyColors { dchrt_CT_Boolean }?,
+  element ser { dchrt_CT_ScatterSer }*,
+  element dLbls { dchrt_CT_DLbls }?,
+  element axId { dchrt_CT_UnsignedInt }+,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_ST_RadarStyle =
+  string "standard" | string "marker" | string "filled"
+dchrt_CT_RadarStyle =
+  
+  ## default value: standard
+  attribute val { dchrt_ST_RadarStyle }?
+dchrt_CT_RadarChart =
+  element radarStyle { dchrt_CT_RadarStyle },
+  element varyColors { dchrt_CT_Boolean }?,
+  element ser { dchrt_CT_RadarSer }*,
+  element dLbls { dchrt_CT_DLbls }?,
+  element axId { dchrt_CT_UnsignedInt }+,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_ST_BarGrouping =
+  string "percentStacked"
+  | string "clustered"
+  | string "standard"
+  | string "stacked"
+dchrt_CT_BarGrouping =
+  
+  ## default value: clustered
+  attribute val { dchrt_ST_BarGrouping }?
+dchrt_ST_BarDir = string "bar" | string "col"
+dchrt_CT_BarDir =
+  
+  ## default value: col
+  attribute val { dchrt_ST_BarDir }?
+dchrt_ST_Shape =
+  string "cone"
+  | string "coneToMax"
+  | string "box"
+  | string "cylinder"
+  | string "pyramid"
+  | string "pyramidToMax"
+dchrt_CT_Shape =
+  
+  ## default value: box
+  attribute val { dchrt_ST_Shape }?
+dchrt_EG_BarChartShared =
+  element barDir { dchrt_CT_BarDir },
+  element grouping { dchrt_CT_BarGrouping }?,
+  element varyColors { dchrt_CT_Boolean }?,
+  element ser { dchrt_CT_BarSer }*,
+  element dLbls { dchrt_CT_DLbls }?
+dchrt_CT_BarChart =
+  dchrt_EG_BarChartShared,
+  element gapWidth { dchrt_CT_GapAmount }?,
+  element overlap { dchrt_CT_Overlap }?,
+  element serLines { dchrt_CT_ChartLines }*,
+  element axId { dchrt_CT_UnsignedInt }+,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_Bar3DChart =
+  dchrt_EG_BarChartShared,
+  element gapWidth { dchrt_CT_GapAmount }?,
+  element gapDepth { dchrt_CT_GapAmount }?,
+  element shape { dchrt_CT_Shape }?,
+  element axId { dchrt_CT_UnsignedInt }+,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_EG_AreaChartShared =
+  element grouping { dchrt_CT_Grouping }?,
+  element varyColors { dchrt_CT_Boolean }?,
+  element ser { dchrt_CT_AreaSer }*,
+  element dLbls { dchrt_CT_DLbls }?,
+  element dropLines { dchrt_CT_ChartLines }?
+dchrt_CT_AreaChart =
+  dchrt_EG_AreaChartShared,
+  element axId { dchrt_CT_UnsignedInt }+,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_Area3DChart =
+  dchrt_EG_AreaChartShared,
+  element gapDepth { dchrt_CT_GapAmount }?,
+  element axId { dchrt_CT_UnsignedInt }+,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_EG_PieChartShared =
+  element varyColors { dchrt_CT_Boolean }?,
+  element ser { dchrt_CT_PieSer }*,
+  element dLbls { dchrt_CT_DLbls }?
+dchrt_CT_PieChart =
+  dchrt_EG_PieChartShared,
+  element firstSliceAng { dchrt_CT_FirstSliceAng }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_Pie3DChart =
+  dchrt_EG_PieChartShared,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_DoughnutChart =
+  dchrt_EG_PieChartShared,
+  element firstSliceAng { dchrt_CT_FirstSliceAng }?,
+  element holeSize { dchrt_CT_HoleSize }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_ST_OfPieType = string "pie" | string "bar"
+dchrt_CT_OfPieType =
+  
+  ## default value: pie
+  attribute val { dchrt_ST_OfPieType }?
+dchrt_CT_OfPieChart =
+  element ofPieType { dchrt_CT_OfPieType },
+  dchrt_EG_PieChartShared,
+  element gapWidth { dchrt_CT_GapAmount }?,
+  element splitType { dchrt_CT_SplitType }?,
+  element splitPos { dchrt_CT_Double }?,
+  element custSplit { dchrt_CT_CustSplit }?,
+  element secondPieSize { dchrt_CT_SecondPieSize }?,
+  element serLines { dchrt_CT_ChartLines }*,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_BubbleChart =
+  element varyColors { dchrt_CT_Boolean }?,
+  element ser { dchrt_CT_BubbleSer }*,
+  element dLbls { dchrt_CT_DLbls }?,
+  element bubble3D { dchrt_CT_Boolean }?,
+  element bubbleScale { dchrt_CT_BubbleScale }?,
+  element showNegBubbles { dchrt_CT_Boolean }?,
+  element sizeRepresents { dchrt_CT_SizeRepresents }?,
+  element axId { dchrt_CT_UnsignedInt }+,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_BandFmt =
+  element idx { dchrt_CT_UnsignedInt },
+  element spPr { a_CT_ShapeProperties }?
+dchrt_CT_BandFmts = element bandFmt { dchrt_CT_BandFmt }*
+dchrt_EG_SurfaceChartShared =
+  element wireframe { dchrt_CT_Boolean }?,
+  element ser { dchrt_CT_SurfaceSer }*,
+  element bandFmts { dchrt_CT_BandFmts }?
+dchrt_CT_SurfaceChart =
+  dchrt_EG_SurfaceChartShared,
+  element axId { dchrt_CT_UnsignedInt }+,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_Surface3DChart =
+  dchrt_EG_SurfaceChartShared,
+  element axId { dchrt_CT_UnsignedInt }+,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_ST_AxPos = string "b" | string "l" | string "r" | string "t"
+dchrt_CT_AxPos = attribute val { dchrt_ST_AxPos }
+dchrt_ST_Crosses = string "autoZero" | string "max" | string "min"
+dchrt_CT_Crosses = attribute val { dchrt_ST_Crosses }
+dchrt_ST_CrossBetween = string "between" | string "midCat"
+dchrt_CT_CrossBetween = attribute val { dchrt_ST_CrossBetween }
+dchrt_ST_TickMark =
+  string "cross" | string "in" | string "none" | string "out"
+dchrt_CT_TickMark =
+  
+  ## default value: cross
+  attribute val { dchrt_ST_TickMark }?
+dchrt_ST_TickLblPos =
+  string "high" | string "low" | string "nextTo" | string "none"
+dchrt_CT_TickLblPos =
+  
+  ## default value: nextTo
+  attribute val { dchrt_ST_TickLblPos }?
+dchrt_ST_Skip = xsd:unsignedInt { minInclusive = "1" }
+dchrt_CT_Skip = attribute val { dchrt_ST_Skip }
+dchrt_ST_TimeUnit = string "days" | string "months" | string "years"
+dchrt_CT_TimeUnit =
+  
+  ## default value: days
+  attribute val { dchrt_ST_TimeUnit }?
+dchrt_ST_AxisUnit = xsd:double { minExclusive = "0" }
+dchrt_CT_AxisUnit = attribute val { dchrt_ST_AxisUnit }
+dchrt_ST_BuiltInUnit =
+  string "hundreds"
+  | string "thousands"
+  | string "tenThousands"
+  | string "hundredThousands"
+  | string "millions"
+  | string "tenMillions"
+  | string "hundredMillions"
+  | string "billions"
+  | string "trillions"
+dchrt_CT_BuiltInUnit =
+  
+  ## default value: thousands
+  attribute val { dchrt_ST_BuiltInUnit }?
+dchrt_ST_PictureFormat =
+  string "stretch" | string "stack" | string "stackScale"
+dchrt_CT_PictureFormat = attribute val { dchrt_ST_PictureFormat }
+dchrt_ST_PictureStackUnit = xsd:double { minExclusive = "0" }
+dchrt_CT_PictureStackUnit = attribute val { dchrt_ST_PictureStackUnit }
+dchrt_CT_PictureOptions =
+  element applyToFront { dchrt_CT_Boolean }?,
+  element applyToSides { dchrt_CT_Boolean }?,
+  element applyToEnd { dchrt_CT_Boolean }?,
+  element pictureFormat { dchrt_CT_PictureFormat }?,
+  element pictureStackUnit { dchrt_CT_PictureStackUnit }?
+dchrt_CT_DispUnitsLbl =
+  element layout { dchrt_CT_Layout }?,
+  element tx { dchrt_CT_Tx }?,
+  element spPr { a_CT_ShapeProperties }?,
+  element txPr { a_CT_TextBody }?
+dchrt_CT_DispUnits =
+  (element custUnit { dchrt_CT_Double }
+   | element builtInUnit { dchrt_CT_BuiltInUnit }),
+  element dispUnitsLbl { dchrt_CT_DispUnitsLbl }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_ST_Orientation = string "maxMin" | string "minMax"
+dchrt_CT_Orientation =
+  
+  ## default value: minMax
+  attribute val { dchrt_ST_Orientation }?
+dchrt_ST_LogBase =
+  xsd:double { minInclusive = "2" maxInclusive = "1000" }
+dchrt_CT_LogBase = attribute val { dchrt_ST_LogBase }
+dchrt_CT_Scaling =
+  element logBase { dchrt_CT_LogBase }?,
+  element orientation { dchrt_CT_Orientation }?,
+  element max { dchrt_CT_Double }?,
+  element min { dchrt_CT_Double }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_ST_LblOffset = dchrt_ST_LblOffsetPercent
+dchrt_ST_LblOffsetPercent =
+  xsd:string {
+    pattern = "0*(([0-9])|([1-9][0-9])|([1-9][0-9][0-9])|1000)%"
+  }
+dchrt_CT_LblOffset =
+  
+  ## default value: 100%
+  attribute val { dchrt_ST_LblOffset }?
+dchrt_EG_AxShared =
+  element axId { dchrt_CT_UnsignedInt },
+  element scaling { dchrt_CT_Scaling },
+  element delete { dchrt_CT_Boolean }?,
+  element axPos { dchrt_CT_AxPos },
+  element majorGridlines { dchrt_CT_ChartLines }?,
+  element minorGridlines { dchrt_CT_ChartLines }?,
+  element title { dchrt_CT_Title }?,
+  element numFmt { dchrt_CT_NumFmt }?,
+  element majorTickMark { dchrt_CT_TickMark }?,
+  element minorTickMark { dchrt_CT_TickMark }?,
+  element tickLblPos { dchrt_CT_TickLblPos }?,
+  element spPr { a_CT_ShapeProperties }?,
+  element txPr { a_CT_TextBody }?,
+  element crossAx { dchrt_CT_UnsignedInt },
+  (element crosses { dchrt_CT_Crosses }
+   | element crossesAt { dchrt_CT_Double })?
+dchrt_CT_CatAx =
+  dchrt_EG_AxShared,
+  element auto { dchrt_CT_Boolean }?,
+  element lblAlgn { dchrt_CT_LblAlgn }?,
+  element lblOffset { dchrt_CT_LblOffset }?,
+  element tickLblSkip { dchrt_CT_Skip }?,
+  element tickMarkSkip { dchrt_CT_Skip }?,
+  element noMultiLvlLbl { dchrt_CT_Boolean }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_DateAx =
+  dchrt_EG_AxShared,
+  element auto { dchrt_CT_Boolean }?,
+  element lblOffset { dchrt_CT_LblOffset }?,
+  element baseTimeUnit { dchrt_CT_TimeUnit }?,
+  element majorUnit { dchrt_CT_AxisUnit }?,
+  element majorTimeUnit { dchrt_CT_TimeUnit }?,
+  element minorUnit { dchrt_CT_AxisUnit }?,
+  element minorTimeUnit { dchrt_CT_TimeUnit }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_SerAx =
+  dchrt_EG_AxShared,
+  element tickLblSkip { dchrt_CT_Skip }?,
+  element tickMarkSkip { dchrt_CT_Skip }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_ValAx =
+  dchrt_EG_AxShared,
+  element crossBetween { dchrt_CT_CrossBetween }?,
+  element majorUnit { dchrt_CT_AxisUnit }?,
+  element minorUnit { dchrt_CT_AxisUnit }?,
+  element dispUnits { dchrt_CT_DispUnits }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_PlotArea =
+  element layout { dchrt_CT_Layout }?,
+  (element areaChart { dchrt_CT_AreaChart }
+   | element area3DChart { dchrt_CT_Area3DChart }
+   | element lineChart { dchrt_CT_LineChart }
+   | element line3DChart { dchrt_CT_Line3DChart }
+   | element stockChart { dchrt_CT_StockChart }
+   | element radarChart { dchrt_CT_RadarChart }
+   | element scatterChart { dchrt_CT_ScatterChart }
+   | element pieChart { dchrt_CT_PieChart }
+   | element pie3DChart { dchrt_CT_Pie3DChart }
+   | element doughnutChart { dchrt_CT_DoughnutChart }
+   | element barChart { dchrt_CT_BarChart }
+   | element bar3DChart { dchrt_CT_Bar3DChart }
+   | element ofPieChart { dchrt_CT_OfPieChart }
+   | element surfaceChart { dchrt_CT_SurfaceChart }
+   | element surface3DChart { dchrt_CT_Surface3DChart }
+   | element bubbleChart { dchrt_CT_BubbleChart })+,
+  (element valAx { dchrt_CT_ValAx }
+   | element catAx { dchrt_CT_CatAx }
+   | element dateAx { dchrt_CT_DateAx }
+   | element serAx { dchrt_CT_SerAx })*,
+  element dTable { dchrt_CT_DTable }?,
+  element spPr { a_CT_ShapeProperties }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_PivotFmt =
+  element idx { dchrt_CT_UnsignedInt },
+  element spPr { a_CT_ShapeProperties }?,
+  element txPr { a_CT_TextBody }?,
+  element marker { dchrt_CT_Marker }?,
+  element dLbl { dchrt_CT_DLbl }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_PivotFmts = element pivotFmt { dchrt_CT_PivotFmt }*
+dchrt_ST_LegendPos =
+  string "b" | string "tr" | string "l" | string "r" | string "t"
+dchrt_CT_LegendPos =
+  
+  ## default value: r
+  attribute val { dchrt_ST_LegendPos }?
+dchrt_EG_LegendEntryData = element txPr { a_CT_TextBody }?
+dchrt_CT_LegendEntry =
+  element idx { dchrt_CT_UnsignedInt },
+  (element delete { dchrt_CT_Boolean }
+   | dchrt_EG_LegendEntryData),
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_CT_Legend =
+  element legendPos { dchrt_CT_LegendPos }?,
+  element legendEntry { dchrt_CT_LegendEntry }*,
+  element layout { dchrt_CT_Layout }?,
+  element overlay { dchrt_CT_Boolean }?,
+  element spPr { a_CT_ShapeProperties }?,
+  element txPr { a_CT_TextBody }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_ST_DispBlanksAs = string "span" | string "gap" | string "zero"
+dchrt_CT_DispBlanksAs =
+  
+  ## default value: zero
+  attribute val { dchrt_ST_DispBlanksAs }?
+dchrt_CT_Chart =
+  element title { dchrt_CT_Title }?,
+  element autoTitleDeleted { dchrt_CT_Boolean }?,
+  element pivotFmts { dchrt_CT_PivotFmts }?,
+  element view3D { dchrt_CT_View3D }?,
+  element floor { dchrt_CT_Surface }?,
+  element sideWall { dchrt_CT_Surface }?,
+  element backWall { dchrt_CT_Surface }?,
+  element plotArea { dchrt_CT_PlotArea },
+  element legend { dchrt_CT_Legend }?,
+  element plotVisOnly { dchrt_CT_Boolean }?,
+  element dispBlanksAs { dchrt_CT_DispBlanksAs }?,
+  element showDLblsOverMax { dchrt_CT_Boolean }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_ST_Style =
+  xsd:unsignedByte { minInclusive = "1" maxInclusive = "48" }
+dchrt_CT_Style = attribute val { dchrt_ST_Style }
+dchrt_CT_PivotSource =
+  element name { s_ST_Xstring },
+  element fmtId { dchrt_CT_UnsignedInt },
+  element extLst { dchrt_CT_ExtensionList }*
+dchrt_CT_Protection =
+  element chartObject { dchrt_CT_Boolean }?,
+  element data { dchrt_CT_Boolean }?,
+  element formatting { dchrt_CT_Boolean }?,
+  element selection { dchrt_CT_Boolean }?,
+  element userInterface { dchrt_CT_Boolean }?
+dchrt_CT_HeaderFooter =
+  
+  ## default value: true
+  attribute alignWithMargins { xsd:boolean }?,
+  
+  ## default value: false
+  attribute differentOddEven { xsd:boolean }?,
+  
+  ## default value: false
+  attribute differentFirst { xsd:boolean }?,
+  element oddHeader { s_ST_Xstring }?,
+  element oddFooter { s_ST_Xstring }?,
+  element evenHeader { s_ST_Xstring }?,
+  element evenFooter { s_ST_Xstring }?,
+  element firstHeader { s_ST_Xstring }?,
+  element firstFooter { s_ST_Xstring }?
+dchrt_CT_PageMargins =
+  attribute l { xsd:double },
+  attribute r { xsd:double },
+  attribute t { xsd:double },
+  attribute b { xsd:double },
+  attribute header { xsd:double },
+  attribute footer { xsd:double }
+dchrt_ST_PageSetupOrientation =
+  string "default" | string "portrait" | string "landscape"
+dchrt_CT_ExternalData =
+  r_id,
+  element autoUpdate { dchrt_CT_Boolean }?
+dchrt_CT_PageSetup =
+  
+  ## default value: 1
+  attribute paperSize { xsd:unsignedInt }?,
+  attribute paperHeight { s_ST_PositiveUniversalMeasure }?,
+  attribute paperWidth { s_ST_PositiveUniversalMeasure }?,
+  
+  ## default value: 1
+  attribute firstPageNumber { xsd:unsignedInt }?,
+  
+  ## default value: default
+  attribute orientation { dchrt_ST_PageSetupOrientation }?,
+  
+  ## default value: false
+  attribute blackAndWhite { xsd:boolean }?,
+  
+  ## default value: false
+  attribute draft { xsd:boolean }?,
+  
+  ## default value: false
+  attribute useFirstPageNumber { xsd:boolean }?,
+  
+  ## default value: 600
+  attribute horizontalDpi { xsd:int }?,
+  
+  ## default value: 600
+  attribute verticalDpi { xsd:int }?,
+  
+  ## default value: 1
+  attribute copies { xsd:unsignedInt }?
+dchrt_CT_PrintSettings =
+  element headerFooter { dchrt_CT_HeaderFooter }?,
+  element pageMargins { dchrt_CT_PageMargins }?,
+  element pageSetup { dchrt_CT_PageSetup }?
+dchrt_CT_ChartSpace =
+  element date1904 { dchrt_CT_Boolean }?,
+  element lang { dchrt_CT_TextLanguageID }?,
+  element roundedCorners { dchrt_CT_Boolean }?,
+  element style { dchrt_CT_Style }?,
+  element clrMapOvr { a_CT_ColorMapping }?,
+  element pivotSource { dchrt_CT_PivotSource }?,
+  element protection { dchrt_CT_Protection }?,
+  element chart { dchrt_CT_Chart },
+  element spPr { a_CT_ShapeProperties }?,
+  element txPr { a_CT_TextBody }?,
+  element externalData { dchrt_CT_ExternalData }?,
+  element printSettings { dchrt_CT_PrintSettings }?,
+  element userShapes { dchrt_CT_RelId }?,
+  element extLst { dchrt_CT_ExtensionList }?
+dchrt_chartSpace = element chartSpace { dchrt_CT_ChartSpace }
+dchrt_userShapes = element userShapes { cdr_CT_Drawing }
+dchrt_chart = element chart { dchrt_CT_RelId }

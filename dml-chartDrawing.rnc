@@ -1,0 +1,92 @@
+default namespace = "http://purl.oclc.org/ooxml/drawingml/chartDrawing"
+namespace a = "http://purl.oclc.org/ooxml/drawingml/main"
+namespace cdr = "http://purl.oclc.org/ooxml/drawingml/chartDrawing"
+namespace o = "urn:schemas-microsoft-com:office:office"
+namespace v = "urn:schemas-microsoft-com:vml"
+namespace w10 = "urn:schemas-microsoft-com:office:word"
+namespace x = "urn:schemas-microsoft-com:office:excel"
+
+cdr_CT_ShapeNonVisual =
+  element cNvPr { a_CT_NonVisualDrawingProps },
+  element cNvSpPr { a_CT_NonVisualDrawingShapeProps }
+cdr_CT_Shape =
+  attribute macro { xsd:string }?,
+  attribute textlink { xsd:string }?,
+  
+  ## default value: true
+  attribute fLocksText { xsd:boolean }?,
+  
+  ## default value: false
+  attribute fPublished { xsd:boolean }?,
+  element nvSpPr { cdr_CT_ShapeNonVisual },
+  element spPr { a_CT_ShapeProperties },
+  element style { a_CT_ShapeStyle }?,
+  element txBody { a_CT_TextBody }?
+cdr_CT_ConnectorNonVisual =
+  element cNvPr { a_CT_NonVisualDrawingProps },
+  element cNvCxnSpPr { a_CT_NonVisualConnectorProperties }
+cdr_CT_Connector =
+  attribute macro { xsd:string }?,
+  
+  ## default value: false
+  attribute fPublished { xsd:boolean }?,
+  element nvCxnSpPr { cdr_CT_ConnectorNonVisual },
+  element spPr { a_CT_ShapeProperties },
+  element style { a_CT_ShapeStyle }?
+cdr_CT_PictureNonVisual =
+  element cNvPr { a_CT_NonVisualDrawingProps },
+  element cNvPicPr { a_CT_NonVisualPictureProperties }
+cdr_CT_Picture =
+  attribute macro { xsd:string }?,
+  
+  ## default value: false
+  attribute fPublished { xsd:boolean }?,
+  element nvPicPr { cdr_CT_PictureNonVisual },
+  element blipFill { a_CT_BlipFillProperties },
+  element spPr { a_CT_ShapeProperties },
+  element style { a_CT_ShapeStyle }?
+cdr_CT_GraphicFrameNonVisual =
+  element cNvPr { a_CT_NonVisualDrawingProps },
+  element cNvGraphicFramePr { a_CT_NonVisualGraphicFrameProperties }
+cdr_CT_GraphicFrame =
+  attribute macro { xsd:string }?,
+  
+  ## default value: false
+  attribute fPublished { xsd:boolean }?,
+  element nvGraphicFramePr { cdr_CT_GraphicFrameNonVisual },
+  element xfrm { a_CT_Transform2D },
+  a_graphic
+cdr_CT_GroupShapeNonVisual =
+  element cNvPr { a_CT_NonVisualDrawingProps },
+  element cNvGrpSpPr { a_CT_NonVisualGroupDrawingShapeProps }
+cdr_CT_GroupShape =
+  element nvGrpSpPr { cdr_CT_GroupShapeNonVisual },
+  element grpSpPr { a_CT_GroupShapeProperties },
+  (element sp { cdr_CT_Shape }
+   | element grpSp { cdr_CT_GroupShape }
+   | element graphicFrame { cdr_CT_GraphicFrame }
+   | element cxnSp { cdr_CT_Connector }
+   | element pic { cdr_CT_Picture })*
+cdr_EG_ObjectChoices =
+  element sp { cdr_CT_Shape }
+  | element grpSp { cdr_CT_GroupShape }
+  | element graphicFrame { cdr_CT_GraphicFrame }
+  | element cxnSp { cdr_CT_Connector }
+  | element pic { cdr_CT_Picture }
+cdr_ST_MarkerCoordinate =
+  xsd:double { minInclusive = "0.0" maxInclusive = "1.0" }
+cdr_CT_Marker =
+  element x { cdr_ST_MarkerCoordinate },
+  element y { cdr_ST_MarkerCoordinate }
+cdr_CT_RelSizeAnchor =
+  element from { cdr_CT_Marker },
+  element to { cdr_CT_Marker },
+  cdr_EG_ObjectChoices
+cdr_CT_AbsSizeAnchor =
+  element from { cdr_CT_Marker },
+  element ext { a_CT_PositiveSize2D },
+  cdr_EG_ObjectChoices
+cdr_EG_Anchor =
+  element relSizeAnchor { cdr_CT_RelSizeAnchor }
+  | element absSizeAnchor { cdr_CT_AbsSizeAnchor }
+cdr_CT_Drawing = cdr_EG_Anchor*

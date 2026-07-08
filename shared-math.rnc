@@ -1,0 +1,278 @@
+default namespace m = "http://purl.oclc.org/ooxml/officeDocument/math"
+namespace o = "urn:schemas-microsoft-com:office:office"
+namespace s = "http://purl.oclc.org/ooxml/officeDocument/sharedTypes"
+namespace v = "urn:schemas-microsoft-com:vml"
+namespace w = "http://purl.oclc.org/ooxml/wordprocessingml/main"
+namespace w10 = "urn:schemas-microsoft-com:office:word"
+namespace x = "urn:schemas-microsoft-com:office:excel"
+
+m_ST_Integer255 =
+  xsd:integer { minInclusive = "1" maxInclusive = "255" }
+m_CT_Integer255 = attribute m:val { m_ST_Integer255 }
+m_ST_Integer2 = xsd:integer { minInclusive = "-2" maxInclusive = "2" }
+m_CT_Integer2 = attribute m:val { m_ST_Integer2 }
+m_ST_SpacingRule = xsd:integer { minInclusive = "0" maxInclusive = "4" }
+m_CT_SpacingRule = attribute m:val { m_ST_SpacingRule }
+m_ST_UnSignedInteger = xsd:unsignedInt
+m_CT_UnSignedInteger = attribute m:val { m_ST_UnSignedInteger }
+m_ST_Char = xsd:string { maxLength = "1" }
+m_CT_Char = attribute m:val { m_ST_Char }
+m_CT_OnOff = attribute m:val { s_ST_OnOff }?
+m_CT_String = attribute m:val { s_ST_String }?
+m_CT_XAlign = attribute m:val { s_ST_XAlign }
+m_CT_YAlign = attribute m:val { s_ST_YAlign }
+m_ST_Shp = string "centered" | string "match"
+m_CT_Shp = attribute m:val { m_ST_Shp }
+m_ST_FType = string "bar" | string "skw" | string "lin" | string "noBar"
+m_CT_FType = attribute m:val { m_ST_FType }
+m_ST_LimLoc = string "undOvr" | string "subSup"
+m_CT_LimLoc = attribute m:val { m_ST_LimLoc }
+m_ST_TopBot = string "top" | string "bot"
+m_CT_TopBot = attribute m:val { m_ST_TopBot }
+m_ST_Script =
+  string "roman"
+  | string "script"
+  | string "fraktur"
+  | string "double-struck"
+  | string "sans-serif"
+  | string "monospace"
+m_CT_Script = attribute m:val { m_ST_Script }?
+m_ST_Style = string "p" | string "b" | string "i" | string "bi"
+m_CT_Style = attribute m:val { m_ST_Style }?
+m_CT_ManualBreak = attribute m:alnAt { m_ST_Integer255 }?
+m_EG_ScriptStyle =
+  element scr { m_CT_Script }?,
+  element sty { m_CT_Style }?
+m_CT_RPR =
+  element lit { m_CT_OnOff }?,
+  (element nor { m_CT_OnOff }?
+   | m_EG_ScriptStyle),
+  element brk { m_CT_ManualBreak }?,
+  element aln { m_CT_OnOff }?
+m_CT_Text = s_ST_String, xml_space?
+m_CT_R =
+  element rPr { m_CT_RPR }?,
+  w_EG_RPr?,
+  (w_EG_RunInnerContent
+   | element t { m_CT_Text }?)*
+m_CT_CtrlPr = w_EG_RPrMath?
+m_CT_AccPr =
+  element chr { m_CT_Char }?,
+  element ctrlPr { m_CT_CtrlPr }?
+m_CT_Acc =
+  element accPr { m_CT_AccPr }?,
+  element e { m_CT_OMathArg }
+m_CT_BarPr =
+  element pos { m_CT_TopBot }?,
+  element ctrlPr { m_CT_CtrlPr }?
+m_CT_Bar =
+  element barPr { m_CT_BarPr }?,
+  element e { m_CT_OMathArg }
+m_CT_BoxPr =
+  element opEmu { m_CT_OnOff }?,
+  element noBreak { m_CT_OnOff }?,
+  element diff { m_CT_OnOff }?,
+  element brk { m_CT_ManualBreak }?,
+  element aln { m_CT_OnOff }?,
+  element ctrlPr { m_CT_CtrlPr }?
+m_CT_Box =
+  element boxPr { m_CT_BoxPr }?,
+  element e { m_CT_OMathArg }
+m_CT_BorderBoxPr =
+  element hideTop { m_CT_OnOff }?,
+  element hideBot { m_CT_OnOff }?,
+  element hideLeft { m_CT_OnOff }?,
+  element hideRight { m_CT_OnOff }?,
+  element strikeH { m_CT_OnOff }?,
+  element strikeV { m_CT_OnOff }?,
+  element strikeBLTR { m_CT_OnOff }?,
+  element strikeTLBR { m_CT_OnOff }?,
+  element ctrlPr { m_CT_CtrlPr }?
+m_CT_BorderBox =
+  element borderBoxPr { m_CT_BorderBoxPr }?,
+  element e { m_CT_OMathArg }
+m_CT_DPr =
+  element begChr { m_CT_Char }?,
+  element sepChr { m_CT_Char }?,
+  element endChr { m_CT_Char }?,
+  element grow { m_CT_OnOff }?,
+  element shp { m_CT_Shp }?,
+  element ctrlPr { m_CT_CtrlPr }?
+m_CT_D =
+  element dPr { m_CT_DPr }?,
+  element e { m_CT_OMathArg }+
+m_CT_EqArrPr =
+  element baseJc { m_CT_YAlign }?,
+  element maxDist { m_CT_OnOff }?,
+  element objDist { m_CT_OnOff }?,
+  element rSpRule { m_CT_SpacingRule }?,
+  element rSp { m_CT_UnSignedInteger }?,
+  element ctrlPr { m_CT_CtrlPr }?
+m_CT_EqArr =
+  element eqArrPr { m_CT_EqArrPr }?,
+  element e { m_CT_OMathArg }+
+m_CT_FPr =
+  element type { m_CT_FType }?,
+  element ctrlPr { m_CT_CtrlPr }?
+m_CT_F =
+  element fPr { m_CT_FPr }?,
+  element num { m_CT_OMathArg },
+  element den { m_CT_OMathArg }
+m_CT_FuncPr = element ctrlPr { m_CT_CtrlPr }?
+m_CT_Func =
+  element funcPr { m_CT_FuncPr }?,
+  element fName { m_CT_OMathArg },
+  element e { m_CT_OMathArg }
+m_CT_GroupChrPr =
+  element chr { m_CT_Char }?,
+  element pos { m_CT_TopBot }?,
+  element vertJc { m_CT_TopBot }?,
+  element ctrlPr { m_CT_CtrlPr }?
+m_CT_GroupChr =
+  element groupChrPr { m_CT_GroupChrPr }?,
+  element e { m_CT_OMathArg }
+m_CT_LimLowPr = element ctrlPr { m_CT_CtrlPr }?
+m_CT_LimLow =
+  element limLowPr { m_CT_LimLowPr }?,
+  element e { m_CT_OMathArg },
+  element lim { m_CT_OMathArg }
+m_CT_LimUppPr = element ctrlPr { m_CT_CtrlPr }?
+m_CT_LimUpp =
+  element limUppPr { m_CT_LimUppPr }?,
+  element e { m_CT_OMathArg },
+  element lim { m_CT_OMathArg }
+m_CT_MCPr =
+  element count { m_CT_Integer255 }?,
+  element mcJc { m_CT_XAlign }?
+m_CT_MC = element mcPr { m_CT_MCPr }?
+m_CT_MCS = element mc { m_CT_MC }+
+m_CT_MPr =
+  element baseJc { m_CT_YAlign }?,
+  element plcHide { m_CT_OnOff }?,
+  element rSpRule { m_CT_SpacingRule }?,
+  element cGpRule { m_CT_SpacingRule }?,
+  element rSp { m_CT_UnSignedInteger }?,
+  element cSp { m_CT_UnSignedInteger }?,
+  element cGp { m_CT_UnSignedInteger }?,
+  element mcs { m_CT_MCS }?,
+  element ctrlPr { m_CT_CtrlPr }?
+m_CT_MR = element e { m_CT_OMathArg }+
+m_CT_M =
+  element mPr { m_CT_MPr }?,
+  element mr { m_CT_MR }+
+m_CT_NaryPr =
+  element chr { m_CT_Char }?,
+  element limLoc { m_CT_LimLoc }?,
+  element grow { m_CT_OnOff }?,
+  element subHide { m_CT_OnOff }?,
+  element supHide { m_CT_OnOff }?,
+  element ctrlPr { m_CT_CtrlPr }?
+m_CT_Nary =
+  element naryPr { m_CT_NaryPr }?,
+  element sub { m_CT_OMathArg },
+  element sup { m_CT_OMathArg },
+  element e { m_CT_OMathArg }
+m_CT_PhantPr =
+  element show { m_CT_OnOff }?,
+  element zeroWid { m_CT_OnOff }?,
+  element zeroAsc { m_CT_OnOff }?,
+  element zeroDesc { m_CT_OnOff }?,
+  element transp { m_CT_OnOff }?,
+  element ctrlPr { m_CT_CtrlPr }?
+m_CT_Phant =
+  element phantPr { m_CT_PhantPr }?,
+  element e { m_CT_OMathArg }
+m_CT_RadPr =
+  element degHide { m_CT_OnOff }?,
+  element ctrlPr { m_CT_CtrlPr }?
+m_CT_Rad =
+  element radPr { m_CT_RadPr }?,
+  element deg { m_CT_OMathArg },
+  element e { m_CT_OMathArg }
+m_CT_SPrePr = element ctrlPr { m_CT_CtrlPr }?
+m_CT_SPre =
+  element sPrePr { m_CT_SPrePr }?,
+  element sub { m_CT_OMathArg },
+  element sup { m_CT_OMathArg },
+  element e { m_CT_OMathArg }
+m_CT_SSubPr = element ctrlPr { m_CT_CtrlPr }?
+m_CT_SSub =
+  element sSubPr { m_CT_SSubPr }?,
+  element e { m_CT_OMathArg },
+  element sub { m_CT_OMathArg }
+m_CT_SSubSupPr =
+  element alnScr { m_CT_OnOff }?,
+  element ctrlPr { m_CT_CtrlPr }?
+m_CT_SSubSup =
+  element sSubSupPr { m_CT_SSubSupPr }?,
+  element e { m_CT_OMathArg },
+  element sub { m_CT_OMathArg },
+  element sup { m_CT_OMathArg }
+m_CT_SSupPr = element ctrlPr { m_CT_CtrlPr }?
+m_CT_SSup =
+  element sSupPr { m_CT_SSupPr }?,
+  element e { m_CT_OMathArg },
+  element sup { m_CT_OMathArg }
+m_EG_OMathMathElements =
+  element acc { m_CT_Acc }
+  | element bar { m_CT_Bar }
+  | element box { m_CT_Box }
+  | element borderBox { m_CT_BorderBox }
+  | element d { m_CT_D }
+  | element eqArr { m_CT_EqArr }
+  | element f { m_CT_F }
+  | element func { m_CT_Func }
+  | element groupChr { m_CT_GroupChr }
+  | element limLow { m_CT_LimLow }
+  | element limUpp { m_CT_LimUpp }
+  | element m { m_CT_M }
+  | element nary { m_CT_Nary }
+  | element phant { m_CT_Phant }
+  | element rad { m_CT_Rad }
+  | element sPre { m_CT_SPre }
+  | element sSub { m_CT_SSub }
+  | element sSubSup { m_CT_SSubSup }
+  | element sSup { m_CT_SSup }
+  | element r { m_CT_R }
+m_EG_OMathElements = m_EG_OMathMathElements | w_EG_PContentMath
+m_CT_OMathArgPr = element argSz { m_CT_Integer2 }?
+m_CT_OMathArg =
+  element argPr { m_CT_OMathArgPr }?,
+  m_EG_OMathElements*,
+  element ctrlPr { m_CT_CtrlPr }?
+m_ST_Jc =
+  string "left"
+  | string "right"
+  | string "center"
+  | string "centerGroup"
+m_CT_OMathJc = attribute m:val { m_ST_Jc }?
+m_CT_OMathParaPr = element jc { m_CT_OMathJc }?
+m_CT_TwipsMeasure = attribute m:val { s_ST_TwipsMeasure }
+m_ST_BreakBin = string "before" | string "after" | string "repeat"
+m_CT_BreakBin = attribute m:val { m_ST_BreakBin }?
+m_ST_BreakBinSub = string "--" | string "-+" | string "+-"
+m_CT_BreakBinSub = attribute m:val { m_ST_BreakBinSub }?
+m_CT_MathPr =
+  element mathFont { m_CT_String }?,
+  element brkBin { m_CT_BreakBin }?,
+  element brkBinSub { m_CT_BreakBinSub }?,
+  element smallFrac { m_CT_OnOff }?,
+  element dispDef { m_CT_OnOff }?,
+  element lMargin { m_CT_TwipsMeasure }?,
+  element rMargin { m_CT_TwipsMeasure }?,
+  element defJc { m_CT_OMathJc }?,
+  element preSp { m_CT_TwipsMeasure }?,
+  element postSp { m_CT_TwipsMeasure }?,
+  element interSp { m_CT_TwipsMeasure }?,
+  element intraSp { m_CT_TwipsMeasure }?,
+  (element wrapIndent { m_CT_TwipsMeasure }
+   | element wrapRight { m_CT_OnOff })?,
+  element intLim { m_CT_LimLoc }?,
+  element naryLim { m_CT_LimLoc }?
+m_mathPr = element mathPr { m_CT_MathPr }
+m_CT_OMathPara =
+  element oMathParaPr { m_CT_OMathParaPr }?,
+  element oMath { m_CT_OMath }+
+m_CT_OMath = m_EG_OMathElements*
+m_oMathPara = element oMathPara { m_CT_OMathPara }
+m_oMath = element oMath { m_CT_OMath }

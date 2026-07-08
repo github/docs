@@ -7,9 +7,9 @@ name: Changelog agent — draft entry when a qualified PR merges
 #   don't have to remember to write a changelog entry manually.
 # **Who does it impact**: docs-content team members.
 
-on:
+on: @Edgarruiz8585 
   pull_request:
-    types: [closed]
+    types: [Edgarruiz8585]
   workflow_dispatch:
     inputs:
       pr_number:

@@ -1,0 +1,196 @@
+"2026-04-27T08:13:55.1120603Z Current runner version: '2.334.0'
+2026-04-27T08:13:55.1153868Z ##[group]Runner Image Provisioner
+2026-04-27T08:13:55.1155095Z Hosted Compute Agent
+2026-04-27T08:13:55.1155941Z Version: 20260213.493
+2026-04-27T08:13:55.1156746Z Commit: 5c115507f6dd24b8de37d8bbe0bb4509d0cc0fa3
+2026-04-27T08:13:55.1157922Z Build Date: 2026-02-13T00:28:41Z
+2026-04-27T08:13:55.1158859Z Worker ID: {4fdd65b9-ee10-425b-b404-43b829d6070f}
+2026-04-27T08:13:55.1159868Z Azure Region: eastus
+2026-04-27T08:13:55.1160709Z ##[endgroup]
+2026-04-27T08:13:55.1162895Z ##[group]Operating System
+2026-04-27T08:13:55.1163848Z Ubuntu
+2026-04-27T08:13:55.1164507Z 24.04.4
+2026-04-27T08:13:55.1165185Z LTS
+2026-04-27T08:13:55.1165793Z ##[endgroup]
+2026-04-27T08:13:55.1166644Z ##[group]Runner Image
+2026-04-27T08:13:55.1167455Z Image: ubuntu-24.04
+2026-04-27T08:13:55.1168200Z Version: 20260413.86.1
+2026-04-27T08:13:55.1170090Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260413.86/images/ubuntu/Ubuntu2404-Readme.md
+2026-04-27T08:13:55.1172724Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260413.86
+2026-04-27T08:13:55.1174173Z ##[endgroup]
+2026-04-27T08:13:55.1175734Z ##[group]GITHUB_TOKEN Permissions
+2026-04-27T08:13:55.1178732Z Contents: read
+2026-04-27T08:13:55.1179465Z Metadata: read
+2026-04-27T08:13:55.1180172Z Pages: write
+2026-04-27T08:13:55.1181262Z ##[endgroup]
+2026-04-27T08:13:55.1183971Z Secret source: Actions
+2026-04-27T08:13:55.1185032Z Prepare workflow directory
+2026-04-27T08:13:55.1627526Z Prepare all required actions
+2026-04-27T08:13:55.1679709Z Getting action download info
+2026-04-27T08:13:55.4785180Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-04-27T08:13:55.6110865Z Download action repository 'actions/upload-pages-artifact@v3' (SHA:56afc609e74202658d3ffba0e8f6dda462b719fa)
+2026-04-27T08:13:55.9141829Z Getting action download info
+2026-04-27T08:13:56.0316666Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-04-27T08:13:56.1600598Z Complete job name: build
+2026-04-27T08:13:56.2287091Z ##[group]Run actions/checkout@v4
+2026-04-27T08:13:56.2287864Z with:
+2026-04-27T08:13:56.2288222Z   ref: main
+2026-04-27T08:13:56.2288592Z   submodules: recursive
+2026-04-27T08:13:56.2289028Z   repository: Dytomic/Dytomic.github.io
+2026-04-27T08:13:56.2289693Z   token: ***
+2026-04-27T08:13:56.2290068Z   ssh-strict: true
+2026-04-27T08:13:56.2290463Z   ssh-user: git
+2026-04-27T08:13:56.2290849Z   persist-credentials: true
+2026-04-27T08:13:56.2291482Z   clean: true
+2026-04-27T08:13:56.2291878Z   sparse-checkout-cone-mode: true
+2026-04-27T08:13:56.2292336Z   fetch-depth: 1
+2026-04-27T08:13:56.2292720Z   fetch-tags: false
+2026-04-27T08:13:56.2293109Z   show-progress: true
+2026-04-27T08:13:56.2293501Z   lfs: false
+2026-04-27T08:13:56.2293863Z   set-safe-directory: true
+2026-04-27T08:13:56.2294472Z ##[endgroup]
+2026-04-27T08:13:56.3384803Z Syncing repository: Dytomic/Dytomic.github.io
+2026-04-27T08:13:56.3386583Z ##[group]Getting Git version info
+2026-04-27T08:13:56.3387412Z Working directory is '/home/runner/work/Dytomic.github.io/Dytomic.github.io'
+2026-04-27T08:13:56.3388400Z [command]/usr/bin/git version
+2026-04-27T08:13:56.3433332Z git version 2.53.0
+2026-04-27T08:13:56.3458237Z ##[endgroup]
+2026-04-27T08:13:56.3474896Z Temporarily overriding HOME='/home/runner/work/_temp/acefe3d8-5f0e-4ffb-8eff-48800589aa1b' before making global git config changes
+2026-04-27T08:13:56.3477326Z Adding repository directory to the temporary git global config as a safe directory
+2026-04-27T08:13:56.3489981Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Dytomic.github.io/Dytomic.github.io
+2026-04-27T08:13:56.3524517Z Deleting the contents of '/home/runner/work/Dytomic.github.io/Dytomic.github.io'
+2026-04-27T08:13:56.3528976Z ##[group]Initializing the repository
+2026-04-27T08:13:56.3533674Z [command]/usr/bin/git init /home/runner/work/Dytomic.github.io/Dytomic.github.io
+2026-04-27T08:13:56.3592246Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-04-27T08:13:56.3593735Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-04-27T08:13:56.3595162Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-04-27T08:13:56.3596263Z hint: call:
+2026-04-27T08:13:56.3596797Z hint:
+2026-04-27T08:13:56.3597502Z hint: 	git config --global init.defaultBranch <name>
+2026-04-27T08:13:56.3598384Z hint:
+2026-04-27T08:13:56.3599239Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-04-27T08:13:56.3600628Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-04-27T08:13:56.3601939Z hint:
+2026-04-27T08:13:56.3602520Z hint: 	git branch -m <name>
+2026-04-27T08:13:56.3603171Z hint:
+2026-04-27T08:13:56.3604072Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-04-27T08:13:56.3605772Z Initialized empty Git repository in /home/runner/work/Dytomic.github.io/Dytomic.github.io/.git/
+2026-04-27T08:13:56.3608452Z [command]/usr/bin/git remote add origin https://github.com/Dytomic/Dytomic.github.io
+2026-04-27T08:13:56.3638142Z ##[endgroup]
+2026-04-27T08:13:56.3639211Z ##[group]Disabling automatic garbage collection
+2026-04-27T08:13:56.3643346Z [command]/usr/bin/git config --local gc.auto 0
+2026-04-27T08:13:56.3672731Z ##[endgroup]
+2026-04-27T08:13:56.3673712Z ##[group]Setting up auth
+2026-04-27T08:13:56.3680185Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-04-27T08:13:56.3711668Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-04-27T08:13:56.3998272Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-04-27T08:13:56.4028586Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-04-27T08:13:56.4260051Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-04-27T08:13:56.4300467Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-04-27T08:13:56.4538002Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-04-27T08:13:56.4573044Z ##[endgroup]
+2026-04-27T08:13:56.4574084Z ##[group]Fetching the repository
+2026-04-27T08:13:56.4582702Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/main*:refs/remotes/origin/main* +refs/tags/main*:refs/tags/main*
+2026-04-27T08:13:56.7057814Z From https://github.com/Dytomic/Dytomic.github.io
+2026-04-27T08:13:56.7058769Z  * [new branch]      main       -> origin/main
+2026-04-27T08:13:56.7086871Z ##[endgroup]
+2026-04-27T08:13:56.7087607Z ##[group]Determining the checkout info
+2026-04-27T08:13:56.7093904Z [command]/usr/bin/git branch --list --remote origin/main
+2026-04-27T08:13:56.7118459Z   origin/main
+2026-04-27T08:13:56.7122938Z ##[endgroup]
+2026-04-27T08:13:56.7127126Z [command]/usr/bin/git sparse-checkout disable
+2026-04-27T08:13:56.7163488Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-04-27T08:13:56.7190496Z ##[group]Checking out the ref
+2026-04-27T08:13:56.7193811Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-04-27T08:13:56.7243462Z Switched to a new branch 'main'
+2026-04-27T08:13:56.7246553Z branch 'main' set up to track 'origin/main'.
+2026-04-27T08:13:56.7252119Z ##[endgroup]
+2026-04-27T08:13:56.7253374Z ##[group]Setting up auth for fetching submodules
+2026-04-27T08:13:56.7257557Z [command]/usr/bin/git config --global http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-04-27T08:13:56.7292491Z [command]/usr/bin/git config --global --unset-all url.https://github.com/.insteadOf
+2026-04-27T08:13:56.7320667Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf git@github.com:
+2026-04-27T08:13:56.7350643Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf org-92111191@github.com:
+2026-04-27T08:13:56.7377089Z ##[endgroup]
+2026-04-27T08:13:56.7377780Z ##[group]Fetching submodules
+2026-04-27T08:13:56.7381400Z [command]/usr/bin/git submodule sync --recursive
+2026-04-27T08:13:56.7614855Z [command]/usr/bin/git -c protocol.version=2 submodule update --init --force --depth=1 --recursive
+2026-04-27T08:13:56.7854552Z [command]/usr/bin/git submodule foreach --recursive git config --local gc.auto 0
+2026-04-27T08:13:56.8100568Z ##[endgroup]
+2026-04-27T08:13:56.8102117Z ##[group]Persisting credentials for submodules
+2026-04-27T08:13:56.8108136Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'url\.https\:\/\/github\.com\/\.insteadOf' && git config --local --unset-all 'url.https://github.com/.insteadOf' || :"
+2026-04-27T08:13:56.8341859Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local 'http.https://github.com/.extraheader' 'AUTHORIZATION: basic ***' && git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-04-27T08:13:56.8573797Z [command]/usr/bin/git submodule foreach --recursive git config --local --add 'url.https://github.com/.insteadOf' 'git@github.com:'
+2026-04-27T08:13:56.8805450Z [command]/usr/bin/git submodule foreach --recursive git config --local --add 'url.https://github.com/.insteadOf' 'org-92111191@github.com:'
+2026-04-27T08:13:56.9030503Z ##[endgroup]
+2026-04-27T08:13:56.9066251Z [command]/usr/bin/git log -1 --format=%H
+2026-04-27T08:13:56.9097407Z 83a16019aeeb8aba6a39e4606263241e1aeef96f
+2026-04-27T08:13:56.9453346Z ##[group]Run actions/upload-pages-artifact@v3
+2026-04-27T08:13:56.9454262Z with:
+2026-04-27T08:13:56.9454729Z   path: .
+2026-04-27T08:13:56.9455246Z   name: github-pages
+2026-04-27T08:13:56.9455828Z   retention-days: 1
+2026-04-27T08:13:56.9456372Z ##[endgroup]
+2026-04-27T08:13:56.9583920Z ##[group]Run echo ::group::Archive artifact
+2026-04-27T08:13:56.9584897Z [36;1mecho ::group::Archive artifact[0m
+2026-04-27T08:13:56.9585679Z [36;1mtar \[0m
+2026-04-27T08:13:56.9586315Z [36;1m  --dereference --hard-dereference \[0m
+2026-04-27T08:13:56.9587226Z [36;1m  --directory "$INPUT_PATH" \[0m
+2026-04-27T08:13:56.9588121Z [36;1m  -cvf "$RUNNER_TEMP/artifact.tar" \[0m
+2026-04-27T08:13:56.9588961Z [36;1m  --exclude=.git \[0m
+2026-04-27T08:13:56.9589652Z [36;1m  --exclude=.github \[0m
+2026-04-27T08:13:56.9590359Z [36;1m  .[0m
+2026-04-27T08:13:56.9590873Z [36;1mecho ::endgroup::[0m
+2026-04-27T08:13:56.9635593Z shell: /usr/bin/sh -e {0}
+2026-04-27T08:13:56.9636250Z env:
+2026-04-27T08:13:56.9636778Z   INPUT_PATH: .
+2026-04-27T08:13:56.9637294Z ##[endgroup]
+2026-04-27T08:13:56.9716933Z ##[group]Archive artifact
+2026-04-27T08:13:56.9730339Z ./
+2026-04-27T08:13:56.9731258Z ./README.md
+2026-04-27T08:13:56.9731971Z ./favicon.png
+2026-04-27T08:13:56.9732620Z ./robots.txt
+2026-04-27T08:13:56.9733099Z ./index.html
+2026-04-27T08:13:56.9733831Z ./google767d003a4a2c3b0e.html
+2026-04-27T08:13:56.9734796Z ./og-preview.jpg
+2026-04-27T08:13:56.9735601Z ./team-photo.jpg
+2026-04-27T08:13:56.9736130Z ./.nojekyll
+2026-04-27T08:13:56.9736651Z ./d715d318a590449b8a296f22b4eeccc8.txt
+2026-04-27T08:13:56.9737516Z ./llms.txt
+2026-04-27T08:13:56.9739051Z ##[endgroup]
+2026-04-27T08:13:56.9866987Z ##[group]Run actions/upload-artifact@v4
+2026-04-27T08:13:56.9867726Z with:
+2026-04-27T08:13:56.9868180Z   name: github-pages
+2026-04-27T08:13:56.9868790Z   path: /home/runner/work/_temp/artifact.tar
+2026-04-27T08:13:56.9869565Z   retention-days: 1
+2026-04-27T08:13:56.9870111Z   if-no-files-found: error
+2026-04-27T08:13:56.9870740Z   compression-level: 6
+2026-04-27T08:13:56.9871562Z   overwrite: false
+2026-04-27T08:13:56.9872106Z   include-hidden-files: false
+2026-04-27T08:13:56.9872933Z ##[endgroup]
+2026-04-27T08:13:57.2144792Z With the provided path, there will be 1 file uploaded
+2026-04-27T08:13:57.2149033Z Artifact name is valid!
+2026-04-27T08:13:57.2150244Z Root directory input is valid!
+2026-04-27T08:13:57.3925808Z Beginning upload of artifact content to blob storage
+2026-04-27T08:13:57.5058993Z Uploaded bytes 244884
+2026-04-27T08:13:57.5243757Z Finished uploading artifact content to blob storage!
+2026-04-27T08:13:57.5247797Z SHA256 digest of uploaded artifact zip is 5321b50e44d76f96733c289397ed8bef40ea893142e7405cb182685763f4c553
+2026-04-27T08:13:57.5250467Z Finalizing artifact upload
+2026-04-27T08:13:57.6403879Z Artifact github-pages.zip successfully finalized. Artifact ID 6656041535
+2026-04-27T08:13:57.6407276Z Artifact github-pages has been successfully uploaded! Final size is 244884 bytes. Artifact ID is 6656041535
+2026-04-27T08:13:57.6412635Z Artifact download URL: https://github.com/Dytomic/Dytomic.github.io/actions/runs/24983992214/artifacts/6656041535
+2026-04-27T08:13:57.6722797Z Post job cleanup.
+2026-04-27T08:13:57.7708059Z [command]/usr/bin/git version
+2026-04-27T08:13:57.7743878Z git version 2.53.0
+2026-04-27T08:13:57.7786255Z Temporarily overriding HOME='/home/runner/work/_temp/a39409de-1738-4359-a5d9-8f1743289374' before making global git config changes
+2026-04-27T08:13:57.7789058Z Adding repository directory to the temporary git global config as a safe directory
+2026-04-27T08:13:57.7792345Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Dytomic.github.io/Dytomic.github.io
+2026-04-27T08:13:57.7827648Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-04-27T08:13:57.7864411Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-04-27T08:13:57.8122581Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-04-27T08:13:57.8147023Z http.https://github.com/.extraheader
+2026-04-27T08:13:57.8159680Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-04-27T08:13:57.8194490Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-04-27T08:13:57.8446599Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-04-27T08:13:57.8484032Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-04-27T08:13:57.8864955Z Cleaning up orphan processes
+2026-04-27T08:13:57.9206929Z ##[warning]Node.js 20 actions are deprecated. The following actions are running on Node.js 20 and may not work as expected: actions/checkout@v4, actions/upload-artifact@v4. Actions will be forced to run with Node.js 24 by default starting June 2nd, 2026. Node.js 20 will be removed from the runner on September 16th, 2026. Please check if updated versions of these actions are available that support Node.js 24. To opt into Node.js 24 now, set the FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true environment variable on the runner or in your workflow file. Once Node.js 24 becomes the default, you can temporarily opt out by setting ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"

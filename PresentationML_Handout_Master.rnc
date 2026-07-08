@@ -1,0 +1,11 @@
+include "pml.rnc"
+include "shared-relationshipReference.rnc"
+include "dml-main.rnc"
+include "dml-diagram.rnc"
+include "shared-commonSimpleTypes.rnc"
+include "dml-lockedCanvas.rnc"
+include "any.rnc"
+include "dml-chart.rnc"
+include "dml-chartDrawing.rnc"
+include "dml-picture.rnc"
+start = p_handoutMaster

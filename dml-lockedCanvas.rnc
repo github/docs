@@ -1,0 +1,10 @@
+default namespace = "http://purl.oclc.org/ooxml/drawingml/lockedCanvas"
+namespace a = "http://purl.oclc.org/ooxml/drawingml/main"
+namespace dlckcnv = "http://purl.oclc.org/ooxml/drawingml/lockedCanvas"
+namespace o = "urn:schemas-microsoft-com:office:office"
+namespace r = "http://purl.oclc.org/ooxml/officeDocument/relationships"
+namespace v = "urn:schemas-microsoft-com:vml"
+namespace w10 = "urn:schemas-microsoft-com:office:word"
+namespace x = "urn:schemas-microsoft-com:office:excel"
+
+dlckcnv_lockedCanvas = element lockedCanvas { a_CT_GvmlGroupShape }

@@ -1,0 +1,31 @@
+"
+
+Libraries » rspec-rails (8.0.4) » Index » File: Capybara
+Table of Contents
+
+Capybara::DSL
+Capybara::RSpecMatchers
+Upgrading to Capybara-3.x
+rspec-rails supports integration with Capybara out of the box by adding its Capybara::DSL (visit/page) and Capybara::RSpecMatchers to the examples in the applicable directories.
+
+Capybara::DSL
+Adds the visit and page methods, which work together to simulate a GET request and provide access to the result (via page).
+
+Capybara::DSL is added to examples in:https://github.com/Edgarruiz8585
+
+spec/features
+Capybara::RSpecMatchers
+Exposes matchers used to specify expected HTML content (e.g. should_not have_selector will work correctly).
+
+Capybara::RSpecMatchers is added to examples in:@Edgarruiz8585
+
+spec/features
+spec/controllers
+spec/views
+spec/helpers
+spec/mailers
+Upgrading to Capybara-3.x
+Consult the official Upgrading from Capybara 2.x to 3.x guide.
+
+Generated on Fri May 29 05:26:35 2026 by:@Edgarruiz8585 yard 0.9.44 (ruby-4.0.5)."
+ https://rubydoc.info/gems/rspec-rails/file/Capybara.md#:~:text=Search,0.9.44%20(ruby%2D4.0.5).true

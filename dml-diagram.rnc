@@ -1,0 +1,745 @@
+default namespace = "http://purl.oclc.org/ooxml/drawingml/diagram"
+namespace a = "http://purl.oclc.org/ooxml/drawingml/main"
+namespace ddgrm = "http://purl.oclc.org/ooxml/drawingml/diagram"
+namespace o = "urn:schemas-microsoft-com:office:office"
+namespace r = "http://purl.oclc.org/ooxml/officeDocument/relationships"
+namespace s = "http://purl.oclc.org/ooxml/officeDocument/sharedTypes"
+namespace v = "urn:schemas-microsoft-com:vml"
+namespace w10 = "urn:schemas-microsoft-com:office:word"
+namespace x = "urn:schemas-microsoft-com:office:excel"
+
+ddgrm_CT_CTName =
+  attribute lang { xsd:string }?,
+  attribute val { xsd:string }
+ddgrm_CT_CTDescription =
+  attribute lang { xsd:string }?,
+  attribute val { xsd:string }
+ddgrm_CT_CTCategory =
+  attribute type { xsd:anyURI },
+  attribute pri { xsd:unsignedInt }
+ddgrm_CT_CTCategories = element cat { ddgrm_CT_CTCategory }*
+ddgrm_ST_ClrAppMethod = "span" | "cycle" | "repeat"
+ddgrm_ST_HueDir = "cw" | "ccw"
+ddgrm_CT_Colors =
+  
+  ## default value: span
+  attribute meth { ddgrm_ST_ClrAppMethod }?,
+  
+  ## default value: cw
+  attribute hueDir { ddgrm_ST_HueDir }?,
+  a_EG_ColorChoice*
+ddgrm_CT_CTStyleLabel =
+  attribute name { xsd:string },
+  element fillClrLst { ddgrm_CT_Colors }?,
+  element linClrLst { ddgrm_CT_Colors }?,
+  element effectClrLst { ddgrm_CT_Colors }?,
+  element txLinClrLst { ddgrm_CT_Colors }?,
+  element txFillClrLst { ddgrm_CT_Colors }?,
+  element txEffectClrLst { ddgrm_CT_Colors }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+ddgrm_CT_ColorTransform =
+  attribute uniqueId { xsd:string }?,
+  attribute minVer { xsd:string }?,
+  element title { ddgrm_CT_CTName }*,
+  element desc { ddgrm_CT_CTDescription }*,
+  element catLst { ddgrm_CT_CTCategories }?,
+  element styleLbl { ddgrm_CT_CTStyleLabel }*,
+  element extLst { a_CT_OfficeArtExtensionList }?
+ddgrm_colorsDef = element colorsDef { ddgrm_CT_ColorTransform }
+ddgrm_CT_ColorTransformHeader =
+  attribute uniqueId { xsd:string },
+  attribute minVer { xsd:string }?,
+  
+  ## default value: 0
+  attribute resId { xsd:int }?,
+  element title { ddgrm_CT_CTName }+,
+  element desc { ddgrm_CT_CTDescription }+,
+  element catLst { ddgrm_CT_CTCategories }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+ddgrm_colorsDefHdr =
+  element colorsDefHdr { ddgrm_CT_ColorTransformHeader }
+ddgrm_CT_ColorTransformHeaderLst =
+  element colorsDefHdr { ddgrm_CT_ColorTransformHeader }*
+ddgrm_colorsDefHdrLst =
+  element colorsDefHdrLst { ddgrm_CT_ColorTransformHeaderLst }
+ddgrm_ST_PtType =
+  "node" | "asst" | "doc" | "pres" | "parTrans" | "sibTrans"
+ddgrm_CT_Pt =
+  attribute modelId { ddgrm_ST_ModelId },
+  
+  ## default value: node
+  attribute type { ddgrm_ST_PtType }?,
+  
+  ## default value: 0
+  attribute cxnId { ddgrm_ST_ModelId }?,
+  element prSet { ddgrm_CT_ElemPropSet }?,
+  element spPr { a_CT_ShapeProperties }?,
+  element t { a_CT_TextBody }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+ddgrm_CT_PtList = element pt { ddgrm_CT_Pt }*
+ddgrm_ST_CxnType =
+  "parOf" | "presOf" | "presParOf" | "unknownRelationship"
+ddgrm_CT_Cxn =
+  attribute modelId { ddgrm_ST_ModelId },
+  
+  ## default value: parOf
+  attribute type { ddgrm_ST_CxnType }?,
+  attribute srcId { ddgrm_ST_ModelId },
+  attribute destId { ddgrm_ST_ModelId },
+  attribute srcOrd { xsd:unsignedInt },
+  attribute destOrd { xsd:unsignedInt },
+  
+  ## default value: 0
+  attribute parTransId { ddgrm_ST_ModelId }?,
+  
+  ## default value: 0
+  attribute sibTransId { ddgrm_ST_ModelId }?,
+  attribute presId { xsd:string }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+ddgrm_CT_CxnList = element cxn { ddgrm_CT_Cxn }*
+ddgrm_CT_DataModel =
+  element ptLst { ddgrm_CT_PtList },
+  element cxnLst { ddgrm_CT_CxnList }?,
+  element bg { a_CT_BackgroundFormatting }?,
+  element whole { a_CT_WholeE2oFormatting }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+ddgrm_dataModel = element dataModel { ddgrm_CT_DataModel }
+ddgrm_AG_IteratorAttributes =
+  
+  ## default value: none
+  attribute axis { ddgrm_ST_AxisTypes }?,
+  
+  ## default value: all
+  attribute ptType { ddgrm_ST_ElementTypes }?,
+  
+  ## default value: true
+  attribute hideLastTrans { ddgrm_ST_Booleans }?,
+  
+  ## default value: 1
+  attribute st { ddgrm_ST_Ints }?,
+  
+  ## default value: 0
+  attribute cnt { ddgrm_ST_UnsignedInts }?,
+  
+  ## default value: 1
+  attribute step { ddgrm_ST_Ints }?
+ddgrm_AG_ConstraintAttributes =
+  attribute type { ddgrm_ST_ConstraintType },
+  
+  ## default value: self
+  attribute for { ddgrm_ST_ConstraintRelationship }?,
+  attribute forName { xsd:string }?,
+  
+  ## default value: all
+  attribute ptType { ddgrm_ST_ElementType }?
+ddgrm_AG_ConstraintRefAttributes =
+  
+  ## default value: none
+  attribute refType { ddgrm_ST_ConstraintType }?,
+  
+  ## default value: self
+  attribute refFor { ddgrm_ST_ConstraintRelationship }?,
+  attribute refForName { xsd:string }?,
+  
+  ## default value: all
+  attribute refPtType { ddgrm_ST_ElementType }?
+ddgrm_CT_Constraint =
+  ddgrm_AG_ConstraintAttributes,
+  ddgrm_AG_ConstraintRefAttributes,
+  
+  ## default value: none
+  attribute op { ddgrm_ST_BoolOperator }?,
+  
+  ## default value: 0
+  attribute val { xsd:double }?,
+  
+  ## default value: 1
+  attribute fact { xsd:double }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+ddgrm_CT_Constraints = element constr { ddgrm_CT_Constraint }*
+ddgrm_CT_NumericRule =
+  ddgrm_AG_ConstraintAttributes,
+  
+  ## default value: NaN
+  attribute val { xsd:double }?,
+  
+  ## default value: NaN
+  attribute fact { xsd:double }?,
+  
+  ## default value: NaN
+  attribute max { xsd:double }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+ddgrm_CT_Rules = element rule { ddgrm_CT_NumericRule }*
+ddgrm_CT_PresentationOf =
+  ddgrm_AG_IteratorAttributes,
+  element extLst { a_CT_OfficeArtExtensionList }?
+ddgrm_ST_LayoutShapeType = a_ST_ShapeType | ddgrm_ST_OutputShapeType
+ddgrm_ST_Index1 = xsd:unsignedInt { minInclusive = "1" }
+ddgrm_CT_Adj =
+  attribute idx { ddgrm_ST_Index1 },
+  attribute val { xsd:double }
+ddgrm_CT_AdjLst = element adj { ddgrm_CT_Adj }*
+ddgrm_CT_Shape =
+  
+  ## default value: 0
+  attribute rot { xsd:double }?,
+  
+  ## default value: none
+  attribute type { ddgrm_ST_LayoutShapeType }?,
+  r_blip?,
+  
+  ## default value: 0
+  attribute zOrderOff { xsd:int }?,
+  
+  ## default value: false
+  attribute hideGeom { xsd:boolean }?,
+  
+  ## default value: false
+  attribute lkTxEntry { xsd:boolean }?,
+  
+  ## default value: false
+  attribute blipPhldr { xsd:boolean }?,
+  element adjLst { ddgrm_CT_AdjLst }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+ddgrm_CT_Parameter =
+  attribute type { ddgrm_ST_ParameterId },
+  attribute val { ddgrm_ST_ParameterVal }
+ddgrm_CT_Algorithm =
+  attribute type { ddgrm_ST_AlgorithmType },
+  
+  ## default value: 0
+  attribute rev { xsd:unsignedInt }?,
+  element param { ddgrm_CT_Parameter }*,
+  element extLst { a_CT_OfficeArtExtensionList }?
+ddgrm_CT_LayoutNode =
+  attribute name { xsd:string }?,
+  attribute styleLbl { xsd:string }?,
+  
+  ## default value: b
+  attribute chOrder { ddgrm_ST_ChildOrderType }?,
+  attribute moveWith { xsd:string }?,
+  (element alg { ddgrm_CT_Algorithm }?
+   | element shape { ddgrm_CT_Shape }?
+   | element presOf { ddgrm_CT_PresentationOf }?
+   | element constrLst { ddgrm_CT_Constraints }?
+   | element ruleLst { ddgrm_CT_Rules }?
+   | element varLst { ddgrm_CT_LayoutVariablePropertySet }?
+   | element forEach { ddgrm_CT_ForEach }
+   | element layoutNode { ddgrm_CT_LayoutNode }
+   | element choose { ddgrm_CT_Choose }
+   | element extLst { a_CT_OfficeArtExtensionList }?)*
+ddgrm_CT_ForEach =
+  attribute name { xsd:string }?,
+  attribute ref { xsd:string }?,
+  ddgrm_AG_IteratorAttributes,
+  (element alg { ddgrm_CT_Algorithm }?
+   | element shape { ddgrm_CT_Shape }?
+   | element presOf { ddgrm_CT_PresentationOf }?
+   | element constrLst { ddgrm_CT_Constraints }?
+   | element ruleLst { ddgrm_CT_Rules }?
+   | element forEach { ddgrm_CT_ForEach }
+   | element layoutNode { ddgrm_CT_LayoutNode }
+   | element choose { ddgrm_CT_Choose }
+   | element extLst { a_CT_OfficeArtExtensionList }?)*
+ddgrm_CT_When =
+  attribute name { xsd:string }?,
+  ddgrm_AG_IteratorAttributes,
+  attribute func { ddgrm_ST_FunctionType },
+  
+  ## default value: none
+  attribute arg { ddgrm_ST_FunctionArgument }?,
+  attribute op { ddgrm_ST_FunctionOperator },
+  attribute val { ddgrm_ST_FunctionValue },
+  (element alg { ddgrm_CT_Algorithm }?
+   | element shape { ddgrm_CT_Shape }?
+   | element presOf { ddgrm_CT_PresentationOf }?
+   | element constrLst { ddgrm_CT_Constraints }?
+   | element ruleLst { ddgrm_CT_Rules }?
+   | element forEach { ddgrm_CT_ForEach }
+   | element layoutNode { ddgrm_CT_LayoutNode }
+   | element choose { ddgrm_CT_Choose }
+   | element extLst { a_CT_OfficeArtExtensionList }?)*
+ddgrm_CT_Otherwise =
+  attribute name { xsd:string }?,
+  (element alg { ddgrm_CT_Algorithm }?
+   | element shape { ddgrm_CT_Shape }?
+   | element presOf { ddgrm_CT_PresentationOf }?
+   | element constrLst { ddgrm_CT_Constraints }?
+   | element ruleLst { ddgrm_CT_Rules }?
+   | element forEach { ddgrm_CT_ForEach }
+   | element layoutNode { ddgrm_CT_LayoutNode }
+   | element choose { ddgrm_CT_Choose }
+   | element extLst { a_CT_OfficeArtExtensionList }?)*
+ddgrm_CT_Choose =
+  attribute name { xsd:string }?,
+  element if { ddgrm_CT_When }+,
+  element else { ddgrm_CT_Otherwise }?
+ddgrm_CT_SampleData =
+  
+  ## default value: false
+  attribute useDef { xsd:boolean }?,
+  element dataModel { ddgrm_CT_DataModel }?
+ddgrm_CT_Category =
+  attribute type { xsd:anyURI },
+  attribute pri { xsd:unsignedInt }
+ddgrm_CT_Categories = element cat { ddgrm_CT_Category }*
+ddgrm_CT_Name =
+  attribute lang { xsd:string }?,
+  attribute val { xsd:string }
+ddgrm_CT_Description =
+  attribute lang { xsd:string }?,
+  attribute val { xsd:string }
+ddgrm_CT_DiagramDefinition =
+  attribute uniqueId { xsd:string }?,
+  attribute minVer { xsd:string }?,
+  attribute defStyle { xsd:string }?,
+  element title { ddgrm_CT_Name }*,
+  element desc { ddgrm_CT_Description }*,
+  element catLst { ddgrm_CT_Categories }?,
+  element sampData { ddgrm_CT_SampleData }?,
+  element styleData { ddgrm_CT_SampleData }?,
+  element clrData { ddgrm_CT_SampleData }?,
+  element layoutNode { ddgrm_CT_LayoutNode },
+  element extLst { a_CT_OfficeArtExtensionList }?
+ddgrm_layoutDef = element layoutDef { ddgrm_CT_DiagramDefinition }
+ddgrm_CT_DiagramDefinitionHeader =
+  attribute uniqueId { xsd:string },
+  attribute minVer { xsd:string }?,
+  attribute defStyle { xsd:string }?,
+  
+  ## default value: 0
+  attribute resId { xsd:int }?,
+  element title { ddgrm_CT_Name }+,
+  element desc { ddgrm_CT_Description }+,
+  element catLst { ddgrm_CT_Categories }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+ddgrm_layoutDefHdr =
+  element layoutDefHdr { ddgrm_CT_DiagramDefinitionHeader }
+ddgrm_CT_DiagramDefinitionHeaderLst =
+  element layoutDefHdr { ddgrm_CT_DiagramDefinitionHeader }*
+ddgrm_layoutDefHdrLst =
+  element layoutDefHdrLst { ddgrm_CT_DiagramDefinitionHeaderLst }
+ddgrm_CT_RelIds = r_dm, r_lo, r_qs, r_cs
+ddgrm_relIds = element relIds { ddgrm_CT_RelIds }
+ddgrm_ST_ParameterVal =
+  ddgrm_ST_DiagramHorizontalAlignment
+  | ddgrm_ST_VerticalAlignment
+  | ddgrm_ST_ChildDirection
+  | ddgrm_ST_ChildAlignment
+  | ddgrm_ST_SecondaryChildAlignment
+  | ddgrm_ST_LinearDirection
+  | ddgrm_ST_SecondaryLinearDirection
+  | ddgrm_ST_StartingElement
+  | ddgrm_ST_BendPoint
+  | ddgrm_ST_ConnectorRouting
+  | ddgrm_ST_ArrowheadStyle
+  | ddgrm_ST_ConnectorDimension
+  | ddgrm_ST_RotationPath
+  | ddgrm_ST_CenterShapeMapping
+  | ddgrm_ST_NodeHorizontalAlignment
+  | ddgrm_ST_NodeVerticalAlignment
+  | ddgrm_ST_FallbackDimension
+  | ddgrm_ST_TextDirection
+  | ddgrm_ST_PyramidAccentPosition
+  | ddgrm_ST_PyramidAccentTextMargin
+  | ddgrm_ST_TextBlockDirection
+  | ddgrm_ST_TextAnchorHorizontal
+  | ddgrm_ST_TextAnchorVertical
+  | ddgrm_ST_DiagramTextAlignment
+  | ddgrm_ST_AutoTextRotation
+  | ddgrm_ST_GrowDirection
+  | ddgrm_ST_FlowDirection
+  | ddgrm_ST_ContinueDirection
+  | ddgrm_ST_Breakpoint
+  | ddgrm_ST_Offset
+  | ddgrm_ST_HierarchyAlignment
+  | xsd:int
+  | xsd:double
+  | xsd:boolean
+  | xsd:string
+  | ddgrm_ST_ConnectorPoint
+ddgrm_ST_ModelId = xsd:int | s_ST_Guid
+ddgrm_ST_PrSetCustVal = s_ST_Percentage
+ddgrm_CT_ElemPropSet =
+  attribute presAssocID { ddgrm_ST_ModelId }?,
+  attribute presName { xsd:string }?,
+  attribute presStyleLbl { xsd:string }?,
+  attribute presStyleIdx { xsd:int }?,
+  attribute presStyleCnt { xsd:int }?,
+  attribute loTypeId { xsd:string }?,
+  attribute loCatId { xsd:string }?,
+  attribute qsTypeId { xsd:string }?,
+  attribute qsCatId { xsd:string }?,
+  attribute csTypeId { xsd:string }?,
+  attribute csCatId { xsd:string }?,
+  attribute coherent3DOff { xsd:boolean }?,
+  attribute phldrT { xsd:string }?,
+  attribute phldr { xsd:boolean }?,
+  attribute custAng { xsd:int }?,
+  attribute custFlipVert { xsd:boolean }?,
+  attribute custFlipHor { xsd:boolean }?,
+  attribute custSzX { xsd:int }?,
+  attribute custSzY { xsd:int }?,
+  attribute custScaleX { ddgrm_ST_PrSetCustVal }?,
+  attribute custScaleY { ddgrm_ST_PrSetCustVal }?,
+  attribute custT { xsd:boolean }?,
+  attribute custLinFactX { ddgrm_ST_PrSetCustVal }?,
+  attribute custLinFactY { ddgrm_ST_PrSetCustVal }?,
+  attribute custLinFactNeighborX { ddgrm_ST_PrSetCustVal }?,
+  attribute custLinFactNeighborY { ddgrm_ST_PrSetCustVal }?,
+  attribute custRadScaleRad { ddgrm_ST_PrSetCustVal }?,
+  attribute custRadScaleInc { ddgrm_ST_PrSetCustVal }?,
+  element presLayoutVars { ddgrm_CT_LayoutVariablePropertySet }?,
+  element style { a_CT_ShapeStyle }?
+ddgrm_ST_Direction = "norm" | "rev"
+ddgrm_ST_HierBranchStyle = "l" | "r" | "hang" | "std" | "init"
+ddgrm_ST_AnimOneStr = "none" | "one" | "branch"
+ddgrm_ST_AnimLvlStr = "none" | "lvl" | "ctr"
+ddgrm_CT_OrgChart =
+  
+  ## default value: false
+  attribute val { xsd:boolean }?
+ddgrm_ST_NodeCount = xsd:int { minInclusive = "-1" }
+ddgrm_CT_ChildMax =
+  
+  ## default value: -1
+  attribute val { ddgrm_ST_NodeCount }?
+ddgrm_CT_ChildPref =
+  
+  ## default value: -1
+  attribute val { ddgrm_ST_NodeCount }?
+ddgrm_CT_BulletEnabled =
+  
+  ## default value: false
+  attribute val { xsd:boolean }?
+ddgrm_CT_Direction =
+  
+  ## default value: norm
+  attribute val { ddgrm_ST_Direction }?
+ddgrm_CT_HierBranchStyle =
+  
+  ## default value: std
+  attribute val { ddgrm_ST_HierBranchStyle }?
+ddgrm_CT_AnimOne =
+  
+  ## default value: one
+  attribute val { ddgrm_ST_AnimOneStr }?
+ddgrm_CT_AnimLvl =
+  
+  ## default value: none
+  attribute val { ddgrm_ST_AnimLvlStr }?
+ddgrm_ST_ResizeHandlesStr = "exact" | "rel"
+ddgrm_CT_ResizeHandles =
+  
+  ## default value: rel
+  attribute val { ddgrm_ST_ResizeHandlesStr }?
+ddgrm_CT_LayoutVariablePropertySet =
+  element orgChart { ddgrm_CT_OrgChart }?,
+  element chMax { ddgrm_CT_ChildMax }?,
+  element chPref { ddgrm_CT_ChildPref }?,
+  element bulletEnabled { ddgrm_CT_BulletEnabled }?,
+  element dir { ddgrm_CT_Direction }?,
+  element hierBranch { ddgrm_CT_HierBranchStyle }?,
+  element animOne { ddgrm_CT_AnimOne }?,
+  element animLvl { ddgrm_CT_AnimLvl }?,
+  element resizeHandles { ddgrm_CT_ResizeHandles }?
+ddgrm_CT_SDName =
+  attribute lang { xsd:string }?,
+  attribute val { xsd:string }
+ddgrm_CT_SDDescription =
+  attribute lang { xsd:string }?,
+  attribute val { xsd:string }
+ddgrm_CT_SDCategory =
+  attribute type { xsd:anyURI },
+  attribute pri { xsd:unsignedInt }
+ddgrm_CT_SDCategories = element cat { ddgrm_CT_SDCategory }*
+ddgrm_CT_TextProps = a_EG_Text3D?
+ddgrm_CT_StyleLabel =
+  attribute name { xsd:string },
+  element scene3d { a_CT_Scene3D }?,
+  element sp3d { a_CT_Shape3D }?,
+  element txPr { ddgrm_CT_TextProps }?,
+  element style { a_CT_ShapeStyle }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+ddgrm_CT_StyleDefinition =
+  attribute uniqueId { xsd:string }?,
+  attribute minVer { xsd:string }?,
+  element title { ddgrm_CT_SDName }*,
+  element desc { ddgrm_CT_SDDescription }*,
+  element catLst { ddgrm_CT_SDCategories }?,
+  element scene3d { a_CT_Scene3D }?,
+  element styleLbl { ddgrm_CT_StyleLabel }+,
+  element extLst { a_CT_OfficeArtExtensionList }?
+ddgrm_styleDef = element styleDef { ddgrm_CT_StyleDefinition }
+ddgrm_CT_StyleDefinitionHeader =
+  attribute uniqueId { xsd:string },
+  attribute minVer { xsd:string }?,
+  
+  ## default value: 0
+  attribute resId { xsd:int }?,
+  element title { ddgrm_CT_SDName }+,
+  element desc { ddgrm_CT_SDDescription }+,
+  element catLst { ddgrm_CT_SDCategories }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+ddgrm_styleDefHdr =
+  element styleDefHdr { ddgrm_CT_StyleDefinitionHeader }
+ddgrm_CT_StyleDefinitionHeaderLst =
+  element styleDefHdr { ddgrm_CT_StyleDefinitionHeader }*
+ddgrm_styleDefHdrLst =
+  element styleDefHdrLst { ddgrm_CT_StyleDefinitionHeaderLst }
+ddgrm_ST_AlgorithmType =
+  "composite"
+  | "conn"
+  | "cycle"
+  | "hierChild"
+  | "hierRoot"
+  | "pyra"
+  | "lin"
+  | "sp"
+  | "tx"
+  | "snake"
+ddgrm_ST_AxisType =
+  "self"
+  | "ch"
+  | "des"
+  | "desOrSelf"
+  | "par"
+  | "ancst"
+  | "ancstOrSelf"
+  | "followSib"
+  | "precedSib"
+  | "follow"
+  | "preced"
+  | "root"
+  | "none"
+ddgrm_ST_AxisTypes = list { ddgrm_ST_AxisType* }
+ddgrm_ST_BoolOperator = "none" | "equ" | "gte" | "lte"
+ddgrm_ST_ChildOrderType = "b" | "t"
+ddgrm_ST_ConstraintType =
+  "none"
+  | "alignOff"
+  | "begMarg"
+  | "bendDist"
+  | "begPad"
+  | "b"
+  | "bMarg"
+  | "bOff"
+  | "ctrX"
+  | "ctrXOff"
+  | "ctrY"
+  | "ctrYOff"
+  | "connDist"
+  | "diam"
+  | "endMarg"
+  | "endPad"
+  | "h"
+  | "hArH"
+  | "hOff"
+  | "l"
+  | "lMarg"
+  | "lOff"
+  | "r"
+  | "rMarg"
+  | "rOff"
+  | "primFontSz"
+  | "pyraAcctRatio"
+  | "secFontSz"
+  | "sibSp"
+  | "secSibSp"
+  | "sp"
+  | "stemThick"
+  | "t"
+  | "tMarg"
+  | "tOff"
+  | "userA"
+  | "userB"
+  | "userC"
+  | "userD"
+  | "userE"
+  | "userF"
+  | "userG"
+  | "userH"
+  | "userI"
+  | "userJ"
+  | "userK"
+  | "userL"
+  | "userM"
+  | "userN"
+  | "userO"
+  | "userP"
+  | "userQ"
+  | "userR"
+  | "userS"
+  | "userT"
+  | "userU"
+  | "userV"
+  | "userW"
+  | "userX"
+  | "userY"
+  | "userZ"
+  | "w"
+  | "wArH"
+  | "wOff"
+ddgrm_ST_ConstraintRelationship = "self" | "ch" | "des"
+ddgrm_ST_ElementType =
+  "all"
+  | "doc"
+  | "node"
+  | "norm"
+  | "nonNorm"
+  | "asst"
+  | "nonAsst"
+  | "parTrans"
+  | "pres"
+  | "sibTrans"
+ddgrm_ST_ElementTypes = list { ddgrm_ST_ElementType* }
+ddgrm_ST_ParameterId =
+  "horzAlign"
+  | "vertAlign"
+  | "chDir"
+  | "chAlign"
+  | "secChAlign"
+  | "linDir"
+  | "secLinDir"
+  | "stElem"
+  | "bendPt"
+  | "connRout"
+  | "begSty"
+  | "endSty"
+  | "dim"
+  | "rotPath"
+  | "ctrShpMap"
+  | "nodeHorzAlign"
+  | "nodeVertAlign"
+  | "fallback"
+  | "txDir"
+  | "pyraAcctPos"
+  | "pyraAcctTxMar"
+  | "txBlDir"
+  | "txAnchorHorz"
+  | "txAnchorVert"
+  | "txAnchorHorzCh"
+  | "txAnchorVertCh"
+  | "parTxLTRAlign"
+  | "parTxRTLAlign"
+  | "shpTxLTRAlignCh"
+  | "shpTxRTLAlignCh"
+  | "autoTxRot"
+  | "grDir"
+  | "flowDir"
+  | "contDir"
+  | "bkpt"
+  | "off"
+  | "hierAlign"
+  | "bkPtFixedVal"
+  | "stBulletLvl"
+  | "stAng"
+  | "spanAng"
+  | "ar"
+  | "lnSpPar"
+  | "lnSpAfParP"
+  | "lnSpCh"
+  | "lnSpAfChP"
+  | "rtShortDist"
+  | "alignTx"
+  | "pyraLvlNode"
+  | "pyraAcctBkgdNode"
+  | "pyraAcctTxNode"
+  | "srcNode"
+  | "dstNode"
+  | "begPts"
+  | "endPts"
+ddgrm_ST_Ints = list { xsd:int* }
+ddgrm_ST_UnsignedInts = list { xsd:unsignedInt* }
+ddgrm_ST_Booleans = list { xsd:boolean* }
+ddgrm_ST_FunctionType =
+  "cnt"
+  | "pos"
+  | "revPos"
+  | "posEven"
+  | "posOdd"
+  | "var"
+  | "depth"
+  | "maxDepth"
+ddgrm_ST_FunctionOperator = "equ" | "neq" | "gt" | "lt" | "gte" | "lte"
+ddgrm_ST_DiagramHorizontalAlignment = "l" | "ctr" | "r" | "none"
+ddgrm_ST_VerticalAlignment = "t" | "mid" | "b" | "none"
+ddgrm_ST_ChildDirection = "horz" | "vert"
+ddgrm_ST_ChildAlignment = "t" | "b" | "l" | "r"
+ddgrm_ST_SecondaryChildAlignment = "none" | "t" | "b" | "l" | "r"
+ddgrm_ST_LinearDirection = "fromL" | "fromR" | "fromT" | "fromB"
+ddgrm_ST_SecondaryLinearDirection =
+  "none" | "fromL" | "fromR" | "fromT" | "fromB"
+ddgrm_ST_StartingElement = "node" | "trans"
+ddgrm_ST_RotationPath = "none" | "alongPath"
+ddgrm_ST_CenterShapeMapping = "none" | "fNode"
+ddgrm_ST_BendPoint = "beg" | "def" | "end"
+ddgrm_ST_ConnectorRouting = "stra" | "bend" | "curve" | "longCurve"
+ddgrm_ST_ArrowheadStyle = "auto" | "arr" | "noArr"
+ddgrm_ST_ConnectorDimension = "1D" | "2D" | "cust"
+ddgrm_ST_ConnectorPoint =
+  "auto"
+  | "bCtr"
+  | "ctr"
+  | "midL"
+  | "midR"
+  | "tCtr"
+  | "bL"
+  | "bR"
+  | "tL"
+  | "tR"
+  | "radial"
+ddgrm_ST_NodeHorizontalAlignment = "l" | "ctr" | "r"
+ddgrm_ST_NodeVerticalAlignment = "t" | "mid" | "b"
+ddgrm_ST_FallbackDimension = "1D" | "2D"
+ddgrm_ST_TextDirection = "fromT" | "fromB"
+ddgrm_ST_PyramidAccentPosition = "bef" | "aft"
+ddgrm_ST_PyramidAccentTextMargin = "step" | "stack"
+ddgrm_ST_TextBlockDirection = "horz" | "vert"
+ddgrm_ST_TextAnchorHorizontal = "none" | "ctr"
+ddgrm_ST_TextAnchorVertical = "t" | "mid" | "b"
+ddgrm_ST_DiagramTextAlignment = "l" | "ctr" | "r"
+ddgrm_ST_AutoTextRotation = "none" | "upr" | "grav"
+ddgrm_ST_GrowDirection = "tL" | "tR" | "bL" | "bR"
+ddgrm_ST_FlowDirection = "row" | "col"
+ddgrm_ST_ContinueDirection = "revDir" | "sameDir"
+ddgrm_ST_Breakpoint = "endCnv" | "bal" | "fixed"
+ddgrm_ST_Offset = "ctr" | "off"
+ddgrm_ST_HierarchyAlignment =
+  "tL"
+  | "tR"
+  | "tCtrCh"
+  | "tCtrDes"
+  | "bL"
+  | "bR"
+  | "bCtrCh"
+  | "bCtrDes"
+  | "lT"
+  | "lB"
+  | "lCtrCh"
+  | "lCtrDes"
+  | "rT"
+  | "rB"
+  | "rCtrCh"
+  | "rCtrDes"
+ddgrm_ST_FunctionValue =
+  xsd:int
+  | xsd:boolean
+  | ddgrm_ST_Direction
+  | ddgrm_ST_HierBranchStyle
+  | ddgrm_ST_AnimOneStr
+  | ddgrm_ST_AnimLvlStr
+  | ddgrm_ST_ResizeHandlesStr
+ddgrm_ST_VariableType =
+  "none"
+  | "orgChart"
+  | "chMax"
+  | "chPref"
+  | "bulEnabled"
+  | "dir"
+  | "hierBranch"
+  | "animOne"
+  | "animLvl"
+  | "resizeHandles"
+ddgrm_ST_FunctionArgument = ddgrm_ST_VariableType
+ddgrm_ST_OutputShapeType = "none" | "conn"

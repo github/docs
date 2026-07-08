@@ -1,0 +1,62 @@
+ARC-Seal: i=1; a=rsa-sha256; t=1780719609; cv=none;
+        d=google.com; s=arc-20240605;
+        b=XonVZEaSpvimAUSFgXSq38Hs/9HrQr03JTPd33NwrTdfaKt3vArR32EwNlIV9XtsZg
+         nInSyOixTxzKS/FdyZ23YNpDcYij9H3OpIpoZ1Lfbekx6BiCoxPvT48rq+Vp4u1U942u
+         hVFL7h9zBBC2AcU2iSub44b5B+Rv/QVv5ZG91KyO6K3+YUyUc22/NMVLqiNR1rreG58x
+         IrxXtoXzZRUgH6xC7wq9nV5KaJFqg1mLntshPQZG6z+qU7+D8dOsF3fIuIMmV1ZLuzG4
+         CvVeAbFLm0FItC/heCqVF649uSJVIAXWDUIx/LOnMfOZthqR6N/QXoNGXgHOmjfP6gPR
+         AZUw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=aaRhl5nNvd5LARVUKfSHYJmljaHlQHxHmPbhxCs+Hg4=;
+        fh=takdYIAvlaklIOorW1okFRklVovtVFzjkrzm6otr3wA=;
+        b=UkBVksJICbYbrKkHREndN6Y6UPGX/4xXylfx3VqiKoofrQQYk9uM1a0cGlo3wit2Rw
+         xojnwxRBwivPrhbNtG8oihtYYFeYUCHMvqD0dCbgEkxY4NNTAlx4nF9SHIw8YHqqu9p3
+         Fx7Fhat8XfzHVXHYU8eWbcHIAmATZA99oVwaqLxYuoI6QENweAhS61CQOrq1xbSa6NBn
+         DwYy2HaJMo3ce+Od8DL1S1Lb5ASSIKPLWyoOH6XAlNM/zZbVmNC0rCZx2fFE2lLt5dqQ
+         lD9qDfL8PsPHG/9KRdr6iqM0HxXVSrOd0Z7z5MOg2u0FOCTRW7dB/R9Ech+N4Qh4Tmrl
+         10wQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1780719609; x=1781324409; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=aaRhl5nNvd5LARVUKfSHYJmljaHlQHxHmPbhxCs+Hg4=;
+        b=qy909HRFZv4nmSAbY60vlEqEVpedUmvhZbC8dh/x1QQFsLL4R6QpLzFADvA8mkX2wc
+         lNV+8mVtDDsVyYOwUhjc1LrqG8YGMEKByo6BmLKQmrQNqq7YZjvmVkjvbpn7jcO/rlZo
+         aGJbyupq+RkPJdvhH4ae1AGlM4/Zd8MMK0+BCrhdguQ3jXBX4dwWa0zDDWOW/E5lKkCA
+         mVKlNIkuo01ST5mxj+/u5l9aefEsKCNCfe98xsxe3fCx5MjRCMAqyzJpiVrQjB0aSeKm
+         iMsjRRr/IahLNtS5ejDvw9nMP6ud6aLFJVIRaZNibalCLi2AyynSC8KkfNPVvtX6KTFu
+         4SMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780719609; x=1781324409;
+        h=to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=aaRhl5nNvd5LARVUKfSHYJmljaHlQHxHmPbhxCs+Hg4=;
+        b=L+DxyHMIQVucTeAFy+bAqXdzMYxSSI7oT/JicimeIMnWsxKf/rMXKeVA2TPVyJ+imh
+         HLy+b/C+iJm8RFXq8tyiX8acbbLu0xMWNQa/GBEFXDDZrUBLDycgGwpgPBQWJui+XowI
+         pGvpfRbU5kWykMK7e5Ta7HDuQsyOwkJOh1wE3l5rexyxh01TdSqr3Dl2vbMbwcFCCe1K
+         jhpikzWrLadPXR8jR6mw552omSeQ5zEAl2I37Q3PJEDZtfBDAsvh1jzgMtolMWMp7mCk
+         Cdhk9Ygc3ol4mbkOyl1q4sZpCoOwIdt3QYuMyOiF30l4pYdXFRsXbaX/7LvKWm+ycMRq
+         6OaQ==
+X-Gm-Message-State: AOJu0YwyY7FL6jjO9xE3cRlvDpanXl3KiblsPHm5XV4JNCoCrtnuDslR
+	eTisJpOzfk74C1AryeA5mZatFYYBfgH8o867JWLtWcfchrP+DsA0w8jc8cWArlGhM990RqePf3o
+	mBao4OVqtI9ecsqPA/jIQCYyEFZQKYOxRDw==
+X-Gm-Gg: Acq92OEzBx2ozAfHUp2nzZP8CV+0vLK9Ugh8wCfFI6vqQDUv2b1SaSnkXj+OsjeBX1T
+	C7lalhEVb6bp3T/avCjBHjIXZY98EgE8GxEz6QHqxT/cVwXd171OjQ3tQ2aT0yDky1bAF6o4E2P
+	Ml4CvIUiqE5p1RTUG6gC75/r3qmhYrt7JqmAzocgFMeFirzMWosvxQ34iGlPAMFl+WWuaHfp1or
+	PPToDT8UelKPz80gA2XexDXWnCCOCqOIhBdk/Mq9D9H//hCoQ2jcDWZSyR+tlM694mfI3OF9OIa
+	gVCJ5JRzMJV41hq2jj7/5D8TH2MFmA9NwqH+6plJ4ylfVyzZOQM=
+X-Received: by 2002:ad4:5be5:0:b0:8ce:9e58:838f with SMTP id
+ 6a1803df08f44-8cece0296ffmr20778766d6.33.1780458612473; Tue, 02 Jun 2026
+ 20:50:12 -0700 (PDT)
+MIME-Version: 1.0
+From: =?UTF-8?Q?=C3=89dgar_Manuel_Ruiz_Arias?= <ruizariasedgarmanuel@gmail.com>
+Date: Tue, 2 Jun 2026 21:49:59 -0600
+X-Gm-Features: AVHnY4L6Yb0b95crNcg6YySjPmwg8QM_dfA23EZypMA57GVXLF01vAERpLpW_Ts
+Message-ID: <CAE9fHhg6-pFJu4h3UaQ3gjipGj5Th4-cqYBVfVYQJuvpf1uYyQ@mail.gmail.com>
+Subject: 
+To: recaplasruiz@gmail.com
+Content-Type: multipart/alternative; boundary="0000000000002244660653515376"
+

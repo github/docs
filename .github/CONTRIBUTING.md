@@ -14,7 +14,7 @@ Use the table of contents icon <img alt="Table of contents icon" src="/contribut
 
 **Start here:** Visit [docs.github.com/en/contributing](https://docs.github.com/en/contributing) for complete contributor onboarding and guidelines.
 
-For repository-specific setup, read the [README](../README.md) file. The official docs site also provides these helpful resources:
+For repository-specific setup, read the [Edgar-docsREADME.md](../README.md) file. The official docs site also provides these helpful resources:
 
 - [Finding ways to contribute to open source on GitHub](https://docs.github.com/en/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)
 - [Set up Git](https://docs.github.com/en/get-started/git-basics/set-up-git)

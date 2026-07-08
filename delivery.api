@@ -1,0 +1,83 @@
+Delivery has failed to these recipients or groups:
+
+279256497+Edgarruiz8585@users.noreply.github.com
+The recipient's email address isn't correct. Please check the email address and try to resend the message. If the problem continues, contact your email admin.
+
+
+
+
+
+
+
+
+Diagnostic information for administrators:
+
+Generating server: googlemail.com
+
+279256497+Edgarruiz8585@users.noreply.github.com
+Remote server returned '554 5.1.2 < #5.1.2 smtp; DNS Error: DNS type 'mx' lookup of users.noreply.github.com responded with code NXDOMAIN Domain name not found: users.noreply.github.com For more information, go to https://support.google.com/mail/?p=BadRcptDomain>'
+
+Original message headers:
+
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782100116; x=1782704916; darn=users.noreply.github.com;
+        h=mime-version:content-language:accept-language:message-id:date
+         :thread-index:thread-topic:subject:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=u7zW4pQQZtXCYJCpII86r1pS5/eNonvLkg+gUGV155s=;
+        b=rqr8WUXeW2pFQfBSjV1WKJ40TiCU1uziuT29LhmuQ4c4gIFD5cVp2RKfiZC77eFzi1
+         ftPOPS8zKbtup/vpjO0p6pQKJwGr9HvZgZqkyuPBJmx29k2YISbgD06nivuk5f/gx/DU
+         iAj36J35kVVAwbwyV4XYeuGnbK3CSEWkPirrMp7cJ9F4mMQL0dXHFVFgmHksWXy3zlIF
+         9vIzKZpGPYNfh+726qQhmXUWLSB4RC/GI7CdWwL7SwSh5XGbB+ETAEOAnerVXGSIwaSB
+         n/AFcazZ2QBJxyJp4CO3EojE1RKZJkKy7jLMJZUspPGRjKaCPRlatQ5PUoWcxRuD0lK/
+         9s1w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782100116; x=1782704916;
+        h=mime-version:content-language:accept-language:message-id:date
+         :thread-index:thread-topic:subject:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=u7zW4pQQZtXCYJCpII86r1pS5/eNonvLkg+gUGV155s=;
+        b=nl0lU8S3oeCnaVVYnRylyp/l+NNDIB8ODYIzZc+HKwZw1jAZmHTzWIgJDXachkQyfv
+         zaddgWLgMfWfGJHjHbctViSMNaYkTQQPSvXSbaHXLB67U9H73CTPeoGaQB3u5gz0zw1J
+         6dKNzve+tU8V2eNxKTnZUjHbk6ytTPr0JAvX6IO/d9/dGowsZIBFePiwj+C6y4mjghhm
+         OlY/5OLPgdQp7DfaPVV6YSw/Zuj6wsJ45R2F5FcC3l95IjFwN3PD98JFwDyZTHcC9giL
+         WIZZOSq8tB839kbjlEY8L1HNKTRgEqAOD8TfCpEtqhyRtgE6D5H01S7nfWMDeqgpILum
+         s2dQ==
+X-Gm-Message-State: AOJu0YxnQdpcRWL8bk2qSmKPETthsA3J8+hnbAARRrBiGcTtnHAMKhVu
+	OPrAJMbGVy6179zL1+vylDeKWRrWpAlIu+/bWo3TWOc91zBvthHFFPDHj/vdJw==
+X-Gm-Gg: AfdE7cnKrAE18G9VfdDe9nuxIbO2hfEt8pzpqWgbeX5Amoc9Qd1yCnDs/Kq97B9sz9V
+	nQMGu+rT76pIZ/j/K2bURkAJ9Z25tmywTY1VELD/z2QBxP/zjdptns+8rgdQjFygySAxn5S5dp8
+	5SGVlcCAsu6uz4oVESXoTKdTHIirdud2UIdzvDaqQ065efVgYesGGbGXmIrppl9Z4UB/Tb3fYYz
+	IzSANYe4URTLA6GhfyV/QOv611ERuoSR8+RG057jOxnUd9Ehkb2O+VfAiEy78jnTGr7CqoSmqg8
+	oX4aGz3zCnGmc1K98ZH+upEu8e094b1FmIyivdyXfpIa5OD0c9X4vR9rd2HxI0dAsAjgEHXvb6S
+	0x8kDrfmkfcr+MIJ3j3/yUqjkFTwP+8+G0P6H0aUHd786amNUZHrYMKqc4/wx2YMTmvNzglsp/t
+	F9dNt9gO//882eVQ1OUJYo4XfJUVXdqaQZxsc+JztbXstiqkhDn6MxQ3np4pobK7tFXu2v5zDI4
+	dLRyjXRDMiDJ6ylb6/FHw==
+X-Received: by 2002:a05:690c:ecc:b0:7ff:5d6:25a1 with SMTP id 00721157ae682-80178767bc3mr111439457b3.36.1782100115689;
+        Sun, 21 Jun 2026 20:48:35 -0700 (PDT)
+Return-Path: <ruizariasedgarmanuel@gmail.com>
+Received: from SA1PR11MB307637.namprd11.prod.outlook.com ([2603:1036:305:49d8::5])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8025f8da5fbsm26727997b3.30.2026.06.21.20.48.35
+        for <279256497+Edgarruiz8585@users.noreply.github.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 21 Jun 2026 20:48:35 -0700 (PDT)
+From: =?iso-8859-1?Q?=C9dgar_Manuel_Ruiz_Arias?=
+	<ruizariasedgarmanuel@gmail.com>
+To: "279256497+Edgarruiz8585@users.noreply.github.com"
+	<279256497+Edgarruiz8585@users.noreply.github.com>
+Subject: Comparto 'Screen-output_Edgarruuz8585' contigo
+Thread-Topic: Comparto 'Screen-output_Edgarruuz8585' contigo
+Thread-Index: AQHdAfnkRdWkMZQUKkSSM7LBD81nXw==
+X-MS-Exchange-MessageSentRepresentingType: 1
+Date: Mon, 22 Jun 2026 03:48:27 +0000
+Message-ID: <SA1PR11MB307637ABAFB7ADBFFD68B8B8FFA2EF2@SA1PR11MB307637.namprd11.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-Exchange-Organization-SCL: -1
+X-MS-TNEF-Correlator:
+X-MS-Exchange-Organization-RecordReviewCfmType: 0
+x-ms-reactions: allow
+Content-Type: text/plain
+MIME-Version: 1.0
+by Edgarruiz8585 Edgar Manuel Ruiz Arias https://github.com/Edgarruiz8585 recaplasruiz@gmail.com , edgarmanuelruiz664@gmail.com , edgarplasticos3@hotmail.com , ruizariasedgarmanuel@gmail.com , acepto terminos y condiciones 

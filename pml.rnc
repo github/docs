@@ -1,0 +1,1135 @@
+default namespace = "http://purl.oclc.org/ooxml/presentationml/main"
+namespace a = "http://purl.oclc.org/ooxml/drawingml/main"
+namespace o = "urn:schemas-microsoft-com:office:office"
+namespace p = "http://purl.oclc.org/ooxml/presentationml/main"
+namespace r = "http://purl.oclc.org/ooxml/officeDocument/relationships"
+namespace s = "http://purl.oclc.org/ooxml/officeDocument/sharedTypes"
+namespace v = "urn:schemas-microsoft-com:vml"
+namespace w10 = "urn:schemas-microsoft-com:office:word"
+namespace x = "urn:schemas-microsoft-com:office:excel"
+
+p_ST_TransitionSideDirectionType = "l" | "u" | "r" | "d"
+p_ST_TransitionCornerDirectionType = "lu" | "ru" | "ld" | "rd"
+p_ST_TransitionInOutDirectionType = "out" | "in"
+p_CT_SideDirectionTransition =
+  
+  ## default value: l
+  attribute dir { p_ST_TransitionSideDirectionType }?
+p_CT_CornerDirectionTransition =
+  
+  ## default value: lu
+  attribute dir { p_ST_TransitionCornerDirectionType }?
+p_ST_TransitionEightDirectionType =
+  p_ST_TransitionSideDirectionType | p_ST_TransitionCornerDirectionType
+p_CT_EightDirectionTransition =
+  
+  ## default value: l
+  attribute dir { p_ST_TransitionEightDirectionType }?
+p_CT_OrientationTransition =
+  
+  ## default value: horz
+  attribute dir { p_ST_Direction }?
+p_CT_InOutTransition =
+  
+  ## default value: out
+  attribute dir { p_ST_TransitionInOutDirectionType }?
+p_CT_OptionalBlackTransition =
+  
+  ## default value: false
+  attribute thruBlk { xsd:boolean }?
+p_CT_SplitTransition =
+  
+  ## default value: horz
+  attribute orient { p_ST_Direction }?,
+  
+  ## default value: out
+  attribute dir { p_ST_TransitionInOutDirectionType }?
+p_CT_WheelTransition =
+  
+  ## default value: 4
+  attribute spokes { xsd:unsignedInt }?
+p_CT_TransitionStartSoundAction =
+  
+  ## default value: false
+  attribute loop { xsd:boolean }?,
+  element snd { a_CT_EmbeddedWAVAudioFile }
+p_CT_TransitionSoundAction =
+  element stSnd { p_CT_TransitionStartSoundAction }
+  | element endSnd { p_CT_Empty }
+p_ST_TransitionSpeed = "slow" | "med" | "fast"
+p_CT_SlideTransition =
+  
+  ## default value: fast
+  attribute spd { p_ST_TransitionSpeed }?,
+  
+  ## default value: true
+  attribute advClick { xsd:boolean }?,
+  attribute advTm { xsd:unsignedInt }?,
+  (element blinds { p_CT_OrientationTransition }
+   | element checker { p_CT_OrientationTransition }
+   | element circle { p_CT_Empty }
+   | element dissolve { p_CT_Empty }
+   | element comb { p_CT_OrientationTransition }
+   | element cover { p_CT_EightDirectionTransition }
+   | element cut { p_CT_OptionalBlackTransition }
+   | element diamond { p_CT_Empty }
+   | element fade { p_CT_OptionalBlackTransition }
+   | element newsflash { p_CT_Empty }
+   | element plus { p_CT_Empty }
+   | element pull { p_CT_EightDirectionTransition }
+   | element push { p_CT_SideDirectionTransition }
+   | element random { p_CT_Empty }
+   | element randomBar { p_CT_OrientationTransition }
+   | element split { p_CT_SplitTransition }
+   | element strips { p_CT_CornerDirectionTransition }
+   | element wedge { p_CT_Empty }
+   | element wheel { p_CT_WheelTransition }
+   | element wipe { p_CT_SideDirectionTransition }
+   | element zoom { p_CT_InOutTransition })?,
+  element sndAc { p_CT_TransitionSoundAction }?,
+  element extLst { p_CT_ExtensionListModify }?
+p_ST_TLTimeIndefinite = "indefinite"
+p_ST_TLTime = xsd:unsignedInt | p_ST_TLTimeIndefinite
+p_ST_TLTimeNodeID = xsd:unsignedInt
+p_CT_TLIterateIntervalTime = attribute val { p_ST_TLTime }
+p_CT_TLIterateIntervalPercentage =
+  attribute val { a_ST_PositivePercentage }
+p_ST_IterateType = "el" | "wd" | "lt"
+p_CT_TLIterateData =
+  
+  ## default value: el
+  attribute type { p_ST_IterateType }?,
+  
+  ## default value: false
+  attribute backwards { xsd:boolean }?,
+  (element tmAbs { p_CT_TLIterateIntervalTime }
+   | element tmPct { p_CT_TLIterateIntervalPercentage })
+p_CT_TLSubShapeId = attribute spid { a_ST_ShapeID }
+p_CT_TLTextTargetElement =
+  (element charRg { p_CT_IndexRange }
+   | element pRg { p_CT_IndexRange })?
+p_ST_TLChartSubelementType =
+  "gridLegend" | "series" | "category" | "ptInSeries" | "ptInCategory"
+p_CT_TLOleChartTargetElement =
+  attribute type { p_ST_TLChartSubelementType },
+  
+  ## default value: 0
+  attribute lvl { xsd:unsignedInt }?
+p_CT_TLShapeTargetElement =
+  attribute spid { a_ST_DrawingElementId },
+  (element bg { p_CT_Empty }
+   | element subSp { p_CT_TLSubShapeId }
+   | element oleChartEl { p_CT_TLOleChartTargetElement }
+   | element txEl { p_CT_TLTextTargetElement }
+   | element graphicEl { a_CT_AnimationElementChoice })?
+p_CT_TLTimeTargetElement =
+  element sldTgt { p_CT_Empty }
+  | element sndTgt { a_CT_EmbeddedWAVAudioFile }
+  | element spTgt { p_CT_TLShapeTargetElement }
+  | element inkTgt { p_CT_TLSubShapeId }
+p_CT_TLTriggerTimeNodeID = attribute val { p_ST_TLTimeNodeID }
+p_ST_TLTriggerRuntimeNode = "first" | "last" | "all"
+p_CT_TLTriggerRuntimeNode = attribute val { p_ST_TLTriggerRuntimeNode }
+p_ST_TLTriggerEvent =
+  "onBegin"
+  | "onEnd"
+  | "begin"
+  | "end"
+  | "onClick"
+  | "onDblClick"
+  | "onMouseOver"
+  | "onMouseOut"
+  | "onNext"
+  | "onPrev"
+  | "onStopAudio"
+p_CT_TLTimeCondition =
+  attribute evt { p_ST_TLTriggerEvent }?,
+  attribute delay { p_ST_TLTime }?,
+  (element tgtEl { p_CT_TLTimeTargetElement }
+   | element tn { p_CT_TLTriggerTimeNodeID }
+   | element rtn { p_CT_TLTriggerRuntimeNode })?
+p_CT_TLTimeConditionList = element cond { p_CT_TLTimeCondition }+
+p_CT_TimeNodeList =
+  (element par { p_CT_TLTimeNodeParallel }
+   | element seq { p_CT_TLTimeNodeSequence }
+   | element excl { p_CT_TLTimeNodeExclusive }
+   | element anim { p_CT_TLAnimateBehavior }
+   | element animClr { p_CT_TLAnimateColorBehavior }
+   | element animEffect { p_CT_TLAnimateEffectBehavior }
+   | element animMotion { p_CT_TLAnimateMotionBehavior }
+   | element animRot { p_CT_TLAnimateRotationBehavior }
+   | element animScale { p_CT_TLAnimateScaleBehavior }
+   | element cmd { p_CT_TLCommandBehavior }
+   | element set { p_CT_TLSetBehavior }
+   | element audio { p_CT_TLMediaNodeAudio }
+   | element video { p_CT_TLMediaNodeVideo })+
+p_ST_TLTimeNodePresetClassType =
+  "entr" | "exit" | "emph" | "path" | "verb" | "mediacall"
+p_ST_TLTimeNodeRestartType = "always" | "whenNotActive" | "never"
+p_ST_TLTimeNodeFillType = "remove" | "freeze" | "hold" | "transition"
+p_ST_TLTimeNodeSyncType = "canSlip" | "locked"
+p_ST_TLTimeNodeMasterRelation = "sameClick" | "lastClick" | "nextClick"
+p_ST_TLTimeNodeType =
+  "clickEffect"
+  | "withEffect"
+  | "afterEffect"
+  | "mainSeq"
+  | "interactiveSeq"
+  | "clickPar"
+  | "withGroup"
+  | "afterGroup"
+  | "tmRoot"
+p_CT_TLCommonTimeNodeData =
+  attribute id { p_ST_TLTimeNodeID }?,
+  attribute presetID { xsd:int }?,
+  attribute presetClass { p_ST_TLTimeNodePresetClassType }?,
+  attribute presetSubtype { xsd:int }?,
+  attribute dur { p_ST_TLTime }?,
+  
+  ## default value: 1000
+  attribute repeatCount { p_ST_TLTime }?,
+  attribute repeatDur { p_ST_TLTime }?,
+  
+  ## default value: 100%
+  attribute spd { a_ST_Percentage }?,
+  
+  ## default value: 0%
+  attribute accel { a_ST_PositiveFixedPercentage }?,
+  
+  ## default value: 0%
+  attribute decel { a_ST_PositiveFixedPercentage }?,
+  
+  ## default value: false
+  attribute autoRev { xsd:boolean }?,
+  attribute restart { p_ST_TLTimeNodeRestartType }?,
+  attribute fill { p_ST_TLTimeNodeFillType }?,
+  attribute syncBehavior { p_ST_TLTimeNodeSyncType }?,
+  attribute tmFilter { xsd:string }?,
+  attribute evtFilter { xsd:string }?,
+  attribute display { xsd:boolean }?,
+  attribute masterRel { p_ST_TLTimeNodeMasterRelation }?,
+  attribute bldLvl { xsd:int }?,
+  attribute grpId { xsd:unsignedInt }?,
+  attribute afterEffect { xsd:boolean }?,
+  attribute nodeType { p_ST_TLTimeNodeType }?,
+  attribute nodePh { xsd:boolean }?,
+  element stCondLst { p_CT_TLTimeConditionList }?,
+  element endCondLst { p_CT_TLTimeConditionList }?,
+  element endSync { p_CT_TLTimeCondition }?,
+  element iterate { p_CT_TLIterateData }?,
+  element childTnLst { p_CT_TimeNodeList }?,
+  element subTnLst { p_CT_TimeNodeList }?
+p_CT_TLTimeNodeParallel = element cTn { p_CT_TLCommonTimeNodeData }
+p_ST_TLNextActionType = "none" | "seek"
+p_ST_TLPreviousActionType = "none" | "skipTimed"
+p_CT_TLTimeNodeSequence =
+  attribute concurrent { xsd:boolean }?,
+  attribute prevAc { p_ST_TLPreviousActionType }?,
+  attribute nextAc { p_ST_TLNextActionType }?,
+  element cTn { p_CT_TLCommonTimeNodeData },
+  element prevCondLst { p_CT_TLTimeConditionList }?,
+  element nextCondLst { p_CT_TLTimeConditionList }?
+p_CT_TLTimeNodeExclusive = element cTn { p_CT_TLCommonTimeNodeData }
+p_CT_TLBehaviorAttributeNameList = element attrName { xsd:string }+
+p_ST_TLBehaviorAdditiveType = "base" | "sum" | "repl" | "mult" | "none"
+p_ST_TLBehaviorAccumulateType = "none" | "always"
+p_ST_TLBehaviorTransformType = "pt" | "img"
+p_ST_TLBehaviorOverrideType = "normal" | "childStyle"
+p_CT_TLCommonBehaviorData =
+  attribute additive { p_ST_TLBehaviorAdditiveType }?,
+  attribute accumulate { p_ST_TLBehaviorAccumulateType }?,
+  attribute xfrmType { p_ST_TLBehaviorTransformType }?,
+  attribute from { xsd:string }?,
+  attribute to { xsd:string }?,
+  attribute by { xsd:string }?,
+  attribute rctx { xsd:string }?,
+  attribute override { p_ST_TLBehaviorOverrideType }?,
+  element cTn { p_CT_TLCommonTimeNodeData },
+  element tgtEl { p_CT_TLTimeTargetElement },
+  element attrNameLst { p_CT_TLBehaviorAttributeNameList }?
+p_CT_TLAnimVariantBooleanVal = attribute val { xsd:boolean }
+p_CT_TLAnimVariantIntegerVal = attribute val { xsd:int }
+p_CT_TLAnimVariantFloatVal = attribute val { xsd:float }
+p_CT_TLAnimVariantStringVal = attribute val { xsd:string }
+p_CT_TLAnimVariant =
+  element boolVal { p_CT_TLAnimVariantBooleanVal }
+  | element intVal { p_CT_TLAnimVariantIntegerVal }
+  | element fltVal { p_CT_TLAnimVariantFloatVal }
+  | element strVal { p_CT_TLAnimVariantStringVal }
+  | element clrVal { a_CT_Color }
+p_ST_TLTimeAnimateValueTime =
+  a_ST_PositiveFixedPercentage | p_ST_TLTimeIndefinite
+p_CT_TLTimeAnimateValue =
+  
+  ## default value: indefinite
+  attribute tm { p_ST_TLTimeAnimateValueTime }?,
+  attribute fmla { xsd:string }?,
+  element val { p_CT_TLAnimVariant }?
+p_CT_TLTimeAnimateValueList = element tav { p_CT_TLTimeAnimateValue }*
+p_ST_TLAnimateBehaviorCalcMode = "discrete" | "lin" | "fmla"
+p_ST_TLAnimateBehaviorValueType = "str" | "num" | "clr"
+p_CT_TLAnimateBehavior =
+  attribute by { xsd:string }?,
+  attribute from { xsd:string }?,
+  attribute to { xsd:string }?,
+  attribute calcmode { p_ST_TLAnimateBehaviorCalcMode }?,
+  attribute valueType { p_ST_TLAnimateBehaviorValueType }?,
+  element cBhvr { p_CT_TLCommonBehaviorData },
+  element tavLst { p_CT_TLTimeAnimateValueList }?
+p_CT_TLByRgbColorTransform =
+  attribute r { a_ST_FixedPercentage },
+  attribute g { a_ST_FixedPercentage },
+  attribute b { a_ST_FixedPercentage }
+p_CT_TLByHslColorTransform =
+  attribute h { a_ST_Angle },
+  attribute s { a_ST_FixedPercentage },
+  attribute l { a_ST_FixedPercentage }
+p_CT_TLByAnimateColorTransform =
+  element rgb { p_CT_TLByRgbColorTransform }
+  | element hsl { p_CT_TLByHslColorTransform }
+p_ST_TLAnimateColorSpace = "rgb" | "hsl"
+p_ST_TLAnimateColorDirection = "cw" | "ccw"
+p_CT_TLAnimateColorBehavior =
+  attribute clrSpc { p_ST_TLAnimateColorSpace }?,
+  attribute dir { p_ST_TLAnimateColorDirection }?,
+  element cBhvr { p_CT_TLCommonBehaviorData },
+  element by { p_CT_TLByAnimateColorTransform }?,
+  element from { a_CT_Color }?,
+  element to { a_CT_Color }?
+p_ST_TLAnimateEffectTransition = "in" | "out" | "none"
+p_CT_TLAnimateEffectBehavior =
+  
+  ## default value: in
+  attribute transition { p_ST_TLAnimateEffectTransition }?,
+  attribute filter { xsd:string }?,
+  attribute prLst { xsd:string }?,
+  element cBhvr { p_CT_TLCommonBehaviorData },
+  element progress { p_CT_TLAnimVariant }?
+p_ST_TLAnimateMotionBehaviorOrigin = "parent" | "layout"
+p_ST_TLAnimateMotionPathEditMode = "relative" | "fixed"
+p_CT_TLPoint =
+  attribute x { a_ST_Percentage },
+  attribute y { a_ST_Percentage }
+p_CT_TLAnimateMotionBehavior =
+  attribute origin { p_ST_TLAnimateMotionBehaviorOrigin }?,
+  attribute path { xsd:string }?,
+  attribute pathEditMode { p_ST_TLAnimateMotionPathEditMode }?,
+  attribute rAng { a_ST_Angle }?,
+  attribute ptsTypes { xsd:string }?,
+  element cBhvr { p_CT_TLCommonBehaviorData },
+  element by { p_CT_TLPoint }?,
+  element from { p_CT_TLPoint }?,
+  element to { p_CT_TLPoint }?,
+  element rCtr { p_CT_TLPoint }?
+p_CT_TLAnimateRotationBehavior =
+  attribute by { a_ST_Angle }?,
+  attribute from { a_ST_Angle }?,
+  attribute to { a_ST_Angle }?,
+  element cBhvr { p_CT_TLCommonBehaviorData }
+p_CT_TLAnimateScaleBehavior =
+  attribute zoomContents { xsd:boolean }?,
+  element cBhvr { p_CT_TLCommonBehaviorData },
+  element by { p_CT_TLPoint }?,
+  element from { p_CT_TLPoint }?,
+  element to { p_CT_TLPoint }?
+p_ST_TLCommandType = "evt" | "call" | "verb"
+p_CT_TLCommandBehavior =
+  attribute type { p_ST_TLCommandType }?,
+  attribute cmd { xsd:string }?,
+  element cBhvr { p_CT_TLCommonBehaviorData }
+p_CT_TLSetBehavior =
+  element cBhvr { p_CT_TLCommonBehaviorData },
+  element to { p_CT_TLAnimVariant }?
+p_CT_TLCommonMediaNodeData =
+  
+  ## default value: 50%
+  attribute vol { a_ST_PositiveFixedPercentage }?,
+  
+  ## default value: false
+  attribute mute { xsd:boolean }?,
+  
+  ## default value: 1
+  attribute numSld { xsd:unsignedInt }?,
+  
+  ## default value: true
+  attribute showWhenStopped { xsd:boolean }?,
+  element cTn { p_CT_TLCommonTimeNodeData },
+  element tgtEl { p_CT_TLTimeTargetElement }
+p_CT_TLMediaNodeAudio =
+  
+  ## default value: false
+  attribute isNarration { xsd:boolean }?,
+  element cMediaNode { p_CT_TLCommonMediaNodeData }
+p_CT_TLMediaNodeVideo =
+  
+  ## default value: false
+  attribute fullScrn { xsd:boolean }?,
+  element cMediaNode { p_CT_TLCommonMediaNodeData }
+p_AG_TLBuild =
+  attribute spid { a_ST_DrawingElementId },
+  attribute grpId { xsd:unsignedInt },
+  
+  ## default value: false
+  attribute uiExpand { xsd:boolean }?
+p_CT_TLTemplate =
+  
+  ## default value: 0
+  attribute lvl { xsd:unsignedInt }?,
+  element tnLst { p_CT_TimeNodeList }
+p_CT_TLTemplateList = element tmpl { p_CT_TLTemplate }*
+p_ST_TLParaBuildType = "allAtOnce" | "p" | "cust" | "whole"
+p_CT_TLBuildParagraph =
+  p_AG_TLBuild,
+  
+  ## default value: whole
+  attribute build { p_ST_TLParaBuildType }?,
+  
+  ## default value: 1
+  attribute bldLvl { xsd:unsignedInt }?,
+  
+  ## default value: false
+  attribute animBg { xsd:boolean }?,
+  
+  ## default value: true
+  attribute autoUpdateAnimBg { xsd:boolean }?,
+  
+  ## default value: false
+  attribute rev { xsd:boolean }?,
+  
+  ## default value: indefinite
+  attribute advAuto { p_ST_TLTime }?,
+  element tmplLst { p_CT_TLTemplateList }?
+p_ST_TLDiagramBuildType =
+  "whole"
+  | "depthByNode"
+  | "depthByBranch"
+  | "breadthByNode"
+  | "breadthByLvl"
+  | "cw"
+  | "cwIn"
+  | "cwOut"
+  | "ccw"
+  | "ccwIn"
+  | "ccwOut"
+  | "inByRing"
+  | "outByRing"
+  | "up"
+  | "down"
+  | "allAtOnce"
+  | "cust"
+p_CT_TLBuildDiagram =
+  p_AG_TLBuild,
+  
+  ## default value: whole
+  attribute bld { p_ST_TLDiagramBuildType }?
+p_ST_TLOleChartBuildType =
+  "allAtOnce" | "series" | "category" | "seriesEl" | "categoryEl"
+p_CT_TLOleBuildChart =
+  p_AG_TLBuild,
+  
+  ## default value: allAtOnce
+  attribute bld { p_ST_TLOleChartBuildType }?,
+  
+  ## default value: true
+  attribute animBg { xsd:boolean }?
+p_CT_TLGraphicalObjectBuild =
+  p_AG_TLBuild,
+  (element bldAsOne { p_CT_Empty }
+   | element bldSub { a_CT_AnimationGraphicalObjectBuildProperties })
+p_CT_BuildList =
+  (element bldP { p_CT_TLBuildParagraph }
+   | element bldDgm { p_CT_TLBuildDiagram }
+   | element bldOleChart { p_CT_TLOleBuildChart }
+   | element bldGraphic { p_CT_TLGraphicalObjectBuild })+
+p_CT_SlideTiming =
+  element tnLst { p_CT_TimeNodeList }?,
+  element bldLst { p_CT_BuildList }?,
+  element extLst { p_CT_ExtensionListModify }?
+p_CT_Empty = empty
+p_ST_Name = xsd:string
+p_ST_Direction = "horz" | "vert"
+p_ST_Index = xsd:unsignedInt
+p_CT_IndexRange =
+  attribute st { p_ST_Index },
+  attribute end { p_ST_Index }
+p_CT_SlideRelationshipListEntry = r_id
+p_CT_SlideRelationshipList =
+  element sld { p_CT_SlideRelationshipListEntry }*
+p_CT_CustomShowId = attribute id { xsd:unsignedInt }
+p_EG_SlideListChoice =
+  element sldAll { p_CT_Empty }
+  | element sldRg { p_CT_IndexRange }
+  | element custShow { p_CT_CustomShowId }
+p_CT_CustomerData = r_id
+p_CT_TagsData = r_id
+p_CT_CustomerDataList =
+  (element custData { p_CT_CustomerData }*,
+   element tags { p_CT_TagsData }?)?
+p_CT_Extension =
+  attribute uri { xsd:token },
+  p_CT_Extension_any*
+p_CT_Extension_any =
+  element * - (o:* | v:* | w10:* | x:*) {
+    anyAttribute*,
+    mixed { anyElement* }
+  }
+p_EG_ExtensionList = element ext { p_CT_Extension }*
+p_CT_ExtensionList = p_EG_ExtensionList?
+p_CT_ExtensionListModify =
+  
+  ## default value: false
+  attribute mod { xsd:boolean }?,
+  p_EG_ExtensionList?
+p_CT_CommentAuthor =
+  attribute id { xsd:unsignedInt },
+  attribute name { p_ST_Name },
+  attribute initials { p_ST_Name },
+  attribute lastIdx { xsd:unsignedInt },
+  attribute clrIdx { xsd:unsignedInt },
+  element extLst { p_CT_ExtensionList }?
+p_CT_CommentAuthorList = element cmAuthor { p_CT_CommentAuthor }*
+p_cmAuthorLst = element cmAuthorLst { p_CT_CommentAuthorList }
+p_CT_Comment =
+  attribute authorId { xsd:unsignedInt },
+  attribute dt { xsd:dateTime }?,
+  attribute idx { p_ST_Index },
+  element pos { a_CT_Point2D },
+  element text { xsd:string },
+  element extLst { p_CT_ExtensionListModify }?
+p_CT_CommentList = element cm { p_CT_Comment }*
+p_cmLst = element cmLst { p_CT_CommentList }
+p_AG_Ole =
+  attribute name { xsd:string }?,
+  
+  ## default value: false
+  attribute showAsIcon { xsd:boolean }?,
+  r_id?,
+  attribute imgW { a_ST_PositiveCoordinate32 }?,
+  attribute imgH { a_ST_PositiveCoordinate32 }?
+p_ST_OleObjectFollowColorScheme = "none" | "full" | "textAndBackground"
+p_CT_OleObjectEmbed =
+  
+  ## default value: none
+  attribute followColorScheme { p_ST_OleObjectFollowColorScheme }?,
+  element extLst { p_CT_ExtensionList }?
+p_CT_OleObjectLink =
+  
+  ## default value: false
+  attribute updateAutomatic { xsd:boolean }?,
+  element extLst { p_CT_ExtensionList }?
+p_CT_OleObject =
+  p_AG_Ole,
+  attribute progId { xsd:string }?,
+  (element embed { p_CT_OleObjectEmbed }
+   | element link { p_CT_OleObjectLink }),
+  element pic { p_CT_Picture }
+p_oleObj = element oleObj { p_CT_OleObject }
+p_CT_Control =
+  p_AG_Ole,
+  element extLst { p_CT_ExtensionList }?,
+  element pic { p_CT_Picture }?
+p_CT_ControlList = element control { p_CT_Control }*
+p_ST_SlideId =
+  xsd:unsignedInt { minInclusive = "256" maxExclusive = "2147483648" }
+p_CT_SlideIdListEntry =
+  attribute id { p_ST_SlideId },
+  r_id,
+  element extLst { p_CT_ExtensionList }?
+p_CT_SlideIdList = element sldId { p_CT_SlideIdListEntry }*
+p_ST_SlideMasterId = xsd:unsignedInt { minInclusive = "2147483648" }
+p_CT_SlideMasterIdListEntry =
+  attribute id { p_ST_SlideMasterId }?,
+  r_id,
+  element extLst { p_CT_ExtensionList }?
+p_CT_SlideMasterIdList =
+  element sldMasterId { p_CT_SlideMasterIdListEntry }*
+p_CT_NotesMasterIdListEntry =
+  r_id,
+  element extLst { p_CT_ExtensionList }?
+p_CT_NotesMasterIdList =
+  element notesMasterId { p_CT_NotesMasterIdListEntry }?
+p_CT_HandoutMasterIdListEntry =
+  r_id,
+  element extLst { p_CT_ExtensionList }?
+p_CT_HandoutMasterIdList =
+  element handoutMasterId { p_CT_HandoutMasterIdListEntry }?
+p_CT_EmbeddedFontDataId = r_id
+p_CT_EmbeddedFontListEntry =
+  element font { a_CT_TextFont },
+  element regular { p_CT_EmbeddedFontDataId }?,
+  element bold { p_CT_EmbeddedFontDataId }?,
+  element italic { p_CT_EmbeddedFontDataId }?,
+  element boldItalic { p_CT_EmbeddedFontDataId }?
+p_CT_EmbeddedFontList =
+  element embeddedFont { p_CT_EmbeddedFontListEntry }*
+p_CT_SmartTags = r_id
+p_CT_CustomShow =
+  attribute name { p_ST_Name },
+  attribute id { xsd:unsignedInt },
+  element sldLst { p_CT_SlideRelationshipList },
+  element extLst { p_CT_ExtensionList }?
+p_CT_CustomShowList = element custShow { p_CT_CustomShow }*
+p_ST_PhotoAlbumLayout =
+  "fitToSlide"
+  | "1pic"
+  | "2pic"
+  | "4pic"
+  | "1picTitle"
+  | "2picTitle"
+  | "4picTitle"
+p_ST_PhotoAlbumFrameShape =
+  "frameStyle1"
+  | "frameStyle2"
+  | "frameStyle3"
+  | "frameStyle4"
+  | "frameStyle5"
+  | "frameStyle6"
+  | "frameStyle7"
+p_CT_PhotoAlbum =
+  
+  ## default value: false
+  attribute bw { xsd:boolean }?,
+  
+  ## default value: false
+  attribute showCaptions { xsd:boolean }?,
+  
+  ## default value: fitToSlide
+  attribute layout { p_ST_PhotoAlbumLayout }?,
+  
+  ## default value: frameStyle1
+  attribute frame { p_ST_PhotoAlbumFrameShape }?,
+  element extLst { p_CT_ExtensionList }?
+p_ST_SlideSizeCoordinate =
+  xsd:int {
+    minInclusive = "914400"
+    maxInclusive = "51206400"
+  }
+p_ST_SlideSizeType =
+  "screen4x3"
+  | "letter"
+  | "A4"
+  | "35mm"
+  | "overhead"
+  | "banner"
+  | "custom"
+  | "ledger"
+  | "A3"
+  | "B4ISO"
+  | "B5ISO"
+  | "B4JIS"
+  | "B5JIS"
+  | "hagakiCard"
+  | "screen16x9"
+  | "screen16x10"
+p_CT_SlideSize =
+  attribute cx { p_ST_SlideSizeCoordinate },
+  attribute cy { p_ST_SlideSizeCoordinate },
+  
+  ## default value: custom
+  attribute type { p_ST_SlideSizeType }?
+p_CT_Kinsoku =
+  attribute lang { xsd:string }?,
+  attribute invalStChars { xsd:string },
+  attribute invalEndChars { xsd:string }
+p_ST_BookmarkIdSeed =
+  xsd:unsignedInt { minInclusive = "1" maxExclusive = "2147483648" }
+p_CT_ModifyVerifier =
+  attribute algorithmName { xsd:string }?,
+  attribute hashValue { xsd:base64Binary }?,
+  attribute saltValue { xsd:base64Binary }?,
+  attribute spinValue { xsd:unsignedInt }?
+p_CT_Presentation =
+  
+  ## default value: 50%
+  attribute serverZoom { a_ST_Percentage }?,
+  
+  ## default value: 1
+  attribute firstSlideNum { xsd:int }?,
+  
+  ## default value: true
+  attribute showSpecialPlsOnTitleSld { xsd:boolean }?,
+  
+  ## default value: false
+  attribute rtl { xsd:boolean }?,
+  
+  ## default value: false
+  attribute removePersonalInfoOnSave { xsd:boolean }?,
+  
+  ## default value: false
+  attribute compatMode { xsd:boolean }?,
+  
+  ## default value: true
+  attribute strictFirstAndLastChars { xsd:boolean }?,
+  
+  ## default value: false
+  attribute embedTrueTypeFonts { xsd:boolean }?,
+  
+  ## default value: false
+  attribute saveSubsetFonts { xsd:boolean }?,
+  
+  ## default value: true
+  attribute autoCompressPictures { xsd:boolean }?,
+  
+  ## default value: 1
+  attribute bookmarkIdSeed { p_ST_BookmarkIdSeed }?,
+  attribute conformance { s_ST_ConformanceClass }?,
+  element sldMasterIdLst { p_CT_SlideMasterIdList }?,
+  element notesMasterIdLst { p_CT_NotesMasterIdList }?,
+  element handoutMasterIdLst { p_CT_HandoutMasterIdList }?,
+  element sldIdLst { p_CT_SlideIdList }?,
+  element sldSz { p_CT_SlideSize }?,
+  element notesSz { a_CT_PositiveSize2D },
+  element smartTags { p_CT_SmartTags }?,
+  element embeddedFontLst { p_CT_EmbeddedFontList }?,
+  element custShowLst { p_CT_CustomShowList }?,
+  element photoAlbum { p_CT_PhotoAlbum }?,
+  element custDataLst { p_CT_CustomerDataList }?,
+  element kinsoku { p_CT_Kinsoku }?,
+  element defaultTextStyle { a_CT_TextListStyle }?,
+  element modifyVerifier { p_CT_ModifyVerifier }?,
+  element extLst { p_CT_ExtensionList }?
+p_presentation = element presentation { p_CT_Presentation }
+p_CT_HtmlPublishProperties =
+  
+  ## default value: true
+  attribute showSpeakerNotes { xsd:boolean }?,
+  attribute target { xsd:string }?,
+  attribute title { xsd:string }?,
+  r_id,
+  p_EG_SlideListChoice,
+  element extLst { p_CT_ExtensionList }?
+p_ST_PrintWhat =
+  "slides"
+  | "handouts1"
+  | "handouts2"
+  | "handouts3"
+  | "handouts4"
+  | "handouts6"
+  | "handouts9"
+  | "notes"
+  | "outline"
+p_ST_PrintColorMode = "bw" | "gray" | "clr"
+p_CT_PrintProperties =
+  
+  ## default value: slides
+  attribute prnWhat { p_ST_PrintWhat }?,
+  
+  ## default value: clr
+  attribute clrMode { p_ST_PrintColorMode }?,
+  
+  ## default value: false
+  attribute hiddenSlides { xsd:boolean }?,
+  
+  ## default value: false
+  attribute scaleToFitPaper { xsd:boolean }?,
+  
+  ## default value: false
+  attribute frameSlides { xsd:boolean }?,
+  element extLst { p_CT_ExtensionList }?
+p_CT_ShowInfoBrowse =
+  
+  ## default value: true
+  attribute showScrollbar { xsd:boolean }?
+p_CT_ShowInfoKiosk =
+  
+  ## default value: 300000
+  attribute restart { xsd:unsignedInt }?
+p_EG_ShowType =
+  element present { p_CT_Empty }
+  | element browse { p_CT_ShowInfoBrowse }
+  | element kiosk { p_CT_ShowInfoKiosk }
+p_CT_ShowProperties =
+  
+  ## default value: false
+  attribute loop { xsd:boolean }?,
+  
+  ## default value: false
+  attribute showNarration { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showAnimation { xsd:boolean }?,
+  
+  ## default value: true
+  attribute useTimings { xsd:boolean }?,
+  (p_EG_ShowType?,
+   p_EG_SlideListChoice?,
+   element penClr { a_CT_Color }?,
+   element extLst { p_CT_ExtensionList }?)?
+p_CT_PresentationProperties =
+  element prnPr { p_CT_PrintProperties }?,
+  element showPr { p_CT_ShowProperties }?,
+  element clrMru { a_CT_ColorMRU }?,
+  element extLst { p_CT_ExtensionList }?
+p_presentationPr =
+  element presentationPr { p_CT_PresentationProperties }
+p_CT_HeaderFooter =
+  
+  ## default value: true
+  attribute sldNum { xsd:boolean }?,
+  
+  ## default value: true
+  attribute hdr { xsd:boolean }?,
+  
+  ## default value: true
+  attribute ftr { xsd:boolean }?,
+  
+  ## default value: true
+  attribute dt { xsd:boolean }?,
+  element extLst { p_CT_ExtensionListModify }?
+p_ST_PlaceholderType =
+  "title"
+  | "body"
+  | "ctrTitle"
+  | "subTitle"
+  | "dt"
+  | "sldNum"
+  | "ftr"
+  | "hdr"
+  | "obj"
+  | "chart"
+  | "tbl"
+  | "clipArt"
+  | "dgm"
+  | "media"
+  | "sldImg"
+  | "pic"
+p_ST_PlaceholderSize = "full" | "half" | "quarter"
+p_CT_Placeholder =
+  
+  ## default value: obj
+  attribute type { p_ST_PlaceholderType }?,
+  
+  ## default value: horz
+  attribute orient { p_ST_Direction }?,
+  
+  ## default value: full
+  attribute sz { p_ST_PlaceholderSize }?,
+  
+  ## default value: 0
+  attribute idx { xsd:unsignedInt }?,
+  
+  ## default value: false
+  attribute hasCustomPrompt { xsd:boolean }?,
+  element extLst { p_CT_ExtensionListModify }?
+p_CT_ApplicationNonVisualDrawingProps =
+  
+  ## default value: false
+  attribute isPhoto { xsd:boolean }?,
+  
+  ## default value: false
+  attribute userDrawn { xsd:boolean }?,
+  element ph { p_CT_Placeholder }?,
+  a_EG_Media?,
+  element custDataLst { p_CT_CustomerDataList }?,
+  element extLst { p_CT_ExtensionList }?
+p_CT_ShapeNonVisual =
+  element cNvPr { a_CT_NonVisualDrawingProps },
+  element cNvSpPr { a_CT_NonVisualDrawingShapeProps },
+  element nvPr { p_CT_ApplicationNonVisualDrawingProps }
+p_CT_Shape =
+  
+  ## default value: false
+  attribute useBgFill { xsd:boolean }?,
+  element nvSpPr { p_CT_ShapeNonVisual },
+  element spPr { a_CT_ShapeProperties },
+  element style { a_CT_ShapeStyle }?,
+  element txBody { a_CT_TextBody }?,
+  element extLst { p_CT_ExtensionListModify }?
+p_CT_ConnectorNonVisual =
+  element cNvPr { a_CT_NonVisualDrawingProps },
+  element cNvCxnSpPr { a_CT_NonVisualConnectorProperties },
+  element nvPr { p_CT_ApplicationNonVisualDrawingProps }
+p_CT_Connector =
+  element nvCxnSpPr { p_CT_ConnectorNonVisual },
+  element spPr { a_CT_ShapeProperties },
+  element style { a_CT_ShapeStyle }?,
+  element extLst { p_CT_ExtensionListModify }?
+p_CT_PictureNonVisual =
+  element cNvPr { a_CT_NonVisualDrawingProps },
+  element cNvPicPr { a_CT_NonVisualPictureProperties },
+  element nvPr { p_CT_ApplicationNonVisualDrawingProps }
+p_CT_Picture =
+  element nvPicPr { p_CT_PictureNonVisual },
+  element blipFill { a_CT_BlipFillProperties },
+  element spPr { a_CT_ShapeProperties },
+  element style { a_CT_ShapeStyle }?,
+  element extLst { p_CT_ExtensionListModify }?
+p_CT_GraphicalObjectFrameNonVisual =
+  element cNvPr { a_CT_NonVisualDrawingProps },
+  element cNvGraphicFramePr { a_CT_NonVisualGraphicFrameProperties },
+  element nvPr { p_CT_ApplicationNonVisualDrawingProps }
+p_CT_GraphicalObjectFrame =
+  attribute bwMode { a_ST_BlackWhiteMode }?,
+  element nvGraphicFramePr { p_CT_GraphicalObjectFrameNonVisual },
+  element xfrm { a_CT_Transform2D },
+  a_graphic,
+  element extLst { p_CT_ExtensionListModify }?
+p_CT_GroupShapeNonVisual =
+  element cNvPr { a_CT_NonVisualDrawingProps },
+  element cNvGrpSpPr { a_CT_NonVisualGroupDrawingShapeProps },
+  element nvPr { p_CT_ApplicationNonVisualDrawingProps }
+p_CT_GroupShape =
+  element nvGrpSpPr { p_CT_GroupShapeNonVisual },
+  element grpSpPr { a_CT_GroupShapeProperties },
+  (element sp { p_CT_Shape }
+   | element grpSp { p_CT_GroupShape }
+   | element graphicFrame { p_CT_GraphicalObjectFrame }
+   | element cxnSp { p_CT_Connector }
+   | element pic { p_CT_Picture }
+   | element contentPart { p_CT_Rel })*,
+  element extLst { p_CT_ExtensionListModify }?
+p_CT_Rel = r_id
+p_EG_TopLevelSlide = element clrMap { a_CT_ColorMapping }
+p_EG_ChildSlide = element clrMapOvr { a_CT_ColorMappingOverride }?
+p_AG_ChildSlide =
+  
+  ## default value: true
+  attribute showMasterSp { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showMasterPhAnim { xsd:boolean }?
+p_CT_BackgroundProperties =
+  
+  ## default value: false
+  attribute shadeToTitle { xsd:boolean }?,
+  a_EG_FillProperties,
+  a_EG_EffectProperties?,
+  element extLst { p_CT_ExtensionList }?
+p_EG_Background =
+  element bgPr { p_CT_BackgroundProperties }
+  | element bgRef { a_CT_StyleMatrixReference }
+p_CT_Background =
+  
+  ## default value: white
+  attribute bwMode { a_ST_BlackWhiteMode }?,
+  p_EG_Background
+p_CT_CommonSlideData =
+  attribute name { xsd:string }?,
+  element bg { p_CT_Background }?,
+  element spTree { p_CT_GroupShape },
+  element custDataLst { p_CT_CustomerDataList }?,
+  element controls { p_CT_ControlList }?,
+  element extLst { p_CT_ExtensionList }?
+p_CT_Slide =
+  p_AG_ChildSlide,
+  
+  ## default value: true
+  attribute show { xsd:boolean }?,
+  element cSld { p_CT_CommonSlideData },
+  p_EG_ChildSlide?,
+  element transition { p_CT_SlideTransition }?,
+  element timing { p_CT_SlideTiming }?,
+  element extLst { p_CT_ExtensionListModify }?
+p_sld = element sld { p_CT_Slide }
+p_ST_SlideLayoutType =
+  "title"
+  | "tx"
+  | "twoColTx"
+  | "tbl"
+  | "txAndChart"
+  | "chartAndTx"
+  | "dgm"
+  | "chart"
+  | "txAndClipArt"
+  | "clipArtAndTx"
+  | "titleOnly"
+  | "blank"
+  | "txAndObj"
+  | "objAndTx"
+  | "objOnly"
+  | "obj"
+  | "txAndMedia"
+  | "mediaAndTx"
+  | "objOverTx"
+  | "txOverObj"
+  | "txAndTwoObj"
+  | "twoObjAndTx"
+  | "twoObjOverTx"
+  | "fourObj"
+  | "vertTx"
+  | "clipArtAndVertTx"
+  | "vertTitleAndTx"
+  | "vertTitleAndTxOverChart"
+  | "twoObj"
+  | "objAndTwoObj"
+  | "twoObjAndObj"
+  | "cust"
+  | "secHead"
+  | "twoTxTwoObj"
+  | "objTx"
+  | "picTx"
+p_CT_SlideLayout =
+  p_AG_ChildSlide,
+  attribute matchingName { xsd:string }?,
+  
+  ## default value: cust
+  attribute type { p_ST_SlideLayoutType }?,
+  
+  ## default value: false
+  attribute preserve { xsd:boolean }?,
+  
+  ## default value: false
+  attribute userDrawn { xsd:boolean }?,
+  element cSld { p_CT_CommonSlideData },
+  p_EG_ChildSlide?,
+  element transition { p_CT_SlideTransition }?,
+  element timing { p_CT_SlideTiming }?,
+  element hf { p_CT_HeaderFooter }?,
+  element extLst { p_CT_ExtensionListModify }?
+p_sldLayout = element sldLayout { p_CT_SlideLayout }
+p_CT_SlideMasterTextStyles =
+  element titleStyle { a_CT_TextListStyle }?,
+  element bodyStyle { a_CT_TextListStyle }?,
+  element otherStyle { a_CT_TextListStyle }?,
+  element extLst { p_CT_ExtensionList }?
+p_ST_SlideLayoutId = xsd:unsignedInt { minInclusive = "2147483648" }
+p_CT_SlideLayoutIdListEntry =
+  attribute id { p_ST_SlideLayoutId }?,
+  r_id,
+  element extLst { p_CT_ExtensionList }?
+p_CT_SlideLayoutIdList =
+  element sldLayoutId { p_CT_SlideLayoutIdListEntry }*
+p_CT_SlideMaster =
+  
+  ## default value: false
+  attribute preserve { xsd:boolean }?,
+  element cSld { p_CT_CommonSlideData },
+  p_EG_TopLevelSlide,
+  element sldLayoutIdLst { p_CT_SlideLayoutIdList }?,
+  element transition { p_CT_SlideTransition }?,
+  element timing { p_CT_SlideTiming }?,
+  element hf { p_CT_HeaderFooter }?,
+  element txStyles { p_CT_SlideMasterTextStyles }?,
+  element extLst { p_CT_ExtensionListModify }?
+p_sldMaster = element sldMaster { p_CT_SlideMaster }
+p_CT_HandoutMaster =
+  element cSld { p_CT_CommonSlideData },
+  p_EG_TopLevelSlide,
+  element hf { p_CT_HeaderFooter }?,
+  element extLst { p_CT_ExtensionListModify }?
+p_handoutMaster = element handoutMaster { p_CT_HandoutMaster }
+p_CT_NotesMaster =
+  element cSld { p_CT_CommonSlideData },
+  p_EG_TopLevelSlide,
+  element hf { p_CT_HeaderFooter }?,
+  element notesStyle { a_CT_TextListStyle }?,
+  element extLst { p_CT_ExtensionListModify }?
+p_notesMaster = element notesMaster { p_CT_NotesMaster }
+p_CT_NotesSlide =
+  p_AG_ChildSlide,
+  element cSld { p_CT_CommonSlideData },
+  p_EG_ChildSlide?,
+  element extLst { p_CT_ExtensionListModify }?
+p_notes = element notes { p_CT_NotesSlide }
+p_CT_SlideSyncProperties =
+  attribute serverSldId { xsd:string },
+  attribute serverSldModifiedTime { xsd:dateTime },
+  attribute clientInsertedTime { xsd:dateTime },
+  element extLst { p_CT_ExtensionList }?
+p_sldSyncPr = element sldSyncPr { p_CT_SlideSyncProperties }
+p_CT_StringTag =
+  attribute name { xsd:string },
+  attribute val { xsd:string }
+p_CT_TagList = element tag { p_CT_StringTag }*
+p_tagLst = element tagLst { p_CT_TagList }
+p_ST_SplitterBarState = "minimized" | "restored" | "maximized"
+p_ST_ViewType =
+  "sldView"
+  | "sldMasterView"
+  | "notesView"
+  | "handoutView"
+  | "notesMasterView"
+  | "outlineView"
+  | "sldSorterView"
+  | "sldThumbnailView"
+p_CT_NormalViewPortion =
+  attribute sz { a_ST_PositiveFixedPercentage },
+  
+  ## default value: true
+  attribute autoAdjust { xsd:boolean }?
+p_CT_NormalViewProperties =
+  
+  ## default value: true
+  attribute showOutlineIcons { xsd:boolean }?,
+  
+  ## default value: false
+  attribute snapVertSplitter { xsd:boolean }?,
+  
+  ## default value: restored
+  attribute vertBarState { p_ST_SplitterBarState }?,
+  
+  ## default value: restored
+  attribute horzBarState { p_ST_SplitterBarState }?,
+  
+  ## default value: false
+  attribute preferSingleView { xsd:boolean }?,
+  element restoredLeft { p_CT_NormalViewPortion },
+  element restoredTop { p_CT_NormalViewPortion },
+  element extLst { p_CT_ExtensionList }?
+p_CT_CommonViewProperties =
+  
+  ## default value: false
+  attribute varScale { xsd:boolean }?,
+  element scale { a_CT_Scale2D },
+  element origin { a_CT_Point2D }
+p_CT_NotesTextViewProperties =
+  element cViewPr { p_CT_CommonViewProperties },
+  element extLst { p_CT_ExtensionList }?
+p_CT_OutlineViewSlideEntry =
+  r_id,
+  
+  ## default value: false
+  attribute collapse { xsd:boolean }?
+p_CT_OutlineViewSlideList = element sld { p_CT_OutlineViewSlideEntry }*
+p_CT_OutlineViewProperties =
+  element cViewPr { p_CT_CommonViewProperties },
+  element sldLst { p_CT_OutlineViewSlideList }?,
+  element extLst { p_CT_ExtensionList }?
+p_CT_SlideSorterViewProperties =
+  
+  ## default value: true
+  attribute showFormatting { xsd:boolean }?,
+  element cViewPr { p_CT_CommonViewProperties },
+  element extLst { p_CT_ExtensionList }?
+p_CT_Guide =
+  
+  ## default value: vert
+  attribute orient { p_ST_Direction }?,
+  
+  ## default value: 0
+  attribute pos { a_ST_Coordinate32 }?
+p_CT_GuideList = element guide { p_CT_Guide }*
+p_CT_CommonSlideViewProperties =
+  
+  ## default value: true
+  attribute snapToGrid { xsd:boolean }?,
+  
+  ## default value: false
+  attribute snapToObjects { xsd:boolean }?,
+  
+  ## default value: false
+  attribute showGuides { xsd:boolean }?,
+  element cViewPr { p_CT_CommonViewProperties },
+  element guideLst { p_CT_GuideList }?
+p_CT_SlideViewProperties =
+  element cSldViewPr { p_CT_CommonSlideViewProperties },
+  element extLst { p_CT_ExtensionList }?
+p_CT_NotesViewProperties =
+  element cSldViewPr { p_CT_CommonSlideViewProperties },
+  element extLst { p_CT_ExtensionList }?
+p_CT_ViewProperties =
+  
+  ## default value: sldView
+  attribute lastView { p_ST_ViewType }?,
+  
+  ## default value: true
+  attribute showComments { xsd:boolean }?,
+  (element normalViewPr { p_CT_NormalViewProperties }?,
+   element slideViewPr { p_CT_SlideViewProperties }?,
+   element outlineViewPr { p_CT_OutlineViewProperties }?,
+   element notesTextViewPr { p_CT_NotesTextViewProperties }?,
+   element sorterViewPr { p_CT_SlideSorterViewProperties }?,
+   element notesViewPr { p_CT_NotesViewProperties }?,
+   element gridSpacing { a_CT_PositiveSize2D }?,
+   element extLst { p_CT_ExtensionList }?)?
+p_viewPr = element viewPr { p_CT_ViewProperties }

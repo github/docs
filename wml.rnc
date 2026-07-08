@@ -1,0 +1,2195 @@
+namespace m = "http://purl.oclc.org/ooxml/officeDocument/math"
+namespace o = "urn:schemas-microsoft-com:office:office"
+namespace r = "http://purl.oclc.org/ooxml/officeDocument/relationships"
+namespace s = "http://purl.oclc.org/ooxml/officeDocument/sharedTypes"
+namespace sl = "http://purl.oclc.org/ooxml/schemaLibrary/main"
+namespace v = "urn:schemas-microsoft-com:vml"
+default namespace w = "http://purl.oclc.org/ooxml/wordprocessingml/main"
+namespace w10 = "urn:schemas-microsoft-com:office:word"
+namespace wp =
+  "http://purl.oclc.org/ooxml/drawingml/wordprocessingDrawing"
+namespace x = "urn:schemas-microsoft-com:office:excel"
+
+w_CT_Empty = empty
+w_CT_OnOff = attribute w:val { s_ST_OnOff }?
+w_ST_LongHexNumber = xsd:hexBinary { length = "4" }
+w_CT_LongHexNumber = attribute w:val { w_ST_LongHexNumber }
+w_ST_ShortHexNumber = xsd:hexBinary { length = "2" }
+w_ST_UcharHexNumber = xsd:hexBinary { length = "1" }
+w_CT_Charset = attribute w:characterSet { s_ST_String }?
+  ## default value: ISO-8859-1
+w_ST_DecimalNumberOrPercent = s_ST_Percentage
+w_ST_DecimalNumber = xsd:integer
+w_CT_DecimalNumber = attribute w:val { w_ST_DecimalNumber }
+w_CT_UnsignedDecimalNumber =
+  attribute w:val { s_ST_UnsignedDecimalNumber }
+w_CT_DecimalNumberOrPrecent =
+  attribute w:val { w_ST_DecimalNumberOrPercent }
+w_CT_TwipsMeasure = attribute w:val { s_ST_TwipsMeasure }
+w_ST_SignedTwipsMeasure = xsd:integer | s_ST_UniversalMeasure
+w_CT_SignedTwipsMeasure = attribute w:val { w_ST_SignedTwipsMeasure }
+w_ST_PixelsMeasure = s_ST_UnsignedDecimalNumber
+w_CT_PixelsMeasure = attribute w:val { w_ST_PixelsMeasure }
+w_ST_HpsMeasure =
+  s_ST_UnsignedDecimalNumber | s_ST_PositiveUniversalMeasure
+w_CT_HpsMeasure = attribute w:val { w_ST_HpsMeasure }
+w_ST_SignedHpsMeasure = xsd:integer | s_ST_UniversalMeasure
+w_CT_SignedHpsMeasure = attribute w:val { w_ST_SignedHpsMeasure }
+w_ST_DateTime = xsd:dateTime
+w_ST_MacroName = xsd:string { maxLength = "33" }
+w_CT_MacroName = attribute w:val { w_ST_MacroName }
+w_ST_EighthPointMeasure = s_ST_UnsignedDecimalNumber
+w_ST_PointMeasure = s_ST_UnsignedDecimalNumber
+w_CT_String = attribute w:val { s_ST_String }
+w_ST_TextScale = w_ST_TextScalePercent
+w_ST_TextScalePercent =
+  xsd:string { pattern = "0*(600|([0-5]?[0-9]?[0-9]))%" }
+w_CT_TextScale = attribute w:val { w_ST_TextScale }?
+w_ST_HighlightColor =
+  string "black"
+  | string "blue"
+  | string "cyan"
+  | string "green"
+  | string "magenta"
+  | string "red"
+  | string "yellow"
+  | string "white"
+  | string "darkBlue"
+  | string "darkCyan"
+  | string "darkGreen"
+  | string "darkMagenta"
+  | string "darkRed"
+  | string "darkYellow"
+  | string "darkGray"
+  | string "lightGray"
+  | string "none"
+w_CT_Highlight = attribute w:val { w_ST_HighlightColor }
+w_ST_HexColorAuto = string "auto"
+w_ST_HexColor = w_ST_HexColorAuto | s_ST_HexColorRGB
+w_CT_Color =
+  attribute w:val { w_ST_HexColor },
+  attribute w:themeColor { w_ST_ThemeColor }?,
+  attribute w:themeTint { w_ST_UcharHexNumber }?,
+  attribute w:themeShade { w_ST_UcharHexNumber }?
+w_CT_Lang = attribute w:val { s_ST_Lang }
+w_CT_Guid = attribute w:val { s_ST_Guid }?
+w_ST_Underline =
+  string "single"
+  | string "words"
+  | string "double"
+  | string "thick"
+  | string "dotted"
+  | string "dottedHeavy"
+  | string "dash"
+  | string "dashedHeavy"
+  | string "dashLong"
+  | string "dashLongHeavy"
+  | string "dotDash"
+  | string "dashDotHeavy"
+  | string "dotDotDash"
+  | string "dashDotDotHeavy"
+  | string "wave"
+  | string "wavyHeavy"
+  | string "wavyDouble"
+  | string "none"
+w_CT_Underline =
+  attribute w:val { w_ST_Underline }?,
+  attribute w:color { w_ST_HexColor }?,
+  ## default value: auto
+  attribute w:themeColor { w_ST_ThemeColor }?,
+  attribute w:themeTint { w_ST_UcharHexNumber }?,
+  attribute w:themeShade { w_ST_UcharHexNumber }?
+w_ST_TextEffect =
+  string "blinkBackground"
+  | string "lights"
+  | string "antsBlack"
+  | string "antsRed"
+  | string "shimmer"
+  | string "sparkle"
+  | string "none"
+w_CT_TextEffect = attribute w:val { w_ST_TextEffect }
+w_ST_Border =
+  string "nil"
+  | string "none"
+  | string "single"
+  | string "thick"
+  | string "double"
+  | string "dotted"
+  | string "dashed"
+  | string "dotDash"
+  | string "dotDotDash"
+  | string "triple"
+  | string "thinThickSmallGap"
+  | string "thickThinSmallGap"
+  | string "thinThickThinSmallGap"
+  | string "thinThickMediumGap"
+  | string "thickThinMediumGap"
+  | string "thinThickThinMediumGap"
+  | string "thinThickLargeGap"
+  | string "thickThinLargeGap"
+  | string "thinThickThinLargeGap"
+  | string "wave"
+  | string "doubleWave"
+  | string "dashSmallGap"
+  | string "dashDotStroked"
+  | string "threeDEmboss"
+  | string "threeDEngrave"
+  | string "outset"
+  | string "inset"
+  | string "apples"
+  | string "archedScallops"
+  | string "babyPacifier"
+  | string "babyRattle"
+  | string "balloons3Colors"
+  | string "balloonsHotAir"
+  | string "basicBlackDashes"
+  | string "basicBlackDots"
+  | string "basicBlackSquares"
+  | string "basicThinLines"
+  | string "basicWhiteDashes"
+  | string "basicWhiteDots"
+  | string "basicWhiteSquares"
+  | string "basicWideInline"
+  | string "basicWideMidline"
+  | string "basicWideOutline"
+  | string "bats"
+  | string "birds"
+  | string "birdsFlight"
+  | string "cabins"
+  | string "cakeSlice"
+  | string "candyCorn"
+  | string "celticKnotwork"
+  | string "certificateBanner"
+  | string "chainLink"
+  | string "champagneBottle"
+  | string "checkedBarBlack"
+  | string "checkedBarColor"
+  | string "checkered"
+  | string "christmasTree"
+  | string "circlesLines"
+  | string "circlesRectangles"
+  | string "classicalWave"
+  | string "clocks"
+  | string "compass"
+  | string "confetti"
+  | string "confettiGrays"
+  | string "confettiOutline"
+  | string "confettiStreamers"
+  | string "confettiWhite"
+  | string "cornerTriangles"
+  | string "couponCutoutDashes"
+  | string "couponCutoutDots"
+  | string "crazyMaze"
+  | string "creaturesButterfly"
+  | string "creaturesFish"
+  | string "creaturesInsects"
+  | string "creaturesLadyBug"
+  | string "crossStitch"
+  | string "cup"
+  | string "decoArch"
+  | string "decoArchColor"
+  | string "decoBlocks"
+  | string "diamondsGray"
+  | string "doubleD"
+  | string "doubleDiamonds"
+  | string "earth1"
+  | string "earth2"
+  | string "earth3"
+  | string "eclipsingSquares1"
+  | string "eclipsingSquares2"
+  | string "eggsBlack"
+  | string "fans"
+  | string "film"
+  | string "firecrackers"
+  | string "flowersBlockPrint"
+  | string "flowersDaisies"
+  | string "flowersModern1"
+  | string "flowersModern2"
+  | string "flowersPansy"
+  | string "flowersRedRose"
+  | string "flowersRoses"
+  | string "flowersTeacup"
+  | string "flowersTiny"
+  | string "gems"
+  | string "gingerbreadMan"
+  | string "gradient"
+  | string "handmade1"
+  | string "handmade2"
+  | string "heartBalloon"
+  | string "heartGray"
+  | string "hearts"
+  | string "heebieJeebies"
+  | string "holly"
+  | string "houseFunky"
+  | string "hypnotic"
+  | string "iceCreamCones"
+  | string "lightBulb"
+  | string "lightning1"
+  | string "lightning2"
+  | string "mapPins"
+  | string "mapleLeaf"
+  | string "mapleMuffins"
+  | string "marquee"
+  | string "marqueeToothed"
+  | string "moons"
+  | string "mosaic"
+  | string "musicNotes"
+  | string "northwest"
+  | string "ovals"
+  | string "packages"
+  | string "palmsBlack"
+  | string "palmsColor"
+  | string "paperClips"
+  | string "papyrus"
+  | string "partyFavor"
+  | string "partyGlass"
+  | string "pencils"
+  | string "people"
+  | string "peopleWaving"
+  | string "peopleHats"
+  | string "poinsettias"
+  | string "postageStamp"
+  | string "pumpkin1"
+  | string "pushPinNote2"
+  | string "pushPinNote1"
+  | string "pyramids"
+  | string "pyramidsAbove"
+  | string "quadrants"
+  | string "rings"
+  | string "safari"
+  | string "sawtooth"
+  | string "sawtoothGray"
+  | string "scaredCat"
+  | string "seattle"
+  | string "shadowedSquares"
+  | string "sharksTeeth"
+  | string "shorebirdTracks"
+  | string "skyrocket"
+  | string "snowflakeFancy"
+  | string "snowflakes"
+  | string "sombrero"
+  | string "southwest"
+  | string "stars"
+  | string "starsTop"
+  | string "stars3d"
+  | string "starsBlack"
+  | string "starsShadowed"
+  | string "sun"
+  | string "swirligig"
+  | string "tornPaper"
+  | string "tornPaperBlack"
+  | string "trees"
+  | string "triangleParty"
+  | string "triangles"
+  | string "triangle1"
+  | string "triangle2"
+  | string "triangleCircle1"
+  | string "triangleCircle2"
+  | string "shapes1"
+  | string "shapes2"
+  | string "twistedLines1"
+  | string "twistedLines2"
+  | string "vine"
+  | string "waveline"
+  | string "weavingAngles"
+  | string "weavingBraid"
+  | string "weavingRibbon"
+  | string "weavingStrips"
+  | string "whiteFlowers"
+  | string "woodwork"
+  | string "xIllusions"
+  | string "zanyTriangles"
+  | string "zigZag"
+  | string "zigZagStitch"
+  | string "custom"
+w_CT_Border =
+  attribute w:val { w_ST_Border },
+  attribute w:color { w_ST_HexColor }?,
+  ## default value: auto
+  attribute w:themeColor { w_ST_ThemeColor }?,
+  attribute w:themeTint { w_ST_UcharHexNumber }?,
+  attribute w:themeShade { w_ST_UcharHexNumber }?,
+  attribute w:sz { w_ST_EighthPointMeasure }?,
+  attribute w:space { w_ST_PointMeasure }?,
+  ## default value: 0
+  attribute w:shadow { s_ST_OnOff }?,
+  attribute w:frame { s_ST_OnOff }?
+w_ST_Shd =
+  string "nil"
+  | string "clear"
+  | string "solid"
+  | string "horzStripe"
+  | string "vertStripe"
+  | string "reverseDiagStripe"
+  | string "diagStripe"
+  | string "horzCross"
+  | string "diagCross"
+  | string "thinHorzStripe"
+  | string "thinVertStripe"
+  | string "thinReverseDiagStripe"
+  | string "thinDiagStripe"
+  | string "thinHorzCross"
+  | string "thinDiagCross"
+  | string "pct5"
+  | string "pct10"
+  | string "pct12"
+  | string "pct15"
+  | string "pct20"
+  | string "pct25"
+  | string "pct30"
+  | string "pct35"
+  | string "pct37"
+  | string "pct40"
+  | string "pct45"
+  | string "pct50"
+  | string "pct55"
+  | string "pct60"
+  | string "pct62"
+  | string "pct65"
+  | string "pct70"
+  | string "pct75"
+  | string "pct80"
+  | string "pct85"
+  | string "pct87"
+  | string "pct90"
+  | string "pct95"
+w_CT_Shd =
+  attribute w:val { w_ST_Shd },
+  attribute w:color { w_ST_HexColor }?,
+  attribute w:themeColor { w_ST_ThemeColor }?,
+  attribute w:themeTint { w_ST_UcharHexNumber }?,
+  attribute w:themeShade { w_ST_UcharHexNumber }?,
+  attribute w:fill { w_ST_HexColor }?,
+  attribute w:themeFill { w_ST_ThemeColor }?,
+  attribute w:themeFillTint { w_ST_UcharHexNumber }?,
+  attribute w:themeFillShade { w_ST_UcharHexNumber }?
+w_CT_VerticalAlignRun = attribute w:val { s_ST_VerticalAlignRun }
+w_CT_FitText =
+  attribute w:val { s_ST_TwipsMeasure },
+  attribute w:id { w_ST_DecimalNumber }?
+w_ST_Em =
+  string "none"
+  | string "dot"
+  | string "comma"
+  | string "circle"
+  | string "underDot"
+w_CT_Em = attribute w:val { w_ST_Em }
+w_CT_Language =
+  attribute w:val { s_ST_Lang }?,
+  attribute w:eastAsia { s_ST_Lang }?,
+  attribute w:bidi { s_ST_Lang }?
+w_ST_CombineBrackets =
+  string "none"
+  | string "round"
+  | string "square"
+  | string "angle"
+  | string "curly"
+w_CT_EastAsianLayout =
+  attribute w:id { w_ST_DecimalNumber }?,
+  attribute w:combine { s_ST_OnOff }?,
+  attribute w:combineBrackets { w_ST_CombineBrackets }?,
+  attribute w:vert { s_ST_OnOff }?,
+  attribute w:vertCompress { s_ST_OnOff }?
+w_ST_HeightRule = string "auto" | string "exact" | string "atLeast"
+w_ST_Wrap =
+  string "auto"
+  | string "notBeside"
+  | string "around"
+  | string "tight"
+  | string "through"
+  | string "none"
+w_ST_VAnchor = string "text" | string "margin" | string "page"
+w_ST_HAnchor = string "text" | string "margin" | string "page"
+w_ST_DropCap = string "none" | string "drop" | string "margin"
+w_CT_FramePr =
+  attribute w:dropCap { w_ST_DropCap }?,
+  attribute w:lines { w_ST_DecimalNumber }?,
+  attribute w:w { s_ST_TwipsMeasure }?,
+  attribute w:h { s_ST_TwipsMeasure }?,
+  attribute w:vSpace { s_ST_TwipsMeasure }?,
+  attribute w:hSpace { s_ST_TwipsMeasure }?,
+  attribute w:wrap { w_ST_Wrap }?,
+  attribute w:hAnchor { w_ST_HAnchor }?,
+  attribute w:vAnchor { w_ST_VAnchor }?,
+  attribute w:x { w_ST_SignedTwipsMeasure }?,
+  attribute w:xAlign { s_ST_XAlign }?,
+  attribute w:y { w_ST_SignedTwipsMeasure }?,
+  attribute w:yAlign { s_ST_YAlign }?,
+  attribute w:hRule { w_ST_HeightRule }?,
+  attribute w:anchorLock { s_ST_OnOff }?
+w_ST_TabJc =
+  string "clear"
+  | string "start"
+  | string "center"
+  | string "end"
+  | string "decimal"
+  | string "bar"
+  | string "num"
+w_ST_TabTlc =
+  string "none"
+  | string "dot"
+  | string "hyphen"
+  | string "underscore"
+  | string "heavy"
+  | string "middleDot"
+w_CT_TabStop =
+  attribute w:val { w_ST_TabJc },
+  attribute w:leader { w_ST_TabTlc }?,
+  attribute w:pos { w_ST_SignedTwipsMeasure }
+w_ST_LineSpacingRule = string "auto" | string "exact" | string "atLeast"
+w_CT_Spacing =
+  attribute w:before { s_ST_TwipsMeasure }?,
+  ## default value: 0
+  attribute w:beforeLines { w_ST_DecimalNumber }?,
+  ## default value: 0
+  attribute w:beforeAutospacing { s_ST_OnOff }?,
+  ## default value: off
+  attribute w:after { s_ST_TwipsMeasure }?,
+  ## default value: 0
+  attribute w:afterLines { w_ST_DecimalNumber }?,
+  ## default value: 0
+  attribute w:afterAutospacing { s_ST_OnOff }?,
+  ## default value: off
+  attribute w:line { w_ST_SignedTwipsMeasure }?,
+  ## default value: 0
+  attribute w:lineRule { w_ST_LineSpacingRule }?
+  ## default value: auto
+w_CT_Ind =
+  attribute w:start { w_ST_SignedTwipsMeasure }?,
+  attribute w:startChars { w_ST_DecimalNumber }?,
+  attribute w:end { w_ST_SignedTwipsMeasure }?,
+  attribute w:endChars { w_ST_DecimalNumber }?,
+  attribute w:hanging { s_ST_TwipsMeasure }?,
+  attribute w:hangingChars { w_ST_DecimalNumber }?,
+  attribute w:firstLine { s_ST_TwipsMeasure }?,
+  attribute w:firstLineChars { w_ST_DecimalNumber }?
+w_ST_Jc =
+  string "start"
+  | string "center"
+  | string "end"
+  | string "both"
+  | string "mediumKashida"
+  | string "distribute"
+  | string "numTab"
+  | string "highKashida"
+  | string "lowKashida"
+  | string "thaiDistribute"
+w_ST_JcTable = string "center" | string "end" | string "start"
+w_CT_Jc = attribute w:val { w_ST_Jc }
+w_CT_JcTable = attribute w:val { w_ST_JcTable }
+w_ST_View =
+  string "none"
+  | string "print"
+  | string "outline"
+  | string "masterPages"
+  | string "normal"
+  | string "web"
+w_CT_View = attribute w:val { w_ST_View }
+w_ST_Zoom =
+  string "none"
+  | string "fullPage"
+  | string "bestFit"
+  | string "textFit"
+w_CT_Zoom =
+  attribute w:val { w_ST_Zoom }?,
+  attribute w:percent { w_ST_DecimalNumberOrPercent }
+w_CT_WritingStyle =
+  attribute w:lang { s_ST_Lang },
+  attribute w:vendorID { s_ST_String },
+  attribute w:dllVersion { s_ST_String },
+  attribute w:nlCheck { s_ST_OnOff }?,
+  ## default value: off
+  attribute w:checkStyle { s_ST_OnOff },
+  attribute w:appName { s_ST_String }
+w_ST_Proof = string "clean" | string "dirty"
+w_CT_Proof =
+  attribute w:spelling { w_ST_Proof }?,
+  attribute w:grammar { w_ST_Proof }?
+w_ST_DocType = xsd:string
+w_CT_DocType = attribute w:val { w_ST_DocType }
+w_ST_DocProtect =
+  string "none"
+  | string "readOnly"
+  | string "comments"
+  | string "trackedChanges"
+  | string "forms"
+w_AG_Password =
+  attribute w:algorithmName { s_ST_String }?,
+  attribute w:hashValue { xsd:base64Binary }?,
+  attribute w:saltValue { xsd:base64Binary }?,
+  attribute w:spinCount { w_ST_DecimalNumber }?
+w_CT_DocProtect =
+  attribute w:edit { w_ST_DocProtect }?,
+  attribute w:formatting { s_ST_OnOff }?,
+  attribute w:enforcement { s_ST_OnOff }?,
+  w_AG_Password
+w_ST_MailMergeDocType =
+  string "catalog"
+  | string "envelopes"
+  | string "mailingLabels"
+  | string "formLetters"
+  | string "email"
+  | string "fax"
+w_CT_MailMergeDocType = attribute w:val { w_ST_MailMergeDocType }
+w_ST_MailMergeDataType = xsd:string
+w_CT_MailMergeDataType = attribute w:val { w_ST_MailMergeDataType }
+w_ST_MailMergeDest =
+  string "newDocument"
+  | string "printer"
+  | string "email"
+  | string "fax"
+w_CT_MailMergeDest = attribute w:val { w_ST_MailMergeDest }
+w_ST_MailMergeOdsoFMDFieldType = string "null" | string "dbColumn"
+w_CT_MailMergeOdsoFMDFieldType =
+  attribute w:val { w_ST_MailMergeOdsoFMDFieldType }
+w_CT_TrackChangesView =
+  attribute w:markup { s_ST_OnOff }?,
+  attribute w:comments { s_ST_OnOff }?,
+  attribute w:insDel { s_ST_OnOff }?,
+  attribute w:formatting { s_ST_OnOff }?,
+  attribute w:inkAnnotations { s_ST_OnOff }?
+w_CT_Kinsoku =
+  attribute w:lang { s_ST_Lang },
+  attribute w:val { s_ST_String }
+w_ST_TextDirection =
+  string "tb"
+  | string "rl"
+  | string "lr"
+  | string "tbV"
+  | string "rlV"
+  | string "lrV"
+w_CT_TextDirection = attribute w:val { w_ST_TextDirection }
+w_ST_TextAlignment =
+  string "top"
+  | string "center"
+  | string "baseline"
+  | string "bottom"
+  | string "auto"
+w_CT_TextAlignment = attribute w:val { w_ST_TextAlignment }
+w_ST_DisplacedByCustomXml = string "next" | string "prev"
+w_ST_AnnotationVMerge = string "cont" | string "rest"
+w_CT_Markup = attribute w:id { w_ST_DecimalNumber }
+w_CT_TrackChange =
+  w_CT_Markup,
+  attribute w:author { s_ST_String },
+  attribute w:date { w_ST_DateTime }?
+w_CT_CellMergeTrackChange =
+  w_CT_TrackChange,
+  attribute w:vMerge { w_ST_AnnotationVMerge }?,
+  attribute w:vMergeOrig { w_ST_AnnotationVMerge }?
+w_CT_TrackChangeRange =
+  w_CT_TrackChange,
+  attribute w:displacedByCustomXml { w_ST_DisplacedByCustomXml }?
+w_CT_MarkupRange =
+  w_CT_Markup,
+  attribute w:displacedByCustomXml { w_ST_DisplacedByCustomXml }?
+w_CT_BookmarkRange =
+  w_CT_MarkupRange,
+  attribute w:colFirst { w_ST_DecimalNumber }?,
+  attribute w:colLast { w_ST_DecimalNumber }?
+w_CT_Bookmark =
+  w_CT_BookmarkRange,
+  attribute w:name { s_ST_String }
+w_CT_MoveBookmark =
+  w_CT_Bookmark,
+  attribute w:author { s_ST_String },
+  attribute w:date { w_ST_DateTime }
+w_CT_Comment =
+  w_CT_TrackChange,
+  w_EG_BlockLevelElts*,
+  attribute w:initials { s_ST_String }?
+w_CT_TblPrExChange =
+  w_CT_TrackChange,
+  element tblPrEx { w_CT_TblPrExBase }
+w_CT_TcPrChange =
+  w_CT_TrackChange,
+  element tcPr { w_CT_TcPrInner }
+w_CT_TrPrChange =
+  w_CT_TrackChange,
+  element trPr { w_CT_TrPrBase }
+w_CT_TblGridChange =
+  w_CT_Markup,
+  element tblGrid { w_CT_TblGridBase }
+w_CT_TblPrChange =
+  w_CT_TrackChange,
+  element tblPr { w_CT_TblPrBase }
+w_CT_SectPrChange =
+  w_CT_TrackChange,
+  element sectPr { w_CT_SectPrBase }?
+w_CT_PPrChange =
+  w_CT_TrackChange,
+  element pPr { w_CT_PPrBase }
+w_CT_RPrChange =
+  w_CT_TrackChange,
+  element rPr { w_CT_RPrOriginal }
+w_CT_ParaRPrChange =
+  w_CT_TrackChange,
+  element rPr { w_CT_ParaRPrOriginal }
+w_CT_RunTrackChange =
+  w_CT_TrackChange, (w_EG_ContentRunContent | m_EG_OMathMathElements)*
+w_EG_PContentMath = w_EG_PContentBase* | w_EG_ContentRunContentBase*
+w_EG_PContentBase =
+  element customXml { w_CT_CustomXmlRun }
+  | element fldSimple { w_CT_SimpleField }*
+  | element hyperlink { w_CT_Hyperlink }
+w_EG_ContentRunContentBase =
+  element smartTag { w_CT_SmartTagRun }
+  | element sdt { w_CT_SdtRun }
+  | w_EG_RunLevelElts*
+w_EG_CellMarkupElements =
+  element cellIns { w_CT_TrackChange }?
+  | element cellDel { w_CT_TrackChange }?
+  | element cellMerge { w_CT_CellMergeTrackChange }?
+w_EG_RangeMarkupElements =
+  element bookmarkStart { w_CT_Bookmark }
+  | element bookmarkEnd { w_CT_MarkupRange }
+  | element moveFromRangeStart { w_CT_MoveBookmark }
+  | element moveFromRangeEnd { w_CT_MarkupRange }
+  | element moveToRangeStart { w_CT_MoveBookmark }
+  | element moveToRangeEnd { w_CT_MarkupRange }
+  | element commentRangeStart { w_CT_MarkupRange }
+  | element commentRangeEnd { w_CT_MarkupRange }
+  | element customXmlInsRangeStart { w_CT_TrackChange }
+  | element customXmlInsRangeEnd { w_CT_Markup }
+  | element customXmlDelRangeStart { w_CT_TrackChange }
+  | element customXmlDelRangeEnd { w_CT_Markup }
+  | element customXmlMoveFromRangeStart { w_CT_TrackChange }
+  | element customXmlMoveFromRangeEnd { w_CT_Markup }
+  | element customXmlMoveToRangeStart { w_CT_TrackChange }
+  | element customXmlMoveToRangeEnd { w_CT_Markup }
+w_CT_NumPr =
+  element ilvl { w_CT_DecimalNumber }?,
+  element numId { w_CT_DecimalNumber }?,
+  element ins { w_CT_TrackChange }?
+w_CT_PBdr =
+  element top { w_CT_Border }?,
+  element left { w_CT_Border }?,
+  element bottom { w_CT_Border }?,
+  element right { w_CT_Border }?,
+  element between { w_CT_Border }?,
+  element bar { w_CT_Border }?
+w_CT_Tabs = element tab { w_CT_TabStop }+
+w_ST_TextboxTightWrap =
+  string "none"
+  | string "allLines"
+  | string "firstAndLastLine"
+  | string "firstLineOnly"
+  | string "lastLineOnly"
+w_CT_TextboxTightWrap = attribute w:val { w_ST_TextboxTightWrap }
+w_CT_PPr =
+  w_CT_PPrBase,
+  element rPr { w_CT_ParaRPr }?,
+  element sectPr { w_CT_SectPr }?,
+  element pPrChange { w_CT_PPrChange }?
+w_CT_PPrBase =
+  element pStyle { w_CT_String }?,
+  element keepNext { w_CT_OnOff }?,
+  element keepLines { w_CT_OnOff }?,
+  element pageBreakBefore { w_CT_OnOff }?,
+  element framePr { w_CT_FramePr }?,
+  element widowControl { w_CT_OnOff }?,
+  element numPr { w_CT_NumPr }?,
+  element suppressLineNumbers { w_CT_OnOff }?,
+  element pBdr { w_CT_PBdr }?,
+  element shd { w_CT_Shd }?,
+  element tabs { w_CT_Tabs }?,
+  element suppressAutoHyphens { w_CT_OnOff }?,
+  element kinsoku { w_CT_OnOff }?,
+  element wordWrap { w_CT_OnOff }?,
+  element overflowPunct { w_CT_OnOff }?,
+  element topLinePunct { w_CT_OnOff }?,
+  element autoSpaceDE { w_CT_OnOff }?,
+  element autoSpaceDN { w_CT_OnOff }?,
+  element bidi { w_CT_OnOff }?,
+  element adjustRightInd { w_CT_OnOff }?,
+  element snapToGrid { w_CT_OnOff }?,
+  element spacing { w_CT_Spacing }?,
+  element ind { w_CT_Ind }?,
+  element contextualSpacing { w_CT_OnOff }?,
+  element mirrorIndents { w_CT_OnOff }?,
+  element suppressOverlap { w_CT_OnOff }?,
+  element jc { w_CT_Jc }?,
+  element textDirection { w_CT_TextDirection }?,
+  element textAlignment { w_CT_TextAlignment }?,
+  element textboxTightWrap { w_CT_TextboxTightWrap }?,
+  element outlineLvl { w_CT_DecimalNumber }?,
+  element divId { w_CT_DecimalNumber }?,
+  element cnfStyle { w_CT_Cnf }?
+w_CT_PPrGeneral =
+  w_CT_PPrBase,
+  element pPrChange { w_CT_PPrChange }?
+w_CT_Control =
+  attribute w:name { s_ST_String }?,
+  attribute w:shapeid { s_ST_String }?,
+  r_id?
+w_CT_Background =
+  attribute w:color { w_ST_HexColor }?,
+  ## default value: auto
+  attribute w:themeColor { w_ST_ThemeColor }?,
+  attribute w:themeTint { w_ST_UcharHexNumber }?,
+  attribute w:themeShade { w_ST_UcharHexNumber }?,
+  element drawing { w_CT_Drawing }?
+w_CT_Rel = r_id
+w_CT_Object =
+  attribute w:dxaOrig { s_ST_TwipsMeasure }?,
+  attribute w:dyaOrig { s_ST_TwipsMeasure }?,
+  element drawing { w_CT_Drawing }?,
+  (element control { w_CT_Control }
+   | element objectLink { w_CT_ObjectLink }
+   | element objectEmbed { w_CT_ObjectEmbed }
+   | element movie { w_CT_Rel })?
+w_CT_ObjectEmbed =
+  attribute w:drawAspect { w_ST_ObjectDrawAspect }?,
+  r_id,
+  attribute w:progId { s_ST_String }?,
+  attribute w:shapeId { s_ST_String }?,
+  attribute w:fieldCodes { s_ST_String }?
+w_ST_ObjectDrawAspect = string "content" | string "icon"
+w_CT_ObjectLink =
+  w_CT_ObjectEmbed,
+  attribute w:updateMode { w_ST_ObjectUpdateMode },
+  attribute w:lockedField { s_ST_OnOff }?
+w_ST_ObjectUpdateMode = string "always" | string "onCall"
+w_CT_Drawing = (wp_anchor? | wp_inline?)+
+w_CT_SimpleField =
+  attribute w:instr { s_ST_String },
+  attribute w:fldLock { s_ST_OnOff }?,
+  attribute w:dirty { s_ST_OnOff }?,
+  w_EG_PContent*
+w_ST_FldCharType = string "begin" | string "separate" | string "end"
+w_ST_InfoTextType = string "text" | string "autoText"
+w_ST_FFHelpTextVal = xsd:string { maxLength = "256" }
+w_ST_FFStatusTextVal = xsd:string { maxLength = "140" }
+w_ST_FFName = xsd:string { maxLength = "65" }
+w_ST_FFTextType =
+  string "regular"
+  | string "number"
+  | string "date"
+  | string "currentTime"
+  | string "currentDate"
+  | string "calculated"
+w_CT_FFTextType = attribute w:val { w_ST_FFTextType }
+w_CT_FFName = attribute w:val { w_ST_FFName }?
+w_CT_FldChar =
+  attribute w:fldCharType { w_ST_FldCharType },
+  attribute w:fldLock { s_ST_OnOff }?,
+  attribute w:dirty { s_ST_OnOff }?,
+  (element ffData { w_CT_FFData }?)
+w_CT_Hyperlink =
+  attribute w:tgtFrame { s_ST_String }?,
+  attribute w:tooltip { s_ST_String }?,
+  attribute w:docLocation { s_ST_String }?,
+  attribute w:history { s_ST_OnOff }?,
+  attribute w:anchor { s_ST_String }?,
+  r_id?,
+  w_EG_PContent*
+w_CT_FFData =
+  (element name { w_CT_FFName }
+   | element label { w_CT_DecimalNumber }?
+   | element tabIndex { w_CT_UnsignedDecimalNumber }?
+   | element enabled { w_CT_OnOff }
+   | element calcOnExit { w_CT_OnOff }
+   | element entryMacro { w_CT_MacroName }?
+   | element exitMacro { w_CT_MacroName }?
+   | element helpText { w_CT_FFHelpText }?
+   | element statusText { w_CT_FFStatusText }?
+   | (element checkBox { w_CT_FFCheckBox }
+      | element ddList { w_CT_FFDDList }
+      | element textInput { w_CT_FFTextInput }))+
+w_CT_FFHelpText =
+  attribute w:type { w_ST_InfoTextType }?,
+  attribute w:val { w_ST_FFHelpTextVal }?
+w_CT_FFStatusText =
+  attribute w:type { w_ST_InfoTextType }?,
+  attribute w:val { w_ST_FFStatusTextVal }?
+w_CT_FFCheckBox =
+  (element size { w_CT_HpsMeasure }
+   | element sizeAuto { w_CT_OnOff }),
+  element default { w_CT_OnOff }?,
+  element checked { w_CT_OnOff }?
+w_CT_FFDDList =
+  element result { w_CT_DecimalNumber }?,
+  element default { w_CT_DecimalNumber }?,
+  element listEntry { w_CT_String }*
+w_CT_FFTextInput =
+  element type { w_CT_FFTextType }?,
+  element default { w_CT_String }?,
+  element maxLength { w_CT_DecimalNumber }?,
+  element format { w_CT_String }?
+w_ST_SectionMark =
+  string "nextPage"
+  | string "nextColumn"
+  | string "continuous"
+  | string "evenPage"
+  | string "oddPage"
+w_CT_SectType = attribute w:val { w_ST_SectionMark }?
+w_CT_PaperSource =
+  attribute w:first { w_ST_DecimalNumber }?,
+  attribute w:other { w_ST_DecimalNumber }?
+w_ST_NumberFormat =
+  string "decimal"
+  | string "upperRoman"
+  | string "lowerRoman"
+  | string "upperLetter"
+  | string "lowerLetter"
+  | string "ordinal"
+  | string "cardinalText"
+  | string "ordinalText"
+  | string "hex"
+  | string "chicago"
+  | string "ideographDigital"
+  | string "japaneseCounting"
+  | string "aiueo"
+  | string "iroha"
+  | string "decimalFullWidth"
+  | string "decimalHalfWidth"
+  | string "japaneseLegal"
+  | string "japaneseDigitalTenThousand"
+  | string "decimalEnclosedCircle"
+  | string "decimalFullWidth2"
+  | string "aiueoFullWidth"
+  | string "irohaFullWidth"
+  | string "decimalZero"
+  | string "bullet"
+  | string "ganada"
+  | string "chosung"
+  | string "decimalEnclosedFullstop"
+  | string "decimalEnclosedParen"
+  | string "decimalEnclosedCircleChinese"
+  | string "ideographEnclosedCircle"
+  | string "ideographTraditional"
+  | string "ideographZodiac"
+  | string "ideographZodiacTraditional"
+  | string "taiwaneseCounting"
+  | string "ideographLegalTraditional"
+  | string "taiwaneseCountingThousand"
+  | string "taiwaneseDigital"
+  | string "chineseCounting"
+  | string "chineseLegalSimplified"
+  | string "chineseCountingThousand"
+  | string "koreanDigital"
+  | string "koreanCounting"
+  | string "koreanLegal"
+  | string "koreanDigital2"
+  | string "vietnameseCounting"
+  | string "russianLower"
+  | string "russianUpper"
+  | string "none"
+  | string "numberInDash"
+  | string "hebrew1"
+  | string "hebrew2"
+  | string "arabicAlpha"
+  | string "arabicAbjad"
+  | string "hindiVowels"
+  | string "hindiConsonants"
+  | string "hindiNumbers"
+  | string "hindiCounting"
+  | string "thaiLetters"
+  | string "thaiNumbers"
+  | string "thaiCounting"
+  | string "bahtText"
+  | string "dollarText"
+  | string "custom"
+w_ST_PageOrientation = string "portrait" | string "landscape"
+w_CT_PageSz =
+  attribute w:w { s_ST_TwipsMeasure }?,
+  attribute w:h { s_ST_TwipsMeasure }?,
+  attribute w:orient { w_ST_PageOrientation }?,
+  attribute w:code { w_ST_DecimalNumber }?
+w_CT_PageMar =
+  attribute w:top { w_ST_SignedTwipsMeasure },
+  attribute w:right { s_ST_TwipsMeasure },
+  attribute w:bottom { w_ST_SignedTwipsMeasure },
+  attribute w:left { s_ST_TwipsMeasure },
+  attribute w:header { s_ST_TwipsMeasure },
+  attribute w:footer { s_ST_TwipsMeasure },
+  attribute w:gutter { s_ST_TwipsMeasure }
+w_ST_PageBorderZOrder = string "front" | string "back"
+w_ST_PageBorderDisplay =
+  string "allPages" | string "firstPage" | string "notFirstPage"
+w_ST_PageBorderOffset = string "page" | string "text"
+w_CT_PageBorders =
+  attribute w:zOrder { w_ST_PageBorderZOrder }?,
+  ## default value: front
+  attribute w:display { w_ST_PageBorderDisplay }?,
+  attribute w:offsetFrom { w_ST_PageBorderOffset }?,
+  ## default value: text
+  element top { w_CT_TopPageBorder }?,
+  element left { w_CT_PageBorder }?,
+  element bottom { w_CT_BottomPageBorder }?,
+  element right { w_CT_PageBorder }?
+w_CT_PageBorder = w_CT_Border, r_id?
+w_CT_BottomPageBorder = w_CT_PageBorder, r_bottomLeft?, r_bottomRight?
+w_CT_TopPageBorder = w_CT_PageBorder, r_topLeft?, r_topRight?
+w_ST_ChapterSep =
+  string "hyphen"
+  | string "period"
+  | string "colon"
+  | string "emDash"
+  | string "enDash"
+w_ST_LineNumberRestart =
+  string "newPage" | string "newSection" | string "continuous"
+w_CT_LineNumber =
+  attribute w:countBy { w_ST_DecimalNumber }?,
+  attribute w:start { w_ST_DecimalNumber }?,
+  ## default value: 1
+  attribute w:distance { s_ST_TwipsMeasure }?,
+  attribute w:restart { w_ST_LineNumberRestart }?
+  ## default value: newPage
+w_CT_PageNumber =
+  attribute w:fmt { w_ST_NumberFormat }?,
+  ## default value: decimal
+  attribute w:start { w_ST_DecimalNumber }?,
+  attribute w:chapStyle { w_ST_DecimalNumber }?,
+  attribute w:chapSep { w_ST_ChapterSep }?
+  ## default value: hyphen
+w_CT_Column =
+  attribute w:w { s_ST_TwipsMeasure }?,
+  attribute w:space { s_ST_TwipsMeasure }?
+  ## default value: 0
+w_CT_Columns =
+  attribute w:equalWidth { s_ST_OnOff }?,
+  attribute w:space { s_ST_TwipsMeasure }?,
+  ## default value: 720
+  attribute w:num { w_ST_DecimalNumber }?,
+  ## default value: 1
+  attribute w:sep { s_ST_OnOff }?,
+  element col { w_CT_Column }*
+w_ST_VerticalJc =
+  string "top" | string "center" | string "both" | string "bottom"
+w_CT_VerticalJc = attribute w:val { w_ST_VerticalJc }
+w_ST_DocGrid =
+  string "default"
+  | string "lines"
+  | string "linesAndChars"
+  | string "snapToChars"
+w_CT_DocGrid =
+  attribute w:type { w_ST_DocGrid }?,
+  attribute w:linePitch { w_ST_DecimalNumber }?,
+  attribute w:charSpace { w_ST_DecimalNumber }?
+w_ST_HdrFtr = string "even" | string "default" | string "first"
+w_ST_FtnEdn =
+  string "normal"
+  | string "separator"
+  | string "continuationSeparator"
+  | string "continuationNotice"
+w_CT_HdrFtrRef =
+  w_CT_Rel,
+  attribute w:type { w_ST_HdrFtr }
+w_EG_HdrFtrReferences =
+  element headerReference { w_CT_HdrFtrRef }?
+  | element footerReference { w_CT_HdrFtrRef }?
+w_CT_HdrFtr = w_EG_BlockLevelElts+
+w_EG_SectPrContents =
+  element footnotePr { w_CT_FtnProps }?,
+  element endnotePr { w_CT_EdnProps }?,
+  element type { w_CT_SectType }?,
+  element pgSz { w_CT_PageSz }?,
+  element pgMar { w_CT_PageMar }?,
+  element paperSrc { w_CT_PaperSource }?,
+  element pgBorders { w_CT_PageBorders }?,
+  element lnNumType { w_CT_LineNumber }?,
+  element pgNumType { w_CT_PageNumber }?,
+  element cols { w_CT_Columns }?,
+  element formProt { w_CT_OnOff }?,
+  element vAlign { w_CT_VerticalJc }?,
+  element noEndnote { w_CT_OnOff }?,
+  element titlePg { w_CT_OnOff }?,
+  element textDirection { w_CT_TextDirection }?,
+  element bidi { w_CT_OnOff }?,
+  element rtlGutter { w_CT_OnOff }?,
+  element docGrid { w_CT_DocGrid }?,
+  element printerSettings { w_CT_Rel }?
+w_AG_SectPrAttributes =
+  attribute w:rsidRPr { w_ST_LongHexNumber }?,
+  attribute w:rsidDel { w_ST_LongHexNumber }?,
+  attribute w:rsidR { w_ST_LongHexNumber }?,
+  attribute w:rsidSect { w_ST_LongHexNumber }?
+w_CT_SectPrBase = w_AG_SectPrAttributes, w_EG_SectPrContents?
+w_CT_SectPr =
+  w_AG_SectPrAttributes,
+  w_EG_HdrFtrReferences*,
+  w_EG_SectPrContents?,
+  element sectPrChange { w_CT_SectPrChange }?
+w_ST_BrType = string "page" | string "column" | string "textWrapping"
+w_ST_BrClear =
+  string "none" | string "left" | string "right" | string "all"
+w_CT_Br =
+  attribute w:type { w_ST_BrType }?,
+  attribute w:clear { w_ST_BrClear }?
+w_ST_PTabAlignment = string "left" | string "center" | string "right"
+w_ST_PTabRelativeTo = string "margin" | string "indent"
+w_ST_PTabLeader =
+  string "none"
+  | string "dot"
+  | string "hyphen"
+  | string "underscore"
+  | string "middleDot"
+w_CT_PTab =
+  attribute w:alignment { w_ST_PTabAlignment },
+  attribute w:relativeTo { w_ST_PTabRelativeTo },
+  attribute w:leader { w_ST_PTabLeader }
+w_CT_Sym =
+  attribute w:font { s_ST_String }?,
+  attribute w:char { w_ST_ShortHexNumber }?
+w_ST_ProofErr =
+  string "spellStart"
+  | string "spellEnd"
+  | string "gramStart"
+  | string "gramEnd"
+w_CT_ProofErr = attribute w:type { w_ST_ProofErr }
+w_ST_EdGrp =
+  string "none"
+  | string "everyone"
+  | string "administrators"
+  | string "contributors"
+  | string "editors"
+  | string "owners"
+  | string "current"
+w_CT_Perm =
+  attribute w:id { s_ST_String },
+  attribute w:displacedByCustomXml { w_ST_DisplacedByCustomXml }?
+w_CT_PermStart =
+  w_CT_Perm,
+  attribute w:edGrp { w_ST_EdGrp }?,
+  attribute w:ed { s_ST_String }?,
+  attribute w:colFirst { w_ST_DecimalNumber }?,
+  attribute w:colLast { w_ST_DecimalNumber }?
+w_CT_Text = s_ST_String, xml_space?
+w_EG_RunInnerContent =
+  element br { w_CT_Br }
+  | element t { w_CT_Text }
+  | element contentPart { w_CT_Rel }
+  | element delText { w_CT_Text }
+  | element instrText { w_CT_Text }
+  | element delInstrText { w_CT_Text }
+  | element noBreakHyphen { w_CT_Empty }
+  | element softHyphen { w_CT_Empty }?
+  | element dayShort { w_CT_Empty }?
+  | element monthShort { w_CT_Empty }?
+  | element yearShort { w_CT_Empty }?
+  | element dayLong { w_CT_Empty }?
+  | element monthLong { w_CT_Empty }?
+  | element yearLong { w_CT_Empty }?
+  | element annotationRef { w_CT_Empty }?
+  | element footnoteRef { w_CT_Empty }?
+  | element endnoteRef { w_CT_Empty }?
+  | element separator { w_CT_Empty }?
+  | element continuationSeparator { w_CT_Empty }?
+  | element sym { w_CT_Sym }?
+  | element pgNum { w_CT_Empty }?
+  | element cr { w_CT_Empty }?
+  | element tab { w_CT_Empty }?
+  | element object { w_CT_Object }
+  | element fldChar { w_CT_FldChar }
+  | element ruby { w_CT_Ruby }
+  | element footnoteReference { w_CT_FtnEdnRef }
+  | element endnoteReference { w_CT_FtnEdnRef }
+  | element commentReference { w_CT_Markup }
+  | element drawing { w_CT_Drawing }
+  | element ptab { w_CT_PTab }?
+  | element lastRenderedPageBreak { w_CT_Empty }?
+w_CT_R =
+  attribute w:rsidRPr { w_ST_LongHexNumber }?,
+  attribute w:rsidDel { w_ST_LongHexNumber }?,
+  attribute w:rsidR { w_ST_LongHexNumber }?,
+  w_EG_RPr?,
+  w_EG_RunInnerContent*
+w_ST_Hint = string "default" | string "eastAsia"
+w_ST_Theme =
+  string "majorEastAsia"
+  | string "majorBidi"
+  | string "majorAscii"
+  | string "majorHAnsi"
+  | string "minorEastAsia"
+  | string "minorBidi"
+  | string "minorAscii"
+  | string "minorHAnsi"
+w_CT_Fonts =
+  attribute w:hint { w_ST_Hint }?,
+  attribute w:ascii { s_ST_String }?,
+  attribute w:hAnsi { s_ST_String }?,
+  attribute w:eastAsia { s_ST_String }?,
+  attribute w:cs { s_ST_String }?,
+  attribute w:asciiTheme { w_ST_Theme }?,
+  attribute w:hAnsiTheme { w_ST_Theme }?,
+  attribute w:eastAsiaTheme { w_ST_Theme }?,
+  attribute w:cstheme { w_ST_Theme }?
+w_EG_RPrBase =
+  element rStyle { w_CT_String }?&
+  element rFonts { w_CT_Fonts }?&
+  element b { w_CT_OnOff }?&
+  element bCs { w_CT_OnOff }?&
+  element i { w_CT_OnOff }?&
+  element iCs { w_CT_OnOff }?&
+  element caps { w_CT_OnOff }?&
+  element smallCaps { w_CT_OnOff }?&
+  element strike { w_CT_OnOff }?&
+  element dstrike { w_CT_OnOff }?&
+  element outline { w_CT_OnOff }?&
+  element shadow { w_CT_OnOff }?&
+  element emboss { w_CT_OnOff }?&
+  element imprint { w_CT_OnOff }?&
+  element noProof { w_CT_OnOff }?&
+  element snapToGrid { w_CT_OnOff }?&
+  element vanish { w_CT_OnOff }?&
+  element webHidden { w_CT_OnOff }?&
+  element color { w_CT_Color }?&
+  element spacing { w_CT_SignedTwipsMeasure }?&
+  element w { w_CT_TextScale }?&
+  element kern { w_CT_HpsMeasure }?&
+  element position { w_CT_SignedHpsMeasure }?&
+  element sz { w_CT_HpsMeasure }?&
+  element szCs { w_CT_HpsMeasure }?&
+  element highlight { w_CT_Highlight }?&
+  element u { w_CT_Underline }?&
+  element effect { w_CT_TextEffect }?&
+  element bdr { w_CT_Border }?&
+  element shd { w_CT_Shd }?&
+  element fitText { w_CT_FitText }?&
+  element vertAlign { w_CT_VerticalAlignRun }?&
+  element rtl { w_CT_OnOff }?&
+  element cs { w_CT_OnOff }?&
+  element em { w_CT_Em }?&
+  element lang { w_CT_Language }?&
+  element eastAsianLayout { w_CT_EastAsianLayout }?&
+  element specVanish { w_CT_OnOff }?&
+  element oMath { w_CT_OnOff }?
+w_EG_RPrContent =
+  w_EG_RPrBase?,
+  element rPrChange { w_CT_RPrChange }?
+w_CT_RPr = w_EG_RPrContent?
+w_EG_RPr = element rPr { w_CT_RPr }?
+w_EG_RPrMath =
+  w_EG_RPr
+  | element ins { w_CT_MathCtrlIns }
+  | element del { w_CT_MathCtrlDel }
+w_CT_MathCtrlIns =
+  w_CT_TrackChange,
+  (element del { w_CT_RPrChange }
+   | element rPr { w_CT_RPr })?
+w_CT_MathCtrlDel =
+  w_CT_TrackChange,
+  (element rPr { w_CT_RPr })?
+w_CT_RPrOriginal = w_EG_RPrBase*
+w_CT_ParaRPrOriginal = w_EG_ParaRPrTrackChanges?, w_EG_RPrBase*
+w_CT_ParaRPr =
+  w_EG_ParaRPrTrackChanges?,
+  w_EG_RPrBase?,
+  element rPrChange { w_CT_ParaRPrChange }?
+w_EG_ParaRPrTrackChanges =
+  element ins { w_CT_TrackChange }?,
+  element del { w_CT_TrackChange }?,
+  element moveFrom { w_CT_TrackChange }?,
+  element moveTo { w_CT_TrackChange }?
+w_CT_AltChunk =
+  r_id?,
+  element altChunkPr { w_CT_AltChunkPr }?
+w_CT_AltChunkPr = element matchSrc { w_CT_OnOff }?
+w_ST_RubyAlign =
+  string "center"
+  | string "distributeLetter"
+  | string "distributeSpace"
+  | string "left"
+  | string "right"
+  | string "rightVertical"
+w_CT_RubyAlign = attribute w:val { w_ST_RubyAlign }
+w_CT_RubyPr =
+  element rubyAlign { w_CT_RubyAlign },
+  element hps { w_CT_HpsMeasure },
+  element hpsRaise { w_CT_HpsMeasure },
+  element hpsBaseText { w_CT_HpsMeasure },
+  element lid { w_CT_Lang },
+  element dirty { w_CT_OnOff }?
+w_EG_RubyContent =
+  element r { w_CT_R }
+  | w_EG_RunLevelElts*
+w_CT_RubyContent = w_EG_RubyContent*
+w_CT_Ruby =
+  element rubyPr { w_CT_RubyPr },
+  element rt { w_CT_RubyContent },
+  element rubyBase { w_CT_RubyContent }
+w_ST_Lock =
+  string "sdtLocked"
+  | string "contentLocked"
+  | string "unlocked"
+  | string "sdtContentLocked"
+w_CT_Lock = attribute w:val { w_ST_Lock }?
+w_CT_SdtListItem =
+  attribute w:displayText { s_ST_String }?,
+  attribute w:value { s_ST_String }?
+w_ST_SdtDateMappingType =
+  string "text" | string "date" | string "dateTime"
+w_CT_SdtDateMappingType = attribute w:val { w_ST_SdtDateMappingType }?
+w_CT_CalendarType = attribute w:val { s_ST_CalendarType }?
+w_CT_SdtDate =
+  attribute w:fullDate { w_ST_DateTime }?,
+  element dateFormat { w_CT_String }?,
+  element lid { w_CT_Lang }?,
+  element storeMappedDataAs { w_CT_SdtDateMappingType }?,
+  element calendar { w_CT_CalendarType }?
+w_CT_SdtComboBox =
+  attribute w:lastValue { s_ST_String }?,
+  ## default value: 
+  element listItem { w_CT_SdtListItem }*
+w_CT_SdtDocPart =
+  element docPartGallery { w_CT_String }?,
+  element docPartCategory { w_CT_String }?,
+  element docPartUnique { w_CT_OnOff }?
+w_CT_SdtDropDownList =
+  attribute w:lastValue { s_ST_String }?,
+  ## default value: 
+  element listItem { w_CT_SdtListItem }*
+w_CT_Placeholder = element docPart { w_CT_String }
+w_CT_SdtText = attribute w:multiLine { s_ST_OnOff }?
+w_CT_DataBinding =
+  attribute w:prefixMappings { s_ST_String }?,
+  attribute w:xpath { s_ST_String },
+  attribute w:storeItemID { s_ST_String }
+w_CT_SdtPr =
+  element rPr { w_CT_RPr }?,
+  element alias { w_CT_String }?,
+  element tag { w_CT_String }?,
+  element id { w_CT_DecimalNumber }?,
+  element lock { w_CT_Lock }?,
+  element placeholder { w_CT_Placeholder }?,
+  element temporary { w_CT_OnOff }?,
+  element showingPlcHdr { w_CT_OnOff }?,
+  element dataBinding { w_CT_DataBinding }?,
+  element label { w_CT_DecimalNumber }?,
+  element tabIndex { w_CT_UnsignedDecimalNumber }?,
+  (element equation { w_CT_Empty }
+    | element comboBox { w_CT_SdtComboBox }
+     | element date { w_CT_SdtDate }
+     | element docPartObj { w_CT_SdtDocPart }
+     | element docPartList { w_CT_SdtDocPart }
+     | element dropDownList { w_CT_SdtDropDownList }
+     | element picture { w_CT_Empty }
+     | element richText { w_CT_Empty }
+     | element text { w_CT_SdtText }
+     | element citation { w_CT_Empty }
+     | element group { w_CT_Empty }
+     | element bibliography { w_CT_Empty })?
+w_CT_SdtEndPr = (element rPr { w_CT_RPr }?)+
+w_EG_ContentRunContent =
+  element customXml { w_CT_CustomXmlRun }
+  | element smartTag { w_CT_SmartTagRun }
+  | element sdt { w_CT_SdtRun }
+  | element dir { w_CT_DirContentRun }
+  | element bdo { w_CT_BdoContentRun }
+  | element r { w_CT_R }
+  | w_EG_RunLevelElts*
+w_CT_DirContentRun =
+  attribute w:val { w_ST_Direction }?,
+  w_EG_PContent*
+w_CT_BdoContentRun =
+  attribute w:val { w_ST_Direction }?,
+  w_EG_PContent*
+w_ST_Direction = string "ltr" | string "rtl"
+w_CT_SdtContentRun = w_EG_PContent*
+w_EG_ContentBlockContent =
+  element customXml { w_CT_CustomXmlBlock }
+  | element sdt { w_CT_SdtBlock }
+  | element p { w_CT_P }*
+  | element tbl { w_CT_Tbl }*
+  | w_EG_RunLevelElts*
+w_CT_SdtContentBlock = w_EG_ContentBlockContent*
+w_EG_ContentRowContent =
+  element tr { w_CT_Row }*
+  | element customXml { w_CT_CustomXmlRow }
+  | element sdt { w_CT_SdtRow }
+  | w_EG_RunLevelElts*
+w_CT_SdtContentRow = w_EG_ContentRowContent*
+w_EG_ContentCellContent =
+  element tc { w_CT_Tc }*
+  | element customXml { w_CT_CustomXmlCell }
+  | element sdt { w_CT_SdtCell }
+  | w_EG_RunLevelElts*
+w_CT_SdtContentCell = w_EG_ContentCellContent*
+w_CT_SdtBlock =
+  element sdtPr { w_CT_SdtPr }?,
+  element sdtEndPr { w_CT_SdtEndPr }?,
+  element sdtContent { w_CT_SdtContentBlock }?
+w_CT_SdtRun =
+  element sdtPr { w_CT_SdtPr }?,
+  element sdtEndPr { w_CT_SdtEndPr }?,
+  element sdtContent { w_CT_SdtContentRun }?
+w_CT_SdtCell =
+  element sdtPr { w_CT_SdtPr }?,
+  element sdtEndPr { w_CT_SdtEndPr }?,
+  element sdtContent { w_CT_SdtContentCell }?
+w_CT_SdtRow =
+  element sdtPr { w_CT_SdtPr }?,
+  element sdtEndPr { w_CT_SdtEndPr }?,
+  element sdtContent { w_CT_SdtContentRow }?
+w_CT_Attr =
+  attribute w:uri { s_ST_String }?,
+  attribute w:name { s_ST_String },
+  attribute w:val { s_ST_String }
+w_CT_CustomXmlRun =
+  attribute w:uri { s_ST_String }?,
+  attribute w:element { s_ST_XmlName },
+  element customXmlPr { w_CT_CustomXmlPr }?,
+  w_EG_PContent*
+w_CT_SmartTagRun =
+  attribute w:uri { s_ST_String }?,
+  attribute w:element { s_ST_XmlName },
+  element smartTagPr { w_CT_SmartTagPr }?,
+  w_EG_PContent*
+w_CT_CustomXmlBlock =
+  attribute w:uri { s_ST_String }?,
+  attribute w:element { s_ST_XmlName },
+  element customXmlPr { w_CT_CustomXmlPr }?,
+  w_EG_ContentBlockContent*
+w_CT_CustomXmlPr =
+  element placeholder { w_CT_String }?,
+  element attr { w_CT_Attr }*
+w_CT_CustomXmlRow =
+  attribute w:uri { s_ST_String }?,
+  attribute w:element { s_ST_XmlName },
+  element customXmlPr { w_CT_CustomXmlPr }?,
+  w_EG_ContentRowContent*
+w_CT_CustomXmlCell =
+  attribute w:uri { s_ST_String }?,
+  attribute w:element { s_ST_XmlName },
+  element customXmlPr { w_CT_CustomXmlPr }?,
+  w_EG_ContentCellContent*
+w_CT_SmartTagPr = element attr { w_CT_Attr }*
+w_EG_PContent =
+  w_EG_ContentRunContent*
+  | element fldSimple { w_CT_SimpleField }*
+  | element hyperlink { w_CT_Hyperlink }
+  | element subDoc { w_CT_Rel }
+w_CT_P =
+  attribute w:rsidRPr { w_ST_LongHexNumber }?,
+  attribute w:rsidR { w_ST_LongHexNumber }?,
+  attribute w:rsidDel { w_ST_LongHexNumber }?,
+  attribute w:rsidP { w_ST_LongHexNumber }?,
+  attribute w:rsidRDefault { w_ST_LongHexNumber }?,
+  element pPr { w_CT_PPr }?,
+  w_EG_PContent*
+w_ST_TblWidth =
+  string "nil" | string "pct" | string "dxa" | string "auto"
+w_CT_Height =
+  attribute w:val { s_ST_TwipsMeasure }?,
+  attribute w:hRule { w_ST_HeightRule }?
+w_ST_MeasurementOrPercent =
+  w_ST_DecimalNumberOrPercent | s_ST_UniversalMeasure
+w_CT_TblWidth =
+  attribute w:w { w_ST_MeasurementOrPercent }?,
+  attribute w:type { w_ST_TblWidth }?
+w_CT_TblGridCol = attribute w:w { s_ST_TwipsMeasure }?
+w_CT_TblGridBase = element gridCol { w_CT_TblGridCol }*
+w_CT_TblGrid =
+  w_CT_TblGridBase,
+  element tblGridChange { w_CT_TblGridChange }?
+w_CT_TcBorders =
+  element top { w_CT_Border }?,
+  element start { w_CT_Border }?,
+  element bottom { w_CT_Border }?,
+  element end { w_CT_Border }?,
+  element insideH { w_CT_Border }?,
+  element insideV { w_CT_Border }?,
+  element tl2br { w_CT_Border }?,
+  element tr2bl { w_CT_Border }?
+w_CT_TcMar =
+  element top { w_CT_TblWidth }?,
+  element start { w_CT_TblWidth }?,
+  element bottom { w_CT_TblWidth }?,
+  element end { w_CT_TblWidth }?
+w_ST_Merge = string "continue" | string "restart"
+w_CT_VMerge = attribute w:val { w_ST_Merge }?
+w_CT_TcPrBase =
+  element cnfStyle { w_CT_Cnf }?,
+  element tcW { w_CT_TblWidth }?,
+  element gridSpan { w_CT_DecimalNumber }?,
+  element vMerge { w_CT_VMerge }?,
+  element tcBorders { w_CT_TcBorders }?,
+  element shd { w_CT_Shd }?,
+  element noWrap { w_CT_OnOff }?,
+  element tcMar { w_CT_TcMar }?,
+  element textDirection { w_CT_TextDirection }?,
+  element tcFitText { w_CT_OnOff }?,
+  element vAlign { w_CT_VerticalJc }?,
+  element hideMark { w_CT_OnOff }?,
+  element headers { w_CT_Headers }?
+w_CT_TcPr =
+  w_CT_TcPrInner,
+  element tcPrChange { w_CT_TcPrChange }?
+w_CT_TcPrInner = w_CT_TcPrBase, w_EG_CellMarkupElements?
+w_CT_Tc =
+  attribute w:id { s_ST_String }?,
+  element tcPr { w_CT_TcPr }?,
+  w_EG_BlockLevelElts+
+w_CT_Cnf =
+  attribute w:firstRow { s_ST_OnOff }?,
+  attribute w:lastRow { s_ST_OnOff }?,
+  attribute w:firstColumn { s_ST_OnOff }?,
+  attribute w:lastColumn { s_ST_OnOff }?,
+  attribute w:oddVBand { s_ST_OnOff }?,
+  attribute w:evenVBand { s_ST_OnOff }?,
+  attribute w:oddHBand { s_ST_OnOff }?,
+  attribute w:evenHBand { s_ST_OnOff }?,
+  attribute w:firstRowFirstColumn { s_ST_OnOff }?,
+  attribute w:firstRowLastColumn { s_ST_OnOff }?,
+  attribute w:lastRowFirstColumn { s_ST_OnOff }?,
+  attribute w:lastRowLastColumn { s_ST_OnOff }?
+w_CT_Headers = element header { w_CT_String }*
+w_CT_TrPrBase =
+  (element cnfStyle { w_CT_Cnf }?
+   | element divId { w_CT_DecimalNumber }?
+   | element gridBefore { w_CT_DecimalNumber }?
+   | element gridAfter { w_CT_DecimalNumber }?
+   | element wBefore { w_CT_TblWidth }?
+   | element wAfter { w_CT_TblWidth }?
+   | element cantSplit { w_CT_OnOff }?
+   | element trHeight { w_CT_Height }?
+   | element tblHeader { w_CT_OnOff }?
+   | element tblCellSpacing { w_CT_TblWidth }?
+   | element jc { w_CT_JcTable }?
+   | element hidden { w_CT_OnOff }?)+
+w_CT_TrPr =
+  w_CT_TrPrBase,
+  element ins { w_CT_TrackChange }?,
+  element del { w_CT_TrackChange }?,
+  element trPrChange { w_CT_TrPrChange }?
+w_CT_Row =
+  attribute w:rsidRPr { w_ST_LongHexNumber }?,
+  attribute w:rsidR { w_ST_LongHexNumber }?,
+  attribute w:rsidDel { w_ST_LongHexNumber }?,
+  attribute w:rsidTr { w_ST_LongHexNumber }?,
+  element tblPrEx { w_CT_TblPrEx }?,
+  element trPr { w_CT_TrPr }?,
+  w_EG_ContentCellContent*
+w_ST_TblLayoutType = string "fixed" | string "autofit"
+w_CT_TblLayoutType = attribute w:type { w_ST_TblLayoutType }?
+w_ST_TblOverlap = string "never" | string "overlap"
+w_CT_TblOverlap = attribute w:val { w_ST_TblOverlap }
+w_CT_TblPPr =
+  attribute w:leftFromText { s_ST_TwipsMeasure }?,
+  attribute w:rightFromText { s_ST_TwipsMeasure }?,
+  attribute w:topFromText { s_ST_TwipsMeasure }?,
+  attribute w:bottomFromText { s_ST_TwipsMeasure }?,
+  attribute w:vertAnchor { w_ST_VAnchor }?,
+  attribute w:horzAnchor { w_ST_HAnchor }?,
+  attribute w:tblpXSpec { s_ST_XAlign }?,
+  attribute w:tblpX { w_ST_SignedTwipsMeasure }?,
+  attribute w:tblpYSpec { s_ST_YAlign }?,
+  attribute w:tblpY { w_ST_SignedTwipsMeasure }?
+w_CT_TblCellMar =
+  element top { w_CT_TblWidth }?,
+  element start { w_CT_TblWidth }?,
+  element bottom { w_CT_TblWidth }?,
+  element end { w_CT_TblWidth }?
+w_CT_TblBorders =
+  element top { w_CT_Border }?,
+  element start { w_CT_Border }?,
+  element bottom { w_CT_Border }?,
+  element end { w_CT_Border }?,
+  element insideH { w_CT_Border }?,
+  element insideV { w_CT_Border }?
+w_CT_TblPrBase =
+  element tblStyle { w_CT_String }?,
+  element tblpPr { w_CT_TblPPr }?,
+  element tblOverlap { w_CT_TblOverlap }?,
+  element bidiVisual { w_CT_OnOff }?,
+  element tblStyleRowBandSize { w_CT_DecimalNumber }?,
+  element tblStyleColBandSize { w_CT_DecimalNumber }?,
+  element tblW { w_CT_TblWidth }?,
+  element jc { w_CT_JcTable }?,
+  element tblCellSpacing { w_CT_TblWidth }?,
+  element tblInd { w_CT_TblWidth }?,
+  element tblBorders { w_CT_TblBorders }?,
+  element shd { w_CT_Shd }?,
+  element tblLayout { w_CT_TblLayoutType }?,
+  element tblCellMar { w_CT_TblCellMar }?,
+  element tblLook { w_CT_TblLook }?,
+  element tblCaption { w_CT_String }?,
+  element tblDescription { w_CT_String }?
+w_CT_TblPr =
+  w_CT_TblPrBase,
+  element tblPrChange { w_CT_TblPrChange }?
+w_CT_TblPrExBase =
+  element tblW { w_CT_TblWidth }?,
+  element jc { w_CT_JcTable }?,
+  element tblCellSpacing { w_CT_TblWidth }?,
+  element tblInd { w_CT_TblWidth }?,
+  element tblBorders { w_CT_TblBorders }?,
+  element shd { w_CT_Shd }?,
+  element tblLayout { w_CT_TblLayoutType }?,
+  element tblCellMar { w_CT_TblCellMar }?,
+  element tblLook { w_CT_TblLook }?
+w_CT_TblPrEx =
+  w_CT_TblPrExBase,
+  element tblPrExChange { w_CT_TblPrExChange }?
+w_CT_Tbl =
+  w_EG_RangeMarkupElements*,
+  element tblPr { w_CT_TblPr },
+  element tblGrid { w_CT_TblGrid },
+  w_EG_ContentRowContent*
+w_CT_TblLook =
+  attribute w:firstRow { s_ST_OnOff }?,
+  attribute w:lastRow { s_ST_OnOff }?,
+  attribute w:firstColumn { s_ST_OnOff }?,
+  attribute w:lastColumn { s_ST_OnOff }?,
+  attribute w:noHBand { s_ST_OnOff }?,
+  attribute w:noVBand { s_ST_OnOff }?
+w_ST_FtnPos =
+  string "pageBottom"
+  | string "beneathText"
+  | string "sectEnd"
+  | string "docEnd"
+w_CT_FtnPos = attribute w:val { w_ST_FtnPos }
+w_ST_EdnPos = string "sectEnd" | string "docEnd"
+w_CT_EdnPos = attribute w:val { w_ST_EdnPos }
+w_CT_NumFmt =
+  attribute w:val { w_ST_NumberFormat },
+  attribute w:format { s_ST_String }?
+w_ST_RestartNumber =
+  string "continuous" | string "eachSect" | string "eachPage"
+w_CT_NumRestart = attribute w:val { w_ST_RestartNumber }
+w_CT_FtnEdnRef =
+  attribute w:customMarkFollows { s_ST_OnOff }?,
+  attribute w:id { w_ST_DecimalNumber }
+w_CT_FtnEdnSepRef = attribute w:id { w_ST_DecimalNumber }
+w_CT_FtnEdn =
+  attribute w:type { w_ST_FtnEdn }?,
+  attribute w:id { w_ST_DecimalNumber },
+  w_EG_BlockLevelElts+
+w_EG_FtnEdnNumProps =
+  element numStart { w_CT_DecimalNumber }?,
+  element numRestart { w_CT_NumRestart }?
+w_CT_FtnProps =
+  element pos { w_CT_FtnPos }?,
+  element numFmt { w_CT_NumFmt }?,
+  w_EG_FtnEdnNumProps?
+w_CT_EdnProps =
+  element pos { w_CT_EdnPos }?,
+  element numFmt { w_CT_NumFmt }?,
+  w_EG_FtnEdnNumProps?
+w_CT_FtnDocProps =
+  w_CT_FtnProps,
+  element footnote { w_CT_FtnEdnSepRef }*
+w_CT_EdnDocProps =
+  w_CT_EdnProps,
+  element endnote { w_CT_FtnEdnSepRef }*
+w_CT_RecipientData =
+  element active { w_CT_OnOff }?,
+  element column { w_CT_DecimalNumber },
+  element uniqueTag { w_CT_Base64Binary }
+w_CT_Base64Binary = attribute w:val { xsd:base64Binary }
+w_CT_Recipients = element recipientData { w_CT_RecipientData }+
+w_recipients = element recipients { w_CT_Recipients }
+w_CT_OdsoFieldMapData =
+  element type { w_CT_MailMergeOdsoFMDFieldType }?,
+  element name { w_CT_String }?,
+  element mappedName { w_CT_String }?,
+  element column { w_CT_DecimalNumber }?,
+  element lid { w_CT_Lang }?,
+  element dynamicAddress { w_CT_OnOff }?
+w_ST_MailMergeSourceType =
+  string "database"
+  | string "addressBook"
+  | string "document1"
+  | string "document2"
+  | string "text"
+  | string "email"
+  | string "native"
+  | string "legacy"
+  | string "master"
+w_CT_MailMergeSourceType = attribute w:val { w_ST_MailMergeSourceType }
+w_CT_Odso =
+  element udl { w_CT_String }?,
+  element table { w_CT_String }?,
+  element src { w_CT_Rel }?,
+  element colDelim { w_CT_DecimalNumber }?,
+  element type { w_CT_MailMergeSourceType }?,
+  element fHdr { w_CT_OnOff }?,
+  element fieldMapData { w_CT_OdsoFieldMapData }*,
+  element recipientData { w_CT_Rel }*
+w_CT_MailMerge =
+  element mainDocumentType { w_CT_MailMergeDocType },
+  element linkToQuery { w_CT_OnOff }?,
+  element dataType { w_CT_MailMergeDataType },
+  element connectString { w_CT_String }?,
+  element query { w_CT_String }?,
+  element dataSource { w_CT_Rel }?,
+  element headerSource { w_CT_Rel }?,
+  element doNotSuppressBlankLines { w_CT_OnOff }?,
+  element destination { w_CT_MailMergeDest }?,
+  element addressFieldName { w_CT_String }?,
+  element mailSubject { w_CT_String }?,
+  element mailAsAttachment { w_CT_OnOff }?,
+  element viewMergedData { w_CT_OnOff }?,
+  element activeRecord { w_CT_DecimalNumber }?,
+  element checkErrors { w_CT_DecimalNumber }?,
+  element odso { w_CT_Odso }?
+w_ST_TargetScreenSz =
+  string "544x376"
+  | string "640x480"
+  | string "720x512"
+  | string "800x600"
+  | string "1024x768"
+  | string "1152x882"
+  | string "1152x900"
+  | string "1280x1024"
+  | string "1600x1200"
+  | string "1800x1440"
+  | string "1920x1200"
+w_CT_TargetScreenSz = attribute w:val { w_ST_TargetScreenSz }
+w_CT_Compat =
+  element spaceForUL { w_CT_OnOff }?,
+  element balanceSingleByteDoubleByteWidth { w_CT_OnOff }?,
+  element doNotLeaveBackslashAlone { w_CT_OnOff }?,
+  element ulTrailSpace { w_CT_OnOff }?,
+  element doNotExpandShiftReturn { w_CT_OnOff }?,
+  element adjustLineHeightInTable { w_CT_OnOff }?,
+  element applyBreakingRules { w_CT_OnOff }?,
+  element compatSetting { w_CT_CompatSetting }*
+w_CT_CompatSetting =
+  attribute w:name { s_ST_String }?,
+  attribute w:uri { s_ST_String }?,
+  attribute w:val { s_ST_String }?
+w_CT_DocVar =
+  attribute w:name { s_ST_String },
+  attribute w:val { s_ST_String }
+w_CT_DocVars = element docVar { w_CT_DocVar }*
+w_CT_DocRsids =
+  element rsidRoot { w_CT_LongHexNumber }?,
+  element rsid { w_CT_LongHexNumber }*
+w_ST_CharacterSpacing =
+  string "doNotCompress"
+  | string "compressPunctuation"
+  | string "compressPunctuationAndJapaneseKana"
+w_CT_CharacterSpacing = attribute w:val { w_ST_CharacterSpacing }
+w_CT_SaveThroughXslt =
+  r_id?,
+  attribute w:solutionID { s_ST_String }?
+w_CT_RPrDefault = element rPr { w_CT_RPr }?
+w_CT_PPrDefault = element pPr { w_CT_PPrGeneral }?
+w_CT_DocDefaults =
+  element rPrDefault { w_CT_RPrDefault }?,
+  element pPrDefault { w_CT_PPrDefault }?
+w_ST_WmlColorSchemeIndex =
+  string "dark1"
+  | string "light1"
+  | string "dark2"
+  | string "light2"
+  | string "accent1"
+  | string "accent2"
+  | string "accent3"
+  | string "accent4"
+  | string "accent5"
+  | string "accent6"
+  | string "hyperlink"
+  | string "followedHyperlink"
+w_CT_ColorSchemeMapping =
+  attribute w:bg1 { w_ST_WmlColorSchemeIndex }?,
+  attribute w:t1 { w_ST_WmlColorSchemeIndex }?,
+  attribute w:bg2 { w_ST_WmlColorSchemeIndex }?,
+  attribute w:t2 { w_ST_WmlColorSchemeIndex }?,
+  attribute w:accent1 { w_ST_WmlColorSchemeIndex }?,
+  attribute w:accent2 { w_ST_WmlColorSchemeIndex }?,
+  attribute w:accent3 { w_ST_WmlColorSchemeIndex }?,
+  attribute w:accent4 { w_ST_WmlColorSchemeIndex }?,
+  attribute w:accent5 { w_ST_WmlColorSchemeIndex }?,
+  attribute w:accent6 { w_ST_WmlColorSchemeIndex }?,
+  attribute w:hyperlink { w_ST_WmlColorSchemeIndex }?,
+  attribute w:followedHyperlink { w_ST_WmlColorSchemeIndex }?
+w_CT_ReadingModeInkLockDown =
+  attribute w:actualPg { s_ST_OnOff },
+  attribute w:w { w_ST_PixelsMeasure },
+  attribute w:h { w_ST_PixelsMeasure },
+  attribute w:fontSz { w_ST_DecimalNumberOrPercent }
+w_CT_WriteProtection =
+  attribute w:recommended { s_ST_OnOff }?,
+  w_AG_Password
+w_CT_Settings =
+  element writeProtection { w_CT_WriteProtection }?,
+  element view { w_CT_View }?,
+  element zoom { w_CT_Zoom }?,
+  element removePersonalInformation { w_CT_OnOff }?,
+  element removeDateAndTime { w_CT_OnOff }?,
+  element doNotDisplayPageBoundaries { w_CT_OnOff }?,
+  element displayBackgroundShape { w_CT_OnOff }?,
+  element printPostScriptOverText { w_CT_OnOff }?,
+  element printFractionalCharacterWidth { w_CT_OnOff }?,
+  element printFormsData { w_CT_OnOff }?,
+  element embedTrueTypeFonts { w_CT_OnOff }?,
+  element embedSystemFonts { w_CT_OnOff }?,
+  element saveSubsetFonts { w_CT_OnOff }?,
+  element saveFormsData { w_CT_OnOff }?,
+  element mirrorMargins { w_CT_OnOff }?,
+  element alignBordersAndEdges { w_CT_OnOff }?,
+  element bordersDoNotSurroundHeader { w_CT_OnOff }?,
+  element bordersDoNotSurroundFooter { w_CT_OnOff }?,
+  element gutterAtTop { w_CT_OnOff }?,
+  element hideSpellingErrors { w_CT_OnOff }?,
+  element hideGrammaticalErrors { w_CT_OnOff }?,
+  element activeWritingStyle { w_CT_WritingStyle }*,
+  element proofState { w_CT_Proof }?,
+  element formsDesign { w_CT_OnOff }?,
+  element attachedTemplate { w_CT_Rel }?,
+  element linkStyles { w_CT_OnOff }?,
+  element stylePaneFormatFilter { w_CT_StylePaneFilter }?,
+  element stylePaneSortMethod { w_CT_StyleSort }?,
+  element documentType { w_CT_DocType }?,
+  element mailMerge { w_CT_MailMerge }?,
+  element revisionView { w_CT_TrackChangesView }?,
+  element trackRevisions { w_CT_OnOff }?,
+  element doNotTrackMoves { w_CT_OnOff }?,
+  element doNotTrackFormatting { w_CT_OnOff }?,
+  element documentProtection { w_CT_DocProtect }?,
+  element autoFormatOverride { w_CT_OnOff }?,
+  element styleLockTheme { w_CT_OnOff }?,
+  element styleLockQFSet { w_CT_OnOff }?,
+  element defaultTabStop { w_CT_TwipsMeasure }?,
+  element autoHyphenation { w_CT_OnOff }?,
+  element consecutiveHyphenLimit { w_CT_DecimalNumber }?,
+  element hyphenationZone { w_CT_TwipsMeasure }?,
+  element doNotHyphenateCaps { w_CT_OnOff }?,
+  element showEnvelope { w_CT_OnOff }?,
+  element summaryLength { w_CT_DecimalNumberOrPrecent }?,
+  element clickAndTypeStyle { w_CT_String }?,
+  element defaultTableStyle { w_CT_String }?,
+  element evenAndOddHeaders { w_CT_OnOff }?,
+  element bookFoldRevPrinting { w_CT_OnOff }?,
+  element bookFoldPrinting { w_CT_OnOff }?,
+  element bookFoldPrintingSheets { w_CT_DecimalNumber }?,
+  element drawingGridHorizontalSpacing { w_CT_TwipsMeasure }?,
+  element drawingGridVerticalSpacing { w_CT_TwipsMeasure }?,
+  element displayHorizontalDrawingGridEvery { w_CT_DecimalNumber }?,
+  element displayVerticalDrawingGridEvery { w_CT_DecimalNumber }?,
+  element doNotUseMarginsForDrawingGridOrigin { w_CT_OnOff }?,
+  element drawingGridHorizontalOrigin { w_CT_TwipsMeasure }?,
+  element drawingGridVerticalOrigin { w_CT_TwipsMeasure }?,
+  element doNotShadeFormData { w_CT_OnOff }?,
+  element noPunctuationKerning { w_CT_OnOff }?,
+  element characterSpacingControl { w_CT_CharacterSpacing }?,
+  element printTwoOnOne { w_CT_OnOff }?,
+  element strictFirstAndLastChars { w_CT_OnOff }?,
+  element noLineBreaksAfter { w_CT_Kinsoku }?,
+  element noLineBreaksBefore { w_CT_Kinsoku }?,
+  element savePreviewPicture { w_CT_OnOff }?,
+  element doNotValidateAgainstSchema { w_CT_OnOff }?,
+  element saveInvalidXml { w_CT_OnOff }?,
+  element ignoreMixedContent { w_CT_OnOff }?,
+  element alwaysShowPlaceholderText { w_CT_OnOff }?,
+  element doNotDemarcateInvalidXml { w_CT_OnOff }?,
+  element saveXmlDataOnly { w_CT_OnOff }?,
+  element useXSLTWhenSaving { w_CT_OnOff }?,
+  element saveThroughXslt { w_CT_SaveThroughXslt }?,
+  element showXMLTags { w_CT_OnOff }?,
+  element alwaysMergeEmptyNamespace { w_CT_OnOff }?,
+  element updateFields { w_CT_OnOff }?,
+  element footnotePr { w_CT_FtnDocProps }?,
+  element endnotePr { w_CT_EdnDocProps }?,
+  element compat { w_CT_Compat }?,
+  element docVars { w_CT_DocVars }?,
+  element rsids { w_CT_DocRsids }?,
+  m_mathPr?,
+  element attachedSchema { w_CT_String }*,
+  element themeFontLang { w_CT_Language }?,
+  element clrSchemeMapping { w_CT_ColorSchemeMapping }?,
+  element doNotIncludeSubdocsInStats { w_CT_OnOff }?,
+  element doNotAutoCompressPictures { w_CT_OnOff }?,
+  element forceUpgrade { w_CT_Empty }?,
+  element captions { w_CT_Captions }?,
+  element readModeInkLockDown { w_CT_ReadingModeInkLockDown }?,
+  element smartTagType { w_CT_SmartTagType }*,
+  sl_schemaLibrary?,
+  element doNotEmbedSmartTags { w_CT_OnOff }?,
+  element decimalSymbol { w_CT_String }?,
+  element listSeparator { w_CT_String }?
+w_CT_StyleSort = attribute w:val { w_ST_StyleSort }
+w_CT_StylePaneFilter =
+  attribute w:allStyles { s_ST_OnOff }?,
+  attribute w:customStyles { s_ST_OnOff }?,
+  attribute w:latentStyles { s_ST_OnOff }?,
+  attribute w:stylesInUse { s_ST_OnOff }?,
+  attribute w:headingStyles { s_ST_OnOff }?,
+  attribute w:numberingStyles { s_ST_OnOff }?,
+  attribute w:tableStyles { s_ST_OnOff }?,
+  attribute w:directFormattingOnRuns { s_ST_OnOff }?,
+  attribute w:directFormattingOnParagraphs { s_ST_OnOff }?,
+  attribute w:directFormattingOnNumbering { s_ST_OnOff }?,
+  attribute w:directFormattingOnTables { s_ST_OnOff }?,
+  attribute w:clearFormatting { s_ST_OnOff }?,
+  attribute w:top3HeadingStyles { s_ST_OnOff }?,
+  attribute w:visibleStyles { s_ST_OnOff }?,
+  attribute w:alternateStyleNames { s_ST_OnOff }?
+w_ST_StyleSort =
+  string "name"
+  | string "priority"
+  | string "default"
+  | string "font"
+  | string "basedOn"
+  | string "type"
+w_CT_WebSettings =
+  element frameset { w_CT_Frameset }?,
+  element divs { w_CT_Divs }?,
+  element encoding { w_CT_String }?,
+  element optimizeForBrowser { w_CT_OptimizeForBrowser }?,
+  element allowPNG { w_CT_OnOff }?,
+  element doNotRelyOnCSS { w_CT_OnOff }?,
+  element doNotSaveAsSingleFile { w_CT_OnOff }?,
+  element doNotOrganizeInFolder { w_CT_OnOff }?,
+  element doNotUseLongFileNames { w_CT_OnOff }?,
+  element pixelsPerInch { w_CT_DecimalNumber }?,
+  element targetScreenSz { w_CT_TargetScreenSz }?,
+  element saveSmartTagsAsXml { w_CT_OnOff }?
+w_ST_FrameScrollbar = string "on" | string "off" | string "auto"
+w_CT_FrameScrollbar = attribute w:val { w_ST_FrameScrollbar }
+w_CT_OptimizeForBrowser =
+  w_CT_OnOff,
+  attribute w:target { s_ST_String }?
+w_CT_Frame =
+  element sz { w_CT_String }?,
+  element name { w_CT_String }?,
+  element title { w_CT_String }?,
+  element longDesc { w_CT_Rel }?,
+  element sourceFileName { w_CT_Rel }?,
+  element marW { w_CT_PixelsMeasure }?,
+  element marH { w_CT_PixelsMeasure }?,
+  element scrollbar { w_CT_FrameScrollbar }?,
+  element noResizeAllowed { w_CT_OnOff }?,
+  element linkedToFile { w_CT_OnOff }?
+w_ST_FrameLayout = string "rows" | string "cols" | string "none"
+w_CT_FrameLayout = attribute w:val { w_ST_FrameLayout }
+w_CT_FramesetSplitbar =
+  element w { w_CT_TwipsMeasure }?,
+  element color { w_CT_Color }?,
+  element noBorder { w_CT_OnOff }?,
+  element flatBorders { w_CT_OnOff }?
+w_CT_Frameset =
+  element sz { w_CT_String }?,
+  element framesetSplitbar { w_CT_FramesetSplitbar }?,
+  element frameLayout { w_CT_FrameLayout }?,
+  element title { w_CT_String }?,
+  (element frameset { w_CT_Frameset }*
+   | element frame { w_CT_Frame }*)*
+w_CT_NumPicBullet =
+  attribute w:numPicBulletId { w_ST_DecimalNumber },
+  (element drawing { w_CT_Drawing })
+w_ST_LevelSuffix = string "tab" | string "space" | string "nothing"
+w_CT_LevelSuffix = attribute w:val { w_ST_LevelSuffix }
+w_CT_LevelText =
+  attribute w:val { s_ST_String }?,
+  attribute w:null { s_ST_OnOff }?
+w_CT_Lvl =
+  attribute w:ilvl { w_ST_DecimalNumber },
+  attribute w:tplc { w_ST_LongHexNumber }?,
+  attribute w:tentative { s_ST_OnOff }?,
+  element start { w_CT_DecimalNumber }?,
+  element numFmt { w_CT_NumFmt }?,
+  element lvlRestart { w_CT_DecimalNumber }?,
+  element pStyle { w_CT_String }?,
+  element isLgl { w_CT_OnOff }?,
+  element suff { w_CT_LevelSuffix }?,
+  element lvlText { w_CT_LevelText }?,
+  element lvlPicBulletId { w_CT_DecimalNumber }?,
+  element lvlJc { w_CT_Jc }?,
+  element pPr { w_CT_PPrGeneral }?,
+  element rPr { w_CT_RPr }?
+w_ST_MultiLevelType =
+  string "singleLevel" | string "multilevel" | string "hybridMultilevel"
+w_CT_MultiLevelType = attribute w:val { w_ST_MultiLevelType }
+w_CT_AbstractNum =
+  attribute w:abstractNumId { w_ST_DecimalNumber },
+  element nsid { w_CT_LongHexNumber }?,
+  element multiLevelType { w_CT_MultiLevelType }?,
+  element tmpl { w_CT_LongHexNumber }?,
+  element name { w_CT_String }?,
+  element styleLink { w_CT_String }?,
+  element numStyleLink { w_CT_String }?,
+  element lvl { w_CT_Lvl }*
+w_CT_NumLvl =
+  attribute w:ilvl { w_ST_DecimalNumber },
+  element startOverride { w_CT_DecimalNumber }?,
+  element lvl { w_CT_Lvl }?
+w_CT_Num =
+  attribute w:numId { w_ST_DecimalNumber },
+  element abstractNumId { w_CT_DecimalNumber },
+  element lvlOverride { w_CT_NumLvl }*
+w_CT_Numbering =
+  element numPicBullet { w_CT_NumPicBullet }*,
+  element abstractNum { w_CT_AbstractNum }*,
+  element num { w_CT_Num }*,
+  element numIdMacAtCleanup { w_CT_DecimalNumber }?
+w_ST_TblStyleOverrideType =
+  string "wholeTable"
+  | string "firstRow"
+  | string "lastRow"
+  | string "firstCol"
+  | string "lastCol"
+  | string "band1Vert"
+  | string "band2Vert"
+  | string "band1Horz"
+  | string "band2Horz"
+  | string "neCell"
+  | string "nwCell"
+  | string "seCell"
+  | string "swCell"
+w_CT_TblStylePr =
+  attribute w:type { w_ST_TblStyleOverrideType },
+  element pPr { w_CT_PPrGeneral }?,
+  element rPr { w_CT_RPr }?,
+  element tblPr { w_CT_TblPrBase }?,
+  element trPr { w_CT_TrPr }?,
+  element tcPr { w_CT_TcPr }?
+w_ST_StyleType =
+  string "paragraph"
+  | string "character"
+  | string "table"
+  | string "numbering"
+w_CT_Style =
+  attribute w:type { w_ST_StyleType }?,
+  attribute w:styleId { s_ST_String }?,
+  attribute w:default { s_ST_OnOff }?,
+  attribute w:customStyle { s_ST_OnOff }?,
+  element name { w_CT_String }?,
+  element aliases { w_CT_String }?,
+  element basedOn { w_CT_String }?,
+  element next { w_CT_String }?,
+  element link { w_CT_String }?,
+  element autoRedefine { w_CT_OnOff }?,
+  element hidden { w_CT_OnOff }?,
+  element uiPriority { w_CT_DecimalNumber }?,
+  element semiHidden { w_CT_OnOff }?,
+  element unhideWhenUsed { w_CT_OnOff }?,
+  element qFormat { w_CT_OnOff }?,
+  element locked { w_CT_OnOff }?,
+  element personal { w_CT_OnOff }?,
+  element personalCompose { w_CT_OnOff }?,
+  element personalReply { w_CT_OnOff }?,
+  element rsid { w_CT_LongHexNumber }?,
+  element pPr { w_CT_PPrGeneral }?,
+  element rPr { w_CT_RPr }?,
+  element tblPr { w_CT_TblPrBase }?,
+  element trPr { w_CT_TrPr }?,
+  element tcPr { w_CT_TcPr }?,
+  element tblStylePr { w_CT_TblStylePr }*
+w_CT_LsdException =
+  attribute w:name { s_ST_String },
+  attribute w:locked { s_ST_OnOff }?,
+  attribute w:uiPriority { w_ST_DecimalNumber }?,
+  attribute w:semiHidden { s_ST_OnOff }?,
+  attribute w:unhideWhenUsed { s_ST_OnOff }?,
+  attribute w:qFormat { s_ST_OnOff }?
+w_CT_LatentStyles =
+  attribute w:defLockedState { s_ST_OnOff }?,
+  attribute w:defUIPriority { w_ST_DecimalNumber }?,
+  attribute w:defSemiHidden { s_ST_OnOff }?,
+  attribute w:defUnhideWhenUsed { s_ST_OnOff }?,
+  attribute w:defQFormat { s_ST_OnOff }?,
+  attribute w:count { w_ST_DecimalNumber }?,
+  element lsdException { w_CT_LsdException }*
+w_CT_Styles =
+  element docDefaults { w_CT_DocDefaults }?,
+  element latentStyles { w_CT_LatentStyles }?,
+  element style { w_CT_Style }*
+w_CT_Panose = attribute w:val { s_ST_Panose }
+w_ST_FontFamily =
+  string "decorative"
+  | string "modern"
+  | string "roman"
+  | string "script"
+  | string "swiss"
+  | string "auto"
+w_CT_FontFamily = attribute w:val { w_ST_FontFamily }
+w_ST_Pitch = string "fixed" | string "variable" | string "default"
+w_CT_Pitch = attribute w:val { w_ST_Pitch }
+w_CT_FontSig =
+  attribute w:usb0 { w_ST_LongHexNumber },
+  attribute w:usb1 { w_ST_LongHexNumber },
+  attribute w:usb2 { w_ST_LongHexNumber },
+  attribute w:usb3 { w_ST_LongHexNumber },
+  attribute w:csb0 { w_ST_LongHexNumber },
+  attribute w:csb1 { w_ST_LongHexNumber }
+w_CT_FontRel =
+  w_CT_Rel,
+  attribute w:fontKey { s_ST_Guid }?,
+  attribute w:subsetted { s_ST_OnOff }?
+w_CT_Font =
+  attribute w:name { s_ST_String },
+  element altName { w_CT_String }?,
+  element panose1 { w_CT_Panose }?,
+  element charset { w_CT_Charset }?,
+  element family { w_CT_FontFamily }?,
+  element notTrueType { w_CT_OnOff }?,
+  element pitch { w_CT_Pitch }?,
+  element sig { w_CT_FontSig }?,
+  element embedRegular { w_CT_FontRel }?,
+  element embedBold { w_CT_FontRel }?,
+  element embedItalic { w_CT_FontRel }?,
+  element embedBoldItalic { w_CT_FontRel }?
+w_CT_FontsList = element font { w_CT_Font }*
+w_CT_DivBdr =
+  element top { w_CT_Border }?,
+  element left { w_CT_Border }?,
+  element bottom { w_CT_Border }?,
+  element right { w_CT_Border }?
+w_CT_Div =
+  attribute w:id { w_ST_DecimalNumber },
+  element blockQuote { w_CT_OnOff }?,
+  element bodyDiv { w_CT_OnOff }?,
+  element marLeft { w_CT_SignedTwipsMeasure },
+  element marRight { w_CT_SignedTwipsMeasure },
+  element marTop { w_CT_SignedTwipsMeasure },
+  element marBottom { w_CT_SignedTwipsMeasure },
+  element divBdr { w_CT_DivBdr }?,
+  element divsChild { w_CT_Divs }*
+w_CT_Divs = element div { w_CT_Div }+
+w_EG_MathContent = m_oMathPara | m_oMath
+w_EG_BlockLevelChunkElts = w_EG_ContentBlockContent*
+w_EG_BlockLevelElts =
+  w_EG_BlockLevelChunkElts*
+  | element altChunk { w_CT_AltChunk }*
+w_EG_RunLevelElts =
+  element proofErr { w_CT_ProofErr }?
+  | element permStart { w_CT_PermStart }?
+  | element permEnd { w_CT_Perm }?
+  | w_EG_RangeMarkupElements*
+  | element ins { w_CT_RunTrackChange }?
+  | element del { w_CT_RunTrackChange }?
+  | element moveFrom { w_CT_RunTrackChange }
+  | element moveTo { w_CT_RunTrackChange }
+  | w_EG_MathContent*
+w_CT_Body =
+  w_EG_BlockLevelElts*,
+  element sectPr { w_CT_SectPr }?
+w_CT_Comments = element comment { w_CT_Comment }*
+w_comments = element comments { w_CT_Comments }
+w_CT_Footnotes = element footnote { w_CT_FtnEdn }*
+w_footnotes = element footnotes { w_CT_Footnotes }
+w_CT_Endnotes = element endnote { w_CT_FtnEdn }*
+w_endnotes = element endnotes { w_CT_Endnotes }
+w_hdr = element hdr { w_CT_HdrFtr }
+w_ftr = element ftr { w_CT_HdrFtr }
+w_CT_SmartTagType =
+  attribute w:namespaceuri { s_ST_String }?,
+  attribute w:name { s_ST_String }?,
+  attribute w:url { s_ST_String }?
+w_ST_ThemeColor =
+  string "dark1"
+  | string "light1"
+  | string "dark2"
+  | string "light2"
+  | string "accent1"
+  | string "accent2"
+  | string "accent3"
+  | string "accent4"
+  | string "accent5"
+  | string "accent6"
+  | string "hyperlink"
+  | string "followedHyperlink"
+  | string "none"
+  | string "background1"
+  | string "text1"
+  | string "background2"
+  | string "text2"
+w_ST_DocPartBehavior = string "content" | string "p" | string "pg"
+w_CT_DocPartBehavior = attribute w:val { w_ST_DocPartBehavior }
+w_CT_DocPartBehaviors = element behavior { w_CT_DocPartBehavior }+
+w_ST_DocPartType =
+  string "none"
+  | string "normal"
+  | string "autoExp"
+  | string "toolbar"
+  | string "speller"
+  | string "formFld"
+  | string "bbPlcHdr"
+w_CT_DocPartType = attribute w:val { w_ST_DocPartType }
+w_CT_DocPartTypes =
+  attribute w:all { s_ST_OnOff }?,
+  (element type { w_CT_DocPartType }+)
+w_ST_DocPartGallery =
+  string "placeholder"
+  | string "any"
+  | string "default"
+  | string "docParts"
+  | string "coverPg"
+  | string "eq"
+  | string "ftrs"
+  | string "hdrs"
+  | string "pgNum"
+  | string "tbls"
+  | string "watermarks"
+  | string "autoTxt"
+  | string "txtBox"
+  | string "pgNumT"
+  | string "pgNumB"
+  | string "pgNumMargins"
+  | string "tblOfContents"
+  | string "bib"
+  | string "custQuickParts"
+  | string "custCoverPg"
+  | string "custEq"
+  | string "custFtrs"
+  | string "custHdrs"
+  | string "custPgNum"
+  | string "custTbls"
+  | string "custWatermarks"
+  | string "custAutoTxt"
+  | string "custTxtBox"
+  | string "custPgNumT"
+  | string "custPgNumB"
+  | string "custPgNumMargins"
+  | string "custTblOfContents"
+  | string "custBib"
+  | string "custom1"
+  | string "custom2"
+  | string "custom3"
+  | string "custom4"
+  | string "custom5"
+w_CT_DocPartGallery = attribute w:val { w_ST_DocPartGallery }
+w_CT_DocPartCategory =
+  element name { w_CT_String },
+  element gallery { w_CT_DocPartGallery }
+w_CT_DocPartName =
+  attribute w:val { s_ST_String },
+  attribute w:decorated { s_ST_OnOff }?
+w_CT_DocPartPr =
+  element name { w_CT_DocPartName }&
+  element style { w_CT_String }?&
+  element category { w_CT_DocPartCategory }?&
+  element types { w_CT_DocPartTypes }?&
+  element behaviors { w_CT_DocPartBehaviors }?&
+  element description { w_CT_String }?&
+  element guid { w_CT_Guid }?
+w_CT_DocPart =
+  element docPartPr { w_CT_DocPartPr }?,
+  element docPartBody { w_CT_Body }?
+w_CT_DocParts = element docPart { w_CT_DocPart }+
+w_settings = element settings { w_CT_Settings }
+w_webSettings = element webSettings { w_CT_WebSettings }
+w_fonts = element fonts { w_CT_FontsList }
+w_numbering = element numbering { w_CT_Numbering }
+w_styles = element styles { w_CT_Styles }
+w_ST_CaptionPos =
+  string "above" | string "below" | string "left" | string "right"
+w_CT_Caption =
+  attribute w:name { s_ST_String },
+  attribute w:pos { w_ST_CaptionPos }?,
+  attribute w:chapNum { s_ST_OnOff }?,
+  attribute w:heading { w_ST_DecimalNumber }?,
+  attribute w:noLabel { s_ST_OnOff }?,
+  attribute w:numFmt { w_ST_NumberFormat }?,
+  attribute w:sep { w_ST_ChapterSep }?
+w_CT_AutoCaption =
+  attribute w:name { s_ST_String },
+  attribute w:caption { s_ST_String }
+w_CT_AutoCaptions = element autoCaption { w_CT_AutoCaption }+
+w_CT_Captions =
+  element caption { w_CT_Caption }+,
+  element autoCaptions { w_CT_AutoCaptions }?
+w_CT_DocumentBase = element background { w_CT_Background }?
+w_CT_Document =
+  w_CT_DocumentBase,
+  element body { w_CT_Body }?,
+  attribute w:conformance { s_ST_ConformanceClass }?
+w_CT_GlossaryDocument =
+  w_CT_DocumentBase,
+  element docParts { w_CT_DocParts }?
+w_document = element document { w_CT_Document }
+w_glossaryDocument = element glossaryDocument { w_CT_GlossaryDocument }

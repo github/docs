@@ -1,0 +1,3 @@
+include "shared-bibliography.rnc"
+include "shared-commonSimpleTypes.rnc"
+start = shrdBib_Sources

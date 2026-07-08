@@ -1,0 +1,12 @@
+2024-02-20T05:07:24.9060810Z ##[group]Run actions/cache@v3
+2024-02-20T05:07:24.9061330Z with:
+2024-02-20T05:07:24.9061700Z   lookup-only: true
+2024-02-20T05:07:24.9062290Z   path: /Users/runner/work/nx/nx/.cypress
+2024-02-20T05:07:24.9062880Z   key: macOS-cypress
+2024-02-20T05:07:24.9063330Z   enableCrossOsArchive: false
+2024-02-20T05:07:24.9063950Z   fail-on-cache-miss: false
+2024-02-20T05:07:24.9064420Z env:
+2024-02-20T05:07:24.9064990Z   CYPRESS_CACHE_FOLDER: /Users/runner/work/nx/nx/.cypress
+2024-02-20T05:07:24.9065740Z ##[endgroup]
+2024-02-20T05:07:25.1000640Z Lookup only - skipping download
+2024-02-20T05:07:25.1149620Z Cache found and can be restored from key: macOS-cypress

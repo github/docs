@@ -1,0 +1,695 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://json.schemastore.org/github-action.json",
+  "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions",
+  "additionalProperties": false,
+  "definitions": {
+    "expressionSyntax": {
+      "$comment": "escape `{` and `}` in pattern to be unicode compatible (#1360)",
+      "type": "string",
+      "pattern": "^\\$\\{\\{(.|[\r\n])*\\}\\}$"
+    },
+    "stringContainingExpressionSyntax": {
+      "$comment": "escape `{` and `}` in pattern to be unicode compatible (#1360)",
+      "type": "string",
+      "pattern": "^.*\\$\\{\\{(.|[\r\n])*\\}\\}.*$"
+    },
+    "pre-if": {
+      "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runspre-if",
+      "description": "Allows you to define conditions for the `pre:` action execution. The `pre:` action will only run if the conditions in `pre-if` are met. If not set, then `pre-if` defaults to `always()`. Note that the `step` context is unavailable, as no steps have run yet.",
+      "type": "string"
+    },
+    "post-if": {
+      "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runspost-if",
+      "description": "Allows you to define conditions for the `post:` action execution. The `post:` action will only run if the conditions in `post-if` are met. If not set, then `post-if` defaults to `always()`.",
+      "type": "string"
+    },
+    "runs-javascript": {
+      "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-javascript-actions",
+      "description": "Configures the path to the action's code and the application used to execute the code.",
+      "type": "object",
+      "properties": {
+        "using": {
+          "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runsusing",
+          "description": "The application used to execute the code specified in `main`.",
+          "enum": ["node12", "node16", "node20"]
+        },
+        "main": {
+          "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runsmain",
+          "description": "The file that contains your action code. The application specified in `using` executes this file.",
+          "type": "string"
+        },
+        "pre": {
+          "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runspre",
+          "description": "Allows you to run a script at the start of a job, before the `main:` action begins. For example, you can use `pre:` to run a prerequisite setup script. The application specified with the `using` syntax will execute this file. The `pre:` action always runs by default but you can override this using `pre-if`.",
+          "type": "string"
+        },
+        "pre-if": {
+          "$ref": "#/definitions/pre-if"
+        },
+        "post": {
+          "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runspost",
+          "description": "Allows you to run a script at the end of a job, once the `main:` action has completed. For example, you can use `post:` to terminate certain processes or remove unneeded files. The application specified with the `using` syntax will execute this file. The `post:` action always runs by default but you can override this using `post-if`.",
+          "type": "string"
+        },
+        "post-if": {
+          "$ref": "#/definitions/post-if"
+        }
+      },
+      "required": ["using", "main"],
+      "additionalProperties": false
+    },
+    "runs-composite": {
+      "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-composite-actions",
+      "description": "Configures the path to the composite action, and the application used to execute the code.",
+      "type": "object",
+      "properties": {
+        "using": {
+          "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runsusing-for-composite-actions",
+          "description": "To use a composite run steps action, set this to 'composite'.",
+          "const": "composite"
+        },
+        "steps": {
+          "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runssteps",
+          "description": "The run steps that you plan to run in this action.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "run": {
+                "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runsstepsrun",
+                "description": "The command you want to run. This can be inline or a script in your action repository.",
+                "type": "string"
+              },
+              "shell": {
+                "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runsstepsshell",
+                "description": "The shell where you want to run the command.",
+                "type": "string",
+                "anyOf": [
+                  {
+                    "$comment": "https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#custom-shell"
+                  },
+                  {
+                    "enum": [
+                      "bash",
+                      "pwsh",
+                      "python",
+                      "sh",
+                      "cmd",
+                      "powershell"
+                    ]
+                  }
+                ]
+              },
+              "uses": {
+                "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runsstepsuses",
+                "description": "Selects an action to run as part of a step in your job.",
+                "type": "string"
+              },
+              "with": {
+                "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runsstepswith",
+                "description": "A map of the input parameters defined by the action. Each input parameter is a key/value pair. Input parameters are set as environment variables. The variable is prefixed with INPUT_ and converted to upper case.",
+                "type": "object"
+              },
+              "name": {
+                "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runsstepsname",
+                "description": "The name of the composite run step.",
+                "type": "string"
+              },
+              "id": {
+                "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runsstepsid",
+                "description": "A unique identifier for the step. You can use the `id` to reference the step in contexts.",
+                "type": "string"
+              },
+              "if": {
+                "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runsstepsif",
+                "description": "You can use the if conditional to prevent a step from running unless a condition is met. You can use any supported context and expression to create a conditional.\nExpressions in an if conditional do not require the ${{ }} syntax. For more information, see https://help.github.com/en/articles/contexts-and-expression-syntax-for-github-actions.",
+                "type": "string"
+              },
+              "env": {
+                "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runsstepsenv",
+                "description": "Sets a map of environment variables for only that step.",
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "boolean"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$ref": "#/definitions/stringContainingExpressionSyntax"
+                  }
+                ]
+              },
+              "continue-on-error": {
+                "$comment": "https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error",
+                "description": "Prevents a job from failing when a step fails. Set to true to allow a job to pass when this step fails.",
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/definitions/expressionSyntax"
+                  }
+                ],
+                "default": false
+              },
+              "working-directory": {
+                "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runsstepsworking-directory",
+                "description": "Specifies the working directory where the command is run.",
+                "type": "string"
+              }
+            },
+            "oneOf": [
+              {
+                "required": ["run", "shell"]
+              },
+              {
+                "required": ["uses"]
+              }
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": ["using", "steps"],
+      "additionalProperties": false
+    },
+    "runs-docker": {
+      "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-docker-container-actions",
+      "description": "Configures the image used for the Docker action.",
+      "type": "object",
+      "properties": {
+        "using": {
+          "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runsusing-for-docker-container-actions",
+          "description": "You must set this value to 'docker'.",
+          "const": "docker"
+        },
+        "image": {
+          "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runsimage",
+          "description": "The Docker image to use as the container to run the action. The value can be the Docker base image name, a local `Dockerfile` in your repository, or a public image in Docker Hub or another registry. To reference a `Dockerfile` local to your repository, use a path relative to your action metadata file. The `docker` application will execute this file.",
+          "type": "string"
+        },
+        "env": {
+          "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runsenv",
+          "description": "Specifies a key/value map of environment variables to set in the container environment.",
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "boolean"
+                  }
+                ]
+              }
+            },
+            {
+              "$ref": "#/definitions/stringContainingExpressionSyntax"
+            }
+          ]
+        },
+        "entrypoint": {
+          "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runsentrypoint",
+          "description": "Overrides the Docker `ENTRYPOINT` in the `Dockerfile`, or sets it if one wasn't already specified. Use `entrypoint` when the `Dockerfile` does not specify an `ENTRYPOINT` or you want to override the `ENTRYPOINT` instruction. If you omit `entrypoint`, the commands you specify in the Docker `ENTRYPOINT` instruction will execute. The Docker `ENTRYPOINT instruction has a *shell* form and *exec* form. The Docker `ENTRYPOINT` documentation recommends using the *exec* form of the `ENTRYPOINT` instruction.",
+          "type": "string"
+        },
+        "pre-entrypoint": {
+          "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runspre-entrypoint",
+          "description": "Allows you to run a script before the `entrypoint` action begins. For example, you can use `pre-entrypoint:` to run a prerequisite setup script. GitHub Actions uses `docker run` to launch this action, and runs the script inside a new container that uses the same base image. This means that the runtime state is different from the main `entrypoint` container, and any states you require must be accessed in either the workspace, `HOME`, or as a `STATE_` variable. The `pre-entrypoint:` action always runs by default but you can override this using `pre-if`.",
+          "type": "string"
+        },
+        "pre-if": {
+          "$ref": "#/definitions/pre-if"
+        },
+        "post-entrypoint": {
+          "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runspost-entrypoint",
+          "description": "Allows you to run a cleanup script once the `runs.entrypoint` action has completed. GitHub Actions uses `docker run` to launch this action. Because GitHub Actions runs the script inside a new container using the same base image, the runtime state is different from the main `entrypoint` container. You can access any state you need in either the workspace, `HOME`, or as a `STATE_` variable. The `post-entrypoint:` action always runs by default but you can override this using `post-if`.",
+          "type": "string"
+        },
+        "post-if": {
+          "$ref": "#/definitions/post-if"
+        },
+        "args": {
+          "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runsargs",
+          "description": "An array of strings that define the inputs for a Docker container. Inputs can include hardcoded strings. GitHub passes the `args` to the container's `ENTRYPOINT` when the container starts up.\nThe `args` are used in place of the `CMD` instruction in a `Dockerfile`. If you use `CMD` in your `Dockerfile`, use the guidelines ordered by preference:\n- Document required arguments in the action's README and omit them from the `CMD` instruction.\n- Use defaults that allow using the action without specifying any `args`.\n- If the action exposes a `--help` flag, or something similar, use that to make your action self-documenting.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["using", "image"],
+      "additionalProperties": false
+    },
+    "outputs": {
+      "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions",
+      "description": "Output parameters allow you to declare data that an action sets. Actions that run later in a workflow can use the output data set in previously run actions. For example, if you had an action that performed the addition of two inputs (x + y = z), the action could output the sum (z) for other actions to use as an input.\nIf you don't declare an output in your action metadata file, you can still set outputs and use them in a workflow.",
+      "type": "object",
+      "patternProperties": {
+        "^[_a-zA-Z][a-zA-Z0-9_-]*$": {
+          "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#outputsoutput_id",
+          "description": "A string identifier to associate with the output. The value of `<output_id>` is a map of the output's metadata. The `<output_id>` must be a unique identifier within the outputs object. The `<output_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.",
+          "type": "object",
+          "properties": {
+            "description": {
+              "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#outputsoutput_iddescription",
+              "description": "A string description of the output parameter.",
+              "type": "string"
+            }
+          },
+          "required": ["description"],
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "outputs-composite": {
+      "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-composite-actions",
+      "description": "Output parameters allow you to declare data that an action sets. Actions that run later in a workflow can use the output data set in previously run actions. For example, if you had an action that performed the addition of two inputs (x + y = z), the action could output the sum (z) for other actions to use as an input.\nIf you don't declare an output in your action metadata file, you can still set outputs and use them in a workflow.",
+      "type": "object",
+      "patternProperties": {
+        "^[_a-zA-Z][a-zA-Z0-9_-]*$": {
+          "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#outputsoutput_id",
+          "description": "A string identifier to associate with the output. The value of `<output_id>` is a map of the output's metadata. The `<output_id>` must be a unique identifier within the outputs object. The `<output_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.",
+          "type": "object",
+          "properties": {
+            "description": {
+              "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#outputsoutput_iddescription",
+              "description": "A string description of the output parameter.",
+              "type": "string"
+            },
+            "value": {
+              "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#outputsoutput_idvalue",
+              "description": "The value that the output parameter will be mapped to. You can set this to a string or an expression with context. For example, you can use the steps context to set the value of an output to the output value of a step.",
+              "type": "string"
+            }
+          },
+          "required": ["description", "value"],
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "else": {
+    "properties": {
+      "outputs": {
+        "$ref": "#/definitions/outputs"
+      }
+    }
+  },
+  "if": {
+    "properties": {
+      "runs": {
+        "properties": {
+          "using": {
+            "const": "composite"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "name": {
+      "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#name",
+      "description": "The name of your action. GitHub displays the `name` in the Actions tab to help visually identify actions in each job.",
+      "type": "string"
+    },
+    "author": {
+      "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#author",
+      "description": "The name of the action's author.",
+      "type": "string"
+    },
+    "description": {
+      "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#description",
+      "description": "A short description of the action.",
+      "type": "string"
+    },
+    "inputs": {
+      "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#inputs",
+      "description": "Input parameters allow you to specify data that the action expects to use during runtime. GitHub stores input parameters as environment variables. Input ids with uppercase letters are converted to lowercase during runtime. We recommended using lowercase input ids.",
+      "type": "object",
+      "patternProperties": {
+        "^[_a-zA-Z][a-zA-Z0-9_-]*$": {
+          "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#inputsinput_id",
+          "description": "A string identifier to associate with the input. The value of `<input_id>` is a map of the input's metadata. The `<input_id>` must be a unique identifier within the inputs object. The `<input_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.",
+          "type": "object",
+          "properties": {
+            "description": {
+              "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#inputsinput_iddescription",
+              "description": "A string description of the input parameter.",
+              "type": "string"
+            },
+            "deprecationMessage": {
+              "description": "A string shown to users using the deprecated input.",
+              "type": "string"
+            },
+            "required": {
+              "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#inputsinput_idrequired",
+              "description": "A boolean to indicate whether the action requires the input parameter. Set to `true` when the parameter is required.",
+              "type": "boolean"
+            },
+            "default": {
+              "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#inputsinput_iddefault",
+              "description": "A string representing the default value. The default value is used when an input parameter isn't specified in a workflow file.",
+              "type": "string"
+            }
+          },
+          "required": ["description"],
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "outputs": {
+      "$comment": "Because of `additionalProperties: false`, this empty schema is needed to allow the `outputs` property. The `outputs` subschema is determined by the if/then/else keywords."
+    },
+    "runs": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/runs-javascript"
+        },
+        {
+          "$ref": "#/definitions/runs-composite"
+        },
+        {
+          "$ref": "#/definitions/runs-docker"
+        }
+      ]
+    },
+    "branding": {
+      "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#branding",
+      "description": "You can use a color and Feather icon to create a badge to personalize and distinguish your action. Badges are shown next to your action name in GitHub Marketplace.",
+      "type": "object",
+      "properties": {
+        "color": {
+          "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#brandingcolor",
+          "description": "The background color of the badge.",
+          "type": "string",
+          "enum": [
+            "white",
+            "black",
+            "yellow",
+            "blue",
+            "green",
+            "orange",
+            "red",
+            "purple",
+            "gray-dark"
+          ]
+        },
+        "icon": {
+          "$comment": "https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#brandingicon",
+          "description": "The name of the Feather icon to use.",
+          "type": "string",
+          "enum": [
+            "activity",
+            "airplay",
+            "alert-circle",
+            "alert-octagon",
+            "alert-triangle",
+            "align-center",
+            "align-justify",
+            "align-left",
+            "align-right",
+            "anchor",
+            "aperture",
+            "archive",
+            "arrow-down-circle",
+            "arrow-down-left",
+            "arrow-down-right",
+            "arrow-down",
+            "arrow-left-circle",
+            "arrow-left",
+            "arrow-right-circle",
+            "arrow-right",
+            "arrow-up-circle",
+            "arrow-up-left",
+            "arrow-up-right",
+            "arrow-up",
+            "at-sign",
+            "award",
+            "bar-chart-2",
+            "bar-chart",
+            "battery-charging",
+            "battery",
+            "bell-off",
+            "bell",
+            "bluetooth",
+            "bold",
+            "book-open",
+            "book",
+            "bookmark",
+            "box",
+            "briefcase",
+            "calendar",
+            "camera-off",
+            "camera",
+            "cast",
+            "check-circle",
+            "check-square",
+            "check",
+            "chevron-down",
+            "chevron-left",
+            "chevron-right",
+            "chevron-up",
+            "chevrons-down",
+            "chevrons-left",
+            "chevrons-right",
+            "chevrons-up",
+            "circle",
+            "clipboard",
+            "clock",
+            "cloud-drizzle",
+            "cloud-lightning",
+            "cloud-off",
+            "cloud-rain",
+            "cloud-snow",
+            "cloud",
+            "code",
+            "command",
+            "compass",
+            "copy",
+            "corner-down-left",
+            "corner-down-right",
+            "corner-left-down",
+            "corner-left-up",
+            "corner-right-down",
+            "corner-right-up",
+            "corner-up-left",
+            "corner-up-right",
+            "cpu",
+            "credit-card",
+            "crop",
+            "crosshair",
+            "database",
+            "delete",
+            "disc",
+            "dollar-sign",
+            "download-cloud",
+            "download",
+            "droplet",
+            "edit-2",
+            "edit-3",
+            "edit",
+            "external-link",
+            "eye-off",
+            "eye",
+            "fast-forward",
+            "feather",
+            "file-minus",
+            "file-plus",
+            "file-text",
+            "file",
+            "film",
+            "filter",
+            "flag",
+            "folder-minus",
+            "folder-plus",
+            "folder",
+            "gift",
+            "git-branch",
+            "git-commit",
+            "git-merge",
+            "git-pull-request",
+            "globe",
+            "grid",
+            "hard-drive",
+            "hash",
+            "headphones",
+            "heart",
+            "help-circle",
+            "home",
+            "image",
+            "inbox",
+            "info",
+            "italic",
+            "layers",
+            "layout",
+            "life-buoy",
+            "link-2",
+            "link",
+            "list",
+            "loader",
+            "lock",
+            "log-in",
+            "log-out",
+            "mail",
+            "map-pin",
+            "map",
+            "maximize-2",
+            "maximize",
+            "menu",
+            "message-circle",
+            "message-square",
+            "mic-off",
+            "mic",
+            "minimize-2",
+            "minimize",
+            "minus-circle",
+            "minus-square",
+            "minus",
+            "monitor",
+            "moon",
+            "more-horizontal",
+            "more-vertical",
+            "move",
+            "music",
+            "navigation-2",
+            "navigation",
+            "octagon",
+            "package",
+            "paperclip",
+            "pause-circle",
+            "pause",
+            "percent",
+            "phone-call",
+            "phone-forwarded",
+            "phone-incoming",
+            "phone-missed",
+            "phone-off",
+            "phone-outgoing",
+            "phone",
+            "pie-chart",
+            "play-circle",
+            "play",
+            "plus-circle",
+            "plus-square",
+            "plus",
+            "pocket",
+            "power",
+            "printer",
+            "radio",
+            "refresh-ccw",
+            "refresh-cw",
+            "repeat",
+            "rewind",
+            "rotate-ccw",
+            "rotate-cw",
+            "rss",
+            "save",
+            "scissors",
+            "search",
+            "send",
+            "server",
+            "settings",
+            "share-2",
+            "share",
+            "shield-off",
+            "shield",
+            "shopping-bag",
+            "shopping-cart",
+            "shuffle",
+            "sidebar",
+            "skip-back",
+            "skip-forward",
+            "slash",
+            "sliders",
+            "smartphone",
+            "speaker",
+            "square",
+            "star",
+            "stop-circle",
+            "sun",
+            "sunrise",
+            "sunset",
+            "table",
+            "tablet",
+            "tag",
+            "target",
+            "terminal",
+            "thermometer",
+            "thumbs-down",
+            "thumbs-up",
+            "toggle-left",
+            "toggle-right",
+            "trash-2",
+            "trash",
+            "trending-down",
+            "trending-up",
+            "triangle",
+            "truck",
+            "tv",
+            "type",
+            "umbrella",
+            "underline",
+            "unlock",
+            "upload-cloud",
+            "upload",
+            "user-check",
+            "user-minus",
+            "user-plus",
+            "user-x",
+            "user",
+            "users",
+            "video-off",
+            "video",
+            "voicemail",
+            "volume-1",
+            "volume-2",
+            "volume-x",
+            "volume",
+            "watch",
+            "wifi-off",
+            "wifi",
+            "wind",
+            "x-circle",
+            "x-square",
+            "x",
+            "zap-off",
+            "zap",
+            "zoom-in",
+            "zoom-out"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": ["name", "description", "runs"],
+  "then": {
+    "properties": {
+      "outputs": {
+        "$ref": "#/definitions/outputs-composite"
+      }
+    }
+  },
+  "type": "object"
+}

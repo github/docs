@@ -1,0 +1,10 @@
+include "dml-chart.rnc"
+include "shared-relationshipReference.rnc"
+include "dml-main.rnc"
+include "dml-diagram.rnc"
+include "shared-commonSimpleTypes.rnc"
+include "dml-lockedCanvas.rnc"
+include "any.rnc"
+include "dml-picture.rnc"
+include "dml-chartDrawing.rnc"
+start = dchrt_userShapes

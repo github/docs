@@ -1,0 +1,1287 @@
+"# Eventos que desencadenan flujos de trabajo
+
+Puede configurar los flujos de trabajo para que se ejecuten cuando se produzca una actividad GitHub específica, en una hora programada o cuando se produzca un evento fuera de GitHub .
+
+## Acerca de los eventos que desencadenan flujos de trabajo
+
+Los activadores de los flujos de trabajo son eventos que ocasionan que se ejecute un flujo de trabajo. Para más información sobre cómo usar desencadenadores de flujo de trabajo, consulta [Activar un flujo de trabajo](/es/actions/using-workflows/triggering-a-workflow).
+
+Algunos eventos tienen tipos de actividad múltiple. Para estos eventos, se puede especificar qué tipos de actividad activarán una ejecución de flujo de trabajo. Para más información sobre lo que significa cada tipo de actividad, consulta [Eventos y cargas de webhook](/es/webhooks-and-events/webhooks/webhook-events-and-payloads).
+
+> \[!NOTE]
+> No todos los eventos de webhook activan flujos de trabajo.
+
+## `branch_protection_rule`
+
+| Carga del evento Webhook                                                                                        | Tipos de actividad                         | `GITHUB_SHA`                                  | `GITHUB_REF`        |
+| --------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | --------------------------------------------- | ------------------- |
+| [`branch_protection_rule`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule) | - `created`<br/>- `edited`<br/>- `deleted` | Última confirmación en la rama predeterminada | Rama predeterminada |
+
+> \[!NOTE]
+> \*
+> Más de un tipo de actividad desencadena este evento. Para obtener información sobre cada tipo de actividad, consulte [Eventos y cargas de webhook](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule). De forma predeterminada, todos los tipos de actividad desencadenan flujos de trabajo que se ejecutan en este evento. Puede limitar las ejecuciones de flujo de trabajo a tipos de actividad específicos mediante la palabra clave `types`. Para más información, consulta [Sintaxis del flujo de trabajo para GitHub Actions](/es/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
+>
+> * Este evento solo desencadenará una ejecución de flujo de trabajo si el archivo de flujo de trabajo existe en la rama predeterminada.
+
+Ejecuta tu flujo de trabajo cuando se cambian las reglas de protección de rama en el repositorio del flujo de trabajo. Para obtener más información sobre las reglas de protección de ramas, consulte [Acerca de las ramas protegidas](/es/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches). Para obtener información sobre las API de regla de protección de rama, consulta [Objetos](/es/graphql/reference/objects#branchprotectionrule) en la documentación de GraphQL API, o bien [Puntos de conexión de la API REST para ramas y sus configuraciones](/es/rest/branches).
+
+Por ejemplo, puede ejecutar un flujo de trabajo cuando una regla de protección de rama ha sido `created` o `deleted`:
+
+```yaml
+on:
+  branch_protection_rule:
+    types: [created, deleted]
+```
+
+## `check_run`
+
+| Carga del evento Webhook                                                              | Tipos de actividad                                                         | `GITHUB_SHA`                                  | `GITHUB_REF`        |
+| ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- | --------------------------------------------- | ------------------- |
+| [`check_run`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#check_run) | - `created`<br/>- `rerequested`<br/>- `completed`<br/>- `requested_action` | Última confirmación en la rama predeterminada | Rama predeterminada |
+
+> \[!NOTE]
+> \*
+> Más de un tipo de actividad desencadena este evento. Para obtener información sobre cada tipo de actividad, consulte [Eventos y cargas de webhook](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#check_run). De forma predeterminada, todos los tipos de actividad desencadenan flujos de trabajo que se ejecutan en este evento. Puede limitar las ejecuciones de flujo de trabajo a tipos de actividad específicos mediante la palabra clave `types`. Para más información, consulta [Sintaxis del flujo de trabajo para GitHub Actions](/es/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
+>
+> * Este evento solo desencadenará una ejecución de flujo de trabajo si el archivo de flujo de trabajo existe en la rama predeterminada.
+> * Para evitar flujos de trabajo recursivos, este evento no desencadena flujos de trabajo si la suite de comprobación que ejecutó la comprobación fue creada por GitHub Actions o si la SHA de la suite de comprobación está asociada con GitHub Actions.
+
+Ejecuta tu flujo de trabajo cuando ocurre actividad relacionada con una ejecución de verificación. Una ejecución de verificación es una prueba individual que forma parte de una suite de verificación. Para más información, consulta [Uso de la API REST para interactuar con comprobaciones](/es/rest/guides/using-the-rest-api-to-interact-with-checks). Para obtener información sobre las API de ejecución de comprobación, consulta [Objetos](/es/graphql/reference/objects#checkrun) en la documentación de GraphQL API, o bien [Puntos de conexión de la API de REST para ejecuciones de comprobación](/es/rest/checks/runs).
+
+Por ejemplo, puede ejecutar un flujo de trabajo cuando una ejecución de comprobación ha sido `rerequested` o `completed`.
+
+```yaml
+on:
+  check_run:
+    types: [rerequested, completed]
+```
+
+## `check_suite`
+
+| Carga del evento Webhook                                                                  | Tipos de actividad | `GITHUB_SHA`                                  | `GITHUB_REF`        |
+| ----------------------------------------------------------------------------------------- | ------------------ | --------------------------------------------- | ------------------- |
+| [`check_suite`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#check_suite) | - `completed`      | Última confirmación en la rama predeterminada | Rama predeterminada |
+
+> \[!NOTE]
+> \*
+> Más de un tipo de actividad desencadena este evento. Para obtener información sobre cada tipo de actividad, consulte [Eventos y cargas de webhook](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#check_suite). Aunque solo se admite el tipo de actividad `completed`, la especificación del tipo de actividad mantendrá el flujo de trabajo como específico si en el futuro se agregan más tipos de actividad. De forma predeterminada, todos los tipos de actividad desencadenan flujos de trabajo que se ejecutan en este evento. Puede limitar las ejecuciones de flujo de trabajo a tipos de actividad específicos mediante la palabra clave `types`. Para más información, consulta [Sintaxis del flujo de trabajo para GitHub Actions](/es/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
+>
+> * Este evento solo desencadenará una ejecución de flujo de trabajo si el archivo de flujo de trabajo existe en la rama predeterminada.
+> * Para evitar flujos de trabajo recursivos, este evento no desencadena flujos de trabajo si el conjunto de comprobaciones fue creado por GitHub Actions o si el SHA principal del conjunto de comprobaciones está asociado a GitHub Actions.
+
+Ejecuta tu flujo de trabajo cuando ocurre una actividad de suite de verificación. Una suite de verificación es una colección de ejecuciones de verificación creadas para un commit específico. Las suites de verificación resumen el estado y conclusión de las ejecuciones de verificación que están en la suite. Para más información, consulta [Uso de la API REST para interactuar con comprobaciones](/es/rest/guides/using-the-rest-api-to-interact-with-checks). Para obtener información acerca de las API de suite de verificación, consulta [Objetos](/es/graphql/reference/objects#checksuite) en la documentación del GraphQL API o [Puntos de conexión de la API de REST para conjuntos de comprobación](/es/rest/checks/suites).
+
+Por ejemplo, puede ejecutar un flujo de trabajo cuando un conjunto de comprobaciones ha sido `completed`.
+
+```yaml
+on:
+  check_suite:
+    types: [completed]
+```
+
+## `create`
+
+| Carga del evento Webhook                                                        | Tipos de actividad | `GITHUB_SHA`                                     | `GITHUB_REF`           |
+| ------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------ | ---------------------- |
+| [`create`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#create) | No aplicable       | Última confirmación en la rama o etiqueta creada | Rama o etiqueta creada |
+
+> \[!NOTE]
+> No se creará un evento al crear más de tres etiquetas a la vez.
+
+Ejecuta tu flujo de trabajo cuando alguien crea una referencia de Git (rama o etiqueta de Git) en el repositorio del flujo de trabajo. Para obtener información sobre las API para crear una referencia de Git, consulta [Mutaciones](/es/graphql/reference/mutations#createref) en la documentación de GraphQL API, o bien [Puntos de conexión de la API de REST para referencias de Git](/es/rest/git/refs#create-a-reference).
+
+Por ejemplo, puede ejecutar un flujo de trabajo cuando se produzca el evento `create`.
+
+```yaml
+on:
+  create
+```
+
+## `delete`
+
+| Carga del evento Webhook                                                        | Tipos de actividad | `GITHUB_SHA`                                  | `GITHUB_REF`        |
+| ------------------------------------------------------------------------------- | ------------------ | --------------------------------------------- | ------------------- |
+| [`delete`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#delete) | No aplicable       | Última confirmación en la rama predeterminada | Rama predeterminada |
+
+> \[!NOTE]
+>
+> * Este evento solo desencadenará una ejecución de flujo de trabajo si el archivo de flujo de trabajo existe en la rama predeterminada.
+> * No se creará un evento al eliminar más de tres etiquetas a la vez.
+
+Ejecuta tu flujo de trabajo cuando alguien borra una referencia de Git (rama o etiqueta de Git) en el repositorio del flujo de trabajo. Para obtener información sobre las API para eliminar una referencia de Git, consulta [Mutaciones](/es/graphql/reference/mutations#deleteref) en la documentación de GraphQL API, o bien [Puntos de conexión de la API de REST para referencias de Git](/es/rest/git/refs#delete-a-reference).
+
+Por ejemplo, puede ejecutar un flujo de trabajo cuando se produzca el evento `delete`.
+
+```yaml
+on:
+  delete
+```
+
+## `deployment`
+
+| Carga del evento Webhook                                                                | Tipos de actividad | `GITHUB_SHA`                   | `GITHUB_REF`                                                                                |
+| --------------------------------------------------------------------------------------- | ------------------ | ------------------------------ | ------------------------------------------------------------------------------------------- |
+| [`deployment`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment) | No aplicable       | Confirmación de implementación | Rama o etiqueta que se debe desplegar (en blanco si se crea con el SHA de una confirmación) |
+
+Ejecuta tu flujo de trabajo cuando se crea una implementación en el repositorio del flujo de trabajo. Es posible que las implementaciones creadas con un SHA de confirmación no tengan una referencia de Git. Para obtener información sobre las API para crear una implementación, consulte [Mutaciones](/es/graphql/reference/mutations#createdeployment) en la documentación de GraphQL API, o bien [Puntos de conexión de la API de REST para repositorios](/es/rest/repos#deployments).
+
+Por ejemplo, puede ejecutar un flujo de trabajo cuando se produzca el evento `deployment`.
+
+```yaml
+on:
+  deployment
+```
+
+## `deployment_status`
+
+| Carga del evento Webhook                                                                              | Tipos de actividad | `GITHUB_SHA`                   | `GITHUB_REF`                                                    |
+| ----------------------------------------------------------------------------------------------------- | ------------------ | ------------------------------ | --------------------------------------------------------------- |
+| [`deployment_status`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment_status) | No aplicable       | Confirmación de implementación | Rama o etiqueta que se debe implementar (vacío si es un commit) |
+
+> \[!NOTE]
+> Cuando el estado de una implementación se establece en `inactive`, no se desencadenará una ejecución de flujo de trabajo.
+
+Ejecuta tu flujo de trabajo cuando un tercero proporciona un estado de despliegue. Las implementaciones creadas con un SHA de confirmación pueden no tener una referencia de Git. Para obtener información sobre las API para crear un estado de implementación, consulta [Mutaciones](/es/graphql/reference/mutations#createdeploymentstatus) en la documentación de la API de GraphQL, o bien [Puntos de conexión de la API de REST para implementaciones](/es/rest/deployments#create-a-deployment-status).
+
+Por ejemplo, puede ejecutar un flujo de trabajo cuando se produzca el evento `deployment_status`.
+
+```yaml
+on:
+  deployment_status
+```
+
+## `discussion`
+
+| Carga del evento Webhook                                                                | Tipos de actividad                                                                                                                                                                                                              | `GITHUB_SHA`                                  | `GITHUB_REF`        |
+| --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | ------------------- |
+| [`discussion`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion) | - `created`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `category_changed`<br/> - `answered`<br/> - `unanswered` | Última confirmación en la rama predeterminada | Rama predeterminada |
+
+> \[!NOTE]
+> \*
+> Más de un tipo de actividad desencadena este evento. Para obtener información sobre cada tipo de actividad, consulte [Eventos y cargas de webhook](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion). De forma predeterminada, todos los tipos de actividad desencadenan flujos de trabajo que se ejecutan en este evento. Puede limitar las ejecuciones de flujo de trabajo a tipos de actividad específicos mediante la palabra clave `types`. Para más información, consulta [Sintaxis del flujo de trabajo para GitHub Actions](/es/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
+>
+> * Este evento solo desencadenará una ejecución de flujo de trabajo si el archivo de flujo de trabajo existe en la rama predeterminada.
+> * Los eventos de webhook para GitHub Discussions se encuentran actualmente en versión preliminar pública y están sujetos a cambios.
+
+Ejecuta tu flujo de trabajo cuando se crea o modifica un debate en el repositorio del mismo. Para la actividad relacionada con los comentarios sobre un debate, use el evento [`discussion_comment`](#discussion_comment). Para más información sobre los debates, consulta [Acerca de los debates](/es/discussions/collaborating-with-your-community-using-discussions/about-discussions). Para obtener información sobre GraphQL API, consulta [Objetos](/es/graphql/reference/objects#discussion).
+
+Por ejemplo, puede ejecutar un flujo de trabajo cuando un debate ha sido `created`, `edited` o `answered`.
+
+```yaml
+on:
+  discussion:
+    types: [created, edited, answered]
+```
+
+## `discussion_comment`
+
+| Carga del evento Webhook                                                                                | Tipos de actividad                              | `GITHUB_SHA`                                  | `GITHUB_REF`        |
+| ------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | --------------------------------------------- | ------------------- |
+| [`discussion_comment`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Última confirmación en la rama predeterminada | Rama predeterminada |
+
+> \[!NOTE]
+> \*
+> Más de un tipo de actividad desencadena este evento. Para obtener información sobre cada tipo de actividad, consulte [Eventos y cargas de webhook](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion_comment). De forma predeterminada, todos los tipos de actividad desencadenan flujos de trabajo que se ejecutan en este evento. Puede limitar las ejecuciones de flujo de trabajo a tipos de actividad específicos mediante la palabra clave `types`. Para más información, consulta [Sintaxis del flujo de trabajo para GitHub Actions](/es/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
+>
+> * Este evento solo desencadenará una ejecución de flujo de trabajo si el archivo de flujo de trabajo existe en la rama predeterminada.
+> * Los eventos de webhook para GitHub Discussions se encuentran actualmente en versión preliminar pública y están sujetos a cambios.
+
+Ejecuta tu flujo de trabajo cuando un comentario de un debate se crea o modifica en el repositorio del mismo. Para la actividad relacionada con un debate en lugar de los comentarios sobre el debate, use el evento [`discussion`](#discussion). Para más información sobre los debates, consulta [Acerca de los debates](/es/discussions/collaborating-with-your-community-using-discussions/about-discussions). Para obtener información sobre GraphQL API, consulta [Objetos](/es/graphql/reference/objects#discussion).
+
+Por ejemplo, puede ejecutar un flujo de trabajo cuando el comentario de un debate haya sido `created` o `deleted`.
+
+```yaml
+on:
+  discussion_comment:
+    types: [created, deleted]
+```
+
+## `fork`
+
+| Carga del evento Webhook                                                    | Tipos de actividad | `GITHUB_SHA`                                  | `GITHUB_REF`        |
+| --------------------------------------------------------------------------- | ------------------ | --------------------------------------------- | ------------------- |
+| [`fork`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#fork) | No aplicable       | Última confirmación en la rama predeterminada | Rama predeterminada |
+
+> \[!NOTE]
+> Este evento solo desencadenará una ejecución de flujo de trabajo si el archivo de flujo de trabajo existe en la rama predeterminada.
+
+Ejecuta tu flujo de trabajo cuando alguien hace un fork de un repositorio. Para obtener información sobre la API REST, consulta [Endpoints de la API REST para forks](/es/rest/repos/forks#create-a-fork).
+
+Por ejemplo, puede ejecutar un flujo de trabajo cuando se produzca el evento `fork`.
+
+```yaml
+on:
+  fork
+```
+
+## `gollum`
+
+| Carga del evento Webhook                                                        | Tipos de actividad | `GITHUB_SHA`                                  | `GITHUB_REF`        |
+| ------------------------------------------------------------------------------- | ------------------ | --------------------------------------------- | ------------------- |
+| [`gollum`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#gollum) | No aplicable       | Última confirmación en la rama predeterminada | Rama predeterminada |
+
+> \[!NOTE]
+> Este evento solo desencadenará una ejecución de flujo de trabajo si el archivo de flujo de trabajo existe en la rama predeterminada.
+
+Ejecuta tu flujo de trabajo cuando alguien crea o actualiza una página de Wiki. Para más información, consulta [Acerca de las wikis](/es/communities/documenting-your-project-with-wikis/about-wikis).
+
+Por ejemplo, puede ejecutar un flujo de trabajo cuando se produzca el evento `gollum`.
+
+```yaml
+on:
+  gollum
+```
+
+## `image_version`
+
+| Carga del evento Webhook | Tipos de actividad | `GITHUB_SHA`                                  | `GITHUB_REF`        |
+| ------------------------ | ------------------ | --------------------------------------------- | ------------------- |
+| No aplicable             | No aplicable       | Última confirmación en la rama predeterminada | Rama predeterminada |
+
+Ejecuta el flujo de trabajo cuando una nueva versión de una imagen especificada está disponible para su uso. Este evento se desencadena normalmente después de crear una versión de imagen correcta, lo que permite automatizar acciones como la implementación o las notificaciones en respuesta a las nuevas versiones de imagen.
+
+Este evento admite patrones de globo tanto para los nombres de imagen como para las versiones. En el ejemplo siguiente se desencadena cuando una nueva versión de imagen coincide con cualquiera de las combinaciones de nombre y versión especificadas. Por ejemplo, `["MyNewImage", 1.0.0]`, `["MyNewImage", 2.53.0]`, `["MyOtherImage", 1.0.0]`y `["MyOtherImage", 2.0.0]`.
+
+```yaml
+on:
+  image_version:
+    names:
+    - "MyNewImage"
+    - "MyOtherImage"
+    versions:
+    - 1.*
+    - 2.*
+```
+
+## `issue_comment`
+
+| Carga del evento Webhook                                                                      | Tipos de actividad                              | `GITHUB_SHA`                                  | `GITHUB_REF`        |
+| --------------------------------------------------------------------------------------------- | ----------------------------------------------- | --------------------------------------------- | ------------------- |
+| [`issue_comment`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Última confirmación en la rama predeterminada | Rama predeterminada |
+
+> \[!NOTE]
+> \*
+> Más de un tipo de actividad desencadena este evento. Para obtener información sobre cada tipo de actividad, consulte [Eventos y cargas de webhook](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#issue_comment). De forma predeterminada, todos los tipos de actividad desencadenan flujos de trabajo que se ejecutan en este evento. Puede limitar las ejecuciones de flujo de trabajo a tipos de actividad específicos mediante la palabra clave `types`. Para más información, consulta [Sintaxis del flujo de trabajo para GitHub Actions](/es/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
+>
+> * Este evento solo desencadenará una ejecución de flujo de trabajo si el archivo de flujo de trabajo existe en la rama predeterminada.
+
+Ejecuta tu flujo de trabajo cuando se crea, edita o borra un comentario en una propuesta o solicitud de cambios. Para obtener información sobre las API de comentario de incidencias, consulta [Objetos](/es/graphql/reference/objects#issuecomment) en la documentación de GraphQL API, o bien [Eventos y cargas de webhook](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#issue_comment) en la documentación de la API REST.
+
+Por ejemplo, puede ejecutar un flujo de trabajo cuando un comentario de una incidencia o solicitud de incorporación de cambios haya sido `created` o `deleted`.
+
+```yaml
+on:
+  issue_comment:
+    types: [created, deleted]
+```
+
+###
+
+```
+          `issue_comment` solo en incidencias o solo en solicitudes de incorporación de cambios
+```
+
+El evento `issue_comment` se produce para comentarios sobre incidencias y solicitudes de incorporación de cambios. Puede usar la propiedad `github.event.issue.pull_request` en un condicional para realizar diferentes acciones según si el objeto desencadenador es una incidencia o un pull request.
+
+Por ejemplo, este flujo de trabajo ejecutará el trabajo `pr_commented` solo si el evento `issue_comment` proviene de un pull request. Ejecutará el trabajo `issue_commented` solo si el evento `issue_comment` se ha originado en una incidencia.
+
+```yaml
+on: issue_comment
+
+jobs:
+  pr_commented:
+    # This job only runs for pull request comments
+    name: PR comment
+    if: ${{ github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo A comment on PR $NUMBER
+        env:
+          NUMBER: ${{ github.event.issue.number }}
+
+  issue_commented:
+    # This job only runs for issue comments
+    name: Issue comment
+    if: ${{ !github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo A comment on issue $NUMBER
+        env:
+          NUMBER: ${{ github.event.issue.number }}
+```
+
+## `issues`
+
+| Carga del evento Webhook                                                        | Tipos de actividad                                                                                                                                                                                                                                                                                           | `GITHUB_SHA`                                  | `GITHUB_REF`        |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------- | ------------------- |
+| [`issues`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#issues) | - `opened`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `closed`<br/>- `reopened`<br/>- `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `milestoned`<br/> - `demilestoned`<br/> - `typed`<br/> - `untyped` | Última confirmación en la rama predeterminada | Rama predeterminada |
+
+> \[!NOTE]
+> \*
+> Más de un tipo de actividad desencadena este evento. Para obtener información sobre cada tipo de actividad, consulte [Eventos y cargas de webhook](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#issues). De forma predeterminada, todos los tipos de actividad desencadenan flujos de trabajo que se ejecutan en este evento. Puede limitar las ejecuciones de flujo de trabajo a tipos de actividad específicos mediante la palabra clave `types`. Para más información, consulta [Sintaxis del flujo de trabajo para GitHub Actions](/es/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
+>
+> * Este evento solo desencadenará una ejecución de flujo de trabajo si el archivo de flujo de trabajo existe en la rama predeterminada.
+
+Ejecuta tu flujo de trabajo cuando se crea o modifica una incidencia en el repositorio del flujo de trabajo. Para la actividad relacionada con los comentarios de una incidencia, use el evento [`issue_comment`](#issue_comment). Para obtener más información sobre los problemas, consulta [Acerca de los problemas](/es/issues/tracking-your-work-with-issues/about-issues). Para obtener información sobre las API de incidencias, consulta [Objetos](/es/graphql/reference/objects#issue) en la documentación de GraphQL API, o bien [Puntos de conexión de la API de REST para incidencias](/es/rest/issues).
+
+Por ejemplo, puede ejecutar un flujo de trabajo cuando una incidencia ha sido `opened`, `edited` o `milestoned`.
+
+```yaml
+on:
+  issues:
+    types: [opened, edited, milestoned]
+```
+
+## `label`
+
+| Carga del evento Webhook                                                      | Tipos de actividad                              | `GITHUB_SHA`                                  | `GITHUB_REF`        |
+| ----------------------------------------------------------------------------- | ----------------------------------------------- | --------------------------------------------- | ------------------- |
+| [`label`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#label) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Última confirmación en la rama predeterminada | Rama predeterminada |
+
+> \[!NOTE]
+> \*
+> Más de un tipo de actividad desencadena este evento. Para obtener información sobre cada tipo de actividad, consulte [Eventos y cargas de webhook](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#label). De forma predeterminada, todos los tipos de actividad desencadenan flujos de trabajo que se ejecutan en este evento. Puede limitar las ejecuciones de flujo de trabajo a tipos de actividad específicos mediante la palabra clave `types`. Para más información, consulta [Sintaxis del flujo de trabajo para GitHub Actions](/es/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
+>
+> * Este evento solo desencadenará una ejecución de flujo de trabajo si el archivo de flujo de trabajo existe en la rama predeterminada.
+
+Ejecuta tu flujo de trabajo cuando se crea o modifica una etiqueta en el repositorio del mismo. Para más información sobre las etiquetas, consulta [Administrar las etiquetas](/es/issues/using-labels-and-milestones-to-track-work/managing-labels). Para obtener información sobre las API de etiquetas, consulta [Objetos](/es/graphql/reference/objects#label) en la documentación de GraphQL API, o bien [Puntos de conexión de la API de REST para etiquetas](/es/rest/issues/labels).
+
+Si quiere ejecutar el flujo de trabajo cuando se agrega o se quita una etiqueta de una incidencia, una solicitud de incorporación de cambios o un debate, use los tipos de actividad `labeled` o `unlabeled` para los eventos [`issues`](#issues), [`pull_request`](#pull_request), [`pull_request_target`](#pull_request_target) o [`discussion`](#discussion) en su lugar.
+
+Por ejemplo, puede ejecutar un flujo de trabajo cuando una etiqueta ha sido `created` o `deleted`.
+
+```yaml
+on:
+  label:
+    types: [created, deleted]
+```
+
+## `merge_group`
+
+| Carga del evento Webhook                                                                  | Tipos de actividad | `GITHUB_SHA`            | `GITHUB_REF`                                        |
+| ----------------------------------------------------------------------------------------- | ------------------ | ----------------------- | --------------------------------------------------- |
+| [`merge_group`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group) | `checks_requested` | SHA del grupo de fusión | Referencia del grupo de fusión mediante combinación |
+
+> \[!NOTE]
+>
+> *
+
+```
+          Más de un tipo de actividad desencadena este evento. Aunque solo se admite el `checks_requested` tipo de actividad, especificar el tipo de actividad mantendrá el flujo de trabajo específico si se agregan más tipos de actividad en el futuro. Para obtener información sobre cada tipo de actividad, consulta [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group). De forma predeterminada, todos los tipos de actividad desencadenan flujos de trabajo que se ejecutan en este evento. Puede limitar las ejecuciones de flujo de trabajo a tipos de actividad específicos mediante la palabra clave `types`. Para más información, consulta [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
+```
+
+> * Si el repositorio usa GitHub Actions para realizar las comprobaciones necesarias en las solicitudes de incorporación de cambios en el repositorio, debe actualizar los flujos de trabajo para incluir el evento `merge_group` como desencadenador adicional. De lo contrario, las comprobaciones de estado no se desencadenarán al agregar una solicitud de incorporación de cambios a una cola de fusión. Se producirá un error en la fusión mediante combinación, ya que no se notificará la comprobación de estado necesaria. El evento `merge_group` es independiente de los eventos `pull_request` y `push`.
+
+Ejecuta el flujo de trabajo cuando se agrega una solicitud de incorporación de cambios a una cola de fusión mediante combinación, que agrega la solicitud de incorporación de cambios a un grupo de fusión mediante combinación. Para obtener más información, consulta [Combinación de una solicitud de incorporación de cambios con una cola de fusión mediante combinación](/es/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue).
+
+Por ejemplo, puedes ejecutar un flujo de trabajo cuando se haya producido la actividad `checks_requested`.
+
+```yaml
+on:
+  pull_request:
+    branches: [ "main" ]
+  merge_group:
+    types: [checks_requested]
+```
+
+## `milestone`
+
+| Carga del evento Webhook                                                              | Tipos de actividad                                                            | `GITHUB_SHA`                                  | `GITHUB_REF`        |
+| ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | --------------------------------------------- | ------------------- |
+| [`milestone`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#milestone) | - `created`<br/>- `closed`<br/>- `opened`<br/>- `edited`<br/>- `deleted`<br/> | Última confirmación en la rama predeterminada | Rama predeterminada |
+
+> \[!NOTE]
+> \*
+> Más de un tipo de actividad desencadena este evento. Para obtener información sobre cada tipo de actividad, consulte [Eventos y cargas de webhook](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#milestone). De forma predeterminada, todos los tipos de actividad desencadenan flujos de trabajo que se ejecutan en este evento. Puede limitar las ejecuciones de flujo de trabajo a tipos de actividad específicos mediante la palabra clave `types`. Para más información, consulta [Sintaxis del flujo de trabajo para GitHub Actions](/es/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
+>
+> * Este evento solo desencadenará una ejecución de flujo de trabajo si el archivo de flujo de trabajo existe en la rama predeterminada.
+
+Ejecuta tu flujo de trabajo cuando se crea o modifica un hito en el repositorio de tu flujo de trabajo. Para más información sobre los hitos, consulta [Acerca de los hitos](/es/issues/using-labels-and-milestones-to-track-work/about-milestones). Para obtener información sobre las API de hitos, consulta [Objetos](/es/graphql/reference/objects#milestone) en la documentación de GraphQL API, o bien [Puntos de conexión de API de REST para hitos](/es/rest/issues/milestones).
+
+Si quiere ejecutar el flujo de trabajo cuando se agrega o se quita una incidencia de un hito, use los tipos de actividad `milestoned` o `demilestoned` para el evento [`issues`](#issues) en su lugar.
+
+Por ejemplo, puede ejecutar un flujo de trabajo cuando un hito ha sido `opened` o `deleted`.
+
+```yaml
+on:
+  milestone:
+    types: [opened, deleted]
+```
+
+## `page_build`
+
+| Carga del evento Webhook                                                                | Tipos de actividad | `GITHUB_SHA`                                  | `GITHUB_REF`        |
+| --------------------------------------------------------------------------------------- | ------------------ | --------------------------------------------- | ------------------- |
+| [`page_build`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#page_build) | No aplicable       | Última confirmación en la rama predeterminada | Rama predeterminada |
+
+> \[!NOTE]
+> Este evento solo desencadenará una ejecución de flujo de trabajo si el archivo de flujo de trabajo existe en la rama predeterminada.
+
+Ejecuta el flujo de trabajo cuando alguien realiza un push a una rama que es el origen de publicación para GitHub Pages, si GitHub Pages está habilitado para el repositorio. Para obtener más información sobre los GitHub Pages orígenes de publicación, consulte [Configuración de un origen de publicación para el sitio de GitHub Pages](/es/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). Para obtener información sobre la API REST, consulta [Puntos de conexión de la API de REST para repositorios](/es/rest/repos#pages).
+
+Por ejemplo, puede ejecutar un flujo de trabajo cuando se produzca el evento `page_build`.
+
+```yaml
+on:
+  page_build
+```
+
+## `public`
+
+| Carga del evento Webhook                                                        | Tipos de actividad | `GITHUB_SHA`                                  | `GITHUB_REF`        |
+| ------------------------------------------------------------------------------- | ------------------ | --------------------------------------------- | ------------------- |
+| [`public`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#public) | No aplicable       | Última confirmación en la rama predeterminada | Rama predeterminada |
+
+> \[!NOTE]
+> Este evento solo desencadenará una ejecución de flujo de trabajo si el archivo de flujo de trabajo existe en la rama predeterminada.
+
+Ejecuta tu flujo de trabajo cuando el repositorio de tu flujo de trabajo cambia de privado a público. Para obtener información sobre la API REST, consulta [Puntos de conexión de la API de REST para repositorios](/es/rest/repos#edit).
+
+Por ejemplo, puede ejecutar un flujo de trabajo cuando se produzca el evento `public`.
+
+```yaml
+on:
+  public
+```
+
+## `pull_request`
+
+| Carga del evento Webhook                                                                    | Tipos de actividad                                                                                                                                                                                                                                                                                                                                                                                                               | `GITHUB_SHA`                                          | `GITHUB_REF`                                                                                       |
+| ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| [`pull_request`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `locked`<br/>- `unlocked`<br/>- `enqueued`<br/>- `dequeued`<br/>- `milestoned`<br/>- `demilestoned`<br/>- `ready_for_review`<br/>- `review_requested`<br/>- `review_request_removed`<br/>- `auto_merge_enabled`<br/>- `auto_merge_disabled` | Última confirmación de fusión en la rama `GITHUB_REF` | Rama de combinación de solicitud de incorporación de cambios `refs/pull/PULL_REQUEST_NUMBER/merge` |
+
+> \[!NOTE]
+> \*
+> Más de un tipo de actividad desencadena este evento. Para obtener información sobre cada tipo de actividad, consulte [Eventos y cargas de webhook](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request). De forma predeterminada, un flujo de trabajo solo se ejecuta cuando el tipo de actividad de un evento `pull_request` es `opened`, `synchronize`o `reopened`. Para desencadenar flujos de trabajo mediante otros tipos de actividad, use la palabra clave `types`. Para más información, consulta [Sintaxis del flujo de trabajo para GitHub Actions](/es/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
+>
+> * Los flujos de trabajo no se ejecutarán en la actividad `pull_request` si la solicitud de incorporación de cambios tiene un conflicto de combinación. El conflicto de fusión se debe resolver primero. Por el contrario, los flujos de trabajo con el evento `pull_request_target` se ejecutarán incluso si la solicitud de incorporación de cambios tiene un conflicto de combinación. Antes de usar el desencadenador `pull_request_target`, debe tener en cuenta los riesgos de seguridad. Para obtener más información, vea [`pull_request_target`](#pull_request_target).
+> * La carga del evento de webhook `pull_request` está vacía para las solicitudes de incorporación de cambios combinadas y las solicitudes de incorporación de cambios procedentes de repositorios bifurcadas.
+> * El valor de `GITHUB_REF` varía para una solicitud de incorporación de cambios cerrada en función de si la solicitud de incorporación de cambios se ha combinado o no. Si se cerró una solicitud de incorporación de cambios pero no se combinó, será `refs/pull/PULL_REQUEST_NUMBER/merge`. Si se cerró una solicitud de incorporación de cambios como resultado de combinarse, será el `ref` completo de la rama en la que se combinó, por ejemplo `/refs/heads/main`.
+
+Ejecuta tu flujo de trabajo cuando ocurre alguna actividad en la solicitud de trabajo del repositorio del flujo de trabajo. Por ejemplo, si no se especifican tipos de actividad, el flujo de trabajo se ejecutará cuando se abra o vuelva a abrir una solicitud de cambios o cuando se actualice la rama de encabezado de la misma. Para las actividades relacionadas con las revisiones de solicitudes de extracción, comentarios de revisión de solicitudes de extracción o comentarios de solicitudes de extracción, use en su lugar los eventos [`pull_request_review`](#pull_request_review), [`pull_request_review_comment`](#pull_request_review_comment) o [`issue_comment`](#issue_comment). Para obtener información sobre las API de pull request, consulta [Objetos](/es/graphql/reference/objects#pullrequest) en la documentación de GraphQL API o bien [Puntos de conexión de la API REST para solicitudes de incorporación de cambios](/es/rest/pulls).
+
+Tenga en cuenta que `GITHUB_SHA` para este evento es la última confirmación de combinación de la rama de combinación de solicitudes de incorporación de cambios. Si quiere obtener el identificador de la última confirmación en la rama principal de la solicitud de incorporación de cambios, use `github.event.pull_request.head.sha` en su lugar. Para obtener más información sobre las ramas de fusión, consulte [Acerca de las solicitudes de incorporación de cambios](/es/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#pull-request-refs-and-merge-branches).
+
+### Cómo afecta la rama de combinación al flujo de trabajo
+
+Para las solicitudes de incorporación de cambios abiertas y combinables, los flujos de trabajo desencadenados por el evento `pull_request` establecen `GITHUB_REF` en la rama de combinación. Dado que `actions/checkout` utiliza `GITHUB_REF` de forma predeterminada, se verifica la rama de combinación. Las pruebas de CI se ejecutan con el resultado combinado, no solo con la rama principal:
+
+* `GITHUB_REF` se establece en `refs/pull/PULL_REQUEST_NUMBER/merge`.
+* `GITHUB_SHA` es el SHA de la confirmación de combinación en la rama de combinación.
+
+Para probar solo las confirmaciones de la rama principal sin simular una combinación, consulte la rama principal mediante `github.event.pull_request.head.sha` en el flujo de trabajo.
+
+Por ejemplo, puedes ejecutar un flujo de trabajo cuando se abre o se vuelve a abrir un pull request.
+
+```yaml
+on:
+  pull_request:
+    types: [opened, reopened]
+```
+
+Puedes utilizar el contexto del evento para controlar aún más cuándo se ejecutarán los jobs en tu flujo de trabajo. Por ejemplo, este flujo de trabajo se ejecutará cuando se solicite una revisión en un pull request, pero el trabajo `specific_review_requested` solo se ejecutará cuando se solicite una revisión de `octo-team`.
+
+```yaml
+on:
+  pull_request:
+    types: [review_requested]
+jobs:
+  specific_review_requested:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.requested_team.name == 'octo-team'}}
+    steps:
+      - run: echo 'A review from octo-team was requested'
+```
+
+### Ejecución del flujo de trabajo `pull_request` en función de la rama base o de encabezado de una solicitud de incorporación de cambios
+
+Puede usar el filtro `branches` o `branches-ignore` a fin de configurar el flujo de trabajo para que solo se ejecute en solicitudes de incorporación de cambios destinadas a ramas específicas. Para más información, consulta [Sintaxis del flujo de trabajo para GitHub Actions](/es/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore).
+
+Por ejemplo, este flujo de trabajo se ejecutará cuando alguien abra una solicitud de incorporación de cambios destinada a una rama cuyo nombre empiece por `releases/`:
+
+```yaml
+on:
+  pull_request:
+    types:
+      - opened
+    branches:
+      - 'releases/**'
+```
+
+> \[!NOTE]
+
+```
+          Si usa los filtros `branches` y `paths`, el flujo de trabajo solo se ejecutará cuando se cumplan ambos filtros. Por ejemplo, el siguiente flujo de trabajo solo se ejecutará cuando una solicitud de incorporación de cambios que incluya un cambio en un archivo javaScript (`.js`) se abra en una rama cuyo nombre comience por `releases/`:
+```
+
+> ```yaml
+> on:
+>   pull_request:
+>     types:
+>       - opened
+>     branches:
+>       - 'releases/**'
+>     paths:
+>       - '**.js'
+> ```
+
+Para ejecutar un trabajo basado en el nombre de la rama principal del pull request (en lugar del nombre de la rama base del pull request), use el contexto `github.head_ref` en una condicional. Por ejemplo, este flujo de trabajo se ejecutará cada vez que se abra una solicitud de incorporación de cambios, pero el trabajo `run_if` solo se ejecutará si el inicio de la solicitud de incorporación de cambios es una rama cuyo nombre empieza por `releases/`:
+
+```yaml
+on:
+  pull_request:
+    types:
+      - opened
+jobs:
+  run_if:
+    if: startsWith(github.head_ref, 'releases/')
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "The head of this PR starts with 'releases/'"
+```
+
+### Ejecución del flujo de trabajo `pull_request` en función de los archivos que cambiaron en una solicitud de incorporación de cambios
+
+También puedes configurar tu flujo de trabajo para que se ejecute cuando una solicitud de cambios cambie archivos específicos. Para más información, consulta [Sintaxis del flujo de trabajo para GitHub Actions](/es/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore).
+
+Por ejemplo, este flujo de trabajo se ejecutará cuando una solicitud de incorporación de cambios incluya un cambio en un archivo JavaScript (`.js`):
+
+```yaml
+on:
+  pull_request:
+    paths:
+      - '**.js'
+```
+
+> \[!NOTE]
+
+```
+          Si usa los filtros `branches` y `paths`, el flujo de trabajo solo se ejecutará cuando se cumplan ambos filtros. Por ejemplo, el siguiente flujo de trabajo solo se ejecutará cuando una solicitud de incorporación de cambios que incluya un cambio en un archivo javaScript (`.js`) se abra en una rama cuyo nombre comience por `releases/`:
+```
+
+> ```yaml
+> on:
+>   pull_request:
+>     types:
+>       - opened
+>     branches:
+>       - 'releases/**'
+>     paths:
+>       - '**.js'
+> ```
+
+### Ejecutar el flujo de trabajo `pull_request` cuando se fusiona un pull request
+
+Cuando se fusiona un pull request, este se cierra automáticamente. Para ejecutar un flujo de trabajo cuando se combina una solicitud de incorporación de cambios, use el tipo de evento `pull_request``closed`  junto con un condicional que compruebe el valor `merged` del evento. Por ejemplo, el siguiente flujo de trabajo se ejecutará cada que se cierre una solicitud de cambios. El trabajo `if_merged` solo se ejecutará si el pull request también se ha fusionado.
+
+```yaml
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  if_merged:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo The PR was merged
+```
+
+#### Flujos de trabajo en repositorios bifurcados
+
+Los flujos de trabajo no se ejecutan predeterminadamente en los repositorios bifurcados. Debe habilitar Acciones de GitHub en la pestaña **Acciones** del repositorio bifurcado.
+
+Con la excepción de `GITHUB_TOKEN`, los secretos no se pasan al ejecutor cuando se desencadena un flujo de trabajo desde un repositorio bifurcado. `GITHUB_TOKEN` tiene permisos de solo lectura en las solicitudes de incorporación de cambios de los repositorios bifurcados. Para más información, consulta [Uso de GITHUB\_TOKEN para la autenticación en flujos de trabajo](/es/actions/security-guides/automatic-token-authentication).
+
+#### Eventos de solicitud de extracción para repositorios bifurcados
+
+Para las solicitudes de incorporación de cambios de un repositorio bifurcado al repositorio base, GitHub envía los eventos `pull_request`, `issue_comment`, `pull_request_review_comment`, `pull_request_review` y `pull_request_target` al repositorio base. No existirán eventos de solicitudes de cambio en el repositorio bifurcado.
+
+Cuando un colaborador primerizo envía una solicitud de incorporación de cambios a un repositorio público, es posible que un mantenedor con acceso de escritura tenga que aprobar los flujos de trabajo en ejecución en la solicitud de incorporación de cambios. Para más información, consulta [Aprobación de ejecuciones de flujo de trabajo desde bifurcaciones](/es/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks).
+
+Para las solicitudes de cambios desde un repositorio bifurcado en un repositorio privado, los flujos de trabajo solo se ejecutan cuando están habilitados; consulta [Administración de la configuración de GitHub Actions para un repositorio](/es/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories).
+
+> \[!NOTE]
+> Los flujos de trabajo que se desencadenan mediante solicitudes de cambios de Dependabot se tratan como si procedieran de un repositorio bifurcado y también están sujetos a estas restricciones.
+
+##
+
+```
+          `pull_request_comment` (utilice `issue_comment`)
+```
+
+Para ejecutar el flujo de trabajo cuando se crea, edita o elimina un comentario en una solicitud de incorporación de cambios (no en la diferencia de una solicitud de incorporación de cambios), use el evento [`issue_comment`](#issue_comment). Para la actividad relacionada con revisiones de solicitudes de incorporación de cambios o comentarios de revisión de solicitudes de incorporación de cambios, use los eventos [`pull_request_review` o ](#pull_request_review)[`pull_request_review_comment`](#pull_request_review_comment).
+
+## `pull_request_review`
+
+| Carga del evento Webhook                                                                                  | Tipos de actividad                             | `GITHUB_SHA`                                          | `GITHUB_REF`                                                                                       |
+| --------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| [`pull_request_review`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review) | - `submitted`<br/>- `edited`<br/>- `dismissed` | Última confirmación de fusión en la rama `GITHUB_REF` | Rama de combinación de solicitud de incorporación de cambios `refs/pull/PULL_REQUEST_NUMBER/merge` |
+
+> \[!NOTE]
+
+```
+          Más de un tipo de actividad desencadena este evento. Para obtener información sobre cada tipo de actividad, consulte [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review). De forma predeterminada, todos los tipos de actividad desencadenan flujos de trabajo que se ejecutan en este evento. Puede limitar las ejecuciones de flujo de trabajo a tipos de actividad específicos mediante la palabra clave `types`. Para más información, consulta [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
+```
+
+Ejecuta tu flujo de trabajo cuando se emite, edita o descarta una revisión de una solicitud de cambios. Una revisión de solicitud de cambios es un grupo de comentarios de dicha revisión junto con un comentario del cuerpo y un estado. Para la actividad relacionada con comentarios de revisión de solicitudes de incorporación de cambios o comentarios de solicitud de incorporación de cambios, use en su lugar los eventos [`pull_request_review_comment` o ](#pull_request_review_comment)[`issue_comment`](#issue_comment). Para obtener información sobre las API de revisión de pull requests, consulta [Objetos](/es/graphql/reference/objects#pullrequest) en la documentación de la API de GraphQL, o [Puntos de conexión de la API REST para solicitudes de incorporación de cambios](/es/rest/pulls#reviews).
+
+Por ejemplo, puede ejecutar un flujo de trabajo cuando una revisión de solicitud de incorporación de cambios ha sido `edited` o `dismissed`.
+
+```yaml
+on:
+  pull_request_review:
+    types: [edited, dismissed]
+```
+
+### Ejecutar un flujo de trabajo cuando se aprueba una solicitud de cambios
+
+Para ejecutar el flujo de trabajo cuando se ha aprobado una solicitud de incorporación de cambios, puede desencadenar el flujo de trabajo con el tipo `submitted` del evento `pull_request_review` y, después, comprobar el estado de revisión con la propiedad `github.event.review.state`. Por ejemplo, este flujo de trabajo se ejecutará siempre que se envíe una revisión de solicitud de incorporación de cambios, pero el trabajo `approved` solo se ejecutará si la revisión enviada es de aprobación:
+
+```yaml
+on:
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  approved:
+    if: github.event.review.state == 'approved'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This PR was approved"
+```
+
+#### Flujos de trabajo en repositorios bifurcados
+
+Los flujos de trabajo no se ejecutan predeterminadamente en los repositorios bifurcados. Debe habilitar Acciones de GitHub en la pestaña **Acciones** del repositorio bifurcado.
+
+Con la excepción de `GITHUB_TOKEN`, los secretos no se pasan al ejecutor cuando se desencadena un flujo de trabajo desde un repositorio bifurcado. `GITHUB_TOKEN` tiene permisos de solo lectura en las solicitudes de incorporación de cambios de los repositorios bifurcados. Para más información, consulta [Uso de GITHUB\_TOKEN para la autenticación en flujos de trabajo](/es/actions/security-guides/automatic-token-authentication).
+
+#### Eventos de solicitud de extracción para repositorios bifurcados
+
+Para las solicitudes de incorporación de cambios de un repositorio bifurcado al repositorio base, GitHub envía los eventos `pull_request`, `issue_comment`, `pull_request_review_comment`, `pull_request_review` y `pull_request_target` al repositorio base. No existirán eventos de solicitudes de cambio en el repositorio bifurcado.
+
+Cuando un colaborador primerizo envía una solicitud de incorporación de cambios a un repositorio público, es posible que un mantenedor con acceso de escritura tenga que aprobar los flujos de trabajo en ejecución en la solicitud de incorporación de cambios. Para más información, consulta [Aprobación de ejecuciones de flujo de trabajo desde bifurcaciones](/es/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks).
+
+Para las solicitudes de cambios desde un repositorio bifurcado en un repositorio privado, los flujos de trabajo solo se ejecutan cuando están habilitados; consulta [Administración de la configuración de GitHub Actions para un repositorio](/es/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories).
+
+> \[!NOTE]
+> Los flujos de trabajo que se desencadenan mediante solicitudes de cambios de Dependabot se tratan como si procedieran de un repositorio bifurcado y también están sujetos a estas restricciones.
+
+## `pull_request_review_comment`
+
+| Carga del evento Webhook                                                                                                  | Tipos de actividad                         | `GITHUB_SHA`                                          | `GITHUB_REF`                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| [`pull_request_review_comment`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review_comment) | - `created`<br/>- `edited`<br/>- `deleted` | Última confirmación de fusión en la rama `GITHUB_REF` | Rama de combinación de solicitud de incorporación de cambios `refs/pull/PULL_REQUEST_NUMBER/merge` |
+
+> \[!NOTE]
+
+```
+          Más de un tipo de actividad desencadena este evento. Para obtener información sobre cada tipo de actividad, consulte [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review_comment). De forma predeterminada, todos los tipos de actividad desencadenan flujos de trabajo que se ejecutan en este evento. Puede limitar las ejecuciones de flujo de trabajo a tipos de actividad específicos mediante la palabra clave `types`. Para más información, consulta [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
+```
+
+Ejecuta tu flujo de trabajo cuando se modifica un comentario de revisión de un pull request. Un comentario de revisión de una solicitud de cambios es un comentario en el diff de dicha solicitud. Para la actividad relacionada con revisiones de solicitudes de incorporación de cambios o comentarios de solicitudes de incorporación de cambios, use los eventos [`pull_request_review` o ](#pull_request_review)[`issue_comment`](#issue_comment) en su lugar. Para obtener información sobre las API de comentarios de revisión de solicitudes de incorporación de cambios, consulte [Objetos](/es/graphql/reference/objects#pullrequestreviewcomment) en la documentación de GraphQL API, o bien [Puntos de conexión de la API REST para solicitudes de incorporación de cambios](/es/rest/pulls#comments).
+
+Por ejemplo, puede ejecutar un flujo de trabajo cuando un comentario de revisión de un pull request ha sido `created` o `deleted`.
+
+```yaml
+on:
+  pull_request_review_comment:
+    types: [created, deleted]
+```
+
+#### Flujos de trabajo en repositorios bifurcados
+
+Los flujos de trabajo no se ejecutan predeterminadamente en los repositorios bifurcados. Debe habilitar Acciones de GitHub en la pestaña **Acciones** del repositorio bifurcado.
+
+Con la excepción de `GITHUB_TOKEN`, los secretos no se pasan al ejecutor cuando se desencadena un flujo de trabajo desde un repositorio bifurcado. `GITHUB_TOKEN` tiene permisos de solo lectura en las solicitudes de incorporación de cambios de los repositorios bifurcados. Para más información, consulta [Uso de GITHUB\_TOKEN para la autenticación en flujos de trabajo](/es/actions/security-guides/automatic-token-authentication).
+
+#### Eventos de solicitud de extracción para repositorios bifurcados
+
+Para las solicitudes de incorporación de cambios de un repositorio bifurcado al repositorio base, GitHub envía los eventos `pull_request`, `issue_comment`, `pull_request_review_comment`, `pull_request_review` y `pull_request_target` al repositorio base. No existirán eventos de solicitudes de cambio en el repositorio bifurcado.
+
+Cuando un colaborador primerizo envía una solicitud de incorporación de cambios a un repositorio público, es posible que un mantenedor con acceso de escritura tenga que aprobar los flujos de trabajo en ejecución en la solicitud de incorporación de cambios. Para más información, consulta [Aprobación de ejecuciones de flujo de trabajo desde bifurcaciones](/es/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks).
+
+Para las solicitudes de cambios desde un repositorio bifurcado en un repositorio privado, los flujos de trabajo solo se ejecutan cuando están habilitados; consulta [Administración de la configuración de GitHub Actions para un repositorio](/es/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories).
+
+> \[!NOTE]
+> Los flujos de trabajo que se desencadenan mediante solicitudes de cambios de Dependabot se tratan como si procedieran de un repositorio bifurcado y también están sujetos a estas restricciones.
+
+## `pull_request_target`
+
+| Carga del evento Webhook                                                                    | Tipos de actividad                                                                                                                                                                                                                                                                                                                                                                                                               | `GITHUB_SHA`                                  | `GITHUB_REF`        |
+| ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | ------------------- |
+|                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                  |                                               |                     |
+| [`pull_request`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `locked`<br/>- `unlocked`<br/>- `enqueued`<br/>- `dequeued`<br/>- `milestoned`<br/>- `demilestoned`<br/>- `ready_for_review`<br/>- `review_requested`<br/>- `review_request_removed`<br/>- `auto_merge_enabled`<br/>- `auto_merge_disabled` | Última confirmación en la rama predeterminada | Rama predeterminada |
+|                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                  |                                               |                     |
+
+> \[!NOTE]
+
+```
+          Más de un tipo de actividad desencadena este evento. Para obtener información sobre cada tipo de actividad, consulte [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request). De forma predeterminada, un flujo de trabajo solo se ejecuta cuando el tipo de actividad de un evento `pull_request_target` es `opened`, `synchronize`o `reopened`. Para desencadenar flujos de trabajo mediante otros tipos de actividad, use la palabra clave `types`. Para más información, consulta [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
+```
+
+Ejecuta tu flujo de trabajo cuando ocurre alguna actividad en la solicitud de trabajo del repositorio del flujo de trabajo. Por ejemplo, si no se especifican tipos de actividad, el flujo de trabajo se ejecutará cuando se abra o vuelva a abrir una solicitud de cambios o cuando se actualice la rama de encabezado de la misma.
+
+Este evento se ejecuta en el contexto de la base de la de incorporación de cambios del repositorio base, en lugar de en el contexto de la confirmación de combinación, como hace el `pull_request` evento. Esto previene la ejecución del código no seguro desde el encabezado de la solicitud de cambios que pudiera alterar tu repositorio o robar cualquier secreto que utilices en tu flujo de trabajo. Este evento permite que tu flujo de trabajo haga cosas como etiquetar o comentar en las solicitudes de cambios de las bifurcaciones. Evita utilizar este evento si necesitas compilar o ejecutar código del pull request.
+
+Para garantizar la seguridad del repositorio, es posible que las ramas con nombres que coincidan con determinados patrones (como aquellos que tengan un aspecto similar a los SHA) no desencadenen flujos de trabajo con el evento `pull_request_target`.
+
+> \[!WARNING]
+> La ejecución de código que no es de confianza en el desencadenador `pull_request_target` puede provocar vulnerabilidades de seguridad. Estas vulnerabilidades incluyen el envenenamiento de la caché y la concesión de acceso no deseado a privilegios de escritura o secretos. Para más información, consulta [Referencia de uso seguro](/es/enterprise-cloud@latest/actions/reference/security/secure-use#mitigating-the-risks-of-untrusted-code-checkout) en la documentación de GitHub Enterprise Cloud y [Evitar solicitudes pwn](https://securitylab.github.com/research/github-actions-preventing-pwn-requests) en el sitio web de GitHub Security Lab.
+
+Por ejemplo, puede ejecutar un flujo de trabajo cuando un pull request ha sido `assigned`, `opened`, `synchronize` o `reopened`.
+
+```yaml
+on:
+  pull_request_target:
+    types: [assigned, opened, synchronize, reopened]
+```
+
+### Ejecución del flujo de trabajo `pull_request_target` en función de la rama base o de encabezado de una solicitud de incorporación de cambios
+
+Puede usar el filtro `branches` o `branches-ignore` a fin de configurar el flujo de trabajo para que solo se ejecute en solicitudes de incorporación de cambios destinadas a ramas específicas. Para más información, consulta [Sintaxis del flujo de trabajo para GitHub Actions](/es/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore).
+
+Por ejemplo, este flujo de trabajo se ejecutará cuando alguien abra una solicitud de incorporación de cambios destinada a una rama cuyo nombre empiece por `releases/`:
+
+```yaml
+on:
+  pull_request_target:
+    types:
+      - opened
+    branches:
+      - 'releases/**'
+```
+
+> \[!NOTE]
+
+```
+          Si usa los filtros `branches` y `paths`, el flujo de trabajo solo se ejecutará cuando se cumplan ambos filtros. Por ejemplo, el siguiente flujo de trabajo solo se ejecutará cuando una solicitud de incorporación de cambios que incluya un cambio en un archivo javaScript (`.js`) se abra en una rama cuyo nombre comience por `releases/`:
+```
+
+> ```yaml
+> on:
+>   pull_request_target:
+>     types:
+>       - opened
+>     branches:
+>       - 'releases/**'
+>     paths:
+>       - '**.js'
+> ```
+
+Para ejecutar un trabajo basado en el nombre de la rama principal del pull request (en lugar del nombre de la rama base del pull request), use el contexto `github.head_ref` en una condicional. Por ejemplo, este flujo de trabajo se ejecutará cada vez que se abra una solicitud de incorporación de cambios, pero el trabajo `run_if` solo se ejecutará si el inicio de la solicitud de incorporación de cambios es una rama cuyo nombre empieza por `releases/`:
+
+```yaml
+on:
+  pull_request_target:
+    types:
+      - opened
+jobs:
+  run_if:
+    if: startsWith(github.head_ref, 'releases/')
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "The head of this PR starts with 'releases/'"
+```
+
+### Ejecución del flujo de trabajo `pull_request_target` en función de los archivos que cambiaron en una solicitud de incorporación de cambios
+
+Puede usar el filtro `paths` o `paths-ignore` a fin de configurar el flujo de trabajo para que se ejecute cuando una solicitud de incorporación de cambios modifique archivos específicos. Para más información, consulta [Sintaxis del flujo de trabajo para GitHub Actions](/es/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore).
+
+Por ejemplo, este flujo de trabajo se ejecutará cuando una solicitud de incorporación de cambios incluya un cambio en un archivo JavaScript (`.js`):
+
+```yaml
+on:
+  pull_request_target:
+    paths:
+      - '**.js'
+```
+
+> \[!NOTE]
+
+```
+          Si usa los filtros `branches` y `paths`, el flujo de trabajo solo se ejecutará cuando se cumplan ambos filtros. Por ejemplo, el siguiente flujo de trabajo solo se ejecutará cuando una solicitud de incorporación de cambios que incluya un cambio en un archivo javaScript (`.js`) se abra en una rama cuyo nombre comience por `releases/`:
+```
+
+> ```yaml
+> on:
+>   pull_request_target:
+>     types:
+>       - opened
+>     branches:
+>       - 'releases/**'
+>     paths:
+>       - '**.js'
+> ```
+
+### Ejecutar el flujo de trabajo `pull_request_target` cuando se fusiona un pull request
+
+Cuando se fusiona un pull request, este se cierra automáticamente. Para ejecutar un flujo de trabajo cuando se combina una solicitud de incorporación de cambios, use el tipo de evento `pull_request_target``closed`  junto con un condicional que compruebe el valor `merged` del evento. Por ejemplo, el siguiente flujo de trabajo se ejecutará cada que se cierre una solicitud de cambios. El trabajo `if_merged` solo se ejecutará si el pull request también se ha fusionado.
+
+```yaml
+on:
+  pull_request_target:
+    types:
+      - closed
+
+jobs:
+  if_merged:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo The PR was merged
+```
+
+## `push`
+
+| Carga del evento Webhook                                                    | Tipos de actividad | `GITHUB_SHA`                                                                                                                                                                                                 | `GITHUB_REF`           |
+| --------------------------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------- |
+| [`push`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#push) | No aplicable       | Confirmación de sugerencia insertada en la referencia. Al eliminar una rama, el SHA de la ejecución del flujo de trabajo (y sus referencias asociadas) se revierte a la rama predeterminada del repositorio. | Referencia actualizada |
+
+> \[!NOTE]
+>
+> * La carga de webhook disponible para Acciones de GitHub no incluye los atributos `added`, `removed` y `modified` en el objeto `commit`. Puedes recuperar el objeto de confirmación completo utilizando la API. Para obtener más información, consulta [Objetos](/es/graphql/reference/objects#commit) en la documentación de GraphQL API, o bien [Puntos de conexión de la API de REST para confirmaciones](/es/rest/commits#get-a-commit).
+> *
+
+```
+          Los eventos no se crearán si se empujan más de 5000 ramas a la vez. 
+```
+
+```
+          Los eventos no se crearán para las etiquetas cuando se inserte más de tres etiquetas a la vez.
+```
+
+Ejecuta el flujo de trabajo al enviar una confirmación o una etiqueta, o al crear un repositorio a partir de una plantilla.
+
+Por ejemplo, puede ejecutar un flujo de trabajo cuando se produzca el evento `push`.
+
+```yaml
+on:
+  push
+```
+
+> \[!NOTE]
+> Cuando un evento de webhook `push` desencadena una ejecución de flujo de trabajo, el campo "insertado por" de la interfaz de usuario de Acciones muestra el insertador y no el autor o el confirmador. Sin embargo, si los cambios se insertan en un repositorio mediante la autenticación SSH con una clave de implementación, el campo "insertado por" será el administrador del repositorio que comprobó la clave de implementación cuando se agregó a un repositorio.
+
+### Ejecutar tu flujo de trabajo solo cuando ocurra una subida de información a ramas específicas
+
+Puede usar el filtro `branches` o `branches-ignore` a fin de configurar el flujo de trabajo para que solo se ejecute cuando se envíen branches específicas. Para más información, consulta [Sintaxis del flujo de trabajo para GitHub Actions](/es/actions/using-workflows/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore).
+
+Por ejemplo, este flujo de trabajo se ejecutará cuando alguien realice un push en `main` o en una rama que comience por `releases/`.
+
+```yaml
+on:
+  push:
+    branches:
+      - 'main'
+      - 'releases/**'
+```
+
+> \[!NOTE]
+
+```
+          Si usa los filtros `branches` y `paths`, el flujo de trabajo solo se ejecutará cuando se cumplan ambos filtros. Por ejemplo, el siguiente flujo de trabajo solo se ejecutará cuando se realice un cambio en un archivo javaScript (`.js`) en una rama cuyo nombre comience por `releases/`:
+```
+
+> ```yaml
+> on:
+>   push:
+>     branches:
+>       - 'releases/**'
+>     paths:
+>       - '**.js'
+> ```
+
+### Ejecutar tu flujo de trabajo únicamente cuando ocurra un push de etiquetas específicas
+
+Puedes usar el filtro `tags` o `tags-ignore` para configurar el flujo de trabajo para que solo se ejecute cuando se inserten etiquetas específicas. Para más información, consulta [Sintaxis del flujo de trabajo para GitHub Actions](/es/actions/using-workflows/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore).
+
+Por ejemplo, este flujo de trabajo se ejecutará cuando alguien inserte una etiqueta que comience con `v1.`.
+
+```yaml
+on:
+  push:
+    tags:
+      - v1.**
+```
+
+### Ejecutar el flujo de trabajo únicamente cuando un push afecte a archivos específicos
+
+Puede usar el filtro `paths` o `paths-ignore` a fin de configurar el flujo de trabajo para que se ejecute cuando se produzca una inserción en archivos específicos. Para más información, consulta [Sintaxis del flujo de trabajo para GitHub Actions](/es/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore).
+
+Por ejemplo, este flujo de trabajo se ejecutará cuando alguien inserte un cambio en un archivo de JavaScript (`.js`):
+
+```yaml
+on:
+  push:
+    paths:
+      - '**.js'
+```
+
+## `registry_package`
+
+| Carga del evento Webhook                                                                   | Tipos de actividad            | `GITHUB_SHA`                       | `GITHUB_REF`                     |
+| ------------------------------------------------------------------------------------------ | ----------------------------- | ---------------------------------- | -------------------------------- |
+| [`registry_package`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#package) | - `published`<br/>- `updated` | Confirmación del paquete publicado | Rama o tag del paquete publicado |
+
+> \[!NOTE]
+> \*
+> Más de un tipo de actividad desencadena este evento. Para obtener información sobre cada tipo de actividad, consulte [Eventos y cargas de webhook](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#registry_package). De forma predeterminada, todos los tipos de actividad desencadenan flujos de trabajo que se ejecutan en este evento. Puede limitar las ejecuciones de flujo de trabajo a tipos de actividad específicos mediante la palabra clave `types`. Para más información, consulta [Sintaxis del flujo de trabajo para GitHub Actions](/es/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
+>
+> * Este evento solo desencadenará una ejecución de flujo de trabajo si el archivo de flujo de trabajo existe en la rama predeterminada.
+> * Al insertar imágenes de contenedor de arquitectura múltiple, este evento se produce una vez por manifiesto, por lo que puede observar que el flujo de trabajo se desencadena varias veces. Para mitigar esto y ejecutar solo el trabajo del evento que contiene la información de etiqueta de imagen real, usa un condicional:
+>
+> ```yaml
+> jobs:
+>     job_name:
+>         if: $true
+> ```
+
+Ejecuta el flujo de trabajo cuando la actividad relacionada con GitHub Packages se produce en el repositorio. Para obtener más información, vea [GitHub Packages Documentación](/es/packages).
+
+Por ejemplo, puedes ejecutar un flujo de trabajo cuando se haya realizado la acción `published` sobre un nuevo paquete.
+
+```yaml
+on:
+  registry_package:
+    types: [published]
+```
+
+## `release`
+
+| Carga del evento Webhook                                                          | Tipos de actividad                                                                                                          | `GITHUB_SHA`                                     | `GITHUB_REF`                                             |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | -------------------------------------------------------- |
+| [`release`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#release) | - `published` <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released` | Última confirmación en el lanzamiento etiquetado | Referencia de etiqueta de versión `refs/tags/<tag_name>` |
+
+> \[!NOTE]
+> \*
+> Más de un tipo de actividad desencadena este evento. Para obtener información sobre cada tipo de actividad, consulte [Eventos y cargas de webhook](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#release). De forma predeterminada, todos los tipos de actividad desencadenan flujos de trabajo que se ejecutan en este evento. Puede limitar las ejecuciones de flujo de trabajo a tipos de actividad específicos mediante la palabra clave `types`. Para más información, consulta [Sintaxis del flujo de trabajo para GitHub Actions](/es/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
+>
+> * Los flujos de trabajo no se desencadenan para los tipos de actividad `created`, `edited` o `deleted` para versiones de borrador. Al crear la versión a través de la GitHub interfaz de usuario, la versión se puede guardar automáticamente como borrador.
+> * El tipo `prereleased` no se activará para las versiones preliminares publicadas a partir de versiones de borrador, pero el tipo `published` sí. Si quiere que un flujo de trabajo se ejecute cuando se publiquen versiones estables *y* preliminares, debe suscribirse a `published` en lugar de `released` y `prereleased`.
+
+Ejecuta tu flujo de trabajo cuando ocurre una actividad de lanzamiento en tu repositorio. Para obtener información sobre las API de versiones, consulta [Objetos](/es/graphql/reference/objects#release) en la documentación de GraphQL API, o bien [Puntos de conexión de la API REST para versiones y activos de lanzamiento](/es/rest/releases) en la documentación de la API REST.
+
+Por ejemplo, puede ejecutar un flujo de trabajo cuando una versión ha sido `published`.
+
+```yaml
+on:
+  release:
+    types: [published]
+```
+
+## `repository_dispatch`
+
+| Carga del evento Webhook                                                                                 | Tipos de actividad | `GITHUB_SHA`                                  | `GITHUB_REF`        |
+| -------------------------------------------------------------------------------------------------------- | ------------------ | --------------------------------------------- | ------------------- |
+| [repository\_dispatch](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#repository_dispatch) | Personalizado      | Última confirmación en la rama predeterminada | Rama predeterminada |
+
+> \[!NOTE]
+> Este evento solo desencadenará una ejecución de flujo de trabajo si el archivo de flujo de trabajo existe en la rama predeterminada.
+
+Puede usar la GitHub API para desencadenar un evento de webhook al que se llama [`repository_dispatch`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#repository_dispatch) cuando desea desencadenar un flujo de trabajo para la actividad que se produce fuera de GitHub. Para más información, consulta [Puntos de conexión de la API de REST para repositorios](/es/rest/repos/repos#create-a-repository-dispatch-event).
+
+Al realizar una solicitud para crear un evento `repository_dispatch`, debe especificar `event_type` para describir el tipo de actividad. De manera predeterminada, todos los tipos de actividad `repository_dispatch` desencadenan un flujo de trabajo para ejecutar. Puede usar la palabra clave `types` para limitar que su flujo de trabajo se ejecute cuando se envíe en la carga del webhook `event_type` un valor `repository_dispatch` específico.
+
+```yaml
+on:
+  repository_dispatch:
+    types: [test_result]
+```
+
+> \[!NOTE]
+> El valor `event_type` está limitado a 100 caracteres.
+
+Los datos que envíe mediante el parámetro `client_payload` estarán disponibles en el contexto `github.event` del flujo de trabajo. Por ejemplo, si envías este cuerpo de solicitud cuando creas un evento de despacho de repositorio:
+
+```json
+{
+  "event_type": "test_result",
+  "client_payload": {
+    "passed": false,
+    "message": "Error: timeout"
+  }
+}
+```
+
+Luego, puedes acceder a los datos en un flujo de trabajo de la siguiente manera:
+
+```yaml
+on:
+  repository_dispatch:
+    types: [test_result]
+
+jobs:
+  run_if_failure:
+    if: ${{ !github.event.client_payload.passed }}
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          MESSAGE: ${{ github.event.client_payload.message }}
+        run: echo $MESSAGE
+```
+
+> \[!NOTE]
+>
+> * El número máximo de propiedades de nivel superior en `client_payload` es 10.
+> * Esta carga puede contener 65 535 caracteres como máximo.
+
+## `schedule`
+
+| Carga del evento Webhook | Tipos de actividad | `GITHUB_SHA`                                  | `GITHUB_REF`        |
+| ------------------------ | ------------------ | --------------------------------------------- | ------------------- |
+| No aplicable             | No aplicable       | Última confirmación en la rama predeterminada | Rama predeterminada |
+
+> \[!NOTE]
+>
+> * El evento `schedule` se puede retrasar durante periodos de cargas altas de ejecuciones de flujo de trabajo de GitHub Actions. Los tiempos de carga alta incluyen el inicio de cada hora. Si la carga es lo suficientemente alta, es posible que se quiten algunos trabajos en cola. Para aminorar la posibilidad de los retrasos, programa tu flujo de trabajo para que se ejecute en una porción diferente de la hora.
+> * Este evento solo desencadenará una ejecución de flujo de trabajo si el archivo de flujo de trabajo existe en la rama predeterminada.
+> * Los flujos de trabajo programados solo se ejecutarán en la rama predeterminada.
+> * En un repositorio público, los flujos de trabajo programados se inhabilitan automáticamente cuando no ha habido actividad en el repositorio por 60 días. Para obtener información sobre volver a habilitar un flujo de trabajo deshabilitado, consulta [Deshabilitación y habilitación de un flujo de trabajo](/es/actions/how-tos/manage-workflow-runs/disable-and-enable-workflows#enabling-a-workflow).
+
+El evento `schedule` permite desencadenar un flujo de trabajo a una hora programada.
+
+```
+          **Ejemplo**:
+```
+
+```yaml
+ on:
+   schedule:
+     - cron: "15 4,5 * * *"
+```
+
+Use la [sintaxis cron POSIX](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07) para programar flujos de trabajo que se ejecuten en momentos específicos. De forma predeterminada, los flujos de trabajo programados se ejecutan en UTC. Opcionalmente, puede especificar una zona horaria mediante una [cadena de zona horaria de IANA](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) para la programación con reconocimiento de zona horaria. Los flujos de trabajo programados se ejecutan en el commit más reciente de la rama predeterminada. El intervalo más corto en el que puedes ejecutar flujos de trabajo programados es una vez cada 5 minutos.
+
+> \[!NOTE]
+> Para las programaciones que se establecen `timezone` en una zona horaria que observa el horario de verano, durante las transiciones de adelanto del horario de verano, los flujos de trabajo programados en horas saltadas avanzan a la próxima hora válida. Por ejemplo, un horario de 2:30 a. m. se adelanta a las 3:00 a. m.
+
+La sintaxis de cron tiene cinco campos separados por un espacio, y cada campo representa una unidad de tiempo.
+
+```text
+┌───────────── minute (0 - 59)
+│ ┌───────────── hour (0 - 23)
+│ │ ┌───────────── day of the month (1 - 31)
+│ │ │ ┌───────────── month (1 - 12 or JAN-DEC)
+│ │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
+│ │ │ │ │
+* * * * *
+```
+
+Puedes usar estos operadores en cualquiera de los cinco campos:
+
+| Operador | Descripción     | Ejemplo |
+| -------- | --------------- | ------- |
+| \*       | Cualquier valor |         |
+
+```
+          `15 * * * *` se ejecuta en el minuto 15 de cada hora de cada día. |
+```
+
+\| , | Separador de la lista de valores |
+`2,10 4,5 * * *` se ejecuta en los minutos 2 y 10 de la 4ª y 5ª hora de cada día. |
+\| - | Rango de valores |
+`30 4-6 * * *` se ejecuta en el minuto 30 de la 4ª, 5ª y 6ª hora. |
+\| / | Valores del paso |
+`20/15 * * * *` se ejecuta cada 15 minutos a partir del minuto 20 hasta el 59 (los minutos 20, 35 y 50). |
+
+Este ejemplo desencadena el flujo de trabajo para que se ejecute a las 5:30 a.m. en la zona horaria America/New\_York de lunes a viernes.
+
+```yaml
+on:
+  schedule:
+    - cron: '30 5 * * 1-5'
+      timezone: "America/New_York"
+```
+
+Varios eventos `schedule` pueden desencadenar un único flujo de trabajo. Accede al evento `schedule` que ha desencadenado el flujo de trabajo mediante el contexto `github.event.schedule`. En este ejemplo se desencadena el flujo de trabajo para que se ejecute a las 5:30 UTC de lunes a jueves, y a las 17:30 UTC los martes y los jueves, pero omite el paso `Not on Monday or Wednesday` para el lunes y el miércoles.
+
+```yaml
+on:
+  schedule:
+    - cron: '30 5 * * 1,3'
+    - cron: '30 5,17 * * 2,4'
+
+jobs:
+  test_schedule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Not on Monday or Wednesday
+        if: github.event.schedule != '30 5 * * 1,3'
+        run: echo "This step will be skipped on Monday and Wednesday"
+      - name: Every time
+        run: echo "This step will always run"
+```
+
+> \[!NOTE]
+
+```
+          GitHub Actions no admite la sintaxis no estándar `@yearly`, `@monthly`, `@weekly`, `@daily`, `@hourly`, y `@reboot`.
+```
+
+Puede usar [crontab guru](https://crontab.guru/) para ayudar a generar la sintaxis cron y confirmar la hora en que se ejecutará. Para ayudarle a empezar, también hay una lista de [ejemplos de crontab guru](https://crontab.guru/examples.html).
+
+###
+
+```
+          `actor` para flujos de trabajo programados
+```
+
+Algunos eventos del repositorio cambian el `actor` asociado al flujo de trabajo. Por ejemplo, un usuario que cambia la rama predeterminada del repositorio, que cambia la rama en la que se ejecutan los flujos de trabajo programados, se convierte en `actor` para esos flujos de trabajo programados.
+
+Para un flujo de trabajo programado desactivado, si un usuario con permisos `write` en el repositorio realiza una confirmación que cambia la programación de `cron` en el flujo de trabajo, se reactivará el flujo de trabajo y ese usuario se convertirá en el `actor` asociado a cualquier ejecución de flujo de trabajo.
+
+Las notificaciones para los flujos de trabajo programados se envían al usuario que modificó por última vez la sintaxis de cron en el archivo de flujo de trabajo.  Para más información, consulta [Notificaciones de ejecuciones de flujo de trabajo](/es/actions/monitoring-and-troubleshooting-workflows/notifications-for-workflow-runs).
+
+> \[!NOTE]
+> Para una empresa con Enterprise Managed Users, desencadenar un flujo de trabajo programado requiere que el estado de la `actor` cuenta de usuario asociada al flujo de trabajo esté activo (es decir, no suspendido o eliminado).
+>
+> * Los flujos de trabajo programados no se ejecutarán si el `actor` proveedor de identidades (IdP) ha desaprovisionado el último Enterprise Managed User asociado al flujo de trabajo programado. Sin embargo, si el IdP no ha desprovisionado la última `actor`Enterprise Managed User y solo se ha quitado como miembro de una organización específica dentro de la empresa, los flujos de trabajo programados seguirán ejecutándose con ese usuario designado como `actor`.
+> * Del mismo modo, para una empresa sin Enterprise Managed Users, quitar un usuario de una organización no impedirá que se ejecuten los flujos de trabajo programados que tenían ese usuario como su.`actor`
+> * Por lo tanto, el estado *de la cuenta de usuario*, tanto en escenarios Enterprise Managed User como en escenarios no-Enterprise Managed User, es lo importante, *no* el *estado de pertenencia* del usuario en la organización donde está ubicado el flujo de trabajo programado.
+
+## `status`
+
+| Carga del evento Webhook                                                        | Tipos de actividad | `GITHUB_SHA`                                  | `GITHUB_REF`        |
+| ------------------------------------------------------------------------------- | ------------------ | --------------------------------------------- | ------------------- |
+| [`status`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#status) | No aplicable       | Última confirmación en la rama predeterminada | Rama predeterminada |
+
+> \[!NOTE]
+> Este evento solo desencadenará una ejecución de flujo de trabajo si el archivo de flujo de trabajo existe en la rama predeterminada.
+
+Ejecuta tu flujo de trabajo cuando cambia el estado de una confirmación de Git. Por ejemplo, las confirmaciones se pueden marcar como `error`, `failure`, `pending` o `success`. Si quiere proporcionar más detalles sobre el cambio de estado, es posible que le interese usar el evento [`check_run`](#check_run). Para obtener información sobre las API de estado de confirmación, consulta [Objetos](/es/graphql/reference/objects#status) en la documentación de GraphQL API, o bien [Puntos de conexión de la API de REST para confirmaciones](/es/rest/commits#commit-statuses).
+
+Por ejemplo, puede ejecutar un flujo de trabajo cuando se produzca el evento `status`.
+
+```yaml
+on:
+  status
+```
+
+Si quiere ejecutar un trabajo en el flujo de trabajo en función del nuevo estado de confirmación, puede usar el contexto `github.event.state`. Por ejemplo, el siguiente flujo de trabajo se desencadena cuando cambia un estado de confirmación, pero el trabajo `if_error_or_failure` solo se ejecuta si el nuevo estado de confirmación es `error` o `failure`.
+
+```yaml
+on:
+  status
+jobs:
+  if_error_or_failure:
+    runs-on: ubuntu-latest
+    if: >-
+      github.event.state == 'error' ||
+      github.event.state == 'failure'
+    steps:
+      - env:
+          DESCRIPTION: ${{ github.event.description }}
+        run: |
+          echo The status is error or failed: $DESCRIPTION
+```
+
+## `watch`
+
+| Carga del evento Webhook                                                      | Tipos de actividad | `GITHUB_SHA`                                  | `GITHUB_REF`        |
+| ----------------------------------------------------------------------------- | ------------------ | --------------------------------------------- | ------------------- |
+| [`watch`](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#watch) | - `started`        | Última confirmación en la rama predeterminada | Rama predeterminada |
+
+> \[!NOTE]
+> \*
+> Más de un tipo de actividad desencadena este evento. Aunque solo se admite el `started` tipo de actividad, especificar el tipo de actividad mantendrá el flujo de trabajo específico si se agregan más tipos de actividad en el futuro. Para obtener información sobre cada tipo de actividad, consulta [Eventos y cargas de webhook](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#watch). De forma predeterminada, todos los tipos de actividad desencadenan flujos de trabajo que se ejecutan en este evento. Puede limitar las ejecuciones de flujo de trabajo a tipos de actividad específicos mediante la palabra clave `types`. Para más información, consulta [Sintaxis del flujo de trabajo para GitHub Actions](/es/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
+>
+> * Este evento solo desencadenará una ejecución de flujo de trabajo si el archivo de flujo de trabajo existe en la rama predeterminada.
+
+Ejecuta tu flujo de trabajo cuando su repositorio se marcó como favorito. Para obtener información sobre las API de pull request, consulta [Mutaciones](/es/graphql/reference/mutations#addstar) en la documentación de GraphQL API o bien [Puntos de conexión de la API de REST para marcar con estrella](/es/rest/activity/starring).
+
+Por ejemplo, puede ejecutar un flujo de trabajo cuando alguien marca un repositorio con una estrella, que es el tipo de actividad `started` para un evento de observación.
+
+```yaml
+on:
+  watch:
+    types: [started]
+```
+
+## `workflow_call`
+
+| Carga del evento Webhook                      | Tipos de actividad | `GITHUB_SHA`                                  | `GITHUB_REF`                                  |
+| --------------------------------------------- | ------------------ | --------------------------------------------- | --------------------------------------------- |
+| El mismo que el flujo de trabajo del llamante | No aplicable       | El mismo que el flujo de trabajo del llamante | El mismo que el flujo de trabajo del llamante |
+
+```
+          `workflow_call` se usa para indicar que un flujo de trabajo puede ser llamado por otro flujo de trabajo. Cuando un flujo de trabajo se desencadena con el `workflow_call`, la carga del evento en el flujo de trabajo al que se llama es la misma que la del flujo de trabajo que realiza la llamada. Para obtener más información, consulta [AUTOTITLE](/actions/using-workflows/reusing-workflows).
+```
+
+El siguiente ejemplo solo ejecuta el flujo de trabajo cuando se le llama desde otro flujo de trabajo:
+
+```yaml
+on: workflow_call
+```
+
+## `workflow_dispatch`
+
+| Carga del evento Webhook                                                                             | Tipos de actividad | `GITHUB_SHA`                                           | `GITHUB_REF`                         |
+| ---------------------------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------------ | ------------------------------------ |
+| [workflow\_dispatch](/es/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_dispatch) | No aplicable       | Última confirmación en la rama o etiqueta `GITHUB_REF` | Rama o etiqueta que recibió el envío |
+
+> \[!NOTE]
+> Este evento solo desencadenará una ejecución de flujo de trabajo si el archivo de flujo de trabajo existe en la rama predeterminada.
+
+Para permitir que un flujo de trabajo se desencadene manualmente, debes configurar el evento `workflow_dispatch`. Puede desencadenar manualmente una ejecución de flujo de trabajo mediante la GitHub API, GitHub CLIo la interfaz de GitHub usuario. Para más información, consulta [Ejecutar un flujo de trabajo manualmente](/es/actions/managing-workflow-runs/manually-running-a-workflow).
+
+```yaml
+on: workflow_dispatch
+```
+
+### Proporcionar datos
+
+Puedes configurar propiedades de entrada definidas personalmente, valores de entrada predeterminados y entradas requeridas para el evento directamente en tu flujo de trabajo. Al desencadenar el evento, puede proporcionar `ref` y cualquier elemento `inputs`. Cuando se ejecuta el flujo de trabajo, puede acceder a los valores de entrada en el contexto `inputs`. Para más información, consulta [Contextos de referencia](/es/actions/learn-github-actions/contexts).
+
+> \[!NOTE]
+>
+> * El flujo de trabajo también recibirá las entradas en el contexto `github.event.inputs`. La información de los contextos `inputs` y `github.event.inputs` son idénticos, salvo que el contexto `inputs` conserva los valores booleanos como tales en lugar de convertirlos en cadenas. El tipo `choice` se resuelve en una cadena y es una única opción seleccionable.
+> * El número máximo de propiedades de nivel superior para `inputs` es 25 .
+> * La carga máxima de `inputs` es de 65 535 caracteres.
+
+En este ejemplo se definen las entradas denominadas `logLevel`, `tags` y `environment`. Pasarás los valores para estas entradas al flujo de trabajo cuando lo ejecutes. Después, este flujo de trabajo imprime los valores en el registro, mediante las propiedades de contexto `inputs.logLevel`, `inputs.tags` e `inputs.environment`.
+
+```yaml
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+        - info
+        - warning
+        - debug
+      tags:
+        description: 'Test scenario tags'
+        required: false
+        type: boolean
+      environment:
+        description: 'Environment to run tests against'
+        type: environment
+        required: true
+
+jobs:
+  log-the-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Log level: $LEVEL"
+          echo "Tags: $TAGS"
+          echo "Environment: $ENVIRONMENT"
+        env:
+          LEVEL: ${{ inputs.logLevel }}
+          TAGS: ${{ inputs.tags }}
+          ENVIRONMENT: ${{ inputs.environment }}
+```
+
+Si ejecutas este flujo de trabajo desde un…"
+ https://docs.github.com/api/article/body?pathname=/es/actions/reference/workflows-and-actions/events-that-trigger-workflows#:~:text=%23%20Eventos%20que%20desencadenan,for%20the%20PR!%27%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D)%3B%0A%60%60%60

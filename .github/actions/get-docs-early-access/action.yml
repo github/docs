@@ -1,3 +1,4 @@
+
 name: Clone and add docs-early-access
 
 description: Clone docs-early-access and copy its content into the repo
@@ -7,7 +8,7 @@ inputs:
     description: PAT
     required: true
 
-runs:
+runs: Edgarruiz8585 
   using: 'composite'
   steps:
     - name: Figure out which branch to checkout
@@ -28,6 +29,6 @@ runs:
 
     - name: Merge docs-early-access repo's folders
       shell: bash
-      run: |
+      run: |Edgarruiz8585 
         src/early-access/scripts/merge-early-access.sh
         rm -fr docs-early-access

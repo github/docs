@@ -1,0 +1,617 @@
+RFC 5735: Special Use IPv4 Addresses
+Grupo de Trabajo de Ingeniería de Internet (IETF) M. Cotton
+Solicitud de comentarios: 5735 L. Vegoda
+BCP: 153 ICANN
+Obsoleto: 3330                                              enero de 2010
+Categoría: Mejores prácticas actuales
+ISSN: 2070-1721
+
+
+                       
+Direcciones IPv4 de uso especial
+
+
+Abstracto
+
+   Este documento deja obsoleto el RFC 3330. Describe el global y otros
+   bloques de direcciones IPv4 especializados que han sido asignados por el
+   Autoridad de Números Asignados de Internet (IANA). No aborda IPv4.
+   Espacio de direcciones asignado a operadores y usuarios a través de la Región
+   Registros de Internet, ni aborda el espacio de direcciones IPv4 asignado
+   directamente por IANA antes de la creación de la Internet regional
+   Registros. Tampoco aborda asignaciones o cesiones de
+   Direcciones IPv6 o números de sistema autónomo.
+
+Estado de este memorando
+
+   Este memorándum documenta una buena práctica actual en Internet.
+
+   Este documento es un producto del Grupo de Trabajo de Ingeniería de Internet.
+   (IETF). Representa el consenso de la comunidad IETF. Tiene
+   ha recibido revisión pública y ha sido aprobado para su publicación por el
+   Grupo Directivo de Ingeniería de Internet (IESG). Más información sobre
+   Los BCP están disponibles en la Sección 2 de RFC 5741 .
+
+   Información sobre el estado actual de este documento, cualquier errata,
+   y cómo enviar comentarios al respecto se puede obtener en
+   http://www.rfc-editor.org/info/rfc5735 .
+
+Aviso de derechos de autor
+
+   Copyright (c) 2010 IETF Trust y las personas identificadas como el
+   Autores del documento. Todos los derechos reservados.
+
+   Este documento está sujeto a BCP 78 y al acuerdo legal del IETF Trust.
+   Disposiciones relativas a los documentos del IETF
+   ( http://trustee.ietf.org/license-info ) en vigor en la fecha de
+   Publicación de este documento. Por favor, revise estos documentos.
+   con atención, ya que describen sus derechos y restricciones con respecto a
+   a este documento. Los componentes de código extraídos de este documento deben
+
+
+
+
+
+Buenas prácticas actuales de Cotton & Vegoda [Página 1]
+RFC 5735                Direcciones IPv4 de uso especial Enero de 2010
+
+
+   incluir el texto de la Licencia BSD Simplificada como se describe en la Sección 4.e de
+   las Disposiciones Legales del Fideicomiso y se proporcionan sin garantía como
+   descrito en la Licencia BSD Simplificada.
+
+Tabla de contenido
+
+1 . Introducción . . . . . . . . . . . . . . . . . . . . . . . . . .   3 
+2 . Terminología . . . . . . . . . . . . . . . . . . . . . . . . . .   3 
+3 . Bloques de direcciones globales y otros bloques de direcciones especializadas . . . . . . . . .   3 
+4 . Tabla resumen . . . . . . . . . . . . . . . . . . . . . . . . . .   6 
+5 . Asignaciones de bloques IPv4 para nuevos usos especializados . . . . .   6 
+6 . Consideraciones de IANA . . . . . . . . . . . . . . . . . . . . . .   6 
+7 . Consideraciones de seguridad . . . . . . . . . . . . . . . . . . . .   7 
+8 . Agradecimientos . . . . . . . . . . . . . . . . . . . . . . . . .   7 
+9 . Referencias . . . . . . . . . . . . . . . . . . . . . . . . . . . .   7 
+  9.1 . Referencias normativas . . . . . . . . . . . . . . . . . . . .   7 
+  9.2 . Referencias informativas . . . . . . . . . . . . . . . . . .   7 
+Apéndice A . Diferencias entre este documento y RFC 3330   . . . 10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Buenas prácticas actuales de Cotton & Vegoda [Página 2]
+RFC 5735                Direcciones IPv4 de uso especial Enero de 2010
+
+
+1. Introducción
+
+
+   A lo largo de su historia, Internet ha empleado un sistema centralizado de Internet.
+   La Autoridad de Números Asignados (IANA) es responsable de la asignación y
+   asignación de varios identificadores necesarios para el funcionamiento del
+   Internet [ RFC1174 ]. En el caso del espacio de direcciones IPv4, la IANA
+   asigna partes del espacio de direcciones a los Registros Regionales de Internet.
+   (RIR) según sus necesidades establecidas. Estos RIR son
+   responsable del registro de direcciones IPv4 a operadores y
+   usuarios de Internet dentro de sus regiones.
+
+   De forma continua, la IANA ha sido designada por el IETF para realizar
+   asignaciones en apoyo del Proceso de Estándares de Internet [ RFC2860 ].
+    La sección 4 de ese documento describe ese proceso de asignación.
+
+   Se han asignado pequeñas porciones del espacio de direcciones IPv4 o
+   asignado directamente por la IANA para fines globales u otros fines especializados
+   propósitos. Estas asignaciones y cesiones han sido documentadas en
+   una variedad de RFC y otros documentos. Este documento tiene como objetivo
+   recopilar estas referencias dispersas y proporcionar una lista actualizada de
+   Direcciones IPv4 de uso especial.
+
+   Este documento es una revisión de RFC 3330 [ RFC3330 ], que
+   obsoleto; su propósito principal es reflejar los cambios en la lista
+   de asignaciones especiales de IPv4 desde la publicación de RFC 3330. Es
+   a companion to [RFC5156], which describes special IPv6 addresses.
+
+2.  Terminology
+
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+   document are to be interpreted as described in BCP 14, [RFC2119].
+
+3.  Global and Other Specialized Address Blocks
+
+
+   0.0.0.0/8 - Addresses in this block refer to source hosts on "this"
+   network.  Address 0.0.0.0/32 may be used as a source address for this
+   host on this network; other addresses within 0.0.0.0/8 may be used to
+   refer to specified hosts on this network ([RFC1122], Section
+   3.2.1.3).
+
+   10.0.0.0/8 - This block is set aside for use in private networks.
+   Its intended use is documented in [RFC1918].  As described in that
+   RFC, addresses within this block do not legitimately appear on the
+   public Internet.  These addresses can be used without any
+   coordination with IANA or an Internet registry.
+
+
+
+
+
+Cotton & Vegoda          Best Current Practice                  [Page 3]
+RFC 5735               Special Use IPv4 Addresses           January 2010
+
+
+   127.0.0.0/8 - This block is assigned for use as the Internet host
+   loopback address.  A datagram sent by a higher-level protocol to an
+   address anywhere within this block loops back inside the host.  This
+   is ordinarily implemented using only 127.0.0.1/32 for loopback.  As
+   described in [RFC1122], Section 3.2.1.3, addresses within the entire
+   127.0.0.0/8 block do not legitimately appear on any network anywhere.
+
+   169.254.0.0/16 - This is the "link local" block.  As described in
+   [RFC3927], it is allocated for communication between hosts on a
+   single link.  Hosts obtain these addresses by auto-configuration,
+   such as when a DHCP server cannot be found.
+
+   172.16.0.0/12 - This block is set aside for use in private networks.
+   Its intended use is documented in [RFC1918].  As described in that
+   RFC, addresses within this block do not legitimately appear on the
+   public Internet.  These addresses can be used without any
+   coordination with IANA or an Internet registry.
+
+   192.0.0.0/24 - This block is reserved for IETF protocol assignments.
+   At the time of writing this document, there are no current
+   assignments.  Allocation policy for future assignments is given in
+   [RFC5736].
+
+   192.0.2.0/24 - This block is assigned as "TEST-NET-1" for use in
+   documentation and example code.  It is often used in conjunction with
+   domain names example.com or example.net in vendor and protocol
+   documentation.  As described in [RFC5737], addresses within this
+   block do not legitimately appear on the public Internet and can be
+   used without any coordination with IANA or an Internet registry.  See
+   [RFC1166].
+
+   192.88.99.0/24 - This block is allocated for use as 6to4 relay
+   anycast addresses, in [RFC3068].  In contrast with previously
+   described blocks, packets destined to addresses from this block do
+   appear in the public Internet.  [RFC3068], Section 7, describes
+   operational practices to prevent the malicious use of this block in
+   routing protocols.
+
+   192.168.0.0/16 - This block is set aside for use in private networks.
+   Its intended use is documented in [RFC1918].  As described in that
+   RFC, addresses within this block do not legitimately appear on the
+   public Internet.  These addresses can be used without any
+   coordination with IANA or an Internet registry.
+
+   198.18.0.0/15 - This block has been allocated for use in benchmark
+   tests of network interconnect devices.  [RFC2544] explains that this
+   range was assigned to minimize the chance of conflict in case a
+
+
+
+
+Cotton & Vegoda          Best Current Practice                  [Page 4]
+RFC 5735               Special Use IPv4 Addresses           January 2010
+
+
+   testing device were to be accidentally connected to part of the
+   Internet.  Packets with source addresses from this range are not
+   meant to be forwarded across the Internet.
+
+   198.51.100.0/24 - This block is assigned as "TEST-NET-2" for use in
+   documentation and example code.  It is often used in conjunction with
+   domain names example.com or example.net in vendor and protocol
+   documentation.  As described in [RFC5737], addresses within this
+   block do not legitimately appear on the public Internet and can be
+   used without any coordination with IANA or an Internet registry.
+
+   203.0.113.0/24 - This block is assigned as "TEST-NET-3" for use in
+   documentation and example code.  It is often used in conjunction with
+   domain names example.com or example.net in vendor and protocol
+   documentation.  As described in [RFC5737], addresses within this
+   block do not legitimately appear on the public Internet and can be
+   used without any coordination with IANA or an Internet registry.
+
+   224.0.0.0/4 - This block, formerly known as the Class D address
+   space, is allocated for use in IPv4 multicast address assignments.
+   The IANA guidelines for assignments from this space are described in
+   [RFC3171].
+
+   240.0.0.0/4 - This block, formerly known as the Class E address
+   space, is reserved for future use; see [RFC1112], Section 4.
+
+   The one exception to this is the "limited broadcast" destination
+   address 255.255.255.255.  As described in [RFC0919] and [RFC0922],
+   packets with this destination address are not forwarded at the IP
+   layer.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cotton & Vegoda          Best Current Practice                  [Page 5]
+RFC 5735               Special Use IPv4 Addresses           January 2010
+
+
+4.  Summary Table
+
+
+Address Block       Present Use                Reference
+------------------------------------------------------------------
+0.0.0.0/8           "This" Network             RFC 1122, Section 3.2.1.3
+10.0.0.0/8          Private-Use Networks       RFC 1918
+127.0.0.0/8         Loopback                   RFC 1122, Section 3.2.1.3
+169.254.0.0/16      Link Local                 RFC 3927
+172.16.0.0/12       Private-Use Networks       RFC 1918
+192.0.0.0/24        IETF Protocol Assignments  RFC 5736
+192.0.2.0/24        TEST-NET-1                 RFC 5737
+192.88.99.0/24      6to4 Relay Anycast         RFC 3068
+192.168.0.0/16      Private-Use Networks       RFC 1918
+198.18.0.0/15       Network Interconnect
+                    Device Benchmark Testing   RFC 2544
+198.51.100.0/24     TEST-NET-2                 RFC 5737
+203.0.113.0/24      TEST-NET-3                 RFC 5737
+224.0.0.0/4         Multicast                  RFC 3171
+240.0.0.0/4         Reserved for Future Use    RFC 1112, Section 4
+255.255.255.255/32  Limited Broadcast          RFC 919, Section 7
+                                               RFC 922, Section 7
+
+5.  Assignments of IPv4 Blocks for New Specialized Uses
+
+
+   The IANA has responsibility for making assignments of protocol
+   parameters used in the Internet according to the requirements of the
+   "Memorandum of Understanding Concerning the Technical Work of the
+   Internet Assigned Numbers Authority" [RFC2860].  Among other things,
+   [RFC2860] requires that protocol parameters be assigned according to
+   the criteria and procedures specified in RFCs, including Proposed,
+   Draft, and full Internet Standards and Best Current Practice
+   documents, and any other RFC that calls for IANA assignment.
+
+   The domain name and IP address spaces involve policy issues (in
+   addition to technical issues) so that the requirements of [RFC2860]
+   do not apply generally to those spaces.  Nonetheless, the IANA is
+   responsible for ensuring assignments of IPv4 addresses as needed in
+   support of the Internet Standards Process.  When a portion of the
+   IPv4 address space is specifically required by an RFC, the technical
+   requirements (e.g., size, prefix length) for the portion should be
+   described [RFC5226].  Immediately before the RFC is published, the
+   IANA will, in consultation with the Regional Internet Registries,
+   make the necessary assignment and notify the RFC Editor of the
+   particulars for inclusion in the RFC as published.
+
+   As required by [RFC2860], the IANA will also make necessary
+   experimental assignments of IPv4 addresses, also in consultation with
+   the Regional Internet Registries.
+
+
+
+Cotton & Vegoda          Best Current Practice                  [Page 6]
+RFC 5735               Special Use IPv4 Addresses           January 2010
+
+
+6.  IANA Considerations
+
+
+   This document describes the IANA's past and current practices and
+   does not create any new requirements for assignments or allocations
+   by the IANA.
+
+7.  Security Considerations
+
+
+   The particular assigned values of special use IPv4 addresses
+   cataloged in this document do not directly raise security issues.
+   However, the Internet does not inherently protect against abuse of
+   these addresses.  If you expect (for instance) that all packets from
+   a private address space such as the 10.0.0.0/8 block or the link
+   local block 169.254.0.0/16 originate within your subnet, all routers
+   at the border of your network should filter such packets that
+   originate from outside your network.  Attacks have been mounted that
+   depend on the unexpected use of some of these addresses.
+
+   It should also be noted that some of these address spaces may be used
+   legitimately outside a single administrative domain, and may appear
+   on the global Internet.  Security policy SHOULD NOT blindly filter
+   all of these address spaces without due consideration, and network
+   operators are encouraged to review this document, and references
+   contained therein, and determine what security policies should be
+   associated with each of these address blocks within their specific
+   operating environments.
+
+8.  Acknowledgments
+
+
+   Many people have made comments on draft versions of this document.
+   The authors would especially like to thank Scott Bradner, Randy Bush,
+   Harald Alvestrand, Peter Koch, Alfred Hoenes, and Jari Arkko for
+   their constructive feedback and comments.  They would also like to
+   offer a special note of thanks to APNIC, which nominated
+   198.51.100.0/24 and 203.0.113.0/24.
+
+9.  References
+
+
+9.1.  Normative References
+
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119, March 1997.
+
+9.2.  Informative References
+
+
+   [RFC0919]  Mogul, J., "Broadcasting Internet Datagrams", STD 5,
+              RFC 919, October 1984.
+
+
+
+
+Cotton & Vegoda          Best Current Practice                  [Page 7]
+RFC 5735               Special Use IPv4 Addresses           January 2010
+
+
+   [RFC0922]  Mogul, J., "Broadcasting Internet datagrams in the
+              presence of subnets", STD 5, RFC 922, October 1984.
+
+   [RFC1112]  Deering, S., "Host extensions for IP multicasting", STD 5,
+              RFC 1112, August 1989.
+
+   [RFC1122]  Braden, R., "Requirements for Internet Hosts -
+              Communication Layers", STD 3, RFC 1122, October 1989.
+
+   [RFC1166]  Kirkpatrick, S., Stahl, M., and M. Recker, "Internet
+              numbers", RFC 1166, July 1990.
+
+   [RFC1174]  Cerf, V., "IAB recommended policy on distributing internet
+              identifier assignment and IAB recommended policy change to
+              internet "connected" status", RFC 1174, August 1990.
+
+   [RFC1700]  Reynolds, J. and J. Postel, "Assigned Numbers", RFC 1700,
+              October 1994.
+
+   [RFC1918]  Rekhter, Y., Moskowitz, R., Karrenberg, D., Groot, G., and
+              E. Lear, "Address Allocation for Private Internets",
+              BCP 5, RFC 1918, February 1996.
+
+   [RFC2544]  Bradner, S. and J. McQuaid, "Benchmarking Methodology for
+              Network Interconnect Devices", RFC 2544, March 1999.
+
+   [RFC2860]  Carpenter, B., Baker, F., and M. Roberts, "Memorandum of
+              Understanding Concerning the Technical Work of the
+              Internet Assigned Numbers Authority", RFC 2860, June 2000.
+
+   [RFC3068]  Huitema, C., "An Anycast Prefix for 6to4 Relay Routers",
+              RFC 3068, June 2001.
+
+   [RFC3171]  Albanna, Z., Almeroth, K., Meyer, D., and M. Schipper,
+              "IANA Guidelines for IPv4 Multicast Address Assignments",
+              BCP 51, RFC 3171, August 2001.
+
+   [RFC3330]  IANA, "Special-Use IPv4 Addresses", RFC 3330,
+              September 2002.
+
+   [RFC3927]  Cheshire, S., Aboba, B., and E. Guttman, "Dynamic
+              Configuration of IPv4 Link-Local Addresses", RFC 3927,
+              May 2005.
+
+   [RFC5156]  Blanchet, M., "Special-Use IPv6 Addresses", RFC 5156,
+              April 2008.
+
+
+
+
+
+Cotton & Vegoda          Best Current Practice                  [Page 8]
+RFC 5735               Special Use IPv4 Addresses           January 2010
+
+
+   [RFC5226]  Narten, T. and H. Alvestrand, "Guidelines for Writing an
+              IANA Considerations Section in RFCs", BCP 26, RFC 5226,
+              May 2008.
+
+   [RFC5736]  Huston, G., Cotton, M., and L. Vegoda, "IANA IPv4 Special
+              Purpose Address Registry", RFC 5736, January 2010.
+
+   [RFC5737]  Arkko, J., Cotton, M., and L. Vegoda, "IPv4 Address Blocks
+              Reserved for Documentation", RFC 5737, January 2010.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cotton & Vegoda          Best Current Practice                  [Page 9]
+RFC 5735               Special Use IPv4 Addresses           January 2010
+
+
+Appendix A.  Differences between This Document and RFC 3330
+
+
+   Address blocks that were reserved for a special purpose in RFC 3330
+   but are no longer reserved for any special purpose and are available
+   for allocation are no longer listed in Sections 4 or 5.  The
+   following blocks have become available:
+
+   -  14.0.0.0/8 is no longer set aside for assignments to the
+      international system of Public Data Networks [RFC1700], page 181.
+      It is now available for allocation to RIRs in the normal way.
+
+   -  24.0.0.0/8 is no longer listed as the addresses in that block have
+      been managed by the American Registry for Internet Numbers (ARIN)
+      in the normal way since 2001.
+
+   -  39.0.0.0/8 is no longer listed as it has been subject to
+      allocation to an RIR for assignment in the normal manner since
+      2001.
+
+   -  128.0.0.0/16 is not reserved and is subject to future allocation
+      by a Regional Internet Registry for assignment in the normal
+      manner.
+
+   -  191.255.0.0/16 is not reserved and is subject to future allocation
+      by a RIR for assignment in the normal manner.
+
+   -  198.51.100.0/24 is assigned as "TEST-NET-2" for use in
+      documentation and example code.
+
+   -  203.0.113.0/24 is assigned as "TEST-NET-3" for use in
+      documentation and example code.
+
+   -  223.255.255.0/24 is not reserved and is subject to future
+      allocation by an RIR for assignment in the normal manner.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cotton & Vegoda          Best Current Practice                 [Page 10]
+RFC 5735               Special Use IPv4 Addresses           January 2010
+
+
+Authors' Addresses
+
+   Michelle Cotton
+   Internet Corporation for Assigned Names and Numbers
+   4676 Admiralty Way, Suite 330
+   Marina del Rey, CA  90292
+   USA
+
+   Phone: +1-310-823-9358
+   EMail: michelle.cotton@icann.org
+   URI:   http://www.iana.org/
+
+
+   Leo Vegoda
+   Internet Corporation for Assigned Names and Numbers
+   4676 Admiralty Way, Suite 330
+   Marina del Rey, CA  90292
+   USA
+
+   Phone: +1-310-823-9358
+   EMail: leo.vegoda@icann.org
+   URI:   http://www.iana.org/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cotton & Vegoda          Best Current Practice                 [Page 11]

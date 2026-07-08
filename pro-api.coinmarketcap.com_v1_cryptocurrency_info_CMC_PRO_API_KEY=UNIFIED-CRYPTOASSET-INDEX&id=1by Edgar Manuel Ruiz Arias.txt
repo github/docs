@@ -1,0 +1,1 @@
+https://pro-api.coinmarketcap.com/v1/cryptocurrency/info?CMC_PRO_API_KEY=UNIFIED-CRYPTOASSET-INDEX&id=1

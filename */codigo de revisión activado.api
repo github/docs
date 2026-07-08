@@ -1,0 +1,185 @@
+"Revisión de código de Gerrit
+Gerrit Code Review incluye una API tipo REST disponible a través de HTTP. Esta API es adecuada para que se desarrollen herramientas automatizadas, además de ser compatible con algunos casos de uso de scripting ad hoc.
+
+Puntos finales
+/acceso/
+Puntos finales REST relacionados con derechos de acceso
+
+/cuentas/
+Puntos finales REST relacionados con la cuenta
+
+/cambios/
+Modificar los puntos finales REST relacionados
+
+/config/
+Puntos finales REST relacionados con la configuración
+
+/grupos/
+Puntos finales REST relacionados con el grupo
+
+/plugins/
+Puntos finales REST relacionados con el plugin
+
+/proyectos/
+Puntos finales REST relacionados con el proyecto
+
+/Documentación/
+Documentación relacionada con los puntos finales REST
+
+Detalles del protocolo
+Autenticación
+Por defecto, todos los puntos finales REST asumen el acceso anónimo y filtran los resultados para que correspondan a lo que los usuarios anónimos pueden leer (que puede ser absolutamente nada).
+
+Los usuarios (y programas) pueden autenticarse con tokens de autenticación anteponiendo el prefijo /a/. Por ejemplo, para autenticarse en /projects/, solicite la URL /a/projects/. Gerrit utilizará la autenticación básica HTTP con los tokens de la página de configuración de la cuenta del usuario. Esta forma de autenticación evita la necesidad de tokens XSRF.
+
+Se puede incluir una cookie de autorización en la URL de la solicitud, dentro del access_tokenparámetro de consulta. No se requieren tokens XSRF cuando access_tokense utiliza una URL válida.
+
+CORS
+Es posible que se admita la inyección de código entre sitios si el administrador ha configurado site.allowOriginRegex .
+
+Las aplicaciones web autorizadas que se ejecutan desde un origen permitido pueden utilizar la verificación previa CORS para autorizar las solicitudes que requieren autenticación basada en cookies o modificaciones (POST, PUT, DELETE). Las modificaciones requieren un token XSRF válido en el X-Gerrit-Authencabezado de la solicitud.
+
+Alternativamente, las aplicaciones pueden usar access_tokenen la URL (ver arriba) para autorizar las solicitudes. Las mutaciones enviadas como POST con un tipo de contenido de solicitud text/plainpueden omitir la verificación previa de CORS. Gerrit acepta parámetros de consulta adicionales $mpara anular el método correcto (PUT, POST, DELETE) y $ctpara especificar el tipo de contenido real, como application/json; charset=UTF-8. Ejemplo:
+
+    POST /changes/42/topic?$m=PUT&$ct=application/json%3B%20charset%3DUTF-8&access_token=secret HTTP/1.1
+	Tipo de contenido: texto/plano
+	Longitud del contenido: 23
+
+	{"tema": "nuevo-tema"}
+Precondiciones
+Los clientes pueden solicitar la creación de un nuevo recurso mediante la operación PUT, sin sobrescribir uno existente, agregando If-None-Match: *encabezados HTTP a la solicitud. Si el recurso especificado ya existe, el servidor responderá con el código HTTP 412 (Precondition Failed).
+
+Compatibilidad con versiones anteriores
+La API REST se amplía periódicamente (por ejemplo, añadiendo nuevos puntos finales REST o nuevos campos a las entidades JSON existentes). Quienes utilicen la API REST deben estar preparados para estos cambios (por ejemplo, ignorando los campos desconocidos en las respuestas REST). Se evitan, en la medida de lo posible, los cambios incompatibles (como la eliminación de puntos finales REST o la modificación/eliminación de campos existentes en las entidades JSON), pero pueden ocurrir en raras ocasiones. Si se producen, se anuncian en las notas de la versión .
+
+Formato de salida
+Las respuestas JSON se codifican utilizando UTF-8 y utilizan el tipo de contenido application/json.
+
+Por defecto, la mayoría de las API devuelven JSON con formato legible, que utiliza espacios en blanco adicionales para que la salida sea más fácil de leer para los humanos.
+
+Se puede solicitar JSON compacto configurando el pp=0parámetro de consulta o configurando el Acceptencabezado de la solicitud HTTP para que incluya application/json:
+
+  OBTENER /proyectos/ HTTP/1.0
+  Aceptar: aplicación/json
+Generar (y analizar) el formato compacto no muy atractivo es más eficiente, por lo que las herramientas deberían solicitarlo siempre que sea posible.
+
+Para prevenir ataques de inclusión de scripts entre sitios (XSSI), el cuerpo de la respuesta JSON comienza con una línea de prefijo mágico que debe eliminarse antes de pasar el resto del cuerpo de la respuesta a un analizador JSON:
+
+  )]}'
+  [ ... JSON válido ... ]
+Las respuestas serán comprimidas con gzip por el servidor si el Accept-Encodingencabezado de la solicitud HTTP está configurado como gzip. Esto puede ahorrar tiempo de transferencia de red para respuestas más grandes.
+
+Formato de entrada
+Gerrit simplemente ignorará los parámetros JSON desconocidos sin generar ninguna excepción. Esto también se aplica a los parámetros que distinguen entre mayúsculas y minúsculas, como las claves de los mapas.
+
+Marca de tiempo
+Las marcas de tiempo se dan en UTC y tienen el formato "'aaaa-mm-dd hh:mm:ss.ffffffffff'", donde "'ffffffffff'" representa nanosegundos.
+
+Codificación
+Todos los identificadores que aparecen en la URL de una llamada REST (por ejemplo, nombre del proyecto, nombre del grupo) deben estar codificados en URL.
+
+Códigos de respuesta
+Los puntos finales REST de Gerrit utilizan códigos de estado HTTP tal como se describe en la especificación HTTP .
+
+En la mayoría de los casos, el cuerpo de la respuesta de error será un mensaje de error en texto plano, legible para el usuario.
+
+Aquí se muestran ejemplos de cómo se utilizan los códigos de estado HTTP en el contexto de la API REST de Gerrit.
+
+400 Solicitud incorrecta
+Se devuelve el código "400 Bad Request" si el servidor no entiende la solicitud debido a una sintaxis incorrecta.
+
+Por ejemplo, se devuelve "400 Bad Request" si se espera una entrada JSON, pero el "Content-Type" de la solicitud no es "application/json" o el cuerpo de la solicitud no contiene JSON válido.
+
+También se devuelve el error "400 Bad Request" si no se han configurado los campos de entrada obligatorios o si se han configurado opciones que no se pueden utilizar juntas.
+
+403 Prohibido
+Se devuelve "403 Prohibido" si la operación no está permitida porque el usuario que la realiza no tiene los permisos suficientes.
+
+Por ejemplo, algunos puntos finales REST requieren que el usuario que realiza la llamada tenga asignadas ciertas capacidades globales .
+
+También se devuelve “403 Prohibido” si selfse utiliza como ID de cuenta y la llamada REST se realizó sin autenticación.
+
+404 No encontrado
+Se devuelve el código "404 Not Found" si el recurso especificado en la URL no se encuentra o no es visible para el usuario que realiza la llamada. Un recurso no se puede encontrar si la URL contiene un ID o una vista inexistentes.
+
+Método 405 no permitido
+Se devuelve el error "405 Método no permitido" si el recurso existe pero no admite la operación.
+
+Por ejemplo, algunos de los /groups/puntos finales solo son compatibles con grupos internos de Gerrit; si se invocan para un grupo externo, la respuesta es "405 Método no permitido".
+
+409 Conflict
+Se devuelve el código "409 Conflict" si la solicitud no se puede completar porque el estado actual del recurso no permite la operación.
+
+Por ejemplo, si intentas enviar un cambio que ha sido abandonado, esto fallará con un "Conflicto 409" porque el estado del cambio no permite la operación de envío.
+
+También se devuelve el error "409 Conflict" si intenta crear un recurso pero el nombre ya está siendo utilizado por un recurso existente.
+
+412 Fallo en la condición previa
+Se devuelve el código "412 Precondition Failed" si no se cumple alguna condición previa de los campos del encabezado de la solicitud, tal como se describe en la sección de Precondiciones .
+
+422 Entidad no procesable
+Se devuelve el código "422 Entidad no procesable" si no se puede resolver el ID de un recurso especificado en el cuerpo de la solicitud.
+
+429 Demasiadas peticiones
+Se devuelve el error "429 Too Many Requests" si la solicitud ha superado los límites de cuota establecidos. Dependiendo de la cuota superada, la solicitud podría reintentarse con un retroceso exponencial.
+
+Seguimiento de solicitudes
+Para cada punto final REST, se puede habilitar el seguimiento configurando el trace=<trace-id>parámetro de solicitud. Se recomienda usar el ID del problema que se está investigando como ID de seguimiento.
+
+Ejemplo de solicitud
+
+  GET /changes/myProject~master~I8473b95934b5732ac55d26311a706c9c2bde9940/suggest_reviewers?trace=issue/123&q=J
+También es posible omitir el ID de seguimiento y obtener un ID de seguimiento único generado.
+
+Ejemplo de solicitud
+
+  GET /changes/myProject~master~I8473b95934b5732ac55d26311a706c9c2bde9940/suggest_reviewers?trace&q=J
+Alternativamente, el seguimiento de solicitudes también se puede habilitar configurando el X-Gerrit-Traceencabezado:
+
+Ejemplo de solicitud
+
+  GET /changes/myProject~master~I8473b95934b5732ac55d26311a706c9c2bde9940/suggest_reviewers?q=J
+  X-Gerrit-Trace: problema/123
+La activación del rastreo genera registros adicionales con información de depuración que se escriben en el archivo de registro error_log. Todos los registros que corresponden a la solicitud rastreada se asocian con el ID de rastreo. El ID de rastreo se devuelve con la respuesta REST en el X-Gerrit-Traceencabezado.
+
+Ejemplo de respuesta
+
+HTTP/1.1 200 OK
+  Content-Disposition: adjunto
+  Tipo de contenido: aplicación/json; charset=UTF-8
+  X-Gerrit-Trace: 1533885943749-8257c498
+
+  )]}'
+  ... <json> ...
+Conociendo el ID de seguimiento, un administrador puede encontrar los registros correspondientes e investigar los problemas con mayor facilidad.
+
+Establecer una fecha límite
+Al invocar un endpoint REST, es posible que el cliente establezca un plazo límite tras el cual se cancele la solicitud. Para ello, X-Gerrit-Deadline se debe configurar el encabezado en la solicitud. Los valores deben especificarse utilizando abreviaturas estándar de unidades de tiempo (ms, seg, min, etc.).
+
+Ejemplo de solicitud
+
+  GET /changes/myProject~master~I8473b95934b5732ac55d26311a706c9c2bde9940/suggest_reviewers?q=J
+  X-Gerrit-Fecha límite: 5 minutos
+Referencia actualizada de X-Gerrit
+Esto solo se habilita cuando "X-Gerrit-UpdatedRef-Enabled" está configurado como "true" en el encabezado de la solicitud.
+
+Para cada solicitud REST de escritura, devolvemos los encabezados X-Gerrit-UpdatedRef como las referencias que se actualizaron en la solicitud actual (involucradas en una transacción de referencia en la solicitud actual).
+
+El formato de esos encabezados es PROJECT_NAME~REF_NAME\~OLD_SHA-1\~NEW_SHA-1. Los nombres del proyecto y de referencia están codificados en URL y deben usar %7E para '~'.
+
+Un nuevo SHA-1 0000000000000000000000000000000000000000se trata como una referencia eliminada. Si el nuevo SHA-1 no es 0000000000000000000000000000000000000000, la referencia se actualizó o se creó. Si el SHA-1 anterior es 0000000000000000000000000000000000000000, la referencia se creó.
+
+Ejemplo de solicitud
+
+  ELIMINAR /changes/myProject~master~I8473b95934b5732ac55d26311a706c9c2bde9940
+Ejemplo de respuesta
+
+HTTP/1.1 204 SIN CONTENIDO
+  Content-Disposition: adjunto
+  Tipo de contenido: aplicación/json; charset=UTF-8
+  X-Gerrit-UpdatedRef: myProject~refs%2Fchanges%2F01%2F1%2F1~deadbeefdeadbeefdeadbeefdeadbeefdeadbeef~0000000000000000000000000000000000000000
+  X-Gerrit-UpdatedRef: myProject~refs%2Fchanges%2F01%2F1%2Fmeta~deadbeefdeadbeefdeadbeefdeadbeefdeadbeef~0000000000000000000000000000000000000000
+
+  )]}'
+"
+ https://gerrit-review.googlesource.com/Documentation/rest-api.html

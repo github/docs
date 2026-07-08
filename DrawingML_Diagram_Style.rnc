@@ -1,0 +1,10 @@
+include "dml-diagram.rnc"
+include "shared-relationshipReference.rnc"
+include "dml-main.rnc"
+include "dml-lockedCanvas.rnc"
+include "any.rnc"
+include "shared-commonSimpleTypes.rnc"
+include "dml-chart.rnc"
+include "dml-chartDrawing.rnc"
+include "dml-picture.rnc"
+start = ddgrm_styleDef

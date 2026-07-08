@@ -1,0 +1,1014 @@
+[From nobody Tue May  2 22:01:06 2023
+Return-Path: &lt;emcquinn8@gmail.com&gt;
+X-Original-To: bitcoin-dev@lists.linuxfoundation.org
+Delivered-To: bitcoin-dev@lists.linuxfoundation.org
+Received: from smtp3.osuosl.org (smtp3.osuosl.org [IPv6:2605:bc80:3010::136])
+	by lists.linuxfoundation.org (Postfix) with ESMTP id 16454C002A
+	for &lt;bitcoin-dev@lists.linuxfoundation.org&gt;; Tue,  2 May 2023 11:20:57 +0000 (UTC)
+Received: from localhost (localhost [127.0.0.1])
+	by smtp3.osuosl.org (Postfix) with ESMTP id DD632613AE
+	for &lt;bitcoin-dev@lists.linuxfoundation.org&gt;; Tue,  2 May 2023 11:20:56 +0000 (UTC)
+DKIM-Filter: OpenDKIM Filter v2.11.0 smtp3.osuosl.org DD632613AE
+Authentication-Results: smtp3.osuosl.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20221208 header.b=XPlrAtdy
+X-Virus-Scanned: amavisd-new at osuosl.org
+X-Spam-Flag: NO
+X-Spam-Score: -1.848
+X-Spam-Level: 
+X-Spam-Status: No, score=-1.848 tagged_above=-999 required=5
+	tests=[BAYES_00=-1.9, DKIM_SIGNED=0.1, DKIM_VALID=-0.1,
+	DKIM_VALID_AU=-0.1, DKIM_VALID_EF=-0.1,
+	FREEMAIL_ENVFROM_END_DIGIT=0.25, FREEMAIL_FROM=0.001,
+	HTML_MESSAGE=0.001, RCVD_IN_DNSWL_NONE=-0.0001, SPF_HELO_NONE=0.001,
+	SPF_PASS=-0.001] autolearn=ham autolearn_force=no
+Received: from smtp3.osuosl.org ([127.0.0.1])
+	by localhost (smtp3.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id tCT1acLgiQTW
+	for &lt;bitcoin-dev@lists.linuxfoundation.org&gt;;
+	Tue,  2 May 2023 11:20:54 +0000 (UTC)
+X-Greylist: whitelisted by SQLgrey-1.8.0
+DKIM-Filter: OpenDKIM Filter v2.11.0 smtp3.osuosl.org 434116140F
+Received: from mail-qk1-x729.google.com (mail-qk1-x729.google.com [IPv6:2607:f8b0:4864:20::729])
+	by smtp3.osuosl.org (Postfix) with ESMTPS id 434116140F
+	for &lt;bitcoin-dev@lists.linuxfoundation.org&gt;; Tue,  2 May 2023 11:20:54 +0000 (UTC)
+Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-74db3642400so339889585a.2
+        for &lt;bitcoin-dev@lists.linuxfoundation.org&gt;; Tue, 02 May 2023 04:20:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1683026453; x=1685618453;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=MK2q+U8opEkLbNcUwqTwQD9cLPl20CzadVARDH9omr0=;
+        b=XPlrAtdyNMp/i0W4HyIQyh30CsOJs96Igt7sJCoRtzBihP+W1RX8JHbDbMBhdjUtXF
+         OTPSmfeMEZy+8rj3PIyhIMpRe9jIhMSyrFfF8rRzoeBvU72HiF5YQZOn+o6FFewhswxo
+         fcAfGs4GKQtYKgyLjBy6eGaQYnSpsHAzQpXEzk2Cd1mzPqD19JoMuBoAKdAS2HsN1x3h
+         F6qFjvFdNbPRPBd2UF80GQAwSVT2mIxMDKn0h6yHOdYaRMgJlljwWw8ryqNTmz9rULm0
+         3PlfIqn6830XHBV/CuW7KWm4m+QYUJi5IXWnJmJx4hTw7+UmdPxltsVTE+nSabXYZuS9
+         popw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1683026453; x=1685618453;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=MK2q+U8opEkLbNcUwqTwQD9cLPl20CzadVARDH9omr0=;
+        b=H61tT8VpyS96oXc70etqVbrtPescIGvC6r/2GHGsufqqesibi4+JVcyAAqxzNXJnBn
+         Vauspw+cOoU/tK7iDNTPlv69nG1wPUuupoXipMpjqrzJCvO7/J18YjP5F7nytO/R33Qg
+         oLOKHM9byBgiC1Fo0gkKa0Xm2JGGV/+xE09YMSoM/slzgKYVbKjD4zNEOYhXvZSAG/st
+         WEL//jmIaLfRtny3uhwvZj85+vDuA1FhhYCIAk8W0TPgAJjdqDR74rpVv4hfK64Ipcvn
+         kKV1hfM7PSDCCK+2StXhQR7GPXk8jPlRXMOarkIu7VfBzLlyn9WuTW0Jex2G9KRGsdbI
+         znOA==
+X-Gm-Message-State: AC+VfDzmUOrAKZkgvQ6usz7/rww96if83J/t0aGTX+bt/WwaehYYvZ9h
+	s0VTPdCcfNuDPeSXC7MdWPrL9C6Pi6RwwFyHXKvRIJYR
+X-Google-Smtp-Source: ACHHUZ50GC5/kwxG8TMwTAxriLcQLJBUD6DqL71lWD8kQtN7Cg0FgFvQpel7Eu6bbD7ZfqXcefdNiHoXvNY48JL31mM=
+X-Received: by 2002:ad4:5ecb:0:b0:61b:5c2a:f299 with SMTP id
+ jm11-20020ad45ecb000000b0061b5c2af299mr4904253qvb.21.1683026452940; Tue, 02
+ May 2023 04:20:52 -0700 (PDT)
+MIME-Version: 1.0
+References: &lt;CAMhCMoHEa8vYqm7U9MKFC30_cbCoAJBgoGaP0SCvCXVTyA6TmQ@mail.gmail.com&gt;
+ &lt;2ApImRS_OSlctWlRLsNykOYE9Z2nEfg8-IUooIluZG2MAVrY9F5oHYi5LBXN7q5QxB2_sLPIVgV-MOUBMEc451HTpPyPdrvog9jPjBpTZ5E=@protonmail.com&gt;
+ &lt;CAMhCMoFh+Of73RWZ7prRXQB2+_MpsUkf_e+XvTCoawJp6cA-xw@mail.gmail.com&gt;
+In-Reply-To: &lt;CAMhCMoFh+Of73RWZ7prRXQB2+_MpsUkf_e+XvTCoawJp6cA-xw@mail.gmail.com&gt;
+From: Eoin McQuinn &lt;emcquinn8@gmail.com&gt;
+Date: Tue, 2 May 2023 12:20:40 +0100
+Message-ID: &lt;CAPeP9hkP5F7TUd8GYCvJYHiKszsuuF8UOunjWmhg+Gr6NLuwFA@mail.gmail.com&gt;
+Subject: Re: [bitcoin-dev] Vaults in the MATT framework
+To: Salvatore Ingala &lt;salvatore.ingala@gmail.com&gt;, 
+	Bitcoin Protocol Discussion &lt;bitcoin-dev@lists.linuxfoundation.org&gt;
+Content-Type: multipart/alternative; boundary=&quot;000000000000e00a8b05fab421a0&quot;
+
+--000000000000e00a8b05fab421a0
+Content-Type: text/plain; charset=&quot;UTF-8&quot;
+Content-Transfer-Encoding: quoted-printable
+
+Hi I'm a newb. What is MATT?
+
+On Tue 2 May 2023, 9:22 a.m. Salvatore Ingala via bitcoin-dev, &lt;
+bitcoin-dev@lists.linuxfoundation.org&gt; wrote:
+
+&gt; Hi Michael,
+&gt;
+&gt; I can't make any claim of expertise on the field (especially on the
+&gt; other proposals that you mentioned), so this post necessarily includes
+&gt; my opinions =E2=88=92 and possibly my biases.
+&gt;
+&gt; The core functionality of MATT is quite simple, and could be adapted
+&gt; to any version of the scripting system: basically, COCV allows to
+&gt; &quot;embed&quot; some data in the next output, and decide its script; CICV
+&gt; allows &quot;reading&quot; this data.
+&gt; The design I proposed on taproot is surely not the only possible way,
+&gt; but it's the most simple/elegant I could come up with. Moreover, it
+&gt; doesn't seem very useful to spend time trying to get it to work on
+&gt; pre-taproot Script, due to the obvious advantages of those ideas when
+&gt; deployed on taproot (like having taptrees, and all the nice properties
+&gt; of Schnorr signatures).
+&gt;
+&gt; CICV/COCV can certainly be considered an additional form of
+&gt; introspection: you're checking that the script of an input/output
+&gt; equals a certain value, which is not possible in today's Script.
+&gt; I think that's generally true for all covenant proposals.
+&gt;
+&gt; Unlike some other proposals, MATT is not yet fully formalized, so I
+&gt; generally call &quot;MATT&quot; the combination of CICV+COCV, plus some other
+&gt; small set of opcodes that is yet to be defined exactly. I would say it
+&gt; fits in the same family as APO/OP_CTV/OP_VAULT, per your bucketization.
+&gt;
+&gt; The previous posts about MATT, fraud proofs, etc. are an exploration of
+&gt; the deeper things that are enabled by the MATT opcodes. The claim is
+&gt; that a set of changes that is (arguably) quite small and easy to analyze
+&gt; is enough to express general smart contracts =E2=88=92 thanks to fraud pr=
+oofs.
+&gt; However, fraud proofs themselves are a quite advanced application of
+&gt; the new opcodes, and are not needed for most/all of the things that
+&gt; people are trying to build today with the other covenant proposals.
+&gt;
+&gt;
+&gt; Since you mention Simplicity: my current understanding is that its
+&gt; endeavour of replacing Script with a better language is orthogonal to
+&gt; the discussion about what features (e.g.: introspection, covenants)
+&gt; should be in the language.
+&gt;
+&gt; All the covenant proposals listed above are technically a lot smaller
+&gt; and easier to audit than both the SegWit and the Taproot soft forks,
+&gt; both in terms of code and conceptual complexity.
+&gt;
+&gt; Therefore, if we _do_ want the features that they enable, the required
+&gt; engineering for a soft-fork is relatively straightforward, and there is
+&gt; not much of a reason to wait for Simplicity. It will be trivial to &quot;port&quot;
+&gt; any
+&gt; constructions we might create today with covenants to Simplicity scripts.
+&gt;
+&gt; If we _do not_ want those features, then the decision would rather be
+&gt; guided by other considerations, like potential risks to bitcoin caused
+&gt; by the effect of those features on miners' incentives. These
+&gt; concerns are not answered by Simplicity, as far as I understand:
+&gt; you would then want to implement Simplicity _without_ those features.
+&gt;
+&gt; Best,
+&gt; Salvatore
+&gt;
+&gt; On Mon, 1 May 2023 at 16:18, Michael Folkson &lt;
+&gt; michaelfolkson@protonmail.com&gt; wrote:
+&gt;
+&gt;&gt; Hi Salvatore
+&gt;&gt;
+&gt;&gt; Can you clarify for me which bucket this proposal sits? We have APO, CTV=
+,
+&gt;&gt; OP_VAULT etc that are proposals to add additional functionality to SegWi=
+t
+&gt;&gt; version 1, Tapleaf version 0 scripts. We have Simplicity that would need=
+ a
+&gt;&gt; new Tapleaf version (e.g. Tapleaf version 1). And then there are CISA li=
+ke
+&gt;&gt; proposals that would need a new SegWit version (e.g. SegWit version 2). =
+It
+&gt;&gt; looks to me like your proposal is in the first bucket (same as APO, CTV
+&gt;&gt; etc) as it is just introducing new opcode functionality to existing scri=
+pt
+&gt;&gt; with no deeper introspection needed but previous and current discussion =
+of
+&gt;&gt; fraud proofs, MATT frameworks etc made me initially think it was going t=
+o
+&gt;&gt; require more than that.
+&gt;&gt;
+&gt;&gt; Thanks
+&gt;&gt; Michael
+&gt;&gt;
+&gt;&gt; --
+&gt;&gt; Michael Folkson
+&gt;&gt; Email: michaelfolkson at protonmail.com
+&gt;&gt; GPG: A2CF5D71603C92010659818D2A75D601B23FEE0F
+&gt;&gt;
+&gt;&gt; Learn about Bitcoin: https://www.youtube.com/@portofbitcoin
+&gt;&gt;
+&gt;&gt; ------- Original Message -------
+&gt;&gt; On Monday, April 24th, 2023 at 20:37, Salvatore Ingala via bitcoin-dev &lt;
+&gt;&gt; bitcoin-dev@lists.linuxfoundation.org&gt; wrote:
+&gt;&gt;
+&gt;&gt; Hello list,
+&gt;&gt;
+&gt;&gt; TL;DR: the core opcodes of MATT can build vaults with a very similar
+&gt;&gt; design
+&gt;&gt; to OP_VAULT. Code example here:
+&gt;&gt;
+&gt;&gt;
+&gt;&gt; https://github.com/bitcoin-inquisition/bitcoin/compare/24.0...bigspider:=
+bitcoin-inquisition:matt-vault
+&gt;&gt;
+&gt;&gt;
+&gt;&gt; In my previous emails about the MATT proposal for smart contracts in
+&gt;&gt; bitcoin [1], I mostly focused on proving its generality; that is, it
+&gt;&gt; allows arbitrary smart contracts thanks to fraud proofs.
+&gt;&gt;
+&gt;&gt; While I still find this &quot;completeness&quot; result compelling, I spent more
+&gt;&gt; time
+&gt;&gt; thinking about the framework itself; the construction is not very
+&gt;&gt; interesting
+&gt;&gt; if it turns simple things into complicated ones. Luckily, this is not th=
+e
+&gt;&gt; case.
+&gt;&gt; In particular, in this email we will not merkleize anything (other than
+&gt;&gt; taptrees).
+&gt;&gt;
+&gt;&gt; This post describes some progress into formalizing the semantics of the
+&gt;&gt; core
+&gt;&gt; opcodes, and demonstrates how they could be used to create vaults that
+&gt;&gt; seem
+&gt;&gt; comparable to the ones built with OP_VAULT [2], despite using general
+&gt;&gt; purpose
+&gt;&gt; opcodes.
+&gt;&gt;
+&gt;&gt; An implementation and some minimal tests matching the content of this
+&gt;&gt; e-mail can be found in the link above, using the bitcoin-inquisition as
+&gt;&gt; the
+&gt;&gt; base branch.
+&gt;&gt;
+&gt;&gt; Note that the linked code is not well tested and is only intended for
+&gt;&gt; exploratory and demonstrative purposes; therefore, bugs are likely at th=
+is
+&gt;&gt; stage.
+&gt;&gt;
+&gt;&gt;
+&gt;&gt; ##########################
+&gt;&gt; # PART 1: MATT's core
+&gt;&gt; ##########################
+&gt;&gt;
+&gt;&gt; In this section, I will discuss plausible semantics for the core opcodes
+&gt;&gt; for MATT.
+&gt;&gt;
+&gt;&gt; The two core opcodes are defined below as OP_CHECKINPUTCONTRACTVERIFY an=
+d
+&gt;&gt; OP_CHECKOUTPUTCONTRACTVERIFY.
+&gt;&gt;
+&gt;&gt; (the initial posts named them OP_CHECK{INPUT,OUTPUT}COVENANTVERIFY)
+&gt;&gt;
+&gt;&gt; They enhance Script with the following capabilities:
+&gt;&gt; - decide the taptree of the output
+&gt;&gt; - embed some (dynamically computed) data in the output
+&gt;&gt; - access the embedded data in the current UTXO (if any)
+&gt;&gt;
+&gt;&gt; The opcodes below are incomplete, as they only control the output's
+&gt;&gt; Script and
+&gt;&gt; not the amounts; more on that below.
+&gt;&gt;
+&gt;&gt; Other than that, the semantics should be quite close to the &quot;right&quot; one
+&gt;&gt; for
+&gt;&gt; the MATT framework.
+&gt;&gt;
+&gt;&gt;
+&gt;&gt; ### The opcodes
+&gt;&gt;
+&gt;&gt; case OP_CHECKINPUTCONTRACTVERIFY:
+&gt;&gt; {
+&gt;&gt; // OP_CHECKINPUTCONTRACTVERIFY is only available in Tapscript
+&gt;&gt; if (sigversion =3D=3D SigVersion::BASE || sigversion =3D=3D
+&gt;&gt; SigVersion::WITNESS_V0) return set_error(serror, SCRIPT_ERR_BAD_OPCODE);
+&gt;&gt; // (x d -- )
+&gt;&gt; if (stack.size() &lt; 2)
+&gt;&gt; return set_error(serror, SCRIPT_ERR_INVALID_STACK_OPERATION);
+&gt;&gt; valtype&amp; x =3D stacktop(-2);
+&gt;&gt; valtype&amp; d =3D stacktop(-1);
+&gt;&gt; if (x.size() !=3D 32 || d.size() !=3D 32)
+&gt;&gt; return set_error(serror, SCRIPT_ERR_INVALID_STACK_OPERATION);
+&gt;&gt; const XOnlyPubKey nakedXOnlyKey{Span&lt;const unsigned char&gt;{x.data(),
+&gt;&gt; x.data() + 32}};
+&gt;&gt; const uint256 data(d);
+&gt;&gt; if (!execdata.m_internal_key.has_value())
+&gt;&gt; return set_error(serror, SCRIPT_ERR_UNKNOWN_ERROR); // TODO
+&gt;&gt; // Verify that tweak(lift_x(x), d) equals the internal pubkey
+&gt;&gt; if (!execdata.m_internal_key.value().CheckDoubleTweak(nakedXOnlyKey,
+&gt;&gt; &amp;data, nullptr))
+&gt;&gt; return set_error(serror, SCRIPT_ERR_WRONGCONTRACTDATA);
+&gt;&gt; popstack(stack);
+&gt;&gt; popstack(stack);
+&gt;&gt; }
+&gt;&gt; break;
+&gt;&gt; case OP_CHECKOUTPUTCONTRACTVERIFY:
+&gt;&gt; {
+&gt;&gt; // OP_CHECKOUTPUTCONTRACTVERIFY is only available in Tapscript
+&gt;&gt; if (sigversion =3D=3D SigVersion::BASE || sigversion =3D=3D
+&gt;&gt; SigVersion::WITNESS_V0) return set_error(serror, SCRIPT_ERR_BAD_OPCODE);
+&gt;&gt; // (out_i x taptree d -- )
+&gt;&gt; if (stack.size() &lt; 4)
+&gt;&gt; return set_error(serror, SCRIPT_ERR_INVALID_STACK_OPERATION);
+&gt;&gt; int out_i =3D CScriptNum(stacktop(-4), fRequireMinimal).getint();
+&gt;&gt; valtype&amp; x =3D stacktop(-3);
+&gt;&gt; valtype&amp; taptree =3D stacktop(-2);
+&gt;&gt; valtype&amp; d =3D stacktop(-1);
+&gt;&gt; auto outps =3D checker.GetTxvOut();
+&gt;&gt; // Return error if the evaluation context is unavailable
+&gt;&gt; if (!outps)
+&gt;&gt; return set_error(serror, SCRIPT_ERR_UNKNOWN_ERROR); // TODO
+&gt;&gt; if (x.size() !=3D 32 || taptree.size() !=3D 32 || (d.size() !=3D 0 &amp;&amp; d.=
+size()
+&gt;&gt; !=3D 32))
+&gt;&gt; return set_error(serror, SCRIPT_ERR_INVALID_STACK_OPERATION);
+&gt;&gt; if (out_i &lt; 0 || out_i &gt;=3D (int)outps-&gt;size())
+&gt;&gt; return set_error(serror, SCRIPT_ERR_INVALID_STACK_OPERATION);
+&gt;&gt; const XOnlyPubKey nakedXOnlyKey{Span&lt;const unsigned char&gt;{x.data(),
+&gt;&gt; x.data() + 32}};
+&gt;&gt; const uint256 data(d);
+&gt;&gt; const uint256 *data_ptr =3D (d.size() =3D=3D 0 ? nullptr : &amp;data);
+&gt;&gt; const uint256 merkle_tree(taptree);
+&gt;&gt; CScript scriptPubKey =3D outps-&gt;at(out_i).scriptPubKey;
+&gt;&gt; if (scriptPubKey.size() !=3D 1 + 1 + 32 || scriptPubKey[0] !=3D OP_1 ||
+&gt;&gt; scriptPubKey[1] !=3D 32)
+&gt;&gt; return set_error(serror, SCRIPT_ERR_WRONGCONTRACTDATA);
+&gt;&gt; const XOnlyPubKey outputXOnlyKey{Span&lt;const unsigned
+&gt;&gt; char&gt;{scriptPubKey.data() + 2, scriptPubKey.data() + 34}};
+&gt;&gt; // Verify that taptweak(tweak(lift_x(x), d), taptree) equals the interna=
+l
+&gt;&gt; pubkey
+&gt;&gt; if (!outputXOnlyKey.CheckDoubleTweak(nakedXOnlyKey, data_ptr,
+&gt;&gt; &amp;merkle_tree))
+&gt;&gt; return set_error(serror, SCRIPT_ERR_WRONGCONTRACTDATA);
+&gt;&gt; popstack(stack);
+&gt;&gt; popstack(stack);
+&gt;&gt; popstack(stack);
+&gt;&gt; popstack(stack);
+&gt;&gt; }
+&gt;&gt; break;
+&gt;&gt;
+&gt;&gt; ### Commentary
+&gt;&gt;
+&gt;&gt; CheckDoubleTweak function (implemented in the branch) gets an x-only
+&gt;&gt; pubkey,
+&gt;&gt; optionally some data, and optionally taptree's merkle root.
+&gt;&gt; It verifies that the x-only pubkey being tested equals the given naked
+&gt;&gt; pubkey,
+&gt;&gt; optionally tweaked with the embedded data, optionally tweaked with the
+&gt;&gt; tagged
+&gt;&gt; hash of the merkle tree per BIP-0341 [3].
+&gt;&gt; Making both the tweaks optional allows to simplify the code, and also to
+&gt;&gt; obtain
+&gt;&gt; more compact scripts in some spending paths.
+&gt;&gt;
+&gt;&gt; In words:
+&gt;&gt;
+&gt;&gt; - OP_CHECKINPUTCONTRACTVERIFY: verify that the current input's internal
+&gt;&gt; key
+&gt;&gt; contains some embedded data (which would typically be passed through the
+&gt;&gt; witness stack)
+&gt;&gt; - OP_CHECKOUTPUTCONTRACTVERIFY: verify that a given output is a certain
+&gt;&gt; P2TR
+&gt;&gt; output script containing the desired embedded data.
+&gt;&gt;
+&gt;&gt; TBD if the tweaking used for the embedded data tweak should use a tagged
+&gt;&gt; hash;
+&gt;&gt; omitted for simplicity in this demo implementation.
+&gt;&gt;
+&gt;&gt; ### Amount preservation
+&gt;&gt;
+&gt;&gt; In the code above and in the linked demo implementation, the opcodes onl=
+y
+&gt;&gt; operate on the scriptPubkey; a complete implementation would want to mak=
+e
+&gt;&gt; sure
+&gt;&gt; that amounts are correctly preserved.
+&gt;&gt;
+&gt;&gt; The most direct and general way to address this would be to allow direct
+&gt;&gt; introspection on the output amounts. This has the complication that outp=
+ut
+&gt;&gt; amounts require 64-bits arithmetics, as discussed in the context of othe=
+r
+&gt;&gt; proposals, for example: [4].
+&gt;&gt;
+&gt;&gt; One more limited approach that works well for many interesting contracts
+&gt;&gt; is that of the deferred checks, implemented in OP_VAULT [2].
+&gt;&gt; The idea is that all the amounts of the inputs that commit to the same
+&gt;&gt; output
+&gt;&gt; script with OP_CHECKOUTPUTCONTRACTVERIFY are added together, and the
+&gt;&gt; script
+&gt;&gt; interpreter requires that the amount of that output is not smaller than
+&gt;&gt; the
+&gt;&gt; total amount of those inputs. This check is therefore transaction-wide
+&gt;&gt; rather
+&gt;&gt; than being tested during the input's script evaluation.
+&gt;&gt;
+&gt;&gt; This behaviour is adequate for vaults and likely suitable for many other
+&gt;&gt; applications; however, it's not the most general approach. I didn't try =
+to
+&gt;&gt; implement it yet, and defer the decision on the best approach to a later
+&gt;&gt; time.
+&gt;&gt;
+&gt;&gt; ### Extensions
+&gt;&gt;
+&gt;&gt; The opcodes above are not enough for the full generality of MATT: one
+&gt;&gt; would
+&gt;&gt; need to add an opcode like OP_SHA256CAT to allow the data embedding to
+&gt;&gt; commit
+&gt;&gt; to multiple pieces of data.
+&gt;&gt; This is not used in today's post, therefore I left it out of these code
+&gt;&gt; examples.
+&gt;&gt;
+&gt;&gt; It would be easy to extend OP_CHECKOUTPUTCONTRACTVERIFY to also apply fo=
+r
+&gt;&gt; an arbitrary input (typically, different from the currently executed
+&gt;&gt; one); there
+&gt;&gt; are likely use cases for that, allowing to define contracts with more
+&gt;&gt; complex
+&gt;&gt; cross-input semantics, but I preferred to keep things simple.
+&gt;&gt;
+&gt;&gt; Of course, one could also entirely replace CICV/COCV with generic full
+&gt;&gt; introspection on inputs/output's program, plus opcodes for elliptic curv=
+e
+&gt;&gt; math
+&gt;&gt; and tagged hashes.
+&gt;&gt;
+&gt;&gt;
+&gt;&gt; ##########################
+&gt;&gt; # PART 2: Vaults with MATT
+&gt;&gt; ##########################
+&gt;&gt;
+&gt;&gt; In the rest of this post, I will document the first attempt at creating =
+a
+&gt;&gt; vault
+&gt;&gt; using the opcodes described.
+&gt;&gt;
+&gt;&gt; While not an attempt at cloning exactly the functionality of OP_VAULT [2=
+],
+&gt;&gt; it borrows heavily from the excellent work that was done there.
+&gt;&gt;
+&gt;&gt; In particular, it also inherits the choice of using OP_CTV as a primitiv=
+e,
+&gt;&gt; building on top of the bitcoin-inquisition's current branch that has
+&gt;&gt; already
+&gt;&gt; merged OP_CTV. Reasonable vaults would be possible without CTV, but they
+&gt;&gt; would be less efficient, particularly in the case of sending to many
+&gt;&gt; addresses
+&gt;&gt; in a single unvaulting flow.
+&gt;&gt;
+&gt;&gt; ### Distilling OP_VAULT
+&gt;&gt;
+&gt;&gt; Abstracting from the implementation details, I mentally model a vault as=
+ a
+&gt;&gt; simple state machine with 2 states: [V] and [U]:
+&gt;&gt;
+&gt;&gt; [V]: the initial vault UTXO(s);
+&gt;&gt; [U]: the utxo produced by the &quot;trigger transaction&quot; during unvaulting.
+&gt;&gt;
+&gt;&gt; On the typical path: one or more [V] UTXOs are sent to the [U] state, an=
+d
+&gt;&gt; after
+&gt;&gt; a timelock set on [U] expires, [U] is spent to one or several
+&gt;&gt; destinations.
+&gt;&gt; Crucially, the destination outputs and amounts are already decided when
+&gt;&gt; [V] is
+&gt;&gt; spent into [U].
+&gt;&gt;
+&gt;&gt; At any time before the funds are spent from [U], they can always be spen=
+t
+&gt;&gt; by
+&gt;&gt; sending them to some specified recovery path.
+&gt;&gt;
+&gt;&gt; There are two key elements that are part of OP_VAULT's semantics, and
+&gt;&gt; could be
+&gt;&gt; generalized:
+&gt;&gt;
+&gt;&gt; =E2=88=92 Forcing the script/amount of the next stepon
+&gt;&gt; =E2=88=92 Storing some data for future Script's access (in the vault's c=
+ase, a
+&gt;&gt; hash
+&gt;&gt; that commits to the final withdrawal transaction).
+&gt;&gt;
+&gt;&gt; CICV/COCV generalize both to arbitrary scripts (taptrees) and state
+&gt;&gt; machines,
+&gt;&gt; and to dynamical and witness-dependent data embedded in the pubkey of a
+&gt;&gt; P2TR
+&gt;&gt; output.
+&gt;&gt;
+&gt;&gt; ### Vault parameters
+&gt;&gt;
+&gt;&gt; A contract that represents a vault has the following parameters
+&gt;&gt; (hardcoded in
+&gt;&gt; the script when the vault is created):
+&gt;&gt;
+&gt;&gt; - alternate_pk: a key that can be used any time.
+&gt;&gt; - spend_delay: the relative timelock before the withdrawal can be
+&gt;&gt; finalized;
+&gt;&gt; - recover_pk: a pubkey for a P2TR output where funds can be sent at any
+&gt;&gt; time.
+&gt;&gt;
+&gt;&gt; The alternate_pk is a pubkey that can optionally be used as the key-path
+&gt;&gt; spending condition for both states [V] and [U]. If such a spending
+&gt;&gt; condition is not
+&gt;&gt; desired, it can be replaced with a NUMS point, making the key-path
+&gt;&gt; unspendable.
+&gt;&gt;
+&gt;&gt; The spend_delay is the number of blocks that must be mined before the
+&gt;&gt; final
+&gt;&gt; withdrawal transaction
+&gt;&gt;
+&gt;&gt; In this example we also use an unvault_pk needed to authorize the
+&gt;&gt; unvaulting
+&gt;&gt; process (that is, spend [V] into [U]); this could be replaced with any
+&gt;&gt; miniscript
+&gt;&gt; or other conditions expressible in Script.
+&gt;&gt;
+&gt;&gt; ### P2TR structure for [V] (vault)
+&gt;&gt;
+&gt;&gt; internal key: alternate_pk
+&gt;&gt;
+&gt;&gt; Script 1: &quot;trigger&quot;
+&gt;&gt; # witness: &lt;out_i&gt; &lt;ctv-hash&gt;
+&gt;&gt; {
+&gt;&gt; &lt;alternate_pk&gt;,
+&gt;&gt; &lt;merkle root of U's taptree&gt;,
+&gt;&gt; 2, OP_ROLL,
+&gt;&gt; OP_CHECKOUTPUTCONTRACTVERIFY,
+&gt;&gt;
+&gt;&gt; &lt;unvault_pk&gt;
+&gt;&gt; OP_CHECKSIG
+&gt;&gt; }
+&gt;&gt;
+&gt;&gt; Script 2: &quot;recover&quot;
+&gt;&gt; # witness: &lt;out_i&gt;
+&gt;&gt; {
+&gt;&gt; recover_pk,
+&gt;&gt; OP_0, # no data tweak
+&gt;&gt; OP_0, # no taptweak
+&gt;&gt; OP_CHECKOUTPUTCONTRACTVERIFY,
+&gt;&gt; OP_TRUE
+&gt;&gt; }
+&gt;&gt;
+&gt;&gt; The &quot;trigger&quot; script requires in the witness an output index and the
+&gt;&gt; ctv-hash
+&gt;&gt; that describes the withdrawal transaction.
+&gt;&gt; COCV forces the output to contain the ctv-hash as embedded data.
+&gt;&gt; That's followed by the unvaulting condition =E2=88=92 in this example, a=
+ simple
+&gt;&gt; signature check.
+&gt;&gt;
+&gt;&gt; The &quot;recover&quot; script doesn't require any signature, and it simply forces
+&gt;&gt; the output specified in the witness to be a P2TR output with recover_pk
+&gt;&gt; as its
+&gt;&gt; pubkey.
+&gt;&gt;
+&gt;&gt; (Omitting the &quot;recover&quot; script in [V] would reduce the size of the
+&gt;&gt; witness by
+&gt;&gt; 32 bytes in the expected case, and might be preferred for some users)
+&gt;&gt;
+&gt;&gt; ### P2TR structure for [U] (unvaulting state)
+&gt;&gt;
+&gt;&gt; internal key: alternate_pk (tweaked with ctv_hash)
+&gt;&gt;
+&gt;&gt; Script 1: &quot;withdrawal&quot;
+&gt;&gt; # witness: &lt;ctv_hash&gt;
+&gt;&gt; {
+&gt;&gt; OP_DUP,
+&gt;&gt;
+&gt;&gt; # check that the top of the stack is the
+&gt;&gt; # embedded data in the current input
+&gt;&gt; &lt;alternate_pk&gt;, OP_SWAP,
+&gt;&gt; OP_CHECKINPUTCONTRACTVERIFY,
+&gt;&gt;
+&gt;&gt; # Check timelock
+&gt;&gt; &lt;spend_delay&gt;,
+&gt;&gt; OP_CHECKSEQUENCEVERIFY,
+&gt;&gt; OP_DROP,
+&gt;&gt;
+&gt;&gt; # Check that the transaction output is as expected
+&gt;&gt; OP_CHECKTEMPLATEVERIFY
+&gt;&gt; }
+&gt;&gt;
+&gt;&gt; Script 2: &quot;recover&quot;
+&gt;&gt; # witness: &lt;out_i&gt;
+&gt;&gt; {
+&gt;&gt; &lt;recover_pk&gt;,
+&gt;&gt; OP_0,
+&gt;&gt; OP_0,
+&gt;&gt; OP_CHECKOUTPUTCONTRACTVERIFY,
+&gt;&gt; OP_TRUE
+&gt;&gt; }
+&gt;&gt;
+&gt;&gt; The &quot;withdrawal&quot; finalizes the transaction, by checking that the timeloc=
+k
+&gt;&gt; expired and
+&gt;&gt; the outputs satisfy the CTV hash that was committed to in the previous
+&gt;&gt; transaction.
+&gt;&gt;
+&gt;&gt; The &quot;recover&quot; script is identical as before.
+&gt;&gt;
+&gt;&gt;
+&gt;&gt; ### Differences with OP_VAULT vaults
+&gt;&gt;
+&gt;&gt; Here I refer to the latest version of OP_VAULT at the time of writing. [=
+5]
+&gt;&gt; It is not a thorough analysis.
+&gt;&gt;
+&gt;&gt; Unlike the implementation based on OP_VAULT, the [V] utxos don't have an
+&gt;&gt; option
+&gt;&gt; to add an additional output that is sent back to the same exact vault.
+&gt;&gt; Supporting this use case seems to require a more general way of handling
+&gt;&gt; the
+&gt;&gt; distribution of amounts than what I discussed in the section above: that
+&gt;&gt; would
+&gt;&gt; in fact need to be generalized to the case of multiple
+&gt;&gt; OP_CHECKOUTPUTCONTRACTVERIFY opcodes executed for the same input.
+&gt;&gt;
+&gt;&gt; By separating the ctv-hash (which is considered &quot;data&quot;) from the scripts
+&gt;&gt; in the
+&gt;&gt; taptree, one entirely avoids the need to dynamically create taptrees and
+&gt;&gt; replace leaves in the covenant-encumbered UTXOs; in fact, the taptrees o=
+f
+&gt;&gt; [V]
+&gt;&gt; and [U] are already set in stone when [V] utxos are created, and only th=
+e
+&gt;&gt; &quot;data&quot; portion of [U]'s scriptPubKey is dynamically computed. In my
+&gt;&gt; opinion,
+&gt;&gt; this makes it substantially easier to program &quot;state machines&quot; that
+&gt;&gt; control the
+&gt;&gt; behavior of coins, of which vaults are a special case.
+&gt;&gt;
+&gt;&gt; I hope you'll find this interesting, and look forward to your comments.
+&gt;&gt;
+&gt;&gt; Salvatore Ingala
+&gt;&gt;
+&gt;&gt;
+&gt;&gt; [1] -
+&gt;&gt; https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2022-November/02=
+1223.html
+&gt;&gt; [2] - https://github.com/bitcoin/bips/pull/1421
+&gt;&gt; [3] - https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki
+&gt;&gt; [4] -
+&gt;&gt; https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2021-September/0=
+19420.html
+&gt;&gt; [5] -
+&gt;&gt; https://github.com/bitcoin/bips/blob/7112f308b356cdf0c51d917dbdc1b98e306=
+21f80/bip-0345.mediawiki
+&gt;&gt;
+&gt;&gt;
+&gt;&gt; _______________________________________________
+&gt; bitcoin-dev mailing list
+&gt; bitcoin-dev@lists.linuxfoundation.org
+&gt; https://lists.linuxfoundation.org/mailman/listinfo/bitcoin-dev
+&gt;
+
+--000000000000e00a8b05fab421a0
+Content-Type: text/html; charset=&quot;UTF-8&quot;
+Content-Transfer-Encoding: quoted-printable
+
+&lt;div dir=3D&quot;auto&quot;&gt;Hi I&#39;m a newb. What is MATT?=C2=A0&lt;/div&gt;&lt;br&gt;&lt;div clas=
+s=3D&quot;gmail_quote&quot;&gt;&lt;div dir=3D&quot;ltr&quot; class=3D&quot;gmail_attr&quot;&gt;On Tue 2 May 2023, =
+9:22 a.m. Salvatore Ingala via bitcoin-dev, &lt;&lt;a href=3D&quot;mailto:bitcoin-d=
+ev@lists.linuxfoundation.org&quot;&gt;bitcoin-dev@lists.linuxfoundation.org&lt;/a&gt;&gt;=
+ wrote:&lt;br&gt;&lt;/div&gt;&lt;blockquote class=3D&quot;gmail_quote&quot; style=3D&quot;margin:0 0 0 .8=
+ex;border-left:1px #ccc solid;padding-left:1ex&quot;&gt;&lt;div dir=3D&quot;ltr&quot;&gt;Hi Michael=
+,&lt;br&gt;&lt;br&gt;I can&#39;t make any claim of expertise on the field (especially o=
+n the&lt;br&gt;other proposals that you mentioned), so this post necessarily incl=
+udes&lt;br&gt;my opinions =E2=88=92 and possibly my biases.&lt;br&gt;&lt;br&gt;The core funct=
+ionality of MATT is quite simple, and could be adapted&lt;br&gt;to any version of=
+ the scripting system: basically, COCV allows to&lt;br&gt;&quot;embed&quot; some =
+data in the next output, and decide its script; CICV&lt;br&gt;allows &quot;readin=
+g&quot; this data.&lt;br&gt;The design I proposed on taproot is surely not the on=
+ly possible way,&lt;br&gt;but it&#39;s the most simple/elegant I could come up wi=
+th. Moreover, it&lt;br&gt;doesn&#39;t seem very useful to spend time trying to ge=
+t it to work on&lt;br&gt;pre-taproot Script, due to the obvious advantages of tho=
+se ideas when&lt;br&gt;deployed on taproot (like having taptrees, and all the nic=
+e properties&lt;br&gt;of Schnorr signatures).&lt;br&gt;&lt;br&gt;CICV/COCV can certainly be c=
+onsidered an additional form of&lt;br&gt;introspection: you&#39;re checking that =
+the script of an input/output&lt;br&gt;equals a certain value, which is not possi=
+ble in today&#39;s Script.&lt;br&gt;I think that&#39;s generally true for all cov=
+enant proposals.&lt;br&gt;&lt;br&gt;Unlike some other proposals, MATT is not yet fully =
+formalized, so I&lt;br&gt;generally call &quot;MATT&quot; the combination of CICV=
++COCV, plus some other&lt;br&gt;small set of opcodes that is yet to be defined ex=
+actly. I would say it&lt;br&gt;fits in the same family as APO/OP_CTV/OP_VAULT, pe=
+r your bucketization.&lt;br&gt;&lt;br&gt;The previous posts about MATT, fraud proofs, e=
+tc. are an exploration of&lt;br&gt;the deeper things that are enabled by the MATT=
+ opcodes. The claim is&lt;br&gt;that a set of changes that is (arguably) quite sm=
+all and easy to analyze&lt;br&gt;is enough to express general smart contracts =E2=
+=88=92 thanks to fraud proofs.&lt;br&gt;However, fraud proofs themselves are a qu=
+ite advanced application of&lt;div&gt;the new opcodes, and are not needed for mos=
+t/all of the things that&lt;/div&gt;&lt;div&gt;people are trying to build today with th=
+e other covenant proposals.&lt;br&gt;&lt;br&gt;&lt;br&gt;Since you mention Simplicity: my cur=
+rent understanding is that its&lt;br&gt;endeavour of replacing Script with a bett=
+er language is orthogonal to&lt;br&gt;the discussion about what features (e.g.: i=
+ntrospection, covenants)&lt;/div&gt;&lt;div&gt;should be in the language.&lt;br&gt;&lt;br&gt;All th=
+e covenant proposals listed above are technically a lot smaller&lt;br&gt;and easi=
+er to audit than both the SegWit and the Taproot soft forks,&lt;br&gt;both in ter=
+ms of code and conceptual complexity.&lt;br&gt;&lt;br&gt;Therefore, if we _do_ want the=
+ features that they enable, the required&lt;br&gt;engineering for a soft-fork is =
+relatively straightforward, and there is&lt;br&gt;not much of a reason to wait fo=
+r Simplicity. It will be trivial to &quot;port&quot; any&lt;/div&gt;&lt;div&gt;construc=
+tions we might create today with covenants to Simplicity scripts.&lt;/div&gt;&lt;div=
+&gt;&lt;br&gt;If we _do not_ want those features, then the decision would rather be&lt;=
+br&gt;guided by other considerations, like potential risks to bitcoin caused&lt;b=
+r&gt;by the effect of those features on miners&#39; incentives. These&lt;br&gt;conce=
+rns are not answered by Simplicity, as far as I understand:&lt;/div&gt;&lt;div&gt;you w=
+ould then want to implement Simplicity _without_ those features.&lt;br&gt;&lt;br&gt;Bes=
+t,&lt;br&gt;Salvatore&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;br&gt;&lt;div class=3D&quot;gmail_quote&quot;&gt;&lt;div dir=3D&quot;l=
+tr&quot; class=3D&quot;gmail_attr&quot;&gt;On Mon, 1 May 2023 at 16:18, Michael Folkson &lt;&lt;=
+a href=3D&quot;mailto:michaelfolkson@protonmail.com&quot; target=3D&quot;_blank&quot; rel=3D&quot;no=
+referrer&quot;&gt;michaelfolkson@protonmail.com&lt;/a&gt;&gt; wrote:&lt;br&gt;&lt;/div&gt;&lt;blockquote=
+ class=3D&quot;gmail_quote&quot; style=3D&quot;margin:0px 0px 0px 0.8ex;border-left:1px so=
+lid rgb(204,204,204);padding-left:1ex&quot;&gt;&lt;div style=3D&quot;font-family:Arial,sans=
+-serif;font-size:14px&quot;&gt;Hi Salvatore&lt;/div&gt;&lt;div style=3D&quot;font-family:Arial,sa=
+ns-serif;font-size:14px&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=3D&quot;font-family:Arial,sans-ser=
+if;font-size:14px&quot;&gt;Can you clarify for me which bucket this proposal sits? =
+We have APO, CTV, OP_VAULT etc that are proposals to add additional functio=
+nality to SegWit version 1, Tapleaf version 0 scripts. We have Simplicity t=
+hat would need a new Tapleaf version (e.g. Tapleaf version 1). And then the=
+re are CISA like proposals that would need a new SegWit version (e.g. SegWi=
+t version 2). It looks to me like your proposal is in the first bucket (sam=
+e as APO, CTV etc) as it is just introducing new opcode functionality to ex=
+isting script with no deeper introspection needed but previous and current =
+discussion of fraud proofs, MATT frameworks etc made me initially think it =
+was going to require more than that.&lt;/div&gt;&lt;div style=3D&quot;font-family:Arial,s=
+ans-serif;font-size:14px&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=3D&quot;font-family:Arial,sans-se=
+rif;font-size:14px&quot;&gt;Thanks&lt;/div&gt;&lt;div style=3D&quot;font-family:Arial,sans-serif;=
+font-size:14px&quot;&gt;Michael&lt;/div&gt;&lt;div style=3D&quot;font-family:Arial,sans-serif;fon=
+t-size:14px&quot;&gt;&lt;br&gt;&lt;/div&gt;
+&lt;div style=3D&quot;font-family:Arial,sans-serif;font-size:14px&quot;&gt;
+    &lt;div&gt;
+        &lt;div style=3D&quot;font-family:arial;font-size:14px&quot;&gt;&lt;span style=3D&quot;colo=
+r:rgb(38,42,51);font-style:normal;font-weight:400;letter-spacing:normal;tex=
+t-indent:0px;text-transform:none;white-space:pre-wrap;word-spacing:0px;back=
+ground-color:rgb(255,255,255);float:none;display:inline&quot;&gt;&lt;span style=3D&quot;fon=
+t-family:SFMono-Regular,Consolas,&quot;Liberation Mono&quot;,Menlo,monospac=
+e,monospace&quot;&gt;&lt;span style=3D&quot;font-size:14px&quot;&gt;--&lt;br&gt;Michael Folkson&lt;/span&gt;&lt;/s=
+pan&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=3D&quot;font-family:arial;font-size:14px&quot;&gt;&lt;span styl=
+e=3D&quot;color:rgb(38,42,51);font-style:normal;font-weight:400;letter-spacing:n=
+ormal;text-indent:0px;text-transform:none;white-space:pre-wrap;word-spacing=
+:0px;background-color:rgb(255,255,255);float:none;display:inline&quot;&gt;&lt;span sty=
+le=3D&quot;font-family:SFMono-Regular,Consolas,&quot;Liberation Mono&quot;,Menlo=
+,monospace,monospace&quot;&gt;&lt;span style=3D&quot;font-size:14px&quot;&gt;Email: michaelfolkson =
+at &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;a href=3D&quot;http://protonmail.com/&quot; style=3D&quot;line-he=
+ight:normal;text-decoration:underline;font-family:SFMono-Regular,Consolas,&amp;=
+quot;Liberation Mono&quot;,Menlo,monospace,monospace;font-size:14px;font-st=
+yle:normal;font-weight:400;letter-spacing:normal;text-indent:0px;text-trans=
+form:none;white-space:pre-wrap;word-spacing:0px&quot; rel=3D&quot;noopener noreferrer=
+ noreferrer&quot; target=3D&quot;_blank&quot;&gt;protonmail.com&lt;/a&gt;&lt;span style=3D&quot;color:rgb(3=
+8,42,51);font-style:normal;font-weight:400;letter-spacing:normal;text-inden=
+t:0px;text-transform:none;white-space:pre-wrap;word-spacing:0px;background-=
+color:rgb(255,255,255);float:none;display:inline&quot;&gt;&lt;span style=3D&quot;font-famil=
+y:SFMono-Regular,Consolas,&quot;Liberation Mono&quot;,Menlo,monospace,monos=
+pace&quot;&gt;&lt;span style=3D&quot;font-size:14px&quot;&gt; &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=
+=3D&quot;font-family:arial;font-size:14px&quot;&gt;&lt;span style=3D&quot;color:rgb(38,42,51);fo=
+nt-style:normal;font-weight:400;letter-spacing:normal;text-indent:0px;text-=
+transform:none;white-space:pre-wrap;word-spacing:0px;background-color:rgb(2=
+55,255,255);float:none;display:inline&quot;&gt;&lt;span style=3D&quot;font-family:SFMono-Re=
+gular,Consolas,&quot;Liberation Mono&quot;,Menlo,monospace,monospace&quot;&gt;&lt;span=
+ style=3D&quot;font-size:14px&quot;&gt;GPG: &lt;span&gt;A2CF5D71603C92010659818D2A75D601B23FEE=
+0F&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=3D&quot;font-family:arial;font-si=
+ze:14px&quot;&gt;&lt;span style=3D&quot;color:rgb(38,42,51);font-style:normal;font-weight:4=
+00;letter-spacing:normal;text-indent:0px;text-transform:none;white-space:pr=
+e-wrap;word-spacing:0px;background-color:rgb(255,255,255);float:none;displa=
+y:inline&quot;&gt;&lt;span style=3D&quot;font-family:SFMono-Regular,Consolas,&quot;Liberati=
+on Mono&quot;,Menlo,monospace,monospace&quot;&gt;&lt;span style=3D&quot;font-size:14px&quot;&gt;&lt;sp=
+an&gt;&lt;br&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=3D&quot;font-family:arial;fo=
+nt-size:14px&quot;&gt;&lt;span style=3D&quot;color:rgb(38,42,51);font-style:normal;font-wei=
+ght:400;letter-spacing:normal;text-indent:0px;text-transform:none;white-spa=
+ce:pre-wrap;word-spacing:0px;background-color:rgb(255,255,255);float:none;d=
+isplay:inline&quot;&gt;&lt;span style=3D&quot;font-family:SFMono-Regular,Consolas,&quot;Lib=
+eration Mono&quot;,Menlo,monospace,monospace&quot;&gt;&lt;span style=3D&quot;font-size:14px=
+&quot;&gt;&lt;span&gt;Learn about Bitcoin: &lt;span&gt;&lt;a href=3D&quot;https://www.youtube.com/@port=
+ofbitcoin&quot; rel=3D&quot;noopener noreferrer noreferrer&quot; target=3D&quot;_blank&quot;&gt;https:/=
+/www.youtube.com/@portofbitcoin&lt;/a&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div=
+&gt;
+    &lt;/div&gt;
+   =20
+            &lt;div&gt;
+       =20
+            &lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=3D&quot;font-family:Arial,sans-serif;font-size:14px&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;
+        ------- Original Message -------&lt;br&gt;
+        On Monday, April 24th, 2023 at 20:37, Salvatore Ingala via bitcoin-=
+dev &lt;&lt;a href=3D&quot;mailto:bitcoin-dev@lists.linuxfoundation.org&quot; target=3D&quot;=
+_blank&quot; rel=3D&quot;noreferrer&quot;&gt;bitcoin-dev@lists.linuxfoundation.org&lt;/a&gt;&gt; wr=
+ote:&lt;br&gt;&lt;br&gt;
+        &lt;blockquote type=3D&quot;cite&quot;&gt;
+            &lt;div dir=3D&quot;ltr&quot;&gt;Hello list,&lt;br&gt;&lt;br&gt;TL;DR: the core opcodes of =
+MATT can build vaults with a very similar design&lt;br&gt;to OP_VAULT. Code examp=
+le here:&lt;br&gt;&lt;br&gt; &lt;a href=3D&quot;https://github.com/bitcoin-inquisition/bitcoin/=
+compare/24.0...bigspider:bitcoin-inquisition:matt-vault&quot; rel=3D&quot;noreferrer =
+nofollow noopener noreferrer&quot; target=3D&quot;_blank&quot;&gt; https://github.com/bitcoin=
+-inquisition/bitcoin/compare/24.0...bigspider:bitcoin-inquisition:matt-vaul=
+t&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;In my previous emails about the MATT proposal for smart co=
+ntracts in&lt;br&gt;bitcoin [1], I mostly focused on proving its generality; that=
+ is, it&lt;br&gt;allows arbitrary smart contracts thanks to fraud proofs.&lt;br&gt;&lt;br&gt;=
+While I still find this &quot;completeness&quot; result compelling, I spent=
+ more time&lt;br&gt;thinking about the framework itself; the construction is not =
+very interesting&lt;br&gt;if it turns simple things into complicated ones. Luckil=
+y, this is not the case.&lt;br&gt;In particular, in this email we will not merkle=
+ize anything (other than taptrees).&lt;br&gt;&lt;br&gt;This post describes some progres=
+s into formalizing the semantics of the core&lt;br&gt;opcodes, and demonstrates h=
+ow they could be used to create vaults that seem&lt;br&gt;comparable to the ones =
+built with OP_VAULT [2], despite using general purpose&lt;br&gt;opcodes.&lt;br&gt;&lt;br&gt;A=
+n implementation and some minimal tests matching the content of this&lt;br&gt;e-m=
+ail can be found in the link above, using the bitcoin-inquisition as the&lt;br=
+&gt;base branch.&lt;br&gt;&lt;br&gt;Note that the linked code is not well tested and is on=
+ly intended for&lt;br&gt;exploratory and demonstrative purposes; therefore, bugs =
+are likely at this&lt;br&gt;stage.&lt;br&gt;&lt;br&gt;&lt;br&gt;##########################&lt;br&gt;#    =
+PART 1: MATT&#39;s core&lt;br&gt;##########################&lt;br&gt;&lt;br&gt;In this sectio=
+n, I will discuss plausible semantics for the core opcodes for MATT.&lt;br&gt;&lt;br=
+&gt;The two core opcodes are defined below as OP_CHECKINPUTCONTRACTVERIFY and&lt;=
+br&gt;OP_CHECKOUTPUTCONTRACTVERIFY.&lt;br&gt;&lt;br&gt;(the initial posts named them OP_CH=
+ECK{INPUT,OUTPUT}COVENANTVERIFY)&lt;br&gt;&lt;br&gt;They enhance Script with the follow=
+ing capabilities:&lt;br&gt;  - decide the taptree of the output&lt;br&gt;  - embed some=
+ (dynamically computed) data in the output&lt;br&gt;  - access the embedded data =
+in the current UTXO (if any)&lt;br&gt;&lt;br&gt;The opcodes below are incomplete, as th=
+ey only control the output&#39;s Script and&lt;br&gt;not the amounts; more on tha=
+t below.&lt;br&gt;&lt;br&gt;Other than that, the semantics should be quite close to the=
+ &quot;right&quot; one for&lt;br&gt;the MATT framework.&lt;br&gt;&lt;br&gt;&lt;br&gt;### The opcode=
+s&lt;br&gt;&lt;br&gt;&lt;font face=3D&quot;monospace&quot;&gt;case OP_CHECKINPUTCONTRACTVERIFY:&lt;br&gt;{&lt;br=
+&gt;    // OP_CHECKINPUTCONTRACTVERIFY is only available in Tapscript&lt;br&gt;    i=
+f (sigversion =3D=3D SigVersion::BASE || sigversion =3D=3D SigVersion::WITN=
+ESS_V0) return set_error(serror, SCRIPT_ERR_BAD_OPCODE);&lt;br&gt;    // (x d -- =
+)&lt;br&gt;    if (stack.size() &lt; 2)&lt;br&gt;        return set_error(serror, SCRIP=
+T_ERR_INVALID_STACK_OPERATION);&lt;br&gt;    valtype&amp; x =3D stacktop(-2);&lt;br&gt;=
+    valtype&amp; d =3D stacktop(-1);&lt;br&gt;    if (x.size() !=3D 32 || d.size(=
+) !=3D 32)&lt;br&gt;        return set_error(serror, SCRIPT_ERR_INVALID_STACK_OPE=
+RATION);&lt;br&gt;    const XOnlyPubKey nakedXOnlyKey{Span&lt;const unsigned char=
+&gt;{x.data(), x.data() + 32}};&lt;br&gt;    const uint256 data(d);&lt;br&gt;    if (!e=
+xecdata.m_internal_key.has_value())&lt;br&gt;        return set_error(serror, SCR=
+IPT_ERR_UNKNOWN_ERROR);  // TODO&lt;br&gt;    // Verify that tweak(lift_x(x), d) =
+equals the internal pubkey&lt;br&gt;    if (!execdata.m_internal_key.value().Chec=
+kDoubleTweak(nakedXOnlyKey, &amp;data, nullptr))&lt;br&gt;        return set_erro=
+r(serror, SCRIPT_ERR_WRONGCONTRACTDATA);&lt;br&gt;    popstack(stack);&lt;br&gt;    pop=
+stack(stack);&lt;br&gt;}&lt;br&gt;break;&lt;br&gt;case OP_CHECKOUTPUTCONTRACTVERIFY:&lt;br&gt;{&lt;br&gt;=
+    // OP_CHECKOUTPUTCONTRACTVERIFY is only available in Tapscript&lt;br&gt;    i=
+f (sigversion =3D=3D SigVersion::BASE || sigversion =3D=3D SigVersion::WITN=
+ESS_V0) return set_error(serror, SCRIPT_ERR_BAD_OPCODE);&lt;br&gt;    // (out_i x=
+ taptree d -- )&lt;br&gt;    if (stack.size() &lt; 4)&lt;br&gt;        return set_error=
+(serror, SCRIPT_ERR_INVALID_STACK_OPERATION);&lt;br&gt;    int out_i =3D CScriptN=
+um(stacktop(-4), fRequireMinimal).getint();&lt;br&gt;    valtype&amp; x =3D stack=
+top(-3);&lt;br&gt;    valtype&amp; taptree =3D stacktop(-2);&lt;br&gt;    valtype&amp; =
+d =3D stacktop(-1);&lt;br&gt;    auto outps =3D checker.GetTxvOut();&lt;br&gt;    // Re=
+turn error if the evaluation context is unavailable&lt;br&gt;    if (!outps)&lt;br&gt; =
+       return set_error(serror, SCRIPT_ERR_UNKNOWN_ERROR); // TODO&lt;br&gt;    i=
+f (x.size() !=3D 32 || taptree.size() !=3D 32 || (d.size() !=3D 0 &amp;&amp;amp=
+; d.size() !=3D 32))&lt;br&gt;        return set_error(serror, SCRIPT_ERR_INVALID=
+_STACK_OPERATION);&lt;br&gt;    if (out_i &lt; 0 || out_i &gt;=3D (int)outps-&gt;=
+size())&lt;br&gt;        return set_error(serror, SCRIPT_ERR_INVALID_STACK_OPERAT=
+ION);&lt;br&gt;    const XOnlyPubKey nakedXOnlyKey{Span&lt;const unsigned char&amp;gt=
+;{x.data(), x.data() + 32}};&lt;br&gt;    const uint256 data(d);&lt;br&gt;    const uin=
+t256 *data_ptr =3D (d.size() =3D=3D 0 ? nullptr : &amp;data);&lt;br&gt;    const =
+uint256 merkle_tree(taptree);&lt;br&gt;    CScript scriptPubKey =3D outps-&gt;at(=
+out_i).scriptPubKey;&lt;br&gt;    if (scriptPubKey.size() !=3D 1 + 1 + 32 || scri=
+ptPubKey[0] !=3D OP_1 || scriptPubKey[1] !=3D 32)&lt;br&gt;        return set_err=
+or(serror, SCRIPT_ERR_WRONGCONTRACTDATA);&lt;br&gt;    const XOnlyPubKey outputXO=
+nlyKey{Span&lt;const unsigned char&gt;{scriptPubKey.data() + 2, scriptPubKe=
+y.data() + 34}};&lt;br&gt;    // Verify that taptweak(tweak(lift_x(x), d), taptre=
+e) equals the internal pubkey&lt;br&gt;    if (!outputXOnlyKey.CheckDoubleTweak(n=
+akedXOnlyKey, data_ptr, &amp;merkle_tree))&lt;br&gt;        return set_error(serr=
+or, SCRIPT_ERR_WRONGCONTRACTDATA);&lt;br&gt;    popstack(stack);&lt;br&gt;    popstack(=
+stack);&lt;br&gt;    popstack(stack);&lt;br&gt;    popstack(stack);&lt;br&gt;}&lt;br&gt;break;&lt;/fon=
+t&gt;&lt;br&gt;&lt;br&gt;### Commentary&lt;br&gt;&lt;br&gt;CheckDoubleTweak function (implemented in t=
+he branch) gets an x-only pubkey,&lt;br&gt;optionally some data, and optionally t=
+aptree&#39;s merkle root.&lt;br&gt;It verifies that the x-only pubkey being teste=
+d equals the given naked pubkey,&lt;br&gt;optionally tweaked with the embedded da=
+ta, optionally tweaked with the tagged&lt;br&gt;hash of the merkle tree per BIP-0=
+341 [3].&lt;div&gt;Making both the tweaks optional allows to simplify the code, a=
+nd also to obtain&lt;/div&gt;&lt;div&gt;more compact scripts in some spending paths.&lt;br=
+&gt;&lt;br&gt;In words:&lt;br&gt;&lt;br&gt;- OP_CHECKINPUTCONTRACTVERIFY: verify that the curren=
+t input&#39;s internal key&lt;br&gt;  contains some embedded data (which would ty=
+pically be passed through the&lt;br&gt;  witness stack)&lt;br&gt;- OP_CHECKOUTPUTCONTRA=
+CTVERIFY: verify that a given output is a certain P2TR&lt;br&gt;  output script c=
+ontaining the desired embedded data.&lt;br&gt;&lt;br&gt;TBD if the tweaking used for th=
+e embedded data tweak should use a tagged hash;&lt;br&gt;omitted for simplicity i=
+n this demo implementation.&lt;br&gt;&lt;br&gt;### Amount preservation&lt;br&gt;&lt;br&gt;In the co=
+de above and in the linked demo implementation, the opcodes only&lt;br&gt;operate=
+ on the scriptPubkey; a complete implementation would want to make sure&lt;br&gt;=
+that amounts are correctly preserved.&lt;br&gt;&lt;br&gt;The most direct and general wa=
+y to address this would be to allow direct&lt;br&gt;introspection on the output a=
+mounts. This has the complication that output&lt;br&gt;amounts require 64-bits ar=
+ithmetics, as discussed in the context of other&lt;br&gt;proposals, for example: =
+[4].&lt;br&gt;&lt;br&gt;One more limited approach that works well for many interesting =
+contracts&lt;br&gt;is that of the deferred checks, implemented in OP_VAULT [2].&lt;b=
+r&gt;The idea is that all the amounts of the inputs that commit to the same ou=
+tput&lt;br&gt;script with OP_CHECKOUTPUTCONTRACTVERIFY are added together, and th=
+e script&lt;br&gt;interpreter requires that the amount of that output is not smal=
+ler than the&lt;br&gt;total amount of those inputs. This check is therefore trans=
+action-wide rather&lt;br&gt;than being tested during the input&#39;s script evalu=
+ation.&lt;br&gt;&lt;br&gt;This behaviour is adequate for vaults and likely suitable for=
+ many other&lt;br&gt;applications; however, it&#39;s not the most general approac=
+h. I didn&#39;t try to&lt;br&gt;implement it yet, and defer the decision on the b=
+est approach to a later time.&lt;br&gt;&lt;br&gt;### Extensions&lt;br&gt;&lt;br&gt;The opcodes abov=
+e are not enough for the full generality of MATT: one would&lt;br&gt;need to add =
+an opcode like OP_SHA256CAT to allow the data embedding to commit&lt;br&gt;to mul=
+tiple pieces of data.&lt;br&gt;This is not used in today&#39;s post, therefore I =
+left it out of these code examples.&lt;br&gt;&lt;br&gt;It would be easy to extend OP_CH=
+ECKOUTPUTCONTRACTVERIFY to also apply for&lt;br&gt;an arbitrary input (typically,=
+ different from the currently executed one); there&lt;br&gt;are likely use cases =
+for that, allowing to define contracts with more complex&lt;br&gt;cross-input sem=
+antics, but I preferred to keep things simple.&lt;br&gt;&lt;br&gt;Of course, one could =
+also entirely replace CICV/COCV with generic full&lt;br&gt;introspection on input=
+s/output&#39;s program, plus opcodes for elliptic curve math&lt;br&gt;and tagged =
+hashes.&lt;br&gt;&lt;br&gt;&lt;br&gt;##########################&lt;br&gt;#    PART 2: Vaults with M=
+ATT&lt;br&gt;##########################&lt;br&gt;&lt;br&gt;In the rest of this post, I will d=
+ocument the first attempt at creating a vault&lt;br&gt;using the opcodes describe=
+d.&lt;br&gt;&lt;br&gt;While not an attempt at cloning exactly the functionality of OP_V=
+AULT [2],&lt;br&gt;it borrows heavily from the excellent work that was done there=
+.&lt;br&gt;&lt;br&gt;In particular, it also inherits the choice of using OP_CTV as a pr=
+imitive,&lt;br&gt;building on top of the bitcoin-inquisition&#39;s current branch=
+ that has already&lt;br&gt;merged OP_CTV. Reasonable vaults would be possible wit=
+hout CTV, but they&lt;br&gt;would be less efficient, particularly in the case of =
+sending to many addresses&lt;br&gt;in a single unvaulting flow.&lt;br&gt;&lt;br&gt;### Distil=
+ling OP_VAULT&lt;br&gt;&lt;br&gt;Abstracting from the implementation details, I mentall=
+y model a vault as a&lt;br&gt;simple state machine with 2 states: [V] and [U]:&lt;br=
+&gt;&lt;br&gt;[V]: the initial vault UTXO(s);&lt;br&gt;[U]: the utxo produced by the &amp;quot=
+;trigger transaction&quot; during unvaulting.&lt;br&gt;&lt;br&gt;On the typical path: o=
+ne or more [V] UTXOs are sent to the [U] state, and after&lt;br&gt;a timelock set=
+ on [U] expires, [U] is spent to one or several destinations.&lt;br&gt;Crucially,=
+ the destination outputs and amounts are already decided when [V] is&lt;br&gt;spe=
+nt into [U].&lt;br&gt;&lt;br&gt;At any time before the funds are spent from [U], they c=
+an always be spent by&lt;br&gt;sending them to some specified recovery path.&lt;br&gt;&lt;=
+br&gt;There are two key elements that are part of OP_VAULT&#39;s semantics, an=
+d could be&lt;br&gt;generalized:&lt;br&gt;&lt;br&gt;=E2=88=92 Forcing the script/amount of th=
+e next stepon&lt;br&gt;=E2=88=92 Storing some data for future Script&#39;s access=
+ (in the vault&#39;s case, a hash&lt;br&gt;   that commits to the final withdrawa=
+l transaction).&lt;br&gt;&lt;br&gt;CICV/COCV generalize both to arbitrary scripts (tapt=
+rees) and state machines,&lt;br&gt;and to dynamical and witness-dependent data em=
+bedded in the pubkey of a P2TR&lt;br&gt;output.&lt;br&gt;&lt;br&gt;### Vault parameters&lt;br&gt;&lt;b=
+r&gt;A contract that represents a vault has the following parameters (hardcode=
+d in&lt;br&gt;the script when the vault is created):&lt;br&gt;&lt;br&gt;- alternate_pk: a key=
+ that can be used any time.&lt;br&gt;- spend_delay: the relative timelock before =
+the withdrawal can be finalized;&lt;br&gt;- recover_pk: a pubkey for a P2TR outpu=
+t where funds can be sent at any time.&lt;br&gt;&lt;br&gt;The alternate_pk is a pubkey =
+that can optionally be used as the key-path&lt;br&gt;spending condition for both =
+states [V] and [U]. If such a spending condition is not&lt;div&gt;desired, it can=
+ be replaced with a NUMS point, making the key-path unspendable.&lt;br&gt;&lt;br&gt;The=
+ spend_delay is the number of blocks that must be mined before the final&lt;br=
+&gt;withdrawal transaction&lt;br&gt;&lt;br&gt;In this example we also use an unvault_pk ne=
+eded to authorize the unvaulting&lt;br&gt;process (that is, spend [V] into [U]); =
+this could be replaced with any miniscript&lt;br&gt;or other conditions expressib=
+le in Script.&lt;br&gt;&lt;br&gt;### P2TR structure for [V] (vault)&lt;br&gt;&lt;br&gt;internal key=
+: alternate_pk&lt;br&gt;&lt;br&gt;Script 1: &quot;trigger&quot;&lt;br&gt;        # witness: &amp;=
+lt;out_i&gt; &lt;ctv-hash&gt;&lt;br&gt;&lt;font face=3D&quot;monospace&quot;&gt;{&lt;br&gt;    &lt;alte=
+rnate_pk&gt;,&lt;br&gt;    &lt;merkle root of U&#39;s taptree&gt;,&lt;br&gt;    2, OP_R=
+OLL,&lt;br&gt;    OP_CHECKOUTPUTCONTRACTVERIFY,&lt;br&gt;&lt;br&gt;    &lt;unvault_pk&gt;&lt;br&gt;=
+    OP_CHECKSIG&lt;br&gt;}&lt;/font&gt;&lt;br&gt;&lt;br&gt;Script 2: &quot;recover&quot;&lt;br&gt;       =
+ # witness: &lt;out_i&gt;&lt;br&gt;&lt;font face=3D&quot;monospace&quot;&gt;{&lt;br&gt;    recover_pk,&lt;=
+br&gt;    OP_0,                          # no data tweak&lt;br&gt;    OP_0,         =
+                 # no taptweak&lt;br&gt;    OP_CHECKOUTPUTCONTRACTVERIFY,&lt;br&gt;    =
+OP_TRUE&lt;br&gt;}&lt;/font&gt;&lt;br&gt;&lt;br&gt;The &quot;trigger&quot; script requires in the w=
+itness an output index and the ctv-hash&lt;br&gt;that describes the withdrawal tr=
+ansaction.&lt;br&gt;COCV forces the output to contain the ctv-hash as embedded da=
+ta.&lt;br&gt;That&#39;s followed by the unvaulting condition =E2=88=92 in this ex=
+ample, a simple&lt;br&gt;signature check.&lt;br&gt;&lt;br&gt;The &quot;recover&quot; script d=
+oesn&#39;t require any signature, and it simply forces&lt;br&gt;the output specif=
+ied in the witness to be a P2TR output with recover_pk as its&lt;br&gt;pubkey.&lt;br=
+&gt;&lt;br&gt;(Omitting the &quot;recover&quot; script in [V] would reduce the size =
+of the witness by&lt;br&gt;32 bytes in the expected case, and might be preferred =
+for some users)&lt;br&gt;&lt;br&gt;### P2TR structure for [U] (unvaulting state)&lt;br&gt;&lt;br=
+&gt;internal key: alternate_pk (tweaked with ctv_hash)&lt;br&gt;&lt;br&gt;Script 1: &quot;=
+withdrawal&quot;&lt;br&gt;        # witness: &lt;ctv_hash&gt;&lt;br&gt;&lt;font face=3D&quot;mo=
+nospace&quot;&gt;{&lt;br&gt;    OP_DUP,&lt;br&gt;&lt;br&gt;    # check that the top of the stack is t=
+he&lt;br&gt;    # embedded data in the current input&lt;br&gt;    &lt;alternate_pk&gt;,=
+ OP_SWAP,&lt;br&gt;    OP_CHECKINPUTCONTRACTVERIFY,&lt;br&gt;&lt;br&gt;    # Check timelock&lt;b=
+r&gt;    &lt;spend_delay&gt;,&lt;br&gt;    OP_CHECKSEQUENCEVERIFY,&lt;br&gt;    OP_DROP,&lt;b=
+r&gt;&lt;br&gt;    # Check that the transaction output is as expected&lt;br&gt;    OP_CHEC=
+KTEMPLATEVERIFY&lt;br&gt;}&lt;/font&gt;&lt;br&gt;&lt;br&gt;Script 2: &quot;recover&quot;&lt;br&gt;       =
+ # witness: &lt;out_i&gt;&lt;br&gt;&lt;font face=3D&quot;monospace&quot;&gt;{&lt;br&gt;    &lt;recover_=
+pk&gt;,&lt;br&gt;    OP_0,&lt;br&gt;    OP_0,&lt;br&gt;    OP_CHECKOUTPUTCONTRACTVERIFY,&lt;br&gt; =
+   OP_TRUE&lt;br&gt;}&lt;/font&gt;&lt;br&gt;&lt;br&gt;The &quot;withdrawal&quot; finalizes the tran=
+saction, by checking that the timelock expired and&lt;/div&gt;&lt;div&gt;the outputs sa=
+tisfy the CTV hash that was committed to in the previous transaction.&lt;br&gt;&lt;b=
+r&gt;The &quot;recover&quot; script is identical as before.&lt;br&gt;&lt;br&gt;&lt;br&gt;### Dif=
+ferences with OP_VAULT vaults&lt;br&gt;&lt;br&gt;Here I refer to the latest version of =
+OP_VAULT at the time of writing. [5]&lt;br&gt;It is not a thorough analysis.&lt;br&gt;&lt;=
+br&gt;Unlike the implementation based on OP_VAULT, the [V] utxos don&#39;t hav=
+e an option&lt;br&gt;to add an additional output that is sent back to the same ex=
+act vault.&lt;br&gt;Supporting this use case seems to require a more general way =
+of handling the&lt;br&gt;distribution of amounts than what I discussed in the sec=
+tion above: that would&lt;br&gt;in fact need to be generalized to the case of mul=
+tiple&lt;br&gt;OP_CHECKOUTPUTCONTRACTVERIFY opcodes executed for the same input.&lt;=
+br&gt;&lt;br&gt;By separating the ctv-hash (which is considered &quot;data&quot;) fr=
+om the scripts in the&lt;br&gt;taptree, one entirely avoids the need to dynamical=
+ly create taptrees and&lt;br&gt;replace leaves in the covenant-encumbered UTXOs; =
+in fact, the taptrees of [V]&lt;br&gt;and [U] are already set in stone when [V] u=
+txos are created, and only the&lt;br&gt;&quot;data&quot; portion of [U]&#39;s scr=
+iptPubKey is dynamically computed. In my opinion,&lt;br&gt;this makes it substant=
+ially easier to program &quot;state machines&quot; that control the&lt;br&gt;beha=
+vior of coins, of which vaults are a special case.&lt;br&gt;&lt;br&gt;I hope you&#39;ll=
+ find this interesting, and look forward to your comments.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/=
+div&gt;&lt;div&gt;Salvatore Ingala&lt;br&gt;&lt;br&gt;&lt;br&gt;[1] - &lt;a href=3D&quot;https://lists.linuxfo=
+undation.org/pipermail/bitcoin-dev/2022-November/021223.html&quot; rel=3D&quot;norefe=
+rrer nofollow noopener noreferrer&quot; target=3D&quot;_blank&quot;&gt;https://lists.linuxfou=
+ndation.org/pipermail/bitcoin-dev/2022-November/021223.html&lt;/a&gt;&lt;br&gt;[2] - &lt;a=
+ href=3D&quot;https://github.com/bitcoin/bips/pull/1421&quot; rel=3D&quot;noreferrer nofol=
+low noopener noreferrer&quot; target=3D&quot;_blank&quot;&gt;https://github.com/bitcoin/bips/=
+pull/1421&lt;/a&gt;&lt;br&gt;[3] - &lt;a href=3D&quot;https://github.com/bitcoin/bips/blob/mast=
+er/bip-0341.mediawiki&quot; rel=3D&quot;noreferrer nofollow noopener noreferrer&quot; targ=
+et=3D&quot;_blank&quot;&gt;https://github.com/bitcoin/bips/blob/master/bip-0341.mediawik=
+i&lt;/a&gt;&lt;br&gt;[4] - &lt;a href=3D&quot;https://lists.linuxfoundation.org/pipermail/bitco=
+in-dev/2021-September/019420.html&quot; rel=3D&quot;noreferrer nofollow noopener nore=
+ferrer&quot; target=3D&quot;_blank&quot;&gt;https://lists.linuxfoundation.org/pipermail/bitco=
+in-dev/2021-September/019420.html&lt;/a&gt;&lt;br&gt;[5] - &lt;a href=3D&quot;https://github.co=
+m/bitcoin/bips/blob/7112f308b356cdf0c51d917dbdc1b98e30621f80/bip-0345.media=
+wiki&quot; rel=3D&quot;noreferrer nofollow noopener noreferrer&quot; target=3D&quot;_blank&quot;&gt;htt=
+ps://github.com/bitcoin/bips/blob/7112f308b356cdf0c51d917dbdc1b98e30621f80/=
+bip-0345.mediawiki&lt;/a&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+
+        &lt;/blockquote&gt;&lt;br&gt;
+    &lt;/div&gt;&lt;/blockquote&gt;&lt;/div&gt;
+_______________________________________________&lt;br&gt;
+bitcoin-dev mailing list&lt;br&gt;
+&lt;a href=3D&quot;mailto:bitcoin-dev@lists.linuxfoundation.org&quot; target=3D&quot;_blank&quot; =
+rel=3D&quot;noreferrer&quot;&gt;bitcoin-dev@lists.linuxfoundation.org&lt;/a&gt;&lt;br&gt;
+&lt;a href=3D&quot;https://lists.linuxfoundation.org/mailman/listinfo/bitcoin-dev&quot; =
+rel=3D&quot;noreferrer noreferrer&quot; target=3D&quot;_blank&quot;&gt;https://lists.linuxfoundati=
+on.org/mailman/listinfo/bitcoin-dev&lt;/a&gt;&lt;br&gt;
+&lt;/blockquote&gt;&lt;/div&gt;
+
+--000000000000e00a8b05fab421a0--
+
+]
