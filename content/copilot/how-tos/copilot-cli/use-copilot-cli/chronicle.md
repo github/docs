@@ -49,9 +49,20 @@ To remame a session:
 
 ## Sharing a session
 
-You can save the content of the current session as either a Markdown file or a private gist on {% data variables.product.prodname_dotcom_the_website %}. This allows you to share your prompts and {% data variables.product.prodname_copilot_short %}'s responses with others, or store a record of your work outside of the CLI.
+You can share the content of the current session as a shareable link to the session on {% data variables.product.prodname_dotcom_the_website %}, a Markdown file, an interactive HTML file, or a private gist on {% data variables.product.prodname_dotcom_the_website %}. This allows you to share your prompts and {% data variables.product.prodname_copilot_short %}'s responses with others, or store a record of your work outside of the CLI.
 
-To share a session as a gist, type the following in an interactive session:
+> [!NOTE]
+> You can use `/export` as an alias for `/share` in any of the commands below.
+
+To share the session to {% data variables.product.github %} and print a shareable link, type the following in an interactive session:
+
+```copilot copy
+/share
+```
+
+To stop sharing the session, type `/share off`.
+
+To share a session as a gist, type:
 
 ```copilot copy
 /share gist
@@ -64,6 +75,19 @@ To export the session conversation as a Markdown file, type:
 ```
 
 If you don't specify a file path, the Markdown file is saved in the current working directory with the name `copilot-session-SESSIONID.md`.
+
+> [!NOTE]
+> Gists are not available to {% data variables.product.prodname_emus %}, or if you use {% data variables.product.prodname_ghe_cloud %} with data residency (*.ghe.com).
+
+To export the session as an interactive HTML file, type:
+
+```copilot copy
+/share html [PATH-TO-FILE]
+```
+
+As with Markdown export, if you don't specify a file path the file is saved in the current working directory, with the name `copilot-session-SESSIONID.html`.
+
+If you have used the `/research` slash command in the current session, you can also use the `/share` command to share a research report. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/research#viewing-and-sharing-a-research-report).
 
 ## Using the `/chronicle` slash command
 

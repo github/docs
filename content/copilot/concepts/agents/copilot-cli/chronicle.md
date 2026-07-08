@@ -25,6 +25,8 @@ This session data powers several features, available from {% data variables.copi
 
 With user-scoped queries, you can only query your own sessions—no one else can access your session data.
 
+In {% data variables.jetbrains.prodname_jetbrains_ides %}, `/chronicle` is available in interactive {% data variables.copilot.copilot_cli_short %} sessions, so you can review session history and generate insights without leaving the IDE.
+
 This conceptual article explains how session data is stored and synced, and how you can use it to enhance your workflow. For a practical guide to resuming a session, asking {% data variables.product.prodname_copilot_short %} about your CLI sessions, and using the `/chronicle` slash command, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/chronicle). For querying sessions from {% data variables.product.prodname_vscode_shortname %}, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents).
 
 ## How session data is stored
@@ -76,6 +78,8 @@ For the full list of `/session` subcommands, see [AUTOTITLE](/copilot/reference/
 ## The `/chronicle` slash command
 
 The `/chronicle` slash command provides purpose-built subcommands for generating insights from your session history, including standup reports, personalized tips, cost analysis, and suggestions for improving your custom instructions. For the full list of subcommands and usage examples, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/chronicle#using-the-chronicle-slash-command).
+
+If you use {% data variables.copilot.copilot_cli_short %} in {% data variables.jetbrains.prodname_jetbrains_ides %}, these `/chronicle` subcommands are available from the interactive CLI session you open in the IDE.
 
 ## When to use session data
 

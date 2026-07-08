@@ -4770,6 +4770,13 @@
           "href": "/graphql/reference/issues#union-issuefields"
         },
         {
+          "name": "options",
+          "description": "<p>The selected options for option-backed fields; single-select returns one option and multi-select returns many.</p>",
+          "type": "[IssueFieldTimelineOption!]",
+          "id": "issuefieldtimelineoption",
+          "href": "/graphql/reference/issues#object-issuefieldtimelineoption"
+        },
+        {
           "name": "value",
           "description": "<p>The value of the added field.</p>",
           "type": "String",
@@ -4829,6 +4836,13 @@
           "href": "/graphql/reference/other#scalar-string"
         },
         {
+          "name": "newOptions",
+          "description": "<p>The new options for option-backed fields; single-select returns one option and multi-select returns many.</p>",
+          "type": "[IssueFieldTimelineOption!]",
+          "id": "issuefieldtimelineoption",
+          "href": "/graphql/reference/issues#object-issuefieldtimelineoption"
+        },
+        {
           "name": "newValue",
           "description": "<p>The new value of the field.</p>",
           "type": "String",
@@ -4841,6 +4855,13 @@
           "type": "String",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "previousOptions",
+          "description": "<p>The previous options for option-backed fields; single-select returns one option and multi-select returns many.</p>",
+          "type": "[IssueFieldTimelineOption!]",
+          "id": "issuefieldtimelineoption",
+          "href": "/graphql/reference/issues#object-issuefieldtimelineoption"
         },
         {
           "name": "previousValue",
@@ -5249,6 +5270,13 @@
           "type": "IssueFields",
           "id": "issuefields",
           "href": "/graphql/reference/issues#union-issuefields"
+        },
+        {
+          "name": "options",
+          "description": "<p>The removed options for option-backed fields; single-select returns one option and multi-select returns many.</p>",
+          "type": "[IssueFieldTimelineOption!]",
+          "id": "issuefieldtimelineoption",
+          "href": "/graphql/reference/issues#object-issuefieldtimelineoption"
         }
       ],
       "category": "issues"
@@ -5575,6 +5603,30 @@
         {
           "name": "value",
           "description": "<p>Value of the field.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "issues"
+    },
+    {
+      "name": "IssueFieldTimelineOption",
+      "id": "issuefieldtimelineoption",
+      "href": "/graphql/reference/issues#object-issuefieldtimelineoption",
+      "description": "<p>Represents a selected option for a timeline issue field event.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "color",
+          "description": "<p>The option color.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "name",
+          "description": "<p>The option name.</p>",
           "type": "String!",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"

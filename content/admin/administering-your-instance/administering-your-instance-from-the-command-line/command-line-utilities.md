@@ -679,6 +679,28 @@ To show the full hook payload, result, and any exceptions for the delivery:
 ghe-webhook-logs -g DELIVERY_GUID
 ```
 
+## Backup and restore
+
+### ghe-backup-prune-snapshots
+
+This utility prunes old or invalid backup snapshot directories.
+
+```shell
+ghe-backup-prune-snapshots
+```
+
+{% ifversion ghes > 3.21 %}
+
+### ghe-backup-healthcheck
+
+This utility quickly confirms that GHES backups are being written, are recent, and that the backup disk is not in a risky state. For example, if usage is 90% or higher, it reports an error because the backup disk may be close to full. Setting `-no-color` gives plain text output, for example in logs or monitoring systems.
+
+```shell
+ghe-backup-healthcheck
+```
+
+{% endif %}
+
 ## Clustering
 
 ### ghe-cluster-balance
@@ -1366,11 +1388,14 @@ In this example, `ghe-repl-status -vv` sends verbose status information from a r
 
 ### ghe-check-background-upgrade-jobs
 
-During an upgrade to a feature release, this utility displays the status of background jobs on {% data variables.location.product_location %}. If you're running back-to-back upgrades, you should use this utility to check that all background jobs are complete before proceeding with the next upgrade.
+During an upgrade to a feature release, this utility displays the status of background upgrade jobs, such as Elasticsearch index migrations, on {% data variables.location.product_location %}. If you're running back-to-back upgrades, you should use this utility to check that all background jobs are complete before proceeding with the next feature upgrade.
 
 ```shell
 ghe-check-background-upgrade-jobs
 ```
+
+> [!NOTE]
+> This utility only gates a **subsequent feature upgrade**. It is not a prerequisite for upgrading replica or other additional nodes to the same release.
 
 ### ghe-migrations
 
@@ -1421,6 +1446,27 @@ To install an upgrade package:
 ```shell
 ghe-upgrade UPGRADE-PACKAGE-FILENAME
 ```
+
+
+{% ifversion ghes > 3.20 %}
+
+Beginning with upgrades in version 3.21 operators may run many of the upgrade operations without requiring a maintenance window using phased execution. 
+
+First run operations which do not require a maintenance window by triggering the pre-upgrade phase
+
+```shell
+ghe-upgrade --phase pre-upgrade UPGRADE-PACKAGE-FILENAME
+```
+
+Once that is complete operators may complete the upgrade by running the final steps after a maintenance window has been scheduled
+
+```shell
+ghe-upgrade --phase upgrade UPGRADE-PACKAGE-FILENAME
+```
+
+The upgraded {% data variables.product.prodname_enterprise %} host will be rebooted by this operation.
+
+{% endif %}
 
 {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
 

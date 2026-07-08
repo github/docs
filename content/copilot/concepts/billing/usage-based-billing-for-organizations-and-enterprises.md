@@ -40,6 +40,8 @@ A user's included {% data variables.product.prodname_ai_credits_short %} are poo
 
 Adding licenses mid-cycle increases the pool immediately. Removing licenses mid-cycle doesn't shrink the pool: the decrease is reflected at the start of the next billing cycle.
 
+Included {% data variables.product.prodname_ai_credits_short %} do not carry over between months. Unused credits are forfeited, and the pool resets to the full monthly amount at 00:00:00 UTC on the first day of each calendar month. This reset date is fixed and does not change based on when licenses are added, removed, or billed. See [AUTOTITLE](/billing/concepts/billing-cycles#billing-cycles-for-metered-products).
+
 <!-- expires 2026-09-01 -->
 
 ### Promotional amounts for existing customers
@@ -90,7 +92,7 @@ For the best experience with usage-based billing, update your IDE, client, and {
 | --- | --- |
 | {% data variables.product.prodname_vscode_shortname %} | 1.120 |
 | {% data variables.product.prodname_vs %} 2022 (17.x) | 17.14.33 |
-| {% data variables.product.prodname_vs %} 2025 (18.x) | 18.6.0 |
+| {% data variables.product.prodname_vs %} 2026 (18.x) | 18.6.0 |
 | SQL Server Management Studio | 22.6 |
 | JetBrains IDEs (plugin) | 1.9.1 |
 | Eclipse (plugin) | 0.18.0 |

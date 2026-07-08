@@ -33,4 +33,4 @@ category:
 
 ## Next steps
 
-* For reference information, see [AUTOTITLE](/account-and-profile/reference/permission-levels-for-a-personal-account-repository#removing-a-collaborator).
+* For reference information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/permission-levels-for-a-personal-account-repository#removing-a-collaborator).

@@ -16,9 +16,6 @@ category:
   - Use and manage runners
 ---
 
-> [!NOTE]
-> {% data reusables.actions.windows-linux-larger-runners-note %}
-
 ## Managing access to larger runners
 
 > [!NOTE]
@@ -101,6 +98,8 @@ For runner groups in an organization, you can change what repositories in the or
 {% data reusables.actions.azure-vnet-network-configuration-intro %}
 
 If you have configured your {% ifversion ghec %}enterprise or {% endif %}organization to connect to an Azure VNET, you can give runner groups access to the virtual network. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/connecting-to-a-private-network/about-private-networking-with-github-hosted-runners#using-an-azure-virtual-network-vnet).
+
+{% data reusables.actions.macos-networking-limitation %}
 
 {% endif %}
 

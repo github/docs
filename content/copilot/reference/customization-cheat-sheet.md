@@ -63,6 +63,20 @@ This table shows which customization features are supported in each IDE and surf
 
 For a detailed breakdown of which types of custom instructions are supported in each IDE and surface, see [AUTOTITLE](/copilot/reference/custom-instructions-support).
 
+## Agent Customizations editor in JetBrains IDEs
+
+In JetBrains IDEs, you can use the Agent Customizations editor to manage multiple {% data variables.product.prodname_copilot_short %} customizations from one place. In the {% data variables.copilot.copilot_chat %} panel, click the settings icon in the top-right, then click **Customizations**.
+
+From the editor, you can:
+
+* View and edit {% data variables.copilot.custom_agents_short %}
+* Manage reusable skills
+* Configure workspace or personal instructions
+* Manage prompt files
+* Choose **Workspace** customizations for the current project or **Personal** customizations that follow you across projects
+
+For steps to create repository instructions and prompt files in JetBrains IDEs, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions-in-your-ide/add-repository-instructions-in-your-ide).
+
 ## Further reading
 
 * [AUTOTITLE](/copilot/tutorials/customization-library)—a curated collection of examples

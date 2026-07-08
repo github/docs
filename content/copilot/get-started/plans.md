@@ -17,9 +17,9 @@ category:
 
 {% data variables.product.company_short %} offers several plans for {% data variables.product.prodname_copilot %}, depending on your needs and whether you're using {% data variables.product.prodname_copilot_short %} as an individual or as part of an organization or enterprise.
 
-* **{% data variables.copilot.copilot_free %}** is available to individual developers who don't have access to {% data variables.product.prodname_copilot_short %} through an organization or enterprise. This free plan includes limited access to a selection of {% data variables.product.prodname_copilot_short %} features and models,  allowing you to try AI-powered coding assistance at no cost.
+* **{% data variables.copilot.copilot_free %}** is available to individual developers who don't have access to {% data variables.product.prodname_copilot_short %} through an organization or enterprise. This free plan includes limited access to a selection of {% data variables.product.prodname_copilot_short %} features and models available through {% data variables.copilot.copilot_auto_model_selection_short %} only, allowing you to try AI-powered coding assistance at no cost.
 
-* **{% data variables.copilot.copilot_student %}** is available to verified students. The plan includes unlimited code completions and an allowance of {% data variables.product.prodname_ai_credits %}, plus limited chat and agent usage with a selection models.
+* **{% data variables.copilot.copilot_student %}** is available to verified students. The plan includes unlimited code completions and an allowance of {% data variables.product.prodname_ai_credits %}, plus limited chat and agent usage with models available through {% data variables.copilot.copilot_auto_model_selection_short %} only.
 
 * **{% data variables.copilot.copilot_pro %}** is designed for individuals who want more flexibility. This paid plan includes unlimited completions, access to a selection of models, {% data variables.copilot.copilot_cloud_agent %}, and a monthly allowance of {% data variables.product.prodname_ai_credits_short %}. Verified teachers, and maintainers of popular open source projects may be eligible for free access.
 

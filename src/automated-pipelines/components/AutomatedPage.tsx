@@ -8,7 +8,6 @@ import { ArticleGridLayout } from '@/frame/components/article/ArticleGridLayout'
 import { ArticleInlineLayout } from '@/frame/components/article/ArticleInlineLayout'
 import { MiniTocs } from '@/frame/components/ui/MiniTocs'
 import { useAutomatedPageContext } from '@/automated-pipelines/components/AutomatedPageContext'
-import { ClientSideHighlight } from '@/frame/components/ClientSideHighlight'
 import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
 import { JourneyTrackCard, JourneyTrackNav } from '@/journeys/components'
 
@@ -23,6 +22,7 @@ export const AutomatedPage = ({ children, rawChildren, fullWidth }: Props) => {
     title,
     intro,
     renderedPage,
+    renderedPageHast,
     miniTocItems,
     product,
     permissions,
@@ -34,7 +34,11 @@ export const AutomatedPage = ({ children, rawChildren, fullWidth }: Props) => {
 
   const articleContents = (
     <div id="article-contents">
-      {renderedPage && <MarkdownContent className="pt-3 pb-4">{renderedPage}</MarkdownContent>}
+      {(renderedPage || renderedPageHast) && (
+        <MarkdownContent className="pt-3 pb-4" hast={renderedPageHast ?? undefined}>
+          {renderedPage}
+        </MarkdownContent>
+      )}
       {children && <MarkdownContent className="pt-3 pb-4">{children}</MarkdownContent>}
       {rawChildren && <div className="pt-3 pb-4">{rawChildren}</div>}
     </div>
@@ -60,8 +64,6 @@ export const AutomatedPage = ({ children, rawChildren, fullWidth }: Props) => {
 
   return (
     <DefaultLayout>
-      <ClientSideHighlight />
-
       {currentLayout === 'inline' ? (
         <>
           <ArticleInlineLayout

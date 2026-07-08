@@ -28,10 +28,19 @@ The `dependabot.yml` file doesn't control the versioning tags that you can use, 
 | Bazel               | `bazel`        | Any SemVer prerelease identifier (commonly `alpha`, `beta`, `rc`) | `rules_go@0.46.0-rc1`, `rules_rust@0.40.0-beta`, `bazel_skylib@1.5.0-alpha` |
 | {% endif %} |
 | Bun                 | `bun`          | `alpha`, `beta`, `rc`, `canary` (SemVer prerelease after `-`) | `bun@1.0.0-beta.1`, `elysia@1.0.0-rc.3`, `hono@4.0.0-canary.1` |
+| Composer            | `composer`     | `dev`, `alpha`, `a`, `beta`, `b`, `RC` (case-insensitive) | `laravel/framework@11.0.0-alpha1`, `symfony/console@7.0.0-beta2`, `monolog/monolog@3.0.0-RC1` |
+| {% ifversion dependabot-conda-support %} |
+| Conda               | `conda`        | `dev`, `alpha`, `a`, `beta`, `b`, `rc`, `c`, `post` | `numpy@2.0.0a1`, `pandas@2.1.0b2`, `scipy@1.12.0rc1`, `scikit-learn@1.4.0.dev0` |
+| {% endif %} |
 | {% ifversion dependabot-deno-support %} |
 | Deno                | `deno`         | Any SemVer prerelease identifier (commonly `alpha`, `beta`, `rc`) | `oak@13.0.0-alpha`, `fresh@2.0.0-rc.1`, `std@0.220.0-beta.2` |
 | {% endif %} |
+| Dev containers      | `devcontainers` | SemVer 2.0.0 (prerelease not used in practice) | `ghcr.io/devcontainers/features/node@1.6.1`, `ghcr.io/devcontainers/features/python@1.6` |
+| .NET SDK            | `dotnet-sdk`   | `preview.N`, `rc.N`, `alpha.N` | `dotnet-sdk@9.0.100-preview.7.24407.12`, `dotnet-sdk@9.0.100-rc.2.24474.11` |
 | {% data variables.product.prodname_actions %} | `github-actions` | Any SemVer prerelease identifier (commonly `alpha`, `beta`, `rc`) | `my-org/my-action@v1.0.0-beta.1`, `my-org/deploy@v2.0.0-rc1`, `my-org/lint@v3.0.0-alpha` |
+| {% ifversion dependabot-helm-support %} |
+| Helm Charts         | `helm`         | Any SemVer prerelease identifier (commonly `alpha`, `beta`, `rc`) | `ingress-nginx@4.11.0-beta.0`, `cert-manager@1.15.0-alpha.1`, `prometheus@25.0.0-rc1` |
+| {% endif %} |
 | Hex                 | `mix`          | Any SemVer prerelease identifier (commonly `alpha`, `beta`, `rc`, `dev`) | `phoenix/phoenix@1.7.0-rc.0`, `elixir-ecto/ecto@3.11.0-beta.1`, `elixir-plug/plug@1.15.0-alpha.1` |
 | {% ifversion dependabot-julia-support %} |
 | Julia               | `julia`        | Any SemVer prerelease identifier (commonly `rc`, `DEV`, `beta`) | `HTTP@1.10.0-rc1`, `Plots@2.0.0-DEV`, `DataFrames@1.6.0-beta.1` |
@@ -43,10 +52,19 @@ The `dependabot.yml` file doesn't control the versioning tags that you can use, 
 | {% ifversion dependabot-opentofu-support %} |
 | OpenTofu            | `opentofu`     | Any SemVer prerelease identifier (commonly `alpha`, `beta`, `rc`) | `opentofu/aws@5.0.0-alpha`, `opentofu/google@5.0.0-rc1`, `opentofu/azurerm@4.0.0-beta1` |
 | {% endif %} |
+| {% ifversion dependabot-pre-commit-support %} |
+| pre-commit          | `pre-commit`   | Any SemVer prerelease identifier (commonly `alpha`, `beta`, `rc`) | `pre-commit/mirrors-mypy@1.10.0a1`, `psf/black@24.1.0rc1`, `astral-sh/ruff-pre-commit@0.4.0-beta.1` |
+| {% endif %} |
+| Pub                 | `pub`          | Any SemVer prerelease identifier (commonly `dev`, `beta`, `rc`) | `flutter/dio@5.0.0-dev.1`, `dart-lang/http@1.2.0-beta.1`, `invertase/melos@4.0.0-rc.1` |
 | {% ifversion dependabot-rust-toolchain-support %} |
 | Rust toolchain      | `rust-toolchain` | Channel-based: `stable`, `beta`, `nightly` (not SemVer prerelease) | `rust@1.78.0`, `rust@beta`, `rust@nightly`, `rust@nightly-2024-01-15` |
 | {% endif %} |
+| Swift               | `swift`        | Any SemVer prerelease identifier (commonly `alpha`, `beta`, `rc`) | `vapor/vapor@5.0.0-beta.1`, `apple/swift-nio@3.0.0-rc1`, `pointfreeco/swift-composable-architecture@2.0.0-alpha.1` |
 | Terraform           | `terraform`    | Any SemVer prerelease identifier (commonly `alpha`, `beta`, `rc`) | `hashicorp/aws@5.0.0-rc1`, `hashicorp/google@4.0.0-alpha`, `hashicorp/azurerm@3.0.0-beta1` |
+| uv                  | `uv`           | `a`, `b`, `rc`, `dev`, `post` (PEP 440) | `requests@1.0.0a1`, `numpy@2.0.0b3`, `django@4.0rc1`, `black@1.0.0.dev5`, `pandas@2.0.5.post1` |
+| {% ifversion dependabot-vcpkg-support %} |
+| vcpkg               | `vcpkg`        | Any SemVer prerelease identifier (commonly `beta`, `rc`) | `zlib@1.3.1-beta1`, `openssl@3.2.0-rc.1`, `fmt@10.2.0-beta` |
+| {% endif %} |
 
 #### Ecosystem-specific versioning details
 
@@ -62,17 +80,17 @@ The following details describe how {% data variables.product.prodname_dependabot
 {% ifversion dependabot-bazel-support %}
 * **Bazel:** Follows SemVer prerelease conventions. The Bazel Central Registry (BCR) `.bcr.N` suffix is stripped before comparison and does not affect prerelease detection.
 {% endif %}
-* **Bun:** Follows npm-style SemVer prerelease conventions. Build metadata (`+...`) is supported but ignored for version precedence.
 {% ifversion dependabot-deno-support %}
 * **Deno:** Follows SemVer prerelease conventions. Build metadata (`+...`) is supported but ignored for version precedence.
 {% endif %}
+* **Bun:** Follows npm-style SemVer prerelease conventions. Build metadata (`+...`) is supported but ignored for version precedence.
 * **{% data variables.product.prodname_actions %}:** {% data variables.product.prodname_dependabot %} resolves action versions from git tags. Any tag with a SemVer prerelease identifier (anything after `-`) is treated as prerelease. Additionally, releases marked as prerelease via the GitHub Release API are recognized regardless of tag format.
-* **Hex:** Follows SemVer prerelease conventions. Any identifier after `-` is treated as prerelease.
 {% ifversion dependabot-julia-support %}
 * **Julia:** Follows SemVer prerelease conventions. Prerelease identifiers are case-sensitive (for example, `DEV` and `dev` are distinct).
 {% endif %}
+* **Hex:** Follows SemVer prerelease conventions. Any identifier after `-` is treated as prerelease.
 {% ifversion dependabot-nix-support %}
-* **Nix:** {% data variables.product.prodname_dependabot %} tracks flake input commits, similar to git submodules. The table shows user-facing commit SHAs; internally, versions are represented as pseudo-versions (`0.0.0-0.N`). There is no traditional version comparison—updates move forward to the latest upstream commit.
+* **Nix:** {% data variables.product.prodname_dependabot %} tracks flake input commits, similar to git submodules. Internally, versions are represented as pseudo-versions (`0.0.0-0.N`). There is no traditional version comparison—updates move forward to the latest upstream commit.
 {% endif %}
 * **NuGet:** Follows SemVer 2.0.0 prerelease conventions. Build metadata (`+...`) is supported but ignored for version precedence.
 {% ifversion dependabot-opentofu-support %}
@@ -82,3 +100,19 @@ The following details describe how {% data variables.product.prodname_dependabot
 * **Rust toolchain:** Uses channel-based versioning (`stable`, `beta`, `nightly`) rather than SemVer prerelease identifiers. {% data variables.product.prodname_dependabot %} updates the pinned channel or date-stamped nightly (for example, `nightly-2024-01-15`) to the latest available.
 {% endif %}
 * **Terraform:** Follows SemVer prerelease conventions. The `v` prefix is stripped before comparison. Build metadata (`+...`) is ignored for version precedence.
+* **Composer:** Follows PHP Composer stability conventions (case-insensitive). Stability flags (`@dev`, `@beta`) in constraints are stripped before comparison. The `v` prefix is handled transparently.
+{% ifversion dependabot-conda-support %}
+* **Conda:** Follows conda version spec (similar to PEP 440). Epoch versions (`N!...`) and local versions (`+local`) are supported. Post-release (`post`) suffixes are recognized.
+{% endif %}
+* **.NET SDK:** Prerelease identifiers follow the `preview.N`, `rc.N`, `alpha.N` pattern. Prerelease updates require `allowPrerelease: true` in `global.json`.
+{% ifversion dependabot-helm-support %}
+* **Helm Charts:** Follows SemVer prerelease conventions. Chart version prefixes (for example, `chart-v`) and build digests (`+sha256:...`) are stripped before comparison.
+{% endif %}
+{% ifversion dependabot-pre-commit-support %}
+* **pre-commit:** Resolves hook versions from git tags. Prerelease detection uses both Gem::Version heuristic and the GitHub Release API `prerelease` flag. SHA-pinned hooks are also supported.
+{% endif %}
+* **Pub:** Follows SemVer prerelease conventions. Build metadata (`+...`) is supported but ignored for version precedence.
+* **Swift:** Follows SemVer prerelease conventions. Prerelease filtering is not currently applied—all versions are treated equally in comparison.
+{% ifversion dependabot-vcpkg-support %}
+* **vcpkg:** Supports multiple version formats: dot-separated numeric, SemVer (without build metadata), and date-based. Port version suffix (`#N`) indicates packaging revisions and does not affect prerelease detection.
+{% endif %}

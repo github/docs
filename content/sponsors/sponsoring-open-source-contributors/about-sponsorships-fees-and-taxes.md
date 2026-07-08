@@ -25,7 +25,7 @@ We may share certain limited tax information with sponsored accounts. For more i
 
 You can choose whether to display your sponsorship publicly. One-time sponsorships remain visible for one month.
 
-If the sponsored account retires your tier, the tier will remain in place for you until you choose a different tier or cancel your subscription. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-sponsors/upgrading-a-sponsorship) and [AUTOTITLE](/billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship).
+If the sponsored account retires your tier, the tier will remain in place for you until you choose a different tier or cancel your subscription. For more information, see [AUTOTITLE](/billing/how-tos/pay-third-parties/upgrade-sponsorship) and [AUTOTITLE](/billing/how-tos/pay-third-parties/downgrade-sponsorship).
 
 If the account you want to sponsor does not have a profile on {% data variables.product.prodname_sponsors %}, you can encourage the account to join. For more information, see [AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account) and [AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization).
 
@@ -49,7 +49,7 @@ Alternatively, enterprises and organizations may opt to be billed by recurring i
 
 {% ifversion enterprise-orgs-sponsors-with-cc %}
 
-When an enterprise opts to pay by credit card, it can enforce policies within its organizations that allow sponsoring of open source contributors by payments from the same card that was used for billing. For additional information, please click on [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-sponsors-in-your-enterprise).
+When an enterprise opts to pay by credit card, it can enforce policies within its organizations that allow sponsoring of open source contributors by payments from the same card that was used for billing. For additional information, please click on [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-sponsors-in-your-enterprise).
 
 {% endif %}
 
@@ -67,7 +67,7 @@ You can access the sponsorships dashboard through your organization's profile.
 
 {% data reusables.sponsors.no-fees %}
 
-For more information on fees and billing, see [AUTOTITLE](/billing/managing-billing-for-github-sponsors/about-billing-for-github-sponsors).
+For more information on fees and billing, see [AUTOTITLE](/billing/concepts/third-party-payments/github-sponsors).
 
 ## Tax information
 

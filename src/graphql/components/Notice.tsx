@@ -2,6 +2,7 @@ import { Link } from '@/frame/components/Link'
 import { Alert } from '@/frame/components/ui/Alert'
 import { useTranslation } from '@/languages/components/useTranslation'
 import type { GraphqlT } from './types'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type Props = {
   item: GraphqlT
@@ -25,11 +26,7 @@ export function Notice({ item, variant = 'preview' }: Props) {
           <p>
             <code>{item.name}</code> is deprecated.
           </p>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: item.deprecationReason,
-            }}
-          />
+          <RenderedHTML html={item.deprecationReason} />
         </div>
       ) : null}
     </Alert>

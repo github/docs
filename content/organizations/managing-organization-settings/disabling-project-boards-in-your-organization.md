@@ -31,4 +31,4 @@ If you decide to re-enable {% data variables.projects.projects_v2_and_v1 %}, any
 ## Further reading
 
 * [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
-* [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-project-boards-in-a-repository)
+* [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-projects-in-a-repository)

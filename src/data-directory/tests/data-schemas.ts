@@ -1,4 +1,4 @@
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import { readFileSync, existsSync, readdirSync } from 'fs'
 import { extname, basename, join } from 'path'
 
@@ -32,7 +32,7 @@ for (const dataDir of directorySchemas) {
 
   describe(dataDirectoryName, () => {
     test.each(yamlFileList)('%p', async (yamlAbsPath) => {
-      const yamlContent = yaml.load(readFileSync(yamlAbsPath, 'utf8'))
+      const yamlContent = load(readFileSync(yamlAbsPath, 'utf8'))
       const isValid = validate(yamlContent)
       const formattedErrors = isValid ? undefined : formatAjvErrors(validate.errors || [])
       expect(isValid, formattedErrors).toBe(true)
@@ -42,7 +42,7 @@ for (const dataDir of directorySchemas) {
 
 describe('single data files', () => {
   test.each(singleFilesSchemas)('%p', async (filepath) => {
-    const ymlData = yaml.load(readFileSync(filepath, 'utf8'))
+    const ymlData = load(readFileSync(filepath, 'utf8'))
     const schema = (await import(dataSchemas[filepath])).default
     const { isValid, errors } = validateJson(schema, ymlData)
     const formattedErrors = isValid ? undefined : formatAjvErrors(errors || [])

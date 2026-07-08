@@ -27,11 +27,11 @@ GitHub announced the following plans and pricing changes:
 
 ## How can I upgrade my plan?
 
-To upgrade your account's plan, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan).
+To upgrade your account's plan, see [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/upgrade-plan).
 
 ## How can I downgrade my plan?
 
-To downgrade your personal account or organizations's plan, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan).
+To downgrade your personal account or organization's plan, see [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/downgrade-plan).
 
 ## If I downgrade from GitHub Team or a Legacy plan to GitHub Free, what features will I lose?
 
@@ -67,11 +67,11 @@ For details on the differences for each GitHub Free product, see [AUTOTITLE](/ge
 
 ## How can I get more Actions minutes if I need more than allocated in the GitHub Team plan?
 
-Most small teams use fewer than 3,000 Actions minutes/month, but some teams might use more. If your team needs additional minutes for private repositories, you can increase your spending limit for GitHub Actions. Actions minutes and Packages storage are still free for your public repositories. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions).
+Most small teams use fewer than 3,000 Actions minutes/month, but some teams might use more. If your team needs additional minutes for private repositories, you can increase your spending limit for GitHub Actions. Actions minutes and Packages storage are still free for your public repositories. For more information, see [AUTOTITLE](/billing/how-tos/set-up-budgets).
 
 ## How do the seat limit changes affect me?
 
-Now that {% data variables.product.prodname_team %} has no minimum seat requirement, if you are using fewer than five seats in your organization, you can remove paid seats to reduce your bill. For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan#removing-paid-seats-from-your-organization).
+Now that {% data variables.product.prodname_team %} has no minimum seat requirement, if you are using fewer than five seats in your organization, you can remove paid seats to reduce your bill. For more information, see [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/downgrade-plan#removing-paid-seats-from-your-organization).
 
 ## Is anything changing for teams on the GitHub Team for Open Source plan?
 

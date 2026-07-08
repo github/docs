@@ -1,5 +1,6 @@
-import { useCallback } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import {
+  CheckIcon,
   CopyIcon,
   CopilotIcon,
   FileIcon,
@@ -21,6 +22,15 @@ interface CopyMarkdownMenuProps {
 
 export const CopyMarkdownMenu = ({ currentPath }: CopyMarkdownMenuProps) => {
   const { t } = useTranslation('pages')
+
+  const [copied, setCopied] = useState(false)
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    }
+  }, [])
 
   const encodedPath = encodeURIComponent(currentPath).replace(/%2F/g, '/').replace(/%40/g, '@')
   const markdownUrl = `/api/article/body?pathname=${encodedPath}`
@@ -64,6 +74,9 @@ export const CopyMarkdownMenu = ({ currentPath }: CopyMarkdownMenuProps) => {
       const text = await res.text()
       await navigator.clipboard.writeText(text)
       announce(t('copied'))
+      setCopied(true)
+      if (timeoutRef.current) clearTimeout(timeoutRef.current)
+      timeoutRef.current = setTimeout(() => setCopied(false), 2000)
     } catch {
       // Fallback: open in new tab if fetch or clipboard fails
       window.open(markdownUrl, '_blank')
@@ -81,7 +94,11 @@ export const CopyMarkdownMenu = ({ currentPath }: CopyMarkdownMenuProps) => {
           )}
           onClick={handleCopyClick}
         >
-          <CopyIcon size={12} className="mr-1" aria-hidden="true" />
+          {copied ? (
+            <CheckIcon size={12} className="mr-1" aria-hidden="true" />
+          ) : (
+            <CopyIcon size={12} className="mr-1" aria-hidden="true" />
+          )}
           {t('copy_as_markdown')}
         </Button>
         <ActionMenu>

@@ -128,4 +128,4 @@ You can set a status to display information about your current availability.
 
 * For reference information, see [AUTOTITLE](/account-and-profile/reference/profile-reference).
 
-* For more detailed profile customizations, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-github-profile).
+* For more detailed profile customizations, see [AUTOTITLE](/account-and-profile/how-tos).

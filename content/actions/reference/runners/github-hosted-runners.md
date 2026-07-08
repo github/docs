@@ -66,6 +66,8 @@ The job timeout for single-CPU runners is 15 minutes. If a job reaches this limi
 
 ### {% data variables.actions.hosted_runner_caps %}s
 
+{% data variables.actions.hosted_runner_caps %}s are available for organizations and enterprises on {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %} plans.
+
 {% data reusables.actions.about-larger-runners %}
 
 For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners).

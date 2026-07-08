@@ -11,7 +11,6 @@ children:
   - /copilot-coding-agent-management
   - /copilot-content-exclusion-management
   - /copilot-custom-agents
-  - /copilot-metrics
   - /copilot-usage-metrics
   - /copilot-user-management
 versions:

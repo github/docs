@@ -7,7 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-product: '{% data reusables.elm.ghes-version-requirement %}'
 permissions: 'Site administrators on {% data variables.product.prodname_ghe_server %} who are also enterprise owners on {% data variables.enterprise.data_residency_site %}.'
 ---
 
@@ -60,18 +59,7 @@ You must set some configuration on the {% data variables.product.prodname_ghe_se
    | `secrets.elm-exporter.migration-target-token` | The access token you created for {% data variables.enterprise.data_residency_site %}. |
    | `secrets.elm-exporter.source-token` | The access token you created for {% data variables.product.prodname_ghe_server %}. |
    | `secrets.elm-exporter.source-user` | The username associated with the {% data variables.product.prodname_ghe_server %} token (for example: `ghe-admin`). |
-
-1. If you **don't** already have migrations enabled and blob storage configured on the instance, you can configure them now. You can check your existing settings in in "Migrations" section of the Management Console (`HOSTNAME/setup/settings`).
-
-   You can use the following default values, which will not introduce any unexpected functionality.
-
-   ```shell copy
-   ghe-config app.migrations.enabled true
-   ```
-
-   ```shell copy
-   ghe-config secrets.migrations.blob-storage-type local-storage
-   ```
+   | `app.migrations.enabled` | If you don't already have migrations enabled on the instance, you must set this to `true`. |
 
 1. Apply the configuration.
 
@@ -194,7 +182,7 @@ Tips:
 
 ## 7. Complete the migration
 
-When a migration is ready for cutover, you can complete the migration. The cutover process will lock the source repository, making it **permanently unavailable** for developers unless an administrator unlocks it.
+When a migration is ready for cutover, you can complete the migration. The cutover process will archive the source repository, making it **permanently read-only** unless a repository administrator unarchives it.
 
 ``` shell copy
 elm migration cutover-to-destination --migration-id $MIGRATION_ID

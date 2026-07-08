@@ -920,6 +920,22 @@
           },
           {
             "type": "object",
+            "name": "license_compliance_scanning",
+            "description": "<p>Enforce any added or changed dependencies to comply with the organization's license policy.</p>",
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true,
+                "enum": [
+                  "license_compliance_scanning"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "object",
             "name": "file_path_restriction",
             "description": "<p>Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.</p>",
             "childParamsGroups": [
@@ -1970,6 +1986,22 @@
           },
           {
             "type": "object",
+            "name": "license_compliance_scanning",
+            "description": "<p>Enforce any added or changed dependencies to comply with the organization's license policy.</p>",
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true,
+                "enum": [
+                  "license_compliance_scanning"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "object",
             "name": "file_path_restriction",
             "description": "<p>Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.</p>",
             "childParamsGroups": [
@@ -3014,6 +3046,22 @@
                     "name": "review_on_push",
                     "description": "<p>Copilot automatically reviews each new push to the pull request.</p>"
                   }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "name": "license_compliance_scanning",
+            "description": "<p>Enforce any added or changed dependencies to comply with the organization's license policy.</p>",
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true,
+                "enum": [
+                  "license_compliance_scanning"
                 ]
               }
             ]
@@ -4099,6 +4147,22 @@
               },
               {
                 "type": "object",
+                "name": "license_compliance_scanning",
+                "description": "<p>Enforce any added or changed dependencies to comply with the organization's license policy.</p>",
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "type",
+                    "description": "",
+                    "isRequired": true,
+                    "enum": [
+                      "license_compliance_scanning"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "object",
                 "name": "file_path_restriction",
                 "description": "<p>Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.</p>",
                 "childParamsGroups": [
@@ -4990,6 +5054,22 @@
                         "name": "review_on_push",
                         "description": "<p>Copilot automatically reviews each new push to the pull request.</p>"
                       }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "name": "license_compliance_scanning",
+                "description": "<p>Enforce any added or changed dependencies to comply with the organization's license policy.</p>",
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "type",
+                    "description": "",
+                    "isRequired": true,
+                    "enum": [
+                      "license_compliance_scanning"
                     ]
                   }
                 ]
@@ -5892,6 +5972,22 @@
                             "name": "review_on_push",
                             "description": "<p>Copilot automatically reviews each new push to the pull request.</p>"
                           }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "name": "license_compliance_scanning",
+                    "description": "<p>Enforce any added or changed dependencies to comply with the organization's license policy.</p>",
+                    "childParamsGroups": [
+                      {
+                        "type": "string",
+                        "name": "type",
+                        "description": "",
+                        "isRequired": true,
+                        "enum": [
+                          "license_compliance_scanning"
                         ]
                       }
                     ]

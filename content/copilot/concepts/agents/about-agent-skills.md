@@ -12,7 +12,7 @@ contentType: concepts
 ---
 
 > [!NOTE]
-> Agent skills work with {% data variables.copilot.copilot_cloud_agent %}, {% data variables.copilot.copilot_code-review_short %}, the {% data variables.copilot.copilot_cli %}, the {% data variables.copilot.github_copilot_app %}, and agent mode in {% data variables.product.prodname_vscode %}.
+> Agent skills work with {% data variables.copilot.copilot_cloud_agent %}, {% data variables.copilot.copilot_code-review_short %}, the {% data variables.copilot.copilot_cli %}, the {% data variables.copilot.github_copilot_app %}, and agent mode in {% data variables.product.prodname_vscode %} and {% data variables.jetbrains.prodname_jetbrains_ides %}.
 
 ## About agent skills
 
@@ -26,8 +26,6 @@ You can also use `gh skill` in {% data variables.product.prodname_cli %} to disc
 
 * Project skills, stored in your repository (`.github/skills`, `.claude/skills`, or `.agents/skills`)
 * Personal skills, stored in your home directory and shared across projects (`~/.copilot/skills` or `~/.agents/skills`)
-
-Support for organization-level and enterprise-level skills is coming soon.
 
 ## Next steps
 

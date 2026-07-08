@@ -68,4 +68,4 @@ Organization owners can configure the {% data variables.copilot.copilot_cloud_ag
 
    * [AUTOTITLE](/copilot/tutorials/cloud-agent/get-the-best-results)
    * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment)
-   * [Security best practices](/copilot/rolling-out-github-copilot-at-scale/enabling-developers/using-copilot-cloud-agent-in-org#security-best-practices)
+   * [AUTOTITLE](/copilot/concepts/agents/cloud-agent/risks-and-mitigations)

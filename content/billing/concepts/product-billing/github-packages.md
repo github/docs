@@ -58,7 +58,7 @@ Plan | Storage | Data transfer (per month)
 
 {% endrowheaders %}
 
-The storage amounts shown are **shared** with {% data variables.product.prodname_actions %}. This means your total storage across Packages, Actions artifacts, and Actions caches cannot exceed the included amount for your plan.
+The storage amounts shown are **shared** with {% data variables.product.prodname_actions %} artifacts. This means your total storage across Packages and Actions artifacts cannot exceed the included amount for your plan.
 
 > [!NOTE]
 > * **Billing for container image storage:** Container image storage and bandwidth for the {% data variables.product.prodname_container_registry %} is currently free. If you use {% data variables.product.prodname_container_registry %}, you'll be informed at least one month in advance of any change to this policy. For more information about the {% data variables.product.prodname_container_registry %}, see [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry).

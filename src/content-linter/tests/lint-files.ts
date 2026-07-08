@@ -1,6 +1,6 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import fs from 'fs/promises'
 
 import slash from 'slash'
@@ -253,14 +253,14 @@ if (ymlToLint.length === 0) {
         let isEarlyAccess: boolean
         let fileContents: string
         // This variable is used to determine if the file was parsed successfully.
-        // When `yaml.load()` fails to parse the file, it is overwritten with the error message.
+        // When `load()` fails to parse the file, it is overwritten with the error message.
         // `false` is intentionally chosen since `null` and `undefined` are valid return values.
         let dictionaryError: unknown = false
 
         beforeAll(async () => {
           fileContents = await fs.readFile(yamlAbsPath!, 'utf8')
           try {
-            dictionary = yaml.load(fileContents, { filename: yamlRelPath })
+            dictionary = load(fileContents, { filename: yamlRelPath })
           } catch (error) {
             dictionaryError = error
           }

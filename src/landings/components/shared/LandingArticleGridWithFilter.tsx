@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react'
-import { TextInput, ActionMenu, ActionList, Token, Pagination } from '@primer/react'
+import { TextInput, ActionMenu, ActionList, Token } from '@primer/react'
+import { Pagination } from '@primer/react-brand'
 import { SearchIcon } from '@primer/octicons-react'
 import { announce } from '@primer/live-region-element'
 import cx from 'classnames'
@@ -266,6 +267,7 @@ export const ArticleGrid = ({
           <div className={styles.categoryDropdown}>
             <ActionMenu>
               <ActionMenu.Button>
+                {t('article_grid.filter_by_category')}:{' '}
                 {categories[selectedCategoryIndex] === ALL_CATEGORIES
                   ? t('article_grid.all_categories')
                   : categories[selectedCategoryIndex]}

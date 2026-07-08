@@ -364,7 +364,7 @@ Payloads for PascalCase `PreToolUse` report `tool_name` as the Claude tool name 
 Tools with no Claude equivalent keep their runtime names.
 
 > [!IMPORTANT]
-> **Command vs HTTP fail behavior for `preToolUse`:** Command `preToolUse` hooks are **fail-closed**—a crash or non-zero exit denies the tool call. HTTP `preToolUse` hooks are **fail-open**—a network error, timeout, or non-2xx response falls through to the default permission flow. Choose the variant that matches your security requirements.
+> **Command vs HTTP fail behavior for `preToolUse`:** Command `preToolUse` hooks are **fail-closed** on errors—a crash or non-zero exit denies the tool call. Command hook **timeouts are fail-open**—a timed-out hook surfaces a warning and lets the tool call proceed through the normal permission flow. HTTP `preToolUse` hooks are **fail-open**—a network error, timeout, or non-2xx response falls through to the default permission flow. Choose the variant that matches your security requirements.
 
 ### `postToolUse` / `PostToolUse`
 
@@ -460,7 +460,7 @@ Tools with no Claude equivalent keep their runtime names.
 ### `subagentStart`
 
 > [!NOTE]
-> The built-in `general-purpose` agent does not emit `subagentStart` or `subagentStop` events.
+> The built-in `general-purpose` agent does not emit `subagentStart` or `subagentStop` events. All other built-in YAML-based agents—including `explore`, `task`, `code-review`, `rubber-duck`, `research`, and `security-review`—and user-defined custom agents emit these events.
 
 **Input:**
 
@@ -720,7 +720,7 @@ Several events accept an optional `matcher` regex on each hook entry that filter
 | `view` | Read file contents. |
 | `web_fetch` | Fetch web pages. |
 
-If multiple hooks of the same type are configured, they execute in order. For `preToolUse`, if any hook returns `"deny"`, the tool is blocked. For most events, hook failures (non-zero exit codes other than `2`, or timeouts) are logged and skipped. **Exception: `preToolUse` is fail-closed**—a crash, non-zero exit (other than exit 2), or timeout denies the tool call rather than silently allowing it.
+If multiple hooks of the same type are configured, they execute in order. For `preToolUse`, if any hook returns `"deny"`, the tool is blocked. For most events, hook failures (non-zero exit codes other than `2`, or timeouts) are logged and skipped. **Exception: `preToolUse` command hooks are fail-closed on errors**—a crash or non-zero exit (other than exit 2) denies the tool call. Timeouts for `preToolUse` command hooks are fail-open: a warning is surfaced and the tool call proceeds through the normal permission flow.
 
 ## Exit codes for command hooks
 
@@ -729,9 +729,9 @@ If multiple hooks of the same type are configured, they execute in order. For `p
 | `0` | Success. `stdout` is parsed as the hook output JSON if present. |
 | `2` | Treated as a warning by default. `stderr` is surfaced to the user but the run continues. For `permissionRequest`, exit `2` is treated as `{"behavior":"deny"}` and any `stdout` JSON is merged in. For `postToolUseFailure`, exit `2` is treated as `additionalContext` and `stdout` is appended to the failure shown to the agent. |
 | Other non-zero | Logged as a hook failure. The run continues (fail-open). **Exception: `preToolUse` is fail-closed**—a non-zero exit (other than exit 2) denies the tool call with `"Denied by preToolUse hook (hook errored)"`. |
-| Timeout | Killed after `timeoutSec`. Error logged, agent continues. **Exception: `preToolUse` is fail-closed**—timeout denies the tool call. |
+| Timeout        | Killed after `timeoutSec`. Error logged, agent continues. **Exception: `preToolUse` command hooks fail-open on timeout**—a warning is surfaced and the tool call proceeds through the normal permission flow rather than being denied. A crashed or explicitly-denying hook still fails-closed. |
 
-For most events, non-zero exits and timeouts are logged and skipped—agent execution continues. `preToolUse` is the exception: errors, crashes, and timeouts deny the tool call rather than silently allowing it. This prevents a brittle hook from being bypassed when hook input triggers an unexpected crash. Exit 2 is handled per the rules above and does not block execution.
+For most events, non-zero exits and timeouts are logged and skipped—agent execution continues. For `preToolUse` command hooks, crashes and non-zero exits (other than exit 2) fail-closed and deny the tool call, but **timeouts fail-open**—a slow or unreachable hook must not silently block tool calls. Exit 2 is handled per the rules above and does not block execution.
 
 ## Disable all hooks
 

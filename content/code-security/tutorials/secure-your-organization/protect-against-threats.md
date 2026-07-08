@@ -103,7 +103,7 @@ These actions are also important for your security posture, but may require more
 
 * [Strengthen authentication](#strengthen-authentication)
 * [Harden your {% data variables.product.prodname_actions %} workflows](#harden-your-github-actions-workflows)
-* [Prepare for a security incident](#prepare-for-a-security-incident)
+* [Prepare for a security incident](/code-security/tutorials/secure-your-organization/prepare-for-a-security-incident)
 
 ### Strengthen authentication
 

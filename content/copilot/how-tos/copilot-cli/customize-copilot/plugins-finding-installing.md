@@ -18,7 +18,7 @@ docsTeamMetrics:
 
 Plugins are packages that extend the functionality of {% data variables.copilot.copilot_cli_short %}. You can install a plugin from a marketplace that you have registered with the CLI.
 
-For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-cli-plugins).
+For more information, see [AUTOTITLE](/copilot/concepts/agents/about-plugins).
 
 {% data reusables.copilot.copilot-cli.cli-help-note %}
 

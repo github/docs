@@ -20,7 +20,7 @@ contentType: reference
 | `elm migration status --migration-id MIGRATION-ID` | Shows the status, progress, cutover readiness, and timing of a migration |
 | `elm migration list` | Lists all migrations and their statuses |
 | `elm migration cancel --migration-id MIGRATION-ID` | Cancels a migration in progress |
-| `elm migration cutover-to-destination --migration-id MIGRATION-ID` | Initiates the final cutover, locking the source repository and completing the migration |
+| `elm migration cutover-to-destination --migration-id MIGRATION-ID` | Initiates the final cutover, archiving the source repository and completing the migration |
 
 Some of these commands can take additional options. See the later sections in this article.
 

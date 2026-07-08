@@ -28,7 +28,7 @@ Repositories owned by personal accounts have a single owner who has full control
 
 | Action | More information |
 | :- | :- |
-| {% ifversion fpt or ghec %}Invite collaborators{% else %}Add collaborators{% endif %} | [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository) |
+| {% ifversion fpt or ghec %}Invite collaborators{% else %}Add collaborators{% endif %} | [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/inviting-collaborators-to-a-personal-repository) |
 | Change the visibility of the repository | [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility) |
 | {% ifversion fpt or ghec %} |
 | Limit interactions with the repository | [AUTOTITLE](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository) |
@@ -41,20 +41,20 @@ Repositories owned by personal accounts have a single owner who has full control
 | Manage security and analysis settings for the repository | [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) |
 | {% endif %} |
 | {% ifversion fpt or ghec %} |
-| Enable the dependency graph for a private {% ifversion ghec %}or internal {% endif %}repository, or public fork | [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph) |
+| Enable the dependency graph for a private {% ifversion ghec %}or internal {% endif %}repository, or public fork | [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/explore-dependencies#enabling-and-disabling-the-dependency-graph) |
 | {% endif %} |
 | Delete and restore packages | [AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package) |
 | Customize the repository's social media preview | [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview) |
 | Create a template from the repository | [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-template-repository) |
 | Control access to {% data variables.product.prodname_dependabot_alerts %}| [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) |
 | {% ifversion fpt or ghec %} |
-| Dismiss {% data variables.product.prodname_dependabot_alerts %} in the repository | [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts) |
+| Dismiss {% data variables.product.prodname_dependabot_alerts %} in the repository | [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/view-dependabot-alerts) |
 | Manage data use for a private repository | [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories) |
 | {% endif %} |
 | Define code owners for the repository | [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners) |
 | Archive the repository | [AUTOTITLE](/repositories/archiving-a-github-repository/archiving-repositories) |
 | {% ifversion fpt or ghec %} |
-| Create security advisories | [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories) |
+| Create security advisories | [AUTOTITLE](/code-security/concepts/vulnerability-reporting-and-management/repository-security-advisories) |
 | Display a sponsor button | [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository) |
 | {% endif %} |
 | Allow or disallow auto-merge for pull requests | [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository) |
@@ -80,11 +80,11 @@ Collaborators can also perform the following actions.
 | :- | :- |
 | Fork the repository | [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) |
 | Rename a branch other than the default branch | [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch) |
-| Create, edit, and delete comments on commits, pull requests, and issues in the repository | <ul><li>[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)</li><li>[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)</li><li>[AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments)</li></ul> |
+| Create, edit, and delete comments on commits, pull requests, and issues in the repository | <ul><li>[AUTOTITLE](/issues/tracking-your-work-with-issues/learning-about-issues/about-issues)</li><li>[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)</li><li>[AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments)</li></ul> |
 | Create, assign, close, and re-open issues in the repository | [AUTOTITLE](/issues) |
 | Manage labels for issues and pull requests in the repository | [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels) |
 | Manage milestones for issues and pull requests in the repository | [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/creating-and-editing-milestones-for-issues-and-pull-requests) |
-| Mark an issue or pull request in the repository as a duplicate | [AUTOTITLE](/issues/tracking-your-work-with-issues/marking-issues-or-pull-requests-as-a-duplicate) |
+| Mark an issue or pull request in the repository as a duplicate | [AUTOTITLE](/issues/tracking-your-work-with-issues/administering-issues/marking-issues-or-pull-requests-as-a-duplicate) |
 | Create, merge, and close pull requests in the repository | [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests) |
 | Enable and disable auto-merge for a pull request | [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)
 | Apply suggested changes to pull requests in the repository |[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request) |
@@ -96,7 +96,7 @@ Collaborators can also perform the following actions.
 | {% ifversion fpt or ghec %} |
 | Publish, view, or install packages | [AUTOTITLE](/packages/learn-github-packages) |
 | {% endif %} |
-| Remove themselves as collaborators on the repository | [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-yourself-from-a-collaborators-repository) |
+| Remove themselves as collaborators on the repository | [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/removing-yourself-from-a-collaborators-repository) |
 
 If you want more granular control of repository permissions, you can create a repository within an organization. For more information, see [AUTOTITLE](/get-started/learning-about-github/access-permissions-on-github).
 
@@ -108,4 +108,4 @@ When you remove a collaborator from your project, they lose read/write access to
 
 ## Next steps
 
-To learn how to add collaborators to your personal repository, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository).
+To learn how to add collaborators to your personal repository, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/inviting-collaborators-to-a-personal-repository).

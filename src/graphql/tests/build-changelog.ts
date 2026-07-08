@@ -1,7 +1,7 @@
 import fs from 'fs/promises'
 
 import { afterEach, describe, expect, test } from 'vitest'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import MockDate from 'mockdate'
 
 import {
@@ -158,7 +158,7 @@ describe('creating a changelog from old schema and new schema', () => {
     }
     `
 
-    const previews = yaml.load(`
+    const previews = load(`
 - title: Test preview
   description: This preview is just for test
   toggled_by: ':test_preview'
@@ -171,7 +171,7 @@ describe('creating a changelog from old schema and new schema', () => {
     - '@github/engineering'
 `) as Preview[]
 
-    const oldUpcomingChanges = yaml.load(`
+    const oldUpcomingChanges = load(`
 upcoming_changes:
   - location: EnterprisePendingCollaboratorEdge.isUnlicensed
     description: '\`isUnlicensed\` will be removed.'
@@ -179,7 +179,7 @@ upcoming_changes:
 `) as { upcoming_changes: UpcomingChange[] }
     const oldUpcomingChangesArray: UpcomingChange[] = oldUpcomingChanges.upcoming_changes
 
-    const newUpcomingChanges = yaml.load(`
+    const newUpcomingChanges = load(`
 upcoming_changes:
   - location: Query.stableField
     description: '\`stableField\` will be removed.'

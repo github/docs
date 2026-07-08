@@ -24,7 +24,7 @@ category:
 
 {% ifversion ghec %}
 
-Members of an {% data variables.enterprise.prodname_emu_enterprise %} can only set the visibility of repositories owned by their personal account to private, and repositories in their enterprise's organizations can only be private or internal. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users).
+Members of an {% data variables.enterprise.prodname_emu_enterprise %} can only set the visibility of repositories owned by their personal account to private, and repositories in their enterprise's organizations can only be private or internal. For more information, see [AUTOTITLE](/admin/concepts/identity-and-access-management/enterprise-managed-users).
 
 {% endif %}
 
@@ -70,9 +70,9 @@ We recommend reviewing the following caveats before you change the visibility of
 * {% data variables.product.github %} will detach private forks and turn them into a standalone private repository. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility#changing-a-private-repository-to-a-public-repository){% ifversion fpt or ghec %}
 * If you're converting your private repository to a public repository as part of a move toward creating an open source project, see the [Open Source Guides](http://opensource.guide) for helpful tips and guidelines. You can also take a free course on managing an open source project with [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}). Once your repository is public, you can also view your repository's community profile to see whether your project meets best practices for supporting contributors. For more information, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories).
 * The repository will automatically gain access to {% data variables.product.prodname_GHAS %} features.
-* Actions history and logs will be visible to everyone. If your repository had reusable or required workflows that were shared from a different repository in your organization, the workflow file path including the repository name will be visible in the logs. For more information on how to remove workflow runs and artifacts see [AUTOTITLE](/actions/managing-workflow-runs#deleting-logs) and [AUTOTITLE](/rest/actions/workflow-runs).
+* Actions history and logs will be visible to everyone. If your repository had reusable or required workflows that were shared from a different repository in your organization, the workflow file path including the repository name will be visible in the logs. For more information on how to remove workflow runs and artifacts see [AUTOTITLE](/actions/how-tos/manage-workflow-runs#deleting-logs) and [AUTOTITLE](/rest/actions/workflow-runs).
 
-For information about improving repository security, see [AUTOTITLE](/code-security/getting-started/securing-your-repository).{% endif %}
+For information about improving repository security, see [AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-repository).{% endif %}
 
 ## Consequences of changing a repository's visibility
 

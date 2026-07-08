@@ -81,6 +81,19 @@ Any private registries used by the build must also be accessible to the workflow
 
 When you configure access to one or more private registries, {% data variables.product.prodname_dependabot %} can propose pull requests to upgrade a vulnerable dependency or to maintain a dependency, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot).
 
+{% ifversion org-automatic-registry-access %}
+
+### Automatic access to {% data variables.product.github %}-hosted registries
+ 
+For packages stored in {% data variables.product.prodname_registry %} and {% data variables.product.prodname_container_registry %}, {% data variables.product.prodname_dependabot %} can authenticate automatically without {% data variables.product.pat_generic_plural %} or `dependabot.yml` registry configuration. 
+
+{% data variables.product.prodname_dependabot %} uses its `GITHUB_TOKEN` to request read access, reusing the same package access grants that {% data variables.product.prodname_actions %} workflows use.
+ 
+To enable this, grant the repository **Read** access to each package in the package settings. Once access is granted, {% data variables.product.prodname_dependabot %} can pull from those packages automatically, and you can remove any {% data variables.product.pat_generic %}-based registry entries you previously configured for them.
+ 
+See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot#configuring-private-github-hosted-registries).
+{% endif %}
+
 {% ifversion org-private-registry-oidc %}
 
 ### Configuring OIDC authentication for a private registry

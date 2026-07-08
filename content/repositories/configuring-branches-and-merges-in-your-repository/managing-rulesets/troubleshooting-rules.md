@@ -54,9 +54,9 @@ If you create a rule while a pull request is open, the required workflow will no
 
 {% data reusables.repositories.ruleset-workflow-event-triggers %}
 
-For more information, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#pull_request).
+For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request).
 
-Ruleset workflows do not run on events triggered by the `GITHUB_TOKEN`. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow).
+Ruleset workflows do not run on events triggered by the `GITHUB_TOKEN`. For more information, see [AUTOTITLE](/actions/tutorials/authenticate-with-github_token#using-the-github_token-in-a-workflow).
 
 ### Blocking repository creation
 
@@ -73,9 +73,9 @@ Verify that your ruleset workflow does not target all branches in the repository
 ### Supported directory
 
 Verify that your workflow file exists in the `.github/workflows` directory. If you want to run a ruleset workflow on `pull_request` events in a repository that is not the source repository, you can take any of the following actions:
-  * Add a conditional to the workflow file such as, `if: {{ github.repository != 'my-org/source-repo' }}`. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif).
+  * Add a conditional to the workflow file such as, `if: {{ github.repository != 'my-org/source-repo' }}`. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idif).
   * Disable Actions completely in the source repository. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#managing-github-actions-permissions-for-your-repository).
-  * Disable the individual workflow in the source repository. For more information, see [AUTOTITLE](/actions/using-workflows/disabling-and-enabling-a-workflow).
+  * Disable the individual workflow in the source repository. For more information, see [AUTOTITLE](/actions/how-tos/manage-workflow-runs/disable-and-enable-workflows).
 
 ### Using the `merge_group` trigger
 
@@ -89,7 +89,7 @@ For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-se
 
 ### Source repository privacy settings
 
-Verify that the ruleset workflow file is in a source repository that has the same or less restrictive privacy settings than the repositories you want to run it in. Specifically, a public workflow can run on any repository in your organization, an internal workflow can run on internal and private repositories, and a private workflow can run on private repositories. For more information, see [AUTOTITLE](/actions/using-workflows/about-workflows).
+Verify that the ruleset workflow file is in a source repository that has the same or less restrictive privacy settings than the repositories you want to run it in. Specifically, a public workflow can run on any repository in your organization, an internal workflow can run on internal and private repositories, and a private workflow can run on private repositories. For more information, see [AUTOTITLE](/actions/concepts/workflows-and-actions/workflows).
 
 ### Permissions for creating a new repository
 
@@ -101,6 +101,6 @@ To create a new repository when a ruleset workflow is configured, ensure that yo
 
 ### Concurrency
 
-Verify that your ruleset workflow does not use the `cancel-in-progress` concurrency setting. For more information about concurrency, see [AUTOTITLE](/actions/using-jobs/using-concurrency#using-concurrency-in-different-scenarios).
+Verify that your ruleset workflow does not use the `cancel-in-progress` concurrency setting. For more information about concurrency, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency#using-concurrency-in-different-scenarios).
 
 {% endif %}

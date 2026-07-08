@@ -37,10 +37,10 @@ For example, if you started a paid plan or converted from a trial on the 15th of
 
 ## Billing cycle for {% data variables.copilot.sandbox %} during public preview
 
-During {% data variables.release-phases.public_preview %}, eligible accounts receive a **$10 monthly entitlement** for cloud sandbox usage in **June 2026**. The entitlement applies as follows:
+During {% data variables.release-phases.public_preview %}, eligible accounts receive a **$10 monthly entitlement** for cloud sandbox usage through the end of **July 2026**. The entitlement applies as follows:
 
 * Usage above the entitlement is metered against your standard billing cycle and billed on your normal billing date.
-* The entitlement is discontinued after June 2026. Pricing and packaging after the preview is subject to change.
+* The entitlement is discontinued after July 2026. Pricing and packaging after the preview is subject to change.
 
 ## Billing cycles for volume-based products
 

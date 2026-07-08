@@ -24,7 +24,7 @@ Other security features require you to purchase one of {% data variables.product
 
 {% ifversion fpt or ghec %}Some of these features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, are enabled for public repositories by default. To run the feature on your private or internal repositories, you must purchase the relevant {% data variables.product.prodname_GHAS %} product.{% endif %}
 
-You must be on a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plan in order to purchase {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}. For more information, see [AUTOTITLE](/get-started/learning-about-github/githubs-plans) and [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
+You must be on a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plan in order to purchase {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}. For more information, see [AUTOTITLE](/get-started/learning-about-github/githubs-plans) and [AUTOTITLE](/billing/concepts/product-billing/github-advanced-security).
 
 ## {% data variables.product.prodname_GH_code_security %}
 
@@ -108,21 +108,21 @@ For more information about individual features, see [AUTOTITLE](/code-security/g
 Organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run free security risk assessments to understand their exposure to security vulnerabilities:
 
 {% ifversion secret-risk-assessment %}
-* **Secret leaks**: Scan your organization for leaked secrets and see how many could have been prevented by {% data variables.product.prodname_GH_secret_protection %}. See [AUTOTITLE](/code-security/concepts/secret-security/about-secret-security-with-github#secret-risk-assessment).
+* **Secret leaks**: Scan your organization for leaked secrets and see how many could have been prevented by {% data variables.product.prodname_GH_secret_protection %}. See [AUTOTITLE](/code-security/concepts/secret-security/secret-security-with-github#secret-risk-assessment).
 {% endif %}
 {% ifversion code-security-risk-assessment %}
-* **Code vulnerabilities**: Scan up to 20 of your most active repositories and see how many vulnerabilities could be automatically fixed with {% data variables.copilot.copilot_autofix_short %} if you enable {% data variables.product.prodname_GH_code_security %}. See [AUTOTITLE](/code-security/concepts/code-scanning/code-security-risk-assessment).
+* **Code vulnerabilities**: Scan up to 20 of your most active repositories and see how many vulnerabilities could be automatically fixed with {% data variables.copilot.copilot_autofix_short %} if you enable {% data variables.product.prodname_GH_code_security %}. See [AUTOTITLE](/code-security/concepts/code-scanning/risk-assessment).
 {% endif %}
 
 ## Deploying {% data variables.product.prodname_GH_code_security %} and {% data variables.product.prodname_GH_secret_protection %}
 
-To learn about what you need to know to plan your deployment of {% data variables.product.prodname_GH_code_security %} and {% data variables.product.prodname_GH_secret_protection %} at a high level and to review the rollout phases we recommended, see [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale).
+To learn about what you need to know to plan your deployment of {% data variables.product.prodname_GH_code_security %} and {% data variables.product.prodname_GH_secret_protection %} at a high level and to review the rollout phases we recommended, see [AUTOTITLE](/code-security/tutorials/adopting-github-advanced-security-at-scale).
 
 ## Enabling features
 
 {% data reusables.security-configurations.enable-security-features-with-gh-config %}
 
-If you are on a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plan, license use for the entire team or enterprise is shown on your license page. {% ifversion fpt or ghec %}See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage).{% endif %}
+If you are on a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plan, license use for the entire team or enterprise is shown on your license page. {% ifversion fpt or ghec %}See [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).{% endif %}
 
 {% ifversion disable-ghas-button %}
 
@@ -138,7 +138,7 @@ For information about managing your {% data variables.product.prodname_GHAS %} l
 
 ## Leveraging {% data variables.copilot.copilot_chat %} to understand security alerts
 
-Additionally, with a {% data variables.copilot.copilot_enterprise %} license, you can ask {% data variables.copilot.copilot_chat %} for help to better understand security alerts in repositories in your organization ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). See [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features).
+Additionally, with a {% data variables.copilot.copilot_enterprise %} license, you can ask {% data variables.copilot.copilot_chat %} for help to better understand security alerts in repositories in your organization ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). See [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github#asking-questions-about-alerts-from-github-advanced-security-features).
 {% endif %}
 
 {% ifversion github-certification %}
@@ -157,4 +157,4 @@ If you want to use {% data variables.product.prodname_GHAS %} with Azure Repos, 
 
 * [AUTOTITLE](/code-security/getting-started/github-security-features)
 * [{% data variables.product.github %} public roadmap](https://github.com/github/roadmap){%- ifversion ghec or ghes %}
-* [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise){% endif %}
+* [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise){% endif %}

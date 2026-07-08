@@ -42,7 +42,7 @@ Use one of these commands:
 * **macOS/Linux (Homebrew)**
 
   ```bash copy
-  brew install copilot-cli
+  brew install --cask copilot-cli
   ```
 
 ## Starting the CLI for the first time

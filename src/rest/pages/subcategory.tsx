@@ -1,4 +1,5 @@
 import { GetServerSideProps } from 'next'
+import type { Response } from 'express'
 import type { ServerResponse } from 'http'
 import { Operation } from '@/rest/components/types'
 import type { ExtendedRequest, AllVersions } from '@/types/types'
@@ -87,7 +88,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     }
   }
 
-  const mainContext = await getMainContext(req, res)
+  const mainContext = await getMainContext(req, res as unknown as Response)
   addUINamespaces(req, mainContext.data.ui, ['parameter_table', 'rest_reference'])
 
   return {

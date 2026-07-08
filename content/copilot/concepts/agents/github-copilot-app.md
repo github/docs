@@ -44,6 +44,7 @@ The {% data variables.copilot.github_copilot_app %} supports the following opera
 
 * **Parallel workspaces:** Run multiple isolated agent sessions simultaneously, each with a dedicated git worktree and branch. You can also run sessions in cloud sandboxes (public preview) hosted by {% data variables.product.github %}. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
 * **Session modes:** Choose how you work with agents: Interactive (collaborative), Plan (agent plans, you approve), or Autopilot (fully autonomous). You can also select from multiple LLMs and adjust reasoning effort for each session.
+* **Model selection:** Select from multiple LLMs, including models from your own provider using bring your own key (BYOK), and adjust reasoning effort for each session.
 * **{% data variables.product.github %} integration:** Browse and find issues, start sessions from them, create and close pull requests, review pull requests, view CI check results, and search across your repositories—all within the app.
 * **Customizations:** Configure and use global instructions, MCP servers, and agent skills.
 * **Automations:** Save recurring agent tasks and run them on a schedule or on demand.

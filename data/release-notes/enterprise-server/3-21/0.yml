@@ -217,9 +217,6 @@ sections:
         # https://github.com/github/releases/issues/7252
         - |
           Test merge commits for open pull requests are now generated less frequently, improving performance and reducing repository bloat from loose Git objects. The test merge commit associated with a pull request is updated when the pull request itself changes, when the merge base between the two branches changes, or when the current test merge is older than 12 hours. All mergeability checks and rules continue to be honored.
-        # https://github.com/github/releases/issues/6670
-        - |
-          Pull request reviewers can comment on any line of a changed file, not just lines within the diff. Previously, comments could only be placed on the three lines before or after a changed line. This allows reviewers to leave feedback on unchanged lines that need attention and to place comments directly on the relevant line, making review feedback clearer and easier for authors to act on. This feature is in public preview and subject to change.
         # https://github.com/github/releases/issues/7688
         - |
           Users can view PR-level discussion comments in the side panel of the new Files Changed tab, allowing them to follow conversations while reviewing code without switching between the Files Changed and Conversation tabs. The side panel also supports filtering review and discussion comments. This feature is in public preview and subject to change.
@@ -298,3 +295,7 @@ sections:
     # https://github.com/github/releases/issues/6651
     - |
       Closing down: Networking-related syscalls will be disabled by default in the pre-receive hook environment starting in {% data variables.product.prodname_ghe_server %} version 3.22. For enhanced security, hook environments will be placed in dedicated network namespaces. You will be able to override the default setting by setting `pre-receive-hook-networking` to `enabled`. In many cases, [push rulesets](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#push-rulesets) are an alternative for many pre-receive hooks.
+
+  errata:
+    - |
+      These release notes previously included a note about pull requeset reviewers being able to comment on any line of a changed file, not just lines within the diff. The note was added prematurely and has been removed. We will republish it when the feature is ready. [Updated: 2026-06-23]

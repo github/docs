@@ -22,19 +22,15 @@ With a dedicated enterprise account, you get enterprise-grade identity provider 
 
 ## Create an enterprise account
 
-> [!IMPORTANT]
-> If you purchased {% data variables.copilot.copilot_business_short %} through {% data variables.product.company_short %}'s sales team, your enterprise account is already created. Skip to the next section.
+To create an enterprise account, contact {% data variables.product.company_short %}'s [sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=purchase). They will provision you with a standard enterprise account with {% data variables.product.prodname_copilot_short %} enabled.
 
-Start a trial of {% data variables.product.prodname_ghe_cloud %} to create your enterprise account.
-
-<a href="https://github.com/account/enterprises/new?ref_product=ghec&ref_type=trial&ref_style=button&ref_plan=enterprise" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Set up a trial of {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
-
-Do not create any organizations during setup. Adding users to organizations assigns {% data variables.product.prodname_enterprise %} licenses, while adding users directly to the enterprise keeps your setup limited to {% data variables.copilot.copilot_business_short %}.
 
 ## Add users to your enterprise
 
 Once you have an enterprise account, add the people who will receive {% data variables.copilot.copilot_business_short %} licenses. How you add users depends on your enterprise type.
+Once you have an enterprise account, add the people who will receive {% data variables.copilot.copilot_business_short %} licenses. How you add users depends on your enterprise type.
 
+Do not create any organizations during setup. Adding users to organizations assigns {% data variables.product.prodname_enterprise %} licenses, while adding users directly to the enterprise keeps your setup limited to {% data variables.copilot.copilot_business_short %}.
 ### Enterprise with personal accounts
 
 Invite users directly to your enterprise. For detailed steps, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/invite-users-directly).
@@ -58,7 +54,6 @@ To begin using {% data variables.copilot.copilot_business_short %} after your tr
 
 1. Ensure you are signed in as an enterprise administrator on {% data variables.product.github %}.
 1. To purchase {% data variables.product.prodname_copilot %} for your enterprise, [contact {% data variables.product.github %}'s Sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=text).
-1. A member of the Sales team will work with you to set up {% data variables.product.prodname_copilot_short %} for your enterprise.
 
 ## Assign {% data variables.product.prodname_copilot_short %} licenses
 

@@ -4,7 +4,7 @@
       "name": "addPullRequestCreationCapBypassUsers",
       "id": "addpullrequestcreationcapbypassusers",
       "href": "/graphql/reference/pulls#mutation-addpullrequestcreationcapbypassusers",
-      "description": "<p>Add users to the pull request creation cap bypass list. Bypassed users can\ncreate pull requests regardless of the configured cap. Only repository admins\ncan manage the bypass list. You can add a maximum of 100 users per request.\nThe bypass list can only hold a maximum of 100 users.</p>",
+      "description": "<p>Add users to the pull request creation cap bypass list. Bypassed users can\ncreate pull requests regardless of the configured cap. Only users with\nmaintainer permissions can manage the bypass list. You can add a maximum of\n100 users per request. The bypass list can only hold a maximum of 100 users.</p>",
       "isDeprecated": false,
       "inputFields": [
         {
@@ -654,7 +654,7 @@
       "name": "removePullRequestCreationCapBypassUsers",
       "id": "removepullrequestcreationcapbypassusers",
       "href": "/graphql/reference/pulls#mutation-removepullrequestcreationcapbypassusers",
-      "description": "<p>Remove users from the pull request creation cap bypass list. Only repository admins can manage the bypass list.</p>",
+      "description": "<p>Remove users from the pull request creation cap bypass list. Only users with\nmaintainer permissions can manage the bypass list.</p>",
       "isDeprecated": false,
       "inputFields": [
         {

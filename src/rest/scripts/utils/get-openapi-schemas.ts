@@ -1,5 +1,5 @@
 import { readFile, readdir } from 'fs/promises'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import path from 'path'
 
 import { allVersions } from '@/versions/lib/all-versions'
@@ -27,7 +27,7 @@ export async function getSchemas(
     const fileBaseName = path.basename(file, '.yaml')
     const newFileName = `${fileBaseName}.deref.json`
     const content = await readFile(path.join(directory, file), 'utf8')
-    const yamlContent = yaml.load(content) as { published?: boolean; deprecated?: boolean }
+    const yamlContent = load(content) as { published?: boolean; deprecated?: boolean }
 
     const releaseMatch = Object.keys(configData.versionMapping).find((name) =>
       fileBaseName.startsWith(name),

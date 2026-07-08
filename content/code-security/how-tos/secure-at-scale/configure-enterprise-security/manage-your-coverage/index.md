@@ -9,5 +9,6 @@ contentType: how-tos
 children:
   - /edit-custom-configuration
   - /delete-custom-configuration
+  - /enabling-public-monitoring-for-your-enterprise
 ---
 
