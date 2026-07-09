@@ -69,10 +69,10 @@ Changes you make mid-cycle, such as adding or removing users, seats, or resource
 
 Find product-specific guidance on how usage is calculated and billed.
 
-* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-actions/about-billing-for-github-actions)
-* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)
-* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-packages/about-billing-for-github-packages)
-* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-copilot/about-billing-for-github-copilot)
+* [AUTOTITLE](/billing/concepts/product-billing/github-actions)
+* [AUTOTITLE](/billing/concepts/product-billing/github-codespaces)
+* [AUTOTITLE](/billing/concepts/product-billing/github-packages)
+* [AUTOTITLE](/billing/concepts/product-billing/github-copilot-licenses)
 * [AUTOTITLE](/billing/concepts/product-billing/cloud-and-local-sandboxes)
-* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise#about-licenses-for-visual-studio-subscriptions-with-github-enterprise-cloud)
-* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)
+* [AUTOTITLE](/billing/concepts/enterprise-billing/visual-studio-subs#about-licenses-for-visual-studio-subscriptions-with-github-enterprise-cloud)
+* [AUTOTITLE](/billing/concepts/product-billing/git-lfs)

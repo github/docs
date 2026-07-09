@@ -10224,8 +10224,8 @@
         },
         {
           "name": "assigneeIds",
-          "description": "<p>The ids of actors (users or bots) to add as assignees.</p>",
-          "type": "[ID!]!",
+          "description": "<p>The ids of actors (users or bots) to add as assignees. Mutually exclusive with <code>assignees</code>.</p>",
+          "type": "[ID!]",
           "id": "id",
           "href": "/graphql/reference/other#scalar-id",
           "isDeprecated": false

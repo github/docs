@@ -18,7 +18,7 @@ category:
 ---
 ## About issues and pull requests
 
-You can use issues to track ideas, bugs, tasks, and other information that's important to your project. You can create an issue in your project's repository with {% data variables.product.prodname_desktop %}. For more information about issues, see [AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues).
+You can use issues to track ideas, bugs, tasks, and other information that's important to your project. You can create an issue in your project's repository with {% data variables.product.prodname_desktop %}. For more information about issues, see [AUTOTITLE](/issues/tracking-your-work-with-issues/learning-about-issues/about-issues).
 
 After you create a branch and make changes to files in a project, you can create a pull request. With a pull request, you can propose, discuss, and iterate on changes before you merge the changes into the project. You can create a pull request in your project's repository with {% data variables.product.prodname_desktop %}. For more information about pull requests, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 

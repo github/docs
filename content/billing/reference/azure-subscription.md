@@ -45,4 +45,4 @@ During an **{% data variables.product.prodname_emu %} trial**, you can use meter
 
 > [!IMPORTANT] If you don't use {% data variables.product.prodname_emus %} in your trial of {% data variables.product.prodname_ghe_cloud %}, connecting an Azure subscription will immediately end your trial and begin paid usage.
 
-For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription#connecting-your-azure-subscription-to-your-enterprise-account).
+For more information, see [AUTOTITLE](/billing/how-tos/set-up-payment/connect-azure-sub#connecting-your-azure-subscription-to-your-enterprise-account).

@@ -24,7 +24,7 @@ Revoking access at the organization level only removes access for people who rec
 
 To remove access for those users, an enterprise owner must remove them from the enterprise team or unassign their license in the enterprise settings, which revokes access immediately. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/grant-access#assigning-licenses-to-users-or-teams).
 
-For people whose access is revoked through organization-level revocation, the removal takes effect from the start of the next billing cycle. If you remove a seat during a cycle, the user will have access to {% data variables.product.prodname_copilot_short %} for the remainder of the billing cycle. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
+For people whose access is revoked through organization-level revocation, the removal takes effect from the start of the next billing cycle. If you remove a seat during a cycle, the user will have access to {% data variables.product.prodname_copilot_short %} for the remainder of the billing cycle. For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-copilot-licenses).
 
 ## Revoking access to {% data variables.product.prodname_copilot_short %} for your whole organization
 
@@ -55,5 +55,5 @@ You can use {% data variables.product.prodname_dotcom %}'s REST API to revoke ac
 ## Further reading
 
 * [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page)
-* [AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization).
-* [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-github-copilot-activity-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization)
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-access/grant-access).
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/review-activity/review-user-activity-data)

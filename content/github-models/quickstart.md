@@ -109,7 +109,7 @@ To call models programmatically, you’ll need:
 
 1. Commit and push to trigger the workflow.
 
-This example shows how to send a prompt to a model and use the response in your continuous integration (CI) workflows. For more advanced use cases, such as summarizing issues, detecting missing reproduction steps for bug reports, or responding to pull requests, see [AUTOTITLE](/github-models/use-github-models/integrating-ai-models-into-your-development-workflow).
+This example shows how to send a prompt to a model and use the response in your continuous integration (CI) workflows. For more advanced use cases, such as summarizing issues, detecting missing reproduction steps for bug reports, or responding to pull requests, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models).
 
 ## Step 4: Save your first prompt file
 
@@ -196,4 +196,4 @@ Evaluations help you measure how different models respond to the same inputs so 
 * [Browse the model catalog](https://github.com/marketplace?type=models)
 * [AUTOTITLE](/github-models/use-github-models/storing-prompts-in-github-repositories)
 * [AUTOTITLE](/github-models/use-github-models/evaluating-ai-models)
-* [AUTOTITLE](/github-models/use-github-models/integrating-ai-models-into-your-development-workflow#using-ai-models-with-github-actions)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models)

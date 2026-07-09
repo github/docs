@@ -81,4 +81,4 @@ If you make changes to your custom instructions during a CLI session, your chang
 
 * [AUTOTITLE](/copilot/reference/custom-instructions-support)
 * [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions)—a curated collection of examples
-* [AUTOTITLE](/copilot/tutorials/use-custom-instructions)
+* [AUTOTITLE](/copilot/tutorials/customize-code-review)

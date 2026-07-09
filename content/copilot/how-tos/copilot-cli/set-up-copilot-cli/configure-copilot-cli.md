@@ -24,7 +24,7 @@ This article shows you how to set trusted directories, configure access for tool
 
 ## Setting trusted directories
 
-Trusted directories control where {% data variables.copilot.copilot_cli_short %} can read, modify, and execute files. Trusting a directory has security implications, see [Security considerations](/copilot/concepts/agents/about-copilot-cli#trusted-directories).
+Trusted directories control where {% data variables.copilot.copilot_cli_short %} can read, modify, and execute files. Trusting a directory has security implications, see [Security considerations](/copilot/concepts/agents/copilot-cli/about-copilot-cli#trusted-directories).
 
 ### Choosing to trust a directory
 
@@ -54,7 +54,7 @@ You can edit the list of permanently trusted directories. Trusted directories ar
 
 You can control which tools {% data variables.copilot.copilot_cli_short %} can use, either by responding to approval prompts when {% data variables.product.prodname_copilot_short %} attempts to use a tool, or by specifying permissions via command-line flags.
 
-Be aware that allowing tool access has security implications, see [Security considerations](/copilot/concepts/agents/about-copilot-cli#allowed-tools).
+Be aware that allowing tool access has security implications, see [Security considerations](/copilot/concepts/agents/copilot-cli/about-copilot-cli#allowed-tools).
 
 In this section, you can learn how to:
 

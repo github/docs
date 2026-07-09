@@ -69,8 +69,8 @@ There are two types of {% data variables.product.prodname_enterprise %} (GHE) li
 
 ## Further reading
 
-* [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)
+* [AUTOTITLE](/billing/reference/github-license-users)
 * [Pricing](https://github.com/pricing)
-* [AUTOTITLE](/billing/managing-your-billing/about-billing-for-your-enterprise)
+* [AUTOTITLE](/billing/concepts/enterprise-billing/billing-for-enterprises)
 * [AUTOTITLE]({% ifversion fpt or ghec %}/enterprise-server@latest{% endif %}/admin/installation/setting-up-a-github-enterprise-server-instance)
 * The [{% data variables.product.prodname_enterprise %} Releases](https://enterprise.github.com/releases/) website

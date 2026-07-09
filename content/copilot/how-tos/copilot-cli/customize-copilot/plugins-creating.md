@@ -47,7 +47,7 @@ my-plugin/
 
    {% data reusables.copilot.copilot-cli.cli-example-plugin-file %}
 
-   For details of the full set of fields you can include in this file, see [AUTOTITLE](/copilot/reference/cli-plugin-reference#pluginjson).
+   For details of the full set of fields you can include in this file, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-plugin-reference#pluginjson).
 
 1. Add some components to your plugin by creating the appropriate files and directories for agents, skills, hooks, and MCP server configurations.
 
@@ -138,4 +138,4 @@ To distribute your plugin, you can add it to a marketplace. See [AUTOTITLE](/cop
 ## Further reading
 
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing)
-* [AUTOTITLE](/copilot/reference/cli-plugin-reference)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-plugin-reference)

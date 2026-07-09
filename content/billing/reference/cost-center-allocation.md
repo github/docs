@@ -48,13 +48,13 @@ Users who belong to multiple organizations in an enterprise or who receive a {% 
 
 To confirm which organization is charged for a given user's license, you can request a detailed usage report. See [AUTOTITLE](/billing/reference/billing-reports#detailed-usage-report).
 
-See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-the-copilot-subscription-for-your-enterprise/about-billing-for-github-copilot-in-your-enterprise#about-seat-assignment-for-copilot-in-your-enterprise).
+See [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises#seat-assignment).
 
 ## Understanding cost center usage and attribution
 
 To view usage by cost center, go to the "Usage" page and group or filter by cost center. Any usage that is not assigned to a specific cost center is categorized as "Enterprise Only" when grouping by cost center. See [AUTOTITLE](/billing/tutorials/gather-insights).
 
-To understand how usage for a specific resource is being attributed to cost centers, request a detailed usage report and refer to the `cost_center_name` column. See [AUTOTITLE](/billing/reference/usage-reports).
+To understand how usage for a specific resource is being attributed to cost centers, request a detailed usage report and refer to the `cost_center_name` column. See [AUTOTITLE](/billing/reference/billing-reports).
 
 ## Effects of changes to cost centers
 

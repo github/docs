@@ -36,7 +36,7 @@ The built in `GITHUB_TOKEN` does not have sufficient permissions to redeliver we
      * Write access to the repository webhooks permission
      * Write access to the repository variables permission
    * For a {% data variables.product.pat_v1 %}, grant the token the `repo` scope.
-1. Store your {% data variables.product.pat_generic %} as a {% data variables.product.prodname_actions %} secret in the repository where you want the workflow to run. For more information, see [AUTOTITLE](/actions/security-guides/encrypted-secrets).
+1. Store your {% data variables.product.pat_generic %} as a {% data variables.product.prodname_actions %} secret in the repository where you want the workflow to run. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
 
 ## Adding a workflow that will run the script
 
@@ -347,7 +347,7 @@ async function updateVariable({
 
 ## Testing the script
 
-You can manually trigger your workflow to test the script. For more information, see [AUTOTITLE](/actions/using-workflows/manually-running-a-workflow) and [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs).
+You can manually trigger your workflow to test the script. For more information, see [AUTOTITLE](/actions/how-tos/manage-workflow-runs/manually-run-a-workflow) and [AUTOTITLE](/actions/how-tos/monitor-workflows/use-workflow-run-logs).
 
 ## Alternative methods
 

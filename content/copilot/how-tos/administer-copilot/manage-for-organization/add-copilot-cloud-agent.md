@@ -28,7 +28,7 @@ category:
 
 {% data variables.copilot.copilot_cloud_agent %} and use of third-party MCP servers are disabled by default for organization members assigned a {% data variables.copilot.copilot_enterprise %} or {% data variables.copilot.copilot_business_short %} license by your organization.
 
-Organizations with {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} can enable these features for members on the {% data variables.product.prodname_copilot_short %} policies page for their organization. See [Enabling {% data variables.product.prodname_copilot_short %} features in your organization](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
+Organizations with {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} can enable these features for members on the {% data variables.product.prodname_copilot_short %} policies page for their organization. See [Enabling {% data variables.product.prodname_copilot_short %} features in your organization](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies#enabling-copilot-features-in-your-organization).
 
 * For the "{% data variables.copilot.copilot_cloud_agent %}" policy, select "Enabled".
 * For the "MCP servers on {% data variables.product.prodname_dotcom_the_website %}" policy, select "Enabled".
@@ -58,7 +58,7 @@ Once {% data variables.copilot.copilot_cloud_agent %} is enabled for a repositor
 
 ## Managing the agent firewall for your organization
 
-Organization owners can configure the {% data variables.copilot.copilot_cloud_agent %} firewall for their organization, including whether it is enabled for the organization and which external hosts and URLs the agent can access. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-firewall).
+Organization owners can configure the {% data variables.copilot.copilot_cloud_agent %} firewall for their organization, including whether it is enabled for the organization and which external hosts and URLs the agent can access. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-firewall).
 
 ## Next steps
 
@@ -67,5 +67,5 @@ Organization owners can configure the {% data variables.copilot.copilot_cloud_ag
 * Encourage members to educate themselves about setting up their repository to get the most from {% data variables.copilot.copilot_cloud_agent %}. Useful resources:
 
    * [AUTOTITLE](/copilot/tutorials/cloud-agent/get-the-best-results)
-   * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment)
+   * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment)
    * [AUTOTITLE](/copilot/concepts/agents/cloud-agent/risks-and-mitigations)

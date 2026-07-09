@@ -1962,6 +1962,30 @@
       "category": "pulls"
     },
     {
+      "name": "DismissalRestriction",
+      "id": "dismissalrestriction",
+      "href": "/graphql/reference/pulls#object-dismissalrestriction",
+      "description": "<p>Specify people, teams, or apps allowed to dismiss pull request reviews.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "allowedActors",
+          "description": "<p>Specify people, teams, or apps allowed to dismiss pull request reviews.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "enabled",
+          "description": "<p>Whether to restrict review dismissal to specific actors.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "pulls"
+    },
+    {
       "name": "HeadRefDeletedEvent",
       "id": "headrefdeletedevent",
       "href": "/graphql/reference/pulls#object-headrefdeletedevent",
@@ -5054,6 +5078,13 @@
           "type": "Boolean!",
           "id": "boolean",
           "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "dismissalRestriction",
+          "description": "<p>Specify people, teams, or apps allowed to dismiss pull request reviews.</p>",
+          "type": "DismissalRestriction",
+          "id": "dismissalrestriction",
+          "href": "/graphql/reference/pulls#object-dismissalrestriction"
         },
         {
           "name": "requireCodeOwnerReview",
@@ -9311,6 +9342,30 @@
       "category": "pulls"
     },
     {
+      "name": "DismissalRestrictionInput",
+      "id": "dismissalrestrictioninput",
+      "href": "/graphql/reference/pulls#input-object-dismissalrestrictioninput",
+      "description": "<p>Specify people, teams, or apps allowed to dismiss pull request reviews.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "allowedActors",
+          "description": "<p>Specify people, teams, or apps allowed to dismiss pull request reviews.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "enabled",
+          "description": "<p>Whether to restrict review dismissal to specific actors.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "pulls"
+    },
+    {
       "name": "DraftPullRequestReviewComment",
       "id": "draftpullrequestreviewcomment",
       "href": "/graphql/reference/pulls#input-object-draftpullrequestreviewcomment",
@@ -9707,6 +9762,13 @@
           "type": "Boolean!",
           "id": "boolean",
           "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "dismissalRestriction",
+          "description": "<p>Specify people, teams, or apps allowed to dismiss pull request reviews.</p>",
+          "type": "DismissalRestrictionInput",
+          "id": "dismissalrestrictioninput",
+          "href": "/graphql/reference/pulls#input-object-dismissalrestrictioninput"
         },
         {
           "name": "requireCodeOwnerReview",
