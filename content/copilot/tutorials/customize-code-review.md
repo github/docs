@@ -19,7 +19,7 @@ redirect_from:
 
 In this tutorial, you'll learn how to write clear, effective custom instructions that help {% data variables.product.prodname_copilot_short %} provide more relevant code reviews. You'll discover best practices for structuring your instructions, common pitfalls to avoid, and strategies for organizing instructions across different files.
 
-This tutorial is about using custom instructions for {% data variables.copilot.copilot_code-review_short %}. For a more general introduction to using custom instructions, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions).
+This tutorial is about using custom instructions for {% data variables.copilot.copilot_code-review_short %}. For a more general introduction to using custom instructions, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions).
 
 ### What you'll learn
 
@@ -510,4 +510,4 @@ Remember that creating effective instructions is an iterative process. Start wit
 
 * Take a look at some of the [example custom instructions](https://github.com/github/awesome-copilot/tree/main/instructions) in the Awesome {% data variables.product.prodname_copilot %} repository for inspiration.
 * Read [AUTOTITLE](/copilot/concepts/prompting/response-customization) to learn about the full range of customization options.
-* Explore [AUTOTITLE](/copilot/how-tos/configure-custom-instructions) for technical details on setting up instruction files.
+* Explore [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions) for technical details on setting up instruction files.

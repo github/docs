@@ -8,4 +8,7 @@
     - /performing-an-upgrade
     - /troubleshooting-upgrades
   shortTitle: Upgrade your instance
+  redirect_from:
+    - /admin/upgrading-your-instance/automation-via-cli-api
+    - /admin/upgrading-your-instance/automation-via-cli-api/enterprise-server-upgrade-automation
 ---

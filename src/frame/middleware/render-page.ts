@@ -12,6 +12,7 @@ import type { ExtendedRequest } from '@/types'
 import { allVersions } from '@/versions/lib/all-versions'
 import { transformerRegistry } from '@/article-api/transformers'
 import { normalizeRenderedMarkdown } from '@/article-api/lib/normalize-markdown'
+import { renderContentToHast } from '@/content-render/index'
 import { minimumNotFoundHtml } from '../lib/constants'
 import { contentTypeCacheControl, defaultCacheControl } from './cache-control'
 import { nextHandleRequest } from './next'
@@ -38,6 +39,40 @@ async function buildRenderedPage(req: ExtendedRequest): Promise<string> {
   ])
 
   return (await pageRenderTimed(context)) as string
+}
+
+/**
+ * Spike for #6619 (remove dangerouslySetInnerHTML): produce the article body as
+ * a serializable hast (HTML AST) tree alongside the legacy HTML string.
+ *
+ * Must run AFTER buildRenderedPage, which calls page.render and populates the
+ * context fields the pipeline reads (englishHeadings, alertTitles). We render
+ * the same raw `page.markdown`, but with a context clone that omits
+ * `collectMiniToc` so the mini-TOC isn't collected a second time.
+ *
+ * Wrapped so a hast failure can never break the page: the React layer falls
+ * back to the string path when this is undefined. NOTE: this currently renders
+ * the body pipeline twice; the production design (see #6619 plan) should produce
+ * hast once and derive the string from it.
+ */
+async function buildRenderedPageHast(req: ExtendedRequest) {
+  const { context } = req
+  if (!context) throw new Error('request not contextualized')
+  const { page } = context
+  if (!page || !page.markdown) return undefined
+
+  try {
+    const hastContext = { ...context, collectMiniToc: undefined }
+    const { hast } = await renderContentToHast(page.markdown, hastContext)
+    return hast || undefined
+  } catch (error) {
+    logger.error(
+      'buildRenderedPageHast failed; falling back to string path',
+      error instanceof Error ? error : new Error(String(error)),
+      { path: req.pagePath || req.path },
+    )
+    return undefined
+  }
 }
 
 function buildMiniTocItems(req: ExtendedRequest) {
@@ -119,6 +154,7 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
     )
   } else {
     req.context.renderedPage = await buildRenderedPage(req)
+    req.context.renderedPageHast = await buildRenderedPageHast(req)
     req.context.miniTocItems = buildMiniTocItems(req)
   }
 

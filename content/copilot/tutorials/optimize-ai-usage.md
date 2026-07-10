@@ -110,7 +110,22 @@ However, the following actions invalidate the cache, causing the full context to
 * **Coming back to an old session**. Caches expire after a period of inactivity (24 hours for OpenAI models and 1 hour for most others). If you've been away a while, start a new session, or run `/compact` (in {% data variables.copilot.copilot_cli_short %}) so what gets rebuilt is a short summary rather than the full history.
 * **Changing reasoning mid-session**. Changing the reasoning effort level, context size, or the set of enabled tools and MCP servers during a session invalidates the cache. Configure these settings before you start and leave them unchanged for the session.
 
-## 5. Research, plan, then implement
+## 5. Set {% data variables.product.prodname_ai_credit_singular %} session limits
+
+An {% data variables.product.prodname_ai_credit_singular %} session limit caps the amount of work {% data variables.product.prodname_copilot_short %} performs on a single session.
+
+In {% data variables.copilot.copilot_cli_short %} and {% data variables.copilot.copilot_sdk_short %}, you can set a session limit before initiating a task and when the limit is reached, the agent stops cleanly, notifies you, and lets you choose whether to continue or raise the limit.
+
+{% data variables.product.prodname_ai_credit_singular %} session limits are most useful when:
+
+* You want to cap {% data variables.product.prodname_ai_credits_short %} usage on a single session to avoid unexpected costs.
+* You're tuning agent efficiency and want to find the minimum {% data variables.product.prodname_ai_credits_short %} that still produces a good result.
+
+Session limits are soft limits that help you control how many {% data variables.product.prodname_ai_credits_short %} any single task consumes, but they don't replace user-level budgets or spending limits, which govern your overall monthly consumption. For those controls, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
+
+For information on how to set a session limit in {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/set-session-limit).
+
+## 6. Research, plan, then implement
 
 One of the biggest shifts in working effectively with agents is moving away from doing everything in a single session. When research, planning, and implementation all happen together, context grows quickly and irrelevant information accumulates.
 
@@ -124,7 +139,7 @@ Break work into clear phases:
 
 Starting a new session between phases prevents you from carrying unnecessary context forward, which can increase token usage and reduce clarity for the agent. Each phase should operate with only what it needs. For guidance on scoping sessions effectively, see [AUTOTITLE](/copilot/tutorials/cloud-agent/get-the-best-results).
 
-## 6. Utilize learnings to be more efficient at every turn
+## 7. Utilize learnings to be more efficient at every turn
 
 ### Use `/chronicle` to generate insights
 
@@ -164,7 +179,7 @@ Persistent instructions improve consistency across agent interactions, but their
 
 Keep instructions updated as your codebase, architecture, standards, and workflows evolve. Because these instructions are included in the agent's context on every run, even small improvements can reduce repeated errors and lower wasted token usage over time.
 
-## 7. Add deterministic guardrails
+## 8. Add deterministic guardrails
 
 Agents are non-deterministic and won't be correct every time, especially in multi-step workflows. Without guardrails, small errors can compound quickly: agents build on incorrect outputs, drift further from the goal, and make debugging more expensive and time-consuming.
 

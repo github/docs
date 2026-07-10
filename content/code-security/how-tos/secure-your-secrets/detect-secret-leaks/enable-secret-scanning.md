@@ -45,6 +45,14 @@ If your organization is owned by an enterprise account, an enterprise owner can 
 
 A repository administrator can choose to disable {% data variables.product.prodname_secret_scanning %} for a repository at any time. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository).
 
+{% ifversion secret-scanning-public-monitoring %}
+
+## Extending detection with public monitoring
+
+The enablement steps above configure {% data variables.product.prodname_secret_scanning %} for repositories your organization or enterprise owns. To detect secrets leaked by your enterprise members in public repositories across {% data variables.product.github %}, you can enable public monitoring at the enterprise level. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/manage-your-coverage/enabling-public-monitoring-for-your-enterprise).
+
+{% endif %}
+
 ## Next steps
 
 * [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts)

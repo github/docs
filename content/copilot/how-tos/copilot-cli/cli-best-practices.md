@@ -94,14 +94,14 @@ Use `/model` to choose from available models based on your task complexity:
 
 | Model | Best For | Tradeoffs |
 | ----- | -------- | --------- |
-| **Auto** | Reduced rate limiting and lower latency and errors | See [AUTOTITLE](/copilot/concepts/auto-model-selection#auto-model-selection-in-github-copilot-cli)|
+| **Auto** | Reduced rate limiting and lower latency and errors | See [AUTOTITLE](/copilot/concepts/models/auto-model-selection) |
 | **Claude Opus 4.5** (default) | Complex architecture, difficult debugging, nuanced refactoring | Most capable but more costly |
 | **Claude Sonnet 4.5** | Day-to-day coding, most routine tasks | Fast, cost-effective, handles most work well |
 | **GPT-5.2 Codex** | Code generation, code review, straightforward implementations | Excellent for reviewing code produced by other models |
 
 **Recommendations:**
 
-* **Auto** intelligently chooses models based on real time system health and model performance, reducing rate limiting and providing lower latency and errors.
+* **Auto** intelligently chooses models based on real-time system health and model performance (reducing rate limiting and providing lower latency and errors), and the complexity of the task you have given {% data variables.product.prodname_copilot_short %}.
 * **Opus 4.5** is ideal for tasks requiring deep reasoning, complex system design, subtle bug investigation, or extensive context understanding.
 * **Switch to Sonnet 4.5** for routine tasks where speed and cost efficiency matter—it handles the majority of everyday coding effectively.
 * **Use Codex** for high-volume code generation and as a second opinion for reviewing code produced by other models.
@@ -123,6 +123,12 @@ You can configure {% data variables.copilot.copilot_cli_short %} to use your own
 * `/delegate` only works if you are also signed in to {% data variables.product.github %}. It transfers the session to {% data variables.product.github %}'s server-side {% data variables.product.prodname_copilot_short %}, not your provider.
 
 See [Using your own model provider](/copilot/concepts/agents/copilot-cli/about-copilot-cli#using-your-own-model-provider).
+
+### Set {% data variables.product.prodname_ai_credit_singular %} session limits
+
+You can cap the amount of {% data variables.product.prodname_ai_credits_short %} that {% data variables.product.prodname_copilot_short %} can spend on a single session so that long-running or complex tasks don't consume more resources than you expect. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/set-session-limit).
+
+For more information on how to optimize your {% data variables.product.prodname_ai_credits_short %} usage generally, see [AUTOTITLE](/copilot/tutorials/optimize-ai-usage).
 
 ## 2. Plan before you code
 
@@ -514,7 +520,7 @@ Here is what you will learn:
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli)
+* [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/overview)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)
 * [{% data variables.product.prodname_copilot_short %} plans and pricing](https://github.com/features/copilot/plans)

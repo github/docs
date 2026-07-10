@@ -8,6 +8,7 @@ versions:
   ghec: '*'
 contentType: how-tos
 children:
+  - /configure-license-policies
   - /auto-triage-dependabot-alerts
   - /prioritize-with-preset-rules
   - /customizing-dependabot-security-prs

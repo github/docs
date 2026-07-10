@@ -3,6 +3,48 @@
     "schemaChanges": [
       {
         "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>DismissalRestriction</code> was added</p>",
+          "<p>Field <code>allowedActors</code> was added to object type <code>DismissalRestriction</code></p>",
+          "<p>Field <code>enabled</code> was added to object type <code>DismissalRestriction</code></p>",
+          "<p>Type <code>DismissalRestrictionInput</code> was added</p>",
+          "<p>Input field <code>allowedActors</code> of type '[ID!]<code>was added to input object type</code>DismissalRestrictionInput'</p>",
+          "<p>Input field <code>enabled</code> of type <code>Boolean!</code> was added to input object type <code>DismissalRestrictionInput</code></p>",
+          "<p>Input field <code>AddAssigneesToAssignableInput.assigneeIds</code> changed type from '[ID!]!<code>to</code>[ID!]'</p>",
+          "<p>Field <code>dismissalRestriction</code> was added to object type <code>PullRequestParameters</code></p>",
+          "<p>Input field <code>dismissalRestriction</code> of type <code>DismissalRestrictionInput</code> was added to input object type <code>PullRequestParametersInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-07-08"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>IssueFieldTimelineOption</code> was added</p>",
+          "<p>Field <code>color</code> was added to object type <code>IssueFieldTimelineOption</code></p>",
+          "<p>Field <code>name</code> was added to object type <code>IssueFieldTimelineOption</code></p>",
+          "<p>Field <code>options</code> was added to object type <code>IssueFieldAddedEvent</code></p>",
+          "<p>Field <code>newOptions</code> was added to object type <code>IssueFieldChangedEvent</code></p>",
+          "<p>Field <code>previousOptions</code> was added to object type <code>IssueFieldChangedEvent</code></p>",
+          "<p>Field <code>options</code> was added to object type <code>IssueFieldRemovedEvent</code></p>",
+          "<p>Enum value 'LICENSE_COMPLIANCE_SCANNING<code>was added to enum</code>RepositoryRuleType'</p>",
+          "<p>Input field <code>issueCreationPolicy</code> of type <code>IssueCreationPolicy</code> was added to input object type <code>UpdateRepositoryInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-07-07"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
         "changes": []
       }
     ],

@@ -154,8 +154,8 @@ After using `git-filter-repo` to remove the sensitive data and pushing your chan
     * Remove cached views.
     * If LFS Objects are involved, delete and/or purge the orphaned LFS objects.
 
-    {% ifversion ghes %}For more information about how site administrators can remove unreachable Git objects, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-repo-gc). For more information about how site administrators can identify reachable commits, see [Identifying reachable commits](#identifying-reachable-commits).{% endif %}{% ifversion fpt or ghec %}
-     >[!IMPORTANT] {% data variables.contact.github_support %} won't remove non-sensitive data, and will only assist in the removal of sensitive data in cases where we determine that the risk can't be mitigated by rotating affected credentials.{% endif %}
+    {% ifversion ghes %}For more information about how site administrators can remove unreachable Git objects, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-repo-gc). For more information about how site administrators can identify reachable commits, see [Identifying reachable commits](#identifying-reachable-commits).{% endif %}{% ifversion fpt or ghec %}
+     > [!IMPORTANT] {% data variables.contact.github_support %} won't remove non-sensitive data, and will only assist in the removal of sensitive data in cases where we determine that the risk can't be mitigated by rotating affected credentials.{% endif %}
 
 1. Collaborators must [rebase](https://git-scm.com/book/en/v2/Git-Branching-Rebasing), _not_ merge, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.  They may need to take additional steps as well; see [Make sure other copies are cleaned up: clones of colleagues](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html#_make_sure_other_copies_are_cleaned_up_clones_of_colleagues) in the `git-filter-repo` manual.
 
@@ -199,7 +199,7 @@ Once garbage collection has successfully removed the commit, you'll want to brow
 
 ## Avoiding accidental commits in the future
 
-Preventing contributors from making accidental commits can help you prevent sensitive information from being exposed. For more information see [AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization).
+Preventing contributors from making accidental commits can help you prevent sensitive information from being exposed. For more information see [AUTOTITLE](/code-security/tutorials/secure-your-organization/prevent-data-leaks).
 
 There are a few things you can do to avoid committing or pushing things that should not be shared:
 
@@ -210,10 +210,10 @@ There are a few things you can do to avoid committing or pushing things that sho
 * Avoid the catch-all commands `git add .` and `git commit -a` on the command line—use `git add filename` and `git rm filename` to individually stage files, instead.
 * Use `git add --interactive` to individually review and stage changes within each file.
 * Use `git diff --cached` to review the changes that you have staged for commit. This is the exact diff that `git commit` will produce as long as you don't use the `-a` flag.
-* Enable push protection for your repository to detect and prevent pushes which contain hardcoded secrets from being committed to your codebase. For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).
+* Enable push protection for your repository to detect and prevent pushes which contain hardcoded secrets from being committed to your codebase. For more information, see [AUTOTITLE](/code-security/concepts/secret-security/push-protection).
 
 ## Further reading
 
 * [`git-filter-repo` man page](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html), especially the "Sensitive Data Removal" subsection of the "DISCUSSION" section.
 * [Pro Git: Git Tools - Rewriting History](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History)
-* [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)
+* [AUTOTITLE](/code-security/concepts/secret-security/secret-scanning)

@@ -42,7 +42,7 @@ category:
 ---
 
 > [!TIP]
-> **{% data variables.product.prodname_ghe_server %}** administrators should instead see [AUTOTITLE](/billing/how-tos/products/download-ghas-license-use).
+> **{% data variables.product.prodname_ghe_server %}** administrators should instead see [AUTOTITLE](/billing/how-tos/products/download-license-use).
 
 ## Viewing a summary of usage
 
@@ -54,7 +54,7 @@ The options available to you vary according to your role and {% data variables.p
 * If you are an **owner** or **billing manager** of an enterprise, or an organization on {% data variables.product.prodname_team %}, you will also have access to usage data for that organization or enterprise account.
 
 {% data variables.product.prodname_ghe_server %}:
-* Enterprise owners can access and download usage data for licenses, see [AUTOTITLE](/billing/how-tos/products/download-ghas-license-use).
+* Enterprise owners can access and download usage data for licenses, see [AUTOTITLE](/billing/how-tos/products/download-license-use).
 
 ### Personal accounts
 
@@ -84,7 +84,7 @@ The metered usage chart and usage break down table both show your current choice
 
 {% ifversion fpt or ghec %}
 > [!TIP]
-> For {% data variables.product.prodname_actions %}, you can also view the billable job execution minutes for an individual workflow run. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time).
+> For {% data variables.product.prodname_actions %}, you can also view the billable job execution minutes for an individual workflow run. For more information, see [AUTOTITLE](/actions/how-tos/monitor-workflows/view-job-execution-time).
 {% endif %}
 
 {% ifversion copilot %}
@@ -124,6 +124,6 @@ When the chart on the "Metered usage" {% ifversion copilot %}or "AI usage"{% end
 
 ## Next steps
 
-* [AUTOTITLE](/billing/reference/usage-reports){% ifversion fpt or ghec %}
-* [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending)
-* [AUTOTITLE](/billing/managing-your-billing/automating-usage-reporting){% endif %}
+* [AUTOTITLE](/billing/reference/billing-reports){% ifversion fpt or ghec %}
+* [AUTOTITLE](/billing/how-tos/set-up-budgets)
+* [AUTOTITLE](/billing/tutorials/automate-usage-reporting){% endif %}

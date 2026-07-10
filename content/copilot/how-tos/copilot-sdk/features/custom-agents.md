@@ -3,7 +3,8 @@ title: Custom agents and sub-agent orchestration
 shortTitle: Custom Agents
 intro: >-
   Define specialized agents with scoped tools and prompts, then let Copilot
-    orchestrate them as sub-agents within a single session.
+  orchestrate them as sub-agents within a single session. For dispatching
+  multiple sub-agents in parallel, see [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/fleet-mode).
 versions:
   fpt: '*'
   ghec: '*'

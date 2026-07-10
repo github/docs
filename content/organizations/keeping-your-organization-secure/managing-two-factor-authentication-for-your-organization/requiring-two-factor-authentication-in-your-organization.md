@@ -23,7 +23,7 @@ category:
 
 {% data reusables.two_fa.about-2fa %} You can require all {% ifversion fpt or ghec %}members, outside collaborators, and billing managers{% else %}members and outside collaborators{% endif %} in your organization to enable two-factor authentication on {% data variables.product.github %}. For more information about two-factor authentication, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa).
 
-You can also require two-factor authentication for organizations in an enterprise. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise).
+You can also require two-factor authentication for organizations in an enterprise. For more information, see [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise).
 
 > [!NOTE]
 > Some of the users in your organization may have been selected for mandatory two-factor authentication enrollment by {% data variables.product.prodname_dotcom %}, but it has no impact on how you enable the 2FA requirement for your organization.

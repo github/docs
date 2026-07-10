@@ -42,5 +42,5 @@ For detailed setup instructions, see [Local {% data variables.product.github %} 
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/set-up-the-github-mcp-server)
-* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/use-the-github-mcp-server)
+* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/set-up-the-github-mcp-server)
+* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/use-the-github-mcp-server)

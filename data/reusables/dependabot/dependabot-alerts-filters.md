@@ -20,7 +20,7 @@ You can sort and filter {% data variables.product.prodname_dependabot_alerts %} 
 | `relationship` |  Displays alerts of the selected relationship status<br>Note that this filter is only available for ecosystems with transitive support.  | Use `relationship:direct` to show alerts for direct dependencies (marked with the `Direct` label). |
 | {% endif %} |
 | `resolution` | Displays alerts of the selected resolution status | Use `resolution:no-bandwidth` to show alerts previously parked due to lack of resources or time to fix them |
-| `repo` |  Displays alerts based on the repository they relate to</br>Note that this filter is only available for security overview. For more information, see [AUTOTITLE](/code-security/security-overview/about-security-overview) | Use `repo:octocat-repo` to show alerts in the repository called `octocat-repo` |
+| `repo` |  Displays alerts based on the repository they relate to<br>Note that this filter is only available for security overview. For more information, see [AUTOTITLE](/code-security/concepts/security-at-scale/security-overview) | Use `repo:octocat-repo` to show alerts in the repository called `octocat-repo` |
 | `scope` | Displays alerts based on the scope of the dependency they relate to | Use `scope:development` to show alerts for dependencies that are only used during development |
 | `severity` | Displays alerts based on their level of severity | Use `severity:high` to show alerts with a severity of High |
 | `epss_percentage` | Displays alerts based on their EPSS-predicted probability of exploitation | Use `epss_percentage:>0.01` to see alerts with an EPSS percentage greater than 1% |

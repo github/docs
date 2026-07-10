@@ -644,6 +644,10 @@
           "description": "<p>Prevent commits that include changes in specified file and folder paths from\nbeing pushed to the commit graph. This includes absolute paths that contain file names.</p>"
         },
         {
+          "name": "LICENSE_COMPLIANCE_SCANNING",
+          "description": "<p>Enforce any added or changed dependencies to comply with the organization's license policy.</p>"
+        },
+        {
           "name": "LOCK_BRANCH",
           "description": "<p>Branch is read-only. Users cannot push to the branch.</p>"
         },

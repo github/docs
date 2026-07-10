@@ -41,7 +41,7 @@ Follow these best practices to get the most out of combining MCP servers with ag
 * **Provide context**: Include relevant background information about your project and requirements, including links to external resources that {% data variables.product.prodname_copilot_short %} can access.
 * **Set boundaries**: Specify any constraints or limitations for the task. For example, if you want {% data variables.product.prodname_copilot_short %} to only plan a new feature and not make any changes yet, specify that. You can also limit which MCP tools are enabled.
 * **Request confirmations**: Ask {% data variables.product.prodname_copilot_short %} to confirm its understanding before proceeding with significant changes.
-* **Use prompt files or custom instructions**: You can create prompt files or custom instructions files to guide {% data variables.product.prodname_copilot_short %} on how to behave for different MCP servers. See [AUTOTITLE](/copilot/concepts/about-customizing-github-copilot-chat-responses).
+* **Use prompt files or custom instructions**: You can create prompt files or custom instructions files to guide {% data variables.product.prodname_copilot_short %} on how to behave for different MCP servers. See [AUTOTITLE](/copilot/concepts/prompting/response-customization).
 
 ### MCP server use
 
@@ -51,11 +51,11 @@ Follow these best practices to get the most out of combining MCP servers with ag
 
 ### Security considerations
 
-* **Use OAuth when available**: For MCP servers like {% data variables.product.prodname_dotcom %} MCP, prefer OAuth authentication over {% data variables.product.pat_generic_plural %}. See [AUTOTITLE](/copilot/customizing-copilot/using-model-context-protocol/using-the-github-mcp-server#remote-mcp-server-configuration-with-oauth).
+* **Use OAuth when available**: For MCP servers like {% data variables.product.prodname_dotcom %} MCP, prefer OAuth authentication over {% data variables.product.pat_generic_plural %}. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/use-the-github-mcp-server#remote-mcp-server-configuration-with-oauth).
 * **Limit permissions**: Only grant MCP servers the minimum permissions necessary for your tasks.
 * **Review connections**: Regularly audit which MCP servers have access to your development environment.
 * **Monitor activity**: Keep track of what actions {% data variables.product.prodname_copilot_short %} performs through MCP servers.
-* **Prevent secret leaks**: Push protection blocks secrets from being included in AI-generated responses and prevents you from exposing secrets through any actions you perform using the {% data variables.product.github %} MCP server. This is currently available for public repositories only. See [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).
+* **Prevent secret leaks**: Push protection blocks secrets from being included in AI-generated responses and prevents you from exposing secrets through any actions you perform using the {% data variables.product.github %} MCP server. This is currently available for public repositories only. See [AUTOTITLE](/code-security/concepts/secret-security/push-protection).
 
 ## Example scenario: Implementing accessibility compliance
 
@@ -91,7 +91,7 @@ Before using agent mode with MCP, ensure you have:
 
 First, you need to configure the MCP servers that you anticipate {% data variables.product.prodname_copilot_short %} will need. For this example scenario, we'll use:
 
-* **{% data variables.product.github %} MCP server**: Configure the {% data variables.product.github %} MCP server to enable {% data variables.product.prodname_copilot_short %} to access your repository, examine your codebase, research existing issues, create branches, and manage pull requests. See [AUTOTITLE](/copilot/customizing-copilot/using-model-context-protocol/using-the-github-mcp-server).
+* **{% data variables.product.github %} MCP server**: Configure the {% data variables.product.github %} MCP server to enable {% data variables.product.prodname_copilot_short %} to access your repository, examine your codebase, research existing issues, create branches, and manage pull requests. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/use-the-github-mcp-server).
 
 * **Figma MCP server**: Configure the Figma MCP server to allow {% data variables.product.prodname_copilot_short %} to access design files that include accessibility specifications, such as color contrast requirements, focus states, and interaction patterns. See [Figma-Context-MCP](https://github.com/GLips/Figma-Context-MCP) or try out the [Dev Mode MCP server](https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Dev-Mode-MCP-Server).
 
@@ -225,5 +225,5 @@ In this exercise, you will learn how to:
 
 ## Further reading
 
-* **MCP fundamentals**: For more information about setting up and configuring MCP servers, see [AUTOTITLE](/copilot/customizing-copilot/using-model-context-protocol/extending-copilot-chat-with-mcp).
+* **MCP fundamentals**: For more information about setting up and configuring MCP servers, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp).
 * **Using MCP servers**: For additional ideas on integrating MCP with {% data variables.product.prodname_copilot %}, see [5 ways to transform your workflow using GitHub Copilot and MCP](https://github.blog/ai-and-ml/github-copilot/5-ways-to-transform-your-workflow-using-github-copilot-and-mcp/) on the {% data variables.product.prodname_blog %}.

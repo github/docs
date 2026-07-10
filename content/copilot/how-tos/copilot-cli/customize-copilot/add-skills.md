@@ -53,6 +53,8 @@ Use the /frontend-design skill to create a responsive navigation bar in React.
 
 * **Remove skills:** to remove a skill that you have added directly—not via a plugin—use the command `/skills remove SKILL-DIRECTORY`. To remove skills added as part of a plugin you must manage the plugin itself. Use the `info` subcommand to find out which plugin a skill came from.
 
+The `/skills` commands above run inside an interactive session. The same list, add, and remove operations are also available from the terminal command line by using the `copilot skill` subcommand. This is useful for scripting or for setting up skills before you start a session. For example, run `copilot skill list` to list your skills, or `copilot skill add <FILE | URL | DIRECTORY>` to add one. For the full set of subcommands for {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference).
+
 {% data reusables.copilot.skills-compared %}
 
 To learn more about how skills differ from other customization features, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/comparing-cli-features).

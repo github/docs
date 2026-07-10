@@ -29,7 +29,7 @@ With {% data variables.product.prodname_code_quality_short %}, you can:
 * Review clear explanations for findings and apply one-click **{% data variables.product.prodname_copilot_short %}-powered autofixes**.
 * Use **repository dashboards** to track reliability and maintainability scores, identify areas needing attention, and prioritize remediation.
 * Monitor **organization dashboards** to understand the code health of your repositories at a glance and determine which repositories to investigate further.
-* Set up **rulesets** for pull requests to enforce code quality standards and block changes that do not meet your criteria.
+* Set up **rulesets** for pull requests to enforce code quality standards and block changes that do not meet your criteria. You can also enforce coverage thresholds with rulesets to block pull requests that don't meet a minimum coverage percentage or that cause coverage to drop by more than the allowed amount.
 * Upload **code coverage** reports to see test coverage metrics directly on pull requests, helping reviewers identify untested code.
 * Easily assign remediation work to **{% data variables.copilot.copilot_cloud_agent %}**, if you have a {% data variables.product.prodname_copilot_short %} license.
 

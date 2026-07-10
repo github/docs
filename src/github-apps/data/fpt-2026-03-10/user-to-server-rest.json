@@ -1951,6 +1951,18 @@
   ],
   "code-quality": [
     {
+      "slug": "list-code-quality-findings-for-a-repository",
+      "subcategory": "code-quality",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/code-quality/findings"
+    },
+    {
+      "slug": "get-a-code-quality-finding",
+      "subcategory": "code-quality",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/code-quality/findings/{finding_number}"
+    },
+    {
       "slug": "get-a-code-quality-setup-configuration",
       "subcategory": "code-quality",
       "verb": "get",

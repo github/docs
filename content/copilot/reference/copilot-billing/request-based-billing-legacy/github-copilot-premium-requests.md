@@ -34,7 +34,7 @@ Each product's premium request usage is attributed to a premium request SKU:
 * **{% data variables.product.prodname_spark_short %} premium requests** - {% data variables.product.prodname_spark_short %} app creation
 * **{% data variables.copilot.copilot_cloud_agent %} premium requests** - {% data variables.copilot.copilot_cloud_agent %} sessions
 
-See [AUTOTITLE](/copilot/concepts/billing/copilot-requests) for details on which models and features consume premium requests and their SKU attribution.
+See [AUTOTITLE](/copilot/reference/copilot-billing/request-based-billing-legacy/copilot-requests) for details on which models and features consume premium requests and their SKU attribution.
 
 > [!NOTE]
 > {% data reusables.billing.pru-sku-split-notice %}
@@ -60,7 +60,7 @@ Usage of premium requests is tracked monthly and is based on the following facto
 
 When you use {% data variables.copilot.copilot_cloud_agent %}, including any {% data variables.copilot.copilot_custom_agents %}, both **{% data variables.product.prodname_actions %} minutes** and **premium requests** are consumed:
 
-* **{% data variables.product.prodname_actions %} minutes** come from your account’s monthly allowance of free minutes for {% data variables.product.github %}-hosted runners. This allowance is shared with all {% data variables.product.prodname_actions %} workflows. See [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#included-storage-and-minutes).
+* **{% data variables.product.prodname_actions %} minutes** come from your account’s monthly allowance of free minutes for {% data variables.product.github %}-hosted runners. This allowance is shared with all {% data variables.product.prodname_actions %} workflows. See [AUTOTITLE](/billing/concepts/product-billing/github-actions#included-storage-and-minutes).
 * **Premium requests** come from the monthly allowance associated with your {% data variables.product.prodname_copilot_short %} license. This allowance is shared with other features, such as {% data variables.copilot.copilot_chat_short %}.
 
 Each cloud agent **session** consumes one premium request. A session begins when you:
@@ -82,7 +82,7 @@ If you exceed your allowance, set a budget for additional premium requests or up
 
 Additional usage is charged to the payment method configured for your {% data variables.product.github %} account.
 
-If you are billed through Azure, premium request usage appears on your Azure invoice. See [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription).
+If you are billed through Azure, premium request usage appears on your Azure invoice. See [AUTOTITLE](/billing/how-tos/set-up-payment/connect-azure-sub).
 
 ## Managing your budget for premium requests
 
@@ -97,4 +97,4 @@ You can set a budget in your personal billing settings to receive alerts when yo
 * Usage reports show all premium requests, both within and beyond the allowance, and can be used to identify high-usage users.
 * Premium request analytics display usage by dedicated SKUs, providing detailed insights into which AI products consume your allowance.
 
-For more information about monitoring your usage, see [AUTOTITLE](/copilot/how-tos/manage-and-track-spending/monitor-premium-requests).
+For more information about monitoring your usage, see [AUTOTITLE](/copilot/reference/copilot-billing/request-based-billing-legacy/monitor-premium-requests).

@@ -184,7 +184,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 | `agents`      | string \| string[] | No       | Path(s) to agent directories. |
 | `skills`      | string \| string[] | No       | Path(s) to skill directories. |
 | `hooks`       | string \| object   | No       | Path to hooks config or inline hooks object. |
-| `mcpServers`  | string \| object   | No       | Path to MCP config or inline server definitions. |
+| `mcpServers`  | string \| object   | No       | MCP servers to activate when the plugin is installed. Accepts an inline server map or a path to a JSON config file. Used when the plugin source does not ship its own MCP configuration. |
 | `lspServers`  | string \| object   | No       | Path to LSP config or inline server definitions. |
 | `strict`      | boolean            | No       | When `true` (the default), plugins must conform to the full schema and validation rules. When `false`, relaxed validation is used, allowing more flexibility—especially for direct installs or legacy plugins. |
 

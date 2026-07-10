@@ -191,6 +191,11 @@ export const getMainContext = async (
   if (context.currentJourneyTrack?.trackId) {
     addUINamespaces(req, ui, ['journey_track_nav'])
   }
+  // CodeTabs (rendered React-natively from the article body hast) needs its i18n
+  // strings shipped to the page; only articles can contain code tabs.
+  if (documentType === 'article') {
+    addUINamespaces(req, ui, ['code_tabs'])
+  }
 
   // Product index pages (depth-2 index.md, e.g. actions/index.md) need the
   // full product tree for landing rendering.

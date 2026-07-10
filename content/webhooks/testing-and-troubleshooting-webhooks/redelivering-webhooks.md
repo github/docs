@@ -18,7 +18,7 @@ You may want to redeliver a webhook to help you test your application or to reco
 
 Only people with admin access to a repository can redeliver webhooks in that repository.
 
-You can use the {% data variables.product.company_short %} web interface or the REST API to redeliver webhooks for a repository. For more information about using the REST API to redeliver webhooks, see [AUTOTITLE](/rest/webhooks/repo-deliveries).
+You can use the {% data variables.product.company_short %} web interface or the REST API to redeliver webhooks for a repository. For more information about using the REST API to redeliver webhooks, see [AUTOTITLE](/rest/repos/webhooks).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

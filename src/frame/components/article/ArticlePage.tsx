@@ -17,10 +17,11 @@ import { RestRedirect } from '@/rest/components/RestRedirect'
 import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
 import { LinkPreviewPopover } from '@/links/components/LinkPreviewPopover'
 import { UtmPreserver } from '@/frame/components/UtmPreserver'
-import { CodeTabs } from '@/frame/components/CodeTabs'
 import { JourneyTrackCard, JourneyTrackNav } from '@/journeys/components'
 import { CopyMarkdownMenu } from './ViewMarkdownButton'
 import { ExperimentContentSwap } from '@/events/components/experiments/ExperimentContentSwap'
+import { SelectionProvider } from '@/tools/components/SelectionContext'
+import { CodeTabsProvider } from '@/frame/components/CodeTabsGroup'
 
 const ClientSideRefresh = dynamic(() => import('@/frame/components/ClientSideRefresh'), {
   ssr: false,
@@ -34,6 +35,7 @@ export const ArticlePage = () => {
     intro,
     effectiveDate,
     renderedPage,
+    renderedPageHast,
     permissions,
     includesPlatformSpecificContent,
     includesToolSpecificContent,
@@ -77,7 +79,11 @@ export const ArticlePage = () => {
 
   const articleContents = (
     <div id="article-contents">
-      <MarkdownContent>{renderedPage}</MarkdownContent>
+      {renderedPageHast ? (
+        <MarkdownContent hast={renderedPageHast} />
+      ) : (
+        <MarkdownContent>{renderedPage}</MarkdownContent>
+      )}
       <ExperimentContentSwap containerRef="#article-contents" />
       {effectiveDate && (
         <div className="mt-4" id="effectiveDate">
@@ -92,56 +98,59 @@ export const ArticlePage = () => {
 
   return (
     <DefaultLayout>
-      <LinkPreviewPopover />
-      <UtmPreserver />
-      <CodeTabs />
-      {isDev && <ClientSideRefresh />}
-      {router.pathname.includes('/rest/') && <RestRedirect />}
-      {currentLayout === 'inline' ? (
-        <>
-          <ArticleInlineLayout
-            supportPortalVaIframeProps={supportPortalVaIframeProps}
-            topper={<ArticleTitle>{title}</ArticleTitle>}
-            intro={introProp}
-            introCallOuts={introCalloutsProp}
-            toc={toc}
-            breadcrumbs={<Breadcrumbs />}
-          >
-            {articleContents}
-          </ArticleInlineLayout>
-          {isJourneyTrack ? (
-            <div className="container-lg mt-4 px-3">
-              <JourneyTrackNav context={currentJourneyTrack} />
-            </div>
-          ) : null}
-        </>
-      ) : (
-        <div className="container-xl px-3 px-md-6 my-4">
-          <div className={cx('d-none d-xxl-block mt-3 mr-auto width-full')}>
-            <Breadcrumbs />
-          </div>
+      <SelectionProvider>
+        <CodeTabsProvider>
+          <LinkPreviewPopover />
+          <UtmPreserver />
+          {isDev && <ClientSideRefresh />}
+          {router.pathname.includes('/rest/') && <RestRedirect />}
+          {currentLayout === 'inline' ? (
+            <>
+              <ArticleInlineLayout
+                supportPortalVaIframeProps={supportPortalVaIframeProps}
+                topper={<ArticleTitle>{title}</ArticleTitle>}
+                intro={introProp}
+                introCallOuts={introCalloutsProp}
+                toc={toc}
+                breadcrumbs={<Breadcrumbs />}
+              >
+                {articleContents}
+              </ArticleInlineLayout>
+              {isJourneyTrack ? (
+                <div className="container-lg mt-4 px-3">
+                  <JourneyTrackNav context={currentJourneyTrack} />
+                </div>
+              ) : null}
+            </>
+          ) : (
+            <div className="container-xl px-3 px-md-6 my-4">
+              <div className={cx('d-none d-xxl-block mt-3 mr-auto width-full')}>
+                <Breadcrumbs />
+              </div>
 
-          <ArticleGridLayout
-            supportPortalVaIframeProps={supportPortalVaIframeProps}
-            topper={<ArticleTitle>{title}</ArticleTitle>}
-            intro={
-              <>
-                {introProp}
-                {introCalloutsProp}
-              </>
-            }
-            toc={toc}
-          >
-            {articleContents}
-          </ArticleGridLayout>
+              <ArticleGridLayout
+                supportPortalVaIframeProps={supportPortalVaIframeProps}
+                topper={<ArticleTitle>{title}</ArticleTitle>}
+                intro={
+                  <>
+                    {introProp}
+                    {introCalloutsProp}
+                  </>
+                }
+                toc={toc}
+              >
+                {articleContents}
+              </ArticleGridLayout>
 
-          {isJourneyTrack ? (
-            <div className="container-lg mt-4 px-3">
-              <JourneyTrackNav context={currentJourneyTrack} />
+              {isJourneyTrack ? (
+                <div className="container-lg mt-4 px-3">
+                  <JourneyTrackNav context={currentJourneyTrack} />
+                </div>
+              ) : null}
             </div>
-          ) : null}
-        </div>
-      )}
+          )}
+        </CodeTabsProvider>
+      </SelectionProvider>
     </DefaultLayout>
   )
 }

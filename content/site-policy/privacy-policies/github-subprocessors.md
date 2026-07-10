@@ -18,7 +18,7 @@ The GitHub Subprocessor List identifies subprocessors authorized to subprocess c
 
 GitHub publishes the names of any new subprocessors for its online services at least 30 days in advance of the subprocessor’s authorization to perform services that may involve access to customer data or personal data.
 
-To receive notifications of updates to this Subprocessor list, please follow the instructions provided in [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications).
+To receive notifications of updates to this Subprocessor list, please follow the instructions provided in [AUTOTITLE](/subscriptions-and-notifications/concepts/about-notifications).
 
 If you have questions about this list, please contact us at <privacy@github.com>.
 

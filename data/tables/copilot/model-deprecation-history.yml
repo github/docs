@@ -11,6 +11,10 @@
 # - retirement_date: The official retirement date for the model (YYYY-MM-DD).
 # - suggested_alternative: The model recommended for migration.
 
+- name: 'Claude Opus 4.6 (fast mode) (preview)'
+  retirement_date: '2026-06-29'
+  suggested_alternative: 'Claude Opus 4.8 (fast mode) (preview)'
+
 - name: 'GPT-4.1'
   retirement_date: '2026-06-01'
   suggested_alternative: 'GPT-5.5'

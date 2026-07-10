@@ -2425,6 +2425,12 @@
       "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/users-28-day/latest"
     },
     {
+      "slug": "get-copilot-usage-records-for-an-enterprise",
+      "subcategory": "copilot-usage-metrics",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/usage-records"
+    },
+    {
       "slug": "get-copilot-seat-information-and-settings-for-an-organization",
       "subcategory": "copilot-user-management",
       "verb": "get",
@@ -3093,6 +3099,12 @@
       "requestPath": "/enterprises/{enterprise}/credential-authorizations/revoke-all"
     },
     {
+      "slug": "revoke-credential-authorizations-for-a-user-in-an-enterprise",
+      "subcategory": "credential-authorizations",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/credential-authorizations/{username}/revoke"
+    },
+    {
       "slug": "get-all-enterprise-roles-for-an-enterprise",
       "subcategory": "enterprise-roles",
       "verb": "get",
@@ -3151,6 +3163,18 @@
       "subcategory": "enterprise-roles",
       "verb": "get",
       "requestPath": "/enterprises/{enterprise}/enterprise-roles/{role_id}/users"
+    },
+    {
+      "slug": "sync-innersource-vulnerabilities-for-an-enterprise",
+      "subcategory": "security-advisories",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/innersource-vulnerabilities/sync"
+    },
+    {
+      "slug": "get-innersource-vulnerability-sync-status-for-an-enterprise",
+      "subcategory": "security-advisories",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/innersource-vulnerabilities/sync/status/{job_id}"
     },
     {
       "slug": "get-a-license-sync-status",

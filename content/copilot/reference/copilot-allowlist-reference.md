@@ -42,7 +42,18 @@ If your company employs security measures like a firewall or proxy server, you s
 
 Depending on the security policies and editors your organization uses, you may need to allowlist additional domains and URLs. For more information on specific editors, see [Further reading](#further-reading).
 
-Every user of the proxy server or firewall also needs to configure their own environment to connect to {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/configuring-github-copilot/configuring-network-settings-for-github-copilot).
+Every user of the proxy server or firewall also needs to configure their own environment to connect to {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-network-settings).
+
+## {% data variables.product.prodname_copilot_short %} voice features
+
+Voice features in {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %} use Foundry Local to run a speech-to-text model on your machine. To query the model catalog and download models, these features make outbound requests to the following Azure domains. If you want to use voice features behind a firewall or proxy server, add these URLs to your allowlist:
+
+| Domain and/or URL                              | Purpose |
+|:-----------------------------------------------| :--------------------------------- |
+| `https://ai.azure.com`                         | Model catalog requests |
+| `https://api.catalog.azureml.ms`               | Detecting the optimal Azure region for model downloads |
+| `https://*.api.azureml.ms`                     | Regional model catalog endpoints |
+| `https://amlwlrt4*.blob.core.windows.net`[^7]  | Model downloads from regional Azure Blob Storage |
 
 ## {% data variables.copilot.copilot_cloud_agent %} recommended allowlist
 
@@ -54,7 +65,7 @@ The {% data variables.copilot.copilot_cloud_agent %} includes a built-in firewal
 * Common certificate authorities (to allow SSL certificates to be validated).
 * Hosts used to download web browsers for the Playwright MCP server.
 
-For more information about configuring the {% data variables.copilot.copilot_cloud_agent %} firewall, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-firewall).
+For more information about configuring the {% data variables.copilot.copilot_cloud_agent %} firewall, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-firewall).
 
 The allowlist allows access to the following hosts:
 
@@ -396,9 +407,10 @@ The allowlist allows access to the following hosts:
 * [Network Connections in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/setup/network) in the {% data variables.product.prodname_vs %} documentation
 * [Install and use {% data variables.product.prodname_vs %} and Azure Services behind a firewall or proxy server](https://learn.microsoft.com/en-us/visualstudio/install/install-and-use-visual-studio-behind-a-firewall-or-proxy-server) in the Microsoft documentation
 
-[^1]: Allows access to authorized users regardless of {% data variables.product.prodname_copilot_short %} plan. Do not add this URL to your allowlist if you are using subscription-based network routing. For more information on subscription-based network routing, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-access-to-copilot-in-your-enterprise/managing-github-copilot-access-to-your-enterprises-network).
+[^1]: Allows access to authorized users regardless of {% data variables.product.prodname_copilot_short %} plan. Do not add this URL to your allowlist if you are using subscription-based network routing. For more information on subscription-based network routing, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/manage-network-access).
 [^2]: Allows access to authorized users via a {% data variables.copilot.copilot_individuals_short %} plan. Do not add this URL to your allowlist if you are using subscription-based network routing.
 [^3]: Allows access to authorized users via a {% data variables.copilot.copilot_business_short %} plan. Do not add this URL to your allowlist if you want to use subscription-based network routing to block users from using {% data variables.copilot.copilot_business_short %} on your network.
 [^4]: Allows access to authorized users via a {% data variables.copilot.copilot_enterprise_short %} plan. Do not add this URL to your allowlist if you want to use subscription-based network routing to block users from using {% data variables.copilot.copilot_enterprise_short %} on your network.
 [^5]: Required for fallback scenarios where {% data variables.product.prodname_copilot_short %} usage metrics report downloads bypass the custom domain and are served from an Azure Front Door CDN.
 [^6]: Required for fallback scenarios where {% data variables.product.prodname_copilot_short %} usage metrics report downloads bypass the Azure Front Door CDN and are served directly from Azure Blob Storage.
+[^7]: The `amlwlrt4*` wildcard matches the regional Azure Blob Storage accounts that Foundry Local voice features use to download models. The specific storage account depends on the Azure region closest to the user.

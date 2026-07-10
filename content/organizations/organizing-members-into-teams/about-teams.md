@@ -20,7 +20,7 @@ You can use teams to manage access for people in an organization, and for sendin
 {% ifversion not ghes %}
 
 > [!TIP]
-> If you use an enterprise account, you can also create teams at the enterprise level. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-teams).
+> If you use an enterprise account, you can also create teams at the enterprise level. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/teams-in-an-enterprise).
 
 {% endif %}
 
@@ -33,7 +33,7 @@ For more information, see:
 
 {% ifversion ghes %}
 
-You can also use LDAP Sync to synchronize {% data variables.location.product_location %} team members and team roles against your established LDAP groups. This lets you establish role-based access control for users from your LDAP server instead of manually within {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync).
+You can also use LDAP Sync to synchronize {% data variables.location.product_location %} team members and team roles against your established LDAP groups. This lets you establish role-based access control for users from your LDAP server instead of manually within {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/managing-iam/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync).
 
 {% endif %}
 
@@ -43,7 +43,7 @@ You can also use LDAP Sync to synchronize {% data variables.location.product_loc
 
 {% data reusables.organizations.types-of-team-visibility %}
 
-You can view all the teams you belong to on your personal dashboard. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#finding-your-top-repositories-and-teams).
+You can view all the teams you belong to on your personal dashboard. For more information, see [AUTOTITLE](/account-and-profile/get-started/personal-dashboard-quickstart#finding-your-top-repositories-and-teams).
 
 ## Team pages
 

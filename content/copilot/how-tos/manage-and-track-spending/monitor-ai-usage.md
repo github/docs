@@ -49,3 +49,8 @@ You can access usage information in the following IDEs.
 * **In JetBrains IDEs**, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar, then select **View quota usage**.
 * **In Xcode**, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the menu bar.
 * **In Eclipse**, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar at the bottom of Eclipse.
+
+## Next steps
+
+* For guidance on how to optimize your usage and reduce spend, including how to set session limits to cap spend for agent tasks, see [AUTOTITLE](/copilot/tutorials/optimize-ai-usage).
+* To set up a personal budget for your overall consumption of {% data variables.product.prodname_ai_credits %}, see [AUTOTITLE](/billing/how-tos/set-up-budgets#managing-budgets-for-your-personal-account).

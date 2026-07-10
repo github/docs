@@ -27,7 +27,7 @@ The {% data variables.product.github %} MCP server supports two enterprise deplo
 ## Prerequisites
 
 * A {% data variables.product.prodname_ghe_server %} instance or {% data variables.product.prodname_ghe_cloud %} account with {% data variables.enterprise.data_residency_short %}
-* The {% data variables.product.github %} MCP server configured in your editor. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/set-up-the-github-mcp-server).
+* The {% data variables.product.github %} MCP server configured in your editor. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/set-up-the-github-mcp-server).
 
 ## Configuring the remote MCP server for {% data variables.enterprise.data_residency %}
 
@@ -646,5 +646,5 @@ Replace `YOUR_GHES_OR_GHEC_HOSTNAME` with your {% data variables.product.prodnam
 
 ## Next steps
 
-* To learn how to use the {% data variables.product.github %} MCP server, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/use-the-github-mcp-server).
-* To learn how to configure toolsets for the {% data variables.product.github %} MCP server, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/configure-toolsets).
+* To learn how to use the {% data variables.product.github %} MCP server, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/use-the-github-mcp-server).
+* To learn how to configure toolsets for the {% data variables.product.github %} MCP server, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/configure-toolsets).

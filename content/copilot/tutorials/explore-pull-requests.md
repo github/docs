@@ -34,6 +34,18 @@ The following prompts are examples of the kind of questions you can ask {% data 
 * `What is the current status of this pull request?`
 * `What are the main changes in this pull request?`
 
+## Ask {% data variables.product.prodname_copilot_short %} to explain changes in a pull request
+
+You can ask {% data variables.product.prodname_copilot_short %} to examine the changes in a pull request and provide insights. {% data variables.product.prodname_copilot_short %} can return a story of the commits made, a list of unresolved feedback, or assistance with performing a structured review with insights and actionable suggestions, using context from the pull request's file changes, commits, comments, and existing reviews.
+
+1. On {% data variables.product.github %}, navigate to a pull request in a repository.
+1. Open {% data variables.copilot.copilot_chat_short %}, type your question, and press <kbd>Enter</kbd>.
+
+### Example prompts
+* `Help me understand the commits made in this pull request.`
+* `Is there any unresolved feedback in this pull request?`
+* `Help review this pull request.`
+
 ## Ask about changes to a specific file in a pull request
 
 You can ask {% data variables.product.prodname_copilot_short %} to explain the changes made to a specific file in a pull request, or to provide information about the status of a file in a pull request.
@@ -43,6 +55,8 @@ You can ask {% data variables.product.prodname_copilot_short %} to explain the c
 1. To the right side of a line in the file you want to ask about, click the {% octicon "triangle-down" aria-hidden="true" aria-label="Show file actions" %} icon, then click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, and select **Ask about this diff**.
 
     This opens {% data variables.copilot.copilot_chat_short %} with the file changes indicated as the context of your question.
+
+    Your conversation appears alongside the diff, so you can review the code and chat at the same time.
 1. Type a question in the prompt box at the bottom of the chat panel and press <kbd>Enter</kbd>.
 
 ### Example prompts
@@ -95,4 +109,5 @@ When you view a pull request created by {% data variables.copilot.copilot_cloud_
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/tutorials/using-copilot-to-explore-a-codebase)
+* [AUTOTITLE](/copilot/tutorials/explore-a-codebase)
+* [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/drive-downstream-impact/accelerate-pull-requests)

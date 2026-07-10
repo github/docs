@@ -1,5 +1,3 @@
-import React from 'react'
-
 import type { ProductT } from '@/frame/components/context/MainContext'
 import { ProductSelectionCard } from './ProductSelectionCard'
 
