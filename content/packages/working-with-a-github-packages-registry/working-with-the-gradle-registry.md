@@ -60,8 +60,8 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}REGISTRY_URL{% endif %}/OWNER/REPOSITORY")
             credentials {
-                username = providers.gradleProperty("gpr.user").orNull ?: System.getenv("USERNAME")
-                password = providers.gradleProperty("gpr.key").orNull ?: System.getenv("TOKEN")
+                username = providers.gradleProperty("gpr.user").getOrNull() ?: System.getenv("USERNAME")
+                password = providers.gradleProperty("gpr.key").getOrNull() ?: System.getenv("TOKEN")
             }
         }
     }
@@ -87,8 +87,8 @@ subprojects {
                 name = "GitHubPackages"
                 url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}REGISTRY_URL{% endif %}/OWNER/REPOSITORY")
                 credentials {
-                    username = providers.gradleProperty("gpr.user").orNull ?: System.getenv("USERNAME")
-                    password = providers.gradleProperty("gpr.key").orNull ?: System.getenv("TOKEN")
+                    username = providers.gradleProperty("gpr.user").getOrNull() ?: System.getenv("USERNAME")
+                    password = providers.gradleProperty("gpr.key").getOrNull() ?: System.getenv("TOKEN")
                 }
             }
         }
@@ -113,8 +113,8 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}REGISTRY_URL{% endif %}/OWNER/REPOSITORY")
             credentials {
-                username = providers.gradleProperty("gpr.user").orNull ?: System.getenv("USERNAME")
-                password = providers.gradleProperty("gpr.key").orNull ?: System.getenv("TOKEN")
+                username = providers.gradleProperty("gpr.user").getOrNull() ?: System.getenv("USERNAME")
+                password = providers.gradleProperty("gpr.key").getOrNull() ?: System.getenv("TOKEN")
             }
         }
     }
@@ -140,8 +140,8 @@ subprojects {
                 name = "GitHubPackages"
                 url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}REGISTRY_URL{% endif %}/OWNER/REPOSITORY")
                 credentials {
-                    username = providers.gradleProperty("gpr.user").orNull ?: System.getenv("USERNAME")
-                    password = providers.gradleProperty("gpr.key").orNull ?: System.getenv("TOKEN")
+                    username = providers.gradleProperty("gpr.user").getOrNull() ?: System.getenv("USERNAME")
+                    password = providers.gradleProperty("gpr.key").getOrNull() ?: System.getenv("TOKEN")
                 }
             }
         }
@@ -199,8 +199,8 @@ To use a published package from {% data variables.product.prodname_registry %}, 
        maven {
            url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}REGISTRY_URL{% endif %}/OWNER/REPOSITORY")
            credentials {
-               username = providers.gradleProperty("gpr.user").orNull ?: System.getenv("USERNAME")
-               password = providers.gradleProperty("gpr.key").orNull ?: System.getenv("TOKEN")
+               username = providers.gradleProperty("gpr.user").getOrNull() ?: System.getenv("USERNAME")
+               password = providers.gradleProperty("gpr.key").getOrNull() ?: System.getenv("TOKEN")
            }
       }
    }
@@ -213,8 +213,8 @@ To use a published package from {% data variables.product.prodname_registry %}, 
        maven {
            url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}REGISTRY_URL{% endif %}/OWNER/REPOSITORY")
            credentials {
-               username = providers.gradleProperty("gpr.user").orNull ?: System.getenv("USERNAME")
-               password = providers.gradleProperty("gpr.key").orNull ?: System.getenv("TOKEN")
+               username = providers.gradleProperty("gpr.user").getOrNull() ?: System.getenv("USERNAME")
+               password = providers.gradleProperty("gpr.key").getOrNull() ?: System.getenv("TOKEN")
            }
        }
    }
