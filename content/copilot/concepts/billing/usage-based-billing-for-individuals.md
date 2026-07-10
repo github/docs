@@ -99,7 +99,7 @@ To set up a budget for {% data variables.product.prodname_ai_credits %}, see [AU
 
 {% data reusables.copilot.copilot-one-account %}
 
-You can cancel your {% data variables.product.prodname_copilot_short %} plan at any time. The cancellation will take effect at the end of your current billing cycle. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription/canceling-copilot-as-an-individual-user).
+You can cancel your {% data variables.product.prodname_copilot_short %} plan at any time. The cancellation will take effect at the end of your current billing cycle. See [AUTOTITLE](/copilot/how-tos/manage-your-account/view-and-change-your-copilot-plan).
 
 ## Determining your billing date
 
@@ -134,6 +134,6 @@ We recommend keeping your IDE, client, and {% data variables.product.prodname_co
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot)
-* [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription)
-* [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information)
+* [AUTOTITLE](/copilot/get-started/plans)
+* [AUTOTITLE](/copilot/how-tos/manage-your-account)
+* [AUTOTITLE](/billing/how-tos/set-up-payment/manage-payment-info)

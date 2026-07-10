@@ -89,5 +89,5 @@ We just created a word search app, but {% data variables.product.prodname_spark_
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-spark)
-* [AUTOTITLE](/copilot/concepts/copilot-billing/about-billing-for-github-spark)
+* [AUTOTITLE](/copilot/responsible-use/agents)
+* [AUTOTITLE](/billing/concepts/product-billing/github-spark)

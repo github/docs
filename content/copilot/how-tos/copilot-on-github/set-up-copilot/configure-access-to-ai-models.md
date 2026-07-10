@@ -21,7 +21,7 @@ Your access to {% data variables.product.prodname_copilot %} models depends on:
 * The client you use (for example, {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_vscode %}, or JetBrains IDEs).
 * Whether your organization or enterprise restricts access to specific models.
 
-For a list of available AI models, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/supported-ai-models-in-copilot). For information on how {% data variables.copilot.copilot_chat_short %} serves different AI models, see [AUTOTITLE](/copilot/reference/ai-models/model-hosting).
+For a list of available AI models, see [AUTOTITLE](/copilot/reference/ai-models/supported-models). For information on how {% data variables.copilot.copilot_chat_short %} serves different AI models, see [AUTOTITLE](/copilot/reference/ai-models/model-hosting).
 
 ## Setup for individual use
 
@@ -32,10 +32,10 @@ For individual {% data variables.product.prodname_copilot_short %} plans, you ca
 
 ## Setup for organization and enterprise use
 
-As an enterprise or organization owner, you can enable or disable access to AI models for members with a {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} seat. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization) and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
+As an enterprise or organization owner, you can enable or disable access to AI models for members with a {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} seat. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies) and [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
 
 > [!NOTE]
-> * Models available in {% data variables.copilot.copilot_auto_model_selection %} will follow the policies set for an organization or enterprise. See [AUTOTITLE](/copilot/concepts/auto-model-selection).
+> * Models available in {% data variables.copilot.copilot_auto_model_selection %} will follow the policies set for an organization or enterprise. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
 > * {% data reusables.copilot.byok-no-subscription-required %}
 
 {% ifversion copilot-byok %}

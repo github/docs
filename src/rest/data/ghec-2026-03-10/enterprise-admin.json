@@ -14555,6 +14555,22 @@
                         }
                       },
                       {
+                        "title": "license_compliance_scanning",
+                        "description": "Enforce any added or changed dependencies to comply with the organization's license policy.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "license_compliance_scanning"
+                            ]
+                          }
+                        }
+                      },
+                      {
                         "title": "file_path_restriction",
                         "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.",
                         "type": "object",
@@ -15984,6 +16000,22 @@
                                 "description": "Copilot automatically reviews each new push to the pull request."
                               }
                             }
+                          }
+                        }
+                      },
+                      {
+                        "title": "license_compliance_scanning",
+                        "description": "Enforce any added or changed dependencies to comply with the organization's license policy.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "license_compliance_scanning"
+                            ]
                           }
                         }
                       },
@@ -18901,6 +18933,22 @@
                                 "description": "Copilot automatically reviews each new push to the pull request."
                               }
                             }
+                          }
+                        }
+                      },
+                      {
+                        "title": "license_compliance_scanning",
+                        "description": "Enforce any added or changed dependencies to comply with the organization's license policy.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "license_compliance_scanning"
+                            ]
                           }
                         }
                       },
@@ -24115,6 +24163,623 @@
         "permissions": [
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
+          }
+        ]
+      }
+    }
+  ],
+  "security-advisories": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/innersource-vulnerabilities/sync",
+      "title": "Sync innersource vulnerabilities for an enterprise",
+      "category": "enterprise-admin",
+      "subcategory": "security-advisories",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "array",
+          "name": "",
+          "description": "<p>Array of vulnerabilities in OSV format to synchronize</p>",
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "id",
+              "description": "<p>Unique identifier for the vulnerability from the external system</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string",
+              "name": "schema_version",
+              "description": "<p>The OSV schema version</p>"
+            },
+            {
+              "type": "string",
+              "name": "summary",
+              "description": "<p>A short summary of the vulnerability</p>"
+            },
+            {
+              "type": "string",
+              "name": "details",
+              "description": "<p>Detailed description of the vulnerability</p>"
+            },
+            {
+              "type": "array of strings",
+              "name": "aliases",
+              "description": "<p>IDs for the same vulnerability in other databases. Only CVE IDs are used (to populate the vulnerability's CVE identifier); other aliases are ignored.</p>"
+            },
+            {
+              "type": "array of objects",
+              "name": "severity",
+              "description": "<p>Severity information for the vulnerability</p>",
+              "childParamsGroups": [
+                {
+                  "type": "string",
+                  "name": "type",
+                  "description": "<p>The type of severity scoring (e.g., CVSS_V3)</p>"
+                },
+                {
+                  "type": "string",
+                  "name": "score",
+                  "description": "<p>The severity score or vector string</p>"
+                }
+              ]
+            },
+            {
+              "type": "array of objects",
+              "name": "affected",
+              "description": "<p>Packages and versions affected by the vulnerability</p>",
+              "childParamsGroups": [
+                {
+                  "type": "object",
+                  "name": "package",
+                  "description": "",
+                  "childParamsGroups": [
+                    {
+                      "type": "string",
+                      "name": "ecosystem",
+                      "description": "<p>The package ecosystem (e.g., npm, pip, maven)</p>"
+                    },
+                    {
+                      "type": "string",
+                      "name": "name",
+                      "description": "<p>The package name</p>"
+                    }
+                  ]
+                },
+                {
+                  "type": "array of objects",
+                  "name": "ranges",
+                  "description": "",
+                  "childParamsGroups": [
+                    {
+                      "type": "string",
+                      "name": "type",
+                      "description": ""
+                    },
+                    {
+                      "type": "array of objects",
+                      "name": "events",
+                      "description": "",
+                      "childParamsGroups": [
+                        {
+                          "type": "string",
+                          "name": "introduced",
+                          "description": "<p>The version that introduced the vulnerability</p>"
+                        },
+                        {
+                          "type": "string",
+                          "name": "fixed",
+                          "description": "<p>The version that fixed the vulnerability</p>"
+                        },
+                        {
+                          "type": "string",
+                          "name": "last_affected",
+                          "description": "<p>The last affected version</p>"
+                        },
+                        {
+                          "type": "string",
+                          "name": "limit",
+                          "description": "<p>The upper limit of the affected range</p>"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "array of objects",
+              "name": "references",
+              "description": "<p>URLs for more information about the vulnerability</p>",
+              "childParamsGroups": [
+                {
+                  "type": "string",
+                  "name": "type",
+                  "description": "<p>The type of reference. Supported values: PACKAGE, ADVISORY, WEB, FIX, ARTICLE, REPORT, EVIDENCE. References with other types are ignored.</p>"
+                },
+                {
+                  "type": "string",
+                  "name": "url",
+                  "description": "<p>The reference URL</p>"
+                }
+              ]
+            },
+            {
+              "type": "string",
+              "name": "published",
+              "description": "<p>When the vulnerability was first published</p>"
+            },
+            {
+              "type": "string",
+              "name": "modified",
+              "description": "<p>When the vulnerability was last modified</p>"
+            },
+            {
+              "type": "string",
+              "name": "withdrawn",
+              "description": "<p>When the vulnerability was withdrawn. If present, the vulnerability will be marked as withdrawn.</p>"
+            }
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Synchronize innersource vulnerability data with the Advisory Database for an enterprise.\nThis endpoint receives vulnerability data in OSV format and creates, updates, or withdraws\ninnersource vulnerabilities accordingly. Dependabot alerting is triggered for created and\nupdated vulnerabilities.</p>\n<p>The request body accepts up to 100 vulnerabilities per call. The request is validated and\nthen queued for asynchronous processing: a successful request returns <code>202 Accepted</code> with a\n<code>Location</code> header pointing to a status URL that you poll for the final result.</p>\n<p>Syncing vulnerabilities too quickly using this endpoint may result in secondary rate limiting. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits\">Rate limits for the API</a>\" and \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/best-practices-for-using-the-rest-api\">Best practices for using the REST API</a>.\"</p>\n<p>This endpoint does not support OAuth apps or personal access tokens.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": [
+              {
+                "id": "MVS-2026-001",
+                "schema_version": "1.4.0",
+                "summary": "Example vulnerability summary",
+                "aliases": [
+                  "GHSA-xxxx-xxxx-xxxx"
+                ],
+                "affected": [
+                  {
+                    "package": {
+                      "ecosystem": "npm",
+                      "name": "example-package"
+                    },
+                    "ranges": [
+                      {
+                        "type": "SEMVER",
+                        "events": [
+                          {
+                            "introduced": "1.0.0"
+                          },
+                          {
+                            "fixed": "1.0.1"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "202",
+            "contentType": "application/json",
+            "description": "<p>Sync operation accepted for asynchronous processing. Poll the returned URL for results.</p>",
+            "example": {
+              "id": "external-vulnerability-sync-a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+              "url": "https://api.github.com/enterprises/my-enterprise/innersource-vulnerabilities/sync/status/external-vulnerability-sync-a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+              "status": "queued"
+            },
+            "schema": {
+              "title": "External Vulnerability Sync Accepted",
+              "description": "Response when an external vulnerability sync request is accepted for asynchronous processing",
+              "type": "object",
+              "required": [
+                "id",
+                "url",
+                "status"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Job status ID for polling"
+                },
+                "url": {
+                  "type": "string",
+                  "description": "URL to poll for sync results",
+                  "format": "uri"
+                },
+                "status": {
+                  "type": "string",
+                  "description": "Initial job status",
+                  "enum": [
+                    "queued"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "202",
+          "description": "<p>Sync operation accepted for asynchronous processing. Poll the returned URL for results.</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise innersource vulnerabilities\" enterprise permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/innersource-vulnerabilities/sync/status/{job_id}",
+      "title": "Get innersource vulnerability sync status for an enterprise",
+      "category": "enterprise-admin",
+      "subcategory": "security-advisories",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "job_id",
+          "in": "path",
+          "required": true,
+          "description": "<p>The unique identifier of the sync job.</p>",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Get the status of an asynchronous innersource vulnerability sync operation for an enterprise.\nReturns 202 with a <code>Retry-After</code> header while the sync is still processing, or 200 with\nthe full sync results once complete.</p>\n<p>This endpoint does not support OAuth apps or personal access tokens.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example 1: Status Code 200",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "job_id": "JOB_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Sync operation completed</p>",
+            "example": {
+              "processed": 1,
+              "created": 1,
+              "updated": 0,
+              "withdrawn": 0,
+              "errors": 0,
+              "results": [
+                {
+                  "external_id": "MVS-2026-001",
+                  "status": "created",
+                  "ghsa_id": "GHIS-xxxx-xxxx-xxxx"
+                }
+              ]
+            },
+            "schema": {
+              "oneOf": [
+                {
+                  "title": "External Vulnerability Sync Result",
+                  "description": "Result of an external vulnerability synchronization operation",
+                  "type": "object",
+                  "required": [
+                    "processed",
+                    "created",
+                    "updated",
+                    "withdrawn",
+                    "errors",
+                    "results"
+                  ],
+                  "properties": {
+                    "processed": {
+                      "type": "integer",
+                      "description": "Total number of vulnerabilities processed"
+                    },
+                    "created": {
+                      "type": "integer",
+                      "description": "Number of new vulnerabilities created"
+                    },
+                    "updated": {
+                      "type": "integer",
+                      "description": "Number of existing vulnerabilities updated"
+                    },
+                    "withdrawn": {
+                      "type": "integer",
+                      "description": "Number of vulnerabilities marked as withdrawn"
+                    },
+                    "errors": {
+                      "type": "integer",
+                      "description": "Number of vulnerabilities that failed to process"
+                    },
+                    "results": {
+                      "type": "array",
+                      "description": "Detailed result for each processed vulnerability",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "external_id",
+                          "status"
+                        ],
+                        "properties": {
+                          "external_id": {
+                            "type": "string",
+                            "description": "The external ID of the vulnerability (corresponds to the `id` field in the request payload)"
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "The processing status",
+                            "enum": [
+                              "created",
+                              "updated",
+                              "withdrawn",
+                              "error"
+                            ]
+                          },
+                          "ghsa_id": {
+                            "type": "string",
+                            "description": "The advisory ID assigned to the vulnerability. For innersource vulnerabilities this is a GHIS ID. Present for successful operations."
+                          },
+                          "error": {
+                            "type": "string",
+                            "description": "Error message (present only when status is 'error')"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "error"
+                      ]
+                    },
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "request": {
+            "description": "Example 2: Status Code 200",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "job_id": "JOB_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Sync operation completed</p>",
+            "example": {
+              "status": "error",
+              "error": "Internal error processing vulnerabilities"
+            },
+            "schema": {
+              "oneOf": [
+                {
+                  "title": "External Vulnerability Sync Result",
+                  "description": "Result of an external vulnerability synchronization operation",
+                  "type": "object",
+                  "required": [
+                    "processed",
+                    "created",
+                    "updated",
+                    "withdrawn",
+                    "errors",
+                    "results"
+                  ],
+                  "properties": {
+                    "processed": {
+                      "type": "integer",
+                      "description": "Total number of vulnerabilities processed"
+                    },
+                    "created": {
+                      "type": "integer",
+                      "description": "Number of new vulnerabilities created"
+                    },
+                    "updated": {
+                      "type": "integer",
+                      "description": "Number of existing vulnerabilities updated"
+                    },
+                    "withdrawn": {
+                      "type": "integer",
+                      "description": "Number of vulnerabilities marked as withdrawn"
+                    },
+                    "errors": {
+                      "type": "integer",
+                      "description": "Number of vulnerabilities that failed to process"
+                    },
+                    "results": {
+                      "type": "array",
+                      "description": "Detailed result for each processed vulnerability",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "external_id",
+                          "status"
+                        ],
+                        "properties": {
+                          "external_id": {
+                            "type": "string",
+                            "description": "The external ID of the vulnerability (corresponds to the `id` field in the request payload)"
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "The processing status",
+                            "enum": [
+                              "created",
+                              "updated",
+                              "withdrawn",
+                              "error"
+                            ]
+                          },
+                          "ghsa_id": {
+                            "type": "string",
+                            "description": "The advisory ID assigned to the vulnerability. For innersource vulnerabilities this is a GHIS ID. Present for successful operations."
+                          },
+                          "error": {
+                            "type": "string",
+                            "description": "Error message (present only when status is 'error')"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "error"
+                      ]
+                    },
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "request": {
+            "description": "Example 3: Status Code 202",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "job_id": "JOB_ID"
+            }
+          },
+          "response": {
+            "statusCode": "202",
+            "contentType": "application/json",
+            "description": "<p>Sync operation is still processing</p>",
+            "example": {
+              "id": "external-vulnerability-sync-a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+              "status": "processing"
+            },
+            "schema": {
+              "title": "External Vulnerability Sync Status",
+              "description": "Status of an in-progress external vulnerability sync operation",
+              "type": "object",
+              "required": [
+                "id",
+                "status"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Job status ID"
+                },
+                "status": {
+                  "type": "string",
+                  "description": "Current processing status",
+                  "enum": [
+                    "processing"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Sync operation completed</p>"
+        },
+        {
+          "httpStatusCode": "202",
+          "description": "<p>Sync operation is still processing</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise innersource vulnerabilities\" enterprise permissions": "write"
           }
         ]
       }

@@ -586,6 +586,34 @@
       }
     ]
   },
+  "enterprise_innersource_vulnerabilities": {
+    "title": "Enterprise innersource vulnerabilities",
+    "displayTitle": "Enterprise permissions for \"Enterprise innersource vulnerabilities\"",
+    "permissions": [
+      {
+        "category": "enterprise-admin",
+        "slug": "sync-innersource-vulnerabilities-for-an-enterprise",
+        "subcategory": "security-advisories",
+        "verb": "post",
+        "requestPath": "/enterprises/{enterprise}/innersource-vulnerabilities/sync",
+        "access": "write",
+        "user-to-server": false,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-innersource-vulnerability-sync-status-for-an-enterprise",
+        "subcategory": "security-advisories",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/innersource-vulnerabilities/sync/status/{job_id}",
+        "access": "write",
+        "user-to-server": false,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
   "enterprise_organization_installation_repositories": {
     "title": "Enterprise organization installation repositories",
     "displayTitle": "Enterprise permissions for \"Enterprise organization installation repositories\"",

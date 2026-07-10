@@ -94,7 +94,7 @@ Use `/model` to choose from available models based on your task complexity:
 
 | Model | Best For | Tradeoffs |
 | ----- | -------- | --------- |
-| **Auto** | Reduced rate limiting and lower latency and errors | See [AUTOTITLE](/copilot/concepts/auto-model-selection) |
+| **Auto** | Reduced rate limiting and lower latency and errors | See [AUTOTITLE](/copilot/concepts/models/auto-model-selection) |
 | **Claude Opus 4.5** (default) | Complex architecture, difficult debugging, nuanced refactoring | Most capable but more costly |
 | **Claude Sonnet 4.5** | Day-to-day coding, most routine tasks | Fast, cost-effective, handles most work well |
 | **GPT-5.2 Codex** | Code generation, code review, straightforward implementations | Excellent for reviewing code produced by other models |
@@ -520,7 +520,7 @@ Here is what you will learn:
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli)
+* [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/overview)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)
 * [{% data variables.product.prodname_copilot_short %} plans and pricing](https://github.com/features/copilot/plans)

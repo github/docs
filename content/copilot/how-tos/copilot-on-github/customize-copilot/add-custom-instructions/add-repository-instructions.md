@@ -186,4 +186,4 @@ Custom instructions are enabled for {% data variables.copilot.copilot_code-revie
 
 * [AUTOTITLE](/copilot/reference/custom-instructions-support)
 * [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions)—a curated collection of examples
-* [AUTOTITLE](/copilot/tutorials/use-custom-instructions)
+* [AUTOTITLE](/copilot/tutorials/customize-code-review)

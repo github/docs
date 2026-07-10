@@ -33,16 +33,16 @@ The default alerts list displays alerts that relate to supported patterns and sp
 
 ### Generic alerts list
 
-The generic alerts list displays alerts that relate to non-provider patterns (such as private keys){% ifversion secret-scanning-ai-generic-secret-detection %}, or generic secrets detected using AI (such as passwords){% endif %}. These types of alerts can have a higher rate of false positives or secrets used in tests. You can toggle to the generic alerts list from the default alerts list.
+The generic alerts list displays alerts that relate to generic secrets detected with patterns and deterministic methods (such as private keys){% ifversion secret-scanning-ai-generic-secret-detection %}, as well as secrets detected with AI (such as passwords){% endif %}. These types of alerts can have a higher rate of false positives or secrets used in tests. You can toggle to the generic alerts list from the default alerts list.
 
-{% data variables.product.github %} will continue to release new patterns and secret types to the generic alerts list and will promote them to the default list when feature-complete (that is, when they have an appropriately low volume and false positive rate).
+{% data variables.product.github %} will continue to release new patterns and secret types to the generic alerts list.
 
 In addition, alerts that fall into this category:
 * Are limited in quantity to 5000 alerts per repository (this includes open and closed alerts).
 * Are not shown in the summary views for security overview, only in the "{% data variables.product.prodname_secret_scanning_caps %}" view.
-* Only have the first five detected locations shown on {% data variables.product.prodname_dotcom %} for non-provider patterns{% ifversion secret-scanning-ai-generic-secret-detection %}, and only the first detected location shown for AI-detected generic secrets{% endif %}.
+* Only have the first five detected locations shown on {% data variables.product.prodname_dotcom %} for generic patterns{% ifversion secret-scanning-ai-generic-secret-detection %}, and only the first detected location shown for AI-detected secrets{% endif %}.
 
-For {% data variables.product.company_short %} to scan for non-provider patterns{% ifversion secret-scanning-ai-generic-secret-detection %} and generic secrets{% endif %}, you must first enable the feature{% ifversion secret-scanning-ai-generic-secret-detection %}s{% endif %} for your repository or organization. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enabling-secret-scanning-for-non-provider-patterns){% ifversion secret-scanning-ai-generic-secret-detection %} and [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/enabling-ai-powered-generic-secret-detection){% endif %}.
+For {% data variables.product.company_short %} to scan for generic patterns{% ifversion secret-scanning-ai-generic-secret-detection %} and AI-detected secrets{% endif %}, you must first enable the feature{% ifversion secret-scanning-ai-generic-secret-detection %}s{% endif %} for your repository or organization. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enabling-secret-scanning-for-generic-patterns){% ifversion secret-scanning-ai-generic-secret-detection %} and [AUTOTITLE](/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enabling-secret-scanning-for-ai-detected-secrets){% endif %}.
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
@@ -70,4 +70,4 @@ Partner alerts are not sent to repository administrators, so you do not need to 
 ## Further reading
 
 * [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns)
-* [AUTOTITLE](/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enabling-secret-scanning-for-non-provider-patterns)
+* [AUTOTITLE](/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enabling-secret-scanning-for-generic-patterns)

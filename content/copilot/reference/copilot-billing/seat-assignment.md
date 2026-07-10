@@ -19,7 +19,7 @@ Users must be assigned a seat to access {% data variables.product.prodname_copil
 
 ## Seat assignment management
 
-* **Who assigns seats:** Organization owners. Seats are assigned to specific user accounts. See [AUTOTITLE](/copilot/how-tos/administer/organizations/managing-access-to-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization).
+* **Who assigns seats:** Organization owners. Seats are assigned to specific user accounts. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-access/grant-access).
 * **Where:** Seat assignment can be managed in the {% data variables.product.github %} organization settings or via the REST API.
 * **If all assigned seats are removed, the organization's {% data variables.product.prodname_copilot_short %} plan is canceled.**
 * **If a user with an active {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} plan is assigned a seat in a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan**, their personal plan is automatically canceled, and a prorated refund for any remaining portion of their personal billing cycle is issued. The user will now use {% data variables.product.prodname_copilot_short %} under the organization's policies.

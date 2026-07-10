@@ -60,19 +60,19 @@ Consider whether you already use, or can adopt, a supported identity management 
 
 If you cannot use a paved-path integration, you can use another identity management system that **meets our guidelines**.
 
-For full details, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems).
+For full details, see [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/identity-and-access-management/enterprise-managed-users#identity-management-systems).
 
 ### Personal accounts
 
 You can use any external identity management system that adheres to the **SAML 2.0** standard.
 
-{% data variables.product.company_short %} officially supports and tests some systems. See [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#supported-identity-providers).
+{% data variables.product.company_short %} officially supports and tests some systems. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#supported-identity-providers).
 
 ## Do you need public repositories, gists, or {% data variables.product.prodname_pages %} sites?
 
 To prevent enterprise members from accidentally leaking corporate-owned content to the public, {% data variables.product.prodname_emus %} imposes **strong restrictions** on what users can do.
 * {% data variables.enterprise.prodname_managed_users_caps %} cannot create public repositories, gists of any visibility, or {% data variables.product.prodname_pages %} sites that are visible outside the enterprise.
-* For a full list of restrictions, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/understanding-iam-for-enterprises/abilities-and-restrictions-of-managed-user-accounts).
+* For a full list of restrictions, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/abilities-and-restrictions-of-managed-user-accounts).
 
 Review the restrictions with your users, and confirm whether they will hinder your existing workflows. If so, an enterprise with personal accounts may be a better choice.
 
@@ -80,7 +80,7 @@ Review the restrictions with your users, and confirm whether they will hinder yo
 
 {% data variables.enterprise.prodname_managed_users_caps %} can only contribute to repositories within your enterprise. If your developers must contribute to repositories outside of your enterprise (including private repositories), {% data variables.product.prodname_emus %} may not be right for you.
 
-For a managed user to collaborate outside your enterprise, they must also maintain a separate, personal account. The complexity of regularly switching between accounts can increase the risk of mistakenly leaking internal code to the public. For details of the required workflow, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users#support-developers-with-multiple-user-accounts).
+For a managed user to collaborate outside your enterprise, they must also maintain a separate, personal account. The complexity of regularly switching between accounts can increase the risk of mistakenly leaking internal code to the public. For details of the required workflow, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users#support-developers-with-multiple-user-accounts).
 
 ## Can your enterprise tolerate migration costs?
 

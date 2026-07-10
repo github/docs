@@ -27234,6 +27234,22 @@
                           }
                         },
                         {
+                          "title": "license_compliance_scanning",
+                          "description": "Enforce any added or changed dependencies to comply with the organization's license policy.",
+                          "type": "object",
+                          "required": [
+                            "type"
+                          ],
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "license_compliance_scanning"
+                              ]
+                            }
+                          }
+                        },
+                        {
                           "title": "file_path_restriction",
                           "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.",
                           "type": "object",
@@ -29793,6 +29809,22 @@
                         }
                       },
                       {
+                        "title": "license_compliance_scanning",
+                        "description": "Enforce any added or changed dependencies to comply with the organization's license policy.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "license_compliance_scanning"
+                            ]
+                          }
+                        }
+                      },
+                      {
                         "title": "file_path_restriction",
                         "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.",
                         "type": "object",
@@ -31246,6 +31278,22 @@
                                 "description": "Copilot automatically reviews each new push to the pull request."
                               }
                             }
+                          }
+                        }
+                      },
+                      {
+                        "title": "license_compliance_scanning",
+                        "description": "Enforce any added or changed dependencies to comply with the organization's license policy.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "license_compliance_scanning"
+                            ]
                           }
                         }
                       },
@@ -33811,6 +33859,22 @@
                                 "description": "Copilot automatically reviews each new push to the pull request."
                               }
                             }
+                          }
+                        }
+                      },
+                      {
+                        "title": "license_compliance_scanning",
+                        "description": "Enforce any added or changed dependencies to comply with the organization's license policy.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "license_compliance_scanning"
+                            ]
                           }
                         }
                       },

@@ -689,6 +689,8 @@ This utility prunes old or invalid backup snapshot directories.
 ghe-backup-prune-snapshots
 ```
 
+{% ifversion ghes > 3.21 %}
+
 ### ghe-backup-healthcheck
 
 This utility quickly confirms that GHES backups are being written, are recent, and that the backup disk is not in a risky state. For example, if usage is 90% or higher, it reports an error because the backup disk may be close to full. Setting `-no-color` gives plain text output, for example in logs or monitoring systems.
@@ -696,6 +698,8 @@ This utility quickly confirms that GHES backups are being written, are recent, a
 ```shell
 ghe-backup-healthcheck
 ```
+
+{% endif %}
 
 ## Clustering
 

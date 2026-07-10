@@ -21,7 +21,7 @@ category:
 You can create and manage {% data variables.copilot.copilot_automations %} from:
 
 * The **Agents** tab in a repository on {% data variables.product.github %}, in the **{% data variables.copilot.copilot_automations_cap %}** pane.
-* The **{% data variables.copilot.copilot_automations_cap %}** tab in the {% data variables.copilot.github_copilot_app %}.
+* The **[{% data variables.copilot.copilot_automations_cap %}](https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fautomations)** tab in the {% data variables.copilot.github_copilot_app %}.
 
 For an overview of {% data variables.copilot.copilot_automations %}, including triggers, tools, visibility, and security, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-automations).
 
@@ -30,7 +30,7 @@ The {% data variables.copilot.github_copilot_app %} supports two types of {% dat
 * **Local {% data variables.copilot.copilot_automations %}**, which run from your local environment.
 * **Cloud {% data variables.copilot.copilot_automations %}**, which run in a cloud environment.
 
-Click **Automations** in the sidebar to see your saved {% data variables.copilot.copilot_automations %}. Each {% data variables.copilot.copilot_automation %} shows its name, schedule, associated repository, and last run status.
+Open **[Automations](https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fautomations)** in the sidebar to see your saved {% data variables.copilot.copilot_automations %}. Each {% data variables.copilot.copilot_automation %} shows its name, schedule, associated repository, and last run status.
 
 ## Prerequisites for using cloud {% data variables.copilot.copilot_automations %}
 

@@ -36965,6 +36965,48 @@
                   {
                     "allOf": [
                       {
+                        "title": "license_compliance_scanning",
+                        "description": "Enforce any added or changed dependencies to comply with the organization's license policy.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "license_compliance_scanning"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "repository ruleset data for rule",
+                        "description": "User-defined metadata to store domain-specific information limited to 8 keys with scalar values.",
+                        "properties": {
+                          "ruleset_source_type": {
+                            "type": "string",
+                            "description": "The type of source for the ruleset that includes this rule.",
+                            "enum": [
+                              "Repository",
+                              "Organization"
+                            ]
+                          },
+                          "ruleset_source": {
+                            "type": "string",
+                            "description": "The name of the source of the ruleset that includes this rule."
+                          },
+                          "ruleset_id": {
+                            "type": "integer",
+                            "description": "The ID of the ruleset that includes this rule."
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "allOf": [
+                      {
                         "title": "file_path_restriction",
                         "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.",
                         "type": "object",
@@ -38522,6 +38564,22 @@
                           }
                         },
                         {
+                          "title": "license_compliance_scanning",
+                          "description": "Enforce any added or changed dependencies to comply with the organization's license policy.",
+                          "type": "object",
+                          "required": [
+                            "type"
+                          ],
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "license_compliance_scanning"
+                              ]
+                            }
+                          }
+                        },
+                        {
                           "title": "file_path_restriction",
                           "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.",
                           "type": "object",
@@ -39578,6 +39636,22 @@
                       "name": "review_on_push",
                       "description": "<p>Copilot automatically reviews each new push to the pull request.</p>"
                     }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "name": "license_compliance_scanning",
+              "description": "<p>Enforce any added or changed dependencies to comply with the organization's license policy.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "string",
+                  "name": "type",
+                  "description": "",
+                  "isRequired": true,
+                  "enum": [
+                    "license_compliance_scanning"
                   ]
                 }
               ]
@@ -40981,6 +41055,22 @@
                                 "description": "Copilot automatically reviews each new push to the pull request."
                               }
                             }
+                          }
+                        }
+                      },
+                      {
+                        "title": "license_compliance_scanning",
+                        "description": "Enforce any added or changed dependencies to comply with the organization's license policy.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "license_compliance_scanning"
+                            ]
                           }
                         }
                       },
@@ -42450,6 +42540,22 @@
                         }
                       },
                       {
+                        "title": "license_compliance_scanning",
+                        "description": "Enforce any added or changed dependencies to comply with the organization's license policy.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "license_compliance_scanning"
+                            ]
+                          }
+                        }
+                      },
+                      {
                         "title": "file_path_restriction",
                         "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.",
                         "type": "object",
@@ -43511,6 +43617,22 @@
                       "name": "review_on_push",
                       "description": "<p>Copilot automatically reviews each new push to the pull request.</p>"
                     }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "name": "license_compliance_scanning",
+              "description": "<p>Enforce any added or changed dependencies to comply with the organization's license policy.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "string",
+                  "name": "type",
+                  "description": "",
+                  "isRequired": true,
+                  "enum": [
+                    "license_compliance_scanning"
                   ]
                 }
               ]
@@ -44915,6 +45037,22 @@
                                 "description": "Copilot automatically reviews each new push to the pull request."
                               }
                             }
+                          }
+                        }
+                      },
+                      {
+                        "title": "license_compliance_scanning",
+                        "description": "Enforce any added or changed dependencies to comply with the organization's license policy.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "license_compliance_scanning"
+                            ]
                           }
                         }
                       },

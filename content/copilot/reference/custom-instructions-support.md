@@ -268,6 +268,6 @@ The editor lets you work with workspace customizations for the current project o
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions)
-* [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-personal-instructions)
-* [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-organization-instructions)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-personal-instructions)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-organization-instructions)

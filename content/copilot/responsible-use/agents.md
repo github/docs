@@ -247,7 +247,7 @@ Copilot agentic features have been subject to RAI red teaming to identify and ad
 * **Permission prompts for file modifications**: Copilot CLI asks for permission before modifying files. You should ensure it is modifying the correct files before granting permission.
 * **Permission prompts for command execution**: Copilot CLI asks for permission before executing commands that may be dangerous. You should review these commands carefully before giving permission to run.
 * **Configurable permissions**: You can grant Copilot CLI specific permissions, or all permissions, by using the various command line options: for example, `--allow-tool=[TOOLS...]`, `--allow-all-tools`, `--allow-all` (or its slash command equivalent `/allow-all` for use in an interactive session). For more information, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#command-line-options). Typically, when you use Copilot CLI in autopilot mode, you will grant it full permissions to allow it to complete a task autonomously, without requiring you to approve activity as it works on the task. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot).
-* **Security considerations**: For more information about security practices while using Copilot CLI, see [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli#security-considerations).
+* **Security considerations**: For more information about security practices while using Copilot CLI, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli#security-considerations).
 
 ### Copilot SDK
 
@@ -337,18 +337,18 @@ Responsible AI is a shared commitment between GitHub and its customers. While Gi
 
 For additional guidance on the responsible use of Copilot agentic features, we recommend reviewing the following documentation:
 
-* [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review)
-* [AUTOTITLE](/copilot/tutorials/coding-agent/best-practices)
-* [AUTOTITLE](/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent)
-* [AUTOTITLE](/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent)
-* [AUTOTITLE](/copilot/how-tos/copilot-sdk/sdk-getting-started)
-* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp)
-* [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli)
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review)
+* [AUTOTITLE](/copilot/tutorials/cloud-agent/get-the-best-results)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-firewall)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/getting-started)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)
+* [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli)
 * [AUTOTITLE](/copilot/concepts/agents/github-copilot-app)
 {% ifversion spark %}
-* [AUTOTITLE](/copilot/tutorials/building-your-first-app-in-minutes-with-github-spark)
-* [AUTOTITLE](/copilot/tutorials/building-ai-app-prototypes)
-* [AUTOTITLE](/copilot/concepts/copilot-billing/about-billing-for-github-spark)
+* [AUTOTITLE](/copilot/tutorials/spark/your-first-spark)
+* [AUTOTITLE](/copilot/tutorials/spark/build-apps-with-spark)
+* [AUTOTITLE](/billing/concepts/product-billing/github-spark)
 * [AUTOTITLE](/github-models/responsible-use-of-github-models)
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms)
 {% endif %}

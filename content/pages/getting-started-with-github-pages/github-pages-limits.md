@@ -41,7 +41,7 @@ If you're a {% data variables.enterprise.prodname_managed_user %}, your use of {
 * {% data variables.product.prodname_pages %} sites are always privately published, and you cannot change this visibility. For more information, see [AUTOTITLE](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site).
 * You cannot create an organization site (a site published from a repository named `<organization>.github.io`)
 
-For more information about {% data variables.product.prodname_emus %}, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users).
+For more information about {% data variables.product.prodname_emus %}, see [AUTOTITLE](/admin/concepts/identity-and-access-management/enterprise-managed-users).
 
 {% endif %}
 

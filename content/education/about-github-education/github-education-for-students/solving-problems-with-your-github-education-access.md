@@ -50,9 +50,9 @@ If your academic email address was already used to request a {% data variables.p
 If you have more than one personal account, you must merge your accounts. To retain the discount, keep the account that was granted the discount. You can rename the retained account and keep your contribution history by adding all your email addresses to the retained account.
 
 For more information, see:
-* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/merging-multiple-personal-accounts)
-* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username)
-* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)
+* [AUTOTITLE](/account-and-profile/how-tos/account-management/merging-multiple-personal-accounts)
+* [AUTOTITLE](/account-and-profile/concepts/username-changes)
+* [AUTOTITLE](/account-and-profile/how-tos/email-preferences/adding-an-email-address-to-your-github-account)
 
 ### Why does the application require an academic email?
 
@@ -77,7 +77,7 @@ Your instructor may still apply for a {% data variables.product.prodname_educati
 
 ## Can I transfer discounts from one account to another?
 
-No. If you have more than one account you want to apply the discount to, [merge](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/merging-multiple-personal-accounts) your personal accounts and [rename](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username) the retained account if desired.
+No. If you have more than one account you want to apply the discount to, [merge](/account-and-profile/how-tos/account-management/merging-multiple-personal-accounts) your personal accounts and [rename](/account-and-profile/concepts/username-changes) the retained account if desired.
 
 ## How do I renew my access?
 

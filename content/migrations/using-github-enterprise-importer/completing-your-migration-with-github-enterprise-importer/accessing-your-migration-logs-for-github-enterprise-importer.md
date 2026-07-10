@@ -34,7 +34,7 @@ You can access the migration log for a repository migration in multiple ways.
 
 When you run an organization migration, {% data variables.product.prodname_importer_proper_name %} additionally creates a repository named `gei-migration-results` in the destination organization. This repository contains information about the migration of organization-level data and duplicates the information in the "Migration Log" issues for each migrated repository.
 
-For more information about interpreting warnings in your migration log, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#understanding-migration-log-warnings).
+For more information about interpreting warnings in your migration log, see [AUTOTITLE](/migrations/troubleshooting/troubleshooting-your-migration-with-github-enterprise-importer#understanding-migration-log-warnings).
 
 ## Viewing a repository migration log on {% data variables.product.prodname_dotcom %}
 
@@ -64,7 +64,7 @@ If your migration source is Azure DevOps, you can download the latest migration 
 gh ado2gh download-logs --github-target-org DESTINATION --target-repo REPOSITORY --migration-log-file FILENAME
 ```
 
-* {% data reusables.enterprise-migration-tool.add-pat-to-download-logs %}{% ifversion fpt or ghec %} For {% data variables.product.pat_generic %} requirements, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#required-scopes-for-personal-access-tokens).{% endif %}
+* {% data reusables.enterprise-migration-tool.add-pat-to-download-logs %}{% ifversion fpt or ghec %} For {% data variables.product.pat_generic %} requirements, see [AUTOTITLE](/migrations/ado/manage-access#required-scopes-for-personal-access-tokens).{% endif %}
 * {% data reusables.enterprise-migration-tool.add-target-api-url %}
 
 ### Downloading a repository migration log with the {% data variables.product.prodname_bbs2gh_cli_short %}
@@ -91,7 +91,7 @@ gh gei download-logs --github-target-org DESTINATION --target-repo REPOSITORY --
 
 ### Downloading all the repository migration logs for a migration script
 
-To ensure you have access to migration logs for all your migrated repositories, you can use the `--download-migration-logs` flag when generating a migration script for repository migrations. When you use this flag, the script will include the `download-logs` command for each repository migrated in the script. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer).
+To ensure you have access to migration logs for all your migrated repositories, you can use the `--download-migration-logs` flag when generating a migration script for repository migrations. When you use this flag, the script will include the `download-logs` command for each repository migrated in the script. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer).
 
 > [!NOTE]
 > You can only use the `--download-migration-logs` flag with repository migrations, not with organization migrations.

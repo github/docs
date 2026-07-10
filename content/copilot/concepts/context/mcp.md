@@ -42,7 +42,7 @@ For more information on MCP, see [the official MCP documentation](https://modelc
 
 To learn how to configure and use MCP servers, see:
 
-* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/extend-copilot-chat-with-mcp) for {% data variables.copilot.copilot_chat_short %} in your IDE
+* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp) for {% data variables.copilot.copilot_chat_short %} in your IDE
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers) for {% data variables.copilot.copilot_cli_short %}
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers) for repository MCP configuration on {% data variables.product.prodname_dotcom_the_website %}
 * [AUTOTITLE](/copilot/how-tos/github-copilot-app/customize-github-copilot-app) for information on MCP server support in the {% data variables.copilot.github_copilot_app %}
@@ -68,7 +68,7 @@ The {% data variables.product.github %} MCP server is a Model Context Protocol (
 * Enable cloud-based workflows that work from any device, without local setup.
 * Invoke {% data variables.product.github %} tools, such as {% data variables.copilot.copilot_cloud_agent %} (requires {% data variables.product.prodname_copilot %} subscription) and {% data variables.product.prodname_code_scanning %} (requires {% data variables.product.prodname_GHAS %} subscription), to assist with code generation and security analysis.
 
-To learn how to set up and use the {% data variables.product.github %} MCP server, see [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/using-the-github-mcp-server).
+To learn how to set up and use the {% data variables.product.github %} MCP server, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/use-the-github-mcp-server).
 
 To find out whether your editor supports the {% data variables.product.github %} MCP server, and which connection and authentication methods are available, see [Support by host application](https://github.com/github/github-mcp-server/blob/main/docs/installation-guides/README.md#support-by-host-application) in the `github/github-mcp-server` repository.
 
@@ -89,7 +89,7 @@ Enabling only the toolsets you need improves your AI assistant's performance and
 
 Toolsets do not only include tools, but also relevant MCP resources and prompts where applicable.
 
-To learn how to configure toolsets for the {% data variables.product.github %} MCP server, see [AUTOTITLE](/copilot/how-tos/context/use-mcp/configure-toolsets).
+To learn how to configure toolsets for the {% data variables.product.github %} MCP server, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/configure-toolsets).
 
 ### Security
 
@@ -104,9 +104,9 @@ The {% data variables.product.github %} MCP Registry is a curated list of MCP se
 
 ## Next steps
 
-* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/extend-copilot-chat-with-mcp)—Add MCP servers to {% data variables.copilot.copilot_chat_short %} in your IDE
+* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp)—Add MCP servers to {% data variables.copilot.copilot_chat_short %} in your IDE
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)—Configure repository MCP servers for {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}
-* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/set-up-the-github-mcp-server)—Set up the {% data variables.product.github %} MCP server
-* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/use-the-github-mcp-server)—Use the {% data variables.product.github %} MCP server
-* [AUTOTITLE](/copilot/tutorials/enhancing-copilot-agent-mode-with-mcp)
+* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/set-up-the-github-mcp-server)—Set up the {% data variables.product.github %} MCP server
+* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/use-the-github-mcp-server)—Use the {% data variables.product.github %} MCP server
+* [AUTOTITLE](/copilot/tutorials/enhance-agent-mode-with-mcp)
 * [AUTOTITLE](/copilot/reference/customization-cheat-sheet)

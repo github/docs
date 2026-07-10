@@ -66,7 +66,7 @@ You can add files to a space directly from the code view on {% data variables.pr
 
 ## Next steps
 
-* For an overview of {% data variables.copilot.copilot_spaces %}, see [AUTOTITLE](/copilot/concepts/about-organizing-and-sharing-context-with-copilot-spaces).
+* For an overview of {% data variables.copilot.copilot_spaces %}, see [AUTOTITLE](/copilot/concepts/context/spaces).
 * To use {% data variables.copilot.copilot_spaces_short %} in {% data variables.product.github %} and your IDE, see [AUTOTITLE](/copilot/how-tos/provide-context/use-copilot-spaces/use-copilot-spaces).
-* To speed up development work with {% data variables.copilot.copilot_spaces_short %}, see [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/speeding-up-development-work-with-copilot-spaces).
-* To share your space with your team, see [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/collaborating-with-your-team-using-copilot-spaces).
+* To speed up development work with {% data variables.copilot.copilot_spaces_short %}, see [AUTOTITLE](/copilot/tutorials/speed-up-development-work).
+* To share your space with your team, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/copilot-spaces/collaborate-with-others).

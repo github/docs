@@ -37,21 +37,21 @@ Feature, model, and privacy settings for users are set according to the **least 
 | {% data variables.product.prodname_copilot_short %} Metrics API | Most restrictive organization | {% ifversion ghec %}[AUTOTITLE](/rest/copilot/copilot-usage-metrics){% else %}Not applicable{% endif %} |
 | Semantic indexing for non-GitHub repositories | Most restrictive organization (only available when all organizations explicitly set **Enabled**; **Unconfigured** behaves as disabled) | [AUTOTITLE](/copilot/concepts/context/repository-indexing) |
 | Suggestions matching public code (privacy policy) | Most restrictive organization | [AUTOTITLE](/copilot/concepts/completions/code-suggestions) |
-| Allow members without a {% data variables.product.prodname_copilot_short %} license to use {% data variables.copilot.copilot_code-review_short %} in {% data variables.product.prodname_dotcom_the_website %} | Most restrictive organization | [AUTOTITLE](/copilot/responsible-use/code-review) |
-| {% data variables.product.prodname_copilot_short %} can search the web | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat-in-github#leveraging-a-web-search-to-answer-a-question) |
-| {% data variables.copilot.copilot_mobile_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat-in-github-mobile) |
-| {% data variables.copilot.copilot_chat_short %} in the IDE | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat-in-your-ide) |
-| {% data variables.copilot.copilot_chat_short %} agent mode in the IDE | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat-in-your-ide) |
-| {% data variables.copilot.copilot_code-review_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/code-review) |
-| {% data variables.copilot.copilot_cloud_agent %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/copilot-cloud-agent) |
-| {% data variables.product.prodname_spark_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/spark) |
-| {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat-in-github) |
-| {% data variables.copilot.copilot_desktop_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/copilot-in-github-desktop) |
-| {% data variables.copilot.copilot_cli_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/copilot-cli) |
+| Allow members without a {% data variables.product.prodname_copilot_short %} license to use {% data variables.copilot.copilot_code-review_short %} in {% data variables.product.prodname_dotcom_the_website %} | Most restrictive organization | [AUTOTITLE](/copilot/responsible-use/agents) |
+| {% data variables.product.prodname_copilot_short %} can search the web | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat#leveraging-a-web-search-to-answer-a-question) |
+| {% data variables.copilot.copilot_mobile_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
+| {% data variables.copilot.copilot_chat_short %} in the IDE | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
+| {% data variables.copilot.copilot_chat_short %} agent mode in the IDE | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
+| {% data variables.copilot.copilot_code-review_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/agents) |
+| {% data variables.copilot.copilot_cloud_agent %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/agents) |
+| {% data variables.product.prodname_spark_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/agents) |
+| {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
+| {% data variables.copilot.copilot_desktop_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
+| {% data variables.copilot.copilot_cli_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/agents) |
 | Editor preview features | Least restrictive organization | [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) |
 | {% data variables.product.prodname_github_models %}, one policy per model | Least restrictive organization | [AUTOTITLE](/github-models/github-models-at-scale/manage-models-at-scale) |
 | MCP servers in {% data variables.product.prodname_copilot_short %} | Least restrictive organization | [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers) |
-| {% data variables.product.prodname_copilot_short %}-generated commit messages | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/copilot-commit-message-generation) |
+| {% data variables.product.prodname_copilot_short %}-generated commit messages | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
 
 ## Availability for members with {% data variables.product.prodname_copilot_short %} from multiple enterprises
 
@@ -62,5 +62,5 @@ If a user receives a license from multiple different enterprises, the **most res
 
 ## Next steps
 
-* [AUTOTITLE](/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization)
-* [AUTOTITLE](/copilot/how-tos/administer/enterprises/managing-policies-and-features-for-copilot-in-your-enterprise)
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies)
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies)

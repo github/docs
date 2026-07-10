@@ -87,26 +87,20 @@ describe('buildMarker', () => {
 
 describe('buildCommentBody', () => {
   test('includes the marker in the comment body', () => {
-    const body = buildCommentBody(
-      '3.21',
-      true,
-      100,
-      'data/release-notes/enterprise-server/3-21/0-rc1.yml',
-      '2026-05-01',
-    )
+    const body = buildCommentBody('3.21', true, 100, ['octocat'])
     const marker = buildMarker('3.21', 'rc')
     expect(body).toContain(marker)
   })
 
   test('RC and GA comments have different markers', () => {
-    const rcBody = buildCommentBody('3.21', true, 100, 'file.yml', '2026-05-01')
-    const gaBody = buildCommentBody('3.21', false, 100, 'file.yml', '2026-05-01')
+    const rcBody = buildCommentBody('3.21', true, 100, ['octocat'])
+    const gaBody = buildCommentBody('3.21', false, 100, ['octocat'])
     expect(rcBody).toContain('3.21-rc')
     expect(gaBody).toContain('3.21-ga')
   })
 
   test('includes the PR files link', () => {
-    const body = buildCommentBody('3.21', true, 12345, 'file.yml', '2026-05-01')
+    const body = buildCommentBody('3.21', true, 12345, ['octocat'])
     expect(body).toContain('https://github.com/github/docs-internal/pull/12345/files')
   })
 })
@@ -145,7 +139,7 @@ describe('duplicate-prevention filtering', () => {
 
   test('marker is detected within a comment body', () => {
     const marker = buildMarker('3.21', 'rc')
-    const commentBody = buildCommentBody('3.21', true, 100, 'file.yml', '2026-05-01')
+    const commentBody = buildCommentBody('3.21', true, 100, ['octocat'])
 
     // Simulates the duplicate-check logic: comments.includes(marker)
     expect(commentBody.includes(marker)).toBe(true)
@@ -153,7 +147,7 @@ describe('duplicate-prevention filtering', () => {
 
   test('GA marker is not detected in an RC comment', () => {
     const gaMarker = buildMarker('3.21', 'ga')
-    const rcCommentBody = buildCommentBody('3.21', true, 100, 'file.yml', '2026-05-01')
+    const rcCommentBody = buildCommentBody('3.21', true, 100, ['octocat'])
 
     expect(rcCommentBody.includes(gaMarker)).toBe(false)
   })

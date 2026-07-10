@@ -61,7 +61,7 @@ If you don't want to use SSH keys, you can use HTTPS with OAuth tokens.
 
 ### Set up HTTPS cloning with OAuth tokens
 
-See [our guide on creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+See [our guide on creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 ## Deploy keys
 
@@ -88,7 +88,7 @@ For enhanced security and fine-grained control over repository access and permis
 
 {% ifversion deploy-keys-enterprise-org-policy %}
 
-> [!NOTE] If your organization is owned by an enterprise, and your enterprise owner has restricted the use of deploy keys in repositories, then you cannot override the policy in your organization to create a deploy key. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deploy-keys).
+> [!NOTE] If your organization is owned by an enterprise, and your enterprise owner has restricted the use of deploy keys in repositories, then you cannot override the policy in your organization to create a deploy key. For more information, see [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deploy-keys).
 {% endif %}
 
 1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public and private rsa key pair.
@@ -149,7 +149,7 @@ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com
 
 If your server needs to access repositories across one or more organizations, you can use a {% data variables.product.prodname_github_app %} to define the access you need, and then generate _tightly-scoped_, installation access tokens from that {% data variables.product.prodname_github_app %}. The installation access tokens can be scoped to single or multiple repositories, and can have fine-grained permissions. For example, you can generate a token with read-only access to a repository's contents.
 
-Since {% data variables.product.prodname_github_apps %} are a first class actor on {% data variables.product.github %}, the installation access tokens are decoupled from any {% data variables.product.github %} user, which makes them comparable to "service tokens". Additionally, installation access tokens have dedicated rate limits that scale with the size of the organizations that they act upon. For more information, see [Rate limits for {% data variables.product.prodname_github_apps %}](/apps/creating-github-apps/setting-up-a-github-app/rate-limits-for-github-apps).
+Since {% data variables.product.prodname_github_apps %} are a first class actor on {% data variables.product.github %}, the installation access tokens are decoupled from any {% data variables.product.github %} user, which makes them comparable to "service tokens". Additionally, installation access tokens have dedicated rate limits that scale with the size of the organizations that they act upon. For more information, see [Rate limits for {% data variables.product.prodname_github_apps %}](/apps/creating-github-apps/registering-a-github-app/rate-limits-for-github-apps).
 
 ### Pros of installation access tokens
 
@@ -167,7 +167,7 @@ Since {% data variables.product.prodname_github_apps %} are a first class actor 
 
 1. Determine if your {% data variables.product.prodname_github_app %} should be public or private. If your {% data variables.product.prodname_github_app %} will only act on repositories within your organization, you likely want it private.
 1. Determine the permissions your {% data variables.product.prodname_github_app %} requires, such as read-only access to repository contents.
-1. Create your {% data variables.product.prodname_github_app %} via your organization's settings page. For more information, see [Creating a {% data variables.product.prodname_github_app %}](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app).
+1. Create your {% data variables.product.prodname_github_app %} via your organization's settings page. For more information, see [Creating a {% data variables.product.prodname_github_app %}](/apps/creating-github-apps/registering-a-github-app/registering-a-github-app).
 1. Note your {% data variables.product.prodname_github_app %} `id`.
 1. Generate and download your {% data variables.product.prodname_github_app %}'s private key, and store this safely. For more information, see [Generating a private key](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps).
 1. Install your {% data variables.product.prodname_github_app %} on the repositories it needs to act upon, optionally you may install the {% data variables.product.prodname_github_app %} on all repositories in your organization.
@@ -211,11 +211,11 @@ If your server needs to access multiple repositories, you can create a new accou
 [ssh-agent-forwarding]: /authentication/connecting-to-github-with-ssh/using-ssh-agent-forwarding
 [generating-ssh-keys]: /authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key
 [tos]: /free-pro-team@latest/site-policy/github-terms/github-terms-of-service
-[collaborator]: /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository
+[collaborator]: /repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/inviting-collaborators-to-a-personal-repository
 [outside-collaborator]: /organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization
 [team]: /organizations/organizing-members-into-teams/adding-organization-members-to-a-team
 
 ## Further reading
 
 * [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/github-credential-types)
-* [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
+* [AUTOTITLE](/subscriptions-and-notifications/get-started/configuring-notifications#organization-alerts-notification-options)

@@ -26,6 +26,9 @@ Used for:
 * {% data variables.copilot.copilot_gpt_54_mini %}
 * {% data variables.copilot.copilot_gpt_54_nano %}
 * {% data variables.copilot.copilot_gpt_55 %}
+* {% data variables.copilot.copilot_gpt_56_luna %}
+* {% data variables.copilot.copilot_gpt_56_sol %}
+* {% data variables.copilot.copilot_gpt_56_terra %}
 
 These models are hosted by OpenAI and {% data variables.product.github %}'s Azure infrastructure.
 

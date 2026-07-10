@@ -5340,7 +5340,7 @@
         },
         {
           "name": "pullRequestCreationCapConfig",
-          "description": "<p>A list of users who are exempt from the pull request creation cap on this repository. Only visible to repository admins.</p>",
+          "description": "<p>The pull request creation cap configuration for this repository. Only visible\nto repository maintainers and administrators.</p>",
           "type": "PullRequestCreationCapConfig",
           "id": "pullrequestcreationcapconfig",
           "href": "/graphql/reference/pulls#object-pullrequestcreationcapconfig"
@@ -10834,6 +10834,13 @@
           "type": "URI",
           "id": "uri",
           "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "issueCreationPolicy",
+          "description": "<p>The policy controlling who can create issues in this repository.</p>",
+          "type": "IssueCreationPolicy",
+          "id": "issuecreationpolicy",
+          "href": "/graphql/reference/issues#enum-issuecreationpolicy"
         },
         {
           "name": "name",

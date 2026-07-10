@@ -101,7 +101,7 @@ This event is available for the following issue types.
 
 ## closed
 
-The issue or pull request was closed. When the `commit_id` is present, it identifies the commit that closed the issue using "closes / fixes" syntax. For more information about the syntax, see [AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword).
+The issue or pull request was closed. When the `commit_id` is present, it identifies the commit that closed the issue using "closes / fixes" syntax. For more information about the syntax, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword).
 
 This event is available for the following issue types.
 
@@ -186,7 +186,7 @@ Name | Type | Description
 
 ## connected
 
-The issue or pull request was linked to another issue or pull request. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue).
+The issue or pull request was linked to another issue or pull request. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue).
 
 This event is available for the following issue types.
 
@@ -327,7 +327,7 @@ This event is available for the following issue types.
 
 ## disconnected
 
-The issue or pull request was unlinked from another issue or pull request. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue).
+The issue or pull request was unlinked from another issue or pull request. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue).
 
 This event is available for the following issue types.
 

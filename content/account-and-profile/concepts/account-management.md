@@ -22,7 +22,7 @@ Converting a personal account into an organization allows you move to a shared a
 
 When you convert a personal account into an organization, we'll add collaborators on repositories that belong to the account to the new organization as outside collaborators. You can then invite outside collaborators to become members of your new organization if you wish. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators).
 
-To convert your personal account into an organization, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/converting-a-user-into-an-organization).
+To convert your personal account into an organization, see [AUTOTITLE](/account-and-profile/how-tos/account-management/converting-a-user-into-an-organization).
 
 {% else %}
 
@@ -45,14 +45,14 @@ For more information, see the following articles.
 
 * [AUTOTITLE](/organizations/managing-organization-settings/transferring-organization-ownership)
 * [AUTOTITLE](/organizations/managing-organization-settings/deleting-an-organization-account)
-* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/removing-yourself-from-an-organization)
+* [AUTOTITLE](/account-and-profile/how-tos/organization-membership/removing-yourself-from-an-organization)
 * [AUTOTITLE](/account-and-profile/reference/personal-account-reference#account-deletion)
 
 To delete your personal account, see [AUTOTITLE](/account-and-profile/how-tos/account-management/deleting-your-personal-account).
 
 ## About unlinking your email address
 
-Since an email address can only be associated with a single {% data variables.product.prodname_dotcom %} account, when you've lost your 2FA credentials and are unable to recover access, unlinking your email address from the locked account allows you to link that email address to a new or existing account. Additionally, linking a previously used commit email address to a new account will connect your commit history to that account. Unless you have chosen to keep your email address private, your account's commit email address is the same as your account's primary email address. See [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address).
+Since an email address can only be associated with a single {% data variables.product.prodname_dotcom %} account, when you've lost your 2FA credentials and are unable to recover access, unlinking your email address from the locked account allows you to link that email address to a new or existing account. Additionally, linking a previously used commit email address to a new account will connect your commit history to that account. Unless you have chosen to keep your email address private, your account's commit email address is the same as your account's primary email address. See [AUTOTITLE](/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address).
 
 > [!NOTE]
 > The {% data variables.product.github %}-provided `noreply` email address cannot be unlinked from an account. Commits authored with a `noreply` address cannot be reconnected to a different account.
@@ -63,13 +63,13 @@ Unlinking email addresses is only available for accounts with 2FA enabled. If yo
 
 Educational benefits cannot be transferred after an email address is unlinked and associated with a different account. To keep these benefits, you must continue using the original account that was used to apply.
 
-To unlink an email address, see [AUTOTITLE](/free-pro-team@latest/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/unlinking-your-email-address-from-a-locked-account).
+To unlink an email address, see [AUTOTITLE](/free-pro-team@latest/account-and-profile/how-tos/account-management/unlinking-your-email-address-from-a-locked-account).
 
 ## About management of multiple accounts
 
 In some cases, you may need to use multiple accounts on {% data variables.product.github %}. For example, you may have a personal account for open source contributions, and your employer may also create and manage a user account for you within an enterprise.
 
-To learn how to manage multiple accounts, see [AUTOTITLE](/free-pro-team@latest/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts).
+To learn how to manage multiple accounts, see [AUTOTITLE](/free-pro-team@latest/account-and-profile/how-tos/account-management/managing-multiple-accounts).
 
 You cannot use a {% data variables.enterprise.prodname_managed_user %} to contribute to public projects on {% data variables.location.product_location %}, so you must contribute to those resources using your personal account. For more information, see [About {% data variables.product.prodname_emus %}]({% ifversion fpt or ghes %}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% elsif ghec %}.{% endif %}
 

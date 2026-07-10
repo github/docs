@@ -17,7 +17,7 @@ category:
 
 {% ifversion ghes %}
 
-Usually, deleted repositories can be restored within 90 days by an enterprise owner on {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository).
+Usually, deleted repositories can be restored within 90 days by an enterprise owner on {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/restoring-a-deleted-repository).
 
 {% else %}
 

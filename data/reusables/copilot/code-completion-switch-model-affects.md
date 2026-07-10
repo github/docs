@@ -4,13 +4,13 @@ For details of how to switch the model for {% data variables.product.prodname_co
 
 ## Effects of switching the AI model
 
-Changing the model that's used for {% data variables.product.prodname_copilot_short %} inline suggestions does not affect the model that's used by {% data variables.product.prodname_copilot_short %} next edit suggestions or {% data variables.copilot.copilot_chat_short %}. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat).
+Changing the model that's used for {% data variables.product.prodname_copilot_short %} inline suggestions does not affect the model that's used by {% data variables.product.prodname_copilot_short %} next edit suggestions or {% data variables.copilot.copilot_chat_short %}. See [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-chat-model).
 
 There are no changes to the data collection and usage policy if you change the AI model.
 
-If you are on a {% data variables.copilot.copilot_free_short %} plan, all completions count against your completions quota regardless of the model used. See [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot#comparing-copilot-subscriptions).
+If you are on a {% data variables.copilot.copilot_free_short %} plan, all completions count against your completions quota regardless of the model used. See [AUTOTITLE](/copilot/get-started/plans#comparing-copilot-subscriptions).
 
-The setting to enable or disable suggestions that match public code is applied irrespective of which model you choose. See [AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions).
+The setting to enable or disable suggestions that match public code is applied irrespective of which model you choose. See [AUTOTITLE](/copilot/how-tos/get-code-suggestions/find-matching-code).
 
 ## Enabling the model switcher
 

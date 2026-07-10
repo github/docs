@@ -21,7 +21,7 @@ Before you start, make sure you know:
 * Enterprise name your client would like to use
 * Email address for receipts
 * Number of seats your client needs in the enterprise
-* Enterprise account type required by your client, see [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud)
+* Enterprise account type required by your client, see [AUTOTITLE](/enterprise-onboarding/getting-started-with-your-enterprise/choose-an-enterprise-type)
 
 ## Step 1: Create your personal account on {% data variables.product.prodname_dotcom %}
 
@@ -55,7 +55,7 @@ If you already have a personal account on {% data variables.product.prodname_dot
 
 ## Step 4: Invite your client as an enterprise owner
 
-Invite your client to become an enterprise owner. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#inviting-an-enterprise-administrator-to-your-enterprise-account).
+Invite your client to become an enterprise owner. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#inviting-an-enterprise-administrator-to-your-enterprise-account).
 
 ## Step 5: Change your role to billing manager
 

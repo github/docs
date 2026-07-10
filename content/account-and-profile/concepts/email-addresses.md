@@ -27,7 +27,7 @@ You can verify your email address after signing up for a new account, or when yo
 
 Having an unverified email address does not affect most actions you can take on {% data variables.product.prodname_dotcom %}. However, we **recommend email verification** to prevent potential exploitation of third-party {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} which may not have followed our best practices around secure authentication methods for apps.
 
-For more information, see [AUTOTITLE](/free-pro-team@latest/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address).
+For more information, see [AUTOTITLE](/free-pro-team@latest/account-and-profile/how-tos/email-preferences/verifying-your-email-address).
 
 ## Email verification for {% data variables.enterprise.prodname_managed_users %}
 
@@ -51,7 +51,7 @@ For web-based Git operations, you can set your commit email address on {% data v
 
 {% ifversion fpt or ghec %}To use your `noreply` email address for commits you push from the command line, use that email address when you set your commit email address in Git. To use your `noreply` address for web-based Git operations, set your commit email address on GitHub and choose to **Keep my email address private**.
 
-You can also choose to block commits you push from the command line that expose your personal email address. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address).{% endif %}
+You can also choose to block commits you push from the command line that expose your personal email address. For more information, see [AUTOTITLE](/account-and-profile/how-tos/email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address).{% endif %}
 
 To ensure that commits are attributed to you and appear in your contributions graph, use an email address that is connected to your account on {% data variables.product.github %}{% ifversion fpt or ghec %}, or the `noreply` email address provided to you in your email settings{% endif %}.
 

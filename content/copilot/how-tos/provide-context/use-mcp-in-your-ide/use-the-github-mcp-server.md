@@ -27,7 +27,7 @@ The {% data variables.product.github %} MCP server is available to all {% data v
 
 * A {% data variables.product.github %} account.
 * {% data variables.product.prodname_vscode %}.
-* The {% data variables.product.github %} MCP server, configured in your editor. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/set-up-the-github-mcp-server).
+* The {% data variables.product.github %} MCP server, configured in your editor. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/set-up-the-github-mcp-server).
 * {% data reusables.copilot.mcp-policy-requirement %}
 
 ## Using the {% data variables.product.github %} MCP server in {% data variables.product.prodname_vscode %}
@@ -56,7 +56,7 @@ The {% data variables.product.github %} MCP server enables you to perform a wide
 
 * **Access to {% data variables.product.prodname_copilot_short %}**. {% data reusables.copilot.subscription-prerequisite %}
 * **{% data variables.product.prodname_vs %} version 17.14 or later**. For more information on installing {% data variables.product.prodname_vs %}, see the [{% data variables.product.prodname_vs %} downloads page](https://visualstudio.microsoft.com/downloads/).
-* The {% data variables.product.github %} MCP server, configured in your editor. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/set-up-the-github-mcp-server).
+* The {% data variables.product.github %} MCP server, configured in your editor. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/set-up-the-github-mcp-server).
 * **Sign in to {% data variables.product.company_short %} from {% data variables.product.prodname_vs %}**.
 * {% data reusables.copilot.mcp-policy-requirement %}
 
@@ -87,7 +87,7 @@ The {% data variables.product.github %} MCP server enables you to perform a wide
 
   {% data reusables.copilot.jetbrains-compatible-ides %}
 {% data reusables.copilot.jetbrains-plugin-prerequisites %}
-* **The {% data variables.product.github %} MCP server**, configured in your editor. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/set-up-the-github-mcp-server).
+* **The {% data variables.product.github %} MCP server**, configured in your editor. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/set-up-the-github-mcp-server).
 * {% data reusables.copilot.mcp-policy-requirement %}
 
 ## Using the {% data variables.product.github %} MCP server in JetBrains IDEs
@@ -117,8 +117,8 @@ The {% data variables.product.github %} MCP server enables you to perform a wide
 ## Prerequisites
 
 * **Access to {% data variables.product.prodname_copilot_short %}**. {% data reusables.copilot.subscription-prerequisite %}
-* **{% data variables.product.prodname_copilot %} for Xcode extension**. See [AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment).
-* The {% data variables.product.github %} MCP server, configured in your editor. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/set-up-the-github-mcp-server).
+* **{% data variables.product.prodname_copilot %} for Xcode extension**. See [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension).
+* The {% data variables.product.github %} MCP server, configured in your editor. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/set-up-the-github-mcp-server).
 * {% data reusables.copilot.mcp-policy-requirement %}
 
 ## Using the {% data variables.product.github %} MCP server in Xcode
@@ -146,8 +146,8 @@ The {% data variables.product.github %} MCP server enables you to perform a wide
 ## Prerequisites
 
 {% data reusables.copilot.eclipse-prerequisites %}
-* The {% data variables.product.github %} MCP server, configured in your editor. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/set-up-the-github-mcp-server).
-* **Latest version of the {% data variables.product.prodname_copilot %} extension**. Download this from the [Eclipse Marketplace](https://aka.ms/copiloteclipse?ref_product=copilot&ref_type=engagement&ref_style=text). For more information, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment?tool=eclipse).
+* The {% data variables.product.github %} MCP server, configured in your editor. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/set-up-the-github-mcp-server).
+* **Latest version of the {% data variables.product.prodname_copilot %} extension**. Download this from the [Eclipse Marketplace](https://aka.ms/copiloteclipse?ref_product=copilot&ref_type=engagement&ref_style=text). For more information, see [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension?tool=eclipse).
 * **Sign in to {% data variables.product.company_short %} from Eclipse**.
 
 ## Using the {% data variables.product.github %} MCP server in Eclipse
@@ -170,5 +170,5 @@ The {% data variables.product.github %} MCP server enables you to perform a wide
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/tutorials/enhancing-copilot-agent-mode-with-mcp)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp)
+* [AUTOTITLE](/copilot/tutorials/enhance-agent-mode-with-mcp)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)
