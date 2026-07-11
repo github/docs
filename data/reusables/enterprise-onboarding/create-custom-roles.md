@@ -17,7 +17,7 @@ Enterprise custom roles grant access to a subset of enterprise settings, such as
 
 ## Creating organization custom roles
 
-Organization custom roles grant access to organization settings and repositories. Custom organization roles created at the enterprise level use the same permissions and base roles as roles created at the organization level. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles).
+Organization custom roles grant access to organization settings and repositories. Custom organization roles created at the enterprise level use the same permissions and base roles as roles created at the organization level. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles).
 
 Enterprise owners can create and edit custom organization roles, but cannot assign them. Organization owners can assign custom roles in an organization.
 

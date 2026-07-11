@@ -23,16 +23,23 @@ jobs:
       }}
     runs-on: ubuntu-latest
     steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
+          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
+
       - name: Add PR to the open source board
         uses: actions/add-to-project@5afcf98fcd03f1c2f92c3c83f58ae24323cc57fd # v2.0.0
         with:
           project-url: https://github.com/orgs/github/projects/2936
-          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          github-token: ${{ steps.app-token.outputs.token }}
 
       - name: Move PR to Triage on the open source board
         uses: github/update-project-action@af4f6083118f5080c89828b421ef598d1906fb60 # v4
         with:
-          github_token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          github_token: ${{ steps.app-token.outputs.token }}
           organization: github
           project_number: 2936
           content_id: ${{ github.event.pull_request.node_id }}

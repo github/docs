@@ -21,7 +21,7 @@ The {% data variables.product.prodname_secret_risk_assessment %} report CSV file
 | B          | `Name`                 | The token name for the type of secret |
 | C          | `Slug`                 | The normalized string for the token. This corresponds to `Token` in the table of supported secrets. See [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets). |
 | D          | `Push Protected`       | A `boolean` to indicate whether the secret would be detected and blocked by push protection if it were enabled |
-| E          | `Non-Provider Pattern` | A `boolean` to indicate whether the secret matched a non-provider pattern and would generate an alert if {% data variables.product.prodname_secret_scanning %} with non-provider patterns were enabled |
+| E          | `Generic Pattern` | A `boolean` to indicate whether the secret matched a generic pattern and would generate an alert if {% data variables.product.prodname_secret_scanning %} with generic patterns were enabled |
 | F          | `Secret Count`         | An aggregate count of the active and inactive secrets found for the token type |
 | G          | `Repository Count`         | An aggregate count of distinct repositories in which the secret type was found, including public, private,{% ifversion ghec or ghes %} internal,{% endif %} and archived repositories |
 

@@ -72,6 +72,10 @@ jobs:
 
       - uses: ./.github/actions/install-cocofix
         with:
+          # The Docs Engineering Bot app cannot read the org-scoped
+          # @github/cocofix package (its Packages permission is repo-level
+          # only), so this step keeps using the PAT until the app is granted
+          # organization package read access.
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - name: Build code scanning security query lists
@@ -199,9 +203,16 @@ jobs:
         run: |
           git diff
 
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
+          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
+
       - name: Create pull request
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
           DRY_RUN: ${{ github.event_name == 'pull_request'}}
         shell: bash
         run: |

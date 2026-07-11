@@ -73,9 +73,9 @@ You can also set the `COPILOT_CUSTOM_INSTRUCTIONS_DIRS` environment variable to 
 
 {% data reusables.copilot.custom-instructions-path %}
 
-{% data reusables.copilot.custom-instructions-note %}
+## Custom instructions in use
 
-If you make changes to your custom instructions during a CLI session, your changes are available for use by {% data variables.product.prodname_copilot_short %} the next time you submit a prompt in the current, or future, sessions.
+Changes you make to custom instructions files are not immediately available for use in active CLI sessions. To apply your changes, exit the current session and then either resume it (for example, run `copilot --continue`), or start a new session (for example, use `/new` from within an interactive session).
 
 ## Further reading
 

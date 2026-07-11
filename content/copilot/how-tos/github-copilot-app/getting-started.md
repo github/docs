@@ -51,8 +51,8 @@ To work on code, you need at least one repository connected to the app. If you s
 
 The sidebar gives you access to the main areas of the app:
 
-* **My work** — Browse and filter issues and pull requests from your repositories, check CI status, and leave reviews.
-* **Automations** — Saved agent tasks that run on a schedule or on demand.
+* **[My work](https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fmywork)** — Browse and filter issues and pull requests from your repositories, check CI status, and leave reviews.
+* **[Automations](https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fautomations)** — Saved agent tasks that run on a schedule or on demand.
 * **Search** — Search across your repositories directly from the app.
 * **Sessions** — Active agent sessions, grouped by repository. This also includes **Quick chats**, which are general chat conversations.
 
@@ -70,7 +70,7 @@ When you are ready to make changes to code, create a session. You can start from
 
 ### Starting from an issue
 
-1. Click **My work** in the sidebar.
+1. Click **[My work](https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fmywork)** in the sidebar.
 1. Browse or filter to find an issue, then click it to view its details.
 1. Click **New session**. The app creates a new session with the issue context already loaded.
 1. Select a session mode from the dropdown below the prompt field—for example, **Plan** to have the agent propose a plan first, or **Interactive** to work collaboratively with the agent.

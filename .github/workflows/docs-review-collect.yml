@@ -31,11 +31,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
+          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
+          owner: github
+          repositories: audit-log-allowlists,docs-engineering
+
       - name: Run script for audit-log-allowlists
         run: |
           npm run fr-add-docs-reviewers-requests
         env:
-          TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          TOKEN: ${{ steps.app-token.outputs.token }}
           PROJECT_NUMBER: 2936
           ORGANIZATION: 'github'
           REPO: 'audit-log-allowlists'
@@ -50,4 +59,4 @@ jobs:
       - uses: ./.github/actions/create-workflow-failure-issue
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          token: ${{ steps.app-token.outputs.token }}
