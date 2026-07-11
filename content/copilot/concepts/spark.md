@@ -137,6 +137,6 @@ By default, your spark's data store is shared for all users of the published spa
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/responsible-use/spark)
+* [AUTOTITLE](/copilot/responsible-use/agents)
 * [AUTOTITLE](/copilot/tutorials/spark/build-apps-with-spark)
 * [AUTOTITLE](/copilot/how-tos/troubleshoot-copilot/troubleshoot-spark)

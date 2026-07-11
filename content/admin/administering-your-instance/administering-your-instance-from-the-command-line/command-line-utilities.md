@@ -689,6 +689,8 @@ This utility prunes old or invalid backup snapshot directories.
 ghe-backup-prune-snapshots
 ```
 
+{% ifversion ghes > 3.21 %}
+
 ### ghe-backup-healthcheck
 
 This utility quickly confirms that GHES backups are being written, are recent, and that the backup disk is not in a risky state. For example, if usage is 90% or higher, it reports an error because the backup disk may be close to full. Setting `-no-color` gives plain text output, for example in logs or monitoring systems.
@@ -696,6 +698,8 @@ This utility quickly confirms that GHES backups are being written, are recent, a
 ```shell
 ghe-backup-healthcheck
 ```
+
+{% endif %}
 
 ## Clustering
 
@@ -1442,6 +1446,27 @@ To install an upgrade package:
 ```shell
 ghe-upgrade UPGRADE-PACKAGE-FILENAME
 ```
+
+
+{% ifversion ghes > 3.20 %}
+
+Beginning with upgrades in version 3.21 operators may run many of the upgrade operations without requiring a maintenance window using phased execution. 
+
+First run operations which do not require a maintenance window by triggering the pre-upgrade phase
+
+```shell
+ghe-upgrade --phase pre-upgrade UPGRADE-PACKAGE-FILENAME
+```
+
+Once that is complete operators may complete the upgrade by running the final steps after a maintenance window has been scheduled
+
+```shell
+ghe-upgrade --phase upgrade UPGRADE-PACKAGE-FILENAME
+```
+
+The upgraded {% data variables.product.prodname_enterprise %} host will be rebooted by this operation.
+
+{% endif %}
 
 {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
 

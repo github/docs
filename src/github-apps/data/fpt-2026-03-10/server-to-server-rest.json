@@ -3193,6 +3193,18 @@
       "subcategory": "repos",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/bypass-list"
+    },
+    {
+      "slug": "get-pull-request-creation-cap-for-a-repository",
+      "subcategory": "repos",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/creation-cap"
+    },
+    {
+      "slug": "update-pull-request-creation-cap-for-a-repository",
+      "subcategory": "repos",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/creation-cap"
     }
   ],
   "issues": [

@@ -31,7 +31,7 @@ For prices and monthly allowances, see {% data variables.product.pricing_link %}
 
 ## Adding a payment method
 
-To pay for licenses and services, you can use a credit card, PayPal, or a Microsoft Azure subscription. For instructions, see [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information).
+To pay for licenses and services, you can use a credit card, PayPal, or a Microsoft Azure subscription. For instructions, see [AUTOTITLE](/billing/how-tos/set-up-payment/manage-payment-info).
 
 ## Next steps
 

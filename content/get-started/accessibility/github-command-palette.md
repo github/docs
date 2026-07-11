@@ -162,7 +162,7 @@ Most of these commands are available only on the home page of the repository. If
 |`Clone repository: <URL type>`|Copy the URL needed to clone the repository using {% data variables.product.prodname_cli %}, HTTPS, or SSH to the clipboard. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository).|
 |`New discussion`|Create a new discussion in the repository. For more information, see [AUTOTITLE](/discussions/quickstart#creating-a-new-discussion).|
 |`New file`|Create a new file from any page in the repository. For more information, see [AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository).
-|`New issue`|Open a new issue from any page in the repository. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue).|
+|`New issue`|Open a new issue from any page in the repository. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/creating-an-issue).|
 |`Open in {% data variables.codespaces.serverless %} editor`|Open the current repository in the {% data variables.codespaces.serverless %} editor. For more information, see [AUTOTITLE](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor).|
 
 ### File commands
@@ -182,7 +182,7 @@ These commands are available only when you open the command palette from a discu
 | :- | :- |
 |`Delete discussion...`|Permanently delete the discussion. For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion).
 |`Edit discussion body`|Open the main body of the discussion ready for editing.
-|`Subscribe`/`unsubscribe`|Opt in or out of notifications for additions to the discussion. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications).
+|`Subscribe`/`unsubscribe`|Opt in or out of notifications for additions to the discussion. For more information, see [AUTOTITLE](/subscriptions-and-notifications/concepts/about-notifications).
 |`Transfer discussion...`|Move the discussion to a different repository. For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions#transferring-a-discussion).
 
 ### Issue commands
@@ -191,15 +191,15 @@ These commands are available only when you open the command palette from an issu
 
 | Command | Behavior|
 | :- | :- |
-|`Close`/`reopen issue`|Close or reopen the current issue. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues).|
+|`Close`/`reopen issue`|Close or reopen the current issue. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/learning-about-issues/about-issues).|
 |`Convert issue to discussion...`|Convert the current issue into a discussion. For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion).
-|`Delete issue...`|Delete the current issue. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/deleting-an-issue).|
+|`Delete issue...`|Delete the current issue. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/administering-issues/deleting-an-issue).|
 |`Edit issue body`|Open the main body of the issue ready for editing.
 |`Edit issue title`|Open the title of the issue ready for editing.
 |`Lock issue`|Limit new comments to users with write access to the repository. For more information, see [AUTOTITLE](/communities/moderating-comments-and-conversations/locking-conversations).
-|`Pin`/`unpin issue`|Change whether or not the issue is shown in the pinned issues section for the repository. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository).|
-|`Subscribe`/`unsubscribe`|Opt in or out of notifications for changes to this issue. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications).
-|`Transfer issue...`|Transfer the issue to another repository. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository).|
+|`Pin`/`unpin issue`|Change whether or not the issue is shown in the pinned issues section for the repository. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/administering-issues/pinning-an-issue-to-your-repository).|
+|`Subscribe`/`unsubscribe`|Opt in or out of notifications for changes to this issue. For more information, see [AUTOTITLE](/subscriptions-and-notifications/concepts/about-notifications).
+|`Transfer issue...`|Transfer the issue to another repository. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/administering-issues/transferring-an-issue-to-another-repository).|
 
 ### Pull request commands
 
@@ -212,5 +212,5 @@ These commands are available only when you open the command palette from a pull 
 |`Copy current branch name`| Add the name of the head branch for the pull request to the clipboard.
 |`Edit pull request body`|Open the main body of the pull request ready for editing.
 |`Edit pull request title`|Open the title of the pull request ready for editing.
-|`Subscribe`/`unsubscribe`|Opt in or out of notifications for changes to this pull request. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications).
+|`Subscribe`/`unsubscribe`|Opt in or out of notifications for changes to this pull request. For more information, see [AUTOTITLE](/subscriptions-and-notifications/concepts/about-notifications).
 |`Update current branch`|Update the head branch of the pull request with changes from the base branch. This is available only for pull requests that target the default branch of the repository. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches).|

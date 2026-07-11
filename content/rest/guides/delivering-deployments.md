@@ -29,13 +29,13 @@ Heroku, Amazon, or something else entirely. The crux of this guide will be setti
 and configuring the server managing the communication.
 
 If you haven't already, be sure to [download `ngrok`](https://ngrok.com/), and learn how
-to [use it](/webhooks-and-events/webhooks/configuring-your-server-to-receive-payloads#using-ngrok). We find it to be a very useful tool for exposing local
+to [use it](/webhooks/using-webhooks/handling-webhook-deliveries#using-ngrok). We find it to be a very useful tool for exposing local
 applications to the internet.
 
 {% ifversion cli-webhook-forwarding %}
 
 > [!NOTE]
-> Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see [AUTOTITLE](/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli).
+> Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see [AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/using-the-github-cli-to-forward-webhooks-for-testing).
 
 {% endif %}
 

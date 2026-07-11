@@ -882,6 +882,42 @@ export function correctTranslatedContentStrings(
       '在{% data variables.product.prodname_dotcom_the_website %}或{% data variables.enterprise.data_residency_site %}{% endif %}上的企业{% ifversion ghec %}进行通信。',
       '的企业{% ifversion ghec %}在{% data variables.product.prodname_dotcom_the_website %}或{% data variables.enterprise.data_residency_site %}{% endif %}进行通信。',
     )
+
+    // [per-file] actions/azure-vnet-creating-network-configuration-prereqs.md:
+    // `{% ifversion ghec%}` closes prematurely with `{% endif %}` before the
+    // `{% else %}` branch, leaving `{% else %}` as an orphan. Reorder to:
+    // `{% ifversion ghec %}...{% else %}...{% endif %}`.
+    content = content.replaceAll(
+      '可以{% ifversion ghec%}在企业或组织级别{% endif %}在组织级别{% else %}创建网络配置，从而将 Azure 虚拟网络 (VNET) 用于专用网络。',
+      '可以{% ifversion ghec %}在企业或组织级别{% else %}在组织级别{% endif %}创建网络配置，从而将 Azure 虚拟网络 (VNET) 用于专用网络。',
+    )
+
+    // [per-file] gated-features/ghas-ghec.md: `prodname_team` and `prodname_ghe_cloud`
+    // escaped outside the `{% ifversion fpt or ghec %}` block, and the branches are
+    // swapped. `{% endif %}` appears before `{% elsif ghes %}`. Restore structure:
+    // `{% ifversion fpt or ghec %}...team...ghe_cloud{% elsif ghes %}...ghe_server{% endif %}`.
+    content = content.replaceAll(
+      '适用于{% data variables.product.prodname_team %}上的{% ifversion fpt or ghec %}账户以及{% data variables.product.prodname_ghe_server %}{% endif %}上的{% data variables.product.prodname_ghe_cloud %}{% elsif ghes %}账户。',
+      '适用于{% ifversion fpt or ghec %}{% data variables.product.prodname_team %}和{% data variables.product.prodname_ghe_cloud %}上的账户{% elsif ghes %}{% data variables.product.prodname_ghe_server %}上的账户{% endif %}。',
+    )
+
+    // [per-file] scim/after-you-configure-saml.md: `{% ifversion fpt or ghec %}` opener
+    // was dropped before `{% data variables.product.github %}`, leaving `{% else %}` as
+    // an orphan. The `{% ifversion %}` token was then misplaced after `{% endif %}`.
+    content = content.replaceAll(
+      '{% data variables.product.github %}{% else %}{% data variables.location.product_location_enterprise %}{% endif %} 上的{% ifversion fpt or ghec %}企业资源',
+      '{% ifversion fpt or ghec %}{% data variables.product.github %} 上的企业资源{% else %}{% data variables.location.product_location_enterprise %}{% endif %}',
+    )
+
+    // [per-file] enterprise_user_management/consider-usernames-for-external-authentication.md:
+    // The second `{% ifversion ghec %}` opener (before `product.github`) was dropped,
+    // leaving an orphan `{% elsif ghes %}` and a dangling `{% ifversion ghec %}` at end.
+    // `企业中` ("in your enterprise") is GHEC-only in the source, so it belongs inside the
+    // `{% ifversion ghec %}` branch, not before it.
+    content = content.replaceAll(
+      '企业中 {% data variables.product.github %}{% elsif ghes %} 上 {% data variables.location.product_location %}{% endif %} 上每个新个人帐户 {% ifversion ghec %} 的用户名。',
+      '{% ifversion ghec %}企业中 {% data variables.product.github %}{% elsif ghes %} 上 {% data variables.location.product_location %}{% endif %} 上每个新个人帐户的用户名。',
+    )
   }
 
   if (context.code === 'ru') {
@@ -1104,6 +1140,14 @@ export function correctTranslatedContentStrings(
       return match.replace(/(\d)\s*о/g, '$10').replace(/о\s*(\d)/g, '0$1')
     })
 
+    // `{% PLAN PLAN ifversion %}` — plan name duplicated before `ifversion`; word-order swap.
+    // The universal whitespace fix converts `{ % ghes ghes ifversion %}` to this form first.
+    // Collapse the duplicate plan name and swap to canonical `{% ifversion PLAN %}`.
+    content = content.replace(
+      /\{%(-?)\s*(fpt|ghec|ghes|ghae|ghecom)\s+\2\s+ifversion\s*(-?)%\}/g,
+      '{%$1 ifversion $2 $3%}',
+    )
+
     // Word-order swap: translator placed plan name BEFORE `ifversion`, e.g.
     // `{% ghes ifversion %}` → `{% ifversion ghes %}`,
     // `{% ghes ifversion < 3,14 %}` → `{% ifversion ghes < 3.14 %}`
@@ -1206,6 +1250,19 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll(
       '{% ifversion ghec %}аутентификации и{% endif %} провизионирования SCIM{% else %}с помощью Okta',
       '{% ifversion ghec %}SCIM{% else %}аутентификации и{% endif %} провизионирования с помощью Okta',
+    )
+
+    // [SCRAPE-6732] admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise.md
+    // (intro): translator scrambled `{% ifversion ghec %}...{% else %}...{% endif %}`
+    // so the `{% else %}` ended up before any opening `{% ifversion %}` (an orphan)
+    // and the `{% ifversion ghec %}` moved into the else branch. This breaks the
+    // admin landing page render (`tag "else" not found`). Reconstruct to match
+    // English: view and revoke an enterprise member's {% ifversion ghec %}linked
+    // identity, active sessions, and authorized credentials{% else %}active SAML
+    // sessions{% endif %}. The corrector runs on the PARSED intro value.
+    content = content.replaceAll(
+      'связанную личность, активные сессии и авторизованные учетные{% else %}данные {% ifversion ghec %}SAML{% endif %}',
+      '{% ifversion ghec %}связанную личность, активные сессии и авторизованные учетные данные{% else %}активные сессии SAML{% endif %}',
     )
   }
 
@@ -1776,6 +1833,13 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll(
       'auf selbst-gehosteten Runnern ausführen.{% data variables.product.prodname_dependabot %}',
       'auf selbst-gehosteten Runnern ausführen.{% endif %}',
+    )
+    // [per-file] enterprise_installation/hardware-considerations-all-platforms.md:
+    // `{% ifversion ghes %}` opener was stripped before "200 GB", leaving `{% else %}`
+    // as an orphan. Restore the opener immediately before the "200 GB" text.
+    content = content.replaceAll(
+      'werden 200 GB auf dem Stammdateisystem verfügbar sein. Die verbleibenden 200GB{% else %}',
+      'werden {% ifversion ghes %}200 GB auf dem Stammdateisystem verfügbar sein. Die verbleibenden 200GB{% else %}',
     )
   }
 

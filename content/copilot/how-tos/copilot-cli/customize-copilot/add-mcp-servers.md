@@ -13,7 +13,7 @@ docsTeamMetrics:
   - copilot-cli
 ---
 
-The Model Context Protocol (MCP) is an open standard that defines how applications share context with large language models (LLMs). You can connect MCP servers to {% data variables.copilot.copilot_cli %} to give {% data variables.product.prodname_copilot_short %} access to external tools, data sources, and services. For an overview of MCP, see [AUTOTITLE](/copilot/concepts/about-mcp).
+The Model Context Protocol (MCP) is an open standard that defines how applications share context with large language models (LLMs). You can connect MCP servers to {% data variables.copilot.copilot_cli %} to give {% data variables.product.prodname_copilot_short %} access to external tools, data sources, and services. For an overview of MCP, see [AUTOTITLE](/copilot/concepts/context/mcp).
 
 ## Adding an MCP server
 
@@ -136,7 +136,7 @@ The following example shows a configuration file with a local server and a remot
 }
 ```
 
-For more information on MCP server configuration, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp#writing-a-json-configuration-for-mcp-servers).
+For more information on MCP server configuration, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers#writing-a-json-configuration-for-mcp-servers).
 
 ### Searching and installing from the registry
 
@@ -210,6 +210,6 @@ Once you have added an MCP server, {% data variables.product.prodname_copilot_sh
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/about-mcp)
-* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/extend-copilot-chat-with-mcp)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp)
+* [AUTOTITLE](/copilot/concepts/context/mcp)
+* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)

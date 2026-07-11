@@ -2,9 +2,9 @@
 title: Default setup (bundled CLI)
 shortTitle: Bundled CLI
 intro: >-
-  The Node.js, Python, and .NET SDKs include the Copilot CLI as a
-  dependency—your app ships with everything it needs, with no extra installation
-  or configuration required.
+  The Node.js and .NET SDKs include the Copilot CLI as a dependency—your app
+  ships with everything it needs, with no extra installation or configuration
+  required.
 versions:
   fpt: '*'
   ghec: '*'
@@ -16,11 +16,19 @@ contentType: how-tos
 <!-- markdownlint-disable GHD046 GHD005 -->
 <!-- Suppressed: GHD046 (outdated release terminology), GHD005 (hardcoded data variable) -->
 
+The Python SDK recommends a one-time download step after installation:
+
+```bash
+python -m copilot download-runtime
+```
+
+This downloads the matching runtime and caches it locally. If you skip this step, the SDK will attempt to download it automatically on first use as a fallback.
+
 **Best for:** Most applications—desktop apps, standalone tools, CLI utilities, prototypes, and more.
 
 ## How it works
 
-When you install the SDK, the Copilot CLI binary is included automatically. The SDK starts it as a child process and communicates over stdio. There's nothing extra to configure.
+When you install the SDK, the Copilot runtime is included automatically (Node.js, .NET) or downloaded via `python -m copilot download-runtime` (Python). The SDK starts it as a child process and communicates over stdio. There's nothing extra to configure.
 
 ![Diagram: Flowchart showing the described process.](/assets/images/help/copilot/copilot-sdk/setup-bundled-cli-diagram-0.png)
 

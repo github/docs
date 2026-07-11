@@ -28,7 +28,7 @@ By using the Additional Products and Features, you also agree to the applicable 
 
 GitHub Actions enables you to create custom software development lifecycle workflows directly in your GitHub repository. Actions is billed on a usage basis. The [Actions documentation](/actions) includes details, including compute and storage quantities (depending on your Account plan), and how to monitor your Actions minutes usage and set usage limits.
 
-Actions and any elements of the Actions product or service may not be used in violation of the Agreement, the [GitHub Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies), or the GitHub Actions service limitations set forth in the [Actions documentation](/actions/learn-github-actions/usage-limits-billing-and-administration). Additionally, regardless of whether an Action is using self-hosted runners, Actions should not be used for:
+Actions and any elements of the Actions product or service may not be used in violation of the Agreement, the [GitHub Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies), or the GitHub Actions service limitations set forth in the [Actions documentation](/actions/concepts/billing-and-usage). Additionally, regardless of whether an Action is using self-hosted runners, Actions should not be used for:
 * Cryptomining;
 * Disrupting, gaining, or attempting to gain unauthorized access to, any service, device, data, account, or network (other than those authorized by the [GitHub Bug Bounty program](https://bounty.github.com));
 * The provision of a stand-alone or integrated application or service offering the Actions product or service, or any elements of the Actions product or service, for commercial purposes;
@@ -59,7 +59,7 @@ GitHub makes extra security features available to customers under Advanced Secur
 
 Advanced Security features are licensed on a "Unique Committer" basis. A "Unique Committer" is a licensed user of GitHub Team, GitHub Enterprise, GitHub Enterprise Cloud, or GitHub Enterprise Server, who has made a commit in the last 90 days to any repository with any GitHub Advanced Security functionality activated. You must acquire an appropriate GitHub Advanced Security User license for each of your Unique Committers. You may only use GitHub Advanced Security features on codebases that are developed by or for you. For GitHub Team and GitHub Enterprise Cloud users, some Advanced Security features may also require the use of GitHub Actions.
 
-For secret scanning with GitHub Advanced Security or GitHub Secret Protection, when you opt-in to automatic validity checks for partner patterns, exposed third-party tokens may be shared with the relevant partner, in order to provide you with more information about the validity of the token. Not all partners are based in the United States. The [Secret scanning patterns documentation](/enterprise-cloud@latest/code-security/secret-scanning/introduction/supported-secret-scanning-patterns) provides more details on which partners support the validity check.
+For secret scanning with GitHub Advanced Security or GitHub Secret Protection, when you opt-in to automatic validity checks for partner patterns, exposed third-party tokens may be shared with the relevant partner, in order to provide you with more information about the validity of the token. Not all partners are based in the United States. The [Secret scanning patterns documentation](/enterprise-cloud@latest/code-security/reference/secret-security/supported-secret-scanning-patterns) provides more details on which partners support the validity check.
 
 ## Advisory Database
 
@@ -96,7 +96,7 @@ If you offer a product or service competitive to any GitHub product or service, 
 
 ## Connect
 
-With GitHub Connect, you can share certain features and data between your GitHub Enterprise Server deployment and your GitHub Enterprise Cloud organization or enterprise account on GitHub.com. In order to enable GitHub Connect, you must have at least one (1) account on GitHub Enterprise Cloud or GitHub.com, and one (1) licensed deployment of GitHub Enterprise Server. Your use of GitHub Enterprise Cloud or GitHub.com through Connect is governed by the terms under which you license GitHub Enterprise Cloud or GitHub.com. Use of Personal Data is governed by the [GitHub Privacy Statement](/site-policy/privacy-policies/github-privacy-statement).
+With GitHub Connect, you can share certain features and data between your GitHub Enterprise Server deployment and your GitHub Enterprise Cloud organization or enterprise account on GitHub.com. In order to enable GitHub Connect, you must have at least one (1) account on GitHub Enterprise Cloud or GitHub.com, and one (1) licensed deployment of GitHub Enterprise Server. Your use of GitHub Enterprise Cloud or GitHub.com through Connect is governed by the terms under which you license GitHub Enterprise Cloud or GitHub.com. Use of Personal Data is governed by the [GitHub Privacy Statement](/site-policy/privacy-policies/github-general-privacy-statement).
 
 ## GitHub Copilot
 
@@ -118,17 +118,17 @@ GitHub Packages is a software package hosting service that allows you to host yo
 
 ## Pages
 
-Each Account comes with access to the [GitHub Pages static hosting service](/pages/getting-started-with-github-pages/about-github-pages). GitHub Pages is intended to host static web pages, but primarily as a showcase for personal and organizational projects.
+Each Account comes with access to the [GitHub Pages static hosting service](/pages/getting-started-with-github-pages/what-is-github-pages). GitHub Pages is intended to host static web pages, but primarily as a showcase for personal and organizational projects.
 
 GitHub Pages is not intended for or allowed to be used as a free web hosting service to run your online business, e-commerce site, or any other website that is primarily directed at either facilitating commercial transactions or providing commercial software as a service (SaaS). Some monetization efforts are permitted on Pages, such as donation buttons and crowdfunding links.
 
 _Bandwidth and Usage Limits_
 
-GitHub Pages are subject to some specific bandwidth and usage limits, and may not be appropriate for some high-bandwidth uses. Please see our [GitHub Pages limits](/pages/getting-started-with-github-pages/about-github-pages) for more information.
+GitHub Pages are subject to some specific bandwidth and usage limits, and may not be appropriate for some high-bandwidth uses. Please see our [GitHub Pages limits](/pages/getting-started-with-github-pages/github-pages-limits) for more information.
 
 _Prohibited Uses_
 
-GitHub Pages may not be used in violation of the Agreement, the GitHub [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies), or the GitHub Pages service limitations set forth in the [Pages documentation](/pages/getting-started-with-github-pages/about-github-pages#guidelines-for-using-github-pages).
+GitHub Pages may not be used in violation of the Agreement, the GitHub [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies), or the GitHub Pages service limitations set forth in the [Pages documentation](/pages/getting-started-with-github-pages/github-pages-limits#usage-limits).
 
 If you have questions about whether your use or intended use falls into these categories, please contact us through the [GitHub Support portal](https://support.github.com/). GitHub reserves the right at all times to reclaim any GitHub subdomain without liability.
 
@@ -150,6 +150,6 @@ You may download Microsoft SQL Server Standard Edition container image for Linux
 
 ## GitHub Models
 
-GitHub Models is a feature that allows you to learn, try, and test artificial intelligence models on GitHub.com. You can access GitHub Models via the [GitHub Marketplace](https://github.com/marketplace). Learn more about GitHub Models by visiting [Prototyping with AI models](/github-models/prototyping-with-ai-models).
+GitHub Models is a feature that allows you to learn, try, and test artificial intelligence models on GitHub.com. You can access GitHub Models via the [GitHub Marketplace](https://github.com/marketplace). Learn more about GitHub Models by visiting [Prototyping with AI models](/github-models/use-github-models/prototyping-with-ai-models).
 
 Your use of this feature is subject to the terms of the company hosting the model and the model license.

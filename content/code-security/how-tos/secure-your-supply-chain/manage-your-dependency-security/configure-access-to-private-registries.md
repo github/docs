@@ -559,6 +559,34 @@ registries:
 
 For security reasons, {% data variables.product.prodname_dependabot %} does not set environment variables. Yarn (v2 and later) requires that any accessed environment variables are set. When accessing environment variables in your `.yarnrc.yml` file, you should provide a fallback value such as {% raw %}`${ENV_VAR-fallback}`{% endraw %} or {% raw %}`${ENV_VAR:-fallback}`{% endraw %}. For more information, see [Yarnrc files](https://yarnpkg.com/configuration/yarnrc) in the Yarn documentation.
 
+{% ifversion dependabot-npm-scope %}
+
+#### Using `scope` to map npm scopes to registries
+
+You can use the `scope` parameter to associate an npm scope with a private registry. When `scope` is configured, {% data variables.product.prodname_dependabot %} generates the `.npmrc` from your registry credentials, which takes precedence over any committed `.npmrc` file or lockfile-based inference. The scope value must start with `@`, for example `@my-company`. To associate multiple scopes with the same registry, create a separate registry entry for each scope.
+
+In the following example, packages under `@my-company` and `@my-other-org` are both routed to the private {% data variables.product.github %} npm registry, each with its own registry entry.
+
+{% raw %}
+
+```yaml copy
+registries:
+  npm-github-company:
+    type: npm-registry
+    url: https://npm.pkg.github.com
+    scope: "@my-company"
+    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+  npm-github-other-org:
+    type: npm-registry
+    url: https://npm.pkg.github.com
+    scope: "@my-other-org"
+    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+```
+
+{% endraw %}
+
+{% endif %}
+
 ### `nuget-feed`
 
 The `nuget-feed` type supports username and password, or token. {% data reusables.dependabot.password-definition %}

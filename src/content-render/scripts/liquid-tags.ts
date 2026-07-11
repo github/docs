@@ -8,7 +8,7 @@
 import { Command } from 'commander'
 import fs from 'fs'
 import path from 'path'
-import yaml from 'js-yaml'
+import { load, dump } from 'js-yaml'
 import chalk from 'chalk'
 
 // Type definitions
@@ -496,7 +496,7 @@ function loadDataValue(type: 'reusable' | 'variable', dataPath: string): string 
       return contentWithoutFrontmatter.trim()
     } else {
       const yamlContent = fs.readFileSync(targetPath, 'utf8')
-      const data = yaml.load(yamlContent) as Record<string, unknown>
+      const data = load(yamlContent) as Record<string, unknown>
 
       // Navigate to the nested property
       const pathParts = dataPath.split('.')
@@ -699,7 +699,7 @@ function applyDataUpdates(
     } else {
       // For variables, update YAML structure
       const yamlContent = fs.readFileSync(targetPath, 'utf8')
-      const data = yaml.load(yamlContent) as Record<string, unknown>
+      const data = load(yamlContent) as Record<string, unknown>
 
       // Navigate to the nested property
       const pathParts = dataPath.split('.')
@@ -724,7 +724,7 @@ function applyDataUpdates(
 
       // Preserve original file's newline behavior for YAML
       const hasTrailingNewline = yamlContent.endsWith('\n')
-      const yamlOutput = yaml.dump(data)
+      const yamlOutput = dump(data)
       const finalYaml =
         hasTrailingNewline && !yamlOutput.endsWith('\n') ? `${yamlOutput}\n` : yamlOutput
 
@@ -850,7 +850,7 @@ async function resolveVariable(variablePath: string, verbose?: boolean): Promise
 
   try {
     const yamlContent = fs.readFileSync(filePath, 'utf-8')
-    const data = yaml.load(yamlContent) as Record<string, unknown>
+    const data = load(yamlContent) as Record<string, unknown>
 
     // Navigate through the key path to find the value
     const [, ...keyPath] = pathParts // Skip filename, get remaining path

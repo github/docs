@@ -2,9 +2,9 @@
 title: Local CLI setup
 shortTitle: Local CLI
 intro: >-
-  Use a specific CLI binary instead of the SDK's bundled CLI. This is an
-  advanced option—you supply the CLI path explicitly, and you are responsible
-  for ensuring version compatibility with the SDK.
+  Use a specific CLI binary instead of the SDK's automatic CLI management. This
+  is an advanced option—you supply the CLI path explicitly, and you are
+  responsible for ensuring version compatibility with the SDK.
 versions:
   fpt: '*'
   ghec: '*'
@@ -56,7 +56,7 @@ await client.stop();
 
 ```python
 from copilot import CopilotClient
-from copilot.generated.session_events import AssistantMessageData
+from copilot.session_events import AssistantMessageData
 from copilot.session import PermissionHandler
 
 client = CopilotClient({

@@ -142,7 +142,7 @@ As an alternative to default setup, you can use advanced setup, which generates 
 1. Click **{% data variables.product.UI_advanced_security %}**.
 1. If "{% data variables.product.prodname_secret_protection %}" or "{% data variables.product.prodname_GHAS %}" is not already enabled, click **Enable**.
 1. If the option "{% data variables.product.prodname_secret_scanning_caps %}" is shown, click **Enable**.
-1. Choose whether you want to enable additional features, such as scanning for non-provider patterns and push protection.
+1. Choose whether you want to enable additional features, such as scanning for generic patterns and push protection.
 
 ## Setting a security policy
 

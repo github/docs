@@ -26,7 +26,7 @@ category:
 
 Each member of your enterprise uses a license (previously known as a seat). The bill for your {% data variables.product.prodname_enterprise %} plan is based on the number of licenses consumed by your enterprise.
 
-If you have an enterprise account on {% data variables.product.prodname_ghe_cloud %}, the enterprise account is the central point for all billing within your enterprise, including the organizations that your enterprise owns. Enterprise owners and billing managers can access and manage billing for the enterprise. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise).
+If you have an enterprise account on {% data variables.product.prodname_ghe_cloud %}, the enterprise account is the central point for all billing within your enterprise, including the organizations that your enterprise owns. Enterprise owners and billing managers can access and manage billing for the enterprise. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/abilities-of-roles).
 
 > [!TIP]
 > {% ifversion fpt or ghec %}
@@ -35,7 +35,7 @@ If you have an enterprise account on {% data variables.product.prodname_ghe_clou
 > {% data reusables.billing.ghes-with-no-enterprise-account %}
 > {% endif %}
 
-To learn which people consume a license in your enterprise, see [AUTOTITLE](/billing/reference/license-consumption).
+To learn which people consume a license in your enterprise, see [AUTOTITLE](/billing/reference/github-license-users).
 
 ## Invoiced customers
 
@@ -51,11 +51,11 @@ There are two billing models for {% data variables.product.prodname_enterprise %
 
 {% data reusables.enterprise-licensing.unique-user-licensing-model %}
 
-To ensure the same user isn't consuming more than one license for multiple enterprise deployments, you synchronize license usage between your {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} environments. See [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise).
+To ensure the same user isn't consuming more than one license for multiple enterprise deployments, you synchronize license usage between your {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} environments. See [AUTOTITLE](/billing/concepts/enterprise-billing/combined-enterprise-use).
 
 ## Further reading
 
-* [AUTOTITLE](/admin/overview/about-enterprise-accounts)
-* [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)
+* [AUTOTITLE](/admin/concepts/enterprise-fundamentals/enterprise-accounts)
+* [AUTOTITLE](/billing/reference/github-license-users)
 * [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/view-enterprise-usage)
 * [AUTOTITLE](/enterprise-cloud@latest/billing/how-tos/set-up-payment/manage-enterprise-invoice){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}

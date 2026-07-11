@@ -308,6 +308,10 @@ prodname_vscode_command_palette: 'Visual Studio Code Command Palette'
 prodname_vscode_marketplace: 'Visual Studio Code Marketplace'
 prodname_vs_marketplace_shortname: 'VS Code Marketplace'
 
+# JetBrains IDEs
+prodname_jetbrains_ides: 'JetBrains IDEs'
+prodname_jetbrains_ide: 'JetBrains IDE'
+
 # GitHub Dependabot
 prodname_dependabot: 'Dependabot'
 prodname_dependabot_alerts: 'Dependabot alerts'

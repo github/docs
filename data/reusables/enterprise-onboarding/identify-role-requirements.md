@@ -16,10 +16,10 @@ As you think about tasks that would benefit from a specific role, refer to the a
 
 | Role type | More information |
 | --------- | ---------------- |
-| Predefined enterprise roles | [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/abilities-of-roles) |
+| Predefined enterprise roles | [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/abilities-of-roles) |
 | Predefined organization roles | [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization) |
 | Custom enterprise roles | Review the list of available permissions at `{% data variables.product.product_url %}/enterprises/ENTERPRISE/enterprise_roles/new`, where ENTERPRISE is the name of your enterprise account. |
-| Custom organization roles | [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles) |
+| Custom organization roles | [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles) |
 
 ## 2. Identify two owners per account
 

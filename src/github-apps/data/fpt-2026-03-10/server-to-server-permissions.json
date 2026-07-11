@@ -6054,7 +6054,7 @@
         "subcategory": "repos",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/bypass-list",
-        "access": "read",
+        "access": "write",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
@@ -6076,6 +6076,28 @@
         "subcategory": "repos",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/bypass-list",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "interactions",
+        "slug": "get-pull-request-creation-cap-for-a-repository",
+        "subcategory": "repos",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/creation-cap",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "interactions",
+        "slug": "update-pull-request-creation-cap-for-a-repository",
+        "subcategory": "repos",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/creation-cap",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,

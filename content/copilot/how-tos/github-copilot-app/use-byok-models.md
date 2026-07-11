@@ -13,12 +13,14 @@ category:
 ---
 
 > [!NOTE]
-> Support to use your own provider (BYOK) in the {% data variables.copilot.github_copilot_app %} is in {% data variables.release-phases.public_preview %} and subject to change.
+> Support to use your own model provider in the {% data variables.copilot.github_copilot_app %} is in {% data variables.release-phases.public_preview %} and subject to change.
 
-You can configure the {% data variables.copilot.github_copilot_app %} to use your own LLM provider, also called BYOK (Bring Your Own Key), instead of {% data variables.product.github %}-hosted models.
+You can configure the {% data variables.copilot.github_copilot_app %} to use your own LLM provider, also called BYOK (Bring Your Own Key), instead of {% data variables.product.github %}-hosted models. You can set up your model provider when you first open the app or later in app settings.
+
+You must sign in with a {% data variables.product.github %} account to use the app, but you do not need a {% data variables.product.prodname_copilot_short %} plan if you use your own model provider. If you do have a {% data variables.product.prodname_copilot_short %} plan, you can use both your own model provider and {% data variables.product.github %}-hosted models in the same app.
 
 > [!NOTE]
-> This article is for users who want to configure their own LLM provider API key on their local machine. To set up custom models for users in an organization or enterprise, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/use-your-own-api-keys) and [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
+> This article is for users who want to configure their own LLM provider settings on their local machine. To set up custom models for users in an organization or enterprise, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/use-your-own-api-keys) and [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
 
 ## Supported providers
 
@@ -36,9 +38,12 @@ You can configure the {% data variables.copilot.github_copilot_app %} to use you
 ## Prerequisites
 
 * The {% data variables.copilot.github_copilot_app %} is installed. For setup steps, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/getting-started).
-* You have an API key for your model provider.
+* You have any required credentials, such as API key, for your model provider.
+## Set up a model provider
 
-## Add a model provider
+If you are setting up the app for the first time and do not have a {% data variables.product.prodname_copilot_short %} plan, you can choose to set up your own model provider during onboarding.
+
+To add or update a model provider later:
 
 1. Open the {% data variables.copilot.github_copilot_app %}.
 1. Open app settings, then click **Model providers**.
@@ -49,4 +54,4 @@ You can configure the {% data variables.copilot.github_copilot_app %} to use you
 
 After you add a provider, its models appear in the model picker alongside {% data variables.product.github %}-hosted models. You can select the model and use it in a session. For more information, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/agent-sessions).
 
-Keys are stored in the system credential store and are never displayed in the UI.
+Provider credentials are stored in the system credential store and are never displayed in the UI.

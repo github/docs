@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react'
 import { DataTable, Table } from '@primer/react/experimental'
-import { TextInput, ActionMenu, ActionList, Pagination, Button } from '@primer/react'
+import { TextInput, ActionMenu, ActionList, Button } from '@primer/react'
+import { Pagination } from '@primer/react-brand'
 import debounce from 'lodash/debounce'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { sendEvent } from '@/events/components/events'

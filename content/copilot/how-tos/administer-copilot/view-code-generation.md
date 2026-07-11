@@ -37,4 +37,4 @@ For a detailed list of available metrics and definitions, see [AUTOTITLE](/copil
 
 ## Next steps
 
-To learn how to interpret the data in each chart and act on usage trends, see [AUTOTITLE](/copilot/reference/interpret-copilot-metrics).
+To learn how to interpret the data in each chart and act on usage trends, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/interpret-copilot-metrics).

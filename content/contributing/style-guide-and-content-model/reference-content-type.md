@@ -25,13 +25,13 @@ For the reference content template, see [AUTOTITLE](/contributing/writing-for-gi
 * Write a sentence or an entire conceptual section to introduce the reference content.
 * Present the actual reference content clearly and consistently.
 * For subjects with a single element to explain, use a list.
-  * Example: [AUTOTITLE](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization#repository-roles-for-organizations)
+  * Example: [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization#repository-roles-for-organizations)
 * For subjects with multiple elements to explain, use a table.
-  * Example: [AUTOTITLE](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization#permissions-for-each-role)
+  * Example: [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization#permissions-for-each-role)
 * For longer referential content, such as YAML syntax for workflows, use headers consistently.
   * H2 headers for each distinct section.
   * H3 headers for subsections, such as examples.
-  * Example: [AUTOTITLE](/actions/reference/workflow-syntax-for-github-actions)
+  * Example: [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax)
 
 ## Titles for referential content
 
@@ -44,9 +44,9 @@ For the reference content template, see [AUTOTITLE](/contributing/writing-for-gi
 
 * Reference articles
   * [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)
-  * [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
-  * [AUTOTITLE](/free-pro-team@latest/rest/reference/billing) in the REST API documentation
+  * [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/abilities-of-roles)
+  * [AUTOTITLE](/rest/billing/billing) in the REST API documentation
   * [AUTOTITLE](/graphql/reference) in the GraphQL API documentation
 * Reference sections within other articles
   * "Supported languages" in [AUTOTITLE](/free-pro-team@latest/get-started/using-github/github-mobile#supported-languages-for-github-mobile)
-  * "Hardware considerations" in [AUTOTITLE](/enterprise-server@latest/admin/installation/installing-github-enterprise-server-on-aws#hardware-considerations)
+  * "Hardware considerations" in [AUTOTITLE](/enterprise-server@latest/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-aws#hardware-considerations)

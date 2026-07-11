@@ -35,13 +35,13 @@ The {% data variables.product.prodname_codespaces %} Education benefit gives ver
 
 {% data reusables.classroom.free-limited-codespaces-for-verified-teachers-beta-note %}
 
-To become a verified teacher, you need to be approved for an educator or teacher benefit. See [AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher).
+To become a verified teacher, you need to be approved for an educator or teacher benefit. See [AUTOTITLE](/education/about-github-education/github-education-for-teachers/apply-to-github-education-as-a-teacher).
 
 After you have confirmation that you are a verified teacher, visit [{% data variables.product.prodname_global_campus %} for Teachers](https://education.github.com/globalcampus/teacher) to upgrade the organization to GitHub Team. See [GitHub's products](/get-started/learning-about-github/githubs-plans#github-team).
 
 If you are eligible for the {% data variables.product.prodname_codespaces %} Education benefit, when you enable {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_classroom %} for your organization, GitHub automatically adds a Codespace policy to restrict machine types for all codespaces in the organization to 2 core machines. This helps you make the most of the free {% data variables.product.prodname_github_codespaces %} usage. However, you can change or remove these policies in your organization settings. See [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types).
 
-When the {% data variables.product.prodname_codespaces %} Education benefit moves out of {% data variables.release-phases.public_preview %}, if your organization exceeds their free allowance for {% data variables.product.prodname_github_codespaces %} usage, your organization will be billed for additional usage. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
+When the {% data variables.product.prodname_codespaces %} Education benefit moves out of {% data variables.release-phases.public_preview %}, if your organization exceeds their free allowance for {% data variables.product.prodname_github_codespaces %} usage, your organization will be billed for additional usage. See [AUTOTITLE](/billing/concepts/product-billing/github-codespaces).
 
 ## Enabling {% data variables.product.prodname_codespaces %} for your organization
 
@@ -74,7 +74,7 @@ If you use a template repository for an assignment, you can define a dev contain
 
 When a student opens an assignment, the repository's README file includes their teacher's recommendation of the IDE they should use for the work.
 
-Students can launch a new or existing codespace by clicking the **Open in GitHub Codespace** button in the README, or by clicking the **{% octicon "code" aria-hidden="true" aria-label="code" %} Code** button on the main page of the assignment repository, then selecting the **Codespaces** tab. From the **Codespaces** tab you can select an existing codespace or create a new one. See [AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository).
+Students can launch a new or existing codespace by clicking the **Open in GitHub Codespace** button in the README, or by clicking the **{% octicon "code" aria-hidden="true" aria-label="code" %} Code** button on the main page of the assignment repository, then selecting the **Codespaces** tab. From the **Codespaces** tab you can select an existing codespace or create a new one. See [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository).
 
 ![Screenshot of the assignment repository. The "Code" dropdown menu to launch a new codespace is expanded.](/assets/images/help/classroom/student-launch-new-codespace.png)
 
@@ -82,4 +82,4 @@ Teachers can view each student's codespace for an assignment in the assignment o
 
 ![Screenshot of the assignment overview. The Codespaces icon is outlined in dark orange.](/assets/images/help/classroom/teacher-assignment-view-with-codespaces.png)
 
-When you connect to a codespace through a browser, auto-save is enabled automatically. If you want to save changes to the repository, you will need to commit the changes and push them to a remote branch. If you leave your codespace running without interaction for 30 minutes by default, the codespace will timeout and stop running. Your data will be preserved from the last time you made a change. For more information on the lifecycle of a codespace, see [AUTOTITLE](/codespaces/about-codespaces/the-codespace-lifecycle).
+When you connect to a codespace through a browser, auto-save is enabled automatically. If you want to save changes to the repository, you will need to commit the changes and push them to a remote branch. If you leave your codespace running without interaction for 30 minutes by default, the codespace will timeout and stop running. Your data will be preserved from the last time you made a change. For more information on the lifecycle of a codespace, see [AUTOTITLE](/codespaces/about-codespaces/understanding-the-codespace-lifecycle).

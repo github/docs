@@ -26,6 +26,7 @@ journeyTracks:
       - href: '/copilot/tutorials/roll-out-at-scale/govern-at-scale/maintain-codebase-standards'
       - href: '/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs'
       - href: '/copilot/concepts/preparing-for-new-features-and-models'
+      - href: '/copilot/tutorials/roll-out-at-scale/govern-at-scale/pilot-a-feature-or-model'
   - id: 'adopting_agents'
     title: 'Adopting agents'
     description: 'Roll out agentic features within secure guardrails.'

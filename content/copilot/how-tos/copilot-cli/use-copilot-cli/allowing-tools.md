@@ -22,6 +22,14 @@ While read-only operations like searching, reading files, and running read-only 
 
 You can allow or deny permissions for tools either when you start the CLI or during your interactive session. If you haven't granted permission prior to starting a session, {% data variables.copilot.copilot_cli_short %} will prompt you for permission each time it needs to perform a potentially destructive action. You can choose to allow the tool this one time, or for the remainder of the session.
 
+## Persisted permissions
+
+If you answer "yes, always" or otherwise choose the option to allow similar requests for the current location, the approval is saved to `permissions-config.json` in your configuration directory (by default, `~/.copilot/permissions-config.json`).
+
+Command-line options such as `--allow-tool` and `--deny-tool` apply only to the current session and aren't written to `permissions-config.json`. Deny rules still take precedence over saved approvals.
+
+For details about where saved approvals are stored, how locations are matched, and the full `permissions-config.json` schema, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#permissions-configjson).
+
 ## Layers of tool controls
 
 There are two layers of control you can use when specifying tool permissions in command-line options. You can:
@@ -59,7 +67,7 @@ The value for each of these options is a comma-separated list of tool kinds, whi
 
 If you specify a tool with `--allow-tool`, the AI model can choose to use that tool without prompting you for permission. If you specify a tool with `--deny-tool`, the AI model cannot use that tool at all, even if it would be the best choice for completing a task.
 
-Deny rules always take precedence over allow rules, even when `--allow-all` is set.
+Deny rules always take precedence over allow rules, even when `--allow-all` is set or a matching approval has been saved in `permissions-config.json`.
 
 ### Examples
 
@@ -94,9 +102,12 @@ The following command-line options give {% data variables.copilot.copilot_cli_sh
 
 The `/reset-allowed-tools` slash command revokes all permissions you granted during the current interactive session. This applies equally to permissions you gave by responding to prompts, and to the use of the `/allow-all` or `/yolo` slash commands.
 
-Using `/reset-allowed-tools` resets the permissions to the default, or to the state defined by any command-line options you used when you started {% data variables.copilot.copilot_cli_short %}. For example, if you start a {% data variables.copilot.copilot_cli_short %} interactive session with the option `--allow-tool='shell(git:*)'`, and then you allow and deny further permissions during the session by responding to prompts, when you then use the `/reset-allowed-tools` command, the CLI's permissions return to the original `--allow-tool='shell(git:*)'` state, with no other permissions allowed or denied. As you continue to work in the session, you will be prompted again if {% data variables.product.prodname_copilot_short %} needs additional permissions.
+Using `/reset-allowed-tools` resets the permissions to the default, or to the state defined by any command-line options you used when you started {% data variables.copilot.copilot_cli_short %}. It also clears saved tool approvals for the current location from `permissions-config.json`. For example, if you start a {% data variables.copilot.copilot_cli_short %} interactive session with the option `--allow-tool='shell(git:*)'`, and then you allow and deny further permissions during the session by responding to prompts, when you then use the `/reset-allowed-tools` command, the CLI's permissions return to the original `--allow-tool='shell(git:*)'` state, with no other permissions allowed or denied. As you continue to work in the session, you will be prompted again if {% data variables.product.prodname_copilot_short %} needs additional permissions.
+
+To remove saved approvals for a different location, edit or delete the relevant location entry in `permissions-config.json`. For more information, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#permissions-configjson).
 
 ## Further reading
 
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/cli-best-practices#configure-allowed-tools)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#permissions-configjson)

@@ -16,47 +16,56 @@
 # - cloud_agent: Availability for Copilot cloud agent.
 # - chat: Availability for Copilot Chat.
 # - cli: Availability for Copilot CLI.
+# - app: Availability for GitHub Copilot app.
 
 # OpenAI
 - name: GPT-5 mini
   cloud_agent: false
   chat: true
   cli: true
+  app: true
 
 - name: GPT-5.3-Codex
   cloud_agent: true
   chat: true
   cli: true
+  app: true
 
 - name: GPT-5.4
   cloud_agent: true
   chat: true
   cli: true
+  app: true
 
 - name: GPT-5.4 mini
   cloud_agent: false
   chat: true
   cli: true
+  app: true
 
 # Anthropic
 - name: Claude Haiku 4.5
   cloud_agent: false
   chat: true
   cli: true
+  app: true
 
 - name: Claude Sonnet 4.6
   cloud_agent: true
   chat: true
   cli: true
+  app: true
 
 # Microsoft
 - name: MAI-Code-1-Flash
   cloud_agent: true
   chat: true
   cli: true
+  app: true
 
 # Fine-tuned OAI models
 - name: Raptor mini
   cloud_agent: false
   chat: true
   cli: false
+  app: false

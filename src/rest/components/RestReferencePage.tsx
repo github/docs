@@ -16,7 +16,8 @@ export type StructuredContentT = {
 }
 
 export const RestReferencePage = ({ restOperations }: StructuredContentT) => {
-  const { title, intro, renderedPage, permissions, product } = useAutomatedPageContext()
+  const { title, intro, renderedPage, renderedPageHast, permissions, product } =
+    useAutomatedPageContext()
 
   // Scrollable code blocks in our REST API docs and elsewhere aren't accessible
   // via keyboard navigation without setting tabindex="0".  But we don't want to set
@@ -56,7 +57,11 @@ export const RestReferencePage = ({ restOperations }: StructuredContentT) => {
 
         <PermissionsStatement permissions={permissions} product={product} />
 
-        {renderedPage && <MarkdownContent className="pt-3 pb-4">{renderedPage}</MarkdownContent>}
+        {(renderedPage || renderedPageHast) && (
+          <MarkdownContent className="pt-3 pb-4" hast={renderedPageHast ?? undefined}>
+            {renderedPage}
+          </MarkdownContent>
+        )}
         {restOperations.length > 0 && (
           <MarkdownContent className="pt-3 pb-4">
             {restOperations.map((operation) => (

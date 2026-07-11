@@ -15,11 +15,11 @@ category:
 
 ## Browsing your issues and pull requests
 
-Click **My work** in the sidebar to see your issues and pull requests in one place. The view is organized into sections—by default, **All**, **Active**, **Review requests**, and **Done**. You can edit the default sections or add new ones with your own filters. Use the search bar within any section to find items by keyword or qualifiers like `label:bug`.
+Open **[My work](https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fmywork)** in the sidebar to see your issues and pull requests in one place. The view is organized into sections—by default, **All**, **Active**, **Review requests**, and **Done**. You can edit the default sections or add new ones with your own filters. Use the search bar within any section to find items by keyword or qualifiers like `label:bug`.
 
 ## Starting a session from an issue
 
-1. Click **My work** in the sidebar.
+1. Open **[My work](https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fmywork)** in the sidebar.
 1. Browse or filter to find an issue, then click it to view its details.
 1. Click **New session**. The app creates a new session with the issue context already loaded.
 1. Select a session mode from the dropdown below the prompt field—for example, **Plan** to have the agent propose a plan first, or **Interactive** to work collaboratively with the agent.

@@ -28,19 +28,19 @@ If your organization already belongs to an enterprise with a {% data variables.c
 
 ## Set policies
 
-Control which {% data variables.product.prodname_copilot_short %} features are available in your organization. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization).
+Control which {% data variables.product.prodname_copilot_short %} features are available in your organization. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies).
 
 ## Configure networking
 
-If your organization members connect through an HTTP proxy server or firewall, add the required URLs to the allowlist. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/configuring-your-proxy-server-or-firewall-for-copilot).
+If your organization members connect through an HTTP proxy server or firewall, add the required URLs to the allowlist. See [AUTOTITLE](/copilot/reference/copilot-allowlist-reference).
 
-If your environment uses custom SSL certificates, install them on your members' machines. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-network-settings-for-github-copilot#-installing-custom-certificates).
+If your environment uses custom SSL certificates, install them on your members' machines. See [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-network-settings#-installing-custom-certificates).
 
 ## Grant access to members
 
-Enable {% data variables.product.prodname_copilot_short %} for some or all members of your organization. Consider starting with teams most likely to benefit, to discover potential blockers and demonstrate early success. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization).
+Enable {% data variables.product.prodname_copilot_short %} for some or all members of your organization. Consider starting with teams most likely to benefit, to discover potential blockers and demonstrate early success. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-access/grant-access).
 
-> [!TIP] If your organization belongs to an enterprise on {% data variables.enterprise.data_residency_site %}, users need additional setup to authenticate from their development environment. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
+> [!TIP] If your organization belongs to an enterprise on {% data variables.enterprise.data_residency_site %}, users need additional setup to authenticate from their development environment. See [AUTOTITLE](/copilot/how-tos/configure-personal-settings/authenticate-to-ghecom).
 
 ## Next steps
 

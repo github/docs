@@ -136,4 +136,5 @@ main().catch((error) => {
 
 ## Further reading
 
+* [AUTOTITLE](/copilot/concepts/agents/copilot-in-jetbrains)
 * [Official ACP documentation](https://agentclientprotocol.com/protocol/overview)

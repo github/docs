@@ -136,9 +136,9 @@ Automatically detect hardcoded credentials that have been checked into a reposit
 
 {% ifversion secret-scanning-ai-generic-secret-detection %}
 
-### {% data variables.secret-scanning.copilot-secret-scanning %}
+### {% data variables.secret-scanning.ai-detected-secrets-caps %}
 
-{% data variables.secret-scanning.copilot-secret-scanning %}'s generic secret detection is an AI-powered expansion of {% data variables.product.prodname_secret_scanning %} that identifies unstructured secrets (passwords) in your source code and then generates an alert. For more information, see [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).
+{% data variables.secret-scanning.ai-detected-secrets-caps %}'s generic secret detection is an AI-powered expansion of {% data variables.product.prodname_secret_scanning %} that identifies unstructured secrets (passwords) in your source code and then generates an alert. For more information, see [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).
 
 {% endif %}
 

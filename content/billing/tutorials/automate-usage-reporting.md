@@ -178,4 +178,4 @@ In some cases, you may need to calculate product-specific usage metrics from the
 
 To calculate these metrics, you typically filter usage items by `product` and `unitType`, then aggregate fields such as `quantity`, `netAmount`, and `discountAmount`.
 
-For detailed examples and product-specific calculations, see [AUTOTITLE](/billing/reference/previous-billing-platform-endpoints).
+For detailed examples and product-specific calculations, see [AUTOTITLE](/billing/get-started/introduction-to-billing).

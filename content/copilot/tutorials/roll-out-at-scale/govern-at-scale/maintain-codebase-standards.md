@@ -54,7 +54,7 @@ Good DevOps practices ensure that your code is automatically tested before being
 
 However, it is good practice to regularly scan all code for vulnerabilities and secrets, and to prevent developers from introducing vulnerabilities in the first place.
 
-1. As a starting point, apply and enforce a basic **security configuration** on your organizations. This is a collection of enablement settings for security features. We recommend including {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and secrets push protection. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/creating-a-custom-security-configuration#creating-a-secret-protection-and-code-security-configuration).
+1. As a starting point, apply and enforce a basic **security configuration** on your organizations. This is a collection of enablement settings for security features. We recommend including {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and secrets push protection. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/create-custom-configuration#creating-a-secret-protection-and-code-security-configuration).
 1. As you learn more about your needs, create additional custom configurations or apply granular settings at the repository level.
 1. To enforce {% data variables.product.prodname_code_scanning %} on pull requests, go back to your ruleset and enable the **Require {% data variables.product.prodname_code_scanning %} results** rule.
 
@@ -62,15 +62,15 @@ However, it is good practice to regularly scan all code for vulnerabilities and 
 
 To improve the quality of {% data variables.product.prodname_copilot_short %}'s suggestions in the first place, you should create custom instructions. These instructions add context to all prompts that tells {% data variables.product.prodname_copilot_short %} to follow your company's coding standards.
 
-1. To establish a good baseline, create **custom instructions at the organization level**. These can be high-level standards that are likely to apply to any repository. However, note that these instructions only apply on the {% data variables.product.github %} website. See [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-organization-instructions).
-1. For more complete coverage, encourage developers and repository administrators to **write custom instructions for specific repositories**. These apply in more places than organization instructions, and can go into more detail about each project and its requirements. See [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
+1. To establish a good baseline, create **custom instructions at the organization level**. These can be high-level standards that are likely to apply to any repository. However, note that these instructions only apply on the {% data variables.product.github %} website. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-organization-instructions).
+1. For more complete coverage, encourage developers and repository administrators to **write custom instructions for specific repositories**. These apply in more places than organization instructions, and can go into more detail about each project and its requirements. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions).
 
 ## 5. Encourage best practices
 
 With strong guardrails in place, developers should already be enabled to use AI effectively. However, it is important to provide training on AI tools and create a culture where best practices are encouraged, rather than just enforced.
 
 1. Communicate your governance settings and your company's expectations for how developers should use {% data variables.product.prodname_copilot_short %}. For example, if all agent work should be thoroughly reviewed, ensure this process is established and communicated.
-1. Create onboarding resources such as internal documentation or videos. For a starting point, share existing resources like [AUTOTITLE](/copilot/using-github-copilot/best-practices-for-using-github-copilot) and [AUTOTITLE](/copilot/copilot-chat-cookbook).
+1. Create onboarding resources such as internal documentation or videos. For a starting point, share existing resources like [AUTOTITLE](/copilot/get-started/best-practices) and [AUTOTITLE](/copilot/tutorials/copilot-cookbook).
 1. Offer ongoing training and support, such as workshops. In successful rollouts, many companies identify "champions" who can train others on how to use {% data variables.product.prodname_copilot_short %} effectively.
 
 ## 6. Plan for the worst

@@ -24,7 +24,7 @@ category:
 * {% data variables.product.prodname_mobile %}
 * {% data variables.copilot.copilot_cli %}
 
-Different environments may have different features and capabilities, but the core functionality remains consistent across platforms. To explore the functionality available in each environment, see the [AUTOTITLE](/copilot/how-tos/chat) how-to guides and the [AUTOTITLE](/copilot/tutorials).
+Different environments may have different features and capabilities, but the core functionality remains consistent across platforms. To explore the functionality available in each environment, see the [AUTOTITLE](/copilot/how-tos/chat-with-copilot) how-to guides and the [AUTOTITLE](/copilot/tutorials).
 
 ## Limitations
 
@@ -48,7 +48,7 @@ There are various ways you can create custom instructions for {% data variables.
 * **Repository instructions**: You can store instructions files in a repository, so that all prompts asked in the context of the repository automatically include the instructions you've defined.
 * **Organization instructions**: If you are an organization owner, you can create a custom instructions file for an organization, so that all prompts asked in the context of any repository owned by the organization automatically include the instructions you've defined.
 
-For more information, see [AUTOTITLE](/copilot/customizing-copilot/adding-personal-custom-instructions-for-github-copilot), [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot) and [AUTOTITLE](/copilot/customizing-copilot/adding-organization-custom-instructions-for-github-copilot).
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-personal-instructions), [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) and [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-organization-instructions).
 
 ## AI models for {% data variables.copilot.copilot_chat_short %}
 
@@ -62,10 +62,10 @@ For more information, see [AUTOTITLE](/copilot/customizing-copilot/adding-person
 
 MCP is an open standard that defines how applications share context with large language models (LLMs). MCP provides a standardized way to connect AI models to different data sources and tools, enabling them to work together more effectively.
 
-You can configure MCP servers to provide context to {% data variables.copilot.copilot_chat_short %} in various IDEs, such as {% data variables.product.prodname_vscode %} and JetBrains IDEs. For {% data variables.copilot.copilot_chat_dotcom_short %}, the {% data variables.product.github %} MCP server is automatically configured, enabling {% data variables.copilot.copilot_chat_short %} to perform a limited set of tasks, at your request, such as creating branches or merging pull requests. For more information, see [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/extending-copilot-chat-with-mcp) and [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/using-the-github-mcp-server).
+You can configure MCP servers to provide context to {% data variables.copilot.copilot_chat_short %} in various IDEs, such as {% data variables.product.prodname_vscode %} and JetBrains IDEs. For {% data variables.copilot.copilot_chat_dotcom_short %}, the {% data variables.product.github %} MCP server is automatically configured, enabling {% data variables.copilot.copilot_chat_short %} to perform a limited set of tasks, at your request, such as creating branches or merging pull requests. For more information, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp) and [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/use-the-github-mcp-server).
 
 ### Further reading
 
 * [AUTOTITLE](/copilot/how-tos/chat-with-copilot) how-to guides
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli)
-* [AUTOTITLE](/copilot/tutorials/copilot-chat-cookbook)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/overview)
+* [AUTOTITLE](/copilot/tutorials/copilot-cookbook)

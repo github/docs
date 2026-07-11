@@ -13,7 +13,7 @@ category:
 
 > [!NOTE]
 > * {% data variables.product.prodname_github_models %} for organizations and repositories is in {% data variables.release-phases.public_preview %} and subject to change.
-> * Billing for {% data variables.product.prodname_github_models %} is separate from billing for {% data variables.product.prodname_copilot %}. For more information about how models in {% data variables.product.prodname_copilot %} are billed, see [AUTOTITLE](/billing/managing-billing-for-your-products/about-billing-for-github-copilot).
+> * Billing for {% data variables.product.prodname_github_models %} is separate from billing for {% data variables.product.prodname_copilot %}. For more information about how models in {% data variables.product.prodname_copilot %} are billed, see [AUTOTITLE](/billing/concepts/product-billing/github-copilot-licenses).
 
 ## How use of {% data variables.product.prodname_github_models %} is measured
 
@@ -25,7 +25,7 @@ The number of model requests and tokens you have used is reset after each billin
 
 ### Token units
 
-A token unit is calculated by multiplying the number of input and output tokens by their respective model multipliers. All model usage, regardless of the underlying provider or model, is measured in token units. While some providers display prices per 1,000 or per 1,000,000 tokens, {% data variables.product.prodname_github_models %} standardizes billing to the token unit level. This means you are billed using a single SKU and a unified price per token unit, no matter which supported model you use. See [AUTOTITLE](/billing/reference/models-multipliers-and-costs).
+A token unit is calculated by multiplying the number of input and output tokens by their respective model multipliers. All model usage, regardless of the underlying provider or model, is measured in token units. While some providers display prices per 1,000 or per 1,000,000 tokens, {% data variables.product.prodname_github_models %} standardizes billing to the token unit level. This means you are billed using a single SKU and a unified price per token unit, no matter which supported model you use. See [AUTOTITLE](/billing/reference/costs-for-github-models).
 
 ### Example calculation
 
@@ -69,7 +69,7 @@ Free usage includes:
 For full details of rate limits and quotas, see [Rate limits](/github-models/use-github-models/prototyping-with-ai-models#rate-limits).
 
 > [!TIP]
-> If you use custom models from third-party providers with your own API keys, there is no impact on your bill in {% data variables.product.github %}. See [AUTOTITLE](/github-models/github-models-at-scale/set-up-custom-model-integration-models-byok).
+> If you use custom models from third-party providers with your own API keys, there is no impact on your bill in {% data variables.product.github %}. See [AUTOTITLE](/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models).
 
 ## Using more than your included quota
 
@@ -93,13 +93,13 @@ You pay for additional use of {% data variables.product.prodname_github_models %
 
 {% data variables.product.prodname_github_models %} pricing is based on the number of token units used, at a fixed price of $0.00001 USD per token unit.
 
-At the end of your billing cycle, {% data variables.product.github %} calculates the cost of token units used, starting from your first request after opting in to paid usage. See [AUTOTITLE](/billing/managing-billing-for-your-products/viewing-your-product-usage).
+At the end of your billing cycle, {% data variables.product.github %} calculates the cost of token units used, starting from your first request after opting in to paid usage. See [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
 
 {% data variables.product.prodname_github_models %} usage can be paid for by one or more of the following methods:
 
 * For enterprises, organizations, or personal accounts directly billed by {% data variables.product.github %}, the billing of {% data variables.product.prodname_github_models %} is based on your metered usage for each billing period, and pricing varies by the number of model requests, tokens, and the model multiplier.
     * For invoiced accounts, contact {% data variables.contact.contact_enterprise_sales %} to discuss billing for {% data variables.product.prodname_github_models %} usage.
-* Accounts with an existing Azure subscription can use that subscription to pay for model inference by bringing their own API key for custom models. In this case, billing is based on the model provider’s pricing and is managed through the Azure subscription. See [AUTOTITLE](/github-models/github-models-at-scale/set-up-custom-model-integration-models-byok).
+* Accounts with an existing Azure subscription can use that subscription to pay for model inference by bringing their own API key for custom models. In this case, billing is based on the model provider’s pricing and is managed through the Azure subscription. See [AUTOTITLE](/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models).
 
 You are considered to be directly billed by {% data variables.product.github %} if you pay for {% data variables.product.github %} using a credit card, PayPal, or by invoice.
 
@@ -111,7 +111,7 @@ Enterprises and organizations can opt in to paid usage to access expanded model 
 
 Enterprises, organizations and personal accounts may have default budgets to limit spending. Check the budgets for your account to ensure they are appropriate for your usage needs.
 
-For more information, see [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
+For more information, see [AUTOTITLE](/billing/how-tos/set-up-budgets).
 
 ## Further reading
 
