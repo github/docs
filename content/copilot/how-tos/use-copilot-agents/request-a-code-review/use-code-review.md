@@ -120,7 +120,7 @@ You can request an initial review of a highlighted selection of code in {% data 
 You can request a review of your uncommitted changes in {% data variables.product.prodname_vscode %}.
 
 1. In {% data variables.product.prodname_vscode_shortname %}, click the **Source Control** button in the Activity Bar.
-1. At the top of the **Source Control** view, hover over **CHANGES**, then click the {% data reusables.copilot.code-review.staging-icon-vscode %} **{% data variables.product.prodname_copilot_short %} Code Review - Uncommitted Changes** button.
+1. At the top of the Source Control view, hover over **CHANGES**, then use the available {% data variables.product.prodname_copilot_short %} code review control to request a review of your uncommitted changes.
 
    ![Screenshot of the "Source Control" view. The code review button is outlined in dark orange.](/assets/images/help/copilot/code-review/vscode-review-button.png)
 
