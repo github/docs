@@ -8,4 +8,4 @@ Task | Organization owner | Migrator
 Assigning the migrator role for repository migrations | `admin:org` | {% octicon "dash" aria-label="Not applicable" %}
 Running a repository migration (destination organization) | `repo`, `admin:org`, `workflow` | `repo`, `read:org`, `workflow`
 Downloading a migration log | `repo`, `admin:org`, `workflow` | `repo`, `read:org`, `workflow`
-Reclaiming mannequins | `admin:org` | {% octicon "dash" aria-label="Not applicable" %}
+Reclaiming mannequins | `repo`, `admin:org`, `workflow` | {% octicon "dash" aria-label="Not applicable" %}
