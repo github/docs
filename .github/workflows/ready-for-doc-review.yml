@@ -20,11 +20,22 @@ jobs:
       (github.event.label.name == 'ready-for-doc-review' || github.event.requested_team.name == 'docs-content' || github.event.requested_team.name == 'docs-reviewers')
     runs-on: ubuntu-latest
     steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
+          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
+          owner: github
+          # Scope must include every repo that calls this reusable workflow, because
+          # the script resolves the PR node (ITEM_NODE_ID) in the calling repo.
+          repositories: docs-internal,docs-content,docs-strategy,docs-early-access,github
+
       - name: Check out repo content
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           repository: github/docs-internal
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          token: ${{ steps.app-token.outputs.token }}
 
       - name: Setup Node.js
         uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
@@ -51,7 +62,7 @@ jobs:
         run: |
           npm run ready-for-docs-review
         env:
-          TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          TOKEN: ${{ steps.app-token.outputs.token }}
           PROJECT_NUMBER: 2936
           ORGANIZATION: 'github'
           ITEM_NODE_ID: ${{ github.event.pull_request.node_id }}

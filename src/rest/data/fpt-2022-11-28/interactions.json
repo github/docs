@@ -958,6 +958,225 @@
           }
         ]
       }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/creation-cap",
+      "title": "Get pull request creation cap for a repository",
+      "category": "interactions",
+      "subcategory": "repos",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets the pull request creation cap configuration for a repository.\nThe cap limits the number of open pull requests a user can have at one time.</p>\n<p>Only users with admin access to the repository can view the cap configuration.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response when cap is enabled</p>",
+            "example": {
+              "enabled": true,
+              "max_open_pull_requests": 1
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean",
+                  "description": "Whether the pull request creation cap is enabled"
+                },
+                "max_open_pull_requests": {
+                  "type": "integer",
+                  "description": "The maximum number of open pull requests a user can have at one time",
+                  "minimum": 1,
+                  "maximum": 1000
+                }
+              },
+              "required": [
+                "enabled",
+                "max_open_pull_requests"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "405",
+          "description": "<p>Method Not Allowed</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" repository permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/creation-cap",
+      "title": "Update pull request creation cap for a repository",
+      "category": "interactions",
+      "subcategory": "repos",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "boolean",
+          "name": "enabled",
+          "description": "<p>Whether the pull request creation cap is enabled</p>",
+          "isRequired": true
+        },
+        {
+          "type": "integer",
+          "name": "max_open_pull_requests",
+          "description": "<p>The maximum number of open pull requests a user can have at one time</p>"
+        }
+      ],
+      "descriptionHTML": "<p>Updates the pull request creation cap for a repository. The cap limits the number\nof open pull requests a user can have at one time.</p>\n<p>Only users with admin access to the repository can configure the cap.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example request body",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "enabled": true,
+              "max_open_pull_requests": 1
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "enabled": true,
+              "max_open_pull_requests": 1
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean",
+                  "description": "Whether the pull request creation cap is enabled"
+                },
+                "max_open_pull_requests": {
+                  "type": "integer",
+                  "description": "The maximum number of open pull requests a user can have at one time",
+                  "minimum": 1,
+                  "maximum": 1000
+                }
+              },
+              "required": [
+                "enabled",
+                "max_open_pull_requests"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "405",
+          "description": "<p>Method Not Allowed</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" repository permissions": "write"
+          }
+        ]
+      }
     }
   ],
   "user": [

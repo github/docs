@@ -60,9 +60,18 @@ jobs:
 
       - uses: ./.github/actions/node-npm-setup
 
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
+          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
+          owner: github
+          repositories: releases
+
       - name: Post notification comments
         env:
-          DOCS_BOT_PAT_BASE: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          DOCS_BOT_PAT_BASE: ${{ steps.app-token.outputs.token }}
           INPUT_RELEASE: ${{ inputs.release }}
           INPUT_PR: ${{ inputs.pr }}
           INPUT_RELEASE_TYPE: ${{ inputs.release_type }}
