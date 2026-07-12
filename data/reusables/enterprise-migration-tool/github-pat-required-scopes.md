@@ -9,3 +9,4 @@ Assigning the migrator role for repository migrations | `admin:org` | {% octicon
 Running a repository migration (destination organization) | `repo`, `admin:org`, `workflow` | `repo`, `read:org`, `workflow`
 Downloading a migration log | `repo`, `admin:org`, `workflow` | `repo`, `read:org`, `workflow`
 Reclaiming mannequins | `admin:org` | {% octicon "dash" aria-label="Not applicable" %}
+Generating mannequin CSV | `repo`, `admin:org`, `workflow` | `repo`, `read:org`, `workflow`
