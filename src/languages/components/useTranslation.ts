@@ -1,4 +1,3 @@
-import type { UIStrings } from '@/frame/components/context/MainContext'
 import { useMainContext } from '@/frame/components/context/MainContext'
 import { createTranslationFunctions } from '@/languages/lib/translation-utils'
 
@@ -36,11 +35,4 @@ export const useTranslation = (namespaces: string | Array<string>) => {
   const loadedData = data.ui
 
   return createTranslationFunctions(loadedData, namespaces)
-}
-
-/**
- * Hook for App Router contexts that don't use MainContext
- */
-export const useAppTranslation = (uiData: UIStrings, namespaces: string | Array<string>) => {
-  return createTranslationFunctions(uiData, namespaces)
 }

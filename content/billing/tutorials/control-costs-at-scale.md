@@ -106,7 +106,7 @@ Create one budget for each product, SKU, or group of SKUs that you want to contr
 
 ### Review existing budgets for conflicts
 
-After creating your cost center budgets, check existing enterprise-wide budgets to ensure they don't conflict with or override your new cost center budgets.
+After creating your cost center budgets, check existing enterprise-wide budgets to ensure they don't conflict with or override your new cost center budgets. When budgets overlap, the most restrictive one applies, so a low budget at a higher scope can block a cost center before its own budget is reached.
 
 Navigate to the "Budgets and alerts" page. You'll see two lists of budgets:
 
@@ -120,6 +120,14 @@ Review whether any enterprise budgets apply to the same products or SKUs as your
 #### View your cost center budgets
 
 Filter the other budgets list to show a scope of **Cost Centers**. You should see your new cost center with a row for each budget you created. Initially, usage will be near zero, but within a few days you'll see costs accumulating as users and repositories consume products beyond the allowance in their plan.
+
+### Troubleshooting budget conflicts
+
+Keep these limits in mind as you combine budgets across scopes:
+
+* **Budgets overlap, and the most restrictive one applies.** A user can be covered by an individual, cost center, organization, and enterprise budget at the same time. Whichever has the least headroom remaining blocks them first. If someone is blocked unexpectedly, review every scope that applies to them. For the full evaluation order, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
+* **You can't set different budgets for teams in the same cost center.** A budget applies to the whole cost center, not to teams within it. If two teams need separate budgets, create a separate cost center for each. Separate cost centers can still share the same Azure billing identity.
+* **Budgets don't add up across levels.** An enterprise budget isn't the sum of your cost center budgets, and raising one doesn't raise another. When you change a budget at one level, reconcile the totals at the others yourself.
 
 ## 4. Create a cost center with the REST API
 
@@ -305,7 +313,7 @@ The **REST API** is valuable when you:
 
 ### Options for automation
 
-If you decide that automation would benefit your organization, the REST API examples in this tutorial provide the foundation for building custom scripts. For details of other endpoints, see [AUTOTITLE](/rest/enterprise-admin/billing?apiVersion=2022-11-28).
+If you decide that automation would benefit your organization, the REST API examples in this tutorial provide the foundation for building custom scripts. For details of other endpoints, see [AUTOTITLE](/rest/billing/billing?apiVersion=2022-11-28).
 
 If you want to automate cost centers based on team membership or create a two-tier model for controlling costs of {% data variables.product.prodname_ai_credits_short %}, [{% data variables.product.github %} Cost Center Automation](https://github.com/github/cost-center-automation?ref_product=copilot&ref_type=engagement&ref_style=text) provides a complete implementation using actions workflows that you can adapt for your needs.
 
@@ -313,7 +321,7 @@ If you want to automate cost centers based on team membership or create a two-ti
 
 To find out about the endpoints you can use to automate reporting of usage and costs, see [AUTOTITLE](/billing/tutorials/automate-usage-reporting).
 
-If there are any paid products that you want to block all access to, you can disable the feature using an enterprise policy. See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/about-enterprise-policies).
+If there are any paid products that you want to block all access to, you can disable the feature using an enterprise policy. See [AUTOTITLE](/admin/concepts/security-and-compliance/enterprise-policies).
 
 To go deeper on the controls in this tutorial:
 

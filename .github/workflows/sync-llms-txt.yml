@@ -35,7 +35,7 @@ jobs:
       BRANCH: sync-llms-txt
     steps:
       - name: Checkout docs-internal
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
       - name: Generate GitHub App token
@@ -105,8 +105,17 @@ jobs:
           git config user.name "docs-bot"
           git config user.email "77750099+docs-bot@users.noreply.github.com"
           git add data/llms-txt/docs.md
-          git commit -m "Update data/llms-txt/docs.md from popularity data"
-          git push "https://x-access-token:${GH_TOKEN}@github.com/github/docs-internal.git" "$BRANCH"
+          # diff_docs compares against main, but the sync branch may already
+          # exist with this exact content (open PR from a prior run). In that
+          # case there is nothing new to stage, and `git commit` would exit 1
+          # and fail the whole workflow. Skip the commit and push when the
+          # branch is already up to date.
+          if git diff --cached --quiet; then
+            echo "Sync branch already has the latest generated docs.md; nothing to commit."
+          else
+            git commit -m "Update data/llms-txt/docs.md from popularity data"
+            git push "https://x-access-token:${GH_TOKEN}@github.com/github/docs-internal.git" "$BRANCH"
+          fi
 
       - name: Create or update docs-internal PR
         if: steps.diff_docs.outputs.changed == 'true'

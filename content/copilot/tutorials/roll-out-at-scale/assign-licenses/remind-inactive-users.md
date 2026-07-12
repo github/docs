@@ -42,9 +42,9 @@ In the next section, we'll use this message in an automation that creates an iss
 
 > We noticed you haven't used your assigned license for {% data variables.product.prodname_copilot %} in 30 days. Here are some resources that might help you get started:
 >
-> * If you haven't yet set up {% data variables.product.prodname_copilot_short %} in your environment, see [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself) or [AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-common-issues-with-github-copilot).
-> * For best practices and advice on getting started, see [AUTOTITLE](/copilot/using-github-copilot/best-practices-for-using-github-copilot) or [AUTOTITLE](/copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat).
-> * For examples related to specific tasks, see [AUTOTITLE](/copilot/example-prompts-for-github-copilot-chat).
+> * If you haven't yet set up {% data variables.product.prodname_copilot_short %} in your environment, see [AUTOTITLE](/copilot/how-tos/set-up/set-up-for-self) or [AUTOTITLE](/copilot/how-tos/troubleshoot-copilot/troubleshoot-common-issues).
+> * For best practices and advice on getting started, see [AUTOTITLE](/copilot/get-started/best-practices) or [AUTOTITLE](/copilot/concepts/prompting/prompt-engineering).
+> * For examples related to specific tasks, see [AUTOTITLE](/copilot/tutorials/copilot-cookbook).
 >
 > If you no longer need access to {% data variables.product.prodname_copilot_short %}, please let us know in this issue. If your license remains inactive for a further 30 days, we'll revoke it to free up access for another user.
 
@@ -75,7 +75,7 @@ To use this workflow:
    To create a label, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label).
 1. Save your reminder message, such as the one provided in [Example reminder in Markdown](#example-reminder-in-markdown), as an {% data variables.product.prodname_actions %} variable in your repository or organization. Call the variable `COPILOT_REMINDER_MESSAGE`.
 
-   To create a variable, see [AUTOTITLE](/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables#creating-configuration-variables-for-a-repository).
+   To create a variable, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables#creating-configuration-variables-for-a-repository).
 1. Create a {% data variables.product.pat_generic %} with permission to call the [List all Copilot seat assignments for an organization](/rest/copilot/copilot-user-management#list-all-copilot-seat-assignments-for-an-organization) API endpoint. For example, create a fine-grained token with the following details:
    * **Resource owner**: The organization where you're looking for inactive users.
    * **Organization permissions**: {% data variables.copilot.copilot_for_business %} (read-only).
@@ -83,10 +83,10 @@ To use this workflow:
    To create a token, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token).
 1. Save the access token as a {% data variables.product.prodname_actions %} secret in your repository or organization. Call the secret `COPILOT_LICENSE_READ`.
 
-   To create a secret, see [AUTOTITLE](/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository).
+   To create a secret, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets#creating-secrets-for-a-repository).
 1. Using the example below, create the workflow in the repository where you want the reminder issues to be created.
 
-   If you're new to {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/writing-workflows/quickstart).
+   If you're new to {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/get-started/quickstart).
 1. If you want to create the issues in a repository other than the one in which the workflow is located, replace `{% raw %}${{ github.repository }}{% endraw %}` in the `gh` commands with the name of the repository where you want the reminder issues to be created. For example: `octo-org/octo-repo`.
 
 ### Example workflow
@@ -164,5 +164,5 @@ jobs:
 ## Further reading
 
 * [AUTOTITLE](/copilot/reference/metrics-data#last_activity_at)
-* [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/driving-copilot-adoption-in-your-company)
-* [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/analyzing-usage-over-time-with-the-copilot-metrics-api)
+* [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/enable-developers/drive-adoption)
+* [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/assign-licenses/track-usage-and-adoption)

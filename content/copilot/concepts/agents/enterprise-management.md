@@ -44,7 +44,9 @@ An agent session encompasses an entire interaction with {% data variables.copilo
 
 Enterprise administrators can use AI Controls to view active and recent agent sessions, track audit log events, and search agentic activity in your enterprise using filters. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/monitor-agentic-activity) and [AUTOTITLE](/copilot/reference/agent-session-filters).
 
-For billing information on agent sessions, see [AUTOTITLE](/billing/concepts/product-billing/github-copilot-premium-requests#usage-by-copilot-cloud-agent).
+For long-term retention and analysis, you can stream enterprise audit log data to supported destinations. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise) and [AUTOTITLE](/copilot/reference/agentic-audit-log-events).
+
+For billing information on agent sessions, see [AUTOTITLE](/copilot/reference/copilot-billing/request-based-billing-legacy/github-copilot-premium-requests#usage-by-copilot-cloud-agent).
 
 ## Third-party agents
 

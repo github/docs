@@ -21,7 +21,7 @@ contentType: concepts
 
 ## How use of {% data variables.product.prodname_actions %} is measured
 
-{% data variables.product.prodname_actions %} usage is **free** for **self-hosted runners** and for **public repositories** that use standard {% data variables.product.github %}-hosted runners. See [AUTOTITLE](/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job#standard-github-hosted-runners-for-public-repositories).
+{% data variables.product.prodname_actions %} usage is **free** for **self-hosted runners** and for **public repositories** that use standard {% data variables.product.github %}-hosted runners. See [AUTOTITLE](/actions/how-tos/write-workflows/choose-where-workflows-run/choose-the-runner-for-a-job#standard-github-hosted-runners-for-public-repositories).
 
 For **private repositories**, each {% data variables.product.github %} account receives a quota of free minutes, artifact storage, and cache storage for use with {% data variables.product.github %}-hosted runners, depending on the account's plan. Any usage beyond the included amounts is billed to your account.
 
@@ -145,7 +145,7 @@ You pay for any additional use above your quota using the payment method set up 
 For {% data variables.product.github %}-hosted runners, storage is billed based on hourly usage of artifacts and caches throughout the month. Minutes are calculated based on the total processing time used by each runner type during the month.
 
 * To estimate costs for paid usage, use the {% data variables.product.github %} [pricing calculator](https://github.com/pricing/calculator?feature=actions).
-* To view your current costs, see [AUTOTITLE](/billing/managing-billing-for-your-products/viewing-your-product-usage).
+* To view your current costs, see [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
 
 > [!NOTE]
 > The billing dashboard may show your Actions usage as a dollar amount ("spend") rather than raw minutes. This amount already reflects any applicable minute costs.

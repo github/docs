@@ -64,7 +64,7 @@ When re-reviewing, {% data variables.product.prodname_copilot_short %} may repea
 
 ## Enable automatic reviews
 
-By default, you request reviews from {% data variables.product.prodname_copilot_short %} manually on each pull request. To enable automatic reviews for all pull requests, see [AUTOTITLE](/copilot/how-tos/agents/copilot-code-review/automatic-code-review).
+By default, you request reviews from {% data variables.product.prodname_copilot_short %} manually on each pull request. To enable automatic reviews for all pull requests, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review).
 
 ## Customize reviews with custom instructions
 
@@ -87,5 +87,5 @@ To make these available for {% data variables.copilot.copilot_code-review_short 
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/code-review)
+* [AUTOTITLE](/copilot/concepts/agents/code-review)
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/review-copilot-output)

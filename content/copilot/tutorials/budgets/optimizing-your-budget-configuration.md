@@ -22,6 +22,8 @@ Before optimizing your budget configuration, make sure you understand how budget
 
 If you haven't set up budgets yet, start with [AUTOTITLE](/copilot/tutorials/budgets/getting-started-with-budget-controls) to get the basics in place, then come back to this guide to optimize your configuration.
 
+To decide between a simple setup and cost-center-based controls before you fine-tune, see the basic and advanced approaches in [AUTOTITLE](/billing/tutorials/control-costs-at-scale#choose-your-approach-basic-or-advanced-spend-controls).
+
 ## Sizing your budgets
 
 The relationship between user-level budgets (ULB) and other budgets is the most common source of unexpected blocking. If user-level budgets collectively allow more consumption than the shared pool provides, the difference becomes metered charges, and your budgets need to be high enough to cover that gap.
@@ -33,6 +35,8 @@ Here's how to estimate:
 1. Subtract the pool value from the maximum total consumption. The result is the maximum metered charges your budgets need to cover.
 
 If you also use cost center budgets, the sum of your cost center budgets and your enterprise budget should cover the gap. The enterprise budget applies to users not assigned to a cost center.
+
+If you want each cost center to stay within the {% data variables.product.prodname_ai_credits_short %} its own licenses fund, apply an included usage control to that cost center. This automatically caps the team's draw from the shared pool, so heavy use by one team doesn't consume another team's share before metered budgets apply. See [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing#included-usage-controls-for-cost-centers).
 
 > [!TIP]
 > Whenever you raise user-level budgets, re-check this calculation. Raising ULBs without raising the enterprise budget can cause the enterprise budget to block users before they reach their individual budgets.
@@ -81,6 +85,7 @@ This is the simplest configuration and a good starting point for most enterprise
 **Configuration:**
 
 * Create **cost centers** scoped to each organization. See [AUTOTITLE](/billing/how-tos/products/use-cost-centers).
+* Apply an **included usage control** to each cost center so a business unit can't draw more of the shared pool than the included {% data variables.product.prodname_ai_credits_short %} its own licenses fund, choosing whether to block or allow paid overage at the cap.
 * Set a **cost center budget** for each business unit.
 * Set an **enterprise budget** as a failsafe for any users not assigned to a cost center.
 * Enable **"Stop usage when budget limit is reached"** on all budgets.

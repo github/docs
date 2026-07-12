@@ -7,6 +7,7 @@ import { Link } from '@/frame/components/Link'
 import { CurrentVersion, ReleaseNotePatch, GHESMessage } from './types'
 
 import styles from './PatchNotes.module.scss'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type Props = {
   patch: ReleaseNotePatch
@@ -57,36 +58,28 @@ export function GHESReleaseNotePatch({
 
         {patch.version !== latestPatch && currentVersion.currentRelease === latestRelease && (
           <p className="color-fg-muted mt-1">
-            <span
-              dangerouslySetInnerHTML={{ __html: message.ghes_release_notes_upgrade_patch_only }}
-            />{' '}
+            <RenderedHTML as="span" html={message.ghes_release_notes_upgrade_patch_only} />{' '}
             {t('notices.release_notes_use_latest')}
           </p>
         )}
 
         {patch.version === latestPatch && currentVersion.currentRelease !== latestRelease && (
           <p className="color-fg-muted mt-1">
-            <span
-              dangerouslySetInnerHTML={{ __html: message.ghes_release_notes_upgrade_release_only }}
-            />{' '}
+            <RenderedHTML as="span" html={message.ghes_release_notes_upgrade_release_only} />{' '}
             {t('notices.release_notes_use_latest')}
           </p>
         )}
 
         {patch.version !== latestPatch && currentVersion.currentRelease !== latestRelease && (
           <p className="color-fg-muted mt-1">
-            <span
-              dangerouslySetInnerHTML={{
-                __html: message.ghes_release_notes_upgrade_patch_and_release,
-              }}
-            />{' '}
+            <RenderedHTML as="span" html={message.ghes_release_notes_upgrade_patch_and_release} />{' '}
             {t('notices.release_notes_use_latest')}
           </p>
         )}
       </header>
 
       <div className="container-md px-3">
-        <div className="mt-3" dangerouslySetInnerHTML={{ __html: patch.intro }} />
+        <RenderedHTML as="div" className="mt-3" html={patch.intro} />
 
         <PatchNotes patch={patch} />
       </div>

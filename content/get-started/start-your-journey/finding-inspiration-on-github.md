@@ -70,5 +70,5 @@ Following people and organizations is another good way to stay updated on projec
 
 ## Further reading
 
-* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/about-your-personal-dashboard){% ifversion fpt or ghec %}
+* [AUTOTITLE](/account-and-profile/get-started/personal-dashboard-quickstart){% ifversion fpt or ghec %}
 * [AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github){% endif %}

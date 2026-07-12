@@ -14,7 +14,7 @@ import fs from 'fs'
 import os from 'os'
 import path from 'path'
 import ora from 'ora'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 
 import {
   type NoteEntry,
@@ -72,7 +72,7 @@ function loadFeatureHeadings(): string[] {
   if (_featureHeadingsCache) return _featureHeadingsCache
   const templatePath = path.join(process.cwd(), 'data/release-notes/PLACEHOLDER-TEMPLATE.yml')
   const templateContent = fs.readFileSync(templatePath, 'utf8')
-  const template = yaml.load(templateContent) as {
+  const template = load(templateContent) as {
     sections?: { features?: Array<{ heading: string }> }
   }
   const features = template?.sections?.features
@@ -419,7 +419,7 @@ async function runAgentWithRetry(ctx: AgentContext, maxRetries = 2): Promise<Age
         // The issue already matched GHES labels, so we always want a release note.
         const skipReason =
           extractSkipReason(yamlStr) ||
-          (Array.isArray(yaml.load(yamlStr)) && (yaml.load(yamlStr) as unknown[]).length === 0
+          (Array.isArray(load(yamlStr)) && (load(yamlStr) as unknown[]).length === 0
             ? extractSkipReason(output)
             : null)
         if (skipReason) {

@@ -24,7 +24,7 @@ describe('breadcrumbs', () => {
 
   test('short titles are preferred', async () => {
     const $ = await getDOM('/get-started/foo/bar')
-    const links = $('[data-testid=breadcrumbs-in-article] a:last-child')
+    const links = $('[data-testid=breadcrumbs-in-article] li:last-child a')
     expect(links.text()).toBe('Bar')
   })
 

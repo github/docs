@@ -68,15 +68,15 @@ export const SimpleFooter = () => {
     <footer className="py-6">
       <div className="container-xl px-3 px-md-6">
         <ul role="list" className="d-flex flex-wrap list-style-none">
-          <li className="d-flex mr-xl-3 color-fg-muted">
+          <li role="listitem" className="d-flex mr-xl-3 color-fg-muted">
             <span>&copy; {new Date().getFullYear()} GitHub, Inc.</span>
           </li>
-          <li className="ml-3">
+          <li role="listitem" className="ml-3">
             <a className="text-underline" href="/site-policy/github-terms/github-terms-of-service">
               Terms
             </a>
           </li>
-          <li className="ml-3">
+          <li role="listitem" className="ml-3">
             <a
               className="text-underline"
               href="/site-policy/privacy-policies/github-privacy-statement"
@@ -84,22 +84,22 @@ export const SimpleFooter = () => {
               Privacy{' '}
             </a>
           </li>
-          <li className="ml-3">
+          <li role="listitem" className="ml-3">
             <a className="text-underline" href="https://www.githubstatus.com/">
               Status
             </a>
           </li>
-          <li className="ml-3">
+          <li role="listitem" className="ml-3">
             <a className="text-underline" href="https://github.com/pricing">
               Pricing
             </a>
           </li>
-          <li className="ml-3">
+          <li role="listitem" className="ml-3">
             <a className="text-underline" href="https://services.github.com/">
               Expert services
             </a>
           </li>
-          <li className="ml-3">
+          <li role="listitem" className="ml-3">
             <a className="text-underline" href="https://github.blog/">
               Blog
             </a>

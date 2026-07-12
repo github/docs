@@ -42,7 +42,7 @@ To view consumption of actions by the `{% data variables.code-quality.workflow_n
 When {% data variables.product.prodname_code_quality_short %} is generally available, use of the product will incur three types of costs for an organization:
 * **{% data variables.product.prodname_actions %} minutes** — {% data variables.product.prodname_code_quality_short %} scans run as {% data variables.product.prodname_actions %} workflows and consume {% data variables.product.prodname_actions %} minutes, unless you use self-hosted runners. For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-actions).
 * **{% data variables.product.prodname_ai_credits %}** — {% data variables.product.prodname_code_quality_short %} features that use AI models consume {% data variables.product.prodname_ai_credits_short %}. Each interaction is priced based on the number of tokens consumed, where 1 {% data variables.product.prodname_ai_credit_singular %} = {% data variables.product.prodname_ai_credits_value %}. {% data reusables.code-quality.model-usage %} For more information about how {% data variables.product.prodname_ai_credits_short %} work, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
-* **Active committers** — Your license usage is calculated based on the number of unique, active committers to repositories with {% data variables.product.prodname_code_quality_short %} enabled. {% data variables.product.prodname_github_app %} bots are ignored. For information about differences between bot and machine accounts, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps#machine-vs-bot-accounts).
+* **Active committers** — Your license usage is calculated based on the number of unique, active committers to repositories with {% data variables.product.prodname_code_quality_short %} enabled. {% data variables.product.prodname_github_app %} bots are ignored. For information about differences between bot and machine accounts, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps#machine-vs-bot-accounts).
 
 #### Active and unique committers
 
@@ -55,6 +55,6 @@ Users can contribute to multiple repositories or organizations. Usage is measure
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/code-quality/get-started/quickstart)
+* [AUTOTITLE](/code-security/tutorials/improve-code-quality/quickstart)
 * [AUTOTITLE](/billing/concepts/product-billing/github-actions)
 * [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises)

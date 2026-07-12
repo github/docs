@@ -23,7 +23,7 @@ category:
 
 ## Defining a custom pattern with {% data variables.product.prodname_copilot_short %}
 
-You can use {% data variables.secret-scanning.copilot-secret-scanning %} to generate regular expressions based on a text description of the type of pattern you would like to detect, including optional example strings that should be detected. See [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/generating-regular-expressions-for-custom-patterns-with-copilot-secret-scanning).
+You can use AI to generate regular expressions based on a text description of the type of pattern you would like to detect, including optional example strings that should be detected. See [AUTOTITLE](/code-security/how-tos/secure-your-secrets/customize-leak-detection/generating-regular-expressions-for-custom-patterns-with-ai).
 
 {% endif %}
 

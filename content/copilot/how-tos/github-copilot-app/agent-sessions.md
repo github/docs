@@ -19,8 +19,8 @@ Each session in the {% data variables.copilot.github_copilot_app %} runs in its 
 
 1. In the sidebar next to **Sessions**, click **+** to start a new session.
 1. Choose a repository—you can use a local folder, choose from {% data variables.product.github %}, or clone from a URL.
-1. From the dropdown under the prompt box, choose where the session should run: in a new working tree, in your local repository, or in a cloud sandbox. Cloud sandboxes for {% data variables.product.prodname_copilot_short %} (public preview) are fully isolated environments hosted by {% data variables.product.github %}. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
-1. Select a session mode, model, and reasoning effort from the dropdowns below the prompt field.
+1. From the dropdown under the prompt box, choose where the session should run: in a new working tree, in your local repository, or in a cloud sandbox. Cloud sandboxes for {% data variables.product.prodname_copilot_short %} (public preview) are fully isolated environments hosted by {% data variables.product.github %}.
+1. Select a session mode, model, and reasoning effort from the dropdowns below the prompt field. If you choose **Auto** for the model, the app selects the optimal model for your task based on task complexity.
 1. Describe the task in the prompt field. You can reference issues with `#`, add files with `@`, or use `/` for commands.
 
 The agent starts working. Your active sessions appear in the sidebar grouped by repository—click any session to switch to it.
@@ -35,9 +35,11 @@ The session mode controls how much autonomy the agent has. You can set the mode 
 
 ## Choosing a model
 
-You can select a model and reasoning effort from the dropdowns above the prompt field. Higher reasoning effort gives the agent more time to think through complex problems but may take longer. You can change both settings at any time during a session.
+You can select a model and reasoning effort from the dropdowns below the prompt field. Higher reasoning effort gives the agent more time to think through complex problems but may take longer. You can change both settings at any time during a session.
 
-If you configured your own model provider in the app using bring your own key (BYOK), those models also appear in the picker. For setup steps, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/use-byok-models).
+If you choose **Auto** in the model picker, the app automatically selects the optimal model for your task based on task complexity. After the session starts, the picker next to **Auto** shows which model handled each response. For more information, see [AUTOTITLE](/copilot/concepts/auto-model-selection).
+
+If you configured your own model provider in the app, those models also appear in the picker. For setup steps, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/use-byok-models).
 
 Hover over the {% octicon "info" aria-label="the info icon" %} icon in the model picker to see model details.
 

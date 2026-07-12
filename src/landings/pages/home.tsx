@@ -1,4 +1,3 @@
-import React from 'react'
 import type { GetServerSideProps } from 'next'
 import type { Response } from 'express'
 

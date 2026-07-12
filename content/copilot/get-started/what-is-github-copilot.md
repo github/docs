@@ -52,7 +52,7 @@ Use {% data variables.product.prodname_copilot_short %} in the following places:
 * The command line, through the {% data variables.product.prodname_cli %}
 * The {% data variables.product.github %} website
 
-See [AUTOTITLE](/copilot/about-github-copilot/github-copilot-features).
+See [AUTOTITLE](/copilot/get-started/features).
 
 ## Get access
 
@@ -65,7 +65,7 @@ You can start using {% data variables.product.prodname_copilot_short %} in sever
 * **Get free access if you're eligible.** Students, teachers, and open source maintainers may qualify for access to premium features at no cost. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students) and [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-teachers-and-os-maintainers).
 * **Request access from your organization.** If your organization or enterprise has a {% data variables.product.prodname_copilot %} plan, you can request access by going to [https://github.com/settings/copilot](https://github.com/settings/copilot) and request access under "Get {% data variables.product.prodname_copilot_short %} from an organization."
 
-See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/getting-started-with-a-copilot-plan) for more information.
+See [AUTOTITLE](/copilot/how-tos/manage-your-account/get-started-with-a-copilot-plan) for more information.
 
 ### Organizations and enterprises
 
@@ -80,8 +80,8 @@ If your organization is owned by an enterprise that has a {% data variables.prod
 
 ## Next steps
 
-* Learn more about {% data variables.product.prodname_copilot_short %} features. See [AUTOTITLE](/copilot/about-github-copilot/github-copilot-features).
-* Start using {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/setting-up-github-copilot).
+* Learn more about {% data variables.product.prodname_copilot_short %} features. See [AUTOTITLE](/copilot/get-started/features).
+* Start using {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/how-tos/set-up).
 
 ## Further reading
 

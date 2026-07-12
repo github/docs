@@ -195,9 +195,11 @@ You can control the maximum number of jobs allowed to run concurrently for speci
 > * To use static IP addresses, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 > * macOS {% data variables.actions.hosted_runner %}s do not support static IP addresses.
 
-You can enable static IP addresses for {% data variables.actions.hosted_runner %}s. When you do this, the {% data variables.actions.hosted_runner %}s are assigned static IP address ranges. All IP addresses in the range assigned are usable. By default, you can configure up to 10 different {% data variables.actions.hosted_runner %}s with IP ranges for your account. {% data reusables.actions.larger-runner-static-ip-contact-support %}
+You can enable static IP addresses for {% data variables.actions.hosted_runner %}s. When you do this, the {% data variables.actions.hosted_runner %}s are assigned static IP address ranges. All IP addresses in the range assigned are usable. By default, you can configure up to 10 {% data variables.actions.hosted_runner %} pools with static IP address ranges for your account. {% data reusables.actions.larger-runner-static-ip-contact-support %}
 
-The number of available IP addresses in the assigned ranges does not restrict number of concurrent jobs specified for autoscaling. Within a runner pool, there is a load balancer which allows for high reuse of the IP addresses in the assigned ranges. This ensures your workflows can run concurrently at scale while each machine is assigned a static IP address.
+Each {% data variables.actions.hosted_runner %} you create is not a single machine. It is a pool of runners that automatically scales out to handle concurrent jobs, up to the maximum concurrency you set when creating the runner. All jobs in the pool share the same static IP address range. This means a single {% data variables.actions.hosted_runner %} with one static IP range can handle many jobs running at the same time without requiring additional runners.
+
+The number of available IP addresses in the assigned ranges does not restrict the number of concurrent jobs. Within a runner pool, there is a load balancer which allows for high reuse of the IP addresses in the assigned ranges. This ensures your workflows can run concurrently at scale while each machine is assigned a static IP address.
 
 {% ifversion ghec %}
 

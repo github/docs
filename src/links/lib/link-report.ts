@@ -123,7 +123,7 @@ ${rows}`
   prComment: (errors: GroupedBrokenLinks[], warnings: GroupedBrokenLinks[], actionUrl?: string) => {
     const errorSection =
       errors.length > 0
-        ? `### ❌ ${errors.length} Broken Link${errors.length === 1 ? '' : 's'}
+        ? `### ⚠️ ${errors.length} Broken Link${errors.length === 1 ? '' : 's'}
 
 ${errors
   .map((group) => {

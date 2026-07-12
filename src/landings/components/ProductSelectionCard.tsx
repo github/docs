@@ -80,7 +80,7 @@ export const ProductSelectionCard = ({ group }: ProductSelectionCardProps) => {
           <ul role="list" className="list-style-none">
             {group.children.map((product) => {
               return (
-                <li key={product.name} className="pt-2">
+                <li key={product.name} role="listitem" className="pt-2">
                   <Link href={product.href} target={product.external ? '_blank' : undefined}>
                     {product.name}
                     {product.external && (

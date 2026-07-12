@@ -29,6 +29,14 @@ To get started with cost centers, see [AUTOTITLE](/billing/tutorials/control-cos
 
 For more details, see [AUTOTITLE](/billing/reference/cost-center-allocation).
 
+## Controlling included usage
+
+For cost centers that contain {% data variables.product.prodname_copilot_short %} licenses, you can apply included usage controls in addition to budgets.
+
+{% data reusables.billing.included-usage-controls %}
+
+This is separate from a cost center budget, which caps metered charges only after the shared pool of {% data variables.product.prodname_ai_credits_short %} is exhausted. For more information, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing#included-usage-controls-for-cost-centers).
+
 ## Cost center limitations
 
 * The maximum number of active cost centers per enterprise is 500.
@@ -36,3 +44,4 @@ For more details, see [AUTOTITLE](/billing/reference/cost-center-allocation).
 * A maximum of 50 resources can be added to or removed from a cost center at a time.
 * Azure subscriptions can only be added to or removed from cost centers through the UI.
 * Outside collaborators or unaffiliated users can only be added to cost centers via the cost center API. For more information, see [AUTOTITLE](/billing/tutorials/control-costs-at-scale#add-resources-to-the-cost-center).
+* You can't set different budgets for teams within the same cost center. A budget applies to the whole cost center, so if two teams need separate budgets, create a separate cost center for each. Separate cost centers can share the same Azure billing identity.

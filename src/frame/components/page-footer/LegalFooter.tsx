@@ -12,10 +12,12 @@ export const LegalFooter = () => {
       <h2 className="f4 mb-2 col-12">{t('legal_heading')}</h2>
       {router.locale !== 'en' && <p>{t('machine')}</p>}
       <ul role="list" className="d-flex flex-wrap list-style-none">
-        <li className="mr-3">&copy; {new Date().getFullYear()} GitHub, Inc.</li>
+        <li role="listitem" className="mr-3">
+          &copy; {new Date().getFullYear()} GitHub, Inc.
+        </li>
         {/* In Germany, Austria, and Switzerland, the Impressum link is legally required. */}
         {router.locale === 'de' && (
-          <li className="mr-3">
+          <li role="listitem" className="mr-3">
             <a
               className="text-underline"
               href="https://aka.ms/impressum_de"
@@ -27,7 +29,7 @@ export const LegalFooter = () => {
             <LinkExternalIcon aria-label="(external site)" size={12} />
           </li>
         )}
-        <li className="mr-3">
+        <li role="listitem" className="mr-3">
           <Link
             className="text-underline"
             legacyBehavior={false}
@@ -36,7 +38,7 @@ export const LegalFooter = () => {
             {t('terms')}
           </Link>
         </li>
-        <li className="mr-3">
+        <li role="listitem" className="mr-3">
           {/* KO law requires link to privacy statement to be conspicuous  */}
           <Link
             href={`/${router.locale}/site-policy/privacy-policies/github-privacy-statement`}
@@ -49,22 +51,22 @@ export const LegalFooter = () => {
             {t('privacy')}
           </Link>
         </li>
-        <li className="mr-3">
+        <li role="listitem" className="mr-3">
           <a className="text-underline" href="https://www.githubstatus.com/">
             {t('status')}
           </a>
         </li>
-        <li className="mr-3">
+        <li role="listitem" className="mr-3">
           <a className="text-underline" href="https://github.com/pricing">
             {t('pricing')}
           </a>
         </li>
-        <li className="mr-3">
+        <li role="listitem" className="mr-3">
           <a className="text-underline" href="https://services.github.com">
             {t('expert_services')}
           </a>
         </li>
-        <li className="mr-3">
+        <li role="listitem" className="mr-3">
           <a className="text-underline" href="https://github.blog">
             {t('blog')}
           </a>

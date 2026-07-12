@@ -28,7 +28,8 @@ Software often relies on packages from various sources, creating dependency rela
 
 {% ifversion fpt or ghec %}
 * A new vulnerability is added to the {% data variables.product.prodname_advisory_database %}{% else %}
-* New advisory data is synchronized to {% data variables.product.prodname_dotcom %} each hour from {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
+* New advisory data is synchronized to {% data variables.product.prodname_dotcom %} each hour from {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}{% ifversion ghec %}
+* Your enterprise publishes an innersource advisory for a component you depend on. For more information, see [AUTOTITLE](/code-security/concepts/vulnerability-reporting-and-management/innersource-advisories).{% endif %}
 * Your dependency graph changes—for example, when you push commits that update packages or versions
 
 For supported ecosystems, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems#supported-package-ecosystems).
@@ -41,7 +42,9 @@ When {% data variables.product.github %} detects a vulnerable dependency, a {% d
 * Details about the vulnerability and its severity
 * Information about a fixed version (when available)
 
-For information about viewing and managing alerts, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts).
+{% ifversion ghec %}Alerts generated from an innersource advisory carry a distinct "Innersource" label, distinguishing them from alerts based on public advisories.
+
+{% endif %}For information about viewing and managing alerts, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts).
 
 ## Who can enable alerts?
 
@@ -102,7 +105,7 @@ Alternatively, you can opt into the weekly email digest, or even completely turn
 
 * Alerts can't catch every security issue. Always review your dependencies and keep manifest and lock files up to date for accurate detection.
 * New vulnerabilities may take time to appear in the {% data variables.product.prodname_advisory_database %} and trigger alerts.
-* Only advisories reviewed by {% data variables.product.github %} trigger alerts.
+* Only advisories reviewed by {% data variables.product.github %}{% ifversion ghec %} or published by your enterprise as innersource advisories{% endif %} trigger alerts.
 * {% data variables.product.prodname_dependabot %} doesn't scan archived repositories.{% ifversion dependabot-malware-alerts %}{% else %}
 * {% data variables.product.prodname_dependabot %} doesn't generate alerts for malware.{% endif %}
 * {% data reusables.dependabot.dependabot-alert-actions-semver %}
@@ -120,7 +123,8 @@ With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% d
 ## Further reading
 
 {% ifversion dependabot-malware-alerts %}
-* [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-malware-alerts){% endif %}
+* [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-malware-alerts){% endif %}{% ifversion ghec %}
+* [AUTOTITLE](/code-security/concepts/vulnerability-reporting-and-management/innersource-advisories){% endif %}
 * [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)
 * [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)
 * [AUTOTITLE](/code-security/getting-started/auditing-security-alerts)

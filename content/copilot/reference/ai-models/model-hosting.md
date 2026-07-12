@@ -26,6 +26,9 @@ Used for:
 * {% data variables.copilot.copilot_gpt_54_mini %}
 * {% data variables.copilot.copilot_gpt_54_nano %}
 * {% data variables.copilot.copilot_gpt_55 %}
+* {% data variables.copilot.copilot_gpt_56_luna %}
+* {% data variables.copilot.copilot_gpt_56_sol %}
+* {% data variables.copilot.copilot_gpt_56_terra %}
 
 These models are hosted by OpenAI and {% data variables.product.github %}'s Azure infrastructure.
 
@@ -50,6 +53,7 @@ Used for:
 * {% data variables.copilot.copilot_claude_haiku_45 %}
 * {% data variables.copilot.copilot_claude_sonnet_45 %}
 * {% data variables.copilot.copilot_claude_sonnet_46 %}
+* {% data variables.copilot.copilot_claude_sonnet_5 %}
 * {% data variables.copilot.copilot_claude_opus_45 %}
 * {% data variables.copilot.copilot_claude_opus_46 %}
 * {% data variables.copilot.copilot_claude_opus_47 %}
@@ -59,8 +63,6 @@ Used for:
 
 > [!WARNING] 
 > When {% data variables.copilot.copilot_claude_fable_5 %} is used, Anthropic retains data, including prompts and outputs, to operate safety classifiers that detect harmful use. Other Claude models in {% data variables.product.prodname_copilot %} remain covered by {% data variables.product.github %}'s existing data retention agreements, as documented below. Enterprise and business users need to enable the {% data variables.copilot.copilot_claude_fable_5 %} model to make it available for your organization. You can read more about Anthropic's data handling practices for this model under section F of their [Service Specific Terms](https://www.anthropic.com/legal/service-specific-terms).
-
-{% data reusables.copilot.model-fable-disabled %}
 
 These models are hosted by Amazon Web Services, Anthropic PBC, and Google Cloud Platform. {% data variables.product.github %} has provider agreements in place to ensure data is not used for training. Additional details for each provider are included below:
 
@@ -92,6 +94,20 @@ When using {% data variables.copilot.copilot_gemini %} models, input prompts and
 ## Microsoft models
 
 {% data variables.copilot.copilot_mai_code_1_flash %} is a first-party Microsoft model hosted on Azure in {% data variables.product.github %}'s tenant. 
+
+## Open-weight models
+
+Open-weight models have publicly available weights. {% data reusables.copilot.open-weight-model-hosting %}
+
+### Moonshot AI models
+
+Used for:
+
+* {% data variables.copilot.copilot_kimi_k27_code %}
+
+{% data variables.copilot.copilot_kimi_k27_code %} was developed by Moonshot AI. It is an open-weight model that may be less aligned than other {% data variables.product.prodname_copilot_short %} models, with an elevated risk of producing harmful content. {% data variables.product.github %}'s content filtering applies, but you should review the [{% data variables.copilot.copilot_kimi_k27_code %} model card](https://huggingface.co/moonshotai/Kimi-K2.7-Code) and conduct your own evaluations before enabling it.
+
+When using {% data variables.copilot.copilot_kimi_k27_code %}, input prompts and output completions continue to run through {% data variables.product.prodname_copilot %}'s content filters for public code matching, when applied, along with those for harmful or offensive content.
 
 ## Inline suggestions
 

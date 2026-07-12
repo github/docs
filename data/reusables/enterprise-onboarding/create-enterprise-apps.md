@@ -16,12 +16,12 @@ Enterprise owners can add enterprise members to an app as an app manager. App ma
 After registering a {% data variables.product.prodname_github_app %}, you will want to write code to make your {% data variables.product.prodname_github_app %} do something. For examples of how to write code, see:
 
 * [AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/quickstart)
-* [AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events)
-* [AUTOTITLE](/apps/creating-github-apps/guides/building-a-login-with-github-button-with-a-github-app)
-* [AUTOTITLE](/apps/creating-github-apps/guides/building-a-cli-with-a-github-app)
-* [AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)
+* [AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events)
+* [AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-login-with-github-button-with-a-github-app)
+* [AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-cli-with-a-github-app)
+* [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)
 
-You should aim to follow best practices. See [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app).
+You should aim to follow best practices. See [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app).
 
 ## Step 3: Authorizing or installing your {% data variables.product.prodname_github_app %}
 

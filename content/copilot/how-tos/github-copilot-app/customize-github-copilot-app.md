@@ -48,7 +48,7 @@ Plugins are installable packages that add a preconfigured set of capabilities, s
 
 To browse and install plugins, open app settings, then click **Plugins**.
 
-For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-cli-plugins).
+For more information, see [AUTOTITLE](/copilot/concepts/agents/about-plugins).
 
 ## Working with canvas extensions
 

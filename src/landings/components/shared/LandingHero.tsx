@@ -1,6 +1,7 @@
 import { LinkExternalIcon } from '@primer/octicons-react'
 import styles from './LandingHero.module.scss'
 import { useTranslation } from '@/languages/components/useTranslation'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type LandingHeroProps = {
   title: string
@@ -33,7 +34,7 @@ export const LandingHero = ({ title, intro, heroImage, introLinks }: LandingHero
           <h1 className={styles.heroHeading}>{title}</h1>
           {intro && (
             <div className={styles.heroDescription}>
-              <div dangerouslySetInnerHTML={{ __html: intro }} />
+              <RenderedHTML as="div" html={intro} />
             </div>
           )}
           {(primaryAction || secondaryAction) && (

@@ -13,18 +13,22 @@ contentType: concepts
 
 ## Is our {% data variables.product.prodname_ghe_server %} instance ready?
 
-{% data variables.product.prodname_elm_short %} has been backported to supported releases. To use it, you must upgrade to one of the following minor versions or later:
+{% data variables.product.prodname_elm_short %} is available in the latest patch releases for {% data variables.product.prodname_ghe_server %} 3.17 and later. This documentation assumes you are using the following patch version or later. The instructions may not work on earlier versions.
 
-* `3.21.0`
-* `3.20.2`
-* `3.19.6`
-* `3.18.9`
-* `3.17.15`
+<!-- Update this list when we backport a change that meaningfully affects the instructions in the docs -->
+
+* `3.21.2`
+* `3.20.4`
+* `3.19.8`
+* `3.18.11`
+* `3.17.17`
 
 Your {% data variables.product.prodname_ghe_server %} instance must also:
 
 * Use an **HTTPS** URL. HTTP URLs are not supported.
-* Have migrations enabled and blob storage configured. You can check these settings in the "Migrations" section of the Management Console. If you don't already have these settings configured, we will explain how to set them to default values in [AUTOTITLE](/migrations/elm/migrate-your-repository).
+* Allow outbound traffic to the destination of the migration.
+* Have migrations enabled in the "Migrations" section of the Management Console.
+* Be prepared for some additional load during the migration: repository archiving causes all issues and pull requests in the repository to be pulled from MySQL and reindexed in Elasticsearch.
 
 ## What will our destination organization look like?
 
@@ -65,7 +69,7 @@ After the migration, someone will need to perform some follow-up tasks on {% dat
 
 Before you start, communicate with developers that:
 
-* The repository is moving to a new location. Users can continue to use the source repository during the migration until the operator begins the final cutover to the new location.
+* The repository is moving to a new location. Users can continue to use the source repository during the migration until the operator begins the final cutover to the new location. After cutover, the source repository will be archived, so it will be read-only unless it is unarchived by a repository administrator.
 * While the migration is in progress, developers should avoid force pushes to the repository, because these will disrupt the Git history in a way that {% data variables.product.prodname_elm_short %} cannot resolve.
 * Certain actions that developers perform during the migration process may not be reflected in the migrated repository. For details, see the unsupported actions in [AUTOTITLE](/migrations/elm/migrated-data-reference#events-included-in-live-updates).
 

@@ -26,6 +26,8 @@ Streaming audit log data has these benefits:
 * **Data continuity**. If you pause a stream, it retains a buffer for seven days, so there is no data loss for the first week. If the stream remains paused for more than seven days, it will resume from a point one week prior to the current time. If paused for three weeks or more, the stream won't retain any data and will start anew from the current timestamp.{% endif %}
 * **Data retention**. Keep your exported audit logs and Git events data as long as you need to.
 
+You can also stream agent session activity from {% data variables.product.prodname_copilot %} to the same destination you use for other enterprise audit events. This is currently in {% data variables.release-phases.public_preview %}. See [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/monitor-agentic-activity#tracking-agentic-activity-in-your-enterprise-through-the-audit-log) in the {% data variables.product.prodname_ghe_cloud %} documentation.
+
 You can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports audit and Git events data for all of the organizations in your enterprise, for activity from the time the stream is enabled onwards.
 
 All streamed audit logs are sent as compressed JSON files. The filename format is in`YYYY/MM/HH/MM/<uuid>.json.gz`.
@@ -57,6 +59,7 @@ To set up the audit log stream, follow the instructions for your provider:
 * [Azure Event Hubs](#setting-up-streaming-to-azure-event-hubs)
 * [Datadog](#setting-up-streaming-to-datadog)
 * [Google Cloud Storage](#setting-up-streaming-to-google-cloud-storage)
+* [Microsoft Purview](#setting-up-streaming-to-microsoft-purview) (Copilot agent session events only)
 * [Splunk](#setting-up-streaming-to-splunk)
 
 {% ifversion ghec %}
@@ -265,6 +268,20 @@ To set up streaming to Google Cloud Storage, create a service account in Google 
 1. To verify that {% data variables.product.prodname_dotcom %} can connect and write to the Google Cloud Storage bucket, click **Check endpoint**.
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
+### Setting up streaming to Microsoft Purview
+
+{% data reusables.copilot.agent-session-streaming-availability-note %}
+
+Microsoft Purview only supports streaming {% data variables.product.prodname_copilot_short %} agent session events. For more information on Microsoft Purview, see [Learn about the Microsoft Purview portal](https://learn.microsoft.com/en-us/purview/purview-portal) in the Microsoft documentation.
+
+To set up streaming to Microsoft Purview, configure streaming in {% data variables.product.github %}, then authorize access through Microsoft Entra.
+
+1. Configure streaming in {% data variables.product.github %}. See [Enabling audit log streaming of {% data variables.product.prodname_copilot_short %} agent session events](#enabling-audit-log-streaming-of-copilot-agent-session-events) below.
+{% data reusables.enterprise.navigate-to-log-streaming-tab %}
+1. Select the **Configure stream** dropdown and click **Microsoft Purview**.
+1. Click **Authorize with Entra**.
+1. When you're redirected to Microsoft Entra, add the {% data variables.product.github %} app and authorize it for your tenant.
+
 ### Setting up streaming to Splunk
 
 To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint, make sure that the endpoint is configured to accept HTTPS connections. See [Set up and use HTTP Event Collector in Splunk Web](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector) in the Splunk documentation.
@@ -326,5 +343,22 @@ To restart streaming, click **Resume stream**.
 1. Under "Audit log", click **Settings**.
 1. Under "API Requests", select **Enable API Request Events**.
 1. Click **Save**.
+
+{% endif %}
+
+{% ifversion ghec %}
+
+## Enabling audit log streaming of {% data variables.product.prodname_copilot_short %} agent session events
+
+{% data reusables.copilot.agent-session-streaming-availability-note %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+1. At the top of the page, click AI Controls 
+1. Under "Copilot", select **Enabled everywhere** for "Copilot Usage Records Streaming" 
+1. Configure a streaming destination. See [Setting up audit log streaming](#setting-up-audit-log-streaming).
+
+You can also retrieve {% data variables.product.prodname_copilot_short %} usage data through the REST API by selecting **Enabled everywhere** for "Copilot Usage Records API". See [AUTOTITLE](/rest/copilot/copilot-usage-metrics#get-copilot-usage-records-for-an-enterprise).
+
+For help interpreting the audit log events for agentic activity, see [AUTOTITLE](/copilot/reference/agentic-audit-log-events#streaming-audit-log-events).
 
 {% endif %}

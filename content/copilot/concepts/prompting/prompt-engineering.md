@@ -86,7 +86,7 @@ Ambiguity can also apply to libraries:
 
 If you are using {% data variables.product.prodname_copilot_short %} in your IDE to get suggestions as you code, open any relevant files and close irrelevant files. {% data variables.product.prodname_copilot_short %} will use the open files to understand your request.
 
-If you are using {% data variables.copilot.copilot_chat_short %} in your IDE, open the file or highlight the code that you want {% data variables.product.prodname_copilot_short %} to reference. You can also use keywords to manually supply context to {% data variables.copilot.copilot_chat_short %}. For example, you can add the `@workspace` chat participant in VS Code, or `@project` in JetBrains IDEs. See [AUTOTITLE](/copilot/using-github-copilot/github-copilot-chat-cheat-sheet).
+If you are using {% data variables.copilot.copilot_chat_short %} in your IDE, open the file or highlight the code that you want {% data variables.product.prodname_copilot_short %} to reference. You can also use keywords to manually supply context to {% data variables.copilot.copilot_chat_short %}. For example, you can add the `@workspace` chat participant in VS Code, or `@project` in JetBrains IDEs. See [AUTOTITLE](/copilot/reference/chat-cheat-sheet).
 
 ## Experiment and iterate
 

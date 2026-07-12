@@ -4,7 +4,7 @@ Repository custom instructions can either be repository wide or path specific. Y
 
 You can also write instructions that {% data variables.product.prodname_copilot_short %} will only use when reviewing code in files that match a specified path. You write these instructions in one or more `.github/instructions/**/*.instructions.md` files.
 
-For more information, see [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot).
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions).
 
 {% data reusables.copilot.code-review.custom-instructions-limit %}
 

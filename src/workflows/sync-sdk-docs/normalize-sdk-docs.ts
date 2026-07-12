@@ -4,6 +4,8 @@
  * Normalizes Copilot SDK docs for publishing on docs.github.com.
  *
  * For every .md file in the SDK docs directory, this script:
+ *   - Renames README.md files to index.md (the SDK repo uses README.md as the
+ *     landing page for each docs directory; docs-internal requires index.md)
  *   - Adds YAML frontmatter (title, intro, shortTitle, versions, contentType)
  *   - Adds `children` arrays to index.md files
  *   - Converts consecutive <details> language blocks to {% codetabs %} syntax
@@ -58,6 +60,82 @@ function getAllMarkdownFiles(dir: string): string[] {
     }
   }
   return results
+}
+
+/**
+ * Step 0: Rename `README.md` files to `index.md`.
+ *
+ * The copilot-sdk repo uses `README.md` as the landing page for each docs
+ * directory (the GitHub convention). docs-internal instead requires `index.md`
+ * for directory pages, referenced by the parent's `children` frontmatter.
+ *
+ * This step:
+ *   - Renames every `README.md` to `index.md` (skipping any directory that
+ *     already has an `index.md`, to avoid clobbering).
+ *   - Rewrites relative Markdown links that point at `README.md` so they target
+ *     `index.md`, keeping later link-rewriting steps able to resolve them.
+ */
+function convertReadmesToIndex(): void {
+  const renamedDirs = new Set<string>()
+
+  function walk(dir: string): void {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const fullPath = path.join(dir, entry.name)
+      if (entry.isDirectory()) {
+        walk(fullPath)
+      } else if (entry.isFile() && entry.name === 'README.md') {
+        const indexPath = path.join(dir, 'index.md')
+        if (fs.existsSync(indexPath)) {
+          console.log(`  SKIP (index.md already exists): ${path.relative(SDK_DOCS_DIR, fullPath)}`)
+          continue
+        }
+        fs.renameSync(fullPath, indexPath)
+        renamedDirs.add(dir)
+        console.log(`  RENAMED: ${path.relative(SDK_DOCS_DIR, fullPath)} -> index.md`)
+      }
+    }
+  }
+
+  walk(SDK_DOCS_DIR)
+
+  if (renamedDirs.size === 0) return
+
+  // Rewrite relative links that target a README.md *inside the docs tree* to
+  // point at index.md, so the internal-link rewriter (Step 3) resolves them to
+  // the directory URL. Links to README.md files *outside* the docs tree (e.g.
+  // sibling language-SDK dirs like ../nodejs/README.md) are left untouched so
+  // Step 3b can link them to the real README on GitHub.
+  const readmeLinkRegex = /\[([^\]]+)\]\(((?:\.{1,2}\/)[^)]*README\.md(?:#[^)]*)?)\)/g
+  for (const file of getAllMarkdownFiles(SDK_DOCS_DIR)) {
+    const raw = fs.readFileSync(file, 'utf8')
+    if (!raw.includes('README.md')) continue
+    const dir = path.dirname(file)
+
+    let changed = false
+    const updated = raw.replace(readmeLinkRegex, (match: string, text: string, href: string) => {
+      const [rawPath, anchor] = href.split('#', 2)
+      const resolved = path.resolve(dir, rawPath)
+      const renamed = resolved.replace(/README\.md$/, 'index.md')
+
+      // Only rewrite when the target now exists as an index.md inside the docs tree.
+      if (
+        !renamed.startsWith(SDK_DOCS_DIR + path.sep) &&
+        renamed !== path.join(SDK_DOCS_DIR, 'index.md')
+      )
+        return match
+      if (!fs.existsSync(renamed)) return match
+
+      changed = true
+      const newHref = rawPath.replace(/README\.md$/, 'index.md')
+      const anchorSuffix = anchor ? `#${anchor}` : ''
+      return `[${text}](${newHref}${anchorSuffix})`
+    })
+
+    if (changed) {
+      fs.writeFileSync(file, updated, 'utf8')
+      console.log(`  README-LINKS: ${path.relative(SDK_DOCS_DIR, file)}`)
+    }
+  }
 }
 
 /** Convert a filename slug to a title-case short title. */
@@ -206,10 +284,17 @@ function rewriteInternalLinks(filePath: string): void {
   const raw = fs.readFileSync(filePath, 'utf8')
   const dir = path.dirname(filePath)
 
-  const linkRegex = /\[([^\]]+)\]\((\.{1,2}\/[^)]*\.md(?:#[^)]*)?)\)/g
+  // Match any relative Markdown link whose target ends in .md, including bare
+  // same-directory links written without a leading "./" (e.g. `[Hooks](hooks.md)`).
+  const linkRegex = /\[([^\]]+)\]\(([^)]+\.md(?:#[^)]*)?)\)/g
 
   let changed = false
   const updated = raw.replace(linkRegex, (_match: string, _text: string, href: string) => {
+    // Only handle relative links: skip absolute paths, anchors, and external URLs.
+    if (href.startsWith('/') || href.startsWith('#') || /^[a-z][a-z0-9+.-]*:\/\//i.test(href)) {
+      return _match
+    }
+
     const [rawPath, anchor] = href.split('#', 2)
     const resolved = path.resolve(dir, rawPath)
 
@@ -751,8 +836,13 @@ function suppressSdkLintRules(filePath: string): void {
 console.log(`Normalizing SDK docs in: ${SDK_DOCS_DIR}`)
 console.log(`Content directory: ${CONTENT_DIR}\n`)
 
+// Step 0: Rename README.md files to index.md (copilot-sdk uses README.md as
+// directory landing pages; docs-internal requires index.md).
+console.log('--- Renaming README.md files to index.md ---\n')
+convertReadmesToIndex()
+
 // Step 1: Add frontmatter
-console.log('--- Adding frontmatter ---\n')
+console.log('\n--- Adding frontmatter ---\n')
 const files = getAllMarkdownFiles(SDK_DOCS_DIR)
 console.log(`Found ${files.length} markdown files.\n`)
 for (const file of files) {

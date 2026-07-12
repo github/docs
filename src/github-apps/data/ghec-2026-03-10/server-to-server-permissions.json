@@ -1,4 +1,21 @@
 {
+  "enterprise_copilot_usage": {
+    "title": "Copilot usage records",
+    "displayTitle": "Enterprise permissions for \"Copilot usage records\"",
+    "permissions": [
+      {
+        "category": "copilot",
+        "slug": "get-copilot-usage-records-for-an-enterprise",
+        "subcategory": "copilot-usage-metrics",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/copilot/usage-records",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      }
+    ]
+  },
   "enterprise_custom_enterprise_roles": {
     "title": "Custom enterprise roles",
     "displayTitle": "Enterprise permissions for \"Custom enterprise roles\"",
@@ -564,6 +581,34 @@
         "requestPath": "/enterprises/{enterprise}/org-properties/values",
         "access": "write",
         "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
+  "enterprise_innersource_vulnerabilities": {
+    "title": "Enterprise innersource vulnerabilities",
+    "displayTitle": "Enterprise permissions for \"Enterprise innersource vulnerabilities\"",
+    "permissions": [
+      {
+        "category": "enterprise-admin",
+        "slug": "sync-innersource-vulnerabilities-for-an-enterprise",
+        "subcategory": "security-advisories",
+        "verb": "post",
+        "requestPath": "/enterprises/{enterprise}/innersource-vulnerabilities/sync",
+        "access": "write",
+        "user-to-server": false,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-innersource-vulnerability-sync-status-for-an-enterprise",
+        "subcategory": "security-advisories",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/innersource-vulnerabilities/sync/status/{job_id}",
+        "access": "write",
+        "user-to-server": false,
         "server-to-server": true,
         "additional-permissions": false
       }
@@ -7365,6 +7410,28 @@
         "subcategory": "repos",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/bypass-list",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "interactions",
+        "slug": "get-pull-request-creation-cap-for-a-repository",
+        "subcategory": "repos",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/creation-cap",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "interactions",
+        "slug": "update-pull-request-creation-cap-for-a-repository",
+        "subcategory": "repos",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/interaction-limits/pulls/creation-cap",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,

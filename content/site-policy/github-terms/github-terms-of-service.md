@@ -326,7 +326,7 @@ You are responsible for all fees, including taxes, associated with your use of t
 
 ### 1. Account Cancellation
 
-It is your responsibility to properly cancel your Account with GitHub. You can [cancel your Account at any time](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan) by going into your Settings in the global navigation bar at the top of the screen. The Account screen provides a simple, no questions asked cancellation link. We are not able to cancel Accounts in response to an email or phone request.
+It is your responsibility to properly cancel your Account with GitHub. You can [cancel your Account at any time](/billing/how-tos/manage-plan-and-licenses/downgrade-plan) by going into your Settings in the global navigation bar at the top of the screen. The Account screen provides a simple, no questions asked cancellation link. We are not able to cancel Accounts in response to an email or phone request.
 
 ### 2. Upon Cancellation
 

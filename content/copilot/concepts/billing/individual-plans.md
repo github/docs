@@ -96,7 +96,7 @@ The following table shows what's included with each paid plan.
 
 For more information on how {% data variables.product.prodname_ai_credits %} work, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-individuals) and [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
 
-For a detailed comparison of features and benefits, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
+For a detailed comparison of features and benefits, see [AUTOTITLE](/copilot/get-started/plans).
 
 ## Choosing the right plan
 
@@ -108,7 +108,7 @@ Consider the following to decide which plan is right for you:
 * **Want the best performance and premium model access?** [Go with {% data variables.copilot.copilot_pro_plus %}](https://github.com/github-copilot/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro-plus) to unlock everything {% data variables.product.prodname_copilot_short %} has to offer.
 * **Doing sustained high-volume {% data variables.product.prodname_copilot_short %} development?** [Subscribe to {% data variables.copilot.copilot_max %}](https://github.com/github-copilot/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=max), which offers the highest monthly allowance of {% data variables.product.prodname_ai_credits_short %} for individual plans.
 
-To learn how to set up the plan that’s right for you, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/getting-started-with-a-copilot-plan).
+To learn how to set up the plan that’s right for you, see [AUTOTITLE](/copilot/how-tos/manage-your-account/get-started-with-a-copilot-plan).
 
 ### Limitations for enterprises
 

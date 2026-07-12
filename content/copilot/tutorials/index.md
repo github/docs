@@ -33,6 +33,7 @@ children:
   - /upgrade-projects
   - /copilot-cli-hooks
   - /use-an-ai-sme
+  - /create-an-extension
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot
 contentType: tutorials

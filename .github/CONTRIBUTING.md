@@ -78,7 +78,7 @@ For complete style guidance, see our [style guide](https://docs.github.com/en/co
 
 <img src="/contributing/images/contribution_cta.png" />
 
-**Make changes in a codespace:** See "[Working in a codespace](https://github.com/github/docs/blob/main/contributing/codespace.md)" for documentation-specific setup.
+**Make changes in a codespace:** See "[Working on GitHub Docs in a codespace](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/working-on-github-docs-in-a-codespace)" for documentation-specific setup.
 
 **Make changes locally:** 
 1. Fork the repository (see [official forking guide](https://docs.github.com/en/contributing))

@@ -19,7 +19,7 @@ category:
 
 ## Introduction
 
-You can configure {% data variables.copilot.copilot_code-review_short %} to review pull requests automatically. For an overview of automatic pull request reviews, see [AUTOTITLE](/copilot/concepts/code-review#about-automatic-pull-request-reviews).
+You can configure {% data variables.copilot.copilot_code-review_short %} to review pull requests automatically. For an overview of automatic pull request reviews, see [AUTOTITLE](/copilot/concepts/agents/code-review#about-automatic-pull-request-reviews).
 
 ## Configuring automatic code review for your own pull requests
 

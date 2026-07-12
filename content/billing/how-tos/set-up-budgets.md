@@ -149,6 +149,11 @@ You can edit or delete a budget at any time, but you cannot change the scope of 
 1. In the list of budgets, click {% octicon "kebab-horizontal" aria-label="View actions" %} next to the budget you want to edit, and click **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Edit** or **{% octicon "trash" aria-hidden="true" aria-label="trash" %} Delete**.
 1. Follow the prompts.
 
+### Controlling included usage for a cost center
+
+Budgets cap metered charges after the shared pool of {% data variables.product.prodname_ai_credits_short %} is exhausted. To cap how much of the pool a cost center can use **before** the metered phase, use an included usage control. {% data variables.product.github %} sets the cap automatically based on the licenses assigned to the cost center, and you choose whether members are blocked or roll into paid overage when the cap is reached. See [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing#included-usage-controls-for-cost-centers) and [AUTOTITLE](/billing/concepts/cost-centers).
+> [!NOTE]
+> Enabling included usage controls does not retroactively redistribute the shared {% data variables.product.prodname_ai_credits_short %} enterprise pool. After the setting is enabled, users in the cost center share only the included {% data variables.product.prodname_ai_credits_short %} funded by licenses attributed to that cost center. When the setting is disabled, users in the cost center can continue drawing from the shared enterprise pool.
 ## Next steps
 
 For {% data variables.product.prodname_copilot_short %}-specific budget guidance under usage-based billing, including user-level budgets and configuration scenarios, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing) and [AUTOTITLE](/copilot/tutorials/budgets/optimizing-your-budget-configuration).

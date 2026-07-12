@@ -32,7 +32,11 @@ export function GHESReleaseNotes({ context }: Props) {
               <ul role="list" className="list-style-none py-2 px-0 my-0">
                 {currentRelease.patches.map((patch) => {
                   return (
-                    <li key={patch.version} className="my-2 px-3 f4 d-inline-block d-md-block">
+                    <li
+                      key={patch.version}
+                      role="listitem"
+                      className="my-2 px-3 f4 d-inline-block d-md-block"
+                    >
                       <a href={`#${patch.version}`} className="text-underline">
                         {patch.version}
                       </a>

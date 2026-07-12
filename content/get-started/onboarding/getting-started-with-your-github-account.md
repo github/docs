@@ -37,7 +37,7 @@ For more information on all of {% data variables.product.github %}'s plans, see 
 
 ### 3. Verifying your email address
 
-To ensure you can use all the features in your {% data variables.product.github %} plan, verify your email address after signing up for a new account. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address).
+To ensure you can use all the features in your {% data variables.product.github %} plan, verify your email address after signing up for a new account. For more information, see [AUTOTITLE](/account-and-profile/how-tos/email-preferences/verifying-your-email-address).
 {% endif %}
 
 {% ifversion ghes %}
@@ -58,7 +58,7 @@ Optionally, after you have configured 2FA, add a passkey to your account to enab
 
 ### {% ifversion fpt or ghec %}5.{% elsif ghes %}3.{% endif %} Viewing your {% data variables.product.github %} profile and contribution graph
 
-Your {% data variables.product.github %} profile tells people the story of your work through the repositories and gists you've pinned, the organization memberships you've chosen to publicize, the contributions you've made, and the projects you've created. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile) and [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile).
+Your {% data variables.product.github %} profile tells people the story of your work through the repositories and gists you've pinned, the organization memberships you've chosen to publicize, the contributions you've made, and the projects you've created. For more information, see [AUTOTITLE](/account-and-profile/concepts/personal-profile) and [AUTOTITLE](/account-and-profile/how-tos/contribution-settings/viewing-contributions-on-your-profile).
 
 ## Part 2: Using {% data variables.product.github %}'s tools and processes
 
@@ -124,9 +124,9 @@ If you have existing projects you'd like to move over to {% data variables.produ
 
 ### 3. Managing collaborators and permissions
 
-You can collaborate on your project with others using your repository's issues, pull requests, and {% data variables.projects.projects_v2 %}. You can invite other people to your repository as collaborators from the **Collaborators** tab in the repository settings. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository).
+You can collaborate on your project with others using your repository's issues, pull requests, and {% data variables.projects.projects_v2 %}. You can invite other people to your repository as collaborators from the **Collaborators** tab in the repository settings. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/inviting-collaborators-to-a-personal-repository).
 
-You are the owner of any repository you create in your personal account and have full control of the repository. Collaborators have write access to your repository, limiting what they have permission to do. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/permission-levels-for-a-personal-account-repository).
+You are the owner of any repository you create in your personal account and have full control of the repository. Collaborators have write access to your repository, limiting what they have permission to do. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/permission-levels-for-a-personal-account-repository).
 
 ### 4. Managing repository settings
 
@@ -145,15 +145,15 @@ By adding files like contributing guidelines, a code of conduct, and support res
 
 ### 6. Using {% data variables.product.prodname_github_issues %} and {% data variables.product.prodname_projects_v2 %}
 
-You can use {% data variables.product.prodname_github_issues %} to organize your work with issues and pull requests and manage your workflow with {% data variables.product.prodname_projects_v2 %}. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues) and [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).
+You can use {% data variables.product.prodname_github_issues %} to organize your work with issues and pull requests and manage your workflow with {% data variables.product.prodname_projects_v2 %}. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/learning-about-issues/about-issues) and [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).
 
 ### 7. Managing notifications
 
-Notifications provide updates about the activity on {% data variables.product.prodname_dotcom %} you've subscribed to or participated in. If you're no longer interested in a conversation, you can unsubscribe, unwatch, or customize the types of notifications you'll receive in the future. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications).
+Notifications provide updates about the activity on {% data variables.product.prodname_dotcom %} you've subscribed to or participated in. If you're no longer interested in a conversation, you can unsubscribe, unwatch, or customize the types of notifications you'll receive in the future. For more information, see [AUTOTITLE](/subscriptions-and-notifications/concepts/about-notifications).
 
 ### 8. Working with {% data variables.product.prodname_pages %}
 
-You can use {% data variables.product.prodname_pages %} to create and host a website directly from a repository on {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages).
+You can use {% data variables.product.prodname_pages %} to create and host a website directly from a repository on {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/pages/getting-started-with-github-pages/what-is-github-pages).
 
 ### 9. Using {% data variables.product.prodname_discussions %}
 
@@ -198,7 +198,7 @@ For more information on steps you can take to secure your repositories, see [AUT
 
 A large part of building securely is maintaining your project's dependencies to ensure that all packages and applications you depend on are updated and secure. You can manage your repository's dependencies on {% data variables.product.github %} by exploring the dependency graph for your repository, using Dependabot to automatically raise pull requests to keep your dependencies up-to-date, and receiving Dependabot alerts and security updates for vulnerable dependencies.
 
-For more information, see [AUTOTITLE](/code-security/supply-chain-security).
+For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain).
 {% endif %}
 
 ## Part 6: Participating in {% data variables.product.github %}'s community

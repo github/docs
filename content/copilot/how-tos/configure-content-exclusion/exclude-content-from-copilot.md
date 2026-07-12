@@ -31,7 +31,7 @@ category:
 You can use your repository settings to specify content in your repository that {% data variables.product.prodname_copilot %} should ignore.
 
 > [!NOTE]
-> {% data variables.copilot.copilot_cli %}, {% data variables.copilot.copilot_cloud_agent %}, and Agent mode in {% data variables.copilot.copilot_chat_short %} in IDEs, do not support content exclusion. For more information about these {% data variables.product.prodname_copilot_short %} features, see [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli), [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent), and [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
+> {% data variables.copilot.copilot_cli %}, {% data variables.copilot.copilot_cloud_agent %}, and Agent mode in {% data variables.copilot.copilot_chat_short %} in IDEs, do not support content exclusion. For more information about these {% data variables.product.prodname_copilot_short %} features, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli), [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent), and [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -200,7 +200,7 @@ For more information, see [AUTOTITLE](/rest/copilot/copilot-content-exclusion-ma
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/content-exclusion-for-github-copilot)
-* [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/reviewing-changes-to-content-exclusions-for-github-copilot)
+* [AUTOTITLE](/copilot/concepts/context/content-exclusion)
+* [AUTOTITLE](/copilot/how-tos/configure-content-exclusion/review-changes)
 * [Configuring content exclusion for {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-admin?view=vs-2022#configure-content-exclusion) in the Microsoft Learn documentation
 * [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies)

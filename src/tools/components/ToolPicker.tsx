@@ -1,5 +1,3 @@
-import { preserveAnchorNodePosition } from 'scroll-anchoring'
-
 import { useArticleContext } from '@/frame/components/context/ArticleContext'
 import { InArticlePicker } from './InArticlePicker'
 import { useSelection } from './SelectionContext'
@@ -9,38 +7,6 @@ import { TOOL_PREFERRED_COOKIE_NAME } from '@/frame/lib/constants'
 
 // Nota bene: tool === application
 // Nota bene: picker === switcher
-
-// Imperatively modify article content to show only the selected tool
-// find all platform-specific *block* elements and hide or show as appropriate
-// example: {% webui %} block content {% endwebui %}
-function showToolSpecificContent(tool: string, supportedTools: Array<string>) {
-  const markdowns = Array.from(document.querySelectorAll<HTMLElement>('.ghd-tool'))
-  const supportedMarkdowns = markdowns.filter((xel) =>
-    supportedTools.some((toolName) => xel.classList.contains(toolName)),
-  )
-  for (const el of supportedMarkdowns) {
-    el.style.display = el.classList.contains(tool) ? '' : 'none'
-
-    // hack: special handling for minitoc links -- we can't pass the tool classes
-    // directly to the Primer NavList.Item generated <li>, it gets passed down
-    // to the child <a>.  So if we find an <a> that has the tool class and its
-    // parent is an <li>, we hide/unhide that element as well.
-    if (el.tagName === 'A' && el.parentElement && el.parentElement.tagName === 'LI') {
-      el.parentElement.style.display = el.classList.contains(tool) ? '' : 'none'
-    }
-  }
-
-  // find all tool-specific *inline* elements and hide or show as appropriate
-  // example: <span class="tool-webui">inline content</span>
-  const toolEls = Array.from(
-    document.querySelectorAll<HTMLElement>(
-      supportedTools.map((toolOption) => `.tool-${toolOption}`).join(', '),
-    ),
-  )
-  for (const el of toolEls) {
-    el.style.display = el.classList.contains(`tool-${tool}`) ? '' : 'none'
-  }
-}
 
 function getDefaultTool(defaultTool: string | undefined, detectedTools: Array<string>): string {
   // If there is a default tool and the tool is present on this page
@@ -59,7 +25,7 @@ function getDefaultTool(defaultTool: string | undefined, detectedTools: Array<st
 const toolQueryKey = 'tool'
 export const ToolPicker = () => {
   // allTools comes from the ArticleContext which contains the list of tools available
-  const { defaultTool, detectedTools, allTools, renderedPageHast } = useArticleContext()
+  const { defaultTool, detectedTools, allTools } = useArticleContext()
   const { setTool } = useSelection()
 
   if (!detectedTools.length) return null
@@ -74,14 +40,10 @@ export const ToolPicker = () => {
       cookieKey={TOOL_PREFERRED_COOKIE_NAME}
       queryStringKey={toolQueryKey}
       onValue={(value: string) => {
-        // Drive visibility through React state on the hast path (#6619). Only the
-        // string fallback still needs the imperative DOM mutation.
+        // Visibility is driven by React state via ToggleableContent/MiniTocs
+        // (#6619); the article body is React-owned on both the hast and string
+        // paths, so no imperative DOM mutation is needed.
         setTool(value)
-        if (!renderedPageHast) {
-          preserveAnchorNodePosition(document, () => {
-            showToolSpecificContent(value, Object.keys(allTools))
-          })
-        }
       }}
       preferenceName="application"
       ariaLabel="Tool"

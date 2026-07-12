@@ -46,6 +46,12 @@ When a cost center's budget is exhausted, only users in that cost center are blo
 > [!NOTE]
 > A cost center budget is different from a cost center user-level budget. A cost center budget caps the team's **total metered charges** after the pool is exhausted. A cost center user-level budget caps **each member's individual consumption** across both the pool and metered phases, the same way other user-level budgets do. You can apply both to the same cost center.
 
+### Included usage controls for cost centers
+
+{% data reusables.billing.included-usage-controls %}
+
+Unlike a cost center budget, which caps metered charges only after the shared pool of {% data variables.product.prodname_ai_credits_short %} is exhausted, an included usage control limits how much of the pool a cost center can draw **before** the metered phase begins. To enable it, see [AUTOTITLE](/billing/how-tos/set-up-budgets).
+
 ### Organization budget
 
 An organization budget caps metered charges for users who receive their {% data variables.product.prodname_copilot_short %} license through that organization. Like cost center budgets, it is only active after the shared pool is exhausted.
