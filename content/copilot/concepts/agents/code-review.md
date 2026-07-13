@@ -186,6 +186,21 @@ The more {% data variables.product.prodname_copilot_short %} knows about the cod
 
 These are short, natural-language statements that you write and store as one or more files in a repository. If you are the owner of an organization on {% data variables.product.github %}, you can also define custom instructions in the settings for your organization. For more information, see [AUTOTITLE](/copilot/concepts/prompting/response-customization?tool=webui#about-repository-custom-instructions).
 
+### Choosing between custom instructions, AGENTS.md, and skills
+
+{% data variables.copilot.copilot_code-review_short %} can draw on several sources of customization, and each serves a different purpose. Use `.github/copilot-instructions.md` for repository-wide rules specific to {% data variables.product.prodname_copilot_short %}, use path-specific `*.instructions.md` files under `.github/instructions/` for rules that apply only to certain files or directories, use `AGENTS.md` for standing rules you want to share across AI tools and agents, and use skills for task-specific workflows that {% data variables.product.prodname_copilot_short %} runs on demand. The following table summarizes when to use each and how to provide rules.
+
+| Use | `copilot-instructions.md` | Path-specific `*.instructions.md` | `AGENTS.md` | Skills |
+| --- | --- | --- | --- | --- |
+| Best for | Repository-wide, always-on rules for {% data variables.product.prodname_copilot_short %} | Always-on rules for specific paths, file types, or directories | Always-on rules shared across AI agents | Task-specific review workflows |
+| Stored in | `.github/copilot-instructions.md` | `.github/instructions/**/*.instructions.md` | Repository root (`AGENTS.md`) | `.github/skills/...` |
+| Examples | Coding standards, architecture defaults, test expectations | `content/**` writing rules, `src/**` coding conventions, language-specific guidance | Shared repository conventions that should apply beyond {% data variables.product.prodname_copilot_short %} | Reviews, releases, migrations, analysis |
+| Activation | Automatic | Automatic when the changed files match the instruction scope | Automatic (read from repository root) | Automatic when relevant (e.g. review-focused skills such as `code-review`), or on demand |
+| Scope | Repository-wide and {% data variables.product.prodname_copilot_short %}-specific | Repository sub-paths and {% data variables.product.prodname_copilot_short %}-specific | Cross-tool / agent-agnostic | Invoked per task |
+| Rule | "{% data variables.product.prodname_copilot_short %}, always know this for this repository" | "{% data variables.product.prodname_copilot_short %}, always know this when working in these paths" | "Any agent, always know this" | "Do this when needed" |
+
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills) and [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
+
 ### {% data variables.copilot.copilot_memory %} ({% data variables.release-phases.public_preview %})
 
 If you have a {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} plan, you can enable {% data variables.copilot.copilot_memory %}. This allows {% data variables.product.prodname_copilot_short %} to store useful details it has learned about a repository. {% data variables.product.prodname_copilot_short %} can then use this information when it reviews pull requests in that repository. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-memory).

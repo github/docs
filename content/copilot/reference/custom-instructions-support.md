@@ -52,6 +52,7 @@ WRITING NOTE: The following tables have been written using HTML rather than Mark
         <ul style="list-style: none; padding-left: 1.5em; margin-left: 0;">
           {% data reusables.copilot.ci-support-repository %}
           {% data reusables.copilot.ci-support-path %}
+          {% data reusables.copilot.ci-support-agents-only %}
           {% data reusables.copilot.ci-support-organization %}
         </ul>
       </td>
