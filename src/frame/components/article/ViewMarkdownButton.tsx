@@ -7,7 +7,8 @@ import {
   LinkExternalIcon,
   TriangleDownIcon,
 } from '@primer/octicons-react'
-import { ActionList, ActionMenu, Button, ButtonGroup, VisuallyHidden } from '@primer/react'
+import { ActionList, ActionMenu, ButtonGroup, VisuallyHidden } from '@primer/react'
+import { Button } from '@primer/react-brand'
 import { announce } from '@primer/live-region-element'
 import { MARKDOWN_SOURCE_MENU_EVENT_GROUP } from '@/events/components/event-groups'
 import { sendEvent } from '@/events/components/events'
@@ -87,18 +88,14 @@ export const CopyMarkdownMenu = ({ currentPath }: CopyMarkdownMenuProps) => {
     <div className="mb-3 ml-3">
       <ButtonGroup>
         <Button
-          variant="default"
-          className={cx(
-            'd-inline-flex flex-items-center text-decoration-none color-fg-default',
-            styles.button,
-          )}
+          variant="secondary"
+          size="small"
+          className={cx('text-decoration-none color-fg-default', styles.button, styles.copyButton)}
+          leadingVisual={
+            copied ? <CheckIcon aria-hidden="true" /> : <CopyIcon aria-hidden="true" />
+          }
           onClick={handleCopyClick}
         >
-          {copied ? (
-            <CheckIcon size={12} className="mr-1" aria-hidden="true" />
-          ) : (
-            <CopyIcon size={12} className="mr-1" aria-hidden="true" />
-          )}
           {t('copy_as_markdown')}
         </Button>
         <ActionMenu>

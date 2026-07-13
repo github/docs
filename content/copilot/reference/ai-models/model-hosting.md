@@ -16,8 +16,6 @@ contentType: reference
 
 ## OpenAI models
 
-{% data reusables.copilot.gpt-55-promo-period %}
-
 Used for:
 
 * {% data variables.copilot.copilot_gpt_5_mini %}
@@ -105,7 +103,7 @@ Used for:
 
 * {% data variables.copilot.copilot_kimi_k27_code %}
 
-{% data variables.copilot.copilot_kimi_k27_code %} was developed by Moonshot AI. It is an open-weight model that may be less aligned than other {% data variables.product.prodname_copilot_short %} models, with an elevated risk of producing harmful content. {% data variables.product.github %}'s content filtering applies, but you should review the [{% data variables.copilot.copilot_kimi_k27_code %} model card](https://huggingface.co/moonshotai/Kimi-K2.7-Code) and conduct your own evaluations before enabling it.
+{% data variables.copilot.copilot_kimi_k27_code %} was developed by Moonshot AI. It is an open-weight model. {% data variables.product.github %}'s content filtering applies, but you should review the [{% data variables.copilot.copilot_kimi_k27_code %} model card](https://huggingface.co/moonshotai/Kimi-K2.7-Code) and conduct your own evaluations before enabling it.
 
 When using {% data variables.copilot.copilot_kimi_k27_code %}, input prompts and output completions continue to run through {% data variables.product.prodname_copilot %}'s content filters for public code matching, when applied, along with those for harmful or offensive content.
 

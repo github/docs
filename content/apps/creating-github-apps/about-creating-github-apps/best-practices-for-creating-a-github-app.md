@@ -14,19 +14,19 @@ category:
 
 ## Select the minimum permissions required
 
-When you register a {% data variables.product.prodname_github_app %}, select the minimum permissions that your {% data variables.product.prodname_github_app %} needs. If any keys or tokens for your app become compromised, this will limit the amount of damage that can occur. For more information about how to choose permissions, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/choosing-permissions-for-a-github-app).
+When you register a {% data variables.product.prodname_github_app %}, select the minimum permissions that your {% data variables.product.prodname_github_app %} needs. If any keys or tokens for your app become compromised, this will limit the amount of damage that can occur. For more information about how to choose permissions, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app).
 
 When your {% data variables.product.prodname_github_app %} creates an installation access token or user access token, you can further limit the repositories that the app can access and the permissions that the token has. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-an-installation-access-token-for-a-github-app) and [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app).
 
 ## Stay under the rate limit
 
-Subscribe to webhook events instead of polling the API for data. This will help your {% data variables.product.prodname_github_app %} stay within the API rate limit. For more information, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps) and [AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events).
+Subscribe to webhook events instead of polling the API for data. This will help your {% data variables.product.prodname_github_app %} stay within the API rate limit. For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps) and [AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events).
 
-Consider using conditional requests to help you stay within the rate limit. For more information about conditional requests, see [AUTOTITLE](/rest/guides/best-practices-for-using-the-rest-api).
+Consider using conditional requests to help you stay within the rate limit. For more information about conditional requests, see [AUTOTITLE](/rest/using-the-rest-api/best-practices-for-using-the-rest-api).
 
-If possible, consider using consolidated GraphQL queries instead of REST API requests to help you stay within rate limits. For more information, see [AUTOTITLE](/rest/overview/about-githubs-apis) and [AUTOTITLE](/graphql).
+If possible, consider using consolidated GraphQL queries instead of REST API requests to help you stay within rate limits. For more information, see [AUTOTITLE](/rest/about-the-rest-api/comparing-githubs-rest-api-and-graphql-api) and [AUTOTITLE](/graphql).
 
-If you do hit a rate limit and need to retry an API request, use the `x-ratelimit-reset` or `Retry-After` response headers. If these headers are not available, wait for an exponentially increasing amount of time between retries, and throw an error after a specific number of retries. For more information, see [AUTOTITLE](/rest/guides/best-practices-for-integrators#dealing-with-rate-limits).
+If you do hit a rate limit and need to retry an API request, use the `x-ratelimit-reset` or `Retry-After` response headers. If these headers are not available, wait for an exponentially increasing amount of time between retries, and throw an error after a specific number of retries. For more information, see [AUTOTITLE](/rest/using-the-rest-api/best-practices-for-using-the-rest-api).
 
 ## Secure your app's credentials
 
@@ -128,13 +128,13 @@ Only subscribe to the webhook events that your app needs. This will help reduce 
 
 You should set a webhook secret for your {% data variables.product.prodname_github_app %} and verify that the signature of incoming webhook events matches the secret. This helps to ensure that the incoming webhook event is a valid {% data variables.product.company_short %} event.
 
-For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/using-webhooks-with-github-apps#securing-your-webhooks-with-a-webhook-secret). For an example, see [AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events).
+For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps#securing-your-webhooks-with-a-webhook-secret). For an example, see [AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events).
 
 ## Allow time for users to accept new permissions
 
 When you add repository or organization permissions to your {% data variables.product.prodname_github_app %}, users who have the app installed on their personal account or organization will receive an email prompting them to review the new permissions. Until the user approves the new permissions, their app installation will only receive the old permissions.
 
-When you update permissions, you should consider making your app backwards compatible to give your users time to accept the new permissions. You can use the [installation webhook with the `new_permissions_accepted` action property](/webhooks-and-events/webhooks/webhook-events-and-payloads?actionType=new_permissions_accepted#installation) to learn when users accept new permissions for your app.
+When you update permissions, you should consider making your app backwards compatible to give your users time to accept the new permissions. You can use the [installation webhook with the `new_permissions_accepted` action property](/webhooks/webhook-events-and-payloads?actionType=new_permissions_accepted#installation) to learn when users accept new permissions for your app.
 
 ## Use services in a secure manner
 
@@ -151,8 +151,8 @@ If your {% data variables.product.prodname_github_app %} is available to other u
 ## Further reading
 
 {% ifversion fpt or ghec %}
-* [AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/security-best-practices-for-apps)
-* [AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/customer-experience-best-practices-for-apps)
+* [AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/security-best-practices-for-apps-on-github-marketplace)
+* [AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/customer-experience-best-practices-for-apps)
 {% endif %}
 * [AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks)
-* [AUTOTITLE](/rest/guides/best-practices-for-integrators)
+* [AUTOTITLE](/rest/using-the-rest-api/best-practices-for-using-the-rest-api)
