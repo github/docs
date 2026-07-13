@@ -16,12 +16,12 @@ category:
 ---
 
 > [!NOTE]
-> Consider building a {% data variables.product.prodname_github_app %} instead of an {% data variables.product.prodname_oauth_app %}. {% data variables.product.prodname_github_apps %} use fine-grained permissions instead of scopes, which give you more control over what your app can do. For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps) and [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps).
+> Consider building a {% data variables.product.prodname_github_app %} instead of an {% data variables.product.prodname_oauth_app %}. {% data variables.product.prodname_github_apps %} use fine-grained permissions instead of scopes, which give you more control over what your app can do. For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps) and [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps).
 
 When setting up an {% data variables.product.prodname_oauth_app %} on GitHub, requested scopes are displayed to the user on the authorization form.
 
 > [!NOTE]
-> If you're building a GitHub App, you don’t need to provide scopes in your authorization request. For more on this, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps).
+> If you're building a GitHub App, you don’t need to provide scopes in your authorization request. For more on this, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user).
 
 If your {% data variables.product.prodname_oauth_app %} doesn't have access to a browser, such as a CLI tool, then you don't need to specify a scope for users to authenticate to your app. For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#device-flow).
 
@@ -74,10 +74,10 @@ Name | Description
 **`admin:gpg_key`** | Fully manage GPG keys.
 &emsp;`write:gpg_key`| Create, list, and view details for GPG keys.
 &emsp;`read:gpg_key`| List and view details for GPG keys.{% ifversion fpt or ghec %}
-**`codespace`** | Grants the ability to create and manage codespaces. Codespaces can expose a GITHUB_TOKEN which may have a different set of scopes. For more information, see [AUTOTITLE](/codespaces/codespaces-reference/security-in-github-codespaces#authentication).{% endif %}
-**`workflow`** | Grants the ability to add and update {% data variables.product.prodname_actions %} workflow files. Workflow files can be committed without this scope if the same file (with both the same path and contents) exists on another branch in the same repository. Workflow files can expose `GITHUB_TOKEN` which may have a different set of scopes. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token).{% ifversion not fpt %}
+**`codespace`** | Grants the ability to create and manage codespaces. Codespaces can expose a GITHUB_TOKEN which may have a different set of scopes. For more information, see [AUTOTITLE](/codespaces/reference/security-in-github-codespaces#authentication).{% endif %}
+**`workflow`** | Grants the ability to add and update {% data variables.product.prodname_actions %} workflow files. Workflow files can be committed without this scope if the same file (with both the same path and contents) exists on another branch in the same repository. Workflow files can expose `GITHUB_TOKEN` which may have a different set of scopes. For more information, see [AUTOTITLE](/actions/tutorials/authenticate-with-github_token#modifying-the-permissions-for-the-github_token).{% ifversion not fpt %}
 **`admin:enterprise`** | Gives full control of enterprise functionality. For more information, see [AUTOTITLE](/graphql/guides/managing-enterprise-accounts) in the GraphQL API documentation.<br><br>Includes `manage_runners:enterprise`, `manage_billing:enterprise`, and `read:enterprise`.
-&emsp;`manage_runners:enterprise` | Gives full control over self-hosted runners within the enterprise. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
+&emsp;`manage_runners:enterprise` | Gives full control over self-hosted runners within the enterprise. For more information, see [AUTOTITLE](/actions/concepts/runners/self-hosted-runners).
 &emsp;`manage_billing:enterprise` | Read and write enterprise billing data. For more information, see [AUTOTITLE](/rest/billing).
 &emsp;`read:enterprise` | Read all data on an enterprise profile. Does not include profile data of enterprise members or organizations.{% endif %}
 **`read:audit_log`** | Read audit log data.
@@ -109,7 +109,7 @@ functionality or be unable to perform some actions.
 Also, applications can always send users back through the flow again to get
 additional permission, but don’t forget that users can always say no.
 
-Check out the [Basics of Authentication guide](/rest/guides/basics-of-authentication), which
+Check out the [Basics of Authentication guide](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app), which
 provides tips on handling modifiable token scopes.
 
 ## Normalized scopes
