@@ -1,0 +1,594 @@
+https://chmipi6809.pinet.com
+• https://demo-kzmjubip06smix34u3b7.vusercontent.net/?__v0_token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..1c4JvlgV0cneeYin.foaYeGBGo4ZZ8lj4I8drvO0LdrNDKVjOE2pApeyVrnZt7z7jLT5QrwYJTAySjyvPdSW3-MfxVqxoD8g7Sg0HWx3-GMU6a42I1E9CZdkdmbBtN1qqiqFfPtR3DLh4OMIIE-s7CwJL2jB0GYInWYT1i1m4FiVjlytOjYVxmpPpc9qV9wvYb5pPDq9vFEZmWclGTINdd8z9lfdkWGxV7xQstnivilgKKT2dzyHFVbPCFTNo9MUavfyj5k6BdviXY5zONHIpvJn8uQ4KKF8lRf-N.FnsmUbj7Ng0kRm01nfEIAw
+
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+-- 2. Bảng Tỉnh Thành / Quận Huyện (Locations)
+CREATE TABLE locations (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    parent_id INTEGER REFERENCES locations(id), -- Để tạo quan hệ Tỉnh -> Quận -> Phường
+    type VARCHAR(50), -- 'province', 'district', 'ward'
+    slug VARCHAR(255)
+);
+
+-- 3. Bảng Danh mục (Categories)
+CREATE TABLE categories (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    parent_id INTEGER REFERENCES categories(id),
+    slug VARCHAR(100) UNIQUE NOT NULL,
+    icon_url TEXT
+);
+
+-- 4. Bảng Người dùng (Users)
+CREATE TABLE users (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    phone_number VARCHAR(20) UNIQUE NOT NULL,
+    full_name VARCHAR(100),
+    password_hash TEXT NOT NULL,
+    avatar_url TEXT,
+    is_verified BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 5. Bảng Tin đăng (Posts) - Trái tim của ứng dụng
+CREATE TABLE posts (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+    category_id INTEGER REFERENCES categories(id),
+    location_id INTEGER REFERENCES locations(id),
+    
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    price BIGINT DEFAULT 0,
+-- Cột JSONB chứa các thuộc tính động (Ví dụ: số km, số phòng ngủ, hãng xe...)
+
+    attributes JSONB DEFAULT '{}',
+
+    
+
+    status VARCHAR(20) DEFAULT 'pending', -- pending, active, sold, hidden
+
+    is_vip BOOLEAN DEFAULT FALSE,
+
+    
+
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+
+);
+
+
+-- 6. Bảng Hình ảnh (Post Images)
+
+CREATE TABLE post_images (
+
+    id SERIAL PRIMARY KEY,
+
+    post_id UUID REFERENCES posts(id) ON DELETE CASCADE,
+
+    image_url TEXT NOT NULL,
+
+    is_feature BOOLEAN DEFAULT FALSE -- Ảnh đại diện cho tin đăng
+);
+CREATE INDEX idx_posts_category ON posts(category_id);
+
+CREATE INDEX idx_posts_location ON posts(location_id);
+
+CREATE INDEX idx_posts_attributes ON posts USING GIN (attributes); -- Index chuyên dụng cho JSONB
+
+​JSONB & GIN Index:
+ON DELETE CASCADE
+UUID
+FROM posts 
+WHERE category_id = (SELECT id FROM categories WHERE slug = 'xe-may')
+  AND attributes @> '{"hang_xe": "Honda"}'
+  AND price < 20000000;Dùng API bằng Node.js
+npm install express pg dotenv
+Javascript
+
+const { Pool } = require('pg');
+
+require('dotenv').config();
+
+
+const pool = new Pool({
+
+  connectionString: process.env.DATABASE_URL, // Ví dụ: postgres://user:password@localhost:5432/chomoi.pi_db
+
+});
+
+
+module.exports = pool;
+Javascript
+
+const express = require('express');
+
+const pool = require('./db');
+
+const app = express();
+
+
+app.use(express.json());
+
+
+// API: Đăng tin rao vặt mới
+
+app.post('/api/posts', async (req, res) => {
+
+    const { 
+
+        user_id, 
+
+        category_id, 
+
+        location_id, 
+
+        title, 
+
+        description, 
+
+        price, 
+
+        attributes, // Đối tượng JSON chứa đặc điểm riêng (vd: { "hang_xe": "Honda" })
+
+        images      // Mảng các đường dẫn ảnh (vd: ["url1", "url2"])
+
+    } = req.body;
+
+
+    try {
+
+        // 1. Bắt đầu một Transaction (đảm bảo đăng tin và lưu ảnh phải cùng thành công)
+
+        const client = await pool.connect();
+
+        try {
+
+            await client.query('BEGIN');
+
+
+            // 2. Chèn dữ liệu vào bảng posts
+
+            const postQuery = `
+
+                INSERT INTO posts (user_id, category_id, location_id, title, description, price, attributes)
+
+                VALUES (pi1, pi2, pi3, pi4, pi5, pi6, pi7)
+
+                RETURNING id;
+
+            `;
+
+            const postValues = [user_id, category_id, location_id, title, description, price, attributes];
+
+            const postResult = await client.query(postQuery, postValues);
+
+            const postId = postResult.rows[0].id;
+
+
+            // 3. Chèn danh sách ảnh vào bảng post_images
+
+            if (images && images.length > 0) {
+
+                const imageQueries = images.map((url, index) => {
+
+                    return client.query(
+
+                        'INSERT INTO post_images (post_id, image_url, is_feature) VALUES (pi1, pi2, pi3)',
+
+                        [postId, url, index === 0] // Ảnh đầu tiên mặc định là ảnh đại diện
+
+                    );
+
+                });
+
+                await Promise.all(imageQueries);
+
+            }
+
+
+            await client.query('COMMIT');
+
+            res.status(201).json({ message: "Đăng tin thành công!", post_id: postId });
+
+
+        } catch (error) {
+
+            await client.query('ROLLBACK'); // Nếu lỗi thì hủy toàn bộ thao tác trên
+
+            throw error;
+
+        } finally {
+
+            client.release();
+
+        }
+
+    } catch (err) {
+
+        console.error(err);
+
+        res.status(500).json({ error: "Lỗi hệ thống khi đăng tin." });
+
+    }
+
+});
+
+
+const PORT = 3000;
+
+app.listen(PORT, () => console.log(`Server chạy tại port pi{PORT}`));
+Jonson
+
+{
+
+  "user_id": "550e8400-e29b-41d4-a716-446655440000",
+
+  "category_id": 1, 
+
+  "location_id": 10,
+
+  "title": "iPhone 13 Pro Max 256GB Zin",
+
+  "description": "Máy nữ dùng kỹ, còn bảo hành, đầy đủ phụ kiện...",
+
+  "price": 18500000,
+
+  "attributes": {
+
+    "dung_luong": "256GB",
+
+    "mau_sac": "Sierra Blue",
+
+    "tinh_trang": "99%"
+
+  },
+
+  "images": [
+
+    "https://cloud.com/iphone-front.jpg",
+
+    "https://cloud.com/iphone-back.jpg"
+
+  ]
+
+} Transaction (BEGIN/COMMIT/ROLLBACK) S3/Cloudinary/Multer/Node.js.
+Middleware JWT
+JSONB.
+
+Javascript 
+
+const express = require('express');
+
+const pool = require('./db');
+
+const app = express();
+
+
+app.get('/api/posts/search', async (req, res) => {
+
+    try {
+
+        const { 
+
+            q,              // Từ khóa tìm kiếm (title)
+
+            category_id, 
+
+            location_id, 
+
+            price_min, 
+
+            price_max, 
+
+            brand,          // Ví dụ lọc theo hãng (trong JSONB)
+
+            sort_by,        // 'price_asc', 'price_desc', 'newest'
+
+            page = 1        // Phân trang
+
+        } = req.query;
+
+
+        const limit = 20; // Mỗi trang 20 tin
+
+        const offset = (page - 1) * limit;
+
+
+        let queryText = `
+
+            SELECT p.*, i.image_url as thumbnail 
+
+            FROM posts p
+
+            LEFT JOIN post_images i ON p.id = i.post_id AND i.is_feature = true
+
+            WHERE p.status = 'active'
+
+        `;
+
+        
+
+        const values = [];
+
+        let count = 1;
+
+
+        // 1. Lọc theo từ khóa (Search by Title)
+
+        if (q) {
+
+            queryText += ` AND p.title ILIKE $${count}`;
+
+            values.push(`%${q}%`);
+
+            count++;
+
+        }
+
+
+        // 2. Lọc theo danh mục
+
+        if (category_id) {
+
+            queryText += ` AND p.category_id = $${count}`;
+
+            values.push(category_id);
+
+            count++;
+
+        }
+
+
+        // 3. Lọc theo khoảng giá
+
+        if (price_min) {
+
+            queryText += ` AND p.price >= $${count}`;
+
+            values.push(price_min);
+
+            count++;
+
+        }
+
+        if (price_max) {
+
+            queryText += ` AND p.price <= $${count}`;
+
+            values.push(price_max);
+
+            count++;
+
+        }
+
+
+        // 4. Lọc sâu vào JSONB (Ví dụ lọc theo Hãng xe)
+
+        if (brand) {
+
+            queryText += ` AND p.attributes->>'hang_xe' = $${count}`;
+
+            values.push(brand);
+
+            count++;
+
+        }
+
+
+        // 5. Sắp xếp
+
+        if (sort_by === 'price_asc') {
+
+            queryText += ` ORDER BY p.price ASC`;
+
+        } else if (sort_by === 'price_desc') {
+
+            queryText += ` ORDER BY p.price DESC`;
+
+        } else {
+
+            queryText += ` ORDER BY p.created_at DESC`;
+
+        }
+
+
+        // 6. Phân trang
+
+        queryText += ` LIMIT ${limit} OFFSET ${offset}`;
+
+
+        const result = await pool.query(queryText, values);
+
+        
+
+        res.json({
+
+            page: parseInt(page),
+
+            count: result.rowCount,
+
+            data: result.rows
+
+        });
+
+
+    } catch (err) {
+
+        console.error(err);
+
+        res.status(500).send("Lỗi truy vấn tìm kiếm");
+
+    }
+
+});GET /api/posts/search?category_id=1&brand=Honda&price_max=20000000
+GET /api/posts/search?q=iPhone&location_id=1&sort_by=newest
+CREATE TABLE conversations (
+
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+
+    post_id UUID REFERENCES posts(id),
+
+    buyer_id UUID REFERENCES users(id),
+
+    seller_id UUID REFERENCES users(id),
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    UNIQUE(post_id, buyer_id, seller_id) -- Một món hàng chỉ có 1 luồng chat giữa 2 người cụ thể
+
+);CREATE TABLE messages (
+    id SERIAL PRIMARY KEY,
+
+    conversation_id UUID REFERENCES conversations(id) ON DELETE CASCADE,
+
+    sender_id UUID REFERENCES users(id),
+
+    message_text TEXT NOT NULL,
+
+    is_read BOOLEAN DEFAULT FALSE,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
+);WebSocket.
+const express = require('express');
+const http = require('http');
+const { Server } = require('socket.io');
+const pool = require('./db');
+
+const app = express();
+const server = http.createServer(app);
+const io = new Server(server, {
+    cors: { origin: "*" } // Cho phép mọi nguồn kết nối (trong thực tế nên giới hạn)
+});
+
+// Quản lý các user đang online
+const onlineUsers = new Map(); // userId => socketId
+
+io.on('connection', (socket) => {
+    console.log('Một người dùng vừa kết nối:', socket.id);
+// 1. Khi User login vào app, họ sẽ "đăng ký" socketId
+
+    socket.on('register', (userId) => {
+
+        onlineUsers.set(userId, socket.id);
+
+        console.log(`User ${userId} đang online`);
+
+    });
+
+
+    // 2. Xử lý gửi tin nhắn
+
+    socket.on('send_message', async (data) => {
+
+        const { conversation_id, sender_id, receiver_id, message_text } = data;
+
+
+        try {
+
+            // Lưu tin nhắn vào Database trước
+
+            const res = await pool.query(
+
+                'INSERT INTO messages (conversation_id, sender_id, message_text) VALUES (pi1, pi2, pi3) RETURNING *',
+
+                [conversation_id, sender_id, message_text]
+
+            );
+
+            const newMessage = res.rows[0];
+
+
+            // Nếu người nhận đang online, gửi tin nhắn trực tiếp qua Socket
+
+            const receiverSocketId = onlineUsers.get(receiver_id);
+
+            if (receiverSocketId) {
+
+                io.to(receiverSocketId).emit('receive_message', newMessage);
+
+            }
+
+            
+
+            // Phản hồi lại cho người gửi là đã lưu thành công
+
+            socket.emit('message_sent', newMessage);
+
+
+        } catch (err) {
+
+            console.error('Lỗi lưu tin nhắn:', err);
+
+        }
+
+    });
+
+
+    socket.on('disconnect', () => {
+
+        // Xóa user khỏi danh sách online khi họ thoát
+
+        for (let [userId, socketId] of onlineUsers.entries()) {
+
+            if (socketId === socket.id) {
+
+                onlineUsers.delete(userId);
+
+                break;
+
+            }
+
+        }
+
+    });
+
+});
+
+
+server.listen(3001, () => console.log('Chat Server chạy tại port 3001'));
+
+Client là cách ứng dụng (Web hoặc Mobile) kết nối và nhận tin nhắn.
+
+const socket = io("http://localhost:3001");
+
+
+// 1. Đăng ký khi mở app
+
+const myUserId = "ID_CUA_BAN";
+
+socket.emit('register', myUserId);
+
+
+// 2. Gửi tin nhắn khi bấm nút "Gửi"
+
+function sendMessage(text, receiverId, convId) {
+
+    socket.emit('send_message', {
+
+        conversation_id: convId,
+
+        sender_id: myUserId,
+
+        receiver_id: receiverId,
+
+        message_text: text
+
+    });
+
+}
+
+
+// 3. Lắng nghe tin nhắn mới đến
+
+socket.on('receive_message', (message) => {
+
+    console.log("Bạn có tin nhắn mới:", message.message_text);
+
+    // Hiển thị tin nhắn lên giao diện chat
+
+});
