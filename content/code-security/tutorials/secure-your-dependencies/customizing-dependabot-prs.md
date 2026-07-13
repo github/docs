@@ -137,7 +137,7 @@ To specify your preferences explicitly, use `commit-message` together with the f
    * Prefix is also added to the start of the pull request title.
 * `prefix-development`:
    * Specifies a separate prefix for all commit messages that update development dependencies, as defined by the package manager or ecosystem.
-   * Supported for `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
+   * Supported for `bundler`, `composer`, `mix`, `maven`, `npm`, `pip`, and `uv`.
 * `include: "scope"`:
    * Specifies that any prefix is followed by the dependency types (`deps` or `deps-dev`) updated in the commit.
 
