@@ -1,8 +1,10 @@
-You can customize {% data variables.copilot.copilot_code-review_short %} by adding custom instructions to your repository.
+You can customize {% data variables.copilot.copilot_code-review_short %} by adding custom instructions to your repository. Repository custom instructions can either be repository wide or path specific.
 
-Repository custom instructions can either be repository wide or path specific. You specify repository-wide custom instructions in a `.github/copilot-instructions.md` file in your repository. You can use this file to store information that you want {% data variables.product.prodname_copilot_short %} to consider when reviewing code anywhere in the repository.
+Use `.github/copilot-instructions.md` for repository-wide review guidance that should apply across the entire codebase. This is a good place to describe organization-wide expectations, such as coding standards, review criteria, or general practices that {% data variables.product.prodname_copilot_short %} should consider in every review.
 
-You can also write instructions that {% data variables.product.prodname_copilot_short %} will only use when reviewing code in files that match a specified path. You write these instructions in one or more `.github/instructions/**/*.instructions.md` files.
+Use an `AGENTS.md` file in the root of your repository to provide additional repository context that helps {% data variables.product.prodname_copilot_short %} better understand how your project works. For example, you can explain which patterns are intentional, which parts of the codebase need closer scrutiny, and what your team considers good architecture, testing, and implementation practices. This helps make reviews more relevant and aligned with the way your team builds software.
+
+Use `.github/instructions/**/*.instructions.md` files for path-specific instructions that only apply when reviewing matching files. This is useful when different parts of the repository follow different conventions, require specialized checks, or need review guidance tailored to a particular language, framework, or subsystem.
 
 For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions).
 

@@ -28,7 +28,7 @@ For example, you can subscribe your {% data variables.product.prodname_github_ap
 
 If your app is running on a server that is listening for these webhook events, then your app can take an action when it receives a webhook event. For example, your app can use the {% data variables.product.company_short %} API to post a comment to the pull request when it receives a pull request webhook event.
 
-For more information, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps). For information about the possible webhook events and actions, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads).
+For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps). For information about the possible webhook events and actions, see [AUTOTITLE](/webhooks/webhook-events-and-payloads).
 
 ## Prerequisites
 
@@ -70,14 +70,14 @@ For this tutorial, you must have a {% data variables.product.prodname_github_app
 * Has the "Pull request" repository permission
 * Subscribes to the "Pull request" webhook event
 
-The following steps will guide you through registering a {% data variables.product.prodname_github_app %} with these settings. For more information about {% data variables.product.prodname_github_app %} settings, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app).
+The following steps will guide you through registering a {% data variables.product.prodname_github_app %} with these settings. For more information about {% data variables.product.prodname_github_app %} settings, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/registering-a-github-app).
 
 {% data reusables.apps.settings-step %}
 {% data reusables.apps.enterprise-apps-steps %}
 1. Click **New {% data variables.product.prodname_github_app %}**.
 1. Under "{% data variables.product.prodname_github_app %} name", enter a name for your app. For example, `USERNAME-webhook-test-app` where `USERNAME` is your {% data variables.product.company_short %} username.
 1. Under "Homepage URL", enter a URL for your app. For example, you can use the URL of the repository that you created to store the code for your app.
-1. Skip the "Identifying and authorizing users" and "Post installation" sections for this tutorial. For more information about these settings, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app).
+1. Skip the "Identifying and authorizing users" and "Post installation" sections for this tutorial. For more information about these settings, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/registering-a-github-app).
 1. Make sure that **Active** is selected under "Webhooks."
 1. Under "Webhook URL", enter your webhook proxy URL from earlier. For more information, see [Get a webhook proxy URL](#get-a-webhook-proxy-url).
 1. Under "Webhook secret", enter a random string. You will use this string later.
@@ -336,7 +336,7 @@ Now that you have an app that responds to webhook events, you might want to expa
 
 This tutorial demonstrated how to post a comment on a pull request in when a pull request was opened. You can update the code to respond to different types of webhook events or to do something different in response to the webhook event.
 
-Remember to update your app's permissions if your app needs additional permissions for the API requests that you want to make or the webhook events you want to receive. For more information, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/setting-permissions-for-github-apps).
+Remember to update your app's permissions if your app needs additional permissions for the API requests that you want to make or the webhook events you want to receive. For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app).
 
 This tutorial stored all of the code into a single file, but you may want to move functions and components into separate files.
 
@@ -367,12 +367,12 @@ const host = process.env.NODE_ENV === 'production' ? '0.0.0.0' : 'localhost';
 
 You should never publicize your app's private key or webhook secret. This tutorial stored your app's credentials in a gitignored `.env` file. When you deploy your app, you should choose a secure way to store the credentials and update your code to get the value accordingly. For example, you can store the credentials with a secret management service like [Azure Key Vault](https://azure.microsoft.com/en-us/products/key-vault). When your app runs, it can retrieve the credentials and store them in environment variables on the server where your app is deployed.
 
-For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app).
+For more information, see [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app).
 
 ### Share your app
 
-If you want to share your app with other users and organizations, make your app public. For more information, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/making-a-github-app-public-or-private).
+If you want to share your app with other users and organizations, make your app public. For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/making-a-github-app-public-or-private).
 
 ### Follow best practices
 
-You should aim to follow best practices with your {% data variables.product.prodname_github_app %}. For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app).
+You should aim to follow best practices with your {% data variables.product.prodname_github_app %}. For more information, see [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app).

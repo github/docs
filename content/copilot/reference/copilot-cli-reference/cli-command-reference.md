@@ -193,6 +193,8 @@ When diff mode is open (entered via `/diff`):
 
 ## Slash commands in the interactive interface
 
+These are the slash commands you can use from within an interactive CLI session. A subset of these slash commands is available to clients that use the CLI via its ACP server. For more information, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/acp-server).
+
 | Command                                             | Purpose |
 |-----------------------------------------------------|---------|
 | `/add-dir PATH`                                     | Add a directory to the allowed list for file access. |

@@ -27,21 +27,13 @@ This article provides tips for getting the most out of {% data variables.copilot
 
 ### Use custom instructions files
 
-{% data variables.copilot.copilot_cli_short %} automatically reads instructions from multiple locations, allowing you to define organization-wide standards and repository-specific conventions.
+{% data variables.copilot.copilot_cli_short %} automatically combines applicable user-level, repository, and path-specific instructions. Use repository instructions for project conventions and user-level instructions for preferences that should apply across projects.
 
-**Supported locations (in order of discovery):**
-
-| Location                                    | Scope                 |
-|---------------------------------------------|-----------------------|
-| `~/.copilot/copilot-instructions.md`        | All sessions (global) |
-| `.github/copilot-instructions.md`           | Repository            |
-| `.github/instructions/**/*.instructions.md` | Repository (modular)  |
-| `AGENTS.md` (in Git root or cwd)            | Repository            |
-| `{% data variables.product.prodname_copilot_short %}.md`, `GEMINI.md`, `CODEX.md` | Repository |
+For the complete list of supported locations and details about discovery, file references, and how multiple instruction files interact, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions).
 
 #### Best practice
 
-Repository instructions **always take precedence** over global instructions. Use this to enforce team conventions. For example, this is a simple `.github/copilot-instructions.md` file.
+Avoid conflicting instructions. For example, this is a simple `.github/copilot-instructions.md` file.
 
 ```markdown
 ## Build Commands

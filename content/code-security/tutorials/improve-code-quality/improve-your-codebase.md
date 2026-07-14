@@ -49,7 +49,7 @@ Use the dashboard **filters** to focus on the highest-severity results first ("E
 
 To improve your repository's maintainability or reliability rating, you must resolve (fix or dismiss) all findings with the highest severity level for that metric.
 
-For example, to improve your repository's "Reliability" metric from **Needs improvement** to **Fair**, you would need to address and resolve all **error-level findings** that impact reliability. If you have one or more error-level findings, your rating cannot be higher than "Needs improvement". See [AUTOTITLE](/code-security/code-quality/reference/metrics-and-ratings).
+For example, to improve your repository's "Reliability" metric from **Poor** to **Fair**, you would need to address and resolve all **error-level findings** that impact reliability. If you have one or more error-level findings, your rating cannot be higher than "Poor". See [AUTOTITLE](/code-security/code-quality/reference/metrics-and-ratings).
 
 ## 3. Investigate a group of findings and understand context
 

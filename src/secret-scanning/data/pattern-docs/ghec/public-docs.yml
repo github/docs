@@ -2611,7 +2611,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Heroku
@@ -4041,7 +4041,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: PyPI
@@ -4121,7 +4121,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: redirect.pizza
@@ -4151,7 +4151,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: RubyGems
@@ -4861,7 +4861,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Uniwise

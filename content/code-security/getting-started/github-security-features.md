@@ -203,6 +203,14 @@ Get automatically generated fixes for {% data variables.product.prodname_code_sc
 
 {% endif %}
 
+{% ifversion ai-powered-security-detections %}
+
+### AI-powered security detections
+
+Find vulnerabilities in languages and frameworks not covered by {% data variables.product.prodname_codeql %} with an AI-based scanning engine that runs during pull request review. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-powered-security-detections).
+
+{% endif %}
+
 ### {% data variables.dependabot.custom_rules_caps %} for {% data variables.product.prodname_dependabot %}
 
 {% data reusables.dependabot.dependabot-custom-rules-ghas %}

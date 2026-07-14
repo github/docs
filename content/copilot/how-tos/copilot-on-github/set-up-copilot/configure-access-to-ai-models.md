@@ -23,23 +23,19 @@ Your access to {% data variables.product.prodname_copilot %} models depends on:
 
 For a list of available AI models, see [AUTOTITLE](/copilot/reference/ai-models/supported-models). For information on how {% data variables.copilot.copilot_chat_short %} serves different AI models, see [AUTOTITLE](/copilot/reference/ai-models/model-hosting).
 
-## Setup for individual use
+## Setup for individual plans
 
 For individual {% data variables.product.prodname_copilot_short %} plans, you can use AI models directly within {% data variables.product.prodname_copilot_short %} without configuring access or managing policies. {% data variables.copilot.copilot_free_short %} and {% data variables.copilot.copilot_student_short %} only have access to {% data variables.copilot.copilot_auto_model_selection_short %}.
 
 > [!NOTE]
 > Models available depend on your plan. See [AUTOTITLE](/copilot/reference/ai-models/supported-models#supported-ai-models-per-copilot-plan).
 
-## Setup for organization and enterprise use
+## Setup for organization and enterprise plans
 
 As an enterprise or organization owner, you can enable or disable access to AI models for members with a {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} seat. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies) and [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
 
-> [!NOTE]
-> * Models available in {% data variables.copilot.copilot_auto_model_selection %} will follow the policies set for an organization or enterprise. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
-> * {% data reusables.copilot.byok-no-subscription-required %}
+## Custom models
 
-{% ifversion copilot-byok %}
+{% data reusables.copilot.byok-two-mechanisms %}
 
-You can also integrate your preferred custom models from supported LLM providers by bringing your own API keys. Organization owners can make custom models available for members of their organization and enterprise owners can add custom models and choose which organizations can make use of them. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/use-your-own-api-keys) for organizations and [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys) for enterprise accounts.
-
-{% endif %}
+For more information, see [AUTOTITLE](/copilot/concepts/models/bring-your-own-key).

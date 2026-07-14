@@ -679,6 +679,8 @@ To show the full hook payload, result, and any exceptions for the delivery:
 ghe-webhook-logs -g DELIVERY_GUID
 ```
 
+{% ifversion ghes > 3.21 %}
+
 ## Backup and restore
 
 ### ghe-backup-prune-snapshots
@@ -688,8 +690,6 @@ This utility prunes old or invalid backup snapshot directories.
 ```shell
 ghe-backup-prune-snapshots
 ```
-
-{% ifversion ghes > 3.21 %}
 
 ### ghe-backup-healthcheck
 

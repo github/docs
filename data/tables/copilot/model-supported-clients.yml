@@ -230,7 +230,7 @@
   xcode: false
   jetbrains: false
 
-- name: Kimi-K2.7-Code
+- name: Kimi K2.7 Code
   dotcom: true
   cli: true
   vscode: true

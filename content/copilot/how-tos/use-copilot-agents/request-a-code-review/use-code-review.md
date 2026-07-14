@@ -24,6 +24,8 @@ category:
 
 For a full introduction to {% data variables.copilot.copilot_code-review %}, see [AUTOTITLE](/copilot/concepts/agents/code-review).
 
+{% data variables.copilot.copilot_code-review_short %} uses {% data variables.product.prodname_actions %} to run agentic capabilities. For more information, see [Agentic capabilities for {% data variables.copilot.copilot_code-review_short %}](/copilot/concepts/agents/code-review#usage-of-github-actions-runners-for-agentic-capabilities-in-code-review).
+
 {% webui %}
 
 {% data variables.copilot.copilot_code-review_short %} is also available for organization members without a {% data variables.product.prodname_copilot_short %} license, when enabled by an enterprise administrator or organization owner. See [{% data variables.copilot.copilot_code-review_short %} for organization members without a {% data variables.product.prodname_copilot_short %} license](/copilot/concepts/agents/code-review#copilot-code-review-for-organization-members-without-a-copilot-license).
