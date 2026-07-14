@@ -55,6 +55,10 @@ contentType: how-tos
 {% data reusables.actions.sidebar-environment %}
 {% data reusables.actions.new-environment %}
 {% data reusables.actions.name-environment %}
+
+> [!NOTE]
+> Currently renaming an environment is not possible. Be carefull choosing a name!
+
 1. Optionally, specify people or teams that must approve workflow jobs that use this environment. For more information, see [AUTOTITLE](/actions/reference/deployments-and-environments#required-reviewers).
    1. Select **Required reviewers**.
    1. Enter up to 6 people or teams. Only one of the required reviewers needs to approve the job for it to proceed.
