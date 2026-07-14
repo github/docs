@@ -98,6 +98,66 @@
   cached_input: $1.00
   output: $45.00
 
+- model: GPT-5.6 Luna
+  provider: openai
+  release_status: GA
+  category: Lightweight
+  threshold: '≤ 200K'
+  tier: Default
+  input: $1.00
+  cached_input: $0.10
+  output: $6.00
+
+- model: GPT-5.6 Luna
+  provider: openai
+  release_status: GA
+  category: Lightweight
+  threshold: '> 200K'
+  tier: 'Long context'
+  input: $2.00
+  cached_input: $0.20
+  output: $9.00
+
+- model: GPT-5.6 Sol
+  provider: openai
+  release_status: GA
+  category: Powerful
+  threshold: '≤ 272K'
+  tier: Default
+  input: $5.00
+  cached_input: $0.50
+  output: $30.00
+
+- model: GPT-5.6 Sol
+  provider: openai
+  release_status: GA
+  category: Powerful
+  threshold: '> 272K'
+  tier: 'Long context'
+  input: $10.00
+  cached_input: $1.00
+  output: $45.00
+
+- model: GPT-5.6 Terra
+  provider: openai
+  release_status: GA
+  category: Versatile
+  threshold: '≤ 272K'
+  tier: Default
+  input: $2.50
+  cached_input: $0.25
+  output: $15.00
+
+- model: GPT-5.6 Terra
+  provider: openai
+  release_status: GA
+  category: Versatile
+  threshold: '> 272K'
+  tier: 'Long context'
+  input: $5.00
+  cached_input: $0.50
+  output: $22.50
+
 # Anthropic
 - model: Claude Haiku 4.5
   provider: anthropic

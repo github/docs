@@ -120,6 +120,8 @@ Optionally, you can choose to dismiss stale pull request approvals when commits 
 
 Optionally, you can choose to require reviews from code owners. If you do, any pull request that modifies content with a code owner must be approved by that code owner before the pull request can be merged into the protected branch. Note that if code has multiple owners, an approval from _any_ of the code owners will be sufficient to meet this requirement. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners).
 
+Optionally, you can restrict who can dismiss pull request reviews. If you enable this setting, select the users, teams, or {% data variables.product.prodname_github_apps %} that can dismiss reviews on branches targeted by the ruleset. You can configure this setting in the UI or through the REST API or GraphQL API. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review).
+
 Optionally, you can require an approval from someone other than the last person to push to a branch before a pull request can be merged. This means at least one other authorized reviewer has approved any changes. For example, the "last reviewer" can check that the latest set of changes incorporates feedback from other reviews, and does not add new, unreviewed content.
 
 For complex pull requests that require many reviews, requiring an approval from someone other than the last person to push can be a compromise that avoids the need to dismiss all stale reviews: with this option, "stale" reviews are not dismissed, and the pull request remains approved as long as someone other than the person who made the most recent changes approves it. Users who have already reviewed a pull request can reapprove after the most recent push to meet this requirement. If you are concerned about pull requests being "hijacked" (where unapproved content is added to approved pull requests), it is safer to dismiss stale reviews.
@@ -188,7 +190,7 @@ If someone force pushes to a branch or tag, commits that other collaborators hav
 
 Enabling force pushes will not override any other rules. For example, if a branch requires a linear commit history, you cannot force push merge commits to that branch.
 
-{% ifversion ghes %}You cannot enable force pushes for a branch if a site administrator has blocked force pushes to all branches in your repository. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise).
+{% ifversion ghes %}You cannot enable force pushes for a branch if a site administrator has blocked force pushes to all branches in your repository. For more information, see [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise).
 
 If a site administrator has blocked force pushes to the default branch only, you can still enable force pushes for any other branch or tag.{% endif %}
 
@@ -198,7 +200,7 @@ If your repositories are configured with {% data variables.product.prodname_code
 
 {% data reusables.code-scanning.merge-protection-rulesets-conditions %}
 
-For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection). For more general information about {% data variables.product.prodname_code_scanning %}, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning).
+For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/set-merge-protection). For more general information about {% data variables.product.prodname_code_scanning %}, see [AUTOTITLE](/code-security/concepts/code-scanning/code-scanning).
 
 {% ifversion code-quality %}
 
@@ -210,7 +212,7 @@ If your repositories are configured with {% data variables.product.prodname_code
 * Analysis fails for any reason, for example: you have exhausted your budget for actions minutes.
 * {% data variables.product.prodname_code_quality_short %} found a result of a severity of the level defined in the ruleset, or a higher severity.
 
-For more information, see [AUTOTITLE](/code-security/code-quality/concepts/about-code-quality) and [AUTOTITLE](/code-security/code-quality/how-tos/set-pr-thresholds).
+For more information, see [AUTOTITLE](/code-security/concepts/about-code-quality) and [AUTOTITLE](/code-security/how-tos/maintain-quality-code/set-pr-thresholds).
 
 ## Restrict code coverage
 
@@ -238,9 +240,9 @@ For more information about troubleshooting common ruleset workflow configuration
 
 ### Using a workflow file
 
-To use this rule, you must first create a workflow file. The workflow file needs to be in a repository that matches the visibility of the repositories you want to run it in. Specifically, a public workflow can run on any repository in your organization, an internal workflow can only run on internal and private repositories, and a private workflow can only run on private repositories. For more information, see [AUTOTITLE](/actions/using-workflows/about-workflows).
+To use this rule, you must first create a workflow file. The workflow file needs to be in a repository that matches the visibility of the repositories you want to run it in. Specifically, a public workflow can run on any repository in your organization, an internal workflow can only run on internal and private repositories, and a private workflow can only run on private repositories. For more information, see [AUTOTITLE](/actions/concepts/workflows-and-actions/workflows).
 
-If the workflow file is in an internal or private repository and you want to use the workflow in other repositories in the organization, you will need to allow access to the workflow from outside the repository. For more information, see [Allowing access to components in an internal repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository) or [Allowing access to components in a private repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository).
+If the workflow file is in an internal or private repository and you want to use the workflow in other repositories in the organization, you will need to allow access to the workflow from outside the repository. For more information, see [Allowing access to components in an internal repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository) or [Allowing access to components in a private repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository).
 
 When you add this rule to a ruleset, in your organization settings, you specify the source repository and the workflow you want to enforce.
 

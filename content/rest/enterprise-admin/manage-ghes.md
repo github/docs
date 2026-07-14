@@ -18,7 +18,7 @@ You can manage {% data variables.location.product_location %} using the Manage {
 
 > [!TIP] You can use this API to replace the functionality of the **Management Console API**, which was removed in {% data variables.product.prodname_ghe_server %} version 3.15.
 
-Specify the port number when making API calls to endpoints for the Manage {% data variables.product.prodname_ghe_server %} API. If your instance uses TLS, the port number is 8443. Otherwise, the port number is 8080. If you cannot provide a port number, you'll need to configure your client to automatically follow redirects. For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-tls).
+Specify the port number when making API calls to endpoints for the Manage {% data variables.product.prodname_ghe_server %} API. If your instance uses TLS, the port number is 8443. Otherwise, the port number is 8080. If you cannot provide a port number, you'll need to configure your client to automatically follow redirects. For more information, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/configuring-tls).
 
 You can also use the {% data variables.product.prodname_ghe_server %} extension of the {% data variables.product.prodname_cli %} to invoke endpoints in the Manage {% data variables.product.prodname_ghe_server %} API. For more information, see the [`github/gh-es`](https://github.com/github/gh-es/blob/main/README.md) repository.
 
@@ -32,7 +32,7 @@ curl -L -u "api_key:ROOT-SITE-ADMINISTRATOR-PASSWORD" 'http(s)://HOSTNAME:ADMINI
 
 ### Authentication as a {% data variables.enterprise.management_console %} user
 
-{% data variables.enterprise.management_console %} user accounts can also authenticate to access these endpoints. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console#management-console-user).
+{% data variables.enterprise.management_console %} user accounts can also authenticate to access these endpoints. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/managing-access-to-the-management-console#management-console-user).
 
 To authenticate with the password for a {% data variables.enterprise.management_console %} user account, use standard HTTP authentication. In the following example, replace YOUR_USER_NAME and YOUR_PASSWORD with the account's user name and password.
 
@@ -47,7 +47,7 @@ By default, the response includes information from about all configured nodes fo
 | Query parameter | Description |
 | :- | :- |
 | `uuid` | Unique identifier for the node. |
-| `cluster_role` | For nodes in a cluster, the roles that apply to the node. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-clustering/about-cluster-nodes). |
+| `cluster_role` | For nodes in a cluster, the roles that apply to the node. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/about-cluster-nodes). |
 
 You can specify multiple values for the query parameter by delimiting the values with a comma. For example, the following request uses curl to return any nodes with the `web-server` or `storage-server` role.
 

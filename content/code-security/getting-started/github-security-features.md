@@ -136,9 +136,9 @@ Automatically detect hardcoded credentials that have been checked into a reposit
 
 {% ifversion secret-scanning-ai-generic-secret-detection %}
 
-### {% data variables.secret-scanning.copilot-secret-scanning %}
+### {% data variables.secret-scanning.ai-detected-secrets-caps %}
 
-{% data variables.secret-scanning.copilot-secret-scanning %}'s generic secret detection is an AI-powered expansion of {% data variables.product.prodname_secret_scanning %} that identifies unstructured secrets (passwords) in your source code and then generates an alert. For more information, see [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).
+{% data variables.secret-scanning.ai-detected-secrets-caps %}'s generic secret detection is an AI-powered expansion of {% data variables.product.prodname_secret_scanning %} that identifies unstructured secrets (passwords) in your source code and then generates an alert. For more information, see [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).
 
 {% endif %}
 
@@ -200,6 +200,14 @@ Run {% data variables.product.prodname_codeql %} processes locally on software p
 Get automatically generated fixes for {% data variables.product.prodname_code_scanning %} alerts. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
 
 {% data reusables.advanced-security.available-for-public-repos %}
+
+{% endif %}
+
+{% ifversion ai-powered-security-detections %}
+
+### AI-powered security detections
+
+Find vulnerabilities in languages and frameworks not covered by {% data variables.product.prodname_codeql %} with an AI-based scanning engine that runs during pull request review. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-powered-security-detections).
 
 {% endif %}
 

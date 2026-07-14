@@ -52,6 +52,41 @@ test('use sidebar to go to Hello World page', async ({ page }) => {
   await expect(page).toHaveTitle(/Hello World - GitHub Docs/)
 })
 
+test('press "/" to open the search overlay', async ({ page }) => {
+  await page.goto('/')
+  await turnOffExperimentsInPage(page)
+
+  // Wait for the header search button to render, so the keydown listener is attached.
+  await page.locator('[data-testid="search"]:visible').waitFor()
+
+  const searchInput = page.getByTestId('overlay-search-input')
+  // The overlay (and its input) is not in the DOM until it's opened.
+  await expect(searchInput).toHaveCount(0)
+
+  // Pressing "/" anywhere on the page opens the overlay and focuses the input.
+  await page.keyboard.press('/')
+  await expect(searchInput).toBeFocused()
+
+  // Escape closes it again.
+  await page.keyboard.press('Escape')
+  await expect(searchInput).toHaveCount(0)
+})
+
+test('"/" typed inside the search input is a literal slash', async ({ page }) => {
+  await page.goto('/')
+  await turnOffExperimentsInPage(page)
+
+  await page.locator('[data-testid="search"]:visible').waitFor()
+
+  await page.keyboard.press('/')
+  const searchInput = page.getByTestId('overlay-search-input')
+  await expect(searchInput).toBeFocused()
+
+  // The "/" shortcut must not fire while typing in a field, so it is not swallowed.
+  await page.keyboard.type('a/b')
+  await expect(searchInput).toHaveValue('a/b')
+})
+
 test('do a search from home page and click on "Foo" page', async ({ page }) => {
   test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
 

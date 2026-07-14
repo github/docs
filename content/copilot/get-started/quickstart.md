@@ -30,7 +30,7 @@ category:
 
 {% webui %}
 
-You can use {% data variables.product.prodname_copilot_short %} to get answers to coding-related questions, such as how best to code something, how to fix a bug, or how someone else's code works. For full details of what {% data variables.product.prodname_copilot_short %} can do, see [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot).
+You can use {% data variables.product.prodname_copilot_short %} to get answers to coding-related questions, such as how best to code something, how to fix a bug, or how someone else's code works. For full details of what {% data variables.product.prodname_copilot_short %} can do, see [AUTOTITLE](/copilot/get-started/what-is-github-copilot).
 
 Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on where you are using it. This version of the quickstart is for using {% data variables.product.prodname_copilot_short %} on the {% data variables.product.github %} website. Click the tabs above for instructions on using {% data variables.product.prodname_copilot_short %} in other environments.
 
@@ -73,15 +73,15 @@ There are many more things you can do with {% data variables.copilot.copilot_cha
 * Find out about the changes in a pull request
 * Ask a question about a specific issue or commit
 
-For more information, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github/using-github-copilot-chat-in-githubcom).
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github).
 
 ## Next steps
 
-* **Find out more about {% data variables.copilot.copilot_chat %}** - See [AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide){% ifversion fpt %}.{% endif %}{% ifversion ghec %} and [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom).{% endif %}
-* **Get {% data variables.product.prodname_copilot_short %} inline suggestions in an IDE** - See [AUTOTITLE](/enterprise-cloud@latest/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor).
-* **Learn how to write effective prompts** - See [AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot).
-* **Use {% data variables.product.prodname_copilot_short %} on your mobile device** - See [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/using-github-copilot-chat-in-github-mobile).
-* **Use {% data variables.product.prodname_copilot_short %} on the command line** - See [AUTOTITLE](/copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli).
+* **Find out more about {% data variables.copilot.copilot_chat %}** - See [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide){% ifversion fpt %}.{% endif %}{% ifversion ghec %} and [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github).{% endif %}
+* **Get {% data variables.product.prodname_copilot_short %} inline suggestions in an IDE** - See [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions).
+* **Learn how to write effective prompts** - See [AUTOTITLE](/copilot/concepts/prompting/prompt-engineering).
+* **Use {% data variables.product.prodname_copilot_short %} on your mobile device** - See [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-mobile).
+* **Use {% data variables.product.prodname_copilot_short %} on the command line** - See [AUTOTITLE](/copilot/how-tos/use-copilot-for-common-tasks/use-copilot-in-the-cli).
 
 {% endwebui %}
 
@@ -256,7 +256,7 @@ Instructions for using {% data variables.product.prodname_copilot_short %} diffe
 ## Prerequisites
 
 * **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
-* **A compatible JetBrains IDE**. {% data variables.product.prodname_copilot_short %} is supported in a large number of JetBrains IDEs. For a full list, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide?tool=jetbrains).
+* **A compatible JetBrains IDE**. {% data variables.product.prodname_copilot_short %} is supported in a large number of JetBrains IDEs. For a full list, see [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide?tool=jetbrains).
 {% data reusables.copilot.jetbrains-plugin-prerequisites %}
 
 ## Chat with {% data variables.product.prodname_copilot %}
@@ -311,7 +311,7 @@ Instructions for using {% data variables.product.prodname_copilot_short %} diffe
 
 * **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in Xcode, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
 * **Latest version of the {% data variables.product.prodname_copilot %} extension**. For installation instructions, see [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension?tool=xcode).
-* **Sign in to {% data variables.product.company_short %} in Xcode**. If you experience authentication issues, see [AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat#troubleshooting-authentication-issues-in-your-editor).
+* **Sign in to {% data variables.product.company_short %} in Xcode**. If you experience authentication issues, see [AUTOTITLE](/copilot/how-tos/troubleshoot-copilot/troubleshoot-common-issues).
 
 ## Chat with {% data variables.product.prodname_copilot %}
 
@@ -378,7 +378,7 @@ Instructions for using {% data variables.product.prodname_copilot_short %} diffe
 
 * **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in Eclipse, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
 * **Latest version of the {% data variables.product.prodname_copilot %} extension**. For installation instructions, see [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension?tool=eclipse).
-* **Sign in to {% data variables.product.company_short %} in Eclipse**. If you experience authentication issues, see [AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat#troubleshooting-authentication-issues-in-your-editor).
+* **Sign in to {% data variables.product.company_short %} in Eclipse**. If you experience authentication issues, see [AUTOTITLE](/copilot/how-tos/troubleshoot-copilot/troubleshoot-common-issues).
 
 ## Chat with {% data variables.product.prodname_copilot %}
 

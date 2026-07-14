@@ -107,7 +107,7 @@ You can also use the {% data variables.product.company_short %} Status API to ch
 
 Enterprise owners and billing managers automatically have a support entitlement, which enables them to create, view, and comment on support tickets associated with their enterprise account.
 
-Enterprise owners can also add support entitlements to members of organizations owned by their enterprise account, allowing those members to create, view, and comment on support tickets. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise).
+Enterprise owners can also add support entitlements to members of organizations owned by their enterprise account, allowing those members to create, view, and comment on support tickets. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise).
 
 {% endif %}
 

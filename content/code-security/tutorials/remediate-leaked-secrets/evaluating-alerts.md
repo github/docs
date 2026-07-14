@@ -22,7 +22,7 @@ There are some additional features that can help you to evaluate alerts in order
 * Check the validity of a secret, to see if the secret is still active. {% ifversion fpt or ghec %}**Applies to {% data variables.product.company_short %} tokens only**.{% endif %} See [Checking a secret's validity](#checking-a-secrets-validity).{% ifversion secret-scanning-validity-check-partner-patterns %}
 * Perform an "on-demand" validity check, to get the most up to date validation status. See [Performing an on-demand validity check](#performing-an-on-demand-validity-check).{% endif %}
 * Review a token's metadata. **Applies to {% data variables.product.company_short %} tokens only**. For example, to see when the token was last used. See [Reviewing {% data variables.product.company_short %} token metadata](#reviewing-github-token-metadata).{% ifversion secret-scanning-extended-metadata-checks %}
-* Review extended metadata checks for an exposed secret, to see details such as who owns the secret and how to contact the secret owner. **Applies to OpenAI API, Google OAuth, and Slack tokens only**. See [Reviewing extended metadata for a token](#reviewing-extended-metadata-for-a-token).{% endif %}{% ifversion secret-scanning-multi-repo-public-leak %}
+* Review extended metadata checks for an exposed secret, to see details such as who owns the secret and how to contact the secret owner. **Applies to OpenAI API, Google OAuth, Slack, and Replicate tokens only**. See [Reviewing extended metadata for a token](#reviewing-extended-metadata-for-a-token).{% endif %}{% ifversion secret-scanning-multi-repo-public-leak %}
 * Review the labels assigned to the alert. For more information, see [Reviewing alert labels](#reviewing-alert-labels).{% endif %}
 
 ## Checking a secret's validity
@@ -95,7 +95,7 @@ Tokens, like {% data variables.product.pat_generic %} and other credentials, are
 
 In the view for an active {% data variables.product.company_short %} token alert, you can see extended metadata information, such as owner and contact details.
 
-The following table shows **all the available metadata**. Note that metadata checks are currently limited to OpenAI API, Google OAuth, and Slack tokens, and the metadata shown for each token may represent only a subset of what exists.
+The following table shows **all the available metadata**. Note that metadata checks are currently limited to OpenAI API, Google OAuth, Slack, and Replicate tokens, and the metadata shown for each token may represent only a subset of what exists.
 
 | Metadata type      | Description                                                                                         |
 | ------------------ | --------------------------------------------------------------------------------------------------- |

@@ -42,10 +42,10 @@ From the Agents tab, you can:
 * **Steer agents mid-session**: If you realize you didn't scope a request correctly, or want the agent to use a specific tool or service, you can step in and provide **steering input** without stopping the run. Steering consumes {% data variables.product.prodname_ai_credits_short %} per message. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents#steer-an-agent-session).
 * **Open a session in {% data variables.product.prodname_vscode_shortname %} or {% data variables.copilot.copilot_cli %}**: When you want to start working on changes to an agent session in your local development environment, click **{% octicon "vscode" aria-label="VS Code" %} Open in {% data variables.product.prodname_vscode_shortname %}** or **{% octicon "agent" aria-label="Agent" %} Continue in {% data variables.copilot.copilot_cli %}** to bring the session to your local machine.
     {% data reusables.copilot.cloud-agent.use-latest-vscode %}
-* **Review and merge agent code**: Once the agent completes a session, you can jump to the pull request to review the changes, request further improvements, or approve and merge. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/review-copilot-prs).
+* **Review and merge agent code**: Once the agent completes a session, you can jump to the pull request to review the changes, request further improvements, or approve and merge. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/review-copilot-output).
 * **Set up {% data variables.copilot.copilot_automations %}**: Run {% data variables.copilot.copilot_cloud_agent %} automatically, on a schedule or in response to events such as an issue being opened. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-automations).
 * **Query your past sessions**: You can search and reference your past agent sessions using natural language from {% data variables.copilot.copilot_cli_short %} or {% data variables.product.prodname_vscode_shortname %}. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/chronicle).
 
 ## Next steps
 
-To start managing agents, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/manage-agents).
+To start managing agents, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents).

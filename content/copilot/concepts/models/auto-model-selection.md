@@ -19,7 +19,7 @@ More than just a model picker, {% data variables.copilot.copilot_auto_model_sele
 
 ### Auto with task optimization
 
-> [!NOTE] {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} with task optimization is generally available in {% data variables.copilot.copilot_chat_short %} on the {% data variables.product.github %} website, in {% data variables.product.prodname_vscode_shortname %}, and in {% data variables.copilot.copilot_cli_short %}.
+> [!NOTE] {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} with task optimization is generally available in {% data variables.copilot.copilot_chat_short %} on the {% data variables.product.github %} website, in {% data variables.product.prodname_vscode_shortname %}, in {% data variables.copilot.copilot_cli_short %}, and in {% data variables.copilot.github_copilot_app %}.
 
 {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} with task optimization combines two systems to provide high quality results and better reliability. One system tracks real-time system health and availability, while the other evaluates task complexity. Putting these together, {% data variables.copilot.copilot_auto_model_selection_short %} routes the task to the optimal model.
 
@@ -60,22 +60,23 @@ When you select **Auto**, {% data variables.copilot.copilot_auto_model_selection
 
 ## {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} in {% data variables.product.prodname_copilot_short %}
 
-{% data variables.copilot.copilot_auto_model_selection_short_cap_a %}, optimized for model reliability and availability, is available in these {% data variables.product.prodname_copilot_short %} products:
+{% data variables.copilot.copilot_auto_model_selection_short_cap_a %}, with task optimization, is generally available in these {% data variables.product.prodname_copilot_short %} products:
 * {% data variables.copilot.copilot_chat_short %}, on the {% data variables.product.github %} website and supported IDEs
 * {% data variables.copilot.copilot_cli_short %}
 * {% data variables.copilot.copilot_cloud_agent %}
+* {% data variables.copilot.github_copilot_app %}
 
 > [!TIP]
 > You can see which model was used for each {% data variables.product.prodname_copilot_short %} response.
 > * In **{% data variables.copilot.copilot_chat_short %}**, hover over the response.
 > * In **{% data variables.copilot.copilot_cli_short %}**, the model used for each response displays in the terminal.
 > * In **{% data variables.copilot.copilot_cloud_agent %}**, the model used for each response displays at the end of the response.
+> * In **{% data variables.copilot.github_copilot_app %}**, the model used for each response is shown by the model picker next to **Auto**.
 
-### {% data variables.copilot.copilot_chat_short %} on {% data variables.product.github %} and in IDEs
+### {% data variables.copilot.copilot_chat_short %} in IDEs
 
 {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}, with task optimization, is generally available in the following IDEs:
   * {% data variables.product.prodname_vscode_shortname %}
-  * {% data variables.product.github %} website
 
 {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}, optimized for model reliability and availability, is generally available in the following IDEs:
   * JetBrains IDEs
@@ -87,7 +88,7 @@ When you select **Auto**, {% data variables.copilot.copilot_auto_model_selection
 
 #### Enabling access during {% data variables.release-phases.public_preview %}
 
-During the {% data variables.release-phases.public_preview %}, if you're using a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan, the organization or enterprise that provides your plan must have the **Editor preview features** policy enabled. See [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) or [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#copilot-in-githubcom).
+During the {% data variables.release-phases.public_preview %}, if you're using a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan, the organization or enterprise that provides your plan must have the **Editor preview features** policy enabled. See [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies#enabling-features-and-models-in-your-organization) or [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies#defining-policies-for-your-enterprise).
 
 ## {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} in third-party agents
 

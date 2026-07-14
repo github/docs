@@ -24,7 +24,7 @@ Alerts for {% data variables.product.prodname_secret_scanning %} are displayed u
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 1. In the left sidebar, under "Vulnerability alerts", click **{% data variables.product.prodname_secret_scanning_caps %}**.
-1. Optionally, toggle to "Generic" to see alerts for non-provider patterns{% ifversion secret-scanning-ai-generic-secret-detection %} or generic secrets detected using AI{% endif %}.
+1. Optionally, toggle to "Generic" to see alerts for generic patterns{% ifversion secret-scanning-ai-generic-secret-detection %} or secrets detected with AI{% endif %}.
 1. Under "{% data variables.product.prodname_secret_scanning_caps %}", click the alert you want to view.
    {% ifversion secret-scanning-user-owned-repos %}
 
@@ -47,9 +47,9 @@ You can apply various filters to the alerts list to help you find the alerts you
 |`repo`|Display alerts detected in a specified repository (`REPOSITORY-NAME`), for example: `repo:octo-repository`.|
 |`resolution`|Display alerts closed as "false positive" (`false-positive`), "hidden by config" (`hidden-by-config`), "pattern deleted" (`pattern-deleted`), "pattern edited" (`pattern-edited`), "revoked" (`revoked`), "used in tests" (`used-in-tests`), or "won't fix" (`wont-fix`).|
 |{% ifversion fpt or ghec %}|
-|`results`|Display alerts for supported secrets and custom patterns (`default`), or for non-provider patterns (`generic`) such as private keys, and AI-detected generic secrets such as passwords. See [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns), and for more information about AI-detected generic secrets, see [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).|
+|`results`|Display alerts for supported secrets and custom patterns (`default`), or for generic patterns (`generic`) such as private keys, and AI-detected generic secrets such as passwords. See [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns), and for more information about AI-detected generic secrets, see [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).|
 |{% elsif ghes %}|
-|`results`|Display alerts for supported secrets and custom patterns (`default`), or non-provider patterns such as private keys (`generic`). See [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns).|
+|`results`|Display alerts for supported secrets and custom patterns (`default`), or generic patterns such as private keys (`generic`). See [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns).|
 |{% endif %}|
 |`secret-type`|Display alerts for a specific secret type (`SECRET-NAME`), for example, `secret-type:github_personal_access_token`. For a list of supported secret types, see [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns#supported-secrets).|
 |`sort`|Display alerts from newest to oldest (`created-desc`), oldest to newest (`created-asc`), most recently updated (`updated-desc`), or least recently updated (`updated-asc`).|

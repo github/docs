@@ -26,7 +26,7 @@ category:
 
 ## Allowing {% data variables.product.prodname_dependabot %} to access private{% ifversion ghec or ghes %} or internal{% endif %} dependencies
 
-{% data variables.product.prodname_dependabot %} can check for outdated dependency references in a project and automatically generate a pull request to update them. To do this, {% data variables.product.prodname_dependabot %} must have access to all of the targeted dependency files. Typically, version updates will fail if one or more dependencies are inaccessible. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates).
+{% data variables.product.prodname_dependabot %} can check for outdated dependency references in a project and automatically generate a pull request to update them. To do this, {% data variables.product.prodname_dependabot %} must have access to all of the targeted dependency files. Typically, version updates will fail if one or more dependencies are inaccessible. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-version-updates).
 
 By default, {% data variables.product.prodname_dependabot %} can't update dependencies that are located in private{% ifversion ghec or ghes %} or internal{% endif %} repositories, or private{% ifversion ghec or ghes %} or internal{% endif %} package registries. However, if a dependency is in a private{% ifversion ghec or ghes %} or internal{% endif %} {% data variables.product.prodname_dotcom %} repository within the same organization as the project that uses that dependency, you can allow {% data variables.product.prodname_dependabot %} to update the version successfully by giving it access to the host repository.
 
@@ -39,15 +39,15 @@ If your code depends on packages in a private{% ifversion ghec or ghes %} or int
 
 {% endif %}
 
- For more information on how to grant {% data variables.product.prodname_dependabot %} access to private{% ifversion ghec or ghes %} or internal{% endif %} dependencies, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#granting-dependabot-access-to-private-and-internal-repositories).
+ For more information on how to grant {% data variables.product.prodname_dependabot %} access to private{% ifversion ghec or ghes %} or internal{% endif %} dependencies, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/configure-global-settings#granting-dependabot-access-to-private-and-internal-repositories).
 
 ## Removing access to {% data variables.product.prodname_GHAS %} features from individual repositories in an organization
 
-You can use {% data variables.product.prodname_security_configurations %} to remove access to {% data variables.product.prodname_GHAS %} features from individual repositories in an organization. For more information, see [AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/managing-your-github-advanced-security-license-usage#turning-off-github-advanced-security-features-on-select-repositories-in-your-organization).
+You can use {% data variables.product.prodname_security_configurations %} to remove access to {% data variables.product.prodname_GHAS %} features from individual repositories in an organization. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/managing-your-github-advanced-security-license-usage#turning-off-github-advanced-security-features-on-select-repositories-in-your-organization).
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/getting-started/securing-your-repository)
-* [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)
-* [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)
-* [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)
+* [AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-repository)
+* [AUTOTITLE](/code-security/concepts/secret-security/secret-scanning)
+* [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-graph)
+* [AUTOTITLE](/code-security/concepts/supply-chain-security/supply-chain-security)

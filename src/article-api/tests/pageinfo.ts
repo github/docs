@@ -58,6 +58,19 @@ describe('pageinfo api', () => {
     expect(res.headers['surrogate-key']).toBe(makeLanguageSurrogateKey('en'))
   })
 
+  test('corrupted translation frontmatter falls back to English title', async () => {
+    // The Japanese counterpart of this page has frontmatter whose ASCII `:`
+    // key/value separators were replaced with fullwidth colons (`：`), so the
+    // YAML parses to a scalar string rather than an object. When that happens
+    // none of the frontmatter keys exist. Without the non-object fallback in
+    // page-data, `meta.title` comes back empty and the search scraper rejects
+    // the record with "Record has empty title". It must fall back to English.
+    const res = await get(makeURL('/ja/get-started/foo/broken-frontmatter-translation'))
+    expect(res.statusCode).toBe(200)
+    const meta = JSON.parse(res.body) as PageMetadata
+    expect(meta.title).toBe('Broken frontmatter translation fallback')
+  })
+
   test('a pathname that does not exist', async () => {
     const res = await get(makeURL('/en/never/heard/of'))
     expect(res.statusCode).toBe(404)

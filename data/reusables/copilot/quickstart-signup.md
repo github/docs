@@ -11,7 +11,7 @@ To use {% data variables.product.prodname_copilot_short %}, you’ll need a pers
 
   > [!IMPORTANT] {% data reusables.copilot.plans.organization-plans-paused %}
 
-For more information about the different plans for {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
+For more information about the different plans for {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/copilot/get-started/plans).
 
 {% elsif ghec %}
 

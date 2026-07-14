@@ -20,7 +20,7 @@ The {% data variables.product.prodname_copilot_short %} usage metrics dashboard 
 * The {% data variables.product.prodname_copilot_short %} usage metrics APIs return reports scoped to the **enterprise**, **organization**, or **individual user** level, in different shapes depending on scope and granularity.
 * Team-level metrics are not pre-aggregated; you construct them by joining the user-teams report with the per-user usage metrics report. See [AUTOTITLE](/copilot/reference/copilot-usage-metrics/team-level-metrics).
 
-For guidance on how to read and interpret these metrics, see [AUTOTITLE](/copilot/concepts/copilot-metrics).
+For guidance on how to read and interpret these metrics, see [AUTOTITLE](/copilot/concepts/copilot-usage-metrics/copilot-metrics).
 
 ## {% data variables.product.prodname_copilot_short %} usage dashboard metrics
 
@@ -282,6 +282,7 @@ Each entry in the aggregated `totals_by_ai_adoption_phase` array contains:
 | `avg_pull_requests_reviewed` | `number` | No | Average pull requests reviewed per user in this phase. |
 | `avg_pull_requests_created` | `number` | No | Average pull requests created per user in this phase. |
 | `avg_pull_requests_merged` | `number` | No | Average pull requests merged per user in this phase. |
+| `total_pull_requests_merged` | `integer` | No | Total pull requests merged by users in this phase. Applies to the organization day and enterprise day aggregated reports. |
 | `avg_pull_requests_median_minutes_to_merge` | `number` | No | Average of the per-user median minutes to merge for users in this phase. |
 
 ### Breakdown dimension values

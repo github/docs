@@ -115,7 +115,7 @@ You can schedule reminders for pull request reviews in Slack. Reminders can be s
 
 You can configure scheduled reminders for yourself, your team, or your entire organization. For more information, see:
 
-* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/managing-your-scheduled-reminders)
+* [AUTOTITLE](/subscriptions-and-notifications/how-tos/managing-your-scheduled-reminders)
 * [AUTOTITLE](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team)
 * [AUTOTITLE](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)
 

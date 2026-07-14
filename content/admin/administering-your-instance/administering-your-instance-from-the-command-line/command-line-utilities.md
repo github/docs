@@ -679,6 +679,8 @@ To show the full hook payload, result, and any exceptions for the delivery:
 ghe-webhook-logs -g DELIVERY_GUID
 ```
 
+{% ifversion ghes > 3.21 %}
+
 ## Backup and restore
 
 ### ghe-backup-prune-snapshots
@@ -696,6 +698,8 @@ This utility quickly confirms that GHES backups are being written, are recent, a
 ```shell
 ghe-backup-healthcheck
 ```
+
+{% endif %}
 
 ## Clustering
 

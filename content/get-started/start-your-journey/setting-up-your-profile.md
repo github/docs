@@ -96,6 +96,6 @@ In the following steps, we'll create and edit your profile README.
 
 ## Further reading
 
-* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile)
-* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile)
+* [AUTOTITLE](/account-and-profile/concepts/personal-profile)
+* [AUTOTITLE](/account-and-profile/tutorials/personalize-your-profile)
 * [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)

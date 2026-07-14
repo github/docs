@@ -29,7 +29,7 @@ category:
   - Create and work with issues
 ---
 
-Issues can be used to keep track of bugs, enhancements, or other requests. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues).
+Issues can be used to keep track of bugs, enhancements, or other requests. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/learning-about-issues/about-issues).
 
 {% data reusables.repositories.administrators-can-disable-issues %}
 
@@ -115,7 +115,7 @@ When you create an issue from a discussion, the contents of the discussion post 
 
 ## Creating an issue from a task list item
 
-Within an issue, you can use task lists to break work into smaller tasks and track the full set of work to completion. If a task requires further tracking or discussion, you can convert the task to an issue by hovering over the task and clicking {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists).
+Within an issue, you can use task lists to break work into smaller tasks and track the full set of work to completion. If a task requires further tracking or discussion, you can convert the task to an issue by hovering over the task and clicking {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-tasklists).
 
 {% endif %}
 
@@ -197,11 +197,11 @@ gh issue create --title "TITLE" --body "ISSUE-DESCRIPTION" --blocked-by BLOCKED-
 > [!NOTE]
 > This feature is in {% data variables.release-phases.public_preview %} and subject to change.
 
-Creating issues manually can be repetitive and time-consuming. With {% data variables.product.prodname_copilot_short %}, you can create issues faster by prompting in natural language, or even by uploading a screenshot. {% data variables.product.prodname_copilot_short %} fills out the title, body, labels, assignees, and more, using your repository’s templates and structure. See [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-to-create-issues).
+Creating issues manually can be repetitive and time-consuming. With {% data variables.product.prodname_copilot_short %}, you can create issues faster by prompting in natural language, or even by uploading a screenshot. {% data variables.product.prodname_copilot_short %} fills out the title, body, labels, assignees, and more, using your repository’s templates and structure. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/copilot-for-github-tasks/use-copilot-to-create-or-update-issues).
 
 ## Creating an issue from {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}
 
-You can also create an issue directly from {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}, using the Model Context Protocol (MCP). See [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-chat-with-mcp).
+You can also create an issue directly from {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}, using the Model Context Protocol (MCP). See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp).
 
 {% endif %}
 

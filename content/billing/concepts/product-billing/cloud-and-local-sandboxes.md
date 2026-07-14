@@ -40,7 +40,7 @@ For more information about {% data variables.copilot.sandbox %}, see [AUTOTITLE]
 
 ## Free and billed use
 
-During public preview, eligible {% data variables.product.github %} accounts receive a **$10 monthly entitlement** to try cloud sandboxes. This entitlement is available for June 2026. Any usage beyond the monthly entitlement is billed to your account.
+During public preview, eligible {% data variables.product.github %} accounts receive a **$10 monthly entitlement** to try cloud sandboxes. This entitlement is available through the end of July 2026. Any usage beyond the monthly entitlement is billed to your account.
 
 After the preview period ends, the entitlement no longer applies and all usage is billed.
 

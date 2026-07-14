@@ -46,7 +46,7 @@ Enterprise administrators can use AI Controls to view active and recent agent se
 
 For long-term retention and analysis, you can stream enterprise audit log data to supported destinations. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise) and [AUTOTITLE](/copilot/reference/agentic-audit-log-events).
 
-For billing information on agent sessions, see [AUTOTITLE](/billing/concepts/product-billing/github-copilot-premium-requests#usage-by-copilot-cloud-agent).
+For billing information on agent sessions, see [AUTOTITLE](/copilot/reference/copilot-billing/request-based-billing-legacy/github-copilot-premium-requests#usage-by-copilot-cloud-agent).
 
 ## Third-party agents
 

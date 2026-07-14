@@ -92,6 +92,32 @@ export const Header = () => {
     return () => window.removeEventListener('keydown', close)
   }, [])
 
+  // Pressing "/" anywhere on the page opens the search overlay, matching the
+  // shortcut on github.com. Ignore the key when the user is typing in a form
+  // field or editable element so we never swallow a literal "/", and when a
+  // modifier is held so we don't clash with browser or OS shortcuts.
+  useEffect(() => {
+    const openOnSlash = (e: KeyboardEvent) => {
+      if (e.key !== '/' || e.ctrlKey || e.metaKey || e.altKey) {
+        return
+      }
+      const target = e.target as HTMLElement | null
+      const tagName = target?.tagName
+      if (
+        tagName === 'INPUT' ||
+        tagName === 'TEXTAREA' ||
+        tagName === 'SELECT' ||
+        target?.isContentEditable
+      ) {
+        return
+      }
+      e.preventDefault()
+      setIsSearchOpen(true)
+    }
+    window.addEventListener('keydown', openOnSlash)
+    return () => window.removeEventListener('keydown', openOnSlash)
+  }, [])
+
   // For the UI in smaller browser widths, focus the picker menu button when
   // the sidebar is closed (not when the search overlay is closed — the
   // overlay's returnFocusRef handles focus restoration to the search button).

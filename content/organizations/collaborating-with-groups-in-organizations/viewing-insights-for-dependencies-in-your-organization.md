@@ -13,6 +13,10 @@ category:
   - Configure organization features
 ---
 
+{% data reusables.dependency-graph.dependency-insights-maintenance-mode %}
+
+Dependency insights can help you track, report, and act on your organization's open source usage.
+
 > [!NOTE]
 > To view organization dependency insights, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 >
@@ -20,10 +24,8 @@ category:
 
 ## Viewing organization dependency insights
 
-Dependency insights can help you track, report, and act on your organization's open source usage.
-
 > [!NOTE]
-> Please make sure you have enabled the [dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph).
+> Please make sure you have enabled the [dependency graph](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/enable-dependency-graph).
 
 With dependency insights you can view vulnerabilities, licenses, and other important information for the open source projects your organization depends on.
 
@@ -42,6 +44,6 @@ With dependency insights you can view vulnerabilities, licenses, and other impor
 ## Further reading
 
 * [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)
-* [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository)
+* [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/explore-dependencies)
 * [AUTOTITLE](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)
-* [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-for-visibility-of-dependency-insights)
+* [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-for-visibility-of-dependency-insights)

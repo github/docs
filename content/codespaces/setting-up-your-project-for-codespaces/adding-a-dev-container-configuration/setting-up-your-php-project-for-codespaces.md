@@ -50,7 +50,7 @@ The default development container, or "dev container," for {% data variables.pro
 {
   "name": "PHP",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "mcr.microsoft.com/devcontainers/php:1-8.2-bullseye",
+  "image": "mcr.microsoft.com/devcontainers/php:3-8.5-trixie",
 
   // Features to add to the dev container. More info: https://containers.dev/features.
   // "features": {},
@@ -129,7 +129,7 @@ With your dev container configuration added and a basic understanding of what ev
    {
      "name": "PHP",
      // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-     "image": "mcr.microsoft.com/devcontainers/php:1-8.2-bullseye",
+     "image": "mcr.microsoft.com/devcontainers/php:3-8.5-trixie",
 
      // Configure tool-specific properties.
      "customizations": {

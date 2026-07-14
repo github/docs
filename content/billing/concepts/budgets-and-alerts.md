@@ -75,4 +75,4 @@ The maximum number of budgets per account is 10,000.
 
 ## Set up a budget
 
-To get started with budgets, see [AUTOTITLE](/billing/tutorials/set-up-budgets).
+To get started with budgets, see [AUTOTITLE](/billing/how-tos/set-up-budgets).

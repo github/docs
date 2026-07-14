@@ -22,7 +22,7 @@ category:
 
 ## Collecting log files
 
-The location of the log files depends on the JetBrains IDE you are using. For more information, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment?tool=jetbrains).
+The location of the log files depends on the JetBrains IDE you are using. For more information, see [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-in-ide?tool=jetbrains).
 
 These steps describe how to view and collect the log files for the following JetBrains IDEs:
 
@@ -92,7 +92,7 @@ If you encounter problems connecting to {% data variables.product.prodname_copil
 
 ## Troubleshooting certificate-related errors
 
-If you're using a custom certificate, ensure the certificate is installed correctly in the operating system, see [AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-network-errors-for-github-copilot). Then use the following troubleshooting steps.
+If you're using a custom certificate, ensure the certificate is installed correctly in the operating system, see [AUTOTITLE](/copilot/how-tos/troubleshoot-copilot/troubleshoot-network-errors). Then use the following troubleshooting steps.
 
 1. In the menu bar, click **Tools**, select **{% data variables.product.prodname_copilot %}**, and click **Log CA Certificates**.
 1. The `idea.log` file should open in the JetBrains IDE with the trusted CA certificates logged in PEM format. You may need to refresh the `idea.log` file to view all of the output. Alternatively, you can open the `idea.log` file in your preferred editor.
@@ -177,7 +177,7 @@ In rare cases, errors might not be propagated to the corresponding error handler
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-network-errors-for-github-copilot)
+* [AUTOTITLE](/copilot/how-tos/troubleshoot-copilot/troubleshoot-network-errors)
 * [Network Connections in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/setup/network) in the {% data variables.product.prodname_vscode %} documentation
 
 {% endvscode %}

@@ -37,7 +37,7 @@ The assessment report includes:
 - **Total secrets detected**: The aggregate count of exposed secrets in your organization.
 - **Public leaks**: Secrets found in public repositories that are accessible to anyone.
 - **Preventable leaks**: Secrets that could have been blocked with push protection enabled.
-- **Secret categories**: The distribution of secret types (such as AWS keys, {% data variables.product.github %} tokens, or generic passwords).
+- **Secret categories**: The distribution of secret types (such as AWS keys, {% data variables.product.github %} tokens, or AI-detected secrets).
 
 ### Why assess your risk
 

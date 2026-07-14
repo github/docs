@@ -131,7 +131,7 @@ When Copilot Autofix is enabled for a repository, code scanning alerts are proce
 1. **Input processing**: Input is limited to text (typically code) that a user has checked into a repository. The system provides this text to the model along with a meta prompt asking the model to find unstructured secrets within the scope of the input. The user does not interact with the model directly. Multiple models may be used to validate a single finding.
 1. **Model analysis**: The model scans for strings that resemble unstructured secrets like passwords.
 1. **Response generation**: The model verifies that the identified strings included in the response actually exist in the input.
-1. **Output formatting**: Detected strings are surfaced as alerts on the secret scanning alerts page in a separate list from regular secret scanning alerts. Each alert notes that it was detected using AI.{% ifversion secret-scanning-ai-generic-secret-detection %} For information on how to view alerts for generic secrets, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts).{% endif %}
+1. **Output formatting**: Detected strings are surfaced as alerts on the secret scanning alerts page in a separate list from regular secret scanning alerts. Each alert notes that it was detected by AI.{% ifversion secret-scanning-ai-generic-secret-detection %} For information on how to view alerts for generic secrets, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts).{% endif %}
 
 **Custom pattern regex generator** processes input and produces output as follows:
 
@@ -280,10 +280,10 @@ For additional guidance on the responsible use of GitHub Security AI features, w
 * [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/disabling-autofix-for-code-scanning)
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security)
 * [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)
-* [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/enabling-ai-powered-generic-secret-detection)
+* [AUTOTITLE](/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enabling-secret-scanning-for-ai-detected-secrets)
 * [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning){% ifversion ghec %}
 * [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-to-manage-the-use-of-generic-secret-detection-for-secret-scanning-in-your-enterprises-repositories){% endif %}
-* [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/generating-regular-expressions-for-custom-patterns-with-copilot-secret-scanning)
+* [AUTOTITLE](/code-security/how-tos/secure-your-secrets/customize-leak-detection/generating-regular-expressions-for-custom-patterns-with-ai)
 * [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)
 * [AUTOTITLE](/code-security/code-quality/get-started/quickstart)
 * [AUTOTITLE](/copilot/responsible-use/code-review)

@@ -25,7 +25,13 @@ You can enable automatic validity checks for detected secrets. Once enabled, {% 
 
 {% data variables.product.company_short %} prioritizes privacy when checking the validity of the credential. We typically make GET requests, pick the least intrusive endpoints, and select endpoints that don't return any personal information.
 
-{% data variables.product.github %} displays the validation status of the secret in the alert view, so you can see if the secret is `active`, `inactive`, or if the validation status is `unknown`. You can optionally perform an "on-demand" validity check for the secret in the alert view.
+{% ifversion fpt or ghec %}
+
+Some secrets require more than the token itself to confirm whether they are active. For these secrets, {% data variables.product.company_short %} will combine the token with additional contextual information, such as a host or URL, to check the secret's validity.
+
+{% endif %}
+
+{% data variables.product.github %} displays the validation status of the secret in the alert view, so you can see if the secret is `active`, `inactive`, or if the validation status is `unknown`. For most secrets, you can optionally perform an "on-demand" validity check for the secret in the alert view.
 
 ## About extended metadata checks
 

@@ -26,7 +26,7 @@ This article contains reference information for how spending is assigned to cost
 | {% data variables.product.prodname_enterprise %} | The user who receives the license (priority), or the organization that is billed for the license. |
 | Git Large File Storage | The repository or organization where Git LFS is used. |
 | {% data variables.product.prodname_registry %} | The repository or organization that owns the package. |
-| {% data variables.product.prodname_prus_caps %} | The user who triggered {% data variables.product.prodname_pru %} usage (priority), or the organization that granted the user's {% data variables.product.prodname_copilot_short %} license. |
+| {% data variables.product.prodname_ai_credits_short %} | The user who triggered {% data variables.product.prodname_ai_credit_singular %} usage (priority), or the organization that granted the user's {% data variables.product.prodname_copilot_short %} license. |
 | {% data variables.product.prodname_GHAS %} | A user who uses a license (priority), or the organization that is billed for the license. |
 
 ## Details for license-based products
@@ -48,13 +48,13 @@ Users who belong to multiple organizations in an enterprise or who receive a {% 
 
 To confirm which organization is charged for a given user's license, you can request a detailed usage report. See [AUTOTITLE](/billing/reference/billing-reports#detailed-usage-report).
 
-See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-the-copilot-subscription-for-your-enterprise/about-billing-for-github-copilot-in-your-enterprise#about-seat-assignment-for-copilot-in-your-enterprise).
+See [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises#seat-assignment).
 
 ## Understanding cost center usage and attribution
 
 To view usage by cost center, go to the "Usage" page and group or filter by cost center. Any usage that is not assigned to a specific cost center is categorized as "Enterprise Only" when grouping by cost center. See [AUTOTITLE](/billing/tutorials/gather-insights).
 
-To understand how usage for a specific resource is being attributed to cost centers, request a detailed usage report and refer to the `cost_center_name` column. See [AUTOTITLE](/billing/reference/usage-reports).
+To understand how usage for a specific resource is being attributed to cost centers, request a detailed usage report and refer to the `cost_center_name` column. See [AUTOTITLE](/billing/reference/billing-reports).
 
 ## Effects of changes to cost centers
 

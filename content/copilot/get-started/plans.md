@@ -39,7 +39,7 @@ The tables below show the features available in each {% data variables.product.p
 
 {% data reusables.copilot.differences-cfi-cfb-table %}
 
-For more information, see [AUTOTITLE](/copilot/about-github-copilot/github-copilot-features).
+For more information, see [AUTOTITLE](/copilot/get-started/features).
 
 ## Ready to choose a plan?
 

@@ -51,7 +51,7 @@ After you create your ticket, you can view your ticket and the responses from {%
 
 ## Prerequisites
 
-{% ifversion ghec %}If you use an enterprise account, there{% else %}There{% endif %} are some steps you should follow before you start using the {% data variables.contact.enterprise_portal %}. For more information, see [Getting started with the {% data variables.contact.enterprise_portal %}](/support/contacting-github-support/getting-started-with-the-github-support-portal).
+{% ifversion ghec %}If you use an enterprise account, there{% else %}There{% endif %} are some steps you should follow before you start using the {% data variables.contact.enterprise_portal %}. For more information, see [AUTOTITLE](/support/contacting-github-support/getting-your-enterprise-started-with-the-github-support-portal).
 {% endif %}
 
 ## What to include in your support ticket
@@ -95,7 +95,7 @@ Before you submit a ticket, you have the option of using {% data variables.copil
       1. Enter your enterprise or tenant name (provided by your administrator) and continue.
       1. Complete the SAML authentication process as prompted. This will sign you in to your .ghe enterprise-managed account.
    * To sign up for {% data variables.product.github %}, click **Sign up for {% data variables.product.github %}**.
-   * If you can't sign in or sign up, click **Can't sign in?** and fill out the form. You will be guided through an email verification process.{% ifversion ghec or ghes %} You will need to upload your {% data variables.product.prodname_enterprise %} license. For more information, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise).{% endif %}
+   * If you can't sign in or sign up, click **Can't sign in?** and fill out the form. You will be guided through an email verification process.{% ifversion ghec or ghes %} You will need to upload your {% data variables.product.prodname_enterprise %} license. For more information, see [AUTOTITLE](/billing/how-tos/manage-server-licenses/download-your-license).{% endif %}
 
 {% data reusables.support.submit-a-ticket %}
 
@@ -112,7 +112,7 @@ Before you submit a ticket, you have the option of using {% data variables.copil
 
    * To sign in with your {% data variables.product.github %} account, click **Sign in with {% data variables.product.github %}**.
    * To sign up for {% data variables.product.github %}, click **Sign up for {% data variables.product.github %}**.
-   * If you can't sign in or sign up, click **Can't sign in?** and fill out the form. You will be guided through an email verification process. You will need to upload your {% data variables.product.prodname_enterprise %} license. For more information, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise).
+   * If you can't sign in or sign up, click **Can't sign in?** and fill out the form. You will be guided through an email verification process. You will need to upload your {% data variables.product.prodname_enterprise %} license. For more information, see [AUTOTITLE](/billing/how-tos/manage-server-licenses/download-your-license).
 
 1. If you'd like to include diagnostics with your support ticket, Under "Diagnostics", click **Download diagnostic info** and save the file locally. You'll attach this file to your support ticket later.
 1. To complete your ticket and display the {% data variables.contact.enterprise_portal %}, under "Open Support Request", click **New support request**.

@@ -33,7 +33,7 @@ While a migration is in progress, access to the destination repository is locked
 > [!NOTE]
 > We do not recommend locking source repositories unless you are certain you will not want to unlock them later. Consider archiving the repositories instead. For more information, see [AUTOTITLE](/repositories/archiving-a-github-repository/archiving-repositories).
 
-For information about how to unlock repositories that were locked by {% data variables.product.prodname_importer_proper_name %}, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#locked-repositories).
+For information about how to unlock repositories that were locked by {% data variables.product.prodname_importer_proper_name %}, see [AUTOTITLE](/migrations/troubleshooting/troubleshooting-your-migration-with-github-enterprise-importer#locked-repositories).
 
 ## Repositories archived by {% data variables.product.prodname_elm %}
 

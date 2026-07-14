@@ -40,4 +40,4 @@ If you don't already have a suitable repository, follow the steps below to creat
 
 ## Next steps
 
-To trial {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/test-custom-agents).
+To trial {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/test-custom-agents).

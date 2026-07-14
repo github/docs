@@ -102,8 +102,13 @@ You can recommend that repositories in your organization use the "Extended" quer
 
 You can customize several {% data variables.product.prodname_global_settings %} for {% data variables.product.prodname_code_scanning %}:
 
-{% ifversion code-scanning-autofix %}* [Enabling {% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_codeql %}](#enabling-copilot-autofix-for-codeql){% endif %}
 * [Recommending the extended query suite for default setup](#recommending-the-extended-query-suite-for-default-setup)
+{%- ifversion code-scanning-autofix %}
+* [Enabling {% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_codeql %}](#enabling-copilot-autofix-for-codeql)
+{%- endif %}
+{%- ifversion ai-powered-security-detections %}
+* [Enabling AI-powered security detections](#enabling-ai-powered-security-detections)
+{%- endif %}
 * [Expanding {% data variables.product.prodname_codeql %} analysis](#expanding-codeql-analysis)
 {%- ifversion code-scanning-inactive-repos %}
 * [Continuing scans on inactive repositories](#continuing-scans-on-inactive-repositories)
@@ -120,6 +125,14 @@ You can customize several {% data variables.product.prodname_global_settings %} 
 ### Enabling {% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_codeql %}
 
 You can select **{% data variables.copilot.copilot_autofix_short %}** to enable {% data variables.copilot.copilot_autofix_short %} for all the repositories in your organization that use {% data variables.product.prodname_codeql %} default setup or {% data variables.product.prodname_codeql %} advanced setup. {% data variables.copilot.copilot_autofix_short %} is an expansion of {% data variables.product.prodname_code_scanning %} that suggests fixes for {% data variables.product.prodname_code_scanning %} alerts. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
+
+{% endif %}
+
+{% ifversion ai-powered-security-detections %}
+
+### Enabling AI-powered security detections
+
+You can select **AI-powered security detections** to enable AI-powered security detections for all repositories in your organization that use {% data variables.product.prodname_codeql %} default setup. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-powered-security-detections).
 
 {% endif %}
 

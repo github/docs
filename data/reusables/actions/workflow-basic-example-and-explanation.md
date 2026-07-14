@@ -70,7 +70,7 @@ jobs:
 
 ### Visualizing the workflow file
 
-In this diagram, you can see the workflow file you just created and how the {% data variables.product.prodname_actions %} components are organized in a hierarchy. Each step executes a single action or shell script. Steps 1 and 2 run actions, while steps 3 and 4 run shell scripts. To find more prebuilt actions for your workflows, see [AUTOTITLE](/actions/learn-github-actions/finding-and-customizing-actions).
+In this diagram, you can see the workflow file you just created and how the {% data variables.product.prodname_actions %} components are organized in a hierarchy. Each step executes a single action or shell script. Steps 1 and 2 run actions, while steps 3 and 4 run shell scripts. To find more prebuilt actions for your workflows, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/find-and-customize-actions).
 
 ![Diagram showing the trigger, runner, and job of a workflow. The job is broken into 4 steps.](/assets/images/help/actions/overview-actions-event.png)
 

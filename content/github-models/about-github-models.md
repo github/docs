@@ -58,7 +58,7 @@ Use the Playground to quickly explore models and test prompt ideas in real time.
 
 ## Billing
 
-For more information about billing for {% data variables.product.prodname_github_models %}, see [AUTOTITLE](/billing/managing-billing-for-your-products/about-billing-for-github-models).
+For more information about billing for {% data variables.product.prodname_github_models %}, see [AUTOTITLE](/billing/concepts/product-billing/github-models).
 
 ## Join the community
 
@@ -71,4 +71,4 @@ To learn how others are using {% data variables.product.prodname_github_models %
 * [AUTOTITLE](/github-models/use-github-models/prototyping-with-ai-models)
 * [AUTOTITLE](/github-models/use-github-models/optimizing-your-ai-powered-app-with-github-models)
 * [AUTOTITLE](/github-models/use-github-models/evaluating-ai-models)
-* [AUTOTITLE](/billing/managing-billing-for-your-products/about-billing-for-github-models)
+* [AUTOTITLE](/billing/concepts/product-billing/github-models)

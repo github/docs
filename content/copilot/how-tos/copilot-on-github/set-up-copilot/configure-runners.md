@@ -21,7 +21,7 @@ You can also upgrade to larger {% data variables.product.prodname_dotcom %}-host
 
 ## Configure self-hosted runners for code review
 
-Run {% data variables.copilot.copilot_code-review_short %} using self-hosted {% data variables.product.prodname_actions %} runners with ARC (Actions Runner Controller). You must first set up ARC-managed scale sets in your environment. For more information on ARC, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller).
+Run {% data variables.copilot.copilot_code-review_short %} using self-hosted {% data variables.product.prodname_actions %} runners with ARC (Actions Runner Controller). You must first set up ARC-managed scale sets in your environment. For more information on ARC, see [AUTOTITLE](/actions/concepts/runners/actions-runner-controller).
 
 > [!WARNING]
 > ARC is the only officially supported solution for self-hosting {% data variables.copilot.copilot_code-review_short %}. For security reasons, do not use non-ARC self-hosted runners.
@@ -36,7 +36,7 @@ To configure self-hosted runners for {% data variables.copilot.copilot_code-revi
     * `api.githubcopilot.com`
     * `uploads.github.com`
     * `user-images.githubusercontent.com`
-1. In your `copilot-setup-steps.yml` file, set the `runs-on` attribute to your ARC-managed scale set name. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment#preinstalling-tools-or-dependencies-in-copilots-environment).
+1. In your `copilot-setup-steps.yml` file, set the `runs-on` attribute to your ARC-managed scale set name. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment#preinstalling-tools-or-dependencies-in-copilots-environment).
 
    ```yaml
    # ...
@@ -49,19 +49,19 @@ To configure self-hosted runners for {% data variables.copilot.copilot_code-revi
 
 ## Upgrade to larger {% data variables.product.prodname_dotcom %}-hosted {% data variables.product.prodname_actions %} runners
 
-By default, {% data variables.copilot.copilot_code-review_short %} runs on a standard {% data variables.product.prodname_actions %} runner. Larger runners provide better performance (CPU and memory), more disk space, and advanced features like Azure private networking. See [AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners/about-larger-runners).
+By default, {% data variables.copilot.copilot_code-review_short %} runs on a standard {% data variables.product.prodname_actions %} runner. Larger runners provide better performance (CPU and memory), more disk space, and advanced features like Azure private networking. See [AUTOTITLE](/actions/concepts/runners/larger-runners).
 
 > [!NOTE]
 > Usage of larger {% data variables.product.prodname_dotcom %}-hosted runners is billed at a higher per-minute rate. For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-actions).
 
-1. Set up larger runners for your organization. See [AUTOTITLE](/actions/using-github-hosted-runners/managing-larger-runners).
+1. Set up larger runners for your organization. See [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners/manage-larger-runners).
 1. If you are using larger runners with Azure private networking, configure your Azure private network to allow outbound access to the following hosts:
 
     * `api.githubcopilot.com`
     * `uploads.github.com`
     * `user-images.githubusercontent.com`
 
-1. In your `copilot-setup-steps.yml` file, set the `runs-on` attribute to the label for the larger runners you want {% data variables.copilot.copilot_code-review_short %} to use. See [AUTOTITLE](/actions/using-github-hosted-runners/running-jobs-on-larger-runners).
+1. In your `copilot-setup-steps.yml` file, set the `runs-on` attribute to the label for the larger runners you want {% data variables.copilot.copilot_code-review_short %} to use. See [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners/use-larger-runners).
 
    ```yaml
    # ...

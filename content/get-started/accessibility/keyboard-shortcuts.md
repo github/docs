@@ -20,7 +20,7 @@ category:
 
 Typing <kbd>?</kbd> on {% data variables.product.prodname_dotcom %} brings up a dialog box that lists the keyboard shortcuts available for that page. You can use these keyboard shortcuts to perform actions across the site without using your mouse to navigate.
 
-You can disable character key shortcuts, while still allowing shortcuts that use modifier keys, in your accessibility settings. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-accessibility-settings).
+You can disable character key shortcuts, while still allowing shortcuts that use modifier keys, in your accessibility settings. For more information, see [AUTOTITLE](/account-and-profile/how-tos/account-settings/managing-accessibility-settings).
 
 {% ifversion command-palette %}
 The {% data variables.product.prodname_command_palette %} also gives you quick access to a wide range of actions, without the need to remember keyboard shortcuts. For more information, see [AUTOTITLE](/get-started/accessibility/github-command-palette).
@@ -34,7 +34,7 @@ The following sections list some of the available keyboard shortcuts, organized 
 | Keyboard shortcut | Description |
 |-----------|------------|
 |<kbd>S</kbd> or <kbd>/</kbd> | Focus the search bar. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
-|<kbd>G</kbd> <kbd>N</kbd> | Go to your notifications. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications).
+|<kbd>G</kbd> <kbd>N</kbd> | Go to your notifications. For more information, see [AUTOTITLE](/subscriptions-and-notifications/concepts/about-notifications).
 |<kbd>Option</kbd>+<kbd>↑</kbd> (Mac) or </br> <kbd>Alt</kbd>+<kbd>↑</kbd> (Windows/Linux) | Move focus from an element to its hovercard |
 |<kbd>Esc</kbd> | When focused on a user, issue, or pull request hovercard, closes the hovercard and refocuses on the element the hovercard is in
 
@@ -43,9 +43,9 @@ The following sections list some of the available keyboard shortcuts, organized 
 | Keyboard shortcut | Description |
 |-----------|------------ |
 |<kbd>G</kbd> <kbd>C</kbd> | Go to the **Code** tab
-|<kbd>G</kbd> <kbd>I</kbd> | Go to the **Issues** tab. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues).
+|<kbd>G</kbd> <kbd>I</kbd> | Go to the **Issues** tab. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/learning-about-issues/about-issues).
 |<kbd>G</kbd> <kbd>P</kbd> | Go to the **Pull requests** tab. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
-|<kbd>G</kbd> <kbd>A</kbd> | Go to the **Actions** tab. For more information, see [AUTOTITLE](/actions/learn-github-actions).
+|<kbd>G</kbd> <kbd>A</kbd> | Go to the **Actions** tab. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows).
 |<kbd>G</kbd> <kbd>W</kbd> | Go to the **Wiki** tab. For more information, see [AUTOTITLE](/communities/documenting-your-project-with-wikis/about-wikis). |
 |<kbd>G</kbd> <kbd>G</kbd> | Go to the **Discussions** tab. For more information, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions).
 |<kbd>G</kbd> <kbd>S</kbd> | Go to the repository's **{% data variables.product.prodname_security_and_quality_tab %}** tab. For more information, see [AUTOTITLE](/code-security/getting-started/github-security-features).
@@ -89,7 +89,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>y</kbd> | Expand a URL to its canonical form. For more information, see [AUTOTITLE](/repositories/working-with-files/using-files/getting-permanent-links-to-files). |
 |<kbd>i</kbd> | Show or hide comments on diffs. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request). |
 |<kbd>a</kbd> | Show or hide annotations on diffs |
-|<kbd>b</kbd> | Open blame view. For more information, see [AUTOTITLE](/repositories/working-with-files/using-files/viewing-a-file). |
+|<kbd>b</kbd> | Open blame view. For more information, see [AUTOTITLE](/repositories/working-with-files/using-files/viewing-and-understanding-files). |
 
 ## Navigating within code files
 
@@ -130,12 +130,12 @@ If you view a code file in a repository using the **Code** view and click on any
 | Keyboard shortcut | Description |
 |-----------|------------ |
 |<kbd>C</kbd> | Create an issue
-|<kbd>Command</kbd>+<kbd>/</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>/</kbd> (Windows/Linux) | Focus your cursor on the issues or pull requests search bar. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests).|
+|<kbd>Command</kbd>+<kbd>/</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>/</kbd> (Windows/Linux) | Focus your cursor on the issues or pull requests search bar. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests).|
 |<kbd>U</kbd> | Filter by author |
-|<kbd>L</kbd> | Filter by or edit labels. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests). |
-|<kbd>Alt</kbd> and click | While filtering by labels, exclude labels. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests). |
+|<kbd>L</kbd> | Filter by or edit labels. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests). |
+|<kbd>Alt</kbd> and click | While filtering by labels, exclude labels. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests). |
 |<kbd>M</kbd> | Filter by or edit milestones. For more information, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/filtering-issues-and-pull-requests-by-milestone). |
-|<kbd>A</kbd> | Filter by or edit assignee. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests). |
+|<kbd>A</kbd> | Filter by or edit assignee. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests). |
 |<kbd>O</kbd> or <kbd>Enter</kbd> | Open issue |
 
 ## Issues and pull requests
@@ -145,13 +145,13 @@ If you view a code file in a repository using the **Code** view and click on any
 |<kbd>Q</kbd> | Request a reviewer. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review). |
 |<kbd>M</kbd> | Set a milestone. For more information, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/associating-milestones-with-issues-and-pull-requests). |
 |<kbd>L</kbd> | Apply a label. For more information, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#applying-a-label). |
-|<kbd>A</kbd> | Set an assignee. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users). |
-|<kbd>X</kbd> | Link an issue or pull request from the same repository. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue). |
+|<kbd>A</kbd> | Set an assignee. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/assigning-issues-and-pull-requests-to-other-github-users). |
+|<kbd>X</kbd> | Link an issue or pull request from the same repository. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue). |
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) | Toggles between the **Write** and **Preview** tabs |
 |  {% ifversion fpt or ghec %} |
-|<kbd>Alt</kbd> and click | When creating an issue from a task list, open the new issue form in the current tab by holding <kbd>Alt</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists). |
-|<kbd>Shift</kbd> and click | When creating an issue from a task list, open the new issue form in a new tab by holding <kbd>Shift</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists). |
-|<kbd>Command</kbd> and click (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd> and click (Windows/Linux) | When creating an issue from a task list, open the new issue form in the new window by holding <kbd>Command</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists). |
+|<kbd>Alt</kbd> and click | When creating an issue from a task list, open the new issue form in the current tab by holding <kbd>Alt</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-tasklists). |
+|<kbd>Shift</kbd> and click | When creating an issue from a task list, open the new issue form in a new tab by holding <kbd>Shift</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-tasklists). |
+|<kbd>Command</kbd> and click (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd> and click (Windows/Linux) | When creating an issue from a task list, open the new issue form in the new window by holding <kbd>Command</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-tasklists). |
 |  {% endif %} |
 | {% ifversion sub-issues %} |
 |<kbd>Option</kbd>+<kbd>Shift</kbd>+<kbd>c</kbd> (Mac) or </br> <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>c</kbd> (Windows/Linux) | Create a new sub-issue. See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues). |

@@ -54,25 +54,25 @@ To unsubscribe from conversations you're automatically subscribed to, you can ch
 
 You can choose to view your notifications through the notifications inbox at [https://github.com/notifications](https://github.com/notifications) and in the {% data variables.product.prodname_mobile %} app, through your email, or some combination of these options.
 
-To customize the types of updates you'd like to receive and where to send those updates, configure your notification settings. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications).
+To customize the types of updates you'd like to receive and where to send those updates, configure your notification settings. For more information, see [AUTOTITLE](/subscriptions-and-notifications/get-started/configuring-notifications).
 
 To keep your subscriptions manageable, review your subscriptions and watched repositories and unsubscribe as needed. For more information, see [AUTOTITLE](/subscriptions-and-notifications/how-tos/managing-subscriptions-for-activity-on-github).
 
-To customize how you'd like to receive updates for specific pull requests or issues, you can configure your preferences within the issue or pull request. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request).
+To customize how you'd like to receive updates for specific pull requests or issues, you can configure your preferences within the issue or pull request. For more information, see [AUTOTITLE](/subscriptions-and-notifications/how-tos/viewing-and-triaging-notifications/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request).
 
 Each email notification that {% data variables.product.prodname_dotcom %} sends contains header information that you can use to filter notifications in your email client. For information about the headers included, see [AUTOTITLE](/subscriptions-and-notifications/reference/email-notification-headers).
 
-You can customize and schedule push notifications in the {% data variables.product.prodname_mobile %} app. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#managing-your-notification-settings-with-github-mobile).
+You can customize and schedule push notifications in the {% data variables.product.prodname_mobile %} app. For more information, see [AUTOTITLE](/subscriptions-and-notifications/get-started/configuring-notifications#managing-your-notification-settings-with-github-mobile).
 
 ## Reasons for receiving notifications
 
-Your inbox is configured with default filters, which represent the most common reasons that people need to follow-up on their notifications. For more information about inbox filters, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#default-notification-filters).
+Your inbox is configured with default filters, which represent the most common reasons that people need to follow-up on their notifications. For more information about inbox filters, see [AUTOTITLE](/subscriptions-and-notifications/how-tos/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#default-notification-filters).
 
 Your inbox shows the `reason` you're receiving a notification as a label, such as, `mention`, `subscribed`, or `review requested`.
 
 You can filter your inbox by the reason you're subscribed to notifications. For example, to only see pull requests where someone requested your review, you can use the `reason:review-requested` query filter.
 
-If you've configured notifications to be sent by email and believe you're receiving notifications that don't belong to you, consider troubleshooting with email headers, which show the intended recipient. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#filtering-email-notifications).
+If you've configured notifications to be sent by email and believe you're receiving notifications that don't belong to you, consider troubleshooting with email headers, which show the intended recipient. For more information, see [AUTOTITLE](/subscriptions-and-notifications/reference/email-notification-headers).
 
 ## Triaging notifications from your inbox
 
@@ -82,11 +82,11 @@ To effectively manage your notifications, you can triage your inbox with options
 * **Save** a notification for later review. **Saved** notifications are flagged in your inbox. You can review **Saved** notifications all in one place in the sidebar by clicking **Saved** or by using the query `is:saved`.
 * Automatically unsubscribe from this notification and future updates from this conversation. Unsubscribing also removes the notification from your inbox. If you unsubscribe from a conversation and someone mentions your username or a team you're on that you're receiving updates for, then you will start to receive notifications from this conversation again.
 
-From your inbox you can also triage multiple notifications at once. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#triaging-multiple-notifications-at-the-same-time).
+From your inbox you can also triage multiple notifications at once. For more information, see [AUTOTITLE](/subscriptions-and-notifications/how-tos/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#triaging-multiple-notifications-at-the-same-time).
 
 ## Customizing your notifications inbox
 
-To focus on a group of notifications in your inbox, you can create custom filters. For example, you can create a custom filter for an open source project you contribute to and only see notifications for that repository in which you are mentioned. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox). For more examples of how to customize your triaging workflow, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/customizing-a-workflow-for-triaging-your-notifications).
+To focus on a group of notifications in your inbox, you can create custom filters. For example, you can create a custom filter for an open source project you contribute to and only see notifications for that repository in which you are mentioned. For more information, see [AUTOTITLE](/subscriptions-and-notifications/how-tos/viewing-and-triaging-notifications/managing-notifications-from-your-inbox). For more examples of how to customize your triaging workflow, see [AUTOTITLE](/subscriptions-and-notifications/tutorials/customizing-a-workflow-for-triaging-your-notifications).
 
 ## Notification retention policy
 

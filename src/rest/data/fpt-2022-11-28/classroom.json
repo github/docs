@@ -4,7 +4,7 @@
       "serverUrl": "https://api.github.com",
       "verb": "get",
       "requestPath": "/assignments/{assignment_id}",
-      "title": "Get an assignment",
+      "title": "Closing down - Get an assignment",
       "category": "classroom",
       "subcategory": "classroom",
       "parameters": [
@@ -19,7 +19,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a GitHub Classroom assignment. Assignment will only be returned if the current user is an administrator of the GitHub Classroom for the assignment.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> This operation is closing down and will be removed on August 28, 2026.\nFor more information, see the <a href=\"https://gh.io/classroom-sunset\">GitHub Classroom sunset notice</a>.</p>\n</div>\n<p>Gets a GitHub Classroom assignment. Assignment will only be returned if the current user is an administrator of the GitHub Classroom for the assignment.</p>",
       "codeExamples": [
         {
           "request": {
@@ -310,7 +310,7 @@
       "serverUrl": "https://api.github.com",
       "verb": "get",
       "requestPath": "/assignments/{assignment_id}/accepted_assignments",
-      "title": "List accepted assignments for an assignment",
+      "title": "Closing down - List accepted assignments for an assignment",
       "category": "classroom",
       "subcategory": "classroom",
       "parameters": [
@@ -343,7 +343,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists any assignment repositories that have been created by students accepting a GitHub Classroom assignment. Accepted assignments will only be returned if the current user is an administrator of the GitHub Classroom for the assignment.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> This operation is closing down and will be removed on August 28, 2026.\nFor more information, see the <a href=\"https://gh.io/classroom-sunset\">GitHub Classroom sunset notice</a>.</p>\n</div>\n<p>Lists any assignment repositories that have been created by students accepting a GitHub Classroom assignment. Accepted assignments will only be returned if the current user is an administrator of the GitHub Classroom for the assignment.</p>",
       "codeExamples": [
         {
           "request": {
@@ -673,7 +673,7 @@
       "serverUrl": "https://api.github.com",
       "verb": "get",
       "requestPath": "/assignments/{assignment_id}/grades",
-      "title": "Get assignment grades",
+      "title": "Closing down - Get assignment grades",
       "category": "classroom",
       "subcategory": "classroom",
       "parameters": [
@@ -688,7 +688,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets grades for a GitHub Classroom assignment. Grades will only be returned if the current user is an administrator of the GitHub Classroom for the assignment.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> This operation is closing down and will be removed on August 28, 2026.\nFor more information, see the <a href=\"https://gh.io/classroom-sunset\">GitHub Classroom sunset notice</a>.</p>\n</div>\n<p>Gets grades for a GitHub Classroom assignment. Grades will only be returned if the current user is an administrator of the GitHub Classroom for the assignment.</p>",
       "codeExamples": [
         {
           "request": {
@@ -823,7 +823,7 @@
       "serverUrl": "https://api.github.com",
       "verb": "get",
       "requestPath": "/classrooms",
-      "title": "List classrooms",
+      "title": "Closing down - List classrooms",
       "category": "classroom",
       "subcategory": "classroom",
       "parameters": [
@@ -847,7 +847,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists GitHub Classroom classrooms for the current user. Classrooms will only be returned if the current user is an administrator of one or more GitHub Classrooms.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> This operation is closing down and will be removed on August 28, 2026.\nFor more information, see the <a href=\"https://gh.io/classroom-sunset\">GitHub Classroom sunset notice</a>.</p>\n</div>\n<p>Lists GitHub Classroom classrooms for the current user. Classrooms will only be returned if the current user is an administrator of one or more GitHub Classrooms.</p>",
       "codeExamples": [
         {
           "request": {
@@ -919,7 +919,7 @@
       "serverUrl": "https://api.github.com",
       "verb": "get",
       "requestPath": "/classrooms/{classroom_id}",
-      "title": "Get a classroom",
+      "title": "Closing down - Get a classroom",
       "category": "classroom",
       "subcategory": "classroom",
       "parameters": [
@@ -934,7 +934,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a GitHub Classroom classroom for the current user. Classroom will only be returned if the current user is an administrator of the GitHub Classroom.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> This operation is closing down and will be removed on August 28, 2026.\nFor more information, see the <a href=\"https://gh.io/classroom-sunset\">GitHub Classroom sunset notice</a>.</p>\n</div>\n<p>Gets a GitHub Classroom classroom for the current user. Classroom will only be returned if the current user is an administrator of the GitHub Classroom.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1056,7 +1056,7 @@
       "serverUrl": "https://api.github.com",
       "verb": "get",
       "requestPath": "/classrooms/{classroom_id}/assignments",
-      "title": "List assignments for a classroom",
+      "title": "Closing down - List assignments for a classroom",
       "category": "classroom",
       "subcategory": "classroom",
       "parameters": [
@@ -1089,7 +1089,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists GitHub Classroom assignments for a classroom. Assignments will only be returned if the current user is an administrator of the GitHub Classroom.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> This operation is closing down and will be removed on August 28, 2026.\nFor more information, see the <a href=\"https://gh.io/classroom-sunset\">GitHub Classroom sunset notice</a>.</p>\n</div>\n<p>Lists GitHub Classroom assignments for a classroom. Assignments will only be returned if the current user is an administrator of the GitHub Classroom.</p>",
       "codeExamples": [
         {
           "request": {

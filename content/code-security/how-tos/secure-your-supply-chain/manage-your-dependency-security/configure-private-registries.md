@@ -407,7 +407,7 @@ If you use a monorepo, the `.npmrc` file should live in the project's root direc
 
 You can configure {% data variables.product.prodname_dependabot %} to send all registry requests through a specified base URL. In order for {% data variables.product.prodname_dependabot %} to access a public dependency, the registry must either have a cloned copy of the dependency with the requested version, or allow traffic to fetch from a public registry if the dependency is not available.
 
-If there is no global registry defined in a `.npmrc` file, you can set `replaces-base` to `true` in the `dependabot.yml` file. For more information, see "`replaces-base`" in [Top-level `registries` key](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/dependabot-options-reference#top-level-registries-key).
+If there is no global registry defined in a `.npmrc` file, you can set `replaces-base` to `true` in the `dependabot.yml` file. For more information, see "`replaces-base`" in [Top-level `registries` key](/code-security/reference/supply-chain-security/dependabot-options-reference#top-level-registries-key).
 
 #### Notes
 
@@ -575,7 +575,7 @@ You can either specify the private registry configuration in the `dependabot.yml
 
 ##### Defining the private registry configuration in the `dependabot.yml` file
 
-You can define the private registry configuration in your `dependabot.yml` file. For more information, see [Top-level `registries` key](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/dependabot-options-reference#top-level-registries-key).
+You can define the private registry configuration in your `dependabot.yml` file. For more information, see [Top-level `registries` key](/code-security/reference/supply-chain-security/dependabot-options-reference#top-level-registries-key).
 
 To ensure that the private registry is listed as the dependency source in the project's `yarn.lock` file, you need to run `yarn install` on a machine with private registry access. Yarn should update the resolved field to include the private registry URL.
 
@@ -612,7 +612,7 @@ As with Yarn Classic, you can either specify the private registry configuration 
 
 ##### Defining the private registry configuration in the `dependabot.yml` file
 
-You can define the private registry configuration in your `dependabot.yml` file. For more information, see [Top-level `registries` key](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/dependabot-options-reference#top-level-registries-key).
+You can define the private registry configuration in your `dependabot.yml` file. For more information, see [Top-level `registries` key](/code-security/reference/supply-chain-security/dependabot-options-reference#top-level-registries-key).
 
 To ensure the private registry is listed as the dependency source in the project's `yarn.lock` file, run `yarn install` on a machine with private registry access. Yarn should update the resolved field to include the private registry URL.
 

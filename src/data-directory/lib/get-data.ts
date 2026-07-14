@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-import { load } from 'js-yaml'
+import { loadYaml } from '@/frame/lib/load-yaml'
 import matter from '@gr2m/gray-matter'
 import { merge, get } from 'lodash-es'
 
@@ -331,7 +331,7 @@ const getYamlContent = memoize(
       root = englishRoot
     }
     const fileContent = getFileContent(root, relPath, englishRoot)
-    return load(fileContent, { filename: relPath })
+    return loadYaml(fileContent, { filename: relPath })
   },
 )
 

@@ -71,4 +71,4 @@ Once the working directory is trusted, {% data variables.copilot.copilot_cli_sho
 ## Further reading
 
 * [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) on the Microsoft website
-* [AUTOTITLE](/copilot/reference/cli-command-reference)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)

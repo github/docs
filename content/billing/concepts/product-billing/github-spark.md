@@ -30,7 +30,7 @@ You now have more granular options for managing {% data variables.product.prodna
 * **Bundled budget**: Combine {% data variables.product.prodname_spark_short %} {% data variables.product.prodname_ai_credits_short %} with other {% data variables.product.prodname_copilot_short %} costs in a single budget for simplified management.
 * **Individual product budget**: Set a dedicated budget specifically for {% data variables.product.prodname_spark_short %} for granular cost control.
 
-For detailed information about setting up budgets, see [AUTOTITLE](/billing/tutorials/set-up-budgets).
+For detailed information about setting up budgets, see [AUTOTITLE](/billing/how-tos/set-up-budgets).
 
 ### Analytics and monitoring
 
@@ -53,5 +53,5 @@ In the future, a new billing system will allow sparks to continue being deployed
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-spark)
-* [AUTOTITLE](/copilot/tutorials/building-ai-app-prototypes)
+* [AUTOTITLE](/copilot/responsible-use/agents)
+* [AUTOTITLE](/copilot/tutorials/spark/build-apps-with-spark)

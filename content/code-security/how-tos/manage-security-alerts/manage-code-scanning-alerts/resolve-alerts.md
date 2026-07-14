@@ -27,15 +27,45 @@ category:
 
 ## Asking {% data variables.copilot.copilot_chat %} about {% data variables.product.prodname_code_scanning %} alerts
 
-With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% data variables.copilot.copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_code_scanning %} alerts, in repositories in your organization. For more information, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features).
+With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% data variables.copilot.copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_code_scanning %} alerts, in repositories in your organization. See [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features).
+
+{% endif %}
+
+{% ifversion copilot %}
+
+## Fixing alerts with {% data variables.product.prodname_copilot_short %}
+
+> [!NOTE]
+> This feature is in {% data variables.release-phases.public_preview %} and subject to change. {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_autofix_short %} must be available in the repository.
+
+You can assign a {% data variables.product.prodname_code_scanning %} alert to {% data variables.product.prodname_copilot_short %} to have it fix the alert for you. Assigning the alert starts an agent session: {% data variables.copilot.copilot_cloud_agent %} explores your codebase, generates a fix, validates it, and opens a pull request.
+
+Each agentic autofix session is billed as a {% data variables.copilot.copilot_cloud_agent %} session and consumes {% data variables.product.prodname_ai_credits_short %}. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent#copilot-cloud-agent-usage-costs).
+
+To assign an individual alert to {% data variables.product.prodname_copilot_short %}:
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-code-scanning-alerts %}
+1. Click the name of an alert.
+1. At the top of the page, click **{% octicon "agent" aria-label="Open agents panel" %} Assign to {% data variables.product.prodname_copilot_short %}**.
+
+You can also assign alerts to {% data variables.product.prodname_copilot_short %} in bulk:
+
+* From the {% data variables.product.prodname_code_scanning %} alerts backlog or from a security campaign, select between 1 and 25 alerts and assign them to {% data variables.product.prodname_copilot_short %}, which works to resolve the selected alerts in a single pull request. See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/fixing-alerts-in-security-campaign).
+* Using the REST API, by setting the alert's assignee to `copilot-swe-agent[bot]`. See [AUTOTITLE](/rest/code-scanning/code-scanning#update-a-code-scanning-alert).
+
+Typically within a few minutes, {% data variables.product.prodname_copilot_short %} opens a draft pull request authored by {% data variables.product.prodname_copilot_short %}, with a summary of the fix and the validation steps taken. Review the agent session log for details, and comment on the pull request, mentioning {% data variables.product.prodname_copilot_short %}, to ask it to iterate.
+
+{% data variables.copilot.copilot_cloud_agent %} validates fixes on a best-effort basis. If it can't validate a fix, or thinks the alert might be a false positive, it says so in the pull request.
 
 {% endif %}
 
 {% ifversion code-scanning-autofix %}
 
-## Generating suggested fixes for {% data variables.product.prodname_code_scanning %} alerts
+## Generating a suggested fix
 
-{% data variables.copilot.copilot_autofix %} can generate fixes for alerts identified by {% data variables.product.prodname_code_scanning %} analysis. Most {% data variables.product.prodname_codeql %} alert types are supported. See [AUTOTITLE](/code-security/concepts/code-scanning/copilot-autofix-for-code-scanning).
+{% ifversion copilot %}If {% data variables.copilot.copilot_cloud_agent %} isn't available in your repository, you can still use {% data variables.copilot.copilot_autofix %} to generate a one-step suggested fix for the alert.{% else %}{% data variables.copilot.copilot_autofix %} can generate fixes for alerts identified by {% data variables.product.prodname_code_scanning %} analysis. Most {% data variables.product.prodname_codeql %} alert types are supported.{% endif %}
 
 {% data reusables.rai.code-scanning.copilot-autofix-note %}
 
@@ -57,29 +87,9 @@ You can also use the Autofix API for historical alerts endpoints to generate, ge
 
 {% endif %}
 
-{% ifversion security-campaigns-assign-to-cca %}
-
-## Assigning alerts to {% data variables.copilot.copilot_cloud_agent %}
-
->[!NOTE] This option is currently in public preview and is subject to change. {% data variables.copilot.copilot_cloud_agent %} must be available in the repository.
-
-You can assign {% data variables.product.prodname_copilot_short %} to apply an autofix. {% data variables.product.prodname_copilot_short %} analyzes the code scanning alert, creates a remediation plan, and implements the necessary code changes in a pull request.
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-code-scanning-alerts %}
-1. Click the name of an alert.
-1. If an autofix has not been generated and {% data variables.copilot.copilot_autofix_short %} can suggest a fix, at the top of the page, click **{% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} Generate fix**.
-1. In the right-side menu, click **Assignees**.
-1. Select "Copilot".
-
-Within 30 seconds, {% data variables.product.prodname_copilot_short %} will open a pull request to address the alert and will include a summary of the fixes and details of the changes made. Once created, the pull request is shown in the "Development" section.
-
-{% endif %}
-
 ## Fixing an alert {% ifversion code-scanning-autofix %}manually{% endif %}
 
-Anyone with write permission for a repository can fix an alert by committing a correction to the code. If the repository has {% data variables.product.prodname_code_scanning %} scheduled to run on pull requests, it's best to raise a pull request with your correction. This will trigger {% data variables.product.prodname_code_scanning %} analysis of the changes and test that your fix doesn't introduce any new problems. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests).
+Anyone with write permission for a repository can fix an alert by committing a correction to the code. If the repository has {% data variables.product.prodname_code_scanning %} scheduled to run on pull requests, it's best to raise a pull request with your correction. This will trigger {% data variables.product.prodname_code_scanning %} analysis of the changes and test that your fix doesn't introduce any new problems. See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests).
 
 {% data reusables.code-scanning.track-alert-in-issue %}
 
@@ -92,7 +102,7 @@ Alerts may be fixed in one branch but not in another. You can use the "branch" f
 {% data reusables.code-scanning.filter-non-default-branches %}
 
 > [!NOTE]
-> If you run {% data variables.product.prodname_code_scanning %} using multiple configurations, the same alert will sometimes be generated by more than one configuration. Unless you run all configurations regularly, you may see alerts that are fixed in one configuration but not in another. These stale configurations and alerts can be removed from a branch. For more information, see [Removing stale configurations and alerts from a branch](#removing-stale-configurations-and-alerts-from-a-branch).
+> If you run {% data variables.product.prodname_code_scanning %} using multiple configurations, the same alert will sometimes be generated by more than one configuration. Unless you run all configurations regularly, you may see alerts that are fixed in one configuration but not in another. These stale configurations and alerts can be removed from a branch. See [Removing stale configurations and alerts from a branch](#removing-stale-configurations-and-alerts-from-a-branch).
 
 ## Dismissing alerts
 
@@ -131,7 +141,7 @@ If you dismiss an alert but later realize that you need to fix the alert, you ca
 
 ## Removing stale configurations and alerts from a branch
 
-You may have multiple code scanning configurations on a single repository. When run, multiple configurations can generate the same alert. Additionally, if the configurations are run on different schedules, the alert statuses may become out-of-date for infrequent or stale configurations. For more information on alerts from multiple configurations, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alerts-from-multiple-configurations).
+You may have multiple {% data variables.product.prodname_code_scanning %} configurations on a single repository. When run, multiple configurations can generate the same alert. Additionally, if the configurations are run on different schedules, the alert statuses may become out-of-date for infrequent or stale configurations. For more information on alerts from multiple configurations, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alerts-from-multiple-configurations).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}

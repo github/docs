@@ -17,9 +17,16 @@ jobs:
     if: github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
+          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
+
       - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         with:
-          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          github-token: ${{ steps.app-token.outputs.token }}
           script: |
 
             const issue = context.payload.issue
