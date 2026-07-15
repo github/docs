@@ -22,8 +22,18 @@ When {% data variables.product.prodname_code_quality_short %} becomes generally 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the sidebar, under "Security", click **{% data variables.code-quality.code_quality_ui_settings %}** to display the "{% data variables.code-quality.code_quality_ui %}" page.
-1. Click **Disable**.
-1. Click **Save changes**.
+1. In the sidebar, under "Security and quality", click **{% data variables.code-quality.code_quality_ui_settings %}** to display the "{% data variables.code-quality.code_quality_ui %}" page.
+1. Under **Code Quality analysis**, toggle from **On** to **Off**.
 
 This stops all future {% data variables.product.prodname_code_quality_short %} scans and associated billing for the repository.
+
+## Disabling {% data variables.product.prodname_code_quality_short %} for your organization
+
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+1. In the sidebar, under "Security", click **{% data variables.code-quality.code_quality_ui_settings %}** to display the "{% data variables.code-quality.code_quality_ui %}" page.
+1. Under **Repository access**, select **No repositories**.
+1. Click **Confirm**.
+1. Under **Enforce access**, toggle from **Off** to **On**.
+
+This stops all future {% data variables.product.prodname_code_quality_short %} scans and associated billing for the organization's repositories.
