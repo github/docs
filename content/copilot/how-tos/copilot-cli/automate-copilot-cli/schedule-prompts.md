@@ -45,6 +45,9 @@ The prompt will be submitted after the interval you specified has elapsed and th
 /every 30m check for new comments on my open pull requests
 ```
 
+> [!NOTE]
+> `/loop` is an alias of `/every`. So you can enter `/loop` instead of `/every`, if you prefer, and the effect is the same.
+
 ## Scheduling a once-only prompt with `/after`
 
 Type `/after` followed by a delay and the prompt you want to submit:

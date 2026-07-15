@@ -2157,7 +2157,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Frame.io
@@ -2167,7 +2167,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: FullStory

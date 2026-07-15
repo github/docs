@@ -465,6 +465,7 @@ copilot --allow-tool='MyMCP'
 | `COPILOT_GH_HOST` |{% data variables.product.github %} hostname for {% data variables.copilot.copilot_cli_short %} only, overriding `GH_HOST`. Use when `GH_HOST` targets {% data variables.product.prodname_ghe_server %} but {% data variables.product.prodname_copilot_short %} needs to authenticate against {% data variables.product.prodname_dotcom_the_website %} or a {% data variables.product.prodname_ghe_cloud %} hostname. |
 | `COPILOT_GITHUB_TOKEN` | Authentication token. Takes precedence over `GH_TOKEN` and `GITHUB_TOKEN`. |
 | `COPILOT_HOME` | Override the configuration and state directory. Default: `$HOME/.copilot`. |
+| `COPILOT_LARGE_OUTPUT_THRESHOLD_BYTES` | Maximum UTF-8 byte size for tool output returned directly to the model. Default: `20480` (20 KiB). See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/context-management#managing-large-tool-output). |
 | `COPILOT_MODEL` | Set the AI model. |
 | `COPILOT_PROMPT_FRAME` | Set to `1` to enable the decorative UI frame around the input prompt, or `0` to disable it. Overrides the `PROMPT_FRAME` experimental feature flag for the current session. |
 | `COPILOT_SKILLS_DIRS` | Comma-separated list of additional directories for skills. |

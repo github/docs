@@ -27,7 +27,7 @@ You must also enable {% data variables.product.prodname_actions %} for the repos
 
 Repository administrators can enable or disable automatic dependency submission for a repository by following the steps outlined in this procedure.
 
-Organization owners can enable automatic dependency submission for multiple repositories using a security configuration. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
+Organization owners can enable automatic dependency submission for multiple repositories using a security configuration. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/create-custom-configuration).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -51,14 +51,14 @@ For ecosystems that support {% data variables.product.prodname_dependabot %} gra
 
 When {% data variables.product.prodname_dependabot %} graph jobs encounter private packages that are not accessible through configured secrets, those packages are gracefully omitted from the dependency graph without causing a failure.
 
-For more information on configuring private registry access, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot).
+For more information on configuring private registry access, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries).
 
 ### Using self-hosted runners
 
 You can configure **self-hosted runners** to run automatic dependency submission jobs, instead of using the {% data variables.product.prodname_actions %} infrastructure. This is necessary to access private registries for ecosystems that do not support {% data variables.product.prodname_dependabot %} graph jobs, or when your registries are only reachable from within your network. The self-hosted runners must be running on Linux or macOS. For .NET and Python auto-submission, they must have access to the public internet in order to download the latest component-detection release.
 
-1. Provision one or more self-hosted runners, at the repository or organization level. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners) and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners).
-1. Assign a `dependency-submission` label to each runner you want automatic dependency submission to use. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners#assigning-a-label-to-a-self-hosted-runner).
+1. Provision one or more self-hosted runners, at the repository or organization level. For more information, see [AUTOTITLE](/actions/concepts/runners/self-hosted-runners) and [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/add-runners).
+1. Assign a `dependency-submission` label to each runner you want automatic dependency submission to use. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/apply-labels#assigning-a-label-to-a-self-hosted-runner).
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 1. Under "Dependency graph", click the dropdown menu next to "Automatic dependency submission", then select **Enabled for labeled runners**.
 
@@ -73,5 +73,5 @@ For network allowlist URLs, larger runner configuration, troubleshooting details
 ## Further reading
 
 * [AUTOTITLE](/code-security/reference/supply-chain-security/automatic-dependency-submission)
-* [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)
-* [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)
+* [AUTOTITLE](/code-security/concepts/supply-chain-security/supply-chain-security)
+* [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/use-dependency-submission-api)

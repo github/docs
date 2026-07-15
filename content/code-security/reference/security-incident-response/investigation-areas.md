@@ -12,7 +12,7 @@ contentType: reference
 
 This reference article shows you which {% data variables.product.github %} tools to use and which {% data variables.product.github %} surfaces to check when you're responding to a security incident. Use this article to guide your investigation across major threat categories.
 
-For full guidance on how to respond to a security incident, including **containment strategies**, see [AUTOTITLE](/code-security/tutorials/secure-your-organization/responding-to-security-incidents).
+For full guidance on how to respond to a security incident, including **containment strategies**, see [AUTOTITLE](/code-security/tutorials/secure-your-organization/respond-to-a-security-incident).
 
 > [!IMPORTANT]
 > The availability of each tool (and the data it provides) varies by {% data variables.product.github %} plan, role, permissions, feature enablement, and pre-incident configuration (for example, audit log streaming and IP address disclosure require prior set up). For more information, see [AUTOTITLE](/code-security/reference/security-incident-response/investigation-tools).
@@ -44,7 +44,7 @@ You suspect a token or key has been stolen or exploited, received a {% data vari
 
 ### Key resources
 
-* [Containment actions](/code-security/tutorials/secure-your-organization/responding-to-security-incidents#step-2-contain-the-threat){% ifversion ghec %}
+* [Containment actions](/code-security/tutorials/secure-your-organization/respond-to-a-security-incident#step-2-contain-the-threat){% ifversion ghec %}
 * [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/identifying-audit-log-events-performed-by-an-access-token) (organizations)
 * [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token) (enterprises){% endif %}
 * [AUTOTITLE](/code-security/tutorials/remediate-leaked-secrets/remediating-a-leaked-secret)
@@ -73,7 +73,7 @@ You noticed unusual login activity, saw unexpected commits or changes, or detect
 
 ### Key resources
 
-* [Containment actions](/code-security/tutorials/secure-your-organization/responding-to-security-incidents#step-2-contain-the-threat)
+* [Containment actions](/code-security/tutorials/secure-your-organization/respond-to-a-security-incident#step-2-contain-the-threat)
 
 ## Data exfiltration
 
@@ -97,7 +97,7 @@ You detected large downloads, unusual API activity, or received reports of your 
 
 ### Key resources
 
-* [Containment actions](/code-security/tutorials/secure-your-organization/responding-to-security-incidents#step-2-contain-the-threat)
+* [Containment actions](/code-security/tutorials/secure-your-organization/respond-to-a-security-incident#step-2-contain-the-threat)
 
 ## Malicious code and workflow changes
 
@@ -128,7 +128,7 @@ You found suspicious code in your repository, a security researcher reported an 
 
 ### Key resources
 
-* [Containment actions](/code-security/tutorials/secure-your-organization/responding-to-security-incidents#step-2-contain-the-threat)
+* [Containment actions](/code-security/tutorials/secure-your-organization/respond-to-a-security-incident#step-2-contain-the-threat)
 * [AUTOTITLE](/actions/concepts/security/github_token)
 * [AUTOTITLE](/actions/reference/security/secure-use)
 
@@ -159,17 +159,17 @@ You received a malware or dependency alert, suspect a malicious package, or noti
 | --- | --- |
 | [{% data variables.product.github %} code search](/code-security/reference/security-incident-response/investigation-tools#github-code-search)| Search for references to the suspected package or Action |
 | [Dependency graph](/code-security/reference/security-incident-response/investigation-tools#dependency-graph) | Visualize and review dependencies |
-| [{% data variables.product.prodname_dependabot %} alerts](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/viewing-and-updating-dependabot-alerts) | Review for alerts relating to vulnerable dependencies |
+| [{% data variables.product.prodname_dependabot %} alerts](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/view-dependabot-alerts) | Review for alerts relating to vulnerable dependencies |
 | [{% data variables.product.prodname_advisory_database %}](https://github.com/advisories)| Search for `type:malware` |
 | [Activity view](/code-security/reference/security-incident-response/investigation-tools#activity-view) | Review recent pushes to repositories |
 | [Security overview](/code-security/reference/security-incident-response/investigation-tools#security-overview) | Review recent security alerts across an organization or enterprise |
 
 ### Key resources
 
-* [Containment actions](/code-security/tutorials/secure-your-organization/responding-to-security-incidents#step-2-contain-the-threat)
+* [Containment actions](/code-security/tutorials/secure-your-organization/respond-to-a-security-incident#step-2-contain-the-threat)
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/tutorials/secure-your-organization/responding-to-security-incidents)
+* [AUTOTITLE](/code-security/tutorials/secure-your-organization/respond-to-a-security-incident)
 * [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)
-* [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)
+* [AUTOTITLE](/admin/concepts/security-and-compliance/audit-log-for-an-enterprise)

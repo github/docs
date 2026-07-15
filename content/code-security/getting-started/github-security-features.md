@@ -42,17 +42,17 @@ Some features are _only_ available for public repositories.
 
 ### Security policy
 
-Make it easy for your users to confidentially report security vulnerabilities they've found in your repository. For more information, see [AUTOTITLE](/code-security/getting-started/adding-a-security-policy-to-your-repository).
+Make it easy for your users to confidentially report security vulnerabilities they've found in your repository. For more information, see [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/configure-vulnerability-reporting/add-security-policy).
 
 ### Dependency graph
 
 The dependency graph allows you to explore the ecosystems and packages that your repository depends on and the repositories and packages that depend on your repository.
 
-You can find the dependency graph on the **Insights** tab for your repository. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).
+You can find the dependency graph on the **Insights** tab for your repository. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-graph).
 
 ### Software Bill of Materials (SBOM)
 
-You can export the dependency graph of your repository as an SPDX-compatible, Software Bill of Materials (SBOM). For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exporting-a-software-bill-of-materials-for-your-repository).
+You can export the dependency graph of your repository as an SPDX-compatible, Software Bill of Materials (SBOM). For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/export-dependencies-as-sbom).
 
 ### {% data variables.product.prodname_advisory_database %}
 
@@ -60,8 +60,8 @@ The {% data variables.product.prodname_advisory_database %} contains a curated l
 
 ### {% data variables.product.prodname_dependabot_alerts %} and security updates
 
-View alerts about dependencies that are known to contain security vulnerabilities, and choose whether to have pull requests generated automatically to update these dependencies. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)
-and [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates).
+View alerts about dependencies that are known to contain security vulnerabilities, and choose whether to have pull requests generated automatically to update these dependencies. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-alerts)
+and [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-security-updates).
 
 You can also use default {% data variables.dependabot.auto_triage_rules %} curated by {% data variables.product.github %} to automatically filter out a substantial amount of false positives.
 
@@ -71,19 +71,19 @@ You can also use default {% data variables.dependabot.auto_triage_rules %} curat
 
 #### {% data variables.product.prodname_dependabot_malware_alerts %}
 
-On {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_ghe_server %} 3.22+, you can view alerts for malicious dependencies in your repository. See [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-malware-alerts).
+On {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_ghe_server %} 3.22+, you can view alerts for malicious dependencies in your repository. See [AUTOTITLE](/code-security/concepts/supply-chain-security/malware-alerts).
 
 {% endif %}
 
 ### {% data variables.product.prodname_dependabot_version_updates %}
 
-Use {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. This helps reduce your exposure to older versions of dependencies. Using newer versions makes it easier to apply patches if security vulnerabilities are discovered, and also makes it easier for {% data variables.product.prodname_dependabot_security_updates %} to successfully raise pull requests to upgrade vulnerable dependencies. You can also customize {% data variables.product.prodname_dependabot_version_updates %} to streamline their integration into your repositories. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates).
+Use {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. This helps reduce your exposure to older versions of dependencies. Using newer versions makes it easier to apply patches if security vulnerabilities are discovered, and also makes it easier for {% data variables.product.prodname_dependabot_security_updates %} to successfully raise pull requests to upgrade vulnerable dependencies. You can also customize {% data variables.product.prodname_dependabot_version_updates %} to streamline their integration into your repositories. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-version-updates).
 
 {% ifversion fpt or ghec %}
 
 ### Security advisories
 
-Privately discuss and fix security vulnerabilities in your public repository's code. You can then publish a security advisory to alert your community to the vulnerability and encourage community members to upgrade. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories).
+Privately discuss and fix security vulnerabilities in your public repository's code. You can then publish a security advisory to alert your community to the vulnerability and encourage community members to upgrade. For more information, see [AUTOTITLE](/code-security/concepts/vulnerability-reporting-and-management/repository-security-advisories).
 
 {% endif %}
 
@@ -95,7 +95,7 @@ Enforce consistent code standards, security, and compliance across branches and 
 
 ### Artifact attestations
 
-Create unfalsifiable provenance and integrity guarantees for the software you build. For more information, see [AUTOTITLE](/actions/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-to-establish-provenance-for-builds).
+Create unfalsifiable provenance and integrity guarantees for the software you build. For more information, see [AUTOTITLE](/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations).
 
 {% ifversion fpt %}
 
@@ -104,13 +104,13 @@ Create unfalsifiable provenance and integrity guarantees for the software you bu
 
 ### {% data variables.secret-scanning.partner_alerts_caps %}
 
-When {% data variables.product.github %} detects a leaked secret in a public repository, or a public npm packages, {% data variables.product.github %} informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets).
+When {% data variables.product.github %} detects a leaked secret in a public repository, or a public npm packages, {% data variables.product.github %} informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns#supported-provider-patterns).
 
 {% ifversion secret-scanning-push-protection-for-users %}
 
 ### Push protection for users
 
-Push protection for users automatically protects you from accidentally committing secrets to public repositories, regardless of whether the repository itself has {% data variables.product.prodname_secret_scanning %} enabled. Push protection for users is on by default, but you can disable the feature at any time through your personal account settings. For more information, see [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users).
+Push protection for users automatically protects you from accidentally committing secrets to public repositories, regardless of whether the repository itself has {% data variables.product.prodname_secret_scanning %} enabled. Push protection for users is on by default, but you can disable the feature at any time through your personal account settings. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/prevent-future-leaks/manage-user-push-protection).
 
 {% endif %}
 
@@ -130,7 +130,7 @@ For information about how you can try {% data variables.product.prodname_GH_secr
 
 ### {% data variables.secret-scanning.user_alerts_caps %}
 
-Automatically detect hardcoded credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.github %} finds in your code, in the **{% data variables.product.prodname_security_and_quality_tab %}** tab of your repository, so you can respond to credential leaks quickly. For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).
+Automatically detect hardcoded credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.github %} finds in your code, in the **{% data variables.product.prodname_security_and_quality_tab %}** tab of your repository, so you can respond to credential leaks quickly. For more information, see [AUTOTITLE](/code-security/concepts/secret-security/secret-scanning).
 
 {% data reusables.advanced-security.available-for-public-repos %}
 
@@ -138,13 +138,13 @@ Automatically detect hardcoded credentials that have been checked into a reposit
 
 ### {% data variables.secret-scanning.ai-detected-secrets-caps %}
 
-{% data variables.secret-scanning.ai-detected-secrets-caps %}'s generic secret detection is an AI-powered expansion of {% data variables.product.prodname_secret_scanning %} that identifies unstructured secrets (passwords) in your source code and then generates an alert. For more information, see [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).
+{% data variables.secret-scanning.ai-detected-secrets-caps %}'s generic secret detection is an AI-powered expansion of {% data variables.product.prodname_secret_scanning %} that identifies unstructured secrets (passwords) in your source code and then generates an alert. For more information, see [AUTOTITLE](/code-security/responsible-use/security-and-quality-ai-features).
 
 {% endif %}
 
 ### Push protection
 
-Push protection proactively scans your code, and any repository contributors' code, for hardcoded secrets during the push process and blocks the push if any credential leaks are detected. If a contributor bypasses the block, an alert is generated. For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).
+Push protection proactively scans your code, and any repository contributors' code, for hardcoded secrets during the push process and blocks the push if any credential leaks are detected. If a contributor bypasses the block, an alert is generated. For more information, see [AUTOTITLE](/code-security/concepts/secret-security/push-protection).
 
 {% data reusables.advanced-security.available-for-public-repos %}
 
@@ -155,17 +155,17 @@ Delegated bypass for push protection lets you control which individuals, roles, 
 * Are exempt from push protection{% endif %}
 * Can review bypass requests from other contributors
 
-For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection).
+For more information, see [AUTOTITLE](/code-security/concepts/secret-security/delegated-bypass).
 
 ### Custom patterns
 
-You can define custom patterns to identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}, such as patterns that are internal to your organization. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning).
+You can define custom patterns to identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}, such as patterns that are internal to your organization. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/customize-leak-detection/define-custom-patterns).
 
 <!--Hiding security overview for earlier GHES versions, so it isn't duplicated below-->
 
 ### Security overview
 
-Security overview allows you to review the overall security landscape of your organization, view trends and other insights, and manage security configurations, making it easy to monitor your organization's security status and identify the repositories and organizations at greatest risk. For more information, see [AUTOTITLE](/code-security/security-overview/about-security-overview).
+Security overview allows you to review the overall security landscape of your organization, view trends and other insights, and manage security configurations, making it easy to monitor your organization's security status and identify the repositories and organizations at greatest risk. For more information, see [AUTOTITLE](/code-security/concepts/security-at-scale/security-overview).
 
 ## Available with {% data variables.product.prodname_GH_code_security %}
 
@@ -183,13 +183,13 @@ For information about how you can try {% data variables.product.prodname_GH_code
 
 ### {% data variables.product.prodname_code_scanning_caps %}
 
-Automatically detect security vulnerabilities and coding errors in new or modified code. Potential problems are highlighted, with detailed information, allowing you to fix the code before it's merged into your default branch. For more information, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning).
+Automatically detect security vulnerabilities and coding errors in new or modified code. Potential problems are highlighted, with detailed information, allowing you to fix the code before it's merged into your default branch. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/code-scanning).
 
 {% data reusables.advanced-security.available-for-public-repos %}
 
 ### {% data variables.product.prodname_codeql_cli %}
 
-Run {% data variables.product.prodname_codeql %} processes locally on software projects or to generate {% data variables.product.prodname_code_scanning %} results for upload to {% data variables.product.github %}. For more information, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/about-the-codeql-cli).
+Run {% data variables.product.prodname_codeql %} processes locally on software projects or to generate {% data variables.product.prodname_code_scanning %} results for upload to {% data variables.product.github %}. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/codeql-cli).
 
 {% data reusables.advanced-security.available-for-public-repos %}
 
@@ -197,7 +197,7 @@ Run {% data variables.product.prodname_codeql %} processes locally on software p
 
 ### {% data variables.copilot.copilot_autofix_short %}
 
-Get automatically generated fixes for {% data variables.product.prodname_code_scanning %} alerts. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
+Get automatically generated fixes for {% data variables.product.prodname_code_scanning %} alerts. For more information, see [AUTOTITLE](/code-security/responsible-use/security-and-quality-ai-features).
 
 {% data reusables.advanced-security.available-for-public-repos %}
 
@@ -217,7 +217,7 @@ Find vulnerabilities in languages and frameworks not covered by {% data variable
 
 ### Dependency review
 
-Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review).
+Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-review).
 
 {% data reusables.advanced-security.available-for-public-repos %}
 
@@ -225,19 +225,19 @@ Show the full impact of changes to dependencies and see details of any vulnerabl
 
 ### Security campaigns
 
-Fix security alerts at scale by creating security campaigns and collaborating with developers to reduce your security backlog. For more information, see [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/about-security-campaigns).
+Fix security alerts at scale by creating security campaigns and collaborating with developers to reduce your security backlog. For more information, see [AUTOTITLE](/code-security/concepts/security-at-scale/about-security-campaigns).
 
 {% endif %}
 
 ### Security overview
 
-Security overview allows you to review the overall security landscape of your organization, view trends and other insights, and manage security configurations, making it easy to monitor your organization's security status and identify the repositories and organizations at greatest risk. For more information, see [AUTOTITLE](/code-security/security-overview/about-security-overview).
+Security overview allows you to review the overall security landscape of your organization, view trends and other insights, and manage security configurations, making it easy to monitor your organization's security status and identify the repositories and organizations at greatest risk. For more information, see [AUTOTITLE](/code-security/concepts/security-at-scale/security-overview).
 
 {% ifversion copilot-chat-ghas-alerts %}
 
 ## Leveraging {% data variables.copilot.copilot_chat %} to understand security alerts
 
-With a {% data variables.copilot.copilot_enterprise %} license, you can also ask {% data variables.copilot.copilot_chat %} for help to better understand security alerts in repositories in your organization from {% data variables.product.prodname_GHAS %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). For more information, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features).
+With a {% data variables.copilot.copilot_enterprise %} license, you can also ask {% data variables.copilot.copilot_chat %} for help to better understand security alerts in repositories in your organization from {% data variables.product.prodname_GHAS %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github).
 
 {% endif %}
 

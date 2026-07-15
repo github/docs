@@ -25,7 +25,7 @@ category:
 
 Security overview provides insights into the security of code stored in repositories in your organization.
 
-* **All organizations** on {% data variables.product.prodname_team %} can use the free **{% data variables.product.prodname_secret_risk_assessment %}** to evaluate the exposure of their organization to leaked secrets, see [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/viewing-the-secret-risk-assessment-report-for-your-organization).
+* **All organizations** on {% data variables.product.prodname_team %} can use the free **{% data variables.product.prodname_secret_risk_assessment %}** to evaluate the exposure of their organization to leaked secrets, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/viewing-your-security-risk-assessment-reports).
 * {% data variables.product.prodname_team %} accounts that purchase **{% data variables.product.prodname_GH_cs_or_sp %}** have access to views with additional insights.
 
 The information below describes the views available to organizations with {% data variables.product.prodname_GH_cs_or_sp %} that you can use to identify trends in detection, remediation, and prevention of security alerts and dig deep into the current state of your repositories.
@@ -36,13 +36,13 @@ Security overview contains focused views where you can explore trends in detecti
 
 {% ifversion ghec %}
 All organizations on {% data variables.product.prodname_enterprise %} can use:
-* **{% data variables.product.prodname_secret_risk_assessment_caps %}** to evaluate the exposure of their organization to leaked secrets, see [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/viewing-the-secret-risk-assessment-report-for-your-organization).
+* **{% data variables.product.prodname_secret_risk_assessment_caps %}** to evaluate the exposure of their organization to leaked secrets, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/viewing-your-security-risk-assessment-reports).
 * **{% data variables.product.prodname_dependabot %}** data to evaluate the security of their supply chain in all repositories.
 {% else %}
 All organizations on {% data variables.product.prodname_enterprise %} can use {% data variables.product.prodname_dependabot %} data to evaluate the security of their supply chain in all repositories.
 {% endif %}
 
-In addition, data for **{% data variables.product.prodname_AS %}** features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, is shown for organizations and enterprises that use {% data variables.product.prodname_GHAS_cs_or_sp %}{% ifversion ghec %}, and for public repositories{% endif %}, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts#dependabot-alerts-for-vulnerable-dependencies) and [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
+In addition, data for **{% data variables.product.prodname_AS %}** features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, is shown for organizations and enterprises that use {% data variables.product.prodname_GHAS_cs_or_sp %}{% ifversion ghec %}, and for public repositories{% endif %}, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-alerts#dependabot-alerts-for-vulnerable-dependencies) and [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 
 {% endif %}
 
@@ -51,10 +51,10 @@ In addition, data for **{% data variables.product.prodname_AS %}** features, suc
 > [!NOTE]
 > All views show information and metrics for the **default** branches of the repositories you have permission to view in an organization or enterprise.
 
-The views are interactive with filters that allow you to look at the aggregated data in detail and identify sources of high risk, see security trends, and see the impact of pull request analysis on blocking security vulnerabilities entering your code. As you apply multiple filters to focus on narrower areas of interest, all data and metrics across the view change to reflect your current selection. For more information, see [AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview).
+The views are interactive with filters that allow you to look at the aggregated data in detail and identify sources of high risk, see security trends, and see the impact of pull request analysis on blocking security vulnerabilities entering your code. As you apply multiple filters to focus on narrower areas of interest, all data and metrics across the view change to reflect your current selection. For more information, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/filtering-alerts-in-security-overview).
 
 {% ifversion security-overview-export-data %}
-{% data reusables.security-overview.download-csv-files %} For more information, see [AUTOTITLE](/code-security/security-overview/exporting-data-from-security-overview).
+{% data reusables.security-overview.download-csv-files %} For more information, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/export-data).
 {% endif %}
 
 There are dedicated views for each type of security alert. You can limit your analysis to a specific type of alert, and then narrow the results further with a range of filters specific to each view. For example, in the {% data variables.product.prodname_secret_scanning %} view, you can use the "Secret type" filter to view only {% data variables.secret-scanning.alerts %} for a specific secret, like a {% data variables.product.prodname_dotcom %} {% data variables.product.pat_generic %}.
@@ -70,25 +70,25 @@ You can find security overview on the **{% data variables.product.prodname_secur
 
 Security overview has multiple views that provide different ways to explore enablement and alert data.
 
-* **Overview:** visualize trends in **Detection**, **Remediation**, and **Prevention** of security alerts. For information about accessing and using the dashboard, see [AUTOTITLE](/code-security/security-overview/viewing-security-insights). For detailed explanations of metrics and calculations, see [AUTOTITLE](/code-security/reference/security-at-scale/security-overview-dashboard-metrics).
-* **Risk:** explore the risk from security alerts of all types or focus on a single alert type and identify your risk from specific vulnerable dependencies, code weaknesses, or leaked secrets, see [AUTOTITLE](/code-security/security-overview/assessing-code-security-risk).
-* **Coverage:** assess the adoption of security features across repositories in the organization, see [AUTOTITLE](/code-security/security-overview/assessing-adoption-code-security).{% ifversion secret-risk-assessment %}
-* **Assessments:** regardless of the enablement status of {% data variables.product.prodname_AS %} features, organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in the organization for leaked secrets, see [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment).{% endif %}{% ifversion security-campaigns %}
+* **Overview:** visualize trends in **Detection**, **Remediation**, and **Prevention** of security alerts. For information about accessing and using the dashboard, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-security-insights). For detailed explanations of metrics and calculations, see [AUTOTITLE](/code-security/reference/security-at-scale/overview-dashboard-metrics).
+* **Risk:** explore the risk from security alerts of all types or focus on a single alert type and identify your risk from specific vulnerable dependencies, code weaknesses, or leaked secrets, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/assessing-code-security-risk).
+* **Coverage:** assess the adoption of security features across repositories in the organization, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/assessing-adoption-code-security).{% ifversion secret-risk-assessment %}
+* **Assessments:** regardless of the enablement status of {% data variables.product.prodname_AS %} features, organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in the organization for leaked secrets, see [AUTOTITLE](/code-security/concepts/secret-security/secret-security-with-github).{% endif %}{% ifversion security-campaigns %}
 * **Campaigns:** coordinate and measure targeted remediation efforts, grouping related security tasks across repositories, assigning owners, and tracking progress toward defined risk‑reduction goals.{% endif %}
 * **Enablement:** see how quickly different teams are adopting security features.
-* **{% data variables.product.prodname_codeql %} pull requests:** assess the impact of running {% data variables.product.prodname_codeql %} on pull requests and how development teams are resolving {% data variables.product.prodname_code_scanning %} alerts, see [AUTOTITLE](/code-security/security-overview/viewing-metrics-for-pull-request-alerts).{% ifversion dependabot-metrics %}
+* **{% data variables.product.prodname_codeql %} pull requests:** assess the impact of running {% data variables.product.prodname_codeql %} on pull requests and how development teams are resolving {% data variables.product.prodname_code_scanning %} alerts, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-metrics-for-pull-request-alerts).{% ifversion dependabot-metrics %}
 * **{% data variables.product.prodname_dependabot %}**: prioritize and track critical vulnerabilities by identifying, remediating, and measuring security improvements across repositories.{% endif %}
-* **{% data variables.product.prodname_secret_scanning_caps %}:** find out which types of secret are blocked by push protection and which teams are bypassing push protection, see [AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection) and [AUTOTITLE](/code-security/security-overview/reviewing-requests-to-bypass-push-protection).
+* **{% data variables.product.prodname_secret_scanning_caps %}:** find out which types of secret are blocked by push protection and which teams are bypassing push protection, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-metrics-for-secret-scanning-push-protection) and [AUTOTITLE](/code-security/how-tos/secure-your-secrets/manage-bypass-requests/review-bypass-requests).
 
 {% ifversion security-campaigns %}
-You also create and manage security campaigns to remediate alerts from security overview, see [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-managing-security-campaigns) and [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale).
+You also create and manage security campaigns to remediate alerts from security overview, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/creating-managing-security-campaigns) and [AUTOTITLE](/code-security/tutorials/secure-your-organization/best-practice-fix-alerts-at-scale).
 {% endif %}
 
 ## About security overview for enterprises
 
 You can find security overview on the **{% data variables.product.prodname_security_and_quality_tab %}** tab for your enterprise. Each page displays aggregated and repository-specific security information for your enterprise.
 
-Security overview for enterprises has multiple views that provide different ways to explore data, including an overview dashboard that visualizes alert trends. For information about the dashboard, see [AUTOTITLE](/code-security/security-overview/viewing-security-insights) and [AUTOTITLE](/code-security/reference/security-at-scale/security-overview-dashboard-metrics).
+Security overview for enterprises has multiple views that provide different ways to explore data, including an overview dashboard that visualizes alert trends. For information about the dashboard, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-security-insights) and [AUTOTITLE](/code-security/reference/security-at-scale/overview-dashboard-metrics).
 
 ## Access to data in security overview
 
@@ -102,13 +102,13 @@ In general:
 
 Security overview displays data only for repositories you have permission to view, and some views or actions may be limited based on your role.
 
-For detailed, role-by-role permission information, including which views are available and how repository access affects visibility, see [AUTOTITLE](/code-security/reference/permissions/security-overview-permissions).
+For detailed, role-by-role permission information, including which views are available and how repository access affects visibility, see [AUTOTITLE](/code-security/reference/permissions/security-overview).
 
 ## Understanding dashboard data accuracy
 
 The overview dashboard displays metrics based on the current state of your repositories and the historical state of security alerts. This data model has important implications for data consistency:
 
-**Data changes over time:** Dashboard metrics can change for the same historical time period when viewed at different times. This occurs when repositories are deleted, security advisories are modified, or other changes affect the underlying data. If you need consistent data for compliance reports or auditing purposes, use the audit log instead. See [AUTOTITLE](/code-security/getting-started/auditing-security-alerts).
+**Data changes over time:** Dashboard metrics can change for the same historical time period when viewed at different times. This occurs when repositories are deleted, security advisories are modified, or other changes affect the underlying data. If you need consistent data for compliance reports or auditing purposes, use the audit log instead. See [AUTOTITLE](/code-security/concepts/security-at-scale/audit-security-alerts).
 
 **Alert data is historical; repository attributes are current:** The dashboard tracks security alerts based on their historical state during the selected time period. However, repository filters (such as archived/active status) reflect the _current state_ of repositories.
 
@@ -121,7 +121,7 @@ This design ensures alert trends accurately reflect security activity during the
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/getting-started/securing-your-repository){% ifversion fpt or ghec %}
-* [AUTOTITLE](/code-security/securing-your-organization){% elsif ghes %}
+* [AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-repository){% ifversion fpt or ghec %}
+* [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security){% elsif ghes %}
 * [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage){% endif %}
-* [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)
+* [AUTOTITLE](/code-security/tutorials/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)

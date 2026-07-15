@@ -18,8 +18,8 @@ category:
 
 Before you configure {% data variables.product.prodname_GH_secret_protection %}:
 
-* Run the free {% data variables.product.prodname_secret_risk_assessment %} to inform your enablement strategy. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/assess-your-secret-risk).
-* Review best practices for choosing pilot repositories. See [AUTOTITLE](/code-security/concepts/security-at-scale/best-practices-for-selecting-pilot-repositories).
+* Run the free {% data variables.product.prodname_secret_risk_assessment %} to inform your enablement strategy. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/assess-your-secret-risk).
+* Review best practices for choosing pilot repositories. See [AUTOTITLE](/code-security/concepts/security-at-scale/select-pilot-repositories).
 
 ## Configuring {% data variables.product.prodname_GH_secret_protection %}
 
@@ -30,7 +30,7 @@ Before you configure {% data variables.product.prodname_GH_secret_protection %}:
    * **For public repositories for free**: Click to enable for _only_ public repositories in your organization.
    * **For all repositories**: Click to see an estimated cost for {% data variables.product.prodname_GH_secret_protection %} for all repositories in your organization.
      * If you are satisfied with the pricing estimate, to enable {% data variables.product.prodname_secret_scanning %} alerts and push protection across your organization, click **Enable {% data variables.product.prodname_secret_protection %}**.
-     * Alternatively, click **Configure in settings** to customize which repositories you want to enable {% data variables.product.prodname_secret_protection %} for. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
+     * Alternatively, click **Configure in settings** to customize which repositories you want to enable {% data variables.product.prodname_secret_protection %} for. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/create-custom-configuration).
 
 {% ifversion secret-scanning-public-monitoring %}
 

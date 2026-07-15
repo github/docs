@@ -7,7 +7,7 @@ journeyTracks:
     title: 'Getting started with your enterprise'
     description: 'Master the fundamentals of {% data variables.product.prodname_ghe_cloud %} and get started with a trial.'
     guides:
-      - href: '/enterprise-onboarding/getting-started-with-your-enterprise/choose-an-enterprise-type'
+      - href: '/admin/concepts/enterprise-fundamentals/choose-an-enterprise-type'
       - href: '/enterprise-onboarding/getting-started-with-your-enterprise/setting-up-a-trial-of-github-enterprise'
       - href: '/enterprise-onboarding/getting-started-with-your-enterprise/adding-users-to-your-enterprise'
       - href: '/enterprise-onboarding/getting-started-with-your-enterprise/about-enterprise-billing'

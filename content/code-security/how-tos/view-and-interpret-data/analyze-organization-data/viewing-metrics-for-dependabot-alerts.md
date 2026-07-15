@@ -14,7 +14,7 @@ category:
   - Secure at scale
 ---
 
-You can view metrics for {% data variables.product.prodname_dependabot_alerts %} to track and prioritize vulnerabilities across your organization. For more information about the available metrics and how to use them, see [AUTOTITLE](/code-security/concepts/supply-chain-security/about-metrics-for-dependabot-alerts).
+You can view metrics for {% data variables.product.prodname_dependabot_alerts %} to track and prioritize vulnerabilities across your organization. For more information about the available metrics and how to use them, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-alert-metrics).
 
 This article explains how to access and view these metrics for your organization.
 
