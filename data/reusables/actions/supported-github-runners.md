@@ -94,7 +94,7 @@ For public repositories, jobs using the workflow labels shown in the table below
 
 ### Standard {% data variables.product.prodname_dotcom %}-hosted runners for {% ifversion ghec %}internal and{% endif %} private repositories
 
-For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using the workflow labels shown in the table below will run on virtual machines with the associated specifications. These runners use your {% data variables.product.prodname_dotcom %} account's allotment of free minutes, and are then charged at the per minute rates. See [AUTOTITLE](/billing/reference/actions-minute-multipliers).
+For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using the workflow labels shown in the table below will run on virtual machines with the associated specifications. These runners use your {% data variables.product.prodname_dotcom %} account's allotment of free minutes, and are then charged at the per minute rates. See [AUTOTITLE](/billing/reference/actions-runner-pricing).
 
 <table style="width:100%">
   <thead>

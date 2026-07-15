@@ -50,7 +50,7 @@ The following supply chain features on {% data variables.product.prodname_dotcom
 
 {% data variables.product.prodname_dependabot_version_updates %} don't use the dependency graph and rely on the semantic versioning of dependencies instead. {% data variables.product.prodname_dependabot_version_updates %} help you keep your dependencies updated, even when they don’t have any vulnerabilities.
 
-For best practice guides on end-to-end supply chain security including the protection of personal accounts, code, and build processes, see [AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview).
+For best practice guides on end-to-end supply chain security including the protection of personal accounts, code, and build processes, see [AUTOTITLE](/code-security/tutorials/implement-supply-chain-best-practices/end-to-end-supply-chain-overview).
 
 ## Feature overview
 
@@ -66,7 +66,7 @@ To generate the dependency graph, {% data variables.product.company_short %} loo
 
 {% data reusables.dependency-submission.dependency-submission-link %}
 
-For more information about the dependency graph, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).
+For more information about the dependency graph, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-graph).
 
 ### What is dependency review?
 
@@ -75,7 +75,7 @@ Dependency review helps reviewers and contributors understand dependency changes
 * Dependency review tells you which dependencies were added, removed, or updated, in a pull request. You can use the release dates, popularity of dependencies, and vulnerability information to help you decide whether to accept the change.
 * You can see the dependency review for a pull request by showing the rich diff on the **Files Changed** tab.
 
-For more information about dependency review, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review).
+For more information about dependency review, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-review).
 
 ### What is Dependabot?
 
@@ -87,7 +87,7 @@ The term "{% data variables.product.prodname_dependabot %}" encompasses the foll
   * {% data variables.product.prodname_dependabot_security_updates %}: Triggered updates to upgrade your dependencies to a secure version when an alert is triggered.
   * {% data variables.product.prodname_dependabot_version_updates %}: Scheduled updates to keep your dependencies up to date with the latest version.
 
-{% ifversion fpt or ghec %}Pull requests opened by {% data variables.product.prodname_dependabot %} can trigger workflows that run actions. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions).{% endif %}
+{% ifversion fpt or ghec %}Pull requests opened by {% data variables.product.prodname_dependabot %} can trigger workflows that run actions. For more information, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/automate-dependabot-with-actions).{% endif %}
 
 {% ifversion dependabot-on-actions-opt-in %}By default:
 
@@ -95,15 +95,15 @@ The term "{% data variables.product.prodname_dependabot %}" encompasses the foll
 
 * If {% data variables.product.prodname_actions %} is not enabled for the repository, {% data variables.product.github %} generates {% data variables.product.prodname_dependabot_alerts %} using its built-in {% data variables.product.prodname_dependabot %} application.
 
-For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners).
+For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-on-actions).
 
 {% else %}
 
-{% data variables.product.prodname_dependabot_security_updates %} and {% data variables.product.prodname_dependabot_version_updates %} require {% data variables.product.prodname_actions %} to run on {% data variables.product.prodname_ghe_server %}. {% data variables.product.prodname_dependabot_alerts %} do not require {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise).
+{% data variables.product.prodname_dependabot_security_updates %} and {% data variables.product.prodname_dependabot_version_updates %} require {% data variables.product.prodname_actions %} to run on {% data variables.product.prodname_ghe_server %}. {% data variables.product.prodname_dependabot_alerts %} do not require {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-dependabot-for-your-enterprise).
 
 {% endif %}
 
-{% data reusables.dependabot.dependabot-actions-support %} For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates).
+{% data reusables.dependabot.dependabot-actions-support %} For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-security-updates).
 
 #### What are Dependabot alerts?
 
@@ -116,7 +116,7 @@ For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dep
   * The dependency graph for the repository changes
 * {% data variables.product.prodname_dependabot_alerts %} are displayed on the **{% data variables.product.prodname_security_and_quality_tab %}** tab for the repository and in the repository's dependency graph. The alert includes a link to the affected file in the project, and information about a fixed version.
 
-For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
+For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-alerts).
 
 {% ifversion dependabot-malware-alerts %}
 
@@ -153,7 +153,7 @@ There are two types of {% data variables.product.prodname_dependabot_updates %}:
 * Update dependencies to the latest version that matches the configuration
 * Supported for a different group of ecosystems
 
-For more information about {% data variables.product.prodname_dependabot_updates %}, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates) and [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates).
+For more information about {% data variables.product.prodname_dependabot_updates %}, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-security-updates) and [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-version-updates).
 
 ### What are immutable releases?
 
@@ -177,27 +177,27 @@ Public repositories:
 * **Dependency graph:** Enabled by default and cannot be disabled.
 * **Dependency review:** Enabled by default and cannot be disabled.
 * **{% data variables.product.prodname_dependabot_alerts %}:** Not enabled by default. {% data variables.product.prodname_dotcom %} detects insecure dependencies and displays information in the dependency graph, but does not generate {% data variables.product.prodname_dependabot_alerts %} by default. Repository owners or people with admin access can enable {% data variables.product.prodname_dependabot_alerts %}.
-  You can also enable or disable Dependabot alerts for all repositories owned by your user account or organization. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account) or [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
+  You can also enable or disable Dependabot alerts for all repositories owned by your user account or organization. For more information, see [AUTOTITLE](/account-and-profile/how-tos/account-settings/managing-security-and-analysis-features) or [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
 * **Artifact attestations:** Available in all public repositories, but you must explicitly generate attestations in your build workflows. See [AUTOTITLE](/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations).
 
 Private repositories:
-* **Dependency graph:** Not enabled by default. The feature can be enabled by repository administrators. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph).
-* **Dependency review:** Available in private repositories owned by organizations that use {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GHAS_or_code_security %}. For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security) and [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph).
+* **Dependency graph:** Not enabled by default. The feature can be enabled by repository administrators. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/explore-dependencies#enabling-and-disabling-the-dependency-graph).
+* **Dependency review:** Available in private repositories owned by organizations that use {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GHAS_or_code_security %}. For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security) and [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/explore-dependencies#enabling-and-disabling-the-dependency-graph).
 * **{% data variables.product.prodname_dependabot_alerts %}:** Not enabled by default. Owners of private repositories, or people with admin access, can enable {% data variables.product.prodname_dependabot_alerts %} by enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for their repositories.
-  You can also enable or disable Dependabot alerts for all repositories owned by your user account or organization. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account) or [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
+  You can also enable or disable Dependabot alerts for all repositories owned by your user account or organization. For more information, see [AUTOTITLE](/account-and-profile/how-tos/account-settings/managing-security-and-analysis-features) or [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
 * **Artifact attestations:** Only available in private repositories on {% data variables.product.prodname_ghe_cloud %}.
 
 Any repository type:
-* **{% data variables.product.prodname_dependabot_security_updates %}:** Not enabled by default. You can enable {% data variables.product.prodname_dependabot_security_updates %} for any repository that uses {% data variables.product.prodname_dependabot_alerts %} and the dependency graph. For information about enabling security updates, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates).
-* **{% data variables.product.prodname_dependabot_version_updates %}:** Not enabled by default. People with write permissions to a repository can enable {% data variables.product.prodname_dependabot_version_updates %}. For information about enabling version updates, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates).
-* **Immutable releases*:** Not enabled by default. You can enable release immutability for a repository or organization. See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/preventing-changes-to-your-releases).
+* **{% data variables.product.prodname_dependabot_security_updates %}:** Not enabled by default. You can enable {% data variables.product.prodname_dependabot_security_updates %} for any repository that uses {% data variables.product.prodname_dependabot_alerts %} and the dependency graph. For information about enabling security updates, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-security-updates).
+* **{% data variables.product.prodname_dependabot_version_updates %}:** Not enabled by default. People with write permissions to a repository can enable {% data variables.product.prodname_dependabot_version_updates %}. For information about enabling version updates, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-version-updates).
+* **Immutable releases*:** Not enabled by default. You can enable release immutability for a repository or organization. See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/prevent-release-changes).
 {% endif %}
 
 {% ifversion ghes %}
-* **Dependency graph and {% data variables.product.prodname_dependabot_alerts %}:** Not enabled by default. Both features are configured at an enterprise level by the enterprise owner. For more information, see [AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise) and [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise).
+* **Dependency graph and {% data variables.product.prodname_dependabot_alerts %}:** Not enabled by default. Both features are configured at an enterprise level by the enterprise owner. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/enable-dependency-graph) and [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-dependabot-for-your-enterprise).
 * **Dependency review:** Available when dependency graph is enabled for your instance and {% data variables.product.prodname_GHAS_or_code_security %} is enabled for the organization or repository. For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 {% endif %}
 {% ifversion ghes %}
-* **{% data variables.product.prodname_dependabot_security_updates %}:** Not enabled by default. You can enable {% data variables.product.prodname_dependabot_security_updates %} for any repository that uses {% data variables.product.prodname_dependabot_alerts %} and the dependency graph. For information about enabling security updates, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates).
-* **{% data variables.product.prodname_dependabot_version_updates %}:** Not enabled by default. People with write permissions to a repository can enable {% data variables.product.prodname_dependabot_version_updates %}. For information about enabling version updates, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates).
+* **{% data variables.product.prodname_dependabot_security_updates %}:** Not enabled by default. You can enable {% data variables.product.prodname_dependabot_security_updates %} for any repository that uses {% data variables.product.prodname_dependabot_alerts %} and the dependency graph. For information about enabling security updates, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-security-updates).
+* **{% data variables.product.prodname_dependabot_version_updates %}:** Not enabled by default. People with write permissions to a repository can enable {% data variables.product.prodname_dependabot_version_updates %}. For information about enabling version updates, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-version-updates).
 {% endif %}

@@ -30,7 +30,7 @@ To use {% data variables.product.prodname_spark_short %}, your enterprise must b
 
 By default, {% data variables.product.prodname_spark_short %} is **disabled** for users who receive a {% data variables.copilot.copilot_enterprise_short %} license from an enterprise-owned organization.
 
-You can allow members to use {% data variables.product.prodname_spark_short %} from the AI Controls tab for your enterprise. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#defining-policies-for-your-enterprise).
+You can allow members to use {% data variables.product.prodname_spark_short %} from the AI Controls tab for your enterprise. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies#defining-policies-for-your-enterprise).
 
 {% data reusables.enterprise-accounts.policy-enablement-next-steps %}
 
@@ -44,4 +44,4 @@ Was this article helpful in enabling and managing {% data variables.product.prod
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-spark)
+* [AUTOTITLE](/copilot/responsible-use/agents)

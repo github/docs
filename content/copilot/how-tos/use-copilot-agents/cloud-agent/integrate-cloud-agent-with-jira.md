@@ -15,7 +15,7 @@ category:
 ---
 
 > [!NOTE]
-> {% data variables.product.prodname_copilot %} uses AI. Check for mistakes. See [AUTOTITLE](/copilot/responsible-use/copilot-cloud-agent).
+> {% data variables.product.prodname_copilot %} uses AI. Check for mistakes. See [AUTOTITLE](/copilot/responsible-use/agents).
 
 The {% data variables.product.prodname_copilot %} integration in Jira allows you to invoke {% data variables.copilot.copilot_cloud_agent %} without leaving your Jira workspace. From within Jira you can initiate {% data variables.copilot.copilot_cloud_agent_short %} sessions and open pull requests, using the context of the work item's title, description, labels, comments, and any Atlassian custom fields such as acceptance criteria.
 
@@ -129,7 +129,7 @@ Specify a model when you want a task to run on a specific model rather than the 
 
 ### Specifying a custom agent
 
-Specify a custom agent to tailor {% data variables.copilot.copilot_cloud_agent_short %}'s behavior to a particular workflow or repository. You can specify a custom agent from your {% data variables.product.github %} repository directly in the Jira ticket. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents).
+Specify a custom agent to tailor {% data variables.copilot.copilot_cloud_agent_short %}'s behavior to a particular workflow or repository. You can specify a custom agent from your {% data variables.product.github %} repository directly in the Jira ticket. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/create-custom-agents).
 
 ### Using custom instructions
 
@@ -200,5 +200,5 @@ To resolve this issue, follow these steps to start a new active SSO session for 
 
 * [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent)
 * [AUTOTITLE](/copilot/concepts/agents/cloud-agent/access-management)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp#example-atlassian)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers#example-atlassian)
 * [Collaborate on work items with AI agents](https://support.atlassian.com/jira-software-cloud/docs/collaborate-on-work-items-with-ai-agents/) in the Atlassian documentation

@@ -136,7 +136,7 @@ After upgrading the CA, non-expiring certificates signed by that CA will be reje
 
 {% data reusables.enterprise-managed.sso-redirect-release-phase %}
 
-If your enterprise uses {% data variables.product.prodname_emus %}, you can choose what unauthenticated users see when they attempt to access your enterprise's resources. For more information about {% data variables.product.prodname_emus %}, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users).
+If your enterprise uses {% data variables.product.prodname_emus %}, you can choose what unauthenticated users see when they attempt to access your enterprise's resources. For more information about {% data variables.product.prodname_emus %}, see [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/identity-and-access-management/enterprise-managed-users).
 
 By default, to hide the existence of private resources, when an unauthenticated user attempts to access your enterprise, {% data variables.product.company_short %} displays a 404 error.
 
@@ -147,7 +147,7 @@ The configuration of this setting also affects {% data variables.product.prodnam
 If "Automatically redirect users to sign in" is enabled, {% data variables.product.github %} sends the server hints that let GCM automatically filter accounts for your enterprise members. If the setting is disabled, users who use GCM must turn off account filtering locally in GCM to avoid being prompted for authentication each time they perform a Git operation. For more details, see [AUTOTITLE](/get-started/git-basics/caching-your-github-credentials-in-git).
 
 > [!NOTE]
-> If a user is signed in to their personal account when they attempt to access any of your enterprise's resources, they'll be automatically signed out and redirected to SSO to sign in to their {% data variables.enterprise.prodname_managed_user %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts).
+> If a user is signed in to their personal account when they attempt to access any of your enterprise's resources, they'll be automatically signed out and redirected to SSO to sign in to their {% data variables.enterprise.prodname_managed_user %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/account-and-profile/how-tos/account-management/managing-multiple-accounts).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.identity-provider-tab %}
@@ -157,10 +157,10 @@ If "Automatically redirect users to sign in" is enabled, {% data variables.produ
 
 ## Further reading
 
-* [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)
+* [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/about-saml-for-enterprise-iam)
 {%- ifversion ghec %}
 * [AUTOTITLE](/admin/overview/accessing-compliance-reports-for-your-enterprise)
 {%- endif %}
 {%- ifversion ghec %}
-* [AUTOTITLE](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)
+* [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)
 {%- endif %}

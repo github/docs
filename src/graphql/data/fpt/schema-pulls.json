@@ -4,7 +4,7 @@
       "name": "addPullRequestCreationCapBypassUsers",
       "id": "addpullrequestcreationcapbypassusers",
       "href": "/graphql/reference/pulls#mutation-addpullrequestcreationcapbypassusers",
-      "description": "<p>Add users to the pull request creation cap bypass list. Bypassed users can\ncreate pull requests regardless of the configured cap. Only repository admins\ncan manage the bypass list. You can add a maximum of 100 users per request.\nThe bypass list can only hold a maximum of 100 users.</p>",
+      "description": "<p>Add users to the pull request creation cap bypass list. Bypassed users can\ncreate pull requests regardless of the configured cap. Only users with\nmaintainer permissions can manage the bypass list. You can add a maximum of\n100 users per request. The bypass list can only hold a maximum of 100 users.</p>",
       "isDeprecated": false,
       "inputFields": [
         {
@@ -654,7 +654,7 @@
       "name": "removePullRequestCreationCapBypassUsers",
       "id": "removepullrequestcreationcapbypassusers",
       "href": "/graphql/reference/pulls#mutation-removepullrequestcreationcapbypassusers",
-      "description": "<p>Remove users from the pull request creation cap bypass list. Only repository admins can manage the bypass list.</p>",
+      "description": "<p>Remove users from the pull request creation cap bypass list. Only users with\nmaintainer permissions can manage the bypass list.</p>",
       "isDeprecated": false,
       "inputFields": [
         {
@@ -1954,6 +1954,30 @@
         {
           "name": "reviewOnPush",
           "description": "<p>Copilot automatically reviews each new push to the pull request.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "pulls"
+    },
+    {
+      "name": "DismissalRestriction",
+      "id": "dismissalrestriction",
+      "href": "/graphql/reference/pulls#object-dismissalrestriction",
+      "description": "<p>Specify people, teams, or apps allowed to dismiss pull request reviews.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "allowedActors",
+          "description": "<p>Specify people, teams, or apps allowed to dismiss pull request reviews.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "enabled",
+          "description": "<p>Whether to restrict review dismissal to specific actors.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "href": "/graphql/reference/other#scalar-boolean"
@@ -5054,6 +5078,13 @@
           "type": "Boolean!",
           "id": "boolean",
           "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "dismissalRestriction",
+          "description": "<p>Specify people, teams, or apps allowed to dismiss pull request reviews.</p>",
+          "type": "DismissalRestriction",
+          "id": "dismissalrestriction",
+          "href": "/graphql/reference/pulls#object-dismissalrestriction"
         },
         {
           "name": "requireCodeOwnerReview",
@@ -9311,6 +9342,30 @@
       "category": "pulls"
     },
     {
+      "name": "DismissalRestrictionInput",
+      "id": "dismissalrestrictioninput",
+      "href": "/graphql/reference/pulls#input-object-dismissalrestrictioninput",
+      "description": "<p>Specify people, teams, or apps allowed to dismiss pull request reviews.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "allowedActors",
+          "description": "<p>Specify people, teams, or apps allowed to dismiss pull request reviews.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "enabled",
+          "description": "<p>Whether to restrict review dismissal to specific actors.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "pulls"
+    },
+    {
       "name": "DraftPullRequestReviewComment",
       "id": "draftpullrequestreviewcomment",
       "href": "/graphql/reference/pulls#input-object-draftpullrequestreviewcomment",
@@ -9707,6 +9762,13 @@
           "type": "Boolean!",
           "id": "boolean",
           "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "dismissalRestriction",
+          "description": "<p>Specify people, teams, or apps allowed to dismiss pull request reviews.</p>",
+          "type": "DismissalRestrictionInput",
+          "id": "dismissalrestrictioninput",
+          "href": "/graphql/reference/pulls#input-object-dismissalrestrictioninput"
         },
         {
           "name": "requireCodeOwnerReview",

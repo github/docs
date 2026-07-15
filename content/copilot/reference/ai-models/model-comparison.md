@@ -19,7 +19,7 @@ contentType: reference
 
 > [!NOTE]
 > * Different models consume {% data variables.product.prodname_ai_credits_short %} at different rates based on their token pricing. For details, see [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing).
-> * Choosing the **Auto** option when selecting a model automatically selects the optimum model for your task, based on model availability and task complexity.  If you are on a paid {% data variables.product.prodname_copilot_short %} plan, you qualify for a discount on model costs when you use the **Auto** option. See [AUTOTITLE](/copilot/concepts/auto-model-selection).
+> * Choosing the **Auto** option when selecting a model automatically selects the optimum model for your task, based on model availability and task complexity.  If you are on a paid {% data variables.product.prodname_copilot_short %} plan, you qualify for a discount on model costs when you use the **Auto** option. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
 
 ### Recommended models by task
 
@@ -128,7 +128,7 @@ Use one of these models if you want to:
 * Understand front-end behavior from visual context.
 
 > [!TIP]
-> If you're using a model in a context that doesn’t support image input (like a code editor), you won’t see visual reasoning benefits. You may be able to use an MCP server to get access to visual input indirectly. See [AUTOTITLE](/copilot/customizing-copilot/using-model-context-protocol/extending-copilot-chat-with-mcp).
+> If you're using a model in a context that doesn’t support image input (like a code editor), you won’t see visual reasoning benefits. You may be able to use an MCP server to get access to visual input indirectly. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp).
 
 ### When to use a different model
 
@@ -140,7 +140,7 @@ If your task involves deep reasoning or large-scale refactoring, consider a mode
 
 Choosing the right model helps you get the most out of {% data variables.product.prodname_copilot_short %}. If you're not sure which model to use, start with a general-purpose option like {% data variables.copilot.copilot_gpt_5_mini %}, then adjust based on your needs.
 
-* For detailed model specs and pricing, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/supported-ai-models-in-copilot).
-* For more examples of how to use different models, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/comparing-ai-models-using-different-tasks).
-* To switch between models, refer to [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat) or [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-completion-model).
+* For detailed model specs and pricing, see [AUTOTITLE](/copilot/reference/ai-models/supported-models).
+* For more examples of how to use different models, see [AUTOTITLE](/copilot/tutorials/compare-ai-models).
+* To switch between models, refer to [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-chat-model) or [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-completion-model).
 * To learn how {% data variables.copilot.copilot_chat_short %} serves different AI models, see [AUTOTITLE](/copilot/reference/ai-models/model-hosting).

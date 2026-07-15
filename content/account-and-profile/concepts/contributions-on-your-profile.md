@@ -21,15 +21,15 @@ If you are part of an organization that uses SAML single sign-on (SSO), you won�
 
 ## Public and private repository activity
 
-By default, your contribution graph and Achievements only show activity from public repositories. You can choose to show activity from both public and private repositories, with specific details of your activity in private repositories anonymized. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile).
+By default, your contribution graph and Achievements only show activity from public repositories. You can choose to show activity from both public and private repositories, with specific details of your activity in private repositories anonymized. For more information, see [AUTOTITLE](/account-and-profile/how-tos/contribution-settings/manage-visibility-settings-for-private-contributions-and-achievements).
 
 ## Popular repositories
 
-This section displays your repositories with the most watchers. Once you [pin repositories to your profile](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/pinning-items-to-your-profile), this section will change to "Pinned."
+This section displays your repositories with the most watchers. Once you [pin repositories to your profile](/account-and-profile/how-tos/profile-customization/pinning-items-to-your-profile), this section will change to "Pinned."
 
 ## Pinned
 
-This section displays up to six public repositories or gists. Important details are listed for each of the items you've chosen to feature. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/pinning-items-to-your-profile).
+This section displays up to six public repositories or gists. Important details are listed for each of the items you've chosen to feature. For more information, see [AUTOTITLE](/account-and-profile/how-tos/profile-customization/pinning-items-to-your-profile).
 
 ![Screenshot of the "Pinned repositories" section of a user's profile page.](/assets/images/help/profile/profile-pinned-repositories.png)
 
@@ -41,11 +41,11 @@ Your contributions calendar shows a visual overview of your contribution activit
 
 ## Activity overview
 
-{% data reusables.profile.activity-overview-summary %} For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-an-overview-of-your-activity-on-your-profile).
+{% data reusables.profile.activity-overview-summary %} For more information, see [AUTOTITLE](/account-and-profile/how-tos/contribution-settings/showing-an-overview-of-your-activity-on-your-profile).
 
 ![Screenshot of the activity overview section of a user profile.](/assets/images/help/profile/activity-overview-section.png)
 
-The organizations featured in the activity overview are prioritized according to how active you are in the organization. If you @mention an organization in your profile bio, and you’re an organization member, then that organization is prioritized first in the activity overview. For more information, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams) or [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile).
+The organizations featured in the activity overview are prioritized according to how active you are in the organization. If you @mention an organization in your profile bio, and you’re an organization member, then that organization is prioritized first in the activity overview. For more information, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams) or [AUTOTITLE](/account-and-profile/tutorials/personalize-your-profile).
 
 ## Contribution activity
 
@@ -59,4 +59,4 @@ If you can't see certain events in your timeline, check to make sure you still h
 
 To learn the different ways to view your contributions, see [AUTOTITLE](/account-and-profile/how-tos/contribution-settings/viewing-contributions-on-your-profile).
 
-To learn what counts as a contribution, see [AUTOTITLE](/account-and-profile/reference/why-are-my-contributions-not-showing-up-on-my-profile#what-counts-as-a-contribution)
+To learn what counts as a contribution, see [AUTOTITLE](/account-and-profile/reference/profile-contributions-reference#what-counts-as-a-contribution)

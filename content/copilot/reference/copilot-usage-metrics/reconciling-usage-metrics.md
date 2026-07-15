@@ -81,6 +81,6 @@ The value `Unknown` appears in some API or export breakdowns when telemetry from
 
 ## Users surfaced by server-side telemetry
 
-{% data variables.product.prodname_copilot_short %} usage metrics combine client-side and server-side telemetry to identify active users. Users confirmed as active through server-side telemetry, but for whom no client telemetry was received, are included in your active user totals (such as `daily_active_users`). However, their dimensional breakdowns (`totals_by_ide`, `totals_by_feature`, `totals_by_language_feature`, `totals_by_language_model`, `totals_by_model_feature`) and lines-of-code metrics will be empty.
+{% data variables.product.prodname_copilot_short %} usage metrics combine client-side and server-side telemetry to identify active users. Users confirmed as active through server-side telemetry, but for whom no client telemetry was received, are included in your active user totals (such as `daily_active_users`). When available, these users may also appear in `totals_by_ide` (and in per-user reports this includes the most recently detected IDE and {% data variables.product.prodname_copilot_short %} extension versions). However, other dimensional breakdowns (`totals_by_feature`, `totals_by_language_feature`, `totals_by_language_model`, `totals_by_model_feature`) and lines-of-code metrics will still be empty.
 
 This means your top-level active user counts may be higher than the sum of users reflected in the breakdown arrays. This is expected behavior and does not indicate a data error.

@@ -65,13 +65,13 @@ If you use a different JDK distribution, you may also need:
 
 {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} users can use {% data variables.actions.hosted_runners %} to run automatic dependency submissions jobs.
 
-1. Provision a larger runner at the organization level with the name `dependency-submission`. For more information, see [Adding a {% data variables.actions.hosted_runner %} to an organization](/actions/using-github-hosted-runners/about-larger-runners/managing-larger-runners#adding-a-larger-runner-to-an-organization).
-1. Give your repository access to the runner. For more information, see [Allowing repositories to access {% data variables.actions.hosted_runners %}](/actions/using-github-hosted-runners/about-larger-runners/managing-larger-runners#allowing-repositories-to-access-larger-runners).
+1. Provision a larger runner at the organization level with the name `dependency-submission`. For more information, see [Adding a {% data variables.actions.hosted_runner %} to an organization](/actions/how-tos/manage-runners/larger-runners/manage-larger-runners#adding-a-larger-runner-to-an-organization).
+1. Give your repository access to the runner. For more information, see [Allowing repositories to access {% data variables.actions.hosted_runners %}](/actions/how-tos/manage-runners/larger-runners/manage-larger-runners#allowing-repositories-to-access-larger-runners).
 1. Under "Dependency graph", click the dropdown menu next to “Automatic dependency submission”, then select **Enabled for labeled runners**.
 
 ## Troubleshoot automatic dependency submission
 
-Automatic dependency submission makes a best effort to cache package downloads between runs using the [Cache](https://github.com/marketplace/actions/cache) action to speed up workflows. For self-hosted runners, you may want to manage this cache within your own infrastructure. To do this, you can disable the built-in caching by setting an environment variable of `GH_DEPENDENCY_SUBMISSION_SKIP_CACHE` to `true`. For more information, see [AUTOTITLE](/actions/learn-github-actions/variables).
+Automatic dependency submission makes a best effort to cache package downloads between runs using the [Cache](https://github.com/marketplace/actions/cache) action to speed up workflows. For self-hosted runners, you may want to manage this cache within your own infrastructure. To do this, you can disable the built-in caching by setting an environment variable of `GH_DEPENDENCY_SUBMISSION_SKIP_CACHE` to `true`. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables).
 
 ### Manifest deduplication
 
@@ -91,7 +91,7 @@ For Gradle projects, automatic dependency submission runs a fork of the open sou
 
 ### .NET projects
 
-The .NET autosubmission action uses the open source [component-detection](https://github.com/microsoft/component-detection/) project as the engine for its dependency detection. It supports .NET 8.x, 9.x, and 10.x. .NET autosubmission runs if the repository's `dependabot.yml` defines `nuget` as a [`package-ecosystem`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#package-ecosystem-) or when there is a supported manifest file in the root directory of the repository. Supported manifest files include `.sln`, `.csproj`, `packages.config`, `.vbproj`, `.vcxproj`, and `.fsproj`.
+The .NET autosubmission action uses the open source [component-detection](https://github.com/microsoft/component-detection/) project as the engine for its dependency detection. It supports .NET 8.x, 9.x, and 10.x. .NET autosubmission runs if the repository's `dependabot.yml` defines `nuget` as a [`package-ecosystem`](/code-security/reference/supply-chain-security/dependabot-options-reference#package-ecosystem-) or when there is a supported manifest file in the root directory of the repository. Supported manifest files include `.sln`, `.csproj`, `packages.config`, `.vbproj`, `.vcxproj`, and `.fsproj`.
 
 ### Python projects
 

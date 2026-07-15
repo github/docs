@@ -418,5 +418,5 @@ In this exercise, you will learn how to:
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/copilot-chat-cookbook/documenting-code/documenting-legacy-code)
+* [AUTOTITLE](/copilot/tutorials/copilot-cookbook/document-code/document-legacy-code)
 * [Modernizing legacy code with {% data variables.product.prodname_copilot %}: Tips and examples](https://github.blog/ai-and-ml/github-copilot/modernizing-legacy-code-with-github-copilot-tips-and-examples/) on the {% data variables.product.github %} Blog

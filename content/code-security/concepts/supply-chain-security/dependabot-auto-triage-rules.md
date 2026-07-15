@@ -44,7 +44,7 @@ There are two types of {% data variables.dependabot.auto_triage_rules %}:
 * At worst, have limited effects like slow builds or long-running tests.
 * Are not indicative of issues in production.
 
-The rule is enabled by default for public repositories and can be opted into for private repositories. For instructions, see [Enabling the `Dismiss low impact issues for development-scoped dependencies` rule for your private repository](/code-security/dependabot/dependabot-auto-triage-rules/using-github-preset-rules-to-prioritize-dependabot-alerts#enabling-the-dismiss-low-impact-issues-for-development-scoped-dependencies-rule-for-your-private-repository).
+The rule is enabled by default for public repositories and can be opted into for private repositories. For instructions, see [Enabling the `Dismiss low impact issues for development-scoped dependencies` rule for your private repository](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/prioritize-with-preset-rules#enabling-the-dismiss-low-impact-issues-for-development-scoped-dependencies-rule-for-your-private-repository).
 
 For more information about the criteria used by the rule, see [AUTOTITLE](/code-security/reference/supply-chain-security/criteria-for-preset-rules).
 
@@ -66,13 +66,13 @@ The `Dismiss package malware alerts` rule is disabled by default, but can be ena
 > [!NOTE]
 > {% data reusables.gated-features.dependabot-custom-auto-triage-rules %}
 
-With {% data variables.dependabot.custom_rules %}, you can create your own rules to automatically dismiss or reopen alerts based on targeted metadata, such as severity, package name, CWE, and more. You can also specify which {% data variables.product.prodname_dependabot_alerts %} you want {% data variables.product.prodname_dependabot %} to open pull requests for. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/customizing-auto-triage-rules-to-prioritize-dependabot-alerts).
+With {% data variables.dependabot.custom_rules %}, you can create your own rules to automatically dismiss or reopen alerts based on targeted metadata, such as severity, package name, CWE, and more. You can also specify which {% data variables.product.prodname_dependabot_alerts %} you want {% data variables.product.prodname_dependabot %} to open pull requests for. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/auto-triage-dependabot-alerts).
 
-You can create custom rules from the **Settings** tab of the repository, provided the repository belongs to an organization that has a license for {% data variables.product.prodname_GHAS_or_code_security %}. For more information, see [Adding custom auto-triage rules to your repository](/code-security/dependabot/dependabot-auto-triage-rules/customizing-auto-triage-rules-to-prioritize-dependabot-alerts#adding-custom-auto-triage-rules-to-your-repository).
+You can create custom rules from the **Settings** tab of the repository, provided the repository belongs to an organization that has a license for {% data variables.product.prodname_GHAS_or_code_security %}. For more information, see [Adding custom auto-triage rules to your repository](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/auto-triage-dependabot-alerts#adding-custom-auto-triage-rules-to-your-repository).
 
 ### About auto-dismissing alerts
 
-Whilst you may find it useful to use auto-triage rules to auto-dismiss alerts, you can still reopen auto-dismissed alerts and filter to see which alerts have been auto-dismissed. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/managing-automatically-dismissed-alerts).
+Whilst you may find it useful to use auto-triage rules to auto-dismiss alerts, you can still reopen auto-dismissed alerts and filter to see which alerts have been auto-dismissed. For more information, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/managing-automatically-dismissed-alerts).
 
 Additionally, auto-dismissed alerts are still available for reporting and reviewing, and can be auto-reopened if the alert metadata changes, for example:
 * If you change the scope of a dependency from development to production.
@@ -82,6 +82,6 @@ Auto-dismissed alerts are defined by the `resolution:auto-dismiss` close reason.
 
 ## Next steps
 
-To get started with {% data variables.dependabot.auto_triage_rules %}, see [AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/using-github-preset-rules-to-prioritize-dependabot-alerts).
+To get started with {% data variables.dependabot.auto_triage_rules %}, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/prioritize-with-preset-rules).
 
-To customize your auto-triage experience, see [AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/customizing-auto-triage-rules-to-prioritize-dependabot-alerts).
+To customize your auto-triage experience, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/auto-triage-dependabot-alerts).

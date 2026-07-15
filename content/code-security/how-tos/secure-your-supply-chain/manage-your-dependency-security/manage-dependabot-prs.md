@@ -30,7 +30,7 @@ category:
 
 ## Changing the rebase strategy for {% data variables.product.prodname_dependabot %} pull requests
 
-By default, {% data variables.product.prodname_dependabot %} automatically rebases pull requests to resolve any conflicts. {% data reusables.dependabot.pull-requests-30-days-cutoff %} If you'd prefer to handle merge conflicts manually, you can disable this using the `rebase-strategy` option. For details, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#rebase-strategy--).
+By default, {% data variables.product.prodname_dependabot %} automatically rebases pull requests to resolve any conflicts. {% data reusables.dependabot.pull-requests-30-days-cutoff %} If you'd prefer to handle merge conflicts manually, you can disable this using the `rebase-strategy` option. For details, see [AUTOTITLE](/code-security/reference/supply-chain-security/dependabot-options-reference#rebase-strategy--).
 
 ## Allowing {% data variables.product.prodname_dependabot %} to rebase and force push over extra commits
 
@@ -44,4 +44,4 @@ You can use comment commands on {% data variables.product.prodname_dependabot %}
 
 If you run any of the commands for ignoring dependencies or versions, {% data variables.product.prodname_dependabot %} stores the preferences for the repository centrally. While this is a quick solution, for repositories with more than one contributor it is better to explicitly define the dependencies and versions to ignore in the configuration file. This makes it easy for all contributors to see why a particular dependency isn't being updated automatically.
 
-For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#ignore--).
+For more information, see [AUTOTITLE](/code-security/reference/supply-chain-security/dependabot-options-reference#ignore--).

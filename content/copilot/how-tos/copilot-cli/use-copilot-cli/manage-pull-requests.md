@@ -92,7 +92,7 @@ The `/pr` slash command has several subcommands that you can use to perform diff
 </tbody>
 </table>
 
-Subcommands that commit and push changes will prompt you for permission before performing potentially destructive actions, unless you have pre-allowed those tools. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/allowing-tools).
+Subcommands that commit and push changes will prompt you for permission before performing potentially destructive actions, unless you have pre-allowed those tools. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/allowing-tools).
 
 ## Viewing pull request status
 
@@ -211,6 +211,6 @@ You can append instructions to guide the pull request creation. For example:
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/how-tos/copilot-cli/allowing-tools)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/allowing-tools)
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/browse-issues-prs-gists)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)

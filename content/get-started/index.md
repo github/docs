@@ -27,7 +27,7 @@ versions:
 layout: discovery-landing
 introLinks:
   quickstart: /get-started/start-your-journey/hello-world
-  overview: /get-started/start-your-journey/about-github-and-git
+  overview: /get-started/start-your-journey/what-is-github
 carousels:
   recommended:
     - /get-started/start-your-journey

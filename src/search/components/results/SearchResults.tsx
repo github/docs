@@ -1,4 +1,4 @@
-import { Pagination } from '@primer/react'
+import { Pagination } from '@primer/react-brand'
 import { SearchIcon } from '@primer/octicons-react'
 import { useRouter } from 'next/router'
 import React, { useEffect, useRef, useState } from 'react'

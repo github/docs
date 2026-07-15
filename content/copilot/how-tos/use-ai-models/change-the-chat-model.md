@@ -15,7 +15,7 @@ category:
 
 Choose from a selection of models, each with its own particular strengths. You may have a favorite model that you like to use, or you might prefer to use a particular model for inquiring about a specific subject.
 
-To view the available models per client, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/supported-ai-models-in-copilot#supported-models-per-client).
+To view the available models per client, see [AUTOTITLE](/copilot/reference/ai-models/supported-models#supported-ai-models-per-client).
 
 > [!NOTE] Different models consume {% data variables.product.prodname_ai_credits_short %} at different rates based on their token pricing. For details, see [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing).
 
@@ -29,7 +29,7 @@ Changing the model used by {% data variables.copilot.copilot_chat_short %} does 
 
 ### Limitations of AI models for {% data variables.copilot.copilot_chat_short %}
 
-Experimental pre-release versions of the models may not interact with all filters correctly, including the setting to block suggestions matching public code (see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code)).
+Experimental pre-release versions of the models may not interact with all filters correctly, including the setting to block suggestions matching public code (see [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-suggestions-matching-public-code)).
 
 ## Changing the AI model
 
@@ -169,7 +169,7 @@ These instructions are for the Eclipse IDE. For instructions on different client
 
 These instructions are for Xcode. For instructions on different clients, click the appropriate tab at the top of this page.
 
-To use multi-model {% data variables.copilot.copilot_chat_short %}, you must install the {% data variables.product.prodname_copilot %} for Xcode extension. See [AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment).
+To use multi-model {% data variables.copilot.copilot_chat_short %}, you must install the {% data variables.product.prodname_copilot %} for Xcode extension. See [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension).
 
 {% data reusables.copilot.chat-model-limitations-ide %}
 

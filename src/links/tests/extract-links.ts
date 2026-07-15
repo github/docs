@@ -434,6 +434,63 @@ describe('checkInternalLink', () => {
     expect(result.isRedirect).toBe(true)
     expect(result.redirectTarget).toBe('/actions/current-path')
   })
+
+  test('treats archived Enterprise Server versions as valid', () => {
+    // Deprecated GHES versions are served by the archived enterprise versions
+    // system, which isn't loaded into pageMap. They must not be reported broken.
+    const result = checkInternalLink(
+      '/enterprise-server@3.7/admin/release-notes',
+      pageMap,
+      redirects,
+    )
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(false)
+  })
+
+  test('treats legacy /enterprise/<version>/ archived paths as valid', () => {
+    const result = checkInternalLink(
+      '/enterprise/2.1/admin/guides/installation/provisioning-and-installation/',
+      pageMap,
+      redirects,
+    )
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(false)
+  })
+
+  test('resolves free-pro-team@latest prefixed links via the redirect resolver', () => {
+    // The flat redirects map has no literal key for this; getRedirect computes
+    // the correction (strip the version prefix) the same way production does.
+    const result = checkInternalLink('/free-pro-team@latest/actions/guides', pageMap, redirects)
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(true)
+    expect(result.redirectTarget).toBe('/actions/guides')
+  })
+
+  test('resolves versionless /enterprise-server/ links via the redirect resolver', () => {
+    const result = checkInternalLink(`/enterprise-server/admin/overview`, pageMap, redirects)
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(true)
+    // Normalized to the latest stable Enterprise Server version.
+    expect(result.redirectTarget).toBe(`/enterprise-server@${latestStable}/admin/overview`)
+  })
+
+  test('strips hyphenated locale prefixes without double-prefixing', () => {
+    // /pt-br/ is a hyphenated locale; it must be stripped (not turned into
+    // /en/pt-br/...) so the underlying path resolves against the redirects map.
+    const result = checkInternalLink('/pt-br/actions/legacy-path', pageMap, redirects)
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(true)
+    expect(result.redirectTarget).toBe('/actions/current-path')
+  })
+
+  test('normalizes a bare language-root redirect target to /', () => {
+    // getRedirect collapses '/free-pro-team@latest' to the language root ('/en');
+    // after stripping the locale that would be empty, so it must normalize to '/'.
+    const result = checkInternalLink('/free-pro-team@latest', pageMap, redirects)
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(true)
+    expect(result.redirectTarget).toBe('/')
+  })
 })
 
 describe('isAssetLink', () => {

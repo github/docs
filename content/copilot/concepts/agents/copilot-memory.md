@@ -39,7 +39,7 @@ Facts and preferences captured by one {% data variables.product.prodname_copilot
 
 A few feature-specific limits apply:
 
-* {% data variables.copilot.copilot_cli_short %} only applies stored facts and preferences for the user who initiated the operation.
+* {% data variables.copilot.copilot_cli_short %} applies repository-level facts and the user-level preferences of the user who initiated the operation.
 * {% data variables.copilot.copilot_code-review_short %} uses repository-level facts only. User-level preferences are not applied during code review.
 
 ## Benefits of using {% data variables.copilot.copilot_memory %}

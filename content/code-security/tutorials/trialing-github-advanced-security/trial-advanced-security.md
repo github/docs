@@ -22,7 +22,7 @@ category:
 
 To set up a trial of {% data variables.product.prodname_GHAS %} using this method, you must meet the following criteria:
 
-1. You are an owner of an enterprise account. See [AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts).
+1. You are an owner of an enterprise account. See [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/enterprise-accounts).
 1. You pay by credit card or PayPal.
 1. You have not previously purchased {% data variables.product.prodname_GHAS %} (that is, you do not currently or in the past have a paid license for {% data variables.product.prodname_GHAS %}).
 1. You are not already using metered billing for {% data variables.product.prodname_GHAS %}.

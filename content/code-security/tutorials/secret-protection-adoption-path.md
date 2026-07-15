@@ -60,8 +60,8 @@ journeyTracks:
       - href: '/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/apply-custom-configuration'
       - href: '/code-security/how-tos/secure-your-secrets/customize-leak-detection/define-custom-patterns'
       - href: '/code-security/how-tos/secure-your-secrets/manage-bypass-requests/enable-delegated-bypass'
-      - href: '/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enabling-secret-scanning-for-non-provider-patterns'
-      - href: '/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enabling-ai-powered-generic-secret-detection'
+      - href: '/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enabling-secret-scanning-for-generic-patterns'
+      - href: '/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enabling-secret-scanning-for-ai-detected-secrets'
       - href: '/code-security/how-tos/use-ghas-with-ai-coding-agents/scan-for-secrets-with-github-mcp-server'
       - href: '/code-security/how-tos/secure-at-scale/configure-enterprise-security/manage-your-coverage/enabling-public-monitoring-for-your-enterprise'
 ---

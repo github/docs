@@ -42,11 +42,11 @@ By default, repositories can override the organization-level runner configuratio
 {% data reusables.profile.org_settings %}
 {% data reusables.copilot.cloud-agent-settings %}
 1. Under "Allow repositories to customize the runner type," toggle the setting to enable or disable repository-level customization.
-   * When enabled, repositories can override the default runner by setting the `runs-on` field in the `copilot-setup-steps` job of `copilot-setup-steps.yml`. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment#configure-the-runner).
+   * When enabled, repositories can override the default runner by setting the `runs-on` field in the `copilot-setup-steps` job of `copilot-setup-steps.yml`. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment#configure-the-runner).
    * When disabled, all repositories in your organization will use the organization-level runner type.
 1. Click **Save**.
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment)
 * [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/add-copilot-cloud-agent)

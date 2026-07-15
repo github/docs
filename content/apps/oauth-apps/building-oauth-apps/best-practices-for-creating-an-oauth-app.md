@@ -16,9 +16,9 @@ If possible, consider using a {% data variables.product.prodname_github_app %} i
 
 Similar to {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_github_apps %} can still use OAuth 2.0 and generate a type of OAuth token (called a user access token) and take actions on behalf of a user. However, {% data variables.product.prodname_github_apps %} can also act independently of a user.
 
-For more information about {% data variables.product.prodname_github_apps %}, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps).
+For more information about {% data variables.product.prodname_github_apps %}, see [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps).
 
-For more information about migrating an existing {% data variables.product.prodname_oauth_app %} to a {% data variables.product.prodname_github_app %}, see [AUTOTITLE](/apps/creating-github-apps/guides/migrating-oauth-apps-to-github-apps).
+For more information about migrating an existing {% data variables.product.prodname_oauth_app %} to a {% data variables.product.prodname_github_app %}, see [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/migrating-oauth-apps-to-github-apps).
 
 ## Use minimal scopes
 
@@ -106,7 +106,7 @@ If your app is available to other users, you should give users a way to delete t
 
 ## Further reading
 
-* [AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/security-best-practices-for-apps)
-* [AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/customer-experience-best-practices-for-apps)
+* [AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/security-best-practices-for-apps-on-github-marketplace)
+* [AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/customer-experience-best-practices-for-apps)
 
 {% endif %}

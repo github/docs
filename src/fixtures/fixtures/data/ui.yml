@@ -19,6 +19,10 @@ header:
   menu: Menu
   open_menu_label: Open menu
   go_home: Home
+  collapse_sidebar: Collapse sidebar
+  expand_sidebar: Expand sidebar
+  scroll_breadcrumbs_left: Scroll breadcrumbs left
+  scroll_breadcrumbs_right: Scroll breadcrumbs right
 
 picker:
   language_picker_label: Language

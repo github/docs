@@ -75,6 +75,22 @@ describe('server', () => {
     expect(surrogateKeySplit.includes(makeLanguageSurrogateKey('en'))).toBeTruthy()
   })
 
+  test('sets fine-grained product and version surrogate keys on content pages', async () => {
+    // docs-engineering#6719: content pages emit language, product, version, and
+    // a product,language compound key so per-deploy purges can target the
+    // tightest key instead of a whole language.
+    const res = await get('/en/get-started')
+    expect(res.statusCode).toBe(200)
+    const keys = res.headers['surrogate-key'].split(/\s/g)
+    // Language key stays first for anything that only reads the first token.
+    expect(keys[0]).toBe(makeLanguageSurrogateKey('en'))
+    expect(keys).toContain('product:get-started')
+    expect(keys).toContain('product:get-started,language:en')
+    expect(keys.some((key: string) => /^version:.+/.test(key))).toBe(true)
+    // Stays well under Fastly's limits: about 4 keys per page.
+    expect(keys.length).toBeLessThanOrEqual(6)
+  })
+
   test('does not render duplicate <html> or <body> tags', async () => {
     const $ = await getDOM('/en')
     expect($('html').length).toBe(1)

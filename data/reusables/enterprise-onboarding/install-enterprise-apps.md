@@ -25,8 +25,8 @@ After installation, the app will be able to create an installation token for you
 
 Enterprise-installed {% data variables.product.prodname_github_apps %} cannot call every enterprise API, but several APIs have already been updated to support GitHub Apps. These APIs and GraphQL mutations include:
 
-* [List and create organizations in your enterprise](/graphql/reference/mutations#createenterpriseorganization)
-* [Manage users in your enterprise](/graphql/reference/objects#enterprise)
+* [List and create organizations in your enterprise](/graphql/reference/enterprise-admin#mutation-createenterpriseorganization)
+* [Manage users in your enterprise](/graphql/reference#enterprise)
 * Create and manage {% data variables.product.prodname_github_app %} installations in your organizations
 * Manage enterprise custom repository properties
 * Call the enterprise SCIM APIs
@@ -39,7 +39,7 @@ For more information about available permissions and API endpoints, see [AUTOTIT
 
 ## Rate limits for enterprise-installed {% data variables.product.prodname_github_apps %}
 
-The installation token for an enterprise-installed {% data variables.product.prodname_github_apps %} has the same rate limit as a {% data variables.product.prodname_ghe_cloud %} organization. Rate limits are per installation. For example, if an app is installed on an enterprise and two organizations, it will require 3 installation tokens to access them and have a full, independent rate limit budget for each installation. For more information, see [AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api) and [AUTOTITLE](/graphql/overview/resource-limitations).
+The installation token for an enterprise-installed {% data variables.product.prodname_github_apps %} has the same rate limit as a {% data variables.product.prodname_ghe_cloud %} organization. Rate limits are per installation. For example, if an app is installed on an enterprise and two organizations, it will require 3 installation tokens to access them and have a full, independent rate limit budget for each installation. For more information, see [AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api) and [AUTOTITLE](/graphql/overview/rate-limits-and-query-limits-for-the-graphql-api).
 {% endif %}
 
 ## Current limitations

@@ -36,7 +36,7 @@ These metrics help both application security managers measure the effectiveness 
 
 The metrics dashboard shows the number of **open {% data variables.product.prodname_dependabot_alerts %}**. You can use filters such as availability of patches, severity, and EPSS score to narrow down the list of alerts to those matching specific criteria. {% data reusables.security-overview.dependabot-filters-link %}
 
-For more information about how AppSec managers can best use these metrics to optimize alert fixing, see [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities/prioritizing-dependabot-alerts-using-metrics).
+For more information about how AppSec managers can best use these metrics to optimize alert fixing, see [AUTOTITLE](/code-security/tutorials/manage-security-alerts/prioritizing-dependabot-alerts-using-metrics).
 
 Key metrics for prioritization include:
 

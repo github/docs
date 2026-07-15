@@ -43,7 +43,7 @@ You can use {% data variables.product.github %} without incurring any costs. If 
 * **Metered usage**: Variable costs that depend on how much you use certain features above the amounts included with your {% data variables.product.github %} plan (for example: {% data variables.product.prodname_actions %}). For more information see, [AUTOTITLE](/billing/reference/product-usage-included) and [AUTOTITLE](/billing/concepts/budgets-and-alerts).
 
 > [!TIP]
-> {% data variables.product.github %} has discounted plans for verified students and academic faculties, and for non-profit organizations. For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/discounted-plans-for-github-accounts).
+> {% data variables.product.github %} has discounted plans for verified students and academic faculties, and for non-profit organizations. For more information, see [AUTOTITLE](/billing/concepts/discounted-plans).
 
 ## How does billing work?
 
@@ -76,11 +76,11 @@ If the authorization is unsuccessful, the chosen service will not be activated a
 
 ## How do I see what I'm billed for?
 
-You can see the billing and usage information for your account at anytime in the "Billing and licensing" pages of your account or using the REST API. For more information, see [AUTOTITLE](/billing/how-tos/products/view-product-use).
+You can see the billing and usage information for your account at anytime in the "Billing and licensing" pages of your account or using the REST API. For more information, see [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
 
 ## Next steps
 
 * [AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)
-* [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information)
-* [AUTOTITLE](/billing/tutorials/set-up-budgets)
+* [AUTOTITLE](/billing/how-tos/set-up-payment/manage-payment-info)
+* [AUTOTITLE](/billing/how-tos/set-up-budgets)
 * [AUTOTITLE](/billing/how-tos/set-up-payment/add-sales-tax-certificate)

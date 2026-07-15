@@ -37,5 +37,5 @@ Once {% data variables.product.prodname_copilot_short %} is disabled, licenses t
 
 ## Further reading
 
-* [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)
-* [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise)
+* [AUTOTITLE](/billing/concepts/product-billing/github-copilot-licenses)
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies)

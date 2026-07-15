@@ -29,13 +29,13 @@ This tutorial uses Ruby, but you can use the web application flow with any progr
 
 Your app should use a user access token if you want to attribute the app's actions to a user. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user).
 
-There are two ways to generate a user access token for a {% data variables.product.prodname_github_app %}: web application flow and device flow. If your app has access to a web interface, you should use web application flow. If your app does not have access to a web interface, you should use device flow instead. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app) and [AUTOTITLE](/apps/creating-github-apps/guides/building-a-cli-with-a-github-app).
+There are two ways to generate a user access token for a {% data variables.product.prodname_github_app %}: web application flow and device flow. If your app has access to a web interface, you should use web application flow. If your app does not have access to a web interface, you should use device flow instead. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app) and [AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-cli-with-a-github-app).
 
 ## Prerequisites
 
-This tutorial assumes that you have already registered a {% data variables.product.prodname_github_app %}. For more information about registering a {% data variables.product.prodname_github_app %}, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app).
+This tutorial assumes that you have already registered a {% data variables.product.prodname_github_app %}. For more information about registering a {% data variables.product.prodname_github_app %}, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/registering-a-github-app).
 
-Before following this tutorial, you must set a callback URL for your app. This tutorial uses a local Sinatra server with the default URL of `http://localhost:4567`. For example, to work with the default URL for a local Sinatra application, your callback URL can be `http://localhost:4567/github/callback`. Once you are ready to deploy your app, you can change the callback URL to use your live server address. For more information about updating the callback URL for your app, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app) and [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-the-user-authorization-callback-url).
+Before following this tutorial, you must set a callback URL for your app. This tutorial uses a local Sinatra server with the default URL of `http://localhost:4567`. For example, to work with the default URL for a local Sinatra application, your callback URL can be `http://localhost:4567/github/callback`. Once you are ready to deploy your app, you can change the callback URL to use your live server address. For more information about updating the callback URL for your app, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration) and [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/about-the-user-authorization-callback-url).
 
 This tutorial assumes that you have a basic understanding of Ruby and of the Ruby template system, ERB. For more information, see [Ruby](https://www.ruby-lang.org) and [ERB](https://github.com/ruby/erb).
 
@@ -171,7 +171,7 @@ These steps lead you through writing code to generate a user access token. To sk
 
       If you have not authorized the app, clicking on the link should take you to `{% data variables.product.oauth_host_code %}/login/oauth/authorize?client_id=CLIENT_ID`, where `CLIENT_ID` is the client ID of your app. This is a {% data variables.product.github %} page that prompts users to authorize your app. If you click the button to authorize your app, you will go to the callback URL for your app.
 
-      If you previously authorized your app and the authorization has not been revoked, you will skip the authorization prompt and go directly to the callback URL instead. You can revoke your previous authorization if you want to see the authorization prompt. For more information, see [AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations).
+      If you previously authorized your app and the authorization has not been revoked, you will skip the authorization prompt and go directly to the callback URL instead. You can revoke your previous authorization if you want to see the authorization prompt. For more information, see [AUTOTITLE](/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps).
    1. The callback URL page, reached by clicking the "Login with {% data variables.product.github %}" link and then authorizing the app if prompted to do so, should display the text similar to "Successfully authorized! Got code agc622abb6135be5d1f2."
    1. In your terminal where Sinatra is running, stop the server by entering <kbd>Ctrl</kbd>+<kbd>C</kbd>.
 1. Replace the content of `app.rb` with the following code, where `CALLBACK_URL` is the callback URL for your app, minus the domain.
@@ -383,7 +383,7 @@ This tutorial assumes that your app code is stored in a file named `app.rb` and 
 
    If you have not authorized the app, clicking on the link should take you to `{% data variables.product.oauth_host_code %}/login/oauth/authorize?client_id=CLIENT_ID`, where `CLIENT_ID` is the client ID of your app. This is a {% data variables.product.github %} page that prompts users to authorize your app. If you click the button to authorize your app, you will go to the callback URL for your app.
 
-   If you previously authorized your app and the authorization has not been revoked, you will skip the authorization prompt and go directly to the callback URL instead. You can revoke your previous authorization if you want to see the authorization prompt. For more information, see [AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations).
+   If you previously authorized your app and the authorization has not been revoked, you will skip the authorization prompt and go directly to the callback URL instead. You can revoke your previous authorization if you want to see the authorization prompt. For more information, see [AUTOTITLE](/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps).
 
 1. The callback URL page, reached by clicking the "Login with {% data variables.product.github %}" link and then authorizing the app if prompted to do so, should display the text similar to "Successfully authorized! Welcome, Mona Lisa (octocat)."
 1. In your terminal where Sinatra is running, stop the server by entering <kbd>Ctrl</kbd>+<kbd>C</kbd>.
@@ -398,13 +398,13 @@ For example, you can store the secret in an environment variable on the server w
 
 ### Update the callback URL for deployment
 
-This tutorial used a callback URL starting with `http://localhost:4567`. However, `http://localhost:4567` is only available locally to your computer when you start the Sinatra server. Before you deploy your app, you should update the callback URL to use the callback URL that you use in production. For more information about updating the callback URL for your app, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app) and [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-the-user-authorization-callback-url).
+This tutorial used a callback URL starting with `http://localhost:4567`. However, `http://localhost:4567` is only available locally to your computer when you start the Sinatra server. Before you deploy your app, you should update the callback URL to use the callback URL that you use in production. For more information about updating the callback URL for your app, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration) and [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/about-the-user-authorization-callback-url).
 
 ### Handle multiple callback URLs
 
 This tutorial used a single callback URL, but your app can have up to 10 callback URLs. If you want to use multiple callback URLs:
 
-* Add the additional callback URLs to your app. For more information about adding callback URLs, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app).
+* Add the additional callback URLs to your app. For more information about adding callback URLs, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration).
 * When you link to `{% data variables.product.oauth_host_code %}/login/oauth/authorize`, use the `redirect_uri` query parameter to redirect users to the desired callback URL. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app#using-the-web-application-flow-to-generate-a-user-access-token).
 * In your app code, handle each callback URL, similar to the code block starting in `get "CALLBACK_URL" do`.
 
@@ -416,7 +416,7 @@ Unlike a traditional OAuth token, the user access token does not use scopes so y
 
 ### Adjust the code to meet your app's needs
 
-This tutorial demonstrated how to display information about the authenticated user, but you can adjust this code to take other actions. Remember to update your app's permissions if your app needs additional permissions for the API requests that you want to make. For more information, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/choosing-permissions-for-a-github-app).
+This tutorial demonstrated how to display information about the authenticated user, but you can adjust this code to take other actions. Remember to update your app's permissions if your app needs additional permissions for the API requests that you want to make. For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app).
 
 This tutorial stored all of the code into a single file, but you may want to move functions and components into separate files.
 
@@ -426,8 +426,8 @@ This tutorial generates a user access token. Unless you opted out of expiration 
 
 If you plan on interacting further with {% data variables.product.company_short %}'s APIs, you should store the token for future use. If you choose to store the user access token or refresh token, you must store it securely. You should never publicize the token.
 
-For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app).
+For more information, see [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app).
 
 ### Follow best practices
 
-You should aim to follow best practices with your {% data variables.product.prodname_github_app %}. For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app).
+You should aim to follow best practices with your {% data variables.product.prodname_github_app %}. For more information, see [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app).

@@ -17,7 +17,7 @@ Read [`pull_request_target`](/actions/reference/workflows-and-actions/events-tha
 
 ## The risks of the pull_request_target event
 
-Workflows triggered by `pull_request_target` run with elevated trust: the job receives the base repository's `GITHUB_TOKEN`, access to repository and organization secrets, and write access to the default-branch cache. This is the same trust given to events like `push` that only collaborators can trigger, and it is what makes `pull_request_target` useful for automation that responds to pull requests from forks, such as labeling, triage, or for posting authenticated status checks.
+Workflows triggered by `pull_request_target` run with elevated trust: the job receives the base repository's `GITHUB_TOKEN` and access to repository and organization secrets. This is the same trust given to events like `push` that only collaborators can trigger, and it is what makes `pull_request_target` useful for automation that responds to pull requests from forks, such as labeling, triage, or for posting authenticated status checks.
 
 To understand why this is safe by default, and how that safety is commonly broken, review `pull_request_target` against [`pull_request`](/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request).
 
@@ -67,7 +67,7 @@ If you have confirmed you need `pull_request_target`, apply these controls to li
 
 * **Restrict secrets.** Confirm that the permissions set on the `GITHUB_TOKEN` have the least privileges and that only the necessary repository and organization secrets are used for the workflow. For more information, see [AUTOTITLE](/actions/tutorials/authenticate-with-github_token#modifying-the-permissions-for-the-github_token).
 
-* **Understand the impact to caching.** Outside of the `GITHUB_TOKEN` and configured secrets, workflows that run on `pull_request_target` also have write access to the cache shared with other workflows on the default branch. Malicious changes to this cache from `pull_request_target` events could impact the execution of other, unrelated, workflows.
+* **Understand the impact to caching.** To reduce the risk of cache poisoning, workflows triggered by `pull_request_target` have read-only access to the cache in the default branch's scope. These workflows can restore existing cache entries but cannot create or overwrite them, so they cannot affect the execution of other, unrelated, workflows through the shared cache. If such a workflow attempts to save a cache, the save fails but the step and the job continue, and the failure is reported as a warning in the workflow log. If your workflow needs to populate the cache, save it from a workflow that runs on a trusted trigger such as `push`. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching#cache-access-for-low-trust-workflow-triggers).
 
 * **Ensure the underlying compute is isolated and ephemeral.** If self-hosted runners are used, you must confirm that the runner environment is properly restricted from internal resources and is not reused across {% data variables.product.prodname_actions %} runs. For more information, see [AUTOTITLE](/actions/reference/security/secure-use#hardening-for-self-hosted-runners).
 

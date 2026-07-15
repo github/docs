@@ -105,4 +105,4 @@ You can replace the identicon with an image that represents your organization. T
 ## Further reading
 
 * [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
-* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme)
+* [AUTOTITLE](/account-and-profile/how-tos/profile-customization/managing-your-profile-readme)

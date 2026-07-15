@@ -71,7 +71,7 @@ If you create an invalid URL using query parameters, or if you don’t have the 
 
 ## Creating a new repository from {% data variables.copilot.copilot_chat_short %}
 
-You can create a new repository from {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %} with the Model Context Protocol (MCP). For more information, see [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-chat-with-mcp).
+You can create a new repository from {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %} with the Model Context Protocol (MCP). For more information, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp).
 {% endif %}
 
 ## Further reading

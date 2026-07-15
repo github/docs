@@ -208,7 +208,7 @@ jobs:
           echo The result is $value
 ```
 
-The workflow run will archive any artifacts that it generated. For more information on downloading archived artifacts, see [AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts).
+The workflow run will archive any artifacts that it generated. For more information on downloading archived artifacts, see [AUTOTITLE](/actions/how-tos/manage-workflow-runs/download-workflow-artifacts).
 
 {% ifversion fpt or ghec %}
 
