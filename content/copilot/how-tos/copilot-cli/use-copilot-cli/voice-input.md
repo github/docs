@@ -10,7 +10,7 @@ category:
   - Build with Copilot CLI # Copilot CLI bespoke page
 docsTeamMetrics:
   - copilot-cli
----
+pathum25
 
 Voice input lets you dictate prompts to {% data variables.copilot.copilot_cli_short %} by speaking into your microphone instead of typing on the keyboard. Transcription runs entirely on your local machine. Your audio is not sent over the network. The recognized text is inserted at the cursor position in the prompt input area, where you can edit it before submitting.
 
