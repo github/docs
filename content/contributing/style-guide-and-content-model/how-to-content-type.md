@@ -44,5 +44,5 @@ For the how-to content template, see [AUTOTITLE](/contributing/writing-for-githu
 
 ## Examples of how-to content
 
-{% ifversion fpt or ghec %}* [AUTOTITLE](/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces){% endif %}
-* [AUTOTITLE](/actions/using-workflows/using-starter-workflows)
+{% ifversion fpt or ghec %}* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/copilot-spaces/create-copilot-spaces){% endif %}
+* [AUTOTITLE](/actions/how-tos/write-workflows/use-workflow-templates)

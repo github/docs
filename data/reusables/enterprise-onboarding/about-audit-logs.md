@@ -12,7 +12,7 @@
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 1. In the left menu, click **Audit log**.{% endif %}
 
-In addition to viewing your audit log, you can monitor activity in your enterprise in other ways, such as {% ifversion ghes %}viewing push logs and {% endif %}managing global webhooks. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity). You can also use the audit log, and other tools, to monitor the actions taken in response to security alerts. For more information, see [AUTOTITLE](/code-security/getting-started/auditing-security-alerts).
+In addition to viewing your audit log, you can monitor activity in your enterprise in other ways, such as {% ifversion ghes %}viewing push logs and {% endif %}managing global webhooks. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise). You can also use the audit log, and other tools, to monitor the actions taken in response to security alerts. For more information, see [AUTOTITLE](/code-security/concepts/security-at-scale/audit-security-alerts).
 
 ## How to use audit logs
 
@@ -26,7 +26,7 @@ As an enterprise owner{% ifversion ghes %} or site administrator{% endif %}, you
 {%- endif %}
 * You can stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise).
 {%- ifversion ghes %}
-* You can forward audit and system logs, from your enterprise to an third-party hosted monitoring system. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding).
+* You can forward audit and system logs, from your enterprise to an third-party hosted monitoring system. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/log-forwarding).
 {%- endif %}
 * You can use the Audit log API to view actions performed in your enterprise. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise).
 

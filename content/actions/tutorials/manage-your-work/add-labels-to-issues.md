@@ -65,12 +65,12 @@ Every time an issue in your repository is opened or reopened, this workflow will
 
 Test out your workflow by creating an issue in your repository.
 
-1. Create an issue in your repository. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue).
-1. To see the workflow run that was triggered by creating the issue, view the history of your workflow runs. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history).
+1. Create an issue in your repository. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/creating-an-issue).
+1. To see the workflow run that was triggered by creating the issue, view the history of your workflow runs. For more information, see [AUTOTITLE](/actions/how-tos/monitor-workflows/view-workflow-run-history).
 1. When the workflow completes, the issue that you created should have the specified labels added.
 
 ## Next steps
 
 * To learn more about additional things you can do with the {% data variables.product.prodname_cli %}, see the [GitHub CLI manual](https://cli.github.com/manual/).
-* To learn more about different events that can trigger your workflow, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#issues).
+* To learn more about different events that can trigger your workflow, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#issues).
 * [Search GitHub](https://github.com/search?q=path%3A.github%2Fworkflows+gh+issue+edit&type=code) for examples of workflows using `gh issue edit`.

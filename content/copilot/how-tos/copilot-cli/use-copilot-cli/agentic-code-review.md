@@ -27,5 +27,5 @@ You can use the `/review` slash command to have {% data variables.product.prodna
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/how-tos/copilot-cli/automate-with-actions)
-* [AUTOTITLE](/copilot/how-tos/copilot-cli/add-custom-instructions)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/automate-copilot-cli/automate-with-actions)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions)

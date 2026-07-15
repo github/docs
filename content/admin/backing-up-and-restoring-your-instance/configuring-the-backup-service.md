@@ -50,7 +50,7 @@ Before configuring the service, you must prepare the storage volume where backup
 
 If you're using a dedicated block device as your backup target, you need to initialize it via SSH before proceeding in the {% data variables.enterprise.management_console %}. This process will **format the device and erase all existing data**.
 
-1. Connect to your instance via SSH as the `admin` user. See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
+1. Connect to your instance via SSH as the `admin` user. See [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh).
 1. Attach your backup block device to the instance.
 1. Identify the device name using `lsblk` to list available block devices. Make sure you select the correct device to avoid data loss.
 

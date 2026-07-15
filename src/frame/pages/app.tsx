@@ -3,6 +3,7 @@ import App from 'next/app'
 import type { AppProps, AppContext } from 'next/app'
 import Head from 'next/head'
 import { ThemeProvider } from '@primer/react'
+import { ThemeProvider as BrandThemeProvider } from '@primer/react-brand'
 import { useRouter } from 'next/router'
 
 import { initializeEvents } from '@/events/components/events'
@@ -111,12 +112,22 @@ const MyApp = ({ Component, pageProps, languagesContext, stagingName }: MyAppPro
         dayScheme={theme.component.dayScheme}
         nightScheme={theme.component.nightScheme}
       >
-        <LanguagesContext.Provider value={languagesContext}>
-          <SharedUIContextProvider>
-            <ClientSideHashFocus />
-            <Component {...pageProps} />
-          </SharedUIContextProvider>
-        </LanguagesContext.Provider>
+        {/*
+          Primer Brand ThemeProvider, nested so migrated @primer/react-brand
+          components receive brand theme context during the Docs 2026 migration
+          (github/docs-engineering#5879). Runs alongside the @primer/react
+          ThemeProvider above while the component-by-component swap is in progress.
+          Brand expects a CSS color mode ('auto' | 'light' | 'dark'), so pass
+          theme.css.colorMode rather than the component ('auto' | 'day' | 'night') mode.
+        */}
+        <BrandThemeProvider colorMode={theme.css.colorMode}>
+          <LanguagesContext.Provider value={languagesContext}>
+            <SharedUIContextProvider>
+              <ClientSideHashFocus />
+              <Component {...pageProps} />
+            </SharedUIContextProvider>
+          </LanguagesContext.Provider>
+        </BrandThemeProvider>
       </ThemeProvider>
     </>
   )

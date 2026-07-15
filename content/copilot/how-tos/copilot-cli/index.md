@@ -41,6 +41,7 @@ children:
   - /content/copilot/concepts/agents/copilot-cli/lsp-servers
   - /content/copilot/concepts/agents/copilot-cli/research
   - /content/copilot/concepts/agents/copilot-cli/rubber-duck
+  - /content/copilot/concepts/agents/copilot-cli/about-cli-extensions
   - /content/copilot/reference/copilot-cli-reference/acp-server
   - /content/copilot/reference/copilot-cli-reference/cli-command-reference
   - /content/copilot/reference/copilot-cli-reference/cli-plugin-reference
@@ -52,6 +53,7 @@ children:
   - /customize-copilot/add-mcp-servers
   - /customize-copilot/add-skills
   - /customize-copilot/create-custom-agents-for-cli
+  - /customize-copilot/change-settings
   - /customize-copilot/overview
   - /customize-copilot/plugins-creating
   - /customize-copilot/plugins-finding-installing

@@ -200,18 +200,16 @@ export function getGHExample(
   // and the type is a string.
   const { bodyParameters } = codeSample.request
   if (bodyParameters) {
-    // There should not be a case in a REST API where only an array is sent
-    if (Array.isArray(bodyParameters)) {
-      throw new Error('Array of arrays found in body parameters')
-    }
-
     if (typeof bodyParameters === 'object') {
       // Special handling for gist endpoints - use --input for nested file structures
       const isGistEndpoint =
+        !Array.isArray(bodyParameters) &&
         operation.requestPath.includes('/gists') &&
         (operation.title === 'Create a gist' || operation.title === 'Update a gist')
 
-      // For complex objects with arrays, use --input with JSON
+      // For top-level arrays or complex objects with arrays, use --input with JSON.
+      // The gh CLI -f/-F flags can't represent a request body that is itself an array,
+      // so we fall back to piping the JSON body via --input.
       const hasArrays = hasNestedArrays(bodyParameters as NestedObjectParameter)
       if (hasArrays || isGistEndpoint) {
         const jsonBody = JSON.stringify(
@@ -233,7 +231,7 @@ export function getGHExample(
         requestBodyParams += handleObjectParameter(bodyParameters as NestedObjectParameter)
       }
     } else {
-      requestBodyParams += handleSingleParameter('', bodyParameters)
+      requestBodyParams += handleSingleParameter('', bodyParameters as NestedObjectParameter)
     }
   }
 
@@ -388,11 +386,13 @@ export function getJSExample(
   if (codeSample.request) {
     Object.assign(parameters, codeSample.request.parameters)
     // Most of the time the example body parameters have a name and value
-    // and are included in an object. But, some cases are a single value
-    // and the type is a string.
+    // and are included in an object. But some cases are a single scalar value
+    // or a top-level JSON array, both of which Octokit sends as the raw
+    // request body via the `data` option.
     if (
       codeSample.request.bodyParameters &&
-      typeof codeSample.request.bodyParameters !== 'object'
+      (typeof codeSample.request.bodyParameters !== 'object' ||
+        Array.isArray(codeSample.request.bodyParameters))
     ) {
       parameters.data = codeSample.request.bodyParameters
     } else {

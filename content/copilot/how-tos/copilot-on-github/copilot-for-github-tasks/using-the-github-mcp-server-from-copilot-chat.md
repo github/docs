@@ -14,7 +14,7 @@ redirect_from:
 
 The {% data variables.product.github %} MCP server is pre-configured in {% data variables.copilot.copilot_chat_dotcom_short %} with a limited set of skills, so you can use it immediately. Instruct {% data variables.copilot.copilot_chat_short %} to perform tasks like creating branches or merging pull requests on your behalf.
 
-For a full list of available skills, see [AUTOTITLE](/copilot/reference/github-copilot-chat-cheat-sheet#mcp-skills). For more about MCP, see [AUTOTITLE](/copilot/concepts/about-mcp).
+For a full list of available skills, see [AUTOTITLE](/copilot/reference/chat-cheat-sheet#mcp-skills). For more about MCP, see [AUTOTITLE](/copilot/concepts/context/mcp).
 
 ## Use the {% data variables.product.github %} MCP server
 
@@ -34,7 +34,7 @@ The {% data variables.product.github %} MCP server in {% data variables.copilot.
 
 To access the full set of tools, set up the {% data variables.product.github %} MCP server in your IDE. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/use-the-github-mcp-server).
 
-You can also use the {% data variables.product.github %} MCP server with {% data variables.copilot.copilot_cloud_agent %}. It is enabled with read-only access by default and can be customized for wider access. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/extend-coding-agent-with-mcp#customizing-the-built-in-github-mcp-server).
+You can also use the {% data variables.product.github %} MCP server with {% data variables.copilot.copilot_cloud_agent %}. It is enabled with read-only access by default and can be customized for wider access. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers#customizing-the-built-in-github-mcp-server).
 ## Further reading
 
-* [AUTOTITLE](/copilot/tutorials/enhancing-copilot-agent-mode-with-mcp)
+* [AUTOTITLE](/copilot/tutorials/enhance-agent-mode-with-mcp)

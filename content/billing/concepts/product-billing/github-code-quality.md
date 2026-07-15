@@ -17,7 +17,7 @@ category:
 
 <!-- end expires 2026-07-20 -->
 
-## How use of {% data variables.product.prodname_code_quality %} is measured
+## How {% data variables.product.prodname_code_quality %} billing is measured
 
 <!-- expires 2026-07-20 -->
 
@@ -27,10 +27,22 @@ category:
 
 When you scan private repositories during the {% data variables.release-phases.public_preview %}, you **will not be billed** for {% data variables.product.prodname_ai_credits_short %} or active committer usage, but {% data variables.product.prodname_actions %} minutes **will be consumed**.
 
+#### Check {% data variables.product.prodname_actions %} usage during preview
+
 To view consumption of actions by the `{% data variables.code-quality.workflow_name_billing %}` workflow, download a detailed usage report from the "Billing and licensing" tab. See [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
 
 > [!NOTE]
 > {% data reusables.code-quality.shared-workflow-preview %}
+
+#### View your license estimate during preview
+
+During the {% data variables.release-phases.public_preview %}, you can preview your license cost for {% data variables.product.prodname_code_quality_short %} before charges begin on July 20, 2026. On the licensing page of the "Billing and licensing" tab, the **Consumed licenses** and **Estimated monthly payment** for {% data variables.product.prodname_code_quality_short %} show how many active committers would count toward your license and the estimated cost.
+
+Because active-committer counts use a rolling 90-day window, this estimate can still change before then. When {% data variables.product.prodname_code_quality_short %} becomes generally available, the same calculation applied to your then-current committers determines your bill.
+
+#### What the estimate includes and excludes
+
+The estimate only reflects the per-committer license cost. It does not include the {% data variables.product.prodname_actions %} minutes that {% data variables.product.prodname_codeql %} analysis consumes or usage-based charges for AI-powered capabilities such as {% data variables.copilot.copilot_autofix %}. It also reflects standard list pricing, so it does not account for any discounts that may apply to your account.
 
 <!-- end expires 2026-07-20 -->
 
@@ -42,7 +54,7 @@ To view consumption of actions by the `{% data variables.code-quality.workflow_n
 When {% data variables.product.prodname_code_quality_short %} is generally available, use of the product will incur three types of costs for an organization:
 * **{% data variables.product.prodname_actions %} minutes** — {% data variables.product.prodname_code_quality_short %} scans run as {% data variables.product.prodname_actions %} workflows and consume {% data variables.product.prodname_actions %} minutes, unless you use self-hosted runners. For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-actions).
 * **{% data variables.product.prodname_ai_credits %}** — {% data variables.product.prodname_code_quality_short %} features that use AI models consume {% data variables.product.prodname_ai_credits_short %}. Each interaction is priced based on the number of tokens consumed, where 1 {% data variables.product.prodname_ai_credit_singular %} = {% data variables.product.prodname_ai_credits_value %}. {% data reusables.code-quality.model-usage %} For more information about how {% data variables.product.prodname_ai_credits_short %} work, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
-* **Active committers** — Your license usage is calculated based on the number of unique, active committers to repositories with {% data variables.product.prodname_code_quality_short %} enabled. {% data variables.product.prodname_github_app %} bots are ignored. For information about differences between bot and machine accounts, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps#machine-vs-bot-accounts).
+* **Active committers** — Your license usage is calculated based on the number of unique, active committers to repositories with {% data variables.product.prodname_code_quality_short %} enabled. {% data variables.product.prodname_github_app %} bots are ignored. For information about differences between bot and machine accounts, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps#machine-vs-bot-accounts).
 
 #### Active and unique committers
 
@@ -55,6 +67,6 @@ Users can contribute to multiple repositories or organizations. Usage is measure
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/code-quality/get-started/quickstart)
+* [AUTOTITLE](/code-security/tutorials/improve-code-quality/quickstart)
 * [AUTOTITLE](/billing/concepts/product-billing/github-actions)
 * [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises)

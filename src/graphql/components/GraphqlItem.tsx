@@ -1,5 +1,5 @@
 import React, { type JSX } from 'react'
-import { Label } from '@primer/react'
+import { Label } from '@primer/react-brand'
 import { HeadingLink } from '@/frame/components/article/HeadingLink'
 import type { GraphqlT } from './types'
 import { Notice } from './Notice'
@@ -41,9 +41,9 @@ export function GraphqlItem({ item, heading, children, headingLevel = 2, kind }:
       <HeadingLink as={headingTag(headingLevel)} slug={slug}>
         {item.name}
       </HeadingLink>
-      <div className="d-flex flex-items-start" style={{ gap: '0.5rem' }}>
+      <div className="d-flex flex-items-baseline" style={{ gap: '0.5rem' }}>
         {kindLabel && (
-          <Label variant="secondary" style={{ flexShrink: 0, marginTop: '0.15rem' }}>
+          <Label color="gray" size="small" style={{ flexShrink: 0 }}>
             {kindLabel}
           </Label>
         )}

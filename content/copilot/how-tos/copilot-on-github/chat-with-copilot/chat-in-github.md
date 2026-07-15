@@ -82,4 +82,4 @@ When you start a {% data variables.copilot.copilot_cloud_agent %} task from {% d
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/tutorials/using-copilot-to-explore-a-codebase)
+* [AUTOTITLE](/copilot/tutorials/explore-a-codebase)

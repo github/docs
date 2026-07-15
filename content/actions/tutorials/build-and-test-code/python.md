@@ -26,11 +26,11 @@ contentType: tutorials
 
 This guide shows you how to build, test, and publish a Python package.
 
-{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Python and PyPy. You don't have to install anything! For a full list of up-to-date software and the pre-installed versions of Python and PyPy, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software).
+{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Python and PyPy. You don't have to install anything! For a full list of up-to-date software and the pre-installed versions of Python and PyPy, see [AUTOTITLE](/actions/concepts/runners/github-hosted-runners#supported-software).
 
 ## Prerequisites
 
-You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/actions/learn-github-actions).
+You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows).
 
 We recommend that you have a basic understanding of Python, and pip. For more information, see:
 
@@ -126,7 +126,7 @@ If you are using a self-hosted runner, you can configure the runner to use the `
 
 ### Using multiple Python versions
 
-The following example uses a matrix for the job to set up multiple Python versions. For more information, see [AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs).
+The following example uses a matrix for the job to set up multiple Python versions. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/run-job-variations).
 
 ```yaml copy
 name: Python package
@@ -185,7 +185,7 @@ jobs:
 
 If you specify a version of Python that is not available, `setup-python` fails with an error such as: `##[error]Version 3.7 with arch x64 not found`. The error message includes the available versions.
 
-You can also use the `exclude` keyword in your workflow if there is a configuration of Python that you do not wish to run. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategy).
+You can also use the `exclude` keyword in your workflow if there is a configuration of Python that you do not wish to run. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstrategy).
 
 ```yaml copy
 name: Python package
@@ -221,7 +221,7 @@ We recommend using `setup-python` to configure the version of Python used in you
 
 {% data variables.product.prodname_dotcom %}-hosted runners have the pip package manager installed. You can use pip to install dependencies from the PyPI package registry before building and testing your code. For example, the YAML below installs or upgrades the `pip` package installer and the `setuptools` and `wheel` packages.
 
-You can also cache dependencies to speed up your workflow. For more information, see [AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows).
+You can also cache dependencies to speed up your workflow. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching).
 
 ```yaml copy
 steps:
@@ -358,7 +358,7 @@ jobs:
 
 ## Packaging workflow data as artifacts
 
-You can upload artifacts to view after a workflow completes. For example, you may need to save log files, core dumps, test results, or screenshots. For more information, see [AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts).
+You can upload artifacts to view after a workflow completes. For example, you may need to save log files, core dumps, test results, or screenshots. For more information, see [AUTOTITLE](/actions/tutorials/store-and-share-data).
 
 The following example demonstrates how you can use the `upload-artifact` action to archive test results from running `pytest`. For more information, see the [`upload-artifact` action](https://github.com/actions/upload-artifact).
 
@@ -470,6 +470,6 @@ jobs:
 {% ifversion not ghes %}
 
 For more information about this workflow, including the PyPI settings
-needed, see [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-pypi).
+needed, see [AUTOTITLE](/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-pypi).
 
 {% endif %}

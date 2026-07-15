@@ -27,7 +27,7 @@ You can access your resources in {% data variables.product.github %} in a variet
 
 {% ifversion fpt or ghec %}
 
-If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you will authenticate to {% data variables.product.github %} in your browser using your IdP. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#authenticating-as-a-managed-user){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
+If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you will authenticate to {% data variables.product.github %} in your browser using your IdP. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/identity-and-access-management/enterprise-managed-users#authenticating-as-a-managed-user){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
 
 If you're not a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you will authenticate using your {% data variables.product.prodname_dotcom %} username and password, or a passkey. You may also use two-factor authentication and SAML single sign-on, which can be required by organization and enterprise owners.
 
@@ -49,7 +49,7 @@ If you need to use multiple accounts on {% data variables.location.product_locat
 * **Social login**
   * You'll authenticate with Google or Apple, which are the supported social login providers when you create your account on {% data variables.product.github %}. We recommend that you also configure 2FA and add a passkey or a password as an additional account recovery mechanism.
   * If you have an existing account created with a password, you can add your social login email to the account. This allows you to use your social login identity as a first-factor (password) replacement when you sign in to {% data variables.product.github %}.
-  * You can unlink your social login identities from your {% data variables.product.github %} email settings page. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/unlinking-your-email-address-from-a-locked-account) {% endif %}
+  * You can unlink your social login identities from your {% data variables.product.github %} email settings page. For more information, see [AUTOTITLE](/account-and-profile/how-tos/account-management/unlinking-your-email-address-from-a-locked-account) {% endif %}
 * **Two-factor authentication (2FA)** (recommended)
   * If you enable two-factor authentication (2FA), after you sign in with social login or your username and password, you'll be prompted to enter a code from a time-based one-time password (TOTP) application on your mobile device{% ifversion fpt or ghec %} or sent as a text message (SMS).{% endif %}{% ifversion 2fa-check-up-period %}
   * After you configure 2FA, your account enters a check up period for 28 days. You can leave the check up period by successfully performing 2FA within those 28 days. If you don't perform 2FA in that timespan, you'll then be asked to perform 2FA inside one of your existing {% data variables.product.prodname_dotcom %} sessions.
@@ -67,9 +67,9 @@ If you need to use multiple accounts on {% data variables.location.product_locat
 
 {% ifversion ghes %}
 * **External authentication**
-  * Your site administrator may configure {% data variables.location.product_location_enterprise %} to use external authentication instead of a username and password. For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication).{% endif %}{% ifversion fpt or ghec %}
+  * Your site administrator may configure {% data variables.location.product_location_enterprise %} to use external authentication instead of a username and password. For more information, see [AUTOTITLE](/admin/concepts/identity-and-access-management/identity-and-access-management-fundamentals#external-authentication).{% endif %}{% ifversion fpt or ghec %}
 * **SAML single sign-on**
-  * Before you can access resources owned by an organization or enterprise account that uses SAML single sign-on, you may need to also authenticate through an IdP. For more information, see [AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}{% endif %}
+  * Before you can access resources owned by an organization or enterprise account that uses SAML single sign-on, you may need to also authenticate through an IdP. For more information, see [AUTOTITLE](/authentication/authenticating-with-single-sign-on/about-authentication-with-single-sign-on){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}{% endif %}
 
 ### Session cookies
 
@@ -85,11 +85,11 @@ You can authenticate with {% data variables.product.prodname_desktop %} using yo
 
 ## Authenticating with the API
 
-You can authenticate with the API in different ways. For more information, see [AUTOTITLE](/rest/overview/other-authentication-methods).
+You can authenticate with the API in different ways. For more information, see [AUTOTITLE](/rest/authentication/authenticating-to-the-rest-api).
 
 ### Authenticating to the API with a {% data variables.product.pat_generic %}
 
-If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a {% data variables.product.pat_generic %}. If possible, {% data variables.product.company_short %} recommends that you use a {% data variables.product.pat_v2 %} instead of a {% data variables.product.pat_v1 %}. For more information about creating a {% data variables.product.pat_generic %}, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a {% data variables.product.pat_generic %}. If possible, {% data variables.product.company_short %} recommends that you use a {% data variables.product.pat_v2 %} instead of a {% data variables.product.pat_v1 %}. For more information about creating a {% data variables.product.pat_generic %}, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 ### Authenticating to the API with an app
 
@@ -103,7 +103,7 @@ If you want to use the API in a {% data variables.product.prodname_actions %} wo
 
 Note that `GITHUB_TOKEN` can only access resources within the repository that contains the workflow. If you need to make changes to resources outside of the workflow repository, you will need to use a {% data variables.product.pat_generic %} or {% data variables.product.prodname_github_app %}.
 
-For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication).
+For more information, see [AUTOTITLE](/actions/tutorials/authenticate-with-github_token).
 
 ## Authenticating with the command line
 
@@ -117,7 +117,7 @@ If you authenticate with {% data variables.product.prodname_cli %}, you can eith
 
 If you authenticate without {% data variables.product.prodname_cli %}, {% ifversion fpt or ghec %}you must authenticate with a {% data variables.product.pat_generic %}. {% data reusables.user-settings.password-authentication-deprecation %} Every time you use Git to authenticate with {% data variables.product.github %}, you'll be prompted to enter your credentials, unless you cache them with a [credential helper](/get-started/git-basics/caching-your-github-credentials-in-git).{% elsif ghes %}you can use authentication methods whose availability depend on your IdP.
 
-The table outlines the available authentication methods based on the IdP configured for your instance. Different IdPs may impose specific restrictions or enable certain features, such as disabling password authentication. For more details, see [AUTOTITLE](/admin/authentication).
+The table outlines the available authentication methods based on the IdP configured for your instance. Different IdPs may impose specific restrictions or enable certain features, such as disabling password authentication. For more details, see [AUTOTITLE](/admin/managing-iam).
 
 | IdP | Available authentication methods | More information |
 | :- | :- | :- |
@@ -139,7 +139,7 @@ If you authenticate without {% data variables.product.prodname_cli %}, you will 
 
 ### Authorizing for SAML single sign-on
 
-To use a {% data variables.product.pat_generic %} or SSH key to access resources owned by an organization that uses SAML single sign-on, you must also authorize the personal token or SSH key. For more information, see [AUTOTITLE](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on) or [AUTOTITLE](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}{% endif %}
+To use a {% data variables.product.pat_generic %} or SSH key to access resources owned by an organization that uses SAML single sign-on, you must also authorize the personal token or SSH key. For more information, see [AUTOTITLE](/enterprise-cloud@latest/authentication/authenticating-with-single-sign-on/authorizing-a-personal-access-token-for-use-with-single-sign-on) or [AUTOTITLE](/enterprise-cloud@latest/authentication/authenticating-with-single-sign-on/authorizing-an-ssh-key-for-use-with-single-sign-on){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}{% endif %}
 
 ## {% data variables.product.company_short %}'s token formats
 
@@ -149,10 +149,10 @@ To use a {% data variables.product.pat_generic %} or SSH key to access resources
 
 | Token type | Prefix | More information |
 | :- | :- | :- |
-| {% data variables.product.pat_v1_caps %} | `ghp_` | [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic)  |
-| {% data variables.product.pat_v2_caps %} | `github_pat_` | [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-fine-grained-personal-access-token) |
+| {% data variables.product.pat_v1_caps %} | `ghp_` | [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic)  |
+| {% data variables.product.pat_v2_caps %} | `github_pat_` | [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token) |
 | OAuth access token | `gho_` | [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps) |
-| User access token for a {% data variables.product.prodname_github_app %} | `ghu_` | [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps) |
+| User access token for a {% data variables.product.prodname_github_app %} | `ghu_` | [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user) |
 | Installation access token for a {% data variables.product.prodname_github_app %} | `ghs_` | [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation) |
 | Refresh token for a {% data variables.product.prodname_github_app %} | `ghr_` | [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-access-tokens) |
 

@@ -12,6 +12,8 @@ import { createLogger } from '@/observability/logger'
 import { allVersions } from '@/versions/lib/all-versions'
 import { latestStable } from '@/versions/lib/enterprise-server-releases'
 import { getDataByLanguage } from '@/data-directory/lib/get-data'
+import getRedirect from '@/redirects/lib/get-redirect'
+import { isArchivedVersionByPath } from '@/archives/lib/is-archived-version'
 import type { Context, Page } from '@/types'
 
 const logger = createLogger(import.meta.url)
@@ -447,8 +449,10 @@ export function checkInternalLink(
     }
   }
 
-  // Strip language prefix and check redirects (which are stored without it)
-  const langPrefixMatch = resolved.match(/^\/[a-z]{2}\//)
+  // Strip language prefix and check redirects (which are stored without it).
+  // Match hyphenated locales too (e.g. /pt-br/, /zh-cn/) so we don't later
+  // double-prefix them with /en.
+  const langPrefixMatch = resolved.match(/^\/[a-z]{2}(-[a-z]{2})?\//)
   if (langPrefixMatch) {
     const withoutLang = resolved.slice(langPrefixMatch[0].length - 1)
     if (redirects[withoutLang]) {
@@ -458,6 +462,49 @@ export function checkInternalLink(
         redirectTarget: redirects[withoutLang],
       }
     }
+  }
+
+  // The path in language-prefixed form, used by the runtime resolvers below.
+  // Avoid double-prefixing when the link already carried a language code.
+  const withEn = langPrefixMatch ? resolved : withLang
+
+  // Links into deprecated/archived Enterprise Server versions (e.g.
+  // /enterprise-server@3.7/... or the legacy /enterprise/2.1/... format) are
+  // served by the archived enterprise versions system, which isn't loaded into
+  // pageMap. They resolve fine at runtime, so treat them as valid rather than
+  // broken.
+  if (isArchivedVersionByPath(withEn).isArchived) {
+    return { exists: true, isRedirect: false }
+  }
+
+  // Fall back to the runtime redirect resolver. It handles algorithmic
+  // corrections (version-prefix normalization, /admin, /desktop/guides, etc.)
+  // that the flat redirects map doesn't contain as literal keys. This mirrors
+  // what the production server actually does, so a link that redirects in
+  // production is reported as a redirect here instead of a false broken link.
+  try {
+    // Only redirects, userLanguage, and pages are read by getRedirect (and the
+    // resolvers it delegates to), so type the object to those fields rather than
+    // casting an arbitrary shape to the full Context.
+    const context: Pick<Context, 'redirects' | 'userLanguage' | 'pages'> = {
+      redirects,
+      userLanguage: 'en',
+      pages: pageMap,
+    }
+    const redirect = getRedirect(withEn, context as unknown as Context)
+    if (redirect) {
+      // getRedirect returns a language-prefixed path (e.g. /en/...); strip any
+      // locale prefix to match the format used by the flat-map branches above,
+      // and normalize a bare language root (e.g. /en) to /.
+      return {
+        exists: true,
+        isRedirect: true,
+        redirectTarget: redirect.replace(/^\/[a-z]{2}(-[a-z]{2})?(?=\/|$)/, '') || '/',
+      }
+    }
+  } catch {
+    // getRedirect throws on a few fully-deprecated shapes (e.g. github-ae).
+    // Treat those as unresolvable rather than crashing the whole check.
   }
 
   return { exists: false, isRedirect: false }

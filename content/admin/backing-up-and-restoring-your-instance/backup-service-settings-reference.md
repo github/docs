@@ -17,8 +17,10 @@ You can configure the following options in the "Backup Service" section of the {
 
 * **Number of snapshots**: Sets how many backup snapshots to retain (default: `10`). Older snapshots are automatically pruned after each successful backup.
 
+{% ifversion ghes > 3.21 %}
 > [!NOTE]
 > You can run the `ghe-backup-prune-snapshots` utility to prune old and invalid snapshots manually.
+{% endif %}
 
 ## Restore options
 

@@ -447,6 +447,36 @@ describe('REST code samples authentication header handling', () => {
       expect(result).toContain("await octokit.request('POST /credentials/revo")
       expect(result).toContain("'X-GitHub-Api-Version': '2022-11-28'")
     })
+
+    test('sends a top-level array body via the data option', () => {
+      const arrayBodyCodeSample: CodeSample = {
+        request: {
+          contentType: 'application/json',
+          description: 'Example',
+          acceptHeader: 'application/vnd.github+json',
+          bodyParameters: [{ id: 'MVS-2026-001', summary: 'Example summary' }],
+          parameters: {},
+        },
+        response: {
+          statusCode: '200',
+          contentType: 'application/json',
+          description: 'Response',
+          example: {},
+        },
+      }
+
+      const result = getJSExample(
+        standardOperation,
+        arrayBodyCodeSample,
+        'free-pro-team@latest',
+        mockVersions,
+      )
+
+      // The array must be nested under `data`, not spread as numeric keys ("0", "1").
+      expect(result).toContain('data: [')
+      expect(result).toContain("id: 'MVS-2026-001'")
+      expect(result).not.toMatch(/["']0["']\s*:/)
+    })
   })
 
   describe('edge cases and special scenarios', () => {

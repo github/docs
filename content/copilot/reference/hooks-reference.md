@@ -761,7 +761,7 @@ Behavior depends on where you set the flag:
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/how-tos/copilot-cli/use-hooks)
-* [AUTOTITLE](/copilot/reference/hooks-configuration)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/use-hooks)
+* [AUTOTITLE](/copilot/reference/hooks-reference)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)
 * [AUTOTITLE](/copilot/concepts/agents/cloud-agent)

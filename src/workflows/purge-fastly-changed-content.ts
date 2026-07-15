@@ -37,8 +37,84 @@ const MAX_URLS = 1000
 // than paginate through a huge change set.
 const COMPARE_FILE_LIMIT = 300
 
-// How many purge requests to keep in flight at once.
-const PURGE_CONCURRENCY = 10
+// How many purge requests to keep in flight at once. Fastly rate-limits URL
+// purges (documented average: 100,000/customer/hour ~= 27/sec, with a stricter
+// undocumented burst limit). Keep this low and pair it with per-worker spacing
+// below so we stay well under the burst ceiling and stop tripping HTTP 429s.
+const PURGE_CONCURRENCY = 3
+
+// Minimum spacing between consecutive purge requests within a single worker.
+// With PURGE_CONCURRENCY workers this caps the steady-state rate at roughly
+// (concurrency / spacing) req/sec: 3 / 0.15s ~= 20/sec, comfortably under the
+// documented 27/sec average.
+const PURGE_THROTTLE_MS = 150
+
+// When Fastly still rate-limits us (HTTP 429), retry the individual URL this
+// many times before giving up on it.
+const PURGE_MAX_RATE_LIMIT_RETRIES = 5
+
+// Backoff bounds for retrying a rate-limited (429) purge. Additive (linear)
+// growth from BASE per attempt, capped at MAX. Fastly's rate-limit window resets
+// on the order of a second, so a URL just needs to wait for the next window, not
+// escalate exponentially toward a minutes-long wait. This backoff also acts as a
+// floor under any server-provided hint (see rateLimitDelayMs): a hint that
+// resolves to ~0 must not collapse the retry to 0ms. MAX also caps any
+// server-provided delay so a worker can't hang for the full rate-limit window
+// (up to an hour) on a single URL.
+const PURGE_RATE_LIMIT_BASE_DELAY_MS = 1000
+const PURGE_RATE_LIMIT_MAX_DELAY_MS = 30_000
+
+// A wall-clock ceiling for the whole targeted-purge phase. If Fastly is
+// rate-limiting us systemically (not just a one-off burst), the per-URL 429
+// retries above could otherwise stretch this non-blocking job out for hours.
+// Once we pass this deadline we stop starting new purges and fail loudly, so
+// the workflow's failure alerting fires and the routine soft-purge-all (which
+// always runs) remains the backstop for cache freshness.
+const PURGE_TIME_BUDGET_MS = 5 * 60_000
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
+// How long to wait before retrying a rate-limited (429) purge. Prefers Fastly's
+// own hints (Retry-After in seconds or as an HTTP date; else Fastly-RateLimit-
+// Reset as a Unix timestamp), but floors that hint at the additive backoff so a
+// stale or current-second reset (which computes to <= 0) can't produce a 0ms
+// retry that just re-hammers the limiter. Jitter is always added to decorrelate
+// concurrent workers that saw the same reset timestamp. The result is clamped to
+// [0, PURGE_RATE_LIMIT_MAX_DELAY_MS].
+export function rateLimitDelayMs(response: Response, attempt: number): number {
+  const clamp = (ms: number) => Math.min(Math.max(0, ms), PURGE_RATE_LIMIT_MAX_DELAY_MS)
+
+  const backoff = PURGE_RATE_LIMIT_BASE_DELAY_MS * (attempt + 1)
+  const hintMs = serverRetryHintMs(response) ?? 0
+  const jitter = Math.floor(Math.random() * PURGE_THROTTLE_MS)
+
+  // Honor the larger of Fastly's hint and our backoff floor, then always add
+  // jitter so concurrent workers that saw the same reset timestamp don't wake in
+  // lockstep and re-burst.
+  return clamp(Math.max(hintMs, backoff) + jitter)
+}
+
+// Fastly's suggested wait from a 429 response, in ms, or null if it sends no
+// usable hint. Can be negative (stale) or zero; callers must floor it.
+function serverRetryHintMs(response: Response): number | null {
+  const retryAfter = response.headers.get('retry-after')
+  if (retryAfter) {
+    const seconds = Number(retryAfter)
+    if (Number.isFinite(seconds)) return seconds * 1000
+    const dateMs = Date.parse(retryAfter)
+    if (!Number.isNaN(dateMs)) return dateMs - Date.now()
+  }
+
+  const reset = response.headers.get('fastly-ratelimit-reset')
+  if (reset) {
+    const resetSeconds = Number(reset)
+    if (Number.isFinite(resetSeconds)) return resetSeconds * 1000 - Date.now()
+  }
+
+  return null
+}
 
 type ChangedFile = {
   filename: string
@@ -160,20 +236,39 @@ async function loadEnglishPermalinkIndex(): Promise<Map<string, string[]>> {
 // scoped) and uses only the Fastly-Key. Omitting the soft-purge header makes it
 // a hard purge: the object is evicted, so the next request is a fresh miss.
 // https://www.fastly.com/documentation/reference/api/purging/#purge-a-url
-async function hardPurgeUrl(url: string, fastlyToken: string): Promise<void> {
+async function hardPurgeUrl(
+  url: string,
+  fastlyToken: string,
+  rateLimitDelayFn: (response: Response, attempt: number) => number = rateLimitDelayMs,
+): Promise<void> {
   const withoutScheme = url.replace(/^https?:\/\//, '')
-  const response = await fetchWithRetry(
-    `https://api.fastly.com/purge/${withoutScheme}`,
-    {
-      method: 'POST',
-      headers: {
-        'fastly-key': fastlyToken,
-        accept: 'application/json',
+  for (let attempt = 0; ; attempt++) {
+    const response = await fetchWithRetry(
+      `https://api.fastly.com/purge/${withoutScheme}`,
+      {
+        method: 'POST',
+        headers: {
+          'fastly-key': fastlyToken,
+          accept: 'application/json',
+        },
       },
-    },
-    { retries: 3, timeout: 30_000, throwHttpErrors: false },
-  )
-  if (!response.ok) {
+      { retries: 3, timeout: 30_000, throwHttpErrors: false },
+    )
+    if (response.ok) return
+
+    // Fastly rate limit. fetchWithRetry doesn't retry 429 when throwHttpErrors
+    // is false, so back off and retry the URL ourselves, honoring Fastly's hint.
+    if (response.status === 429 && attempt < PURGE_MAX_RATE_LIMIT_RETRIES) {
+      const waitMs = rateLimitDelayFn(response, attempt)
+      console.warn(
+        `Fastly rate-limited purge of ${url}; retrying in ${waitMs}ms (attempt ${
+          attempt + 1
+        }/${PURGE_MAX_RATE_LIMIT_RETRIES})`,
+      )
+      await sleep(waitMs)
+      continue
+    }
+
     let body = ''
     try {
       body = await response.text()
@@ -195,17 +290,30 @@ export async function hardPurgeUrls(
   urls: string[],
   fastlyToken: string,
   concurrency = PURGE_CONCURRENCY,
+  throttleMs = PURGE_THROTTLE_MS,
+  budgetMs = PURGE_TIME_BUDGET_MS,
+  rateLimitDelayFn: (response: Response, attempt: number) => number = rateLimitDelayMs,
 ): Promise<void> {
   const queue = [...urls]
   const errors: Error[] = []
+  const deadline = Date.now() + budgetMs
 
   async function worker() {
+    let first = true
     while (queue.length) {
+      // Space out requests within a worker so concurrency * (1/spacing) stays
+      // under Fastly's burst limit. Skip the wait before the first request.
+      if (!first && throttleMs > 0) await sleep(throttleMs)
+      first = false
+      // Re-check the budget *after* the throttle sleep so the sleep can't push a
+      // purge past the deadline; stop starting new purges once we're out of time
+      // (see PURGE_TIME_BUDGET_MS). Anything left in the queue is reported below.
+      if (Date.now() > deadline) break
       const url = queue.shift()
       if (!url) break
       try {
         console.log(`Hard-purging ${url}`)
-        await hardPurgeUrl(url, fastlyToken)
+        await hardPurgeUrl(url, fastlyToken, rateLimitDelayFn)
       } catch (error) {
         console.error(error)
         errors.push(error instanceof Error ? error : new Error(String(error)))
@@ -214,6 +322,11 @@ export async function hardPurgeUrls(
   }
 
   await Promise.all(Array.from({ length: Math.min(concurrency, urls.length) }, worker))
+
+  // Anything still queued means we hit the time budget before draining it.
+  for (const url of queue) {
+    errors.push(new Error(`Fastly URL purge skipped (time budget exceeded) for ${url}`))
+  }
 
   if (errors.length) {
     throw new Error(`${errors.length} of ${urls.length} URL purge(s) failed`)

@@ -26,7 +26,7 @@ Your issue and pull request dashboards are available at the top of any page. On 
 
    ![Screenshot of the header of any page on {% data variables.product.github %}. The "Pull requests" and "Issues" icons are outlined in dark orange.](/assets/images/help/navigation/issues-and-prs-new-navigation.png)
 
-1. Optionally, choose a filter or use the search bar to filter for more specific results. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests).
+1. Optionally, choose a filter or use the search bar to filter for more specific results. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests).
 
 {% ifversion issues-saved-views %}
 

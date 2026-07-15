@@ -28,7 +28,7 @@ You can disable {% data variables.copilot.copilot_free_short %} in your {% data 
 
 You can partially or fully disable {% data variables.copilot.copilot_free_short %} in JetBrains IDEs, {% data variables.product.prodname_vscode_shortname %}, {% data variables.product.prodname_vs %}, and XCode:
 
-1. Navigate to [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-your-environment).
+1. Navigate to [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-in-ide).
 1. At the top of the page, select your IDE.
 1. At the top right of the page, under "In this article," select **Enabling or disabling {% data variables.product.prodname_copilot_short %}**.
 1. Follow the instructions to disable {% data variables.copilot.copilot_free_short %} in your IDE.

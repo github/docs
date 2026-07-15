@@ -1,11 +1,13 @@
 ---
 title: Enabling {% data variables.product.prodname_code_quality %}
 shortTitle: Enable Code Quality
-intro: Use {% data variables.product.prodname_code_quality_short %} to automatically catch, fix, and report on code quality issues in pull requests and on your default branch.
+intro: Enable {% data variables.product.prodname_code_quality_short %} across your organization's repositories to automatically identify and remediate code quality issues at scale, helping you maintain consistency and reduce operational risk.
 versions:
   feature: code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'
 permissions: '{% data reusables.permissions.code-quality-repo-enable %}'
+audience:
+  - driver
 contentType: how-tos
 redirect_from:
   - /code-security/code-quality/how-tos/enable-code-quality
@@ -37,14 +39,24 @@ category:
 > [!TIP]
 > If your organization has configured caching of private registries, these will be available for code quality analysis to use to resolve dependencies. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries#code-quality-access-to-private-registries).
 
-## Enabling {% data variables.product.prodname_code_quality_short %} for an organization
+## Enabling {% data variables.product.prodname_code_quality_short %} for your organization
 
-You can enable or disable {% data variables.product.prodname_code_quality_short %} for all repositories in an organization at once.
+{% data reusables.code-quality.code-quality-org-targeting-preview-note %}
+
+At the organization level, you control {% data variables.product.prodname_code_quality_short %} with a single **Repository access** setting. This gives you granular options, from enabling every repository to targeting a specific list or a dynamic filter, so you can pilot {% data variables.product.prodname_code_quality_short %} intentionally and roll it out at your own pace. Repositories within your selection are enabled, and repositories outside your selection are disabled.
+
+For the available access options, and how filtering and enforcement work, see [AUTOTITLE](/code-security/code-quality/concepts/about-code-quality#organization-level-repository-access).
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 1. In the sidebar, under "Security", click **{% data variables.code-quality.code_quality_ui_settings %}**.
-1. Next to "Enable Code Quality", use the toggle to enable {% data variables.product.prodname_code_quality_short %} for all repositories.
+1. Under "Repository access", select an option from the dropdown menu.
+   * If you selected **Selected repositories...**, choose the repositories you want to enable.
+   * If you selected **Matching a filter...**, define your filter.
+1. Optionally, to prevent repository administrators from changing these settings, enable **Enforce access**.
+1. If your change enables or disables {% data variables.product.prodname_code_quality_short %} on any repositories, a "Review enablement and billing changes" dialog appears, showing the total number of enabled and disabled repositories and the associated costs. Review the details, then click **Confirm**.
+
+Your changes are saved automatically and begin to propagate immediately. In large organizations, it can take several minutes for the changes to apply across all repositories.
 
 ## Next steps
 

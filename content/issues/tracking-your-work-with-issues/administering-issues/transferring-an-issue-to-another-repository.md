@@ -51,4 +51,4 @@ gh issue transfer ISSUE {% ifversion ghes %}HOSTNAME/{% endif %}OWNER/REPO
 
 ## Further reading
 
-* [AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)
+* [AUTOTITLE](/issues/tracking-your-work-with-issues/learning-about-issues/about-issues)

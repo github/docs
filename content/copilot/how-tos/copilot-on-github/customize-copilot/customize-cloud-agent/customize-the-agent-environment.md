@@ -32,7 +32,7 @@ You can customize {% data variables.product.prodname_copilot_short %}'s developm
 In addition, you can:
 
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-firewall).
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-firewall).
 
 > [!NOTE]
 > Organization owners can configure the default runner type for {% data variables.copilot.copilot_cloud_agent %} across all repositories in their organization, and choose whether repositories are allowed to override this default. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/configure-runner-for-coding-agent).
@@ -41,7 +41,7 @@ In addition, you can:
 
 You can customize {% data variables.product.prodname_copilot_short %}'s environment by creating a special {% data variables.product.prodname_actions %} workflow file, located at `.github/workflows/copilot-setup-steps.yml` within your repository.
 
-A `copilot-setup-steps.yml` file looks like a normal {% data variables.product.prodname_actions %} workflow file, but must contain a single `copilot-setup-steps` job. The steps in this job will be executed in {% data variables.product.prodname_actions %} before {% data variables.product.prodname_copilot_short %} starts working. For more information on {% data variables.product.prodname_actions %} workflow files, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions).
+A `copilot-setup-steps.yml` file looks like a normal {% data variables.product.prodname_actions %} workflow file, but must contain a single `copilot-setup-steps` job. The steps in this job will be executed in {% data variables.product.prodname_actions %} before {% data variables.product.prodname_copilot_short %} starts working. For more information on {% data variables.product.prodname_actions %} workflow files, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax).
 
 
 > [!NOTE]
@@ -90,13 +90,13 @@ In your `copilot-setup-steps.yml` file, you can only customize the following set
 * `snapshot`
 * `timeout-minutes` (maximum value: `59`)
 
-For more information on these options, see [AUTOTITLE](/actions/writing-workflows/workflow-syntax-for-github-actions#jobs).
+For more information on these options, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobs).
 
 Any value that is set for the `fetch-depth` option of the `actions/checkout` action will be overridden to allow the agent to rollback commits upon request, while mitigating security risks. For more information, see [`actions/checkout/README.md`](https://github.com/actions/checkout/blob/main/README.md).
 
 Your `copilot-setup-steps.yml` file will automatically be run as a normal {% data variables.product.prodname_actions %} workflow when changes are made, so you can see if it runs successfully. This will show alongside other checks in a pull request where you create or modify the file.
 
-Once you have merged the yml file into your default branch, you can manually run the workflow from the repository's **Actions** tab at any time to check that everything works as expected. For more information, see [AUTOTITLE](/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/manually-running-a-workflow).
+Once you have merged the yml file into your default branch, you can manually run the workflow from the repository's **Actions** tab at any time to check that everything works as expected. For more information, see [AUTOTITLE](/actions/how-tos/manage-workflow-runs/manually-run-a-workflow).
 
 When {% data variables.product.prodname_copilot_short %} starts work, your setup steps will be run, and updates will show in the session logs. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents).
 
@@ -114,14 +114,14 @@ You can use a Copilot setup steps file to deterministically install tools or dep
 
 ## Upgrading to larger {% data variables.product.prodname_dotcom %}-hosted {% data variables.product.prodname_actions %} runners
 
-By default, {% data variables.product.prodname_copilot_short %} works in a standard {% data variables.product.prodname_actions %} runner. You can upgrade to larger runners for better performance (CPU and memory), more disk space and advanced features like Azure private networking. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners/about-larger-runners).
+By default, {% data variables.product.prodname_copilot_short %} works in a standard {% data variables.product.prodname_actions %} runner. You can upgrade to larger runners for better performance (CPU and memory), more disk space and advanced features like Azure private networking. For more information, see [AUTOTITLE](/actions/concepts/runners/larger-runners).
 
-1. Set up larger runners for your organization. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/managing-larger-runners).
+1. Set up larger runners for your organization. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners/manage-larger-runners).
 1. If you are using larger runners with Azure private networking, configure your Azure private network to allow outbound access to the hosts required for {% data variables.copilot.copilot_cloud_agent %}:
 
     {% data reusables.copilot.cloud-agent-required-hosts %}
 
-1. Use a `copilot-setup-steps.yml` file in your repository to configure {% data variables.copilot.copilot_cloud_agent %} to run on your chosen runners. Set the `runs-on` step of the `copilot-setup-steps` job to the label and/or group for the larger runners you want {% data variables.product.prodname_copilot_short %} to use. For more information on specifying larger runners with `runs-on`, see [AUTOTITLE](/actions/using-github-hosted-runners/running-jobs-on-larger-runners).
+1. Use a `copilot-setup-steps.yml` file in your repository to configure {% data variables.copilot.copilot_cloud_agent %} to run on your chosen runners. Set the `runs-on` step of the `copilot-setup-steps` job to the label and/or group for the larger runners you want {% data variables.product.prodname_copilot_short %} to use. For more information on specifying larger runners with `runs-on`, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners/use-larger-runners).
 
     ```yaml
     # ...
@@ -150,7 +150,7 @@ We recommend that you only use {% data variables.copilot.copilot_cloud_agent %} 
 
     {% data reusables.copilot.cloud-agent-required-hosts %}
 
-1. Disable {% data variables.copilot.copilot_cloud_agent %}'s integrated firewall in your repository settings. The firewall is not compatible with self-hosted runners. Unless this is disabled, use of {% data variables.copilot.copilot_cloud_agent %} will be blocked. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-firewall).
+1. Disable {% data variables.copilot.copilot_cloud_agent %}'s integrated firewall in your repository settings. The firewall is not compatible with self-hosted runners. Unless this is disabled, use of {% data variables.copilot.copilot_cloud_agent %} will be blocked. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-firewall).
 1. In your `copilot-setup-steps.yml` file, set the `runs-on` attribute to your ARC-managed scale set name:
 
    ```yaml
@@ -203,4 +203,4 @@ jobs:
 ## Further reading
 
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-firewall)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-firewall)

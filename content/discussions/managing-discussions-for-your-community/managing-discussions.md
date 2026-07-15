@@ -22,7 +22,7 @@ Organization owners can choose the permissions required to create a discussion i
 
 As a discussions maintainer, you can create community resources to encourage discussions that are aligned with the overall project goal and maintain a friendly open forum for collaborators. Creating{% ifversion fpt or ghec %} a code of conduct or{% endif %} contribution guidelines for collaborators to follow will help facilitate a collaborative and productive forum. For more information on creating community resources, see{% ifversion fpt or ghec %} [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project), and{% endif %} [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors).
 
-When a discussion yields an idea or bug that is ready to be worked on, you can create a new issue from a discussion. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-discussion).
+When a discussion yields an idea or bug that is ready to be worked on, you can create a new issue from a discussion. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/creating-an-issue#creating-an-issue-from-a-discussion).
 
 You can pin a discussion to the top of the list of discussions for the repository or organization. You can also pin a discussion to a specific category. For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions#pinning-a-discussion).
 

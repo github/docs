@@ -291,6 +291,10 @@
           "description": "<p>Represents a<code>added_to_project_v2</code>event on a given issue or pull request.</p>"
         },
         {
+          "name": "ARCHIVED_EVENT",
+          "description": "<p>Represents an<code>archived</code>event on a given pull request.</p>"
+        },
+        {
           "name": "ASSIGNED_EVENT",
           "description": "<p>Represents an<code>assigned</code>event on any assignable object.</p>"
         },
@@ -563,6 +567,10 @@
           "description": "<p>Represents a<code>transferred</code>event on a given issue or pull request.</p>"
         },
         {
+          "name": "UNARCHIVED_EVENT",
+          "description": "<p>Represents an<code>unarchived</code>event on a given pull request.</p>"
+        },
+        {
           "name": "UNASSIGNED_EVENT",
           "description": "<p>Represents an<code>unassigned</code>event on any assignable object.</p>"
         },
@@ -642,6 +650,10 @@
         {
           "name": "FILE_PATH_RESTRICTION",
           "description": "<p>Prevent commits that include changes in specified file and folder paths from\nbeing pushed to the commit graph. This includes absolute paths that contain file names.</p>"
+        },
+        {
+          "name": "LICENSE_COMPLIANCE_SCANNING",
+          "description": "<p>Enforce any added or changed dependencies to comply with the organization's license policy.</p>"
         },
         {
           "name": "LOCK_BRANCH",

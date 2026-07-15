@@ -19,7 +19,7 @@ Without a `dependabot.yml` file, {% data variables.product.prodname_dependabot %
 The `dependabot.yml` file uses YAML syntax. If you're new to YAML and want to learn more, see [Learn YAML in five minutes](https://learnxinyminutes.com/yaml/).
 
 > [!NOTE]
-> {% data variables.product.prodname_dependabot_alerts %} are configured in the repository or organization "Settings" tab and not in the `dependabot.yml` file, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts).
+> {% data variables.product.prodname_dependabot_alerts %} are configured in the repository or organization "Settings" tab and not in the `dependabot.yml` file, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-dependabot-alerts).
 
 ## What the `dependabot.yml` file does
 
@@ -72,4 +72,4 @@ updates:
 
 ## Next step
 
-* Configure your repository so that Dependabot automatically updates the packages you use, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configuring-dependabot-version-updates)
+* Configure your repository so that Dependabot automatically updates the packages you use, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-version-updates)

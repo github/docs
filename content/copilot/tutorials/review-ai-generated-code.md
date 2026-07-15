@@ -21,8 +21,8 @@ With {% data variables.product.prodname_copilot_short %}, you can streamline you
 Always run automated tests and static analysis tools first.
 
 * Make sure the code compiles and all tests pass. Check for any new warnings or errors.
-* Use tools like [{% data variables.product.prodname_codeql %}](https://codeql.github.com/) and [{% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically) to catch vulnerabilities and dependency issues.
-* See [AUTOTITLE](/copilot/tutorials/copilot-chat-cookbook/testing-code/generate-unit-tests) and [AUTOTITLE](/copilot/tutorials/copilot-chat-cookbook/testing-code/create-end-to-end-tests) for examples of verifying code with {% data variables.product.prodname_copilot_short %}.
+* Use tools like [{% data variables.product.prodname_codeql %}](https://codeql.github.com/) and [{% data variables.product.prodname_dependabot %}](/code-security/concepts/supply-chain-security/dependabot-version-updates) to catch vulnerabilities and dependency issues.
+* See [AUTOTITLE](/copilot/tutorials/copilot-cookbook/testing-code/generate-unit-tests) and [AUTOTITLE](/copilot/tutorials/copilot-cookbook/testing-code/create-end-to-end-tests) for examples of verifying code with {% data variables.product.prodname_copilot_short %}.
 
 ### Example prompts
 
@@ -36,7 +36,7 @@ Check that the AI-generated code fits the purpose and architecture of your proje
 * Review the AI output for alignment with your requirements and design patterns.
 * Ask yourself: “Does this code solve the right problem? Does it follow our conventions?”
 * Use your README, docs, and recent pull requests as a starting point for context for AI. Tell AI what sources to trust, what not to use, and give it good examples to work with.
-* Try [AUTOTITLE](/copilot/tutorials/copilot-chat-cookbook/communicate-effectively/synthesizing-research) to see how {% data variables.product.prodname_copilot_short %} uses documentation and research to inform code generation.
+* Try [AUTOTITLE](/copilot/tutorials/copilot-cookbook/communicate-effectively/synthesizing-research) to see how {% data variables.product.prodname_copilot_short %} uses documentation and research to inform code generation.
 * When asking AI to perform research and planning tasks, consider distilling the AI output into structured artifacts to then become context for future AI tasks such as code generation.
 
 ### Example prompts
@@ -53,7 +53,7 @@ Human standards still matter.
 * Look for readability, maintainability, and clear naming.
 * Avoid accepting code that is hard to follow or would take longer to refactor than to rewrite.
 * Prefer code that is well-documented and includes clear comments.
-* Check [AUTOTITLE](/copilot/tutorials/copilot-chat-cookbook/refactor-code/improve-code-readability) for prompts and tips on reviewing and refactoring generated code.
+* Check [AUTOTITLE](/copilot/tutorials/copilot-cookbook/refactor-code/improve-code-readability) for prompts and tips on reviewing and refactoring generated code.
 
 ### Example prompts
 
@@ -68,7 +68,7 @@ Be vigilant with new packages and libraries.
 * Check if suggested dependencies exist and are actively maintained. Consider the origins and contributors of new dependencies to ensure they come from reputable, non-competing sources.
 * Review licensing. Avoid introducing code or dependencies that are incompatible with your project’s license (for example, AGPL-3.0 in a MIT licensed project, or dependencies with no declared license).
 * Watch out for hallucinated or suspicious packages (such as packages that don't actually exist), or slopsquatting (a theoretical attack on LLMs using fake or malicious packages).
-* [AUTOTITLE](/copilot/tutorials/copilot-chat-cookbook/communicate-effectively/creating-templates) demonstrates how {% data variables.product.prodname_copilot_short %} can assist with dependency setup, however it is good practice to always verify suggested packages yourself.
+* [AUTOTITLE](/copilot/tutorials/copilot-cookbook/communicate-effectively/creating-templates) demonstrates how {% data variables.product.prodname_copilot_short %} can assist with dependency setup, however it is good practice to always verify suggested packages yourself.
 * Use [AUTOTITLE](/copilot/concepts/completions/code-referencing) to review matches with publicly available code.
 
 ### Example prompts
@@ -83,7 +83,7 @@ AI tools can make unique mistakes.
 * Look for hallucinated APIs, ignored constraints, or incorrect logic.
 * Watch for tests that are deleted or skipped, instead of fixed.
 * Be skeptical of code that “looks right” but doesn’t match your intent.
-* See [AUTOTITLE](/copilot/tutorials/copilot-chat-cookbook/debug-errors/debug-invalid-json) as an example of catching subtle errors and debugging with {% data variables.product.prodname_copilot_short %}.
+* See [AUTOTITLE](/copilot/tutorials/copilot-cookbook/debug-errors/debug-invalid-json) as an example of catching subtle errors and debugging with {% data variables.product.prodname_copilot_short %}.
 
 ### Example prompts
 
@@ -98,7 +98,7 @@ Pairing and team input helps catch subtle issues.
 * Ask teammates to review complex or sensitive changes.
 * Use checklists to ensure all key review points (functionality, security, maintainability) are covered.
 * Share successful prompts and patterns for AI use across your team.
-* See [AUTOTITLE](/copilot/tutorials/copilot-chat-cookbook/communicate-effectively) for examples of how to work with {% data variables.product.prodname_copilot_short %} collaboratively and document findings.
+* See [AUTOTITLE](/copilot/tutorials/copilot-cookbook/communicate-effectively) for examples of how to work with {% data variables.product.prodname_copilot_short %} collaboratively and document findings.
 
 ## 7. Automate what you can
 
@@ -117,7 +117,7 @@ Embracing new AI tools and techniques can make your workflow even more effective
 * Document your best practices for reviewing AI-generated code.
 * Encourage “AI champions” on your team to share tips and workflows.
 * Update your onboarding and contribution guides to include your AI review techniques and resources. Use a `CONTRIBUTING.md` file in your repository to document your expectations for AI-generated source code and content, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors).
-* Reference [AUTOTITLE](/copilot/tutorials/copilot-chat-cookbook) for inspiration and share useful recipes in your team docs.
+* Reference [AUTOTITLE](/copilot/tutorials/copilot-cookbook) for inspiration and share useful recipes in your team docs.
 
 ## Further reading
 

@@ -32,6 +32,21 @@
   excels_at: Multi-step problem solving and architecture-level code analysis
   further_reading: '[GPT-5.5 model card](https://deploymentsafety.openai.com/gpt-5-5/gpt-5-5.pdf)'
 
+- name: GPT-5.6 Luna
+  task_area: Fast help with simple or repetitive tasks
+  excels_at: Quick, cost-efficient responses for smaller, faster coding tasks
+  further_reading: 'Not available'
+
+- name: GPT-5.6 Sol
+  task_area: Deep reasoning and debugging
+  excels_at: Complex reasoning over large codebases and long-running agentic work
+  further_reading: 'Not available'
+
+- name: GPT-5.6 Terra
+  task_area: General-purpose coding and agent tasks
+  excels_at: Balanced everyday interactive and agentic coding
+  further_reading: 'Not available'
+
 # Anthropic
 - name: Claude Fable 5
   task_area: Long-horizon, autonomous coding and knowledge-work
@@ -51,12 +66,12 @@
 - name: Claude Opus 4.8
   task_area: Deep reasoning and debugging
   excels_at: Complex problem-solving challenges, sophisticated reasoning
-  further_reading: 'Not available'
+  further_reading: '[Claude Opus 4.8 model card](https://www-cdn.anthropic.com/0b4915911bb0d19eca5b5ee635c80fef830a37ea.pdf)'
 
 - name: Claude Opus 4.8 (fast mode) (preview)
   task_area: Deep reasoning and debugging
   excels_at: Complex problem-solving challenges, sophisticated reasoning
-  further_reading: 'Not available'
+  further_reading: '[Claude Opus 4.8 model card](https://www-cdn.anthropic.com/0b4915911bb0d19eca5b5ee635c80fef830a37ea.pdf)'
 
 - name: Claude Sonnet 4.5
   task_area: General-purpose coding and agent tasks
@@ -71,7 +86,7 @@
 - name: Claude Sonnet 5
   task_area: General-purpose coding and agent tasks
   excels_at: Complex problem-solving challenges, sophisticated reasoning
-  further_reading: 'Not available'
+  further_reading: '[Claude Sonnet 5 model card](https://www-cdn.anthropic.com/9e6a1044980d8c4ed85669faf9c2a8342e2e9f1e/Claude%20Sonnet%205%20System%20Card.pdf)'
 
 # Google
 - name: Gemini 2.5 Pro
