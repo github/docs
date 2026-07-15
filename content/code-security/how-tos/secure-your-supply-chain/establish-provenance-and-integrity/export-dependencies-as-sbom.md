@@ -39,7 +39,7 @@ If you want to use the REST API to export an SBOM for your repository, see [AUTO
 
 ## Generating a software bill of materials from {% data variables.product.prodname_actions %}
 
-The following actions will generate an SBOM for your repository and attach it as a workflow artifact which you can download and use in other applications. For more information about downloading workflow artifacts, see [AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts).
+The following actions will generate an SBOM for your repository and attach it as a workflow artifact which you can download and use in other applications. For more information about downloading workflow artifacts, see [AUTOTITLE](/actions/how-tos/manage-workflow-runs/download-workflow-artifacts).
 
 | Action | Details |
 | ---  | --- |

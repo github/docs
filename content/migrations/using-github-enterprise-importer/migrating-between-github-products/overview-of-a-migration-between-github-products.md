@@ -122,7 +122,7 @@ For repository migrations, we recommend creating a test organization to use as a
 {% data reusables.enterprise-migration-tool.trial-migrations-tasks %}
 {% data reusables.enterprise-migration-tool.configure-destination-ip-allow-list %} For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#configuring-ip-allow-lists-for-migrations).
 1. If you're running a repository migration and you want to migrate settings for {% data variables.product.prodname_GHAS %} products, enable {% data variables.product.prodname_GHAS %} products for the destination organization. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
-1. Run your production migrations. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer) or [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-organizations-with-github-enterprise-importer).
+1. Run your production migrations. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer) or [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/migrating-organizations-from-githubcom-to-github-enterprise-cloud).
 {% data reusables.enterprise-migration-tool.delete-test-organization %}
 
 ## Completing follow-up tasks
@@ -170,8 +170,8 @@ If you were using {% data variables.actions.hosted_runner %}s, self-hosted runne
 
 1. If you use self-hosted runners, reconfigure your runners.
 
-   * Add runners to the appropriate repository, organization, or enterprise. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners).
-   * To use runners at the organization or enterprise level, update your workflows. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow).
+   * Add runners to the appropriate repository, organization, or enterprise. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/add-runners).
+   * To use runners at the organization or enterprise level, update your workflows. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/use-in-a-workflow).
 1. If you use {% data variables.actions.hosted_runner %}s, reconfigure your runners.
 
    * Configure runner groups to control access to your runners. For more information, see [AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/controlling-access-to-larger-runners).
@@ -179,9 +179,9 @@ If you were using {% data variables.actions.hosted_runner %}s, self-hosted runne
    * Update your workflows to point to your runners. For more information, see [AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/running-jobs-on-larger-runners).
 1. Re-add any encrypted secrets.
 
-   * To use the browser, see [AUTOTITLE](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository).
+   * To use the browser, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets#creating-encrypted-secrets-for-a-repository).
    * To use {% data variables.product.prodname_cli %}, see [`gh secret`](https://cli.github.com/manual/gh_secret) in the {% data variables.product.prodname_cli %} documentation.
-1. Reconfigure environments. For more information, see [AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment).
+1. Reconfigure environments. For more information, see [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments).
 
 ### Configuring IP allow lists
 
@@ -218,7 +218,7 @@ The user associated with these updated remediations will be the user who owns th
 
 When {% data variables.product.prodname_dependabot_alerts %} and the dependency graph are enabled, {% data variables.product.prodname_dependabot_alerts %} will be rebuilt from the current state of the default branch. Remediation states of these alerts are not migrated, and any previous alerts are also not migrated.
 
-You'll need to re-add any encrypted secrets for {% data variables.product.prodname_dependabot %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot).
+You'll need to re-add any encrypted secrets for {% data variables.product.prodname_dependabot %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries).
 
 ### Reconfiguring features for {% data variables.enterprise.data_residency_short %}
 
@@ -237,7 +237,7 @@ All active webhooks in the source repository are migrated. However, the migrated
 
 ### Reinstalling {% data variables.product.prodname_github_apps %}
 
-If you had any {% data variables.product.prodname_github_apps %} installed on the source repository, you'll need to reinstall them on the migrated repository. For more information, see [AUTOTITLE](/apps/maintaining-github-apps/installing-github-apps).
+If you had any {% data variables.product.prodname_github_apps %} installed on the source repository, you'll need to reinstall them on the migrated repository. For more information, see [AUTOTITLE](/apps/using-github-apps/installing-your-own-github-app).
 
 ### Recreating teams
 
@@ -247,7 +247,7 @@ If you migrated on an organization-by-organization basis, you only need to reins
 
 Teams and their repository access are migrated as part of an organization migration, but team membership is not. After your migration, you must add users to the migrated teams.
 
-We highly recommend using team synchronization to manage team membership through your identity provider (IdP). For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users) or, for enterprises that do not use {% data variables.product.prodname_emus %}, [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise).
+We highly recommend using team synchronization to manage team membership through your identity provider (IdP). For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users) or, for enterprises that do not use {% data variables.product.prodname_emus %}, [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise).
 
 Otherwise, you can manually add members to your organization, and then add organization members to teams. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team).
 

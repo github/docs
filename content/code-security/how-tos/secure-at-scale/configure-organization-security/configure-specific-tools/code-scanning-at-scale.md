@@ -31,21 +31,21 @@ A repository must meet all the following criteria to be eligible for default set
 
 ## Configuring default setup for all eligible repositories in an organization
 
-You can enable default setup for all eligible repositories in your organization. For more information, see [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale).
+You can enable default setup for all eligible repositories in your organization. For more information, see [AUTOTITLE](/code-security/concepts/security-at-scale/organization-security).
 
 ### Configuring default setup features
 
-Through your organization's security settings page, you can customize default setup for all eligible repositories, such as extending coverage using model packs. See [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup).
+Through your organization's security settings page, you can customize default setup for all eligible repositories, such as extending coverage using model packs. See [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/edit-default-setup).
 
 ## Configuring default setup for a subset of repositories in an organization
 
-You can filter for specific repositories you would like to configure default setup for. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration).
+You can filter for specific repositories you would like to configure default setup for. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/apply-custom-configuration).
 
 {% ifversion org-private-registry %}
 
 ## Providing default setup access to private registries
 
-When a repository uses code stored in a private registry, default setup needs access to the registry to work effectively. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries).
+When a repository uses code stored in a private registry, default setup needs access to the registry to work effectively. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries).
 
 {% endif %}
 
@@ -57,6 +57,6 @@ You can use rulesets to prevent pull requests from being merged when one of the 
 
 {% data reusables.code-scanning.merge-protection-rulesets-conditions %}
 
-For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection#creating-a-merge-protection-ruleset-for-all-repositories-in-an-organization). For more general information about rulesets, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
+For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/set-merge-protection#creating-a-merge-protection-ruleset-for-all-repositories-in-an-organization). For more general information about rulesets, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
 
 {% endif %}

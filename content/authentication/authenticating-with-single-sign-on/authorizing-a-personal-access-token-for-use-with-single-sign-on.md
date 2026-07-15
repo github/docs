@@ -13,7 +13,7 @@ shortTitle: '{% data variables.product.pat_generic_caps %} with SSO'
 category:
   - Sign in with SSO or a passkey
 ---
-You must authorize your {% data variables.product.pat_v1 %} after creation before the token can access an organization that uses SAML single sign-on (SSO). Access to `internal` resources (repositories, projects, and packages) in an enterprise requires an SSO authorization for an organization within an enterprise. For more information about creating a new {% data variables.product.pat_v1 %}, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). {% data variables.product.pat_v2_caps %}s are authorized during token creation, before access to the organization is granted.
+You must authorize your {% data variables.product.pat_v1 %} after creation before the token can access an organization that uses SAML single sign-on (SSO). Access to `internal` resources (repositories, projects, and packages) in an enterprise requires an SSO authorization for an organization within an enterprise. For more information about creating a new {% data variables.product.pat_v1 %}, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens). {% data variables.product.pat_v2_caps %}s are authorized during token creation, before access to the organization is granted.
 
 {% data reusables.saml.must-authorize-linked-identity %}
 
@@ -34,5 +34,5 @@ You must authorize your {% data variables.product.pat_v1 %} after creation befor
 
 ## Further reading
 
-* [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+* [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
 * [AUTOTITLE](/authentication/authenticating-with-single-sign-on/about-authentication-with-single-sign-on)

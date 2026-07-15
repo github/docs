@@ -24,7 +24,7 @@ If the email address that has been set in your Git configuration does not match 
 {% data variables.product.prodname_desktop %} also allows you to change the default branch name that you would like to use when creating new repositories. By default, {% data variables.product.prodname_desktop %} uses `main` as the default branch name in any new repositories you create.
 
 > [!TIP]
-> Anyone will be able to see the email address in your Git configuration if you make public commits. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address).
+> Anyone will be able to see the email address in your Git configuration if you make public commits. For more information, see [AUTOTITLE](/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address).
 
 ## Configuring your global author information
 
@@ -149,7 +149,7 @@ For more information about Git hooks in {% data variables.product.prodname_deskt
 
 ## Further reading
 
-* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)
-* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)
+* [AUTOTITLE](/account-and-profile/how-tos/email-preferences/adding-an-email-address-to-your-github-account)
+* [AUTOTITLE](/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address)
 * [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)
-* [AUTOTITLE](/get-started/getting-started-with-git)
+* [AUTOTITLE](/get-started/git-basics)

@@ -24,7 +24,7 @@ The following features are currently unavailable on {% data variables.enterprise
 | :- | :- | :- |
 | Dependency insights | Organization-level and enterprise-level dependency insights are unavailable and display no data. | [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization) |
 | License and package metadata in the dependency graph | License and package details are not currently populated in the dependency graph. This can result in empty license fields in software bill of materials (SBOM) exports and missing license information from the {% data variables.dependency-review.action_name %}. | [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/export-dependencies-as-sbom)<br>[AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-dependency-review-action) |
-| macOS runners for {% data variables.product.prodname_actions %} | Currently unavailable. | [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners) |
+| macOS runners for {% data variables.product.prodname_actions %} | Currently unavailable. | [AUTOTITLE](/actions/concepts/runners/github-hosted-runners) |
 | Maven and Gradle support for {% data variables.product.prodname_registry %} | Currently unavailable. | [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry) |
 | {% data variables.product.prodname_marketplace %} | {% data variables.product.prodname_marketplace %}, as a means of searching for, purchasing, and directly installing apps and actions, is unavailable. Ecosystem apps and actions can still be discovered and installed from their source, but they may require modification to work on {% data variables.enterprise.data_residency_site %}. | [{% data variables.product.prodname_actions %} workflows from {% data variables.product.prodname_marketplace %}](#github-actions-workflows-from-github-marketplace) |
 | Some features currently in {% data variables.release-phases.public_preview %} or {% data variables.release-phases.private_preview %} | Certain features that are in a preview phase on {% data variables.product.prodname_dotcom_the_website %} may not be available on {% data variables.enterprise.data_residency_site %} until GA. | |
@@ -89,7 +89,7 @@ The following examples are not exhaustive.
 
 {% data reusables.actions.namespace-retirement-ghecom %}
 
-To allow people to use namespaces that match actions you have used from {% data variables.product.prodname_dotcom_the_website %}, you can make a retired namespace available. See [AUTOTITLE](/actions/administering-github-actions/making-retired-namespaces-available-on-ghecom).
+To allow people to use namespaces that match actions you have used from {% data variables.product.prodname_dotcom_the_website %}, you can make a retired namespace available. See [AUTOTITLE](/actions/how-tos/administer/reuse-namespaces-on-ghecom).
 
 ### {% data variables.product.prodname_github_connect %}
 

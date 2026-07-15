@@ -31,13 +31,13 @@ If you _do_ have a paid {% data variables.product.prodname_copilot_short %} plan
 
 {% ifversion ghec %}
 
-* If you are on the {% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise_short %} plan, your ability to use {% data variables.copilot.copilot_cloud_agent %} is controlled by your enterprise and/or organization administrator. See [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/manage-copilot-cloud-agent).
+* If you are on the {% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise_short %} plan, your ability to use {% data variables.copilot.copilot_cloud_agent %} is controlled by your enterprise and/or organization administrator. See [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/enable-copilot-cloud-agent).
 
 {% endif %}
 
 * For organization-owned repositories, the availability of {% data variables.copilot.copilot_cloud_agent %} in the repository is managed by the organization and/or enterprise administrators. See [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-organization/add-copilot-cloud-agent).
 
-* For personal repositories, the availability of {% data variables.copilot.copilot_cloud_agent %} in the repository is configured in your account settings. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-copilot-cloud-agent).
+* For personal repositories, the availability of {% data variables.copilot.copilot_cloud_agent %} in the repository is configured in your account settings. See [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#disabling-or-enabling-copilot-cloud-agent-in-your-repositories).
 
 > [!NOTE]
 > You can check whether {% data variables.copilot.copilot_cloud_agent %} has been enabled for you in the features page of your {% data variables.product.prodname_copilot_short %} settings: [github.com/settings/copilot/features](https://github.com/settings/copilot/features).
@@ -85,7 +85,7 @@ If {% data variables.product.prodname_copilot_short %} got stuck while respondin
 
 {% data variables.product.prodname_actions %} workflows will not run automatically when {% data variables.product.prodname_copilot_short %} pushes changes to a pull request.
 
-To allow {% data variables.product.prodname_actions %} workflows to run, click the **Approve and run workflows** button in the pull request's merge box. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/review-copilot-prs).
+To allow {% data variables.product.prodname_actions %} workflows to run, click the **Approve and run workflows** button in the pull request's merge box. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/review-copilot-output).
 
 ## {% data variables.product.prodname_copilot_short %} is pushing changes which don't pass my CI checks
 
@@ -103,7 +103,7 @@ If {% data variables.product.prodname_copilot_short %} tries to make a request w
 
 ![Screenshot of a warning from {% data variables.product.prodname_copilot_short %} about being blocked by the firewall.](/assets/images/help/copilot/cloud-agent/firewall-warning.png)
 
-For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-firewall).
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-firewall).
 
 ## {% data variables.product.prodname_copilot_short %} is not picking up attached screenshots
 
@@ -112,4 +112,4 @@ The maximum image size allowed by {% data variables.copilot.copilot_cloud_agent 
 ## Further reading
 
 * [AUTOTITLE](/copilot/tutorials/cloud-agent/get-the-best-results)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment)

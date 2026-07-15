@@ -133,4 +133,4 @@ After signing in and turning on push notifications, you can now use your device 
 * [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication)
 * [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/troubleshooting-two-factor-authentication-issues)
 * [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)
-* [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+* [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)

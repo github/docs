@@ -57,11 +57,11 @@ When you receive an alert, rotate the affected credential immediately to prevent
 
 Beyond the default detection of partner and provider secrets, you can expand and customize {% data variables.product.prodname_secret_scanning %} to fit your needs.
 
-* **Non-provider patterns.** Expand detection to secrets that aren't tied to a specific service provider, such as private keys, connection strings, and generic API keys.
+* **Generic patterns.** Expand detection to secrets that aren't tied to a specific service provider, such as private keys, connection strings, and generic API keys.
 * **Custom patterns.** Define your own regular expressions to detect organization-specific secrets that aren't covered by default patterns.
 * **Validity checks.** Prioritize remediation by checking whether detected secrets are still active.
 {% ifversion secret-scanning-ai-generic-secret-detection %}
-* **{% data variables.secret-scanning.copilot-secret-scanning %}.** Use AI to detect unstructured secrets like passwords, or to generate regular expressions for custom patterns.
+* **{% data variables.secret-scanning.ai-detected-secrets-caps %}.** Use AI to detect unstructured secrets like passwords, or to generate regular expressions for custom patterns.
 {% endif %}
 
 {% ifversion secret-scanning-validity-check-partner-patterns %}

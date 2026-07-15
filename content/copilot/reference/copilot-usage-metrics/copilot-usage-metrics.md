@@ -20,7 +20,7 @@ The {% data variables.product.prodname_copilot_short %} usage metrics dashboard 
 * The {% data variables.product.prodname_copilot_short %} usage metrics APIs return reports scoped to the **enterprise**, **organization**, or **individual user** level, in different shapes depending on scope and granularity.
 * Team-level metrics are not pre-aggregated; you construct them by joining the user-teams report with the per-user usage metrics report. See [AUTOTITLE](/copilot/reference/copilot-usage-metrics/team-level-metrics).
 
-For guidance on how to read and interpret these metrics, see [AUTOTITLE](/copilot/concepts/copilot-metrics).
+For guidance on how to read and interpret these metrics, see [AUTOTITLE](/copilot/concepts/copilot-usage-metrics/copilot-metrics).
 
 ## {% data variables.product.prodname_copilot_short %} usage dashboard metrics
 

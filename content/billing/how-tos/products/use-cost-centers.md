@@ -43,11 +43,11 @@ When you create a cost center, you can add **organizations**, **repositories**, 
 
 ## Adding a budget to a cost center
 
-After you create a cost center, you can add a monthly budget and receive alerts from the cost center to monitor your spending and usage. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
+After you create a cost center, you can add a monthly budget and receive alerts from the cost center to monitor your spending and usage. See [AUTOTITLE](/billing/how-tos/set-up-budgets).
 
 ## Viewing cost center usage
 
-You can view the usage of your cost centers and download the usage data for further analysis. See [AUTOTITLE](/billing/using-the-enhanced-billing-platform-for-enterprises/gathering-insights-on-your-spending).
+You can view the usage of your cost centers and download the usage data for further analysis. See [AUTOTITLE](/billing/tutorials/gather-insights).
 
 ## Viewing, editing, and deleting cost centers
 
@@ -62,4 +62,4 @@ You can view, edit, and delete cost centers to manage your business units effect
 ## Further reading
 
 * [AUTOTITLE](/billing/tutorials/control-costs-at-scale)
-* [AUTOTITLE](/rest/enterprise-admin/billing)
+* [AUTOTITLE](/rest/billing/billing)

@@ -35,7 +35,7 @@ You can see the storage usage for each of your codespaces on the "Your codespace
 > [!NOTE]
 > If the dev container for a codespace was built from the default image, the size of the codespace shown on this page does not include the size of the base dev container. Storage for the base dev container is provided free of charge. See [Storage usage for your base dev container](#storage-usage-for-your-base-dev-container).
 
-For billing purposes, {% data variables.product.prodname_codespaces %} storage is counted in GB-hours. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
+For billing purposes, {% data variables.product.prodname_codespaces %} storage is counted in GB-hours. See [AUTOTITLE](/billing/concepts/product-billing/github-codespaces).
 
 ### Where did my monthly storage go?
 
@@ -45,13 +45,13 @@ Although prebuilds are not listed on the "Your codespaces" page, prebuilds creat
 
 ## Understanding your {% data variables.product.prodname_codespaces %} usage
 
-You can check the cumulative {% data variables.product.prodname_github_codespaces %} usage for your current monthly billing cycle in your {% data variables.product.prodname_dotcom %} settings. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage).
+You can check the cumulative {% data variables.product.prodname_github_codespaces %} usage for your current monthly billing cycle in your {% data variables.product.prodname_dotcom %} settings. See [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
 
 ![Screenshot of the "{% data variables.product.prodname_codespaces %}" section of the billing page showing figures for "Usage hours" and "Storage."](/assets/images/help/codespaces/view-personal-usage-collapsed.png)
 
 You can expand the "Usage hours" and "Storage" section for more information - for example, to see how much of the consumed storage was used by prebuilds.
 
-For more specific information - for example, if you want to know which repositories have prebuilds that are consuming storage - you can generate a usage report. The usage report is a CSV file that's emailed to you. For more information on how to generate a usage report, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage).
+For more specific information - for example, if you want to know which repositories have prebuilds that are consuming storage - you can generate a usage report. The usage report is a CSV file that's emailed to you. For more information on how to generate a usage report, see [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
 
 To see your {% data variables.product.prodname_codespaces %} usage, filter the report to show only rows that mention "Codespaces" in the `Product` column.
 

@@ -16,6 +16,7 @@ children:
   - /hooks-reference
   - /policy-conflicts
   - /supported-surfaces-for-policies
+  - /enterprise-managed-settings-reference
   - /copilot-allowlist-reference
   - /mcp-allowlist-enforcement
   - /metrics-data

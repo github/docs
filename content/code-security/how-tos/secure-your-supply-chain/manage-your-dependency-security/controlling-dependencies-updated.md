@@ -81,10 +81,10 @@ If you are not ready to adopt changes from certain dependencies in your project,
 
 * Configure the `ignore` option for the dependency in your `dependabot.yml` file.
    * **You can use this to ignore updates for specific dependencies, versions, and types of updates.**
-   * For more information, see `ignore` in [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#ignore--).
+   * For more information, see `ignore` in [AUTOTITLE](/code-security/reference/supply-chain-security/dependabot-options-reference#ignore--).
 * Use `@dependabot ignore` comment commands on a {% data variables.product.prodname_dependabot %} pull request for version updates and security updates.
    * **You can use comment commands to ignore updates for specific dependencies and versions.**
-   * For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands).
+   * For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/manage-dependabot-prs#managing-dependabot-pull-requests-with-comment-commands).
 
 Here are some examples showing how `ignore` can be used to customize which dependencies are updated.
 
@@ -122,13 +122,13 @@ For pull requests for grouped updates, you can also use `@dependabot unignore` c
 * Un-ignore a specific dependency
 * Un-ignore all ignore conditions for all dependencies in a {% data variables.product.prodname_dependabot %} pull request
 
-For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-for-grouped-updates-with-comment-commands).
+For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/manage-dependabot-prs#managing-dependabot-pull-requests-for-grouped-updates-with-comment-commands).
 
 ## Allowing specific dependencies to be updated
 
 You can use `allow` to tell {% data variables.product.prodname_dependabot %} about the dependencies you want to maintain. `allow` is usually used in conjunction with `ignore`.
 
-For more information, see `allow` in [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#allow--).
+For more information, see `allow` in [AUTOTITLE](/code-security/reference/supply-chain-security/dependabot-options-reference#allow--).
 
 By default, {% data variables.product.prodname_dependabot %} creates version update pull requests only for the dependencies that are explicitly defined in a manifest (`direct` dependencies). This configuration uses `allow` to tell {% data variables.product.prodname_dependabot %} that we want it to maintain `all` types of dependency. That is, both the `direct` dependencies and their dependencies (also known as indirect dependencies, sub-dependencies, or transient dependencies). In addition, the configuration tells {% data variables.product.prodname_dependabot %} to ignore all dependencies with a name matching the pattern `org.xwiki.*` because we have a different process for maintaining them.
 
@@ -176,7 +176,7 @@ You can use `update-types` with `allow` to restrict updates to specific semantic
 > [!NOTE]
 > `update-types` only affects _version_ updates, not _security_ updates. Security updates will always be created regardless of the `update-types` setting.
 
-For more information, see `update-types` in [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#update-types-allow).
+For more information, see `update-types` in [AUTOTITLE](/code-security/reference/supply-chain-security/dependabot-options-reference#update-types-allow).
 
 Here are some examples showing how `update-types` can be used with `allow`.
 
@@ -223,7 +223,7 @@ Here are some examples showing how `update-types` can be used with `allow`.
 
 You can use `versions` in conjunction with `ignore` to ignore specific versions or ranges of versions.
 
-For more information, see `versions` in [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#versions-ignore).
+For more information, see `versions` in [AUTOTITLE](/code-security/reference/supply-chain-security/dependabot-options-reference#versions-ignore).
 
 * To ignore a specific version
 
@@ -256,7 +256,7 @@ For more information, see `versions` in [AUTOTITLE](/code-security/dependabot/wo
 
 You can specify one or more semantic versioning (SemVer) levels to ignore using `update-types` with `ignore`.{% ifversion dependabot-allow-update-types %} Alternatively, you can use `update-types` with `allow` to explicitly specify which update levels to allow, see [Allowing specific semantic versioning levels for updates](#allowing-specific-semantic-versioning-levels-for-updates).{% endif %}
 
-For more information, see `update-types` in [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#update-types-ignore).
+For more information, see `update-types` in [AUTOTITLE](/code-security/reference/supply-chain-security/dependabot-options-reference#update-types-ignore).
 
 In this example, {% data variables.product.prodname_dependabot %} will ignore patch versions for Node.
 
@@ -282,7 +282,7 @@ updates:
 
 By default, {% data variables.product.prodname_dependabot %} tries to increase the minimum version requirement for dependencies it identifies as apps, and widens the allowed version requirements to include both the new and old versions for dependencies it identifies as libraries.
 
-You can change this default strategy. For more information, see `versioning-strategy` in [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#versioning-strategy--).
+You can change this default strategy. For more information, see `versioning-strategy` in [AUTOTITLE](/code-security/reference/supply-chain-security/dependabot-options-reference#versioning-strategy--).
 
 In this example, {% data variables.product.prodname_dependabot %} will increase the minimum version requirement to match the new version for both apps and libraries.
 
@@ -319,7 +319,7 @@ You can instruct {% data variables.product.prodname_dependabot %} to vendor spec
 
 {% data variables.product.prodname_dependabot %} automatically maintains vendored dependencies for Go modules, and you can configure Bundler to also update vendored dependencies.
 
-For more information, see `vendor` in [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#vendor--).
+For more information, see `vendor` in [AUTOTITLE](/code-security/reference/supply-chain-security/dependabot-options-reference#vendor--).
 
 In this example, `vendor` is set to `true` for Bundler, which means that {% data variables.product.prodname_dependabot %} will also maintain dependencies for Bundler that are stored in the _vendor/cache_ directory in the repository.
 

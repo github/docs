@@ -33,7 +33,7 @@ The CSV file you download will contain data corresponding to the filters you hav
     It may take a moment for {% data variables.product.github %} to generate the CSV file of your data. Once the CSV file generates, the file will automatically start downloading, and a banner will appear confirming your report is ready. If you are downloading the CSV from the overview page, you will also receive an email when your report is ready, containing a link to download the CSV.
 
 > [!NOTE]
-> The summary views ("Overview", "Coverage" and "Risk") show data only for default alerts. {% data variables.product.prodname_code_scanning_caps %} alerts from third-party tools, and {% data variables.product.prodname_secret_scanning %} alerts for non-provider patterns or for ignored directories are all omitted from these views. Consequently, files exported from the summary views do not contain data for these types of alert.
+> The summary views ("Overview", "Coverage" and "Risk") show data only for default alerts. {% data variables.product.prodname_code_scanning_caps %} alerts from third-party tools, and {% data variables.product.prodname_secret_scanning %} alerts for generic patterns or for ignored directories are all omitted from these views. Consequently, files exported from the summary views do not contain data for these types of alert.
 
 ## Exporting overview, coverage, and risk data from your enterprise's security overview
 

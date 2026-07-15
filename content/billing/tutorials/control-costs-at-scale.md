@@ -313,7 +313,7 @@ The **REST API** is valuable when you:
 
 ### Options for automation
 
-If you decide that automation would benefit your organization, the REST API examples in this tutorial provide the foundation for building custom scripts. For details of other endpoints, see [AUTOTITLE](/rest/enterprise-admin/billing?apiVersion=2022-11-28).
+If you decide that automation would benefit your organization, the REST API examples in this tutorial provide the foundation for building custom scripts. For details of other endpoints, see [AUTOTITLE](/rest/billing/billing?apiVersion=2022-11-28).
 
 If you want to automate cost centers based on team membership or create a two-tier model for controlling costs of {% data variables.product.prodname_ai_credits_short %}, [{% data variables.product.github %} Cost Center Automation](https://github.com/github/cost-center-automation?ref_product=copilot&ref_type=engagement&ref_style=text) provides a complete implementation using actions workflows that you can adapt for your needs.
 
@@ -321,7 +321,7 @@ If you want to automate cost centers based on team membership or create a two-ti
 
 To find out about the endpoints you can use to automate reporting of usage and costs, see [AUTOTITLE](/billing/tutorials/automate-usage-reporting).
 
-If there are any paid products that you want to block all access to, you can disable the feature using an enterprise policy. See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/about-enterprise-policies).
+If there are any paid products that you want to block all access to, you can disable the feature using an enterprise policy. See [AUTOTITLE](/admin/concepts/security-and-compliance/enterprise-policies).
 
 To go deeper on the controls in this tutorial:
 

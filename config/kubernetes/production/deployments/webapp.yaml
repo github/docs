@@ -14,7 +14,7 @@ spec:
       # Prevents capacity loss during deploys. Safe because we're over-provisioned.
       maxUnavailable: 0
       # Percentage so it scales with replica count changes.
-      maxSurge: '25%'
+      maxSurge: '50%'
   selector:
     matchLabels:
       app: webapp

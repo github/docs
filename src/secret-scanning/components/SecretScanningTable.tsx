@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react'
 import { DataTable, Table } from '@primer/react/experimental'
-import { TextInput, ActionMenu, ActionList, Pagination, Button } from '@primer/react'
+import { TextInput, ActionMenu, ActionList } from '@primer/react'
+import { Pagination, Button } from '@primer/react-brand'
 import debounce from 'lodash/debounce'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { sendEvent } from '@/events/components/events'
@@ -198,7 +199,7 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
           />
           {hasActiveFilters && (
             <Button
-              variant="invisible"
+              variant="subtle"
               size="small"
               onClick={handleReset}
               aria-label={t('clear_filters_aria_label')}

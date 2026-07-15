@@ -12,9 +12,10 @@ const { data } = frontmatter(fs.readFileSync(homepage, 'utf8'))
 const productIds = data.children as string[]
 
 const config: NextConfig = {
-  // Transpile @primer/react so Next's webpack can process its CSS and other assets
-  // This ensures CSS in node_modules/@primer/react is handled by the app's loaders.
-  transpilePackages: ['@primer/react'],
+  // Transpile @primer/react and @primer/react-brand so Next's webpack can process their
+  // CSS and other assets. This ensures CSS from these node_modules packages is handled by
+  // the app's loaders.
+  transpilePackages: ['@primer/react', '@primer/react-brand'],
   // Keep OTel packages out of the Next.js server bundle.
   // They must be loaded via native require() for auto-instrumentation to work.
   serverExternalPackages: [

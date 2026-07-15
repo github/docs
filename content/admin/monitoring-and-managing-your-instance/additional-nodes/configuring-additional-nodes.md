@@ -10,6 +10,11 @@ category:
   - Scale your instance
 ---
 
+{% ifversion ghes < 3.21 %}
+> [!NOTE]
+> Support for additional nodes in a high availability configuration is currently in {% data variables.release-phases.public_preview %} and subject to change.
+{% endif %}
+
 For {% data variables.product.prodname_ghe_server %} customers looking to scale horizontally, migrating to and operating a cluster is an option, but is resource-intensive and time-consuming. As an alternative, we recommend adding nodes to an HA configuration.
 
 The terms "additional node" and "stateless node" are used interchangeably throughout this article. Stateless nodes can only be added to HA deployments that contain at least one replica.

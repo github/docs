@@ -74,4 +74,4 @@ Organization and repository settings include the ability to exclude content from
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/content-exclusion-for-github-copilot)
+* [AUTOTITLE](/copilot/concepts/context/content-exclusion)

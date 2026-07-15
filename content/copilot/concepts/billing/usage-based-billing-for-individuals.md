@@ -99,7 +99,7 @@ To set up a budget for {% data variables.product.prodname_ai_credits %}, see [AU
 
 {% data reusables.copilot.copilot-one-account %}
 
-You can cancel your {% data variables.product.prodname_copilot_short %} plan at any time. The cancellation will take effect at the end of your current billing cycle. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription/canceling-copilot-as-an-individual-user).
+You can cancel your {% data variables.product.prodname_copilot_short %} plan at any time. The cancellation will take effect at the end of your current billing cycle. See [AUTOTITLE](/copilot/how-tos/manage-your-account/view-and-change-your-copilot-plan).
 
 ## Determining your billing date
 
@@ -121,7 +121,7 @@ For the best experience with usage-based billing, update your IDE, client, and {
 | --- | --- |
 | {% data variables.product.prodname_vscode_shortname %} | 1.120 |
 | {% data variables.product.prodname_vs %} 2022 (17.x) | 17.14.33 |
-| {% data variables.product.prodname_vs %} 2025 (18.x) | 18.6.0 |
+| {% data variables.product.prodname_vs %} 2026 (18.x) | 18.6.0 |
 | SQL Server Management Studio | 22.6 |
 | JetBrains IDEs (plugin) | 1.9.1 |
 | Eclipse (plugin) | 0.18.0 |
@@ -134,6 +134,6 @@ We recommend keeping your IDE, client, and {% data variables.product.prodname_co
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot)
-* [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription)
-* [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information)
+* [AUTOTITLE](/copilot/get-started/plans)
+* [AUTOTITLE](/copilot/how-tos/manage-your-account)
+* [AUTOTITLE](/billing/how-tos/set-up-payment/manage-payment-info)

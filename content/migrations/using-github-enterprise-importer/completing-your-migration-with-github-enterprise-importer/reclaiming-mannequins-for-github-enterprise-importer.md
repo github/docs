@@ -27,11 +27,11 @@ You can reclaim mannequins with {% data variables.product.prodname_cli %} (recom
 > * You cannot reclaim mannequins after you have transferred a repository to another organization. If you wish to transfer a repository to another organization after your migration, you must reclaim the mannequins before the transfer.
 > * When reclaiming mannequins, you can only target existing organization members. Before attempting to reclaim a mannequin, verify that the {% data variables.product.prodname_dotcom %} user you want to invite is already added to the organization.
 
-{% data variables.product.prodname_importer_proper_name %} does not migrate user access to repositories. After reclaiming mannequins, if any of the users do not already have appropriate access to the repository via team membership, you must separately give the users access to the repository. For more information, see [Managing an individual's access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository).
+{% data variables.product.prodname_importer_proper_name %} does not migrate user access to repositories. After reclaiming mannequins, if any of the users do not already have appropriate access to the repository via team membership, you must separately give the users access to the repository. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-an-individuals-access-to-an-organization-repository).
 
 ### Reclaiming mannequins with the {% data variables.product.prodname_cli %} (recommended)
 
-You can use the {% data variables.product.prodname_cli %} to reclaim mannequins individually or in bulk. For more information about installing and updating migration extensions for the {% data variables.product.prodname_cli %}, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer).
+You can use the {% data variables.product.prodname_cli %} to reclaim mannequins individually or in bulk. For more information about installing and updating migration extensions for the {% data variables.product.prodname_cli %}, see [AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer).
 
 The exact command you need to use depends on which extension of the {% data variables.product.prodname_cli %} that you're using.
 
@@ -77,7 +77,7 @@ If your migration source is a {% data variables.product.prodname_dotcom %} produ
 
 If your migration source is Azure DevOps, you can reclaim mannequins with the {% data variables.product.prodname_ado2gh_cli %}.
 
-* {% data reusables.enterprise-migration-tool.add-pat-to-reclaim-mannequins %}{% ifversion fpt or ghec %} For {% data variables.product.pat_generic %} requirements, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#required-scopes-for-personal-access-tokens).{% endif %}
+* {% data reusables.enterprise-migration-tool.add-pat-to-reclaim-mannequins %}{% ifversion fpt or ghec %} For {% data variables.product.pat_generic %} requirements, see [AUTOTITLE](/migrations/ado/manage-access#required-scopes-for-personal-access-tokens).{% endif %}
 * {% data reusables.enterprise-migration-tool.add-target-api-url %}
 
 {% data reusables.enterprise-migration-tool.create-csv-mannequins %}
@@ -164,8 +164,8 @@ You can view the status of all attribution invitations for your organization.
 
 {% data reusables.elm.git-activity %}
 
-In many cases, users can reattribute commits to themselves by adding the email address used to author the commit to their user account on {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account).
+In many cases, users can reattribute commits to themselves by adding the email address used to author the commit to their user account on {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/account-and-profile/how-tos/email-preferences/adding-an-email-address-to-your-github-account).
 
 However, if you use {% data variables.product.prodname_emus %}, users cannot add email addresses to their user account on {% data variables.product.prodname_dotcom %} and will therefore not be able to reattribute Git commits. Only commits authored by a user's primary email address in your identity provider (IdP) will be attributed to {% data variables.enterprise.prodname_managed_users %}.
 
-Additionally, commits authored by a {% data variables.product.company_short %}-provided `noreply` email address cannot be reattributed, because you can't manually add a `noreply` email address to a user account. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address).
+Additionally, commits authored by a {% data variables.product.company_short %}-provided `noreply` email address cannot be reattributed, because you can't manually add a `noreply` email address to a user account. For more information, see [AUTOTITLE](/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address).

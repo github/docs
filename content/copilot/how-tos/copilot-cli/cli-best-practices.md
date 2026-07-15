@@ -27,21 +27,13 @@ This article provides tips for getting the most out of {% data variables.copilot
 
 ### Use custom instructions files
 
-{% data variables.copilot.copilot_cli_short %} automatically reads instructions from multiple locations, allowing you to define organization-wide standards and repository-specific conventions.
+{% data variables.copilot.copilot_cli_short %} automatically combines applicable user-level, repository, and path-specific instructions. Use repository instructions for project conventions and user-level instructions for preferences that should apply across projects.
 
-**Supported locations (in order of discovery):**
-
-| Location                                    | Scope                 |
-|---------------------------------------------|-----------------------|
-| `~/.copilot/copilot-instructions.md`        | All sessions (global) |
-| `.github/copilot-instructions.md`           | Repository            |
-| `.github/instructions/**/*.instructions.md` | Repository (modular)  |
-| `AGENTS.md` (in Git root or cwd)            | Repository            |
-| `{% data variables.product.prodname_copilot_short %}.md`, `GEMINI.md`, `CODEX.md` | Repository |
+For the complete list of supported locations and details about discovery, file references, and how multiple instruction files interact, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions).
 
 #### Best practice
 
-Repository instructions **always take precedence** over global instructions. Use this to enforce team conventions. For example, this is a simple `.github/copilot-instructions.md` file.
+Avoid conflicting instructions. For example, this is a simple `.github/copilot-instructions.md` file.
 
 ```markdown
 ## Build Commands
@@ -94,7 +86,7 @@ Use `/model` to choose from available models based on your task complexity:
 
 | Model | Best For | Tradeoffs |
 | ----- | -------- | --------- |
-| **Auto** | Reduced rate limiting and lower latency and errors | See [AUTOTITLE](/copilot/concepts/auto-model-selection) |
+| **Auto** | Reduced rate limiting and lower latency and errors | See [AUTOTITLE](/copilot/concepts/models/auto-model-selection) |
 | **Claude Opus 4.5** (default) | Complex architecture, difficult debugging, nuanced refactoring | Most capable but more costly |
 | **Claude Sonnet 4.5** | Day-to-day coding, most routine tasks | Fast, cost-effective, handles most work well |
 | **GPT-5.2 Codex** | Code generation, code review, straightforward implementations | Excellent for reviewing code produced by other models |
@@ -343,7 +335,9 @@ Pair with {% data variables.copilot.copilot_cli_short %} to develop tests.
 
 ### Code review assistance
 
+* ``/security-review Review my current local changes for security issues. Prioritize high-severity findings and suggest remediations I can apply before opening a pull request.``
 * ``/review Use Opus 4.5 and Codex 5.2 to review the changes in my current branch against `main`. Focus on potential bugs and security issues.``
+* Triage high-severity findings first, validate your fixes, then continue through your normal pull request review workflow.
 
 ### Git operations
 
@@ -520,7 +514,7 @@ Here is what you will learn:
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli)
+* [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/overview)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)
 * [{% data variables.product.prodname_copilot_short %} plans and pricing](https://github.com/features/copilot/plans)

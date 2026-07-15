@@ -1,7 +1,7 @@
 ---
-title: Using your LLM provider API keys with Copilot
-shortTitle: Use your own API keys
-intro: 'Learn how to integrate your preferred custom models with {% data variables.product.prodname_copilot %} by using your own LLM API keys, and make them available to your organization members.'
+title: Enabling custom models for GitHub Copilot in your organization
+shortTitle: Enable custom models
+intro: Integrate your preferred custom models with {% data variables.product.prodname_copilot %} by using your own LLM API keys, and make them available to your organization members.
 versions:
   feature: copilot-byok
 contentType: how-tos
@@ -9,18 +9,21 @@ allowTitleToDifferFromFilename: true
 category:
   - Configure Copilot
   - Manage Copilot for a team
+redirect_from:
+  - /copilot/how-tos/administer-copilot/manage-for-organization/use-your-own-api-keys
 ---
 
 {% data reusables.copilot.byok-intro %}
-
-> [!NOTE]
-> This article covers custom models configured by organization owners. {% data variables.copilot.copilot_cli_short %} and {% data variables.product.prodname_vscode_shortname %} users can also configure their own LLM provider locally, without any administrator setup. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models) and [Add a model from a built in provider](https://code.visualstudio.com/docs/agent-customization/language-models#_add-a-model-from-a-built-in-provider) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 ## Why bring your own API keys?
 
 As an organization owner, you may have specific requirements for governance, data security, and compliance. Setting up your own API keys allows you to address:
 
 {% data reusables.copilot.byok-why %}
+
+## Prerequisites
+
+An enterprise owner must have enabled the **Enable custom models** policy.
 
 ## Adding your key to an organization account
 

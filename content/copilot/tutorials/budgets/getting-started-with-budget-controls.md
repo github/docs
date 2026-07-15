@@ -13,12 +13,6 @@ category:
 
 Under usage-based billing, your enterprise's included {% data variables.product.prodname_ai_credits_short %} are pooled and shared across all licensed users. Without budget controls in place, a single heavy user or automated agent session can consume a disproportionate share of the pool early in the billing cycle, leaving less for everyone else.
 
-<!-- expires 2026-07-01 -->
-
-This tutorial walks you through the recommended setup steps in order. Complete them as soon as usage-based billing is available for your enterprise.
-
-<!-- end expires 2026-07-01 -->
-
 Before you begin, make sure you understand how the four budget controls work and how the system evaluates them. See [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
 
 <!-- expires 2026-09-01 -->

@@ -42,7 +42,7 @@ Headers of conceptual sections in articles start with "About [subject]”.
 
 * Conceptual articles
   * [About GitHub Sponsors](/free-pro-team@latest/sponsors/getting-started-with-github-sponsors/about-github-sponsors)
-  * [About Enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)
+  * [About Enterprise accounts](/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/enterprise-accounts)
 * Conceptual sections within other articles
-  * "About security policies" in [AUTOTITLE](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)
-  * "About maintenance mode" in [AUTOTITLE](/enterprise-server@latest/admin/configuration/enabling-and-scheduling-maintenance-mode#about-maintenance-mode)
+  * "About security policies" in [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/configure-vulnerability-reporting/add-security-policy#about-security-policies)
+  * "About maintenance mode" in [AUTOTITLE](/enterprise-server@latest/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#about-maintenance-mode)

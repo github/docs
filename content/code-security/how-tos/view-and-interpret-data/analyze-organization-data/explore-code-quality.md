@@ -30,7 +30,7 @@ category:
 
 The score distribution chart provides a visual overview of the code health of your organization. Each bubble represents a collection of repositories with the same maintainability and reliability scores.
 * The **position** of each bubble demonstrates the overall health of those repositories. Higher bubbles represent higher maintainability scores, while bubbles further to the right represent higher reliability scores.
-* The **color and border pattern** of a bubble indicate the severity of the lower score for those repositories. For example, a bubble with a "Needs improvement" score in either category will always be red with a dashed border.
+* The **color and border pattern** of a bubble indicate the severity of the lower score for those repositories. For example, a bubble with a "Poor" score in either category will always be red with a dashed border.
 * The **size** of each bubble represents the number of repositories with that particular score combination.
 
 To view the maintainability score, reliability score, and number of repositories represented by a particular bubble, hover over the bubble.
