@@ -29,7 +29,7 @@ jobs:
           owner: github
           # Scope must include every repo that calls this reusable workflow, because
           # the script resolves the PR node (ITEM_NODE_ID) in the calling repo.
-          repositories: docs-internal,docs-content,docs-strategy,docs-early-access,github
+          repositories: docs-internal,docs-content,docs-strategy,docs-early-access,docs-team,github
 
       - name: Check out repo content
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0

@@ -20,15 +20,15 @@ category:
 
 {% data reusables.enterprise-licensing.unique-user-licensing-model %}
 
-{% data reusables.enterprise-licensing.about-license-sync %} For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/about-github-connect#data-transmission).
+{% data reusables.enterprise-licensing.about-license-sync %} For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/about-github-connect#data-transmission).
 
-If you enable automatic user license sync for your enterprise, every week, {% data variables.product.prodname_github_connect %} will automatically synchronize license usage between {% data variables.product.prodname_ghe_server %} and your enterprise on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %}. You can also synchronize your license data at any time outside of the automatic weekly sync, by manually triggering a license sync job. For more information, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud#triggering-a-license-sync-job).
+If you enable automatic user license sync for your enterprise, every week, {% data variables.product.prodname_github_connect %} will automatically synchronize license usage between {% data variables.product.prodname_ghe_server %} and your enterprise on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %}. You can also synchronize your license data at any time outside of the automatic weekly sync, by manually triggering a license sync job. For more information, see [AUTOTITLE](/billing/how-tos/manage-server-licenses/sync-license-usage#triggering-a-license-sync-job).
 
 If you use multiple {% data variables.product.prodname_ghe_server %} instances, you can enable automatic license sync between each of your instances and the same enterprise account on {% data variables.product.prodname_ghe_cloud %}.
 
 {% data reusables.enterprise-licensing.view-consumed-licenses %}
 
-You can also manually upload {% data variables.product.prodname_ghe_server %} user license information to {% data variables.product.prodname_ghe_cloud %}. For more information, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud).
+You can also manually upload {% data variables.product.prodname_ghe_server %} user license information to {% data variables.product.prodname_ghe_cloud %}. For more information, see [AUTOTITLE](/billing/how-tos/manage-server-licenses/sync-license-usage).
 
 {% data reusables.enterprise-licensing.verified-domains-license-sync %}
 

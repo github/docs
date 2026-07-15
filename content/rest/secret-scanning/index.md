@@ -9,6 +9,7 @@ versions:
   ghes: '*'
 children:
   - /alert-dismissal-requests
+  - /custom-patterns
   - /delegated-bypass
   - /push-protection
   - /secret-scanning

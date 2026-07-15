@@ -1,8 +1,8 @@
 ---
-title: Disabling Copilot Autofix for code scanning security alerts
-shortTitle: Disable Copilot Autofix
+title: Disabling autofix for code scanning security alerts
+shortTitle: Disable autofix
 allowTitleToDifferFromFilename: true
-intro: You can block availability of {% data variables.copilot.copilot_autofix %} for security alerts for an enterprise or disable {% data variables.copilot.copilot_autofix %} at the organization and repository level.
+intro: 'You can disable {% data variables.copilot.copilot_autofix_short %}, which also blocks agentic autofix, for an enterprise, organization, or repository.'
 product: '{% data reusables.rai.code-scanning.gated-feature-autofix %}'
 versions:
   feature: code-scanning-autofix
@@ -13,16 +13,27 @@ category:
   - Find and fix code vulnerabilities
 ---
 
-{% data reusables.rai.code-scanning.copilot-autofix-note %}
+## Disabling agentic autofix
+
+Disabling agentic autofix can be done in two ways:
+
+1. By disabling {% data variables.copilot.copilot_autofix_short %} since agentic autofix relies on the same underlying setting. For instructions, see the sections below.
+1. By opting repositories out of {% data variables.copilot.copilot_cloud_agent %}. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/access-management#opting-repositories-out-of-copilot-cloud-agent).
+
+For more information about agentic autofix, see [AUTOTITLE](/code-security/concepts/code-scanning/autofix-for-code-scanning#agentic-autofix).
+
+## Disabling {% data variables.copilot.copilot_autofix_short %}
+
+You can disable {% data variables.copilot.copilot_autofix_short %} at the enterprise, organization, or repository level.
 
 Disabling {% data variables.copilot.copilot_autofix_short %} at any level will close all open {% data variables.copilot.copilot_autofix_short %} suggestions that were added as comments on {% data variables.product.prodname_code_scanning %} alerts in pull requests. If {% data variables.copilot.copilot_autofix_short %} is later re-enabled, suggestions will only be generated for pull requests opened after that point, or after re-running {% data variables.product.prodname_code_scanning %} security analysis on existing pull requests.
 
 > [!NOTE]
 > {% data variables.copilot.copilot_autofix_short %} is an integral part of {% data variables.product.prodname_code_quality %} and will continue to run on code quality results even when it is disabled for code security results.
 
-For more information about {% data variables.copilot.copilot_autofix_short %}, see [AUTOTITLE](/code-security/concepts/code-scanning/copilot-autofix-for-code-scanning).
+For more information about {% data variables.copilot.copilot_autofix_short %}, see [AUTOTITLE](/code-security/concepts/code-scanning/autofix-for-code-scanning).
 
-## Blocking use of {% data variables.copilot.copilot_autofix_short %} for an enterprise
+### Blocking use of {% data variables.copilot.copilot_autofix_short %} for an enterprise
 
 Enterprise administrators can disallow {% data variables.copilot.copilot_autofix_short %} for security results in their enterprise. If you disallow {% data variables.copilot.copilot_autofix_short %} for an enterprise, {% data variables.copilot.copilot_autofix_short %} cannot be enabled for any organizations or repositories within the enterprise.
 
@@ -35,7 +46,7 @@ Disallowing {% data variables.copilot.copilot_autofix_short %} at the enterprise
 {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
 1. Under "{% data variables.copilot.copilot_autofix_short %}", use the dropdown menu to choose "Not allowed."
 
-## Disabling {% data variables.copilot.copilot_autofix_short %} for an organization
+### Disabling {% data variables.copilot.copilot_autofix_short %} for an organization
 
 If {% data variables.copilot.copilot_autofix_short %} is allowed at the enterprise level, organization administrators have the option to disable {% data variables.copilot.copilot_autofix_short %} for an organization. If you disable {% data variables.copilot.copilot_autofix_short %} for an organization, {% data variables.copilot.copilot_autofix_short %} cannot be enabled for any repositories within the organization.
 
@@ -48,7 +59,7 @@ Disabling {% data variables.copilot.copilot_autofix_short %} at the organization
 
 For more information about configuring global {% data variables.product.prodname_code_scanning %} settings, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#configuring-global-code-scanning-settings).
 
-## Disabling {% data variables.copilot.copilot_autofix_short %} for a repository
+### Disabling {% data variables.copilot.copilot_autofix_short %} for a repository
 
 If {% data variables.copilot.copilot_autofix_short %} is allowed at the enterprise level and enabled at the organization level, repository administrators have the option to disable {% data variables.copilot.copilot_autofix_short %} for a repository. Disabling {% data variables.copilot.copilot_autofix_short %} at the repository level will remove all open {% data variables.copilot.copilot_autofix_short %} suggestions that were added as comments on {% data variables.product.prodname_code_scanning %} alerts in pull requests across the repository.
 

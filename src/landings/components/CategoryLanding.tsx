@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import cx from 'classnames'
 import { CookBookArticleCard } from './CookBookArticleCard'
 import { CookBookFilter } from './CookBookFilter'
 import { useTranslation } from '@/languages/components/useTranslation'
@@ -10,7 +9,6 @@ import { Lead } from '@/frame/components/ui/Lead'
 import { useCategoryLandingContext } from '@/frame/components/context/CategoryLandingContext'
 import { ClientSideRedirects } from '@/rest/components/ClientSideRedirects'
 import { RestRedirect } from '@/rest/components/RestRedirect'
-import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
 import { ArticleCardItems } from '@/landings/types'
 import { UtmPreserver } from '@/frame/components/UtmPreserver'
 
@@ -121,9 +119,6 @@ export const CategoryLanding = () => {
       <ClientSideRedirects />
 
       <div className="container-xl px-3 px-md-6 my-4" data-search="article-body">
-        <div className={cx('d-none d-xl-block mt-3 mr-auto width-full')}>
-          <Breadcrumbs />
-        </div>
         <ArticleTitle>{title}</ArticleTitle>
         {intro && <Lead data-search="lead">{intro}</Lead>}
 

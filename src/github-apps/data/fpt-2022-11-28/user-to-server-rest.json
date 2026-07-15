@@ -1913,37 +1913,37 @@
   ],
   "classroom": [
     {
-      "slug": "get-an-assignment",
+      "slug": "closing-down---get-an-assignment",
       "subcategory": "classroom",
       "verb": "get",
       "requestPath": "/assignments/{assignment_id}"
     },
     {
-      "slug": "list-accepted-assignments-for-an-assignment",
+      "slug": "closing-down---list-accepted-assignments-for-an-assignment",
       "subcategory": "classroom",
       "verb": "get",
       "requestPath": "/assignments/{assignment_id}/accepted_assignments"
     },
     {
-      "slug": "get-assignment-grades",
+      "slug": "closing-down---get-assignment-grades",
       "subcategory": "classroom",
       "verb": "get",
       "requestPath": "/assignments/{assignment_id}/grades"
     },
     {
-      "slug": "list-classrooms",
+      "slug": "closing-down---list-classrooms",
       "subcategory": "classroom",
       "verb": "get",
       "requestPath": "/classrooms"
     },
     {
-      "slug": "get-a-classroom",
+      "slug": "closing-down---get-a-classroom",
       "subcategory": "classroom",
       "verb": "get",
       "requestPath": "/classrooms/{classroom_id}"
     },
     {
-      "slug": "list-assignments-for-a-classroom",
+      "slug": "closing-down---list-assignments-for-a-classroom",
       "subcategory": "classroom",
       "verb": "get",
       "requestPath": "/classrooms/{classroom_id}/assignments"
@@ -5989,6 +5989,30 @@
       "requestPath": "/orgs/{org}/secret-scanning/alerts"
     },
     {
+      "slug": "list-organization-custom-patterns",
+      "subcategory": "custom-patterns",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/secret-scanning/custom-patterns"
+    },
+    {
+      "slug": "bulk-create-organization-custom-patterns",
+      "subcategory": "custom-patterns",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/secret-scanning/custom-patterns"
+    },
+    {
+      "slug": "bulk-delete-organization-custom-patterns",
+      "subcategory": "custom-patterns",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/secret-scanning/custom-patterns"
+    },
+    {
+      "slug": "update-an-organization-custom-pattern",
+      "subcategory": "custom-patterns",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/secret-scanning/custom-patterns/{pattern_id}"
+    },
+    {
       "slug": "list-organization-pattern-configurations",
       "subcategory": "push-protection",
       "verb": "get",
@@ -6023,6 +6047,30 @@
       "subcategory": "secret-scanning",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}/locations"
+    },
+    {
+      "slug": "list-repository-custom-patterns",
+      "subcategory": "custom-patterns",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/secret-scanning/custom-patterns"
+    },
+    {
+      "slug": "bulk-create-repository-custom-patterns",
+      "subcategory": "custom-patterns",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/secret-scanning/custom-patterns"
+    },
+    {
+      "slug": "bulk-delete-repository-custom-patterns",
+      "subcategory": "custom-patterns",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/secret-scanning/custom-patterns"
+    },
+    {
+      "slug": "update-a-repository-custom-pattern",
+      "subcategory": "custom-patterns",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/secret-scanning/custom-patterns/{pattern_id}"
     },
     {
       "slug": "create-a-push-protection-bypass",

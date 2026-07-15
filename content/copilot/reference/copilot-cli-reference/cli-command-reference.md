@@ -193,6 +193,8 @@ When diff mode is open (entered via `/diff`):
 
 ## Slash commands in the interactive interface
 
+These are the slash commands you can use from within an interactive CLI session. A subset of these slash commands is available to clients that use the CLI via its ACP server. For more information, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/acp-server).
+
 | Command                                             | Purpose |
 |-----------------------------------------------------|---------|
 | `/add-dir PATH`                                     | Add a directory to the allowed list for file access. |
@@ -244,7 +246,7 @@ When diff mode is open (entered via `/diff`):
 | `/rubber-duck [PROMPT]`                             | Consult the rubber duck agent for a second opinion on plans, code, and tests. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/rubber-duck). |
 | `/sandbox [enable\|disable]`                        | Enable, disable, or configure OS-level sandboxing that restricts filesystem and network access for shell commands, MCP/LSP servers, and built-in file/web tools. Run `/sandbox` with no arguments to open the policy dialog. |
 | `/search [QUERY]`, `/find [QUERY]`                  | Search the conversation timeline. {% data reusables.copilot.experimental %} |
-| `/security-review [PROMPT]`                         | Run the security review agent to analyze changes for vulnerabilities. |
+| `/security-review [PROMPT]`                         | Run a focused security review of active local code changes and return prioritized vulnerability findings with remediation suggestions. This command is not a full repository security audit. |
 | `/session [info\|checkpoints [n]\|files\|plan\|rename [NAME]\|cleanup\|prune\|delete [ID]\|delete-all]`, `/sessions [info\|checkpoints [n]\|files\|plan\|rename [NAME]\|cleanup\|prune\|delete [ID]\|delete-all]`  | Show session information and manage sessions. The `info` subcommand shows session details including the session link (when available). Subcommands: `info`, `checkpoints`, `files`, `plan`, `rename`, `cleanup`, `prune`, `delete`, `delete-all`. |
 | `/settings [show KEY\|KEY\|KEY VALUE]`,<br>`/config [show KEY\|KEY\|KEY VALUE]` | Open the settings editor, open it focused on a specific setting (`KEY`), set a setting inline (`KEY VALUE`), or display a setting's current value (`show KEY`). See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/change-settings). |
 | `/share [file\|html\|gist] [session\|research] [PATH]`, `/export [file\|html\|gist] [session\|research] [PATH]` | Share the session to a Markdown file, interactive HTML file, or {% data variables.product.github %} gist. |
