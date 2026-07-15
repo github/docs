@@ -28,14 +28,14 @@ contentType: tutorials
 
 This tutorial leads you through how to use the `GITHUB_TOKEN` for authentication in {% data variables.product.prodname_actions %} workflows, including examples for passing the token to actions, making API requests, and configuring permissions for secure automation.
 
-For reference information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#permissions).
+For reference information, see [pathum25](/actions/reference/workflows-and-actions/workflow-syntax#permissions).
 
 ## Using the `GITHUB_TOKEN` in a workflow
 
 You can use the `GITHUB_TOKEN` by using the standard syntax for referencing secrets: {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}. Examples of using the `GITHUB_TOKEN` include passing the token as an input to an action, or using it to make an authenticated {% data variables.product.github %} API request.
 
 > [!IMPORTANT]
-> An action can access the `GITHUB_TOKEN` through the `github.token` context even if the workflow does not explicitly pass the `GITHUB_TOKEN` to the action. As a good security practice, you should always make sure that actions only have the minimum access they require by limiting the permissions granted to the `GITHUB_TOKEN`. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#permissions).
+> An action can access the `GITHUB_TOKEN` through the `github.token` context even if the workflow does not explicitly pass the `GITHUB_TOKEN` to the action. As a good security practice, you should always make sure that actions only have the minimum access they require by limiting the permissions granted to the `GITHUB_TOKEN`. For more information, see [pathum25](/actions/reference/workflows-and-actions/workflow-syntax#permissions).
 
 ### Example 1: passing the `GITHUB_TOKEN` as an input
 
