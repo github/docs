@@ -41,7 +41,7 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       - uses: ./.github/actions/node-npm-setup
 
-      - name: Set APP_URL
+      - name: Set APP_URL 
         run: |
           if [[ "${{ github.repository }}" == "github/docs-internal" ]]; then
             echo "APP_URL=https://docs-internal-staging-TREE.githubapp.com/en" >> $GITHUB_ENV
@@ -59,7 +59,7 @@ jobs:
         id: changes
         timeout-minutes: 30
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{593a7f190a2e79ae46b44e3789fbe341ec31d053N}}
           APP_URL: ${{ env.APP_URL }}
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
