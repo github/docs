@@ -22,7 +22,7 @@ This works with any MCP-compatible agent or IDE, including {% data variables.pro
 ## Prerequisites
 
 * **{% data variables.product.prodname_GH_secret_protection %}** is enabled for the repository.
-* **{% data variables.product.github %} MCP server** is connected in your IDE or agent. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/set-up-the-github-mcp-server).
+* **{% data variables.product.github %} MCP server** is connected in your IDE or agent. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/set-up-the-github-mcp-server).
 * Your organization's **security configuration** determines which secret types are detected and whether push protection is enforced. The MCP tools respect your organization's push protection configuration (repository-level push protection settings are not used).
 
 ## Step 1:  Install and configure tools
@@ -135,7 +135,7 @@ The agent returns:
 * The **file and line** where it was detected
 * **Remediation steps**, such as removing or rotating the credential
 
-If push protection is enabled, the MCP server also blocks secrets from being included in any actions it takes on your behalf, such as commits, pull requests, or the creation of files. See [AUTOTITLE](/code-security/concepts/secret-security/working-with-push-protection-and-the-github-mcp-server).
+If push protection is enabled, the MCP server also blocks secrets from being included in any actions it takes on your behalf, such as commits, pull requests, or the creation of files. See [AUTOTITLE](/code-security/concepts/secret-security/push-protection-and-the-github-mcp-server).
 
 ## Troubleshooting
 

@@ -31,12 +31,12 @@ If {% data variables.product.prodname_github_connect %} is configured for your e
 * The filter for two-factor authentication (2FA) status does not show people who only have an account on a {% data variables.product.prodname_ghe_server %} instance.
 * If you combine the filter for accounts on {% data variables.product.prodname_ghe_server %} instances with either the filter for organizations or 2FA status, you will not see any results.
 
-For more information about {% data variables.product.prodname_github_connect %}, see [AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-github-connect/about-github-connect) in the {% data variables.product.prodname_ghe_server %} documentation.
+For more information about {% data variables.product.prodname_github_connect %}, see [AUTOTITLE](/enterprise-server@latest/admin/configuring-settings/configuring-github-connect/about-github-connect) in the {% data variables.product.prodname_ghe_server %} documentation.
 
 {% endif %}
 
 {% ifversion enterprise-member-csv %}
-You can also export membership information for your enterprise. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise).
+You can also export membership information for your enterprise. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise).
 {% endif %}
 
 ## Viewing enterprise administrators
@@ -44,10 +44,10 @@ You can also export membership information for your enterprise. For more informa
 You can view all the current enterprise owners{% ifversion ghec %} and billing managers{% endif %} for your enterprise. You can see useful information about each administrator{% ifversion ghec %} and filter the list by role{% endif %}. You can find a specific person by searching for their username or display name.
 
 {% ifversion ghes %}
-Enterprise owners whose accounts are suspended are included in the list of enterprise administrators, and are identified as suspended. You should consider demoting any suspended owners you see. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator#demoting-a-site-administrator-from-the-enterprise-settings).
+Enterprise owners whose accounts are suspended are included in the list of enterprise administrators, and are identified as suspended. You should consider demoting any suspended owners you see. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator#demoting-a-site-administrator-from-the-enterprise-settings).
 {% endif %}
 
-You can also remove an administrator. For more information. see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#removing-an-enterprise-administrator-from-your-enterprise-account).
+You can also remove an administrator. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#removing-an-enterprise-administrator-from-your-enterprise-account).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
@@ -60,23 +60,23 @@ You can see all the current members for your enterprise. You can see useful info
 You can find a specific person by searching for the person's username or display name. To view more information about the person's access to your enterprise, such as the organizations the person belongs to, you can select the person's name.
 
 {% ifversion remove-enterprise-members %}
-You can also remove any enterprise member from all organizations owned by the enterprise. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise).
+You can also remove any enterprise member from all organizations owned by the enterprise. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise).
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% ifversion enterprise-member-csv %}
-1. Optionally, to export the list of members as a CSV report, select **CSV report**. For more information about the information included in the report, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise).{% endif %}
+1. Optionally, to export the list of members as a CSV report, select **CSV report**. For more information about the information included in the report, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise).{% endif %}
 
 ### About the membership overview
 
-On the "Members" page, you will find an overview of the number of members in your enterprise, grouped by role{% ifversion ghec %}, type of license consumed, and the type of deployment the member is on. The following sections explain how the numbers in this overview are calculated.
+On the "Members" page, you will find an overview of the number of members in your enterprise, grouped by role{% ifversion ghec %}, type of license consumed, and the type of deployment the member is on{% endif %}. The following sections explain how the numbers in this overview are calculated.
 
-If your enterprise uses both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}, to get accurate data about your members and licenses across your deployments, you will need to enable {% data variables.product.prodname_github_connect %} and synchronize license usage. For more information, see [AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-github-connect/about-github-connect) in the {% data variables.product.prodname_ghe_server %} documentation.
+If your enterprise uses both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}, to get accurate data about your members and licenses across your deployments, you will need to enable {% data variables.product.prodname_github_connect %} and synchronize license usage. For more information, see [AUTOTITLE](/enterprise-server@latest/admin/configuring-settings/configuring-github-connect/about-github-connect) in the {% data variables.product.prodname_ghe_server %} documentation.
 
 #### Roles
 
-The "Roles" column groups members by their role in the enterprise{% endif %}. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise).
+The "Roles" column groups members by their role in the enterprise. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/abilities-of-roles).
 
 If a user has multiple roles in an enterprise, the user is counted once for each role. For example, if the same user is a member of three organizations and an owner of two organizations, the user counts once towards "Organization member" and once towards "Organization owner."
 
@@ -86,11 +86,11 @@ An "outside collaborator" is a user who has access to a repository in an organiz
 
 #### User licenses consumed
 
-The "User licenses consumed" column shows you how licenses are consumed in your enterprise. For more information, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise).
+The "User licenses consumed" column shows you how licenses are consumed in your enterprise. For more information, see [AUTOTITLE](/billing/concepts/enterprise-billing/combined-enterprise-use).
 
 If there are outside collaborators in your enterprise, the "total consumed" number of licenses may be larger than the number of people listed for your enterprise. An outside collaborator consumes a license, but is not counted in the total member count displayed next to "people in YOUR-ENTERPRISE". A pending invitation to an outside collaborator also consumes a license, but is not counted in the "By invitations" count in the overview.
 
-For more information about how license usage is calculated across deployments, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise#about-the-calculation-of-consumed-licenses).
+For more information about how license usage is calculated across deployments, see [AUTOTITLE](/billing/how-tos/troubleshooting/enterprise-license-usage#about-the-calculation-of-consumed-licenses).
 
 #### Deployment
 
@@ -107,7 +107,7 @@ You may be able to view the email addresses for members of your enterprise on ei
 
 * If you use {% data variables.product.prodname_emus %} and the `NameID` for your SAML configuration is an email address, you can view the `NameID` for each of your enterprise members.
 
-* If you verify a domain for your enterprise, you can view members' email addresses for the verified domain. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise).
+* If you verify a domain for your enterprise, you can view members' email addresses for the verified domain. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise).
 
   > [!NOTE]
   > Email addresses for verified domains are not returned in a guaranteed order. If a member has email addresses for multiple verified domains, old or stale email addresses may remain after an IdP change. The list of verified domain email addresses cannot reliably identify the member's canonical or current corporate email address.
@@ -116,15 +116,15 @@ You may be able to view the email addresses for members of your enterprise on ei
 
 If you use {% data variables.product.prodname_emus %}, verify a domain, or configure SAML SSO for your enterprise, you may be able to view the email addresses in one or more of the following ways.
 
-1. On your SAML Identity Provider (IdP), review the email addresses of users with access to your enterprise. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam).
+1. On your SAML Identity Provider (IdP), review the email addresses of users with access to your enterprise. For more information, see [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/about-saml-for-enterprise-iam).
 1. Export the membership report for your enterprise on {% data variables.product.prodname_dotcom %}. The report may contain the user's email address, stored as the following values.
 
-   * `GitHub com saml name`: The `NameID` from the user's linked SAML identity, which is typically the user's email address (for more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference))
-   * `GitHub com verified domain emails`: Email addresses for any verified domains (for more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise))
+   * `GitHub com saml name`: The `NameID` from the user's linked SAML identity, which is typically the user's email address (for more information, see [AUTOTITLE](/admin/managing-iam/iam-configuration-reference/saml-configuration-reference))
+   * `GitHub com verified domain emails`: Email addresses for any verified domains (for more information, see [AUTOTITLE](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise))
 
      The `GitHub com verified domain emails` value is unordered. Emails may be returned in a non-deterministic order, and you cannot request priority, sorting, or filtering for the user's current email address.
 
-   For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise).
+   For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise).
 {% data reusables.saml.use-api-to-get-externalidentity %}
 
 {% endif %}
@@ -150,7 +150,7 @@ In the list of pending members, for any individual account, you can cancel all i
 > [!NOTE]
 > If an invitation was provisioned via SCIM, you must cancel the invitation via your identity provider (IdP) instead of on {% data variables.product.prodname_dotcom %}.
 
-If you use {% data variables.visual_studio.prodname_vss_ghe %}, the list of pending invitations includes all {% data variables.product.prodname_vs %} subscribers that haven't joined any of your organizations on {% data variables.product.prodname_dotcom %}, even if the subscriber does not have a pending invitation to join an organization. For more information about how to get {% data variables.product.prodname_vs %} subscribers access to {% data variables.product.prodname_enterprise %}, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise).
+If you use {% data variables.visual_studio.prodname_vss_ghe %}, the list of pending invitations includes all {% data variables.product.prodname_vs %} subscribers that haven't joined any of your organizations on {% data variables.product.prodname_dotcom %}, even if the subscriber does not have a pending invitation to join an organization. For more information about how to get {% data variables.product.prodname_vs %} subscribers access to {% data variables.product.prodname_enterprise %}, see [AUTOTITLE](/billing/how-tos/set-up-payment/set-up-vs-subscription).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
@@ -175,11 +175,11 @@ If your enterprise uses {% ifversion ghec %}{% data variables.product.prodname_e
 
 ## Viewing dormant users
 
-You can view a list of all dormant users {% ifversion ghes %} who have not been suspended and {% endif %}who are not site administrators. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users).
+You can view a list of all dormant users {% ifversion ghes %} who have not been suspended and {% endif %}who are not site administrators. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-dormant-users).
 
 ## Filtering by member type{% ifversion ghec %} in an {% data variables.enterprise.prodname_emu_enterprise %}{% endif %}
 
-{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, you{% elsif ghes %}You{% endif %} can filter the member list of an organization by type to determine if memberships are managed through an IdP or managed directly. Memberships managed through an IdP were added through an IdP group, and the IdP group was connected to a team within the organization. Memberships managed directly were added to the organization manually. The way a membership is managed in an organization determines how it must be removed. You can use this filter to determine how members were added to an organization, so you know how to remove them.{% ifversion ghec %} For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#about-organization-membership-management).{% endif %}
+{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, you{% elsif ghes %}You{% endif %} can filter the member list of an organization by type to determine if memberships are managed through an IdP or managed directly. Memberships managed through an IdP were added through an IdP group, and the IdP group was connected to a team within the organization. Memberships managed directly were added to the organization manually. The way a membership is managed in an organization determines how it must be removed. You can use this filter to determine how members were added to an organization, so you know how to remove them.{% ifversion ghec %} For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/identity-and-access-management/enterprise-managed-users#about-organization-membership-management).{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 1. Under "Organizations", in the search bar, begin typing the organization's name until it appears in the search results.
@@ -254,4 +254,4 @@ You can see which people in your enterprise have enabled two-factor authenticati
 
 ## Further reading
 
-* [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
+* [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/abilities-of-roles)

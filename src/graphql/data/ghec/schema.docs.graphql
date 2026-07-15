@@ -385,6 +385,12 @@ input AddAssigneesToAssignableInput {
     )
 
   """
+  An array of actors to add as assignees, each with optional rationale or
+  suggest flag. Mutually exclusive with `assigneeIds`.
+  """
+  assignees: [AssigneeUpdateInput!]
+
+  """
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
@@ -658,6 +664,12 @@ input AddLabelsToLabelableInput {
   The id of the labelable object to add labels to.
   """
   labelableId: ID! @possibleTypes(concreteTypes: ["Discussion", "Issue", "PullRequest"], abstractType: "Labelable")
+
+  """
+  The labels to add, each with optional `rationale` or a `suggest` flag that
+  stores the addition as a pending suggestion. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 }
 
 """
@@ -1967,6 +1979,35 @@ type AssigneeEdge {
   The item at the end of the edge.
   """
   node: Assignee
+}
+
+"""
+Specifies an actor (user or bot) to assign to an issue, with optional metadata such as a rationale.
+"""
+input AssigneeUpdateInput @docsCategory(name: "issues") {
+  """
+  The ID of the actor (user or bot) to assign.
+  """
+  actorId: ID!
+    @possibleTypes(
+      concreteTypes: ["Bot", "EnterpriseUserAccount", "Mannequin", "Organization", "User"]
+      abstractType: "Actor"
+    )
+
+  """
+  The confidence level the agent had when selecting this value.
+  """
+  confidence: IssueEventConfidenceLevel
+
+  """
+  Optional rationale describing why this value was selected. Max 280 characters.
+  """
+  rationale: String
+
+  """
+  If true, the value is stored as a pending suggestion for human review rather than being applied directly.
+  """
+  suggest: Boolean
 }
 
 """
@@ -4848,14 +4889,29 @@ input CloseIssueInput {
   clientMutationId: String
 
   """
+  The confidence level the agent had when suggesting this close. Only meaningful when isSuggestion is true.
+  """
+  confidence: IssueEventConfidenceLevel
+
+  """
   ID of the issue that this is a duplicate of.
   """
   duplicateIssueId: ID @possibleTypes(concreteTypes: ["Issue"])
 
   """
+  If true, the close action is stored as a pending suggestion for human review rather than being applied directly.
+  """
+  isSuggestion: Boolean
+
+  """
   ID of the issue to be closed.
   """
   issueId: ID! @possibleTypes(concreteTypes: ["Issue"])
+
+  """
+  Optional rationale describing why the issue should be closed. Max 280 characters.
+  """
+  rationale: String
 
   """
   The reason the issue is to be closed.
@@ -21147,6 +21203,26 @@ type IssueEdge {
 }
 
 """
+The confidence level associated with an agent's issue event action.
+"""
+enum IssueEventConfidenceLevel @docsCategory(name: "issues") {
+  """
+  High confidence.
+  """
+  HIGH
+
+  """
+  Low confidence.
+  """
+  LOW
+
+  """
+  Medium confidence.
+  """
+  MEDIUM
+}
+
+"""
 Represents a 'issue_field_added' event on a given issue.
 """
 type IssueFieldAddedEvent implements Node @docsCategory(name: "issues") {
@@ -21281,6 +21357,11 @@ Represents an issue field value that must be set on an issue during issue creati
 """
 input IssueFieldCreateOrUpdateInput @docsCategory(name: "issues") {
   """
+  The confidence level the agent had when selecting this value.
+  """
+  confidence: IssueEventConfidenceLevel
+
+  """
   The date value, for a date field
   """
   dateValue: String
@@ -21306,9 +21387,19 @@ input IssueFieldCreateOrUpdateInput @docsCategory(name: "issues") {
   numberValue: Float
 
   """
+  Optional rationale describing why this value was selected. Max 280 characters.
+  """
+  rationale: String
+
+  """
   The ID of the selected option, for a single select field
   """
   singleSelectOptionId: ID
+
+  """
+  If true, the value is stored as a pending suggestion for human review rather than being applied directly.
+  """
+  suggest: Boolean
 
   """
   The text value, for a text field
@@ -22965,6 +23056,31 @@ type IssueTypeRemovedEvent implements Node @docsCategory(name: "issues") {
 }
 
 """
+Specifies an Issue Type to set on an issue, with optional metadata such as a rationale.
+"""
+input IssueTypeUpdateInput @docsCategory(name: "issues") {
+  """
+  The confidence level the agent had when selecting this value.
+  """
+  confidence: IssueEventConfidenceLevel
+
+  """
+  The ID of the Issue Type to set on this issue. Pass null to clear the issue type.
+  """
+  issueTypeId: ID
+
+  """
+  Optional rationale describing why this value was selected. Max 280 characters.
+  """
+  rationale: String
+
+  """
+  If true, the value is stored as a pending suggestion for human review rather than being applied directly.
+  """
+  suggest: Boolean
+}
+
+"""
 Represents a user signing up for a GitHub account.
 """
 type JoinedGitHubContribution implements Contribution @docsCategory(name: "users") {
@@ -23219,6 +23335,31 @@ enum LabelOrderField @docsCategory(name: "issues") {
   Order labels by name
   """
   NAME
+}
+
+"""
+Specifies a Label to set on an issue, with optional metadata such as a rationale.
+"""
+input LabelUpdateInput @docsCategory(name: "issues") {
+  """
+  The confidence level the agent had when selecting this value.
+  """
+  confidence: IssueEventConfidenceLevel
+
+  """
+  The ID of the Label.
+  """
+  labelId: ID! @possibleTypes(concreteTypes: ["Label"])
+
+  """
+  Optional rationale describing why this value was selected. Max 280 characters.
+  """
+  rationale: String
+
+  """
+  If true, the value is stored as a pending suggestion for human review rather than being applied directly.
+  """
+  suggest: Boolean
 }
 
 """
@@ -49107,6 +49248,12 @@ input ReplaceActorsForAssignableInput {
   assignableId: ID! @possibleTypes(concreteTypes: ["Issue", "PullRequest"], abstractType: "Assignable")
 
   """
+  An array of actors to set as assignees, each with optional rationale or
+  suggest flag. Mutually exclusive with `actorIds` and `actorLogins`.
+  """
+  assignees: [AssigneeUpdateInput!]
+
+  """
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
@@ -68253,6 +68400,12 @@ input UpdateIssueInput {
     )
 
   """
+  An array of actors to assign to this issue, each with optional rationale or
+  suggest flag. Mutually exclusive with `assigneeIds`.
+  """
+  assignees: [AssigneeUpdateInput!]
+
+  """
   The body for the issue description.
   """
   body: String
@@ -68268,6 +68421,11 @@ input UpdateIssueInput {
   id: ID! @possibleTypes(concreteTypes: ["Issue"])
 
   """
+  The Issue Type to set on this issue, with optional rationale. Mutually exclusive with `issueTypeId`.
+  """
+  issueType: IssueTypeUpdateInput
+
+  """
   The ID of the Issue Type for this issue.
   """
   issueTypeId: ID
@@ -68276,6 +68434,11 @@ input UpdateIssueInput {
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!] @possibleTypes(concreteTypes: ["Label"])
+
+  """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 
   """
   The Node ID of the milestone for this issue.

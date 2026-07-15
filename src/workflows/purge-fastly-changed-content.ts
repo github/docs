@@ -53,10 +53,14 @@ const PURGE_THROTTLE_MS = 150
 // many times before giving up on it.
 const PURGE_MAX_RATE_LIMIT_RETRIES = 5
 
-// Backoff bounds used when a 429 response carries no usable Retry-After /
-// Fastly-RateLimit-Reset hint. Exponential from BASE, capped at MAX. MAX also
-// caps any server-provided delay so a worker can't hang for the full rate-limit
-// window (up to an hour) on a single URL.
+// Backoff bounds for retrying a rate-limited (429) purge. Additive (linear)
+// growth from BASE per attempt, capped at MAX. Fastly's rate-limit window resets
+// on the order of a second, so a URL just needs to wait for the next window, not
+// escalate exponentially toward a minutes-long wait. This backoff also acts as a
+// floor under any server-provided hint (see rateLimitDelayMs): a hint that
+// resolves to ~0 must not collapse the retry to 0ms. MAX also caps any
+// server-provided delay so a worker can't hang for the full rate-limit window
+// (up to an hour) on a single URL.
 const PURGE_RATE_LIMIT_BASE_DELAY_MS = 1000
 const PURGE_RATE_LIMIT_MAX_DELAY_MS = 30_000
 
@@ -74,28 +78,42 @@ function sleep(ms: number): Promise<void> {
 
 // How long to wait before retrying a rate-limited (429) purge. Prefers Fastly's
 // own hints (Retry-After in seconds or as an HTTP date; else Fastly-RateLimit-
-// Reset as a Unix timestamp), falling back to exponential backoff with jitter.
-// The result is clamped to [0, PURGE_RATE_LIMIT_MAX_DELAY_MS].
+// Reset as a Unix timestamp), but floors that hint at the additive backoff so a
+// stale or current-second reset (which computes to <= 0) can't produce a 0ms
+// retry that just re-hammers the limiter. Jitter is always added to decorrelate
+// concurrent workers that saw the same reset timestamp. The result is clamped to
+// [0, PURGE_RATE_LIMIT_MAX_DELAY_MS].
 export function rateLimitDelayMs(response: Response, attempt: number): number {
   const clamp = (ms: number) => Math.min(Math.max(0, ms), PURGE_RATE_LIMIT_MAX_DELAY_MS)
 
+  const backoff = PURGE_RATE_LIMIT_BASE_DELAY_MS * (attempt + 1)
+  const hintMs = serverRetryHintMs(response) ?? 0
+  const jitter = Math.floor(Math.random() * PURGE_THROTTLE_MS)
+
+  // Honor the larger of Fastly's hint and our backoff floor, then always add
+  // jitter so concurrent workers that saw the same reset timestamp don't wake in
+  // lockstep and re-burst.
+  return clamp(Math.max(hintMs, backoff) + jitter)
+}
+
+// Fastly's suggested wait from a 429 response, in ms, or null if it sends no
+// usable hint. Can be negative (stale) or zero; callers must floor it.
+function serverRetryHintMs(response: Response): number | null {
   const retryAfter = response.headers.get('retry-after')
   if (retryAfter) {
     const seconds = Number(retryAfter)
-    if (Number.isFinite(seconds)) return clamp(seconds * 1000)
+    if (Number.isFinite(seconds)) return seconds * 1000
     const dateMs = Date.parse(retryAfter)
-    if (!Number.isNaN(dateMs)) return clamp(dateMs - Date.now())
+    if (!Number.isNaN(dateMs)) return dateMs - Date.now()
   }
 
   const reset = response.headers.get('fastly-ratelimit-reset')
   if (reset) {
     const resetSeconds = Number(reset)
-    if (Number.isFinite(resetSeconds)) return clamp(resetSeconds * 1000 - Date.now())
+    if (Number.isFinite(resetSeconds)) return resetSeconds * 1000 - Date.now()
   }
 
-  const backoff = PURGE_RATE_LIMIT_BASE_DELAY_MS * 2 ** attempt
-  const jitter = Math.floor(Math.random() * PURGE_THROTTLE_MS)
-  return clamp(backoff + jitter)
+  return null
 }
 
 type ChangedFile = {
@@ -218,7 +236,11 @@ async function loadEnglishPermalinkIndex(): Promise<Map<string, string[]>> {
 // scoped) and uses only the Fastly-Key. Omitting the soft-purge header makes it
 // a hard purge: the object is evicted, so the next request is a fresh miss.
 // https://www.fastly.com/documentation/reference/api/purging/#purge-a-url
-async function hardPurgeUrl(url: string, fastlyToken: string): Promise<void> {
+async function hardPurgeUrl(
+  url: string,
+  fastlyToken: string,
+  rateLimitDelayFn: (response: Response, attempt: number) => number = rateLimitDelayMs,
+): Promise<void> {
   const withoutScheme = url.replace(/^https?:\/\//, '')
   for (let attempt = 0; ; attempt++) {
     const response = await fetchWithRetry(
@@ -237,7 +259,7 @@ async function hardPurgeUrl(url: string, fastlyToken: string): Promise<void> {
     // Fastly rate limit. fetchWithRetry doesn't retry 429 when throwHttpErrors
     // is false, so back off and retry the URL ourselves, honoring Fastly's hint.
     if (response.status === 429 && attempt < PURGE_MAX_RATE_LIMIT_RETRIES) {
-      const waitMs = rateLimitDelayMs(response, attempt)
+      const waitMs = rateLimitDelayFn(response, attempt)
       console.warn(
         `Fastly rate-limited purge of ${url}; retrying in ${waitMs}ms (attempt ${
           attempt + 1
@@ -270,6 +292,7 @@ export async function hardPurgeUrls(
   concurrency = PURGE_CONCURRENCY,
   throttleMs = PURGE_THROTTLE_MS,
   budgetMs = PURGE_TIME_BUDGET_MS,
+  rateLimitDelayFn: (response: Response, attempt: number) => number = rateLimitDelayMs,
 ): Promise<void> {
   const queue = [...urls]
   const errors: Error[] = []
@@ -290,7 +313,7 @@ export async function hardPurgeUrls(
       if (!url) break
       try {
         console.log(`Hard-purging ${url}`)
-        await hardPurgeUrl(url, fastlyToken)
+        await hardPurgeUrl(url, fastlyToken, rateLimitDelayFn)
       } catch (error) {
         console.error(error)
         errors.push(error instanceof Error ? error : new Error(String(error)))

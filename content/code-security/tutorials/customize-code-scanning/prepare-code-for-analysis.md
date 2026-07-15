@@ -34,7 +34,7 @@ Before you analyze your code using {% data variables.product.prodname_codeql %},
 
 Before you generate a {% data variables.product.prodname_codeql %} database, you need to:
 
-1. Install and set up the {% data variables.product.prodname_codeql_cli %}. For more information, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli).
+1. Install and set up the {% data variables.product.prodname_codeql_cli %}. For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-the-command-line/set-up-codeql-cli).
 1. Check out the code that you want to analyze:
    * For a branch, check out the head of the branch that you want to analyze.
    * For a pull request, check out either the head commit of the pull request, or check out a {% data variables.product.prodname_dotcom %}-generated merge commit of the pull request.
@@ -59,9 +59,9 @@ You must specify:
     {% data reusables.code-scanning.codeql-language-identifiers-table %}
 
     > [!NOTE]
-    > If you specify one of the alternative identifiers, this is equivalent to using the standard language identifier. For example, specifying `javascript` instead of `javascript-typescript` will not exclude analysis of TypeScript code. Instead, you can use the `--codescanning-config` CLI option to load a configuration file that specifies files to exclude with the `paths-ignore` configuration key. See [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#custom-configuration-files).
+    > If you specify one of the alternative identifiers, this is equivalent to using the standard language identifier. For example, specifying `javascript` instead of `javascript-typescript` will not exclude analysis of TypeScript code. Instead, you can use the `--codescanning-config` CLI option to load a configuration file that specifies files to exclude with the `paths-ignore` configuration key. See [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options#custom-configuration-files).
     >
-    > Alternatively, for languages that support it, use a custom build command that only builds the files that you want to scan. See [Creating databases for compiled languages](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis#creating-databases-for-compiled-languages).
+    > Alternatively, for languages that support it, use a custom build command that only builds the files that you want to scan. See [Creating databases for compiled languages](/code-security/tutorials/customize-code-scanning/prepare-code-for-analysis#creating-databases-for-compiled-languages).
 
 If your codebase has a build command or script that invokes the build process, we recommend that you specify it as well:
 
@@ -79,16 +79,16 @@ You can specify additional options depending on the location of your source file
 | `<database>` | {% octicon "check" aria-label="Required" %} | Specify the name and location of a directory to create for the {% data variables.product.prodname_codeql %} database. The command will fail if you try to overwrite an existing directory. If you also specify `--db-cluster`, this is the parent directory and a subdirectory is created for each language analyzed. |
 | <code><span style="white-space: nowrap;">--language</span></code> | {% octicon "check" aria-label="Required" %} | Specify the identifier for the language to create a database for, one of: {% data reusables.code-scanning.codeql-languages-keywords %}. When used with <code><span style="white-space: nowrap;">--db-cluster</span></code>, the option accepts a comma-separated list, or can be specified more than once. |
 | <code><span style="white-space: nowrap;">--command</span></code> | {% octicon "x" aria-label="Optional" %} | **Recommended.** Use to specify the build command or script that invokes the build process for the codebase. Commands are run from the current folder or, where it is defined, from <code><span style="white-space: nowrap;">--source-root</span></code>. Not needed for Python and JavaScript/TypeScript analysis. |
-| <code><span style="white-space: nowrap;">--build-mode</span></code> | {% octicon "x" aria-label="Optional" %} | **Recommended.** Use for {% data variables.code-scanning.no_build_support %} when not providing a `--command` to specify whether to create a CodeQL database without a build (`none`) or by attempting to automatically detect a build command (`autobuild`). By default, autobuild detection is used. For a comparison of build modes, see [CodeQL build modes](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes). |
+| <code><span style="white-space: nowrap;">--build-mode</span></code> | {% octicon "x" aria-label="Optional" %} | **Recommended.** Use for {% data variables.code-scanning.no_build_support %} when not providing a `--command` to specify whether to create a CodeQL database without a build (`none`) or by attempting to automatically detect a build command (`autobuild`). By default, autobuild detection is used. For a comparison of build modes, see [CodeQL build modes](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/codeql-for-compiled-languages#codeql-build-modes). |
 | <code><span style="white-space: nowrap;">--db-cluster</span></code> | {% octicon "x" aria-label="Optional" %} | Use in multi-language codebases to generate one database for each language specified by <code><span style="white-space: nowrap;">--language</span></code>. |
 | <code><span style="white-space: nowrap;">--no-run-unnecessary-builds</span></code> | {% octicon "x" aria-label="Optional" %} | **Recommended.** Use to suppress the build command for languages where the {% data variables.product.prodname_codeql_cli %} does not need to monitor the build (for example, Python and JavaScript/TypeScript). |
 | <code><span style="white-space: nowrap;">--source-root</span></code> | {% octicon "x" aria-label="Optional" %} | Use if you run the CLI outside the checkout root of the repository. By default, the `database create` command assumes that the current directory is the root directory for the source files, use this option to specify a different location. |
-| <code><span style="white-space: nowrap;">--codescanning-config</span></code> | {% octicon "x" aria-label="Optional" %} | Advanced. Use if you have a configuration file that specifies how to create the {% data variables.product.prodname_codeql %} databases and what queries to run in later steps. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#custom-configuration-files) and [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-create#--codescanning-configfile). |
+| <code><span style="white-space: nowrap;">--codescanning-config</span></code> | {% octicon "x" aria-label="Optional" %} | Advanced. Use if you have a configuration file that specifies how to create the {% data variables.product.prodname_codeql %} databases and what queries to run in later steps. For more information, see [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options#custom-configuration-files) and [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-create#--codescanning-configfile). |
 
 You can specify extractor options to customize the behavior of extractors that create {% data variables.product.prodname_codeql %} databases. For more information, see
-[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/extractor-options).
+[AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-cli/extractor-options).
 
-For full details of all the options you can use when creating databases, see [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-create).
+For full details of all the options you can use when creating databases, see [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-create).
 
 ### Single language example
 
@@ -194,13 +194,13 @@ Here, we have specified a `--source-root` path, which is the location where data
 For most compiled languages, {% data variables.product.prodname_codeql %} needs to invoke the required build system to generate a database, therefore the build method must be available to the CLI. This approach creates databases that include generated code. {% data variables.product.prodname_codeql %} has two methods for building codebases:
 
 * [Automatic build detection (autobuild)](#automatically-detecting-the-build-system)
-* [User-specified build commands](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis#specifying-build-commands)
+* [User-specified build commands](/code-security/tutorials/customize-code-scanning/prepare-code-for-analysis#specifying-build-commands)
 
-In addition, for {% data variables.code-scanning.no_build_support %}, there is an option to generate a database without building the code. This is particularly useful when you want to enable {% data variables.product.prodname_code_scanning %} for many repositories. For more information, see [CodeQL build modes](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes).
+In addition, for {% data variables.code-scanning.no_build_support %}, there is an option to generate a database without building the code. This is particularly useful when you want to enable {% data variables.product.prodname_code_scanning %} for many repositories. For more information, see [CodeQL build modes](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/codeql-for-compiled-languages#codeql-build-modes).
 
 ### Automatically detecting the build system
 
-The {% data variables.product.prodname_codeql_cli %} includes autobuilders for {% data variables.code-scanning.autobuild_support %} code. {% data variables.product.prodname_codeql %} autobuilders allow you to build projects for compiled languages without specifying any build commands. When an autobuilder is invoked, {% data variables.product.prodname_codeql %} examines the source for evidence of a build system and attempts to run the optimal set of commands required to extract a database. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#about-autobuild).
+The {% data variables.product.prodname_codeql_cli %} includes autobuilders for {% data variables.code-scanning.autobuild_support %} code. {% data variables.product.prodname_codeql %} autobuilders allow you to build projects for compiled languages without specifying any build commands. When an autobuilder is invoked, {% data variables.product.prodname_codeql %} examines the source for evidence of a build system and attempts to run the optimal set of commands required to extract a database. For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/codeql-for-compiled-languages#about-autobuild).
 
 An autobuilder is invoked automatically when you execute `codeql database create` for a compiled language if you don’t include a
 `--command` option or set `--build-mode none`. For example, for a Swift codebase, you could simply run:
@@ -462,4 +462,4 @@ steps:
 
 ## Next steps
 
-* To learn how to use the {% data variables.product.prodname_codeql_cli %} to analyze the database you created from your code, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries).
+* To learn how to use the {% data variables.product.prodname_codeql_cli %} to analyze the database you created from your code, see [AUTOTITLE](/code-security/tutorials/customize-code-scanning/analyze-code).

@@ -9257,6 +9257,28 @@
       "category": "issues"
     },
     {
+      "name": "IssueEventConfidenceLevel",
+      "id": "issueeventconfidencelevel",
+      "href": "/graphql/reference/issues#enum-issueeventconfidencelevel",
+      "description": "<p>The confidence level associated with an agent's issue event action.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "HIGH",
+          "description": "<p>High confidence.</p>"
+        },
+        {
+          "name": "LOW",
+          "description": "<p>Low confidence.</p>"
+        },
+        {
+          "name": "MEDIUM",
+          "description": "<p>Medium confidence.</p>"
+        }
+      ],
+      "category": "issues"
+    },
+    {
       "name": "IssueFieldDataType",
       "id": "issuefielddatatype",
       "href": "/graphql/reference/issues#enum-issuefielddatatype",
@@ -10231,6 +10253,13 @@
           "isDeprecated": false
         },
         {
+          "name": "assignees",
+          "description": "<p>An array of actors to add as assignees, each with optional rationale or\nsuggest flag. Mutually exclusive with <code>assigneeIds</code>.</p>",
+          "type": "[AssigneeUpdateInput!]",
+          "id": "assigneeupdateinput",
+          "href": "/graphql/reference/issues#input-object-assigneeupdateinput"
+        },
+        {
           "name": "clientMutationId",
           "description": "<p>A unique identifier for the client performing the mutation.</p>",
           "type": "String",
@@ -10331,6 +10360,13 @@
           "id": "id",
           "href": "/graphql/reference/other#scalar-id",
           "isDeprecated": false
+        },
+        {
+          "name": "labels",
+          "description": "<p>The labels to add, each with optional <code>rationale</code> or a <code>suggest</code> flag that\nstores the addition as a pending suggestion. Mutually exclusive with <code>labelIds</code>.</p>",
+          "type": "[LabelUpdateInput!]",
+          "id": "labelupdateinput",
+          "href": "/graphql/reference/issues#input-object-labelupdateinput"
         }
       ],
       "category": "issues"
@@ -10382,6 +10418,45 @@
       "category": "issues"
     },
     {
+      "name": "AssigneeUpdateInput",
+      "id": "assigneeupdateinput",
+      "href": "/graphql/reference/issues#input-object-assigneeupdateinput",
+      "description": "<p>Specifies an actor (user or bot) to assign to an issue, with optional metadata such as a rationale.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "actorId",
+          "description": "<p>The ID of the actor (user or bot) to assign.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "confidence",
+          "description": "<p>The confidence level the agent had when selecting this value.</p>",
+          "type": "IssueEventConfidenceLevel",
+          "id": "issueeventconfidencelevel",
+          "href": "/graphql/reference/issues#enum-issueeventconfidencelevel"
+        },
+        {
+          "name": "rationale",
+          "description": "<p>Optional rationale describing why this value was selected. Max 280 characters.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "suggest",
+          "description": "<p>If true, the value is stored as a pending suggestion for human review rather than being applied directly.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "issues"
+    },
+    {
       "name": "ClearLabelsFromLabelableInput",
       "id": "clearlabelsfromlabelableinput",
       "href": "/graphql/reference/issues#input-object-clearlabelsfromlabelableinput",
@@ -10419,6 +10494,13 @@
           "href": "/graphql/reference/other#scalar-string"
         },
         {
+          "name": "confidence",
+          "description": "<p>The confidence level the agent had when suggesting this close. Only meaningful when isSuggestion is true.</p>",
+          "type": "IssueEventConfidenceLevel",
+          "id": "issueeventconfidencelevel",
+          "href": "/graphql/reference/issues#enum-issueeventconfidencelevel"
+        },
+        {
           "name": "duplicateIssueId",
           "description": "<p>ID of the issue that this is a duplicate of.</p>",
           "type": "ID",
@@ -10427,12 +10509,26 @@
           "isDeprecated": false
         },
         {
+          "name": "isSuggestion",
+          "description": "<p>If true, the close action is stored as a pending suggestion for human review rather than being applied directly.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
           "name": "issueId",
           "description": "<p>ID of the issue to be closed.</p>",
           "type": "ID!",
           "id": "id",
           "href": "/graphql/reference/other#scalar-id",
           "isDeprecated": false
+        },
+        {
+          "name": "rationale",
+          "description": "<p>Optional rationale describing why the issue should be closed. Max 280 characters.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
         },
         {
           "name": "stateReason",
@@ -11022,6 +11118,13 @@
       "isDeprecated": false,
       "inputFields": [
         {
+          "name": "confidence",
+          "description": "<p>The confidence level the agent had when selecting this value.</p>",
+          "type": "IssueEventConfidenceLevel",
+          "id": "issueeventconfidencelevel",
+          "href": "/graphql/reference/issues#enum-issueeventconfidencelevel"
+        },
+        {
           "name": "dateValue",
           "description": "<p>The date value, for a date field.</p>",
           "type": "String",
@@ -11057,11 +11160,25 @@
           "href": "/graphql/reference/other#scalar-float"
         },
         {
+          "name": "rationale",
+          "description": "<p>Optional rationale describing why this value was selected. Max 280 characters.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
           "name": "singleSelectOptionId",
           "description": "<p>The ID of the selected option, for a single select field.</p>",
           "type": "ID",
           "id": "id",
           "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "suggest",
+          "description": "<p>If true, the value is stored as a pending suggestion for human review rather than being applied directly.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
         },
         {
           "name": "textValue",
@@ -11264,6 +11381,44 @@
       "category": "issues"
     },
     {
+      "name": "IssueTypeUpdateInput",
+      "id": "issuetypeupdateinput",
+      "href": "/graphql/reference/issues#input-object-issuetypeupdateinput",
+      "description": "<p>Specifies an Issue Type to set on an issue, with optional metadata such as a rationale.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "confidence",
+          "description": "<p>The confidence level the agent had when selecting this value.</p>",
+          "type": "IssueEventConfidenceLevel",
+          "id": "issueeventconfidencelevel",
+          "href": "/graphql/reference/issues#enum-issueeventconfidencelevel"
+        },
+        {
+          "name": "issueTypeId",
+          "description": "<p>The ID of the Issue Type to set on this issue. Pass null to clear the issue type.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "rationale",
+          "description": "<p>Optional rationale describing why this value was selected. Max 280 characters.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "suggest",
+          "description": "<p>If true, the value is stored as a pending suggestion for human review rather than being applied directly.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "issues"
+    },
+    {
       "name": "LabelOrder",
       "id": "labelorder",
       "href": "/graphql/reference/issues#input-object-labelorder",
@@ -11283,6 +11438,45 @@
           "type": "LabelOrderField!",
           "id": "labelorderfield",
           "href": "/graphql/reference/issues#enum-labelorderfield"
+        }
+      ],
+      "category": "issues"
+    },
+    {
+      "name": "LabelUpdateInput",
+      "id": "labelupdateinput",
+      "href": "/graphql/reference/issues#input-object-labelupdateinput",
+      "description": "<p>Specifies a Label to set on an issue, with optional metadata such as a rationale.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "confidence",
+          "description": "<p>The confidence level the agent had when selecting this value.</p>",
+          "type": "IssueEventConfidenceLevel",
+          "id": "issueeventconfidencelevel",
+          "href": "/graphql/reference/issues#enum-issueeventconfidencelevel"
+        },
+        {
+          "name": "labelId",
+          "description": "<p>The ID of the Label.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "rationale",
+          "description": "<p>Optional rationale describing why this value was selected. Max 280 characters.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "suggest",
+          "description": "<p>If true, the value is stored as a pending suggestion for human review rather than being applied directly.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
         }
       ],
       "category": "issues"
@@ -11608,6 +11802,13 @@
           "id": "id",
           "href": "/graphql/reference/other#scalar-id",
           "isDeprecated": false
+        },
+        {
+          "name": "assignees",
+          "description": "<p>An array of actors to set as assignees, each with optional rationale or\nsuggest flag. Mutually exclusive with <code>actorIds</code> and <code>actorLogins</code>.</p>",
+          "type": "[AssigneeUpdateInput!]",
+          "id": "assigneeupdateinput",
+          "href": "/graphql/reference/issues#input-object-assigneeupdateinput"
         },
         {
           "name": "clientMutationId",
@@ -12001,6 +12202,13 @@
           "isDeprecated": false
         },
         {
+          "name": "assignees",
+          "description": "<p>An array of actors to assign to this issue, each with optional rationale or\nsuggest flag. Mutually exclusive with <code>assigneeIds</code>.</p>",
+          "type": "[AssigneeUpdateInput!]",
+          "id": "assigneeupdateinput",
+          "href": "/graphql/reference/issues#input-object-assigneeupdateinput"
+        },
+        {
           "name": "body",
           "description": "<p>The body for the issue description.</p>",
           "type": "String",
@@ -12023,6 +12231,13 @@
           "isDeprecated": false
         },
         {
+          "name": "issueType",
+          "description": "<p>The Issue Type to set on this issue, with optional rationale. Mutually exclusive with <code>issueTypeId</code>.</p>",
+          "type": "IssueTypeUpdateInput",
+          "id": "issuetypeupdateinput",
+          "href": "/graphql/reference/issues#input-object-issuetypeupdateinput"
+        },
+        {
           "name": "issueTypeId",
           "description": "<p>The ID of the Issue Type for this issue.</p>",
           "type": "ID",
@@ -12036,6 +12251,13 @@
           "id": "id",
           "href": "/graphql/reference/other#scalar-id",
           "isDeprecated": false
+        },
+        {
+          "name": "labels",
+          "description": "<p>An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with <code>labelIds</code>.</p>",
+          "type": "[LabelUpdateInput!]",
+          "id": "labelupdateinput",
+          "href": "/graphql/reference/issues#input-object-labelupdateinput"
         },
         {
           "name": "milestoneId",

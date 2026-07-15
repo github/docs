@@ -30,7 +30,7 @@ Account security is fundamental to the security of your supply chain. If an atta
 {% ifversion ghec %}
 If you're an enterprise or organization owner, you can configure centralized authentication with SAML. While you can add or remove members manually, it's simpler and more secure to set up single sign-on (SSO) and SCIM between {% data variables.product.github %} and your SAML identity provider (IdP). This also simplifies the authentication process for all members of your enterprise.
 
-You can configure SAML authentication for an enterprise or organization account. With SAML, you can grant access to the personal accounts of members of your enterprise or organization on {% data variables.product.prodname_dotcom %} through your IdP, or you can create and control the accounts that belong to your enterprise by using {% data variables.product.prodname_emus %}. For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise).
+You can configure SAML authentication for an enterprise or organization account. With SAML, you can grant access to the personal accounts of members of your enterprise or organization on {% data variables.product.prodname_dotcom %} through your IdP, or you can create and control the accounts that belong to your enterprise by using {% data variables.product.prodname_emus %}. For more information, see [AUTOTITLE](/admin/concepts/identity-and-access-management/identity-and-access-management-fundamentals).
 
 After you configure SAML authentication, when members request access to your resources, they'll be directed to your SSO flow to ensure they are still recognized by your IdP. If they are unrecognized, their request is declined.
 
@@ -42,7 +42,7 @@ If you're the site administrator for your instance, you can simplify the login e
 
 Some authentication methods also support communicating additional information to {% data variables.product.github %}, for example, what groups the user is a member of, or synchronizing cryptographic keys for the user. This is a great way to simplify your administration as your organization grows.
 
-For more information about the authentication methods available for {% data variables.product.github %}, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise).
+For more information about the authentication methods available for {% data variables.product.github %}, see [AUTOTITLE](/admin/concepts/identity-and-access-management/identity-and-access-management-fundamentals).
 {% endif %}
 
 ## Configure two-factor authentication
@@ -91,7 +91,7 @@ If your enterprise uses {% data variables.product.prodname_emus %} or SAML authe
 
 {% endif %}
 
-For more information, see {% ifversion ghec %}[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam) and {% endif %}[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#requiring-two-factor-authentication-for-organizations-in-your-enterprise).
+For more information, see {% ifversion ghec %}[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/about-saml-for-enterprise-iam) and {% endif %}[AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#requiring-two-factor-authentication-for-organizations-in-your-enterprise).
 
 {% endif %}
 
@@ -137,7 +137,7 @@ Hardware-backed SSH keys are quite secure, but the hardware requirement might no
 
 ## Next steps
 
-* [AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)
-* [AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)
-* [AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)
-* [AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)
+* [AUTOTITLE](/code-security/tutorials/implement-supply-chain-best-practices/end-to-end-supply-chain-overview)
+* [AUTOTITLE](/code-security/tutorials/implement-supply-chain-best-practices/securing-code)
+* [AUTOTITLE](/code-security/tutorials/implement-supply-chain-best-practices/securing-builds)
+* [AUTOTITLE](/code-security/tutorials/secure-your-organization/prevent-data-leaks)

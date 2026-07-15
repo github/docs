@@ -264,7 +264,8 @@ The editor lets you work with workspace customizations for the current project o
 <ul style="list-style: none; padding-left: 1.5em; margin-left: 0;">
   {% data reusables.copilot.ci-support-repository %}
   {% data reusables.copilot.ci-support-path %}
-  {% data reusables.copilot.ci-support-agents-only %}
+  {% data reusables.copilot.ci-support-agents-all %}
+  <li style="text-indent: -1.6em;"><span aria-hidden="true">👤</span> &nbsp;<strong>Personal</strong> instructions (using <code>~/.copilot/copilot-instructions.md</code> or <code>~/.copilot/instructions/**/*.instructions.md</code> files).</li>
 </ul>
 
 ## Further reading

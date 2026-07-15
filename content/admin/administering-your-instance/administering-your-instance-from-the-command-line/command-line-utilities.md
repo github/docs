@@ -16,7 +16,7 @@ category:
   - Install and configure your instance
 ---
 
-You can execute these commands from anywhere on the VM after signing in as an SSH admin user. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
+You can execute these commands from anywhere on the VM after signing in as an SSH admin user. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh).
 
 ## General
 
@@ -45,7 +45,7 @@ $ ghe-announce -u
 > dismissible: MESSAGE
 ```
 
-You can also set an announcement banner using the enterprise settings on {% data variables.product.prodname_ghe_server %}. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner).
+You can also set an announcement banner using the enterprise settings on {% data variables.product.prodname_ghe_server %}. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/communicating-information-to-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner).
 
 <!--For earlier releases of GHES, see the previous service `ghe-resque-info`-->
 
@@ -124,7 +124,7 @@ Allows you to find the universally unique identifier (UUID) of your node in `clu
   ghe-config HOSTNAME.uuid
 ```
 
-Allows you to exempt a list of users from REST API rate limits. A hard limit of 120,000 requests will still apply to these users. Usernames you provide for this command are case-sensitive. For more information, see [AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api).
+Allows you to exempt a list of users from REST API rate limits. A hard limit of 120,000 requests will still apply to these users. Usernames you provide for this command are case-sensitive. For more information, see [AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api).
 
 ``` shell
 $ ghe-config app.github.rate-limiting-exempt-users "hubot github-actions[bot]"
@@ -306,7 +306,7 @@ ghe-logs-tail
 
 ### ghe-maintenance
 
-This utility allows you to control the state of the installation's maintenance mode. It's designed to be used primarily by the {% data variables.enterprise.management_console %} behind-the-scenes, but it can be used directly. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
+This utility allows you to control the state of the installation's maintenance mode. It's designed to be used primarily by the {% data variables.enterprise.management_console %} behind-the-scenes, but it can be used directly. For more information, see [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode).
 
 ```shell
 ghe-maintenance -h
@@ -367,7 +367,7 @@ ghe-org-admin-promote -a
 
 ### ghe-reactivate-admin-login
 
-Use this command to immediately unlock the {% data variables.enterprise.management_console %} after an account lockout. To configure authentication policies for {% data variables.location.product_location %}, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-authentication-policy-rate-limits).
+Use this command to immediately unlock the {% data variables.enterprise.management_console %} after an account lockout. To configure authentication policies for {% data variables.location.product_location %}, see [AUTOTITLE](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/configuring-rate-limits#configuring-authentication-policy-rate-limits).
 
 ```shell
 ghe-reactivate-admin-login
@@ -541,7 +541,7 @@ existing keys in /etc/ssh/ssh_host_* and generate new ones. [y/N]
 
 ### ghe-ssh-weak-fingerprints
 
-This utility returns a report of known weak SSH keys stored on the {% data variables.product.prodname_enterprise %} appliance. You can optionally revoke user keys as a bulk action. The utility will report weak system keys, which you must manually revoke in the [{% data variables.enterprise.management_console %}](/admin/configuration/administering-your-instance-from-the-management-console).
+This utility returns a report of known weak SSH keys stored on the {% data variables.product.prodname_enterprise %} appliance. You can optionally revoke user keys as a bulk action. The utility will report weak system keys, which you must manually revoke in the [{% data variables.enterprise.management_console %}](/admin/administering-your-instance/administering-your-instance-from-the-web-ui).
 
 ```shell
 # Print a report of weak user and system SSH keys
@@ -553,7 +553,7 @@ $ ghe-ssh-weak-fingerprints --revoke
 
 ### ghe-ssl-acme
 
-This utility allows you to install a Let's Encrypt certificate on your {% data variables.product.prodname_enterprise %} appliance. For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-tls).
+This utility allows you to install a Let's Encrypt certificate on your {% data variables.product.prodname_enterprise %} appliance. For more information, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/configuring-tls).
 
 You can use the `-x` flag to remove the ACME configuration.
 
@@ -623,7 +623,7 @@ For more information about this command or for additional options, use the `-h` 
 
 ### ghe-ssl-generate-csr
 
-This utility allows you to generate a private key and certificate signing request (CSR), which you can share with a commercial or private certificate authority to get a valid certificate to use with your instance. For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-tls).
+This utility allows you to generate a private key and certificate signing request (CSR), which you can share with a commercial or private certificate authority to get a valid certificate to use with your instance. For more information, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/configuring-tls).
 
 For more information about this command or for additional options, use the `-h` flag.
 
@@ -633,7 +633,7 @@ ghe-ssl-generate-csr
 
 ### ghe-storage-extend
 
-Some platforms require this script to expand the user volume. For more information, see [AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/increasing-storage-capacity).
+Some platforms require this script to expand the user volume. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-storage-capacity).
 
 ```shell
 ghe-storage-extend
@@ -705,7 +705,7 @@ ghe-backup-healthcheck
 
 ### ghe-cluster-balance
 
-This utility allows you to enforce an even distribution of allocations across your cluster nodes by checking the status of your cluster's allocations, then rebalancing problematic allocations. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-clustering/rebalancing-cluster-workloads).
+This utility allows you to enforce an even distribution of allocations across your cluster nodes by checking the status of your cluster's allocations, then rebalancing problematic allocations. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/rebalancing-cluster-workloads).
 
 To output a list of balanceable jobs and their associated allocation spread:
 
@@ -910,7 +910,7 @@ ghe-storage evacuate storage-server-UUID
 
 ### nes
 
-This utility allows you to monitor the health of cluster nodes using {% data variables.product.prodname_nes %}. By default, {% data variables.product.prodname_nes %} is disabled. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-clustering/monitoring-the-health-of-your-cluster-nodes-with-node-eligibility-service).
+This utility allows you to monitor the health of cluster nodes using {% data variables.product.prodname_nes %}. By default, {% data variables.product.prodname_nes %} is disabled. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/monitoring-the-health-of-your-cluster-nodes-with-node-eligibility-service).
 
 To view the health of the cluster's nodes:
 
@@ -974,7 +974,7 @@ ghe-btop [ <port number> | --help | --usage ]
 
 #### ghe-governor
 
-This utility helps to analyze Git traffic. It queries _Governor_ data files, located under `/data/user/gitmon`. {% data variables.product.company_short %} holds one hour of data per file, retained for two weeks. For more information, see [Analyzing Git traffic using Governor](https://github.com/orgs/community/discussions/34220) in {% data variables.product.prodname_github_community %}.
+This utility helps to analyze Git traffic. It queries _Governor_ data files, located under `/data/user/governor/`. {% data variables.product.company_short %} holds one hour of data per file, retained for two weeks. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/analyze-git-traffic).
 
 ```bash
 ghe-governor <subcommand> <column> [options]
@@ -1025,7 +1025,7 @@ ghe-cluster-each -r git -- "ghe-repo-gc --prune USERNAME/REPONAME"
 
 ### ghe-actions-check
 
-This utility checks that all services for {% data variables.product.prodname_actions %} are healthy. For more information, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server) and [AUTOTITLE](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise).
+This utility checks that all services for {% data variables.product.prodname_actions %} are healthy. For more information, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server) and [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise).
 
 ```shell
 ghe-actions-check
@@ -1035,7 +1035,7 @@ ghe-actions-check
 
 This utility tests the blob storage configuration for {% data variables.product.prodname_actions %} on {% data variables.location.product_location %}. You can use the utility to verify your storage configuration before you enable {% data variables.product.prodname_actions %} for your instance.
 
-For more information about the configuration of {% data variables.product.prodname_actions %}, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server).
+For more information about the configuration of {% data variables.product.prodname_actions %}, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server).
 
 > [!NOTE]
 > This utility only works with configurations that use a credentials-based connection to the storage provider. To test OpenID Connect (OIDC) configurations, use [`ghe-actions-test-storage-with-oidc`](#ghe-actions-test-storage-with-oidc).
@@ -1111,7 +1111,7 @@ All Storage tests passed
 
 ### ghe-repl-decommission
 
-This command decommissions the database entries for the node with the specified UUID. You run this command on the new primary after performing a failover to a replica node, to remove the decommissioned node's database entries. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/initiating-a-failover-to-your-replica-appliance).
+This command decommissions the database entries for the node with the specified UUID. You run this command on the new primary after performing a failover to a replica node, to remove the decommissioned node's database entries. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-high-availability/initiating-a-failover-to-your-replica-appliance).
 
 ```shell
 ghe-repl-decommission <UUID>
@@ -1121,7 +1121,7 @@ ghe-repl-decommission <UUID>
 
 ### ghe-repl-promote
 
-This command disables replication on an existing replica node and converts the replica node to a primary node using the same settings as the original primary node. All replication services are enabled. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/initiating-a-failover-to-your-replica-appliance).
+This command disables replication on an existing replica node and converts the replica node to a primary node using the same settings as the original primary node. All replication services are enabled. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-high-availability/initiating-a-failover-to-your-replica-appliance).
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
 
@@ -1131,7 +1131,7 @@ ghe-repl-promote
 
 ### ghe-repl-setup
 
-Run this utility on an existing node to begin enabling a high availability configuration. The utility puts the node in standby mode before you begin replication with [`ghe-repl-start`](#ghe-repl-start). For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica).
+Run this utility on an existing node to begin enabling a high availability configuration. The utility puts the node in standby mode before you begin replication with [`ghe-repl-start`](#ghe-repl-start). For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-high-availability/creating-a-high-availability-replica).
 
 After running the utility, the following configuration occurs on the node.
 
@@ -1147,7 +1147,7 @@ ghe-repl-setup PRIMARY-NODE-IP
 
 ### ghe-repl-start
 
-This utility begins replication of all datastores on a node. Run this utility after running [`ghe-repl-setup`](#ghe-repl-setup). For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica).
+This utility begins replication of all datastores on a node. Run this utility after running [`ghe-repl-setup`](#ghe-repl-setup). For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-high-availability/creating-a-high-availability-replica).
 
 ```shell
 ghe-repl-start
@@ -1155,7 +1155,7 @@ ghe-repl-start
 
 ### ghe-repl-status
 
-This utility displays the status of replication on a node, returning an `OK`, `WARNING` or `CRITICAL` status for each datastore's replication stream. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/monitoring-a-high-availability-configuration).
+This utility displays the status of replication on a node, returning an `OK`, `WARNING` or `CRITICAL` status for each datastore's replication stream. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-high-availability/monitoring-a-high-availability-configuration).
 
 * If any of the replication channels are in a `WARNING` state, the command will exit with code `1`.
 * If you have not started replication, the command will exit with code `1`.
@@ -1311,7 +1311,7 @@ GHE_LICENSE_FILE=/path/license ghe-license import
 
 ### ghe-find-insecure-git-operations
 
-This utility searches your instance's logs and identifies Git operations over SSH that use insecure algorithms or hash functions, including DSA, RSA-SHA-1, HMAC-SHA-1, and CBC ciphers. You can use the output to support each client's transition to a more secure SSH connection. For more information, see [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server) and [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance).
+This utility searches your instance's logs and identifies Git operations over SSH that use insecure algorithms or hash functions, including DSA, RSA-SHA-1, HMAC-SHA-1, and CBC ciphers. You can use the output to support each client's transition to a more secure SSH connection. For more information, see [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server) and [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/configuring-ssh-connections-to-your-instance).
 
 ```shell
 ghe-find-insecure-git-operations
@@ -1421,7 +1421,7 @@ ghe-migrations -refresh_rate SECONDS
 
 ### ghe-update-check
 
-This utility will check to see if a new patch release of {% data variables.product.prodname_enterprise %} is available. If it is, and if space is available on your instance, it will download the package. By default, it's saved to _/var/lib/ghe-updates_. An administrator can then [perform the upgrade](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources).
+This utility will check to see if a new patch release of {% data variables.product.prodname_enterprise %} is available. If it is, and if space is available on your instance, it will download the package. By default, it's saved to _/var/lib/ghe-updates_. An administrator can then [perform the upgrade](/admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources).
 
 A file containing the status of the download is available at _/var/lib/ghe-updates/ghe-update-check.status_.
 
@@ -1499,7 +1499,7 @@ ghe-upgrade-scheduler -r UPGRADE PACKAGE FILENAME
 
 ### ghe-license usage
 
-This utility exports a list of the installation's users in JSON format. If your instance is connected to {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %} uses this information for reporting licensing information to {% data variables.product.prodname_ghe_cloud %}. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/managing-github-connect).
+This utility exports a list of the installation's users in JSON format. If your instance is connected to {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %} uses this information for reporting licensing information to {% data variables.product.prodname_ghe_cloud %}. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-githubcom).
 
 By default, the list of users in the resulting JSON file is encrypted. Review optional flags via `ghe-license --help`.
 
@@ -1509,7 +1509,7 @@ ghe-license usage
 
 ### ghe-org-membership-update
 
-This utility will enforce the default organization membership visibility setting on all members in your instance. For more information, see [AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/configuring-visibility-for-organization-membership). Setting options are `public` or `private`.
+This utility will enforce the default organization membership visibility setting on all members in your instance. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/configuring-visibility-for-organization-membership). Setting options are `public` or `private`.
 
 ```shell
 ghe-org-membership-update --visibility=SETTING

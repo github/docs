@@ -48,7 +48,7 @@ To view the full log files for a particular job, to the right of the log entry y
 
 ![Screenshot of the Dependabot job log entries for a manifest file. A button, called "View logs," is highlighted in a dark orange outline.](/assets/images/help/dependabot/dependabot-job-log-error-message.png)
 
-For more information, see [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/viewing-dependabot-job-logs).
+For more information, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/view-dependabot-logs).
 
 ## Dependency resolution errors
 
@@ -62,7 +62,7 @@ For more information, see [AUTOTITLE](/code-security/dependabot/troubleshooting-
 
 Every application that has dependencies has a dependency graph, that is, a directed acyclic graph of every package version that the application directly or indirectly depends on. Every time a dependency is updated, this graph must resolve otherwise the application won't build. When an ecosystem has a deep and complex dependency graph, for example, npm and RubyGems, it is often impossible to upgrade a single dependency without upgrading the whole ecosystem.
 
-**Resolution:** Stay up to date with the most recently released versions, for example, by enabling version updates. This increases the likelihood that a vulnerability in one dependency can be resolved by a simple upgrade that doesn't break the dependency graph. See [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates).
+**Resolution:** Stay up to date with the most recently released versions, for example, by enabling version updates. This increases the likelihood that a vulnerability in one dependency can be resolved by a simple upgrade that doesn't break the dependency graph. See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-version-updates).
 
 ### Updates dependencies without an alert
 
@@ -98,7 +98,7 @@ If a security vulnerability is released for `B` versions `<2.0.0` and a patch is
 
 Either comment will trigger {% data variables.product.prodname_dependabot %} to check if the dependency is no longer upgradable or vulnerable. If {% data variables.product.prodname_dependabot %} detects that the pull request is no longer required, it will close the pull request in this particular case.
 
-For more information about {% data variables.product.prodname_dependabot %} comment commands, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands).
+For more information about {% data variables.product.prodname_dependabot %} comment commands, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/manage-dependabot-prs#managing-dependabot-pull-requests-with-comment-commands).
 
 ### Can't update to the required version as there is already an open pull request for the latest version
 
@@ -120,7 +120,7 @@ For more information about {% data variables.product.prodname_dependabot %} comm
 
 **Resolution:** First examine the dependency graph for your repository, review what version it has detected for the dependency, and check if the identified version matches what is being used in your repository.
 
-If you suspect your dependency graph data is out of date, you may need to manually update the dependency graph for your repository or investigate your dependency information further. See [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph).
+If you suspect your dependency graph data is out of date, you may need to manually update the dependency graph for your repository or investigate your dependency information further. See [AUTOTITLE](/code-security/reference/supply-chain-security/troubleshoot-dependabot/dependency-graph-errors).
 
 If you are able to confirm the dependency version is no longer vulnerable, you can close the {% data variables.product.prodname_dependabot %} pull request.
 
@@ -136,7 +136,7 @@ There's a limit on the number of open pull requests {% data variables.product.pr
 * Security update pull requests: 10
 * Version update pull requests: 5 (configurable using `open-pull-requests-limit`)
 
-There are separate limits for security and version update pull requests, so that open version update pull requests cannot block the creation of a security update pull request. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#open-pull-requests-limit-).
+There are separate limits for security and version update pull requests, so that open version update pull requests cannot block the creation of a security update pull request. For more information, see [AUTOTITLE](/code-security/reference/supply-chain-security/dependabot-options-reference#open-pull-requests-limit-).
 
 **Resolution:** Merge or close some of the existing pull requests and trigger a new pull request manually. see [Triggering a {% data variables.product.prodname_dependabot %} pull request manually](#triggering-a-dependabot-pull-request-manually).
 
@@ -150,7 +150,7 @@ There are separate limits for security and version update pull requests, so that
 
 **Resolution for version updates:** Specify the most important dependencies to update using the `allow` parameter or, alternatively, use the `ignore` parameter to exclude some dependencies from updates. Updating your configuration might allow {% data variables.product.prodname_dependabot %} to review the version update and generate the pull request in the time available.
 
-**Resolution for security updates:** Reduce the chances of timeouts by keeping the dependencies updated, for example, by enabling version updates. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates).
+**Resolution for security updates:** Reduce the chances of timeouts by keeping the dependencies updated, for example, by enabling version updates. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-version-updates).
 
 ## Grouping errors
 
@@ -160,7 +160,7 @@ There are separate limits for security and version update pull requests, so that
 
 **Error message:** `{% data variables.product.prodname_dependabot %} fails to group a set of dependencies into a single pull request for {% data variables.product.prodname_dependabot_version_updates %}`
 
-The [`groups`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#groups--) configuration settings in the `dependabot.yml` file can apply to version updates and security updates. Use the `applies-to` key to specify where (version updates or security updates) a set of grouping rules is applied.
+The [`groups`](/code-security/reference/supply-chain-security/dependabot-options-reference#groups--) configuration settings in the `dependabot.yml` file can apply to version updates and security updates. Use the `applies-to` key to specify where (version updates or security updates) a set of grouping rules is applied.
 
 {% data reusables.dependabot.dependabot-grouped-updates-applies-to %}
 
@@ -186,7 +186,7 @@ In this example, {% data variables.product.prodname_dependabot %} will:
 
 **Resolution:** Ensure that configuration settings don't cancel each other, and update them appropriately in your configuration file. To debug the problem, look at the logs. For information about accessing the logs for a manifest, see [How to view errors](#how-to-view-errors).
 
-For more information on how to configure groups for {% data variables.product.prodname_dependabot_version_updates %}, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#groups--).
+For more information on how to configure groups for {% data variables.product.prodname_dependabot_version_updates %}, see [AUTOTITLE](/code-security/reference/supply-chain-security/dependabot-options-reference#groups--).
 
 ### Failed to group dependencies (security updates)
 
@@ -194,7 +194,7 @@ For more information on how to configure groups for {% data variables.product.pr
 
 **Error message:** `{% data variables.product.prodname_dependabot %} fails to group a set of dependencies into a single pull request for {% data variables.product.prodname_dependabot_security_updates %}`
 
-The [`groups`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#groups--) configuration settings in the `dependabot.yml` file can apply to version updates and security updates. Use the `applies-to` key to specify where (version updates or security updates) a set of grouping rules is applied. Check you have grouping configured to apply to security updates. If the `applies-to` key is absent from a set of grouping rules in your configuration, any group rules will by default only apply to version updates.
+The [`groups`](/code-security/reference/supply-chain-security/dependabot-options-reference#groups--) configuration settings in the `dependabot.yml` file can apply to version updates and security updates. Use the `applies-to` key to specify where (version updates or security updates) a set of grouping rules is applied. Check you have grouping configured to apply to security updates. If the `applies-to` key is absent from a set of grouping rules in your configuration, any group rules will by default only apply to version updates.
 
 {% data reusables.dependabot.dependabot-grouped-updates-applies-to %}
 
@@ -205,7 +205,7 @@ The [`groups`](/code-security/dependabot/working-with-dependabot/dependabot-opti
 * {% data variables.product.prodname_dependabot %} **will not** group dependencies from different package ecosystems together.
 * {% data variables.product.prodname_dependabot %} **will not** group security updates with version updates.
 
-For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-grouped-security-updates) and [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/customizing-dependabot-security-prs).
+For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-security-updates#about-grouped-security-updates) and [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/customizing-dependabot-security-prs).
 
 ### Failed to update dependency in grouped pull request
 
@@ -220,7 +220,7 @@ There are different troubleshooting techniques you can use for failed version up
 {% data variables.product.prodname_dependabot %} will show the failed update in your logs, as well as in the job summary at the end of your logs.
 
 **Resolution:**
-1. Use the `@dependabot recreate` comment on the pull request to build the group again. See [AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands).
+1. Use the `@dependabot recreate` comment on the pull request to build the group again. See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/manage-dependabot-prs#managing-dependabot-pull-requests-with-comment-commands).
 1. If the dependency still fails to update, use the `exclude-patterns` configuration so that the dependency is excluded from the group. {% data variables.product.prodname_dependabot %} will then raise a separate pull request to update the dependency.
 1. If the dependency still fails to update, there may be a problem with the dependency itself, or with {% data variables.product.prodname_dependabot %} for that specific ecosystem.
 
@@ -271,7 +271,7 @@ If {% data variables.product.prodname_dependabot %} attempts to check whether de
 
 **Resolution:** Make sure that all of the referenced dependencies are hosted at accessible locations.
 
-**Version updates only:** {% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. See [AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories).
+**Version updates only:** {% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. See [AUTOTITLE](/code-security/reference/supply-chain-security/supported-ecosystems-and-repositories).
 
 ## Triggering a {% data variables.product.prodname_dependabot %} pull request manually
 
@@ -283,5 +283,5 @@ If you unblock {% data variables.product.prodname_dependabot %}, you can manuall
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph)
-* [AUTOTITLE](/code-security/reference/supply-chain-security/troubleshoot-dependabot/vulnerable-dependency-detection)
+* [AUTOTITLE](/code-security/reference/supply-chain-security/troubleshoot-dependabot/dependency-graph-errors)
+* [AUTOTITLE](/code-security/reference/supply-chain-security/troubleshoot-dependabot/vulnerability-detection)

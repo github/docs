@@ -11,7 +11,7 @@ category:
   - Manage accounts and repositories
 ---
 
-You can invite people directly to your enterprise as **unaffiliated users**. You can then add these users to organizations or enterprise teams and assign {% data variables.product.prodname_copilot_short %} licenses to them. For more information about unaffiliated users, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise#unaffiliated-users).
+You can invite people directly to your enterprise as **unaffiliated users**. You can then add these users to organizations or enterprise teams and assign {% data variables.product.prodname_copilot_short %} licenses to them. For more information about unaffiliated users, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/abilities-of-roles#unaffiliated-users).
 
 ## Inviting users
 
@@ -21,6 +21,6 @@ You can invite people directly to your enterprise as **unaffiliated users**. You
 
 ## Next steps
 
-* To add users to organizations, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-organization-members-in-your-enterprise).
+* To add users to organizations, see [AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization).
 * To add users to an enterprise team, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/create-enterprise-teams).
 * To assign {% data variables.product.prodname_copilot_short %} licenses, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/grant-access).

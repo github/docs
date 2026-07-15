@@ -4,6 +4,49 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>AssigneeUpdateInput</code> was added</p>",
+          "<p>Input field <code>actorId</code> of type <code>ID!</code> was added to input object type <code>AssigneeUpdateInput</code></p>",
+          "<p>Input field <code>confidence</code> of type <code>IssueEventConfidenceLevel</code> was added to input object type <code>AssigneeUpdateInput</code></p>",
+          "<p>Input field <code>rationale</code> of type <code>String</code> was added to input object type <code>AssigneeUpdateInput</code></p>",
+          "<p>Input field <code>suggest</code> of type <code>Boolean</code> was added to input object type <code>AssigneeUpdateInput</code></p>",
+          "<p>Type <code>IssueEventConfidenceLevel</code> was added</p>",
+          "<p>Enum value <code>HIGH</code> was added to enum <code>IssueEventConfidenceLevel</code></p>",
+          "<p>Enum value <code>LOW</code> was added to enum <code>IssueEventConfidenceLevel</code></p>",
+          "<p>Enum value <code>MEDIUM</code> was added to enum <code>IssueEventConfidenceLevel</code></p>",
+          "<p>Type <code>IssueTypeUpdateInput</code> was added</p>",
+          "<p>Input field <code>confidence</code> of type <code>IssueEventConfidenceLevel</code> was added to input object type <code>IssueTypeUpdateInput</code></p>",
+          "<p>Input field <code>issueTypeId</code> of type <code>ID</code> was added to input object type <code>IssueTypeUpdateInput</code></p>",
+          "<p>Input field <code>rationale</code> of type <code>String</code> was added to input object type <code>IssueTypeUpdateInput</code></p>",
+          "<p>Input field <code>suggest</code> of type <code>Boolean</code> was added to input object type <code>IssueTypeUpdateInput</code></p>",
+          "<p>Type <code>LabelUpdateInput</code> was added</p>",
+          "<p>Input field <code>confidence</code> of type <code>IssueEventConfidenceLevel</code> was added to input object type <code>LabelUpdateInput</code></p>",
+          "<p>Input field <code>labelId</code> of type <code>ID!</code> was added to input object type <code>LabelUpdateInput</code></p>",
+          "<p>Input field <code>rationale</code> of type <code>String</code> was added to input object type <code>LabelUpdateInput</code></p>",
+          "<p>Input field <code>suggest</code> of type <code>Boolean</code> was added to input object type <code>LabelUpdateInput</code></p>",
+          "<p>Input field <code>assignees</code> of type '[AssigneeUpdateInput!]<code>was added to input object type</code>AddAssigneesToAssignableInput'</p>",
+          "<p>Input field <code>labels</code> of type '[LabelUpdateInput!]<code>was added to input object type</code>AddLabelsToLabelableInput'</p>",
+          "<p>Input field <code>confidence</code> of type <code>IssueEventConfidenceLevel</code> was added to input object type <code>CloseIssueInput</code></p>",
+          "<p>Input field <code>isSuggestion</code> of type <code>Boolean</code> was added to input object type <code>CloseIssueInput</code></p>",
+          "<p>Input field <code>rationale</code> of type <code>String</code> was added to input object type <code>CloseIssueInput</code></p>",
+          "<p>Input field <code>confidence</code> of type <code>IssueEventConfidenceLevel</code> was added to input object type <code>IssueFieldCreateOrUpdateInput</code></p>",
+          "<p>Input field <code>rationale</code> of type <code>String</code> was added to input object type <code>IssueFieldCreateOrUpdateInput</code></p>",
+          "<p>Input field <code>suggest</code> of type <code>Boolean</code> was added to input object type <code>IssueFieldCreateOrUpdateInput</code></p>",
+          "<p>Input field <code>assignees</code> of type '[AssigneeUpdateInput!]<code>was added to input object type</code>ReplaceActorsForAssignableInput'</p>",
+          "<p>Input field <code>assignees</code> of type '[AssigneeUpdateInput!]<code>was added to input object type</code>UpdateIssueInput'</p>",
+          "<p>Input field <code>issueType</code> of type <code>IssueTypeUpdateInput</code> was added to input object type <code>UpdateIssueInput</code></p>",
+          "<p>Input field <code>labels</code> of type '[LabelUpdateInput!]<code>was added to input object type</code>UpdateIssueInput'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-07-14"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Enum value 'ARCHIVED_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>",
           "<p>Enum value 'UNARCHIVED_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>"
         ]

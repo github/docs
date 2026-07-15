@@ -36,14 +36,6 @@ OpenAI makes the [following data commitment](https://openai.com/enterprise-priva
 
 All input requests and output responses processed by {% data variables.product.prodname_copilot %}'s models continue to pass through GitHub Copilot's, content filtering systems. These filters include checks for public code matches (when applied) as well as mechanisms to detect and block harmful or offensive content.
 
-## OpenAI models fine-tuned by Microsoft
-
-Used for:
-
-* {% data variables.copilot.copilot_raptor_mini %}
-
-These models are deployed on {% data variables.product.github %} managed Azure OpenAI tenant.
-
 ## Anthropic models
 
 Used for:
@@ -91,7 +83,18 @@ When using {% data variables.copilot.copilot_gemini %} models, input prompts and
 
 ## Microsoft models
 
+Used for:
+
+* {% data variables.copilot.copilot_mai_code_1_flash %}
+* {% data variables.copilot.copilot_raptor_mini %}
+
 {% data variables.copilot.copilot_mai_code_1_flash %} is a first-party Microsoft model hosted on Azure in {% data variables.product.github %}'s tenant. 
+
+{% data variables.product.github %} does not use {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} customer data to train AI models. For individual subscribers—{% data variables.copilot.copilot_free_short %}, {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and {% data variables.copilot.copilot_max_short %} users—{% data variables.product.github %} may use {% data variables.product.prodname_copilot_short %} interaction data, including prompts (inputs), suggestions (outputs), and code snippets generated during {% data variables.product.prodname_copilot_short %} sessions to train and improve AI models, in accordance with our [AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-general-privacy-statement) and applicable user settings. Individual subscribers can opt out of having their data used for AI model training. To manage this setting, see [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#model-training-and-improvements).
+
+{% data variables.copilot.copilot_mai_code_1_flash %} is served on Microsoft Azure AI Foundry within {% data variables.product.github %}'s tenant and is subject to {% data variables.product.github %}'s data handling configuration for that deployment. For details about how data is processed, retained, and secured for models served on Azure AI Foundry, see [Data, privacy, and security for Foundry Models sold by Azure](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy?tabs=azure-portal) in the Microsoft documentation.
+
+When using {% data variables.copilot.copilot_mai_code_1_flash %}, input prompts and output completions continue to run through {% data variables.product.prodname_copilot %}'s content filters for public code matching, when applied, along with those for harmful or offensive content.
 
 ## Open-weight models
 

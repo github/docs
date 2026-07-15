@@ -15,8 +15,10 @@ category:
 
 After you disable SAML SSO for your enterprise, the following effects apply:
 
-* All external identities for your enterprise will be removed. For more information, see - All external identities for the enterprise will be removed. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise).
+* All external identities for your enterprise will be removed. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise).
 * Any SAML settings configured for individual organizations within the enterprise will take effect. For more information, see [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization).
+
+{% data reusables.saml.credentials-persist-when-sso-disabled %}
 
 ## Disabling SAML
 
@@ -27,6 +29,7 @@ After you disable SAML SSO for your enterprise, the following effects apply:
 
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
+
 1. Under "SAML single sign-on", deselect **Require SAML authentication**.
 1. Click **Save**.
 

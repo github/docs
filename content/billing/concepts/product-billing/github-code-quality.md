@@ -17,7 +17,7 @@ category:
 
 <!-- end expires 2026-07-20 -->
 
-## How use of {% data variables.product.prodname_code_quality %} is measured
+## How {% data variables.product.prodname_code_quality %} billing is measured
 
 <!-- expires 2026-07-20 -->
 
@@ -27,10 +27,22 @@ category:
 
 When you scan private repositories during the {% data variables.release-phases.public_preview %}, you **will not be billed** for {% data variables.product.prodname_ai_credits_short %} or active committer usage, but {% data variables.product.prodname_actions %} minutes **will be consumed**.
 
+#### Check {% data variables.product.prodname_actions %} usage during preview
+
 To view consumption of actions by the `{% data variables.code-quality.workflow_name_billing %}` workflow, download a detailed usage report from the "Billing and licensing" tab. See [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
 
 > [!NOTE]
 > {% data reusables.code-quality.shared-workflow-preview %}
+
+#### View your license estimate during preview
+
+During the {% data variables.release-phases.public_preview %}, you can preview your license cost for {% data variables.product.prodname_code_quality_short %} before charges begin on July 20, 2026. On the licensing page of the "Billing and licensing" tab, the **Consumed licenses** and **Estimated monthly payment** for {% data variables.product.prodname_code_quality_short %} show how many active committers would count toward your license and the estimated cost.
+
+Because active-committer counts use a rolling 90-day window, this estimate can still change before then. When {% data variables.product.prodname_code_quality_short %} becomes generally available, the same calculation applied to your then-current committers determines your bill.
+
+#### What the estimate includes and excludes
+
+The estimate only reflects the per-committer license cost. It does not include the {% data variables.product.prodname_actions %} minutes that {% data variables.product.prodname_codeql %} analysis consumes or usage-based charges for AI-powered capabilities such as {% data variables.copilot.copilot_autofix %}. It also reflects standard list pricing, so it does not account for any discounts that may apply to your account.
 
 <!-- end expires 2026-07-20 -->
 

@@ -62,7 +62,7 @@ Bun adheres to the same configuration guidelines as npm. Note that the `.npmrc` 
 
 Supported by Artifactory, Artifacts, Cloudsmith, {% data variables.product.prodname_registry %} registry, Nexus, and ProGet.
 
-You can authenticate with either a username and password, or a token. For more information, see `rubygems-server` in [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot#rubygems-server).
+You can authenticate with either a username and password, or a token. For more information, see `rubygems-server` in [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#rubygems-server).
 
 Snippet of a `dependabot.yml` file using a username and password.
 
@@ -99,7 +99,7 @@ registries:
 
 ### Cargo
 
-Cargo supports username, password and token-based authentication. For more information, see `cargo-registry` in [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot#cargo-registry).
+Cargo supports username, password and token-based authentication. For more information, see `cargo-registry` in [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#cargo-registry).
 
 The snippet below shows a `dependabot.yml` file configuration that uses a token.
 
@@ -107,11 +107,11 @@ The snippet below shows a `dependabot.yml` file configuration that uses a token.
 
 ### Docker
 
-Docker supports using a username and password for registries. For more information, see `docker-registry` in [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot#docker-registry).
+Docker supports using a username and password for registries. For more information, see `docker-registry` in [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#docker-registry).
 
 {% ifversion org-automatic-registry-access %}
 
-For images stored in {% data variables.product.prodname_container_registry %}, you can grant your repository **Read** access in the package settings instead of configuring credentials in your `dependabot.yml` file. See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot#configuring-private-github-hosted-registries).
+For images stored in {% data variables.product.prodname_container_registry %}, you can grant your repository **Read** access in the package settings instead of configuring credentials in your `dependabot.yml` file. See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#configuring-private-github-hosted-registries).
 
 {% endif %}
 
@@ -166,7 +166,7 @@ Docker Compose adheres to the same configuration guidelines as Docker. For more 
 
 ### Helm Charts
 
-Helm supports using a username and password for registries. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot#helm-registry).
+Helm supports using a username and password for registries. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#helm-registry).
 
 Snippet of `dependabot.yml` file using a username and password.
 
@@ -202,9 +202,9 @@ When configuring {% data variables.product.prodname_dependabot %} for Helm chart
 
 ### Gradle
 
-{% data variables.product.prodname_dependabot %} doesn't run Gradle but supports updates to certain Gradle files. For more information, see "Gradle" in [AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories#gradle).
+{% data variables.product.prodname_dependabot %} doesn't run Gradle but supports updates to certain Gradle files. For more information, see "Gradle" in [AUTOTITLE](/code-security/reference/supply-chain-security/supported-ecosystems-and-repositories#gradle).
 
-Gradle supports the `maven-repository` registry type. For more information, see `maven-repository` in [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot#maven-repository).
+Gradle supports the `maven-repository` registry type. For more information, see `maven-repository` in [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#maven-repository).
 
 The `maven-repository` type supports username, password and replaces-base. {% data reusables.dependabot.password-definition %}
 
@@ -276,7 +276,7 @@ This feature enables unified dependency management for both public and private G
 
 ### Maven
 
-Maven supports username, password and replaces-base. For more information, see `maven-repository` in [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot#maven-repository).
+Maven supports username, password and replaces-base. For more information, see `maven-repository` in [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#maven-repository).
 
 {% raw %}
 
@@ -326,7 +326,7 @@ You can define the configuration in the `dependabot.yml` file using the `npm-reg
 
 #### Using the `npm-registry` type in the configuration file
 
-You can define the private registry configuration in a `dependabot.yml` file using the `npm-registry` type. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot#npm-registry).
+You can define the private registry configuration in a `dependabot.yml` file using the `npm-registry` type. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#npm-registry).
 
 The snippet of a `dependabot.yml` file below uses a token. {% data reusables.dependabot.token-is-github-pat %}
 
@@ -421,7 +421,7 @@ Registries should be configured using the `https` protocol.
 
 Supported by Artifactory, Artifacts, Cloudsmith, {% data variables.product.prodname_registry %} registry, Nexus, and ProGet.
 
-The `nuget-feed` type supports username and password, or token. For more information, see `nuget-feed` in [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot#nuget-feed).
+The `nuget-feed` type supports username and password, or token. For more information, see `nuget-feed` in [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#nuget-feed).
 
 {% raw %}
 
@@ -467,7 +467,7 @@ registries:
 
 ### pub
 
-You can define the private registry configuration in a `dependabot.yml` file using the `pub-repository` type. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot#pub-repository).
+You can define the private registry configuration in a `dependabot.yml` file using the `pub-repository` type. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#pub-repository).
 
 {% raw %}
 
@@ -500,7 +500,7 @@ pub supports URL and token authentication. The URL used for the registry should 
 
 Supported by Artifactory, Azure Artifacts, Cloudsmith, Nexus, and ProGet. The {% data variables.product.prodname_registry %} registry is not supported.
 
-The `python-index` type supports username and password, or token. For more information, see `python-index` in [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot#python-index).
+The `python-index` type supports username and password, or token. For more information, see `python-index` in [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#python-index).
 
 {% raw %}
 
@@ -547,11 +547,11 @@ registries:
 
 ### uv
 
-The uv registry uses a configuration similar to that of the python index. For more information, see "`python-index`" in [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot#python-index).
+The uv registry uses a configuration similar to that of the python index. For more information, see "`python-index`" in [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#python-index).
 
 ### Yarn
 
-The Yarn registry uses a configuration similar to that of the npm registry. For more information, see "`npm-registry`" in [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot#npm-registry).
+The Yarn registry uses a configuration similar to that of the npm registry. For more information, see "`npm-registry`" in [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#npm-registry).
 
 {% raw %}
 
@@ -776,7 +776,7 @@ If you are restricting which IPs can reach your Nexus host, you need to add the 
       * "3.217.93.44/32"
 For more information, see [Securing Nexus Repository Manager](https://help.sonatype.com/repomanager3/planning-your-implementation/securing-nexus-repository-manager) in the Sonatype documentation.
 
-  Registries can be proxied to reach out to a public registry in case a dependency is not available in the private registry. However, you may want {% data variables.product.prodname_dependabot %} to only access the private registry and not access the public registry at all. For more information, see [Quick Start Guide - Proxying Maven and NPM](https://help.sonatype.com/repomanager3/planning-your-implementation/quick-start-guide---proxying-maven-and-npm) in the Sonatype documentation, and [AUTOTITLE](/code-security/dependabot/maintain-dependencies/removing-dependabot-access-to-public-registries).
+  Registries can be proxied to reach out to a public registry in case a dependency is not available in the private registry. However, you may want {% data variables.product.prodname_dependabot %} to only access the private registry and not access the public registry at all. For more information, see [Quick Start Guide - Proxying Maven and NPM](https://help.sonatype.com/repomanager3/planning-your-implementation/quick-start-guide---proxying-maven-and-npm) in the Sonatype documentation, and [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/remove-access-to-public-registries).
 
 ### ProGet
 

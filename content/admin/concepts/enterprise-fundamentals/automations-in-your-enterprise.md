@@ -131,4 +131,4 @@ Use **{% data variables.product.prodname_github_apps %} and {% data variables.pr
 
 ## Next steps
 
-Learn how to design and manage {% data variables.product.prodname_github_apps %} at the enterprise level in [AUTOTITLE](/admin/managing-your-enterprise-account/creating-github-apps-for-your-enterprise).
+Learn how to design and manage {% data variables.product.prodname_github_apps %} at the enterprise level in [AUTOTITLE](/admin/managing-github-apps-for-your-enterprise/creating-github-apps-for-your-enterprise).

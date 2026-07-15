@@ -116,7 +116,7 @@ Organization-level secrets:
 * Actions secrets are not available to workflows initiated by {% data variables.product.prodname_dependabot %}.
 * Actions secrets are not passed to workflows that are triggered by a pull request from a fork.
 * {% data variables.product.prodname_actions %} automatically redacts the contents of all {% data variables.product.github %} secrets that are printed to workflow logs.
-* You can store up to 1,000 organization secrets, 100 repository secrets, and 100 environment secrets. Secrets are limited to 48 KB in size. For more information, see [Limits for secrets](/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions#limits-for-secrets).
+* You can store up to 1,000 organization secrets, 100 repository secrets, and 100 environment secrets. Secrets are limited to 48 KB in size. For more information, see [Limits for secrets](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets#limits-for-secrets).
 
 {% ifversion fpt or ghec %}
 
@@ -168,7 +168,7 @@ Organization-level secrets:
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#storing-credentials-for-dependabot-to-use)
-* [AUTOTITLE](/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions){% ifversion fpt or ghec %}
+* [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#storing-credentials-for-dependabot-to-use)
+* [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets){% ifversion fpt or ghec %}
 * [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-development-environment-secrets-for-your-repository-or-organization)
 * [AUTOTITLE](/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces){% endif %}

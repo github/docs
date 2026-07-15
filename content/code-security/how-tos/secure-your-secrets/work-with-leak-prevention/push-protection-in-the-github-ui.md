@@ -38,7 +38,7 @@ Organization owners can provide a custom link that will be displayed when a push
 
 To resolve a blocked commit in the web UI, you need to remove the secret from the file. Once you remove the secret, you will be able to commit your changes.
 
->[!NOTE] To learn how to resolved a blocked push on the command line, see [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#resolving-a-blocked-push).
+> [!NOTE] To learn how to resolved a blocked push on the command line, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/work-with-leak-prevention/push-protection-on-the-command-line#resolving-a-blocked-push).
 
 ## Bypassing push protection
 
@@ -53,7 +53,7 @@ If {% data variables.product.prodname_dotcom %} blocks a secret that you believe
 {% data reusables.secret-scanning.push-protection-public-repos-bypass %}
 1. Click **Allow secret**.
 
-If you don't see the option to bypass the block, the repository administrator or organization owner has configured tighter controls around push protection. Instead, you should remove the secret from the commit, or submit a request for "bypass privileges" in order to push the blocked secret. For more information, see [Requesting bypass privileges](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui#requesting-bypass-privileges).
+If you don't see the option to bypass the block, the repository administrator or organization owner has configured tighter controls around push protection. Instead, you should remove the secret from the commit, or submit a request for "bypass privileges" in order to push the blocked secret. For more information, see [Requesting bypass privileges](/code-security/how-tos/secure-your-secrets/work-with-leak-prevention/push-protection-in-the-github-ui#requesting-bypass-privileges).
 
 ## Requesting bypass privileges
 
@@ -75,5 +75,5 @@ If your request is denied, you will need to remove the secret from the file befo
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line)
-* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-rest-api)
+* [AUTOTITLE](/code-security/how-tos/secure-your-secrets/work-with-leak-prevention/push-protection-on-the-command-line)
+* [AUTOTITLE](/code-security/concepts/secret-security/push-protection-from-the-rest-api)

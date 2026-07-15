@@ -52,6 +52,41 @@ test('use sidebar to go to Hello World page', async ({ page }) => {
   await expect(page).toHaveTitle(/Hello World - GitHub Docs/)
 })
 
+test('press "/" to open the search overlay', async ({ page }) => {
+  await page.goto('/')
+  await turnOffExperimentsInPage(page)
+
+  // Wait for the header search button to render, so the keydown listener is attached.
+  await page.locator('[data-testid="search"]:visible').waitFor()
+
+  const searchInput = page.getByTestId('overlay-search-input')
+  // The overlay (and its input) is not in the DOM until it's opened.
+  await expect(searchInput).toHaveCount(0)
+
+  // Pressing "/" anywhere on the page opens the overlay and focuses the input.
+  await page.keyboard.press('/')
+  await expect(searchInput).toBeFocused()
+
+  // Escape closes it again.
+  await page.keyboard.press('Escape')
+  await expect(searchInput).toHaveCount(0)
+})
+
+test('"/" typed inside the search input is a literal slash', async ({ page }) => {
+  await page.goto('/')
+  await turnOffExperimentsInPage(page)
+
+  await page.locator('[data-testid="search"]:visible').waitFor()
+
+  await page.keyboard.press('/')
+  const searchInput = page.getByTestId('overlay-search-input')
+  await expect(searchInput).toBeFocused()
+
+  // The "/" shortcut must not fire while typing in a field, so it is not swallowed.
+  await page.keyboard.type('a/b')
+  await expect(searchInput).toHaveValue('a/b')
+})
+
 test('do a search from home page and click on "Foo" page', async ({ page }) => {
   test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
 
@@ -505,21 +540,21 @@ test.describe('test nav at different viewports', () => {
     })
     await page.goto('/get-started/foo/bar')
 
-    // in article breadcrumbs at our custom xl viewport should remove last
-    // breadcrumb so for this page we should only have 'Get Started / Foo'
-    expect(await page.getByTestId('breadcrumbs-in-article').getByRole('link').all()).toHaveLength(2)
-    await expect(page.getByTestId('breadcrumbs-in-article').getByText('Foo')).toBeVisible()
-    await expect(page.getByTestId('breadcrumbs-in-article').getByText('Bar')).not.toBeVisible()
+    // The Docs 2026 secondary bar leads with a Home crumb, then the full trail
+    // 'Get started / Foo / Bar' (no hidden last crumb).
+    expect(await page.getByTestId('breadcrumbs-bar').getByRole('link').all()).toHaveLength(4)
+    await expect(page.getByTestId('breadcrumbs-bar').getByText('Foo')).toBeVisible()
+    await expect(page.getByTestId('breadcrumbs-bar').getByText('Bar')).toBeVisible()
 
     // breadcrumbs show up in rest reference pages
     await page.goto('/rest/actions/artifacts')
-    await expect(page.getByTestId('breadcrumbs-in-article')).toBeVisible()
+    await expect(page.getByTestId('breadcrumbs-bar')).toBeVisible()
 
     // breadcrumbs show up in one of the pages that use the AutomatedPage
     // component (e.g. graphql, audit log, etc.) -- we test the webhooks
     // reference page here
     await page.goto('/webhooks/webhook-events-and-payloads')
-    await expect(page.getByTestId('breadcrumbs-in-article')).toBeVisible()
+    await expect(page.getByTestId('breadcrumbs-bar')).toBeVisible()
   })
 
   test('large -> x-large viewports - 1012+', async ({ page }) => {
@@ -549,17 +584,15 @@ test.describe('test nav at different viewports', () => {
     })
     await page.goto('/get-started/foo/bar')
 
-    // breadcrumbs show up in the header, for this page we should have
-    // 3 items 'Get Started / Foo / Bar'
-    // in-article breadcrumbs don't show up
-    await expect(page.getByTestId('breadcrumbs-header')).toBeVisible()
-    expect(await page.getByTestId('breadcrumbs-header').getByRole('link').all()).toHaveLength(3)
-    await expect(page.getByTestId('breadcrumbs-in-article')).not.toBeVisible()
+    // breadcrumbs show up in the secondary bar; for this page we should have
+    // a Home crumb plus 'Get started / Foo / Bar'
+    await expect(page.getByTestId('breadcrumbs-bar')).toBeVisible()
+    expect(await page.getByTestId('breadcrumbs-bar').getByRole('link').all()).toHaveLength(4)
 
-    // hamburger button for sidebar overlay is visible
-    await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
-    await page.getByTestId('sidebar-hamburger').click()
-    await expect(page.locator('[role="dialog"][class*="Header_dialog"]')).toBeVisible()
+    // the mobile nav toggle is visible and expands the doc-tree nav inline
+    await expect(page.getByTestId('sidebar-mobile-toggle')).toBeVisible()
+    await page.getByTestId('sidebar-mobile-toggle').click()
+    await expect(page.getByTestId('sidebar')).toBeVisible()
   })
 
   test('medium viewports - 768-1011', async ({ page }) => {
@@ -582,9 +615,9 @@ test.describe('test nav at different viewports', () => {
     await expect(page.getByTestId('mobile-signup')).toBeVisible()
 
     // hamburger button for sidebar overlay is visible
-    await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
-    await page.getByTestId('sidebar-hamburger').click()
-    await expect(page.locator('[role="dialog"][class*="Header_dialog"]')).toBeVisible()
+    await expect(page.getByTestId('sidebar-mobile-toggle')).toBeVisible()
+    await page.getByTestId('sidebar-mobile-toggle').click()
+    await expect(page.getByTestId('sidebar')).toBeVisible()
   })
 
   test('small viewports - 544-767', async ({ page }) => {
@@ -611,9 +644,9 @@ test.describe('test nav at different viewports', () => {
     await expect(page.getByTestId('mobile-signup')).toBeVisible()
 
     // hamburger button for sidebar overlay is visible
-    await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
-    await page.getByTestId('sidebar-hamburger').click()
-    await expect(page.locator('[role="dialog"][class*="Header_dialog"]')).toBeVisible()
+    await expect(page.getByTestId('sidebar-mobile-toggle')).toBeVisible()
+    await page.getByTestId('sidebar-mobile-toggle').click()
+    await expect(page.getByTestId('sidebar')).toBeVisible()
   })
 
   test('x-small viewports - 0-544', async ({ page }) => {
@@ -645,9 +678,9 @@ test.describe('test nav at different viewports', () => {
     await expect(page.getByTestId('mobile-signup')).toBeVisible()
 
     // hamburger button for sidebar overlay is visible
-    await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
-    await page.getByTestId('sidebar-hamburger').click()
-    await expect(page.locator('[role="dialog"][class*="Header_dialog"]')).toBeVisible()
+    await expect(page.getByTestId('sidebar-mobile-toggle')).toBeVisible()
+    await page.getByTestId('sidebar-mobile-toggle').click()
+    await expect(page.getByTestId('sidebar')).toBeVisible()
   })
 
   test('do a search when the viewport is x-small', async ({ page }) => {
@@ -846,7 +879,10 @@ test.describe('survey', () => {
     await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
     await expect(page.locator('[for=survey-comment]')).toBeVisible()
 
-    await page.getByTestId('product-sidebar').getByLabel('Bar', { exact: true }).click()
+    await page
+      .getByTestId('product-sidebar')
+      .getByRole('link', { name: 'Bar', exact: true })
+      .click()
     await expect(page.getByRole('button', { name: 'Send' })).not.toBeVisible()
     await expect(page.locator('[for=survey-comment]')).not.toBeVisible()
   })
@@ -859,8 +895,13 @@ test.describe('rest API reference pages', () => {
     // URL that has that `?apiVersion=` query parameter.
     await expect(page).toHaveURL(/\/en\/rest\?apiVersion=/)
     await page.getByTestId('sidebar').getByText('Actions').click()
-    await page.getByTestId('sidebar').getByLabel('Artifacts').click()
-    await page.getByLabel('About artifacts in HubGit Actions').click()
+    // Brand NavList renders leaf articles as <a> links (not the label-associated
+    // controls Primer used), so locate them by link role rather than getByLabel.
+    await page.getByTestId('sidebar').getByRole('link', { name: 'Artifacts' }).click()
+    await page
+      .getByTestId('sidebar')
+      .getByRole('link', { name: 'About artifacts in HubGit Actions' })
+      .click()
     await expect(page).toHaveURL(/\/en\/rest\/actions\/artifacts\?apiVersion=/)
     await expect(page).toHaveTitle(/GitHub Actions Artifacts - GitHub Docs/)
   })

@@ -1,15 +1,27 @@
+@import "src/frame/stylesheets/breakpoint-xxl.scss";
+
 .sidebarFull {
-  // Fixed width for consistent sidebar layout
-  width: 326px;
-  // 65px accounts for the header height
-  height: calc(100vh - 65px);
-  top: 65px;
+  @include breakpoint-xxl {
+    // Fixed width for consistent sidebar layout
+    width: 326px;
+    // 109px accounts for the header (65px) + the Docs 2026 secondary bar (44px)
+    height: calc(100vh - 109px);
+    top: 109px;
+  }
+}
+
+// When the mobile nav is expanded inline, the rail spans the full width and
+// flows in the page (no fixed height / sticky) below the xxl breakpoint.
+.sidebarFullMobileOpen {
+  width: 100%;
 }
 
 .sidebarContentFull {
-  width: 326px;
-  // 175px accounts for header (65px) + sidebar header (110px)
-  height: calc(100vh - 175px);
+  @include breakpoint-xxl {
+    width: 326px;
+    // 219px accounts for header (65px) + secondary bar (44px) + sidebar header (110px)
+    height: calc(100vh - 219px);
+  }
 }
 
 .sidebarContentOverlay {
