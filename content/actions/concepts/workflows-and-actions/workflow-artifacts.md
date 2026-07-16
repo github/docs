@@ -25,7 +25,7 @@ Common artifacts include:
 
 {% data reusables.actions.comparing-artifacts-caching %}
 
-For more information on dependency caching, see [AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#comparing-artifacts-and-dependency-caching).
+For more information on dependency caching, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching#comparing-artifacts-and-dependency-caching).
 
 {% ifversion artifact-attestations %}
 
@@ -35,7 +35,7 @@ For more information on dependency caching, see [AUTOTITLE](/actions/using-workf
 
 You can access attestations after a build run, underneath the list of the artifacts the build produced.
 
-For more information, see [AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds).
+For more information, see [AUTOTITLE](/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations).
 
 {% endif %}
 

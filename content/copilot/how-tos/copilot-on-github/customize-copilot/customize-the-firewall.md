@@ -1,8 +1,8 @@
 ---
-title: Customizing or disabling the firewall for GitHub Copilot cloud agent
-shortTitle: Customize the agent firewall
+title: Customizing or disabling the firewall for GitHub Copilot
+shortTitle: Customize the firewall
 allowTitleToDifferFromFilename: true
-intro: 'Learn how to control the domains and URLs that {% data variables.copilot.copilot_cloud_agent %} can access.'
+intro: 'Learn how to control the domains and URLs that {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %} can access.'
 versions:
   feature: copilot
 redirect_from:
@@ -12,17 +12,21 @@ redirect_from:
   - /copilot/how-tos/agents/copilot-coding-agent/customize-the-agent-firewall
   - /copilot/how-tos/agents/coding-agent/customize-the-agent-firewall
   - /copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-firewall
+  - /copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-firewall
 contentType: how-tos
 category:
   - Configure Copilot
 ---
 
 > [!NOTE]
-> Firewall configuration has moved to the {% data variables.copilot.copilot_cloud_agent %} settings page. Previous configurations saved as Actions variables will be maintained on that page.
+> Firewall configuration is managed from the "Internet access" settings tab, which covers both {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}. Previous configurations saved as Actions variables will be maintained on that page.
 
 ## Overview
 
 By default, {% data variables.product.prodname_copilot_short %}'s access to the internet is limited by a firewall.
+
+> [!NOTE]
+> {% data variables.copilot.copilot_code-review_short %} also supports firewall configuration, at both the organization and repository level, under its own section of the "Internet access" tab described below. This allows you to configure firewall rules for {% data variables.copilot.copilot_code-review_short %} independently of {% data variables.copilot.copilot_cloud_agent %}. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review#customizing-copilot-code-reviews-environment).
 
 Limiting internet access helps manage data exfiltration risks. Unexpected behavior from {% data variables.product.prodname_copilot_short %}, or malicious instructions, could lead to code or other sensitive information being leaked to remote locations.
 
@@ -56,11 +60,13 @@ For the complete list of hosts included in the recommended allowlist, see [AUTOT
 
 ## Configuring the firewall at the organization level
 
-Organization owners can configure all firewall settings at the organization level. To access the firewall settings:
+Organization owners can configure all firewall settings at the organization level, for both {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}. To access the firewall settings:
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.copilot.cloud-agent-settings %}
+{% data reusables.copilot.internet-access-settings %}
+
+The "Internet access" page has separate sections for {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}, so you can configure the following settings independently for each.
 
 ### Enabling or disabling the firewall
 
@@ -88,13 +94,13 @@ Items added to the organization custom allowlist apply to all repositories in th
 
 ## Configuring the firewall at the repository level
 
-Repository administrators can configure firewall settings at the repository level, including enabling or disabling the firewall, enabling or disabling the recommended allowlist, and managing a custom allowlist. Depending on the organization-level configuration, some of these settings may be locked.
+Repository administrators can configure firewall settings at the repository level, including enabling or disabling the firewall, enabling or disabling the recommended allowlist, and managing a custom allowlist. Depending on the organization-level configuration, some of these settings may be locked. The repository settings page also has separate sections for {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}, so you can configure these settings independently for each.
 
 To access the firewall settings:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the "Code & automation" section of the sidebar, click **{% data variables.product.prodname_copilot_short %}** then **{% data variables.copilot.copilot_cloud_agent_short %}**.
+1. In the "Code & automation" section of the sidebar, click **{% data variables.product.prodname_copilot_short %}** then **Internet access**.
 
 ### Enabling or disabling the firewall
 

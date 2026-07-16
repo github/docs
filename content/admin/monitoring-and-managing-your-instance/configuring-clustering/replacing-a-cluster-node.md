@@ -19,7 +19,7 @@ category:
 
 You can replace a functional node in a {% data variables.product.prodname_ghe_server %} cluster, or you can replace a node that has failed unexpectedly.
 
-After you replace a node, {% data variables.location.product_location %} does not automatically distribute jobs to the new node. You can force your instance to balance jobs across nodes. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-clustering/rebalancing-cluster-workloads).
+After you replace a node, {% data variables.location.product_location %} does not automatically distribute jobs to the new node. You can force your instance to balance jobs across nodes. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/rebalancing-cluster-workloads).
 
 > [!WARNING]
 > To avoid conflicts, do not reuse a hostname that was previously assigned to a node in the cluster.

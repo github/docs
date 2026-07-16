@@ -19,7 +19,7 @@ You can provide protection against disruption in a datacenter or cloud region by
 
 In a high availability configuration, nodes that host data services sync regularly with the replica cluster. Replica nodes run in standby and do not serve applications or process user requests.
 
-We recommend configuring high availability as a part of a comprehensive disaster recovery plan for {% data variables.product.prodname_ghe_server %} clustering. We also recommend performing regular backups. For more information, see [AUTOTITLE](/enterprise/admin/configuration/configuring-backups-on-your-appliance).
+We recommend configuring high availability as a part of a comprehensive disaster recovery plan for {% data variables.product.prodname_ghe_server %} clustering. We also recommend performing regular backups. For more information, see [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance).
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ We recommend configuring high availability as a part of a comprehensive disaster
 
 For each existing node in your active cluster, you'll need to provision a second virtual machine with identical hardware resources. For example, if your cluster has 13 nodes and each node has 12 vCPUs, 96 GB of RAM, and 750 GB of attached storage, you must provision 13 new virtual machines that each have 12 vCPUs, 96 GB of RAM, and 750 GB of attached storage.
 
-On each new virtual machine, install the same version of {% data variables.product.prodname_ghe_server %} that runs on the nodes in your active cluster. You don't need to upload a license or perform any additional configuration. For more information, see [AUTOTITLE](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance).
+On each new virtual machine, install the same version of {% data variables.product.prodname_ghe_server %} that runs on the nodes in your active cluster. You don't need to upload a license or perform any additional configuration. For more information, see [AUTOTITLE](/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance).
 
 > [!NOTE]
 > The nodes that you intend to use for high availability replication should be standalone {% data variables.product.prodname_ghe_server %} instances. Don't initialize the replica nodes as a second cluster.
@@ -36,7 +36,7 @@ On each new virtual machine, install the same version of {% data variables.produ
 
 You must assign a static IP address to each new node that you provision, and you must configure a load balancer to accept connections and direct them to the nodes in your cluster's front-end tier.
 
-{% data reusables.enterprise_clustering.network-latency %} For more information about network connectivity between nodes in the replica cluster, see [AUTOTITLE](/enterprise/admin/enterprise-management/cluster-network-configuration).
+{% data reusables.enterprise_clustering.network-latency %} For more information about network connectivity between nodes in the replica cluster, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/cluster-network-configuration).
 
 ## Creating a high availability replica for a cluster
 
@@ -60,7 +60,7 @@ To create a high availability replica for your cluster, use the `ghe-cluster-rep
 
 Initial replication between the active and replica nodes in your cluster takes time. The amount of time depends on the amount of data to replicate and the activity levels for {% data variables.product.prodname_ghe_server %}.
 
-You can monitor the progress on any node in the cluster, using command-line tools available via the {% data variables.product.prodname_ghe_server %} administrative shell. For more information about the administrative shell, see [AUTOTITLE](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh).
+You can monitor the progress on any node in the cluster, using command-line tools available via the {% data variables.product.prodname_ghe_server %} administrative shell. For more information about the administrative shell, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh).
 
 To monitor the replication of all services, use the following command.
 
@@ -68,7 +68,7 @@ To monitor the replication of all services, use the following command.
 ghe-cluster-repl-status
 ```
 
-You can use `ghe-cluster-status` to review the overall health of your cluster. For more information, see [AUTOTITLE](/enterprise/admin/configuration/command-line-utilities#ghe-cluster-status).
+You can use `ghe-cluster-status` to review the overall health of your cluster. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-cluster-status).
 
 ## Reconfiguring high availability replication after a failover
 

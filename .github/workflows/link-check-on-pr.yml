@@ -59,14 +59,12 @@ jobs:
 
       - name: Check links in changed files
         if: steps.changed-files.outputs.any_changed == 'true'
-        # Work in progress: never fail the PR. The comment is informational only.
-        continue-on-error: true
         env:
           FILES_CHANGED: ${{ steps.changed-files.outputs.all_changed_files }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           SHOULD_COMMENT: ${{ secrets.DOCS_BOT_APP_ID != '' }}
-          FAIL_ON_FLAW: false
+          FAIL_ON_FLAW: true
           ENABLED_LANGUAGES: en
         run: npm run check-links-pr
 

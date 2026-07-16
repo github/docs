@@ -1898,6 +1898,11 @@ interface Assignable @docsCategory(name: "issues") {
     """
     query: String
   ): AssigneeConnection!
+
+  """
+  Indicates if the viewer can edit assignees for this object.
+  """
+  viewerCanAssign: Boolean!
 }
 
 """
@@ -20607,6 +20612,11 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
   ): UserContentEditConnection
 
   """
+  Indicates if the viewer can edit assignees for this object.
+  """
+  viewerCanAssign: Boolean!
+
+  """
   Indicates if the object can be closed by the viewer.
   """
   viewerCanClose: Boolean!
@@ -20637,14 +20647,31 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
   viewerCanSetFields: Boolean
 
   """
+  Indicates if the viewer can edit the milestone of the issue.
+  """
+  viewerCanSetMilestone: Boolean!
+
+  """
   Check if the viewer is able to change their subscription status for the repository.
   """
   viewerCanSubscribe: Boolean!
 
   """
+  Check if the current viewer can set the issue type of this issue.
+  """
+  viewerCanType: Boolean
+
+  """
   Check if the current viewer can update this object.
   """
   viewerCanUpdate: Boolean!
+
+  """
+  Check if the viewer has triage-level (or higher) access to update this issue's
+  metadata. Note: this reflects the viewer's base repository role and does not
+  account for individual fine-grained permissions granted via custom repository roles.
+  """
+  viewerCanUpdateMetadata: Boolean
 
   """
   Reasons why the current viewer can not update this comment.
@@ -43977,6 +44004,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   Whether or not the viewer can apply suggestion.
   """
   viewerCanApplySuggestion: Boolean!
+
+  """
+  Indicates if the viewer can edit assignees for this object.
+  """
+  viewerCanAssign: Boolean!
 
   """
   Indicates if the object can be closed by the viewer.

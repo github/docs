@@ -47,6 +47,35 @@ Hover over the {% octicon "info" aria-label="the info icon" %} icon in the model
 
 **Quick chats** in the sidebar opens a conversation mode without creating a dedicated branch or worktree. Use it for brainstorming, asking questions, or exploring ideas before starting a session. Your chat history is saved and listed by conversation name.
 
+## Using `/security-review` in app sessions
+
+> [!NOTE]
+> The `/security-review` slash command is currently in {% data variables.release-phases.public_preview %} and subject to change.
+
+You can run the `/security-review` slash command in an active agent session to review your current workstream changes for high-confidence vulnerabilities. The command returns prioritized findings with severity and confidence scores, plus suggested fixes you can apply and verify in the same session.
+
+1. Open an active session that has in-progress code changes.
+1. In the prompt box, type `/security-review` and press <kbd>Enter</kbd>.
+1. Review the findings, then update your code changes as needed.
+
+This lightweight, on-demand review complements {% data variables.product.github %} {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_dependabot %}, and {% data variables.product.prodname_secret_scanning %} by giving you an initial check on your local changes before opening a pull request.
+
+## Using the rubber duck agent
+
+The rubber duck agent is a built-in agent that acts as a constructive critic, reviewing your current plan, implementation, or tests and returning concrete feedback. The agent runs on a different model from the one driving your current session.
+
+When rubber duck is enabled, {% data variables.product.prodname_copilot_short %} can consult it automatically at key points while it works. The main session agent passes work to the rubber duck agent, receives the critique, then decides how to apply that feedback before continuing.
+
+> [!NOTE]
+> The rubber duck agent is currently only available if the main agent is using a Claude or GPT large language model.
+
+You can also manually ask {% data variables.product.prodname_copilot_short %} to get a review from the rubber duck agent.
+
+1. Open an active session.
+1. In the prompt box, type `/rubber-duck` and ask for a critique of your current plan, implementation, or tests.
+
+For more information on the rubber duck agent, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/rubber-duck).
+
 ## Using `/chronicle` with app sessions
 
 Because the {% data variables.copilot.github_copilot_app %} is built on {% data variables.copilot.copilot_cli %}, you can use {% data variables.copilot.copilot_cli_short %} session history features such as `/chronicle` to get insights from work you did in the app and in other {% data variables.copilot.copilot_cli_short %} sessions.
@@ -65,22 +94,6 @@ Before you can use voice dictation, you need to configure it in the app settings
 1. Download a local transcription model.
 
 After setup, use your shortcut to start and stop voice transcription. The app inserts transcribed text into the prompt box so you can review or edit it before sending.
-
-## Using the rubber duck agent
-
-The rubber duck agent is a built-in agent that acts as a constructive critic, reviewing your current plan, implementation, or tests and returning concrete feedback. The agent runs on a different model from the one driving your current session.
-
-When rubber duck is enabled, {% data variables.product.prodname_copilot_short %} can consult it automatically at key points while it works. The main session agent passes work to the rubber duck agent, receives the critique, then decides how to apply that feedback before continuing.
-
-> [!NOTE]
-> The rubber duck agent is currently only available if the main agent is using a Claude or GPT large language model.
-
-You can also manually ask {% data variables.product.prodname_copilot_short %} to get a review from the rubber duck agent.
-
-1. Open an active session.
-1. In the prompt box, type `/rubber-duck` and ask for a critique of your current plan, implementation, or tests.
-
-For more information on the rubber duck agent, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/rubber-duck).
 
 ## Keyboard shortcuts
 

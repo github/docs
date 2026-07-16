@@ -20,7 +20,7 @@ contentType: how-tos
 
 Reusable workflows are YAML-formatted files, very similar to any other workflow file. As with other workflow files, you locate reusable workflows in the `.github/workflows` directory of a repository. Subdirectories of the `workflows` directory are not supported.
 
-{% ifversion ghec or ghes %}You can standardize deployments by creating a self-hosted runner group that can only execute a specific reusable workflow. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups).{% endif %}
+{% ifversion ghec or ghes %}You can standardize deployments by creating a self-hosted runner group that can only execute a specific reusable workflow. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/manage-access).{% endif %}
 
 For a workflow to be reusable, the values for `on` must include `workflow_call`:
 
@@ -49,11 +49,11 @@ You can define inputs and secrets, which can be passed from the caller workflow 
    ```
 
    {% endraw %}
-   For details of the syntax for defining inputs and secrets, see [`on.workflow_call.inputs`](/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_callinputs) and [`on.workflow_call.secrets`](/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_callsecrets).
+   For details of the syntax for defining inputs and secrets, see [`on.workflow_call.inputs`](/actions/reference/workflows-and-actions/workflow-syntax#onworkflow_callinputs) and [`on.workflow_call.secrets`](/actions/reference/workflows-and-actions/workflow-syntax#onworkflow_callsecrets).
 1. In the reusable workflow, reference the input or secret that you defined in the `on` key in the previous step.
 
    > [!NOTE]
-   > If the secrets are inherited by using `secrets: inherit` in the calling workflow, you can reference them even if they are not explicitly defined in the `on` key. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit).
+   > If the secrets are inherited by using `secrets: inherit` in the calling workflow, you can reference them even if they are not explicitly defined in the `on` key. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idsecretsinherit).
 
    {% raw %}
 
@@ -73,7 +73,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
    In the example above, `personal_access_token` is a secret that's defined at the repository or organization level.
 
    > [!WARNING]
-   > Environment secrets cannot be passed from the caller workflow as `on.workflow_call` does not support the `environment` keyword. If you include `environment` in the reusable workflow at the job level, the environment secret will be used, and not the secret passed from the caller workflow. For more information, see [AUTOTITLE](/actions/deployment/targeting-different-environments/managing-environments-for-deployment#environment-secrets) and [AUTOTITLE](/actions/writing-workflows/workflow-syntax-for-github-actions#onworkflow_call).
+   > Environment secrets cannot be passed from the caller workflow as `on.workflow_call` does not support the `environment` keyword. If you include `environment` in the reusable workflow at the job level, the environment secret will be used, and not the secret passed from the caller workflow. For more information, see [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments) and [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#onworkflow_call).
 
 1. Pass the input or secret from the caller workflow.
 
@@ -114,7 +114,7 @@ jobs:
 
 You call a reusable workflow by using the `uses` keyword. Unlike when you are using actions within a workflow, you call reusable workflows directly within a job, and not from within job steps.
 
-[`jobs.<job_id>.uses`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iduses)
+[`jobs.<job_id>.uses`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_iduses)
 
 You reference reusable workflow files using one of the following syntaxes:
 
@@ -163,7 +163,7 @@ jobs:
 
 Jobs using the matrix strategy can call a reusable workflow.
 
-A matrix strategy lets you use variables in a single job definition to automatically create multiple job runs that are based on the combinations of the variables. For example, you can use a matrix strategy to pass different inputs to a reusable workflow. For more information about matrices, see [AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs).
+A matrix strategy lets you use variables in a single job definition to automatically create multiple job runs that are based on the combinations of the variables. For example, you can use a matrix strategy to pass different inputs to a reusable workflow. For more information about matrices, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/run-job-variations).
 
 This example job below calls a reusable workflow and references the matrix context by defining the variable `target` with the values `[dev, stage, prod]`. It will run three jobs, one for each value in the variable.
 
@@ -188,7 +188,7 @@ You can connect a maximum of {% ifversion fpt or ghec %}ten levels of workflows 
 
 Loops in the workflow tree are not permitted.
 
-> [!NOTE] Nested reusable workflows require all workflows in the chain to be accessible to the caller, and permissions can only be maintained or reduced—not elevated—throughout the chain. For more information, see [AUTOTITLE](/actions/reference/reusable-workflows-reference#access-and-permissions-for-nested-workflows).
+> [!NOTE] Nested reusable workflows require all workflows in the chain to be accessible to the caller, and permissions can only be maintained or reduced—not elevated—throughout the chain. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/reusing-workflow-configurations).
 
 From within a reusable workflow you can call another reusable workflow.
 
@@ -209,7 +209,7 @@ jobs:
 
 ## Passing secrets to nested workflows
 
-You can use `jobs.<job_id>.secrets` in a calling workflow to pass named secrets to a directly called workflow. Alternatively, you can use `jobs.<job_id>.secrets.inherit` to pass all of the calling workflow's secrets to a directly called workflow. For more information, see the section [AUTOTITLE](/actions/using-workflows/reusing-workflows#passing-inputs-and-secrets-to-a-reusable-workflow) above, and the reference article [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit). Secrets are only passed to directly called workflow, so in the workflow chain A > B > C, workflow C will only receive secrets from A if they have been passed from A to B, and then from B to C.
+You can use `jobs.<job_id>.secrets` in a calling workflow to pass named secrets to a directly called workflow. Alternatively, you can use `jobs.<job_id>.secrets.inherit` to pass all of the calling workflow's secrets to a directly called workflow. For more information, see the section [AUTOTITLE](/actions/how-tos/reuse-automations/reuse-workflows#passing-inputs-and-secrets-to-a-reusable-workflow) above, and the reference article [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idsecretsinherit). Secrets are only passed to directly called workflow, so in the workflow chain A > B > C, workflow C will only receive secrets from A if they have been passed from A to B, and then from B to C.
 
 In the following example, workflow A passes all of its secrets to workflow B, by using the `inherit` keyword, but workflow B only passes one secret to workflow C. Any of the other secrets passed to workflow B are not available to workflow C.
 
@@ -243,7 +243,7 @@ The following reusable workflow has a single job containing two steps. In each o
 
 The `value` must be set to the value of a job-level output within the called workflow. Step-level outputs must first be mapped to job-level outputs as shown below.
 
-For more information, see [AUTOTITLE](/actions/using-jobs/defining-outputs-for-jobs#overview) and [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_calloutputs).
+For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/pass-job-outputs#overview) and [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#onworkflow_calloutputs).
 
 {% raw %}
 
@@ -301,7 +301,7 @@ jobs:
 
 {% endraw %}
 
-For more information on using job outputs, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idoutputs). If you want to share something other than a variable (e.g. a build artifact) between workflows, see [AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts).
+For more information on using job outputs, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idoutputs). If you want to share something other than a variable (e.g. a build artifact) between workflows, see [AUTOTITLE](/actions/tutorials/store-and-share-data).
 
 ## Monitoring which workflows are being used
 
@@ -328,4 +328,4 @@ For more information, see [AUTOTITLE](/organizations/keeping-your-organization-s
 
 ## Next steps
 
-To find information on the intricacies of reusing workflows, see [AUTOTITLE](/actions/reference/reusable-workflows-reference).
+To find information on the intricacies of reusing workflows, see [AUTOTITLE](/actions/reference/workflows-and-actions/reusing-workflow-configurations).

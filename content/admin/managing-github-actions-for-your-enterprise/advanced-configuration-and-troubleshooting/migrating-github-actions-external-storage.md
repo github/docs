@@ -41,7 +41,7 @@ Before you begin, review the following constraints. Each one shapes the migratio
 
 ## Rehearsing the migration in a staging environment
 
-Before performing the migration against production, rehearse the full procedure on a staging instance. Provision a staging {% data variables.product.prodname_ghe_server %} instance from a recent production backup, point it at a throwaway destination that mirrors the intended production destination, and run every step of this article end to end. For more information, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance) and [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/using-a-staging-environment).
+Before performing the migration against production, rehearse the full procedure on a staging instance. Provision a staging {% data variables.product.prodname_ghe_server %} instance from a recent production backup, point it at a throwaway destination that mirrors the intended production destination, and run every step of this article end to end. For more information, see [AUTOTITLE](/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance) and [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/using-a-staging-environment).
 
 A staging rehearsal validates that:
 

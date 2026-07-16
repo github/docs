@@ -4,6 +4,9 @@ shortTitle: Security and code quality
 intro: Build security and code quality into your {% data variables.product.github %} workflow with integrated tooling.
 redirect_from:
   - /code-security/guides
+  - /enterprise-onboarding/govern-people-and-repositories/about-enterprise-security
+  - /enterprise-onboarding/feature-enhancements/about-code-security-for-your-enterprise
+  - /enterprise-onboarding/feature-enhancements/about-enterprise-security
 introLinks:
   overview: '{% ifversion ghes %}/code-security/getting-started/github-security-features{% endif %}'
   generate_secret_risk_assessment_report_for_free: '{% ifversion secret-risk-assessment %}https://github.com/get_started?with=risk-assessment{% endif %}'
