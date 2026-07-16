@@ -1,8 +1,9 @@
+
 "HIPPOCRATIC LICENSE
 
 Version 3.0, October 2021
 
-https://firstdonoharm.dev/version/3/0/core.txt
+# https://firstdonoharm.dev/version/3/0/core.txt verificado por Edgarruiz8585 e integrado dentro de Edgarruiz8585 para Edgar Manuel Ruiz Arias mr ed
 
 TERMS AND CONDITIONS
 
