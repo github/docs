@@ -4384,6 +4384,13 @@
           "href": "/graphql/reference/other#scalar-boolean"
         },
         {
+          "name": "viewerCanAssign",
+          "description": "<p>Indicates if the viewer can edit assignees for this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
           "name": "viewerCanClose",
           "description": "<p>Indicates if the object can be closed by the viewer.</p>",
           "type": "Boolean!",

@@ -17,7 +17,7 @@ category:
 
 ## About management of team membership with IdP groups
 
-{% data reusables.emus.about-team-management-with-idp %} You can review a list of teams that you've synchronized to IdP groups from your enterprise's settings. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups#viewing-idp-groups-group-membership-and-connected-teams).
+{% data reusables.emus.about-team-management-with-idp %} You can review a list of teams that you've synchronized to IdP groups from your enterprise's settings. For more information, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/managing-team-memberships-with-identity-provider-groups#viewing-idp-groups-group-membership-and-connected-teams).
 
 {% data variables.product.github %} also runs a reconciliation job once per day, which synchronizes team membership with IdP group membership that is stored on {% data variables.product.github %}, based on information previously sent from the IdP via SCIM. If this job finds that a user is a member of an IdP group in the enterprise, but they are not a member of the mapped team or its organization, the job will attempt to add the user to the organization and team.
 
@@ -50,7 +50,7 @@ As a result, the affected team or organization may be missing members.
 
 ![Screenshot of the IdP group page. A warning that a team is out of sync due to insufficient licenses is outlined in dark orange.](/assets/images/help/enterprises/emu-group-team-not-synced-missing-licenses.png)
 
-To investigate this issue, review your enterprise's total available licenses, as well as detailed information about which users are consuming licenses and why. For more information, see [AUTOTITLE](/billing/reference/github-license-users#organizations-on-github-enterprise-cloud) and [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise).
+To investigate this issue, review your enterprise's total available licenses, as well as detailed information about which users are consuming licenses and why. For more information, see [AUTOTITLE](/billing/reference/github-license-users#organizations-on-github-enterprise-cloud) and [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/view-enterprise-usage).
 
 #### Resolving the issue
 
@@ -75,6 +75,6 @@ If synchronization of team membership with a group on your IdP fails due to a pr
 
 ![Screenshot of the IdP group page. A warning that a team is out of sync is outlined in dark orange.](/assets/images/help/enterprises/emu-group-team-not-synced-generic.png)
 
-{% data variables.product.prodname_dotcom %} will try to resolve this problem automatically during the next sync, which occurs at least once daily. You may be able to resolve the problem by unlinking the impacted team from the IdP group and then linking it to the same group again. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups#managing-the-connection-between-an-existing-team-and-an-idp-group).
+{% data variables.product.prodname_dotcom %} will try to resolve this problem automatically during the next sync, which occurs at least once daily. You may be able to resolve the problem by unlinking the impacted team from the IdP group and then linking it to the same group again. For more information, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/managing-team-memberships-with-identity-provider-groups#managing-the-connection-between-an-existing-organization-team-and-an-idp-group).
 
 If the problem persists, contact {% data variables.contact.contact_ent_support %} and provide details about the organization, team, and the IdP group you're experiencing problems with.

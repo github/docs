@@ -46,7 +46,7 @@ This example configures two inputs: `num-octocats` and `octocat-eye-color`. The 
 > [!NOTE]
 > Actions using `required: true` will not automatically return an error if the input is not specified.
 
-Workflow files that use this action can use the `with` keyword to set an input value for `octocat-eye-color`. For more information about the `with` syntax, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepswith).
+Workflow files that use this action can use the `with` keyword to set an input value for `octocat-eye-color`. For more information about the `with` syntax, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstepswith).
 
 ```yaml
 inputs:
@@ -61,9 +61,9 @@ inputs:
 
 When you specify an input, {% data variables.product.prodname_dotcom %} creates an environment variable for the input with the name `INPUT_<VARIABLE_NAME>`. The environment variable created converts input names to uppercase letters and replaces spaces with `_` characters.
 
-If the action is written using a [composite](/actions/creating-actions/creating-a-composite-action), then it will not automatically get `INPUT_<VARIABLE_NAME>`. With composite actions you can use `inputs` [AUTOTITLE](/actions/learn-github-actions/contexts) to access action inputs.
+If the action is written using a [composite](/actions/tutorials/create-actions/create-a-composite-action), then it will not automatically get `INPUT_<VARIABLE_NAME>`. With composite actions you can use the [`inputs` context](/actions/reference/workflows-and-actions/contexts#inputs-context) to access action inputs.
 
-To access the environment variable in a Docker container action, you must pass the input using the `args` keyword in the action metadata file. For more information about the action metadata file for Docker container actions, see [AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action#creating-an-action-metadata-file).
+To access the environment variable in a Docker container action, you must pass the input using the `args` keyword in the action metadata file. For more information about the action metadata file for Docker container actions, see [AUTOTITLE](/actions/tutorials/use-containerized-services/create-a-docker-container-action#creating-an-action-metadata-file).
 
 For example, if a workflow defined the `num-octocats` and `octocat-eye-color` inputs, the action code could read the values of the inputs using the `INPUT_NUM-OCTOCATS` and `INPUT_OCTOCAT-EYE-COLOR` environment variables.
 
@@ -93,7 +93,7 @@ For example, if a workflow defined the `num-octocats` and `octocat-eye-color` in
 
 {% data reusables.actions.output-limitations %}
 
-If you don't declare an output in your action metadata file, you can still set outputs and use them in a workflow. For more information on setting outputs in an action, see [AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter).
+If you don't declare an output in your action metadata file, you can still set outputs and use them in a workflow. For more information on setting outputs in an action, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-commands#setting-an-output-parameter).
 
 ### Example: Declaring outputs for Docker container and JavaScript actions
 
@@ -140,7 +140,7 @@ runs:
 
 **Required** The value that the output parameter will be mapped to. You can set this to a `string` or an expression with context. For example, you can use the `steps` context to set the `value` of an output to the output value of a step.
 
-For more information on how to use context syntax, see [AUTOTITLE](/actions/learn-github-actions/contexts).
+For more information on how to use context syntax, see [AUTOTITLE](/actions/reference/workflows-and-actions/contexts).
 
 ## `runs`
 
@@ -263,17 +263,17 @@ runs:
       shell: bash
 ```
 
-For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts#github-context).
+For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/contexts#github-context).
 
 #### `runs.steps[*].shell`
 
-**Optional** The shell where you want to run the command. You can use any of the shells listed in [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Required if `run` is set.
+**Optional** The shell where you want to run the command. You can use any of the shells listed in [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstepsshell). Required if `run` is set.
 
 #### `runs.steps[*].if`
 
 **Optional** You can use the `if` conditional to prevent a step from running unless a condition is met. You can use any supported context and expression to create a conditional.
 
-{% data reusables.actions.expression-syntax-if %} For more information, see [AUTOTITLE](/actions/learn-github-actions/expressions).
+{% data reusables.actions.expression-syntax-if %} For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/expressions).
 
 **Example: Using contexts**
 
@@ -287,7 +287,7 @@ steps:
 
 **Example: Using status check functions**
 
-The `my backup step` only runs when the previous step of a composite action fails. For more information, see [AUTOTITLE](/actions/learn-github-actions/expressions#status-check-functions).
+The `my backup step` only runs when the previous step of a composite action fails. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/expressions#status-check-functions).
 
 ```yaml
 steps:
@@ -304,7 +304,7 @@ steps:
 
 #### `runs.steps[*].id`
 
-**Optional** A unique identifier for the step. You can use the `id` to reference the step in contexts. For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts).
+**Optional** A unique identifier for the step. You can use the `id` to reference the step in contexts. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/contexts).
 
 #### `runs.steps[*].env`
 
@@ -323,7 +323,7 @@ We strongly recommend that you include the version of the action you are using b
 * Using the specific major action version allows you to receive critical fixes and security patches while still maintaining compatibility. It also assures that your workflow should still work.
 * Using the default branch of an action may be convenient, but if someone releases a new major version with a breaking change, your workflow could break.
 
-Some actions require inputs that you must set using the [`with`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepswith) keyword. Review the action's README file to determine the inputs required.
+Some actions require inputs that you must set using the [`with`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstepswith) keyword. Review the action's README file to determine the inputs required.
 
 ```yaml
 runs:
@@ -421,7 +421,7 @@ runs:
 
 **Optional** Overrides the Docker `ENTRYPOINT` in the `Dockerfile`, or sets it if one wasn't already specified. Use `entrypoint` when the `Dockerfile` does not specify an `ENTRYPOINT` or you want to override the `ENTRYPOINT` instruction. If you omit `entrypoint`, the commands you specify in the Docker `ENTRYPOINT` instruction will execute. The Docker `ENTRYPOINT` instruction has a _shell_ form and _exec_ form. The Docker `ENTRYPOINT` documentation recommends using the _exec_ form of the `ENTRYPOINT` instruction.
 
-For more information about how the `entrypoint` executes, see [AUTOTITLE](/actions/creating-actions/dockerfile-support-for-github-actions#entrypoint).
+For more information about how the `entrypoint` executes, see [AUTOTITLE](/actions/reference/workflows-and-actions/dockerfile-support#entrypoint).
 
 ### `runs.post-entrypoint`
 
@@ -447,7 +447,7 @@ The `args` are used in place of the `CMD` instruction in a `Dockerfile`. If you 
 
 If you need to pass environment variables into an action, make sure your action runs a command shell to perform variable substitution. For example, if your `entrypoint` attribute is set to `"sh -c"`, `args` will be run in a command shell. Alternatively, if your `Dockerfile` uses an `ENTRYPOINT` to run the same command (`"sh -c"`), `args` will execute in a command shell.
 
-For more information about using the `CMD` instruction with {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/creating-actions/dockerfile-support-for-github-actions#cmd).
+For more information about using the `CMD` instruction with {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/reference/workflows-and-actions/dockerfile-support#cmd).
 
 #### Example: Defining arguments for the Docker container
 

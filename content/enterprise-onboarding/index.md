@@ -34,7 +34,6 @@ journeyTracks:
       - href: '/enterprise-onboarding/govern-people-and-repositories/create-repository-policies'
       - href: '/enterprise-onboarding/govern-people-and-repositories/protect-branches'
       - href: '/enterprise-onboarding/govern-people-and-repositories/using-the-audit-log-for-your-enterprise'
-      - href: '/enterprise-onboarding/govern-people-and-repositories/about-enterprise-security'
   - id: 'github_apps'
     title: 'Automating processes with GitHub Apps'
     description: 'Create and install apps to automate processes securely in your enterprise and organizations.'
@@ -42,13 +41,6 @@ journeyTracks:
       - href: '/enterprise-onboarding/github-apps/automations-in-your-enterprise'
       - href: '/enterprise-onboarding/github-apps/create-enterprise-apps'
       - href: '/enterprise-onboarding/github-apps/install-enterprise-apps'
-  - id: 'support_for_your_enterprise'
-    title: 'Creating a support model for your enterprise'
-    description: 'Find out how to get help and choose who will be able to contact {% data variables.contact.github_support %}.'
-    guides:
-      - href: '/enterprise-onboarding/support-for-your-enterprise/understanding-support'
-      - href: '/enterprise-onboarding/support-for-your-enterprise/using-the-support-portal'
-      - href: '/enterprise-onboarding/support-for-your-enterprise/managing-support-entitlements'
 versions:
   ghec: '*'
 children:
@@ -56,7 +48,6 @@ children:
   - /setting-up-organizations-and-teams
   - /govern-people-and-repositories
   - /github-apps
-  - /support-for-your-enterprise
 redirect_from:
   - /enterprise-onboarding/feature-enhancements
 docsTeamMetrics:

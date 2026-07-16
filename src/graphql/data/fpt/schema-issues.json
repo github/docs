@@ -3898,6 +3898,13 @@
           ]
         },
         {
+          "name": "viewerCanAssign",
+          "description": "<p>Indicates if the viewer can edit assignees for this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
           "name": "viewerCanClose",
           "description": "<p>Indicates if the object can be closed by the viewer.</p>",
           "type": "Boolean!",
@@ -3940,6 +3947,13 @@
           "href": "/graphql/reference/other#scalar-boolean"
         },
         {
+          "name": "viewerCanSetMilestone",
+          "description": "<p>Indicates if the viewer can edit the milestone of the issue.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
           "name": "viewerCanSubscribe",
           "description": "<p>Check if the viewer is able to change their subscription status for the repository.</p>",
           "type": "Boolean!",
@@ -3947,9 +3961,23 @@
           "href": "/graphql/reference/other#scalar-boolean"
         },
         {
+          "name": "viewerCanType",
+          "description": "<p>Check if the current viewer can set the issue type of this issue.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
           "name": "viewerCanUpdate",
           "description": "<p>Check if the current viewer can update this object.</p>",
           "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanUpdateMetadata",
+          "description": "<p>Check if the viewer has triage-level (or higher) access to update this issue's\nmetadata. Note: this reflects the viewer's base repository role and does not\naccount for individual fine-grained permissions granted via custom repository roles.</p>",
+          "type": "Boolean",
           "id": "boolean",
           "href": "/graphql/reference/other#scalar-boolean"
         },
@@ -8654,6 +8682,13 @@
               }
             }
           ]
+        },
+        {
+          "name": "viewerCanAssign",
+          "description": "<p>Indicates if the viewer can edit assignees for this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
         }
       ],
       "category": "issues"

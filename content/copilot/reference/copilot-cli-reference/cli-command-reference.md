@@ -1008,6 +1008,8 @@ OTel is off by default with zero overhead. It activates when any of the followin
 * `OTEL_EXPORTER_OTLP_ENDPOINT` is set
 * `COPILOT_OTEL_FILE_EXPORTER_PATH` is set
 
+OTel configuration can also be set in {% data variables.product.prodname_vscode_shortname %}, or in an enterprise-wide `{% data variables.copilot.managed_setting_file %}` file. See [Enable OTel monitoring](https://code.visualstudio.com/docs/agents/guides/monitoring-agents#_enable-otel-monitoring) in the {% data variables.product.prodname_vscode_shortname %} documentation and [AUTOTITLE](/copilot/reference/enterprise-managed-settings-reference).
+
 ### OTel environment variables
 
 | Variable | Default | Description |

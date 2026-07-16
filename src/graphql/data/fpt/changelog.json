@@ -4,6 +4,24 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>viewerCanAssign</code> was added to interface <code>Assignable</code></p>",
+          "<p>Field <code>viewerCanAssign</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>viewerCanSetMilestone</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>viewerCanType</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>viewerCanUpdateMetadata</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>viewerCanAssign</code> was added to object type <code>PullRequest</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-07-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>AssigneeUpdateInput</code> was added</p>",
           "<p>Input field <code>actorId</code> of type <code>ID!</code> was added to input object type <code>AssigneeUpdateInput</code></p>",
           "<p>Input field <code>confidence</code> of type <code>IssueEventConfidenceLevel</code> was added to input object type <code>AssigneeUpdateInput</code></p>",

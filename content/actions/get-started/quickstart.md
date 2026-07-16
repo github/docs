@@ -27,7 +27,7 @@ This quickstart guide shows you how to use the user interface of {% data variabl
 
 {% data reusables.actions.workflow-templates-for-more-information %}
 
-For an overview of {% data variables.product.prodname_actions %} workflows, see [AUTOTITLE](/actions/using-workflows/about-workflows). If you want to learn about the various components that make up {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/learn-github-actions/understanding-github-actions).
+For an overview of {% data variables.product.prodname_actions %} workflows, see [AUTOTITLE](/actions/concepts/workflows-and-actions/workflows). If you want to learn about the various components that make up {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/get-started/understand-github-actions).
 
 ## Using workflow templates
 
@@ -78,7 +78,7 @@ This guide assumes that:
          - run: echo "🍏 This job's status is {% raw %}${{ job.status }}{% endraw %}."
    ```
 
-   At this stage you don't need to understand the details of this workflow. For now, you can just copy and paste the contents into the file. After completing this quickstart guide, you can learn about the syntax of workflow files in [AUTOTITLE](/actions/using-workflows/about-workflows#understanding-the-workflow-file), and for an explanation of {% data variables.product.prodname_actions %} contexts, such as `{% raw %}${{ github.actor }}{% endraw %}` and `{% raw %}${{ github.event_name }}{% endraw %}`, see [AUTOTITLE](/actions/learn-github-actions/contexts).
+   At this stage you don't need to understand the details of this workflow. For now, you can just copy and paste the contents into the file. After completing this quickstart guide, you can learn about the syntax of workflow files in [AUTOTITLE](/actions/concepts/workflows-and-actions/workflows), and for an explanation of {% data variables.product.prodname_actions %} contexts, such as `{% raw %}${{ github.actor }}{% endraw %}` and `{% raw %}${{ github.event_name }}{% endraw %}`, see [AUTOTITLE](/actions/reference/workflows-and-actions/contexts).
 
 1. Click **Commit changes**.
 1. In the "Propose changes" dialog, select either the option to commit to the default branch or the option to create a new branch and start a pull request. Then click **Commit changes** or **Propose changes**.
@@ -110,7 +110,7 @@ If you chose to start a pull request, you can continue and create the pull reque
 
    ![Screenshot of the "List files in the repository" step expanded to show the log output. The output for the step is highlighted with an orange outline.](/assets/images/help/repository/actions-quickstart-log-detail.png)
 
-The example workflow you just added is triggered each time code is pushed to the branch, and shows you how {% data variables.product.prodname_actions %} can work with the contents of your repository. For an in-depth tutorial, see [AUTOTITLE](/actions/learn-github-actions/understanding-github-actions).
+The example workflow you just added is triggered each time code is pushed to the branch, and shows you how {% data variables.product.prodname_actions %} can work with the contents of your repository. For an in-depth tutorial, see [AUTOTITLE](/actions/get-started/understand-github-actions).
 
 ## Next steps
 

@@ -15,13 +15,13 @@ category:
 
 ## About self-hosted runners for {% data variables.product.prodname_actions %}
 
-{% data reusables.actions.about-actions-for-enterprises %} For more information, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises).
+{% data reusables.actions.about-actions-for-enterprises %} For more information, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises).
 
-With {% data variables.product.prodname_actions %}, developers can write and combine individual tasks called actions to create custom workflows. {% ifversion ghes %}To enable {% data variables.product.prodname_actions %} for  {% data variables.location.product_location %}, you must host at least one machine to execute jobs.{% endif %} {% ifversion ghec %}You can host your own runner machine to execute jobs, and this{% elsif ghes %}This{% endif %} machine is called a self-hosted runner. {% data reusables.actions.self-hosted-runner-architecture %} {% ifversion ghec %}All{% elsif ghes %}Self-hosted{% endif %} runners can run Linux, Windows, or macOS. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
+With {% data variables.product.prodname_actions %}, developers can write and combine individual tasks called actions to create custom workflows. {% ifversion ghes %}To enable {% data variables.product.prodname_actions %} for  {% data variables.location.product_location %}, you must host at least one machine to execute jobs.{% endif %} {% ifversion ghec %}You can host your own runner machine to execute jobs, and this{% elsif ghes %}This{% endif %} machine is called a self-hosted runner. {% data reusables.actions.self-hosted-runner-architecture %} {% ifversion ghec %}All{% elsif ghes %}Self-hosted{% endif %} runners can run Linux, Windows, or macOS. For more information, see [AUTOTITLE](/actions/concepts/runners/self-hosted-runners).
 
 {% ifversion ghec %}
 
-Alternatively, you can use runner machines that {% data variables.product.company_short %} hosts. {% data variables.product.company_short %}-hosted runners are outside the scope of this guide. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners).
+Alternatively, you can use runner machines that {% data variables.product.company_short %} hosts. {% data variables.product.company_short %}-hosted runners are outside the scope of this guide. For more information, see [AUTOTITLE](/actions/concepts/runners/github-hosted-runners).
 
 {% endif %}
 
@@ -31,7 +31,7 @@ This guide shows you how to apply a centralized management approach to self-host
 1. Deploy a self-hosted runner for your enterprise
 1. Create a group to manage access to the runners available to your enterprise
 1. Optionally, further restrict the repositories that can use the runner
-1. Optionally, to build and scale self-hosted runners automatically, use {% data variables.product.prodname_actions_runner_controller %} (ARC). For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller).
+1. Optionally, to build and scale self-hosted runners automatically, use {% data variables.product.prodname_actions_runner_controller %} (ARC). For more information, see [AUTOTITLE](/actions/concepts/runners/actions-runner-controller).
 
 You'll also find additional information about how to monitor and secure your self-hosted runners,{% ifversion ghes %} how to access actions from {% data variables.product.prodname_dotcom_the_website %},{% endif %} and how to customize the software on your runner machines.
 
@@ -54,7 +54,7 @@ First, enable {% data variables.product.prodname_actions %} for all organization
 1. To enable local actions{% ifversion actions-workflow-policy %} and reusable workflows, {% endif %} and actions created by {% data variables.product.company_short %}, select {% data reusables.actions.policy-label-for-select-actions-workflows %}, then select **Allow actions created by {% data variables.product.company_short %}**.
 1. Click **Save**.
 
-You can configure additional policies to restrict the actions available to {% ifversion ghec %}enterprise members{% elsif ghes %}users of {% data variables.location.product_location %}{% endif %}. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#allowing-select-actions-to-run).
+You can configure additional policies to restrict the actions available to {% ifversion ghec %}enterprise members{% elsif ghes %}users of {% data variables.location.product_location %}{% endif %}. For more information, see [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#allowing-select-actions-to-run).
 
 ## 2. Deploy the self-hosted runner for your enterprise
 
@@ -81,7 +81,7 @@ You can create a runner group to manage access to the runner that you added to y
    > [!WARNING]
    > {% data reusables.actions.self-hosted-runner-security %}
    >
-   > For more information, see [AUTOTITLE](/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions).
+   > For more information, see [AUTOTITLE](/actions/reference/security/secure-use).
 
 {% data reusables.actions.create-runner-group %}
 1. Click the "Runners" tab.
@@ -97,9 +97,9 @@ You've now deployed a self-hosted runner that can run jobs from {% data variable
 
 Optionally, organization owners{% ifversion custom-org-roles %} and users with the "Manage organization runners and runner groups" permission{% endif %} can further restrict the access policy of the runner group that you created. For example, an organization owner could allow only certain repositories in the organization to use the runner group.
 
-For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group).
+For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/manage-access#changing-which-repositories-can-access-a-runner-group).
 
-{% ifversion custom-org-roles %}For more information about custom organization roles, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles).{% endif %}
+{% ifversion custom-org-roles %}For more information about custom organization roles, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles).{% endif %}
 
 ## 5. Automatically scale your self-hosted runners
 
@@ -107,9 +107,9 @@ Optionally, you can use {% data variables.product.prodname_actions_runner_contro
 
 ## Next steps
 
-* You can monitor self-hosted runners and troubleshoot common issues. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners).
+* You can monitor self-hosted runners and troubleshoot common issues. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/monitor-and-troubleshoot).
 
-* {% data variables.product.company_short %} recommends that you review security considerations for self-hosted runner machines. For more information, see [AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners).
+* {% data variables.product.company_short %} recommends that you review security considerations for self-hosted runner machines. For more information, see [AUTOTITLE](/actions/reference/security/secure-use#hardening-for-self-hosted-runners).
 
 * {% ifversion ghec %}If you use {% data variables.product.prodname_ghe_server %}, you{% elsif ghes %}You{% endif %} can manually sync repositories on {% data variables.product.prodname_dotcom_the_website %} containing actions to your enterprise on {% data variables.product.prodname_ghe_server %}. Alternatively, you can allow members of your enterprise to automatically access actions from {% data variables.product.prodname_dotcom_the_website %} by using {% data variables.product.prodname_github_connect %}. For more information, see the following.
 
@@ -120,5 +120,5 @@ Optionally, you can use {% data variables.product.prodname_actions_runner_contro
 
 ## Further reading
 
-* [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/configuring-the-self-hosted-runner-application-as-a-service)
-* [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow)
+* [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/configure-the-application)
+* [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/use-in-a-workflow)
