@@ -52,7 +52,7 @@ jobs:
           app-id: ${{ secrets.DOCS_BOT_APP_ID }}
           private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
           owner: github
-          repositories: docs-internal,docs-content
+          repositories: docs-internal,docs-content,docs-engineering
 
       - name: Resolve PR data
         id: resolve_pr
@@ -753,4 +753,4 @@ jobs:
       - uses: ./.github/actions/create-workflow-failure-issue
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          token: ${{ steps.app-token.outputs.token }}

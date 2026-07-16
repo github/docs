@@ -10,6 +10,7 @@ redirect_from:
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud
   - /admin/managing-iam/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud
   - /admin/concepts/identity-and-access-management/enterprise-types-for-github-enterprise-cloud
+  - /enterprise-onboarding/getting-started-with-your-enterprise/choose-an-enterprise-type
 contentType: other
 docsTeamMetrics:
   - enterprise-onboarding

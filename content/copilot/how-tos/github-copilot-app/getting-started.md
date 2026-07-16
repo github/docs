@@ -3,7 +3,7 @@ title: Getting started with the GitHub Copilot app
 shortTitle: Quickstart
 allowTitleToDifferFromFilename: true
 intro: 'Sign in to the {% data variables.copilot.github_copilot_app %}, ask your first question in a quick chat, and then create a full agent session to make changes to your code.'
-product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_source=docs-getting-started-signup&utm_medium=docs&utm_campaign=github-copilot-app-ga-2026" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/ai/github-app" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download {% data variables.copilot.github_copilot_app %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 contentType: how-tos
@@ -25,7 +25,7 @@ For a conceptual overview of the {% data variables.copilot.github_copilot_app %}
 
 ## Installing the {% data variables.copilot.github_copilot_app %}
 
-1. Visit the [download page for {% data variables.copilot.github_copilot_app %}](https://gh.io/app?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-getting-started-download&utm_medium=docs&utm_campaign=github-copilot-app-ga-2026).
+1. Visit the [download page for {% data variables.copilot.github_copilot_app %}](https://github.com/features/ai/github-app).
 1. Download the app for your platform.
 
 ## Opening the {% data variables.copilot.github_copilot_app %} for the first time
@@ -51,8 +51,8 @@ To work on code, you need at least one repository connected to the app. If you s
 
 The sidebar gives you access to the main areas of the app:
 
-* **My work** — Browse and filter issues and pull requests from your repositories, check CI status, and leave reviews.
-* **Automations** — Saved agent tasks that run on a schedule or on demand.
+* **[My work](https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fmywork)** — Browse and filter issues and pull requests from your repositories, check CI status, and leave reviews.
+* **[Automations](https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fautomations)** — Saved agent tasks that run on a schedule or on demand.
 * **Search** — Search across your repositories directly from the app.
 * **Sessions** — Active agent sessions, grouped by repository. This also includes **Quick chats**, which are general chat conversations.
 
@@ -70,7 +70,7 @@ When you are ready to make changes to code, create a session. You can start from
 
 ### Starting from an issue
 
-1. Click **My work** in the sidebar.
+1. Click **[My work](https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fmywork)** in the sidebar.
 1. Browse or filter to find an issue, then click it to view its details.
 1. Click **New session**. The app creates a new session with the issue context already loaded.
 1. Select a session mode from the dropdown below the prompt field—for example, **Plan** to have the agent propose a plan first, or **Interactive** to work collaboratively with the agent.

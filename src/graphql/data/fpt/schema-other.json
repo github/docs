@@ -291,6 +291,10 @@
           "description": "<p>Represents a<code>added_to_project_v2</code>event on a given issue or pull request.</p>"
         },
         {
+          "name": "ARCHIVED_EVENT",
+          "description": "<p>Represents an<code>archived</code>event on a given pull request.</p>"
+        },
+        {
           "name": "ASSIGNED_EVENT",
           "description": "<p>Represents an<code>assigned</code>event on any assignable object.</p>"
         },
@@ -561,6 +565,10 @@
         {
           "name": "TRANSFERRED_EVENT",
           "description": "<p>Represents a<code>transferred</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNARCHIVED_EVENT",
+          "description": "<p>Represents an<code>unarchived</code>event on a given pull request.</p>"
         },
         {
           "name": "UNASSIGNED_EVENT",

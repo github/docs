@@ -60,7 +60,7 @@ Before launching {% data variables.location.product_location %} on Azure, you'll
    az vm create -n VM_NAME -g RESOURCE_GROUP --size VM_SIZE -l REGION --image APPLIANCE_IMAGE_NAME --storage-sku Premium_LRS
    ```
 
-1. Configure the security settings on your VM to open up required ports. We recommend opening network ports selectively based on the network services you need to expose for administrative and user purposes. For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports#administrative-ports), and [az vm open-port](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_open_port) in the Microsoft documentation. See the table below for a description of each port to determine what ports you need to open.
+1. Configure the security settings on your VM to open up required ports. We recommend opening network ports selectively based on the network services you need to expose for administrative and user purposes. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-network-settings/network-ports#administrative-ports), and [az vm open-port](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_open_port) in the Microsoft documentation. See the table below for a description of each port to determine what ports you need to open.
 
    ```shell
    az vm open-port -n VM_NAME -g RESOURCE_GROUP --port PORT_NUMBER
@@ -105,7 +105,7 @@ To configure the instance, you must confirm the instance's status, upload a lice
 
    {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
    {% data reusables.enterprise_installation.upload-a-license-file %}
-   {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise).
+   {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see [AUTOTITLE](/admin/configuring-settings).
    {% data reusables.enterprise_installation.instance-will-restart-automatically %}
    {% data reusables.enterprise_installation.visit-your-instance %}
 

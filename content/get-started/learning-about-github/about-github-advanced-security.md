@@ -34,7 +34,9 @@ You get the following features with {% data variables.product.prodname_GH_code_s
 
 * **{% data variables.product.prodname_codeql_cli %}**: Run {% data variables.product.prodname_codeql %} processes locally on software projects or to generate {% data variables.product.prodname_code_scanning %} results for upload to {% data variables.product.github %}.{% ifversion code-scanning-autofix %}
 
-* **{% data variables.copilot.copilot_autofix_short %}**: Get automatically generated fixes for {% data variables.product.prodname_code_scanning %} alerts.{% endif %}{% ifversion security-campaigns %}
+* **{% data variables.copilot.copilot_autofix_short %}**: Get automatically generated fixes for {% data variables.product.prodname_code_scanning %} alerts.{% ifversion ai-powered-security-detections %}
+
+* **AI-powered security detections**: Find vulnerabilities in languages and frameworks not covered by {% data variables.product.prodname_codeql %} with an AI-based scanning engine that runs during pull request review.{% endif %}{% endif %}{% ifversion security-campaigns %}
 
 * **Security campaigns**: Reduce security debt at scale.{% endif %}
 
@@ -86,7 +88,7 @@ The table below summarizes the availability of {% data variables.product.prodnam
 | Secret scanning   | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | Push protection   | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 |{% ifversion secret-scanning-ai-generic-secret-detection %}|
-| Copilot secret scanning  | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
+| AI-detected secrets  | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 |{% endif %}|
 | Custom patterns   | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | Delegated bypass for push protection    | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |

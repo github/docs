@@ -11,7 +11,7 @@ category:
 ---
 
 > [!NOTE]
-> Consider building a {% data variables.product.prodname_github_app %} instead of an {% data variables.product.prodname_oauth_app %}. The rate limit for {% data variables.product.prodname_github_apps %} using an installation access token scales with the number of repositories and number of organization users. Conversely, {% data variables.product.prodname_oauth_apps %} have lower rate limits and do not scale. For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps) and [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps).
+> Consider building a {% data variables.product.prodname_github_app %} instead of an {% data variables.product.prodname_oauth_app %}. The rate limit for {% data variables.product.prodname_github_apps %} using an installation access token scales with the number of repositories and number of organization users. Conversely, {% data variables.product.prodname_oauth_apps %} have lower rate limits and do not scale. For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps) and [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps).
 
 > [!WARNING]
 > {% data variables.product.prodname_oauth_apps %} are subject to a rate limit of **2,000 access token requests per hour**. If your application exceeds this limit, further requests to generate new access tokens will be temporarily blocked, and you may receive error responses. **This can lead to temporary outages**. Please plan your implementation accordingly to avoid potential service interruptions.
@@ -32,20 +32,20 @@ The generation of these user access tokens is subject to a rate limit. Additiona
 
 API rate limits are disabled by default for {% data variables.product.prodname_ghe_server %}. Contact your site administrator to confirm the rate limits for your instance.
 
-If you are a site administrator, you can set rate limits for your instance. For more information, see [AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-rate-limits).
+If you are a site administrator, you can set rate limits for your instance. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/configuring-rate-limits).
 
-If you are developing an app for users or organizations outside of your instance, the standard {% data variables.product.github %} rate limits apply. For more information, see [AUTOTITLE](/free-pro-team@latest/rest/overview/rate-limits-for-the-rest-api) and [AUTOTITLE](/free-pro-team@latest/graphql/overview/resource-limitations) in the {% data variables.product.prodname_free_user %} documentation.
+If you are developing an app for users or organizations outside of your instance, the standard {% data variables.product.github %} rate limits apply. For more information, see [AUTOTITLE](/free-pro-team@latest/rest/using-the-rest-api/rate-limits-for-the-rest-api) and [AUTOTITLE](/free-pro-team@latest/graphql/overview/rate-limits-and-query-limits-for-the-graphql-api) in the {% data variables.product.prodname_free_user %} documentation.
 
 {% else %}
 
 {% data variables.product.company_short %} sets a limit on the number of requests a {% data variables.product.prodname_oauth_app %} can make to the REST API within a specific time period. It also sets a limit on the point value of queries that a {% data variables.product.prodname_oauth_app %} can make to the GraphQL API within a specific time period. In addition to these primary rate limits, {% data variables.product.company_short %} may also apply secondary rate limits. These limits help to prevent abuse and denial-of-service attacks, and ensure that the system remains available for all users.
 
-For more information, see [AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api) and [AUTOTITLE](/graphql/overview/resource-limitations).
+For more information, see [AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api) and [AUTOTITLE](/graphql/overview/rate-limits-and-query-limits-for-the-graphql-api).
 
 {% endif %}
 
 ## Further reading
 
-* [AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api)
-* [AUTOTITLE](/graphql/overview/resource-limitations)
+* [AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api)
+* [AUTOTITLE](/graphql/overview/rate-limits-and-query-limits-for-the-graphql-api)
 * [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/rate-limits-for-github-apps)

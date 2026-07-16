@@ -47,12 +47,12 @@ You enable {% data variables.product.prodname_dependabot_version_updates %} by c
    ```
 
 1. Add a `version`. This key is mandatory. The file must start with `version: 2`.
-1. Optionally, if you have dependencies in a private registry, add a `registries` section containing authentication details. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot).
-1. Add an `updates` section, with an entry for each package manager you want {% data variables.product.prodname_dependabot %} to monitor. This key is mandatory. You use it to configure how {% data variables.product.prodname_dependabot %} updates the versions or your project's dependencies. Each entry configures the update settings for a particular package manager. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/about-the-dependabot-yml-file) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference).
+1. Optionally, if you have dependencies in a private registry, add a `registries` section containing authentication details. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries).
+1. Add an `updates` section, with an entry for each package manager you want {% data variables.product.prodname_dependabot %} to monitor. This key is mandatory. You use it to configure how {% data variables.product.prodname_dependabot %} updates the versions or your project's dependencies. Each entry configures the update settings for a particular package manager. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/about-the-dependabot-yml-file) and [AUTOTITLE](/code-security/reference/supply-chain-security/dependabot-options-reference).
 1. For each package manager, use:
 
-    * `package-ecosystem` to specify the package manager. For more information about the supported package managers, see [`package-ecosystem`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#package-ecosystem-).
-    * `directories` or `directory` to specify the location of multiple manifest or other definition files. For more information, see [Defining multiple locations for manifest files](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#defining-multiple-locations-for-manifest-files).
+    * `package-ecosystem` to specify the package manager. For more information about the supported package managers, see [`package-ecosystem`](/code-security/reference/supply-chain-security/dependabot-options-reference#package-ecosystem-).
+    * `directories` or `directory` to specify the location of multiple manifest or other definition files. For more information, see [Defining multiple locations for manifest files](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/controlling-dependencies-updated#defining-multiple-locations-for-manifest-files).
     * `schedule.interval` to specify how often to check for new versions.
 
 {% data reusables.dependabot.check-in-dependabot-yml %}
@@ -107,13 +107,13 @@ On a fork, you also need to explicitly enable {% data variables.product.prodname
 
 ## Receiving updates for indirect dependencies
 
-By default, only direct dependencies that are explicitly defined in a manifest are kept up to date by {% data variables.product.prodname_dependabot_version_updates %}. You can choose to receive updates for indirect dependencies defined in lock files. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#allowing-specific-dependencies-to-be-updated).
+By default, only direct dependencies that are explicitly defined in a manifest are kept up to date by {% data variables.product.prodname_dependabot_version_updates %}. You can choose to receive updates for indirect dependencies defined in lock files. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/controlling-dependencies-updated#allowing-specific-dependencies-to-be-updated).
 
 ## Enabling access to private dependencies
 
 {% data reusables.dependabot.private-dependencies-note %}
 
-Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. For more information, see [AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories) and [AUTOTITLE](/get-started/learning-about-github/github-language-support).
+Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. For more information, see [AUTOTITLE](/code-security/reference/supply-chain-security/supported-ecosystems-and-repositories) and [AUTOTITLE](/get-started/learning-about-github/github-language-support).
 
 ## Checking the status of version updates
 
@@ -121,7 +121,7 @@ After you enable version updates, the **Dependabot** tab in the dependency graph
 
 ![Screenshot of the Dependency graph page. A tab, titled "{% data variables.product.prodname_dependabot %}," is highlighted with an orange outline.](/assets/images/help/dependabot/dependabot-tab-view.png)
 
-For information, see [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/listing-dependencies-configured-for-version-updates).
+For information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/list-configured-dependencies).
 
 ## Disabling {% data variables.product.prodname_dependabot_version_updates %}
 
@@ -168,4 +168,4 @@ updates:
         update-types: ["version-update:semver-patch"]
 ```
 
-For more information about checking for existing ignore preferences, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#ignore--).
+For more information about checking for existing ignore preferences, see [AUTOTITLE](/code-security/reference/supply-chain-security/dependabot-options-reference#ignore--).

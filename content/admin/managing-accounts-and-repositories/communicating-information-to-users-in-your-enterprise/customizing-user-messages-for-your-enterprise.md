@@ -97,7 +97,7 @@ You can set a global announcement banner to be displayed to all users at the top
 You can also create announcement banners at the organization level. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/creating-an-announcement-banner-for-your-organization).
 
 {% ifversion ghes %}
-You can also set an announcement banner in the administrative shell using a command line utility or using the API. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-announce) and [AUTOTITLE](/rest/enterprise-admin#announcements).
+You can also set an announcement banner in the administrative shell using a command line utility or using the API. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-announce) and [AUTOTITLE](/rest/enterprise-admin#announcements).
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}

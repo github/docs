@@ -17,10 +17,10 @@ category:
   - Secure at scale
 ---
 
-The overview page in security overview provides a consolidated dashboard of your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}'s security landscape. You can filter the dashboard by time period, tool, and other criteria to focus on specific areas of interest. For more information about the overview dashboard, available metrics, and access permissions, see [AUTOTITLE](/code-security/concepts/security-at-scale/about-security-overview).
+The overview page in security overview provides a consolidated dashboard of your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}'s security landscape. You can filter the dashboard by time period, tool, and other criteria to focus on specific areas of interest. For more information about the overview dashboard, available metrics, and access permissions, see [AUTOTITLE](/code-security/concepts/security-at-scale/security-overview).
 
 {% ifversion security-overview-export-data %}
-You can download a CSV file of the overview dashboard data for your organization or enterprise. For more information, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/exporting-data-from-security-overview).
+You can download a CSV file of the overview dashboard data for your organization or enterprise. For more information, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/export-data).
 {% endif %}
 
 
@@ -53,6 +53,6 @@ The enterprise security overview also includes a **Public monitoring** page, whe
 
 ## Next steps
 
-The dashboard displays metrics about alert status, remediation velocity, and high-risk repositories in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}. For detailed explanations of each metric and how it's calculated, see [AUTOTITLE](/code-security/reference/security-at-scale/security-overview-dashboard-metrics).
+The dashboard displays metrics about alert status, remediation velocity, and high-risk repositories in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}. For detailed explanations of each metric and how it's calculated, see [AUTOTITLE](/code-security/reference/security-at-scale/overview-dashboard-metrics).
 
-You can filter the dashboard by time period, tool, repository, and other criteria. For more information, see [AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview).
+You can filter the dashboard by time period, tool, repository, and other criteria. For more information, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/filtering-alerts-in-security-overview).

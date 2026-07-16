@@ -1,245 +1,64 @@
+// Lightweight docs page-header (Docs 2026, #6681). A left-aligned bordered
+// band — brand Heading + muted Text intro + a Button group — over the classic
+// right-anchored hero banner art. The bottom border (brand border-subtle, which
+// adapts gray-2 light / gray-6 dark) frames it against the section below,
+// matching the Figma "framed sections" treatment. Horizontal inset comes from
+// the wrapping container-xl so the header aligns with the sections below at
+// every width.
 .landingHero {
-  position: relative;
   display: flex;
-  align-items: center;
-  padding: 4rem 0;
-  background-color: var(--bgColor-muted, var(--color-canvas-subtle, #f6f8fa));
-  background-size: cover;
-  background-position: center center;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 2rem 0 2.5rem;
+  width: 100%;
+  border-bottom: 1px solid var(--brand-color-border-subtle);
+  // Hero banner art is right-anchored isometric artwork on a transparent
+  // field. `auto 100%` scales it to the band's own (content-driven) height so
+  // the header keeps its lighter Docs 2026 proportions instead of growing to
+  // fit the art; pinned to the right edge, leaving the left clear for the
+  // heading/intro/actions stacked on top.
+  background-size: auto 100%;
+  background-position: center right;
   background-repeat: no-repeat;
-  overflow: hidden;
-  height: 28rem;
-  width: 100%;
+  // Anchor the art to the true right edge (the border box) so the right-side
+  // text gutter added below insets only the heading/intro, not the artwork.
+  background-origin: border-box;
 }
 
-.heroContent {
-  position: relative;
-  width: 50rem;
-  max-width: 50rem;
-  padding: 0 7rem;
-  display: flex;
-  align-items: center;
-}
-
-.heroText {
-  text-align: left;
-  width: 100%;
-}
-
+// Brand `Heading size="2"` owns the type scale (40px desktop, per Figma);
+// this only adds an optical max-width so long titles wrap before the edge.
 .heroHeading {
-  font-size: 4rem;
-  font-weight: 600;
-  line-height: 1.2;
-  margin: 0 0 1rem 0;
-  color: var(--fgColor-default, var(--color-fg-default, #1f2328));
+  margin: 0;
   max-width: 48rem;
 }
 
+// Wraps the RenderedHTML intro (kept as raw HTML rather than a Text `as="p"`,
+// which can't hold block-level intro markup). Brand `Text size="200" muted`
+// owns the type/color (16px, per Figma); this only bounds the line length.
 .heroDescription {
-  font-size: 1.25rem;
-  line-height: 1.5;
-  color: var(--fgColor-muted, var(--color-fg-muted, #656d76));
-  margin: 0 0 2rem 0;
-  max-width: 36rem;
-}
-
-.heroActions {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.heroAction {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  min-height: 2.75rem;
-  border: 1px solid transparent;
-}
-
-.heroPrimaryAction {
-  background-color: var(
-    --bgColor-success-emphasis,
-    var(--color-btn-primary-bg, #1f883d)
-  );
-  color: var(--fgColor-onEmphasis, var(--color-btn-primary-text, #ffffff));
-  border-color: var(
-    --borderColor-success-emphasis,
-    var(--color-btn-primary-border, #1f883d)
-  );
-
-  &:hover {
-    background-color: var(
-      --bgColor-success-emphasis,
-      var(--color-btn-primary-hover-bg, #1a7f37)
-    );
-    border-color: var(
-      --borderColor-success-emphasis,
-      var(--color-btn-primary-hover-border, #1a7f37)
-    );
-    text-decoration: none;
-  }
-
-  &:focus {
-    outline: 2px solid
-      var(
-        --borderColor-success-emphasis,
-        var(--color-btn-primary-focus, #1f883d)
-      );
-    outline-offset: 2px;
-  }
-}
-
-.heroSecondaryAction {
-  background-color: transparent;
-  color: var(--fgColor-default, var(--color-fg-default, #1f2328));
-
-  @media (max-width: 865px) {
-    background-color: var(
-      --bgColor-muted,
-      var(--color-canvas-subtle, #f6f8fa)
-    ) !important;
-  }
-
-  border-color: var(
-    --borderColor-default,
-    var(--color-border-default, #d1d9e0)
-  );
-
-  &:hover {
-    background-color: var(--bgColor-muted, var(--color-canvas-subtle, #f3f4f6));
-    border-color: var(
-      --borderColor-default,
-      var(--color-border-default, #d1d9e0)
-    );
-    text-decoration: none;
-  }
-
-  &:focus {
-    outline: 2px solid
-      var(--borderColor-accent-emphasis, var(--color-accent-emphasis, #0969da));
-    outline-offset: 2px;
-  }
+  margin: 0;
+  max-width: 48rem;
 }
 
 @media (max-width: 865px) {
   .landingHero {
-    height: auto;
-    min-height: 28rem;
-    flex-direction: column;
-    text-align: center;
-    justify-content: flex-start;
-    padding-top: 3rem;
-    background-color: var(--bgColor-muted, var(--color-canvas-subtle, #f6f8fa));
-    position: relative;
-
-    background-position: center right;
-  }
-
-  .heroContent {
-    width: 100%;
-    order: 2;
-    padding: 1rem;
-    position: relative;
-    z-index: 1;
-    backdrop-filter: blur(1rem);
-    background-color: color-mix(
-      in srgb,
-      var(--color-canvas-subtle) 70%,
-      transparent
-    );
-    border-radius: 12px;
-    margin: 0 1rem;
-  }
-
-  .heroHeading {
-    font-size: 3rem;
-  }
-
-  .heroDescription {
-    font-size: 1.1rem;
-  }
-
-  .heroActions {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .heroAction {
-    width: auto;
-    min-width: 12rem;
-  }
-
-  .heroText {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    padding: 1.5rem 0 2rem;
+    // Drop the banner art on narrow viewports where it would collide with the
+    // text; the header falls back to the plain bordered band.
+    background-image: none !important;
   }
 }
 
-@media (max-width: 480px) {
+// Where the art IS shown, reserve a right-side gutter so the text column wraps
+// before it reaches the artwork. Without this, the 48rem text block overlaps
+// the right-anchored isometric art in the ~866–1130px band, dropping the muted
+// intro to ~1.2:1 over the orange/pink fill (WCAG 1.4.3 AA fail). The art is
+// pinned to the border box (background-origin above), so this padding insets
+// only the text, not the artwork. 22rem clears the opaque art (~300px) plus a
+// gap at every width in the band.
+@media (min-width: 866px) {
   .landingHero {
-    height: auto;
-    min-height: 28rem;
-    background-color: var(--bgColor-muted, var(--color-canvas-subtle, #f6f8fa));
-    flex-direction: column;
-    text-align: center;
-    padding: 3rem 0 1rem;
-    justify-content: flex-start;
-    position: relative;
-
-    background-position: center right;
-  }
-
-  .heroContent {
-    width: 100%;
-    order: 2;
-    padding: 1rem;
-    position: relative;
-    z-index: 1;
-    backdrop-filter: blur(1rem);
-    background-color: color-mix(
-      in srgb,
-      var(--color-canvas-subtle) 70%,
-      transparent
-    );
-    border-radius: 12px;
-    margin: 0 0.5rem;
-  }
-
-  .heroText {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-  }
-
-  .heroHeading {
-    font-size: 2.5rem;
-    line-height: 1;
-  }
-
-  .heroActions {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .heroAction {
-    min-width: 9rem;
-    padding: 0.5rem 1rem;
-  }
-
-  .heroDescription {
-    font-size: 1rem;
-    max-height: 14rem;
-    text-overflow: ellipsis;
+    padding-right: 22rem;
   }
 }
