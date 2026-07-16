@@ -23,7 +23,7 @@ category:
 
 ## When should I create an enterprise account?
 
-{% data variables.product.prodname_ghe_cloud %} allows you to create an enterprise account, which enables collaboration between **multiple organizations** and gives administrators a single point of visibility and management. See [AUTOTITLE](/admin/managing-your-enterprise-account/about-enterprise-accounts).
+{% data variables.product.prodname_ghe_cloud %} allows you to create an enterprise account, which enables collaboration between **multiple organizations** and gives administrators a single point of visibility and management. See [AUTOTITLE](/admin/concepts/enterprise-fundamentals/enterprise-accounts).
 
 In most cases, you can create an enterprise account **yourself**.
 
@@ -43,7 +43,7 @@ In these cases, contact {% data variables.contact.contact_enterprise_sales %}.
 
 The following changes also apply to single organizations that are automatically upgraded to an enterprise account. For details, see [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2024-06-19-upcoming-automatic-upgrade-to-the-enterprise-account-experience/).
 
-* **Ownership transfer:** Your organization will automatically be owned by the enterprise account. For details, see [AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#about-addition-of-organizations-to-your-enterprise-account).
+* **Ownership transfer:** Your organization will automatically be owned by the enterprise account. For details, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise).
 * **Ownership roles:** All organization owners will become enterprise owners.
 * **Billing details:** The organization’s billing details will now apply to the enterprise account.
 * **Billing managers:** All organization billing managers will become enterprise billing managers.
@@ -72,4 +72,4 @@ Set up your new enterprise with our [AUTOTITLE](/enterprise-cloud@latest/enterpr
 
 ## Further reading
 
-* [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
+* [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/abilities-of-roles)

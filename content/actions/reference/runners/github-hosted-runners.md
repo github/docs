@@ -41,7 +41,7 @@ For lists of available runners, see:
 
 {% data reusables.actions.supported-github-runners %}
 
-Workflow logs list the runner used to run a job. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history).
+Workflow logs list the runner used to run a job. For more information, see [AUTOTITLE](/actions/how-tos/monitor-workflows/view-workflow-run-history).
 
 ### Limitations for arm64 macOS runners
 
@@ -70,7 +70,7 @@ The job timeout for single-CPU runners is 15 minutes. If a job reaches this limi
 
 {% data reusables.actions.about-larger-runners %}
 
-For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners).
+For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners).
 
 ## Administrative privileges
 
@@ -84,7 +84,7 @@ To get a list of IP address ranges that {% data variables.product.prodname_actio
 
 Windows and Ubuntu runners are hosted in Azure and subsequently have the same IP address ranges as the Azure datacenters. macOS runners are hosted in {% data variables.product.prodname_dotcom %}'s own macOS cloud.
 
-Since there are so many IP address ranges for {% data variables.product.prodname_dotcom %}-hosted runners, we do not recommend that you use these as allowlists for your internal resources. Instead, we recommend you use {% data variables.actions.hosted_runner %}s with a static IP address range, or self-hosted runners. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners) or [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
+Since there are so many IP address ranges for {% data variables.product.prodname_dotcom %}-hosted runners, we do not recommend that you use these as allowlists for your internal resources. Instead, we recommend you use {% data variables.actions.hosted_runner %}s with a static IP address range, or self-hosted runners. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners) or [AUTOTITLE](/actions/concepts/runners/self-hosted-runners).
 
 The list of {% data variables.product.prodname_actions %} IP addresses returned by the API is updated once a week.
 
@@ -108,7 +108,7 @@ To ensure proper communications for {% data variables.product.github %}-hosted r
 | `workspace` | `GITHUB_WORKSPACE` | Actions and shell commands execute in this directory. An action can modify the contents of this directory, which subsequent actions can access. |
 | `workflow/event.json` | `GITHUB_EVENT_PATH` | The `POST` payload of the webhook event that triggered the workflow. {% data variables.product.prodname_dotcom %} rewrites this each time an action executes to isolate file content between actions.
 
-For a list of the environment variables {% data variables.product.prodname_dotcom %} creates for each workflow, see [AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables).
+For a list of the environment variables {% data variables.product.prodname_dotcom %} creates for each workflow, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables).
 
 ### Docker container filesystem
 

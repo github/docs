@@ -15,5 +15,5 @@ category:
 
 Enterprise admins can:
 
-* Enforce {% data variables.product.prodname_copilot_short %} policies for organizations in the enterprise. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
-* Enable or disable {% data variables.product.prodname_copilot_short %} for organizations in the enterprise. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise) and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/disabling-copilot-for-organizations-in-your-enterprise).
+* Enforce {% data variables.product.prodname_copilot_short %} policies for organizations in the enterprise. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
+* Enable or disable {% data variables.product.prodname_copilot_short %} for organizations in the enterprise. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/grant-access) and [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/disable-for-organizations).

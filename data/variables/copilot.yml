@@ -259,8 +259,8 @@ copilot_workspace_pr_short: 'Copilot Workspace for PRs'
 copilot_workspace: 'Copilot Workspace'
 copilot_workspace_short: 'Workspace'
 
-# BYOK
-copilot_byok_supported_features: '{% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_cli_short %}, and {% data variables.product.prodname_vscode_shortname %}'
+# Enterprise and organization BYOK (not local BYOK)
+copilot_byok_supported_features: '{% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_cli_short %}, and IDEs'
 
 ## File for enterprise client management
 managed_setting_file: 'managed-settings.json'

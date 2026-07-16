@@ -90,7 +90,7 @@ Add pronouns to your public user profile to share information about yourself wit
 You can add up to four links to social accounts on your profile.
 
 {% data reusables.user-settings.access_settings %}
-1. Under "Social accounts", in a blank "Link to social profile" field, type the full URL of the social account. For example, for the `@GitHub` Twitter account, type `https://twitter.com/github`.
+1. Under "Social accounts", in a blank "Link to social profile" field, type the full URL of the social account. For example, for the `@GitHub` X (formerly Twitter) account, type `https://x.com/github`.
 {% data reusables.profile.update-profile %}
 
 {% endif %}

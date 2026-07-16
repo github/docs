@@ -12,7 +12,3 @@ docsTeamMetrics:
 ---
 
 {% data reusables.enterprise-onboarding.about-audit-logs %}
-
-## Next steps
-
-Learn about {% data variables.product.github %}'s features for further hardening security in your enterprise. See [AUTOTITLE](/enterprise-onboarding/govern-people-and-repositories/about-enterprise-security).

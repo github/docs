@@ -27,7 +27,7 @@ category:
 
 ## Managing {% data variables.product.prodname_dependabot_security_updates %} for your repositories
 
-You can enable or disable {% data variables.product.prodname_dependabot_security_updates %} for all qualifying repositories owned by your personal account or organization. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account) or [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
+You can enable or disable {% data variables.product.prodname_dependabot_security_updates %} for all qualifying repositories owned by your personal account or organization. For more information, see [AUTOTITLE](/account-and-profile/how-tos/account-settings/managing-security-and-analysis-features) or [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
 
 You can also enable or disable {% data variables.product.prodname_dependabot_security_updates %} for an individual repository.
 
@@ -42,9 +42,9 @@ You can also enable or disable {% data variables.product.prodname_dependabot_sec
 
 In order to use grouped security updates, you must first enable the following features:
 
-* **Dependency graph**. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph).
-* **{% data variables.product.prodname_dependabot_alerts %}**. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts).
-* **{% data variables.product.prodname_dependabot_security_updates %}**. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates).
+* **Dependency graph**. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/enable-dependency-graph).
+* **{% data variables.product.prodname_dependabot_alerts %}**. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-dependabot-alerts).
+* **{% data variables.product.prodname_dependabot_security_updates %}**. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-security-updates#managing-for-your-repositories).
 
 > [!NOTE]
 > When grouped security updates are first enabled, {% data variables.product.prodname_dependabot %} will immediately try to create grouped pull requests. You may notice {% data variables.product.prodname_dependabot %} closing old pull requests and opening new ones.
@@ -61,7 +61,7 @@ In order to use grouped security updates, you must first enable the following fe
 
 ### Enabling or disabling grouped {% data variables.product.prodname_dependabot_security_updates %} for an organization
 
-You can enable grouped {% data variables.product.prodname_dependabot_security_updates %} into a single pull request. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#grouping-dependabot-security-updates).
+You can enable grouped {% data variables.product.prodname_dependabot_security_updates %} into a single pull request. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/configure-global-settings#grouping-dependabot-security-updates).
 
 ## Overriding the default behavior with a configuration file
 
@@ -73,7 +73,7 @@ Use the `groups` option with the `applies-to: security-updates` key to create se
 
 If you only require _security_ updates and want to exclude _version_ updates, you can set `open-pull-requests-limit` to `0` in order to prevent version updates for a given `package-ecosystem`.
 
-For more information about the configuration options available for security updates, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/customizing-dependabot-security-prs).
+For more information about the configuration options available for security updates, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/customizing-dependabot-security-prs).
 
 ```yaml copy
 # Example configuration file that:
@@ -118,6 +118,6 @@ updates:
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)
-* [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts)
-* [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems#supported-package-ecosystems)
+* [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-alerts)
+* [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-dependabot-alerts)
+* [AUTOTITLE](/code-security/reference/supply-chain-security/dependency-graph-supported-package-ecosystems#supported-package-ecosystems)

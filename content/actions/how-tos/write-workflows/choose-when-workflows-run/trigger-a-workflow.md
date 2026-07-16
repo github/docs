@@ -23,11 +23,11 @@ To learn more about workflows and triggering workflows, see [AUTOTITLE](/actions
 
 ## Triggering a workflow from a workflow
 
-{% data reusables.actions.actions-do-not-trigger-workflows %} For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication).
+{% data reusables.actions.actions-do-not-trigger-workflows %} For more information, see [AUTOTITLE](/actions/tutorials/authenticate-with-github_token).
 
 If you do want to trigger a workflow from within a workflow run, you can use a {% data variables.product.prodname_github_app %} installation access token or a {% data variables.product.pat_generic %} instead of `GITHUB_TOKEN` to trigger events that require a token.{% ifversion actions-github-token-pull-request-approval %} Using one of these alternatives also lets `pull_request` workflows run automatically (without the approval prompt described above) when the pull request is created or updated by automation.{% endif %}
 
-If you use a {% data variables.product.prodname_github_app %}, you'll need to create a {% data variables.product.prodname_github_app %} and store the app ID and private key as secrets. For more information, see [AUTOTITLE](/apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow). If you use a {% data variables.product.pat_generic %}, you'll need to create a {% data variables.product.pat_generic %} and store it as a secret. For more information about creating a {% data variables.product.pat_generic %}, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). For more information about storing secrets, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
+If you use a {% data variables.product.prodname_github_app %}, you'll need to create a {% data variables.product.prodname_github_app %} and store the app ID and private key as secrets. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow). If you use a {% data variables.product.pat_generic %}, you'll need to create a {% data variables.product.pat_generic %} and store it as a secret. For more information about creating a {% data variables.product.pat_generic %}, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens). For more information about storing secrets, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
 
 To minimize your {% data variables.product.prodname_actions %} usage costs, ensure that you don't create recursive or unintended workflow runs.
 
@@ -71,7 +71,7 @@ jobs:
 
 ## Using events to trigger workflows
 
-Use the `on` key to specify what events trigger your workflow. For more information about events you can use, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows).
+Use the `on` key to specify what events trigger your workflow. For more information about events you can use, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows).
 
 ### Using a single event
 
@@ -157,7 +157,7 @@ You can use activity types and filters to further control when your workflow wil
 
 ## Defining inputs, outputs, and secrets for reusable workflows
 
-You can define inputs and secrets that a reusable workflow should receive from a calling workflow. You can also specify outputs that a reusable workflow will make available to a calling workflow. For more information, see [AUTOTITLE](/actions/using-workflows/reusing-workflows).
+You can define inputs and secrets that a reusable workflow should receive from a calling workflow. You can also specify outputs that a reusable workflow will make available to a calling workflow. For more information, see [AUTOTITLE](/actions/how-tos/reuse-automations/reuse-workflows).
 
 ## Using event information
 
@@ -165,7 +165,7 @@ Information about the event that triggered a workflow run is available in the `g
 
 ### Viewing all properties of an event
 
-Reference the webhook event documentation for common properties and example payloads. For more information, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads).
+Reference the webhook event documentation for common properties and example payloads. For more information, see [AUTOTITLE](/webhooks/webhook-events-and-payloads).
 
 You can also print the entire `github.event` context to see what properties are available for the event that triggered your workflow:
 
@@ -210,7 +210,7 @@ jobs:
           gh pr comment $PR --body 'It looks like you edited `package*.json`, `.github/CODEOWNERS`, or `.github/workflows/**`. We do not allow contributions to these files. Please review our [contributing guidelines](https://github.com/octo-org/octo-repo/blob/main/CONTRIBUTING.md) for what contributions are accepted.'
 ```
 
-For more information about contexts, see [AUTOTITLE](/actions/learn-github-actions/contexts). For more information about event payloads, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads).
+For more information about contexts, see [AUTOTITLE](/actions/reference/workflows-and-actions/contexts). For more information about event payloads, see [AUTOTITLE](/webhooks/webhook-events-and-payloads).
 
 ## Further controlling how your workflow will run
 
@@ -265,11 +265,11 @@ jobs:
         echo A pull request was closed
 ```
 
-For more information about what information is available in the event context, see [Using event information](#using-event-information). For more information about how to use conditionals, see [AUTOTITLE](/actions/learn-github-actions/expressions).
+For more information about what information is available in the event context, see [Using event information](#using-event-information). For more information about how to use conditionals, see [AUTOTITLE](/actions/reference/workflows-and-actions/expressions).
 
 ### Using environments to manually trigger workflow jobs
 
-If you want to manually trigger a specific job in a workflow, you can use an environment that requires approval from a specific team or user. First, configure an environment with required reviewers. For more information, see [AUTOTITLE](/actions/deployment/targeting-different-environments/managing-environments-for-deployment). Then, reference the environment name in a job in your workflow using the `environment:` key. Any job referencing the environment will not run until at least one reviewer approves the job.
+If you want to manually trigger a specific job in a workflow, you can use an environment that requires approval from a specific team or user. First, configure an environment with required reviewers. For more information, see [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments). Then, reference the environment name in a job in your workflow using the `environment:` key. Any job referencing the environment will not run until at least one reviewer approves the job.
 
 For example, the following workflow will run whenever there is a push to main. The `build` job will always run. The `publish` job will only run after the `build` job successfully completes (due to `needs: [build]`) and after all of the rules (including required reviewers) for the environment called `production` pass (due to `environment: production`).
 
@@ -302,4 +302,4 @@ jobs:
 
 ## Available events
 
-For a full list of available events, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows).
+For a full list of available events, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows).

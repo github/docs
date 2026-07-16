@@ -3,7 +3,7 @@ title: Working with canvas extensions in the GitHub Copilot app
 shortTitle: Canvas extensions
 intro: 'Use canvases in the {% data variables.copilot.github_copilot_app %} to build shared, agent-driven artifacts and interfaces for human-agent collaboration.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_source=docs-canvas-extensions-signup&utm_medium=docs&utm_campaign=github-copilot-app-ga-2026" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/ai/github-app" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download {% data variables.copilot.github_copilot_app %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 contentType: how-tos

@@ -132,7 +132,7 @@ jobs:
 
 ### Using contexts to create cache keys
 
-A cache key can include any of the contexts, functions, literals, and operators supported by {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts) and [AUTOTITLE](/actions/learn-github-actions/expressions).
+A cache key can include any of the contexts, functions, literals, and operators supported by {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/contexts) and [AUTOTITLE](/actions/reference/workflows-and-actions/expressions).
 
 Using expressions to create a `key` allows you to automatically create a new cache when dependencies change.
 
@@ -257,7 +257,7 @@ Multiple workflow runs in a repository can share caches. A cache created for a b
 >
 > All the metadata are managed by the artifact cache service, which is a microservice within {% data variables.product.prodname_actions %}.
 >
-> For more information on cache storage, see [External storage requirements](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements).
+> For more information on cache storage, see [External storage requirements](/admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements).
 
 {% endif %}
 
@@ -300,7 +300,7 @@ For broader guidance on securing your workflows, see [AUTOTITLE](/actions/refere
 
 {% data variables.product.github %} will remove any cache entries that have not been accessed in over 7 days. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited. By default, the limit is 10 GB per repository, but this limit can be increased by enterprise owners, organization owners, or repository administrators. {% ifversion fpt or ghec %}Any usage beyond 10 GB is billed to your account.{% endif %} {% data reusables.actions.cache-eviction-policy %}
 
-{% data reusables.actions.cache-eviction-process %} The cache eviction process may cause cache thrashing, where caches are created and deleted at a high frequency. To reduce this, you can review the caches for a repository and take corrective steps, such as removing caching from specific workflows{% ifversion fpt or ghec %} or increasing your cache size. This functionality is only available to users with a payment method on file who opt in by configuring cache settings{% endif %}. See [AUTOTITLE](/actions/how-tos/managing-workflow-runs-and-deployments/managing-workflow-runs/manage-caches).{% ifversion ghes %} You can also increase the cache size limit for a repository. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository).
+{% data reusables.actions.cache-eviction-process %} The cache eviction process may cause cache thrashing, where caches are created and deleted at a high frequency. To reduce this, you can review the caches for a repository and take corrective steps, such as removing caching from specific workflows{% ifversion fpt or ghec %} or increasing your cache size. This functionality is only available to users with a payment method on file who opt in by configuring cache settings{% endif %}. See [AUTOTITLE](/actions/how-tos/manage-workflow-runs/manage-caches).{% ifversion ghes %} You can also increase the cache size limit for a repository. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository).
 
 {% endif %}
 {% ifversion fpt or ghec %}
@@ -332,4 +332,4 @@ Below are some illustrative monthly costs to inform budgets you may wish to set 
 
 ## Next steps
 
-To manage your dependency caches, see [AUTOTITLE](/actions/how-tos/managing-workflow-runs-and-deployments/managing-workflow-runs/manage-caches).
+To manage your dependency caches, see [AUTOTITLE](/actions/how-tos/manage-workflow-runs/manage-caches).

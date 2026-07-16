@@ -5371,6 +5371,30 @@
       "requestPath": "/orgs/{org}/secret-scanning/alerts"
     },
     {
+      "slug": "list-organization-custom-patterns",
+      "subcategory": "custom-patterns",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/secret-scanning/custom-patterns"
+    },
+    {
+      "slug": "bulk-create-organization-custom-patterns",
+      "subcategory": "custom-patterns",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/secret-scanning/custom-patterns"
+    },
+    {
+      "slug": "bulk-delete-organization-custom-patterns",
+      "subcategory": "custom-patterns",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/secret-scanning/custom-patterns"
+    },
+    {
+      "slug": "update-an-organization-custom-pattern",
+      "subcategory": "custom-patterns",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/secret-scanning/custom-patterns/{pattern_id}"
+    },
+    {
       "slug": "list-organization-pattern-configurations",
       "subcategory": "push-protection",
       "verb": "get",
@@ -5447,6 +5471,30 @@
       "subcategory": "secret-scanning",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}/locations"
+    },
+    {
+      "slug": "list-repository-custom-patterns",
+      "subcategory": "custom-patterns",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/secret-scanning/custom-patterns"
+    },
+    {
+      "slug": "bulk-create-repository-custom-patterns",
+      "subcategory": "custom-patterns",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/secret-scanning/custom-patterns"
+    },
+    {
+      "slug": "bulk-delete-repository-custom-patterns",
+      "subcategory": "custom-patterns",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/secret-scanning/custom-patterns"
+    },
+    {
+      "slug": "update-a-repository-custom-pattern",
+      "subcategory": "custom-patterns",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/secret-scanning/custom-patterns/{pattern_id}"
     },
     {
       "slug": "create-a-push-protection-bypass",

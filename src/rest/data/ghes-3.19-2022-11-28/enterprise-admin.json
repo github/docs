@@ -9667,7 +9667,7 @@
                   "permissions": {
                     "title": "App Permissions",
                     "type": "object",
-                    "description": "The permissions granted to the user access token.",
+                    "description": "The permissions granted to the fine-grained access token.",
                     "properties": {
                       "actions": {
                         "type": "string",
@@ -10527,7 +10527,7 @@
                 "permissions": {
                   "title": "App Permissions",
                   "type": "object",
-                  "description": "The permissions granted to the user access token.",
+                  "description": "The permissions granted to the fine-grained access token.",
                   "properties": {
                     "actions": {
                       "type": "string",
@@ -11770,7 +11770,7 @@
                 "permissions": {
                   "title": "App Permissions",
                   "type": "object",
-                  "description": "The permissions granted to the user access token.",
+                  "description": "The permissions granted to the fine-grained access token.",
                   "properties": {
                     "actions": {
                       "type": "string",
@@ -20514,7 +20514,7 @@
                           "permissions": {
                             "title": "App Permissions",
                             "type": "object",
-                            "description": "The permissions granted to the user access token.",
+                            "description": "The permissions granted to the fine-grained access token.",
                             "properties": {
                               "actions": {
                                 "type": "string",
@@ -21811,7 +21811,7 @@
                         "permissions": {
                           "title": "App Permissions",
                           "type": "object",
-                          "description": "The permissions granted to the user access token.",
+                          "description": "The permissions granted to the fine-grained access token.",
                           "properties": {
                             "actions": {
                               "type": "string",
@@ -22699,7 +22699,7 @@
                         "permissions": {
                           "title": "App Permissions",
                           "type": "object",
-                          "description": "The permissions granted to the user access token.",
+                          "description": "The permissions granted to the fine-grained access token.",
                           "properties": {
                             "actions": {
                               "type": "string",

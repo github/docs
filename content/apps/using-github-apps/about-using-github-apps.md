@@ -17,11 +17,11 @@ category:
 ## Finding {% data variables.product.prodname_github_apps %}
 
 {% ifversion fpt or ghec %}
-You can discover {% data variables.product.prodname_github_apps %} on [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace). {% else %}You cannot install third-party applications on your enterprise. If you want to use the functionality of a third-party app, you can contact the app developer about creating an app from a manifest or from URL parameters. For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-from-a-manifest) and [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-using-url-parameters).{% endif %}{% ifversion enterprise-installed-apps %} You cannot install third-party applications on your enterprise account—they must be owned by your enterprise or an organization in your enterprise.{% endif %}
+You can discover {% data variables.product.prodname_github_apps %} on [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace). {% else %}You cannot install third-party applications on your enterprise. If you want to use the functionality of a third-party app, you can contact the app developer about creating an app from a manifest or from URL parameters. For more information, see [AUTOTITLE](/apps/sharing-github-apps/registering-a-github-app-from-a-manifest) and [AUTOTITLE](/apps/sharing-github-apps/registering-a-github-app-using-url-parameters).{% endif %}{% ifversion enterprise-installed-apps %} You cannot install third-party applications on your enterprise account—they must be owned by your enterprise or an organization in your enterprise.{% endif %}
 
 {% data reusables.data-residency.github-marketplace-apps-unsupported %}
 
-You can also build your own {% data variables.product.prodname_github_app %}. For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps).
+You can also build your own {% data variables.product.prodname_github_app %}. For more information, see [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps).
 
 ## Using {% data variables.product.prodname_github_apps %}
 
@@ -33,7 +33,7 @@ You may also need to authorize a {% data variables.product.prodname_github_app %
 
 Occasionally, the {% data variables.product.prodname_github_app %} will request updated permissions. {% data variables.product.company_short %} will notify you when this occurs. In order for the app to continue to function, you will need to review and approve the updated permissions. For more information, see [AUTOTITLE](/apps/using-github-apps/approving-updated-permissions-for-a-github-app).
 
-Before you install or authorize a {% data variables.product.prodname_github_app %}, you should make sure that you trust the app developer. If you no longer use the app, you should suspend or uninstall the app and/or revoke your authorization of the app. For more information, see [AUTOTITLE](/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#blocking-access) and [AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations).
+Before you install or authorize a {% data variables.product.prodname_github_app %}, you should make sure that you trust the app developer. If you no longer use the app, you should suspend or uninstall the app and/or revoke your authorization of the app. For more information, see [AUTOTITLE](/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#blocking-access) and [AUTOTITLE](/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps).
 
 {% ifversion fpt or ghec %}
 

@@ -70,6 +70,7 @@ To improve the quality of {% data variables.product.prodname_copilot_short %}'s 
 With strong guardrails in place, developers should already be enabled to use AI effectively. However, it is important to provide training on AI tools and create a culture where best practices are encouraged, rather than just enforced.
 
 1. Communicate your governance settings and your company's expectations for how developers should use {% data variables.product.prodname_copilot_short %}. For example, if all agent work should be thoroughly reviewed, ensure this process is established and communicated.
+1. Encourage developers to run `/security-review` in {% data variables.copilot.copilot_cli_short %} before opening a pull request or requesting review. Treat this as a lightweight check, then continue with your standard pull request review process. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/cli-best-practices#code-review-assistance).
 1. Create onboarding resources such as internal documentation or videos. For a starting point, share existing resources like [AUTOTITLE](/copilot/get-started/best-practices) and [AUTOTITLE](/copilot/tutorials/copilot-cookbook).
 1. Offer ongoing training and support, such as workshops. In successful rollouts, many companies identify "champions" who can train others on how to use {% data variables.product.prodname_copilot_short %} effectively.
 

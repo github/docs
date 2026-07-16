@@ -95,6 +95,8 @@ The following credential types are **not** affected:
 * Deploy keys
 * {% data variables.product.prodname_actions %} `GITHUB_TOKEN` access
 
+> [!NOTE] A deploy key created with a {% data variables.product.pat_generic %} or an {% data variables.product.prodname_oauth_app %} token is deleted when the "Delete keys and tokens" action deletes that token. Deploy keys created through the web interface or with a {% data variables.product.prodname_github_app %} user access token are not affected. See [AUTOTITLE](/rest/deploy-keys/deploy-keys).
+
 ### Audit and security log events
 
 The "revoke authorizations" action generates the following events:

@@ -45,7 +45,7 @@ These ratings are used to summarize the overall reliability and maintainability 
 | **Excellent**        | Codebase demonstrates best practices for reliability and maintainability. | No code quality findings detected                              |
 | **Good**             | Codebase has low-severity issues or minor improvements are suggested. | ≥1 "Note" level finding       |
 | **Fair**             | Codebase has moderate-severity issues that may impact quality, but are not critical. | ≥1 "Warning" level finding              |
-| **Needs Improvement**| Codebase has high-severity issues, including bugs or major maintainability risks. | ≥1 "Error" level finding                |
+| **Poor**             | Codebase has high-severity issues, including bugs or major maintainability risks. | ≥1 "Error" level finding                |
 
 ## Code coverage
 

@@ -8,7 +8,6 @@ import { ArticleGridLayout } from '@/frame/components/article/ArticleGridLayout'
 import { ArticleInlineLayout } from '@/frame/components/article/ArticleInlineLayout'
 import { MiniTocs } from '@/frame/components/ui/MiniTocs'
 import { useAutomatedPageContext } from '@/automated-pipelines/components/AutomatedPageContext'
-import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
 import { JourneyTrackCard, JourneyTrackNav } from '@/journeys/components'
 
 type Props = {
@@ -70,40 +69,34 @@ export const AutomatedPage = ({ children, rawChildren, fullWidth }: Props) => {
             topper={<ArticleTitle>{title}</ArticleTitle>}
             intro={introProp}
             toc={toc}
-            breadcrumbs={<Breadcrumbs />}
           >
             {articleContents}
           </ArticleInlineLayout>
           {isJourneyTrack ? (
-            <div className="container-lg mt-4 px-3">
+            <div className="width-full mt-4">
               <JourneyTrackNav context={currentJourneyTrack} />
             </div>
           ) : null}
         </>
       ) : (
-        <div className="container-xl px-3 px-md-6 my-4">
-          <ArticleGridLayout
-            fullWidth={fullWidth}
-            topper={
-              <>
-                <div className="d-none d-xl-block my-3 mr-auto width-full">
-                  <Breadcrumbs />
-                </div>
-                <ArticleTitle>{title}</ArticleTitle>
-              </>
-            }
-            intro={introProp}
-            toc={toc}
-          >
-            {articleContents}
-          </ArticleGridLayout>
+        <>
+          <div className="container-xl px-3 px-md-6 my-4">
+            <ArticleGridLayout
+              fullWidth={fullWidth}
+              topper={<ArticleTitle>{title}</ArticleTitle>}
+              intro={introProp}
+              toc={toc}
+            >
+              {articleContents}
+            </ArticleGridLayout>
+          </div>
 
           {isJourneyTrack ? (
-            <div className="container-lg mt-4 px-3">
+            <div className="width-full mt-4">
               <JourneyTrackNav context={currentJourneyTrack} />
             </div>
           ) : null}
-        </div>
+        </>
       )}
     </DefaultLayout>
   )

@@ -96,13 +96,13 @@ To use OIDC in your workflows, you must establish a trust relationship between {
 
 Before granting an access token, your cloud provider checks that the [`subject`](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) and any other claims used to set conditions in its trust settings match those in the request's JSON Web Token (JWT). If the trust configuration matches, your cloud provider issues a temporary access token to the workflow.
 
-For steps and syntax for configuring OIDC trust and setting conditions for cloud providers, see [AUTOTITLE](/actions/reference/openid-connect-reference#oidc-claims-used-to-define-trust-conditions-on-cloud-roles).
+For steps and syntax for configuring OIDC trust and setting conditions for cloud providers, see [AUTOTITLE](/actions/reference/security/oidc#oidc-claims-used-to-define-trust-conditions-on-cloud-roles).
 
 ## Configuring OIDC on {% data variables.enterprise.data_residency_site %}
 
 If you are part of an enterprise that uses {% data variables.enterprise.data_residency %} and you're setting up OIDC on {% data variables.enterprise.data_residency_site %}, you must **substitute certain values** while configuring OIDC.
 
-For more information, see [AUTOTITLE](/enterprise-cloud@latest/actions/reference/openid-connect-reference#substituted-values-on-ghecom).
+For more information, see [AUTOTITLE](/enterprise-cloud@latest/actions/reference/security/oidc#substituted-values-on-ghecom).
 
 {% endif %}
 
@@ -110,11 +110,11 @@ For more information, see [AUTOTITLE](/enterprise-cloud@latest/actions/reference
 
 Custom actions use the `getIDToken()` method from the Actions toolkit or a `curl` command to authenticate using OIDC.
 
-For more information, see [AUTOTITLE](/actions/reference/openid-connect-reference#methods-for-requesting-the-oidc-token).
+For more information, see [AUTOTITLE](/actions/reference/security/oidc#methods-for-requesting-the-oidc-token).
 
 ## Updating your workflows for OIDC
 
-{% data variables.product.prodname_actions %} workflows can use OIDC tokens instead of secrets to authenticate with cloud providers. Many popular cloud providers offer official login actions that simplify the process of using OIDC in your workflows. For more information about updating your workflows with specific cloud providers, see [AUTOTITLE](/actions/how-tos/security-for-github-actions/security-hardening-your-deployments).
+{% data variables.product.prodname_actions %} workflows can use OIDC tokens instead of secrets to authenticate with cloud providers. Many popular cloud providers offer official login actions that simplify the process of using OIDC in your workflows. For more information about updating your workflows with specific cloud providers, see [AUTOTITLE](/actions/how-tos/secure-your-work/security-harden-deployments).
 
 {% ifversion oidc-custom-properties %}
 
@@ -162,7 +162,7 @@ The following example shows an OIDC token that includes two custom properties: a
 }
 ```
 
-You can use the `repo_property_*` claims in your cloud provider's trust conditions to create flexible, attribute-based access control policies. For more information about the claim format, supported property types, and limits, see [AUTOTITLE](/actions/reference/openid-connect-reference#including-repository-custom-properties-in-oidc-tokens).
+You can use the `repo_property_*` claims in your cloud provider's trust conditions to create flexible, attribute-based access control policies. For more information about the claim format, supported property types, and limits, see [AUTOTITLE](/actions/reference/security/oidc#including-repository-custom-properties-in-oidc-tokens).
 
 {% endif %}
 
@@ -180,12 +180,12 @@ The benefits of OIDC authentication for {% data variables.product.prodname_depen
 * **Simpler management:** Enables secure, policy-compliant access to private registries.
 * **Avoid rate limiting:** Dynamic credentials help you avoid hitting rate limits associated with static tokens.
 
-For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#using-oidc-for-authentication).
+For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#using-oidc-for-authentication).
 
 {% endif %}
 
 ## Next steps
 
-For more information about configuring OIDC, see [AUTOTITLE](/actions/how-tos/security-for-github-actions/security-hardening-your-deployments).
+For more information about configuring OIDC, see [AUTOTITLE](/actions/how-tos/secure-your-work/security-harden-deployments).
 
-For reference information about OIDC, see [AUTOTITLE](/actions/reference/openid-connect-reference).
+For reference information about OIDC, see [AUTOTITLE](/actions/reference/security/oidc).

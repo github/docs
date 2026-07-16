@@ -139,6 +139,8 @@ Stores your saved tool and directory permission decisions, organized by project 
 | 2 | `COPILOT_HOME` | `$COPILOT_HOME/permissions-config.json` |
 | 3 | Default | `~/.copilot/permissions-config.json` |
 
+The CLI uses only the first applicable configuration directory in this order. It doesn't also load `permissions-config.json` from the lower-priority locations.
+
 The `--config-dir` option is a legacy option. Prefer `COPILOT_HOME` when you need to change the configuration directory.
 
 On Windows, the default file is typically:
@@ -206,15 +208,13 @@ For MCP approvals, `serverName` must match the configured MCP server name exactl
 
 #### Shell command matching
 
-`commandIdentifiers` match the command identifiers extracted from a shell request. Matching is exact except for the `:*` suffix.
+`permissions-config.json` doesn't support regular expressions or general glob patterns. String values are matched literally, except that a trailing `:*` in a shell `commandIdentifiers` value matches the text before `:*`, either by itself or followed by a space and more text. A plain `*` has no special meaning, so `git*` doesn't match `git status`.
 
 | Pattern | Matches | Doesn't match |
 |---------|---------|---------------|
 | `git status` | `git status` | `git status --short` |
 | `git:*` | `git`, `git status`, `git push` | `gitea` |
 | `gh pr:*` | `gh pr`, `gh pr view`, `gh pr create` | `gh repo view` |
-
-The `:*` suffix isn't a general glob pattern. It matches the exact stem, or the stem followed by a space and more text.
 
 #### Directory matching
 

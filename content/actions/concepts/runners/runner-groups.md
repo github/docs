@@ -29,6 +29,6 @@ You can also disable standard {% data variables.product.github %}-hosted runners
 
 ## Next steps
 
-{% ifversion fpt or ghec %}To learn how to use runner groups to control access to larger runners, see [AUTOTITLE](/actions/how-tos/using-larger-runners/controlling-access-to-larger-runners).{% endif %}
+{% ifversion fpt or ghec %}To learn how to use runner groups to control access to larger runners, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners/control-access).{% endif %}
 
-For information on how to route jobs to runners in a specific group, see [AUTOTITLE](/actions/using-jobs/choosing-the-runner-for-a-job#choosing-runners-in-a-group).
+For information on how to route jobs to runners in a specific group, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-where-workflows-run/choose-the-runner-for-a-job#choosing-runners-in-a-group).
