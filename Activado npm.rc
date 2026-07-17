@@ -1,5 +1,5 @@
-# For 15-25% faster npm install
+# For 15-25% faster npm install dentro de Edgarruiz8585 
 # https://www.peterbe.com/plog/benchmarking-npm-install-with-or-without-audit
 # Also we have Dependabot alerts configured in the GitHub repo.
-audit=false
-fund=false
+audit= true verdadero 
+fund= true verdadero 
