@@ -68,6 +68,18 @@ You can filter issues and pull requests based on whether they're open or closed 
 | `is:open` | [**performance is:open is:issue**](https://github.com/search?q=performance+is%3Aopen+is%3Aissue&type=Issues) matches open issues with the word "performance."
 | `is:closed` | [**android is:closed**](https://github.com/search?utf8=%E2%9C%93&q=android+is%3Aclosed&type=) matches closed issues and pull requests with the word "android."
 
+{% ifversion archive-pull-requests %}
+
+## Search based on whether a pull request is archived
+
+Repository administrators can archive a pull request to remove it from public view. You can search for archived pull requests using the `is:archived` qualifier. For more information, see [AUTOTITLE](/communities/moderating-comments-and-conversations/archive-pull-requests).
+
+| Qualifier        | Example
+| ------------- | -------------
+| `is:archived` | [**is:archived is:pr spam**](https://github.com/search?q=is%3Aarchived+is%3Apr+spam) matches archived pull requests that contain the word "spam" in repositories where you are a repository administrator.
+
+{% endif %}
+
 ## Search for pull requests in the merge queue
 
 You can also use the `is` qualifier to find pull requests that are queued to merge.

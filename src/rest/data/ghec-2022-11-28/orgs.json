@@ -6252,6 +6252,12 @@
         },
         {
           "type": "boolean",
+          "name": "partial_success",
+          "description": "<p>When enabled, deployments associated with repositories the actor can write to are processed\nwhile deployments associated with repositories that cannot be resolved or written to by the actor\nare skipped and reported in the <code>errors</code> array. When false (the default), the endpoint returns\nan error if any targeted repository cannot be resolved, the actor lacks write access, or no matching attestation can be found.</p>",
+          "default": false
+        },
+        {
+          "type": "boolean",
           "name": "return_records",
           "description": "<p>If true, the endpoint will return the set records in the response body</p>",
           "default": true
@@ -6262,7 +6268,7 @@
         {
           "request": {
             "contentType": "application/json",
-            "description": "Example",
+            "description": "Example 1: Status Code 200",
             "acceptHeader": "application/vnd.github.v3+json",
             "bodyParameters": {
               "logical_environment": "prod",
@@ -6386,12 +6392,233 @@
               ]
             }
           }
+        },
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example 2: Status Code 207",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "logical_environment": "prod",
+              "physical_environment": "pacific-east",
+              "deployments": [
+                {
+                  "name": "awesome-image",
+                  "digest": "sha256:1bb1e949e55dcefc6353e7b36c8897d2a107d8e8dca49d4e3c0ea8493fc0bc72",
+                  "version": "2.1.0",
+                  "status": "deployed",
+                  "deployment_name": "deployment-pod",
+                  "tags": {
+                    "owning-team": "platform"
+                  },
+                  "runtime_risks": [
+                    "sensitive-data"
+                  ]
+                }
+              ]
+            },
+            "parameters": {
+              "org": "ORG",
+              "cluster": "CLUSTER"
+            }
+          },
+          "response": {
+            "statusCode": "207",
+            "contentType": "application/json",
+            "description": "<p>This response format is only returned when <code>partial_success</code> is set to true in the request body.\nSuccessfully processed deployments are included in the <code>deployment_records</code> field. Records that could\nnot be processed and were skipped because of unresolvable repositories, missing actor permissions, or lack of a matching attestation are\nincluded in the <code>errors</code> field.</p>",
+            "example": {
+              "total_count": 1,
+              "deployment_records": [
+                {
+                  "id": 42,
+                  "digest": "sha256:1bb1e949e55dcefc6353e7b36c8897d2a107d8e8dca49d4e3c0ea8493fc0bc72",
+                  "logical_environment": "prod",
+                  "physical_environment": "us-east-1a",
+                  "cluster": "production-cluster",
+                  "deployment_name": "deployment-pod",
+                  "tags": {
+                    "owning-team": "platform"
+                  },
+                  "runtime_risks": [
+                    "sensitive-data"
+                  ],
+                  "created_at": "2024-01-01T12:00:00Z",
+                  "updated_at": "2024-01-01T12:30:00Z",
+                  "attestation_id": 777
+                }
+              ],
+              "errors": [
+                {
+                  "cause": "unauthorized",
+                  "deployment": {
+                    "name": "my-image",
+                    "digest": "sha256:5aa19f9a13f67a644f6d8528e2eb5cf64431e236df5dbbd44ff9b9e3f6fc6cb2",
+                    "deployment_name": "restricted-deployment",
+                    "version": "2.1.1",
+                    "status": "deployed",
+                    "github_repository": "private-repo",
+                    "tags": {
+                      "owning-team": "platform"
+                    },
+                    "runtime_risks": [
+                      "sensitive-data"
+                    ]
+                  }
+                }
+              ]
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "total_count": {
+                  "description": "The number of deployment records created or updated.",
+                  "type": "integer"
+                },
+                "deployment_records": {
+                  "type": "array",
+                  "items": {
+                    "title": "Artifact Deployment Record",
+                    "description": "Artifact Metadata Deployment Record",
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "digest": {
+                        "type": "string"
+                      },
+                      "logical_environment": {
+                        "type": "string"
+                      },
+                      "physical_environment": {
+                        "type": "string"
+                      },
+                      "cluster": {
+                        "type": "string"
+                      },
+                      "deployment_name": {
+                        "type": "string"
+                      },
+                      "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string"
+                        }
+                      },
+                      "runtime_risks": {
+                        "type": "array",
+                        "description": "A list of runtime risks associated with the deployment.",
+                        "maxItems": 4,
+                        "uniqueItems": true,
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "critical-resource",
+                            "internet-exposed",
+                            "lateral-movement",
+                            "sensitive-data"
+                          ]
+                        }
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      },
+                      "attestation_id": {
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
+                        "description": "The ID of the provenance attestation associated with the deployment record."
+                      }
+                    }
+                  }
+                },
+                "errors": {
+                  "type": "array",
+                  "description": "A list of errors for deployments that could not be processed.",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "cause": {
+                        "type": "string",
+                        "description": "The reason the deployment failed processing.",
+                        "enum": [
+                          "unauthorized",
+                          "not_found"
+                        ]
+                      },
+                      "deployment": {
+                        "type": "object",
+                        "description": "The deployment payload that could not be processed.",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The name of the artifact."
+                          },
+                          "digest": {
+                            "type": "string",
+                            "description": "The digest of the artifact."
+                          },
+                          "deployment_name": {
+                            "type": "string",
+                            "description": "The name of the deployment that failed processing."
+                          },
+                          "version": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "The version of the deployment."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "The deployment status."
+                          },
+                          "github_repository": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "The repository associated with the deployment."
+                          },
+                          "tags": {
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            },
+                            "description": "Custom metadata tags for the deployment."
+                          },
+                          "runtime_risks": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "Runtime risk classifications for the deployment."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "total_count"
+              ]
+            }
+          }
         }
       ],
       "statusCodes": [
         {
           "httpStatusCode": "200",
           "description": "<p>Deployment records created or updated successfully.</p>"
+        },
+        {
+          "httpStatusCode": "207",
+          "description": "<p>This response format is only returned when <code>partial_success</code> is set to true in the request body.\nSuccessfully processed deployments are included in the <code>deployment_records</code> field. Records that could\nnot be processed and were skipped because of unresolvable repositories, missing actor permissions, or lack of a matching attestation are\nincluded in the <code>errors</code> field.</p>"
         },
         {
           "httpStatusCode": "403",
