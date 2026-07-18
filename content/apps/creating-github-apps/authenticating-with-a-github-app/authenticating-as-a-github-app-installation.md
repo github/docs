@@ -1,4 +1,6 @@
+
 ---
+
 title: Authenticating as a GitHub App installation
 shortTitle: Authenticate as an installation
 intro: You can make your {% data variables.product.prodname_github_app %} authenticate as an installation in order to make API requests that affect resources owned by the account where the app is installed.
