@@ -59,7 +59,7 @@ inputs:
     required: true
 ```
 
-When you specify an input, {% data variables.product.prodname_dotcom %} creates an environment variable for the input with the name `INPUT_<VARIABLE_NAME>`. The environment variable created converts input names to uppercase letters and replaces spaces with `_` characters.
+When you specify an input, {% data variables.product.prodname_dotcom %} creates an environment variable for the input with the name `INPUT_<VARIABLE_NAME>`. The environment variable created converts input names to uppercase letters and replaces spaces and hyphens with `_` characters.
 
 If the action is written using a [composite](/actions/tutorials/create-actions/create-a-composite-action), then it will not automatically get `INPUT_<VARIABLE_NAME>`. With composite actions you can use the [`inputs` context](/actions/reference/workflows-and-actions/contexts#inputs-context) to access action inputs.
 
