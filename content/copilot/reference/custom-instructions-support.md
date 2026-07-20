@@ -154,6 +154,7 @@ The editor lets you work with workspace customizations for the current project o
           {% data reusables.copilot.ci-support-personal %}
           {% data reusables.copilot.ci-support-repository %}
           {% data reusables.copilot.ci-support-path %}
+          {% data reusables.copilot.ci-support-agents-all %}
         </ul>
       </td>
     </tr>
