@@ -11,9 +11,13 @@ category:
 contentType: reference
 ---
 
-A workflow run has a `status` while it moves through its lifecycle. After the run reaches a `completed` status, its `conclusion` describes the final result.
+A workflow run has a `status` while it moves through its lifecycle. After the run reaches a `completed` status, its `conclusion` describes the final result. Until then, the `conclusion` value is `null`.
+
+A status is a snapshot of the workflow run's current state, not a history of transitions. For example, a sequence of `queued`, `in_progress`, `queued`, and `completed` values does not identify why the state changed. When investigating such a sequence, first compare `run_attempt`: a re-run keeps the workflow run ID and increments `run_attempt`. If the attempt did not change, inspect the workflow run logs and its related check runs for more evidence. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/contexts#github-context) and [AUTOTITLE](/actions/how-tos/monitor-workflows/use-workflow-run-logs).
 
 The workflow run list endpoints in the REST API use the `status` query parameter to filter by either status or conclusion. For more information, see [AUTOTITLE](/rest/actions/workflow-runs).
+
+The values on this page apply only to workflow runs. Check suites, check runs, and commit statuses have their own status and conclusion values, and a value with the same name can have different meanings for different objects. For example, in the Checks API, `startup_failure` describes a check suite that failed during startup, while `stale` describes an incomplete check run that {% data variables.product.github %} marked stale. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks).
 
 ## Status values
 
@@ -44,4 +48,4 @@ For more information about the conditions that cause `pending` and `waiting` sta
 | `timed_out` | The workflow run timed out. |
 | `startup_failure` | The workflow run failed during startup. |
 
-The `startup_failure` value can appear as a workflow run conclusion in webhook payloads. It is not an accepted value for the `status` query parameter in the REST API workflow run list endpoints.
+The `startup_failure` value can appear as a workflow run conclusion in webhook payloads. It is not listed as an accepted value for the `status` query parameter in the REST API workflow run list endpoints.
