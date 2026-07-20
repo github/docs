@@ -24,11 +24,16 @@ Throughout, `{{ release-number }}` stands for the version being deprecated. When
 
 ## Step 1: Confirm the deprecation date
 
-Look up `{{ release-number }}` in the [release date list](https://github.com/github/enterprise-releases/blob/master/releases.json), find the corresponding `prp` owner, and draft a short Slack message asking them to confirm the deprecation date.
+The release controller's Slack chatops are the authoritative source for both the deprecation date and the DRI (directly responsible individual):
 
-🛑 **HUMAN**: Send a Slack message. If there is no `prp` owner, ask in #docs-content-enterprise or #ghes-releases instead.
+* `.rc get-cycle {{ release-number }}` returns the release cycle for `{{ release-number }}`, including the deprecation date.
+* `.rc release-dates` returns the current DRI for each release. Run it in either `#ghes-releases` or `#ghes-release-ops`.
 
-* If the date is being pushed out, ask the `prp` to update the release date list, update this issue's target date, and pause until the new date arrives.
+Draft both chatops and a follow-up confirmation message for the human, who runs the chatops in Slack and posts the confirmation. Cross-check the date returned by `.rc get-cycle` against the one in this issue's title and in `src/ghes-releases/lib/enterprise-dates.json`.
+
+🛑 **HUMAN**: Run `.rc get-cycle {{ release-number }}` and `.rc release-dates` in `#ghes-releases` (or `#ghes-release-ops`). Post a short message in `#ghes-releases` `@`-mentioning the DRI returned by `.rc release-dates` asking them to confirm the deprecation date, and add a comment on this issue linking to that Slack message for posterity. If `.rc release-dates` doesn't return a DRI for `{{ release-number }}`, ask in `#docs-content-enterprise` or `#ghes-releases` instead.
+
+* If the date is being pushed out, ask the DRI to update the [release date list](https://github.com/github/enterprise-releases/blob/master/releases.json), update this issue's target date, and pause until the new date arrives.
 * The release date list is often not updated. If it isn't, our copy in `src/ghes-releases/lib/enterprise-dates.json` may also be wrong. You fix that in Step 6.
 
 ## Step 2: Remove the version from the github/docs-content release tracker

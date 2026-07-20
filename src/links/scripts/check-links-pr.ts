@@ -150,6 +150,9 @@ function filterContentFiles(files: string[]): string[] {
   return files.filter((file) => {
     // Only check Markdown files in content/ or data/
     if (!file.endsWith('.md')) return false
+    // Skip README.md files. They're developer docs, not published pages, and use
+    // repo-relative paths (e.g. /src/...) that aren't valid site links.
+    if (file === 'README.md' || file.endsWith('/README.md')) return false
     if (file.startsWith('content/') || file.startsWith('data/')) return true
     return false
   })
@@ -177,20 +180,34 @@ async function commentOnPR(brokenLinks: BrokenLink[], actionUrl?: string) {
   const octokit = github()
   const comment = generatePRComment(brokenLinks, { actionUrl })
 
-  if (!comment) {
-    console.log('No broken links to report')
-    return
-  }
-
-  // Find existing comment
+  // Find any existing comment we previously posted (identified by the hidden marker)
+  const marker = '<!-- link-checker-pr-comment -->'
   const { data: comments } = await octokit.rest.issues.listComments({
     owner,
     repo,
     issue_number: pullNumber,
   })
-
-  const marker = '<!-- link-checker-pr-comment -->'
   const existingComment = comments.find((c) => c.body?.includes(marker))
+
+  if (!comment) {
+    console.log('No broken links to report')
+    // Links are now clean: remove any stale comment from an earlier commit.
+    // Best-effort: a concurrent run may have already deleted it (404), and
+    // cleanup should never turn an otherwise-passing run into a failure.
+    if (existingComment) {
+      try {
+        await octokit.rest.issues.deleteComment({
+          owner,
+          repo,
+          comment_id: existingComment.id,
+        })
+        console.log(`Deleted stale PR comment: ${existingComment.id}`)
+      } catch (err) {
+        console.warn(`Could not delete stale PR comment ${existingComment.id}:`, err)
+      }
+    }
+    return
+  }
 
   if (existingComment) {
     await octokit.rest.issues.updateComment({
@@ -287,6 +304,14 @@ async function main() {
 
   if (allBrokenLinks.length === 0 && allRedirectLinks.length === 0) {
     console.log(chalk.green('✅ All links valid!'))
+    // Remove any stale comment posted on an earlier commit, now that links are clean
+    if (process.env.SHOULD_COMMENT === 'true') {
+      try {
+        await commentOnPR([], process.env.ACTION_RUN_URL)
+      } catch (err) {
+        console.warn('Could not clean up stale PR comment:', err)
+      }
+    }
     process.exit(0)
   }
 
@@ -316,15 +341,24 @@ async function main() {
     }
   }
 
-  // Write artifact for debugging
+  // Write artifact for debugging. Best-effort: a reporting/API failure must
+  // never fail the build. Only broken links (below) should fail the PR.
   const allFlaws = [...allBrokenLinks, ...allRedirectLinks]
-  await uploadArtifact('broken-links.json', JSON.stringify(groupBrokenLinks(allFlaws), null, 2))
+  try {
+    await uploadArtifact('broken-links.json', JSON.stringify(groupBrokenLinks(allFlaws), null, 2))
+  } catch (err) {
+    console.warn('Could not upload broken-links artifact:', err)
+  }
 
-  // Post PR comment if configured
+  // Post PR comment if configured. Best-effort for the same reason.
   const shouldComment = process.env.SHOULD_COMMENT === 'true'
   if (shouldComment) {
     const actionUrl = process.env.ACTION_RUN_URL
-    await commentOnPR(allFlaws, actionUrl)
+    try {
+      await commentOnPR(allFlaws, actionUrl)
+    } catch (err) {
+      console.warn('Could not post PR comment:', err)
+    }
   }
 
   // Exit with error if broken links found

@@ -9,6 +9,7 @@ children:
   - /cloud-agent
   - /copilot-cli
   - /github-copilot-app
+  - /copilot-in-jetbrains
   - /code-review
   - /about-github-agentic-workflows
   - /copilot-memory

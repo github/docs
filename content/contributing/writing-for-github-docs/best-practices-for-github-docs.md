@@ -47,8 +47,8 @@ Before you begin, it’s important to understand who you’re writing for, what 
 
 Determine which type of content you will write, based on the intended audience and the core purpose of the content. {% data variables.product.prodname_docs %} use the following content types:
 
-* [AUTOTITLE](/contributing/style-guide-and-content-model/conceptual-content-type)
-* [AUTOTITLE](/contributing/style-guide-and-content-model/referential-content-type)
+* [AUTOTITLE](/contributing/style-guide-and-content-model/concepts-content-type)
+* [AUTOTITLE](/contributing/style-guide-and-content-model/reference-content-type)
 * [AUTOTITLE](/contributing/style-guide-and-content-model/how-to-content-type)
 * [AUTOTITLE](/contributing/style-guide-and-content-model/troubleshooting-content-type)
 * [AUTOTITLE](/contributing/style-guide-and-content-model/quickstart-content-type)

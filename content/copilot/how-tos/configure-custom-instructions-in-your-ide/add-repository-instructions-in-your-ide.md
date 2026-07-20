@@ -114,7 +114,7 @@ For more information about prompt files, see [Use prompt files in {% data variab
 
 * [AUTOTITLE](/copilot/reference/custom-instructions-support)
 * [AUTOTITLE](/copilot/tutorials/customization-library)—a curated collection of examples
-* [AUTOTITLE](/copilot/tutorials/use-custom-instructions)
+* [AUTOTITLE](/copilot/tutorials/customize-code-review)
 
 {% endvscode %}
 
@@ -198,7 +198,7 @@ For more information about prompt files, see [Use prompt files in {% data variab
 
 * [AUTOTITLE](/copilot/reference/custom-instructions-support)
 * [AUTOTITLE](/copilot/tutorials/customization-library)—a curated collection of examples
-* [AUTOTITLE](/copilot/tutorials/use-custom-instructions)
+* [AUTOTITLE](/copilot/tutorials/customize-code-review)
 
 {% endvisualstudio %}
 
@@ -301,7 +301,7 @@ Once prompt files are saved, their instructions will apply to the current worksp
 
 * [AUTOTITLE](/copilot/reference/custom-instructions-support)
 * [AUTOTITLE](/copilot/tutorials/customization-library)—a curated collection of examples
-* [AUTOTITLE](/copilot/tutorials/use-custom-instructions)
+* [AUTOTITLE](/copilot/tutorials/customize-code-review)
 
 {% endjetbrains %}
 
@@ -339,7 +339,7 @@ Whitespace between instructions is ignored, so the instructions can be written a
 
 * [AUTOTITLE](/copilot/reference/custom-instructions-support)
 * [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions)—a curated collection of examples
-* [AUTOTITLE](/copilot/tutorials/use-custom-instructions)
+* [AUTOTITLE](/copilot/tutorials/customize-code-review)
 
 {% endxcode %}
 

@@ -173,7 +173,7 @@ gh bbs2gh migrate-repo --bbs-server-url BBS-SERVER-URL \
 {% data reusables.enterprise-migration-tool.archive-download-host-placeholder %}
 
 > [!NOTE]
-> If you get an error mentioning `Renci.SshNet`, then the CLI is having issues making an SFTP connection to your server to download your migration archive. For information about how to troubleshoot these issues, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#cipher-name-is-not-supported).
+> If you get an error mentioning `Renci.SshNet`, then the CLI is having issues making an SFTP connection to your server to download your migration archive. For information about how to troubleshoot these issues, see [AUTOTITLE](/migrations/troubleshooting/troubleshooting-your-migration-with-github-enterprise-importer#cipher-name-is-not-supported-error).
 
 ### Downloading the migration archive manually
 
@@ -206,7 +206,7 @@ Your migration archive will be generated, and its path will be printed in the co
 instance at $BITBUCKET_SHARED_HOME/data/migration/export/Bitbucket_export_9.tar
 ```
 
-In general, `$BITBUCKET_SHARED_HOME` will be set to `/var/atlassian/application-data/bitbucket/shared` on Linux and `C:\Atlassian\ApplicationData\Bitbucket\Shared` on Windows, but this may differ depending on your server configuration. To help you identify your shared home directory, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#source-export-archive-does-not-exist-error).
+In general, `$BITBUCKET_SHARED_HOME` will be set to `/var/atlassian/application-data/bitbucket/shared` on Linux and `C:\Atlassian\ApplicationData\Bitbucket\Shared` on Windows, but this may differ depending on your server configuration. To help you identify your shared home directory, see [AUTOTITLE](/migrations/troubleshooting/troubleshooting-your-migration-with-github-enterprise-importer#source-export-archive-does-not-exist-error).
 
 Download the migration archive from your Bitbucket Server instance, and store the archive on the machine where you're running the {% data variables.product.prodname_cli %}.
 

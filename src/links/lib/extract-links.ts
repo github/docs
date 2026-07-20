@@ -12,13 +12,15 @@ import { createLogger } from '@/observability/logger'
 import { allVersions } from '@/versions/lib/all-versions'
 import { latestStable } from '@/versions/lib/enterprise-server-releases'
 import { getDataByLanguage } from '@/data-directory/lib/get-data'
+import getRedirect from '@/redirects/lib/get-redirect'
+import { isArchivedVersionByPath } from '@/archives/lib/is-archived-version'
 import type { Context, Page } from '@/types'
 
 const logger = createLogger(import.meta.url)
 
 // Link patterns for Markdown
-const INTERNAL_LINK_PATTERN = /\]\(\/[^)]+\)/g
-const AUTOTITLE_LINK_PATTERN = /\[AUTOTITLE\]\(([^)]+)\)/g
+const INTERNAL_LINK_PATTERN = /\]\((\/[^()\s]+(?:\([^()]*\)[^()\s]*)*)\)/g
+const AUTOTITLE_LINK_PATTERN = /\[AUTOTITLE\]\(([^)\s]+)\)/g
 // Handles one level of balanced parentheses in URLs (e.g., Wikipedia links).
 // Uses an unrolled loop to avoid catastrophic backtracking on malformed URLs.
 const EXTERNAL_LINK_PATTERN = /\]\((https?:\/\/[^()\s]*(?:\([^()]*\)[^()\s]*)*)\)/g
@@ -126,12 +128,26 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
 
   // Strip fenced code blocks to avoid checking example/placeholder URLs
   // Replaces non-newline characters with spaces to preserve line numbers and positions
-  const strippedContent = content.replace(
+  const withoutFences = content.replace(
     /^ {0,3}(`{3,})[^\n]*\n[\s\S]*?^ {0,3}\1\s*$/gm,
     (match) => {
       return match.replace(/[^\n]/g, ' ')
     },
   )
+
+  // Strip inline code spans too, so example or placeholder links written inside
+  // backticks (e.g. `[AUTOTITLE](/PATH/TO/PAGE)` in the style guide) aren't
+  // treated as real links. Markdown never renders links inside inline code.
+  //
+  // Per CommonMark, a code span opens with a backtick run of length N and closes
+  // with a run of exactly N backticks; both runs must be maximal, i.e. not
+  // adjacent to another backtick. The lookarounds enforce that so mismatched
+  // runs (e.g. `x`` or ``x```) stay literal instead of masking real text (and a
+  // real link) between them, which would let a broken link evade the check.
+  // The content is replaced with spaces to preserve line numbers and positions.
+  const strippedContent = withoutFences.replace(/(?<!`)(`+)(?!`)[^\n]*?(?<!`)\1(?!`)/g, (match) => {
+    return match.replace(/[^\n]/g, ' ')
+  })
 
   // Precompute line-start offsets once so every getLineAndColumn call is O(log L).
   const lineOffsets = buildLineOffsets(strippedContent)
@@ -158,14 +174,14 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
   // Extract regular internal links
   while ((match = INTERNAL_LINK_PATTERN.exec(strippedContent)) !== null) {
     // Skip if this is an AUTOTITLE link (already captured)
-    const fullMatch = match[0]
     if (strippedContent.substring(match.index - 10, match.index).includes('AUTOTITLE')) {
       continue
     }
 
     const { line, column } = getLineAndColumn(lineOffsets, match.index)
-    // Extract href from ](/path) format
-    const href = fullMatch.substring(2, fullMatch.length - 1).split('#')[0]
+    // Extract href from ](/path) format. The destination is captured in group 1,
+    // which handles balanced parentheses (e.g. asset filenames like `(fr).pdf`).
+    const href = match[1].split('#')[0]
     const text = extractLinkText(strippedContent, match.index)
 
     internalLinks.push({
@@ -356,22 +372,6 @@ export async function renderAndExtractLinks(
 }
 
 /**
- * Read a file and extract links
- */
-export async function extractLinksFromFile(
-  filePath: string,
-  context?: Context,
-): Promise<LinkExtractionResult> {
-  const content = fs.readFileSync(filePath, 'utf-8')
-
-  if (context) {
-    return extractLinksWithLiquid(content, context)
-  }
-
-  return extractLinksFromMarkdown(content)
-}
-
-/**
  * Get relative path from content root
  */
 export function getRelativePath(filePath: string): string {
@@ -463,8 +463,10 @@ export function checkInternalLink(
     }
   }
 
-  // Strip language prefix and check redirects (which are stored without it)
-  const langPrefixMatch = resolved.match(/^\/[a-z]{2}\//)
+  // Strip language prefix and check redirects (which are stored without it).
+  // Match hyphenated locales too (e.g. /pt-br/, /zh-cn/) so we don't later
+  // double-prefix them with /en.
+  const langPrefixMatch = resolved.match(/^\/[a-z]{2}(-[a-z]{2})?\//)
   if (langPrefixMatch) {
     const withoutLang = resolved.slice(langPrefixMatch[0].length - 1)
     if (redirects[withoutLang]) {
@@ -474,6 +476,49 @@ export function checkInternalLink(
         redirectTarget: redirects[withoutLang],
       }
     }
+  }
+
+  // The path in language-prefixed form, used by the runtime resolvers below.
+  // Avoid double-prefixing when the link already carried a language code.
+  const withEn = langPrefixMatch ? resolved : withLang
+
+  // Links into deprecated/archived Enterprise Server versions (e.g.
+  // /enterprise-server@3.7/... or the legacy /enterprise/2.1/... format) are
+  // served by the archived enterprise versions system, which isn't loaded into
+  // pageMap. They resolve fine at runtime, so treat them as valid rather than
+  // broken.
+  if (isArchivedVersionByPath(withEn).isArchived) {
+    return { exists: true, isRedirect: false }
+  }
+
+  // Fall back to the runtime redirect resolver. It handles algorithmic
+  // corrections (version-prefix normalization, /admin, /desktop/guides, etc.)
+  // that the flat redirects map doesn't contain as literal keys. This mirrors
+  // what the production server actually does, so a link that redirects in
+  // production is reported as a redirect here instead of a false broken link.
+  try {
+    // Only redirects, userLanguage, and pages are read by getRedirect (and the
+    // resolvers it delegates to), so type the object to those fields rather than
+    // casting an arbitrary shape to the full Context.
+    const context: Pick<Context, 'redirects' | 'userLanguage' | 'pages'> = {
+      redirects,
+      userLanguage: 'en',
+      pages: pageMap,
+    }
+    const redirect = getRedirect(withEn, context as unknown as Context)
+    if (redirect) {
+      // getRedirect returns a language-prefixed path (e.g. /en/...); strip any
+      // locale prefix to match the format used by the flat-map branches above,
+      // and normalize a bare language root (e.g. /en) to /.
+      return {
+        exists: true,
+        isRedirect: true,
+        redirectTarget: redirect.replace(/^\/[a-z]{2}(-[a-z]{2})?(?=\/|$)/, '') || '/',
+      }
+    }
+  } catch {
+    // getRedirect throws on a few fully-deprecated shapes (e.g. github-ae).
+    // Treat those as unresolvable rather than crashing the whole check.
   }
 
   return { exists: false, isRedirect: false }

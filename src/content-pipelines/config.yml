@@ -34,6 +34,7 @@ copilot-cli:
     All information relating to files in the ~/.copilot configuration directory, and settings in those files, should go in content/copilot/reference/copilot-cli-reference/cli-config-dir-reference.md.
     All reference details relating to hooks should go in content/copilot/reference/hooks-reference.md.
     All other CLI topics (MCP, skills, agents, permissions, etc.) belong in content/copilot/reference/copilot-cli-reference/cli-command-reference.md even when they mention plugins.
+    Do not overwrite the paragraph starting "OTel configuration can also be set in..." in cli-command-reference.md
 
 # TODO
 # mcp-server:

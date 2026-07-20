@@ -376,13 +376,19 @@ input AddAssigneesToAssignableInput {
   assignableId: ID! @possibleTypes(concreteTypes: ["Issue", "PullRequest"], abstractType: "Assignable")
 
   """
-  The ids of actors (users or bots) to add as assignees.
+  The ids of actors (users or bots) to add as assignees. Mutually exclusive with `assignees`.
   """
-  assigneeIds: [ID!]!
+  assigneeIds: [ID!]
     @possibleTypes(
       concreteTypes: ["Bot", "EnterpriseUserAccount", "Mannequin", "Organization", "User"]
       abstractType: "Actor"
     )
+
+  """
+  An array of actors to add as assignees, each with optional rationale or
+  suggest flag. Mutually exclusive with `assigneeIds`.
+  """
+  assignees: [AssigneeUpdateInput!]
 
   """
   A unique identifier for the client performing the mutation.
@@ -658,6 +664,12 @@ input AddLabelsToLabelableInput {
   The id of the labelable object to add labels to.
   """
   labelableId: ID! @possibleTypes(concreteTypes: ["Discussion", "Issue", "PullRequest"], abstractType: "Labelable")
+
+  """
+  The labels to add, each with optional `rationale` or a `suggest` flag that
+  stores the addition as a pending suggestion. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 }
 
 """
@@ -1886,6 +1898,11 @@ interface Assignable @docsCategory(name: "issues") {
     """
     query: String
   ): AssigneeConnection!
+
+  """
+  Indicates if the viewer can edit assignees for this object.
+  """
+  viewerCanAssign: Boolean!
 }
 
 """
@@ -1967,6 +1984,35 @@ type AssigneeEdge {
   The item at the end of the edge.
   """
   node: Assignee
+}
+
+"""
+Specifies an actor (user or bot) to assign to an issue, with optional metadata such as a rationale.
+"""
+input AssigneeUpdateInput @docsCategory(name: "issues") {
+  """
+  The ID of the actor (user or bot) to assign.
+  """
+  actorId: ID!
+    @possibleTypes(
+      concreteTypes: ["Bot", "EnterpriseUserAccount", "Mannequin", "Organization", "User"]
+      abstractType: "Actor"
+    )
+
+  """
+  The confidence level the agent had when selecting this value.
+  """
+  confidence: IssueEventConfidenceLevel
+
+  """
+  Optional rationale describing why this value was selected. Max 280 characters.
+  """
+  rationale: String
+
+  """
+  If true, the value is stored as a pending suggestion for human review rather than being applied directly.
+  """
+  suggest: Boolean
 }
 
 """
@@ -4848,14 +4894,29 @@ input CloseIssueInput {
   clientMutationId: String
 
   """
+  The confidence level the agent had when suggesting this close. Only meaningful when isSuggestion is true.
+  """
+  confidence: IssueEventConfidenceLevel
+
+  """
   ID of the issue that this is a duplicate of.
   """
   duplicateIssueId: ID @possibleTypes(concreteTypes: ["Issue"])
 
   """
+  If true, the close action is stored as a pending suggestion for human review rather than being applied directly.
+  """
+  isSuggestion: Boolean
+
+  """
   ID of the issue to be closed.
   """
   issueId: ID! @possibleTypes(concreteTypes: ["Issue"])
+
+  """
+  Optional rationale describing why the issue should be closed. Max 280 characters.
+  """
+  rationale: String
 
   """
   The reason the issue is to be closed.
@@ -13560,6 +13621,36 @@ type DismissRepositoryVulnerabilityAlertPayload {
 }
 
 """
+Specify people, teams, or apps allowed to dismiss pull request reviews.
+"""
+type DismissalRestriction @docsCategory(name: "pulls") {
+  """
+  Specify people, teams, or apps allowed to dismiss pull request reviews.
+  """
+  allowedActors: [ID!]
+
+  """
+  Whether to restrict review dismissal to specific actors.
+  """
+  enabled: Boolean!
+}
+
+"""
+Specify people, teams, or apps allowed to dismiss pull request reviews.
+"""
+input DismissalRestrictionInput @docsCategory(name: "pulls") {
+  """
+  Specify people, teams, or apps allowed to dismiss pull request reviews.
+  """
+  allowedActors: [ID!]
+
+  """
+  Whether to restrict review dismissal to specific actors.
+  """
+  enabled: Boolean!
+}
+
+"""
 A draft issue within a project.
 """
 type DraftIssue implements Node @docsCategory(name: "projects") {
@@ -20521,6 +20612,11 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
   ): UserContentEditConnection
 
   """
+  Indicates if the viewer can edit assignees for this object.
+  """
+  viewerCanAssign: Boolean!
+
+  """
   Indicates if the object can be closed by the viewer.
   """
   viewerCanClose: Boolean!
@@ -20551,14 +20647,31 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
   viewerCanSetFields: Boolean
 
   """
+  Indicates if the viewer can edit the milestone of the issue.
+  """
+  viewerCanSetMilestone: Boolean!
+
+  """
   Check if the viewer is able to change their subscription status for the repository.
   """
   viewerCanSubscribe: Boolean!
 
   """
+  Check if the current viewer can set the issue type of this issue.
+  """
+  viewerCanType: Boolean
+
+  """
   Check if the current viewer can update this object.
   """
   viewerCanUpdate: Boolean!
+
+  """
+  Check if the viewer has triage-level (or higher) access to update this issue's
+  metadata. Note: this reflects the viewer's base repository role and does not
+  account for individual fine-grained permissions granted via custom repository roles.
+  """
+  viewerCanUpdateMetadata: Boolean
 
   """
   Reasons why the current viewer can not update this comment.
@@ -21117,6 +21230,26 @@ type IssueEdge {
 }
 
 """
+The confidence level associated with an agent's issue event action.
+"""
+enum IssueEventConfidenceLevel @docsCategory(name: "issues") {
+  """
+  High confidence.
+  """
+  HIGH
+
+  """
+  Low confidence.
+  """
+  LOW
+
+  """
+  Medium confidence.
+  """
+  MEDIUM
+}
+
+"""
 Represents a 'issue_field_added' event on a given issue.
 """
 type IssueFieldAddedEvent implements Node @docsCategory(name: "issues") {
@@ -21144,6 +21277,11 @@ type IssueFieldAddedEvent implements Node @docsCategory(name: "issues") {
   The issue field added.
   """
   issueField: IssueFields
+
+  """
+  The selected options for option-backed fields; single-select returns one option and multi-select returns many.
+  """
+  options: [IssueFieldTimelineOption!]
 
   """
   The value of the added field.
@@ -21181,6 +21319,11 @@ type IssueFieldChangedEvent implements Node @docsCategory(name: "issues") {
   newColor: String
 
   """
+  The new options for option-backed fields; single-select returns one option and multi-select returns many.
+  """
+  newOptions: [IssueFieldTimelineOption!]
+
+  """
   The new value of the field.
   """
   newValue: String
@@ -21189,6 +21332,11 @@ type IssueFieldChangedEvent implements Node @docsCategory(name: "issues") {
   The previous color if it was a single-select field.
   """
   previousColor: String
+
+  """
+  The previous options for option-backed fields; single-select returns one option and multi-select returns many.
+  """
+  previousOptions: [IssueFieldTimelineOption!]
 
   """
   The previous value of the field.
@@ -21236,6 +21384,11 @@ Represents an issue field value that must be set on an issue during issue creati
 """
 input IssueFieldCreateOrUpdateInput @docsCategory(name: "issues") {
   """
+  The confidence level the agent had when selecting this value.
+  """
+  confidence: IssueEventConfidenceLevel
+
+  """
   The date value, for a date field
   """
   dateValue: String
@@ -21261,9 +21414,19 @@ input IssueFieldCreateOrUpdateInput @docsCategory(name: "issues") {
   numberValue: Float
 
   """
+  Optional rationale describing why this value was selected. Max 280 characters.
+  """
+  rationale: String
+
+  """
   The ID of the selected option, for a single select field
   """
   singleSelectOptionId: ID
+
+  """
+  If true, the value is stored as a pending suggestion for human review rather than being applied directly.
+  """
+  suggest: Boolean
 
   """
   The text value, for a text field
@@ -21544,6 +21707,11 @@ type IssueFieldRemovedEvent implements Node @docsCategory(name: "issues") {
   The issue field removed.
   """
   issueField: IssueFields
+
+  """
+  The removed options for option-backed fields; single-select returns one option and multi-select returns many.
+  """
+  options: [IssueFieldTimelineOption!]
 }
 
 """
@@ -21799,6 +21967,21 @@ type IssueFieldTextValue implements IssueFieldValueCommon & Node @docsCategory(n
   Value of the field.
   """
   value: String!
+}
+
+"""
+Represents a selected option for a timeline issue field event.
+"""
+type IssueFieldTimelineOption @docsCategory(name: "issues") {
+  """
+  The option color.
+  """
+  color: String
+
+  """
+  The option name.
+  """
+  name: String!
 }
 
 """
@@ -22900,6 +23083,31 @@ type IssueTypeRemovedEvent implements Node @docsCategory(name: "issues") {
 }
 
 """
+Specifies an Issue Type to set on an issue, with optional metadata such as a rationale.
+"""
+input IssueTypeUpdateInput @docsCategory(name: "issues") {
+  """
+  The confidence level the agent had when selecting this value.
+  """
+  confidence: IssueEventConfidenceLevel
+
+  """
+  The ID of the Issue Type to set on this issue. Pass null to clear the issue type.
+  """
+  issueTypeId: ID
+
+  """
+  Optional rationale describing why this value was selected. Max 280 characters.
+  """
+  rationale: String
+
+  """
+  If true, the value is stored as a pending suggestion for human review rather than being applied directly.
+  """
+  suggest: Boolean
+}
+
+"""
 Represents a user signing up for a GitHub account.
 """
 type JoinedGitHubContribution implements Contribution @docsCategory(name: "users") {
@@ -23154,6 +23362,31 @@ enum LabelOrderField @docsCategory(name: "issues") {
   Order labels by name
   """
   NAME
+}
+
+"""
+Specifies a Label to set on an issue, with optional metadata such as a rationale.
+"""
+input LabelUpdateInput @docsCategory(name: "issues") {
+  """
+  The confidence level the agent had when selecting this value.
+  """
+  confidence: IssueEventConfidenceLevel
+
+  """
+  The ID of the Label.
+  """
+  labelId: ID! @possibleTypes(concreteTypes: ["Label"])
+
+  """
+  Optional rationale describing why this value was selected. Max 280 characters.
+  """
+  rationale: String
+
+  """
+  If true, the value is stored as a pending suggestion for human review rather than being applied directly.
+  """
+  suggest: Boolean
 }
 
 """
@@ -26547,9 +26780,9 @@ type Mutation @docsCategory(name: "meta") {
 
   """
   Add users to the pull request creation cap bypass list. Bypassed users can
-  create pull requests regardless of the configured cap. Only repository admins
-  can manage the bypass list. You can add a maximum of 100 users per request.
-  The bypass list can only hold a maximum of 100 users.
+  create pull requests regardless of the configured cap. Only users with
+  maintainer permissions can manage the bypass list. You can add a maximum of
+  100 users per request. The bypass list can only hold a maximum of 100 users.
   """
   addPullRequestCreationCapBypassUsers(
     """
@@ -28000,7 +28233,8 @@ type Mutation @docsCategory(name: "meta") {
   ): RemoveOutsideCollaboratorPayload @docsCategory(name: "orgs")
 
   """
-  Remove users from the pull request creation cap bypass list. Only repository admins can manage the bypass list.
+  Remove users from the pull request creation cap bypass list. Only users with
+  maintainer permissions can manage the bypass list.
   """
   removePullRequestCreationCapBypassUsers(
     """
@@ -43772,6 +44006,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   viewerCanApplySuggestion: Boolean!
 
   """
+  Indicates if the viewer can edit assignees for this object.
+  """
+  viewerCanAssign: Boolean!
+
+  """
   Indicates if the object can be closed by the viewer.
   """
   viewerCanClose: Boolean!
@@ -44304,6 +44543,11 @@ type PullRequestParameters @docsCategory(name: "pulls") {
   dismissStaleReviewsOnPush: Boolean!
 
   """
+  Specify people, teams, or apps allowed to dismiss pull request reviews.
+  """
+  dismissalRestriction: DismissalRestriction
+
+  """
   Require an approving review in pull requests that modify files that have a designated code owner.
   """
   requireCodeOwnerReview: Boolean!
@@ -44345,6 +44589,11 @@ input PullRequestParametersInput @docsCategory(name: "pulls") {
   New, reviewable commits pushed will dismiss previous pull request review approvals.
   """
   dismissStaleReviewsOnPush: Boolean!
+
+  """
+  Specify people, teams, or apps allowed to dismiss pull request reviews.
+  """
+  dismissalRestriction: DismissalRestrictionInput
 
   """
   Require an approving review in pull requests that modify files that have a designated code owner.
@@ -45763,6 +46012,11 @@ enum PullRequestTimelineItemsItemType {
   ADDED_TO_PROJECT_V2_EVENT
 
   """
+  Represents an 'archived' event on a given pull request.
+  """
+  ARCHIVED_EVENT
+
+  """
   Represents an 'assigned' event on any assignable object.
   """
   ASSIGNED_EVENT
@@ -46101,6 +46355,11 @@ enum PullRequestTimelineItemsItemType {
   Represents a 'transferred' event on a given issue or pull request.
   """
   TRANSFERRED_EVENT
+
+  """
+  Represents an 'unarchived' event on a given pull request.
+  """
+  UNARCHIVED_EVENT
 
   """
   Represents an 'unassigned' event on any assignable object.
@@ -49019,6 +49278,12 @@ input ReplaceActorsForAssignableInput {
   The id of the assignable object to replace the assignees for.
   """
   assignableId: ID! @possibleTypes(concreteTypes: ["Issue", "PullRequest"], abstractType: "Assignable")
+
+  """
+  An array of actors to set as assignees, each with optional rationale or
+  suggest flag. Mutually exclusive with `actorIds` and `actorLogins`.
+  """
+  assignees: [AssigneeUpdateInput!]
 
   """
   A unique identifier for the client performing the mutation.
@@ -53779,7 +54044,8 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   ): PullRequest
 
   """
-  A list of users who are exempt from the pull request creation cap on this repository. Only visible to repository admins.
+  The pull request creation cap configuration for this repository. Only visible
+  to repository maintainers and administrators.
   """
   pullRequestCreationCapConfig: PullRequestCreationCapConfig
 
@@ -56065,6 +56331,11 @@ enum RepositoryRuleType {
   being pushed to the commit graph. This includes absolute paths that contain file names.
   """
   FILE_PATH_RESTRICTION
+
+  """
+  Enforce any added or changed dependencies to comply with the organization's license policy.
+  """
+  LICENSE_COMPLIANCE_SCANNING
 
   """
   Branch is read-only. Users cannot push to the branch.
@@ -68161,6 +68432,12 @@ input UpdateIssueInput {
     )
 
   """
+  An array of actors to assign to this issue, each with optional rationale or
+  suggest flag. Mutually exclusive with `assigneeIds`.
+  """
+  assignees: [AssigneeUpdateInput!]
+
+  """
   The body for the issue description.
   """
   body: String
@@ -68176,6 +68453,11 @@ input UpdateIssueInput {
   id: ID! @possibleTypes(concreteTypes: ["Issue"])
 
   """
+  The Issue Type to set on this issue, with optional rationale. Mutually exclusive with `issueTypeId`.
+  """
+  issueType: IssueTypeUpdateInput
+
+  """
   The ID of the Issue Type for this issue.
   """
   issueTypeId: ID
@@ -68184,6 +68466,11 @@ input UpdateIssueInput {
   An array of Node IDs of labels for this issue.
   """
   labelIds: [ID!] @possibleTypes(concreteTypes: ["Label"])
+
+  """
+  An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with `labelIds`.
+  """
+  labels: [LabelUpdateInput!]
 
   """
   The Node ID of the milestone for this issue.
@@ -69394,6 +69681,11 @@ input UpdateRepositoryInput {
   The URL for a web page about this repository. Pass an empty string to erase the existing URL.
   """
   homepageUrl: URI
+
+  """
+  The policy controlling who can create issues in this repository.
+  """
+  issueCreationPolicy: IssueCreationPolicy
 
   """
   The new name of the repository.

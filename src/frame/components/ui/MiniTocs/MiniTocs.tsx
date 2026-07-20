@@ -4,6 +4,11 @@ import cx from 'classnames'
 
 import type { MiniTocItem } from '@/frame/components/context/ArticleContext'
 import { useTranslation } from '@/languages/components/useTranslation'
+import {
+  classifyToggleClass,
+  isContentVisible,
+  useSelection,
+} from '@/tools/components/SelectionContext'
 
 import styles from './Minitocs.module.scss'
 
@@ -13,6 +18,7 @@ export type MiniTocsPropsT = {
 
 function RenderTocItem(item: MiniTocItem) {
   const [currentAnchor, setCurrentAnchor] = useState('')
+  const { platform, tool } = useSelection()
 
   useEffect(() => {
     const onHashChanged = () => {
@@ -25,6 +31,14 @@ function RenderTocItem(item: MiniTocItem) {
       window.removeEventListener('hashchange', onHashChanged)
     }
   }, [])
+
+  // `item.platform` holds the class string of the heading's `.ghd-tool` ancestor
+  // (platform OR tool value). Hide the TOC entry when its platform/tool isn't the
+  // selected one, replacing the old imperative parent-<li> `style.display` hack.
+  const classification = classifyToggleClass(item.platform)
+  if (classification && !isContentVisible(classification, { platform, tool })) {
+    return null
+  }
 
   return (
     <>

@@ -1,3 +1,3 @@
-1. In your enterprise's `.github-private` repository, create the managed settings file at `copilot/{% data variables.copilot.managed_setting_file %}`. If you haven't set a `.github-private` repository as your enterprise's source of agent configuration, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/create-github-private-repo).
+1. Create or update your enterprise managed settings file using your preferred deployment method. For a comparison of deployment methods, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings#choosing-a-deployment-method).
 
-   The legacy path (`.github/copilot/settings.json`) is also supported.
+   For server-managed deployment in a `.github-private` repository, create the file at `copilot/{% data variables.copilot.managed_setting_file %}`. The legacy path (`.github/copilot/settings.json`) is also supported.

@@ -33,7 +33,7 @@ Once your application is approved, navigate to your [{% data variables.product.p
 
 ## Further reading
 
-* [AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/why-wasnt-my-application-to-global-campus-for-teachers-approved)
+* [AUTOTITLE](/education/about-github-education/github-education-for-teachers/why-wasnt-my-application-to-github-education-for-teachers-approved)
 * [{% data variables.product.prodname_education %}](https://education.github.com)
 * [{% data variables.product.prodname_classroom %} Videos](https://classroom.github.com/videos)
 * [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})

@@ -1,4 +1,5 @@
-import { Label, LabelGroup, Link } from '@primer/react'
+import { Label } from '@primer/react-brand'
+import { Link } from '@primer/react'
 import { ValidOcticon, getOcticonComponent } from '../lib/octicons'
 
 import styles from './CookBookArticleCard.module.scss'
@@ -50,13 +51,13 @@ export const CookBookArticleCard = ({
             <Link href={url}>{title}</Link>
           </h3>
           <div className="fgColor-muted mb-3 mt-2">{description}</div>
-          <LabelGroup className={styles.labelGroup}>
+          <div className={styles.labelGroup}>
             {tags.map((tag, index) => (
-              <Label key={index} variant="accent" className={styles.label} size="small">
+              <Label key={index} color="blue" className={styles.label} size="small">
                 {tag}
               </Label>
             ))}
-          </LabelGroup>
+          </div>
         </div>
       </div>
     </div>

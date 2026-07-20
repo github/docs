@@ -15,7 +15,7 @@ contentType: how-tos
 
 If you want your new organization to use your current personal account username, you'll need to rename your personal account first:
 
-1. Change your personal account username to something new. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username).
+1. Change your personal account username to something new. For more information, see [AUTOTITLE](/account-and-profile/concepts/username-changes).
 1. Create an organization using your original username, then follow the steps below to move your work.
 
 ## Moving your work to an organization

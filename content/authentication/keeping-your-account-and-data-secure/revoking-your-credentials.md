@@ -57,4 +57,4 @@ After taking action on your credentials:
 
 * [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)
 * [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-ssh-keys)
-* [AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)
+* [AUTOTITLE](/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps)

@@ -59,4 +59,4 @@ If you assign an issue to {% data variables.product.prodname_copilot_short %}, {
 
 ## Further reading
 
-* [AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)
+* [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests)

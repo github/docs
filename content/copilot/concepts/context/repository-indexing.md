@@ -28,7 +28,7 @@ category:
 
 When you start a conversation with {% data variables.copilot.copilot_chat_short %} that has a repository context, the repository is automatically indexed to improve context-enriched answers to your questions about the code's structure and logic in {% data variables.product.github %} and {% data variables.product.prodname_vscode %}. For example, you can ask **“How does this repo manage HTTP requests and responses?”** and {% data variables.copilot.copilot_chat_short %} will reference relevant sections of your code to deliver an informed answer.
 
-For more information on how to ask questions, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-github).
+For more information on how to ask questions, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github).
 
 ## Semantic code search in {% data variables.copilot.copilot_cloud_agent %}
 
@@ -47,9 +47,9 @@ Once an index has been created for a repository, it can be used by:
 
 > [!TIP] There is no limit to how many repositories you can index.
 
-## Semantic indexing for non-GitHub repositories
+## Semantic indexing for non-{% data variables.product.github %} repositories
 
-{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode %} can use semantic indexing for workspace files from repositories hosted outside {% data variables.product.github %}, such as GitLab and local repositories.
+{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode %} can use semantic indexing for workspace files from repositories hosted outside {% data variables.product.github %}, such as GitLab and local repositories. This feature uploads your data to {% data variables.product.github %} to make it searchable.
 
 This feature is controlled by policy and is disabled by default. For organizations and enterprises with {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}, an enterprise owner or organization owner must explicitly set the `Semantic indexing for non-GitHub repositories` policy to **Enabled** before members can use it. If the policy remains **Unconfigured**, the feature stays unavailable. See:
 
@@ -58,6 +58,6 @@ This feature is controlled by policy and is disabled by default. For organizatio
 
 ## Excluding content from {% data variables.copilot.copilot_chat_short %} answers
 
-Enterprise or organization owners with a {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} plan can define content exclusions to control the behavior of {% data variables.product.prodname_copilot %} for the {% data variables.product.prodname_copilot_short %} seats they manage. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/excluding-content-from-github-copilot).
+Enterprise or organization owners with a {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} plan can define content exclusions to control the behavior of {% data variables.product.prodname_copilot %} for the {% data variables.product.prodname_copilot_short %} seats they manage. For more information, see [AUTOTITLE](/copilot/how-tos/configure-content-exclusion/exclude-content-from-copilot).
 
 If a semantic code search index is created for a repository that is included in a content exclusion policy, data is filtered according to the policy before being passed to {% data variables.copilot.copilot_chat_short %}.

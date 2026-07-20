@@ -3,7 +3,7 @@ import { mkdirp } from 'mkdirp'
 import { readFile, writeFile } from 'fs/promises'
 import path from 'path'
 import { slug } from 'github-slugger'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import walk from 'walk-sync'
 
 import { getContents, getDirectoryContents } from '@/workflows/git-utils'
@@ -420,14 +420,14 @@ export async function getProgAccessData(
     'config/access_control/fine_grained_permissions/programmatic_actor_fine_grained_resources'
 
   if (!useRemoteGitHubFiles) {
-    progAccessDataRaw = yaml.load(
+    progAccessDataRaw = load(
       await readFile(path.join(progAccessSource, progAccessFilepath), 'utf8'),
     ) as ProgAccessRawOperation[]
     progActorResources = await getProgActorResourceContent({
       gitHubSourceDirectory: path.join(progAccessSource, progActorDirectory),
     })
   } else {
-    progAccessDataRaw = yaml.load(
+    progAccessDataRaw = load(
       await getContents('github', 'github', 'master', progAccessFilepath),
     ) as ProgAccessRawOperation[]
     progActorResources = await getProgActorResourceContent({
@@ -680,7 +680,7 @@ async function getProgActorResourceContent({
   // to the object.
   const progActorResources: ProgActorResources = {}
   for (const file of files) {
-    const fileContent = yaml.load(file) as Record<string, ProgActorResource>
+    const fileContent = load(file) as Record<string, ProgActorResource>
     // Each file should only contain a single key and value.
     if (Object.keys(fileContent).length !== 1) {
       throw new Error(`Error: The file ${JSON.stringify(fileContent)} must only have one key.`)

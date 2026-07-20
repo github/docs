@@ -1,5 +1,5 @@
 ---
-applyTo: "content/**,data/**,**/*.md"
+applyTo: "content/**,data/**"
 ---
 
 # Concise style guide for docs.github.com

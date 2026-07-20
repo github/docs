@@ -18,7 +18,7 @@ contentType: tutorials
 
 {% data reusables.copilot.customization-examples-note %}
 
-The following example shows a path-specific `accessibility.instructions.md` file that applies only to HTML files in your repository, and guides {% data variables.product.prodname_copilot %} to generate accessible, inclusive HTML that follows WCAG guidelines. For more information about path-specific instructions files, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions#using-one-or-more-instructionsmd-files).
+The following example shows a path-specific `accessibility.instructions.md` file that applies only to HTML files in your repository, and guides {% data variables.product.prodname_copilot %} to generate accessible, inclusive HTML that follows WCAG guidelines. For more information about path-specific instructions files, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions#using-one-or-more-instructionsmd-files).
 
 ````text copy
 ---

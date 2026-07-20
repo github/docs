@@ -17,4 +17,3 @@ children:
   - secure-your-dependencies
   - manage-your-dependency-security
   - establish-provenance-and-integrity
----

@@ -31,11 +31,11 @@ Because there are multiple ways a secret value can be transformed, automatic red
 
 * **Principle of least privilege**
   * Any user with write access to your repository has read access to all secrets configured in your repository. Therefore, you should ensure that the credentials being used within workflows have the least privileges required.
-  * Actions can use the `GITHUB_TOKEN` by accessing it from the `github.token` context. For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts#github-context). You should therefore make sure that the `GITHUB_TOKEN` is granted the minimum required permissions. It's good security practice to set the default permission for the `GITHUB_TOKEN` to read access only for repository contents. The permissions can then be increased, as required, for individual jobs within the workflow file. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token).
+  * Actions can use the `GITHUB_TOKEN` by accessing it from the `github.token` context. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/contexts#github-context). You should therefore make sure that the `GITHUB_TOKEN` is granted the minimum required permissions. It's good security practice to set the default permission for the `GITHUB_TOKEN` to read access only for repository contents. The permissions can then be increased, as required, for individual jobs within the workflow file. For more information, see [AUTOTITLE](/actions/tutorials/authenticate-with-github_token#modifying-the-permissions-for-the-github_token).
 * **Mask sensitive data**
-  * Sensitive data should **never** be stored as plaintext in workflow files. Mask all sensitive information that is not a {% data variables.product.prodname_dotcom %} secret by using `::add-mask::VALUE`. This causes the value to be treated as a secret and redacted from logs. For more information about masking data, see [AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#masking-a-value-in-a-log).
+  * Sensitive data should **never** be stored as plaintext in workflow files. Mask all sensitive information that is not a {% data variables.product.prodname_dotcom %} secret by using `::add-mask::VALUE`. This causes the value to be treated as a secret and redacted from logs. For more information about masking data, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-commands#masking-a-value-in-a-log).
 * **Delete and rotate exposed secrets**
-  * Redacting of secrets is performed by your workflow runners. This means a secret will only be redacted if it was used within a job and is accessible by the runner. If an unredacted secret is sent to a workflow run log, you should delete the log and rotate the secret. For information on deleting logs, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#deleting-logs).
+  * Redacting of secrets is performed by your workflow runners. This means a secret will only be redacted if it was used within a job and is accessible by the runner. If an unredacted secret is sent to a workflow run log, you should delete the log and rotate the secret. For information on deleting logs, see [AUTOTITLE](/actions/how-tos/monitor-workflows/use-workflow-run-logs#deleting-logs).
 * **Never use structured data as a secret**
   * Structured data can cause secret redaction within logs to fail, because redaction largely relies on finding an exact match for the specific secret value. For example, do not use a blob of JSON, XML, or YAML (or similar) to encapsulate a secret value, as this significantly reduces the probability the secrets will be properly redacted. Instead, create individual secrets for each sensitive value.
 * **Register all secrets used within workflows**
@@ -43,12 +43,12 @@ Because there are multiple ways a secret value can be transformed, automatic red
   * Registering secrets applies to any sort of transformation/encoding as well. If your secret is transformed in some way (such as Base64 or URL-encoded), be sure to register the new value as a secret too.
 * **Audit how secrets are handled**
   * Audit how secrets are used, to help ensure they’re being handled as expected. You can do this by reviewing the source code of the repository executing the workflow, and checking any actions used in the workflow. For example, check that they’re not sent to unintended hosts, or explicitly being printed to log output.
-  * View the run logs for your workflow after testing valid/invalid inputs, and check that secrets are properly redacted, or not shown. It's not always obvious how a command or tool you’re invoking will send errors to `STDOUT` and `STDERR`, and secrets might subsequently end up in error logs. As a result, it is good practice to manually review the workflow logs after testing valid and invalid inputs. For information on how to clean up workflow logs that may unintentionally contain sensitive data, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#deleting-logs).
+  * View the run logs for your workflow after testing valid/invalid inputs, and check that secrets are properly redacted, or not shown. It's not always obvious how a command or tool you’re invoking will send errors to `STDOUT` and `STDERR`, and secrets might subsequently end up in error logs. As a result, it is good practice to manually review the workflow logs after testing valid and invalid inputs. For information on how to clean up workflow logs that may unintentionally contain sensitive data, see [AUTOTITLE](/actions/how-tos/monitor-workflows/use-workflow-run-logs#deleting-logs).
 * **Audit and rotate registered secrets**
   * Periodically review the registered secrets to confirm they are still required. Remove those that are no longer needed.
   * Rotate secrets periodically to reduce the window of time during which a compromised secret is valid.
 * **Consider requiring review for access to secrets**
-  * You can use required reviewers to protect environment secrets. A workflow job cannot access environment secrets until approval is granted by a reviewer. For more information about storing secrets in environments or requiring reviews for environments, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions) and [AUTOTITLE](/actions/deployment/targeting-different-environments/managing-environments-for-deployment).
+  * You can use required reviewers to protect environment secrets. A workflow job cannot access environment secrets until approval is granted by a reviewer. For more information about storing secrets in environments or requiring reviews for environments, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets) and [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments).
 
 ### Good practices for mitigating script injection attacks
 
@@ -98,19 +98,19 @@ With this approach, the value of the {% raw %}`${{ github.event.pull_request.tit
 
 {% data variables.product.prodname_code_scanning_caps %} allows you to find security vulnerabilities before they reach production. {% data variables.product.github %} provides workflow templates for {% data variables.product.prodname_code_scanning %}. You can use these suggested workflows to construct your {% data variables.product.prodname_code_scanning %} workflows, instead of starting from scratch. {% data variables.product.company_short %}'s workflow, the {% data variables.code-scanning.codeql_workflow %}, is powered by {% data variables.product.prodname_codeql %}. There are also third-party workflow templates available.
 
-For more information, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning) and [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-code-scanning-using-third-party-actions).
+For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/code-scanning) and [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-code-scanning-using-third-party-actions).
 
 {% endif %}
 
 #### Restricting permissions for tokens
 
-To help mitigate the risk of an exposed token, consider restricting the assigned permissions. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token).
+To help mitigate the risk of an exposed token, consider restricting the assigned permissions. For more information, see [AUTOTITLE](/actions/tutorials/authenticate-with-github_token#modifying-the-permissions-for-the-github_token).
 
 ## Mitigating the risks of untrusted code checkout
 
 Similar to script injection attacks, untrusted pull request content that automatically triggers actions processing can also pose a security risk. The `pull_request_target` and `workflow_run` workflow triggers, when used with the checkout of an untrusted pull request, expose the repository to security compromises. These workflows are privileged, which means they share the same cache of the main branch with other privileged workflow triggers, and may have repository write access and access to referenced secrets. These vulnerabilities can be exploited to take over a repository.
 
-For more information on these triggers, how to use them, and the associated risks, see [AUTOTITLE](/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#pull_request_target) and [AUTOTITLE](/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#workflow_run).
+For more information on these triggers, how to use them, and the associated risks, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request_target) and [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#workflow_run).
 
 For additional examples and guidance on the risks of untrusted code checkout, see [Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/) from {% data variables.product.prodname_security %} and the [Dangerous-Workflow](https://github.com/ossf/scorecard/blob/main/docs/checks.md#dangerous-workflow) documentation from OpenSSF Scorecard.
 
@@ -122,7 +122,7 @@ For detailed guidance on deciding whether to use `pull_request_target`, hardenin
 
 * Avoid using the `pull_request_target` and `workflow_run` workflow triggers with untrusted pull requests or code content. Workflows that use these triggers must not explicitly check out untrusted code, including from pull request forks or from repositories that are not under your control. Workflows triggered on `workflow_run` should treat artifacts uploaded from other workflows with caution.
 
-* {% data variables.product.prodname_codeql %} can scan and detect potentially vulnerable {% data variables.product.prodname_actions %} workflows. You can configure default setup for the repository, and ensure that {% data variables.product.prodname_actions %} scanning is enabled. For more information, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning).
+* {% data variables.product.prodname_codeql %} can scan and detect potentially vulnerable {% data variables.product.prodname_actions %} workflows. You can configure default setup for the repository, and ensure that {% data variables.product.prodname_actions %} scanning is enabled. For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configure-code-scanning).
 
 * OpenSSF Scorecards can help you identify potentially vulnerable workflows, along with other security risks when using {% data variables.product.prodname_actions %}. See [Using OpenSSF Scorecards to secure workflow dependencies](#using-openssf-scorecards-to-secure-workflow-dependencies) later in this article.
 
@@ -130,7 +130,7 @@ For detailed guidance on deciding whether to use `pull_request_target`, hardenin
 
 The individual jobs in a workflow can interact with (and compromise) other jobs. For example, a job querying the environment variables used by a later job, writing files to a shared directory that a later job processes, or even more directly by interacting with the Docker socket and inspecting other running containers and executing commands in them.
 
-This means that a compromise of a single action within a workflow can be very significant, as that compromised action would have access to all secrets configured on your repository, and may be able to use the `GITHUB_TOKEN` to write to the repository. Consequently, there is significant risk in sourcing actions from third-party repositories on {% data variables.product.prodname_dotcom %}. For information on some of the steps an attacker could take, see [AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#potential-impact-of-a-compromised-runner).
+This means that a compromise of a single action within a workflow can be very significant, as that compromised action would have access to all secrets configured on your repository, and may be able to use the `GITHUB_TOKEN` to write to the repository. Consequently, there is significant risk in sourcing actions from third-party repositories on {% data variables.product.prodname_dotcom %}. For information on some of the steps an attacker could take, see [AUTOTITLE](/actions/reference/security/secure-use).
 
 You can help mitigate this risk by following these good practices:
 
@@ -160,7 +160,7 @@ You can help mitigate this risk by following these good practices:
 
 ### Reusing third-party workflows
 
-The same principles described above for using third-party actions also apply to using third-party workflows. You can help mitigate the risks associated with reusing workflows by following the same good practices outlined above. For more information, see [AUTOTITLE](/actions/using-workflows/reusing-workflows).
+The same principles described above for using third-party actions also apply to using third-party workflows. You can help mitigate the risks associated with reusing workflows by following the same good practices outlined above. For more information, see [AUTOTITLE](/actions/how-tos/reuse-automations/reuse-workflows).
 
 ## {% data variables.product.github %}'s security features
 
@@ -180,7 +180,7 @@ You can practice the principle of least privilege for your organization's CI/CD 
 
 {% data reusables.actions.org-roles-for-gh-actions %}
 
-For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles).
+For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles).
 
 {% endif %}
 
@@ -198,7 +198,7 @@ For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-
 
 ### Allowing workflows to access internal and private repositories
 
-{% data reusables.actions.outside-collaborators-actions %} For more information, see [AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise).
+{% data reusables.actions.outside-collaborators-actions %} For more information, see [AUTOTITLE](/actions/how-tos/reuse-automations/share-with-your-enterprise).
 
 {% data reusables.actions.scoped-token-note %}
 
@@ -208,14 +208,14 @@ For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %} Allowing workflows, or any other automation, to create or approve pull requests could be a security risk if the pull request is merged without proper oversight.
 
-For more information on how to configure this setting, see {% ifversion ghes or ghec %}[AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#preventing-github-actions-from-creating-or-approving-pull-requests),{% endif %} [Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-creating-or-approving-pull-requests), and [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests).
+For more information on how to configure this setting, see {% ifversion ghes or ghec %}[AUTOTITLE](/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#preventing-github-actions-from-creating-or-approving-pull-requests),{% endif %} [Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-creating-or-approving-pull-requests), and [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests).
 
 {% ifversion code-scanning-actions-language %}
 
 ### Using {% data variables.product.prodname_code_scanning %} to secure workflows
 
 {% data variables.product.prodname_code_scanning_caps %} can automatically detect and suggest improvements for common vulnerable patterns used in {% data variables.product.prodname_actions %} workflows.
-For more information on how to enable {% data variables.product.prodname_code_scanning %}, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning).
+For more information on how to enable {% data variables.product.prodname_code_scanning %}, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configure-code-scanning).
 
 {% endif %}
 
@@ -243,7 +243,7 @@ SBOMs are available for Ubuntu, Windows, and macOS runner images maintained by {
 
 #### Denying access to hosts
 
-{% data reusables.actions.runners-etc-hosts-file %} For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners).
+{% data reusables.actions.runners-etc-hosts-file %} For more information, see [AUTOTITLE](/actions/concepts/runners/github-hosted-runners).
 
 {% endif %}
 
@@ -255,11 +255,11 @@ SBOMs are available for Ubuntu, Windows, and macOS runner images maintained by {
 
 {% ifversion fpt or ghec %}**Self-hosted**{% elsif ghes %}Self-hosted{% endif %} runners for {% data variables.product.github %} do not have guarantees around running in ephemeral clean virtual machines, and can be persistently compromised by untrusted code in a workflow.
 
-{% ifversion fpt or ghec %}As a result, self-hosted runners should almost [never be used for public repositories](/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions) on {% data variables.product.github %}, because any user can open pull requests against the repository and compromise the environment. Similarly, be{% elsif ghes %}Be{% endif %} cautious when using self-hosted runners on private or internal repositories, as anyone who can fork the repository and open a pull request (generally those with read access to the repository) are able to compromise the self-hosted runner environment, including gaining access to secrets and the `GITHUB_TOKEN` which, depending on its settings, can grant write access to the repository. Although workflows can control access to environment secrets by using environments and required reviews, these workflows are not run in an isolated environment and are still susceptible to the same risks when run on a self-hosted runner.
+{% ifversion fpt or ghec %}As a result, self-hosted runners should almost [never be used for public repositories](/actions/reference/security/secure-use) on {% data variables.product.github %}, because any user can open pull requests against the repository and compromise the environment. Similarly, be{% elsif ghes %}Be{% endif %} cautious when using self-hosted runners on private or internal repositories, as anyone who can fork the repository and open a pull request (generally those with read access to the repository) are able to compromise the self-hosted runner environment, including gaining access to secrets and the `GITHUB_TOKEN` which, depending on its settings, can grant write access to the repository. Although workflows can control access to environment secrets by using environments and required reviews, these workflows are not run in an isolated environment and are still susceptible to the same risks when run on a self-hosted runner.
 
 {% data reusables.actions.disable-selfhosted-runners-crossrefs %}
 
-When a self-hosted runner is defined at the organization or enterprise level, {% data variables.product.github %} can schedule workflows from multiple repositories onto the same runner. Consequently, a security compromise of these environments can result in a wide impact. To help reduce the scope of a compromise, you can create boundaries by organizing your self-hosted runners into separate groups. You can restrict what {% ifversion ghec or ghes %}workflows, {% endif %}organizations and repositories can access runner groups. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups).
+When a self-hosted runner is defined at the organization or enterprise level, {% data variables.product.github %} can schedule workflows from multiple repositories onto the same runner. Consequently, a security compromise of these environments can result in a wide impact. To help reduce the scope of a compromise, you can create boundaries by organizing your self-hosted runners into separate groups. You can restrict what {% ifversion ghec or ghes %}workflows, {% endif %}organizations and repositories can access runner groups. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/manage-access).
 
 You should also consider the environment of the self-hosted runner machines:
 
@@ -273,7 +273,7 @@ Some customers might attempt to partially mitigate these risks by implementing s
 To improve runner registration security, you can use the REST API to create ephemeral, just-in-time (JIT) runners. These self-hosted runners perform at most one job before being automatically removed from the repository, organization, or enterprise. For more information about configuring JIT runners, see [AUTOTITLE](/rest/actions/self-hosted-runners#create-configuration-for-a-just-in-time-runner-for-an-organization).
 
 > [!NOTE]
-> Re-using hardware to host JIT runners can risk exposing information from the environment. Use automation to ensure the JIT runner uses a clean environment. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners#using-ephemeral-runners-for-autoscaling).
+> Re-using hardware to host JIT runners can risk exposing information from the environment. Use automation to ensure the JIT runner uses a clean environment. For more information, see [AUTOTITLE](/actions/reference/runners/self-hosted-runners#using-ephemeral-runners-for-autoscaling).
 
 Once you have the config file from the REST API response, you can pass it to the runner at startup.
 
@@ -297,7 +297,7 @@ A self-hosted runner can be added to various levels in your {% data variables.pr
 
 #### Authenticating to your cloud provider
 
-If you are using {% data variables.product.prodname_actions %} to deploy to a cloud provider, or intend to use HashiCorp Vault for secret management, then it's recommended that you consider using OpenID Connect to create short-lived, well-scoped access tokens for your workflow runs. For more information, see [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
+If you are using {% data variables.product.prodname_actions %} to deploy to a cloud provider, or intend to use HashiCorp Vault for secret management, then it's recommended that you consider using OpenID Connect to create short-lived, well-scoped access tokens for your workflow runs. For more information, see [AUTOTITLE](/actions/concepts/security/openid-connect).
 
 ### Auditing {% data variables.product.prodname_actions %} events
 
@@ -327,7 +327,7 @@ The dependency graph shows the following information about actions used in workf
 
 In the dependency graph, dependencies are automatically sorted by vulnerability severity. If any of the actions you use have security advisories, they will display at the top of the list. You can navigate to the advisory from the dependency graph and access instructions for resolving the vulnerability.
 
-{% ifversion fpt or ghec %}The dependency graph is enabled for public repositories, and you can choose to enable it on private repositories. For more information about using the dependency graph, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository).{% else %}Enterprise owners can configure the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for an enterprise. For more information, see [AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise).{% endif %}
+{% ifversion fpt or ghec %}The dependency graph is enabled for public repositories, and you can choose to enable it on private repositories. For more information about using the dependency graph, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/explore-dependencies).{% else %}Enterprise owners can configure the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for an enterprise. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/enable-dependency-graph).{% endif %}
 
 ### Being aware of security vulnerabilities in actions you use
 
@@ -345,9 +345,9 @@ You can use {% data variables.product.prodname_dependabot %} to monitor the acti
 > [!NOTE]
 > {% data variables.product.prodname_dependabot %} only creates alerts for vulnerable actions that use semantic versioning and will not create alerts for actions pinned to SHA values.
 
-{% ifversion fpt or ghec %}You can enable {% data variables.product.prodname_dependabot_alerts %} for your personal account, for a repository, or for an organization. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts).{% else %}An enterprise owner must first set up {% data variables.product.prodname_dependabot %} for your enterprise before you can manage {% data variables.product.prodname_dependabot_alerts %} for your repository. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise).{% endif %}
+{% ifversion fpt or ghec %}You can enable {% data variables.product.prodname_dependabot_alerts %} for your personal account, for a repository, or for an organization. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-dependabot-alerts).{% else %}An enterprise owner must first set up {% data variables.product.prodname_dependabot %} for your enterprise before you can manage {% data variables.product.prodname_dependabot_alerts %} for your repository. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-dependabot-for-your-enterprise).{% endif %}
 
-{% data reusables.dependabot.where-to-view-dependabot-alerts %} For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts).
+{% data reusables.dependabot.where-to-view-dependabot-alerts %} For more information, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/view-dependabot-alerts).
 
 #### Screening actions for vulnerabilities in new or updated workflows
 
@@ -355,9 +355,9 @@ When you open pull requests to update your workflows, it is good practice to use
 
 If any of the changes you made to your workflows are flagged as vulnerable, you can avoid adding them to your project or update them to a secure version.
 
-For more information about dependency review, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review).
+For more information about dependency review, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-review).
 
-{% data reusables.dependency-review.about-dependency-review-action %} For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#about-the-dependency-review-action).
+{% data reusables.dependency-review.about-dependency-review-action %} For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-review#about-the-dependency-review-action).
 
 ### Keeping the actions in your workflows secure and up to date
 
@@ -371,9 +371,9 @@ The following features can automatically update the actions in your workflows.
 > [!NOTE]
 > {% data reusables.actions.dependabot-version-updates-actions-caveats %}
 
-For information on how to configure {% data variables.product.prodname_dependabot_version_updates %}, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates).
+For information on how to configure {% data variables.product.prodname_dependabot_version_updates %}, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-version-updates).
 
-For information on how to configure {% data variables.product.prodname_dependabot_security_updates %}, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates).
+For information on how to configure {% data variables.product.prodname_dependabot_security_updates %}, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-security-updates).
 
 {% ifversion fpt or ghec %}
 
@@ -383,7 +383,7 @@ For information on how to configure {% data variables.product.prodname_dependabo
 
 If you are someone who maintains an action that is used in other projects, you can use the following {% data variables.product.prodname_dotcom %} features to enhance the security of the actions you've published.
 
-* Use the dependants view in the Dependency graph to see which projects depend on your code. If you receive a vulnerability report, this will give you an idea of who you need to communicate with about the vulnerability and how to fix it. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#dependents-view).
-* Use repository security advisories to create a security advisory, privately collaborate to fix the vulnerability in a temporary private fork, and publish a security advisory to alert your community of the vulnerability once a patch is released. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository) and [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory).
+* Use the dependants view in the Dependency graph to see which projects depend on your code. If you receive a vulnerability report, this will give you an idea of who you need to communicate with about the vulnerability and how to fix it. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/explore-dependencies#dependents-view).
+* Use repository security advisories to create a security advisory, privately collaborate to fix the vulnerability in a temporary private fork, and publish a security advisory to alert your community of the vulnerability once a patch is released. For more information, see [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/configure-vulnerability-reporting/configure-for-a-repository) and [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/create-repository-advisory).
 
 {% endif %}

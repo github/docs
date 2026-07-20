@@ -17,7 +17,7 @@ The information in this article is for the direct use of {% data variables.produ
 
 {% data variables.product.github %} supports using models in two additional ways.
 
-* {% data variables.product.prodname_copilot %} uses models to perform its work, see [AUTOTITLE](/copilot/concepts/billing/copilot-requests#model-multipliers)
+* {% data variables.product.prodname_copilot %} uses models to perform its work, see [AUTOTITLE](/copilot/reference/copilot-billing/request-based-billing-legacy/copilot-requests#model-multipliers)
 * If you use models provided by other companies, see [AUTOTITLE](/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
 
 ## Multipliers and costs for direct use of {% data variables.product.prodname_github_models %}

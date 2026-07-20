@@ -22,7 +22,9 @@ category:
 
 {% data variables.product.prodname_copilot %} can review your code and provide feedback. Where possible, {% data variables.product.prodname_copilot_short %}'s feedback includes suggested changes which you can apply with a couple of clicks.
 
-For a full introduction to {% data variables.copilot.copilot_code-review %}, see [AUTOTITLE](/copilot/concepts/code-review).
+For a full introduction to {% data variables.copilot.copilot_code-review %}, see [AUTOTITLE](/copilot/concepts/agents/code-review).
+
+{% data variables.copilot.copilot_code-review_short %} uses {% data variables.product.prodname_actions %} to run agentic capabilities. For more information, see [Agentic capabilities for {% data variables.copilot.copilot_code-review_short %}](/copilot/concepts/agents/code-review#usage-of-github-actions-runners-for-agentic-capabilities-in-code-review).
 
 {% webui %}
 
@@ -53,7 +55,7 @@ You can also request a review from {% data variables.product.prodname_copilot_sh
 
 ## Enabling automatic reviews
 
-By default, you manually request a review from {% data variables.product.prodname_copilot_short %} on each pull request, in the same way you would request a review from a human. However, you can set up {% data variables.product.prodname_copilot_short %} to automatically review all pull requests. See [AUTOTITLE](/copilot/how-tos/agents/copilot-code-review/automatic-code-review).
+By default, you manually request a review from {% data variables.product.prodname_copilot_short %} on each pull request, in the same way you would request a review from a human. However, you can set up {% data variables.product.prodname_copilot_short %} to automatically review all pull requests. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review).
 
 ## Working with suggested changes provided by {% data variables.product.prodname_copilot_short %}
 
@@ -64,7 +66,7 @@ If you're happy with the changes, you can accept a single suggestion from {% dat
 You can also invoke {% data variables.copilot.copilot_cloud_agent %} to implement suggested changes. To do this, you must:
 
 * Enable {% data variables.copilot.copilot_code-review %} and {% data variables.copilot.copilot_cloud_agent %}.
-* On review comments from {% data variables.copilot.copilot_code-review %}, click **Fix with Copilot**. This creates a draft comment on the pull request, where you can instruct {% data variables.product.prodname_copilot_short %} to address specific feedback. You can then select whether {% data variables.product.prodname_copilot_short %} will create a new pull request against your branch or a commit to the same pull request with the suggestions applied.
+* On review comments from {% data variables.copilot.copilot_code-review %}, click **Fix with {% data variables.product.prodname_copilot_short %}**. This creates a draft comment on the pull request, where you can instruct {% data variables.product.prodname_copilot_short %} to address specific feedback. You can then select whether {% data variables.product.prodname_copilot_short %} will create a new pull request against your branch or a commit to the same pull request with the suggestions applied.
 
 ## Requesting a re-review from {% data variables.product.prodname_copilot_short %}
 
@@ -89,11 +91,22 @@ To automatically request re-reviews from {% data variables.product.prodname_copi
 To make these available for {% data variables.copilot.copilot_code-review_short %} on {% data variables.product.github %}, configure:
 
 * **Agent skills** in your repository (in `.github/skills`). If you want a skill to target review tasks, use a review-focused skill directory name such as `code-review`. For setup details, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills).
-* **MCP servers** in repository Copilot settings. The {% data variables.product.github %} MCP server and Playwright MCP server are enabled by default. For setup details, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers).
+* **MCP servers** in repository {% data variables.product.prodname_copilot_short %} settings. The {% data variables.product.github %} MCP server and Playwright MCP server are enabled by default. For setup details, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers).
 
 {% data reusables.copilot.code-review.mcp-context-usage %}
 
 {% data reusables.copilot.code-review.mcp-tools-setting %}
+
+## Customizing {% data variables.copilot.copilot_code-review_short %}'s environment
+
+{% data variables.copilot.copilot_code-review_short %} runs in an ephemeral development environment, similar to {% data variables.copilot.copilot_cloud_agent %}. You can customize this environment using a {% data variables.product.prodname_actions %} workflow file, in the same way you would for {% data variables.copilot.copilot_cloud_agent %}, for example, to preinstall tools or dependencies, or to switch to a different operating system. For more information on how to structure this file, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment).
+
+You can use either of the following files to configure {% data variables.copilot.copilot_code-review_short %}'s environment:
+
+* `.github/workflows/copilot-setup-steps.yml`: If you have already configured this file for {% data variables.copilot.copilot_cloud_agent %}, {% data variables.copilot.copilot_code-review_short %} will use the same configuration by default.
+* `.github/workflows/copilot-code-review.yml`: We recommend creating this file if you want to configure {% data variables.copilot.copilot_code-review_short %}'s environment independently of {% data variables.copilot.copilot_cloud_agent %}. If this file is present in your repository, it is used for {% data variables.copilot.copilot_code-review_short %} instead of `copilot-setup-steps.yml`.
+
+You can also configure firewall rules to control the domains and URLs that {% data variables.copilot.copilot_code-review_short %} can access, at both the organization and repository level. These settings are configured separately from {% data variables.copilot.copilot_cloud_agent %}'s firewall settings, in their own section of the same "Internet access" tab. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-firewall).
 
 ## Providing feedback on {% data variables.product.prodname_copilot_short %}'s reviews
 
@@ -117,7 +130,7 @@ You can request an initial review of a highlighted selection of code in {% data 
 
 ### Reviewing all uncommitted changes
 
-You can request a review of your uncommitted changes in {% data variables.product.prodname_vscode %}.
+If you have uncommitted changes, you can request a review in {% data variables.product.prodname_vscode %}.
 
 1. In {% data variables.product.prodname_vscode_shortname %}, click the **Source Control** button in the Activity Bar.
 1. At the top of the **Source Control** view, hover over **CHANGES**, then click the {% data reusables.copilot.code-review.staging-icon-vscode %} **{% data variables.product.prodname_copilot_short %} Code Review - Uncommitted Changes** button.

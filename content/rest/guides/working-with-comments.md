@@ -31,7 +31,7 @@ Request is just an Issue with code, it makes sense to use these endpoints to
 create comments on a Pull Request.
 
 We'll demonstrate fetching Pull Request comments by creating a Ruby script using
-[Octokit.rb](https://github.com/octokit/octokit.rb). You'll also want to create a [{% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+[Octokit.rb](https://github.com/octokit/octokit.rb). You'll also want to create a [{% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 The following code should help you get started accessing comments from a Pull Request
 using Octokit.rb:

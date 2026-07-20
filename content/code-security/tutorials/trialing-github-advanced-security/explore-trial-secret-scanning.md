@@ -50,7 +50,7 @@ Once you have created and published custom patterns, both {% data variables.prod
 
 ## Use AI to detect potential passwords
 
-At the enterprise level you have full control over whether or not to allow the use of AI to detect secrets that cannot be identified using regular expressions (also known as generic secrets or as non-provider patterns).
+At the enterprise level, you have full control over whether to allow the use of AI to detect secrets that cannot be identified using regular expressions (also known as generic secrets).
 
 * Turn the feature on or off for the whole enterprise.
 * Set a policy to block control of the feature at the organization and repository level.

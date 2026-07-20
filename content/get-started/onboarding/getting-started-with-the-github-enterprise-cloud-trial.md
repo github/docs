@@ -28,6 +28,6 @@ You can find full instructions on setting up {% data variables.product.prodname_
 
 ## Part 3: Setting up {% data variables.product.prodname_GHAS %}
 
-You can find information about planning a trial of {% data variables.product.prodname_GHAS %} and exploring the additional options available with {% data variables.product.prodname_ghe_cloud %} in the [AUTOTITLE](/code-security/trialing-github-advanced-security) articles.
+You can find information about planning a trial of {% data variables.product.prodname_GHAS %} and exploring the additional options available with {% data variables.product.prodname_ghe_cloud %} in the [AUTOTITLE](/code-security/tutorials/trialing-github-advanced-security) articles.
 
 

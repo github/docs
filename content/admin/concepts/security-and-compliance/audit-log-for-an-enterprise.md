@@ -26,5 +26,5 @@ category:
 
 * [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)
 {%- ifversion ghes %}
-* [AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/about-system-logs)
+* [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-system-logs)
 {%- endif %}

@@ -3,7 +3,7 @@
  * Extracted here so they can be unit-tested without triggering the CLI.
  */
 import fs from 'fs'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -62,7 +62,7 @@ export function parseNoteEntries(yamlStr: string, sourceUrl: string): NoteEntry[
   const entries: NoteEntry[] = []
 
   try {
-    const parsed = yaml.load(yamlStr)
+    const parsed = load(yamlStr)
     if (!Array.isArray(parsed)) return entries
 
     for (const item of parsed) {
@@ -111,7 +111,7 @@ export function loadExistingEntries(yamlPath: string): {
  *
  * Note: This uses manual line-by-line parsing instead of js-yaml because we need
  * to preserve the `# https://github.com/.../issues/NNN` source URL comments that
- * precede each note. YAML comments are stripped by js-yaml.load() and aren't part
+ * precede each note. YAML comments are stripped by `load()` and aren't part
  * of the YAML data model, so a standard parser can't track the comment-to-note
  * relationship we rely on for incremental mode and deduplication.
  */

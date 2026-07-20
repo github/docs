@@ -18,7 +18,7 @@ category:
 >
 > To avoid these problems, we strongly recommend using webhooks to receive updates. Webhooks allow the system to push updates to you automatically, eliminating the need for constant polling. Additionally, consider using conditional requests and caching strategies to minimize unnecessary requests. Avoid running jobs in large, simultaneous batches (thundering herds) and instead wait for webhook events to trigger actions.
 >
-> For more information, see [AUTOTITLE](/get-started/exploring-integrations/about-webhooks).
+> For more information, see [AUTOTITLE](/webhooks/about-webhooks).
 
 We recommend using the monitor dashboard to stay informed on your appliance's resource health and make decisions on how to fix high usage issues, such as the ones outlined on this page.
 

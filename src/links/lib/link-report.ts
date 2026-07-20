@@ -123,7 +123,7 @@ ${rows}`
   prComment: (errors: GroupedBrokenLinks[], warnings: GroupedBrokenLinks[], actionUrl?: string) => {
     const errorSection =
       errors.length > 0
-        ? `### ❌ ${errors.length} Broken Link${errors.length === 1 ? '' : 's'}
+        ? `### ⚠️ ${errors.length} Broken Link${errors.length === 1 ? '' : 's'}
 
 ${errors
   .map((group) => {
@@ -150,9 +150,6 @@ ${errors
     const detailsLink = actionUrl ? `[View full details](${actionUrl})\n` : ''
 
     return `## 🔗 Link Check Results
-
-> [!NOTE]
-> **This check is being actively worked on** and may produce false positives. If something looks wrong, you can safely ignore it for now.
 
 ${errorSection}${warningSection}${detailsLink}
 <!-- link-checker-pr-comment -->`
