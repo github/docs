@@ -37,7 +37,7 @@ category:
 
 {% data reusables.package_registry.required-scopes %}
 
-You can authenticate to {% data variables.product.prodname_registry %} with Gradle using either Gradle Groovy or Kotlin DSL by editing your _build.gradle_ file (Gradle Groovy) or _build.gradle.kts_ file (Kotlin DSL) file to include your {% data variables.product.pat_v1 %}. You can also configure Gradle Groovy and Kotlin DSL to recognize a single package or multiple packages in a repository.
+You can authenticate to {% data variables.product.prodname_registry %} with Gradle using either Gradle Groovy or Kotlin DSL. To publish packages, edit your _build.gradle_ file (Gradle Groovy) or _build.gradle.kts_ file (Kotlin DSL) to include your {% data variables.product.pat_v1 %}. To use packages as dependencies, declare the repository and credentials in your _settings.gradle_ file (Gradle Groovy) or _settings.gradle.kts_ file (Kotlin DSL). You can also configure Gradle Groovy and Kotlin DSL to recognize a single package or multiple packages in a repository.
 
 {% ifversion ghes %}
 Replace REGISTRY_URL with the URL for your instance's Maven registry. If your instance has subdomain isolation enabled, use `maven.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/maven`. In either case, replace HOSTNAME with the host name of your {% data variables.product.prodname_ghe_server %} instance.
@@ -169,7 +169,7 @@ subprojects {
 
 ## Using a published package
 
-To use a published package from {% data variables.product.prodname_registry %}, add the package as a dependency and add the repository to your project. For more information, see [Declaring dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html) in the Gradle documentation.
+To use a published package from {% data variables.product.prodname_registry %}, add the package as a dependency and declare the repository in your project. Gradle recommends declaring repositories in your settings script with `dependencyResolutionManagement`. For more information, see [Declaring dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html) and [Centralizing repository declarations](https://docs.gradle.org/current/userguide/centralizing_repositories.html) in the Gradle documentation.
 
 {% data reusables.package_registry.authenticate-step %}
 1. Add the package dependencies to your _build.gradle_ file (Gradle Groovy) or _build.gradle.kts_ file (Kotlin DSL) file.
@@ -190,31 +190,35 @@ To use a published package from {% data variables.product.prodname_registry %}, 
    }
    ```
 
-1. Add the repository to your _build.gradle_ file (Gradle Groovy) or _build.gradle.kts_ file (Kotlin DSL) file.
+1. Add the repository to your _settings.gradle_ file (Gradle Groovy) or _settings.gradle.kts_ file (Kotlin DSL) using a `dependencyResolutionManagement` block.
 
    Example using Gradle Groovy:
 
    ```shell
-   repositories {
-       maven {
-           url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}REGISTRY_URL{% endif %}/OWNER/REPOSITORY")
-           credentials {
-               username = providers.gradleProperty("gpr.user").getOrNull() ?: System.getenv("USERNAME")
-               password = providers.gradleProperty("gpr.key").getOrNull() ?: System.getenv("TOKEN")
+   dependencyResolutionManagement {
+       repositories {
+           maven {
+               url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}REGISTRY_URL{% endif %}/OWNER/REPOSITORY")
+               credentials {
+                   username = providers.gradleProperty("gpr.user").getOrNull() ?: System.getenv("USERNAME")
+                   password = providers.gradleProperty("gpr.key").getOrNull() ?: System.getenv("TOKEN")
+               }
            }
-      }
+       }
    }
    ```
 
    Example using Kotlin DSL:
 
    ```shell
-   repositories {
-       maven {
-           url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}REGISTRY_URL{% endif %}/OWNER/REPOSITORY")
-           credentials {
-               username = providers.gradleProperty("gpr.user").getOrNull() ?: System.getenv("USERNAME")
-               password = providers.gradleProperty("gpr.key").getOrNull() ?: System.getenv("TOKEN")
+   dependencyResolutionManagement {
+       repositories {
+           maven {
+               url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}REGISTRY_URL{% endif %}/OWNER/REPOSITORY")
+               credentials {
+                   username = providers.gradleProperty("gpr.user").getOrNull() ?: System.getenv("USERNAME")
+                   password = providers.gradleProperty("gpr.key").getOrNull() ?: System.getenv("TOKEN")
+               }
            }
        }
    }
