@@ -160,8 +160,6 @@ When {% data variables.copilot.copilot_code-review_short %} is enabled for these
 
 If your repository includes agent skills, {% data variables.copilot.copilot_code-review_short %} can automatically use relevant skills when reviewing a pull request, extending {% data variables.product.prodname_copilot_short %} beyond its built-in analysis.
 
-{% data reusables.copilot.code-review.custom-instructions-branch %}
-
 For setup details, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills).
 
 ### MCP servers
