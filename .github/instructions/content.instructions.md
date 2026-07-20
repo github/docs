@@ -115,6 +115,17 @@ For such content, DO NOT use in-article Liquid versioning such as `{% ifversion 
 
 All articles that are ONLY for GitHub Enterprise Server (GHES) should be versioned in the frontmatter using feature-based versioning defined in `data/features/`. 
 
+### Versioning for GHES content: always use feature-based versioning
+
+If content is intended to ship to GitHub Enterprise Server, use **feature-based versioning (FBV)**.
+
+* Do **not** suggest removing GHES frontmatter versioning or hardcode version strings (for example, `free-pro-team@latest`) just to make links or tests pass.
+* If CI fails because a GHES link cannot be built, treat that as a versioning mismatch—not a signal to de-scope GHES.
+* Add or reuse the appropriate feature flag in `data/features/`. Use it in `versions.feature` frontmatter when an article's availability follows the feature, and use Liquid conditionals only for version-specific blocks within a broader article.
+* Keep frontmatter and in-article versioning aligned so links render for every supported version.
+
+For guidance, see [About feature-based versioning](https://docs.github.com/en/contributing/writing-for-github-docs/versioning-documentation#about-feature-based-versioning).
+
 ### FPT, GHEC, GHES articles
 
 All articles that are versioned for all of FPT, GHEC, and GHES in the frontmatter MAY require certain blocks of content to be versioned using in-article Liquid versioning. Before recommending this, check if this is really the case.

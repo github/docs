@@ -1,7 +1,7 @@
 ---
 title: Enabling {% data variables.product.prodname_code_quality %}
 shortTitle: Enable Code Quality
-intro: Enable {% data variables.product.prodname_code_quality_short %} across your organization's repositories to automatically identify and remediate code quality issues at scale, helping you maintain consistency and reduce operational risk.
+intro: 'Turn on {% data variables.product.prodname_code_quality_short %} to give your teams a consistent quality baseline: automatically catching, fixing, and reporting code quality issues in pull requests and on your default branch.'
 versions:
   feature: code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'
@@ -15,13 +15,13 @@ category:
   - Improve code quality
 ---
 
-{% data reusables.code-quality.code-quality-preview-note %}
+You can enable {% data variables.product.prodname_code_quality_short %} for a single repository, or for every repository in an organization at once. Enabling at the organization level gives all your teams a consistent quality baseline with a single change, while enabling per repository lets you target specific projects or roll out gradually.
 
 ## Prerequisites
 
 * An enterprise owner must have allowed {% data variables.product.prodname_code_quality_short %} in your enterprise. See [AUTOTITLE](/code-security/code-quality/how-tos/allow-in-enterprise).
 * {% data variables.product.prodname_actions %} must be enabled because {% data variables.product.prodname_code_quality_short %} uses actions to run each {% data variables.product.prodname_codeql %} analysis.
-* To get the full benefit of the feature, your repository should include one of the languages supported for quality analysis by {% data variables.product.prodname_codeql %}. See [Supported languages](/code-security/code-quality/concepts/about-code-quality#supported-languages).
+* To get the full benefit of the feature, your repository should include one of the languages supported for quality analysis by {% data variables.product.prodname_codeql %}. See [Supported languages](/code-security/concepts/code-quality/code-quality#supported-languages).
 
 ## Enabling {% data variables.product.prodname_code_quality_short %} for your repository
 
@@ -36,16 +36,13 @@ category:
 
 1. Click **Save changes** to save your configuration for {% data variables.product.prodname_code_quality_short %}.
 
-> [!TIP]
-> If your organization has configured caching of private registries, these will be available for code quality analysis to use to resolve dependencies. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries#code-quality-access-to-private-registries).
+If your organization has configured caching of private registries, these will be available for code quality analysis to use to resolve dependencies. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries#code-quality-access-to-private-registries).
 
 ## Enabling {% data variables.product.prodname_code_quality_short %} for your organization
 
-{% data reusables.code-quality.code-quality-org-targeting-preview-note %}
-
 At the organization level, you control {% data variables.product.prodname_code_quality_short %} with a single **Repository access** setting. This gives you granular options, from enabling every repository to targeting a specific list or a dynamic filter, so you can pilot {% data variables.product.prodname_code_quality_short %} intentionally and roll it out at your own pace. Repositories within your selection are enabled, and repositories outside your selection are disabled.
 
-For the available access options, and how filtering and enforcement work, see [AUTOTITLE](/code-security/code-quality/concepts/about-code-quality#organization-level-repository-access).
+For the available access options, and how filtering and enforcement work, see [AUTOTITLE](/code-security/concepts/code-quality/enablement-at-scale#organization-level-repository-access).
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
@@ -58,8 +55,9 @@ For the available access options, and how filtering and enforcement work, see [A
 
 Your changes are saved automatically and begin to propagate immediately. In large organizations, it can take several minutes for the changes to apply across all repositories.
 
+If you're rolling out the feature across many teams, we recommend you pilot on a small group and tune your quality thresholds before you enable everywhere. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/roll-out-at-scale).
+
 ## Next steps
 
-* **For your repository:** Explore your code quality findings and merge your first fix. See [AUTOTITLE](/code-security/tutorials/improve-code-quality/quickstart).
-* **Add code coverage:** Upload test coverage reports to see coverage results directly on pull requests. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/set-up-code-coverage).
-* **For your organization:** Understand the code health of your repositories at a glance. See [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/explore-code-quality).
+* **Add code coverage:** Upload reported code coverage from your test suite to see coverage results directly on pull requests. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/set-up-code-coverage).
+* **For your organization:** Understand the code health of your repositories at a glance. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/explore-code-quality).

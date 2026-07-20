@@ -100,7 +100,7 @@ If you disable automatic inheritance of access permissions, new packages scoped 
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the sidebar, in the "Code, planning, and automation" section, click **{% octicon "package" aria-hidden="true" aria-label="package" %} Packages**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "package" aria-hidden="true" aria-label="package" %} Packages**.
 1. Under "Default Package Settings", deselect **Inherit access from source repository**.
 1. Click **Save**.
 
@@ -117,9 +117,9 @@ If you publish a package that is linked to a repository, {% data variables.produ
 {% endif %}
 
 {% ifversion org-automatic-registry-access %}
- 
+
 Granting a repository access here also allows {% data variables.product.prodname_dependabot %} to pull from this package automatically, without requiring {% data variables.product.pat_generic_plural %} or `dependabot.yml` registry configuration. See [AUTOTITLE](/code-security/concepts/supply-chain-security/automatic-dependabot-access-to-github-registries).
- 
+
 {% endif %}
 
 > [!NOTE]

@@ -285,7 +285,7 @@ For additional guidance on the responsible use of GitHub Security AI features, w
 * [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-to-manage-the-use-of-generic-secret-detection-for-secret-scanning-in-your-enterprises-repositories){% endif %}
 * [AUTOTITLE](/code-security/how-tos/secure-your-secrets/customize-leak-detection/generating-regular-expressions-for-custom-patterns-with-ai)
 * [AUTOTITLE](/code-security/how-tos/secure-your-secrets/customize-leak-detection/define-custom-patterns)
-* [AUTOTITLE](/code-security/tutorials/improve-code-quality/quickstart)
+* [AUTOTITLE](/code-security/concepts/code-quality/code-quality)
 * [AUTOTITLE](/copilot/responsible-use/agents)
 * [Community discussion for Code Quality feedback](https://github.com/orgs/community/discussions/177488)
 

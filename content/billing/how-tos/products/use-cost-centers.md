@@ -23,7 +23,7 @@ category:
 > [!NOTE]
 > An enterprise can create up to 500 cost centers.
 
-Create cost centers to monitor and manage expenses for specific organizations or repositories. Multiple organizations, repositories, users, and enterprise teams can be assigned to one cost center.
+Create cost centers to monitor and manage expenses for specific organizations or repositories. A single cost center can include multiple resources of any type, such as organizations, repositories, users, and enterprise teams.
 
 When you create a cost center, you can add **organizations**, **repositories**, **users**, or **enterprise teams**. The cost center will then track spending for the selected entities.
 
@@ -37,7 +37,7 @@ When you create a cost center, you can add **organizations**, **repositories**, 
 1. Under **Resources**, select the organizations, repositories, users, and/or enterprise teams that will be a part of the cost center.
 
    > [!NOTE]
-   > A resource (organization, repository, user, or enterprise team) can only be assigned to one cost center at a time. If you add a resource that belongs to a different cost center, it will be moved to the new cost center and you will be notified.
+   > A resource (organization, repository, user, or enterprise team) can belong to only one cost center at a time. A cost center can hold many resources, but each resource lives in a single cost center. If you add a resource that belongs to a different cost center, it will be moved to the new cost center and you will be notified.
 
 {% data reusables.billing.cost-center-create-button %}
 

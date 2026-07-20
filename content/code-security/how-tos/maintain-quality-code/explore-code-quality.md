@@ -3,28 +3,33 @@ title: Exploring GitHub Code Quality results in your organization
 shortTitle: Explore code quality
 intro: Understand your organization's code health at a glance with the organization-level dashboard for {% data variables.product.prodname_code_quality_short %}.
 product: '{% data reusables.gated-features.code-quality-availability %}'
-permissions: 'Organization members'
+permissions: Organization members
+audience:
+  - driver
 contentType: how-tos
 versions:
   feature: code-quality
 category:
   - Secure at scale
+redirect_from:
+  - /code-security/how-tos/view-and-interpret-data/analyze-organization-data/explore-code-quality
 ---
-
-{% data reusables.code-quality.code-quality-preview-note %}
 
 ## Prerequisites
 
-* If your organization belongs to an enterprise, an enterprise owner must enable {% data variables.product.prodname_code_quality_short %} for your organization. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/allow-github-code-quality-in-enterprise).
-* Your organization must have repositories with {% data variables.product.prodname_code_quality_short %} enabled. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/enable-code-quality).
+* If your organization belongs to an enterprise, an enterprise owner must enable {% data variables.product.prodname_code_quality_short %} for your organization. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/allow-github-code-quality-in-enterprise?utm_campaign=code-quality-ga-july-2026&utm_medium=docs&utm_source=docs-explore-cq-enterprise-enablement).
+* Your organization must have repositories with {% data variables.product.prodname_code_quality_short %} enabled. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/enable-code-quality?utm_campaign=code-quality-ga-july-2026&utm_medium=docs&utm_source=docs-explore-cq-repo-enablement).
 
 ## Viewing code quality insights for your organization
 
-1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of your organization. For example, from [https://github.com/settings/organizations](https://github.com/settings/organizations?ref_product=github&ref_type=engagement&ref_style=text).
+1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of your organization. For example, from [https://github.com/settings/organizations](https://github.com/settings/organizations?ref_product=github&ref_type=engagement&ref_style=text&utm_campaign=code-quality-ga-july-2026&utm_medium=docs&utm_source=docs-explore-cq-org-settings).
 {% data reusables.organizations.security-overview %}
 1. In the "Insights" section of the sidebar, click {% octicon "code-square" aria-hidden="true" aria-label="code-square" %} **Code quality**.
 
-> [!NOTE] The dashboard only displays data for repositories where the viewer can see code quality findings.
+> [!NOTE]
+> What you see on the dashboard depends on your access:
+> * Organization owners see data for **every** repository that has {% data variables.product.prodname_code_quality_short %} enabled.
+> * All other organization members see data only for repositories where they can view {% data variables.product.prodname_code_quality_short %} findings (the repository-level pages), up to a maximum of 3,000 repositories.
 
 ## Interpreting the score distribution chart
 

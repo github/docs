@@ -27,7 +27,7 @@ For more information about cloud sandboxes, see [AUTOTITLE](/copilot/concepts/ab
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the sidebar, under "Code, planning, and automation," click **Sandboxes**.
+1. {% data reusables.user-settings.code-planning-automation %} click **Sandboxes**.
 1. Under "Sandbox access," select your preferred setting:
    * **Disabled**: Sandboxes are not available for organization members.
    * **Enabled for all members**: All organization members can use {% data variables.copilot.sandbox_short %}.

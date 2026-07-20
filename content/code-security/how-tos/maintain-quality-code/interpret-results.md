@@ -2,11 +2,13 @@
 title: Interpreting the code quality results for your repository
 shortTitle: Interpret results
 allowTitleToDifferFromFilename: true
-intro: View {% data variables.product.prodname_code_quality %} findings for your default branch.
+intro: Understand the maintainability and reliability of your codebase so you can prioritize where your teams focus remediation effort.
 versions:
   feature: code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'
 permissions: '{% data reusables.permissions.code-quality-see-repo-findings %}'
+audience:
+  - driver
 contentType: how-tos
 redirect_from:
   - /code-security/code-quality/how-tos/interpret-results
@@ -14,18 +16,16 @@ category:
   - Improve code quality
 ---
 
-{% data reusables.code-quality.code-quality-preview-note %}
-
 ## Prerequisites
 
-* {% data variables.product.prodname_code_quality_short %} is enabled, see [AUTOTITLE](/code-security/code-quality/how-tos/enable-code-quality).
+* {% data variables.product.prodname_code_quality_short %} is enabled, see [AUTOTITLE](/code-security/how-tos/maintain-quality-code/enable-code-quality?utm_campaign=code-quality-ga-july-2026&utm_medium=docs&utm_source=docs-interpret-results-enable-cq).
 
 ## Viewing the full backlog of code quality results
 
 {% data reusables.code-quality.dashboard-navigation-repo %}
 {% data reusables.code-quality.dashboard-all-findings %}
 
-Alternatively, if you want to view AI-powered findings for the most recently changed files, see [AUTOTITLE](/code-security/code-quality/tutorials/improve-recent-merges).
+Alternatively, if you want to view AI-powered findings for the most recently changed files, see [AUTOTITLE](/code-security/how-tos/maintain-quality-code/fix-recent-merge-findings).
 
 ## Exploring the backlog for your repository
 
@@ -44,29 +44,17 @@ Explore the results by expanding a rule to list the affected files and clicking 
 
 ![Screenshot of the Rules table on the "{% data variables.code-quality.all_findings %}" dashboard for code quality. The "Overwritten property" rule name is outlined in dark orange.](/assets/images/help/code-quality/all-findings-rules-repo.png)
 
-## Interpreting ratings and metrics
+## Interpreting scores and metrics
 
 Code quality results should always be interpreted in the context of your repository. For example:
 
-* Small repositories, or repositories with only a small amount of code written in supported languages, tend to have few results and good ratings.
-* Repositories with a lot of generated code may have many maintenance results, lowering the rating for maintainability. This is not a problem if the source code itself is maintainable.
+* Small repositories, or repositories with only a small amount of code written in supported languages, tend to have few results and good scores.
+* Repositories with a lot of generated code may have many maintenance results, lowering the score for maintainability. This is not a problem if the source code itself is maintainable.
 * Large repositories with a lot of code in a fully supported language often have many results even if the majority of the code has good maintainability and reliability standards.
 
-To learn more about the metrics and how the ratings are calculated, see [AUTOTITLE](/code-security/code-quality/reference/metrics-and-ratings).
-
-## Viewing code coverage on pull requests
-
-After code coverage is configured for your repository, the `{% data variables.code-quality.pr_commenter %}` posts a coverage summary comment on each pull request. The comment includes:
-
-* **Branch-vs-default-branch comparison:** The aggregate coverage percentage for the pull request branch and the default branch (for example, "65% on pull request branch, 44% on default branch").
-* **Most impacted files:** The 10 files with the largest coverage changes between the default branch and the pull request branch. This list may include files not directly modified in the pull request. New or modified files are ranked above deleted files. Within each group, files are sorted by the absolute change in line coverage weighted by the number of lines in the file, with coverage magnitude and then filename as tiebreakers.
-* **Per-file breakdown:** An expandable section listing each file with its coverage percentage and delta value. A positive delta means the file gained coverage on this branch. A negative delta indicates coverage decreased, which may signal untested code paths introduced by the change.
-
-Use the coverage summary to identify files with low or declining coverage and prioritize review attention on untested changes.
-
-For more information about how the coverage percentage is calculated, see [AUTOTITLE](/code-security/reference/code-quality/metrics-and-ratings#code-coverage).
+To learn more about the metrics and how the scores are calculated, see [AUTOTITLE](/code-security/reference/code-quality/metrics-and-ratings).
 
 ## Next steps
 
-* Remediate quality findings in your default branch and improve the maintainability and reliability rating for your repository. See [AUTOTITLE](/code-security/code-quality/tutorials/improve-your-codebase).
+* Remediate quality findings in your default branch and improve the maintainability and reliability score for your repository. See [AUTOTITLE](/code-security/tutorials/improve-code-quality/raise-your-quality-rating).
 * Stop your repository from accumulating more code quality problems by setting a quality threshold for pull requests using rulesets. See [AUTOTITLE](/code-security/code-quality/how-tos/set-pr-thresholds).

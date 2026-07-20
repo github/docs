@@ -31,7 +31,7 @@ carousels:
     - /code-security/concepts/secret-security/secret-scanning
     - /code-security/concepts/code-scanning/code-scanning
     - /code-security/tutorials/secure-your-dependencies/dependabot-quickstart
-    - /code-security/tutorials/improve-code-quality/quickstart
+    - /code-security/concepts/code-quality/code-quality
     - /code-security/tutorials/secure-your-organization/prevent-data-leaks
     - /code-security/concepts/supply-chain-security/best-practices-for-maintaining-dependencies
 versions:
