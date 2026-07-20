@@ -40,14 +40,14 @@ You can apply various filters to the alerts list to help you find the alerts you
 
 |Qualifier|Description|
 |---------|-----------|
-|`bypassed`|Display alerts for secrets where push protection has been bypassed (`true`). For more information, see [AUTOTITLE](/code-security/concepts/secret-security/about-push-protection).|
+|`bypassed`|Display alerts for secrets where push protection has been bypassed (`true`). For more information, see [AUTOTITLE](/code-security/concepts/secret-security/push-protection).|
 |`is`|Display alerts that are open (`open`), closed (`closed`), found in a public repository (`publicly-leaked`), or found in more than one repository within the same organization or enterprise (`multi-repository`). |
 |`props`|Display alerts for repositories with a specific custom property (`CUSTOM_PROPERTY_NAME`) set. For example, `props:data_sensitivity:high` display results for repositories with the `data_sensitivity` property set to the value `high`. |
 |`provider`|Display alerts for a specific provider (`PROVIDER-NAME`), for example, `provider:github`. For a list of supported partners, see [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns#supported-secrets).|
 |`repo`|Display alerts detected in a specified repository (`REPOSITORY-NAME`), for example: `repo:octo-repository`.|
 |`resolution`|Display alerts closed as "false positive" (`false-positive`), "hidden by config" (`hidden-by-config`), "pattern deleted" (`pattern-deleted`), "pattern edited" (`pattern-edited`), "revoked" (`revoked`), "used in tests" (`used-in-tests`), or "won't fix" (`wont-fix`).|
 |{% ifversion fpt or ghec %}|
-|`results`|Display alerts for supported secrets and custom patterns (`default`), or for generic patterns (`generic`) such as private keys, and AI-detected generic secrets such as passwords. See [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns), and for more information about AI-detected generic secrets, see [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).|
+|`results`|Display alerts for supported secrets and custom patterns (`default`), or for generic patterns (`generic`) such as private keys, and AI-detected generic secrets such as passwords. See [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns), and for more information about AI-detected generic secrets, see [AUTOTITLE](/code-security/responsible-use/security-and-quality-ai-features).|
 |{% elsif ghes %}|
 |`results`|Display alerts for supported secrets and custom patterns (`default`), or generic patterns such as private keys (`generic`). See [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns).|
 |{% endif %}|

@@ -27,6 +27,12 @@ Each webhook event on this page includes a description of the webhook properties
 
 Each event is only available to specific types of webhooks. For example, an organization webhook can subscribe to the `team` event, but a repository webhook cannot. The description of each webhook event lists the availability for that event. For more information, see [AUTOTITLE](/webhooks/types-of-webhooks).
 
+### The `sender` property
+
+Most webhook payloads include a `sender` property identifying the user who triggered the event. Sometimes {% data variables.product.github %} can't resolve a specific user, for example when an event comes from an internal process rather than a person, or when the triggering action has no associated user. For some events, such as `check_run` and `check_suite`, this includes actions with no Git push or authenticated API actor.
+
+In these cases, `sender` is populated with the [`ghost` user](https://github.com/ghost), a placeholder account whose `login` is `ghost` and whose `id` isn't tied to a real, current user. Don't assume `sender` always identifies the person who caused an event, and account for the `ghost` user in any security or business logic that relies on it.
+
 ### Payload cap
 
 {% data reusables.webhooks.payload_cap %}

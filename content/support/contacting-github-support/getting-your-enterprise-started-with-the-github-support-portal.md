@@ -7,6 +7,7 @@ versions:
   ghes: '*'
 redirect_from:
   - /support/contacting-github-support/getting-started-with-the-github-support-portal
+  - /enterprise-onboarding/support-for-your-enterprise/using-the-support-portal  
 category:
   - Contact GitHub
 ---

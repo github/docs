@@ -1,5 +1,10 @@
 .carousel {
   margin-top: 3rem;
+  padding-bottom: 3rem;
+  // Frame the section against the one below it (Docs 2026 "framed sections",
+  // #6681). Matches the hero band's divider — brand border-subtle adapts
+  // gray-2 light / gray-6 dark.
+  border-bottom: 1px solid var(--brand-color-border-subtle);
   --carousel-transition-duration: 0.1s;
 
   // Subsequent carousels with headings get reduced margin

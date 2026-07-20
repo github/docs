@@ -10,7 +10,6 @@ children:
   - /create-repository-policies
   - /protect-branches
   - /using-the-audit-log-for-your-enterprise
-  - /about-enterprise-security
 contentType: concepts
 docsTeamMetrics:
   - enterprise-onboarding

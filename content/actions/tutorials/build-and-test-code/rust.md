@@ -22,11 +22,11 @@ contentType: tutorials
 
 This guide shows you how to build, test, and publish a Rust package.
 
-{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, which includes the dependencies for Rust. For a full list of up-to-date software and the preinstalled versions of Rust, see [AUTOTITLE](/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software).
+{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, which includes the dependencies for Rust. For a full list of up-to-date software and the preinstalled versions of Rust, see [AUTOTITLE](/actions/concepts/runners/github-hosted-runners#preinstalled-software).
 
 ## Prerequisites
 
-You should already be familiar with YAML syntax and how it's used with {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions).
+You should already be familiar with YAML syntax and how it's used with {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax).
 
 We recommend that you have a basic understanding of the Rust language. For more information, see [Getting started with Rust](https://www.rust-lang.org/learn).
 
@@ -110,7 +110,7 @@ You can cache and restore dependencies using the Cache action. This example assu
           key: {% raw %}${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}{% endraw %}
 ```
 
-If you have custom requirements or need finer controls for caching, you should explore other configuration options for the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see [AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows).
+If you have custom requirements or need finer controls for caching, you should explore other configuration options for the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching).
 
 ## Building and testing your code
 
@@ -164,7 +164,7 @@ After a workflow completes, you can upload the resulting artifacts for analysis 
           path: {% raw %}target/${{ matrix.BUILD_TARGET }}/<my-app>{% endraw %}
 ```
 
-To use the uploaded artifact in a different job, ensure your workflows have the right permissions for the repository, see [AUTOTITLE](/actions/security-for-github-actions/security-guides/automatic-token-authentication). You could use these example steps to download the app created in the previous workflow and publish it on {% data variables.product.github %}.
+To use the uploaded artifact in a different job, ensure your workflows have the right permissions for the repository, see [AUTOTITLE](/actions/tutorials/authenticate-with-github_token). You could use these example steps to download the app created in the previous workflow and publish it on {% data variables.product.github %}.
 
 ```yaml copy
       - uses: {% data reusables.actions.action-checkout %}

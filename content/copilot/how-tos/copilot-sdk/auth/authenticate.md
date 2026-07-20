@@ -295,7 +295,6 @@ BYOK allows you to use your own API keys from model providers like Azure AI Foun
 When multiple authentication methods are available, the SDK uses them in this priority order:
 
 1. **Explicit `gitHubToken`** - Token passed directly to the SDK client or session configuration
-1. **HMAC key** - `CAPI_HMAC_KEY` or `COPILOT_HMAC_KEY` environment variables
 1. **Direct API token** - `GITHUB_COPILOT_API_TOKEN` with `COPILOT_API_URL`
 1. **Environment variable tokens** - `COPILOT_GITHUB_TOKEN` → `GH_TOKEN` → `GITHUB_TOKEN`
 1. **Stored OAuth credentials** - From previous `copilot` CLI login

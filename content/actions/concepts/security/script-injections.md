@@ -12,11 +12,11 @@ contentType: concepts
 
 ## Understanding the risk of script injections
 
-When creating workflows, [custom actions](/actions/creating-actions/about-custom-actions), and [composite actions](/actions/creating-actions/creating-a-composite-action), you should always consider whether your code might execute untrusted input from attackers. This can occur when an attacker adds malicious commands and scripts to a context. When your workflow runs, those strings might be interpreted as code which is then executed on the runner.
+When creating workflows, [custom actions](/actions/concepts/workflows-and-actions/custom-actions), and [composite actions](/actions/tutorials/create-actions/create-a-composite-action), you should always consider whether your code might execute untrusted input from attackers. This can occur when an attacker adds malicious commands and scripts to a context. When your workflow runs, those strings might be interpreted as code which is then executed on the runner.
 
-Attackers can add their own malicious content to the [`github` context](/actions/learn-github-actions/contexts#github-context), which should be treated as potentially untrusted input. These contexts typically end with `body`, `default_branch`, `email`, `head_ref`, `label`, `message`, `name`, `page_name`,`ref`, and `title`. For example: `github.event.issue.title`, or `github.event.pull_request.body`.
+Attackers can add their own malicious content to the [`github` context](/actions/reference/workflows-and-actions/contexts#github-context), which should be treated as potentially untrusted input. These contexts typically end with `body`, `default_branch`, `email`, `head_ref`, `label`, `message`, `name`, `page_name`,`ref`, and `title`. For example: `github.event.issue.title`, or `github.event.pull_request.body`.
 
-You should ensure that these values do not flow directly into workflows, actions, API calls, or anywhere else where they could be interpreted as executable code. By adopting the same defensive programming posture you would use for any other privileged application code, you can help security harden your use of {% data variables.product.prodname_actions %}. For information on some of the steps an attacker could take, see [AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#potential-impact-of-a-compromised-runner).
+You should ensure that these values do not flow directly into workflows, actions, API calls, or anywhere else where they could be interpreted as executable code. By adopting the same defensive programming posture you would use for any other privileged application code, you can help security harden your use of {% data variables.product.prodname_actions %}. For information on some of the steps an attacker could take, see [AUTOTITLE](/actions/reference/security/secure-use#potential-impact-of-a-compromised-runner).
 
 In addition, there are other less obvious sources of potentially untrusted input, such as branch names and email addresses, which can be quite flexible in terms of their permitted content. For example, `zzz";echo${IFS}"hello";#` would be a valid branch name and would be a possible attack vector for a target repository.
 
@@ -58,4 +58,4 @@ code.yml
 example.js
 ```
 
-For best practices keeping runners secure, see [AUTOTITLE](/actions/reference/secure-use-reference#good-practices-for-mitigating-script-injection-attacks).
+For best practices keeping runners secure, see [AUTOTITLE](/actions/reference/security/secure-use#good-practices-for-mitigating-script-injection-attacks).

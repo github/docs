@@ -24,7 +24,11 @@ You can allow or deny permissions for tools either when you start the CLI or dur
 
 ## Persisted permissions
 
-If you answer "yes, always" or otherwise choose the option to allow similar requests for the current location, the approval is saved to `permissions-config.json` in your configuration directory (by default, `~/.copilot/permissions-config.json`).
+Some prompt options save your consent so you aren't asked again. Where your approval is stored depends on what you approved.
+
+When you approve a tool for the current location, the approval is saved to `permissions-config.json` in your configuration directory. By default, this file is `~/.copilot/permissions-config.json`. For example, you might choose "don't ask again in this repo" (or "in this directory") for a shell command, file write, MCP tool, or memory update. The approval is scoped to the current location: either the Git repository root, or the working directory if you aren't in a repository. Any directories you grant access to are saved to the same file.
+
+URL approvals work differently. When you approve a URL permanently, its domain is added to the `allowedUrls` list in your `settings.json`. By default, this file is `~/.copilot/settings.json`. This approval applies across all your sessions, rather than being tied to a single location.
 
 Command-line options such as `--allow-tool` and `--deny-tool` apply only to the current session and aren't written to `permissions-config.json`. Deny rules still take precedence over saved approvals.
 

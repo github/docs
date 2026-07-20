@@ -29,15 +29,15 @@ Sometimes you might just want to update the version of one dependency in a manif
 
 By checking the dependency reviews in a pull request, and changing any dependencies that are flagged as vulnerable, you can avoid vulnerabilities being added to your project. For more information about how dependency review works, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request).
 
-{% data variables.product.prodname_dependabot_alerts %} will find vulnerabilities that are already in your dependencies, but it's much better to avoid introducing potential problems than to fix problems at a later date. For more information about {% data variables.product.prodname_dependabot_alerts %}, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts#dependabot-alerts-for-vulnerable-dependencies).
+{% data variables.product.prodname_dependabot_alerts %} will find vulnerabilities that are already in your dependencies, but it's much better to avoid introducing potential problems than to fix problems at a later date. For more information about {% data variables.product.prodname_dependabot_alerts %}, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-alerts#dependabot-alerts-for-vulnerable-dependencies).
 
-Dependency review supports the same languages and package management ecosystems as the dependency graph. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems#supported-package-ecosystems).
+Dependency review supports the same languages and package management ecosystems as the dependency graph. For more information, see [AUTOTITLE](/code-security/reference/supply-chain-security/dependency-graph-supported-package-ecosystems#supported-package-ecosystems).
 
-For more information on supply chain features available on {% data variables.product.github %}, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security).
+For more information on supply chain features available on {% data variables.product.github %}, see [AUTOTITLE](/code-security/concepts/supply-chain-security/supply-chain-security).
 
 ## Enabling dependency review
 
-The dependency review feature becomes available when you enable the dependency graph. For more information, see {% ifversion fpt or ghec %}[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph){% elsif ghes %}[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% endif %}."
+The dependency review feature becomes available when you enable the dependency graph. For more information, see {% ifversion fpt or ghec %}[Enabling the dependency graph](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/enable-dependency-graph#enabling-the-dependency-graph-for-a-repository){% elsif ghes %}[Enabling the dependency graph for your enterprise](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/enable-dependency-graph){% endif %}.
 
 ## About the {% data variables.dependency-review.action_name %}
 
@@ -53,11 +53,11 @@ The action is available for all {% ifversion fpt or ghec %}public repositories, 
 
 {% data reusables.dependency-review.action-enterprise %}
 
-The action uses the dependency review REST API to get the diff of dependency changes between the base commit and head commit. You can use the dependency review API to get the diff of dependency changes, including vulnerability data, between any two commits on a repository. For more information, see [AUTOTITLE](/rest/dependency-graph/dependency-review). The action also considers dependencies submitted via the {% data variables.dependency-submission-api.name %}. For more information about the {% data variables.dependency-submission-api.name %}, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api).
+The action uses the dependency review REST API to get the diff of dependency changes between the base commit and head commit. You can use the dependency review API to get the diff of dependency changes, including vulnerability data, between any two commits on a repository. For more information, see [AUTOTITLE](/rest/dependency-graph/dependency-review). The action also considers dependencies submitted via the {% data variables.dependency-submission-api.name %}. For more information about the {% data variables.dependency-submission-api.name %}, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/use-dependency-submission-api).
 
 {% data reusables.dependency-review.works-with-submission-api-beta %}
 
-You can configure the {% data variables.dependency-review.action_name %} to better suit your needs. For example, you can specify the severity level that will make the action fail{% ifversion dependency-review-action-licenses %}, or set an allow or deny list for licenses to scan{% endif %}. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-review-action).
+You can configure the {% data variables.dependency-review.action_name %} to better suit your needs. For example, you can specify the severity level that will make the action fail{% ifversion dependency-review-action-licenses %}, or set an allow or deny list for licenses to scan{% endif %}. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-dependency-review-action).
 
 ## Best practices for using the dependency review API and the {% data variables.dependency-submission-api.name %} together
 
@@ -88,4 +88,4 @@ If you don’t use {% data variables.product.prodname_actions %}, and your code 
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/customizing-your-dependency-review-action-configuration)
+* [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/customize-dependency-review-action)

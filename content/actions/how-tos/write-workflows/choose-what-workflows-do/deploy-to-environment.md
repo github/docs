@@ -19,12 +19,12 @@ contentType: how-tos
 
 ## Prerequisites
 
-You need to create an environment before you can use it in a workflow. See [AUTOTITLE](/actions/how-tos/managing-workflow-runs-and-deployments/managing-deployments/managing-environments-for-deployment#creating-an-environment).
+You need to create an environment before you can use it in a workflow. See [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments#creating-an-environment).
 
 ## Using an environment in a workflow
 
 1. Open the workflow file you want to edit.
-1. Use the following syntax to add a [`jobs.<job_id>.environment`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idenvironment) key to your workflow:
+1. Use the following syntax to add a [`jobs.<job_id>.environment`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idenvironment) key to your workflow:
 
     ```yaml copy
     jobs:

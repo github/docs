@@ -18,7 +18,7 @@ Multi-ecosystem updates allow you to consolidate {% data variables.product.prodn
 
 ## Prerequisites
 * A repository with dependencies in multiple package ecosystems
-* An existing `.github/dependabot.yml` file. See [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates).
+* An existing `.github/dependabot.yml` file. See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-version-updates).
 
 ## 1. Define your multi-ecosystem group in your `.github/dependabot.yml` file
 
@@ -69,7 +69,7 @@ Commit the changes to your `dependabot.yml` file.
 
 ## 4. Customize with additional keys (optional)
 
-You can add assignees, labels, or other configuration options to your multi-ecosystem groups. See [`assignees`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#assignees--) and [`labels`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#labels--).
+You can add assignees, labels, or other configuration options to your multi-ecosystem groups. See [`assignees`](/code-security/reference/supply-chain-security/dependabot-options-reference#assignees--) and [`labels`](/code-security/reference/supply-chain-security/dependabot-options-reference#labels--).
 
 ```yaml copy
 multi-ecosystem-groups:
@@ -111,4 +111,4 @@ If you're not seeing consolidated pull requests, ensure that:
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference)
+* [AUTOTITLE](/code-security/reference/supply-chain-security/dependabot-options-reference)

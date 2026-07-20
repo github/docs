@@ -24,7 +24,7 @@ This quickstart guide walks you through setting up and enabling {% data variable
 ## Prerequisites
 
 {% ifversion ghes %}
-Before you can use the {% data variables.product.prodname_dependabot_alerts %} feature in {% data variables.product.github %}, you must ensure that your enterprise administrator enables {% data variables.product.prodname_dependabot %} for the instance. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise#enabling-dependabot-alerts).
+Before you can use the {% data variables.product.prodname_dependabot_alerts %} feature in {% data variables.product.github %}, you must ensure that your enterprise administrator enables {% data variables.product.prodname_dependabot %} for the instance. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-dependabot-for-your-enterprise#enabling-dependabot-alerts).
 {% endif %}
 
 For the purpose of this guide, we're going to use a demo repository to illustrate how {% data variables.product.prodname_dependabot %} finds vulnerabilities in dependencies, where you can see {% data variables.product.prodname_dependabot_alerts %} on {% data variables.product.prodname_dotcom %}, and how you can explore, fix, or dismiss these alerts.
@@ -45,12 +45,12 @@ You need to follow the steps below on the repository you forked in [Prerequisite
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 1. Under "{% data variables.product.prodname_dependabot %}", click **Enable** for {% data variables.product.prodname_dependabot_alerts %}, {% data variables.product.prodname_dependabot_security_updates %}, and {% data variables.product.prodname_dependabot_version_updates %}.
 1. If you clicked **Enable** for {% data variables.product.prodname_dependabot_version_updates %}, you can edit the default `dependabot.yml` configuration file that {% data variables.product.github %} creates for you in the `/.github` directory of your repository.
-   To enable {% data variables.product.prodname_dependabot_version_updates %} for your repository, you typically configure this file to suit your needs by editing the default file, and committing your changes. You can refer to the snippet provided in [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#example-dependabotyml-file) for an example.
+   To enable {% data variables.product.prodname_dependabot_version_updates %} for your repository, you typically configure this file to suit your needs by editing the default file, and committing your changes. You can refer to the snippet provided in [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-version-updates#example-dependabotyml-file) for an example.
 
 > [!NOTE]
 > If the dependency graph is not already enabled for the repository, {% data variables.product.github %} will enable it automatically when you enable {% data variables.product.prodname_dependabot %}.
 
-For more information about configuring each of these {% data variables.product.prodname_dependabot %} features, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts), [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates), and [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates).
+For more information about configuring each of these {% data variables.product.prodname_dependabot %} features, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-dependabot-alerts), [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-security-updates), and [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-version-updates).
 
 ## Viewing {% data variables.product.prodname_dependabot_alerts %} for your repository
 
@@ -63,7 +63,7 @@ If {% data variables.product.prodname_dependabot_alerts %} are enabled for a rep
 
    ![Screenshot showing the list of Dependabot alerts for the demo repository.](/assets/images/help/repository/dependabot-alerts-list-demo-repo.png)
 
-   You can filter {% data variables.product.prodname_dependabot_alerts %} in the list, using a variety of filters or labels. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#prioritizing-dependabot-alerts). You can also use {% data variables.dependabot.auto_triage_rules %} to filter out false positive alerts or alerts you're not interested in. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules).
+   You can filter {% data variables.product.prodname_dependabot_alerts %} in the list, using a variety of filters or labels. For more information, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/view-dependabot-alerts#prioritizing-dependabot-alerts). You can also use {% data variables.dependabot.auto_triage_rules %} to filter out false positive alerts or alerts you're not interested in. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-auto-triage-rules).
 
 1. Click the "Command Injection in lodash" alert on the `javascript/package-lock.json` file. The details page for the alert will show the following information (note that some information may not apply to all alerts):
    * Whether {% data variables.product.prodname_dependabot %} created a pull request that will fix the vulnerability. You can review the suggested security update by clicking **Review security update**.
@@ -76,18 +76,18 @@ If {% data variables.product.prodname_dependabot_alerts %} are enabled for a rep
 
 1. Optionally, you can also explore the information on the right-side of the page. Some of the information shown in the screenshot may not apply to every alert.
    * Severity
-   * CVSS metrics: We use CVSS levels to assign severity levels. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-the-github-advisory-database#about-cvss-levels).
+   * CVSS metrics: We use CVSS levels to assign severity levels. For more information, see [AUTOTITLE](/code-security/concepts/vulnerability-reporting-and-management/github-advisory-database#about-cvss-levels).
    * Tags
    * Weaknesses: List of CWEs related to the vulnerability, if applicable
    * CVE ID: Unique CVE identifier for the vulnerability, if applicable
-   * GHSA ID: Unique identifier of the corresponding advisory on the {% data variables.product.prodname_advisory_database %}. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-the-github-advisory-database#about-ghsa-ids).
+   * GHSA ID: Unique identifier of the corresponding advisory on the {% data variables.product.prodname_advisory_database %}. For more information, see [AUTOTITLE](/code-security/concepts/vulnerability-reporting-and-management/github-advisory-database#about-ghsa-ids).
    * Option to navigate to the advisory on the {% data variables.product.prodname_advisory_database %}
    * Option to see all of your repositories that are affected by this vulnerability
    * Option to suggest improvements for this advisory on the {% data variables.product.prodname_advisory_database %}
 
    ![Screenshot of the detailed page of an alert in the demo repository, showing the information displayed on the right-side of the page.](/assets/images/help/repository/more-alert-details-demo-repo.png)
 
-For more information about viewing, prioritizing, and sorting {% data variables.product.prodname_dependabot_alerts %}, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts).
+For more information about viewing, prioritizing, and sorting {% data variables.product.prodname_dependabot_alerts %}, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/view-dependabot-alerts).
 
 ## Fixing or dismissing a {% data variables.product.prodname_dependabot %} alert
 
@@ -114,7 +114,7 @@ You can fix or dismiss {% data variables.product.prodname_dependabot_alerts %} o
      * Optionally, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting.
      * Click **Dismiss alert**. The alert won't appear anymore in the **Open** tab of the alert list, and you are able to view it in the **Closed** tab.
 
-For more information about reviewing and updating {% data variables.product.prodname_dependabot_alerts %}, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#reviewing-and-fixing-alerts).
+For more information about reviewing and updating {% data variables.product.prodname_dependabot_alerts %}, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/view-dependabot-alerts#reviewing-and-fixing-alerts).
 
 ## Troubleshooting
 
@@ -122,16 +122,16 @@ You may need to do some troubleshooting if:
 * {% data variables.product.prodname_dependabot %} is blocked from creating a pull request to fix an alert, or
 * The information reported by {% data variables.product.prodname_dependabot %} is not what you expect.
 
-For more information, see [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/troubleshooting-dependabot-errors) and [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies), respectively.
+For more information, see [AUTOTITLE](/code-security/reference/supply-chain-security/troubleshoot-dependabot/dependabot-errors) and [AUTOTITLE](/code-security/reference/supply-chain-security/troubleshoot-dependabot/vulnerability-detection), respectively.
 
 ## Next steps
 
-For more information about configuring {% data variables.product.prodname_dependabot %} updates, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates) and [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates).
+For more information about configuring {% data variables.product.prodname_dependabot %} updates, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-security-updates) and [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-version-updates).
 
-For more information about configuring {% data variables.product.prodname_dependabot %} for an organization, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts#managing-dependabot-alerts-for-your-organization).
+For more information about configuring {% data variables.product.prodname_dependabot %} for an organization, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-dependabot-alerts#managing-dependabot-alerts-for-your-organization).
 
-For more information about viewing pull requests opened by {% data variables.product.prodname_dependabot %}, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#viewing-dependabot-pull-requests).
+For more information about viewing pull requests opened by {% data variables.product.prodname_dependabot %}, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/manage-dependabot-prs#viewing-dependabot-pull-requests).
 
-For more information about the security advisories that contribute to {% data variables.product.prodname_dependabot_alerts %}, see [AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/browsing-security-advisories-in-the-github-advisory-database).
+For more information about the security advisories that contribute to {% data variables.product.prodname_dependabot_alerts %}, see [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/browse-advisory-database).
 
-For more information about configuring notifications about {% data variables.product.prodname_dependabot_alerts %}, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts).
+For more information about configuring notifications about {% data variables.product.prodname_dependabot_alerts %}, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-dependabot-notifications).

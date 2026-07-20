@@ -11,7 +11,7 @@ category:
   - Provision and manage enterprise users
 ---
 
-{% data reusables.saml.idp-saml-and-scim-explanation %} For more information, see {% ifversion ghec %}[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users).{% else %}[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes).{% endif %}
+{% data reusables.saml.idp-saml-and-scim-explanation %} For more information, see {% ifversion ghec %}[AUTOTITLE](/admin/concepts/identity-and-access-management/enterprise-managed-users).{% else %}[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes).{% endif %}
 
 ## Overview
 

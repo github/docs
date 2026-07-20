@@ -22,5 +22,5 @@ If an automatic build of code for a compiled language within your project fails,
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning).
-* [CodeQL build modes](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes)
+* [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configuring-advanced-setup-for-code-scanning).
+* [CodeQL build modes](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/codeql-for-compiled-languages#codeql-build-modes)

@@ -35,12 +35,12 @@ You can enable {% data variables.secret-scanning.generic-secret-detection %} in 
 
 You must configure {% data variables.secret-scanning.generic-secret-detection %} for your organization using a {% data variables.product.prodname_custom_security_configuration %}. You can then apply the {% data variables.product.prodname_security_configuration %} to all (or selected) repositories in your organization.
 
-1. Create a new {% data variables.product.prodname_custom_security_configuration %}, or edit an existing one. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration#creating-a-custom-security-configuration).
+1. Create a new {% data variables.product.prodname_custom_security_configuration %}, or edit an existing one. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/create-custom-configuration#creating-a-custom-security-configuration).
 1. When creating the custom security configuration, ensure that "{% data variables.product.prodname_secret_protection %}" is set to **Enabled**, and that the dropdown menu for "Scan for AI-detected secrets" is also set to **Enabled**.
-1. Apply the {% data variables.product.prodname_custom_security_configuration %} to one or more repositories. For more information, see [AUTOTITLE](/code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/applying-a-custom-security-configuration).
+1. Apply the {% data variables.product.prodname_custom_security_configuration %} to one or more repositories. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/apply-custom-configuration).
 
-For information on how to view alerts for generic secrets that have been detected with AI, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts).
+For information on how to view alerts for generic secrets that have been detected with AI, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts/viewing-alerts).
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets)
+* [AUTOTITLE](/code-security/responsible-use/security-and-quality-ai-features)
