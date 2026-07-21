@@ -43,7 +43,7 @@ To ensure uniform access, you can set and maintain your MCP registry URL and all
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the sidebar, under "Code, planning, and automation", click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, then click **Policies**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, then click **Policies**.
 1. In the "Features" section, ensure **MCP servers in {% data variables.product.prodname_copilot_short %}** is set to **Enabled**.
 1. In the **MCP Registry URL (optional)** field, enter the URL of your registry, then click **Save**.
 

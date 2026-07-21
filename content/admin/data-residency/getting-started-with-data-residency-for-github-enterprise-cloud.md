@@ -31,7 +31,7 @@ After this initial setup, you'll be able to create organizations and repositorie
 
 ## Prerequisites
 
-* If you intend to pay with a Microsoft Azure subscription, you must have admin access to the Azure portal or work with someone to configure an admin consent workflow. For a full list of prerequisites, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription#prerequisites).
+* If you intend to pay with a Microsoft Azure subscription, you must have admin access to the Azure portal or work with someone to configure an admin consent workflow. For a full list of prerequisites, see [AUTOTITLE](/billing/how-tos/set-up-payment/connect-azure-sub#prerequisites).
 
 * {% data reusables.data-residency.data-resident-enterprises-network-access %}
 
@@ -52,7 +52,7 @@ To get started with {% data variables.enterprise.data_residency_short %}, you wi
    * **Subdomain**: This will appear in your enterprise's dedicated domain. For example: `{% data variables.enterprise.data_residency_example_domain %}`.
       > [!NOTE]
       > Please select the subdomain carefully. You cannot change it later.
-   * **Identity Provider**: {% data variables.product.github %} partners with certain identity providers to provide a "paved-path" experience. Check whether your identity provider is a partner and ensure you understand the requirements for other systems. See [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems).
+   * **Identity Provider**: {% data variables.product.github %} partners with certain identity providers to provide a "paved-path" experience. Check whether your identity provider is a partner and ensure you understand the requirements for other systems. See [AUTOTITLE](/admin/concepts/identity-and-access-management/enterprise-managed-users).
    * **Admin work email**: This is where you will receive the invitation to sign in and configure the enterprise for the first time.
 
 1. Click **Create enterprise**.
@@ -106,8 +106,8 @@ You can purchase {% data variables.product.prodname_enterprise %} at any time du
 
 To pay for licenses and services, you can use a credit card, PayPal, or a Microsoft Azure subscription.
 
-* To add a credit card or PayPal details, see [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information#viewing-payment-information).
-* To link an Azure subscription, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription#connecting-your-azure-subscription-to-your-enterprise-account).
+* To add a credit card or PayPal details, see [AUTOTITLE](/billing/how-tos/set-up-payment/manage-payment-info).
+* To link an Azure subscription, see [AUTOTITLE](/billing/how-tos/set-up-payment/connect-azure-sub#connecting-your-azure-subscription-to-an-organization-or-enterprise-account).
 
 ## 5. Migrate data
 

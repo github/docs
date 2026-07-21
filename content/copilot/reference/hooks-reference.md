@@ -79,6 +79,9 @@ This section applies to **{% data variables.copilot.copilot_cloud_agent %} only*
 
 Hook configuration files use JSON format with version `1`.
 
+> [!NOTE]
+> If a hook configuration file loaded from a directory (for example, `.github/hooks/`) contains a malformed hook item, only that item is dropped and logged—valid sibling hooks in the same file still load. Structural errors (invalid JSON, a bad `version`, or a non-array event list) still reject the entire file. Hooks defined inline in `settings.json` remain strict: any item-level validation error rejects the whole `hooks` field. Other configuration files always load independently.
+
 ### Command hooks
 
 Command hooks run shell scripts and are supported on all hook types.
@@ -225,6 +228,7 @@ The table below lists every supported event. The **Cloud agent** column shows wh
 | `subagentStart` | A subagent is spawned (before it runs). Supports a `matcher` regex pattern (the value of the `matcher` field) to filter by agent name. | Optional — cannot block creation, but `additionalContext` is prepended to the subagent's prompt. | Fires. |
 | `subagentStop` | A subagent completes. | Yes — can block and force continuation. | Fires. |
 | `userPromptSubmitted` | The user submits a prompt. | No | Fires at most once, for the prompt supplied to the job. There is no follow-up user input. |
+| `userPromptTransformed` | Fires after the runtime transforms a submitted prompt into its model-facing content, just before that content is emitted and persisted to session history. Runs for the primary message and for every preceding message in a batched submission. Mutation-only — it can rewrite the content the model receives, but not block or handle the turn. System notifications never trigger it. | Yes — can rewrite the model-facing content. | Fires. |
 
 ## Hook event input payloads
 
@@ -310,6 +314,32 @@ Each hook event delivers a JSON payload to the hook handler. Two payload formats
 }
 ```
 
+### `userPromptTransformed`
+
+Fires after the runtime transforms a submitted prompt into its model-facing content, just before that content is emitted and persisted to session history. Runs for the primary message and for every preceding message in a batched submission. Mutation-only—it can rewrite the content the model receives, but not block or handle the turn. System notifications never trigger it.
+
+**Input:**
+
+```typescript
+{
+    sessionId: string;
+    timestamp: number;         // epoch-ms integer
+    cwd: string;
+    prompt: string;            // user prompt after userPromptSubmitted hooks have run
+    transformedPrompt: string; // runtime-transformed content the model will receive
+}
+```
+
+**Output:**
+
+```typescript
+{
+    modifiedTransformedPrompt?: string; // Replaces the model-facing content
+}
+```
+
+Return `{}` or empty to leave the transformed content unchanged. `modifiedTransformedPrompt` replaces only the content sent to the model and stored in session history—the prompt displayed in the timeline is unaffected—and the replacement is replayed unchanged if the session is resumed.
+
 ### `preToolUse` / `PreToolUse`
 
 **camelCase input:**
@@ -364,7 +394,7 @@ Payloads for PascalCase `PreToolUse` report `tool_name` as the Claude tool name 
 Tools with no Claude equivalent keep their runtime names.
 
 > [!IMPORTANT]
-> **Command vs HTTP fail behavior for `preToolUse`:** Command `preToolUse` hooks are **fail-closed** on errors—a crash or non-zero exit denies the tool call. Command hook **timeouts are fail-open**—a timed-out hook surfaces a warning and lets the tool call proceed through the normal permission flow. HTTP `preToolUse` hooks are **fail-open**—a network error, timeout, or non-2xx response falls through to the default permission flow. Choose the variant that matches your security requirements.
+> **Command vs HTTP fail behavior for `preToolUse`:** Command `preToolUse` hooks are **fail-closed** on errors—a crash or non-zero exit (including exit `2`) denies the tool call, even if the hook's stdout JSON reports `permissionDecision: "allow"`. Command hook **timeouts are always fail-open, even for `preToolUse` and admin-deployed policy hooks**—a timed-out hook surfaces a warning and lets the tool call proceed through the normal permission flow instead of denying it. HTTP `preToolUse` hooks are **fail-open**—a network error, timeout, or non-2xx response falls through to the default permission flow. Choose the variant that matches your security requirements.
 
 ### `postToolUse` / `PostToolUse`
 
@@ -720,18 +750,18 @@ Several events accept an optional `matcher` regex on each hook entry that filter
 | `view` | Read file contents. |
 | `web_fetch` | Fetch web pages. |
 
-If multiple hooks of the same type are configured, they execute in order. For `preToolUse`, if any hook returns `"deny"`, the tool is blocked. For most events, hook failures (non-zero exit codes other than `2`, or timeouts) are logged and skipped. **Exception: `preToolUse` command hooks are fail-closed on errors**—a crash or non-zero exit (other than exit 2) denies the tool call. Timeouts for `preToolUse` command hooks are fail-open: a warning is surfaced and the tool call proceeds through the normal permission flow.
+If multiple hooks of the same type are configured, they execute in order. For `preToolUse`, if any hook returns `"deny"`, the tool is blocked. For most events, hook failures (non-zero exit codes other than `2`, or timeouts) are logged and skipped. **Exception: `preToolUse` command hooks are fail-closed on exit `2` and on non-timeout errors**—exit `2`, a crash, or any other non-zero exit (other than a timeout) denies the tool call, even if the hook's stdout JSON reports `permissionDecision: "allow"`. **Timeouts are always fail-open, including for `preToolUse` and admin-deployed policy hooks**: a warning is surfaced and the tool call proceeds through the normal permission flow rather than being denied.
 
 ## Exit codes for command hooks
 
 | Exit code | Meaning |
 |-----------|---------|
 | `0` | Success. `stdout` is parsed as the hook output JSON if present. |
-| `2` | Treated as a warning by default. `stderr` is surfaced to the user but the run continues. For `permissionRequest`, exit `2` is treated as `{"behavior":"deny"}` and any `stdout` JSON is merged in. For `postToolUseFailure`, exit `2` is treated as `additionalContext` and `stdout` is appended to the failure shown to the agent. |
+| `2` | Treated as a warning by default. `stderr` is surfaced to the user but the run continues. For `permissionRequest` and `preToolUse`, exit `2` is treated as a deny: any `stdout` JSON is merged with the deny decision and the tool call is denied even if that JSON reports `permissionDecision: "allow"`. For `postToolUseFailure`, exit `2` is treated as `additionalContext` and `stdout` is appended to the failure shown to the agent. |
 | Other non-zero | Logged as a hook failure. The run continues (fail-open). **Exception: `preToolUse` is fail-closed**—a non-zero exit (other than exit 2) denies the tool call with `"Denied by preToolUse hook (hook errored)"`. |
-| Timeout        | Killed after `timeoutSec`. Error logged, agent continues. **Exception: `preToolUse` command hooks fail-open on timeout**—a warning is surfaced and the tool call proceeds through the normal permission flow rather than being denied. A crashed or explicitly-denying hook still fails-closed. |
+| Timeout        | Killed after `timeoutSec`. Error logged, execution continues. **Timeouts are fail-open for every event, including `preToolUse` and admin-deployed policy hooks**—a warning is surfaced and processing proceeds as if the hook had not run. For `preToolUse`, the tool call proceeds through the normal permission flow rather than being denied. A crashed or explicitly-denying hook still fails-closed; only timeouts are exempt. |
 
-For most events, non-zero exits and timeouts are logged and skipped—agent execution continues. For `preToolUse` command hooks, crashes and non-zero exits (other than exit 2) fail-closed and deny the tool call, but **timeouts fail-open**—a slow or unreachable hook must not silently block tool calls. Exit 2 is handled per the rules above and does not block execution.
+For most events, non-zero exits and timeouts are logged and skipped—agent execution continues. For `preToolUse` command hooks, exit 2, crashes, and other non-zero exits all fail-closed and deny the tool call—exit 2 always denies, even if the hook's `stdout` JSON reports `permissionDecision: "allow"`—but **timeouts always fail-open**—a slow or unreachable hook must not silently block tool calls or work, even when the hook was deployed by an administrator as policy.
 
 ## Disable all hooks
 

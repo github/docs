@@ -122,6 +122,6 @@
   release_status: 'GA'
 
 # Open-weight models
-- name: 'Kimi-K2.7-Code'
+- name: 'Kimi K2.7 Code'
   provider: 'Moonshot AI'
   release_status: 'GA'

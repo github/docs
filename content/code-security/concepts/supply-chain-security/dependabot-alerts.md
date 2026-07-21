@@ -32,7 +32,7 @@ Software often relies on packages from various sources, creating dependency rela
 * Your enterprise publishes an innersource advisory for a component you depend on. For more information, see [AUTOTITLE](/code-security/concepts/vulnerability-reporting-and-management/innersource-advisories).{% endif %}
 * Your dependency graph changes—for example, when you push commits that update packages or versions
 
-For supported ecosystems, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems#supported-package-ecosystems).
+For supported ecosystems, see [AUTOTITLE](/code-security/reference/supply-chain-security/dependency-graph-supported-package-ecosystems#supported-package-ecosystems).
 
 ## Understanding alerts
 
@@ -44,7 +44,7 @@ When {% data variables.product.github %} detects a vulnerable dependency, a {% d
 
 {% ifversion ghec %}Alerts generated from an innersource advisory carry a distinct "Innersource" label, distinguishing them from alerts based on public advisories.
 
-{% endif %}For information about viewing and managing alerts, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts).
+{% endif %}For information about viewing and managing alerts, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/view-dependabot-alerts).
 
 ## Who can enable alerts?
 
@@ -52,7 +52,7 @@ Repository administrators and organization owners can enable {% data variables.p
 
 {% data reusables.repositories.enable-security-alerts %}
 
-See [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts).
+See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-dependabot-alerts).
 
 {% ifversion dependabot-alerts-assignees %}
 
@@ -78,7 +78,7 @@ When an alert's assignees change, {% data variables.product.github %} sends an `
 
 You can manage alert assignments programmatically using the REST API. For more information, see [AUTOTITLE](/rest/dependabot/alerts).
 
-For information about assigning alerts, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-and-prioritizing-dependabot-alerts).
+For information about assigning alerts, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/view-dependabot-alerts#viewing-and-prioritizing-dependabot-alerts).
 
 {% endif %}
 
@@ -95,7 +95,7 @@ You can override the default behavior by choosing the type of notifications you 
 
 Regardless of your notification preferences, when {% data variables.product.prodname_dependabot %} is first enabled, {% data variables.product.github %} does not send notifications for all vulnerable dependencies found in your repository. Instead, you will receive notifications for new vulnerable dependencies identified after {% data variables.product.prodname_dependabot %} is enabled, if your notification preferences allow it.
 
-If you are concerned about receiving too many notifications, we recommend leveraging {% data variables.dependabot.auto_triage_rules %} to auto-dismiss low-risk alerts. Rules are applied before alert notifications are sent, so alerts that are auto-dismissed upon creation do not send notifications. See [AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules).
+If you are concerned about receiving too many notifications, we recommend leveraging {% data variables.dependabot.auto_triage_rules %} to auto-dismiss low-risk alerts. Rules are applied before alert notifications are sent, so alerts that are auto-dismissed upon creation do not send notifications. See [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-auto-triage-rules).
 
 Alternatively, you can opt into the weekly email digest, or even completely turn off notifications while keeping {% data variables.product.prodname_dependabot_alerts %} enabled.
 
@@ -116,15 +116,15 @@ Alternatively, you can opt into the weekly email digest, or even completely turn
 
 ## {% data variables.copilot.copilot_chat %} integration
 
-With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% data variables.copilot.copilot_chat_short %} questions about {% data variables.product.prodname_dependabot_alerts %} in your organization's repositories. For more information, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features).
+With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% data variables.copilot.copilot_chat_short %} questions about {% data variables.product.prodname_dependabot_alerts %} in your organization's repositories. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/get-started-with-chat#security-alert-questions).
 
 {% endif %}
 
 ## Further reading
 
 {% ifversion dependabot-malware-alerts %}
-* [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-malware-alerts){% endif %}{% ifversion ghec %}
+* [AUTOTITLE](/code-security/concepts/supply-chain-security/malware-alerts){% endif %}{% ifversion ghec %}
 * [AUTOTITLE](/code-security/concepts/vulnerability-reporting-and-management/innersource-advisories){% endif %}
-* [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)
-* [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)
-* [AUTOTITLE](/code-security/getting-started/auditing-security-alerts)
+* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/view-dependabot-alerts)
+* [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-security-updates)
+* [AUTOTITLE](/code-security/concepts/security-at-scale/audit-security-alerts)

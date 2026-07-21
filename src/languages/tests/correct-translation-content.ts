@@ -687,6 +687,19 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% данные reusables.foo %}', 'ru')).toBe('{% data reusables.foo %}')
     })
 
+    test('fixes fully translated "data reusables" tag prefixes', () => {
+      // "данных, многократно используемых" = "data, repeatedly used"
+      expect(fix('{% данных, многократно используемых.copilot.jetbrains-settings %}', 'ru')).toBe(
+        '{% data reusables.copilot.jetbrains-settings %}',
+      )
+      // "данных, которые можно использовать повторно" = "data that can be reused"
+      expect(
+        fix('{% данных, которые можно использовать повторно.projects.what-gets-copied %}', 'ru'),
+      ).toBe('{% data reusables.projects.what-gets-copied %}')
+      // already-correct input is left unchanged
+      expect(fix('{% data reusables.copilot.foo %}', 'ru')).toBe('{% data reusables.copilot.foo %}')
+    })
+
     test('fixes broadened данных. pattern', () => {
       expect(fix('{% данных.product.github %}', 'ru')).toBe('{% data variables.product.github %}')
     })

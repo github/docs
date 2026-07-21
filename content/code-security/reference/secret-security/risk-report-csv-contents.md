@@ -19,7 +19,7 @@ The {% data variables.product.prodname_secret_risk_assessment %} report CSV file
 | ---------- | ---------------------- | --------------------------------------------------------- |
 | A          | `Organization Name`    | The name of the organization the secret was detected in |
 | B          | `Name`                 | The token name for the type of secret |
-| C          | `Slug`                 | The normalized string for the token. This corresponds to `Token` in the table of supported secrets. See [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets). |
+| C          | `Slug`                 | The normalized string for the token. This corresponds to `Token` in the table of supported secrets. See [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns#supported-secrets). |
 | D          | `Push Protected`       | A `boolean` to indicate whether the secret would be detected and blocked by push protection if it were enabled |
 | E          | `Generic Pattern` | A `boolean` to indicate whether the secret matched a generic pattern and would generate an alert if {% data variables.product.prodname_secret_scanning %} with generic patterns were enabled |
 | F          | `Secret Count`         | An aggregate count of the active and inactive secrets found for the token type |
@@ -27,4 +27,4 @@ The {% data variables.product.prodname_secret_risk_assessment %} report CSV file
 
 ## Next steps
 
-To learn which secrets you should prioritize for remediation, see [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/interpreting-secret-risk-assessment-results#step-5-prioritizing-remediation-and-related-actions).
+To learn which secrets you should prioritize for remediation, see [AUTOTITLE](/code-security/tutorials/secure-your-organization/interpret-secret-risk-assessment#step-5-prioritizing-remediation-and-related-actions).

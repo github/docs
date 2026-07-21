@@ -21,6 +21,10 @@ These settings apply enterprise-wide, with no organization-level override. For e
 
 Managed settings are loaded locally when the client starts, even if the device has no network connection. This means controls such as disabled bypass mode and restricted plugin configuration still apply before sign in or any server round trip, and remain active when users switch accounts.
 
+## Defining settings
+
+For detailed information on the available properties and syntax, see [AUTOTITLE](/copilot/reference/enterprise-managed-settings-reference).
+
 ## Choosing a deployment method
 
 There are multiple ways to deploy enterprise managed settings. Use the following guidelines to choose the right method for you. For any method, pilot on a small device group before broad deployment.
@@ -54,121 +58,6 @@ There are multiple ways to deploy enterprise managed settings. Use the following
 1. Apply file permissions according to your enterprise security requirements.
 1. Ask users to restart supported clients so the updated policy is loaded at startup.
 1. Confirm the settings took effect. See [Verifying the configuration has applied](#verifying-the-configuration-has-applied).
-
-## Consolidated schema reference
-
-The `{% data variables.copilot.managed_setting_file %}` file supports the following top-level properties. You can include any combination of these properties based on which settings you want to enforce.
-
-```json copy
-{
-  "extraKnownMarketplaces": {
-    "agent-skills": {
-      "source": {
-        "source": "github",
-        "repo": "OWNER/REPO"
-      }
-    }
-  },
-  "strictKnownMarketplaces": [
-    {
-      "source": "github",
-      "repo": "OWNER/REPO"
-    }
-  ],
-  "enabledPlugins": {
-    "PLUGIN-NAME@MARKETPLACE-NAME": true
-  },
-  "permissions": {
-    "disableBypassPermissionsMode": "disable"
-  },
-  "model": "auto"
-}
-```
-
-* `extraKnownMarketplaces`: Defines additional plugin marketplaces available to users. Each entry is a named marketplace object containing a `source` property that specifies the provider (`"github"`) and the repository in `OWNER/REPO` format.
-* `strictKnownMarketplaces`: Restricts plugin installation to only the marketplaces explicitly defined by the enterprise. Each entry is a marketplace object containing a `source` property. The `source` specifies the provider as either `"github"` with a `repo` in `OWNER/REPO` format, or `"git"` with a `url` pointing to a git repository.
-* `enabledPlugins`: Defines plugins that are automatically installed for all enterprise users. Each entry uses the format `PLUGIN-NAME@MARKETPLACE-NAME` as the key, with a boolean value of `true` to enable the plugin.
-* `permissions`: Controls whether users can bypass command approval. Set `disableBypassPermissionsMode` to `"disable"` to prevent users from turning on bypass mode. See [Disabling bypass mode for your enterprise](#disabling-bypass-mode-for-your-enterprise) further in this article for more information.
-* `model`: Controls default model governance settings. Set to `"auto"` so new conversations start with Copilot auto model selection by default. Users can still switch to a different model on a per-conversation basis.
-
-## Configuring enterprise plugin standards
-
-You can apply settings to control users' available plugin marketplaces and default-installed plugins. See [AUTOTITLE](/copilot/concepts/agents/about-enterprise-plugin-standards).
-
-{% data reusables.copilot.create-managed-settings %}
-1. Add the `extraKnownMarketplaces`, `strictKnownMarketplaces`, and `enabledPlugins` properties you need to the file. See the example and property descriptions in [Consolidated schema reference](#consolidated-schema-reference). Merge these properties into an existing file rather than overwriting it, so you don't remove settings configured for other policies, such as `permissions`.
-
-   ```json copy
-   {
-     "extraKnownMarketplaces": {
-       "agent-skills": {
-         "source": {
-           "source": "github",
-           "repo": "OWNER/REPO"
-         }
-       }
-     },
-     "strictKnownMarketplaces": [
-       {
-         "source": "github",
-         "repo": "OWNER/REPO"
-       }
-     ],
-     "enabledPlugins": {
-       "PLUGIN-NAME@MARKETPLACE-NAME": true
-     }
-   }
-   ```
-
-1. Commit and push your changes to the default branch of the `.github-private` repository.
-
-## Setting {% data variables.product.prodname_copilot_short %} auto model selection as the default
-
-You can set auto model selection as the default model for new conversations in {% data variables.copilot.copilot_cli_short %} and {% data variables.product.prodname_vscode_shortname %}. To learn more see [AUTOTITLE](/copilot/concepts/models/auto-model-selection). By setting it as the default for your enterprise, you ensure new conversations start with Auto model selected.
-
-### What setting Auto model as the default does
-
-When you `model` to `"auto"`, new conversations start with Auto model selected in both clients:
-
-* In {% data variables.copilot.copilot_cli_short %}, new sessions use Auto model unless the user specifies a different model.
-* In {% data variables.product.prodname_vscode_shortname %}, the model picker defaults to Auto model when a user starts a new conversation.
-
-Users can still switch to a different model on a per-conversation basis.
-
-### Configuring the setting
-
-{% data reusables.copilot.create-managed-settings %}
-1. Add the `model` property to the file, set to `"auto"`.
-
-   ```json copy
-   {
-     "model": "auto"
-   }
-   ```
-
-## Disabling bypass mode for your enterprise
-
-You can prevent users from enabling bypass mode (also known as "YOLO mode") in {% data variables.copilot.copilot_cli_short %} and {% data variables.product.prodname_vscode_shortname %}. Bypass mode lets an agent run commands, access files, and fetch URLs without asking for approval. By disabling it for your enterprise, you ensure that a person reviews each of these actions.
-
-### What disabling bypass mode prevents
-
-When you set `disableBypassPermissionsMode` to `"disable"`, users cannot turn on bypass mode in either client:
-
-* In {% data variables.copilot.copilot_cli_short %}, the `--yolo`, `--allow-all`, `--allow-all-tools`, `--allow-all-paths`, and `--allow-all-urls` command-line options and the `/yolo` and `/allow-all` slash commands are blocked.
-* In {% data variables.product.prodname_vscode_shortname %}, the global auto-approve setting (`chat.tools.global.autoApprove`), also known as "YOLO mode," is turned off and cannot be re-enabled.
-
-### Configuring the setting
-
-{% data reusables.copilot.create-managed-settings %}
-1. Add the `permissions` property to the file, with `disableBypassPermissionsMode` set to `"disable"`. If the file already has a `permissions` object (for example, from other permission settings), merge this key into it rather than replacing the object.
-
-   ```json copy
-   {
-     "permissions": {
-       "disableBypassPermissionsMode": "disable"
-     }
-   }
-   ```
 
 ## Verifying the configuration has applied
 

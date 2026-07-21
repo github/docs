@@ -3,7 +3,7 @@ title: Getting started with the GitHub Copilot app
 shortTitle: Quickstart
 allowTitleToDifferFromFilename: true
 intro: 'Sign in to the {% data variables.copilot.github_copilot_app %}, ask your first question in a quick chat, and then create a full agent session to make changes to your code.'
-product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_source=docs-getting-started-signup&utm_medium=docs&utm_campaign=github-copilot-app-ga-2026" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/ai/github-app" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download {% data variables.copilot.github_copilot_app %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 contentType: how-tos
@@ -25,7 +25,7 @@ For a conceptual overview of the {% data variables.copilot.github_copilot_app %}
 
 ## Installing the {% data variables.copilot.github_copilot_app %}
 
-1. Visit the [download page for {% data variables.copilot.github_copilot_app %}](https://gh.io/app?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-getting-started-download&utm_medium=docs&utm_campaign=github-copilot-app-ga-2026).
+1. Visit the [download page for {% data variables.copilot.github_copilot_app %}](https://github.com/features/ai/github-app).
 1. Download the app for your platform.
 
 ## Opening the {% data variables.copilot.github_copilot_app %} for the first time

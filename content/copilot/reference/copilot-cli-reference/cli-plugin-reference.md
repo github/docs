@@ -20,7 +20,7 @@ For an overview of what plugins are and how they work across {% data variables.p
 
 ## CLI commands
 
-You can use the following commands in the terminal to manage plugins for {% data variables.copilot.copilot_cli_short %}.
+You can use the following commands in the terminal to manage plugins for {% data variables.copilot.copilot_cli_short %}. `copilot plugin` and `copilot plugins` are interchangeable—use whichever reads better for the subcommand.
 
 | Command                                        | Description |
 |------------------------------------------------|-------------|
@@ -30,10 +30,13 @@ You can use the following commands in the terminal to manage plugins for {% data
 | `copilot plugin update NAME`                   | Update a named plugin. Use `--all` to update all installed plugins at once. |
 | `copilot plugin enable NAME`                   | Enable a previously disabled plugin |
 | `copilot plugin disable NAME`                  | Disable a plugin without uninstalling it |
-| `copilot plugin marketplace add SPECIFICATION` | Register a marketplace |
+| `copilot plugin marketplace add SPECIFICATION` | Register a marketplace. Use `--name NAME` to set a custom local name. |
 | `copilot plugin marketplace list`              | List registered marketplaces |
 | `copilot plugin marketplace browse NAME`       | Browse marketplace plugins |
-| `copilot plugin marketplace remove NAME`       | Unregister a marketplace |
+| `copilot plugin marketplace update NAME`       | Re-fetch a marketplace's plugin catalog. Use `--all` to refresh every registered marketplace. |
+| `copilot plugin marketplace remove NAME`       | Unregister a marketplace. Refused if plugins from the marketplace are still installed; pass `--force` to also uninstall those plugins. |
+
+Non-interactively, `copilot plugins enable NAME --plugin`, `copilot plugins disable NAME --plugin`, and `copilot plugins remove NAME --plugin` provide the same enable, disable, and uninstall operations. `--plugin` is the default kind and can be omitted for these three commands. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#using-copilot-plugins-list) for the non-interactive `--mcp` and `--skill` kinds, which extend these commands to MCP servers and skills.
 
 ### Plugin specification for `install` command
 
@@ -78,10 +81,10 @@ These tell the CLI where to find your plugin's components. All are optional. The
 | `agents`    | string \| string[] | `agents/`  | Path(s) to agent directories (`.agent.md` files). |
 | `skills`    | string \| string[] | `skills/`  | Path(s) to skill directories (`SKILL.md` files). |
 | `commands`  | string \| string[] | —          | Path(s) to command directories. |
-| `hooks`     | string \| object   | —          | Path to a hooks config file, or an inline hooks object. |
+| `hooks`     | string \| object   | —          | Path to a hooks configuration file, or an inline hooks object. |
 | `extensions`| string \| string[] \| object | —          | Path(s) to extension directories. Use `{ paths: [...], exclusive: true }` to suppress built-in extensions. |
-| `mcpServers`| string \| object   | —          | Path to an MCP config file (e.g., `.mcp.json`), or inline server definitions. |
-| `lspServers`| string \| object   | —          | Path to an LSP config file, or inline server definitions. |
+| `mcpServers`| string \| object   | —          | Path to an MCP configuration file (e.g., `.mcp.json`), or inline server definitions. |
+| `lspServers`| string \| object   | —          | Path to an LSP configuration file, or inline server definitions. |
 
 ### Example `plugin.json` file
 
@@ -183,10 +186,40 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 | `commands`    | string \| string[] | No       | Path(s) to command directories. |
 | `agents`      | string \| string[] | No       | Path(s) to agent directories. |
 | `skills`      | string \| string[] | No       | Path(s) to skill directories. |
-| `hooks`       | string \| object   | No       | Path to hooks config or inline hooks object. |
-| `mcpServers`  | string \| object   | No       | MCP servers to activate when the plugin is installed. Accepts an inline server map or a path to a JSON config file. Used when the plugin source does not ship its own MCP configuration. |
-| `lspServers`  | string \| object   | No       | Path to LSP config or inline server definitions. |
+| `hooks`       | string \| object   | No       | Path to hooks configuration or inline hooks object. |
+| `mcpServers`  | string \| object   | No       | MCP servers to activate when the plugin is installed. Accepts an inline server map or a path to a JSON configuration file. Used when the plugin source does not ship its own MCP configuration. |
+| `lspServers`  | string \| object   | No       | Path to LSP configuration or inline server definitions. |
 | `strict`      | boolean            | No       | When `true` (the default), plugins must conform to the full schema and validation rules. When `false`, relaxed validation is used, allowing more flexibility—especially for direct installs or legacy plugins. |
+
+#### Plugin source types
+
+The `source` field on a plugin entry accepts a relative path string, or an object describing a {% data variables.product.github %} repository or Git URL source:
+
+```json
+{
+    "source": {
+        "source": "github",
+        "repo": "owner/repo",
+        "ref": "v1.0.0",
+        "path": "plugins/my-plugin"
+    }
+}
+```
+
+Both the `github` and `url` source types accept an optional `sha` field to pin installs to an exact commit, in addition to (or instead of) `ref`:
+
+```json
+{
+    "source": {
+        "source": "github",
+        "repo": "owner/repo",
+        "sha": "a94a8fe5ccb19ba61c4c0873d391e987982fbbd3",
+        "path": "plugins/my-plugin"
+    }
+}
+```
+
+`sha` must be a full 40-character commit SHA. Pin to a `sha` for reproducible installs that are immune to force-pushes or tag/branch moves.
 
 ## File locations
 
@@ -213,7 +246,7 @@ If you install multiple plugins it's possible that some custom agents, skills, M
 
 * **MCP servers** use last-wins precedence.
 
-  If you install a plugin that defines an MCP server with the same server name as an MCP server you have already installed, the plugin's definition takes precedence. You can use the `--additional-mcp-config` command-line option to override an MCP server configuration with the same name, installed using a plugin.
+  If you install a plugin that defines an MCP server with the same server name as an MCP server you have already installed, the plugin's definition takes precedence. You can use the `--additional-mcp-config` command-line option to override an MCP server configuration with the same name, installed using a plugin. If two or more plugins declare an MCP server with the same name, the CLI uses the version from the plugin that loaded last and shows a warning naming every prior plugin that defined it.
 
 * **Built-in tools and agents** are always present and cannot be overridden by user-defined components.
 

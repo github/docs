@@ -21,17 +21,17 @@ category:
 
 {% data reusables.dependabot.dependabot-on-actions-troubleshooting-workflows %}
 
-Some troubleshooting advice is provided in this article. You can also see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idpermissions).
+Some troubleshooting advice is provided in this article. You can also see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idpermissions).
 
 ### Accessing secrets
 
-When a {% data variables.product.prodname_dependabot %} event triggers a workflow, the only secrets available to the workflow are {% data variables.product.prodname_dependabot %} secrets. {% data variables.product.prodname_actions %} secrets are **not available**. You must therefore store any secrets that are used by a workflow triggered by {% data variables.product.prodname_dependabot %} events as {% data variables.product.prodname_dependabot %} secrets. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#storing-credentials-for-dependabot-to-use).
+When a {% data variables.product.prodname_dependabot %} event triggers a workflow, the only secrets available to the workflow are {% data variables.product.prodname_dependabot %} secrets. {% data variables.product.prodname_actions %} secrets are **not available**. You must therefore store any secrets that are used by a workflow triggered by {% data variables.product.prodname_dependabot %} events as {% data variables.product.prodname_dependabot %} secrets. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#storing-credentials-for-dependabot-to-use).
 
-{% data variables.product.prodname_dependabot %} secrets are added to the `secrets` context and referenced using exactly the same syntax as secrets for {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/actions/security-guides/encrypted-secrets#using-encrypted-secrets-in-a-workflow).
+{% data variables.product.prodname_dependabot %} secrets are added to the `secrets` context and referenced using exactly the same syntax as secrets for {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets#using-encrypted-secrets-in-a-workflow).
 
 If you have a workflow that will be triggered by {% data variables.product.prodname_dependabot %} and also by other actors, the simplest solution is to store the token with the permissions required in an action and in a {% data variables.product.prodname_dependabot %} secret with identical names. Then the workflow can include a single call to these secrets. If the secret for {% data variables.product.prodname_dependabot %} has a different name, use conditions to specify the correct secrets for different actors to use.
 
-For examples that use conditions, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions).
+For examples that use conditions, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/automate-dependabot-with-actions).
 
 To access a private container registry on AWS with a user name and password, a workflow must include a secret for `username` and `password`.
 
@@ -84,8 +84,8 @@ jobs:
 
 {% endraw %}
 
-For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token).
+For more information, see [AUTOTITLE](/actions/tutorials/authenticate-with-github_token#modifying-the-permissions-for-the-github_token).
 
 ## Manually re-running a workflow
 
-When you manually re-run a {% data variables.product.prodname_dependabot %} workflow, it will run with the same privileges as before even if the user who initiated the rerun has different privileges. For more information, see [AUTOTITLE](/actions/managing-workflow-runs/re-running-workflows-and-jobs).
+When you manually re-run a {% data variables.product.prodname_dependabot %} workflow, it will run with the same privileges as before even if the user who initiated the rerun has different privileges. For more information, see [AUTOTITLE](/actions/how-tos/manage-workflow-runs/re-run-workflows-and-jobs).

@@ -92,9 +92,9 @@ Read access to the repository.
 
 ### Key resources
 
-* [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/exploring-the-dependencies-of-a-repository)
+* [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/explore-dependencies)
 * [AUTOTITLE](/code-security/reference/supply-chain-security/dependency-graph-supported-package-ecosystems)
-* [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/exporting-a-software-bill-of-materials-for-your-repository)
+* [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/export-dependencies-as-sbom)
 
 ### Notes and limitations
 
@@ -143,7 +143,7 @@ Read access to the repository.
 
 ### Key resources
 
-* [AUTOTITLE](/code-security/concepts/security-at-scale/about-security-overview)
+* [AUTOTITLE](/code-security/concepts/security-at-scale/security-overview)
 * [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-security-insights#viewing-the-security-overview-dashboard-for-your-organization)
 
 ### Notes and limitations
@@ -185,4 +185,4 @@ Read access to the repository.
 * You can download logs for an entire workflow run or for a specific job programmatically using the REST API. Both endpoints return a redirect URL that is valid for one minute. For more information, see [AUTOTITLE](/rest/actions/workflow-runs) and [AUTOTITLE](/rest/actions/workflow-jobs).
 * Workflow run logs only capture standard output from workflow steps. Activity that does not write to standard output, such as network calls, file system modifications, or background processes, does not appear in the logs.
 * For {% data variables.product.github %}-hosted runners, the runner environment is ephemeral and destroyed after the job completes. {% data variables.product.github %} does not retain any data beyond the workflow run logs for these runners. For self-hosted runners, additional host-level or network telemetry may be available from your own infrastructure.
-* For a more comprehensive investigation, correlate workflow run logs with audit log events. Events such as `git.clone`, `git.fetch`, `git.push`, `protected_branch.create`, and `protected_branch.policy_override` can provide additional context. Because Git events in {% data variables.product.github %}-hosted audit logs are currently retained for only 7 days for enterprises, setting up streamed enterprise audit logs ahead of time is important for this type of investigation. For more information, see [AUTOTITLE](/code-security/tutorials/secure-your-organization/preparing-for-security-incidents).
+* For a more comprehensive investigation, correlate workflow run logs with audit log events. Events such as `git.clone`, `git.fetch`, `git.push`, `protected_branch.create`, and `protected_branch.policy_override` can provide additional context. Because Git events in {% data variables.product.github %}-hosted audit logs are currently retained for only 7 days for enterprises, setting up streamed enterprise audit logs ahead of time is important for this type of investigation. For more information, see [AUTOTITLE](/code-security/tutorials/secure-your-organization/prepare-for-a-security-incident).

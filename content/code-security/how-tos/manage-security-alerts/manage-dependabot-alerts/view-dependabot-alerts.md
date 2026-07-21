@@ -21,7 +21,7 @@ category:
 
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-Your repository's {% data variables.product.prodname_dependabot %} tab lists all open and closed {% data variables.product.prodname_dependabot_alerts %} and corresponding {% data variables.product.prodname_dependabot_security_updates %}. You can filter alerts by package, ecosystem, or manifest. You can sort the list of alerts, and you can click into specific alerts for more details. You can also dismiss or reopen alerts, either one by one or by selecting multiple alerts at once. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
+Your repository's {% data variables.product.prodname_dependabot %} tab lists all open and closed {% data variables.product.prodname_dependabot_alerts %} and corresponding {% data variables.product.prodname_dependabot_security_updates %}. You can filter alerts by package, ecosystem, or manifest. You can sort the list of alerts, and you can click into specific alerts for more details. You can also dismiss or reopen alerts, either one by one or by selecting multiple alerts at once. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-alerts).
 
 ## About updates for vulnerable dependencies in your repository
 
@@ -29,7 +29,7 @@ Each {% data variables.product.prodname_dependabot %} alert has a unique numeric
 
 You can filter and sort {% data variables.product.prodname_dependabot_alerts %} using a variety of filters and sort options available on the user interface. For more information, see [Viewing and prioritizing {% data variables.product.prodname_dependabot_alerts %}](#viewing-and-prioritizing-dependabot-alerts) below.
 
-You can also audit actions taken in response to {% data variables.product.prodname_dependabot %} alerts. For more information, see [AUTOTITLE](/code-security/getting-started/auditing-security-alerts).
+You can also audit actions taken in response to {% data variables.product.prodname_dependabot %} alerts. For more information, see [AUTOTITLE](/code-security/concepts/security-at-scale/audit-security-alerts).
 
 ## Viewing and prioritizing {% data variables.product.prodname_dependabot_alerts %}
 
@@ -75,14 +75,14 @@ When you assign an alert to an AI agent, the agent automatically creates a sessi
    * Select a custom agent you have configured (recommended for specialized tasks).
 {% endif %}
 
-1. Optionally, to suggest an improvement to the related security advisory, on the right-hand side of the alert details page, click **Suggest improvements for this advisory on the {% data variables.product.prodname_advisory_database %}**. See [AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database).
+1. Optionally, to suggest an improvement to the related security advisory, on the right-hand side of the alert details page, click **Suggest improvements for this advisory on the {% data variables.product.prodname_advisory_database %}**. See [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/edit-advisory-database).
 
 ### Tips for prioritizing alerts
 
 * Use the **Most important** sort order to focus on alerts with the highest potential impact.
 * Prioritize alerts that affect production dependencies over development dependencies.{% ifversion dependabot-alerts-assignees %}
 * Use the **Assignees** feature to clarify who is responsible for addressing each alert, so your team can track and remediate vulnerabilities more effectively.{% endif %}
-* Use {% data variables.dependabot.auto_triage_rules %} to automatically prioritize or manage alerts. See [AUTOTITLE](/code-security/concepts/supply-chain-security/about-dependabot-auto-triage-rules).
+* Use {% data variables.dependabot.auto_triage_rules %} to automatically prioritize or manage alerts. See [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-auto-triage-rules).
 
 For more information about supported ecosystems and manifest files for dependency scope, see [AUTOTITLE](/code-security/reference/supply-chain-security/supported-ecosystems-and-manifests-for-dependency-scope).
 
@@ -94,7 +94,7 @@ To retrieve alerts programmatically, see the [AUTOTITLE](/rest/dependabot/alerts
 
 {% ifversion copilot-chat-ghas-alerts %}
 
-With a {% data variables.copilot.copilot_enterprise %} license, you can also ask {% data variables.copilot.copilot_chat %} for help to better understand {% data variables.product.prodname_dependabot_alerts %} in repositories in your organization. For more information, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features).
+With a {% data variables.copilot.copilot_enterprise %} license, you can also ask {% data variables.copilot.copilot_chat %} for help to better understand {% data variables.product.prodname_dependabot_alerts %} in repositories in your organization. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github#asking-questions-about-alerts-from-github-advanced-security-features).
 
 {% endif %}
 
@@ -110,7 +110,7 @@ You can review the details of a {% data variables.product.prodname_dependabot %}
 1. Optionally, if you do not use {% data variables.product.prodname_dependabot_security_updates %}, you can use the information on the page to decide which version of the dependency to upgrade to and create a pull request to update the dependency to a secure version.
 1. When you're ready to update your dependency and resolve the vulnerability, merge the pull request.
 
-   Each pull request raised by {% data variables.product.prodname_dependabot %} includes information on commands you can use to control {% data variables.product.prodname_dependabot %}. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands).
+   Each pull request raised by {% data variables.product.prodname_dependabot %} includes information on commands you can use to control {% data variables.product.prodname_dependabot %}. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/manage-dependabot-prs#managing-dependabot-pull-requests-with-comment-commands).
 
 ## Dismissing {% data variables.product.prodname_dependabot_alerts %}
 

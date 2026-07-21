@@ -83,7 +83,7 @@ This is useful if your organization requires all code reviews and {% data variab
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the sidebar, under "Code, planning, and automation," click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, and then click **Runner type**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, and then click **Runner type**.
 1. Next to "Runner type configuration," click {% octicon "pencil" aria-label="Edit" %}.
 1. In the "Edit runner type" dialog, select the runner type to use by default across your organization, then click **Save runner selection**.
    * **Standard {% data variables.product.prodname_dotcom %} runner**: {% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.copilot_cloud_agent %} will use the standard {% data variables.product.prodname_dotcom %}-hosted runner.

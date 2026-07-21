@@ -71,4 +71,4 @@ Alternatively, you can store the key as an environment variable. This is not as 
 
 You should not hard-code your private key in your app, even if your code is stored in a private repository.
 
-For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app).
+For more information, see [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app).

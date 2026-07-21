@@ -13,6 +13,11 @@ category:
 
 A support bundle is a compressed archive of diagnostic data from your {% data variables.product.prodname_ghe_server %} instance. You can use support bundles to work with {% data variables.contact.github_support %} on issues and to generate Health Check reports that summarize your instance's configuration, health, and activity.
 
+<!-- expires 2026-08-18 -->
+> [!IMPORTANT]
+> Beginning August 18, 2026, the `ghe-support-bundle`, `ghe-cluster-support-bundle`, and `ghe-support-upload` commands require you to be on 3.21.3, 3.20.5, 3.19.9, 3.18.12, or 3.17.18 (or later). Please update your {% data variables.product.prodname_ghe_server %} instance to the latest patch for your version line before August 18, 2026. If you cannot update to the required patch version before August 18, 2026, and need to upload a support bundle, contact {% data variables.contact.contact_ent_server_support %} for guidance.
+<!-- end expires 2026-08-18 -->
+
 ## When to generate a support bundle
 
 Generate a support bundle in several scenarios:
@@ -117,6 +122,11 @@ The `ghe-diagnostics` command generates a smaller diagnostic file containing a s
 The Monitor page in the {% data variables.enterprise.management_console %} provides real-time and historical metrics about your instance. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards).
 
 ## Generating and sharing support bundles
+
+<!-- expires 2026-08-18 -->
+> [!IMPORTANT]
+> Beginning August 18, 2026, the `ghe-support-bundle`, `ghe-cluster-support-bundle`, and `ghe-support-upload` commands require you to be on 3.21.3, 3.20.5, 3.19.9, 3.18.12, or 3.17.18 (or later). Please update your {% data variables.product.prodname_ghe_server %} instance to the latest patch for your version line before August 18, 2026. If you cannot update to the required patch version before August 18, 2026, and need to upload a support bundle, contact {% data variables.contact.contact_ent_server_support %} for guidance.
+<!-- end expires 2026-08-18 -->
 
 You can generate and share support bundles using the {% data variables.enterprise.management_console %} or the command line. For detailed instructions, see [AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-support-bundles).
 

@@ -78,7 +78,7 @@ Autoscaling allows you to dynamically adjust the number of self-hosted runners b
 
 {% ifversion fpt or ghec %}
 
-{% data variables.product.github %}-hosted runners inherently autoscale based on your needs. {% data variables.product.github %}-hosted runners can be a low-maintenance and cost-effective alternative to developing or implementing autoscaling solutions. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners).
+{% data variables.product.github %}-hosted runners inherently autoscale based on your needs. {% data variables.product.github %}-hosted runners can be a low-maintenance and cost-effective alternative to developing or implementing autoscaling solutions. For more information, see [AUTOTITLE](/actions/concepts/runners/github-hosted-runners).
 
 {% endif %}
 
@@ -86,7 +86,7 @@ Autoscaling allows you to dynamically adjust the number of self-hosted runners b
 
 {% data variables.product.github %} recommends ARC for organizations with Kubernetes infrastructure and teams that have Kubernetes expertise. ARC handles the full lifecycle of runners within your cluster, from provisioning to job execution to cleanup.
 
-For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller) and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-support-for-actions-runner-controller).
+For more information, see [AUTOTITLE](/actions/concepts/runners/actions-runner-controller) and [AUTOTITLE](/actions/concepts/runners/support-for-arc).
 
 ### {% data variables.product.prodname_actions %} Runner Scale Set Client
 
@@ -106,7 +106,7 @@ The {% data variables.product.prodname_actions %} Runner Scale Set Client is an 
 
 This approach allows you to manage your runners as ephemeral systems, since you can use automation to provide a clean environment for each job. This helps limit the exposure of any sensitive resources from previous jobs, and also helps mitigate the risk of a compromised runner receiving new jobs.
 
->[!WARNING]The runner application log files for ephemeral runners must be forwarded to an external log storage solution for troubleshooting and diagnostic purposes. While it is not required for ephemeral runners to be deployed, {% data variables.product.prodname_dotcom %} recommends ensuring runner logs are forwarded and preserved externally before deploying an ephemeral runner autoscaling solution in a production environment. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#reviewing-the-self-hosted-runner-application-log-files).
+> [!WARNING]The runner application log files for ephemeral runners must be forwarded to an external log storage solution for troubleshooting and diagnostic purposes. While it is not required for ephemeral runners to be deployed, {% data variables.product.prodname_dotcom %} recommends ensuring runner logs are forwarded and preserved externally before deploying an ephemeral runner autoscaling solution in a production environment. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/monitor-and-troubleshoot#reviewing-the-self-hosted-runner-application-log-files).
 
 To add an ephemeral runner to your environment, include the `--ephemeral` parameter when registering your runner using `config.sh`. For example:
 
@@ -133,7 +133,7 @@ To turn off automatic software updates and install software updates yourself, sp
 
 If you disable automatic updates, you must still update your runner version regularly. New functionality in {% data variables.product.prodname_actions %} requires changes in both the {% data variables.product.prodname_actions %} service _and_ the runner software. The runner may not be able to correctly process jobs that take advantage of new features in {% data variables.product.prodname_actions %} without a software update.
 
-If you disable automatic updates, you will be required to update your runner version within 30 days of a new version being made available. You may want to subscribe to notifications for releases in the [`actions/runner` repository](https://github.com/actions/runner/releases). For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#about-custom-notifications).
+If you disable automatic updates, you will be required to update your runner version within 30 days of a new version being made available. You may want to subscribe to notifications for releases in the [`actions/runner` repository](https://github.com/actions/runner/releases). For more information, see [AUTOTITLE](/subscriptions-and-notifications/get-started/configuring-notifications#about-custom-notifications).
 
 For instructions on how to install the latest runner version, see the installation instructions for [the latest release](https://github.com/actions/runner/releases).
 
@@ -141,9 +141,9 @@ For instructions on how to install the latest runner version, see the installati
 
 ### Webhooks for autoscaling
 
-You can create your own autoscaling environment by using payloads received from the [`workflow_job`](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook. This webhook is available at the repository, organization, and enterprise levels, and the payload for this event contains an `action` key that corresponds to the stages of a workflow job's life-cycle; for example when jobs are `queued`, `in_progress`, and `completed`. You must then create your own scaling automation in response to these webhook payloads.
+You can create your own autoscaling environment by using payloads received from the [`workflow_job`](/webhooks/webhook-events-and-payloads#workflow_job) webhook. This webhook is available at the repository, organization, and enterprise levels, and the payload for this event contains an `action` key that corresponds to the stages of a workflow job's life-cycle; for example when jobs are `queued`, `in_progress`, and `completed`. You must then create your own scaling automation in response to these webhook payloads.
 
-* For more information about the `workflow_job` webhook, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job).
+* For more information about the `workflow_job` webhook, see [AUTOTITLE](/webhooks/webhook-events-and-payloads#workflow_job).
 * To learn how to work with webhooks, see [AUTOTITLE](/webhooks).
 
 > **Note:** This approach relies on the timeliness of webhook delivery for making scaling decisions, which can introduce delays and reliability concerns. Consider using Actions Controller or the Scale Set Client for larger volume autoscaling scenarios.
@@ -201,9 +201,9 @@ If you use an IP address allow list for your {% data variables.product.prodname_
 
 ### Communication with {% data variables.product.prodname_dotcom_the_website %}
 
-Self-hosted runners do not need to connect to {% data variables.product.prodname_dotcom_the_website %} unless you have enabled automatic access to {% data variables.product.prodname_dotcom_the_website %} actions for {% data variables.product.prodname_ghe_server %}. For more information, see [AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise).
+Self-hosted runners do not need to connect to {% data variables.product.prodname_dotcom_the_website %} unless you have enabled automatic access to {% data variables.product.prodname_dotcom_the_website %} actions for {% data variables.product.prodname_ghe_server %}. For more information, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise).
 
-If you want your runner to connect to {% data variables.product.prodname_dotcom_the_website %}, the host machine must be able to make outbound HTTP connections over port 80, or HTTPS connections over port 443. To ensure connectivity over HTTPS, configure TLS for {% data variables.product.prodname_ghe_server %}. See [AUTOTITLE](/enterprise-server@latest/admin/configuration/hardening-security-for-your-enterprise/configuring-tls).
+If you want your runner to connect to {% data variables.product.prodname_dotcom_the_website %}, the host machine must be able to make outbound HTTP connections over port 80, or HTTPS connections over port 443. To ensure connectivity over HTTPS, configure TLS for {% data variables.product.prodname_ghe_server %}. See [AUTOTITLE](/enterprise-server@latest/admin/configuring-settings/hardening-security-for-your-enterprise/configuring-tls).
 
 If you have enabled automatic access to {% data variables.product.prodname_dotcom_the_website %} actions, then the self-hosted runner will connect directly to {% data variables.product.prodname_dotcom_the_website %} to download actions. You must ensure that the machine has the appropriate network access to communicate with the {% data variables.product.prodname_dotcom %} URLs listed below.
 

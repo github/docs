@@ -76,7 +76,7 @@ Additional default filters for {% data variables.product.prodname_code_scanning 
 * `autofilter:true` includes only alerts that appear to be in application code. {% ifversion security-campaigns-autofix %}
 * `autofix:supported` includes only alerts that are for rules that are supported for {% data variables.copilot.copilot_autofix %}.{% endif %}
 
-For more information about filtering alerts, see [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale#selecting-security-alerts-for-remediation) and [AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview).
+For more information about filtering alerts, see [AUTOTITLE](/code-security/tutorials/secure-your-organization/best-practice-fix-alerts-at-scale#selecting-security-alerts-for-remediation) and [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/filtering-alerts-in-security-overview).
 
 {% ifversion security-campaigns-secrets %}
 
@@ -86,7 +86,7 @@ For more information about filtering alerts, see [AUTOTITLE](/code-security/secu
 
 In addition to the core filters, you will usually want to add a filter to limit results to a specific rule name, severity, or tag.
 
-* `is:open autofilter:true {% ifversion security-campaigns-autofix %}autofix:supported {% endif %}rule:java/log-injection` to show only alerts for log injection in Java code. See [AUTOTITLE](/code-security/code-scanning/reference/code-ql-built-in-queries).
+* `is:open autofilter:true {% ifversion security-campaigns-autofix %}autofix:supported {% endif %}rule:java/log-injection` to show only alerts for log injection in Java code. See [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-queries).
 * `is:open autofilter:true {% ifversion security-campaigns-autofix %}autofix:supported {% endif %}tag:external/cwe/cwe-117` to show only alerts for "CWE 117: Improper Output Neutralization for Logs". This includes log injection in Java and other languages.
 * `is:open autofilter:true {% ifversion security-campaigns-autofix %}autofix:supported {% endif %}severity:critical` to show only alerts with a security severity of critical.
 
@@ -97,7 +97,7 @@ In addition to the core filters, you will usually want to add a filter to limit 
 In addition to the core filters, you will usually want to add a filter to limit results to a specific provider, secret type, or secrets that bypassed push protection (enterprise accounts only).
 
 * `is:open provider:azure` to show only alerts for the token provider Azure.
-* `is:open secret-type:azure_ai_services_key,azure_cognitive_services_key` to show only alerts for the tokens "azure_ai_services_key" and "azure_cognitive_services_key". See [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets).
+* `is:open secret-type:azure_ai_services_key,azure_cognitive_services_key` to show only alerts for the tokens "azure_ai_services_key" and "azure_cognitive_services_key". See [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns#supported-secrets).
 * `is:open props.BusinessPriority:Urgent` to show only alerts for repositories where the custom property "BusinessPriority" has the value "Urgent". See [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
 
 {% endif %}
@@ -121,7 +121,7 @@ The new campaign is shown in the sidebar of the **{% data variables.product.prod
 
 {% ifversion code-secret-alert-assignees %}
 > [!TIP]
-> You can assign a campaign alert to anyone with **write** access to the repository, see [Assigning alerts](/code-security/securing-your-organization/fixing-security-alerts-at-scale/about-security-campaigns#assigning-alerts).
+> You can assign a campaign alert to anyone with **write** access to the repository, see [Assigning alerts](/code-security/concepts/security-at-scale/about-security-campaigns#assigning-alerts).
 {% endif %}
 
 {% else %}
@@ -130,11 +130,11 @@ When a campaign is started, anyone with **write** access to a repository include
 
 {% endif %}
 
-For more information about the developer experience, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign).
+For more information about the developer experience, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/fixing-alerts-in-security-campaign).
 
 ### How to increase engagement with the security campaign
 
-The best way to increase engagement with a campaign is to publicize it to the teams you want to collaborate with to remediate alerts. For example, you might work with engineering managers to choose a quieter development period to run a series of security campaigns, each focused on a different type of alert, with associated training sessions. For more ideas, see [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale).
+The best way to increase engagement with a campaign is to publicize it to the teams you want to collaborate with to remediate alerts. For example, you might work with engineering managers to choose a quieter development period to run a series of security campaigns, each focused on a different type of alert, with associated training sessions. For more ideas, see [AUTOTITLE](/code-security/tutorials/secure-your-organization/best-practice-fix-alerts-at-scale).
 
 ## Editing security campaign details
 
@@ -179,4 +179,4 @@ If you don't need to retain the campaign or its data, you can delete it.
 
 ## Next steps
 
-* [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/tracking-security-campaigns)
+* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/tracking-security-campaigns)

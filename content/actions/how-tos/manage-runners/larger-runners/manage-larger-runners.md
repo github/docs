@@ -50,12 +50,12 @@ Organization owners{% ifversion custom-org-roles %} and users with the "Manage o
 
 Repositories are granted access to {% data variables.actions.hosted_runner %}s through runner groups. Enterprise administrators can choose which organizations are granted access to enterprise-level runner groups, and organization owners{% ifversion custom-org-roles %} and users with the "Manage organization runners and runner groups" permission{% endif %} control repository-level access to all {% data variables.actions.hosted_runner %}s.
 
-Organization owners can use and configure enterprise-level runner groups for the repositories in their organization, or they can create organization-level runner groups to control access.{% ifversion custom-org-roles %} Users with the "Manage organization runners and runner groups" can only manage organization-level runner groups. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles).{% endif %}
+Organization owners can use and configure enterprise-level runner groups for the repositories in their organization, or they can create organization-level runner groups to control access.{% ifversion custom-org-roles %} Users with the "Manage organization runners and runner groups" can only manage organization-level runner groups. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles).{% endif %}
 
 * **For enterprise-level runner groups:** {% data reusables.actions.about-enterprise-level-runner-groups %}
 * **For organization-level runner groups:** {% data reusables.actions.about-organization-level-runner-groups %}
 
-Once a repository has access to {% data variables.actions.hosted_runner %}s, the {% data variables.actions.hosted_runner %}s can be added to workflow files. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/running-jobs-on-larger-runners).
+Once a repository has access to {% data variables.actions.hosted_runner %}s, the {% data variables.actions.hosted_runner %}s can be added to workflow files. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners/use-larger-runners).
 
 {% data reusables.actions.runner-groups-org-navigation %}
 1. Select a runner group from either list on the page. Organization-level runner groups are listed at the top of the page, and enterprise-level runner groups are listed under "Shared by the Enterprise."
@@ -63,7 +63,7 @@ Once a repository has access to {% data variables.actions.hosted_runner %}s, the
 
 > [!WARNING]
 > {% data reusables.actions.hosted-runner-security %}
-> For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners).
+> For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners/control-access).
 
 If you want to require workflows to target runners only through runner groups, you can disable standard {% data variables.product.github %}-hosted runners at the organization or enterprise level. See [AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization) and [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise).
 

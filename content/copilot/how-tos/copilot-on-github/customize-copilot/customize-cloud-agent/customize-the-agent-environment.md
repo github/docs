@@ -29,6 +29,8 @@ You can customize {% data variables.product.prodname_copilot_short %}'s developm
 * [Give {% data variables.product.prodname_copilot_short %} a Windows development environment](#switching-copilot-to-a-windows-development-environment), instead of the default Ubuntu Linux environment
 * [Enable Git Large File Storage (LFS)](#enabling-git-large-file-storage-lfs)
 
+{% data variables.copilot.copilot_code-review_short %} also runs in an ephemeral development environment, and you can customize it in the same ways described in this article. By default, {% data variables.copilot.copilot_code-review_short %} reuses your `copilot-setup-steps.yml` file, but you can also create a dedicated `copilot-code-review.yml` file to configure {% data variables.copilot.copilot_code-review_short %}'s environment independently of {% data variables.copilot.copilot_cloud_agent %}. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review#customizing-copilot-code-reviews-environment).
+
 In addition, you can:
 
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables)

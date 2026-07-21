@@ -21,17 +21,17 @@ category:
 
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-When you enable {% data variables.product.prodname_dependabot_version_updates %} for {% data variables.product.prodname_actions %}, {% data variables.product.prodname_dependabot %} will help ensure that references to actions in a repository's _workflow.yml_ file and reusable workflows used inside workflows are kept up to date. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/about-dependabot-version-updates).
+When you enable {% data variables.product.prodname_dependabot_version_updates %} for {% data variables.product.prodname_actions %}, {% data variables.product.prodname_dependabot %} will help ensure that references to actions in a repository's _workflow.yml_ file and reusable workflows used inside workflows are kept up to date. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-version-updates).
 
 ## Enabling {% data variables.product.prodname_dependabot_version_updates %} for actions
 
-1. If you have already enabled {% data variables.product.prodname_dependabot_version_updates %} for other ecosystems or package managers, simply open the existing `dependabot.yml` file. Otherwise, create a `dependabot.yml` configuration file in the `.github` directory of your repository. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates).
+1. If you have already enabled {% data variables.product.prodname_dependabot_version_updates %} for other ecosystems or package managers, simply open the existing `dependabot.yml` file. Otherwise, create a `dependabot.yml` configuration file in the `.github` directory of your repository. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-version-updates#enabling-dependabot-version-updates).
 1. Specify `"github-actions"` as a `package-ecosystem` to monitor.
 1. Set the `directory` to `"/"` to check for workflow files in `.github/workflows`.
 1. Set a `schedule.interval` to specify how often to check for new versions.
 {% data reusables.dependabot.check-in-dependabot-yml %} If you have edited an existing file, save your changes.
 
-You can also enable {% data variables.product.prodname_dependabot_version_updates %} on forks. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-version-updates-on-forks).
+You can also enable {% data variables.product.prodname_dependabot_version_updates %} on forks. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-version-updates#enabling-version-updates-on-forks).
 
 ## Example `dependabot.yml` file for {% data variables.product.prodname_actions %}
 
@@ -52,8 +52,8 @@ updates:
 
 ## Configuring {% data variables.product.prodname_dependabot_version_updates %} for actions
 
-When enabling {% data variables.product.prodname_dependabot_version_updates %} for actions, you must specify values for `package-ecosystem`, `directory`, and `schedule.interval`. There are many more optional properties that you can set to further customize your version updates. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference).
+When enabling {% data variables.product.prodname_dependabot_version_updates %} for actions, you must specify values for `package-ecosystem`, `directory`, and `schedule.interval`. There are many more optional properties that you can set to further customize your version updates. For more information, see [AUTOTITLE](/code-security/reference/supply-chain-security/dependabot-options-reference).
 
 ## Further reading
 
-* [AUTOTITLE](/actions/learn-github-actions)
+* [AUTOTITLE](/actions/how-tos/write-workflows)

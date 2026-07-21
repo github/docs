@@ -20,12 +20,12 @@ category:
   - Report and disclose vulnerabilities
 ---
 
-This article applies to repository-level security advisories in a public repository. To edit a global advisory in the {% data variables.product.prodname_advisory_database %}, see [AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database).
+This article applies to repository-level security advisories in a public repository. To edit a global advisory in the {% data variables.product.prodname_advisory_database %}, see [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/edit-advisory-database).
 
-Collaborators have write permissions to the security advisory. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/permission-levels-for-repository-security-advisories).
+Collaborators have write permissions to the security advisory. For more information, see [AUTOTITLE](/code-security/reference/permissions/repository-security-advisory).
 
 > [!NOTE]
-> {% data reusables.repositories.security-advisory-collaborators-public-repositories %} For more information about removing a collaborator on a security advisory, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory).
+> {% data reusables.repositories.security-advisory-collaborators-public-repositories %} For more information about removing a collaborator on a security advisory, see [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/remove-collaborators).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -37,4 +37,4 @@ Collaborators have write permissions to the security advisory. For more informat
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)
+* [AUTOTITLE](/code-security/tutorials/fix-reported-vulnerabilities/collaborate-in-a-fork)

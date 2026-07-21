@@ -22,7 +22,7 @@ With a dedicated enterprise account, you get enterprise-grade identity provider 
 
 ## Create an enterprise account
 
-To create an enterprise account, contact {% data variables.product.company_short %}'s [sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=purchase). They will provision you with a standard enterprise account with {% data variables.product.prodname_copilot_short %} enabled.
+To create an enterprise account, contact {% data variables.product.company_short %}'s [sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=purchase&ref_style=text). They will provision you with a standard enterprise account with {% data variables.product.prodname_copilot_short %} enabled.
 
 
 ## Add users to your enterprise

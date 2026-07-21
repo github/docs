@@ -22,7 +22,7 @@ category:
 
 {% data reusables.actions.actions-marketplace-ghecom %}
 
-To learn about publishing {% data variables.product.prodname_actions %} in {% data variables.product.prodname_marketplace %}, see [AUTOTITLE](/actions/creating-actions/publishing-actions-in-github-marketplace).
+To learn about publishing {% data variables.product.prodname_actions %} in {% data variables.product.prodname_marketplace %}, see [AUTOTITLE](/actions/how-tos/create-and-publish-actions/publish-in-github-marketplace).
 
 ## Apps
 

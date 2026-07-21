@@ -56,6 +56,6 @@ You can customize which secret patterns are included in push protection, giving 
 
 {% data reusables.secret-scanning.pattern-enablement-org-enterprise %}
 
-For more information on how to read data on the {% data variables.product.prodname_secret_scanning %} pattern configuration page, see [AUTOTITLE](/code-security/reference/secret-security/secret-scanning-pattern-configuration-data).
+For more information on how to read data on the {% data variables.product.prodname_secret_scanning %} pattern configuration page, see [AUTOTITLE](/code-security/reference/secret-security/secret-pattern-data).
 
 {% endif %}

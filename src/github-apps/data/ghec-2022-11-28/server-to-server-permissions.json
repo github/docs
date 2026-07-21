@@ -304,6 +304,17 @@
       },
       {
         "category": "copilot",
+        "slug": "get-copilot-enterprise-repository-report-for-a-specific-day",
+        "subcategory": "copilot-usage-metrics",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/repos-1-day",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
         "slug": "get-copilot-enterprise-user-teams-report-for-a-specific-day",
         "subcategory": "copilot-usage-metrics",
         "verb": "get",
@@ -331,6 +342,45 @@
         "verb": "get",
         "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/users-28-day/latest",
         "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
+  "enterprise_licensing": {
+    "title": "Enterprise Licensing",
+    "displayTitle": "Enterprise permissions for \"Enterprise Licensing\"",
+    "permissions": [
+      {
+        "category": "enterprise-admin",
+        "slug": "get-a-list-of-visual-studio-subscriptions-for-the-enterprise",
+        "subcategory": "licensing",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/visual-studio-subscriptions",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "add-or-update-a-visual-studio-subscription-user-match",
+        "subcategory": "licensing",
+        "verb": "put",
+        "requestPath": "/enterprises/{enterprise}/visual-studio-subscriptions/{visual_studio_subscription_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "delete-a-visual-studio-subscription-user-match",
+        "subcategory": "licensing",
+        "verb": "delete",
+        "requestPath": "/enterprises/{enterprise}/visual-studio-subscriptions/{visual_studio_subscription_id}",
+        "access": "write",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
@@ -2056,6 +2106,50 @@
         "subcategory": "rules",
         "verb": "get",
         "requestPath": "/orgs/{org}/rulesets/{ruleset_id}/history/{version_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "list-organization-custom-patterns",
+        "subcategory": "custom-patterns",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/secret-scanning/custom-patterns",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "bulk-create-organization-custom-patterns",
+        "subcategory": "custom-patterns",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/secret-scanning/custom-patterns",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "bulk-delete-organization-custom-patterns",
+        "subcategory": "custom-patterns",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/secret-scanning/custom-patterns",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "update-an-organization-custom-pattern",
+        "subcategory": "custom-patterns",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/secret-scanning/custom-patterns/{pattern_id}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -4304,6 +4398,17 @@
         "subcategory": "copilot-usage-metrics",
         "verb": "get",
         "requestPath": "/orgs/{org}/copilot/metrics/reports/organization-28-day/latest",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-organization-repository-report-for-a-specific-day",
+        "subcategory": "copilot-usage-metrics",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/metrics/reports/repos-1-day",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -7163,6 +7268,28 @@
         "additional-permissions": false
       },
       {
+        "category": "code-quality",
+        "slug": "get-a-code-quality-setup-configuration",
+        "subcategory": "code-quality",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-quality/setup",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "code-quality",
+        "slug": "update-a-code-quality-setup-configuration",
+        "subcategory": "code-quality",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/code-quality/setup",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
         "category": "code-scanning",
         "slug": "get-a-code-scanning-default-setup-configuration",
         "subcategory": "code-scanning",
@@ -8298,6 +8425,34 @@
         "subcategory": "suites",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/commits/{ref}/check-suites",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
+  "code_quality": {
+    "title": "Code quality",
+    "displayTitle": "Repository permissions for \"Code quality\"",
+    "permissions": [
+      {
+        "category": "code-quality",
+        "slug": "list-code-quality-findings-for-a-repository",
+        "subcategory": "code-quality",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-quality/findings",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "code-quality",
+        "slug": "get-a-code-quality-finding",
+        "subcategory": "code-quality",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-quality/findings/{finding_number}",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -12467,6 +12622,50 @@
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}/locations",
         "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "list-repository-custom-patterns",
+        "subcategory": "custom-patterns",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/secret-scanning/custom-patterns",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "bulk-create-repository-custom-patterns",
+        "subcategory": "custom-patterns",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/secret-scanning/custom-patterns",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "bulk-delete-repository-custom-patterns",
+        "subcategory": "custom-patterns",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/secret-scanning/custom-patterns",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "update-a-repository-custom-pattern",
+        "subcategory": "custom-patterns",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/secret-scanning/custom-patterns/{pattern_id}",
+        "access": "write",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false

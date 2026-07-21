@@ -22,7 +22,7 @@ category:
 You can create query suites for the queries that you want to frequently use in your {% data variables.product.prodname_codeql %} analyses. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/codeql-query-suites).
 
 > [!NOTE]
-> Any custom queries that you want to add to a query suite must be in a [{% data variables.product.prodname_codeql %} pack](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs) and contain the correct query metadata. For more information, see [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/scan-from-the-command-line/writing-and-sharing-custom-queries-for-the-codeql-cli).
+> Any custom queries that you want to add to a query suite must be in a [{% data variables.product.prodname_codeql %} pack](/code-security/tutorials/customize-code-scanning/customize-analysis) and contain the correct query metadata. For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-the-command-line/write-custom-queries).
 
 ## Locating queries to add to a query suite
 
@@ -231,7 +231,7 @@ use:
 ```
 
 > [!NOTE]
-> You can use the `codeql resolve queries /path/to/suite.qls` command to see which queries are selected by a query suite definition. For more information, see [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/resolve-queries).
+> You can use the `codeql resolve queries /path/to/suite.qls` command to see which queries are selected by a query suite definition. For more information, see [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-cli-manual/resolve-queries).
 
 ## Reusing existing query suite definitions
 
@@ -357,7 +357,7 @@ instruction:
 ## Saving a query suite
 
 Save your query suite in a file with a `.qls` extension and add it to a {% data variables.product.prodname_codeql %}
-pack. For more information, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#custom-codeql-packs).
+pack. For more information, see [AUTOTITLE](/code-security/tutorials/customize-code-scanning/customize-analysis#custom-codeql-packs).
 
 ## Using query suites with {% data variables.product.prodname_codeql %}
 
@@ -365,7 +365,7 @@ You can specify query suites on the command line for any command that accepts
 `.qls` files. For example, you can compile the queries selected by a suite
 definition using `query compile`, or use the queries in an analysis using
 `database analyze`. For more information about analyzing {% data variables.product.prodname_codeql %} databases, see
-[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries).
+[AUTOTITLE](/code-security/tutorials/customize-code-scanning/analyze-code).
 
 ## Further reading
 

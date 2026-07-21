@@ -36,11 +36,11 @@ Protect your organization's repositories and settings by implementing security b
 
 * Encouraging your users to create strong passwords and secure them appropriately, by following {% data variables.product.prodname_dotcom %}’s recommended password guidelines. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password).{% ifversion secret-scanning-push-protection-for-users %}
 
-* Encouraging your users to keep push protection for users enabled in their personal account settings, so that no matter which public repository they push to, they are protected. For more information, see [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users).{% endif %}
+* Encouraging your users to keep push protection for users enabled in their personal account settings, so that no matter which public repository they push to, they are protected. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/prevent-future-leaks/manage-user-push-protection).{% endif %}
 
-* Establishing an internal security policy in {% data variables.product.prodname_dotcom %}, so users know the appropriate steps to take and who to contact if an incident is suspected. For more information, see [AUTOTITLE](/code-security/getting-started/adding-a-security-policy-to-your-repository).
+* Establishing an internal security policy in {% data variables.product.prodname_dotcom %}, so users know the appropriate steps to take and who to contact if an incident is suspected. For more information, see [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/configure-vulnerability-reporting/add-security-policy).
 
-For more detailed information about securing accounts, see [AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts).
+For more detailed information about securing accounts, see [AUTOTITLE](/code-security/tutorials/implement-supply-chain-best-practices/securing-accounts).
 
 ## Prevent data leaks
 
@@ -86,13 +86,13 @@ There are two forms of {% data variables.product.prodname_secret_scanning %} ava
 {% ifversion secret-risk-assessment %}
 
 > [!TIP]
-> Regardless of the enablement status of {% data variables.product.prodname_secret_scanning %} and push protection, organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in the organization for leaked secrets. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment).{% endif %}
+> Regardless of the enablement status of {% data variables.product.prodname_secret_scanning %} and push protection, organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in the organization for leaked secrets. See [AUTOTITLE](/code-security/concepts/secret-security/secret-security-with-github).{% endif %}
 
-{% ifversion ghes %}Your site administrator must enable {% data variables.product.prodname_secret_scanning %} for your instance before you can use this feature. For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance).{% endif %}
+{% ifversion ghes %}Your site administrator must enable {% data variables.product.prodname_secret_scanning %} for your instance before you can use this feature. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configure-secret-scanning).{% endif %}
 
-For more information about {% data variables.product.prodname_secret_scanning %}, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).
+For more information about {% data variables.product.prodname_secret_scanning %}, see [AUTOTITLE](/code-security/concepts/secret-security/secret-scanning).
 
-{% data reusables.secret-scanning.push-protection-high-level %} For more information, see [AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning). Finally, you can also extend the detection to include custom secret string structures. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning).
+{% data reusables.secret-scanning.push-protection-high-level %} For more information, see [AUTOTITLE](/code-security/concepts/secret-security/push-protection). Finally, you can also extend the detection to include custom secret string structures. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/customize-leak-detection/define-custom-patterns).
 
 ### Review the audit log for your organization
 
@@ -118,7 +118,7 @@ counter notice form and alert GitHub Support. For more information, see [DMCA co
 
 ### Revoke exposed tokens
 
-If credentials have been exposed in a {% data variables.product.github %} repository, {% data variables.product.github %} {% data variables.product.prodname_secret_scanning %} can be used to report and revoke the credentials. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/resolving-alerts#reporting-a-leaked-secret).
+If credentials have been exposed in a {% data variables.product.github %} repository, {% data variables.product.github %} {% data variables.product.prodname_secret_scanning %} can be used to report and revoke the credentials. For more information, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts/resolving-alerts#reporting-a-leaked-secret).
 
 You can also revoke exposed credentials that you do not own and have been exposed outside of {% data variables.product.github %} repositories. By doing this, you are contributing to the overall security of the {% data variables.product.github %} community and can quickly limit the impact of these credentials. The API supports revoking:
 
@@ -134,5 +134,5 @@ If you find any exposed tokens either on {% data variables.product.github %} or 
 
 ## Next steps
 
-* [AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)
-* [AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)
+* [AUTOTITLE](/code-security/tutorials/implement-supply-chain-best-practices/securing-code)
+* [AUTOTITLE](/code-security/tutorials/implement-supply-chain-best-practices/securing-builds)

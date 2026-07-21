@@ -32,6 +32,14 @@ You can disable {% data variables.product.prodname_actions %} for a repository, 
 
 {% data reusables.repositories.settings-permissions-org-policy-note %}
 
+{% ifversion fpt or ghec %}
+
+> [!NOTE]
+> If you see **{% data variables.product.prodname_actions %} is currently disabled for this repository** or **{% data variables.product.prodname_actions %} is currently disabled for your account**, the repository or account may be in a separate {% data variables.product.github %}-controlled disabled state, and changing these settings won't restore access.
+> Contact {% data variables.contact.github_support %} for review.
+
+{% endif %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}

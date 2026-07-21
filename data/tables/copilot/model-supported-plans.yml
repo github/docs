@@ -173,6 +173,13 @@
   business: true
   enterprise: true
 
+- name: Kimi K2.7 Code
+  pro: true
+  pro_plus: true
+  max: true
+  business: false
+  enterprise: false
+
 - name: MAI-Code-1-Flash
   pro: true
   pro_plus: true
@@ -181,13 +188,6 @@
   enterprise: true
 
 - name: Raptor mini
-  pro: true
-  pro_plus: true
-  max: true
-  business: false
-  enterprise: false
-
-- name: Kimi-K2.7-Code
   pro: true
   pro_plus: true
   max: true

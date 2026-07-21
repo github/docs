@@ -22,9 +22,9 @@ category:
 
 {% data reusables.dependabot.about-the-dependency-graph %}
 
-For information on the supported ecosystems and manifest files, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems#supported-package-ecosystems).
+For information on the supported ecosystems and manifest files, see [AUTOTITLE](/code-security/reference/supply-chain-security/dependency-graph-supported-package-ecosystems#supported-package-ecosystems).
 
-When you create a pull request containing changes to dependencies that targets the default branch, {% data variables.product.prodname_dotcom %} uses the dependency graph to add dependency reviews to the pull request. These indicate whether the dependencies contain vulnerabilities and, if so, the version of the dependency in which the vulnerability was fixed. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review).
+When you create a pull request containing changes to dependencies that targets the default branch, {% data variables.product.prodname_dotcom %} uses the dependency graph to add dependency reviews to the pull request. These indicate whether the dependencies contain vulnerabilities and, if so, the version of the dependency in which the vulnerability was fixed. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-review).
 
 ## How the dependency graph is built
 
@@ -35,14 +35,14 @@ The dependency graph automatically parses dependencies by analyzing manifests an
 {% ifversion fpt or ghec %}
 {% data reusables.dependency-graph.feature-availability %} For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository).
 
-{% data reusables.dependency-graph.feature-availability %} See [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph).
+{% data reusables.dependency-graph.feature-availability %} See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/enable-dependency-graph).
 
 {% endif %}
 
 {% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
 
 {% ifversion ghes %}
-For more information about configuration of the dependency graph, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph).{% endif %}
+For more information about configuration of the dependency graph, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/enable-dependency-graph).{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -54,7 +54,7 @@ For public repositories, the dependency graph lists dependents. These are other 
 
 Your repository will have a "Used by" section if:
 * The dependency graph is enabled for the repository.
-* Your repository contains a package that is published on a supported package ecosystem. See [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems#supported-package-ecosystems).
+* Your repository contains a package that is published on a supported package ecosystem. See [AUTOTITLE](/code-security/reference/supply-chain-security/dependency-graph-supported-package-ecosystems#supported-package-ecosystems).
 * Within the ecosystem, your package has a link to a _public_ repository where the source is stored.
 * More than 100 repositories depend on your package.
 
@@ -68,15 +68,15 @@ The "Used by" section represents a single package from the repository. If you ha
 
 You can use the dependency graph to:
 
-* Explore the repositories your code depends on{% ifversion fpt or ghec %}, and those that depend on it{% endif %}. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository). {% ifversion fpt or ghec %}
+* Explore the repositories your code depends on{% ifversion fpt or ghec %}, and those that depend on it{% endif %}. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/explore-dependencies). {% ifversion fpt or ghec %}
 * View a summary of the dependencies used in your organization's repositories in a single dashboard. For more information, see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization#viewing-organization-dependency-insights).{% endif %}
-* View and update vulnerable dependencies for your repository. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
+* View and update vulnerable dependencies for your repository. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-alerts).
 * See information about vulnerable dependencies in pull requests. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request).
-* Export a software bill of materials (SBOM) for audit or compliance purposes. This is a formal, machine-readable inventory of a project's dependencies. See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/exporting-a-software-bill-of-materials-for-your-repository).
+* Export a software bill of materials (SBOM) for audit or compliance purposes. This is a formal, machine-readable inventory of a project's dependencies. See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/export-dependencies-as-sbom).
 
 ## Further reading
 
 * [Dependency graph](https://en.wikipedia.org/wiki/Dependency_graph) on Wikipedia
-* [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository)
-* [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)
-* [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)
+* [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/explore-dependencies)
+* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/view-dependabot-alerts)
+* [AUTOTITLE](/code-security/reference/supply-chain-security/troubleshoot-dependabot/vulnerability-detection)
