@@ -92,7 +92,7 @@ The following example OIDC token uses a subject (`sub`) that references a job en
 
 ### Immutable subject claims
 
-To protect against attacks that rely on recycling repository or organization names, the default subject (`sub`) claim includes an immutable numeric ID for both the repository owner and the repository. Unlike names, these IDs never change, and they are never reused if an account or repository is deleted. This ensures that a subject claim always refers to the same repository, even if the organization or repository is later renamed or its name is claimed by a different account.
+To protect against attacks that rely on recycling repository or organization names, repositories that use immutable subject claims include an immutable numeric ID for both the repository owner and the repository in the default subject (`sub`) claim. Unlike names, these IDs never change, and they are never reused if an account or repository is deleted. This ensures that a subject claim always refers to the same repository, even if the organization or repository is later renamed or its name is claimed by a different account.
 
 The immutable ID is appended to each name with an `@` delimiter. For example, the subject claim for the `main` branch of the `octocat/my-repo` repository looks like this:
 
@@ -102,7 +102,7 @@ repo:octocat@123456/my-repo@456789:ref:refs/heads/main
 
 In this example, `123456` is the immutable ID of the `octocat` owner and `456789` is the immutable ID of the `my-repo` repository. This replaces the earlier format that referenced only the mutable names, such as `repo:octocat/my-repo:ref:refs/heads/main`.
 
-Immutable subject claims are enabled by default for repositories created on or after July 15, 2026, and for repositories that are renamed after that date. Organization and repository administrators can opt existing repositories in earlier from the Actions OIDC settings, using either the settings UI or the REST API.
+Immutable subject claims are enabled by default for repositories created after July 15, 2026. Repository renames and transfers after that date also move to the immutable subject format. Administrators can opt existing repositories in at the organization or repository level by using the OIDC settings UI or REST API.
 
 Before your workflows use immutable subject claims, update the trust conditions on your cloud provider so that they match the new subject format. To help you make this change with confidence, you can preview the subject claim prefix that your repository will use under the new format before it takes effect.
 
