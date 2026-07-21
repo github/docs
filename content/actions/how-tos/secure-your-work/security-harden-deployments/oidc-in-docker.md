@@ -30,7 +30,7 @@ For more information, see [OIDC connections](https://docs.docker.com/enterprise/
 
 * You must have a Docker Business or Docker Team subscription.
 * You must be an organization owner or editor in your Docker organization.
-* You should plan which repositories, branches, and workflows need access to Docker Hub, and configure rulesets accordingly. For more information, see [Rulesets and subject claims](https://docs.docker.com/enterprise/security/oidc-connections/rulesets-claims/) in the Docker documentation.
+* You should plan which repositories, branches, and workflows need access to Docker Hub, and configure rulesets accordingly.
 
 ## Adding the identity provider to Docker Hub
 
@@ -39,7 +39,7 @@ To use OIDC with Docker, establish a trust relationship between {% data variable
 1. Sign in to [Docker Home](https://app.docker.com/) and navigate to your organization.
 1. Go to **Identity & auth** > **OIDC connections**.
 1. Select **Create OIDC connection**.
-1. Configure at least one ruleset to define which GitHub repositories, branches, or workflows can authenticate. Each ruleset specifies:
+1. Configure at least one ruleset to define which {% data variables.product.prodname_dotcom %} repositories, branches, or workflows can authenticate. Each ruleset specifies:
    * **Rules**: Conditions matched against OIDC token claims (repository, branch, workflow path). Wildcard patterns like `repo:my-org/*` are supported.
    * **Resources**: Docker Hub repositories or Docker Build Cloud projects the workflow can access.
    * **Scopes**: Permission levels (`read`, `write`).
@@ -52,12 +52,7 @@ Once you have created an OIDC connection in Docker Hub, update your workflow to 
 The following example uses the placeholder `YOUR_CONNECTION_ID` for the connection ID you copied from Docker Hub, and `YOUR_DOCKER_ORG` for your Docker organization name.
 
 ```yaml
-name: Build and push with OIDC
-
-on:
-  push:
-    branches: [main]
-
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 permissions:
   id-token: write
   contents: read
@@ -67,16 +62,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: {% data reusables.actions.action-checkout %}
 
       - name: Get Docker OIDC token
         id: docker-oidc
-        uses: docker/oidc-action@3f002d200df5620744c973221788e401898c6f86 # v1.0.0
+        uses: docker/oidc-action@3f002d200df5620744c973221788e401898c6f86 # v1
         with:
           connection_id: YOUR_CONNECTION_ID
 
       - name: Sign in to Docker Hub
-        uses: docker/login-action@af1e73f918a031802d376d3c8bbc3fe56130a9b0 # v4.4.0
+        uses: docker/login-action@af1e73f918a031802d376d3c8bbc3fe56130a9b0 # v4
         with:
           username: YOUR_DOCKER_ORG
           password: {% raw %}${{ steps.docker-oidc.outputs.token }}{% endraw %}
@@ -102,6 +97,9 @@ Docker evaluates the `sub` claim from the {% data variables.product.prodname_dot
 repo:<owner>/<repo>:ref:refs/heads/<branch>
 ```
 
+> [!NOTE]
+> Repositories created or renamed after July 15, 2026 use immutable owner and repository identifiers in the subject claim, for example: `repo:octocat@123456/my-repo@456789:ref:refs/heads/main`. For more information, see [AUTOTITLE](/actions/concepts/security/openid-connect).
+
 Different workflow triggers produce different subject claims. For example:
 
 | Trigger | Subject claim format |
@@ -117,7 +115,4 @@ For more information, see [Rulesets and subject claims](https://docs.docker.com/
 
 ## Further reading
 
-* [OIDC connections overview](https://docs.docker.com/enterprise/security/oidc-connections/) in the Docker documentation
-* [Create and manage OIDC connections](https://docs.docker.com/enterprise/security/oidc-connections/create-manage/) in the Docker documentation
-* [Rulesets and subject claims](https://docs.docker.com/enterprise/security/oidc-connections/rulesets-claims/) in the Docker documentation
 * [AUTOTITLE](/actions/concepts/security/openid-connect)
