@@ -71,18 +71,18 @@ jobs:
 
       - name: Get Docker OIDC token
         id: docker-oidc
-        uses: docker/oidc-action@v1
+        uses: docker/oidc-action@3f002d200df5620744c973221788e401898c6f86 # v1.0.0
         with:
           connection_id: YOUR_CONNECTION_ID
 
       - name: Sign in to Docker Hub
-        uses: docker/login-action@v4
+        uses: docker/login-action@af1e73f918a031802d376d3c8bbc3fe56130a9b0 # v4.4.0
         with:
           username: YOUR_DOCKER_ORG
           password: {% raw %}${{ steps.docker-oidc.outputs.token }}{% endraw %}
 
       - name: Build and push
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6
         with:
           push: true
           tags: YOUR_DOCKER_ORG/my-image:latest
