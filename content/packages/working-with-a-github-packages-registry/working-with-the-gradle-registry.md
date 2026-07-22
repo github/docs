@@ -190,7 +190,7 @@ To use a published package from {% data variables.product.prodname_registry %}, 
    }
    ```
 
-1. Add the repository to your _build.gradle_ file (Gradle Groovy) or _build.gradle.kts_ file (Kotlin DSL) file, or to your _settings.gradle_ file (Gradle Groovy) or _settings.gradle.kts_ file (Kotlin DSL) in the `dependencyResolutionManagement` block if you [Centralizing Repository Declarations](https://docs.gradle.org/current/userguide/centralizing_repositories.html).
+1. Add the repository to your _build.gradle_ file (Gradle Groovy) or _build.gradle.kts_ file (Kotlin DSL) file, or to your _settings.gradle_ file (Gradle Groovy) or _settings.gradle.kts_ file (Kotlin DSL) in the `dependencyResolutionManagement` block if you use [Centralizing Repository Declarations](https://docs.gradle.org/current/userguide/centralizing_repositories.html).
 
    Example using Gradle Groovy:
 
