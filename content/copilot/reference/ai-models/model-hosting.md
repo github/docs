@@ -74,6 +74,7 @@ Used for:
 * {% data variables.copilot.copilot_gemini_3_flash %}
 * {% data variables.copilot.copilot_gemini_31_pro %}
 * {% data variables.copilot.copilot_gemini_35_flash %}
+* {% data variables.copilot.copilot_gemini_36_flash %}
 
 {% data variables.product.prodname_copilot %} uses {% data variables.copilot.copilot_gemini_31_pro %}, {% data variables.copilot.copilot_gemini_3_flash %}, and {% data variables.copilot.copilot_gemini_25_pro %} hosted on Google Cloud Platform (GCP). When using {% data variables.copilot.copilot_gemini %} models, prompts and metadata are sent to GCP, which makes the [following data commitment](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance): _{% data variables.copilot.copilot_gemini %} doesn't use your prompts, or its responses, as data to train its models._
 

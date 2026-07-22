@@ -52,16 +52,16 @@ Push protection scans pushes for supported secrets. If push protection detects a
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
->[!NOTE]
-> {% ifversion secret-scanning-push-protection-for-users %}You can also enable push protection for your personal account, called "push protection for users", which prevents you from accidentally pushing supported secrets to _any_ public repository. Alerts are _not_ created if you choose to bypass your user-based push protection only. Alerts are only created if the repository itself has push protection enabled. For more information, see [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users).{% endif %}
+> [!NOTE]
+> {% ifversion secret-scanning-push-protection-for-users %}You can also enable push protection for your personal account, called "push protection for users", which prevents you from accidentally pushing supported secrets to _any_ public repository. Alerts are _not_ created if you choose to bypass your user-based push protection only. Alerts are only created if the repository itself has push protection enabled. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/prevent-future-leaks/manage-user-push-protection).{% endif %}
 >
-> {% data reusables.secret-scanning.push-protection-older-tokens %} For more information about push protection limitations, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/troubleshooting-secret-scanning#push-protection-and-pattern-versions).
+> {% data reusables.secret-scanning.push-protection-older-tokens %} For more information about push protection limitations, see [AUTOTITLE](/code-security/reference/secret-security/secret-scanning-scope#push-protection-and-pattern-versions).
 
 {% ifversion fpt or ghec %}
 
 ## About partner alerts
 
-When {% data variables.product.company_short %} detects a leaked secret in a public repository or npm package, an alert is sent directly to the secret provider, if they are part of {% data variables.product.company_short %}'s secret scanning partner program. For more information about {% data variables.secret-scanning.partner_alerts %}, see [AUTOTITLE](/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program) and [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns).
+When {% data variables.product.company_short %} detects a leaked secret in a public repository or npm package, an alert is sent directly to the secret provider, if they are part of {% data variables.product.company_short %}'s secret scanning partner program. For more information about {% data variables.secret-scanning.partner_alerts %}, see [AUTOTITLE](/code-security/tutorials/secret-scanning-partner-program) and [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns).
 
 Partner alerts are not sent to repository administrators, so you do not need to take any action for this type of alert.
 

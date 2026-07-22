@@ -22270,6 +22270,47 @@ enum IssueStateReason @docsCategory(name: "issues") {
 }
 
 """
+Specifies a target state for an issue, with optional metadata such as a
+rationale, close reason, or duplicate reference. Suggestion metadata
+(`rationale`, `confidence`, `suggest`) is only meaningful when `value` is
+`CLOSED`; it is silently ignored otherwise.
+"""
+input IssueStateUpdateInput @docsCategory(name: "issues") {
+  """
+  The confidence level the agent had when suggesting this close. Only meaningful when `value` is `CLOSED`.
+  """
+  confidence: IssueEventConfidenceLevel
+
+  """
+  The ID of the issue that this is a duplicate of. Only meaningful when `value`
+  is `CLOSED` and `stateReason` is `DUPLICATE`.
+  """
+  duplicateIssueId: ID @possibleTypes(concreteTypes: ["Issue"])
+
+  """
+  Optional rationale describing why the issue is being closed. Only meaningful when `value` is `CLOSED`. Max 280 characters.
+  """
+  rationale: String
+
+  """
+  The reason for closing the issue. Only meaningful when `value` is `CLOSED`.
+  """
+  stateReason: IssueClosedStateReason
+
+  """
+  If true, the close is stored as a pending suggestion for human review rather
+  than being applied directly. Only meaningful when `value` is `CLOSED`;
+  silently ignored otherwise.
+  """
+  suggest: Boolean
+
+  """
+  The target state.
+  """
+  value: IssueState!
+}
+
+"""
 A repository issue template.
 """
 type IssueTemplate @docsCategory(name: "issues") {
@@ -68486,6 +68527,11 @@ input UpdateIssueInput {
   The desired issue state.
   """
   state: IssueState
+
+  """
+  The desired issue state, with optional rationale, state reason, or duplicate reference. Mutually exclusive with `state`.
+  """
+  stateInput: IssueStateUpdateInput
 
   """
   The title for the issue.

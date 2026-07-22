@@ -1570,6 +1570,7 @@
     "issuefieldsingleselectoptioninput": "issues",
     "issuefilters": "issues",
     "issueorder": "issues",
+    "issuestateupdateinput": "issues",
     "issuetypeorder": "issues",
     "issuetypeupdateinput": "issues",
     "labelorder": "issues",

@@ -5,6 +5,8 @@ intro: Learn how {% data variables.product.prodname_github_apps %}, external ser
 versions:
   feature: enterprise-apps-public-beta
 contentType: concepts
+redirect_from:
+  - /enterprise-onboarding/github-apps/automations-in-your-enterprise
 category:
   - Get started with GitHub Enterprise
 ---

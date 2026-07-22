@@ -4,6 +4,26 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>IssueStateUpdateInput</code> was added</p>",
+          "<p>Input field <code>confidence</code> of type <code>IssueEventConfidenceLevel</code> was added to input object type <code>IssueStateUpdateInput</code></p>",
+          "<p>Input field <code>duplicateIssueId</code> of type <code>ID</code> was added to input object type <code>IssueStateUpdateInput</code></p>",
+          "<p>Input field <code>rationale</code> of type <code>String</code> was added to input object type <code>IssueStateUpdateInput</code></p>",
+          "<p>Input field <code>stateReason</code> of type <code>IssueClosedStateReason</code> was added to input object type <code>IssueStateUpdateInput</code></p>",
+          "<p>Input field <code>suggest</code> of type <code>Boolean</code> was added to input object type <code>IssueStateUpdateInput</code></p>",
+          "<p>Input field <code>value</code> of type <code>IssueState!</code> was added to input object type <code>IssueStateUpdateInput</code></p>",
+          "<p>Input field <code>stateInput</code> of type <code>IssueStateUpdateInput</code> was added to input object type <code>UpdateIssueInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-07-20"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>viewerCanAssign</code> was added to interface <code>Assignable</code></p>",
           "<p>Field <code>viewerCanAssign</code> was added to object type <code>Issue</code></p>",
           "<p>Field <code>viewerCanSetMilestone</code> was added to object type <code>Issue</code></p>",

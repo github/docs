@@ -86,4 +86,4 @@ To prepare for these scenarios, you should plan for how you will address problem
 
 ## 7. Check code quality
 
-If you're confident in your governance model but still concerned that {% data variables.product.prodname_copilot_short %} will reduce the quality of your codebase over time, you can measure this over the course of a rollout. If enabled, {% data variables.product.prodname_code_quality %} provides metrics on the code health of your repositories. See [AUTOTITLE](/code-security/concepts/about-code-quality).
+If you're confident in your governance model but still concerned that {% data variables.product.prodname_copilot_short %} will reduce the quality of your codebase over time, you can measure this over the course of a rollout. If enabled, {% data variables.product.prodname_code_quality %} provides metrics on the code health of your repositories. See [AUTOTITLE](/code-security/concepts/code-quality/code-quality).

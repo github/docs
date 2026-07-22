@@ -29,7 +29,7 @@ If your {% data variables.product.prodname_codeql %} analysis scans fewer lines 
 ## Change to a `manual` build process
 
 Replace the `autobuild` process with the same build commands you would use in production. This makes sure that {% data variables.product.prodname_codeql %} knows exactly how to compile all of the source files you want to scan.
-For more information about defining build steps, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#using-build-mode-manual-and-specifying-build-steps).
+For more information about defining build steps, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/codeql-for-compiled-languages#using-build-mode-manual-and-specifying-build-steps).
 
 ## Inspect the copy of the source files in the {% data variables.product.prodname_codeql %} database
 
@@ -42,6 +42,6 @@ You may be able to understand why some source files haven't been analyzed by ins
     debug: true
 ```
 
-This uploads the database as an actions artifact that you can download to your local machine. For more information, see [AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts).
+This uploads the database as an actions artifact that you can download to your local machine. For more information, see [AUTOTITLE](/actions/tutorials/store-and-share-data).
 
 The artifact will contain an archived copy of the source files scanned by {% data variables.product.prodname_codeql %} called _src.zip_. If you compare the source code files in the repository and the files in _src.zip_, you can see which types of file are missing. Once you know what types of file are not being analyzed, it is easier to understand how you may need to change the workflow for {% data variables.product.prodname_codeql %} analysis.

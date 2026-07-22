@@ -9,9 +9,9 @@ versions:
   ghec: '*'
 contentType: how-tos
 children:
+  - /getting-started
   - /auth
   - /features
-  - /getting-started
   - /hooks
   - /integrations
   - /observability
@@ -21,5 +21,4 @@ children:
 
 <!-- markdownlint-disable GHD046 GHD005 -->
 <!-- Suppressed: GHD046 (outdated release terminology), GHD005 (hardcoded data variable) -->
-
 

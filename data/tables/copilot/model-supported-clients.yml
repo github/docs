@@ -140,6 +140,15 @@
   xcode: true
   jetbrains: true
 
+- name: Gemini 3.6 Flash
+  dotcom: false
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
 - name: MAI-Code-1-Flash
   dotcom: true
   cli: true

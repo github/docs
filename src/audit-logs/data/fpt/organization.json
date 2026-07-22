@@ -18452,7 +18452,7 @@
       "topic",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request"
+    "docs_reference_titles": "Closing a pull request"
   },
   {
     "action": "pull_request.converted_to_draft",
@@ -18492,7 +18492,7 @@
       "pull_request_url",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft"
+    "docs_reference_titles": "Changing the stage of a pull request"
   },
   {
     "action": "pull_request.create",
@@ -18533,7 +18533,7 @@
       "pull_request_url",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request"
+    "docs_reference_titles": "Creating a pull request"
   },
   {
     "action": "pull_request.create_review_request",
@@ -18577,7 +18577,7 @@
       "topic",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews"
+    "docs_reference_titles": "Pull request reviews"
   },
   {
     "action": "pull_request.in_progress",
@@ -18690,7 +18690,7 @@
       "topic",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request"
+    "docs_reference_titles": "Merging a pull request"
   },
   {
     "action": "pull_request.ready_for_review",
@@ -18730,7 +18730,7 @@
       "pull_request_url",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review"
+    "docs_reference_titles": "Changing the stage of a pull request"
   },
   {
     "action": "pull_request.rebase",
@@ -18813,7 +18813,7 @@
       "topic",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews"
+    "docs_reference_titles": "Pull request reviews"
   },
   {
     "action": "pull_request.reopen",
@@ -18890,7 +18890,7 @@
       "topic",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews"
+    "docs_reference_titles": "Pull request reviews"
   },
   {
     "action": "pull_request_review_comment.delete",
@@ -19046,7 +19046,7 @@
       "topic",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review"
+    "docs_reference_titles": "Dismissing a pull request review"
   },
   {
     "action": "pull_request_review.submit",
@@ -19088,7 +19088,7 @@
       "topic",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request#submitting-your-review"
+    "docs_reference_titles": "Reviewing proposed changes in a pull request"
   },
   {
     "action": "repo.access",

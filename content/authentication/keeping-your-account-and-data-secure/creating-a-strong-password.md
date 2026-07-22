@@ -15,7 +15,7 @@ category:
   - Manage access credentials
 ---
 You must choose or generate a password for your account on {% data variables.product.prodname_dotcom %} that is at least:
-* {% ifversion ghes %}Seven{% else %}Eight{% endif %} characters long, if it includes a number and a lowercase letter, or
+* Eight characters long, if it includes a number and a lowercase letter, or
 * 15 characters long with any combination of characters
 
 To keep your account secure, we recommend you follow these best practices:

@@ -21,7 +21,7 @@ category:
 
 {% data reusables.code-scanning.codeql-action-version-ghes %}
 
-A {% data variables.product.prodname_codeql %} workspace is typically used to develop a set of library and query packs that depend on each other. When you use a {% data variables.product.prodname_codeql %} workspace, all the {% data variables.product.prodname_codeql %} packs in the workspace are available as _source dependencies_ for each other when you run a {% data variables.product.prodname_codeql %} command that resolves queries. This makes it easier to develop, maintain, and publish multiple, related {% data variables.product.prodname_codeql %} packs. For more information on {% data variables.product.prodname_codeql %} packs, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs).
+A {% data variables.product.prodname_codeql %} workspace is typically used to develop a set of library and query packs that depend on each other. When you use a {% data variables.product.prodname_codeql %} workspace, all the {% data variables.product.prodname_codeql %} packs in the workspace are available as _source dependencies_ for each other when you run a {% data variables.product.prodname_codeql %} command that resolves queries. This makes it easier to develop, maintain, and publish multiple, related {% data variables.product.prodname_codeql %} packs. For more information on {% data variables.product.prodname_codeql %} packs, see [AUTOTITLE](/code-security/tutorials/customize-code-scanning/customize-analysis).
 
 Workspaces are commonly stored in a single Git repository so that related packs can be developed and published together.
 
@@ -49,7 +49,7 @@ The workspace dependency model affects how packs are installed and published.
 * During installation, dependencies found in the workspace are not downloaded into the package cache and are not written to the `codeql-pack.lock.yml` file.
 * During publishing, dependencies provided by the workspace are bundled using their local source content rather than versions from the package cache.
 
-For example, running `codeql pack install` in a pack directory within a workspace uses any dependencies found in the workspace instead of downloading them into the package cache or recording them in the `codeql-pack.lock.yml` file. See [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs#adding-and-installing-dependencies).
+For example, running `codeql pack install` in a pack directory within a workspace uses any dependencies found in the workspace instead of downloading them into the package cache or recording them in the `codeql-pack.lock.yml` file. See [AUTOTITLE](/code-security/tutorials/customize-code-scanning/create-and-work-with-codeql-packs#adding-and-installing-dependencies).
 
 ### Example
 
@@ -98,7 +98,7 @@ A {% data variables.product.prodname_codeql %} workspace is defined by a YAML fi
 
 * The `ignore` block contains a list of glob patterns that define {% data variables.product.prodname_codeql %} packs that are not available in the workspace.
 
-* The `registries` block contains a list of GHES URLs and package patterns that control which container registry is used for publishing {% data variables.product.prodname_codeql %} packs. See [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs#working-with-codeql-packs-on-ghes).
+* The `registries` block contains a list of GHES URLs and package patterns that control which container registry is used for publishing {% data variables.product.prodname_codeql %} packs. See [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-the-command-line/publish-and-use-packs#working-with-codeql-packs-on-ghes).
 
 Each entry in the `provide` or `ignore` section must map to the location of a `qlpack.yml` file. All glob patterns are defined relative to the directory that contains the workspace file. For a list of patterns accepted in this file, see [@actions/glob](https://github.com/actions/toolkit/tree/main/packages/glob#patterns).
 

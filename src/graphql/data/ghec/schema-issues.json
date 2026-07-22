@@ -11392,6 +11392,59 @@
       "category": "issues"
     },
     {
+      "name": "IssueStateUpdateInput",
+      "id": "issuestateupdateinput",
+      "href": "/graphql/reference/issues#input-object-issuestateupdateinput",
+      "description": "<p>Specifies a target state for an issue, with optional metadata such as a\nrationale, close reason, or duplicate reference. Suggestion metadata\n(<code>rationale</code>, <code>confidence</code>, <code>suggest</code>) is only meaningful when <code>value</code> is\n<code>CLOSED</code>; it is silently ignored otherwise.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "confidence",
+          "description": "<p>The confidence level the agent had when suggesting this close. Only meaningful when <code>value</code> is <code>CLOSED</code>.</p>",
+          "type": "IssueEventConfidenceLevel",
+          "id": "issueeventconfidencelevel",
+          "href": "/graphql/reference/issues#enum-issueeventconfidencelevel"
+        },
+        {
+          "name": "duplicateIssueId",
+          "description": "<p>The ID of the issue that this is a duplicate of. Only meaningful when <code>value</code>\nis <code>CLOSED</code> and <code>stateReason</code> is <code>DUPLICATE</code>.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "rationale",
+          "description": "<p>Optional rationale describing why the issue is being closed. Only meaningful when <code>value</code> is <code>CLOSED</code>. Max 280 characters.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "stateReason",
+          "description": "<p>The reason for closing the issue. Only meaningful when <code>value</code> is <code>CLOSED</code>.</p>",
+          "type": "IssueClosedStateReason",
+          "id": "issueclosedstatereason",
+          "href": "/graphql/reference/issues#enum-issueclosedstatereason"
+        },
+        {
+          "name": "suggest",
+          "description": "<p>If true, the close is stored as a pending suggestion for human review rather\nthan being applied directly. Only meaningful when <code>value</code> is <code>CLOSED</code>;\nsilently ignored otherwise.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "value",
+          "description": "<p>The target state.</p>",
+          "type": "IssueState!",
+          "id": "issuestate",
+          "href": "/graphql/reference/issues#enum-issuestate"
+        }
+      ],
+      "category": "issues"
+    },
+    {
       "name": "IssueTypeOrder",
       "id": "issuetypeorder",
       "href": "/graphql/reference/issues#input-object-issuetypeorder",
@@ -12315,6 +12368,13 @@
           "type": "IssueState",
           "id": "issuestate",
           "href": "/graphql/reference/issues#enum-issuestate"
+        },
+        {
+          "name": "stateInput",
+          "description": "<p>The desired issue state, with optional rationale, state reason, or duplicate reference. Mutually exclusive with <code>state</code>.</p>",
+          "type": "IssueStateUpdateInput",
+          "id": "issuestateupdateinput",
+          "href": "/graphql/reference/issues#input-object-issuestateupdateinput"
         },
         {
           "name": "title",

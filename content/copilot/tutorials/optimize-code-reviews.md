@@ -141,7 +141,6 @@ The response from {% data variables.product.prodname_copilot_short %} follows gu
 
 Automatic review comments like these support you in building your own understanding when you're coding or can help you focus and narrow feedback given to others when reviewing.
 
-
 ## 3. Flag security vulnerabilities and fix them
 
 Next, imagine you've been tasked to improve how passwords are stored in your order processing system. You submit a pull request with code you thought sufficiently hashed user passwords to protect them. 
@@ -202,17 +201,26 @@ def check_password(password: str, known_hash):
 
 > [!NOTE] 
 > * Always verify and validate any changes {% data variables.product.prodname_copilot_short %} suggests before accepting them. 
-> * In this example, {% data variables.copilot.copilot_code-review_short %} may also highlight the need to generate unique salts. 
+> * In this example, {% data variables.copilot.copilot_code-review_short %} may also highlight the need to generate unique salts.
 
-As you can see, identifying vulnerabilities automatically, along with suggestions for fixing them, helps you make security a priority. {% data variables.copilot.copilot_autofix_short %} enables you to focus on understanding secure coding and on fixes that work best for your code base and project. 
+As you can see, identifying vulnerabilities automatically, along with suggestions for fixing them, helps you make security a priority. {% data variables.copilot.copilot_autofix_short %} enables you to focus on understanding secure coding and on fixes that work best for your code base and project.
+
+## 4. Add reliability, maintainability, and coverage checks
+
+So far, {% data variables.copilot.copilot_code-review_short %} has provided per-pull request feedback on style and design, and {% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %} has flagged and fixed security vulnerabilities. To focus on the long-term health of your code, {% data variables.product.prodname_code_quality %} adds reliability, maintainability, and code coverage checks. It combines deterministic, rules-based {% data variables.product.prodname_codeql %} analysis for well-defined anti-patterns with {% data variables.product.prodname_copilot_short %}-powered analysis for issues that fall outside existing rules, so the two approaches complement each other on every change.
+
+When {% data variables.product.prodname_code_quality_short %} is enabled, it posts reliability and maintainability findings as inline comments on the pull request, each with a one-click, {% data variables.product.prodname_copilot_short %}-powered autofix you can apply directly. It also reports coverage metrics that show whether the change maintains or reduces reported code coverage from your test suite compared to the default branch. If you want to enforce these standards, rulesets can require rules-based findings to be resolved and coverage thresholds to be met before merge.
+
+For more information, see [AUTOTITLE](/code-security/concepts/about-code-quality).
 
 ## Optimized reviews with {% data variables.product.prodname_copilot_short %}
 
 Automatic review comments help you optimize your reviews and secure your code more efficiently regardless of your level of experience.  
 
 * Custom instructions helped refine the responses from {% data variables.copilot.copilot_code-review_short %} so they were specific to our project and user needs and we also saw how we can tailor how much explanation {% data variables.product.prodname_copilot_short %} provides in feedback.
-* {% data variables.copilot.copilot_code-review_short %}  helped us quickly improve our error logging and understand why it mattered. 
-* {% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %} helped us prevent using an insufficient password hashing approach and protect user data.   
+* {% data variables.copilot.copilot_code-review_short %}  helped us quickly improve our error logging and understand why it mattered.
+* {% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %} helped us prevent using an insufficient password hashing approach and protect user data.
+* {% data variables.product.prodname_code_quality %} flagged reliability and maintainability issues and reported code coverage on the pull request, and rulesets let us require those findings to be resolved and coverage thresholds to be met before merge.
 
 ## Next steps
 
@@ -221,6 +229,7 @@ To make your reviews more efficient and effective using {% data variables.produc
 1. Create custom instructions specific to your project and repository. Write your own, or take inspiration from our library of examples. See [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions).
 1. To enable automatic {% data variables.copilot.copilot_code-review_short %} for your repository, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review).
 1. To configure {% data variables.copilot.copilot_autofix_short %} for your repo you'll need to enable {% data variables.product.prodname_code_scanning %}. Once {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %} analysis is enabled, {% data variables.copilot.copilot_autofix_short %} is enabled by default. For the easiest setup, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configure-code-scanning).
+1. To add reliability, maintainability, and coverage checks to your pull requests, enable {% data variables.product.prodname_code_quality %} for your repository. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/enable-code-quality).
 
 ## Further reading
 

@@ -476,19 +476,24 @@ These settings apply across all your sessions and repositories. You can use the 
 | `proxyKerberosServicePrincipal` | `string` | unset | Service principal name (SPN) for Kerberos/Negotiate proxy authentication, overriding the derived `HTTP/<proxy-host>`. |
 | `proxyUrl` | `string` | unset | Proxy URL for HTTP(S) requests (for example, `http://proxy.corp.example:3128`). Overridden by the `HTTP_PROXY` or `HTTPS_PROXY` environment variables (any casing). |
 | `remote` | `"on"` \| `"off"` | `"on"` | Controls session syncing and remote access. Set to `"off"` to keep session data local only and disable remote control. Can also be set with `--remote` or `--no-remote`. |
+| `renderHexColors` | `boolean` | `true` | Show six-digit hex color codes written as inline code (for example, `` `#FF0000` ``) as color swatches. |
 | `renderMarkdown` | `boolean` | `true` | Render Markdown in terminal output. |
 | `remoteExport` | `boolean` | `true` | Export sessions remotely when session sync is available. Set to `false` to opt out of remote export by default. The `remoteSessions` setting when set to `true`, or the `--remote` flag, still enables export and steering regardless of this setting. |
 | `respectGitignore` | `boolean` | `true` | Exclude gitignored files from the `@` file mention picker. When `false`, the picker includes files normally excluded by `.gitignore`. |
+| `sandbox.gitAuth` | `boolean` | `false` | Inject Git credentials into the sandbox so commands running inside it can authenticate with Git. |
+| `sandbox.ghAuth` | `boolean` | `false` | Inject {% data variables.product.prodname_cli %} (`gh`) credentials into the sandbox so commands running inside it can authenticate with the {% data variables.product.prodname_cli %}. |
+| `sandbox.userPolicy.seatbelt.keychainAccess` | `boolean` | `false` | macOS only. Grant sandboxed commands access to the system keychain. Can also be toggled from the `/sandbox` dialog. |
 | `screenReader` | `boolean` | `false` | Enable screen reader optimizations. |
 | `scrollbar` | `boolean` | `true` | Show the scrollbar in scrollable views. Set to `false` to hide it and use the full terminal width. |
+| `shellShortcut` | `boolean` | `false` | Let a lone `$` at the prompt open an interactive shell rooted at the session's working directory (activates only for a local, trusted, idle session on a real TTY). User- or managed-scoped only—not repo-overridable. |
 | `showTimestamps` | `boolean` | `true` | Show dim `HH:mm` timestamps next to user messages in the timeline. |
 | `showTipsOnStartup` | `boolean` | `true` | Show a random command tip when the CLI starts. |
 | `skillDirectories` | `string[]` | `[]` | Additional directories to search for custom skill definitions (in addition to `~/.copilot/skills/`). |
 | `statusLine` | `object` | — | Custom status line display. `type`: must be `"command"`. `command`: path to an executable script that receives session JSON on stdin and prints status content to stdout. `padding`: optional number of left-padding spaces. |
-| `stayInAutopilot` | `boolean` | `false` | Stay in autopilot mode after an autopilot task completes, instead of reverting to interactive mode. |
+| `stayInAutopilot` | `boolean` | `false` | Remain in autopilot mode after each task completes. When enabled, the next prompt you enter after a task completes is also handled in autopilot mode. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot#staying-in-autopilot-mode-between-tasks). |
 | `storeTokenPlaintext` | `boolean` | `false` | Allow authentication tokens to be stored in plain text in `config.json` when no system keychain is available. |
 | `stream` | `boolean` | `true` | Enable streaming responses. |
-| `streamerMode` | `boolean` | `false` | Hide preview model names and quota details. Useful when demonstrating {% data variables.copilot.copilot_cli_short %} or screen sharing. |
+| `streamerMode` | `boolean` | `false` | Hide preview model names, quota details, prompt timestamps, and the update-available notice. Useful when demonstrating {% data variables.copilot.copilot_cli_short %} or screen sharing. |
 | `subagents.agents` | `object` | `{}` | Per-agent model configuration, keyed by agent name. Each value is an object with optional `model` (string), `effortLevel` (string), and `contextTier` (`"default"`, `"long_context"`, or `"inherit"`) fields. Set any field to `"inherit"` to use the parent session's value at dispatch time. Use the `/subagents` slash command to configure these settings interactively. |
 | `subagents.disabledSubagents` | `string[]` | `[]` | Agent names to prevent from being dispatched. Only the `rubber-duck` agent cannot be disabled via this setting. All other built-in agents—including `explore`, `task`, `code-review`, `general-purpose`, `research`, and `security-review`—can be disabled. |
 | `subagents.maxConcurrency` | `number` | plan-based | Maximum concurrent subagents for this session. Only honored for usage-based billing users; ignored for all other plans. Capped at `32`. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#subagent-limits). |
@@ -608,12 +613,53 @@ Only the following keys are supported in MDM managed settings.
 
 | Key | Description |
 |-----|-------------|
+| `allowedMcpServers` | Allowlist of MCP servers users may load, matched by `serverUrl`, `serverCommand`, or `serverName`. Trusted first-party servers (for example, the built-in {% data variables.product.github %} MCP server) are always exempt. Leaving this key unset allows all non-default servers; an empty array denies all of them. See [Managed MCP server allow/deny list](#managed-mcp-server-allowdeny-list). |
+| `deniedMcpServers` | Denylist of MCP servers that must never load, matched the same way as `allowedMcpServers`. A matching non-default server is blocked regardless of the allowlist—deny always wins. See [Managed MCP server allow/deny list](#managed-mcp-server-allowdeny-list). |
 | `enabledPlugins` | Enable or disable specific plugins |
 | `extraKnownMarketplaces` | Add trusted plugin marketplaces |
 | `model` | Set a default model for all users (overridden by the `--model` flag or a resumed-session model) |
 | `permissions` | Set managed permissions, including `disableBypassPermissionsMode` |
-| `remoteControl` | Control whether sessions on this device can be controlled from other devices. `mode` is `"enabled"`, `"disabled"`, or `"requireSSO"` (requires `requiredSsoOrganizations` when set). |
+| `remoteControl` | Control whether sessions on this device can be controlled from other devices. `mode` is `"enabled"`, `"disabled"`, or `"requireSSO"` (requires `githubDotComOrganizations` when set). |
+| `shellShortcut` | Force-enable or force-disable the `$` interactive shell shortcut for all users. A managed value always overrides the user's own `shellShortcut` setting. |
 | `strictKnownMarketplaces` | Restrict plugins to known marketplaces |
+| `telemetry` | Push baseline OpenTelemetry export configuration: `enabled`, `endpoint`, `protocol`, `headers`, `resourceAttributes`, `captureContent`, `lockCaptureContent`, and `serviceName`. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#opentelemetry-monitoring). |
+
+> [!NOTE]
+> When `remoteControl.mode` is `"requireSSO"`, list the allowed organizations in `remoteControl.githubDotComOrganizations`. The client must be SSO-authorized for at least one listed {% data variables.product.prodname_dotcom_the_website %} organization—it no longer needs to be authorized for all of them.
+
+## Managed MCP server allow/deny list
+
+Administrators can govern MCP servers directly through MDM managed settings, independent of the [enterprise MCP allowlist](/copilot/reference/copilot-cli-reference/cli-command-reference#enterprise-mcp-allowlist).
+
+Set `allowedMcpServers` and/or `deniedMcpServers` in a managed settings source:
+
+```json
+{
+    "allowedMcpServers": [
+        { "serverUrl": "https://mcp.example.com/*" },
+        { "serverCommand": ["npx", "-y", "@example/mcp-server"] }
+    ],
+    "deniedMcpServers": [
+        { "serverName": "untrusted-server" }
+    ]
+}
+```
+
+Each entry identifies a server by exactly one of the following matchers.
+
+| Matcher | Matches | Notes |
+|---------|---------|-------|
+| `serverUrl` | A remote (HTTP/SSE) server by URL | Supports `*` wildcards; scheme and host match case-insensitively, path case-sensitively. `${VAR}` references expand before matching. |
+| `serverCommand` | A stdio server by its exact command and arguments, in order | `${VAR}` references expand before matching. |
+| `serverName` | A server by its assigned label | Allowlist entries are restricted to `[A-Za-z0-9_-]+` (no wildcards); denylist entries accept any non-empty string. |
+
+Rules:
+
+* **Trusted first-party servers** (for example, the built-in {% data variables.product.github %} MCP server) are always exempt from both lists.
+* **Unset `allowedMcpServers`** allows all non-default servers; an **empty array** blocks all of them (deny-all).
+* **Unset or empty `deniedMcpServers`** blocks nothing.
+* **Deny always wins**—a server matching `deniedMcpServers` is blocked even if it also matches `allowedMcpServers`.
+* For remote servers, a match must come from a `serverUrl` entry; `serverName` only counts when no `serverUrl` entries exist. For stdio servers, a match must come from a `serverCommand` entry; `serverName` only counts when no `serverCommand` entries exist.
 
 ## Further reading
 
