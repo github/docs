@@ -37,7 +37,7 @@ category:
 
 {% data reusables.package_registry.required-scopes %}
 
-You can authenticate to {% data variables.product.prodname_registry %} with Gradle using either Gradle Groovy or Kotlin DSL by editing your _build.gradle_ file (Gradle Groovy) or _build.gradle.kts_ file (Kotlin DSL) file (or _settings.gradle_/_settings.gradle.kts_ if you use [Centralizing Repository Declarations](https://docs.gradle.org/current/userguide/centralizing_repositories.html)) to include your {% data variables.product.pat_v1 %}. You can also configure Gradle Groovy and Kotlin DSL to recognize a single package or multiple packages in a repository.
+You can authenticate to {% data variables.product.prodname_registry %} with Gradle using either Gradle Groovy or Kotlin DSL by editing your _build.gradle_ file (Gradle Groovy) or _build.gradle.kts_ file (Kotlin DSL) (or _settings.gradle_/_settings.gradle.kts_ if you centralize repository declarations in the settings script to use published packages) to include your {% data variables.product.pat_v1 %}. You can also configure Gradle Groovy and Kotlin DSL to recognize a single package or multiple packages in a repository.
 
 {% ifversion ghes %}
 Replace REGISTRY_URL with the URL for your instance's Maven registry. If your instance has subdomain isolation enabled, use `maven.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/maven`. In either case, replace HOSTNAME with the host name of your {% data variables.product.prodname_ghe_server %} instance.
@@ -190,7 +190,7 @@ To use a published package from {% data variables.product.prodname_registry %}, 
    }
    ```
 
-1. Add the repository to your _build.gradle_ file (Gradle Groovy) or _build.gradle.kts_ file (Kotlin DSL) file, or to your _settings.gradle_ file (Gradle Groovy) or _settings.gradle.kts_ file (Kotlin DSL) in the `dependencyResolutionManagement` block if you use [Centralizing Repository Declarations](https://docs.gradle.org/current/userguide/centralizing_repositories.html).
+1. Add the repository to your _build.gradle_ file (Gradle Groovy) or _build.gradle.kts_ file (Kotlin DSL) file, or to your _settings.gradle_ file (Gradle Groovy) or _settings.gradle.kts_ file (Kotlin DSL) in the `dependencyResolutionManagement` block if you centralize repository declarations in the settings script. For more information, see [Centralizing Repository Declarations](https://docs.gradle.org/current/userguide/centralizing_repositories.html) in the Gradle documentation.
 
    Example using Gradle Groovy:
 
