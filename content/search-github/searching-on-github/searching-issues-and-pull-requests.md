@@ -384,6 +384,23 @@ You can narrow your search to issues and pull requests that are missing certain 
 | `no:assignee` | [**important no:assignee language:java type:issue**](https://github.com/search?q=important+no%3Aassignee+language%3Ajava+type%3Aissue&type=Issues) matches issues not associated with an assignee, containing the word "important," and in Java repositories.
 | `no:project` | [**build no:project**](https://github.com/search?utf8=%E2%9C%93&q=build+no%3Aproject&type=Issues) matches issues not associated with a {% data variables.projects.project_v2 %}, containing the word "build."
 
+Repository Sorting
+sort:stars-desc or sort:stars-asc — Sort by number of stars.
+sort:forks-desc or sort:forks-asc — Sort by number of forks.
+sort:updated-desc or sort:updated-asc — Sort by last updated date. 
+
+Issues and Pull Requests Sorting
+sort:comments-desc — Most commented items first.
+sort:created-desc — Newest created items first.
+sort:interactions-desc — Highest combined comments and reactions.
+sort:updated-desc — Most recently active threads. 
+
+
+User and Organization Sorting
+sort:followers-desc — Users with the most followers.
+sort:repositories-desc — Users with the most repositories.
+sort:joined-desc — Newest accounts to join GitHub
+
 ## Further reading
 
 * [AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)
