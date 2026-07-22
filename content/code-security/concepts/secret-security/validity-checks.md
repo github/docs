@@ -25,7 +25,13 @@ You can enable automatic validity checks for detected secrets. Once enabled, {% 
 
 {% data variables.product.company_short %} prioritizes privacy when checking the validity of the credential. We typically make GET requests, pick the least intrusive endpoints, and select endpoints that don't return any personal information.
 
-{% data variables.product.github %} displays the validation status of the secret in the alert view, so you can see if the secret is `active`, `inactive`, or if the validation status is `unknown`. You can optionally perform an "on-demand" validity check for the secret in the alert view.
+{% ifversion fpt or ghec %}
+
+Some secrets require more than the token itself to confirm whether they are active. For these secrets, {% data variables.product.company_short %} will combine the token with additional contextual information, such as a host or URL, to check the secret's validity.
+
+{% endif %}
+
+{% data variables.product.github %} displays the validation status of the secret in the alert view, so you can see if the secret is `active`, `inactive`, or if the validation status is `unknown`. For most secrets, you can optionally perform an "on-demand" validity check for the secret in the alert view.
 
 ## About extended metadata checks
 
@@ -41,7 +47,7 @@ You can enable extended metadata checks if validity checks are enabled. Then, yo
 * **Enhance compliance**: Ensure secrets align with your organization’s governance and security policies.
 * **Reduce false positives**: Use additional context to determine if a detection requires action.
 
-The specific metadata available depends on what the service provider shares with {% data variables.product.github %}. Not all secret types support extended metadata checks. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#verifying-token-metadata).
+The specific metadata available depends on what the service provider shares with {% data variables.product.github %}. Not all secret types support extended metadata checks. For more information, see [AUTOTITLE](/code-security/tutorials/remediate-leaked-secrets/evaluating-alerts#verifying-token-metadata).
 
 ## Getting started with validity and extended metadata checks
 
@@ -51,6 +57,6 @@ For large organizations, we recommend using **security configurations** to enabl
 
 To get started:
 
-* For repositories, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/customize-leak-detection/enabling-validity-checks-for-your-repository)
-* For an organization, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/creating-a-custom-security-configuration)
-* For an enterprise, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/creating-a-custom-security-configuration-for-your-enterprise)
+* For repositories, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/customize-leak-detection/enable-validity-checks)
+* For an organization, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/create-custom-configuration)
+* For an enterprise, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/create-custom-configuration)

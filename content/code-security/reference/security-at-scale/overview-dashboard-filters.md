@@ -169,7 +169,7 @@ You can limit the data to repositories owned by a single organization in your en
 
 {% data reusables.security.production-context-mdc-preview %}
 
-For more information about production context, see [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities/alerts-in-production-code).
+For more information about production context, see [AUTOTITLE](/code-security/tutorials/secure-your-organization/prioritize-alerts-in-production-code).
 
 | Qualifier | Description |
 | -------- | -------- |
@@ -192,7 +192,7 @@ For more information about production context, see [AUTOTITLE](/code-security/se
 |{% endif %}|
 |`ecosystem`|Display {% data variables.product.prodname_dependabot_alerts %} detected in a specified ecosystem, for example: `ecosystem:Maven`.|
 |`epss_percentage`|Display {% data variables.product.prodname_dependabot_alerts %} whose EPSS score meets the defined criteria, for example: `epss_percentage:>=0.01`|
-|`has`|Display {% data variables.product.prodname_dependabot_alerts %} for vulnerabilities where either a secure version is already available (`patch`) or where at least one call from the repository to a vulnerable function is detected (`vulnerable-calls`). For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions).|
+|`has`|Display {% data variables.product.prodname_dependabot_alerts %} for vulnerabilities where either a secure version is already available (`patch`) or where at least one call from the repository to a vulnerable function is detected (`vulnerable-calls`). For more information, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/view-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions).|
 |`is`|Display {% data variables.product.prodname_dependabot_alerts %} that are open (`open`) or closed (`closed`).|
 |`package`|Display {% data variables.product.prodname_dependabot_alerts %} detected in the specified package, for example: `package:semver`.|
 |`props`|Display {% data variables.product.prodname_dependabot_alerts %} for repositories with a specific custom property set. For example, `props.data_sensitivity:high` displays results for repositories with the `data_sensitivity` property set to the value `high`.|

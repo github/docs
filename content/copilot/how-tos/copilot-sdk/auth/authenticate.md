@@ -23,7 +23,7 @@ contentType: how-tos
 | [GitHub Signed-in User](#github-signed-in-user) | Interactive apps where users sign in with GitHub | Yes |
 | [OAuth GitHub App](#oauth-github-app) | Apps acting on behalf of users via OAuth | Yes |
 | [Environment Variables](#environment-variables) | CI/CD, automation, server-to-server | Yes |
-| [AUTOTITLE](/copilot/how-tos/copilot-sdk/auth/byok) | Using your own API keys (Azure AI Foundry, OpenAI, etc.) | No |
+| [AUTOTITLE](/copilot/how-tos/copilot-sdk/auth/byok) | Using your own API keys (Azure AI Foundry, OpenAI, and more) | No |
 
 ## GitHub signed-in user
 
@@ -216,7 +216,7 @@ client.start().get();
 
 **Supported token types:**
 * `gho_` - OAuth user access tokens
-* `ghu_` - GitHub App user access tokens  
+* `ghu_` - GitHub App user access tokens
 * `github_pat_` - Fine-grained personal access tokens
 
 **Not supported:**
@@ -269,7 +269,7 @@ await client.start()
 {% endcodetabs %}
 
 **When to use:**
-* CI/CD pipelines (GitHub Actions, Jenkins, etc.)
+* CI/CD pipelines (GitHub Actions, Jenkins, and more)
 * Automated testing
 * Server-side applications with service accounts
 * Development when you don't want to use interactive login
@@ -295,7 +295,6 @@ BYOK allows you to use your own API keys from model providers like Azure AI Foun
 When multiple authentication methods are available, the SDK uses them in this priority order:
 
 1. **Explicit `gitHubToken`** - Token passed directly to the SDK client or session configuration
-1. **HMAC key** - `CAPI_HMAC_KEY` or `COPILOT_HMAC_KEY` environment variables
 1. **Direct API token** - `GITHUB_COPILOT_API_TOKEN` with `COPILOT_API_URL`
 1. **Environment variable tokens** - `COPILOT_GITHUB_TOKEN` → `GH_TOKEN` → `GITHUB_TOKEN`
 1. **Stored OAuth credentials** - From previous `copilot` CLI login

@@ -28,7 +28,7 @@ After running an initial analysis of your code with default setup, you can make 
 1. Optionally, in the "Languages" section, select or deselect languages for analysis.
 1. Optionally, in the "Query suite" row of the "Scan settings" section, select a different query suite to run against your code.
 
-1. Optionally, to use labeled runners, in the "Runner type" section of the "{% data variables.product.prodname_codeql %} default configuration" modal dialog, select **Standard {% data variables.product.company_short %} runner** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} to open a dropdown menu, then select **Labeled runner**. Then, next to "Runner label," enter the label of an existing self-hosted or {% data variables.product.company_short %}-hosted runner. For more information, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#assigning-labels-to-runners).
+1. Optionally, to use labeled runners, in the "Runner type" section of the "{% data variables.product.prodname_codeql %} default configuration" modal dialog, select **Standard {% data variables.product.company_short %} runner** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} to open a dropdown menu, then select **Labeled runner**. Then, next to "Runner label," enter the label of an existing self-hosted or {% data variables.product.company_short %}-hosted runner. For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configure-code-scanning#assigning-labels-to-runners).
 
 1. ({% data variables.release-phases.public_preview_caps %}) Optionally, in the "Threat model" row of the "Scan settings" section, select **Remote and local sources**. This option is only available for repositories with code in a supported language: {% data variables.code-scanning.code_scanning_threat_model_support %}.
 
@@ -40,7 +40,7 @@ You can use rulesets to prevent pull requests from being merged when one of the 
 
 {% data reusables.code-scanning.merge-protection-rulesets-conditions %}
 
-For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection). For more general information about rulesets, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
+For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/set-merge-protection). For more general information about rulesets, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
 
 ## Including local sources of tainted data in default setup
 
@@ -58,7 +58,7 @@ If {% ifversion ghec %}your enterprise is hosted on {% data variables.product.pr
 
 For default setup, you need to define the models of your additional dependencies in {% data variables.product.prodname_codeql %} model packs. You can extend coverage in default setup with {% data variables.product.prodname_codeql %} model packs for individual repositories, or at scale for all repositories in an organization.
 
-For more information about {% data variables.product.prodname_codeql %} model packs and writing your own, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/using-the-codeql-model-editor).
+For more information about {% data variables.product.prodname_codeql %} model packs and writing your own, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-vs-code/use-the-model-editor).
 
 ### Extending coverage for a repository
 
@@ -98,4 +98,4 @@ For more information about {% data variables.product.prodname_codeql %} model pa
 
 ## Further customization
 
-If you need to change any other aspects of your {% data variables.product.prodname_code_scanning %} configuration, consider configuring advanced setup. See [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning).
+If you need to change any other aspects of your {% data variables.product.prodname_code_scanning %} configuration, consider configuring advanced setup. See [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configuring-advanced-setup-for-code-scanning).

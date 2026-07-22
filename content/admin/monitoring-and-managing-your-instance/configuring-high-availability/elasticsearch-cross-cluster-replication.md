@@ -52,7 +52,7 @@ Before you enable CCR, confirm the following.
 {% endnote %}
 
 1. Contact {% data variables.contact.github_support %} and request access to the new HA search architecture. {% data variables.product.company_short %} will enable your enterprise so that you can download the required CCR-enabled license.
-1. Download your updated license and upload it to your instance. For more information, see [AUTOTITLE](/admin/overview/managing-your-github-enterprise-license).
+1. Download your updated license and upload it to your instance. For more information, see [AUTOTITLE](/billing/how-tos/manage-server-licenses/download-your-license).
 1. On the primary appliance, enable the feature.
 
    ```shell

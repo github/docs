@@ -17,11 +17,11 @@ category:
   - Customize vulnerability detection with CodeQL
 ---
 
-You can customize your {% data variables.product.prodname_codeql %} analysis by downloading packs created by others and running them on your codebase. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/codeql-query-packs).
+You can customize your {% data variables.product.prodname_codeql %} analysis by downloading packs created by others and running them on your codebase. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/query-packs).
 
 ## Downloading and using {% data variables.product.prodname_codeql %} query packs
 
-Before you can use a {% data variables.product.prodname_codeql %} query pack to analyze a database, you must download any packages you require from the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}. This can be done either by using the `--download` flag as part of the `codeql database analyze` command, or running `codeql pack download`. If a package is not publicly available, you will need to use a {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} to authenticate. For more information and an example, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/uploading-codeql-analysis-results-to-github#uploading-results-to-github).
+Before you can use a {% data variables.product.prodname_codeql %} query pack to analyze a database, you must download any packages you require from the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}. This can be done either by using the `--download` flag as part of the `codeql database analyze` command, or running `codeql pack download`. If a package is not publicly available, you will need to use a {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} to authenticate. For more information and an example, see [AUTOTITLE](/code-security/tutorials/customize-code-scanning/upload-results#uploading-results-to-github).
 
 | Option | Required | Usage |
 |--------|:--------:|-----|
@@ -73,7 +73,7 @@ echo $OCTO-ORG_ACCESS_TOKEN | codeql pack download <scope/name@version:path> <sc
 
 ### Downloading {% data variables.product.prodname_codeql %} packs from multiple {% data variables.product.company_short %} container registries
 
-If your {% data variables.product.prodname_codeql %} packs reside on multiple container registries, then you must instruct the {% data variables.product.prodname_codeql_cli %} where to find each pack. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#downloading-codeql-packs-from-github-enterprise-server).
+If your {% data variables.product.prodname_codeql %} packs reside on multiple container registries, then you must instruct the {% data variables.product.prodname_codeql_cli %} where to find each pack. For more information, see [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options#downloading-codeql-packs-from-github-enterprise-server).
 
 ## Specifying which queries to run in a {% data variables.product.prodname_codeql %} pack
 
@@ -138,7 +138,7 @@ In this example, the relevant queries in the standard query pack `codeql/java-qu
 
 You can specify multiple published model packs in an analysis.
 
-For more information about writing your own model packs, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs#creating-a-model-pack).
+For more information about writing your own model packs, see [AUTOTITLE](/code-security/tutorials/customize-code-scanning/create-and-work-with-codeql-packs#creating-a-model-pack).
 
 ### About published packs
 

@@ -14,7 +14,18 @@ redirect_from:
 contentType: reference
 ---
 
-If your company employs security measures like a firewall or proxy server, you should add the following URLs, ports, and protocols to an allowlist to ensure {% data variables.product.prodname_copilot_short %} works as expected:
+If your company employs security measures like a firewall or proxy server, you should add the URLs in this article to an allowlist to ensure {% data variables.product.prodname_copilot_short %} works as expected.
+
+## Enable users to sign in to {% data variables.product.prodname_copilot_short %}
+
+Allowlisting the URLs below is **not enough on its own**. If your network blocks {% data variables.product.github %} more broadly, users won't be able to sign in to {% data variables.product.prodname_copilot_short %}, even with every URL below allowed.
+
+To sign in, users complete the standard {% data variables.product.github %} browser sign-in flow, which loads the {% data variables.product.github %} sign-in page. On a restricted network, this requires access to {% data variables.product.github %}'s general website domains (for example, `*.githubassets.com` and `*.githubusercontent.com`), which are not specific to {% data variables.product.prodname_copilot_short %}.
+
+To enable sign-in on a restricted network:
+
+1. Allow access to {% data variables.product.github %}'s general website domains. For more information, see [AUTOTITLE](/get-started/using-github/allowing-access-to-githubs-services-from-a-restricted-network).
+1. Add the URLs in this article to your allowlist.
 
 ## {% data variables.product.github %} public URLs
 

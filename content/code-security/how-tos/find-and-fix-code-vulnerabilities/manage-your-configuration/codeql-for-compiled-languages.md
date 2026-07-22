@@ -42,7 +42,7 @@ contentType: how-tos
 
 When you are setting up {% data variables.product.prodname_code_scanning %} for the first time, or across multiple repositories, it's best to use default setup. Default setup uses the simplest method available to generate a {% data variables.product.prodname_codeql %} database and analyze your code, so that you can start fixing alerts as soon as possible. Once you have resolved the initial alerts, you may want to switch to advanced setup with a manual build process for high risk repositories.
 
-For language-specific `autobuild` behavior, runner requirements, and build-mode details for compiled languages, see [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-build-options-and-steps-for-compiled-languages).
+For language-specific `autobuild` behavior, runner requirements, and build-mode details for compiled languages, see [AUTOTITLE](/code-security/reference/code-scanning/codeql/build-options-for-compiled-languages).
 
 ## Use multiple build modes in a multi-language repository
 
@@ -116,7 +116,7 @@ Creating a {% data variables.product.prodname_codeql %} database without a build
 
 To use `autobuild` or manual build steps, you can use advanced setup.
 
->[!NOTE] For Java analysis, if `build-mode` is set to `none` and Kotlin code is found in the repository, the Kotlin code will not be analyzed and a warning will be produced. See [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-build-options-and-steps-for-compiled-languages#building-java-and-kotlin).
+> [!NOTE] For Java analysis, if `build-mode` is set to `none` and Kotlin code is found in the repository, the Kotlin code will not be analyzed and a warning will be produced. See [AUTOTITLE](/code-security/reference/code-scanning/codeql/build-options-for-compiled-languages#building-java-and-kotlin).
 
 ## Use `autobuild` for {% data variables.product.prodname_codeql %}
 
@@ -163,7 +163,7 @@ steps:
 
 ## Specify build steps manually
 
-You can only specify manual build steps if you have enabled advanced setup, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-a-repository).
+You can only specify manual build steps if you have enabled advanced setup, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-a-repository).
 
 {% data reusables.code-scanning.autobuild-add-build-steps %}
 
@@ -199,7 +199,7 @@ When manual building is enabled, uncomment the `run` step in the workflow and ad
     make release
 ```
 
-For more information about the `run` keyword, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun).
+For more information about the `run` keyword, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstepsrun).
 
 <!-- For "no-build" this is covered earlier in the article under "About CodeQL build modes". -->
 

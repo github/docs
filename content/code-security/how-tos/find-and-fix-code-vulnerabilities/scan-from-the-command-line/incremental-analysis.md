@@ -178,7 +178,7 @@ Alternatively, create a query suite file (`.qls`) that excludes those queries:
     tags contain: exclude-from-incremental
 ```
 
-For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#filtering-the-queries-in-a-codeql-pack).
+For more information, see [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options#filtering-the-queries-in-a-codeql-pack).
 
 ### Step 5: Filter the SARIF output
 

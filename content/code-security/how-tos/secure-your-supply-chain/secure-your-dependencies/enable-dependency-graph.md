@@ -17,7 +17,7 @@ category:
   - Secure your dependencies
 ---
 
-The dependency graph is a summary of the manifest and lock files stored in a repository and any dependencies that are submitted for the repository using the {% data variables.dependency-submission-api.name %}. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).
+The dependency graph is a summary of the manifest and lock files stored in a repository and any dependencies that are submitted for the repository using the {% data variables.dependency-submission-api.name %}. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-graph).
 
 When the dependency graph is first enabled, any manifest and lock files for supported ecosystems are parsed immediately. The graph is usually populated within minutes but this may take longer for repositories with many dependencies. Once enabled, the graph is automatically updated with every push to the repository{% ifversion fpt or ghec %} and every push to other repositories in the graph{% endif %}.
 
@@ -37,9 +37,9 @@ Enabling the dependency graph gives {% data variables.product.github %} read-onl
 
 ## Enabling the dependency graph for multiple repositories
 
-You can enable or disable the dependency graph for all repositories owned by your user account, regardless of their visibility. See [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-security-and-analysis-settings-for-your-personal-account).
+You can enable or disable the dependency graph for all repositories owned by your user account, regardless of their visibility. See [AUTOTITLE](/account-and-profile/how-tos/account-settings/managing-security-and-analysis-features).
 
-You can also enable the dependency graph for multiple repositories in an organization at the same time. For more information, see [AUTOTITLE](/code-security/securing-your-organization).
+You can also enable the dependency graph for multiple repositories in an organization at the same time. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security).
 
 {% endif %}
 
@@ -47,13 +47,13 @@ You can also enable the dependency graph for multiple repositories in an organiz
 
 {% data reusables.dependency-submission.dependency-submission-link %}
 
-For more information on viewing the dependency graph, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository).
+For more information on viewing the dependency graph, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/explore-dependencies).
 
 ## Further reading
 
 {%- ifversion maven-transitive-dependencies %}
-* [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-automatic-dependency-submission-for-your-repository){%- endif %}
+* [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/submit-dependencies-automatically){%- endif %}
 {%- ifversion fpt or ghec %}
 * [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization){%- endif %}
-* [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)
-* [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)
+* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/view-dependabot-alerts)
+* [AUTOTITLE](/code-security/reference/supply-chain-security/troubleshoot-dependabot/vulnerability-detection)

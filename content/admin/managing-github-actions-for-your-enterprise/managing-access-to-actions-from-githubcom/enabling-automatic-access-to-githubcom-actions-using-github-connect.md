@@ -22,7 +22,7 @@ By default, {% data variables.product.prodname_actions %} workflows on {% data v
 
 {% data reusables.actions.self-hosted-runner-networking-to-dotcom %}
 
-Alternatively, if you want stricter control over which actions are allowed in your enterprise, you can manually download and sync public actions onto your enterprise instance using the `actions-sync` tool. For more information, see [AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom).
+Alternatively, if you want stricter control over which actions are allowed in your enterprise, you can manually download and sync public actions onto your enterprise instance using the `actions-sync` tool. For more information, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom).
 
 ## About resolution for actions using {% data variables.product.prodname_github_connect %}
 
@@ -33,8 +33,8 @@ If a user has already created an organization and repository in your enterprise 
 ## Enabling automatic access to public {% data variables.product.prodname_dotcom_the_website %} actions
 
 Before enabling access to public actions from {% data variables.product.prodname_dotcom_the_website %} for your enterprise, you must:
-* Configure {% data variables.location.product_location %} to use {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server).
-* Enable {% data variables.product.prodname_github_connect %}. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/managing-github-connect).
+* Configure {% data variables.location.product_location %} to use {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server).
+* Enable {% data variables.product.prodname_github_connect %}. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-githubcom).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.github-connect-tab %}

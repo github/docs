@@ -26,7 +26,13 @@ The context window has a fixed size, measured in tokens, that varies by model. T
 
 All of this accumulates in the context window. In a long or complex session, the context window can fill up.
 
-### Why the context window matters
+### Managing large tool output
+
+To prevent a single tool response from consuming too much of the context window, tool output larger than 20 KiB is saved to a temporary file by default. The model receives the file path and a preview instead of the full output. This applies to all tools, including tools provided by MCP servers.
+
+To change the limit, set `COPILOT_LARGE_OUTPUT_THRESHOLD_BYTES` to a positive number of UTF-8 bytes before starting the CLI. Increasing the limit leaves less context available for the conversation and subsequent tool calls.
+
+## Why the context window matters
 
 The context window is what gives {% data variables.product.prodname_copilot_short %} its "memory" of your conversation. Everything inside the context window is available for {% data variables.product.prodname_copilot_short %} to reference when responding to you.
 

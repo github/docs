@@ -28,14 +28,14 @@ contentType: tutorials
 
 This tutorial leads you through how to use the `GITHUB_TOKEN` for authentication in {% data variables.product.prodname_actions %} workflows, including examples for passing the token to actions, making API requests, and configuring permissions for secure automation.
 
-For reference information, see [AUTOTITLE](/actions/reference/workflow-syntax-for-github-actions#permissions).
+For reference information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#permissions).
 
 ## Using the `GITHUB_TOKEN` in a workflow
 
 You can use the `GITHUB_TOKEN` by using the standard syntax for referencing secrets: {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}. Examples of using the `GITHUB_TOKEN` include passing the token as an input to an action, or using it to make an authenticated {% data variables.product.github %} API request.
 
 > [!IMPORTANT]
-> An action can access the `GITHUB_TOKEN` through the `github.token` context even if the workflow does not explicitly pass the `GITHUB_TOKEN` to the action. As a good security practice, you should always make sure that actions only have the minimum access they require by limiting the permissions granted to the `GITHUB_TOKEN`. For more information, see [AUTOTITLE](/actions/reference/workflow-syntax-for-github-actions#permissions).
+> An action can access the `GITHUB_TOKEN` through the `github.token` context even if the workflow does not explicitly pass the `GITHUB_TOKEN` to the action. As a good security practice, you should always make sure that actions only have the minimum access they require by limiting the permissions granted to the `GITHUB_TOKEN`. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#permissions).
 
 ### Example 1: passing the `GITHUB_TOKEN` as an input
 
@@ -73,15 +73,15 @@ jobs:
 
 Use the `permissions` key in your workflow file to modify permissions for the `GITHUB_TOKEN` for an entire workflow or for individual jobs. This allows you to configure the minimum required permissions for a workflow or job. As a good security practice, you should grant the `GITHUB_TOKEN` the least required access.
 
- To see the list of permissions available for use and their parameterized names, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#account-permissions).
+ To see the list of permissions available for use and their parameterized names, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#account-permissions).
 
 The two workflow examples earlier in this article show the `permissions` key being used at the job level.
 
 ## Granting additional permissions
 
-If you need a token that requires permissions that aren't available in the `GITHUB_TOKEN`, create a {% data variables.product.prodname_github_app %} and generate an installation access token within your workflow. For more information, see [AUTOTITLE](/apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow). Alternatively, you can create a {% data variables.product.pat_generic %}, store it as a secret in your repository, and use the token in your workflow with the {% raw %}`${{ secrets.SECRET_NAME }}`{% endraw %} syntax. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) and [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
+If you need a token that requires permissions that aren't available in the `GITHUB_TOKEN`, create a {% data variables.product.prodname_github_app %} and generate an installation access token within your workflow. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow). Alternatively, you can create a {% data variables.product.pat_generic %}, store it as a secret in your repository, and use the token in your workflow with the {% raw %}`${{ secrets.SECRET_NAME }}`{% endraw %} syntax. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) and [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
 
 ## Next steps
 
 * [AUTOTITLE](/actions/concepts/security/github_token)
-* [AUTOTITLE](/actions/reference/workflow-syntax-for-github-actions#permissions)
+* [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#permissions)

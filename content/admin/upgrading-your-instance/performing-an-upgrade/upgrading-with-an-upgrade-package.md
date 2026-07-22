@@ -14,7 +14,7 @@ category:
 
 Using the administrative shell, you can install an upgrade package with the `ghe-upgrade` utility.
 
-If you're running back-to-back feature version upgrades, you must ensure background jobs are complete before proceeding with the following upgrade to a feature release. {% data variables.product.prodname_dotcom %} recommends waiting for any background upgrade tasks to complete before upgrading a second time. See [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process) and [AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrade-requirements).
+If you're running back-to-back feature version upgrades, you must ensure background jobs are complete before proceeding with the following upgrade to a feature release. {% data variables.product.prodname_dotcom %} recommends waiting for any background upgrade tasks to complete before upgrading a second time. See [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process) and [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/upgrade-requirements).
 
 While you can use a hotpatch to upgrade to the latest patch release within a feature series, you must use an upgrade package to upgrade to a newer feature release. For example, to upgrade from 2.11.10 to 2.12.4 you must use an upgrade package since these are in different feature series.
 
@@ -25,7 +25,7 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} Select the appropriate platform and copy the URL for the upgrade package (_.pkg_ file).
 {% data reusables.enterprise_installation.download-package %}
-1. Enable maintenance mode and wait for all active processes to complete on the {% data variables.product.prodname_ghe_server %} instance. See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
+1. Enable maintenance mode and wait for all active processes to complete on the {% data variables.product.prodname_ghe_server %} instance. See [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode).
 
    > [!NOTE] When upgrading the primary node in a high availability configuration, the instance should already be in maintenance mode if you are following the instructions in [Upgrading the primary node with an upgrade package](#upgrading-the-primary-node-with-an-upgrade-package).
 
@@ -46,12 +46,12 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
    Proceed with installation? [y/N]
    ```
 
-1. Optionally, during an upgrade to a feature release, you can monitor the status of database migrations using the `ghe-migrations` utility. See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-migrations).
+1. Optionally, during an upgrade to a feature release, you can monitor the status of database migrations using the `ghe-migrations` utility. See [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-migrations).
 1. After the instance restarts, the upgrade will continue in the background. You cannot unset maintenance mode until the process completes.
 
    To check the status of background jobs, use the `ghe-check-background-upgrade-jobs` utility. If you're running back-to-back upgrades, you must ensure background jobs are complete before proceeding with the following upgrade to a feature release.
 
-    See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-check-background-upgrade-jobs).
+    See [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-check-background-upgrade-jobs).
 
    > [!NOTE]
    > Background upgrade jobs only need to complete before you begin a subsequent feature upgrade. You don't need to wait for `ghe-check-background-upgrade-jobs` before upgrading replica or other additional nodes to the same release.
@@ -65,7 +65,7 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
    The configuration runs in the background and you don't need to run `ghe-config-apply` explicitly unless you encounter a problem.
    > [!WARNING] If you are upgrading a node in a multi-node cluster, running `ghe-config-apply` on the command line or saving settings in the {% data variables.enterprise.management_console %} may fail and result in an incomplete upgrade if not all the nodes are upgraded to the same version. Please use `ghe-single-config-apply` instead.
 
-1. Optionally, after the upgrade, validate the upgrade by configuring an IP exception list to allow access to a specified list of IP addresses. See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list).
+1. Optionally, after the upgrade, validate the upgrade by configuring an IP exception list to allow access to a specified list of IP addresses. See [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list).
 1. For single node upgrades, perform any post-upgrade tasks including disabling maintenance mode so users can use {% data variables.location.product_location %}.
 
     > [!NOTE] After you upgrade an instance in a high availability configuration, you should remain in maintenance mode until you have upgraded all of the replica nodes and replication is current. See [Upgrading additional nodes with an upgrade package](#upgrading-additional-nodes-with-an-upgrade-package).
@@ -81,7 +81,7 @@ To upgrade a multi-node {% data variables.product.prodname_ghe_server %} environ
 
 > [!WARNING] When replication is stopped, if the primary fails, any work from before the replica is upgraded and the replication begins again will be lost.
 
-1. On the primary node, enable maintenance mode and wait for all active processes to complete. See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
+1. On the primary node, enable maintenance mode and wait for all active processes to complete. See [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode).
 {% data reusables.enterprise_installation.replica-ssh %}
 1. To stop replication on all nodes, run `ghe-repl-stop` on each node. Alternatively, if there are multiple replicas, run `ghe-repl-stop-all` on the primary node instead, which will stop replication in a single run.
 1. To upgrade the primary node, follow the instructions in [Upgrading a standalone instance using an upgrade package](#upgrading-a-standalone-instance-using-an-upgrade-package).
@@ -105,7 +105,7 @@ Phased upgrade execution allows {% data variables.product.prodname_ghe_server %}
    ghe-upgrade --phase pre-upgrade GITHUB-UPGRADE.pkg
    ```
 
-1. Enable maintenance mode and wait for all active processes to complete on the {% data variables.product.prodname_ghe_server %} instance. See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
+1. Enable maintenance mode and wait for all active processes to complete on the {% data variables.product.prodname_ghe_server %} instance. See [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode).
 
    > [!NOTE] When upgrading the primary node in a high availability configuration, the instance should already be in maintenance mode if you are following the instructions in [Upgrading the primary node with an upgrade package](#upgrading-the-primary-node-with-an-upgrade-package).
 1. Run the upgrade phase
@@ -114,7 +114,7 @@ Phased upgrade execution allows {% data variables.product.prodname_ghe_server %}
    ghe-upgrade --phase pre-upgrade GITHUB-UPGRADE.pkg
    ```
 
-1. Optionally, after the upgrade, validate the upgrade by configuring an IP exception list to allow access to a specified list of IP addresses. See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list).
+1. Optionally, after the upgrade, validate the upgrade by configuring an IP exception list to allow access to a specified list of IP addresses. See [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list).
 1. For single node upgrades, perform any post-upgrade tasks including disabling maintenance mode so users can use {% data variables.location.product_location %}.
 
     > [!NOTE] After you upgrade an instance in a high availability configuration, you should remain in maintenance mode until you have upgraded all of the replica nodes and replication is current. See [Upgrading additional nodes with an upgrade package](#upgrading-additional-nodes-with-an-upgrade-package).

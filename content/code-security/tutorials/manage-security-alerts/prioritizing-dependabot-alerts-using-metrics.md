@@ -31,9 +31,9 @@ Application Security (AppSec) managers often face a flood of {% data variables.p
 * **Alerts closed in the last 30 days, including the number of alerts fixed by {% data variables.product.prodname_dependabot %}, manually dismissed, and auto dismissed**: Tracks alert resolution progress. Illustrates how {% data variables.product.prodname_GH_code_security %} can help you detect vulnerabilities early.
 * **Table showing the total number of open alerts for each repository, as well as severity and expoitability data**: Allows you to dig deeper at the repository level.
 
-For more information about these metrics, see [AUTOTITLE](/code-security/concepts/supply-chain-security/about-metrics-for-dependabot-alerts).
+For more information about these metrics, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-alert-metrics).
 
-Additionally, you can specify complex filters, which are combinations of the individual filters that are available. For more information about filters, see [{% data variables.product.prodname_dependabot %} dashboard view filters](/code-security/security-overview/filtering-alerts-in-security-overview#dependabot-dashboard-view-filters).
+Additionally, you can specify complex filters, which are combinations of the individual filters that are available. For more information about filters, see [{% data variables.product.prodname_dependabot %} dashboard view filters](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/filtering-alerts-in-security-overview#dependabot-dashboard-view-filters).
 
 ## Steps to prioritize alerts
 
@@ -41,7 +41,7 @@ These first steps help you identify the {% data variables.product.prodname_depen
 
 ### 1. Tailor the funnel order to suit your organization's needs
 
-You can customize the default funnel order on the "Alert prioritization" graph to ensure it reflects the unique risk profile, business priorities, and compliance requirements of your organization. See [AUTOTITLE](/code-security/security-overview/viewing-metrics-for-dependabot-alerts#configuring-funnel-categories).
+You can customize the default funnel order on the "Alert prioritization" graph to ensure it reflects the unique risk profile, business priorities, and compliance requirements of your organization. See [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-metrics-for-dependabot-alerts#configuring-funnel-categories).
 
 ### 2. Focus on critical and high severity alerts
 

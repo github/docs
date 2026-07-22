@@ -11,7 +11,7 @@ children:
   - /secret-security
   - /code-scanning
   - supply-chain-security
-  - /about-code-quality
+  - /code-quality
   - vulnerability-reporting-and-management
   - /security-at-scale
 ---

@@ -45,20 +45,11 @@ jobs:
       )
     runs-on: ubuntu-latest
     steps:
-      - name: Generate GitHub App token
-        id: app-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
-          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
-          owner: github
-          repositories: docs-internal,docs-content,docs-engineering
-
       - name: Resolve PR data
         id: resolve_pr
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
-          github-token: ${{ steps.app-token.outputs.token }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
             let pr;
             if (context.eventName === 'workflow_dispatch') {
@@ -86,7 +77,7 @@ jobs:
         id: check_team
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
-          github-token: ${{ steps.app-token.outputs.token }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
             const author = '${{ steps.resolve_pr.outputs.pr_author }}';
 
@@ -124,7 +115,7 @@ jobs:
         env:
           PR_BODY: ${{ steps.resolve_pr.outputs.pr_body }}
         with:
-          github-token: ${{ steps.app-token.outputs.token }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
             const body = process.env.PR_BODY || '';
 
@@ -159,7 +150,7 @@ jobs:
         id: check_parent
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
-          github-token: ${{ steps.app-token.outputs.token }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
             const issueNumber = parseInt('${{ steps.extract_issue.outputs.issue_number }}', 10);
 
@@ -240,7 +231,7 @@ jobs:
           PR_BODY: ${{ steps.resolve_pr.outputs.pr_body }}
           PR_URL: ${{ steps.resolve_pr.outputs.pr_url }}
         with:
-          github-token: ${{ steps.app-token.outputs.token }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
             const prNumber = parseInt('${{ steps.resolve_pr.outputs.pr_number }}', 10);
             const prAuthor = '${{ steps.resolve_pr.outputs.pr_author }}';
@@ -281,7 +272,7 @@ jobs:
         id: check_existing
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
-          github-token: ${{ steps.app-token.outputs.token }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
             const branchName = `changelog-agent-${{ steps.resolve_pr.outputs.pr_number }}`;
             const { data: pulls } = await github.rest.pulls.list({
@@ -304,7 +295,7 @@ jobs:
         id: read_examples
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
-          github-token: ${{ steps.app-token.outputs.token }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
             // Fetch changelog-internal.md from docs-content
             const { data } = await github.rest.repos.getContent({
@@ -474,7 +465,7 @@ jobs:
           PARENT_AUTHOR: ${{ steps.check_parent.outputs.parent_author }}
           PARENT_ASSIGNEES: ${{ steps.check_parent.outputs.parent_assignees }}
         with:
-          github-token: ${{ steps.app-token.outputs.token }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
             const branchName = `changelog-agent-${{ steps.resolve_pr.outputs.pr_number }}`;
             const filePath = 'docs-content-docs/docs-content-workflows/changelog-internal.md';
@@ -635,7 +626,7 @@ jobs:
           PARENT_AUTHOR: ${{ steps.check_parent.outputs.parent_author }}
           PARENT_ASSIGNEES: ${{ steps.check_parent.outputs.parent_assignees }}
         with:
-          github-token: ${{ steps.app-token.outputs.token }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
             const author = process.env.PR_AUTHOR;
             const changelogPrUrl = process.env.CHANGELOG_PR_URL;
@@ -730,7 +721,7 @@ jobs:
         if: steps.create_pr.outputs.changelog_pr_url != '' && inputs.dry_run != true
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
-          github-token: ${{ steps.app-token.outputs.token }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
             const changelogPrUrl = '${{ steps.create_pr.outputs.changelog_pr_url }}';
             await github.rest.issues.createComment({
@@ -753,4 +744,4 @@ jobs:
       - uses: ./.github/actions/create-workflow-failure-issue
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}

@@ -23,7 +23,7 @@ category:
 
 **Before** following the steps in this article, make sure that your enterprise uses **personal accounts**. You can do so by checking whether your enterprise view has the "Users managed by ACCOUNT NAME" header bar at the top of the screen.
 
-If you see this, your enterprise uses **managed users** and you must follow a different process to configure SAML single sign-on. See [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users).
+If you see this, your enterprise uses **managed users** and you must follow a different process to configure SAML single sign-on. See [AUTOTITLE](/admin/managing-iam/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users).
 
 {% endif %}
 
@@ -39,7 +39,7 @@ For more information, see [AUTOTITLE](/organizations/managing-saml-single-sign-o
 
 {% data reusables.saml.about-saml-enterprise-accounts %}
 
-{% data reusables.saml.about-saml-access-enterprise-account %} For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise).
+{% data reusables.saml.about-saml-access-enterprise-account %} For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise).
 
 {% data reusables.saml.no-scim-for-enterprises %}
 
@@ -51,7 +51,7 @@ For more information, see [AUTOTITLE](/organizations/managing-saml-single-sign-o
 
 SAML SSO allows you to centrally control and secure access to {% data variables.location.product_location %} from your SAML IdP.
 
-If an unauthenticated user attempts to sign in to {% data variables.location.product_location %} and you have disabled [built-in authentication](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider), {% data variables.product.github %} redirects the user to your SAML IdP for authentication. After the user successfully authenticates with an account on the IdP, the IdP redirects the user back to {% data variables.location.product_location %}. {% data variables.product.github %} validates the response from your IdP, then grants access to the user. The user's SAML session is active in the browser for 24 hours. After that, the user must authenticate again with your IdP.
+If an unauthenticated user attempts to sign in to {% data variables.location.product_location %} and you have disabled [built-in authentication](/admin/managing-iam/understanding-iam-for-enterprises/allowing-built-in-authentication-for-users-outside-your-provider), {% data variables.product.github %} redirects the user to your SAML IdP for authentication. After the user successfully authenticates with an account on the IdP, the IdP redirects the user back to {% data variables.location.product_location %}. {% data variables.product.github %} validates the response from your IdP, then grants access to the user. The user's SAML session is active in the browser for 24 hours. After that, the user must authenticate again with your IdP.
 
 {% data reusables.saml.saml-ghes-account-revocation %}
 
@@ -75,7 +75,7 @@ For more information about connecting Entra ID to your enterprise, see [Tutorial
 
 ## Username considerations with SAML
 
-{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication).
+{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see [AUTOTITLE](/admin/managing-iam/iam-configuration-reference/username-considerations-for-external-authentication).
 
 {% endif %}
 
@@ -83,11 +83,11 @@ For more information about connecting Entra ID to your enterprise, see [Tutorial
 
 ## Enforcing SAML single-sign on for organizations in your enterprise account
 
-When you enforce SAML SSO for your enterprise, the enterprise configuration will override any existing organization-level SAML configurations. {% data reusables.saml.switching-from-org-to-enterprise %} For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account).
+When you enforce SAML SSO for your enterprise, the enterprise configuration will override any existing organization-level SAML configurations. {% data reusables.saml.switching-from-org-to-enterprise %} For more information, see [AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account).
 
 When you enforce SAML SSO for an organization, {% data variables.product.company_short %} removes any members of the organization that have not authenticated successfully with your SAML IdP. When you require SAML SSO for your enterprise, {% data variables.product.company_short %} does not remove members of the enterprise that have not authenticated successfully with your SAML IdP. The next time a member accesses the enterprise's resources, the member must authenticate with your SAML IdP.
 
-For more detailed information about how to enable SAML using Okta, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise-using-okta).
+For more detailed information about how to enable SAML using Okta, see [AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise-using-okta).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -114,7 +114,7 @@ For more detailed information about how to enable SAML using Okta, see [AUTOTITL
 
 ## Configuring SAML SSO
 
-You can enable or disable SAML authentication for {% data variables.location.product_location %}, or you can edit an existing configuration. You can view and edit authentication settings in the {% data variables.enterprise.management_console %}. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console).
+You can enable or disable SAML authentication for {% data variables.location.product_location %}, or you can edit an existing configuration. You can view and edit authentication settings in the {% data variables.enterprise.management_console %}. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui).
 
 > [!NOTE]
 > {% data reusables.enterprise.test-in-staging %}
@@ -133,9 +133,9 @@ You can enable or disable SAML authentication for {% data variables.location.pro
 1. Optionally, if you do not want your SAML provider to determine administrator rights for users on {% data variables.location.product_location %}, select **Disable administrator demotion/promotion**
 1. Optionally, to allow {% data variables.location.product_location %} to receive encrypted assertions from your SAML IdP, select **Require encrypted assertions**.
 
-   You must ensure that your IdP supports encrypted assertions and that the encryption and key transport methods in the management console match the values configured on your IdP. You must also provide {% data variables.location.product_location %}'s public certificate to your IdP. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/enabling-encrypted-assertions).
+   You must ensure that your IdP supports encrypted assertions and that the encryption and key transport methods in the management console match the values configured on your IdP. You must also provide {% data variables.location.product_location %}'s public certificate to your IdP. For more information, see [AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/enabling-encrypted-assertions).
 
-1. In the **Single sign-on URL** field, type the HTTP or HTTPS endpoint on your IdP for single sign-on requests. This value is provided by your IdP configuration. If the host is only available from your internal network, you may need to [configure {% data variables.location.product_location %} to use internal nameservers](/admin/configuration/configuring-network-settings/configuring-dns-nameservers).
+1. In the **Single sign-on URL** field, type the HTTP or HTTPS endpoint on your IdP for single sign-on requests. This value is provided by your IdP configuration. If the host is only available from your internal network, you may need to [configure {% data variables.location.product_location %} to use internal nameservers](/admin/configuring-settings/configuring-network-settings/configuring-dns-nameservers).
 1. Optionally, in the **Issuer** field, type your SAML issuer's name. This verifies the authenticity of messages sent to {% data variables.location.product_location %}.
 1. Select the **Signature Method** and **Digest Method** dropdown menus, then click the hashing algorithm used by your SAML issuer to verify the integrity of the requests from {% data variables.location.product_location %}.
 1. Select the **Name Identifier Format** dropdown menu, then click a format.
@@ -155,6 +155,6 @@ You can enable or disable SAML authentication for {% data variables.location.pro
 * [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization)
 {%- endif %}
 {%- ifversion ghes %}
-* [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator)
+* [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator)
 {% ifversion scim-for-ghes-public-beta %}* [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users){% endif %}
 {%- endif %}

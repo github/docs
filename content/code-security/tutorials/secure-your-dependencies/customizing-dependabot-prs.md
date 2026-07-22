@@ -122,7 +122,7 @@ updates:
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
-See also [`labels`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#labels--).
+See also [`labels`](/code-security/reference/supply-chain-security/dependabot-options-reference#labels--).
 
 ## Adding a prefix to commit messages
 
@@ -187,7 +187,7 @@ updates:
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
-See also [`commit-message`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#commit-message--).
+See also [`commit-message`](/code-security/reference/supply-chain-security/dependabot-options-reference#commit-message--).
 
 ## Associating pull requests with a milestone
 
@@ -210,7 +210,7 @@ updates:
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
-See also [`milestone`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#milestone--) and [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones).
+See also [`milestone`](/code-security/reference/supply-chain-security/dependabot-options-reference#milestone--) and [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones).
 
 ## Changing the separator in the pull request branch name
 
@@ -241,7 +241,7 @@ updates:
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
-See also [`pull-request-branch-name.separator`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#pull-request-branch-nameseparator--).
+See also [`pull-request-branch-name.separator`](/code-security/reference/supply-chain-security/dependabot-options-reference#pull-request-branch-nameseparator--).
 
 ## Targeting pull requests against a non-default branch
 
@@ -279,4 +279,4 @@ updates:
       - "npm dependencies"
 ```
 
-See also [`target-branch`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#target-branch-).
+See also [`target-branch`](/code-security/reference/supply-chain-security/dependabot-options-reference#target-branch-).

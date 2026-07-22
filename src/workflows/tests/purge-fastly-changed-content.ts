@@ -199,15 +199,15 @@ describe('hardPurgeUrls', () => {
     fetchWithRetry
       .mockResolvedValueOnce(fakeResponse(429, { headers: { 'retry-after': '0' } }))
       .mockResolvedValueOnce(fakeResponse(200, { ok: true }))
-    await hardPurgeUrls(['https://docs.github.com/en/foo'], 'tok', 1, 0)
+    await hardPurgeUrls(['https://docs.github.com/en/foo'], 'tok', 1, 0, undefined, () => 0)
     expect(fetchWithRetry).toHaveBeenCalledTimes(2)
   })
 
   test('gives up after the retry budget and reports the URL as failed', async () => {
     fetchWithRetry.mockResolvedValue(fakeResponse(429, { headers: { 'retry-after': '0' } }))
-    await expect(hardPurgeUrls(['https://docs.github.com/en/foo'], 'tok', 1, 0)).rejects.toThrow(
-      /1 of 1 URL purge\(s\) failed/,
-    )
+    await expect(
+      hardPurgeUrls(['https://docs.github.com/en/foo'], 'tok', 1, 0, undefined, () => 0),
+    ).rejects.toThrow(/1 of 1 URL purge\(s\) failed/)
     // Initial attempt + 5 retries.
     expect(fetchWithRetry).toHaveBeenCalledTimes(6)
   })
@@ -244,10 +244,12 @@ describe('rateLimitDelayMs', () => {
   })
 
   test('honors Retry-After given in seconds', () => {
+    vi.spyOn(Math, 'random').mockReturnValue(0)
     expect(rateLimitDelayMs(fakeResponse({ 'retry-after': '5' }), 0)).toBe(5000)
   })
 
   test('honors Retry-After given as an HTTP date', () => {
+    vi.spyOn(Math, 'random').mockReturnValue(0)
     vi.useFakeTimers()
     const now = new Date('2026-01-01T00:00:00Z')
     vi.setSystemTime(now)
@@ -256,6 +258,7 @@ describe('rateLimitDelayMs', () => {
   })
 
   test('honors Fastly-RateLimit-Reset as a Unix timestamp', () => {
+    vi.spyOn(Math, 'random').mockReturnValue(0)
     vi.useFakeTimers()
     const now = new Date('2026-01-01T00:00:00Z')
     vi.setSystemTime(now)
@@ -263,22 +266,34 @@ describe('rateLimitDelayMs', () => {
     expect(rateLimitDelayMs(fakeResponse({ 'fastly-ratelimit-reset': reset }), 0)).toBe(7000)
   })
 
-  test('falls back to exponential backoff when no hint is present', () => {
+  test('adds jitter on top of a server hint to decorrelate workers', () => {
+    // Math.random -> 0.5 gives jitter = floor(0.5 * 150) = 75ms, added on top of
+    // the honored 5000ms hint so concurrent workers don't wake in lockstep.
+    vi.spyOn(Math, 'random').mockReturnValue(0.5)
+    expect(rateLimitDelayMs(fakeResponse({ 'retry-after': '5' }), 0)).toBe(5075)
+  })
+
+  test('falls back to additive backoff when no hint is present', () => {
     vi.spyOn(Math, 'random').mockReturnValue(0)
     expect(rateLimitDelayMs(fakeResponse({}), 0)).toBe(1000)
-    expect(rateLimitDelayMs(fakeResponse({}), 2)).toBe(4000)
+    expect(rateLimitDelayMs(fakeResponse({}), 2)).toBe(3000)
   })
 
   test('clamps any delay to the maximum', () => {
     vi.spyOn(Math, 'random').mockReturnValue(0)
-    // 1000 * 2^10 would be ~1,000,000ms; clamped to 30,000.
-    expect(rateLimitDelayMs(fakeResponse({}), 10)).toBe(30_000)
+    // 1000 * (40 + 1) would be 41,000ms; clamped to 30,000.
+    expect(rateLimitDelayMs(fakeResponse({}), 40)).toBe(30_000)
     // A far-future server hint is likewise capped.
     expect(rateLimitDelayMs(fakeResponse({ 'retry-after': '99999' }), 0)).toBe(30_000)
   })
 
-  test('never returns a negative delay for a stale hint', () => {
-    expect(rateLimitDelayMs(fakeResponse({ 'retry-after': '-5' }), 0)).toBe(0)
-    expect(rateLimitDelayMs(fakeResponse({ 'fastly-ratelimit-reset': '1' }), 0)).toBe(0)
+  test('floors a stale or zero hint at the backoff instead of retrying instantly', () => {
+    vi.spyOn(Math, 'random').mockReturnValue(0)
+    // A negative Retry-After and an already-elapsed reset both compute to <= 0,
+    // but must not collapse the retry to 0ms; they floor at the backoff.
+    expect(rateLimitDelayMs(fakeResponse({ 'retry-after': '-5' }), 0)).toBe(1000)
+    expect(rateLimitDelayMs(fakeResponse({ 'fastly-ratelimit-reset': '1' }), 0)).toBe(1000)
+    // The floor grows with the attempt count, same as a hintless backoff.
+    expect(rateLimitDelayMs(fakeResponse({ 'retry-after': '0' }), 2)).toBe(3000)
   })
 })

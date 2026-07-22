@@ -1,4 +1,5 @@
-import { TextInput, ActionMenu, ActionList, Button } from '@primer/react'
+import { TextInput, ActionMenu, ActionList } from '@primer/react'
+import { Button } from '@primer/react-brand'
 import { SearchIcon } from '@primer/octicons-react'
 import { useRef, useEffect, useState, type ChangeEvent } from 'react'
 import { ArticleCardItems } from '@/landings/types'
@@ -148,7 +149,13 @@ export const CookBookFilter = ({
           </ActionMenu>
         )}
 
-        <Button variant="invisible" className="col-md-1 col-sm-2 mt-1" onClick={onResetFilter}>
+        <Button
+          variant="subtle"
+          size="small"
+          className="m-1"
+          style={{ whiteSpace: 'nowrap' }}
+          onClick={onResetFilter}
+        >
           {t('reset_filters')}
         </Button>
       </div>

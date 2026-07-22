@@ -109,10 +109,11 @@ const activeUsers = users.filter(user => user.isActive);
 
 ## Organizing instructions across files
 
-{% data variables.copilot.copilot_code-review_short %} supports two types of instruction files:
+{% data variables.copilot.copilot_code-review_short %} supports several types of instruction files:
 
 1. **`copilot-instructions.md`**: Repository-wide instructions that apply to all files.
 1. **`*.instructions.md`**: Path-specific instructions that apply to certain files or directories.
+1. **`AGENTS.md`**: Repository-level agent-specific instructions.
 
 Use path-specific instructions to keep {% data variables.product.prodname_copilot_short %} focused and prevent it from applying language-specific rules to the wrong files.
 
@@ -229,11 +230,37 @@ applyTo: "src/components/**/*.{tsx,jsx}"
 - Ensure color contrast meets WCAG AA standards
 ````
 
+### When to use agent-specific instructions
+
+Use `AGENTS.md` for instructions that apply to specific {% data variables.copilot.custom_agents_short %} in your repository. This allows you to tailor the behavior of different agents for different tasks, including shaping {% data variables.copilot.copilot_code-review_short %} feedback to better reflect your repository's conventions and expectations.
+
+**Example: Agent-specific instructions**
+
+Create a file called `AGENTS.md` at the root of your repository:
+
+````markdown copy
+# AGENTS.md
+
+## Code Review
+
+Your primary goal is to validate that incoming code changes are secure, performant, and match this repository's engineering standards.
+
+### Code Style & Anti-Patterns
+
+Enforce these strict patterns for code inspection:
+
+- **Asynchronous Code:** Prefer `async/await` syntax over explicit `.then()` chains.
+- **Error Handling:** Every API call must be wrapped in a structured `try/catch` block.
+- **State Management:** React components must keep local UI state completely isolated from global stores.
+````
+
 ### Breaking up complex instruction sets
 
 For large repositories with many concerns, break instructions into multiple focused files:
 
 ```text
+AGENTS.md                          # Agent-specific
+
 .github/
   copilot-instructions.md          # General standards
 

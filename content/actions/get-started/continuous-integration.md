@@ -33,7 +33,7 @@ Building and testing your code requires a server. You can build and test updates
 
 ## About continuous integration using {% data variables.product.prodname_actions %}
 
- CI using {% data variables.product.prodname_actions %} offers workflows that can build the code in your repository and run your tests. Workflows can run on {% data variables.product.prodname_dotcom %}-hosted virtual machines, or on machines that you host yourself. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners) and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
+ CI using {% data variables.product.prodname_actions %} offers workflows that can build the code in your repository and run your tests. Workflows can run on {% data variables.product.prodname_dotcom %}-hosted virtual machines, or on machines that you host yourself. For more information, see [AUTOTITLE](/actions/concepts/runners/github-hosted-runners) and [AUTOTITLE](/actions/concepts/runners/self-hosted-runners).
 
 You can configure your CI workflow to run when a {% data variables.product.prodname_dotcom %} event occurs (for example, when new code is pushed to your repository), on a set schedule, or when an external event occurs using the repository dispatch webhook.
 
@@ -41,10 +41,10 @@ You can configure your CI workflow to run when a {% data variables.product.prodn
 
 When you set up CI in your repository, {% data variables.product.github %} analyzes the code in your repository and recommends CI workflows based on the language and framework in your repository. For example, if you use [Node.js](https://nodejs.org/en/), {% data variables.product.github %} will suggest a workflow template that installs your Node.js packages and runs your tests. You can use the CI workflow template suggested by {% data variables.product.github %}, customize the suggested workflow template, or create your own custom workflow file to run your CI tests.
 
-In addition to helping you set up CI workflows for your project, you can use {% data variables.product.prodname_actions %} to create workflows across the full software development life cycle. For example, you can use actions to deploy, package, or release your project. For more information, see [AUTOTITLE](/actions/learn-github-actions).
+In addition to helping you set up CI workflows for your project, you can use {% data variables.product.prodname_actions %} to create workflows across the full software development life cycle. For example, you can use actions to deploy, package, or release your project. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows).
 
-For a definition of common terms, see [AUTOTITLE](/actions/learn-github-actions/understanding-github-actions).
+For a definition of common terms, see [AUTOTITLE](/actions/get-started/understand-github-actions).
 
 ## Next steps
 
-{% data variables.product.github %} offers CI workflow templates for a variety of languages and frameworks. For tutorials on setting up continuous integration with these templates, see [AUTOTITLE](/actions/use-cases-and-examples/building-and-testing).
+{% data variables.product.github %} offers CI workflow templates for a variety of languages and frameworks. For tutorials on setting up continuous integration with these templates, see [AUTOTITLE](/actions/tutorials/build-and-test-code).

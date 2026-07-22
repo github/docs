@@ -26,20 +26,11 @@ jobs:
         with:
           # To prevent issues with cloning early access content later
           persist-credentials: 'false'
-      - name: Generate GitHub App token
-        id: app-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
-          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
-          owner: github
-          repositories: docs-content,docs-early-access,github,docs-engineering
-
       - uses: ./.github/actions/node-npm-setup
 
       - uses: ./.github/actions/get-docs-early-access
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - name: Build server
         run: npm run build
@@ -57,7 +48,7 @@ jobs:
       - name: Run broken github/github link check
         env:
           # Needs a token with access to github/github; the app token is scoped to it above
-          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           npm run check-github-github-links -- broken_github_github_links.md
 
@@ -74,7 +65,7 @@ jobs:
         id: github-github-broken-link-report
         uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           title: ${{ steps.check.outputs.title }}
           content-filepath: ./broken_github_github_links.md
           repository: ${{ env.REPORT_REPOSITORY }}
@@ -88,4 +79,4 @@ jobs:
       - uses: ./.github/actions/create-workflow-failure-issue
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}

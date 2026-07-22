@@ -4,6 +4,8 @@ import type {
   DocumentNode,
   ObjectTypeDefinitionNode,
   InputObjectTypeDefinitionNode,
+  EnumTypeDefinitionNode,
+  UnionTypeDefinitionNode,
   FieldDefinitionNode,
   InputValueDefinitionNode,
   ConstDirectiveNode,
@@ -392,6 +394,124 @@ export default async function processSchemas(
       }
     }
     if (!changed) break
+  }
+
+  // (c) General reference-based inheritance. An un-annotated enum, union, or
+  // input object inherits the category of the type(s) that reference it, but
+  // only when every referrer resolves to a single category; ambiguous types
+  // (referrers disagree, or a referrer is itself ambiguous) stay in `other`.
+  // This is the derived successor to a static exception list: it catches
+  // generated/indirect types that github/github never annotates directly while
+  // still letting the upstream team own the outcome via the parent type's
+  // `docs_category`.
+  //
+  // Examples this resolves today:
+  //   - `IssueTimelineItemsItemType` / `PullRequestTimelineItemsItemType`:
+  //     runtime-generated enums used only as the `itemTypes` argument on
+  //     `Issue.timelineItems` (issues) / `PullRequest.timelineItems` (pulls).
+  //   - `RepositoryRuleType` (enum) and `RuleParameters` (union): referenced
+  //     from the annotated `RepositoryRule` object (repos).
+  //   - `RuleParametersInput` (input): referenced from the annotated
+  //     `RepositoryRuleInput` input object (repos).
+  //
+  // A "referrer category" is the category of:
+  //   - the owning object type, for a field's return type or a field argument's
+  //     type (interfaces are intentionally excluded: they are cross-cutting and
+  //     make coincidental single-category matches likely);
+  //   - the Mutation root field, for that field's arguments;
+  //   - the owning input object, for an input field's type. Input objects can
+  //     themselves be uncategorized-but-derivable, so this rule propagates
+  //     transitively through nested inputs.
+  //
+  // Implemented as a monotone fixpoint over candidate category *sets* rather
+  // than committing categories as we go: a type is only assigned once its
+  // candidate set has stopped growing, so the result is independent of
+  // definition/derivation order and a later-discovered conflicting referrer
+  // can never be missed. Explicit annotations and derivations (a)/(b) always
+  // win: we only compute candidates for ids `lookupCat` still can't resolve.
+  const derivableTargets = schemaAST.definitions.filter(
+    (
+      def,
+    ): def is EnumTypeDefinitionNode | UnionTypeDefinitionNode | InputObjectTypeDefinitionNode =>
+      def.kind === 'EnumTypeDefinition' ||
+      def.kind === 'UnionTypeDefinition' ||
+      def.kind === 'InputObjectTypeDefinition',
+  )
+  const inputDefs = schemaAST.definitions.filter(
+    (def): def is InputObjectTypeDefinitionNode => def.kind === 'InputObjectTypeDefinition',
+  )
+
+  const targetIds = new Set<string>()
+  for (const def of derivableTargets) {
+    const id = helpers.getId(def.name.value)
+    if (!lookupCat(id)) targetIds.add(id)
+  }
+
+  if (targetIds.size > 0) {
+    const candidates = new Map<string, Set<string>>()
+    for (const id of targetIds) candidates.set(id, new Set())
+
+    // Categories a type contributes when it appears as a referrer. Annotated /
+    // fallback types contribute their single category; an uncommitted derivable
+    // referrer (only ever an input object here) contributes its current
+    // candidate set so ambiguity propagates downstream.
+    const contribution = (referrerId: string): Iterable<string> => {
+      const explicit = lookupCat(referrerId)
+      if (explicit) return [explicit]
+      return candidates.get(referrerId) ?? []
+    }
+    const addRef = (targetName: string | undefined, cats: Iterable<string>): boolean => {
+      if (!targetName) return false
+      const id = helpers.getId(targetName)
+      const set = candidates.get(id)
+      if (!set) return false
+      let grew = false
+      for (const c of cats) {
+        if (!set.has(c)) {
+          set.add(c)
+          grew = true
+        }
+      }
+      return grew
+    }
+
+    // Bounded by the worst-case propagation depth; each pass only adds to sets,
+    // so this terminates well before the cap.
+    const maxPasses = targetIds.size + 2
+    for (let pass = 0; pass < maxPasses; pass++) {
+      let changed = false
+
+      for (const def of objectDefs) {
+        const name = def.name.value
+        if (name === 'Query') continue
+        const isMutation = name === 'Mutation'
+        for (const field of def.fields || []) {
+          // Mutation fields carry their own category and their payload return
+          // type is already annotated, so (like rule (a)) we only walk args.
+          const fieldCats: Iterable<string> = isMutation
+            ? ((c) => (c ? [c] : []))(getMutationCat(field.name.value))
+            : contribution(helpers.getId(name))
+          if (!isMutation && addRef(namedTypeName(field.type), fieldCats)) changed = true
+          for (const arg of field.arguments || []) {
+            if (addRef(namedTypeName(arg.type), fieldCats)) changed = true
+          }
+        }
+      }
+
+      for (const def of inputDefs) {
+        const ownerCats = contribution(helpers.getId(def.name.value))
+        for (const field of def.fields || []) {
+          if (addRef(namedTypeName(field.type), ownerCats)) changed = true
+        }
+      }
+
+      if (!changed) break
+    }
+
+    // Assign only the targets whose final candidate set is unambiguous.
+    for (const [id, cats] of candidates) {
+      if (cats.size === 1) typeCategoryMap.set(id, [...cats][0])
+    }
   }
 
   // Normalize unknown categories (e.g. `:checks`, `:search`, `:packages`,

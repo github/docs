@@ -33,9 +33,9 @@ For more information on updating records, see [AUTOTITLE](/code-security/how-tos
 
 Production context filters are made available in the **{% data variables.product.prodname_security_and_quality_tab %}** tab.
 
-* **{% data variables.product.prodname_dependabot %} view**: See [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-dependabot-alerts).
-* **{% data variables.product.prodname_code_scanning_caps %} view**: See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository).
-* **Security campaign view**: See [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-managing-security-campaigns).
+* **{% data variables.product.prodname_dependabot %} view**: See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/view-dependabot-alerts#viewing-dependabot-alerts).
+* **{% data variables.product.prodname_code_scanning_caps %} view**: See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/assess-alerts).
+* **Security campaign view**: See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/creating-managing-security-campaigns).
 
 Once the alert list is displayed, use the `artifact-registry-url` or `artifact-registry` filters in organization views to focus on vulnerabilities affecting artifacts present in production.
 
@@ -69,9 +69,9 @@ epss > 0.5 AND artifact-registry-url:my-registry.example.com
 
 Now you have identified the alerts that put your production code at risk of exploitation, you need to remediate them as a matter of urgency. Where possible use automation to lower the barrier to remediation.
 
-* **{% data variables.product.prodname_dependabot_alerts %}:** Use automated pull requests for security fixes. See [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates).
-* **{% data variables.product.prodname_code_scanning_caps %} alerts:** Create targeted campaigns with {% data variables.copilot.copilot_autofix_short %}. See [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-managing-security-campaigns).
+* **{% data variables.product.prodname_dependabot_alerts %}:** Use automated pull requests for security fixes. See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-security-updates).
+* **{% data variables.product.prodname_code_scanning_caps %} alerts:** Create targeted campaigns with {% data variables.copilot.copilot_autofix_short %}. See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/creating-managing-security-campaigns).
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities/prioritizing-dependabot-alerts-using-metrics)
+* [AUTOTITLE](/code-security/tutorials/manage-security-alerts/prioritizing-dependabot-alerts-using-metrics)

@@ -41,7 +41,7 @@ After configuring your Azure resources, you can use an Azure Virtual Network (VN
 
 1. Add a new network configuration for your enterprise. See [Add a new network configuration for your enterprise](/enterprise-cloud@latest/admin/configuring-settings/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners-in-your-enterprise#1-add-a-new-network-configuration-for-your-enterprise) in the {% data variables.product.prodname_ghe_cloud %} documentation.
 1. Create a runner group for the enterprise and select the organizations that you want to run {% data variables.product.prodname_dependabot_updates %} for. See [Create a runner group for your enterprise](/enterprise-cloud@latest/admin/configuring-settings/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners-in-your-enterprise#2-create-a-runner-group-for-your-enterprise) in the {% data variables.product.prodname_ghe_cloud %} documentation.
-1. Create and add a {% data variables.product.company_short %}-hosted runner to the enterprise runner group. See [Adding a larger runner to an enterprise](/enterprise-cloud@latest/actions/using-github-hosted-runners/using-larger-runners/managing-larger-runners#adding-a-larger-runner-to-an-enterprise) in the {% data variables.product.prodname_ghe_cloud %} documentation. Important points are as follows:
+1. Create and add a {% data variables.product.company_short %}-hosted runner to the enterprise runner group. See [Adding a larger runner to an enterprise](/enterprise-cloud@latest/actions/how-tos/manage-runners/larger-runners/manage-larger-runners#adding-a-larger-runner-to-an-enterprise) in the {% data variables.product.prodname_ghe_cloud %} documentation. Important points are as follows:
    * The runner name must be **dependabot**
    * Choose a Linux x64 platform.
    * Select the suitable Ubuntu version.
@@ -56,7 +56,7 @@ After configuring your Azure resources, you can use an Azure Virtual Network (VN
 
 ## Enabling {% data variables.product.prodname_dependabot %} for the organization
 
-You now need to enable {% data variables.product.prodname_dependabot %} on _self-hosted runners_ for your organization in order to enable {% data variables.product.prodname_dependabot %} on large runners. See [Enabling or disabling {% data variables.product.prodname_dependabot %} on larger runners](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners#enabling-or-disabling-dependabot-on-larger-runners).
+You now need to enable {% data variables.product.prodname_dependabot %} on _self-hosted runners_ for your organization in order to enable {% data variables.product.prodname_dependabot %} on large runners. See [Enabling or disabling {% data variables.product.prodname_dependabot %} on larger runners](/code-security/concepts/supply-chain-security/dependabot-on-actions#enabling-or-disabling-dependabot-on-larger-runners).
 
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}

@@ -77,7 +77,7 @@ Your repository is eligible for default setup for {% data variables.product.prod
 1. Optionally, to view your default setup configuration after enablement, select {% octicon "kebab-horizontal" aria-label="Menu" %}, then click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} View {% data variables.product.prodname_codeql %} configuration**.
 
 > [!NOTE]
-> If no pushes and pull requests have occurred in a repository with default setup enabled for 6 months, the weekly schedule will be disabled to save your {% data variables.product.prodname_actions %} minutes.{% ifversion code-scanning-inactive-repos %} Organization owners can enable monthly scans of inactive repositories. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#continuing-scans-on-inactive-repositories).{% endif %}
+> If no pushes and pull requests have occurred in a repository with default setup enabled for 6 months, the weekly schedule will be disabled to save your {% data variables.product.prodname_actions %} minutes.{% ifversion code-scanning-inactive-repos %} Organization owners can enable monthly scans of inactive repositories. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/configure-global-settings#continuing-scans-on-inactive-repositories).{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -95,17 +95,17 @@ You can use default setup for all {% data variables.product.prodname_codeql %}-s
 
 ### Assigning labels to self-hosted runners
 
-To assign a self-hosted runner for default setup, you can use the default `code-scanning` label, or you can optionally give them custom labels so that individual repositories can use different runners. For information about assigning labels to self-hosted runners, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners).
+To assign a self-hosted runner for default setup, you can use the default `code-scanning` label, or you can optionally give them custom labels so that individual repositories can use different runners. For information about assigning labels to self-hosted runners, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/apply-labels).
 
 Once you've assigned custom labels to self-hosted runners, your repositories can use those runners for {% data variables.product.prodname_code_scanning %} default setup.
 
-You can also use {% data variables.product.prodname_security_configurations %} to assign labels to self-hosted runners for {% data variables.product.prodname_code_scanning %}. See [AUTOTITLE](/code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/creating-a-custom-security-configuration#creating-a-custom-security-configuration).
+You can also use {% data variables.product.prodname_security_configurations %} to assign labels to self-hosted runners for {% data variables.product.prodname_code_scanning %}. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/create-custom-configuration#creating-a-custom-security-configuration).
 
 {% ifversion fpt or ghec %}
 
 ### Assigning {% data variables.actions.hosted_runners %}
 
-To assign a {% data variables.actions.hosted_runner %}, name the runner `code-scanning`. This will automatically add the `code-scanning` label to the {% data variables.actions.hosted_runner %}. An organization can only have one {% data variables.actions.hosted_runner %} with the `code-scanning` label, and that runner will handle all {% data variables.product.prodname_code_scanning %} jobs from repositories within your organization with access to the runner's group. See [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/configuring-larger-runners-for-default-setup#provisioning-organization-level-larger-runners-for-default-setup).
+To assign a {% data variables.actions.hosted_runner %}, name the runner `code-scanning`. This will automatically add the `code-scanning` label to the {% data variables.actions.hosted_runner %}. An organization can only have one {% data variables.actions.hosted_runner %} with the `code-scanning` label, and that runner will handle all {% data variables.product.prodname_code_scanning %} jobs from repositories within your organization with access to the runner's group. See [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/configure-larger-runners#provisioning-organization-level-larger-runners-for-default-setup).
 
 {% endif %}
 
@@ -115,10 +115,10 @@ Default setup uses the `none` build mode for {% data variables.code-scanning.no_
 
 ## Next steps
 
-After your configuration runs successfully at least once, you can start examining and resolving {% data variables.product.prodname_code_scanning %} alerts. For more information on {% data variables.product.prodname_code_scanning %} alerts, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts) and [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository).
+After your configuration runs successfully at least once, you can start examining and resolving {% data variables.product.prodname_code_scanning %} alerts. For more information on {% data variables.product.prodname_code_scanning %} alerts, see [AUTOTITLE](/code-security/concepts/code-scanning/code-scanning-alerts) and [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/assess-alerts).
 
-After you've configured default setup for {% data variables.product.prodname_code_scanning %}, you can read about evaluating how it's working for you and the next steps you can take to customize it. For more information, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/evaluating-default-setup-for-code-scanning).
+After you've configured default setup for {% data variables.product.prodname_code_scanning %}, you can read about evaluating how it's working for you and the next steps you can take to customize it. For more information, see [AUTOTITLE](/code-security/tutorials/customize-code-scanning/evaluate-default-setup).
 
-You can find detailed information about your {% data variables.product.prodname_code_scanning %} configuration, including timestamps for each scan and the percentage of files scanned, on the tool status page. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page).
+You can find detailed information about your {% data variables.product.prodname_code_scanning %} configuration, including timestamps for each scan and the percentage of files scanned, on the tool status page. For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/use-the-tools-status-page-for-code-scanning).
 
-When you configure default setup, you may encounter an error. For information on troubleshooting specific errors, see [AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning).
+When you configure default setup, you may encounter an error. For information on troubleshooting specific errors, see [AUTOTITLE](/code-security/reference/code-scanning/troubleshoot-analysis-errors).

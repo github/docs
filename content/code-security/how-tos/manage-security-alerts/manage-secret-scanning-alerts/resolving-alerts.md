@@ -19,9 +19,9 @@ category:
 
 Once a secret has been committed to a repository, you should consider the secret compromised. {% data variables.product.github %} recommends the following actions for compromised secrets:
 
-1. Verify that the secret committed to {% data variables.product.github %} is valid. {% ifversion fpt or ghec %}**Applies to {% data variables.product.github %} tokens only**. See [Checking a secret's validity](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity) and [Performing an on-demand validity check](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#performing-an-on-demand-validity-check).{% endif %}{% ifversion secret-scanning-report-secret-github-pat %}
+1. Verify that the secret committed to {% data variables.product.github %} is valid. {% ifversion fpt or ghec %}**Applies to {% data variables.product.github %} tokens only**. See [Checking a secret's validity](/code-security/tutorials/remediate-leaked-secrets/evaluating-alerts#checking-a-secrets-validity) and [Performing an on-demand validity check](/code-security/tutorials/remediate-leaked-secrets/evaluating-alerts#performing-an-on-demand-validity-check).{% endif %}{% ifversion secret-scanning-report-secret-github-pat %}
 1. For secrets detected in private repositories, report the leaked secret to {% data variables.product.github %}, who will treat it like any publicly leaked secret and revoke it. **Applies to active or unconfirmed {% data variables.product.github %} {% data variables.product.pat_generic %}s only**. See [Reporting a leaked secret in a private repository](#reporting-a-leaked-secret-in-a-private-repository). {% endif %}
-1. Review and update any services that use the old token. For {% data variables.product.github %} {% data variables.product.pat_generic %}s, delete the compromised token and create a new token. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+1. Review and update any services that use the old token. For {% data variables.product.github %} {% data variables.product.pat_generic %}s, delete the compromised token and create a new token. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 1. Depending on the secret provider, check your security logs for any unauthorized activity.
 
 {% ifversion secret-scanning-report-secret-github-pat %}
@@ -61,4 +61,4 @@ Once a secret has been committed to a repository, you should consider the secret
 
 ## Next steps
 
-* [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/monitoring-alerts)
+* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts/monitoring-alerts)

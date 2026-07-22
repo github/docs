@@ -69,7 +69,7 @@ Before an incident occurs, review the immediate containment actions you might ne
 
 Familiarize yourself with:
 
-* Common containment actions on {% data variables.product.github %}, such as revoking credentials, enabling an IP allow list, suspending users, and other access disablement actions. See [Contain the threat](/code-security/tutorials/secure-your-organization/responding-to-security-incidents#step-2-contain-the-threat).
+* Common containment actions on {% data variables.product.github %}, such as revoking credentials, enabling an IP allow list, suspending users, and other access disablement actions. See [Contain the threat](/code-security/tutorials/secure-your-organization/respond-to-a-security-incident#step-2-contain-the-threat).
 * Revocation options for each type of credential that can programmatically access {% data variables.product.github %}. See [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/github-credential-types).
 * For enterprises on {% data variables.product.prodname_ghe_cloud %}: the bulk emergency actions available to enterprise owners in a major incident, such as locking down SSO and deleting all user tokens and keys. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents).
 
@@ -91,4 +91,4 @@ For guidance, see [What is incident response](https://github.com/resources/artic
 
 ## Next steps
 
-* [AUTOTITLE](/code-security/tutorials/secure-your-organization/responding-to-security-incidents)
+* [AUTOTITLE](/code-security/tutorials/secure-your-organization/respond-to-a-security-incident)

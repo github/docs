@@ -36,11 +36,11 @@ If your company already uses {% data variables.product.github %}, consider what 
 
 | Example need | Features to explore during the trial |
 |--|--|
-| Enforce use of security features | Enterprise-level security configurations and policies. See [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/about-security-configurations) and [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/about-enterprise-policies) |
-| Protect custom access tokens | Custom patterns for {% data variables.product.prodname_secret_scanning %}, delegated bypass for push protection, and validity checks. See [AUTOTITLE](/code-security/trialing-github-advanced-security/explore-trial-secret-scanning) |
-| Define and enforce a development process | Dependency review, auto-triage rules, rulesets, and policies. See [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review), [AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules), [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets), and [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/about-enterprise-policies) |
-| Reduce technical debt at scale | Security campaigns. See {% ifversion fpt or ghec %}[AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/about-security-campaigns){% else %}[AUTOTITLE](/enterprise-cloud@latest/code-security/securing-your-organization/fixing-security-alerts-at-scale/about-security-campaigns) in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}. |
-| Monitor and track trends in security risks | Security overview. See [AUTOTITLE](/code-security/security-overview/viewing-security-insights) |
+| Enforce use of security features | Enterprise-level security configurations and policies. See [AUTOTITLE](/code-security/concepts/security-at-scale/organization-security) and [AUTOTITLE](/admin/concepts/security-and-compliance/enterprise-policies) |
+| Protect custom access tokens | Custom patterns for {% data variables.product.prodname_secret_scanning %}, delegated bypass for push protection, and validity checks. See [AUTOTITLE](/code-security/tutorials/trialing-github-advanced-security/explore-trial-secret-scanning) |
+| Define and enforce a development process | Dependency review, auto-triage rules, rulesets, and policies. See [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-review), [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-auto-triage-rules), [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets), and [AUTOTITLE](/admin/concepts/security-and-compliance/enterprise-policies) |
+| Reduce technical debt at scale | Security campaigns. See {% ifversion fpt or ghec %}[AUTOTITLE](/code-security/concepts/security-at-scale/about-security-campaigns){% else %}[AUTOTITLE](/enterprise-cloud@latest/code-security/concepts/security-at-scale/about-security-campaigns) in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}. |
+| Monitor and track trends in security risks | Security overview. See [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-security-insights) |
 
 {% endrowheaders %}
 
@@ -57,13 +57,13 @@ You may also find it helpful to identify a champion for each company need that y
 Decide whether your team would benefit from hands-on experience with our free security features **before** you begin your trial. Testing code scanning and secret scanning on public repositories can help new users get familiar with the core features of {% data variables.product.prodname_GHAS %}. This will allow you to focus your trial period on private repositories and the advanced features and controls available in {% data variables.product.prodname_cs_and_sp %}.
 
 For more information, see:
-* [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-secret-scanning-for-your-repository)
-* [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)
-* [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph)
+* [AUTOTITLE](/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enable-secret-scanning)
+* [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configure-code-scanning)
+* [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/enable-dependency-graph)
 
 {% ifversion secret-risk-assessment %}
 
-Organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan their code for leaked secrets. This helps you assess your repositories' current exposure to leaked secrets and shows how many existing secret leaks could have been prevented by {% data variables.product.prodname_secret_protection %}. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment).{% endif %}
+Organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan their code for leaked secrets. This helps you assess your repositories' current exposure to leaked secrets and shows how many existing secret leaks could have been prevented by {% data variables.product.prodname_secret_protection %}. See [AUTOTITLE](/code-security/concepts/secret-security/secret-security-with-github).{% endif %}
 
 ## 4. Decide which organizations and repositories to test
 
@@ -77,7 +77,7 @@ For each company need or goal you set for the trial, decide how you will measure
 
 ## 6. Start your trial
 
-If you already use {% data variables.product.prodname_ghe_cloud %} (as a paying customer or as part of a free trial), see [AUTOTITLE](/code-security/trialing-github-advanced-security/trial-advanced-security).
+If you already use {% data variables.product.prodname_ghe_cloud %} (as a paying customer or as part of a free trial), see [AUTOTITLE](/code-security/tutorials/trialing-github-advanced-security/trial-advanced-security).
 
 Otherwise, you can trial {% data variables.product.prodname_GHAS %} as part of a trial of {% data variables.product.prodname_ghe_cloud %}. See [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
 

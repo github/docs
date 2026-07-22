@@ -21,7 +21,7 @@ category:
 
 {% data reusables.secret-scanning.alert-types %}
 
-For in-depth information about each alert type, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts).
+For in-depth information about each alert type, see [AUTOTITLE](/code-security/concepts/secret-security/about-alerts).
 
 If you use the REST API for {% data variables.product.prodname_secret_scanning %}, you can use the `Secret type` to report on secrets from specific issuers. For more information, see [AUTOTITLE](/enterprise-cloud@latest/rest/secret-scanning).
 
@@ -101,7 +101,7 @@ Precision levels are estimated based on the pattern type's typical false positiv
 
 ## Supported AI-detected patterns
 
-{% data variables.product.prodname_secret_scanning_caps %} uses {% data variables.product.prodname_copilot_short %} to detect generic secrets using AI. See [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).
+{% data variables.product.prodname_secret_scanning_caps %} uses {% data variables.product.prodname_copilot_short %} to detect generic secrets using AI. See [AUTOTITLE](/code-security/responsible-use/security-and-quality-ai-features).
 
 | Provider | Token |
 |----------|:--------------------|

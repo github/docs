@@ -6,10 +6,9 @@ versions:
   feature: code-quality
 contentType: tutorials
 children:
-  - /quickstart
-  - /fix-findings-in-prs
-  - /improve-your-codebase
-  - /improve-recent-merges
+  - /catch-issues-before-merge
+  - /raise-your-quality-rating
 redirect_from:
   - /code-security/code-quality/tutorials
 ---
+

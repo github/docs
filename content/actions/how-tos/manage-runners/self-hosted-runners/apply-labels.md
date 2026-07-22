@@ -18,7 +18,7 @@ contentType: how-tos
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-For information on how to use labels to route jobs to specific types of self-hosted runners, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow). You can also route jobs to runners in a specific group. For more information, see [AUTOTITLE](/actions/using-jobs/choosing-the-runner-for-a-job#targeting-runners-in-a-group).
+For information on how to use labels to route jobs to specific types of self-hosted runners, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/use-in-a-workflow). You can also route jobs to runners in a specific group. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-where-workflows-run/choose-the-runner-for-a-job#targeting-runners-in-a-group).
 
 {% data reusables.actions.self-hosted-runner-management-permissions-required %}
 
