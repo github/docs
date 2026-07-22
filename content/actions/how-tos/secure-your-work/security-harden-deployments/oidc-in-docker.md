@@ -1,7 +1,7 @@
 ---
 title: Configuring OpenID Connect in Docker
 shortTitle: OIDC in Docker
-intro: Use OpenID Connect within your workflows to authenticate with Docker Hub without storing long-lived credentials.
+intro: Use OpenID Connect within your workflows to authenticate with Docker without storing long-lived credentials.
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,11 +12,11 @@ category:
 
 ## Overview
 
-OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to authenticate with [Docker Hub](https://hub.docker.com/) to push and pull container images without storing Docker passwords, {% data variables.product.pat_generic_plural %}, or organization access tokens (OATs) in {% data variables.product.company_short %}.
+OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to authenticate with [Docker](https://www.docker.com/) to access Docker Hub and Docker Build Cloud without storing Docker passwords, {% data variables.product.pat_generic_plural %}, or organization access tokens (OATs) in {% data variables.product.company_short %}.
 
 Instead of managing long-lived credentials, you configure a trust relationship between your {% data variables.product.prodname_dotcom %} organization and your Docker organization. When a workflow runs, {% data variables.product.prodname_dotcom %} issues a short-lived OIDC token that Docker validates against your configured rulesets, then issues a scoped access token for the workflow.
 
-This guide gives an overview of how to configure Docker Hub to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and demonstrates how to use this configuration in a {% data variables.product.prodname_actions %} workflow.
+This guide gives an overview of how to configure Docker to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and demonstrates how to use this configuration in a {% data variables.product.prodname_actions %} workflow.
 
 For more information, see [OIDC connections](https://docs.docker.com/enterprise/security/oidc-connections/) in the Docker documentation.
 
@@ -30,11 +30,11 @@ For more information, see [OIDC connections](https://docs.docker.com/enterprise/
 
 * You must have a Docker Business or Docker Team subscription.
 * You must be an organization owner or editor in your Docker organization.
-* You should plan which repositories, branches, and workflows need access to Docker Hub, and configure rulesets accordingly.
+* You should plan which repositories, branches, and workflows need access to Docker, and configure rulesets accordingly.
 
-## Adding the identity provider to Docker Hub
+## Adding the identity provider to Docker
 
-To use OIDC with Docker, establish a trust relationship between {% data variables.product.prodname_actions %} and Docker Hub by creating an OIDC connection. For more information about this process, see [Create and manage OIDC connections](https://docs.docker.com/enterprise/security/oidc-connections/create-manage/) in the Docker documentation.
+To use OIDC with Docker, establish a trust relationship between {% data variables.product.prodname_actions %} and Docker by creating an OIDC connection. For more information about this process, see [Create and manage OIDC connections](https://docs.docker.com/enterprise/security/oidc-connections/create-manage/) in the Docker documentation.
 
 1. Sign in to [Docker Home](https://app.docker.com/) and navigate to your organization.
 1. Go to **Identity & auth** > **OIDC connections**.
@@ -47,9 +47,9 @@ To use OIDC with Docker, establish a trust relationship between {% data variable
 
 ## Updating your {% data variables.product.prodname_actions %} workflow
 
-Once you have created an OIDC connection in Docker Hub, update your workflow to authenticate using the [`docker/oidc-action`](https://github.com/docker/oidc-action) and [`docker/login-action`](https://github.com/docker/login-action) actions.
+Once you have created an OIDC connection in Docker, update your workflow to authenticate using the [`docker/oidc-action`](https://github.com/docker/oidc-action) and [`docker/login-action`](https://github.com/docker/login-action) actions.
 
-The following example uses the placeholder `YOUR_CONNECTION_ID` for the connection ID you copied from Docker Hub, and `YOUR_DOCKER_ORG` for your Docker organization name.
+The following example uses the placeholder `YOUR_CONNECTION_ID` for the connection ID you copied from Docker, and `YOUR_DOCKER_ORG` for your Docker organization name.
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
