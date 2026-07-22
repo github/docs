@@ -62,7 +62,7 @@ The OIDC token includes the following claims.
 | `environment`| The name of the environment used by the job. If the `environment` claim is included (also via `include_claim_keys`), an environment is required and must be provided.                   |
 | `event_name`| The name of the event that triggered the workflow run.                    |
 | `head_ref`| The source branch of the pull request in a workflow run.                   |
-| `job_workflow_ref`| For jobs using a reusable workflow, the ref path to the reusable workflow. For more information, see [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows).                  |
+| `job_workflow_ref`| For jobs using a reusable workflow, the ref path to the reusable workflow. For more information, see [AUTOTITLE](/actions/how-tos/secure-your-work/security-harden-deployments/oidc-with-reusable-workflows).                  |
 | `job_workflow_sha`| For jobs using a reusable workflow, the commit SHA for the reusable workflow file.                   |
 | `ref`| _(Reference)_ The git ref that triggered the workflow run.                   |
 | `ref_type`| The type of `ref`, for example: "branch".                  |
@@ -101,7 +101,7 @@ For example, if your subdomain is `octocorp`, the following substitutions apply:
 
 Audience and subject claims are typically used in combination while setting conditions on the cloud role/resources to scope its access to the {% data variables.product.github %} workflows.
 * **Audience:** By default, this value uses the URL of the organization or repository owner. This can be used to set a condition that only the workflows in the specific organization can access the cloud role.
-* **Subject:** By default, has a predefined format and is a concatenation of some of the key metadata about the workflow, such as the {% data variables.product.prodname_dotcom %} organization, repository, branch, or associated [`job`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idenvironment) environment. See [Example subject claims](#example-subject-claims) to see how the subject claim is assembled from concatenated metadata.
+* **Subject:** By default, has a predefined format and is a concatenation of some of the key metadata about the workflow, such as the {% data variables.product.prodname_dotcom %} organization, repository, branch, or associated [`job`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idenvironment) environment. See [Example subject claims](#example-subject-claims) to see how the subject claim is assembled from concatenated metadata.
 
 If you need more granular trust conditions, you can customize the {% ifversion ghec %}issuer (`iss`) and {% endif %}subject (`sub`) claim{% ifversion ghec %}s that are{% else %} that's{% endif %} included with the JWT. For more information, see [Customizing the token claims](#customizing-the-token-claims).
 
@@ -112,13 +112,13 @@ There are also many additional claims supported in the OIDC token that can be us
 
 ## Example subject claims
 
-The following examples demonstrate how to use "Subject" as a condition, and explain how the "Subject" is assembled from concatenated metadata. The [subject](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) uses information from the [`job` context](/actions/learn-github-actions/contexts#job-context), and instructs your cloud provider that access token requests may only be granted for requests from workflows running in specific branches, environments. The following sections describe some common subjects you can use.
+The following examples demonstrate how to use "Subject" as a condition, and explain how the "Subject" is assembled from concatenated metadata. The [subject](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) uses information from the [`job` context](/actions/reference/workflows-and-actions/contexts#job-context), and instructs your cloud provider that access token requests may only be granted for requests from workflows running in specific branches, environments. The following sections describe some common subjects you can use.
 
 ### Filtering for a specific environment
 
 The subject claim includes the environment name when the job references an environment.
 
-You can configure a subject that filters for a specific [environment](/actions/deployment/targeting-different-environments/managing-environments-for-deployment) name. In this example, the workflow run must have originated from a job that has an environment named `Production`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
+You can configure a subject that filters for a specific [environment](/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments) name. In this example, the workflow run must have originated from a job that has an environment named `Production`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
 * Syntax: `repo:ORG-NAME/REPO-NAME:environment:ENVIRONMENT-NAME`
 * Example: `repo:octo-org/octo-repo:environment:Production`
@@ -127,7 +127,7 @@ You can configure a subject that filters for a specific [environment](/actions/d
 
 The subject claim includes the `pull_request` string when the workflow is triggered by a pull request event, but only if the job doesn't reference an environment.
 
-You can configure a subject that filters for the [`pull_request`](/actions/using-workflows/events-that-trigger-workflows#pull_request) event. In this example, the workflow run must have been triggered by a `pull_request` event in a repository named `octo-repo` that is owned by the `octo-org` organization:
+You can configure a subject that filters for the [`pull_request`](/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request) event. In this example, the workflow run must have been triggered by a `pull_request` event in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
 * Syntax: `repo:ORG-NAME/REPO-NAME:pull_request`
 * Example: `repo:octo-org/octo-repo:pull_request`
@@ -199,7 +199,7 @@ For repositories created after July 15, 2026, or that have opted in to immutable
 | Google Cloud Platform| `(assertion.sub=='repo:octo-org@123456/octo-repo@456789:ref:refs/heads/demo-branch')` |
 | HashiCorp Vault| `bound_subject="repo:octo-org@123456/octo-repo@456789:ref:refs/heads/demo-branch"` |
 
-For more information about configuring specific cloud providers, see the guides listed in [AUTOTITLE](/actions/how-tos/security-for-github-actions/security-hardening-your-deployments).
+For more information about configuring specific cloud providers, see the guides listed in [AUTOTITLE](/actions/how-tos/secure-your-work/security-harden-deployments).
 
 ## Customizing the token claims
 
@@ -216,7 +216,7 @@ You can security harden your OIDC configuration by customizing the claims that a
 
 When you use custom actions in your workflows, those actions may use the {% data variables.product.prodname_actions %} Toolkit to enable you to supply a custom value for the `audience` claim. Some cloud providers also use this in their official login actions to enforce a default value for the `audience` claim. For example, the [GitHub Action for Azure Login](https://github.com/Azure/login/blob/master/action.yml) provides a default `aud` value of `api://AzureADTokenExchange`, or it allows you to set a custom `aud` value in your workflows. For more information on the {% data variables.product.prodname_actions %} Toolkit, see the [OIDC token](https://github.com/actions/toolkit/tree/main/packages/core#oidc-token) section in the documentation.
 
-If you do not want to use the default `aud` value offered by an action, you can provide a custom value for the `audience` claim. This allows you to set a condition that only workflows in a specific repository or organization can access the cloud role. If the action you are using supports this, you can use the `with` keyword in your workflow to pass a custom `aud` value to the action. For more information, see [AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#inputs).
+If you do not want to use the default `aud` value offered by an action, you can provide a custom value for the `audience` claim. This allows you to set a condition that only workflows in a specific repository or organization can access the cloud role. If the action you are using supports this, you can use the `with` keyword in your workflow to pass a custom `aud` value to the action. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/metadata-syntax#inputs).
 
 {% ifversion ghec %}
 
@@ -551,7 +551,7 @@ You can use the [`github/actions-oidc-debugger`](https://github.com/github/actio
 
 ### Required permission
 
-* The job or workflow must grant the [`id-token: write`](/actions/reference/workflow-syntax-for-github-actions#permissions) permission to allow {% data variables.product.github %}'s OIDC provider to create a JSON Web Token (JWT):
+* The job or workflow must grant the [`id-token: write`](/actions/reference/workflows-and-actions/workflow-syntax#permissions) permission to allow {% data variables.product.github %}'s OIDC provider to create a JSON Web Token (JWT):
 
   ```yaml
   permissions:

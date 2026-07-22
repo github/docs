@@ -7631,6 +7631,361 @@
           }
         ]
       }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/visual-studio-subscriptions",
+      "title": "Get a list of Visual Studio subscriptions for the enterprise",
+      "category": "enterprise-admin",
+      "subcategory": "licensing",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "<p>The slug version of the enterprise name</p>"
+        },
+        {
+          "name": "is_unmatched_only",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "<p>When true, only returns Visual Studio subscriptions that are not matched to a GitHub user.</p>"
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 30
+          }
+        },
+        {
+          "name": "page",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 1
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Retrieves a list of Visual Studio subscriptions for the specified enterprise.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "total_count": 1,
+              "visual_studio_subscription_assignments": [
+                {
+                  "email": "test@example.com",
+                  "subscriptionId": "00000000-0000-0000-0000-000000000000",
+                  "username": "gh-user",
+                  "manual_match": true
+                }
+              ]
+            },
+            "schema": {
+              "type": "object",
+              "required": [
+                "total_count",
+                "visual_studio_subscriptions"
+              ],
+              "properties": {
+                "total_count": {
+                  "type": "integer"
+                },
+                "visual_studio_subscriptions": {
+                  "type": "array",
+                  "items": {
+                    "title": "Visual Studio Subscription Assignment",
+                    "description": "Visual Studio Subscription Assignment",
+                    "type": "object",
+                    "properties": {
+                      "visual_studio_subscription_email": {
+                        "type": "string",
+                        "description": "The email associated with the Visual Studio subscription assignment in the visual studio portal."
+                      },
+                      "subscription_id": {
+                        "type": "string",
+                        "description": "The ID of the Visual Studio Subscription. This is a GUID that comes from the Visual Studio management portal."
+                      },
+                      "username": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "The GitHub username of the user associated with the Visual Studio subscription assignment."
+                      },
+                      "manual_match": {
+                        "type": "boolean",
+                        "description": "Indicates if the Visual Studio subscription assignment was manually matched to a user."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise Licensing\" enterprise permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/visual-studio-subscriptions/{visual_studio_subscription_id}",
+      "title": "Add or update a Visual Studio subscription user match",
+      "category": "enterprise-admin",
+      "subcategory": "licensing",
+      "parameters": [
+        {
+          "name": "visual_studio_subscription_id",
+          "description": "<p>The ID of the Visual Studio subscription to add or update the match for. This is a GUID that comes from the Visual Studio management portal.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "enterprise",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "<p>The slug version of the enterprise name</p>"
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "user_identifier",
+          "description": "<p>The handle for the GitHub user account or a verified email associated with their account.</p>"
+        }
+      ],
+      "descriptionHTML": "<p>Updates a manual match between a user and a Visual Studio subscription.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "user_identifier": "monalisa"
+            },
+            "parameters": {
+              "visual_studio_subscription_id": "VISUAL_STUDIO_SUBSCRIPTION_ID",
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "visual_studio_subscription_email": "test@example.com",
+              "subscription_id": "00000000-0000-0000-0000-000000000000",
+              "username": "gh-user",
+              "manual_match": true
+            },
+            "schema": {
+              "title": "Visual Studio Subscription Assignment",
+              "description": "Visual Studio Subscription Assignment",
+              "type": "object",
+              "properties": {
+                "visual_studio_subscription_email": {
+                  "type": "string",
+                  "description": "The email associated with the Visual Studio subscription assignment in the visual studio portal."
+                },
+                "subscription_id": {
+                  "type": "string",
+                  "description": "The ID of the Visual Studio Subscription. This is a GUID that comes from the Visual Studio management portal."
+                },
+                "username": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The GitHub username of the user associated with the Visual Studio subscription assignment."
+                },
+                "manual_match": {
+                  "type": "boolean",
+                  "description": "Indicates if the Visual Studio subscription assignment was manually matched to a user."
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise Licensing\" enterprise permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/visual-studio-subscriptions/{visual_studio_subscription_id}",
+      "title": "Delete a Visual Studio subscription user match",
+      "category": "enterprise-admin",
+      "subcategory": "licensing",
+      "parameters": [
+        {
+          "name": "visual_studio_subscription_id",
+          "description": "<p>The ID of the Visual Studio subscription to delete the match for. This is a GUID that comes from the visual studio management portal.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "enterprise",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "<p>The slug version of the enterprise name</p>"
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Deletes a manual match between a user and a Visual Studio subscription.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "visual_studio_subscription_id": "VISUAL_STUDIO_SUBSCRIPTION_ID",
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "visual_studio_subscription_email": "test@example.com",
+              "subscription_id": "00000000-0000-0000-0000-000000000000",
+              "username": null,
+              "manual_match": false
+            },
+            "schema": {
+              "title": "Visual Studio Subscription Assignment",
+              "description": "Visual Studio Subscription Assignment",
+              "type": "object",
+              "properties": {
+                "visual_studio_subscription_email": {
+                  "type": "string",
+                  "description": "The email associated with the Visual Studio subscription assignment in the visual studio portal."
+                },
+                "subscription_id": {
+                  "type": "string",
+                  "description": "The ID of the Visual Studio Subscription. This is a GUID that comes from the Visual Studio management portal."
+                },
+                "username": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The GitHub username of the user associated with the Visual Studio subscription assignment."
+                },
+                "manual_match": {
+                  "type": "boolean",
+                  "description": "Indicates if the Visual Studio subscription assignment was manually matched to a user."
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise Licensing\" enterprise permissions": "write"
+          }
+        ]
+      }
     }
   ],
   "network-configurations": [
@@ -8745,7 +9100,7 @@
                   "permissions": {
                     "title": "App Permissions",
                     "type": "object",
-                    "description": "The permissions granted to the user access token.",
+                    "description": "The permissions granted to the fine-grained access token.",
                     "properties": {
                       "actions": {
                         "type": "string",
@@ -9614,7 +9969,7 @@
                 "permissions": {
                   "title": "App Permissions",
                   "type": "object",
-                  "description": "The permissions granted to the user access token.",
+                  "description": "The permissions granted to the fine-grained access token.",
                   "properties": {
                     "actions": {
                       "type": "string",
@@ -10866,7 +11221,7 @@
                 "permissions": {
                   "title": "App Permissions",
                   "type": "object",
-                  "description": "The permissions granted to the user access token.",
+                  "description": "The permissions granted to the fine-grained access token.",
                   "properties": {
                     "actions": {
                       "type": "string",

@@ -24,7 +24,7 @@ In this tutorial, you'll interpret your secret risk assessment results, and lear
 
 ## Prerequisites
 
-You must generate a {% data variables.product.prodname_secret_risk_assessment %} report and wait for the scan to complete. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/assess-your-secret-risk).
+You must generate a {% data variables.product.prodname_secret_risk_assessment %} report and wait for the scan to complete. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/assess-your-secret-risk).
 
 ## Step 1: Understand your dashboard metrics
 

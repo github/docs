@@ -210,6 +210,74 @@ And [another real link](https://real.example.com/page).
     expect(result.externalLinks[1].href).toBe('https://real.example.com/page')
   })
 
+  test('skips links inside inline code spans', () => {
+    const content = `
+See [a real link](/real/path) for details.
+
+* For links to other pages: \`See [AUTOTITLE](/PATH/TO/PAGE).\`
+* With a query: \`See [AUTOTITLE](/path/to/page?tool=TOOLNAME).\`
+
+And [another real link](/another/real/path) here.
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(2)
+    expect(result.internalLinks.map((l) => l.href)).toEqual(['/real/path', '/another/real/path'])
+  })
+
+  test('handles inline code and a real link on the same line', () => {
+    const content = `Use \`[AUTOTITLE](/PLACEHOLDER)\` and then see [the guide](/real/guide).`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(1)
+    expect(result.internalLinks[0].href).toBe('/real/guide')
+  })
+
+  test('does not mask links when backtick runs are mismatched', () => {
+    // Per CommonMark, a code span needs equal-length, maximal backtick runs on
+    // both ends. These lines have mismatched runs, so they are NOT code spans
+    // and the links between the backticks are real and must be extracted.
+    const content = [
+      `A single-open, double-close: \`[one](/real/one)\`\``,
+      `A double-open, triple-close: \`\`[two](/real/two)\`\`\``,
+    ].join('\n')
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks.map((l) => l.href)).toEqual(['/real/one', '/real/two'])
+  })
+
+  test('still masks links inside valid multi-backtick code spans', () => {
+    // A matched double-backtick run is a real code span, even when it wraps an
+    // inner single backtick, so the link inside must be ignored.
+    const content = `Example: \`\` \`[skip](/placeholder)\` \`\` and see [the guide](/real/guide).`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(1)
+    expect(result.internalLinks[0].href).toBe('/real/guide')
+  })
+
+  test('captures internal links with balanced parentheses in the path', () => {
+    const content = `See the [privacy statement (PDF)](/assets/images/help/site-policy/github-privacy-statement(07.22.20)(fr).pdf).`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(1)
+    expect(result.internalLinks[0].href).toBe(
+      '/assets/images/help/site-policy/github-privacy-statement(07.22.20)(fr).pdf',
+    )
+  })
+
+  test('does not let an unclosed link destination span multiple lines', () => {
+    const content = `
+Broken: [AUTOTITLE](/code-security/create-custom-configuration.
+1. A following list item with [a real link](/real/target).
+`
+    const result = extractLinksFromMarkdown(content)
+
+    // The unclosed link is not extracted, and it does not swallow the real link
+    // on the next line into a giant multi-line href.
+    expect(result.internalLinks.map((l) => l.href)).toEqual(['/real/target'])
+  })
+
   test('handles complex nested brackets', () => {
     const content = `
 Use the [\`git clone\`](/repositories/cloning) command.

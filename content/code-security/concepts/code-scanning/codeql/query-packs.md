@@ -26,7 +26,7 @@ Each {% data variables.product.prodname_codeql %} pack requires a `qlpack.yml` f
 * Dependencies on other {% data variables.product.prodname_codeql %} packs and libraries
 * Query suite definitions
 
-For more information about `qlpack.yml` properties, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#codeqlpack-yml-properties).
+For more information about `qlpack.yml` properties, see [AUTOTITLE](/code-security/tutorials/customize-code-scanning/customize-analysis#codeqlpack-yml-properties).
 
 Additionally, a {% data variables.product.prodname_codeql %} pack can contain:
 
@@ -45,7 +45,7 @@ There are three types of {% data variables.product.prodname_codeql %} packs: que
 
 * Library packs are designed to be used by query packs (or other library packs) and do not contain queries themselves. The libraries are not compiled separately.
 
-* Model packs can be used to expand {% data variables.product.prodname_code_scanning %} analysis to recognize libraries and frameworks that are not supported by default. Model packs are currently in {% data variables.release-phases.public_preview %} and subject to change. During the {% data variables.release-phases.public_preview %}, model packs are available for {% data variables.code-scanning.codeql_model_packs_support %} analysis. For more information about creating your own model packs, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs#creating-a-codeql-model-pack).
+* Model packs can be used to expand {% data variables.product.prodname_code_scanning %} analysis to recognize libraries and frameworks that are not supported by default. Model packs are currently in {% data variables.release-phases.public_preview %} and subject to change. During the {% data variables.release-phases.public_preview %}, model packs are available for {% data variables.code-scanning.codeql_model_packs_support %} analysis. For more information about creating your own model packs, see [AUTOTITLE](/code-security/tutorials/customize-code-scanning/create-and-work-with-codeql-packs#creating-a-codeql-model-pack).
 
 ## Where to find query packs
 
@@ -71,6 +71,6 @@ You can share custom queries with the broader {% data variables.product.prodname
 * Publishing to {% data variables.product.prodname_registry %}: Make your pack publicly available for other users to discover and use.
 * Contributing to the {% data variables.product.prodname_codeql %} repository: Submit queries that would benefit the wider community by opening a pull request to the official repository.
 
-For more information about publishing and downloading {% data variables.product.prodname_codeql %} packs, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs).
+For more information about publishing and downloading {% data variables.product.prodname_codeql %} packs, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-the-command-line/publish-and-use-packs).
 
 For information about contributing to {% data variables.product.prodname_codeql %}, see [Contributing to {% data variables.product.prodname_codeql %}](https://github.com/github/codeql/blob/main/CONTRIBUTING.md).

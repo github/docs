@@ -17,11 +17,11 @@ category:
   - Secure your dependencies
 ---
 
-By default, {% data variables.product.github %} sends notifications about new alerts by email to people with write, maintain, or admin permissions to a repository. See [AUTOTITLE](/code-security/concepts/supply-chain-security/about-dependabot-alerts#notifications-for-alerts).
+By default, {% data variables.product.github %} sends notifications about new alerts by email to people with write, maintain, or admin permissions to a repository. See [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-alerts#notifications-for-alerts).
 
 ## Configuring notifications for {% data variables.product.prodname_dependabot_alerts %}
 
-You can configure notification settings for yourself or your organization from the Manage notifications drop-down {% octicon "bell" aria-label="The notifications bell" %} shown at the top of each page. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings).
+You can configure notification settings for yourself or your organization from the Manage notifications drop-down {% octicon "bell" aria-label="The notifications bell" %} shown at the top of each page. For more information, see [AUTOTITLE](/subscriptions-and-notifications/get-started/configuring-notifications#choosing-your-notification-settings).
 
 {% data reusables.notifications.vulnerable-dependency-notification-options %}
 
@@ -30,11 +30,11 @@ You can configure notification settings for yourself or your organization from t
 ![Screenshot of the notification options for {% data variables.product.prodname_dependabot_alerts %}.](/assets/images/help/enterprises/dependabot-alerts-options-no-ui.png){% endif %}
 
 > [!NOTE]
-> You can filter your notifications on {% data variables.product.company_short %} to show {% data variables.product.prodname_dependabot_alerts %}. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#dependabot-custom-filters).
+> You can filter your notifications on {% data variables.product.company_short %} to show {% data variables.product.prodname_dependabot_alerts %}. For more information, see [AUTOTITLE](/subscriptions-and-notifications/how-tos/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#dependabot-custom-filters).
 
-{% data reusables.repositories.security-alerts-x-github-severity %} For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#filtering-email-notifications).
+{% data reusables.repositories.security-alerts-x-github-severity %} For more information, see [AUTOTITLE](/subscriptions-and-notifications/get-started/configuring-notifications#filtering-email-notifications).
 
 ## Further reading
 
-* [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)
-* [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#supported-is-queries)
+* [AUTOTITLE](/subscriptions-and-notifications/get-started/configuring-notifications)
+* [AUTOTITLE](/subscriptions-and-notifications/how-tos/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#supported-is-queries)

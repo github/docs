@@ -18,17 +18,17 @@ redirect_from:
 
 In security overview, the overview dashboard displays security alert metrics for your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}. You can use the dashboard to monitor the health of your application security program, collaborate with engineering teams, and gather data for benchmarking purposes.
 
-The dashboard displays trending data that tracks alert counts and activity over time, as well as snapshot data that reflects the current state. All data and metrics across the dashboard change as you apply filters. By default, the dashboard displays all alerts from {% data variables.product.prodname_dotcom %} tools, but you can use the tool filter to show alerts from a specific tool ({% data variables.product.prodname_secret_scanning %}, {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, a specific third-party tool) or all third-party {% data variables.product.prodname_code_scanning %} tools. See [AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview).
+The dashboard displays trending data that tracks alert counts and activity over time, as well as snapshot data that reflects the current state. All data and metrics across the dashboard change as you apply filters. By default, the dashboard displays all alerts from {% data variables.product.prodname_dotcom %} tools, but you can use the tool filter to show alerts from a specific tool ({% data variables.product.prodname_secret_scanning %}, {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, a specific third-party tool) or all third-party {% data variables.product.prodname_code_scanning %} tools. See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/filtering-alerts-in-security-overview).
 
 **Trend indicators** show percentage change compared to the previous period. For example:
 * 10 alerts this week vs. 20 alerts last week = 50% decrease
 * An average alert age of 15 days vs. 5 days = 200% increase
 
-**Alert severity filtering:** The dashboard only includes alerts with security severity levels: `Critical`, `High`, `Medium`, or `Low`. Non-security alerts (`Error`, `Warning`, or `Note`) are excluded. This may cause the dashboard count to differ from {% data variables.product.prodname_code_scanning %} alert totals. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).
+**Alert severity filtering:** The dashboard only includes alerts with security severity levels: `Critical`, `High`, `Medium`, or `Low`. Non-security alerts (`Error`, `Warning`, or `Note`) are excluded. This may cause the dashboard count to differ from {% data variables.product.prodname_code_scanning %} alert totals. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/code-scanning-alerts#about-alert-severity-and-security-severity-levels).
 
 ### Limitations
 
-The data that populates the overview page can and will change over time due to various factors, such as repository deletion or modifications to a security advisory. This means that the overview metrics for the same time period could vary if viewed at two different times. For compliance reports or other scenarios where data consistency is crucial, we recommend that you source data from the audit log. See [AUTOTITLE](/code-security/getting-started/auditing-security-alerts).
+The data that populates the overview page can and will change over time due to various factors, such as repository deletion or modifications to a security advisory. This means that the overview metrics for the same time period could vary if viewed at two different times. For compliance reports or other scenarios where data consistency is crucial, we recommend that you source data from the audit log. See [AUTOTITLE](/code-security/concepts/security-at-scale/audit-security-alerts).
 
 The overview page tracks how security alerts changed over time. However, when you filter by another attribute, such as repository status, it uses that attribute's current value, not its historical value.
 
@@ -88,7 +88,7 @@ Shows the ratio of secrets bypassed to the total secrets blocked by push protect
 
 Click **View details** to view the {% data variables.product.prodname_secret_scanning %} report with the same filters and time period selected.
 
-For more information on {% data variables.product.prodname_secret_scanning %} push protection metrics, see [AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection).
+For more information on {% data variables.product.prodname_secret_scanning %} push protection metrics, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-metrics-for-secret-scanning-push-protection).
 
 ### Impact analysis table
 
@@ -158,7 +158,7 @@ The count of pull request alerts detected by {% data variables.product.prodname_
 
 Shows the ratio of accepted {% data variables.copilot.copilot_autofix_short %} suggestions to the total number of {% data variables.copilot.copilot_autofix_short %} suggestions on pull request alerts detected by {% data variables.product.prodname_code_scanning %}.
 
-{% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %} provides targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts. See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
+{% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %} provides targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts. See [AUTOTITLE](/code-security/responsible-use/security-and-quality-ai-features).
 
 {% endif %}
 

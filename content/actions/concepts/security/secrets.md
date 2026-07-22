@@ -23,7 +23,7 @@ Secrets allow you to store sensitive information in your organization, repositor
 
 ## How secrets work
 
-Secrets use [Libsodium sealed boxes](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes), so that they are encrypted before reaching {% data variables.product.github %}. This occurs when the secret is submitted [using the UI](/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository) or through the [REST API](/rest/actions/secrets). This client-side encryption helps minimize the risks related to accidental logging (for example, exception logs and request logs, among others) within {% data variables.product.github %}'s infrastructure. Once the secret is uploaded, {% data variables.product.github %} is then able to decrypt it so that it can be injected into the workflow runtime.
+Secrets use [Libsodium sealed boxes](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes), so that they are encrypted before reaching {% data variables.product.github %}. This occurs when the secret is submitted [using the UI](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets#creating-secrets-for-a-repository) or through the [REST API](/rest/actions/secrets). This client-side encryption helps minimize the risks related to accidental logging (for example, exception logs and request logs, among others) within {% data variables.product.github %}'s infrastructure. Once the secret is uploaded, {% data variables.product.github %} is then able to decrypt it so that it can be injected into the workflow runtime.
 
 {% endif %}
 
@@ -35,7 +35,7 @@ When creating a secret for an organization, you can use a policy to limit access
 
 For environment secrets, you can enable required reviewers to control access to the secrets. A workflow job cannot access environment secrets until approval is granted by required approvers.
 
-To make a secret available to an action, you must set the secret as an input or environment variable in your workflow file. Review the action's README file to learn about which inputs and environment variables the action expects. See [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsenv).
+To make a secret available to an action, you must set the secret as an input or environment variable in your workflow file. Review the action's README file to learn about which inputs and environment variables the action expects. See [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstepsenv).
 
 ## Limiting credential permissions
 
@@ -43,17 +43,17 @@ When generating credentials, we recommend that you grant the minimum permissions
 
 When generating a {% data variables.product.pat_v1 %}, select the fewest scopes necessary. When generating a {% data variables.product.pat_v2 %}, select the minimum permissions and repository access required.
 
-Instead of using a {% data variables.product.pat_generic %}, consider using a {% data variables.product.prodname_github_app %}, which uses fine-grained permissions and short lived tokens, similar to a {% data variables.product.pat_v2 %}. Unlike a {% data variables.product.pat_generic %}, a {% data variables.product.prodname_github_app %} is not tied to a user, so the workflow will continue to work even if the user who installed the app leaves your organization. For more information, see [AUTOTITLE](/apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow).
+Instead of using a {% data variables.product.pat_generic %}, consider using a {% data variables.product.prodname_github_app %}, which uses fine-grained permissions and short lived tokens, similar to a {% data variables.product.pat_v2 %}. Unlike a {% data variables.product.pat_generic %}, a {% data variables.product.prodname_github_app %} is not tied to a user, so the workflow will continue to work even if the user who installed the app leaves your organization. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow).
 
 ## Automatically redacted secrets
 
 {% data variables.product.prodname_actions %} automatically redacts the contents of all {% data variables.product.prodname_dotcom %} secrets that are printed to workflow logs.
 
-{% data variables.product.prodname_actions %} also redacts information that is recognized as sensitive, but is not stored as a secret. For a list of automatically redacted secrets, see [AUTOTITLE](/actions/reference/secrets-reference#automatically-redacted-secrets).
+{% data variables.product.prodname_actions %} also redacts information that is recognized as sensitive, but is not stored as a secret. For a list of automatically redacted secrets, see [AUTOTITLE](/actions/reference/security/secrets#automatically-redacted-secrets).
 
-Because there are multiple ways a secret value can be transformed, this redaction is not guaranteed. Additionally, the runner can only redact secrets used within the current job. As a result, there are certain security proactive steps you should follow to help ensure secrets are redacted, and to limit other risks associated with secrets. For a reference list of security best practices with secrets, see [AUTOTITLE](/actions/reference/secrets-reference#security-best-practices).
+Because there are multiple ways a secret value can be transformed, this redaction is not guaranteed. Additionally, the runner can only redact secrets used within the current job. As a result, there are certain security proactive steps you should follow to help ensure secrets are redacted, and to limit other risks associated with secrets. For a reference list of security best practices with secrets, see [AUTOTITLE](/actions/reference/security/secrets#security-best-practices).
 
 ## Further reading
 
-* [AUTOTITLE](/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
+* [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets)
 * [AUTOTITLE](/rest/actions/secrets)

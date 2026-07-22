@@ -212,7 +212,7 @@ If your repositories are configured with {% data variables.product.prodname_code
 * Analysis fails for any reason, for example: you have exhausted your budget for actions minutes.
 * {% data variables.product.prodname_code_quality_short %} found a result of a severity of the level defined in the ruleset, or a higher severity.
 
-For more information, see [AUTOTITLE](/code-security/concepts/about-code-quality) and [AUTOTITLE](/code-security/how-tos/maintain-quality-code/set-pr-thresholds).
+For more information, see [AUTOTITLE](/code-security/concepts/code-quality/code-quality) and [AUTOTITLE](/code-security/how-tos/maintain-quality-code/set-pr-thresholds).
 
 ## Restrict code coverage
 

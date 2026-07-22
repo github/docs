@@ -17,8 +17,9 @@ contentType: reference
 The {% data variables.product.prodname_copilot_short %} usage metrics dashboard and APIs display and export data using a consistent set of fields. This reference lists all available metrics and describes how to interpret their values in both dashboard visuals and NDJSON or API exports.
 
 * The {% data variables.product.prodname_copilot_short %} usage metrics dashboards are available at the **enterprise** and **organization** level.
-* The {% data variables.product.prodname_copilot_short %} usage metrics APIs return reports scoped to the **enterprise**, **organization**, or **individual user** level, in different shapes depending on scope and granularity.
+* The {% data variables.product.prodname_copilot_short %} usage metrics APIs return reports at the **enterprise** or **organization** scope, with aggregated, **repository-level**, and **individual user-level** report granularities. Shapes vary by scope and granularity.
 * Team-level metrics are not pre-aggregated; you construct them by joining the user-teams report with the per-user usage metrics report. See [AUTOTITLE](/copilot/reference/copilot-usage-metrics/team-level-metrics).
+* Repository-level reports contain one record per repository with pull request activity on the requested day. See [Repository-level fields (API only)](#repository-level-fields-api-only) later in this article.
 
 For guidance on how to read and interpret these metrics, see [AUTOTITLE](/copilot/concepts/copilot-usage-metrics/copilot-metrics).
 
@@ -71,6 +72,7 @@ Reports come in different shapes depending on their scope and granularity, so th
 * **Aggregated reports** (`enterprise-1-day` and `org-1-day`) contain one aggregated record per enterprise or organization, including active-user counts, `pull_requests`, and `totals_by_ai_adoption_phase`. They do not contain `user_id`, `user_login`, or the `used_*` indicators.
 * **28-day reports** (`enterprise-28-day` and `org-28-day`) wrap an array of daily aggregated records in a `day_totals` field, with the reporting window at the top level.
 * **User-teams reports** (`*-user-teams-1-day`) map users to the teams they belong to, so you can construct team-level metrics.
+* **Repository-level reports** (`*-repos-1-day`) contain one record per repository with pull request activity for the day, including pull requests created by {% data variables.copilot.copilot_cloud_agent %} and reviewed by {% data variables.copilot.copilot_code-review_short %}.
 
 Organization-scope reports also include `organization_id` alongside `enterprise_id`. For example schemas of the data returned by the APIs, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/example-schema).
 
@@ -190,6 +192,23 @@ Teams with fewer than 5 seated {% data variables.product.prodname_copilot_short 
 | `team_id` | `integer` | No | Unique ID of the team the user belongs to. |
 | `slug` | `string` | No | URL-friendly identifier for the team. |
 
+### Repository-level fields (API only)
+
+Repository-level reports show daily pull request creation, review, merge, and suggestion activity for repositories in an organization or enterprise, including pull requests created by {% data variables.copilot.copilot_cloud_agent %} and reviewed by {% data variables.copilot.copilot_code-review_short %}. Each row represents one repository that had pull request activity on the requested day; repositories with no activity are omitted. These reports focus on pull request lifecycle activity and can contain data even when IDE usage metrics are absent.
+
+These fields are returned by the daily repository-level report (`repos-1-day`), available via the REST API at the organization and enterprise scopes. For the endpoint URLs, response envelope, permissions, and download workflow, see [AUTOTITLE](/rest/copilot/copilot-usage-metrics). For example rows, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/example-schema#repository-level-schema-example).
+
+| Field | Type | Nullable | Description |
+|:--|:--|:--|:--|
+| `day` | `string` | No | Calendar day this record represents, in `YYYY-MM-DD` format. |
+| `enterprise_id` | `string` | No | Unique ID of the enterprise. Populated in enterprise-scoped reports, and in organization-scoped reports for organizations owned by an enterprise. Empty for organizations not owned by an enterprise. |
+| `organization_id` | `string` | No | Unique ID of the organization that owns the repository. Included in both enterprise- and organization-scoped reports. |
+| `repo_id` | `integer` | No | Unique ID of the repository. |
+| `repo_owner_name` | `string` | No | Login of the repository owner. |
+| `repo_name` | `string` | No | Repository name. |
+| `repo_visibility` | `string` | No | Repository visibility. Possible values are `PRIVATE`, `INTERNAL`, and `PUBLIC`. |
+| `pull_requests` | `object` | No | Daily pull request activity for the repository. See [Pull request activity fields](#pull-request-activity-fields). |
+
 ### Activity breakdown objects
 
 The `totals_by_*` fields are arrays of breakdown objects. The array is always present but can be empty. Within each object, the metric fields (`*_count` and `loc_*_sum`) follow the same definitions as the top-level per-user fields, and the dimension fields carry the values documented in [Breakdown dimension values](#breakdown-dimension-values).
@@ -235,7 +254,7 @@ The `totals_by_cli` object contains the following nested fields when {% data var
 > [!IMPORTANT]
 > Organization- and enterprise-level reports may show different totals due to differences in user deduplication and attribution timing. For guidance on interpreting pull request metrics across scopes, see [AUTOTITLE](/copilot/concepts/copilot-usage-metrics/copilot-metrics#interpreting-pull-request-lifecycle-metrics-across-scopes).
 
-The `pull_requests` object appears in aggregated enterprise and organization reports only. It captures daily pull request creation, review, merge, and suggestion activity at the enterprise or organization scope, including activity performed by {% data variables.product.prodname_copilot_short %}.
+The `pull_requests` object appears in aggregated enterprise and organization reports, and in repository-level reports. It captures daily pull request creation, review, merge, and suggestion activity, including activity performed by {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}.
 
 | Field | Type | Nullable | Description |
 |:--|:--|:--|:--|
@@ -245,15 +264,15 @@ The `pull_requests` object appears in aggregated enterprise and organization rep
 | `pull_requests.median_minutes_to_merge` | `number` | Yes | Median time, in minutes, between pull request creation and merge for pull requests merged on this specific day. <br/><br/>Median is used to reduce the impact of outliers from unusually long-running pull requests. Null when no pull requests were merged that day. |
 | `pull_requests.total_suggestions` | `integer` | No | Total number of pull request review suggestions generated on this specific day, regardless of author. |
 | `pull_requests.total_applied_suggestions` | `integer` | No | Total number of pull request review suggestions that were applied on this specific day, regardless of author. |
-| `pull_requests.total_created_by_copilot` | `integer` | No | Number of pull requests created by {% data variables.product.prodname_copilot_short %} on this specific day. |
-| `pull_requests.total_reviewed_by_copilot` | `integer` | No | Number of pull requests reviewed by {% data variables.product.prodname_copilot_short %} on this specific day. <br/><br/>A pull request may be counted on multiple days if {% data variables.product.prodname_copilot_short %} reviews it on multiple days. |
-| `pull_requests.total_merged_created_by_copilot` | `integer` | No | Number of pull requests created by {% data variables.product.prodname_copilot_short %} that were merged on this specific day. Each pull request is counted only on the day it is merged. |
+| `pull_requests.total_created_by_copilot` | `integer` | No | Number of pull requests created by {% data variables.copilot.copilot_cloud_agent %} on this specific day. |
+| `pull_requests.total_reviewed_by_copilot` | `integer` | No | Number of pull requests reviewed by {% data variables.copilot.copilot_code-review_short %} on this specific day. <br/><br/>A pull request may be counted on multiple days if {% data variables.copilot.copilot_code-review_short %} reviews it on multiple days. |
+| `pull_requests.total_merged_created_by_copilot` | `integer` | No | Number of pull requests created by {% data variables.copilot.copilot_cloud_agent %} that were merged on this specific day. Each pull request is counted only on the day it is merged. |
 | `pull_requests.total_merged_reviewed_by_copilot` | `integer` | No | Number of pull requests that were both merged and reviewed by {% data variables.copilot.copilot_code-review_short %} during the reporting period. |
-| `pull_requests.median_minutes_to_merge_copilot_authored` | `number` | Yes | Median time, in minutes, between pull request creation and merge for pull requests created by {% data variables.product.prodname_copilot_short %} and merged on this specific day. Null when no such pull requests were merged that day. |
+| `pull_requests.median_minutes_to_merge_copilot_authored` | `number` | Yes | Median time, in minutes, between pull request creation and merge for pull requests created by {% data variables.copilot.copilot_cloud_agent %} and merged on this specific day. Null when no such pull requests were merged that day. |
 | `pull_requests.median_minutes_to_merge_copilot_reviewed` | `number` | Yes | Median time, in minutes, between pull request creation and merge, calculated only for pull requests reviewed by {% data variables.copilot.copilot_code-review_short %}. Null when no such pull requests were merged that day. |
-| `pull_requests.total_copilot_suggestions` | `integer` | No | Number of pull request review suggestions generated by {% data variables.product.prodname_copilot_short %} on this specific day. |
-| `pull_requests.total_copilot_applied_suggestions` | `integer` | No | Number of pull request review suggestions generated by {% data variables.product.prodname_copilot_short %} that were applied on this specific day. |
-| `pull_requests.copilot_suggestions_by_comment_type` | `array` | No | Aggregated counts of {% data variables.product.prodname_copilot_short %} code review suggestions, broken down by the comment type {% data variables.product.prodname_copilot_short %} assigned (for example, `security` or `bug_risk`). Each entry includes `comment_type`, `total_copilot_suggestions`, and `total_copilot_applied_suggestions`. Always present but can be empty. Not available at the repository level. |
+| `pull_requests.total_copilot_suggestions` | `integer` | No | Number of pull request review suggestions generated by {% data variables.copilot.copilot_code-review_short %} on this specific day. |
+| `pull_requests.total_copilot_applied_suggestions` | `integer` | No | Number of pull request review suggestions generated by {% data variables.copilot.copilot_code-review_short %} that were applied on this specific day. |
+| `pull_requests.copilot_suggestions_by_comment_type` | `array` | No | Aggregated counts of {% data variables.copilot.copilot_code-review_short %} suggestions, broken down by the assigned comment type (for example, `security` or `bug_risk`). Each entry includes `comment_type`, `total_copilot_suggestions`, and `total_copilot_applied_suggestions`. Always present but can be empty. |
 
 ### AI adoption phase fields
 

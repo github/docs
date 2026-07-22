@@ -41,7 +41,7 @@ When a user installs an app on their user account or organization, they see and 
 
 The success of an API request with a user access token depends on the user's permissions as well as the app's permissions. For example, if the app was granted permission to write the contents of a repository, but the user can only read the contents, then the user access token can only read the contents. The success of an API request with an installation access token only depends on the app's permissions.
 
-For more information about specifying permissions during {% data variables.product.prodname_github_app %} registration, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app).
+For more information about specifying permissions during {% data variables.product.prodname_github_app %} registration, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/registering-a-github-app).
 
 Some webhooks and API access requires "Administration" permissions. If your app requires "Administration" permissions, consider explaining this requirement on your app's homepage. This will help users understand why your app needs a high level permission.
 
@@ -53,11 +53,11 @@ You can modify the permissions for apps you own or manage at any time.{% ifversi
 * When an enterprise app manager modifies the permissions of an app owned by an **enterprise account**, the changes are automatically accepted by organizations in the enterprise where the app manager is also an organization owner.{% endif %}
 * When you modify the permissions of an app owned by a **user or organization**,{% else %} When you do so,{% endif %} the owner of each account where the app was installed will be prompted to approve the new permissions. If the account owner does not approve the new permissions, their installation will continue to use the old permissions.
 
-For more information about modifying permissions, see [AUTOTITLE](/apps/maintaining-github-apps/editing-a-github-apps-permissions).
+For more information about modifying permissions, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration).
 
 ## Choosing permissions for webhook access
 
-The webhook documentation indicates whether each webhook is available to {% data variables.product.prodname_github_apps %}. For each webhook that you want to subscribe to, refer to the webhook documentation to see what permissions a {% data variables.product.prodname_github_app %} needs to subscribe to that webhook. For more information, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads).
+The webhook documentation indicates whether each webhook is available to {% data variables.product.prodname_github_apps %}. For each webhook that you want to subscribe to, refer to the webhook documentation to see what permissions a {% data variables.product.prodname_github_app %} needs to subscribe to that webhook. For more information, see [AUTOTITLE](/webhooks/webhook-events-and-payloads).
 
 For example, if you want your app to subscribe to `team` events, your app must have the "Members" organization permission.
 
@@ -65,7 +65,7 @@ On your {% data variables.product.prodname_github_app %} registration page, the 
 
 ## Choosing permissions for REST API access
 
-The REST API reference documentation for each endpoint states whether the endpoint works with {% data variables.product.prodname_github_apps %} and states what permissions are required in order for the app to use the endpoint. Some endpoints may require multiple permissions, and some endpoints may require one of multiple permissions. For an overview of which REST API endpoints a {% data variables.product.prodname_github_app %} can access with each permission, see [AUTOTITLE](/rest/overview/permissions-required-for-github-apps).
+The REST API reference documentation for each endpoint states whether the endpoint works with {% data variables.product.prodname_github_apps %} and states what permissions are required in order for the app to use the endpoint. Some endpoints may require multiple permissions, and some endpoints may require one of multiple permissions. For an overview of which REST API endpoints a {% data variables.product.prodname_github_app %} can access with each permission, see [AUTOTITLE](/rest/authentication/permissions-required-for-github-apps).
 
 For example, to use the `GET /orgs/{org}/dependabot/secrets` endpoint, your app must have at least read-level permission for the "organization dependabot secrets" permission.
 

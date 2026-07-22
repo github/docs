@@ -934,6 +934,16 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% данные variables.', '{% data variables.')
     content = content.replaceAll('{% данных reusables', '{% data reusables')
     content = content.replaceAll('{% данные reusables', '{% data reusables')
+    // Fully translated "data reusables" phrases used as Liquid tag prefixes.
+    // `данных, многократно используемых` ("data, repeatedly used") and
+    // `данных, которые можно использовать повторно` ("data that can be reused")
+    // are both translations of `data reusables`; the English reusable path
+    // that follows is untranslated, so restoring the keyword is deterministic.
+    content = content.replaceAll('{% данных, многократно используемых.', '{% data reusables.')
+    content = content.replaceAll(
+      '{% данных, которые можно использовать повторно.',
+      '{% data reusables.',
+    )
     content = content.replaceAll('{% данных переменных.', '{% data variables.')
     // Broaden `{% данных.X` → `{% data variables.X` (covers .product., .dependency-review., .code-scanning., etc.)
     content = content.replaceAll('{% данных.', '{% data variables.')

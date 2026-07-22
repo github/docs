@@ -20,4 +20,4 @@ When you limit concurrency, by default only one run can be pending in a concurre
 
 {% endif %}
 
-To start controlling concurrency in your own workflows with the `concurrency` keyword, see [AUTOTITLE](/actions/how-tos/writing-workflows/choosing-when-your-workflow-runs/control-the-concurrency-of-workflows-and-jobs).
+To start controlling concurrency in your own workflows with the `concurrency` keyword, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency).

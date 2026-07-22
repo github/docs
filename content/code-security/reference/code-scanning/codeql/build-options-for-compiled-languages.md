@@ -17,7 +17,7 @@ redirect_from:
 
 ## Autobuild steps for compiled languages
 
-{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}-hosted runners are always run with the software required by `autobuild`.{% endif %} If you use self-hosted runners for {% data variables.product.prodname_actions %}, you may need to install additional software to use the `autobuild` process. Additionally, if your repository requires a specific version of a build tool, you may need to install it manually. {% ifversion ghes or default-setup-self-hosted-runners-GHEC %} For self-hosted runners, you should install dependencies directly in the runners themselves. We provide examples of common dependencies for C/C++, C#, and Java in each of the `autobuild` sections of this article for those languages. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).{% endif %}
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}-hosted runners are always run with the software required by `autobuild`.{% endif %} If you use self-hosted runners for {% data variables.product.prodname_actions %}, you may need to install additional software to use the `autobuild` process. Additionally, if your repository requires a specific version of a build tool, you may need to install it manually. {% ifversion ghes or default-setup-self-hosted-runners-GHEC %} For self-hosted runners, you should install dependencies directly in the runners themselves. We provide examples of common dependencies for C/C++, C#, and Java in each of the `autobuild` sections of this article for those languages. For more information, see [AUTOTITLE](/actions/concepts/runners/self-hosted-runners).{% endif %}
 
 > [!NOTE]
 > If your workflow uses a `language` matrix, `autobuild` attempts to build each of the compiled languages listed in the matrix. Without a matrix `autobuild` attempts to build the supported compiled language that has the most source files in the repository. With the exception of Go, analysis of other compiled languages in your repository will fail unless you supply explicit build commands.
@@ -76,7 +76,7 @@ On Linux and macOS, the `autobuild` step reviews the files present in the reposi
 
 #### Runner requirements for C/C++
 
-On Ubuntu Linux runners, `autobuild` may try to automatically install dependencies required by the detected configuration and build steps. By default, this behavior is enabled on {% data variables.product.prodname_dotcom %}-hosted runners and disabled on self-hosted runners. You can enable or disable this feature explicitly by setting `CODEQL_EXTRACTOR_CPP_AUTOINSTALL_DEPENDENCIES` to `true` or `false` in the environment. For more information about defining environment variables, see [AUTOTITLE](/actions/learn-github-actions/variables#defining-environment-variables-for-a-single-workflow).
+On Ubuntu Linux runners, `autobuild` may try to automatically install dependencies required by the detected configuration and build steps. By default, this behavior is enabled on {% data variables.product.prodname_dotcom %}-hosted runners and disabled on self-hosted runners. You can enable or disable this feature explicitly by setting `CODEQL_EXTRACTOR_CPP_AUTOINSTALL_DEPENDENCIES` to `true` or `false` in the environment. For more information about defining environment variables, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables#defining-environment-variables-for-a-single-workflow).
 
 For self-hosted runners, unless automatic installation of dependencies is enabled, you will likely need to install the `gcc` compiler, and specific projects may also require access to `clang` or `msvc` executables. You will also need to install the build system (for example `msbuild`, `make`, `cmake`, `bazel`) and utilities (such as `python`, `perl`, `lex`, and `yacc`) that your projects depend on.
 If you enable automatic installation of dependencies, you must ensure that the runner is using Ubuntu and that it can run `sudo apt-get` without requiring a password.
@@ -93,7 +93,7 @@ When you enable default setup for a repository that contains C# code, the build 
 
 {% data variables.product.prodname_codeql %} restores dependencies and generates a few additional source files, to give more accurate results, before creating a database from all the source files and dependencies.
 
-Dependencies are restored using multiple heuristics and strategies. The following files are the primary source of information: `*.csproj`, `*.sln`, `nuget.config`, `packages.config`, `global.json`, and `project.assets.json`. {% ifversion org-private-registry %}If a private NuGet feed is defined for the organization, this is also used, see [Code scanning default setup access to private registries](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries#code-scanning-default-setup-access-to-private-registries) and [Determining whether code scanning default setup used any private registries](/code-security/code-scanning/managing-your-code-scanning-configuration/viewing-code-scanning-logs#determining-whether-code-scanning-default-setup-used-any-private-registries).{% endif %}
+Dependencies are restored using multiple heuristics and strategies. The following files are the primary source of information: `*.csproj`, `*.sln`, `nuget.config`, `packages.config`, `global.json`, and `project.assets.json`. {% ifversion org-private-registry %}If a private NuGet feed is defined for the organization, this is also used, see [Code scanning default setup access to private registries](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries#default-setup-access-to-private-registries) and [Determining whether code scanning default setup used any private registries](/code-security/reference/code-scanning/code-scanning-logs#diagnostic-information-for-private-package-registries).{% endif %}
 
 The following generated source files are optional, but significantly increase the correctness of the {% data variables.product.prodname_codeql %} database:
 
@@ -108,7 +108,7 @@ Creating a {% data variables.product.prodname_codeql %} database without buildin
 
 You can ensure a more accurate analysis by taking the following steps:
 
-* Provide access to the public internet or ensure that access to a private NuGet feed is available{% ifversion org-private-registry %}, see [Code scanning default setup access to private registries](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries#code-scanning-default-setup-access-to-private-registries){% endif %}.
+* Provide access to the public internet or ensure that access to a private NuGet feed is available{% ifversion org-private-registry %}, see [Code scanning default setup access to private registries](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries#code-scanning-default-setup-access-to-private-registries){% endif %}.
 * Check whether the repository requires multiple versions of the same NuGet dependency. {% data variables.product.prodname_codeql %} can use only one version and usually chooses the newer version where there are multiple versions. This approach may not work for all repositories.
 * Check whether multiple versions of .NET are referenced, for example, `net48`, `net5.0`, and `netstandard1.6`. {% data variables.product.prodname_codeql %} can use only one version and this may affect accuracy.
 * Avoid colliding class names, otherwise this may cause missing method call targets, which has an impact on dataflow analysis.
@@ -170,7 +170,7 @@ Setting this option to `false` disables the use of the shared compilation featur
 
 Setting this option to `true` will emit compiler-generated files during the build process. This option causes the compiler to generate additional source files that are used to support features such as improved regular expression support, serialization, and web application view generation. These generated artifacts are typically not written to disk by the compiler, but setting the option to `true` forces writing the files to disk, and so the extractor can process the files.
 
-For some legacy projects, and projects that use `.sqlproj` files, you may see that the injected `/p:EmitCompilerGeneratedFiles=true` property causes unexpected issues with `msbuild`. For information about troubleshooting this, see [AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning/c-sharp-compiler-unexpectedly-failing).
+For some legacy projects, and projects that use `.sqlproj` files, you may see that the injected `/p:EmitCompilerGeneratedFiles=true` property causes unexpected issues with `msbuild`. For information about troubleshooting this, see [AUTOTITLE](/code-security/reference/code-scanning/troubleshoot-analysis-errors/c-sharp-compiler-unexpectedly-failing).
 
 ## Building Go
 
@@ -210,13 +210,13 @@ Additionally, `vendor` directories are excluded from {% data variables.product.p
 
 When you first enable default setup for a repository, if only Java code is detected then the build mode is set to `none`. If Kotlin or a combination of Java and Kotlin code is detected, then the build mode is set to `autobuild`.
 
-If you later add Kotlin code to a repository that uses the `none` build mode, {% data variables.product.prodname_codeql %} analysis reports a warning message explaining that Kotlin is not supported. You will need to disable default setup and re-enable it. When you re-enable default setup, the build mode will change to `autobuild` so that both languages can be analyzed. Alternatively, you can change to an advanced setup. For more information, see [AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning/kotlin-detected-in-no-build).
+If you later add Kotlin code to a repository that uses the `none` build mode, {% data variables.product.prodname_codeql %} analysis reports a warning message explaining that Kotlin is not supported. You will need to disable default setup and re-enable it. When you re-enable default setup, the build mode will change to `autobuild` so that both languages can be analyzed. Alternatively, you can change to an advanced setup. For more information, see [AUTOTITLE](/code-security/reference/code-scanning/troubleshoot-analysis-errors/kotlin-detected-in-no-build).
 
 ### No build for Java
 
 {% data variables.product.prodname_codeql %} will attempt to run Gradle or Maven to extract accurate dependency information (but not to invoke a build), before creating a database from all Java files present. Every root Maven or Gradle project file (a build script without any build script present in an ancestor directory) is queried for dependency information, and more recent dependency versions are preferred if there is a clash. For information about the runner requirements to run Maven or Gradle, see [Runner requirements for Java](#runner-requirements-for-java).
 
- {% ifversion org-private-registry %}If a private Maven registry is defined for the organization, this is also used, see [Code scanning default setup access to private registries](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries#code-scanning-default-setup-access-to-private-registries) and [Determining whether code scanning default setup used any private registries](/code-security/code-scanning/managing-your-code-scanning-configuration/viewing-code-scanning-logs#determining-whether-code-scanning-default-setup-used-any-private-registries).{% endif %}
+ {% ifversion org-private-registry %}If a private Maven registry is defined for the organization, this is also used, see [Code scanning default setup access to private registries](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries#default-setup-access-to-private-registries) and [Determining whether code scanning default setup used any private registries](/code-security/reference/code-scanning/code-scanning-logs#diagnostic-information-for-private-package-registries).{% endif %}
 
 #### Accuracy of no build analysis for Java
 
@@ -227,7 +227,7 @@ Creating a {% data variables.product.prodname_codeql %} Java database without a 
 
 You can ensure a more accurate analysis by taking the following steps:
 
-* Provide access to the public internet or ensure that access to a private artifact repository is available{% ifversion org-private-registry %}, see [Code scanning default setup access to private registries](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries#code-scanning-default-setup-access-to-private-registries){% endif %}.
+* Provide access to the public internet or ensure that access to a private artifact repository is available{% ifversion org-private-registry %}, see [Code scanning default setup access to private registries](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries#code-scanning-default-setup-access-to-private-registries){% endif %}.
 * Check whether the repository requires multiple versions of the same dependency. {% data variables.product.prodname_codeql %} can use only one version and usually chooses the newer version where there are multiple versions. This approach may not work for all repositories.
 * Check whether more than one version of the JDK API is required by different source Java files. When multiple versions are seen, {% data variables.product.prodname_codeql %} will use the highest version required by any build script. This may mean that some files that require a lower version of the JDK will be partially analyzed. For example, if some files require JDK 8 but a JDK 17 requirement is found in one or more build scripts, {% data variables.product.prodname_codeql %} will use JDK 17. Any files that require JDK 8 and could not be built using JDK 17 will be partially analyzed.
 * Avoid colliding class names (for example, multiple files defining `org.myproject.Test`), otherwise this may cause missing method call targets, which has an impact on dataflow analysis.
@@ -294,7 +294,7 @@ Rust analysis requires `rustup` and `cargo` to be installed.
 
 The `autobuild` process tries to build the biggest target from an Xcode project or workspace.
 
-Code scanning of Swift code uses macOS runners by default. {% ifversion fpt or ghec %}Since {% data variables.product.company_short %}-hosted macOS runners are more expensive than Linux and Windows runners, we recommend that you build only the code that you want to analyze. For more information about pricing for {% data variables.product.company_short %}-hosted runners, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions).{% endif %}
+Code scanning of Swift code uses macOS runners by default. {% ifversion fpt or ghec %}Since {% data variables.product.company_short %}-hosted macOS runners are more expensive than Linux and Windows runners, we recommend that you build only the code that you want to analyze. For more information about pricing for {% data variables.product.company_short %}-hosted runners, see [AUTOTITLE](/billing/concepts/product-billing/github-actions).{% endif %}
 
 {% data reusables.code-scanning.default-setup-swift-self-hosted-runners %}
 

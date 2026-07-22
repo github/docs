@@ -85,7 +85,7 @@ When guest collaborators are enabled in your IdP, you can use SCIM to provision 
 * If you use a partner IdP, use the "Roles" attribute in the {% data variables.product.prodname_emus %} application.
 * If you use the SCIM endpoints of {% data variables.product.company_short %}'s REST API to provision users, use the `roles` user attribute.
 
-For more information about partner IdPs and other identity management systems, see [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems).
+For more information about partner IdPs and other identity management systems, see [AUTOTITLE](/admin/concepts/identity-and-access-management/enterprise-managed-users#identity-management-systems).
 
 ## Giving guest collaborators access to resources
 
@@ -96,7 +96,7 @@ When you have added a guest collaborator to your enterprise, you can add the use
 To give the user access to repositories in an organization, add the user as a **member of the organization**.
 
 * As for all members, the base permission policy for the organization determines whether the user has access to internal and private repositories by default. See [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization).
-* Guest collaborators can be members of IdP groups that are connected to {% data variables.product.prodname_dotcom %} teams, and will be added to the organization via SCIM, just like other enterprise members. See [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups).
+* Guest collaborators can be members of IdP groups that are connected to {% data variables.product.prodname_dotcom %} teams, and will be added to the organization via SCIM, just like other enterprise members. See [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/managing-team-memberships-with-identity-provider-groups).
 
 ### Add the user to a repository
 
@@ -108,5 +108,5 @@ This gives the user access to the repository without giving them access to other
 
 * [Tutorial: Configure GitHub Enterprise Managed User for automatic user provisioning](https://learn.microsoft.com/en-us/entra/identity/saas-apps/github-enterprise-managed-user-provisioning-tutorial) in the Entra ID documentation
 * [Configure PingFederate for provisioning and SSO](https://docs.pingidentity.com/integrations/github/github_emu_provisioner/pf_gh_emu_configure_pf_for_provisioning_and_sso.html) in the PingIdentity documentation
-* [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-with-okta)
-* [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api)
+* [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-with-okta)
+* [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/provisioning-users-and-groups-with-scim-using-the-rest-api)

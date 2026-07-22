@@ -56,11 +56,11 @@ In addition to the information listed above, the {% data variables.code-scanning
 ### Interpreted languages
 
 * **Default setup**: Scanned files include all source code files for languages {% data variables.product.prodname_codeql %} can analyze
-* **Advanced setup**: You can use `paths` and `paths-ignore` to define which files to scan. See [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql).
+* **Advanced setup**: You can use `paths` and `paths-ignore` to define which files to scan. See [AUTOTITLE](/code-security/concepts/code-scanning/codeql/codeql-code-scanning).
 
 ### Compiled languages
 
-The {% data variables.code-scanning.tool_status_page %} reports files present before running autobuild or manual build steps. Files generated during the build process are not shown. See [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#about-autobuild-for-codeql).
+The {% data variables.code-scanning.tool_status_page %} reports files present before running autobuild or manual build steps. Files generated during the build process are not shown. See [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/codeql-for-compiled-languages#about-autobuild-for-codeql).
 
 ### Coverage calculation
 
@@ -71,8 +71,8 @@ File coverage percentages respect any files excluded by `paths` and `paths-ignor
 Use file coverage percentages to debug and improve your analysis:
 
 * **High percentage**: {% data variables.product.prodname_code_scanning_caps %} is working as expected for that language
-* **Low percentage**: Investigate diagnostic output. See [AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning/codeql-scanned-fewer-lines-than-expected)
-* **Zero percentage**: You may have code in languages not currently being analyzed. Update your setup to include these languages. See [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#changing-the-languages-that-are-analyzed)
+* **Low percentage**: Investigate diagnostic output. See [AUTOTITLE](/code-security/reference/code-scanning/troubleshoot-analysis-errors/fewer-lines-scanned-than-expected)
+* **Zero percentage**: You may have code in languages not currently being analyzed. Update your setup to include these languages. See [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options#changing-the-languages-that-are-analyzed)
 
 > [!NOTE]
 > If you set up both advanced setup and default setup, the {% data variables.code-scanning.tool_status_page %} only shows default setup.
@@ -88,4 +88,4 @@ The {% data variables.code-scanning.tool_status_page %} helps you troubleshoot i
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/use-the-tools-status-page-for-code-scanning)
+* [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/use-the-tools-status-page-for-code-scanning)

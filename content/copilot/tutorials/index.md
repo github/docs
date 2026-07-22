@@ -11,6 +11,7 @@ children:
   - /budgets
   - /spark
   - /customize-code-review
+  - /use-copilot-code-review-across-the-pull-request-lifecycle
   - /enhance-agent-mode-with-mcp
   - /compare-ai-models
   - /speed-up-development-work

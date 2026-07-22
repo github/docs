@@ -1,6 +1,3 @@
-> [!NOTE]
-> If you push more than 1,000 commits, or if {% data variables.product.prodname_dotcom %} does not generate the diff due to a timeout, the workflow will always run.
-
 The filter determines if a workflow should run by evaluating the changed files and running them against the `paths-ignore` or `paths` list. If there are no files changed, the workflow will not run.
 
 {% data variables.product.prodname_dotcom %} generates the list of changed files using two-dot diffs for pushes and three-dot diffs for pull requests:
@@ -8,7 +5,12 @@ The filter determines if a workflow should run by evaluating the changed files a
 * **Pushes to existing branches:** A two-dot diff compares the head and base SHAs directly with each other.
 * **Pushes to new branches:** A two-dot diff against the parent of the ancestor of the deepest commit pushed.
 
-> [!NOTE]
-> Diffs are limited to 300 files. If there are files changed that aren't matched in the first 300 files returned by the filter, the workflow will not run. You may need to create more specific filters so that the workflow will run automatically.
+In some situations, {% data variables.product.prodname_actions %} applies limits that change how filtered workflows run:
+
+* If a push contains more than 1,000 commits, the workflow will **always** run.
+* If generating the diff times out, the workflow will **always** run.
+* If the generated diff contains more than 3,000 files and the files the workflow filter matches are not in the first 3,000 returned by the filter, the workflow will **not** run.
+
+If you observe these behaviors, you might need to make your filters more specific, or change how you work with pushes and pull requests to generate simpler diffs.
 
 For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests).

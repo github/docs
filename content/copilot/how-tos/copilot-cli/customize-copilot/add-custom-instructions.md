@@ -19,43 +19,30 @@ docsTeamMetrics:
 
 ## Types of custom instructions
 
-{% data variables.copilot.copilot_cli %} supports the following types of custom instructions.
+{% data variables.copilot.copilot_cli %} supports instructions from the following locations.
 
-### Repository-wide custom instructions
+Unless noted in the table below, {% data variables.copilot.copilot_cli_short %} discovers repository and agent instruction files in the **standard locations**: the repository root, the current working directory, intermediate directories between them, and any directories nested in the path of a file it is working on. Modular instruction files (those matching `*.instructions.md`) are path-specific—a file with an `applyTo` value applies only to matching files.
 
-These apply to all requests made in the context of a repository.
+| Location | Scope and behavior |
+| --- | --- |
+| `$HOME/.copilot/copilot-instructions.md` | User-level instructions that apply across repositories. |
+| `$HOME/.copilot/instructions/**/*.instructions.md` | Modular user-level instructions. |
+| `.github/copilot-instructions.md` | Repository-wide instructions, discovered in the standard locations. |
+| `.github/instructions/**/*.instructions.md` | Modular repository instructions, discovered in the standard locations but not intermediate directories. |
+| `AGENTS.md` | Agent instructions, discovered in the standard locations. For more information, see the [agentsmd/agents.md repository](https://github.com/agentsmd/agents.md). |
+| `CLAUDE.md` | Agent instructions, discovered in the standard locations. {% data variables.copilot.copilot_cli_short %} also uses `.claude/CLAUDE.md`. |
+| `GEMINI.md` | Agent instructions, discovered in the standard locations. |
+| Directories listed in `COPILOT_CUSTOM_INSTRUCTIONS_DIRS` | Additional `AGENTS.md` and `*.instructions.md` files. Separate multiple directories with commas. |
 
-These are specified in a `copilot-instructions.md` file in the `.github` directory at the root of the repository. See [Creating repository-wide custom instructions](#creating-repository-wide-custom-instructions).
+If you set the `COPILOT_HOME` environment variable, {% data variables.copilot.copilot_cli_short %} uses that directory instead of `$HOME/.copilot` for both user-level instruction locations.
 
-### Path-specific custom instructions
+Use the `/instructions` command to view the instruction files discovered for the current session and enable or disable individual files.
 
-These apply to requests made in the context of files that match a specified path.
+## How multiple instruction files interact
 
-These are specified in one or more `NAME.instructions.md` files within or below the `.github/instructions` directory at the root of the repository, or within or below a `.github/instructions` directory in the current working directory. See [Creating path-specific custom instructions](#creating-path-specific-custom-instructions).
+When multiple applicable user-level and repository instruction files exist, {% data variables.copilot.copilot_cli_short %} combines their instructions. It removes duplicate copies of identical user-level `copilot-instructions.md`, repository-wide, and agent instructions, but does not define a general precedence order between these files. Avoid conflicting instructions.
 
-If the path you specify in these instructions matches a file that {% data variables.product.prodname_copilot_short %} is working on, and a repository-wide custom instructions file also exists, then the instructions from both files are used. You should avoid potential conflicts between instructions as {% data variables.product.prodname_copilot_short %}'s choice between conflicting instructions is non-deterministic.
-
-### Agent instructions
-
-These are used by various AI agents.
-
-You can create one or more `AGENTS.md` files. These can be located in the repository's root directory, in the current working directory, or in any of the directories specified by a comma-separated list of paths in the `COPILOT_CUSTOM_INSTRUCTIONS_DIRS` environment variable.
-
-Instructions in the `AGENTS.md` file in the root directory, if found, are treated as primary instructions. If an `AGENTS.md` file and a `.github/copilot-instructions.md` file are both found at the root of the repository, the instructions in both files are used.
-
-Instructions found in other `AGENTS.md` files are treated as additional instructions. Any primary instructions that are found are likely to have more effect on {% data variables.product.prodname_copilot_short %}'s responses than additional instructions.
-
-For more information, see the [agentsmd/agents.md repository](https://github.com/agentsmd/agents.md).
-
-Alternatively, you can use `CLAUDE.md` and `GEMINI.md` files. These must be located at the root of the repository.
-
-### Local instructions
-
-These apply within a specific local environment.
-
-You can specify instructions within your own home directory, by creating a file at `$HOME/.copilot/copilot-instructions.md`.
-
-You can also set the `COPILOT_CUSTOM_INSTRUCTIONS_DIRS` environment variable to a comma-separated list of directories. {% data variables.copilot.copilot_cli_short %} will look for an `AGENTS.md` file, and any `.github/instructions/**/*.instructions.md` files, in each of these directories.
+Path-specific instructions are included only when their `applyTo` value matches a file that {% data variables.copilot.copilot_cli_short %} is working with. An instruction file that you disable using `/instructions` is not included.
 
 ## Creating repository-wide custom instructions
 
@@ -68,6 +55,12 @@ You can also set the `COPILOT_CUSTOM_INSTRUCTIONS_DIRS` environment variable to 
    Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
 
    For help on writing effective custom instructions, see [AUTOTITLE](/copilot/concepts/prompting/response-customization#writing-effective-custom-instructions).
+
+### Referencing other files
+
+In `.github/copilot-instructions.md`, `AGENTS.md`, or `CLAUDE.md`, use `@` followed by a relative path to include another file. {% data variables.copilot.copilot_cli_short %} reads the referenced file immediately and supports references within referenced files.
+
+Referenced files must remain within the repository, or within the custom instructions directory for local instructions. Absolute paths and paths beginning with `~/` are not loaded. File references are not expanded in `GEMINI.md` or `*.instructions.md` files.
 
 ## Creating path-specific custom instructions
 

@@ -34,7 +34,7 @@ category:
 
 ## Overview of Model Context Protocol (MCP)
 
-The Model Context Protocol (MCP) is an open standard that defines how applications share context with large language models (LLMs). MCP provides a standardized way to connect AI models to different data sources and tools, enabling them to work together more effectively.
+{% data reusables.copilot.mcp.intro %}
 
 You can use MCP to extend the capabilities of {% data variables.product.prodname_copilot %} by integrating it with a wide range of existing tools and services. MCP works across all major {% data variables.product.prodname_copilot_short %} surfaces—whether you're working in an IDE, using {% data variables.copilot.copilot_cli %}, working in the {% data variables.copilot.github_copilot_app %}, or delegating tasks to an agent on {% data variables.product.prodname_dotcom_the_website %}. You can also use MCP to create new tools and services that work with {% data variables.product.prodname_copilot_short %}, allowing you to customize and enhance your experience.
 
@@ -101,6 +101,12 @@ The {% data variables.product.github %} MCP Registry is a curated list of MCP se
 
 >[!NOTE]
 > The {% data variables.product.github %} MCP Registry is currently in {% data variables.release-phases.public_preview %} and subject to change.
+
+## Agent finder
+
+Agent finder is a discovery service that helps {% data variables.product.prodname_copilot %} find the right capabilities—such as MCP servers, tools, agents, and skills—for a task at runtime, instead of requiring every capability to be configured in advance. Like an MCP registry, it searches a catalog of capabilities and returns ranked matches that {% data variables.product.prodname_copilot %} can use on demand. Agent finder implements the open Agentic Resource Discovery (ARD) specification.
+
+To use agent finder, download the [agent finder skill](https://github.com/ards-project/connectors/blob/main/skills/github-copilot/SKILL.md) and add it to your `~/.copilot/skills` directory. For more information about agent skills, see [AUTOTITLE](/copilot/concepts/agents/about-agent-skills). To browse the catalog, see [GitHub Agent Finder](https://github.com/agentfinder).
 
 ## Next steps
 

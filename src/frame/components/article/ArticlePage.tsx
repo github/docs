@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
-import cx from 'classnames'
 
 import { useArticleContext } from '@/frame/components/context/ArticleContext'
 import { DefaultLayout } from '@/frame/components/DefaultLayout'
@@ -14,7 +13,6 @@ import { PlatformPicker } from '@/tools/components/PlatformPicker'
 import { ToolPicker } from '@/tools/components/ToolPicker'
 import { MiniTocs } from '@/frame/components/ui/MiniTocs'
 import { RestRedirect } from '@/rest/components/RestRedirect'
-import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
 import { LinkPreviewPopover } from '@/links/components/LinkPreviewPopover'
 import { UtmPreserver } from '@/frame/components/UtmPreserver'
 import { JourneyTrackCard, JourneyTrackNav } from '@/journeys/components'
@@ -112,42 +110,39 @@ export const ArticlePage = () => {
                 intro={introProp}
                 introCallOuts={introCalloutsProp}
                 toc={toc}
-                breadcrumbs={<Breadcrumbs />}
               >
                 {articleContents}
               </ArticleInlineLayout>
               {isJourneyTrack ? (
-                <div className="container-lg mt-4 px-3">
+                <div className="width-full mt-4">
                   <JourneyTrackNav context={currentJourneyTrack} />
                 </div>
               ) : null}
             </>
           ) : (
-            <div className="container-xl px-3 px-md-6 my-4">
-              <div className={cx('d-none d-xxl-block mt-3 mr-auto width-full')}>
-                <Breadcrumbs />
+            <>
+              <div className="container-xl px-3 px-md-6 my-4">
+                <ArticleGridLayout
+                  supportPortalVaIframeProps={supportPortalVaIframeProps}
+                  topper={<ArticleTitle>{title}</ArticleTitle>}
+                  intro={
+                    <>
+                      {introProp}
+                      {introCalloutsProp}
+                    </>
+                  }
+                  toc={toc}
+                >
+                  {articleContents}
+                </ArticleGridLayout>
               </div>
 
-              <ArticleGridLayout
-                supportPortalVaIframeProps={supportPortalVaIframeProps}
-                topper={<ArticleTitle>{title}</ArticleTitle>}
-                intro={
-                  <>
-                    {introProp}
-                    {introCalloutsProp}
-                  </>
-                }
-                toc={toc}
-              >
-                {articleContents}
-              </ArticleGridLayout>
-
               {isJourneyTrack ? (
-                <div className="container-lg mt-4 px-3">
+                <div className="width-full mt-4">
                   <JourneyTrackNav context={currentJourneyTrack} />
                 </div>
               ) : null}
-            </div>
+            </>
           )}
         </CodeTabsProvider>
       </SelectionProvider>
