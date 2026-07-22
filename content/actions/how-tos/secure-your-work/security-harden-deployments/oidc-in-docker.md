@@ -12,7 +12,7 @@ category:
 
 ## Overview
 
-OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to authenticate with [Docker Hub](https://hub.docker.com/) to push and pull container images without storing Docker passwords, personal access tokens (PATs), or organization access tokens (OATs) in {% data variables.product.company_short %}.
+OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to authenticate with [Docker Hub](https://hub.docker.com/) to push and pull container images without storing Docker passwords, {% data variables.product.pat_generic_plural %}, or organization access tokens (OATs) in {% data variables.product.company_short %}.
 
 Instead of managing long-lived credentials, you configure a trust relationship between your {% data variables.product.prodname_dotcom %} organization and your Docker organization. When a workflow runs, {% data variables.product.prodname_dotcom %} issues a short-lived OIDC token that Docker validates against your configured rulesets, then issues a scoped access token for the workflow.
 
