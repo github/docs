@@ -815,18 +815,18 @@ Input parameters defined for a Docker container must use `args`. For more inform
 
 ### Example of `jobs.<job_id>.steps[*].with`
 
-Defines the three input parameters (`first_name`, `middle_name`, and `last_name`) defined by the `hello_world` action. These input variables will be accessible to the `hello-world` action as `INPUT_FIRST_NAME`, `INPUT_MIDDLE_NAME`, and `INPUT_LAST_NAME` environment variables.
+Defines the three input parameters (`first-name`, `middle-name`, and `last-name`) defined by the `hello-world` action. These input variables will be accessible to the `hello-world` action as `INPUT_FIRST-NAME`, `INPUT_MIDDLE-NAME`, and `INPUT_LAST-NAME` environment variables.
 
 ```yaml
 jobs:
   my_first_job:
     steps:
       - name: My first step
-        uses: actions/hello_world@main
+        uses: actions/hello-world@main
         with:
-          first_name: Mona
-          middle_name: The
-          last_name: Octocat
+          first-name: Mona
+          middle-name: The
+          last-name: Octocat
 ```
 
 ## `jobs.<job_id>.steps[*].with.args`
