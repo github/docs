@@ -2871,6 +2871,53 @@
         "isRequired": true
       },
       {
+        "type": "object or null",
+        "name": "stack",
+        "description": "<p>The stack information associated with a pull request.</p>",
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "base",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "ref",
+                "description": "<p>The base ref of the stack this pull request belongs to.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "sha",
+                "description": "<p>The base SHA of the stack this pull request belongs to.</p>",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "integer",
+            "name": "size",
+            "description": "<p>The total number of pull requests in the stack.</p>"
+          },
+          {
+            "type": "integer",
+            "name": "position",
+            "description": "<p>The one-based position of this pull request within the stack, where 1 is the bottom of the stack.</p>"
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "<p>The ID of the stack that this pull request belongs to.</p>"
+          },
+          {
+            "type": "integer",
+            "name": "number",
+            "description": "<p>The number of the stack that this pull request belongs to.</p>"
+          }
+        ]
+      },
+      {
         "type": "string",
         "name": "state",
         "description": "",
@@ -5901,6 +5948,53 @@
         "name": "review_comments_url",
         "description": "",
         "isRequired": true
+      },
+      {
+        "type": "object or null",
+        "name": "stack",
+        "description": "<p>The stack information associated with a pull request.</p>",
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "base",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "ref",
+                "description": "<p>The base ref of the stack this pull request belongs to.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "sha",
+                "description": "<p>The base SHA of the stack this pull request belongs to.</p>",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "integer",
+            "name": "size",
+            "description": "<p>The total number of pull requests in the stack.</p>"
+          },
+          {
+            "type": "integer",
+            "name": "position",
+            "description": "<p>The one-based position of this pull request within the stack, where 1 is the bottom of the stack.</p>"
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "<p>The ID of the stack that this pull request belongs to.</p>"
+          },
+          {
+            "type": "integer",
+            "name": "number",
+            "description": "<p>The number of the stack that this pull request belongs to.</p>"
+          }
+        ]
       },
       {
         "type": "string",
@@ -8949,6 +9043,53 @@
         "name": "review_comments_url",
         "description": "",
         "isRequired": true
+      },
+      {
+        "type": "object or null",
+        "name": "stack",
+        "description": "<p>The stack information associated with a pull request.</p>",
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "base",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "ref",
+                "description": "<p>The base ref of the stack this pull request belongs to.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "sha",
+                "description": "<p>The base SHA of the stack this pull request belongs to.</p>",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "integer",
+            "name": "size",
+            "description": "<p>The total number of pull requests in the stack.</p>"
+          },
+          {
+            "type": "integer",
+            "name": "position",
+            "description": "<p>The one-based position of this pull request within the stack, where 1 is the bottom of the stack.</p>"
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "<p>The ID of the stack that this pull request belongs to.</p>"
+          },
+          {
+            "type": "integer",
+            "name": "number",
+            "description": "<p>The number of the stack that this pull request belongs to.</p>"
+          }
+        ]
       },
       {
         "type": "string",

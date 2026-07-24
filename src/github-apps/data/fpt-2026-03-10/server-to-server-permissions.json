@@ -27,6 +27,17 @@
       },
       {
         "category": "copilot",
+        "slug": "get-copilot-enterprise-repository-report-for-a-specific-day",
+        "subcategory": "copilot-usage-metrics",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/repos-1-day",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
         "slug": "get-copilot-enterprise-user-teams-report-for-a-specific-day",
         "subcategory": "copilot-usage-metrics",
         "verb": "get",
@@ -3209,6 +3220,17 @@
         "subcategory": "copilot-usage-metrics",
         "verb": "get",
         "requestPath": "/orgs/{org}/copilot/metrics/reports/organization-28-day/latest",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-organization-repository-report-for-a-specific-day",
+        "subcategory": "copilot-usage-metrics",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/metrics/reports/repos-1-day",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,

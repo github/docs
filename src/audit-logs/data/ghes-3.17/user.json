@@ -1348,7 +1348,8 @@
       "created_at",
       "operation_type",
       "owner",
-      "owner_type"
+      "owner_type",
+      "user_programmatic_access_name"
     ]
   },
   {

@@ -150,6 +150,9 @@ function filterContentFiles(files: string[]): string[] {
   return files.filter((file) => {
     // Only check Markdown files in content/ or data/
     if (!file.endsWith('.md')) return false
+    // Skip README.md files. They're developer docs, not published pages, and use
+    // repo-relative paths (e.g. /src/...) that aren't valid site links.
+    if (file === 'README.md' || file.endsWith('/README.md')) return false
     if (file.startsWith('content/') || file.startsWith('data/')) return true
     return false
   })
@@ -338,15 +341,24 @@ async function main() {
     }
   }
 
-  // Write artifact for debugging
+  // Write artifact for debugging. Best-effort: a reporting/API failure must
+  // never fail the build. Only broken links (below) should fail the PR.
   const allFlaws = [...allBrokenLinks, ...allRedirectLinks]
-  await uploadArtifact('broken-links.json', JSON.stringify(groupBrokenLinks(allFlaws), null, 2))
+  try {
+    await uploadArtifact('broken-links.json', JSON.stringify(groupBrokenLinks(allFlaws), null, 2))
+  } catch (err) {
+    console.warn('Could not upload broken-links artifact:', err)
+  }
 
-  // Post PR comment if configured
+  // Post PR comment if configured. Best-effort for the same reason.
   const shouldComment = process.env.SHOULD_COMMENT === 'true'
   if (shouldComment) {
     const actionUrl = process.env.ACTION_RUN_URL
-    await commentOnPR(allFlaws, actionUrl)
+    try {
+      await commentOnPR(allFlaws, actionUrl)
+    } catch (err) {
+      console.warn('Could not post PR comment:', err)
+    }
   }
 
   // Exit with error if broken links found

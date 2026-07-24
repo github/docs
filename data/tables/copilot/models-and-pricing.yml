@@ -309,6 +309,16 @@
   cached_input: $0.15
   output: $9.00
 
+- model: 'Gemini 3.6 Flash'
+  provider: google
+  release_status: GA
+  category: Versatile
+  threshold: 'Not applicable'
+  tier: 'Default'
+  input: $1.50
+  cached_input: $0.15
+  output: $7.50
+
 # Microsoft
 - model: 'MAI-Code-1-Flash'
   provider: microsoft

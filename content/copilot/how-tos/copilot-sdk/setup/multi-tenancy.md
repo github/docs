@@ -63,7 +63,7 @@ const client = new CopilotClient({
 
 const session = await client.createSession({
     sessionId: `user-${user.id}-${crypto.randomUUID()}`,
-    model: "gpt-4.1",
+    model: "gpt-5.4",
     availableTools: ["custom:lookupOrder", "custom:createTicket"],
     gitHubToken: user.githubToken,
 });
@@ -86,7 +86,7 @@ await client.start()
 
 session = await client.create_session(
     session_id=f"user-{user.id}-{request_id}",
-    model="gpt-4.1",
+    model="gpt-5.4",
     available_tools=["custom:lookupOrder", "custom:createTicket"],
     github_token=user.github_token,
     on_permission_request=PermissionHandler.approve_all,
@@ -127,7 +127,7 @@ func main() {
 
 	session, err := client.CreateSession(ctx, &copilot.SessionConfig{
 		SessionID:      fmt.Sprintf("user-%s-%s", user.ID, requestID),
-		Model:          "gpt-4.1",
+		Model:          "gpt-5.4",
 		AvailableTools: []string{"custom:lookupOrder", "custom:createTicket"},
 		GitHubToken:    user.GitHubToken,
 	})
@@ -146,7 +146,7 @@ client := copilot.NewClient(&copilot.ClientOptions{
 
 session, err := client.CreateSession(ctx, &copilot.SessionConfig{
     SessionID:      fmt.Sprintf("user-%s-%s", user.ID, requestID),
-    Model:          "gpt-4.1",
+    Model:          "gpt-5.4",
     AvailableTools: []string{"custom:lookupOrder", "custom:createTicket"},
     GitHubToken:    user.GitHubToken,
 })
@@ -174,7 +174,7 @@ var client = new CopilotClient(new CopilotClientOptions
 await using var session = await client.CreateSessionAsync(new SessionConfig
 {
     SessionId = $"user-{user.Id}-{requestId}",
-    Model = "gpt-4.1",
+    Model = "gpt-5.4",
     AvailableTools = ["custom:lookupOrder", "custom:createTicket"],
     GitHubToken = user.GitHubToken,
 });
@@ -192,7 +192,7 @@ var client = new CopilotClient(new CopilotClientOptions
 await using var session = await client.CreateSessionAsync(new SessionConfig
 {
     SessionId = $"user-{user.Id}-{requestId}",
-    Model = "gpt-4.1",
+    Model = "gpt-5.4",
     AvailableTools = ["custom:lookupOrder", "custom:createTicket"],
     GitHubToken = user.GitHubToken,
 });
@@ -225,7 +225,7 @@ public class MultiTenancyExample {
 
         var session = client.createSession(new SessionConfig()
             .setSessionId("user-" + user.id() + "-" + requestId)
-            .setModel("gpt-4.1")
+            .setModel("gpt-5.4")
             .setAvailableTools(List.of("custom:lookupOrder", "custom:createTicket"))
             .setGitHubToken(user.gitHubToken())
         ).get();
@@ -243,7 +243,7 @@ var client = new CopilotClient(new CopilotClientOptions()
 
 var session = client.createSession(new SessionConfig()
     .setSessionId("user-" + user.id() + "-" + requestId)
-    .setModel("gpt-4.1")
+    .setModel("gpt-5.4")
     .setAvailableTools(List.of("custom:lookupOrder", "custom:createTicket"))
     .setGitHubToken(user.gitHubToken())
 ).get();
@@ -275,7 +275,7 @@ let client = Client::start(
 let session = client.create_session(
     SessionConfig::default()
         .with_session_id(format!("user-{}-{request_id}", user.id))
-        .with_model("gpt-4.1")
+        .with_model("gpt-5.4")
         .with_available_tools(["custom:lookupOrder", "custom:createTicket"])
         .with_github_token(user.github_token),
 ).await?;
@@ -366,7 +366,7 @@ Set `gitHubToken` on each session to scope GitHub auth to the requesting user. T
 ```typescript
 const session = await client.createSession({
     sessionId: `user-${user.id}-support`,
-    model: "gpt-4.1",
+    model: "gpt-5.4",
     availableTools: ["custom:*"],
     gitHubToken: user.githubToken,
 });

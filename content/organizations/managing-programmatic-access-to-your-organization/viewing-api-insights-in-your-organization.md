@@ -26,6 +26,8 @@ Organization owners can create custom organization roles to allow people to view
 
 The time period selection feature allows you to view API insights over predefined periods or a custom period, as detailed in the following table. By default, data is presented in Coordinated Universal Time (UTC). You can change the data displayed from UTC to your browser's time zone in the "Period" drop down menu at the top-right of the page.
 
+Under normal conditions, you can expect API data to appear within 6 hours after making a request. During incidents or periods of unusually high volume, it may take longer.
+
 {% rowheaders %}
 
 | Period          | Description                                                                                                |

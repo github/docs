@@ -59,6 +59,20 @@ When entering autopilot mode, if you have not already granted {% data variables.
 
 You will get the best results from autopilot mode if you enable all permissions. If you choose to continue with limited permissions, {% data variables.product.prodname_copilot_short %} will automatically deny any tool requests that require approval, which may prevent it from completing certain tasks. You can change your mind later and grant full permissions, during an autopilot session, by using the `/allow-all` command (or its alias `/yolo`).
 
+## Staying in autopilot mode between tasks
+
+By default, autopilot mode applies only to the current task. Once {% data variables.product.prodname_copilot_short %} determines that the task is complete, {% data variables.copilot.copilot_cli_short %} automatically switches back to the standard interactive mode. To run another task in autopilot mode, press <kbd>Shift</kbd>+<kbd>Tab</kbd> and cycle through the available modes until you re-enter autopilot mode, then enter your next prompt.
+
+If you regularly run several tasks in autopilot mode, you can configure the CLI to stay in autopilot mode after each task completes, by enabling the `stayInAutopilot` setting. You can do this in either of the following ways:
+
+* During an interactive session, enter `/settings stayInAutopilot true`.
+* Add `"stayInAutopilot": true` to your user configuration file (`~/.copilot/settings.json`). For more information, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#user-settings-copilotsettingsjson).
+
+When this setting is enabled, {% data variables.product.prodname_copilot_short %} remains in autopilot mode after a task completes, so the next prompt you enter is also handled in autopilot mode. You can switch back to interactive mode at any time by pressing <kbd>Shift</kbd>+<kbd>Tab</kbd>.
+
+> [!NOTE]
+> This setting only controls which mode you are in _after_ a task completes. It does not cause {% data variables.product.prodname_copilot_short %} to keep working after it has decided the task is done. Autopilot still stops when the task is complete, when a problem occurs, when you press <kbd>Ctrl</kbd>+<kbd>C</kbd>, or when the continuation limit is reached.
+
 ## Comparing autopilot mode, `--allow-all`, and `--no-ask-user`
 
 `--allow-all`, and its alias `--yolo`, are permissions-related options that you can pass to the `copilot` command when you start an interactive session. For a full list of available options, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#command-line-options).

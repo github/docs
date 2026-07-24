@@ -41,7 +41,7 @@ import os
 from copilot import CopilotClient
 from copilot.session import PermissionHandler
 
-FOUNDRY_MODEL_URL = "https://your-resource.openai.azure.com/openai/v1/"
+FOUNDRY_MODEL_URL = "https://<resource-name>.openai.azure.com/openai/v1/"
 # Set FOUNDRY_API_KEY environment variable
 
 async def main():
@@ -79,7 +79,7 @@ asyncio.run(main())
 ```typescript
 import { CopilotClient } from "@github/copilot-sdk";
 
-const FOUNDRY_MODEL_URL = "https://your-resource.openai.azure.com/openai/v1/";
+const FOUNDRY_MODEL_URL = "https://<resource-name>.openai.azure.com/openai/v1/";
 
 const client = new CopilotClient();
 const session = await client.createSession({
@@ -125,7 +125,7 @@ func main() {
         Model: "gpt-5.2-codex",  // Your deployment name
         Provider: &copilot.ProviderConfig{
             Type:    "openai",
-            BaseURL: "https://your-resource.openai.azure.com/openai/v1/",
+            BaseURL: "https://<resource-name>.openai.azure.com/openai/v1/",
             WireAPI: "responses",  // Use "completions" for older models
             APIKey:  os.Getenv("FOUNDRY_API_KEY"),
         },
@@ -160,7 +160,7 @@ await using var session = await client.CreateSessionAsync(new SessionConfig
     Provider = new ProviderConfig
     {
         Type = "openai",
-        BaseUrl = "https://your-resource.openai.azure.com/openai/v1/",
+        BaseUrl = "https://<resource-name>.openai.azure.com/openai/v1/",
         WireApi = "responses",  // Use "completions" for older models
         ApiKey = Environment.GetEnvironmentVariable("FOUNDRY_API_KEY"),
     },
@@ -188,7 +188,7 @@ var session = client.createSession(new SessionConfig()
     .setOnPermissionRequest(PermissionHandler.APPROVE_ALL)
     .setProvider(new ProviderConfig()
         .setType("openai")
-        .setBaseUrl("https://your-resource.openai.azure.com/openai/v1/")
+        .setBaseUrl("https://<resource-name>.openai.azure.com/openai/v1/")
         .setWireApi("responses")  // Use "completions" for older models
         .setApiKey(System.getenv("FOUNDRY_API_KEY")))
 ).get();
@@ -213,6 +213,7 @@ client.stop().get();
 | `baseUrl` / `base_url` | string | **Required.** API endpoint URL |
 | `apiKey` / `api_key` | string | API key (optional for local providers like Ollama) |
 | `bearerToken` / `bearer_token` | string | Bearer token auth (takes precedence over apiKey) |
+| `bearerTokenProvider` / `bearer_token_provider` | callback | Returns a bearer token on demand (takes precedence over `apiKey` and `bearerToken`) |
 | `wireApi` / `wire_api` | `"completions"` \| `"responses"` | Select `"completions"` for broad model compatibility (the Chat Completions API); select `"responses"` for multi-turn state management, tool namespacing, and reasoning support (the Responses API). Anthropic models always use the Messages API regardless of this setting. |
 | `azure.apiVersion` / `azure.api_version` | string | Azure API version (default: `"2024-10-21"`) |
 
@@ -274,7 +275,7 @@ For Azure AI Foundry deployments with `/openai/v1/` endpoints, use `type: "opena
 ```typescript
 provider: {
     type: "openai",
-    baseUrl: "https://your-resource.openai.azure.com/openai/v1/",
+    baseUrl: "https://<resource-name>.openai.azure.com/openai/v1/",
     apiKey: process.env.FOUNDRY_API_KEY,
     wireApi: "responses",  // For GPT-5 series models
 }
@@ -334,18 +335,36 @@ provider: {
 
 ### Bearer token authentication
 
-Some providers require bearer token authentication instead of API keys:
+Some providers require bearer token authentication instead of API keys. Supply a static token with `bearerToken`, or supply a `bearerTokenProvider` callback that the GitHub Copilot SDK runtime invokes before outbound provider requests. The callback or identity library it wraps manages token caching and refresh.
+
+Use `bearerToken` when your application already has a token:
 
 ```typescript
 provider: {
     type: "openai",
-    baseUrl: "https://my-custom-endpoint.example.com/v1",
+    baseUrl: "https://<resource-name>.openai.azure.com/openai/v1/",
     bearerToken: process.env.MY_BEARER_TOKEN,  // Sets Authorization header
 }
 ```
 
 > [!NOTE]
 > The `bearerToken` option accepts a **static token string** only. The SDK does not refresh this token automatically. If your token expires, requests will fail and you'll need to create a new session with a fresh token.
+
+Use `bearerTokenProvider` to acquire tokens on demand:
+
+<!-- docs-validate: skip -->
+
+```typescript
+provider: {
+    type: "openai",
+    baseUrl: "https://my-custom-endpoint.example.com/v1",
+    bearerTokenProvider: async () => {
+        return await acquireBearerToken();
+    },
+}
+```
+
+For more details about acquiring and refreshing Microsoft Entra bearer tokens, see [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/azure-managed-identity).
 
 ## Custom model listing
 
@@ -531,7 +550,7 @@ import { CopilotClient } from "@github/copilot-sdk";
 
 const client = new CopilotClient();
 const session = await client.createSession({
-    model: "gpt-4.1",
+    model: "gpt-5.4",
     provider: {
         type: "azure",
         baseUrl: "https://my-resource.openai.azure.com",
@@ -564,7 +583,7 @@ import { CopilotClient } from "@github/copilot-sdk";
 
 const client = new CopilotClient();
 const session = await client.createSession({
-    model: "gpt-4.1",
+    model: "gpt-5.4",
     provider: {
         type: "openai",
         baseUrl: "https://your-resource.openai.azure.com/openai/v1/",

@@ -14,7 +14,7 @@ category:
 
 ## About staging environments for {% data variables.product.prodname_ghe_server %}
 
-It can be useful to have a staging or testing environment for {% data variables.location.product_location %}, so that you can test updates or new features before implementing them in your production environment. For more information, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance).
+It can be useful to have a staging or testing environment for {% data variables.location.product_location %}, so that you can test updates or new features before implementing them in your production environment. For more information, see [AUTOTITLE](/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance).
 
 > [!TIP]
 > If you are migrating {% data variables.product.prodname_actions %} external storage to a new bucket, account, or region on the same provider, rehearse the migration in a staging environment first. See [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/migrating-github-actions-external-storage).
@@ -32,7 +32,7 @@ When you set up a staging environment that includes a {% data variables.product.
 > [!WARNING]
 > If you don't change the storage configuration, your staging instance may be able to write to the same external storage that you use for production, which could result in loss of data.
 
-For more information about storage configuration for {% data variables.product.prodname_actions %}, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#enabling-github-actions-with-your-storage-provider).
+For more information about storage configuration for {% data variables.product.prodname_actions %}, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#enabling-github-actions-with-your-storage-provider).
 
 ### Copying files from production to staging
 

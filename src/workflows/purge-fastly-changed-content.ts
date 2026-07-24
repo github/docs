@@ -2,6 +2,7 @@ import type { Octokit } from '@octokit/rest'
 
 import { fetchWithRetry } from '@/frame/lib/fetch-utils'
 import warmServer from '@/frame/lib/warm-server'
+import { allVersions } from '@/versions/lib/all-versions'
 import github from './github'
 import { getActionContext } from './action-context'
 
@@ -19,12 +20,30 @@ import { getActionContext } from './action-context'
 // fresh. By the time deployment succeeds, the old pods are already terminated
 // (Heaven waits for the rollout to fully reconcile), so this is deterministic.
 //
-// Scope: content/ only. data/ changes (reusables, variables, ...) fan out to
-// far too many URLs to enumerate cheaply, so they stay covered by the soft
-// purge of the whole language.
+// Scope: content/ only, and only the latest release of each plan (fpt, ghec,
+// latest ghes — see PURGEABLE_PAGE_VERSIONS). data/ changes (reusables,
+// variables, ...) fan out to far too many URLs to enumerate cheaply, so they
+// stay covered by the soft purge of the whole language.
 
 const PROD_HOST = 'docs.github.com'
 const CONTENT_PREFIX = 'content/'
+
+// Which page versions we hard-purge. A page that applies to every
+// version fans out to one URL per version: fpt + ghec + one per *supported* GHES
+// release (8+ URLs today, growing with each GHES release). Enumerating all of
+// them for a large deploy blew past Fastly's URL-purge rate limit (HTTP 429) and
+// failed the job. So we only target the newest ("latest") release of each plan:
+// free-pro-team (fpt), enterprise-cloud (ghec), and the newest supported
+// enterprise-server (ghes). Older still-supported GHES releases change far less
+// often and remain covered by the routine soft purge of the whole `language:en`
+// key that always runs. A version is the latest of its plan exactly when its
+// `version` equals its plan's `latestVersion`, so this set is {fpt, ghec, latest
+// ghes} and updates itself as GHES releases come and go.
+export const PURGEABLE_PAGE_VERSIONS = new Set(
+  Object.values(allVersions)
+    .filter((version) => version.version === version.latestVersion)
+    .map((version) => version.version),
+)
 
 // A defensive ceiling. A normal content deploy touches a handful of files ->
 // tens of URLs. If a deploy changes so much that we'd hard-purge more than this,
@@ -216,14 +235,19 @@ export function contentFilesToEnglishUrls(
   return [...urls]
 }
 
-// Build relativePath -> English permalink hrefs from the warmed page list.
+// Build relativePath -> English permalink hrefs from the warmed page list. Only
+// the latest release of each plan is kept (see PURGEABLE_PAGE_VERSIONS) to cap
+// the URL fan-out that was tripping Fastly's purge rate limiter.
 async function loadEnglishPermalinkIndex(): Promise<Map<string, string[]>> {
   const { pageList } = await warmServer(['en'])
   const index = new Map<string, string[]>()
   for (const page of pageList) {
     if (page.languageCode !== 'en') continue
     const hrefs = page.permalinks
-      .filter((permalink) => permalink.languageCode === 'en')
+      .filter(
+        (permalink) =>
+          permalink.languageCode === 'en' && PURGEABLE_PAGE_VERSIONS.has(permalink.pageVersion),
+      )
       .map((permalink) => permalink.href)
     if (hrefs.length) {
       index.set(page.relativePath, hrefs)

@@ -367,10 +367,11 @@ product_landing:
   all_content: 'View all {{ title }} content'
 
 journey_track_nav:
-  prev_article: Previous
   next_article: Next
   more_articles: More articles →
   current_progress: 'Article {i} of {n}'
+  up_next: Up next
+  up_next_progress: 'Step {i} of {n} in {track}'
 
 scroll_button:
   scroll_to_top: Scroll to top

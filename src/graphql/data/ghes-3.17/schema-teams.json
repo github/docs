@@ -400,7 +400,7 @@
               "type": {
                 "name": "TeamDiscussionOrder",
                 "id": "teamdiscussionorder",
-                "href": "/graphql/reference/other#input-object-teamdiscussionorder"
+                "href": "/graphql/reference/teams#input-object-teamdiscussionorder"
               }
             }
           ]
@@ -2140,6 +2140,19 @@
   ],
   "enums": [
     {
+      "name": "TeamDiscussionOrderField",
+      "id": "teamdiscussionorderfield",
+      "href": "/graphql/reference/teams#enum-teamdiscussionorderfield",
+      "description": "<p>Properties by which team discussion connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Allows chronological ordering of team discussions.</p>"
+        }
+      ],
+      "category": "teams"
+    },
+    {
       "name": "TeamMemberOrderField",
       "id": "teammemberorderfield",
       "href": "/graphql/reference/teams#enum-teammemberorderfield",
@@ -2310,6 +2323,29 @@
     }
   ],
   "inputObjects": [
+    {
+      "name": "TeamDiscussionOrder",
+      "id": "teamdiscussionorder",
+      "href": "/graphql/reference/teams#input-object-teamdiscussionorder",
+      "description": "<p>Ways in which team discussion connections can be ordered.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order nodes.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field by which to order nodes.</p>",
+          "type": "TeamDiscussionOrderField!",
+          "id": "teamdiscussionorderfield",
+          "href": "/graphql/reference/teams#enum-teamdiscussionorderfield"
+        }
+      ],
+      "category": "teams"
+    },
     {
       "name": "TeamMemberOrder",
       "id": "teammemberorder",

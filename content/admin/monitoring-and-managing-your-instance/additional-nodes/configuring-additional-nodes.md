@@ -64,15 +64,39 @@ We recommend a maintenance window to add stateless nodes.
 
 ## Removing an additional node
 
-To remove a node, run `ghe-remove-node` from the node you want to remove. Then, on the primary node, you must run:
+Before removing an additional node, install the same latest patch for your feature release on every node in the HA deployment and schedule a maintenance window. Wait for any upgrade or configuration run to finish before starting removal.
 
-``` shell copy
-ghe-config-apply
-```
+1. On the HA primary, check the status of every node in the HA deployment.
 
-The `ghe-config-apply` command is a requirement to remove stateless nodes.
+    ```shell copy
+    ghe-cluster-nodes
+    ghe-cluster-nodes --offline
+    nomad node status
+    ghe-cluster-status --extended --verbose
+    ```
 
-We recommend a maintenance window to remove stateless nodes.
+    Confirm that both `ghe-cluster-nodes` commands list the same hostnames and include the hostname of the node you plan to remove. Confirm that every node has a Nomad status of `ready`, and `connect-ssh` and `enterprise-version` are `ok` for every node. Confirm that stateful services on the primary and any replicas are healthy. If no replica remains, a warning that no MySQL replica was found is expected. Failures limited to web, job, or memcache workloads on the target do not block removal. If any other node-level or stateful-service check fails, contact {% data variables.contact.github_support %} before removal.
+
+1. On the HA primary, remove the additional node. Replace `HOSTNAME` with the hostname of the additional node.
+
+    ```shell copy
+    ghe-remove-node --verbose HOSTNAME
+    ```
+
+    If another non-primary node remains, the command drains the target, removes it from the HA configuration, and runs `ghe-config-apply`. If no non-primary node remains, the command removes the cluster metadata and converts the primary to a standalone instance without running `ghe-config-apply`. Do not run `ghe-config-apply` separately in either case.
+
+1. Verify the removal.
+
+    If another non-primary node remains, run the following commands on the HA primary. Confirm that the hostname is absent and that the HA configuration is healthy.
+
+    ```shell copy
+    ghe-cluster-nodes --offline
+    ghe-cluster-status --extended --verbose
+    ```
+
+    If no non-primary node remains, do not run the cluster-only commands. Confirm that the removal output contains `Cluster artifacts removed; now standalone.`, then confirm that the primary serves user traffic and processes web and job workloads.
+
+If an additional node is offline, unreachable, or on a different version, or if `ghe-remove-node` or a verification check fails, contact {% data variables.contact.github_support %}. Do not edit `cluster.conf` manually.
 
 ## Reprovisioning a node that previously hosted {% data variables.product.prodname_ghe_server %}
 

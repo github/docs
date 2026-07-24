@@ -50,15 +50,24 @@
   }
 }
 
-// Where the art IS shown, reserve a right-side gutter so the text column wraps
-// before it reaches the artwork. Without this, the 48rem text block overlaps
-// the right-anchored isometric art in the ~866–1130px band, dropping the muted
-// intro to ~1.2:1 over the orange/pink fill (WCAG 1.4.3 AA fail). The art is
-// pinned to the border box (background-origin above), so this padding insets
-// only the text, not the artwork. 22rem clears the opaque art (~300px) plus a
-// gap at every width in the band.
+// Where the art IS shown, the intro can extend far enough right to overlap the
+// right-anchored isometric art (the heading is short enough that it never
+// does). Instead of reserving a right gutter that shrinks the text column, put
+// a frosted-glass panel behind the intro so it stays readable over the art —
+// matching the homepage hero treatment (HomePageHero.module.scss `.content`).
+// Guarded to >=866px because the art is hidden below that, so no panel is
+// needed on mobile.
 @media (min-width: 866px) {
-  .landingHero {
-    padding-right: 22rem;
+  .heroIntroScrim {
+    display: inline-block;
+    backdrop-filter: blur(1rem);
+    background-color: color-mix(
+      in srgb,
+      var(--color-canvas-default) 70%,
+      transparent
+    );
+    border-radius: var(--brand-borderRadius-medium, 0.75rem);
+    padding: 0.5rem 0.75rem;
+    margin: -0.5rem -0.75rem;
   }
 }

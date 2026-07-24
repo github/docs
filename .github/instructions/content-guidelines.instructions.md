@@ -19,6 +19,20 @@ The strategic priority is simplification: create less content and remove content
 * Would a typical internet user figure this out on their own by exploring the UI?
 * Is the information presented at the moment the reader actually needs it?
 
+## Give opinionated, actionable guidance
+
+This applies whenever you give the reader advice or present ways to accomplish a task.
+
+* Be opinionated when there is a better way: when several approaches exist, recommend the best one and explain why, rather than presenting all options as equally valid. When they are genuinely equivalent, stay neutral.
+* Tell users the best practice AND how to follow it: whenever you state a best practice, pair it with concrete steps or an example so the reader can act on it, never the advice alone.
+
+## Focus on the reader's purpose, not the product
+
+Frame an article around what the reader is trying to accomplish, not the product or feature they use to do it. This applies when naming an article or deciding what a new or substantially reworked article should cover; do not use it to justify restructuring an article during a small edit.
+
+* Title articles by the reader's goal, not the product or feature. For example, "Secure your enterprise", not "Use GitHub Advanced Security".
+* Scope articles around a task, not a product. When a task naturally spans multiple features or products, look for the opportunity to cover them together in one task-focused article or tutorial rather than splitting into per-product articles. Keep each article to a single purpose (the task): combine features only when they serve that same task, not to bundle unrelated capabilities.
+
 ## Intros: pull people in
 
 This section applies mainly to the `intro` frontmatter field and, for conceptual articles, section openings.

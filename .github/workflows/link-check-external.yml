@@ -21,15 +21,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-      - name: Generate GitHub App token
-        id: app-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
-          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
-          owner: github
-          repositories: docs-content,docs-engineering
-
       - uses: ./.github/actions/node-npm-setup
 
       - name: Install dependencies
@@ -70,7 +61,7 @@ jobs:
         if: always() && steps.check_report.outputs.has_report == 'true'
         uses: peter-evans/create-issue-from-file@65115121ba9a3573cbaded4dc66b90ba1f9b69dc
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           repository: github/docs-content
           title: '🌐 Broken External Links Report'
           content-filepath: artifacts/external-link-report.md
@@ -84,4 +75,4 @@ jobs:
       - uses: ./.github/actions/create-workflow-failure-issue
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}

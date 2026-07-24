@@ -47,4 +47,4 @@ After changing your organization's name:
 
 ## Further reading
 
-* [AUTOTITLE](/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user)
+* [AUTOTITLE](/pull-requests/committing-changes-to-your-project/troubleshooting-commits#commits-are-linked-to-the-wrong-user)

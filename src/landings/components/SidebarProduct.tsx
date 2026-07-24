@@ -67,6 +67,7 @@ export const SidebarProduct = () => {
   const productSection = () => (
     <div data-testid="product-sidebar">
       <NavList aria-label="Product sidebar">
+        {navListLevelSentinel()}
         {sidebarTree &&
           sidebarTree.childPages.map((childPage) => (
             <NavListItem key={childPage.href} childPage={childPage} />
@@ -85,6 +86,7 @@ export const SidebarProduct = () => {
     return (
       <div>
         <NavList aria-label="REST sidebar overview articles">
+          {navListLevelSentinel()}
           {conceptualPages.map((childPage) => (
             <NavListItem key={childPage.href} childPage={childPage} />
           ))}
@@ -93,6 +95,7 @@ export const SidebarProduct = () => {
         <hr data-testid="rest-sidebar-reference" className="m-2" />
 
         <NavList aria-label="REST sidebar reference pages">
+          {navListLevelSentinel()}
           {restPages.map((category) => (
             <RestNavListItem key={category.href} category={category} />
           ))}
@@ -135,6 +138,37 @@ function ExpandableItem({
   )
 }
 
+// Brand NavList picks its starting nesting level by *statically* introspecting its
+// direct children for a NavList.SubNav (see the `m = d ? 1 : 2` check in the brand
+// esm source). Our items are custom wrapper components, so brand can't see their
+// SubNavs, treats the list as flat, and starts numbering at level 2 — wasting one of
+// its 5 available levels. Docs content nests 5 levels deep, so that lost level pushes
+// the deepest articles over brand's cap and the depth guard flattens them (#6757).
+// Brand exposes no `startLevel` prop, so this hidden sentinel gives brand a real
+// top-level SubNav to detect, making it number from level 1 and freeing the level the
+// deep content needs.
+//
+// The detector accepts a NavList.SubNav nested in ANY direct child's props.children,
+// not only a NavList.Item — so we use a plain <li> we fully control rather than a
+// NavList.Item. Brand's NavList.Item forwards style/aria-hidden to its inner <button>,
+// NOT the outer <li>, so a NavList.Item sentinel would leave a visible, focusable 40px
+// container (and trip the sibling-separator styles) at the top of every sidebar. A
+// hidden native <li> keeps the whole sentinel — container included — out of layout and
+// the a11y tree. It MUST be spread inline (returned by this factory), not rendered as a
+// <Component/>: brand's detector never renders function components, so a wrapper would
+// stay invisible to it.
+function navListLevelSentinel() {
+  return (
+    <li aria-hidden="true" style={{ display: 'none' }}>
+      <NavList.SubNav aria-label="">
+        <NavList.Item as="a" href="#">
+          {''}
+        </NavList.Item>
+      </NavList.SubNav>
+    </li>
+  )
+}
+
 function LeafLink({ node }: { node: ProductTreeNode }) {
   const router = useRouter()
   const { asPath, locale } = router
@@ -151,7 +185,7 @@ function LeafLink({ node }: { node: ProductTreeNode }) {
   )
 }
 
-function NavListItem({ childPage, level = 2 }: { childPage: ProductTreeNode; level?: number }) {
+function NavListItem({ childPage, level = 1 }: { childPage: ProductTreeNode; level?: number }) {
   const router = useRouter()
   const { asPath, locale } = router
   const routePath = `/${locale}${asPath.split('?')[0].split('#')[0]}`

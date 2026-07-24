@@ -33,7 +33,7 @@ You can rerun the assessment every 90 days. For each rerun, you can change which
 
 {% data variables.product.github %} offers two free security risk assessments for organizations: the {% data variables.product.prodname_code_security_risk_assessment %} and the {% data variables.product.prodname_secret_risk_assessment %}. The two assessments run independently and their results are displayed in separate tabs in the Assessments view. Each assessment can be rerun every 90 days.
 
-For more information about the {% data variables.product.prodname_secret_risk_assessment %}, see [AUTOTITLE](/code-security/concepts/secret-security/about-secret-security-with-github#secret-risk-assessment).
+For more information about the {% data variables.product.prodname_secret_risk_assessment %}, see [AUTOTITLE](/code-security/concepts/secret-security/secret-security-with-github#secret-risk-assessment).
 
 ## Next steps
 

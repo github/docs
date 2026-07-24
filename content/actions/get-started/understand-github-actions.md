@@ -43,7 +43,7 @@ You must host your own Linux, Windows, or macOS virtual machines to run workflow
 
 {% ifversion ghec or ghes %}
 
-For more information about introducing {% data variables.product.prodname_actions %} to your enterprise, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise).
+For more information about introducing {% data variables.product.prodname_actions %} to your enterprise, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise).
 
 {% endif %}
 
@@ -57,15 +57,15 @@ You can configure a {% data variables.product.prodname_actions %} **workflow** t
 
 {% data reusables.actions.about-workflows-long %}
 
-You can reference a workflow within another workflow. For more information, see [AUTOTITLE](/actions/using-workflows/reusing-workflows).
+You can reference a workflow within another workflow. For more information, see [AUTOTITLE](/actions/how-tos/reuse-automations/reuse-workflows).
 
-For more information, see [AUTOTITLE](/actions/using-workflows).
+For more information, see [AUTOTITLE](/actions/how-tos/write-workflows).
 
 ### Events
 
-An **event** is a specific activity in a repository that triggers a **workflow** run. For example, an activity can originate from {% data variables.product.prodname_dotcom %} when someone creates a pull request, opens an issue, or pushes a commit to a repository. You can also trigger a workflow to run on a [schedule](/actions/using-workflows/events-that-trigger-workflows#schedule), by [posting to a REST API](/rest/repos/repos#create-a-repository-dispatch-event), or manually.
+An **event** is a specific activity in a repository that triggers a **workflow** run. For example, an activity can originate from {% data variables.product.prodname_dotcom %} when someone creates a pull request, opens an issue, or pushes a commit to a repository. You can also trigger a workflow to run on a [schedule](/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule), by [posting to a REST API](/rest/repos/repos#create-a-repository-dispatch-event), or manually.
 
-For a complete list of events that can be used to trigger workflows, see [Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows).
+For a complete list of events that can be used to trigger workflows, see [Events that trigger workflows](/actions/reference/workflows-and-actions/events-that-trigger-workflows).
 
 ### Jobs
 
@@ -81,7 +81,7 @@ You can also use a **matrix** to run the same job multiple times, each with a di
 
 For example, you might configure multiple build jobs for different architectures without any job dependencies and a packaging job that depends on those builds. The build jobs run in parallel, and once they complete successfully, the packaging job runs.
 
-For more information, see [AUTOTITLE](/actions/using-jobs).
+For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do).
 
 ### Actions
 
@@ -95,7 +95,7 @@ You can write your own actions, or you can find actions to use in your workflows
 
 {% data reusables.actions.internal-actions-summary %}
 
-For more information on actions, see [AUTOTITLE](/actions/creating-actions).
+For more information on actions, see [AUTOTITLE](/actions/how-tos/reuse-automations).
 
 ### Runners
 
@@ -103,12 +103,12 @@ A **runner** is a server that runs your workflows when they're triggered. Each r
 {% ifversion ghes %} You must host your own runners for {% data variables.product.prodname_ghe_server %}.
 {% elsif fpt or ghec %}{% data variables.product.company_short %} provides Ubuntu Linux, Microsoft Windows, and macOS runners to run your **workflows**. Each workflow run executes in a fresh, newly-provisioned virtual machine.
 
-{% ifversion actions-hosted-runners %} {% data variables.product.prodname_dotcom %} also offers {% data variables.actions.hosted_runner %}s, which are available in larger configurations. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners).
+{% ifversion actions-hosted-runners %} {% data variables.product.prodname_dotcom %} also offers {% data variables.actions.hosted_runner %}s, which are available in larger configurations. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners).
 {% endif %}
 If you need a different operating system or require a specific hardware configuration, you can host your own runners.
 {% endif %}
 
-For more information{% ifversion fpt or ghec %} about self-hosted runners{% endif %}, see [AUTOTITLE](/actions/how-tos/managing-self-hosted-runners).
+For more information{% ifversion fpt or ghec %} about self-hosted runners{% endif %}, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners).
 
 ## Next steps
 
@@ -118,5 +118,5 @@ For more information{% ifversion fpt or ghec %} about self-hosted runners{% endi
 
 ## Further reading
 
-* [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)
+* [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)
 {% endif %}
