@@ -18,9 +18,9 @@ category:
 ## Prerequisites
 
 To receive and manage alert dismissal requests, you need to enable delegated alert dismissal. For an introduction to delegated alert dismissal and enablement instructions for specific features, see:
-* [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/enabling-delegated-alert-dismissal-for-code-scanning)
-* [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/enabling-delegated-alert-dismissal-for-secret-scanning){% ifversion dependabot-delegated-alert-dismissal %}
-* [AUTOTITLE](/code-security/dependabot/dependabot-alerts/enable-delegated-alert-dismissal){% endif %}
+* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/enable-delegated-alert-dismissal)
+* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts/enable-delegated-dismissal){% ifversion dependabot-delegated-alert-dismissal %}
+* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/enable-delegated-alert-dismissal){% endif %}
 
 ## Reviewing requests for an organization
 

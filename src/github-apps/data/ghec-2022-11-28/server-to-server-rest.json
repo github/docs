@@ -3137,10 +3137,22 @@
       "requestPath": "/enterprises/{enterprise}/credential-authorizations/revoke-all"
     },
     {
+      "slug": "revoke-a-single-credential-type-for-an-enterprise",
+      "subcategory": "credential-authorizations",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/credential-authorizations/revoke-credential-type"
+    },
+    {
       "slug": "revoke-credential-authorizations-for-a-user-in-an-enterprise",
       "subcategory": "credential-authorizations",
       "verb": "post",
       "requestPath": "/enterprises/{enterprise}/credential-authorizations/{username}/revoke"
+    },
+    {
+      "slug": "revoke-a-single-credential-type-for-a-user-in-an-enterprise",
+      "subcategory": "credential-authorizations",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/credential-authorizations/{username}/revoke-credential-type"
     },
     {
       "slug": "get-all-enterprise-roles-for-an-enterprise",

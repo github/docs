@@ -57,4 +57,4 @@ To learn more about the metrics and how the scores are calculated, see [AUTOTITL
 ## Next steps
 
 * Remediate quality findings in your default branch and improve the maintainability and reliability score for your repository. See [AUTOTITLE](/code-security/tutorials/improve-code-quality/raise-your-quality-rating).
-* Stop your repository from accumulating more code quality problems by setting a quality threshold for pull requests using rulesets. See [AUTOTITLE](/code-security/code-quality/how-tos/set-pr-thresholds).
+* Stop your repository from accumulating more code quality problems by setting a quality threshold for pull requests using rulesets. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/set-pr-thresholds).

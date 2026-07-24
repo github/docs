@@ -7,7 +7,6 @@ shortTitle: Get started
 children:
   - /setting-up-a-trial-of-github-enterprise
   - /adding-users-to-your-enterprise
-  - /about-enterprise-billing
   - /about-migrating-to-github-enterprise-cloud
 docsTeamMetrics:
   - enterprise-onboarding

@@ -9,6 +9,10 @@ import { Breadcrumbs } from './Breadcrumbs'
 
 import styles from './BreadcrumbsScroller.module.scss'
 
+// Padding past the ~28px chevron so a revealed crumb clears it rather than
+// landing half-hidden underneath.
+const CHEVRON_PAD = 32
+
 // Wraps the secondary-bar breadcrumbs in a horizontal scroll region. When the
 // trail is too long to fit, the region scrolls — anchored to the RIGHT so the
 // current page is shown first — with a left chevron to reveal the leftmost
@@ -67,20 +71,42 @@ export const BreadcrumbsScroller = () => {
     return () => observer.disconnect()
   }, [anchorRight])
 
-  // Reveal the start of the trail (Home) in one click. Breadcrumb trails are
-  // short, so scrolling fully to the left is clearer than a partial nudge that
-  // can leave the leading crumb half-hidden behind the chevron.
+  // Reveal the previous crumb: align the crumb straddling the left edge to that
+  // edge. Targeting the boundary crumb (not stepping back from the first fully
+  // visible one) also covers a current crumb wider than the viewport. Falls back
+  // to the far left only when nothing is clipped left.
   const scrollLeftClick = useCallback(() => {
     const el = scrollRef.current
     if (!el) return
-    el.scrollTo({ left: 0 })
+    const containerLeft = el.getBoundingClientRect().left + CHEVRON_PAD
+    const crumbs = Array.from(el.querySelectorAll('li'))
+    // The rightmost crumb still clipped/off to the left: the one to reveal.
+    let target: Element | undefined
+    for (const crumb of crumbs) {
+      if (crumb.getBoundingClientRect().left < containerLeft - 1) target = crumb
+    }
+    if (!target) {
+      el.scrollTo({ left: 0 })
+      return
+    }
+    el.scrollBy({ left: target.getBoundingClientRect().left - containerLeft })
   }, [])
 
-  // Return to the current page (the end of the trail) in one click.
+  // Reveal the next crumb toward the current page. Mirrors scrollLeftClick,
+  // including the oversized-crumb case. Falls back to the far right only when
+  // nothing is clipped right.
   const scrollRightClick = useCallback(() => {
     const el = scrollRef.current
     if (!el) return
-    el.scrollTo({ left: el.scrollWidth })
+    const containerRight = el.getBoundingClientRect().right - CHEVRON_PAD
+    const crumbs = Array.from(el.querySelectorAll('li'))
+    // The leftmost crumb still clipped/off to the right: the one to reveal.
+    const target = crumbs.find((crumb) => crumb.getBoundingClientRect().right > containerRight + 1)
+    if (!target) {
+      el.scrollTo({ left: el.scrollWidth })
+      return
+    }
+    el.scrollBy({ left: target.getBoundingClientRect().right - containerRight })
   }, [])
 
   // When a crumb link receives focus via keyboard (Tab), the browser does not

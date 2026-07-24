@@ -46,4 +46,4 @@ For details about how {% data variables.product.prodname_code_quality_short %} m
 ## Further reading
 
 * [AUTOTITLE](/code-security/concepts/code-quality/code-quality)
-* [AUTOTITLE](/code-security/code-quality/how-tos/interpret-results)
+* [AUTOTITLE](/code-security/how-tos/maintain-quality-code/interpret-results)

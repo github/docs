@@ -252,7 +252,7 @@ Capture the URL by subscribing to `session.info` and filtering by `infoType: "re
 session.on("session.info", (event) => {
   if (event.data?.infoType === "remote" && event.data.url) {
     console.log("Open from web or mobile:", event.data.url);
-    // e.g. surface in your UI as a shareable link or QR code.
+    // For example, surface in your UI as a shareable link or QR code.
   }
 });
 ```

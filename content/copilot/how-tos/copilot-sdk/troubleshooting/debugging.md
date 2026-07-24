@@ -193,7 +193,7 @@ var client = new CopilotClient(new CopilotClientOptions
 
 **Solution:**
 
-1. Install the CLI: [Installation guide](/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli)
+1. Install the CLI: [Installation guide](/copilot/how-tos/set-up/install-copilot-cli)
 
 1. Verify installation:
 

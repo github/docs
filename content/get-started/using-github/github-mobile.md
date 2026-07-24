@@ -34,7 +34,7 @@ With {% data variables.product.prodname_mobile %} you can:
 
 The following documentation contains more information about using {% data variables.product.company_short %} features on {% data variables.product.prodname_mobile %}.
 
-* Notifications for {% data variables.product.prodname_mobile %}, see [AUTOTITLE](/subscriptions-and-notifications/get-started/configuring-notifications#enabling-push-notifications-with-github-mobile).{% ifversion mobile-code-search %}
+* Notifications for {% data variables.product.prodname_mobile %}, see [AUTOTITLE](/subscriptions-and-notifications/get-started/configuring-notifications#managing-your-notification-settings-with-github-mobile).{% ifversion mobile-code-search %}
 * Using {% data variables.product.prodname_dotcom %} code search on {% data variables.product.prodname_mobile %}, see [AUTOTITLE](/search-github/github-code-search/using-github-code-search#using-github-code-search-on-github-mobile).{% endif %}{% ifversion fpt or ghec %}
 * Two-factor authentication using {% data variables.product.prodname_mobile %}, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile) and [Authenticating using {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication#verifying-with-github-mobile). {% endif %}{% ifversion copilot-chat-for-mobile %}
 * Using {% data variables.copilot.copilot_mobile %}, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-mobile).{% endif %}{% ifversion copilot-chat-for-mobile %}

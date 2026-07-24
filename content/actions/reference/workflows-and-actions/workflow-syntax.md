@@ -291,7 +291,7 @@ You can specify `permissions` at the top level of a workflow, so that the settin
 
 ### Using the `permissions` key for forked repositories
 
-You can use the `permissions` key to add and remove `read` permissions for forked repositories, but typically you can't grant `write` access. The exception to this behavior is where an admin user has selected the **Send write tokens to workflows from pull requests** option in the {% data variables.product.prodname_actions %} settings. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-private-repository-forks).
+You can use the `permissions` key to add and remove `read` permissions for forked repositories, but typically you can't grant `write` access. The exception to this behavior is where an admin user has selected the **Send write tokens to workflows from pull requests** option in the {% data variables.product.prodname_actions %} settings. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories).
 
 ### Permissions for workflow runs triggered by {% data variables.product.prodname_dependabot %}
 
@@ -653,7 +653,7 @@ jobs:
 
 ### Example: Using an action inside a different private repository than the workflow
 
-If the action is in an internal repository, or in a private repository configured to allow access from your workflow's repository, you can reference the action directly. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository) and [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository).
+If the action is in an internal repository, or in a private repository configured to allow access from your workflow's repository, you can reference the action directly. For more information, see {% ifversion ghes or ghec %}[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% else %}[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository){% endif %} and [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository).
 
 If the action isn't in a repository configured to allow access, you need to check out the repository and reference the action locally. Generate a {% data variables.product.pat_generic %} and add the token as a secret. The following example shows this method for referencing an action. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) and [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
 
@@ -1059,7 +1059,7 @@ The group above is equivalent to declaring each step with `background: true` fol
 
 The maximum number of minutes to let a job run before {% data variables.product.prodname_dotcom %} automatically cancels it. Default: 360
 
-If the timeout exceeds the job execution time limit for the runner, the job will be canceled when the execution time limit is met instead. For more information about job execution time limits, see [AUTOTITLE](/actions/concepts/billing-and-usage#usage-limits) for {% data variables.product.prodname_dotcom %}-hosted runners and [AUTOTITLE](/actions/reference/limits) for self-hosted runner usage limits.
+If the timeout exceeds the job execution time limit for the runner, the job will be canceled when the execution time limit is met instead. For more information about job execution time limits, see [AUTOTITLE](/actions/concepts/billing-and-usage#usage-limits-and-policy) for {% data variables.product.prodname_dotcom %}-hosted runners and [AUTOTITLE](/actions/reference/limits) for self-hosted runner usage limits.
 
 > [!NOTE]
 > {% data reusables.actions.github-token-expiration %} For self-hosted runners, the token may be the limiting factor if the job timeout is greater than 24 hours. For more information on the `GITHUB_TOKEN`, see [AUTOTITLE](/actions/tutorials/authenticate-with-github_token).

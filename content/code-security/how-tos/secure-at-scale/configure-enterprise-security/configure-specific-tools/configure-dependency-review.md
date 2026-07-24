@@ -26,17 +26,17 @@ Some additional features, such as license checks, blocking of pull requests, and
 
 ## Prerequisites for dependency review
 
-* A license for {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GHAS %} (see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)).
+* A license for {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GHAS %} (see [AUTOTITLE](/billing/concepts/product-billing/github-advanced-security)).
 
-* The dependency graph enabled for the instance. Site administrators can enable the dependency graph via the management console or the administrative shell (see [AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)).
+* The dependency graph enabled for the instance. Site administrators can enable the dependency graph via the management console or the administrative shell (see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/enable-dependency-graph)).
 
-* {% data variables.product.prodname_github_connect %} enabled to download and synchronize vulnerabilities from the {% data variables.product.prodname_advisory_database %}. This is usually configured as part of setting up {% data variables.product.prodname_dependabot %} (see [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)).
+* {% data variables.product.prodname_github_connect %} enabled to download and synchronize vulnerabilities from the {% data variables.product.prodname_advisory_database %}. This is usually configured as part of setting up {% data variables.product.prodname_dependabot %} (see [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-dependabot-for-your-enterprise)).
 
 ## Enabling and disabling dependency review
 
 To enable or disable dependency review, you need to enable or disable the dependency graph for your instance.
 
-For more information, see [AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise).
+For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/enable-dependency-graph).
 
 ## Running dependency review using {% data variables.product.prodname_actions %}
 
@@ -46,4 +46,4 @@ The dependency review action is included in your installation of {% data variabl
 
 {% data reusables.dependency-review.dependency-review-action-overview %}
 
-Users run the dependency review action using a {% data variables.product.prodname_actions %} workflow. If you have not already set up runners for {% data variables.product.prodname_actions %}, you must do this to enable users to run workflows. You can provision self-hosted runners at the repository, organization, or enterprise account level. For information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners) and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners).
+Users run the dependency review action using a {% data variables.product.prodname_actions %} workflow. If you have not already set up runners for {% data variables.product.prodname_actions %}, you must do this to enable users to run workflows. You can provision self-hosted runners at the repository, organization, or enterprise account level. For information, see [AUTOTITLE](/actions/concepts/runners/self-hosted-runners) and [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/add-runners).

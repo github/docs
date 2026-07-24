@@ -32,12 +32,12 @@ Each {% data variables.product.prodname_code_quality_short %} rule is written as
 
 The rules are continually refined by both {% data variables.product.github %} and open source developers.
 
-* [AUTOTITLE](/code-security/code-quality/reference/codeql-queries/csharp-queries)
-* [AUTOTITLE](/code-security/code-quality/reference/codeql-queries/go-queries)
-* [AUTOTITLE](/code-security/code-quality/reference/codeql-queries/java-queries)
-* [AUTOTITLE](/code-security/code-quality/reference/codeql-queries/javascript-queries)
-* [AUTOTITLE](/code-security/code-quality/reference/codeql-queries/python-queries)
-* [AUTOTITLE](/code-security/code-quality/reference/codeql-queries/ruby-queries)
+* [AUTOTITLE](/code-security/reference/code-quality/codeql-queries/csharp-queries)
+* [AUTOTITLE](/code-security/reference/code-quality/codeql-queries/go-queries)
+* [AUTOTITLE](/code-security/reference/code-quality/codeql-queries/java-queries)
+* [AUTOTITLE](/code-security/reference/code-quality/codeql-queries/javascript-queries)
+* [AUTOTITLE](/code-security/reference/code-quality/codeql-queries/python-queries)
+* [AUTOTITLE](/code-security/reference/code-quality/codeql-queries/ruby-queries)
 
 For more information about the {% data variables.product.prodname_codeql %} project, see [https://codeql.github.com/](https://codeql.github.com).
 
@@ -51,8 +51,8 @@ If your organization has configured caching of private registries, these will be
 
 For more information, see:
 
-* [AUTOTITLE](/code-security/code-quality/how-tos/enable-code-quality)
-* [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries#code-quality-access-to-private-registries)
+* [AUTOTITLE](/code-security/how-tos/maintain-quality-code/enable-code-quality)
+* [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries#code-quality-access-to-private-registries)
 
 ## Pull request status checks
 
@@ -66,4 +66,4 @@ The workflow failed to run. For example, your budget for actions minutes is exha
 
 ### Merging is blocked: Code quality findings were detected
 
-The scan found problems in the code that exceed the quality gate set by a code quality branch rule for the repository. You need to resolve these problems before you can merge the pull request. See [AUTOTITLE](/code-security/code-quality/how-tos/unblock-your-pr).
+The scan found problems in the code that exceed the quality gate set by a code quality branch rule for the repository. You need to resolve these problems before you can merge the pull request. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/unblock-your-pr).

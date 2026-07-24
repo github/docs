@@ -51,7 +51,7 @@ Follow these best practices to get the most out of combining MCP servers with ag
 
 ### Security considerations
 
-* **Use OAuth when available**: For MCP servers like {% data variables.product.prodname_dotcom %} MCP, prefer OAuth authentication over {% data variables.product.pat_generic_plural %}. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/use-the-github-mcp-server#remote-mcp-server-configuration-with-oauth).
+* **Use OAuth when available**: For MCP servers like {% data variables.product.prodname_dotcom %} MCP, prefer OAuth authentication over {% data variables.product.pat_generic_plural %}. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/set-up-the-github-mcp-server#remote-mcp-server-configuration-with-oauth).
 * **Limit permissions**: Only grant MCP servers the minimum permissions necessary for your tasks.
 * **Review connections**: Regularly audit which MCP servers have access to your development environment.
 * **Monitor activity**: Keep track of what actions {% data variables.product.prodname_copilot_short %} performs through MCP servers.

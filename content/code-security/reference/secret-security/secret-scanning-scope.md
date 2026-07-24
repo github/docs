@@ -42,7 +42,7 @@ For {% data variables.product.prodname_dotcom %} tokens, we check the validity o
 
 ## Push protection limitations
 
-If push protection did not detect a secret that you think should have been detected, then you should first check that push protection supports the secret type in the list of supported secrets. For further information, see [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns#supported-secrets).
+If push protection did not detect a secret that you think should have been detected, then you should first check that push protection supports the secret type in the list of supported secrets. For further information, see [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns).
 
 If your secret is in the supported list, there are various reasons why push protection may not detect it.
 

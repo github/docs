@@ -357,7 +357,7 @@ instruction:
 ## Saving a query suite
 
 Save your query suite in a file with a `.qls` extension and add it to a {% data variables.product.prodname_codeql %}
-pack. For more information, see [AUTOTITLE](/code-security/tutorials/customize-code-scanning/customize-analysis#custom-codeql-packs).
+pack. For more information, see [AUTOTITLE](/code-security/tutorials/customize-code-scanning/customize-analysis).
 
 ## Using query suites with {% data variables.product.prodname_codeql %}
 

@@ -39,7 +39,7 @@ A strong configuration might include:
 * **{% data variables.product.prodname_code_scanning_caps %}** to identify vulnerabilities and coding errors in your source code before they reach production.
 * **{% data variables.product.prodname_dependabot_alerts %}** and **{% data variables.product.prodname_dependabot_security_updates %}** to notify you of known vulnerabilities and malware in your dependencies and automatically open pull requests to update vulnerable dependencies.
 
-See [AUTOTITLE](/enterprise-cloud@latest/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/creating-a-custom-security-configuration) (organizations) and [AUTOTITLE](/enterprise-cloud@latest/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/creating-a-custom-security-configuration-for-your-enterprise) (enterprises).
+See [AUTOTITLE](/enterprise-cloud@latest/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/create-custom-configuration) (organizations) and [AUTOTITLE](/enterprise-cloud@latest/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/create-custom-configuration) (enterprises).
 
 ### Tighten controls
 
@@ -55,13 +55,13 @@ See [AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-
 
 When you enable push protection, contributors who attempt to push a detected secret are blocked but, by default, they have the option to bypass the block. **Delegated bypass** requires that bypass requests pass through a review and approval cycle, so no bypass can happen without an explicit, audited decision.
 
-See [AUTOTITLE](/enterprise-cloud@latest/code-security/how-tos/secure-your-secrets/manage-bypass-requests/enabling-delegated-bypass-for-push-protection).
+See [AUTOTITLE](/enterprise-cloud@latest/code-security/how-tos/secure-your-secrets/manage-bypass-requests/enable-delegated-bypass).
 
 #### Enforce dependency review on pull requests
 
 The dependency review action lets you catch vulnerable dependencies before they're merged, by surfacing known vulnerabilities in a pull request's dependency changes. Like push protection for secrets, it acts as a gate rather than an after-the-fact alert. You can enforce dependency review on pull requests across your organization.
 
-See [AUTOTITLE](/code-security/concepts/supply-chain-security/about-dependency-review#about-the-dependency-review-action) and [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/enforcing-dependency-review-across-an-organization).
+See [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-review#about-the-dependency-review-action) and [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/enforce-dependency-review).
 
 ### Review and restrict access
 
@@ -147,7 +147,7 @@ These practices should become part of your regular operational rhythm.
 
 Security overview gives you a centralized view of an organization's and enterprise's security landscape. Use it to track which repositories have security features enabled and identify repositories with open alerts, so that emerging risks don't go unnoticed.
 
-See [AUTOTITLE](/enterprise-cloud@latest/code-security/concepts/security-at-scale/about-security-overview).
+See [AUTOTITLE](/enterprise-cloud@latest/code-security/concepts/security-at-scale/security-overview).
 
 ### Run regular security campaigns to reduce security debt
 
@@ -172,7 +172,7 @@ Vulnerable dependencies are a common entry point for attackers. {% data variable
 
 Establish a process for triaging and merging {% data variables.product.prodname_dependabot %} pull requests so that security updates don't stall.
 
-See [AUTOTITLE](/enterprise-cloud@latest/code-security/concepts/supply-chain-security/about-dependabot-auto-triage-rules) and [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/managing-pull-requests-for-dependency-updates).
+See [AUTOTITLE](/enterprise-cloud@latest/code-security/concepts/supply-chain-security/dependabot-auto-triage-rules) and [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/manage-dependabot-prs).
 
 ### Rotate secrets and enforce expiration
 
@@ -185,4 +185,4 @@ For information on managing tokens, see [AUTOTITLE](/authentication/keeping-your
 
 ## Next steps
 
-* Even with strong preventive controls in place, security incidents can still occur. There are several critical tools and response processes that you should ensure are set up in advance. See [AUTOTITLE](/code-security/tutorials/secure-your-organization/preparing-for-security-incidents).
+* Even with strong preventive controls in place, security incidents can still occur. There are several critical tools and response processes that you should ensure are set up in advance. See [AUTOTITLE](/code-security/tutorials/secure-your-organization/prepare-for-a-security-incident).

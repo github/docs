@@ -471,6 +471,7 @@ Tools with no Claude equivalent keep their runtime names.
     cwd: string;
     transcriptPath: string;
     stopReason: "end_turn";
+    stop_hook_active: boolean; // true when this turn was already forced to continue by a prior "block" decision from this hook
 }
 ```
 
@@ -484,6 +485,7 @@ Tools with no Claude equivalent keep their runtime names.
     cwd: string;
     transcript_path: string;
     stop_reason: "end_turn";
+    stop_hook_active: boolean;
 }
 ```
 
@@ -619,6 +621,9 @@ The `preToolUse` hook can control tool execution by writing a JSON object to std
 |-------|--------|-------------|
 | `decision` | `"block"`, `"allow"` | `"block"` forces another agent turn using `reason` as the prompt. |
 | `reason` | string | Prompt for the next turn when `decision` is `"block"`. |
+
+> [!NOTE]
+> **Runaway guard.** After 8 consecutive `block` continuations, the CLI overrides the hook and ends the turn anyway, to prevent an unbounded loop. Use the `stop_hook_active` input field on `agentStop` to detect that this turn was already forced to continue, and self-limit before hitting the cap.
 
 ## `postToolUse` output
 

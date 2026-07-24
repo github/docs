@@ -25,7 +25,7 @@ Common artifacts include:
 
 {% data reusables.actions.comparing-artifacts-caching %}
 
-For more information on dependency caching, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching#comparing-artifacts-and-dependency-caching).
+For more information on dependency caching, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching).
 
 {% ifversion artifact-attestations %}
 

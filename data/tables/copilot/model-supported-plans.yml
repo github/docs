@@ -54,6 +54,13 @@
   business: true
   enterprise: true
 
+- name: Claude Opus 5
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
 - name: Claude Fable 5
   pro: false
   pro_plus: true
@@ -104,6 +111,13 @@
   enterprise: true
 
 - name: Gemini 3.5 Flash
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Gemini 3.6 Flash
   pro: true
   pro_plus: true
   max: true
@@ -177,8 +191,8 @@
   pro: true
   pro_plus: true
   max: true
-  business: false
-  enterprise: false
+  business: true
+  enterprise: true
 
 - name: MAI-Code-1-Flash
   pro: true

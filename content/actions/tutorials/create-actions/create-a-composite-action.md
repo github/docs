@@ -149,7 +149,7 @@ Before you begin, you'll create a repository on {% data variables.product.github
    git push
    ```
 
-1. From your terminal, add a tag. This example uses a tag called `v1`. For more information, see [AUTOTITLE](/actions/concepts/workflows-and-actions/custom-actions#using-release-management-for-actions).
+1. From your terminal, add a tag. This example uses a tag called `v1`. For more information, see [AUTOTITLE](/actions/how-tos/create-and-publish-actions/manage-custom-actions#using-release-management-for-actions).
 
    ```shell copy
    git tag -a -m "Description of this release" v1

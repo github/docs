@@ -18,20 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.label.name == 'fix-internally' && github.repository == 'github/docs'
     steps:
-      - name: Generate GitHub App token
-        id: app-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
-          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
-          owner: github
-          repositories: docs,docs-content
-
       - name: Check if this run was triggered by a member of the docs team
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         id: triggered-by-member
         with:
-          github-token: ${{ steps.app-token.outputs.token }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           result-encoding: string
           script: |
             const triggerer_login = context.payload.sender.login
@@ -59,26 +50,26 @@ jobs:
           Copied to this repo by the [$GITHUB_WORKFLOW workflow run]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)." --repo github/docs-content --label "workflow-generated")"
           echo 'NEW_ISSUE='$new_issue_url >> $GITHUB_ENV
         env:
-          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
           ISSUE_BODY: ${{ github.event.issue.body }}
 
       - name: Comment on the old issue
         run: gh issue comment $OLD_ISSUE --body "Thank you for opening this issue! Updates to this documentation must be made internally. I have copied your issue to an internal issue, so I will close this issue."
         env:
-          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           OLD_ISSUE: ${{ github.event.issue.html_url }}
 
       - name: Close the old issue
         run: gh issue close $OLD_ISSUE
         env:
-          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           OLD_ISSUE: ${{ github.event.issue.html_url }}
 
       - name: Comment on the new issue
         run: gh issue comment $NEW_ISSUE --body "This issue was originally opened in the open source repo as $OLD_ISSUE"
         env:
-          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           NEW_ISSUE: ${{ env.NEW_ISSUE }}
           OLD_ISSUE: ${{ github.event.issue.html_url }}
 

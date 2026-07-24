@@ -543,7 +543,9 @@ Change the limit on the maximum number of pull requests for version updates open
 {% data variables.product.prodname_dependabot %} default behavior:
 
 * If five pull requests with version updates are open, no further pull requests are raised until some of those open requests are merged or closed.
-* Security updates have a separate, internal limit of ten open pull requests which cannot be changed.
+
+> [!NOTE]
+> _Security update_ pull requests are not subject to this limit and do not count toward it. There is no limit on the number of open pull requests for security updates.
 
 When `open-pull-requests-limit` is defined:
 

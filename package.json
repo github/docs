@@ -190,7 +190,7 @@
     "@primer/octicons": "^19.22.0",
     "@primer/octicons-react": "^19.22.0",
     "@primer/primitives": "^11.3.1",
-    "@primer/react": "^38.13.0",
+    "@primer/react": "38.19.0",
     "@primer/react-brand": "^0.70.0",
     "accept-language-parser": "^1.5.0",
     "ajv": "^8.18.0",

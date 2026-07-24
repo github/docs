@@ -51,7 +51,7 @@ You can enable push protection for repositories at the repository, organization,
 {% ifversion secret-risk-assessment %}
 
 > [!TIP]
-> Regardless of the enablement status of push protection, organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan their code for leaked secrets. The report also shows how many secret leaks could have been prevented by push protection. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment).
+> Regardless of the enablement status of push protection, organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan their code for leaked secrets. The report also shows how many secret leaks could have been prevented by push protection. See [AUTOTITLE](/code-security/concepts/secret-security/secret-security-with-github#secret-risk-assessment).
 
 {% endif %}
 

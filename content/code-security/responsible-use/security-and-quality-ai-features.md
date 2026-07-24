@@ -266,7 +266,7 @@ Responsible AI is a shared commitment between GitHub and its customers. While Gi
 * **Exercise caution when designing agentic AI in sensitive domains**: {% data reusables.rai.copilot.application-card-agentic-ai-caution %}
 * **Enable CI testing on pull requests**: Ensure continuous integration testing is in place before enabling Copilot Autofix, so that functional requirements are verified after developers apply fixes.
 * **Use dependency management solutions**: Enable dependency review on pull requests to catch potentially risky dependency changes introduced by Autofix suggestions.
-* **Review security overview metrics**: Use your organization's security overview dashboard to view the total number of Copilot Autofix suggestions generated on open and closed pull requests for a given time period. For more information, see [AUTOTITLE](/code-security/reference/security-at-scale/overview-dashboard-metrics#pull-request-alerts-fixed-with-suggestions).
+* **Review security overview metrics**: Use your organization's security overview dashboard to view the total number of Copilot Autofix suggestions generated on open and closed pull requests for a given time period. For more information, see [AUTOTITLE](/code-security/reference/security-at-scale/overview-dashboard-metrics#pull-request-alerts-fixed-with-copilot-autofix-suggestions).
 * **Evaluate false-positive volume for secret detection**: Evaluate the false-positive volume and establish triage processes for the alerts list.
 * **Monitor Code Quality suggestion volume and quality**: Evaluate the volume and quality of Code Quality suggestions and adjust enablement as appropriate for your organization.
 
@@ -275,8 +275,8 @@ Responsible AI is a shared commitment between GitHub and its customers. While Gi
 For additional guidance on the responsible use of GitHub Security AI features, we recommend reviewing the following documentation:
 
 * [AUTOTITLE](/code-security/concepts/code-scanning/code-scanning-alerts)
-* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/triage-alerts-in-pull-requests#working-with-suggestions-for-alerts-on-a-pull-request)
-* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/resolve-alerts#generating-suggested-fixes-for-code-scanning-alerts)
+* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/triage-alerts-in-pull-requests#working-with-copilot-autofix-suggestions-for-alerts-on-a-pull-request)
+* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/resolve-alerts#generating-a-suggested-fix)
 * [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/disabling-autofix-for-code-scanning)
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security)
 * [AUTOTITLE](/code-security/concepts/secret-security/secret-scanning)

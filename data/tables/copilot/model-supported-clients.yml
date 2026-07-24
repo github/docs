@@ -68,6 +68,15 @@
   xcode: true
   jetbrains: true
 
+- name: Claude Opus 5
+  dotcom: true
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
 - name: Claude Fable 5
   dotcom: true
   cli: true
@@ -132,6 +141,15 @@
   jetbrains: true
 
 - name: Gemini 3.5 Flash
+  dotcom: false
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
+- name: Gemini 3.6 Flash
   dotcom: false
   cli: true
   vscode: true

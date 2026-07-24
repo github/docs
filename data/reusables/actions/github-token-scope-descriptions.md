@@ -19,7 +19,7 @@ Available permissions and details of what each allows an action to do:
 |  `deployments` | Work with deployments. For example, `deployments: write` permits an action to create a new deployment. For more information, see [AUTOTITLE](/rest/authentication/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-deployments). |
 |  `discussions` | Work with GitHub Discussions. For example, `discussions: write` permits an action to close or delete a discussion. For more information, see [AUTOTITLE](/graphql/guides/using-the-graphql-api-for-discussions). |
 | {% ifversion fpt or ghec %} |
-|  `id-token` | Fetch an OpenID Connect (OIDC) token. This requires `id-token: write`. For more information, see [AUTOTITLE](/actions/concepts/security/openid-connect#updating-your-actions-for-oidc) |
+|  `id-token` | Fetch an OpenID Connect (OIDC) token. This requires `id-token: write`. For more information, see [AUTOTITLE](/actions/concepts/security/openid-connect#updating-your-workflows-for-oidc) |
 | {% endif %} |
 |  `issues` | Work with issues. For example, `issues: write` permits an action to add a comment to an issue. For more information, see [AUTOTITLE](/rest/authentication/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-issues). |
 | {% ifversion not ghes %} |

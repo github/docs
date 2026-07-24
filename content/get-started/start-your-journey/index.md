@@ -14,6 +14,12 @@ children:
   - /downloading-files-from-github
   - /uploading-a-project-to-github
   - /git-and-github-learning-resources
+  - /creating-a-repository-for-your-project-on-github
+  - /planning-your-work
+  - /connecting-to-your-code-locally
+  - /writing-and-storing-your-code
+  - /reviewing-your-proposed-changes
+  - /deploying-your-website-automatically
 redirect_from:
   - /github/getting-started-with-github/quickstart
   - /get-started/quickstart
@@ -24,11 +30,11 @@ journeyTracks:
     description: 'Master the fundamentals of {% data variables.product.github %} and Git.'
     guides:
       - href: '/get-started/start-your-journey/what-is-github'
-      - href: '/get-started/start-your-journey/creating-an-account-on-github'
-      - href: '/get-started/start-your-journey/hello-world'
-      - href: '/get-started/start-your-journey/setting-up-your-profile'
-      - href: '/get-started/start-your-journey/finding-inspiration-on-github'
-      - href: '/get-started/start-your-journey/downloading-files-from-github'
-      - href: '/get-started/start-your-journey/uploading-a-project-to-github'
+      - href: '/get-started/start-your-journey/creating-a-repository-for-your-project-on-github'
+      - href: '/get-started/start-your-journey/planning-your-work'
+      - href: '/get-started/start-your-journey/connecting-to-your-code-locally'
+      - href: '/get-started/start-your-journey/writing-and-storing-your-code'
+      - href: '/get-started/start-your-journey/reviewing-your-proposed-changes'
+      - href: '/get-started/start-your-journey/deploying-your-website-automatically'
       - href: '/get-started/start-your-journey/git-and-github-learning-resources'
 ---

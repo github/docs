@@ -36,7 +36,7 @@ You want to:
 
 ## Prompt testing in the Playground
 
-To familiarize yourself with how to create and manage prompts in {% data variables.product.prodname_github_models %}, see [Testing a prompt in the Playground](/github-models/use-github-models/optimizing-your-ai-powered-app-with-github-models#testing-a-prompt-in-the-playground).
+To familiarize yourself with how to create and manage prompts in {% data variables.product.prodname_github_models %}, see [Testing a prompt in the Playground](/github-models/use-github-models/optimizing-your-ai-powered-app-with-github-models).
 
 The Playground lets you compare models side by side, adjust their parameters, and test prompt variations.
 
