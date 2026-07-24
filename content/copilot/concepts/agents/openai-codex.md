@@ -30,13 +30,13 @@ When starting a task with the {% data variables.product.prodname_openai_codex %}
 * Auto
 {% data reusables.copilot.openai-codex-agent-models %}
 
-If you select **Auto**, {% data variables.copilot.copilot_auto_model_selection %} will select the best model based on availability and to help reduce rate limiting. For more information, see [AUTOTITLE](/copilot/concepts/auto-model-selection).
+If you select **Auto**, {% data variables.copilot.copilot_auto_model_selection %} will select the best model based on availability and to help reduce rate limiting. For more information, see [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
 
 ## {% data variables.product.prodname_vscode_shortname %} extension
 
 > [!NOTE] The "Sign in with {% data variables.product.prodname_copilot_short %}" option in the {% data variables.product.prodname_openai_codex %} {% data variables.product.prodname_vscode_shortname %} extension is only available to {% data variables.copilot.copilot_pro_plus %} and {% data variables.copilot.copilot_max_short %} subscribers.
 
-Use "Sign in with {% data variables.product.prodname_copilot_short %}" when launching the extension. {% data variables.copilot.copilot_pro_plus_short %} and {% data variables.copilot.copilot_max_short %} users can see this integration in the [Agent Sessions view](https://code.visualstudio.com/docs/copilot/chat/chat-sessions#_agent-sessions-view) in {% data variables.product.prodname_vscode_shortname %} Insiders along with progress on their running tasks. All usage is subject to {% data variables.product.github %} rate limits and billing. See [AUTOTITLE](/copilot/concepts/billing/copilot-requests#premium-features).
+Use "Sign in with {% data variables.product.prodname_copilot_short %}" when launching the extension. {% data variables.copilot.copilot_pro_plus_short %} and {% data variables.copilot.copilot_max_short %} users can see this integration in the [Agent Sessions view](https://code.visualstudio.com/docs/copilot/chat/chat-sessions#_agent-sessions-view) in {% data variables.product.prodname_vscode_shortname %} Insiders along with progress on their running tasks. All usage is subject to {% data variables.product.github %} rate limits and billing. See [AUTOTITLE](/copilot/reference/copilot-billing/request-based-billing-legacy/copilot-requests#premium-features).
 
 ### Model availability
 

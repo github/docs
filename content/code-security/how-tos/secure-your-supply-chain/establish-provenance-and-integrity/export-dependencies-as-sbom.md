@@ -19,6 +19,13 @@ You can export the current state of the dependency graph for your repository as 
 
 SBOMs include an inventory of a project's dependencies and associated information such as {% ifversion ghes %}versions and package identifiers{% else %}versions, package identifiers, licenses, transitive paths, and copyright information{% endif %}. SBOMs do not include dependents (other projects that rely on your project).
 
+{% ifversion ghec %}
+
+> [!NOTE]
+> {% data reusables.data-residency.dependency-graph-data-availability %}
+
+{% endif %}
+
 ## Exporting a software bill of materials for your repository from the UI
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -32,7 +39,7 @@ If you want to use the REST API to export an SBOM for your repository, see [AUTO
 
 ## Generating a software bill of materials from {% data variables.product.prodname_actions %}
 
-The following actions will generate an SBOM for your repository and attach it as a workflow artifact which you can download and use in other applications. For more information about downloading workflow artifacts, see [AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts).
+The following actions will generate an SBOM for your repository and attach it as a workflow artifact which you can download and use in other applications. For more information about downloading workflow artifacts, see [AUTOTITLE](/actions/how-tos/manage-workflow-runs/download-workflow-artifacts).
 
 | Action | Details |
 | ---  | --- |

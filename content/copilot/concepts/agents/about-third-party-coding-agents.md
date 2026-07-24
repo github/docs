@@ -26,7 +26,7 @@ You can kick off tasks with coding agents in the following locations:
 * **The Agents tab**: Select an agent under the prompt box in the [Agents tab](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-3p-agents-tab-cta&utm_medium=docs&utm_campaign=agent-3p-platform-feb-2026), then kick off a new task and watch the agent get to work on a pull request.
 * **Issues**: Assign the agent to an existing issue in a repository.
 * **Pull requests**: Mention `@AGENT_NAME` in a comment on an existing pull request to ask it to make changes.
-* On [**{% data variables.product.prodname_mobile %}**](/copilot/how-tos/chat-with-copilot/chat-in-mobile): From the **Home** view, click {% octicon "plus" aria-hidden="true" aria-label="plus" %} to start a new agent session.
+* On [**{% data variables.product.prodname_mobile %}**](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-mobile): From the **Home** view, click {% octicon "plus" aria-hidden="true" aria-label="plus" %} to start a new agent session.
 * In [**{% data variables.product.prodname_vscode %}**](https://code.visualstudio.com/docs/copilot/agents/overview#_create-an-agent-session): Start a new session in the chat view, or delegate an existing session to a different agent.
 
 ### Making coding agents available
@@ -49,7 +49,7 @@ The following third-party agents are supported on {% data variables.product.gith
 
 When starting a task with a third-party agent, you can select the AI model used by the agent. You may find that different models perform better, or provide more useful responses, depending on the type of task. For help deciding which model to use, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
 
-You can also select **Auto**, which allows {% data variables.copilot.copilot_auto_model_selection %} to choose the best available model on your behalf. See [AUTOTITLE](/copilot/concepts/auto-model-selection).
+You can also select **Auto**, which allows {% data variables.copilot.copilot_auto_model_selection %} to choose the best available model on your behalf. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
 
 The following models are available for each agent:
 
@@ -92,5 +92,5 @@ Actions taken by these {% data variables.product.prodname_github_apps %} will be
 
 ## Next steps
 
-* To start managing agents, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/manage-agents).
+* To start managing agents, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents).
 * To learn how AI models are hosted and served, see [AUTOTITLE](/copilot/reference/ai-models/model-hosting).

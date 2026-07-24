@@ -12,7 +12,7 @@ import path from 'path'
 
 import { program } from 'commander'
 import chalk from 'chalk'
-import yaml from 'js-yaml'
+import { dump } from 'js-yaml'
 
 import { updateInternalLinks } from '@/links/lib/update-internal-links'
 import frontmatter from '@/frame/lib/read-frontmatter'
@@ -148,7 +148,7 @@ async function main(files: string[], opts: Options) {
         }
         if (!opts.dryRun) {
           if (file.endsWith('.yml')) {
-            fs.writeFileSync(file, yaml.dump(newData), 'utf-8')
+            fs.writeFileSync(file, dump(newData), 'utf-8')
           } else {
             // Remember the `content` and `newContent` is the "meat" of the
             // Markdown page. To save it you need the frontmatter data too.

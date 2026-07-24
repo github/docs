@@ -13,7 +13,8 @@ children:
   - /code-scanning
   - /code-scanning-alerts
   - /risk-assessment
-  - /copilot-autofix-for-code-scanning
+  - /autofix-for-code-scanning
+  - /ai-powered-security-detections
   - /setup-types
   - /integration-with-code-scanning
   - /sarif-files

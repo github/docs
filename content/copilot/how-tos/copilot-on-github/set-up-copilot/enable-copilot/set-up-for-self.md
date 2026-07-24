@@ -21,7 +21,7 @@ If you have your own {% data variables.product.prodname_copilot_short %} plan, m
 
 ## Set up personal custom instructions (optional)
 
-Personal custom instructions tell {% data variables.copilot.copilot_chat_short %} about your preferences — such as your preferred language, coding style, or response format. To add them, open any {% data variables.copilot.copilot_chat_short %} conversation on {% data variables.product.github %}, click your profile picture, and select **Personal instructions**. For more information, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-personal-instructions).
+Personal custom instructions tell {% data variables.copilot.copilot_chat_short %} about your preferences — such as your preferred language, coding style, or response format. To add them, open any {% data variables.copilot.copilot_chat_short %} conversation on {% data variables.product.github %}, click your profile picture, and select **Personal instructions**. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-personal-instructions).
 
 ## Next step
 

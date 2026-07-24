@@ -16,7 +16,14 @@ category:
   - Secure your dependencies
 ---
 
-The "{% data variables.dependency-review.action_name %}" refers to the specific action that can report on differences in a pull request within the {% data variables.product.prodname_actions %} context. It can also add enforcement mechanisms to the {% data variables.product.prodname_actions %} workflow. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/about-dependency-review#about-the-dependency-review-action).
+The "{% data variables.dependency-review.action_name %}" refers to the specific action that can report on differences in a pull request within the {% data variables.product.prodname_actions %} context. It can also add enforcement mechanisms to the {% data variables.product.prodname_actions %} workflow. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-review#about-the-dependency-review-action).
+
+{% ifversion ghec %}
+
+> [!NOTE]
+> {% data reusables.data-residency.dependency-graph-data-availability %}
+
+{% endif %}
 
 For a list of common configuration options, see [Dependency review](https://github.com/marketplace/actions/dependency-review#configuration-options) on the {% data variables.product.prodname_marketplace %}.
  
@@ -169,4 +176,4 @@ For further details about the configuration options, see [`dependency-review-act
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/customizing-your-dependency-review-action-configuration)
+* [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/customize-dependency-review-action)

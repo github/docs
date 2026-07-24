@@ -210,6 +210,16 @@
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
+- provider: APIclub
+  supportedSecret: APIclub API Key
+  secretType: apiclub_api_key
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
 - provider: Apify
   supportedSecret: Apify Actor Run API Token
   secretType: apify_actor_run_api_token
@@ -297,7 +307,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Asana
@@ -307,7 +317,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: Atlassian
@@ -1157,7 +1167,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: true
   isduplicate: true
 - provider: Brevo
@@ -1377,7 +1387,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: CircleCI
@@ -1777,7 +1787,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: DigitalOcean
@@ -1787,7 +1797,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: DigitalOcean
@@ -1867,7 +1877,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Doppler
@@ -1877,7 +1887,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Doppler
@@ -1887,7 +1897,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Doppler
@@ -1897,7 +1907,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Doppler
@@ -1907,7 +1917,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Doppler
@@ -1917,7 +1927,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Dropbox
@@ -2047,7 +2057,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Fastly
@@ -2147,7 +2157,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Frame.io
@@ -2157,7 +2167,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: FullStory
@@ -2387,7 +2397,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Google
@@ -2611,7 +2621,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Heroku
@@ -3064,6 +3074,16 @@
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
+- provider: Lovable Labs
+  supportedSecret: Lovable API Key
+  secretType: lovable_api_key
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
 - provider: Mailchimp
   supportedSecret: Mailchimp API Key
   secretType: mailchimp_api_key
@@ -3251,7 +3271,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: MongoDB
@@ -3581,7 +3601,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: OpenVSX
@@ -4041,7 +4061,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: PyPI
@@ -4121,7 +4141,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: redirect.pizza
@@ -4144,6 +4164,16 @@
   hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
+- provider: Resend
+  supportedSecret: Resend API Key
+  secretType: resend_api_key
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
 - provider: Rootly
   supportedSecret: Rootly API Key
   secretType: rootly_api_key
@@ -4151,7 +4181,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: RubyGems
@@ -4291,7 +4321,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Sentry
@@ -4471,7 +4501,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Slack
@@ -4861,7 +4891,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Uniwise
@@ -4877,7 +4907,7 @@
 - provider: Unkey
   supportedSecret: Unkey Root Key
   secretType: unkey_root_key
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: true
@@ -4969,7 +4999,7 @@
   secretType: volcengine_ark_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false

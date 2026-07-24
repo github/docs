@@ -89,6 +89,6 @@ Each plan comes with an allowance of {% data variables.product.prodname_ai_credi
 [^1]: Includes base credits and flex allotment. See [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-individuals#how-do-ai-credits-work).
 [^2]: {% data variables.copilot.copilot_chat_short %} in IDEs is available in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Eclipse, and Xcode.
 [^3]: Response times may vary during periods of high usage.
-[^4]: For details about the increased rate limits, see [AUTOTITLE](/github-models/prototyping-with-ai-models).
+[^4]: For details about the increased rate limits, see [AUTOTITLE](/github-models/use-github-models/prototyping-with-ai-models).
 [^5]: {% data variables.copilot.copilot_chat_short %} skills in IDEs is available in {% data variables.product.prodname_vscode %} and {% data variables.product.prodname_vs %}.
 [^6]: Inline suggestions in IDEs is available in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Azure Data Studio, Xcode, Vim/Neovim, and Eclipse.

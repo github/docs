@@ -15,7 +15,7 @@ redirect_from:
 
 > [!NOTE]
 > * This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
-> * {% data variables.product.prodname_copilot %} uses AI. Check for mistakes. See [AUTOTITLE](/copilot/responsible-use/copilot-cloud-agent).
+> * {% data variables.product.prodname_copilot %} uses AI. Check for mistakes. See [AUTOTITLE](/copilot/responsible-use/agents).
 
 The {% data variables.product.github %} integration in Microsoft Teams allows you to interact with {% data variables.copilot.copilot_cloud_agent %} all from within your Teams channels. From within a Teams thread you can initiate {% data variables.copilot.copilot_cloud_agent_short %} sessions and open pull requests, using the context of your conversation.
 

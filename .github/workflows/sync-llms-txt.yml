@@ -35,23 +35,14 @@ jobs:
       BRANCH: sync-llms-txt
     steps:
       - name: Checkout docs-internal
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
-      - name: Generate GitHub App token
-        id: app-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
-          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
-          owner: github
-          repositories: github,docs-internal,docs-engineering
-
       - uses: ./.github/actions/node-npm-setup
 
       - name: Generate llms.txt for docs.github.com
         env:
-          DOCS_BOT_PAT_BASE: ${{ steps.app-token.outputs.token }}
+          DOCS_BOT_PAT_BASE: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           npm run generate-llms-txt --silent -- \
             --config data/llms-txt/config-docs.yml \
@@ -60,7 +51,7 @@ jobs:
 
       - name: Generate llms.txt for github.com
         env:
-          DOCS_BOT_PAT_BASE: ${{ steps.app-token.outputs.token }}
+          DOCS_BOT_PAT_BASE: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           npm run generate-llms-txt --silent -- \
             --config data/llms-txt/config-monolith.yml \
@@ -83,7 +74,7 @@ jobs:
       - name: Ensure sync branch exists in docs-internal
         if: steps.diff_docs.outputs.changed == 'true'
         env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           REPO="github/docs-internal"
           if gh api "repos/$REPO/git/ref/heads/$BRANCH" --jq '.object.sha' > /dev/null 2>&1; then
@@ -99,19 +90,28 @@ jobs:
       - name: Commit and push docs.md
         if: steps.diff_docs.outputs.changed == 'true'
         env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           cp /tmp/docs-llms.txt data/llms-txt/docs.md
           git config user.name "docs-bot"
           git config user.email "77750099+docs-bot@users.noreply.github.com"
           git add data/llms-txt/docs.md
-          git commit -m "Update data/llms-txt/docs.md from popularity data"
-          git push "https://x-access-token:${GH_TOKEN}@github.com/github/docs-internal.git" "$BRANCH"
+          # diff_docs compares against main, but the sync branch may already
+          # exist with this exact content (open PR from a prior run). In that
+          # case there is nothing new to stage, and `git commit` would exit 1
+          # and fail the whole workflow. Skip the commit and push when the
+          # branch is already up to date.
+          if git diff --cached --quiet; then
+            echo "Sync branch already has the latest generated docs.md; nothing to commit."
+          else
+            git commit -m "Update data/llms-txt/docs.md from popularity data"
+            git push "https://x-access-token:${GH_TOKEN}@github.com/github/docs-internal.git" "$BRANCH"
+          fi
 
       - name: Create or update docs-internal PR
         if: steps.diff_docs.outputs.changed == 'true'
         env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           REPO="github/docs-internal"
           if EXISTING_PR=$(gh pr list --repo "$REPO" --head "$BRANCH" \
@@ -139,7 +139,7 @@ jobs:
       - name: Fetch current public/llms.txt from github/github
         id: fetch_monolith
         env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           if gh api repos/github/github/contents/public/llms.txt \
               --jq '.content' 2>/dev/null | base64 -d > /tmp/monolith-current.txt; then
@@ -162,7 +162,7 @@ jobs:
       - name: Ensure sync branch exists in github/github
         if: steps.diff_monolith.outputs.changed == 'true'
         env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           REPO="github/github"
           if gh api "repos/$REPO/git/ref/heads/$BRANCH" --jq '.object.sha' > /dev/null 2>&1; then
@@ -180,7 +180,7 @@ jobs:
       - name: Commit monolith llms.txt to github/github
         if: steps.diff_monolith.outputs.changed == 'true'
         env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           REPO="github/github"
           CONTENT=$(base64 -w 0 /tmp/monolith-llms.txt)
@@ -205,7 +205,7 @@ jobs:
       - name: Create or update github/github PR
         if: steps.diff_monolith.outputs.changed == 'true'
         env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           REPO="github/github"
           if EXISTING_PR=$(gh pr list --repo "$REPO" --head "$BRANCH" \
@@ -249,4 +249,4 @@ jobs:
       - uses: ./.github/actions/create-workflow-failure-issue
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}

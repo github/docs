@@ -84,7 +84,7 @@ If you’re already using {% data variables.copilot.copilot_free_short %} and re
 
 You can subscribe to {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} at any time to unlock advanced AI features, higher usage limits, and access to additional models.
 
-> [!TIP] Not sure which plan to choose? For a side-by-side comparison, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/about-individual-copilot-plans-and-benefits).
+> [!TIP] Not sure which plan to choose? For a side-by-side comparison, see [AUTOTITLE](/copilot/concepts/billing/individual-plans).
 
 1. Go to the [plans page](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro).
 1. Click **Get started** under the plan you want to subscribe to.

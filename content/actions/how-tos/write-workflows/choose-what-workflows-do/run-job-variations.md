@@ -46,13 +46,13 @@ The above matrix will create the jobs in the following order.
 * `{version: 14, os: ubuntu-latest}`
 * `{version: 14, os: windows-latest}`
 
-For reference information and examples, see [AUTOTITLE](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
+For reference information and examples, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstrategymatrix).
 
 ## Using contexts to create matrices
 
-To create matrices with information about workflow runs, variables, runner environments, jobs, and steps, access contexts using the {% raw %}`${{ <context> }}`{% endraw %} expression syntax. For more information about contexts, see [AUTOTITLE](/actions/learn-github-actions/contexts).
+To create matrices with information about workflow runs, variables, runner environments, jobs, and steps, access contexts using the {% raw %}`${{ <context> }}`{% endraw %} expression syntax. For more information about contexts, see [AUTOTITLE](/actions/reference/workflows-and-actions/contexts).
 
-For example, the following workflow triggers on the `repository_dispatch` event and uses information from the event payload to build the matrix. When a repository dispatch event is created with a payload like the one below, the matrix `version` variable will have a value of `[12, 14, 16]`. For more information about the `repository_dispatch` trigger, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#repository_dispatch).
+For example, the following workflow triggers on the `repository_dispatch` event and uses information from the event payload to build the matrix. When a repository dispatch event is created with a payload like the one below, the matrix `version` variable will have a value of `[12, 14, 16]`. For more information about the `repository_dispatch` trigger, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#repository_dispatch).
 
 ```json
 {
@@ -120,7 +120,7 @@ Each `include` entry was applied in the following ways.
 * `{fruit: banana}` cannot be added to any original matrix combination without overwriting a value, so it is added as an additional matrix combination.
 * `{fruit: banana, animal: cat}` cannot be added to any original matrix combination without overwriting a value, so it is added as an additional matrix combination. It does not add to the `{fruit: banana}` matrix combination because that combination was not one of the original matrix combinations.
 
-For reference and example configurations, see [AUTOTITLE](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrixinclude).
+For reference and example configurations, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstrategymatrixinclude).
 
 ## Excluding matrix configurations
 
@@ -143,7 +143,7 @@ strategy:
 runs-on: {% raw %}${{ matrix.os }}{% endraw %}
 ```
 
-For reference information, see [AUTOTITLE](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrixexclude)
+For reference information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstrategymatrixexclude)
 
 ## Using an output to define two matrices
 
@@ -230,7 +230,7 @@ jobs:
             experimental: true
 ```
 
-For reference information see [`jobs.<job_id>.strategy.fail-fast`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast) and [`jobs.<job_id>.continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontinue-on-error).
+For reference information see [`jobs.<job_id>.strategy.fail-fast`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstrategyfail-fast) and [`jobs.<job_id>.continue-on-error`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idcontinue-on-error).
 
 ## Defining the maximum number of concurrent jobs
 
@@ -248,4 +248,4 @@ jobs:
         os: [ubuntu-latest, windows-latest]
 ```
 
-For reference information, see [AUTOTITLE](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel).
+For reference information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstrategymax-parallel).

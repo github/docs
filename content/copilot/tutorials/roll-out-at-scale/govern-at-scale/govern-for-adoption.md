@@ -23,7 +23,7 @@ Policy decisions work best when they're informed by practical experience with AI
 
 This approach reduces bottlenecks and helps ensure that the people setting policies understand how developers actually work with {% data variables.product.prodname_copilot_short %}.
 
-For step-by-step instructions on creating an AI manager role, see [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/establish-ai-managers).
+For step-by-step instructions on creating an AI manager role, see [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/govern-at-scale/establish-ai-managers).
 
 ## Review and enable features promptly
 

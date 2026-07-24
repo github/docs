@@ -194,6 +194,7 @@ copilot_claude_opus_46: 'Claude Opus 4.6'
 copilot_claude_opus_46_fast: 'Claude Opus 4.6 (fast mode) (preview)'
 copilot_claude_opus_47: 'Claude Opus 4.7'
 copilot_claude_opus_48: 'Claude Opus 4.8'
+copilot_claude_opus_48_fast: 'Claude Opus 4.8 (fast mode) (preview)'
 copilot_claude_fable_5: 'Claude Fable 5'
 copilot_claude_sonnet: 'Claude Sonnet'
 copilot_claude_sonnet_35: 'Claude Sonnet 3.5'
@@ -201,6 +202,7 @@ copilot_claude_sonnet_37: 'Claude Sonnet 3.7'
 copilot_claude_sonnet_40: 'Claude Sonnet 4'
 copilot_claude_sonnet_45: 'Claude Sonnet 4.5'
 copilot_claude_sonnet_46: 'Claude Sonnet 4.6'
+copilot_claude_sonnet_5: 'Claude Sonnet 5'
 # Gemini:
 copilot_gemini: 'Gemini'
 copilot_gemini_flash: 'Gemini 2.0 Flash'
@@ -209,6 +211,7 @@ copilot_gemini_25_pro: 'Gemini 2.5 Pro'
 copilot_gemini_3_pro: 'Gemini 3 Pro'
 copilot_gemini_31_pro: 'Gemini 3.1 Pro'
 copilot_gemini_35_flash: 'Gemini 3.5 Flash'
+copilot_gemini_36_flash: 'Gemini 3.6 Flash'
 # OpenAI GPT series:
 copilot_gpt_4o: 'GPT-4o'
 copilot_gpt_4o_mini: 'GPT-4o mini'
@@ -227,6 +230,9 @@ copilot_gpt_54: 'GPT-5.4'
 copilot_gpt_54_mini: 'GPT-5.4 mini'
 copilot_gpt_54_nano: 'GPT-5.4 nano'
 copilot_gpt_55: 'GPT-5.5'
+copilot_gpt_56_luna: 'GPT-5.6 Luna'
+copilot_gpt_56_sol: 'GPT-5.6 Sol'
+copilot_gpt_56_terra: 'GPT-5.6 Terra'
 # OpenAI 'o' series:
 copilot_o3: 'o3'
 copilot_o4_mini: 'o4-mini'
@@ -238,6 +244,8 @@ copilot_qwen_25: 'Qwen2.5'
 copilot_mai_code_1_flash: 'MAI-Code-1-Flash'
 # Microsoft fine-tuned:
 copilot_raptor_mini: 'Raptor mini'
+# Open-weight models:
+copilot_kimi_k27_code: 'Kimi K2.7 Code'
 
 ## Current model used by Copilot cloud agent and Copilot CLI
 cca_current_model: '{% data variables.copilot.copilot_claude_opus_46 %}'
@@ -252,8 +260,8 @@ copilot_workspace_pr_short: 'Copilot Workspace for PRs'
 copilot_workspace: 'Copilot Workspace'
 copilot_workspace_short: 'Workspace'
 
-# BYOK
-copilot_byok_supported_features: '{% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_cli_short %}, and {% data variables.product.prodname_vscode_shortname %}'
+# Enterprise and organization BYOK (not local BYOK)
+copilot_byok_supported_features: '{% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_cli_short %}, and IDEs'
 
 ## File for enterprise client management
 managed_setting_file: 'managed-settings.json'

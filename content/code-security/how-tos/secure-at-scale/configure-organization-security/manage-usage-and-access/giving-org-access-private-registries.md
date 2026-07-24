@@ -61,7 +61,7 @@ When you enable {% data variables.product.prodname_code_scanning %} default setu
 
 When configuring private registries for the first time, you need to disable and re-enable {% data variables.product.prodname_code_scanning %} default setup for any repositories that you want to use the new definition. New or modified configurations will be automatically picked up on subsequent runs.
 
-For languages supporting private package registries, {% data variables.product.prodname_code_scanning %} default setup will produce information on the {% data variables.code-scanning.tool_status_page %}. This shows you which private registry configurations were available to an analysis, but not whether {% data variables.product.prodname_code_scanning %} default setup was able to successfully download private dependencies from them. For more information about the {% data variables.code-scanning.tool_status_page %}, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page).
+For languages supporting private package registries, {% data variables.product.prodname_code_scanning %} default setup will produce information on the {% data variables.code-scanning.tool_status_page %}. This shows you which private registry configurations were available to an analysis, but not whether {% data variables.product.prodname_code_scanning %} default setup was able to successfully download private dependencies from them. For more information about the {% data variables.code-scanning.tool_status_page %}, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/use-the-tools-status-page-for-code-scanning).
 
 Alternatively, you can confirm whether private registries were used successfully by {% data variables.product.prodname_code_scanning %} analysis by looking in the Actions log files, see [AUTOTITLE](/code-security/reference/code-scanning/code-scanning-logs#diagnostic-information-for-private-package-registries).
 
@@ -71,7 +71,7 @@ Alternatively, you can confirm whether private registries were used successfully
 
 For compiled languages, the `codeql-action` must observe a build of the code. You can either revise your existing build workflow to also run the `codeql-action` or create a new workflow that builds the production version of the code and also runs the `codeql-action`.
 
-Any private registries used by the build must also be accessible to the workflow that runs the `codeql-action`. For more information on advanced setup, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql).
+Any private registries used by the build must also be accessible to the workflow that runs the `codeql-action`. For more information on advanced setup, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql).
 
 ## {% data variables.product.prodname_dependabot %} updates access to private registries
 
@@ -79,7 +79,7 @@ Any private registries used by the build must also be accessible to the workflow
 
 {% data variables.product.prodname_dependabot %} cannot check for security or version updates for code stored in a private registry unless it can access the registry. If you do not configure access to the private registry, then {% data variables.product.prodname_dependabot %} cannot raise pull requests to update any of the dependencies stored in the registry.
 
-When you configure access to one or more private registries, {% data variables.product.prodname_dependabot %} can propose pull requests to upgrade a vulnerable dependency or to maintain a dependency, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot).
+When you configure access to one or more private registries, {% data variables.product.prodname_dependabot %} can propose pull requests to upgrade a vulnerable dependency or to maintain a dependency, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries) and [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-private-registries).
 
 {% ifversion org-automatic-registry-access %}
 
@@ -91,7 +91,7 @@ For packages stored in {% data variables.product.prodname_registry %} and {% dat
  
 To enable this, grant the repository **Read** access to each package in the package settings. Once access is granted, {% data variables.product.prodname_dependabot %} can pull from those packages automatically, and you can remove any {% data variables.product.pat_generic %}-based registry entries you previously configured for them.
  
-See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot#configuring-private-github-hosted-registries).
+See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#configuring-private-github-hosted-registries).
 {% endif %}
 
 {% ifversion org-private-registry-oidc %}

@@ -23,14 +23,14 @@ docsTeamMetrics:
   - copilot-cli
 ---
 
-To find out about {% data variables.copilot.copilot_cli_short %} before you install it, see [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli).
+To find out about {% data variables.copilot.copilot_cli_short %} before you install it, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli).
 
 ## Prerequisites
 
 * **An active {% data variables.product.prodname_copilot %} subscription**. See [{% data variables.product.prodname_copilot_short %} plans](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=text).
 * (On Windows) **PowerShell** v6 or higher
 
-If you have access to {% data variables.product.prodname_copilot %} via your organization or enterprise, you cannot use {% data variables.copilot.copilot_cli_short %} if your organization owner or enterprise administrator has disabled it in the organization or enterprise settings. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization).
+If you have access to {% data variables.product.prodname_copilot %} via your organization or enterprise, you cannot use {% data variables.copilot.copilot_cli_short %} if your organization owner or enterprise administrator has disabled it in the organization or enterprise settings. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies).
 
 ## Installing or updating {% data variables.copilot.copilot_cli_short %}
 
@@ -123,6 +123,6 @@ You can also authenticate using a {% data variables.product.pat_v2 %} with the "
 
 ## Next steps
 
-You can now use {% data variables.product.prodname_copilot_short %} from the command line. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli).
+You can now use {% data variables.product.prodname_copilot_short %} from the command line. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/overview).
 
 For a list of commands for {% data variables.copilot.copilot_cli_short %}, including the command to update, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference).

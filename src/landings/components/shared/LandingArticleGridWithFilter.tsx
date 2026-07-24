@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react'
-import { TextInput, ActionMenu, ActionList, Token, Pagination } from '@primer/react'
+import { TextInput, ActionMenu, ActionList, Token } from '@primer/react'
+import { Pagination } from '@primer/react-brand'
 import { SearchIcon } from '@primer/octicons-react'
 import { announce } from '@primer/live-region-element'
 import cx from 'classnames'

@@ -241,7 +241,7 @@
   },
   "3.16": {
     "releaseDate": "2025-02-25",
-    "deprecationDate": "2026-06-25",
+    "deprecationDate": "2026-07-01",
     "releaseCandidateDate": "2025-02-25",
     "generalAvailabilityDate": "2025-03-11"
   },
@@ -286,5 +286,29 @@
     "deprecationDate": "2027-12-08",
     "releaseCandidateDate": "2026-11-10",
     "generalAvailabilityDate": "2026-12-08"
+  },
+  "3.24": {
+    "releaseDate": "2027-02-23",
+    "deprecationDate": "2028-03-16",
+    "releaseCandidateDate": "2027-02-23",
+    "generalAvailabilityDate": "2027-03-16"
+  },
+  "3.25": {
+    "releaseDate": "2027-05-18",
+    "deprecationDate": "2028-06-08",
+    "releaseCandidateDate": "2027-05-18",
+    "generalAvailabilityDate": "2027-06-08"
+  },
+  "3.26": {
+    "releaseDate": "2027-08-10",
+    "deprecationDate": "2028-08-31",
+    "releaseCandidateDate": "2027-08-10",
+    "generalAvailabilityDate": "2027-08-31"
+  },
+  "3.27": {
+    "releaseDate": "2027-11-16",
+    "deprecationDate": "2028-12-07",
+    "releaseCandidateDate": "2027-11-16",
+    "generalAvailabilityDate": "2027-12-07"
   }
 }

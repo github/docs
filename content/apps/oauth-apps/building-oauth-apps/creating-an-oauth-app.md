@@ -23,7 +23,7 @@ category:
 >
 > {% data variables.product.prodname_github_apps %} use fine-grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens.
 >
-> For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps) and [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps).
+> For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps) and [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps).
 
 {% ifversion fpt or ghec %}
 

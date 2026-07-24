@@ -1,6 +1,6 @@
 import fs from 'fs'
 
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import type { NextFunction, Response } from 'express'
 
 import { liquid } from '@/content-render/index'
@@ -53,7 +53,7 @@ export default async function secretScanning(
         typeof value === 'string' &&
         value.includes('{%')
       ) {
-        const evaluated = yaml.load(await liquid.parseAndRender(value, req.context))
+        const evaluated = load(await liquid.parseAndRender(value, req.context))
         entry[key] = evaluated as boolean | string
       }
     }

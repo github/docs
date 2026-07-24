@@ -16,7 +16,7 @@ category:
 
 ## Rate limit errors
 
-{% data variables.product.company_short %} enforces rate limits to ensure that the API stays available for all users. For more information, see [AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api).
+{% data variables.product.company_short %} enforces rate limits to ensure that the API stays available for all users. For more information, see [AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api).
 
 If you exceed your primary rate limit, you will receive a `403 Forbidden` or `429 Too Many Requests ` response, and the `x-ratelimit-remaining` header will be `0`. If you exceed a secondary rate limit, you will receive a `403 Forbidden` or `429 Too Many Requests ` response and an error message that indicates that you exceeded a secondary rate limit.
 
@@ -30,7 +30,7 @@ Continuing to make requests while you are rate limited may result in the banning
 
 {% data reusables.organizations.api-insights-learn-about %}
 
-For more information about how to avoid exceeding the rate limits, see [AUTOTITLE](/rest/guides/best-practices-for-using-the-rest-api).
+For more information about how to avoid exceeding the rate limits, see [AUTOTITLE](/rest/using-the-rest-api/best-practices-for-using-the-rest-api).
 
 ## `404 Not Found` for an existing resource
 
@@ -67,7 +67,7 @@ If you get a `404 Not Found` response when you know that the resource that you a
 * If you are using `GITHUB_TOKEN` in a {% data variables.product.prodname_actions %} workflow, you should ensure that:
   * The endpoint is only affecting resources owned by the repository where the workflow is running. If you need to access resources outside of that repository, such as resources owned by an organization or resources owned by another repository, you should use a {% data variables.product.pat_generic %} or an access token for a {% data variables.product.prodname_github_app %}.
 
-For more information about authentication, see [AUTOTITLE](/rest/overview/authenticating-to-the-rest-api).
+For more information about authentication, see [AUTOTITLE](/rest/authentication/authenticating-to-the-rest-api).
 
 You should also check for typos in your URL. For example, adding a trailing slash to the endpoint will result in a `404 Not Found`. You can refer to the reference documentation for the endpoint to confirm that you have the correct URL.
 
@@ -75,7 +75,7 @@ Additionally, any path parameters must be URL encoded. For example, any slashes 
 
 ## Missing results
 
-Most endpoints that return a list of resources support pagination. For most of these endpoints, only the first 30 resources are returned by default. In order to see all of the resources, you need to paginate through the results. For more information, see [AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api).
+Most endpoints that return a list of resources support pagination. For most of these endpoints, only the first 30 resources are returned by default. In order to see all of the resources, you need to paginate through the results. For more information, see [AUTOTITLE](/rest/using-the-rest-api/using-pagination-in-the-rest-api).
 
 If you are using pagination correctly and still do not see all of the results that you expect, you should confirm that the authentication credentials that you used have access to all of the expected resources. For example, if you are using a {% data variables.product.prodname_github_app %} installation access token, if the installation was only granted access to a subset of repositories in an organization, any request for all repositories in that organization will return only the repositories that the app installation can access.
 
@@ -83,7 +83,7 @@ If you are using pagination correctly and still do not see all of the results th
 
 ## Requires authentication when using basic authentication
 
-Basic authentication with your username and password is not supported. Instead, you should use a {% data variables.product.pat_generic %} or an access token for a {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %}. For more information, see [AUTOTITLE](/rest/overview/authenticating-to-the-rest-api).
+Basic authentication with your username and password is not supported. Instead, you should use a {% data variables.product.pat_generic %} or an access token for a {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %}. For more information, see [AUTOTITLE](/rest/authentication/authenticating-to-the-rest-api).
 
 {% endif %}
 
@@ -144,7 +144,7 @@ curl {% data reusables.rest-api.version-header %} https://api.github.com/zen
 
 If you specify a version that does not exist, you will receive a `400 Bad Request` error and a message about the version not being supported.
 
-For more information, see [AUTOTITLE](/rest/overview/api-versions).
+For more information, see [AUTOTITLE](/rest/about-the-rest-api/api-versions).
 
 ## User agent required
 
@@ -160,6 +160,6 @@ If you observe unexpected failures, you can use [githubstatus.com](https://www.g
 
 ## Further reading
 
-* [AUTOTITLE](/rest/guides/best-practices-for-using-the-rest-api)
+* [AUTOTITLE](/rest/using-the-rest-api/best-practices-for-using-the-rest-api)
 * [AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/troubleshooting-webhooks)
 * [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app)

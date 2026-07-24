@@ -31,7 +31,7 @@ For help determining the correct upgrade path, use the [{% data variables.enterp
 
 ## Prerequisites
 
-* SSH access to your {% data variables.product.prodname_ghe_server %} instance. For more information, see [AUTOTITLE](/admin/administering-your-instance/accessing-the-administrative-shell-ssh).
+* SSH access to your {% data variables.product.prodname_ghe_server %} instance. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh).
 * Your instance must be able to reach `enterprise.github.com` over HTTPS to download the rotation script. If your instance is behind a restrictive firewall or in an air-gapped environment, download the script from an external machine and transfer it to the appliance manually.
 
 ## Rotating the signing key on a single-node instance

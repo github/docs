@@ -18,7 +18,7 @@ For more information, see [AUTOTITLE](/free-pro-team@latest/codespaces/quickstar
 
 ## Working on documentation in a codespace
 
-The following steps assume you have {% data variables.product.prodname_github_codespaces %} set up to edit files using {% data variables.product.prodname_vscode %} for Web. The steps are very similar if you have set a different editor. For more information, see [AUTOTITLE](/free-pro-team@latest/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces).
+The following steps assume you have {% data variables.product.prodname_github_codespaces %} set up to edit files using {% data variables.product.prodname_vscode %} for Web. The steps are very similar if you have set a different editor. For more information, see [AUTOTITLE](/free-pro-team@latest/codespaces/setting-your-user-preferences/setting-your-default-editor-for-github-codespaces).
 
 1. Navigate to the open source repository for {% data variables.product.prodname_docs %}, [`github/docs`](https://github.com/github/docs).
 1. If you're an open source contributor, create a fork of the repository, then follow the rest of the steps in this procedure from your fork. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo).

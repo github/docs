@@ -26,7 +26,7 @@ Before you investigate further, try these troubleshooting steps that commonly re
 1. Verify that you meet all the access requirements. For more information, see the appropriate article for your migration path.
 
    {% ifversion fpt or ghec %}
-   * [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops)
+   * [AUTOTITLE](/migrations/ado/manage-access)
    {% endif %}
    * [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server)
    * [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products)
@@ -55,21 +55,21 @@ The log contains a record of each command you issued and all of the API requests
 
 ### Unable to run migrations
 
-If you see an error like `No access to createMigrationMutation` or `Missing permissions`, your personal account does not have the required access to run the migration. Make sure you're either an organization owner or have been granted the migrator role. For more information about granting the migrator role, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer).
+If you see an error like `No access to createMigrationMutation` or `Missing permissions`, your personal account does not have the required access to run the migration. Make sure you're either an organization owner or have been granted the migrator role. For more information about granting the migrator role, see [AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer).
 
 > [!NOTE]
 > If you're migrating between {% data variables.product.company_short %} products, make sure you're an organization owner or have been granted the migrator role for both the source and target organizations.
 
 ### Resource is protected by organization SAML enforcement
 
-This error indicates that a {% data variables.product.pat_generic %} you provided to the {% data variables.product.prodname_cli %} needs to be authorized for use with SAML single sign-on. For more information, see [AUTOTITLE](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).
+This error indicates that a {% data variables.product.pat_generic %} you provided to the {% data variables.product.prodname_cli %} needs to be authorized for use with SAML single sign-on. For more information, see [AUTOTITLE](/enterprise-cloud@latest/authentication/authenticating-with-single-sign-on/authorizing-a-personal-access-token-for-use-with-single-sign-on).
 
 ### `401 Unauthorized` response
 
 Failures that include a `401` status code usually indicate that the {% data variables.product.pat_generic %} you provided to the {% data variables.product.prodname_cli %} does not have the required scopes. Verify the scopes on the {% data variables.product.pat_generic %}s you provided. For more information about required scopes, see the appropriate article for your migration path.
 
    {% ifversion fpt or ghec %}
-   * [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#required-scopes-for-personal-access-tokens)
+   * [AUTOTITLE](/migrations/ado/manage-access#required-scopes-for-personal-access-tokens)
    {% endif %}
    * [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#required-scopes-for-personal-access-tokens)
    * [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens)

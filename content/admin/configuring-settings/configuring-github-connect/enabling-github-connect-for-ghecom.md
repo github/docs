@@ -12,7 +12,7 @@ category:
   - Install and configure your instance
 ---
 
-You can access additional features and workflows on {% data variables.location.product_location %} by enabling {% data variables.product.prodname_github_connect %}. See [AUTOTITLE](/admin/configuration/configuring-github-connect/about-github-connect).
+You can access additional features and workflows on {% data variables.location.product_location %} by enabling {% data variables.product.prodname_github_connect %}. See [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/about-github-connect).
 
 {% data reusables.github-connect.what-is-available-ghecom %}
 
@@ -30,7 +30,7 @@ You can access additional features and workflows on {% data variables.location.p
    * `{% data variables.enterprise.data_residency_api %}`
    * `uploads.{% data variables.enterprise.data_residency_domain %}`
 
-   See [AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server).
+   See [AUTOTITLE](/admin/configuring-settings/configuring-network-settings/configuring-an-outbound-web-proxy-server).
 
 ## Step 1: Enable connection to {% data variables.enterprise.data_residency_site %}
 

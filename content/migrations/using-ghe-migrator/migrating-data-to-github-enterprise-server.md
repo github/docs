@@ -170,7 +170,7 @@ The same process can be used to create mappings for each record that supports cu
 
 1. Using the `ghe-migrator import` command, start the import process. You'll need:
    * Your Migration GUID. For more information, see [Preparing the migrated data for import to {% data variables.product.prodname_ghe_server %}](#preparing-the-migrated-data).
-   * Your {% data variables.product.pat_generic %} for authentication. The {% data variables.product.pat_generic %} that you use is only for authentication as a site administrator, and does not require any specific scope or permissions. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+   * Your {% data variables.product.pat_generic %} for authentication. The {% data variables.product.pat_generic %} that you use is only for authentication as a site administrator, and does not require any specific scope or permissions. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
    ```shell
    $ ghe-migrator import /home/admin/MIGRATION-GUID.tar.gz -g MIGRATION-GUID -u USERNAME -p TOKEN
@@ -266,7 +266,7 @@ After your migration is applied to your target instance and you have reviewed th
 {% data reusables.enterprise_migrations.unlocking-on-instances %}
 
 > [!WARNING]
-> If your repository contains {% data variables.product.prodname_actions %} workflows using the `schedule` trigger, the workflows will not run automatically after an import. To start the scheduled workflows once again, push a commit to the repository. For more information, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#schedule).
+> If your repository contains {% data variables.product.prodname_actions %} workflows using the `schedule` trigger, the workflows will not run automatically after an import. To start the scheduled workflows once again, push a commit to the repository. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
 
 ## Unlocking repositories on the source
 

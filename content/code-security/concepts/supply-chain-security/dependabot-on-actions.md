@@ -32,10 +32,10 @@ Future releases of {% data variables.product.github %} will remove the ability t
 
 You can run {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} using:
 * **Standard {% data variables.product.prodname_dotcom %}-hosted runners.** These are the default runners used by {% data variables.product.github %} to execute {% data variables.product.prodname_actions %} jobs.
-* **{% data variables.actions.hosted_runners_caps %}.** These are {% data variables.product.prodname_dotcom %}-hosted runners with advanced features like more RAM, CPU, and disk space. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners).
+* **{% data variables.actions.hosted_runners_caps %}.** These are {% data variables.product.prodname_dotcom %}-hosted runners with advanced features like more RAM, CPU, and disk space. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners).
 * **Self-hosted runners.** These runners grant you greater control over {% data variables.product.prodname_dependabot %} access to your private registries and internal network resources. Be aware that for security reasons, {% data variables.product.prodname_dependabot_updates %} on self-hosted runners will not run on public repositories. For more information on assigning a `dependabot` label on self-hosted runners, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-on-self-hosted-runners).
 
-Running {% data variables.product.prodname_dependabot %} on standard {% data variables.product.prodname_dotcom %}-hosted or self-hosted runners **does not** count towards your included {% data variables.product.prodname_actions %} minutes. For {% data variables.product.prodname_dependabot %} on {% data variables.actions.hosted_runners %}, {% data variables.product.prodname_dotcom %} will bill your organization at the regular rate. See [AUTOTITLE](/billing/reference/actions-minute-multipliers).
+Running {% data variables.product.prodname_dependabot %} on standard {% data variables.product.prodname_dotcom %}-hosted or self-hosted runners **does not** count towards your included {% data variables.product.prodname_actions %} minutes. For {% data variables.product.prodname_dependabot %} on {% data variables.actions.hosted_runners %}, {% data variables.product.prodname_dotcom %} will bill your organization at the regular rate. See [AUTOTITLE](/billing/reference/actions-runner-pricing).
 
 {% data reusables.dependabot.vnet-arc-note %}
 

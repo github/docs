@@ -102,7 +102,7 @@ The `$GITHUB_VIA` variable is available in the pre-receive hook environment when
 | <pre>pull request merge button</pre> | Merge of a pull request in the web interface | [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request#merging-a-pull-request-on-github) |
 | <pre>pull request revert button</pre> | Revert of a pull request | [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/reverting-a-pull-request) |
 | <pre>releases delete button</pre> | Deletion of a release | [AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#deleting-a-release) |
-| <pre>stafftools branch restore</pre> | Restoration of a branch from the site admin dashboard | [AUTOTITLE](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#repositories) |
+| <pre>stafftools branch restore</pre> | Restoration of a branch from the site admin dashboard | [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui) |
 | <pre>tag create api</pre> | Creation of a tag via the API | [AUTOTITLE](/rest/git/tags#create-a-tag-object) |
 | <pre>web branch create</pre> | Creation of a branch via the web interface | [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch) |
 
@@ -147,7 +147,7 @@ We recommend consolidating hooks to a single repository. If the consolidated hoo
    git push
    ```
 
-1. [Create the pre-receive hook](/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance#creating-pre-receive-hooks) on the {% data variables.product.prodname_ghe_server %} instance.
+1. [Create the pre-receive hook](/admin/enforcing-policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-your-instance#creating-pre-receive-hooks) on the {% data variables.product.prodname_ghe_server %} instance.
 
 ## Testing pre-receive scripts locally
 

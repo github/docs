@@ -31,7 +31,7 @@ Before you can create custom images, make sure the following requirements are me
   * Manage organization hosted runner custom images
   * Manage organization runners and runner groups
 
-  For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles).
+  For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles).
 
 ## Setting up an image-generation runner
 
@@ -59,7 +59,7 @@ To configure a workflow for image generation:
   * Each successful run of a job that includes the `snapshot` keyword creates a new version of that image.
 
  > [!NOTE]
- > {% data variables.product.company_short %} recommends configuring image generation as a scheduled workflow on a weekly basis. This approach ensures dependencies remain up-to-date and have the latest security patches. For more information, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#schedule).
+ > {% data variables.product.company_short %} recommends configuring image generation as a scheduled workflow on a weekly basis. This approach ensures dependencies remain up-to-date and have the latest security patches. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
 
 It can take some time for your image to be fully generated and ready to use after the workflow completes. Provisioning time varies based on runner size and configuration, and may take several hours for larger runners.
 

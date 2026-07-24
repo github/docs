@@ -30,7 +30,7 @@ To run {% data variables.product.prodname_codeql %} commands, you need to set up
 
 The {% data variables.product.prodname_codeql_cli %} supports a range of use cases and directory structures. This article walks through a simple setup that works for most users and environments.
 
-If you plan to use the {% data variables.product.prodname_codeql_cli %} for security research or to test or contribute queries, you may need a more advanced setup. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/about-the-codeql-cli#getting-started).
+If you plan to use the {% data variables.product.prodname_codeql_cli %} for security research or to test or contribute queries, you may need a more advanced setup. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/codeql-cli#getting-started).
 
 ### Before you begin
 
@@ -62,7 +62,7 @@ For example, you can:
 {% data reusables.codeql-cli.launch-codeql %}
 
 > [!NOTE]
-> If you add `codeql` to your `PATH`, it can be accessed by {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} to compile and run queries. For more information about configuring {% data variables.product.prodname_vscode_shortname %} to access the {% data variables.product.prodname_codeql_cli %}, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/configuring-access-to-the-codeql-cli).
+> If you add `codeql` to your `PATH`, it can be accessed by {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} to compile and run queries. For more information about configuring {% data variables.product.prodname_vscode_shortname %} to access the {% data variables.product.prodname_codeql_cli %}, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-vs-code/manage-codeql-cli).
 
 ## Testing the {% data variables.product.prodname_codeql_cli %} configuration
 
@@ -97,7 +97,7 @@ You should check that the output contains the expected languages and also that t
 
 You can also run `codeql resolve languages` to show which languages are available for database creation. This will list the languages supported by default in your {% data variables.product.prodname_codeql_cli %} package.
 
-Optionally, you can download some CodeQL packs containing pre-compiled queries you would like to run. For more information, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs).
+Optionally, you can download some CodeQL packs containing pre-compiled queries you would like to run. For more information, see [AUTOTITLE](/code-security/tutorials/customize-code-scanning/customize-analysis).
 
 The `codeql resolve packs` command is useful for diagnosing problems when the {% data variables.product.prodname_codeql_cli %} is unable to locate query packs that you expect to be available for analysis.
 
@@ -105,4 +105,4 @@ The `codeql resolve packs` command is useful for diagnosing problems when the {%
 
 ## Next steps
 
-To learn how to prepare your code to be analyzed by the {% data variables.product.prodname_codeql_cli %}, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis).
+To learn how to prepare your code to be analyzed by the {% data variables.product.prodname_codeql_cli %}, see [AUTOTITLE](/code-security/tutorials/customize-code-scanning/prepare-code-for-analysis).

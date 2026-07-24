@@ -14,7 +14,7 @@ category:
   - Plan your security strategy
 ---
 
-This guide assumes that you have planned and started a trial of {% data variables.product.prodname_GHAS %} for an existing or trial {% data variables.product.github %} enterprise account, see [AUTOTITLE](/code-security/trialing-github-advanced-security/planning-a-trial-of-ghas).
+This guide assumes that you have planned and started a trial of {% data variables.product.prodname_GHAS %} for an existing or trial {% data variables.product.github %} enterprise account, see [AUTOTITLE](/code-security/tutorials/trialing-github-advanced-security/planning-a-trial-of-ghas).
 
 ## Introduction
 
@@ -29,7 +29,7 @@ In contrast to {% data variables.product.prodname_secret_protection %}, where a 
 * {% data variables.product.prodname_code_scanning_caps %} uses runners with a specific label to apply to repositories that require a specialized environment or that use private registries.
 * {% data variables.product.prodname_code_scanning_caps %} is "Not set" to apply to repositories that need to use advanced setup or that require a third-party tool.
 
-For your trial, it's simplest to create a primary enterprise-level security configuration and apply it to your test repositories. Then you can create any additional security configurations you need and apply them to a subset of repositories selected using code language, custom property, visibility, and  other filter options. For more information, see [AUTOTITLE](/code-security/trialing-github-advanced-security/enable-security-features-trial) and [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration).
+For your trial, it's simplest to create a primary enterprise-level security configuration and apply it to your test repositories. Then you can create any additional security configurations you need and apply them to a subset of repositories selected using code language, custom property, visibility, and other filter options. For more information, see [AUTOTITLE](/code-security/tutorials/trialing-github-advanced-security/enable-security-features-trial) and [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/apply-custom-configuration).
 
 ### Provide access to view results of {% data variables.product.prodname_code_scanning %}
 
@@ -39,14 +39,14 @@ By default, only the repository administrator and the organization owner can vie
 
 The default setup for {% data variables.product.prodname_code_scanning %} runs a set of high confidence queries. These are chosen to ensure that, when you roll out {% data variables.product.prodname_code_scanning %} across your whole codebase, developers see a limited set of high quality results, with few false positive results.
 
-You can see a summary of any results found in the organizations in your trial enterprise in the **{% data variables.product.prodname_security_and_quality_tab %}** tab for the enterprise. There are also separate views for each type of security alert. See [AUTOTITLE](/code-security/security-overview/viewing-security-insights).
+You can see a summary of any results found in the organizations in your trial enterprise in the **{% data variables.product.prodname_security_and_quality_tab %}** tab for the enterprise. There are also separate views for each type of security alert. See [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-security-insights).
 
-If you don't see the results you expect for {% data variables.product.prodname_code_scanning %}, you can update default setup to run an extended query suite for repositories where you expected to find more results. This is controlled at the repository level, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup).
+If you don't see the results you expect for {% data variables.product.prodname_code_scanning %}, you can update default setup to run an extended query suite for repositories where you expected to find more results. This is controlled at the repository level, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/edit-default-setup).
 
 > [!TIP]
 > If you are blocked from editing the repository settings for {% data variables.product.prodname_code_scanning %}, edit the security configuration used by the repository so that settings are not enforced.
 
-If the extended suite still fails to find the results you expect, you may need to enable advanced setup so you can customize the analysis fully. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page) and [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning).
+If the extended suite still fails to find the results you expect, you may need to enable advanced setup so you can customize the analysis fully. For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/use-the-tools-status-page-for-code-scanning) and [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configuring-advanced-setup-for-code-scanning).
 
 ## Enforce automated analysis of pull requests
 
@@ -79,10 +79,10 @@ Most enterprises put automatic checks in place to block the use of dependencies 
 
 1. Create a private repository to serve as a central home where you can store reusable workflows for the enterprise.
 1. Edit the actions settings for the repository to allow all private repositories in the enterprise to access workflows in this central repository, see [Allowing access to components in a private repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository).
-1. In the central repository, create a reusable workflow to run the dependency review action, configuring the action to meet your business needs, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-review-action).
-1. In each organization, create or update branch rulesets to add the new workflow to the required status checks, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/enforcing-dependency-review-across-an-organization).
+1. In the central repository, create a reusable workflow to run the dependency review action, configuring the action to meet your business needs, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-dependency-review-action).
+1. In each organization, create or update branch rulesets to add the new workflow to the required status checks, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/enforce-dependency-review).
 
-This allows you to update the configuration in a single location, but use the workflow in many repositories. You may want to use this central repository to maintain other workflows. For more information, see [AUTOTITLE](/actions/sharing-automations/reusing-workflows).
+This allows you to update the configuration in a single location, but use the workflow in many repositories. You may want to use this central repository to maintain other workflows. For more information, see [AUTOTITLE](/actions/how-tos/reuse-automations/reuse-workflows).
 
 ### {% data variables.copilot.copilot_code-review_short %}
 
@@ -90,9 +90,9 @@ This allows you to update the configuration in a single location, but use the wo
 >
 > * If you get a {% data variables.product.prodname_copilot_short %} subscription from an organization, you will only be able to participate in the {% data variables.release-phases.public_preview %} on the {% data variables.product.github %} website if an owner of your organization or enterprise has enabled {% data variables.copilot.copilot_code-review_short %}. See [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies#opting-in-to-previews-or-feedback) and [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
 
-By default, users request a review from {% data variables.product.prodname_copilot_short %} in the same way as they do from human reviewers. However, you can update or create an organization-level branch ruleset to automatically add {% data variables.product.prodname_copilot_short %} as a reviewer to all pull requests made to selected branches in all or selected repositories. See [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/agents/copilot-code-review/automatic-code-review){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
+By default, users request a review from {% data variables.product.prodname_copilot_short %} in the same way as they do from human reviewers. However, you can update or create an organization-level branch ruleset to automatically add {% data variables.product.prodname_copilot_short %} as a reviewer to all pull requests made to selected branches in all or selected repositories. See [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
 
-{% data variables.product.prodname_copilot_short %} leaves a review comment on each pull request it reviews, without approving the pull request or requesting changes. This ensures that its review is advisory and will not block development work. Similarly, you should not enforce the resolution of suggestions made by {% data variables.product.prodname_copilot_short %} because AI suggestions have known limitations, see [AUTOTITLE](/enterprise-cloud@latest/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-code-review#limitations-of-github-copilot-code-review){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
+{% data variables.product.prodname_copilot_short %} leaves a review comment on each pull request it reviews, without approving the pull request or requesting changes. This ensures that its review is advisory and will not block development work. Similarly, you should not enforce the resolution of suggestions made by {% data variables.product.prodname_copilot_short %} because AI suggestions have known limitations, see [AUTOTITLE](/enterprise-cloud@latest/copilot/responsible-use/agents#limitations-of-github-copilot-code-review){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
 
 ## Define where {% data variables.copilot.copilot_autofix_short %} is allowed and enabled
 
@@ -101,11 +101,11 @@ By default, users request a review from {% data variables.product.prodname_copil
 There are two levels of control:
 
 * Enterprises can allow or block use of {% data variables.copilot.copilot_autofix_short %} throughout the enterprise using an "{% data variables.product.prodname_AS %}" policy, see: [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise).
-* Organizations can enable or disable {% data variables.copilot.copilot_autofix_short %} for all organization-owned repositories in the "Global settings" for the organization, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization).
+* Organizations can enable or disable {% data variables.copilot.copilot_autofix_short %} for all organization-owned repositories in the "Global settings" for the organization, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/configure-global-settings).
 
 ## Engage developers in security remediation
 
-Security campaigns provide a way for security teams to engage with developers to remediate security technical debt. They also provide a practical way to combine education in secure coding with examples of vulnerable code in code that your developers are familiar with. For more information, see [AUTOTITLE](/enterprise-cloud@latest/code-security/securing-your-organization/fixing-security-alerts-at-scale/about-security-campaigns) and [AUTOTITLE](/enterprise-cloud@latest/code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
+Security campaigns provide a way for security teams to engage with developers to remediate security technical debt. They also provide a practical way to combine education in secure coding with examples of vulnerable code in code that your developers are familiar with. For more information, see [AUTOTITLE](/enterprise-cloud@latest/code-security/concepts/security-at-scale/about-security-campaigns) and [AUTOTITLE](/enterprise-cloud@latest/code-security/tutorials/secure-your-organization/best-practice-fix-alerts-at-scale){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
 
 ## Provide a secure development environment
 
@@ -127,7 +127,7 @@ When you have finished exploring these options and {% data variables.product.pro
 
 ## Further reading
 
-* [AUTOTITLE](/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions)
+* [AUTOTITLE](/actions/reference/security/secure-use)
 * [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise)
 * [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/governing-how-people-use-repositories-in-your-enterprise){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
 * [Enforce {% data variables.product.prodname_GHAS %} at Scale](https://wellarchitected.github.com/library/application-security/recommendations/enforce-ghas-at-scale/)

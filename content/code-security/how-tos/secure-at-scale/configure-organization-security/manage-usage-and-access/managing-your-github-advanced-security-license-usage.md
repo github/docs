@@ -30,12 +30,12 @@ Before you can effectively manage your paid use of {% data variables.product.pro
 
     ![Screenshot of the "Apply configurations" section. The current license use for the enterprise is outlined in dark orange.](/assets/images/help/security-configurations/current-sp-cs-license-usage.png)
 
-1. Optionally, to find specific repositories in your organization, filter the repository table. To learn more, see [AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/filtering-repositories-in-your-organization-using-the-repository-table).
+1. Optionally, to find specific repositories in your organization, filter the repository table. To learn more, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-your-coverage/filter-repositories).
 <!--This functionality is shown in modal dialogs when you enable a security configuration following the release of separate SKUs for GHAS.-->
 
 {% ifversion ghec %}
 > [!TIP]
-> For information about buying more volume/subscription licenses, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing).
+> For information about buying more volume/subscription licenses, see [AUTOTITLE](/billing/how-tos/products/manage-ghas-licenses).
 {% endif %}
 
 ## Turning off {% data variables.product.prodname_cs_or_sp %}
@@ -45,7 +45,7 @@ The simplest way to turn off all {% data variables.product.prodname_cs_or_sp %} 
 > [!TIP]
 > Ensure that you give your custom configuration a very clear name, for example: "No Code Security" or "Secret Protection and Supply chain only" to avoid confusion.
 
-For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration) and [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration).
+For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/create-custom-configuration) and [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/apply-custom-configuration).
 
 {% ifversion ghec or ghes %}
 To prevent future enablement of security features, we recommend you ask your enterprise administrator to set the enterprise account's {% data variables.product.prodname_AS %} policies so that:

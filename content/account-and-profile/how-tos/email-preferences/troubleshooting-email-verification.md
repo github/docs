@@ -32,7 +32,7 @@ If you click on the link in the confirmation email within 24 hours and you are d
 
 If you see the error message `Error adding EMAIL: Email is already verified by another user`, you must either unverify the email for the other account before proceeding, or choose a different email address to verify.
 
-To unverify an email address, delete it in your email settings, then optionally re-add it without verifying to keep any commits linked to your account. See [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address).
+To unverify an email address, delete it in your email settings, then optionally re-add it without verifying to keep any commits linked to your account. See [AUTOTITLE](/account-and-profile/how-tos/email-preferences/changing-your-primary-email-address).
 
 ## Next steps
 

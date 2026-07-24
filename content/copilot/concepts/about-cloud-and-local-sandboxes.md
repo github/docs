@@ -92,7 +92,7 @@ When you stop a session, the cloud sandbox creates a snapshot of its state so yo
 
 An organization or enterprise owner must enable the **Cloud Sandbox access** policy in the organization or enterprise settings before members can use {% data variables.copilot.sandbox_short %}.
 
-For information about signing in to {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-cli).
+For information about signing in to {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli).
 
 ## Billing
 
@@ -112,4 +112,4 @@ For more information about how cloud sandbox usage is measured and billed, see [
 
 * [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli)
 * [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/enabling-or-disabling-cloud-sandboxes-for-your-organization)
-* [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-cli)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli)

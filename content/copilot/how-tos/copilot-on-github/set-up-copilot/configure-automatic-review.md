@@ -13,13 +13,13 @@ redirect_from:
   - /copilot/how-tos/agents/request-a-code-review/configure-automatic-review
   - /copilot/how-tos/use-copilot-agents/request-a-code-review/configure-automatic-review
 contentType: how-tos
-category: 
+category:
   - Configure Copilot
 ---
 
 ## Introduction
 
-You can configure {% data variables.copilot.copilot_code-review_short %} to review pull requests automatically. For an overview of automatic pull request reviews, see [AUTOTITLE](/copilot/concepts/code-review#about-automatic-pull-request-reviews).
+You can configure {% data variables.copilot.copilot_code-review_short %} to review pull requests automatically. For an overview of automatic pull request reviews, see [AUTOTITLE](/copilot/concepts/agents/code-review#about-automatic-pull-request-reviews).
 
 ## Configuring automatic code review for your own pull requests
 
@@ -70,10 +70,9 @@ You can set the default review effort level that {% data variables.copilot.copil
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the "Code & automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, then **Code review**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, then **Code review**.
 1. Next to "Review effort level," select the effort level for automatic reviews in this repository.
    * **Low**: Standard review (default).
    * **Medium**: Deeper analysis of complex logic, security-sensitive code, and cross-service changes.
 
 Medium reviews use more {% data variables.product.prodname_actions %} minutes and {% data variables.product.prodname_ai_credits_short %}. If you use Medium effort, consider configuring larger or self-hosted runners for better performance. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-runners).
-

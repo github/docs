@@ -2,7 +2,7 @@ import { languageKeys } from '@/languages/lib/languages-server'
 import { allVersionKeys } from '@/versions/lib/all-versions'
 import { productIds } from '@/products/lib/all-products'
 import { allTools } from '@/tools/lib/all-tools'
-import { codeLanguages } from '@/code-tabs/lib/languages'
+import { codeLanguages } from '@/content-render/lib/code-languages'
 import { contentTypesEnum } from '@/frame/lib/frontmatter'
 
 const versionPattern = '^\\d+(\\.\\d+)?(\\.\\d+)?$'

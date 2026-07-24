@@ -26,7 +26,7 @@ After your initial rollout, the {% data variables.product.prodname_copilot_short
 {% data reusables.copilot.access-copilot-metrics-dashboard %}
 1. In the left sidebar, click **{% data variables.product.prodname_copilot_short %} usage**.
 
-Data in the dashboard is primarily based on IDE telemetry and is supplemented by server-side telemetry to capture additional active users. Data may appear up to three full UTC days behind the current date. See [AUTOTITLE](/copilot/concepts/copilot-metrics).
+Data in the dashboard is primarily based on IDE telemetry and is supplemented by server-side telemetry to capture additional active users. Data may appear up to three full UTC days behind the current date. See [AUTOTITLE](/copilot/concepts/copilot-usage-metrics/copilot-metrics).
 
 ## Using {% data variables.copilot.copilot_chat_short %} to analyze exported data
 
@@ -39,6 +39,6 @@ For deeper analysis, you can export NDJSON reports from the dashboard and use {%
 
 ## Next steps
 
-* To learn how to interpret the data in each chart and act on usage trends, see [AUTOTITLE](/copilot/reference/interpret-copilot-metrics).
+* To learn how to interpret the data in each chart and act on usage trends, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/interpret-copilot-metrics).
 * To learn how to track license activation and initial usage of {% data variables.product.prodname_copilot %} with usage metrics, see [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/assign-licenses/track-usage-and-adoption).
 * To access usage data programmatically, see [AUTOTITLE](/rest/copilot/copilot-usage-metrics).

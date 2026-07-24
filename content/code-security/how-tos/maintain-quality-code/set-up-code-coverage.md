@@ -1,20 +1,20 @@
 ---
 title: Setting up code coverage for your repository
 shortTitle: Set up code coverage
-intro: 'Upload test coverage reports to see coverage results directly on pull requests, helping reviewers identify untested code before merging.'
+intro: 'Give your teams visibility into code coverage directly on pull requests, without paying for or maintaining a separate third-party coverage service.'
 versions:
   feature: code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'
 permissions: '{% data reusables.permissions.code-quality-repo-enable %}'
+audience:
+  - driver
 contentType: how-tos
 layout: inline
 category:
   - Improve code quality
 ---
 
-{% data reusables.code-quality.code-quality-preview-note %}
-
-In the following procedures, you will generate a Cobertura XML coverage report from your test suite, upload it to {% data variables.product.github %}, and view the coverage results on your pull requests.
+Built-in code coverage lets you track how thoroughly your tests exercise your code, without adding a third-party service to your toolchain or budget. In the following procedures, you will generate a Cobertura XML coverage report from your test suite, upload it to {% data variables.product.github %}, and view the coverage results on your pull requests.
 
 ## Prerequisites
 
@@ -127,3 +127,4 @@ jobs:
 ## Next steps
 
 * **Interpret results:** Understand coverage metrics and per-file breakdowns on your pull requests. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/interpret-results).
+* **Enforce coverage thresholds:** Block pull requests that don't meet a minimum coverage percentage or that cause coverage to drop. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/restrict-code-coverage).

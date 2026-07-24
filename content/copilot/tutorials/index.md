@@ -11,6 +11,7 @@ children:
   - /budgets
   - /spark
   - /customize-code-review
+  - /use-copilot-code-review-across-the-pull-request-lifecycle
   - /enhance-agent-mode-with-mcp
   - /compare-ai-models
   - /speed-up-development-work
@@ -33,6 +34,7 @@ children:
   - /upgrade-projects
   - /copilot-cli-hooks
   - /use-an-ai-sme
+  - /create-an-extension
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot
 contentType: tutorials

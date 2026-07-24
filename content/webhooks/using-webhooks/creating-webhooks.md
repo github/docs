@@ -29,7 +29,7 @@ For a complete list of webhook events, see [AUTOTITLE](/webhooks/webhook-events-
 
 You can create a webhook to subscribe to events that occur in a specific repository. You must be a repository owner or have admin access in the repository to create webhooks in that repository.
 
-You can use the {% data variables.product.github %} web interface or the REST API to create a repository webhook. For more information about using the REST API to create a repository webhook, see [AUTOTITLE](/rest/webhooks/repos#create-a-repository-webhook).
+You can use the {% data variables.product.github %} web interface or the REST API to create a repository webhook. For more information about using the REST API to create a repository webhook, see [AUTOTITLE](/rest/repos/webhooks#create-a-repository-webhook).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -112,7 +112,7 @@ After you create a new webhook, {% data variables.product.github %} will send yo
 
 ## Creating a {% data variables.product.prodname_sponsors %} webhook
 
-You can create a webhook to subscribe to events relating to your sponsorships. Only the owner of the sponsored account can create sponsorship webhooks for that account. For more information about the event that a sponsorship webhook is subscribed to, see the [`sponsorship` webhook event](/webhooks-and-events/webhooks/webhook-events-and-payloads#sponsorship).
+You can create a webhook to subscribe to events relating to your sponsorships. Only the owner of the sponsored account can create sponsorship webhooks for that account. For more information about the event that a sponsorship webhook is subscribed to, see the [`sponsorship` webhook event](/webhooks/webhook-events-and-payloads#sponsorship).
 
 1. In the upper-right corner of any page, click your profile picture, then click **Your sponsors**.
 1. Next to the account you want to create a webhook for, click **Dashboard**.
@@ -127,7 +127,7 @@ You can create a webhook to subscribe to events relating to your sponsorships. O
 
 ## Creating webhooks for a {% data variables.product.prodname_github_app %}
 
-The owner of a {% data variables.product.prodname_github_app %} can subscribe the app to webhook events to receive notifications whenever certain events occur. If the app owner has designated any app managers for a {% data variables.product.prodname_github_app %}, the app managers can also subscribe the app to webhook events. For more information, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps).
+The owner of a {% data variables.product.prodname_github_app %} can subscribe the app to webhook events to receive notifications whenever certain events occur. If the app owner has designated any app managers for a {% data variables.product.prodname_github_app %}, the app managers can also subscribe the app to webhook events. For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps).
 
 Each {% data variables.product.prodname_github_app %} has one webhook. You can configure the webhook when you register a {% data variables.product.prodname_github_app %}, or you can edit the webhook configuration for an existing {% data variables.product.prodname_github_app %} registration.
 
@@ -140,12 +140,12 @@ To configure a webhook for an existing {% data variables.product.prodname_github
 1. Next to the {% data variables.product.prodname_github_app %} that you want to configure the webhook for, click **Edit**.
 1. Under "Webhook," select **Active**.
 1. Under "Webhook URL", type the URL where you'd like to receive payloads.
-1. Optionally, under "Webhook secret", type a string to use as a `secret` key. You should choose a random string of text with high entropy. You can use the webhook secret to limit incoming requests to only those originating from {% data variables.product.github %}. For more information, see [AUTOTITLE](/webhooks/using-webhooks/securing-your-webhooks).
+1. Optionally, under "Webhook secret", type a string to use as a `secret` key. You should choose a random string of text with high entropy. You can use the webhook secret to limit incoming requests to only those originating from {% data variables.product.github %}. For more information, see [AUTOTITLE](/webhooks/using-webhooks/validating-webhook-deliveries).
 1. Click **Save changes**.
 1. In the sidebar, click **Permissions & events**.
 1. {% data reusables.apps.webhooks-and-apps %}
 
-   Under the sections "Repository permissions," "Organization permissions," and "Account permissions," select the permissions that are required for the events your app will subscribe to. For more information, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/choosing-permissions-for-a-github-app). For more information about things to consider when changing the permissions, see [Modifying a {% data variables.product.prodname_github_app %} registration](/apps/maintaining-github-apps/modifying-a-github-app-registration#changing-the-permissions-of-a-github-app).
+   Under the sections "Repository permissions," "Organization permissions," and "Account permissions," select the permissions that are required for the events your app will subscribe to. For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app). For more information about things to consider when changing the permissions, see [Modifying a {% data variables.product.prodname_github_app %} registration](/apps/maintaining-github-apps/modifying-a-github-app-registration#changing-the-permissions-of-a-github-app).
 1. Under "Subscribe to Events," select the webhook events you would like your {% data variables.product.prodname_github_app %} to receive.
 1. Click **Save changes**.
 

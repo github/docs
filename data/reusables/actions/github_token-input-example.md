@@ -1,4 +1,4 @@
-This example workflow uses the [GitHub CLI](/actions/using-workflows/using-github-cli-in-workflows), which requires the `GITHUB_TOKEN` as the value for the `GH_TOKEN` input parameter:
+This example workflow uses the [GitHub CLI](/actions/how-tos/write-workflows/choose-what-workflows-do/use-github-cli), which requires the `GITHUB_TOKEN` as the value for the `GH_TOKEN` input parameter:
 
 ```yaml copy
 name: Open new issue

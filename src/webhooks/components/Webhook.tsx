@@ -13,6 +13,7 @@ import { ParameterTable } from '@/automated-pipelines/components/parameter-table
 import { HighlightedCode } from '@/frame/components/HighlightedCode'
 
 import styles from './WebhookPayloadExample.module.scss'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type Props = {
   webhook: WebhookAction
@@ -162,11 +163,10 @@ export function Webhook({ webhook }: Props) {
         {currentWebhookAction.category}
       </HeadingLink>
       <div>
-        <div dangerouslySetInnerHTML={{ __html: currentWebhookAction.summaryHtml }}></div>
-        <h3
-          dangerouslySetInnerHTML={{
-            __html: t('availability').replace('{{ WebhookName }}', currentWebhookAction.category),
-          }}
+        <RenderedHTML as="div" html={currentWebhookAction.summaryHtml} />
+        <RenderedHTML
+          as="h3"
+          html={t('availability').replace('{{ WebhookName }}', currentWebhookAction.category)}
         />
         <ul>
           {currentWebhookAction.availability.map((availability) => {
@@ -179,13 +179,12 @@ export function Webhook({ webhook }: Props) {
             )
           })}
         </ul>
-        <h3
-          dangerouslySetInnerHTML={{
-            __html: t('webhook_payload_object').replace(
-              '{{ WebhookName }}',
-              currentWebhookAction.category,
-            ),
-          }}
+        <RenderedHTML
+          as="h3"
+          html={t('webhook_payload_object').replace(
+            '{{ WebhookName }}',
+            currentWebhookAction.category,
+          )}
         />
         {error && (
           <Flash className="mb-5" variant="danger">
@@ -219,10 +218,11 @@ export function Webhook({ webhook }: Props) {
             </div>
           </div>
         )}
-        <div
+        <RenderedHTML
+          as="div"
           className="mb-4 f5 color-fg-muted"
-          dangerouslySetInnerHTML={{ __html: currentWebhookAction.descriptionHtml }}
-        ></div>
+          html={currentWebhookAction.descriptionHtml}
+        />
         <div>
           <ParameterTable
             slug={slug(`${currentWebhookAction.category}-${selectedWebhookActionType}`)}

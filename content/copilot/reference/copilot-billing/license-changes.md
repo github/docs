@@ -30,6 +30,14 @@ What you need to know about the following actions:
 * **Upgrading:** If you upgrade your plan (for example, from {% data variables.copilot.copilot_pro_short %} to {% data variables.copilot.copilot_pro_plus_short %}), the change is **immediate**. You are charged a prorated amount for the new plan.
 * **Downgrading/canceling:** Access remains until the end of the current billing cycle. **No refund for unused time**.
 
+### Included monthly allowance reset
+
+Paying for, renewing, upgrading, downgrading, converting from a trial, or resuming a plan after a lapse does not grant a fresh {% data variables.product.prodname_ai_credits_short %} allowance immediately. Your included monthly allowance resets at 00:00:00 UTC on the first day of each calendar month, regardless of your subscription billing date.
+
+For example, if you exhaust your {% data variables.product.prodname_ai_credits_short %} on May 28 and renew or upgrade your plan on May 30, your allowance does not reset until June 1.
+
+Any additional usage beyond the included allowance is charged separately and is unaffected by this monthly reset. See [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-individuals) and [AUTOTITLE](/billing/how-tos/set-up-budgets#managing-budgets-for-your-personal-account).
+
 ## Organizations
 
 What you need to know about the following actions:

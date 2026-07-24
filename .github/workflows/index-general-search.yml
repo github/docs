@@ -49,15 +49,6 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.result }}
     steps:
-      - name: Generate GitHub App token
-        id: app-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
-          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
-          owner: github
-          repositories: docs-engineering
-
       - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         id: set-matrix
         with:
@@ -102,7 +93,7 @@ jobs:
 
       - name: Check out repo
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
@@ -111,7 +102,7 @@ jobs:
       - uses: ./.github/actions/create-workflow-failure-issue
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
   updateElasticsearchIndexes:
     needs: figureOutMatrix
@@ -134,29 +125,20 @@ jobs:
         language: ${{ fromJSON(needs.figureOutMatrix.outputs.matrix) }}
     steps:
       - name: Check out repo
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-      - name: Generate GitHub App token
-        id: app-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
-          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
-          owner: github
-          repositories: docs-internal-data,docs-internal.es-es,docs-internal.ja-jp,docs-internal.pt-br,docs-internal.zh-cn,docs-internal.ru-ru,docs-internal.fr-fr,docs-internal.ko-kr,docs-internal.de-de,docs-engineering
-
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       - name: Clone docs-internal-data
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           repository: github/docs-internal-data
           # This works because user `docs-bot` has read access to that private repo.
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           path: docs-internal-data
 
       - name: Clone all translations
         if: ${{ matrix.language != 'en' }}
         uses: ./.github/actions/clone-translations
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -266,7 +248,7 @@ jobs:
       - uses: ./.github/actions/create-workflow-failure-issue
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
   notifyScrapingFailures:
     name: Notify scraping failures
@@ -275,16 +257,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-      - name: Generate GitHub App token
-        id: app-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
-          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
-          owner: github
-          repositories: docs-engineering
-
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       - name: Download all failure artifacts
         uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 # v8.0.0
         with:
@@ -319,7 +292,7 @@ jobs:
       - name: Comment on or create scraping failure issue
         if: ${{ steps.check-artifacts.outputs.has_artifacts == 'true' && fromJSON(steps.aggregate.outputs.result || '{"hasFailures":false}').hasFailures }}
         env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           FAILURE_MESSAGE: ${{ fromJSON(steps.aggregate.outputs.result || '{"message":""}').message }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           FILE_URL: ${{ github.server_url }}/${{ github.repository }}/blob/main/.github/workflows/index-general-search.yml
@@ -418,4 +391,4 @@ jobs:
       - uses: ./.github/actions/create-workflow-failure-issue
         if: ${{ failure() }}
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}

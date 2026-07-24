@@ -26,7 +26,7 @@ Before you can test a {% data variables.copilot.copilot_custom_agent_short %}, y
 ## 1. Create your test {% data variables.copilot.copilot_custom_agent_short %}
 
 1. In your organization or enterprise's `.github-private` repository, create a new directory called `.github/agents`. Agents stored in this directory are only available to members of your organization or enterprise who have access to the `.github-private` repository, and can only be used when they start a task within that repository.
-1. In your `.github/agents` directory, create the {% data variables.copilot.agent_profile %} for your test agent. You can create a net-new profile or duplicate an existing profile to test potential updates. For information on configuring an {% data variables.copilot.agent_profile %}, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents#configuring-an-agent-profile).
+1. In your `.github/agents` directory, create the {% data variables.copilot.agent_profile %} for your test agent. You can create a net-new profile or duplicate an existing profile to test potential updates. For information on configuring an {% data variables.copilot.agent_profile %}, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/create-custom-agents#configuring-an-agent-profile).
 1. Merge your test {% data variables.copilot.agent_profile %} into the default branch of your repository.
 
 ## 2. Test your {% data variables.copilot.copilot_custom_agent_short %}

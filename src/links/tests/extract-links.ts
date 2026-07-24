@@ -210,6 +210,74 @@ And [another real link](https://real.example.com/page).
     expect(result.externalLinks[1].href).toBe('https://real.example.com/page')
   })
 
+  test('skips links inside inline code spans', () => {
+    const content = `
+See [a real link](/real/path) for details.
+
+* For links to other pages: \`See [AUTOTITLE](/PATH/TO/PAGE).\`
+* With a query: \`See [AUTOTITLE](/path/to/page?tool=TOOLNAME).\`
+
+And [another real link](/another/real/path) here.
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(2)
+    expect(result.internalLinks.map((l) => l.href)).toEqual(['/real/path', '/another/real/path'])
+  })
+
+  test('handles inline code and a real link on the same line', () => {
+    const content = `Use \`[AUTOTITLE](/PLACEHOLDER)\` and then see [the guide](/real/guide).`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(1)
+    expect(result.internalLinks[0].href).toBe('/real/guide')
+  })
+
+  test('does not mask links when backtick runs are mismatched', () => {
+    // Per CommonMark, a code span needs equal-length, maximal backtick runs on
+    // both ends. These lines have mismatched runs, so they are NOT code spans
+    // and the links between the backticks are real and must be extracted.
+    const content = [
+      `A single-open, double-close: \`[one](/real/one)\`\``,
+      `A double-open, triple-close: \`\`[two](/real/two)\`\`\``,
+    ].join('\n')
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks.map((l) => l.href)).toEqual(['/real/one', '/real/two'])
+  })
+
+  test('still masks links inside valid multi-backtick code spans', () => {
+    // A matched double-backtick run is a real code span, even when it wraps an
+    // inner single backtick, so the link inside must be ignored.
+    const content = `Example: \`\` \`[skip](/placeholder)\` \`\` and see [the guide](/real/guide).`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(1)
+    expect(result.internalLinks[0].href).toBe('/real/guide')
+  })
+
+  test('captures internal links with balanced parentheses in the path', () => {
+    const content = `See the [privacy statement (PDF)](/assets/images/help/site-policy/github-privacy-statement(07.22.20)(fr).pdf).`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(1)
+    expect(result.internalLinks[0].href).toBe(
+      '/assets/images/help/site-policy/github-privacy-statement(07.22.20)(fr).pdf',
+    )
+  })
+
+  test('does not let an unclosed link destination span multiple lines', () => {
+    const content = `
+Broken: [AUTOTITLE](/code-security/create-custom-configuration.
+1. A following list item with [a real link](/real/target).
+`
+    const result = extractLinksFromMarkdown(content)
+
+    // The unclosed link is not extracted, and it does not swallow the real link
+    // on the next line into a giant multi-line href.
+    expect(result.internalLinks.map((l) => l.href)).toEqual(['/real/target'])
+  })
+
   test('handles complex nested brackets', () => {
     const content = `
 Use the [\`git clone\`](/repositories/cloning) command.
@@ -433,6 +501,63 @@ describe('checkInternalLink', () => {
     expect(result.exists).toBe(true)
     expect(result.isRedirect).toBe(true)
     expect(result.redirectTarget).toBe('/actions/current-path')
+  })
+
+  test('treats archived Enterprise Server versions as valid', () => {
+    // Deprecated GHES versions are served by the archived enterprise versions
+    // system, which isn't loaded into pageMap. They must not be reported broken.
+    const result = checkInternalLink(
+      '/enterprise-server@3.7/admin/release-notes',
+      pageMap,
+      redirects,
+    )
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(false)
+  })
+
+  test('treats legacy /enterprise/<version>/ archived paths as valid', () => {
+    const result = checkInternalLink(
+      '/enterprise/2.1/admin/guides/installation/provisioning-and-installation/',
+      pageMap,
+      redirects,
+    )
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(false)
+  })
+
+  test('resolves free-pro-team@latest prefixed links via the redirect resolver', () => {
+    // The flat redirects map has no literal key for this; getRedirect computes
+    // the correction (strip the version prefix) the same way production does.
+    const result = checkInternalLink('/free-pro-team@latest/actions/guides', pageMap, redirects)
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(true)
+    expect(result.redirectTarget).toBe('/actions/guides')
+  })
+
+  test('resolves versionless /enterprise-server/ links via the redirect resolver', () => {
+    const result = checkInternalLink(`/enterprise-server/admin/overview`, pageMap, redirects)
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(true)
+    // Normalized to the latest stable Enterprise Server version.
+    expect(result.redirectTarget).toBe(`/enterprise-server@${latestStable}/admin/overview`)
+  })
+
+  test('strips hyphenated locale prefixes without double-prefixing', () => {
+    // /pt-br/ is a hyphenated locale; it must be stripped (not turned into
+    // /en/pt-br/...) so the underlying path resolves against the redirects map.
+    const result = checkInternalLink('/pt-br/actions/legacy-path', pageMap, redirects)
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(true)
+    expect(result.redirectTarget).toBe('/actions/current-path')
+  })
+
+  test('normalizes a bare language-root redirect target to /', () => {
+    // getRedirect collapses '/free-pro-team@latest' to the language root ('/en');
+    // after stripping the locale that would be empty, so it must normalize to '/'.
+    const result = checkInternalLink('/free-pro-team@latest', pageMap, redirects)
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(true)
+    expect(result.redirectTarget).toBe('/')
   })
 })
 

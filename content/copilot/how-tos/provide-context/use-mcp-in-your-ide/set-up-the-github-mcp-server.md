@@ -99,7 +99,7 @@ You do not need to create a PAT or install any additional software to use the re
 
 ### Remote MCP server configuration with PAT
 
-To configure the remote {% data variables.product.github %} MCP server with a PAT, ensure you have created a PAT with the necessary scopes for the access you want to grant to the MCP server. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+To configure the remote {% data variables.product.github %} MCP server with a PAT, ensure you have created a PAT with the necessary scopes for the access you want to grant to the MCP server. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 1. In the {% data variables.product.prodname_vs %} menu bar, click **View**, then click **{% data variables.copilot.copilot_chat %}**.
 1. At the bottom of the chat panel, select **Agent** from the mode dropdown.
@@ -168,7 +168,7 @@ You do not need to create a PAT or install any additional software to use the re
 
 ### Remote MCP server configuration with PAT
 
-To configure the remote {% data variables.product.github %} MCP server with a PAT, ensure you have created a PAT with the necessary scopes for the access you want to grant to the MCP server. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+To configure the remote {% data variables.product.github %} MCP server with a PAT, ensure you have created a PAT with the necessary scopes for the access you want to grant to the MCP server. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 {% data reusables.copilot.jetbrains-mcp-setup-steps %}
 1. In the `mcp.json` file, add the following configuration, replacing `YOUR_GITHUB_PAT` with the PAT you created:
@@ -197,7 +197,7 @@ To configure the remote {% data variables.product.github %} MCP server with a PA
 ## Prerequisites
 
 * **Access to {% data variables.product.prodname_copilot_short %}**. {% data reusables.copilot.subscription-prerequisite %}
-* **{% data variables.product.prodname_copilot %} for Xcode extension**. See [AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment).
+* **{% data variables.product.prodname_copilot %} for Xcode extension**. See [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension).
 * {% data reusables.copilot.mcp-policy-requirement %}
 
 ## Setting up the {% data variables.product.github %} MCP server in Xcode
@@ -225,7 +225,7 @@ You do not need to create a PAT or install any additional software to use the re
 
 ### Remote MCP server configuration with PAT
 
-To configure the remote {% data variables.product.github %} MCP server with a PAT, ensure you have created a PAT with the necessary scopes for the access you want to grant to the MCP server. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+To configure the remote {% data variables.product.github %} MCP server with a PAT, ensure you have created a PAT with the necessary scopes for the access you want to grant to the MCP server. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 {% data reusables.copilot.xcode-mcp-setup-steps %}
 1. Add the following configuration, replacing `YOUR_GITHUB_PAT` with the PAT you created:
@@ -254,7 +254,7 @@ To configure the remote {% data variables.product.github %} MCP server with a PA
 ## Prerequisites
 
 {% data reusables.copilot.eclipse-prerequisites %}
-* **Latest version of the {% data variables.product.prodname_copilot %} extension**. Download this from the [Eclipse Marketplace](https://aka.ms/copiloteclipse?ref_product=copilot&ref_type=engagement&ref_style=text). For more information, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment?tool=eclipse).
+* **Latest version of the {% data variables.product.prodname_copilot %} extension**. Download this from the [Eclipse Marketplace](https://aka.ms/copiloteclipse?ref_product=copilot&ref_type=engagement&ref_style=text). For more information, see [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension?tool=eclipse).
 * **Sign in to {% data variables.product.company_short %} from Eclipse**.
 
 ## Setting up the {% data variables.product.github %} MCP server in Eclipse
@@ -283,7 +283,7 @@ You do not need to create a PAT or install any additional software to use the re
 
 ### Remote MCP server configuration with PAT
 
-To configure the remote {% data variables.product.github %} MCP server with a PAT, ensure you have created a PAT with the necessary scopes for the access you want to grant to the MCP server. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+To configure the remote {% data variables.product.github %} MCP server with a PAT, ensure you have created a PAT with the necessary scopes for the access you want to grant to the MCP server. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 {% data reusables.copilot.eclipse-mcp-setup-steps %}
 1. Add the following configuration under "Server Configurations", replacing `YOUR_GITHUB_PAT` with the PAT you created:
@@ -307,9 +307,9 @@ To configure the remote {% data variables.product.github %} MCP server with a PA
 
 ## Enterprise configuration
 
-If you are using {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_cloud %} with data residency, additional configuration is required. For more information, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/enterprise-configuration).
+If you are using {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_cloud %} with data residency, additional configuration is required. For more information, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/enterprise-configuration).
 
 ## Next steps
 
-* To learn how to use the {% data variables.product.github %} MCP server in {% data variables.product.prodname_vscode %}, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/use-the-github-mcp-server).
-* For information on configuring individual toolsets with read-only or read/write access, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/configure-toolsets).
+* To learn how to use the {% data variables.product.github %} MCP server in {% data variables.product.prodname_vscode %}, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/use-the-github-mcp-server).
+* For information on configuring individual toolsets with read-only or read/write access, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/configure-toolsets).

@@ -39,7 +39,24 @@
   provider: 'OpenAI'
   release_status: 'GA'
 
+- name: 'GPT-5.6 Luna'
+  provider: 'OpenAI'
+  release_status: 'GA'
+
+- name: 'GPT-5.6 Sol'
+  provider: 'OpenAI'
+  release_status: 'GA'
+
+- name: 'GPT-5.6 Terra'
+  provider: 'OpenAI'
+  release_status: 'GA'
+
 # Anthropic models
+
+- name: 'Claude Fable 5'
+  provider: 'Anthropic'
+  release_status: 'GA'
+
 - name: 'Claude Haiku 4.5'
   provider: 'Anthropic'
   release_status: 'GA'
@@ -52,10 +69,6 @@
   provider: 'Anthropic'
   release_status: 'GA'
 
-- name: 'Claude Opus 4.6 (fast mode) (preview)'
-  provider: 'Anthropic'
-  release_status: 'Public preview'
-
 - name: 'Claude Opus 4.7'
   provider: 'Anthropic'
   release_status: 'GA'
@@ -64,7 +77,7 @@
   provider: 'Anthropic'
   release_status: 'GA'
 
-- name: 'Claude Fable 5'
+- name: 'Claude Opus 4.8 (fast mode) (preview)'
   provider: 'Anthropic'
   release_status: 'GA'
 
@@ -73,6 +86,10 @@
   release_status: 'GA'
 
 - name: 'Claude Sonnet 4.6'
+  provider: 'Anthropic'
+  release_status: 'GA'
+
+- name: 'Claude Sonnet 5'
   provider: 'Anthropic'
   release_status: 'GA'
 
@@ -94,6 +111,10 @@
   provider: 'Google'
   release_status: 'GA'
 
+- name: 'Gemini 3.6 Flash'
+  provider: 'Google'
+  release_status: 'GA'
+
 # Microsoft models
 - name: 'MAI-Code-1-Flash'
   provider: 'Microsoft'
@@ -102,4 +123,9 @@
 # Fine-tuned OAI models
 - name: 'Raptor mini'
   provider: 'Fine-tuned GPT-5 mini'
+  release_status: 'GA'
+
+# Open-weight models
+- name: 'Kimi K2.7 Code'
+  provider: 'Moonshot AI'
   release_status: 'GA'
