@@ -47,7 +47,7 @@ To use OIDC with Docker, establish a trust relationship between {% data variable
 
 ## Updating your {% data variables.product.prodname_actions %} workflow
 
-Once you have created an OIDC connection in Docker, update your workflow to authenticate using the [`docker/oidc-action`](https://github.com/docker/oidc-action) and [`docker/login-action`](https://github.com/docker/login-action) actions.
+Once you have created an OIDC connection in Docker, update your workflow to authenticate using the [`docker/login-action`](https://github.com/docker/login-action) action.
 
 The following example uses the placeholder `YOUR_CONNECTION_ID` for the connection ID you copied from Docker, and `YOUR_DOCKER_ORG` for your Docker organization name.
 
@@ -64,17 +64,12 @@ jobs:
       - name: Check out repository
         uses: {% data reusables.actions.action-checkout %}
 
-      - name: Get Docker OIDC token
-        id: docker-oidc
-        uses: docker/oidc-action@3f002d200df5620744c973221788e401898c6f86 # v1
-        with:
-          connection_id: YOUR_CONNECTION_ID
-
-      - name: Sign in to Docker Hub
-        uses: docker/login-action@af1e73f918a031802d376d3c8bbc3fe56130a9b0 # v4
+      - name: Sign in to Docker Hub with OIDC
+        uses: docker/login-action@abd2ef45e78c5afb21d64d4ca52ee8550d9572c7 # v4.5.1
         with:
           username: YOUR_DOCKER_ORG
-          password: {% raw %}${{ steps.docker-oidc.outputs.token }}{% endraw %}
+        env:
+          DOCKERHUB_OIDC_CONNECTIONID: YOUR_CONNECTION_ID
 
       - name: Build and push
         uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6
@@ -86,8 +81,35 @@ jobs:
 ### Key workflow settings
 
 * **`permissions.id-token: write`** is required so that {% data variables.product.prodname_dotcom %} can issue an OIDC token for the workflow.
-* The `docker/oidc-action` exchanges the {% data variables.product.prodname_dotcom %} OIDC token for a short-lived Docker access token based on your connection's rulesets.
-* The `docker/login-action` uses the token output to authenticate with Docker Hub. The `username` field should be your Docker organization name.
+* The `docker/login-action` handles the OIDC token exchange and Docker login in a single step when `DOCKERHUB_OIDC_CONNECTIONID` is set and `password` is omitted.
+* The `username` field should be your Docker organization name.
+
+### Using the token as an output
+
+If your workflow needs the Docker access token as a separate output (for example, for API calls or custom authentication flows), use [`docker/oidc-action`](https://github.com/docker/oidc-action) to perform the token exchange explicitly:
+
+```yaml
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Docker OIDC token
+        id: docker-oidc
+        uses: docker/oidc-action@3f002d200df5620744c973221788e401898c6f86 # v1
+        with:
+          connection_id: YOUR_CONNECTION_ID
+
+      - name: Sign in to Docker Hub
+        uses: docker/login-action@abd2ef45e78c5afb21d64d4ca52ee8550d9572c7 # v4.5.1
+        with:
+          username: YOUR_DOCKER_ORG
+          password: {% raw %}${{ steps.docker-oidc.outputs.token }}{% endraw %}
+```
 
 ### Subject claim matching
 
