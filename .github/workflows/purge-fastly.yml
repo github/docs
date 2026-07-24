@@ -9,6 +9,10 @@ name: Purge Fastly
 
 on:
   deployment_status:
+  schedule:
+    # Daily soft purge of all languages to catch reusables and AUTOTITLE links.
+    # Intentionally off-peak, around 6-7pm PT.
+    - cron: '20 2 * * *'
   workflow_dispatch:
     inputs:
       languages:
@@ -58,6 +62,17 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
+      - name: Generate GitHub App token
+        # Lets a scheduled-run failure open a tracking issue in docs-engineering
+        # (the default GITHUB_TOKEN can't write cross-repo).
+        id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
+          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
+          owner: github
+          repositories: docs-engineering
+
       - uses: ./.github/actions/node-npm-setup
 
       - name: Validate confirmation input
@@ -76,8 +91,9 @@ jobs:
 
       - name: Purge Fastly
         # Auto post-deploy runs wait for the build, purge English only (temporary),
-        # and stay soft. A manual run uses the inputs: blank languages = all, the
-        # `hard` toggle, or a confirmed full-cache purge.
+        # and stay soft. The daily scheduled run waits for nothing, purges all
+        # languages (blank = all), and stays soft. A manual run uses the inputs:
+        # blank languages = all, the `hard` toggle, or a confirmed full-cache purge.
         #
         # Raw inputs are passed through the environment and quoted, never spliced
         # into the command string, so a value like `en' --everything` can't break
@@ -89,10 +105,8 @@ jobs:
           EVERYTHING_INPUT: ${{ inputs.everything }}
         run: |
           args=()
-          if [ "$EVENT_NAME" != "workflow_dispatch" ]; then
-            args+=(--wait-for-build)
-          fi
           if [ "$EVENT_NAME" = "deployment_status" ]; then
+            args+=(--wait-for-build)
             args+=(--languages en)
           elif [ -n "$LANGUAGES_INPUT" ]; then
             args+=(--languages "$LANGUAGES_INPUT")
@@ -123,3 +137,8 @@ jobs:
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+      - uses: ./.github/actions/create-workflow-failure-issue
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          token: ${{ steps.app-token.outputs.token }}

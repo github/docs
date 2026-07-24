@@ -32,7 +32,7 @@ The trial lasts for **{% data reusables.enterprise.ghec-trial-length %} days** a
 
 * Access to **most** {% data variables.product.prodname_ghe_cloud %} features.
 * {% data variables.product.prodname_GH_cs_and_sp %} ({% data variables.product.prodname_dotcom_the_website %} trials only)
-* Access to the **new billing platform**.{% ifversion enhanced-billing-platform %} See [AUTOTITLE](/billing/using-the-new-billing-platform/about-the-new-billing-platform-for-enterprises).{% endif %}
+* Access to the **new billing platform**.{% ifversion enhanced-billing-platform %} See [AUTOTITLE](/billing/get-started/introduction-to-billing).{% endif %}
 * An **enterprise account**, which allows you to manage multiple organizations. See [AUTOTITLE](/enterprise-cloud@latest/get-started/learning-about-github/types-of-github-accounts).
 * Up to **50 licenses** to grant access to users.
 * Up to 3,000 minutes of standard {% data variables.product.prodname_dotcom %}-hosted runners.
@@ -78,7 +78,7 @@ You can end your trial at any time by purchasing {% data variables.product.prodn
 
 If you **purchase {% data variables.product.prodname_enterprise %}**:
 
-* You can use usage-based billing for {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_GHAS %} products, which means you pay monthly for the number of licenses you use. You will not need to buy a predefined number of licenses in advance. See [AUTOTITLE](/billing/using-the-new-billing-platform/about-usage-based-billing-for-licenses).
+* You can use usage-based billing for {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_GHAS %} products, which means you pay monthly for the number of licenses you use. You will not need to buy a predefined number of licenses in advance. See [AUTOTITLE](/billing/concepts/enterprise-billing/usage-based-licenses).
 
   If you did not set up a free trial and you want to use usage-based billing to pay for {% data variables.product.prodname_GHAS %} products after the {% data variables.product.prodname_ghe_cloud %} trial ends, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
 
@@ -95,7 +95,7 @@ If your **trial expires**:
 * Enterprise owners and members retain access to the enterprise account and organizations created during the trial in a downgraded state, allowing you to either upgrade to {% data variables.product.prodname_enterprise %} or move assets elsewhere.
 * You can delete an expired trial to remove people's access to the enterprise and organizations created during the trial.
 
-For more information about the effects of downgrading an organization, see [AUTOTITLE](/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan#downgrading-your-organizations-plan).
+For more information about the effects of downgrading an organization, see [AUTOTITLE](/enterprise-cloud@latest/billing/how-tos/manage-plan-and-licenses/downgrade-plan#downgrading-your-organizations-plan).
 
 ## Ending your trial
 
@@ -119,5 +119,5 @@ You can cancel a trial at any time. Once the trial has expired, you can delete t
 
 ## Further reading
 
-* [AUTOTITLE](/admin/overview/best-practices-for-enterprises)
+* [AUTOTITLE](/admin/concepts/enterprise-best-practices/organize-work)
 * [{% data variables.product.prodname_roadmap %}]({% data variables.product.prodname_roadmap_link %})

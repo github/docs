@@ -18,6 +18,8 @@ category:
 
 You can execute these commands from anywhere on the VM after signing in as an SSH admin user. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh).
 
+All utilities accept `-h` or `--help` to display usage information.
+
 ## General
 
 ### ghe-announce
@@ -76,6 +78,21 @@ $ ghe-aqueduct pause --queue QUEUE
 $ ghe-aqueduct resume --queue QUEUE
 # resumes the specified queue
 ```
+
+### ghe-aqueduct-info
+
+This utility displays the distribution of queued background jobs across queues, along with the jobs currently being processed.
+
+```shell
+ghe-aqueduct-info
+```
+
+You can use the following flags with `ghe-aqueduct-info`.
+
+Flag | Description
+---- | ----------
+`-v/--verbose` | Run in verbose mode.
+`-p/--pretty` | Display in table format.
 
 ### ghe-check-disk-usage
 
@@ -139,6 +156,39 @@ This utility applies {% data variables.enterprise.management_console %} settings
 ```shell
 ghe-config-apply
 ```
+
+### ghe-config-check
+
+This utility validates {% data variables.product.prodname_ghe_server %} configuration files and checks individual options.
+
+```shell
+ghe-config-check
+```
+
+To check a specific file:
+
+```shell
+ghe-config-check /PATH/TO/github.conf
+```
+
+To output results in JSON format:
+
+```shell
+ghe-config-check json
+```
+
+To check specific configuration keys:
+
+```shell
+ghe-config-check github-ssl.
+```
+
+You can use the following flags with `ghe-config-check`.
+
+Flag | Description
+---- | ----------
+`--error-checks-only` | Only run high severity checks that should be treated as blocking errors.
+`--warning-checks-only` | Only run low severity checks that can be treated as warnings.
 
 {% ifversion ghes > 3.18 %}
 
@@ -679,6 +729,106 @@ To show the full hook payload, result, and any exceptions for the delivery:
 ghe-webhook-logs -g DELIVERY_GUID
 ```
 
+### ghe-governor-summary
+
+This utility uses data from `ghe-governor` to display a Git activity summary, including top repositories, users, and IP addresses.
+
+```shell
+ghe-governor-summary
+```
+
+You can use the following flags with `ghe-governor-summary`.
+
+Flag | Description
+---- | ----------
+`-t/--threshold FLOAT` | Only show the activity summary if the number of Git requests per second exceeds the threshold. Defaults to `1.0`.
+`-p/--hours INTEGER` | Specify the time period considered in hours. Defaults to `24`.
+`-r/--show-repos` | Always show top repositories regardless of threshold.
+`-u/--show-users` | Always show top users regardless of threshold.
+`-i/--show-ips` | Always show top IP addresses regardless of threshold.
+
+### ghe-redis-usage
+
+This utility calculates memory usage of keys in Redis.
+
+```shell
+ghe-redis-usage
+```
+
+You can use the following flags with `ghe-redis-usage`.
+
+Flag | Description
+---- | ----------
+`-n/--database N` | Specify the database number.
+`-c/--count` | Count the number of keys instead of calculating size.
+`-s/--summarize` | Display only a total.
+`-H/--human-readable` | Print sizes in human-readable format.
+
+### ghe-snmpv3-add-user
+
+This utility adds a read-only user to the SNMPv3 configuration on {% data variables.location.product_location %}.
+
+```shell
+ghe-snmpv3-add-user -A PASSPHRASE -X PASSPHRASE USERNAME
+```
+
+You can use the following flags with `ghe-snmpv3-add-user`.
+
+Flag | Description
+---- | ----------
+`-A PASSPHRASE` | Set the authentication passphrase. Must be 8 or more characters.
+`-X PASSPHRASE` | Set the encryption passphrase. Must be 8 or more characters. If empty, the authentication passphrase is used.
+`-a MD5\|SHA` | Set the authentication protocol. Defaults to `SHA`.
+`-x DES\|AES` | Set the encryption protocol. Defaults to `AES`.
+
+### ghe-snmpv3-hash-password
+
+This utility hashes a password according to RFC 2574 for use with SNMPv3.
+
+```shell
+ghe-snmpv3-hash-password -s PASSWORD
+```
+
+You can use the following flags with `ghe-snmpv3-hash-password`.
+
+Flag | Description
+---- | ----------
+`-m/--md5` | Hash using the MD5 algorithm.
+`-s/--sha` | Hash using the SHA1 algorithm (default).
+
+### ghe-snmpv3-remove-user
+
+This utility removes a user from the SNMPv3 configuration on {% data variables.location.product_location %}.
+
+```shell
+ghe-snmpv3-remove-user USERNAME
+```
+
+### ghe-ssh-audit-login
+
+This utility retrieves authorized key users and fingerprints for SSH login auditing on {% data variables.location.product_location %}.
+
+```shell
+ghe-ssh-audit-login
+```
+
+You can use the following flags with `ghe-ssh-audit-login`.
+
+Flag | Description
+---- | ----------
+`-a/--all` | Get all authorized key users and fingerprints.
+`-f/--fingerprint FINGERPRINT` | Look up a single fingerprint.
+`-d/--date` | Include last login date.
+`-j/--json` | Output in JSON format.
+
+### ghe-system-info
+
+This utility outputs system information for {% data variables.location.product_location %} in JSON format.
+
+```shell
+ghe-system-info
+```
+
 {% ifversion ghes > 3.21 %}
 
 ## Backup and restore
@@ -747,6 +897,106 @@ To display a short description of the utility and any valid subcommands:
 ghe-cluster-balance help
 ```
 
+### ghe-cluster-block-ip
+
+This utility adds firewall rules on a cluster node that block all traffic to and from a given IP address. Currently only supports IPv4 addresses.
+
+```shell
+ghe-cluster-block-ip IP-ADDRESS
+```
+
+To remove the block, use `ghe-cluster-unblock-ip`.
+
+### ghe-cluster-config-apply
+
+This utility validates your `/data/user/common/cluster.conf` configuration file, copies it to each node in the cluster, and configures each node based on the modified file.
+
+```shell
+ghe-cluster-config-apply
+```
+
+You can use the following flags with `ghe-cluster-config-apply`.
+
+Flag | Description
+---- | ----------
+`-f/--force` | Force all conditional configuration logic to execute.
+
+### ghe-cluster-config-check
+
+This utility validates your cluster configuration file and checks individual options.
+
+```shell
+ghe-cluster-config-check
+```
+
+To check a specific file:
+
+```shell
+ghe-cluster-config-check /PATH/TO/cluster.conf
+```
+
+To output results in JSON format:
+
+```shell
+ghe-cluster-config-check json
+```
+
+### ghe-cluster-config-init
+
+This utility initializes a cluster using the configuration in `/data/user/common/cluster.conf`. SSL must be configured before running this command.
+
+```shell
+ghe-cluster-config-init
+```
+
+### ghe-cluster-diagnostics
+
+This utility iterates over all nodes in the cluster and collects diagnostics output from each node.
+
+```shell
+ghe-cluster-diagnostics
+```
+
+You can use the following flags with `ghe-cluster-diagnostics`.
+
+Flag | Description
+---- | ----------
+`-q/--quiet` | Do not print info messages.
+`-v/--verbose` | Run in verbose mode.
+
+### ghe-cluster-each
+
+This utility iterates over all nodes in the cluster and executes a command in parallel.
+
+```shell
+ghe-cluster-each -- COMMAND
+```
+
+You can use the following flags with `ghe-cluster-each`.
+
+Flag | Description
+---- | ----------
+`-o/--offline` | Try running the command on nodes marked offline.
+`-r/--role ROLE` | Run only on hosts that provide the specified role.
+`-d/--datacenter DC` | Only include nodes within the specified datacenter.
+`--primary` | Return only primary hosts.
+`--replica` | Return only replica hosts.
+`-x/--exclude` | Exclude the local host.
+
+### ghe-cluster-host-check
+
+This utility verifies that all hosts in a cluster are ready to be configured.
+
+```shell
+ghe-cluster-host-check
+```
+
+You can use the following flags with `ghe-cluster-host-check`.
+
+Flag | Description
+---- | ----------
+`-v` | Run with verbose output.
+
 ### ghe-cluster-maintenance
 
 With the `ghe-cluster-maintenance` utility, you can set or unset maintenance mode for every node in a cluster.
@@ -766,6 +1016,28 @@ $ ghe-cluster-maintenance -u
 # Unsets maintenance mode
 ```
 
+### ghe-cluster-nodes
+
+This utility lists nodes in the cluster, with options to filter by role, datacenter, or status.
+
+```shell
+ghe-cluster-nodes
+```
+
+You can use the following flags with `ghe-cluster-nodes`.
+
+Flag | Description
+---- | ----------
+`-o/--offline` | Include offline nodes.
+`-i/--ip` | Return hosts along with IP addresses.
+`-u/--uuid` | Return hosts along with UUIDs.
+`-r/--role ROLE` | Only include nodes with the specified role.
+`-d/--datacenter DC` | Only include nodes within the specified datacenter.
+`--primary` | Return only primary hosts.
+`--replica` | Return only replica hosts.
+`-x/--exclude` | Exclude the local host.
+`--no-cache` | Exclude cache replicas.
+
 ### ghe-cluster-repl-bootstrap
 
 This utility configures high availability replication to a secondary set of cluster nodes. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/configuring-high-availability-replication-for-a-cluster).
@@ -781,6 +1053,29 @@ This utility disables replication to replica nodes for a cluster in a high avail
 ```shell
 ghe-cluster-repl-teardown
 ```
+
+### ghe-cluster-repl-status
+
+This utility displays the replication status for a cluster in a high availability configuration.
+
+```shell
+ghe-cluster-repl-status
+```
+
+### ghe-cluster-set-password
+
+This utility updates the administrator and {% data variables.enterprise.management_console %} password interactively on all cluster nodes.
+
+```shell
+ghe-cluster-set-password
+```
+
+You can use the following flags with `ghe-cluster-set-password`.
+
+Flag | Description
+---- | ----------
+`--sync` | Copy password files to other servers without setting a new password.
+`--clear` | Clear the password for the administrator and {% data variables.enterprise.management_console %} on all servers.
 
 ### ghe-cluster-status
 
@@ -826,6 +1121,14 @@ To send a bundle to {% data variables.contact.github_support %} and associate th
 ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -t TICKET_ID'
 ```
 
+### ghe-cluster-unblock-ip
+
+This utility removes firewall rules from a cluster node that block all traffic to and from a given IP address. Currently only supports IPv4 addresses.
+
+```shell
+ghe-cluster-unblock-ip IP-ADDRESS
+```
+
 ### ghe-cluster-failover
 
 With the `ghe-cluster-failover` utility, you can fail over to your replica cluster. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/initiating-a-failover-to-your-replica-cluster).
@@ -856,28 +1159,32 @@ ghe-dpages evacuate pages-server-UUID
 
 ### ghe-remove-node
 
-This utility removes a node from a cluster. If you're replacing a node, after you've set up a replacement node, you can use this command to take the old node offline. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node).
+This utility removes a node from a cluster{% ifversion ghes > 3.17 %} or an additional node from a high availability (HA) configuration{% endif %}. For a planned replacement of a functional cluster node, set up the replacement node before using this command to remove the old node. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-functional-node).{% ifversion ghes > 3.17 %} For the required HA checks and verification steps, see [Removing an additional node](/admin/monitoring-and-managing-your-instance/additional-nodes/configuring-additional-nodes#removing-an-additional-node).{% endif %}
 
-You must run this command from the primary MySQL node in your cluster, which is typically the node designated as `mysql-master` in your cluster configuration file (`cluster.conf`). You can use this command to remove any node, with the exception of the `mysql-master` or `redis-master` node. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/initializing-the-cluster#about-the-cluster-configuration-file).
+Before using this command for a planned removal, install the latest patch release for your feature release on every node. Every node must run the same exact release. Wait for any upgrade or configuration run to finish before starting removal. For emergency replacement of an unavailable cluster node, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency).
+
+You must run this command from the primary MySQL node, which is typically the node designated as `mysql-master` in the cluster configuration file (`cluster.conf`).{% ifversion ghes > 3.17 %} In an HA configuration, run the command from the HA primary.{% endif %} You cannot remove the `mysql-master` or `redis-master` node. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/initializing-the-cluster#about-the-cluster-configuration-file).
 
 ```shell
 ghe-remove-node HOSTNAME
 ```
 
 The command does the following things:
-* Evacuates data from any data services running on the node, so that the remaining nodes in your cluster contain copies of the data
-* Marks the node as offline in your configuration, applies this change to the rest of the nodes in the cluster, and stops traffic being routed to the node
+
+* Evacuates data from any data services running on the node, so that the remaining nodes contain copies of the data
+* Drains workloads from the node
+* Removes the node from the configuration.{% ifversion ghes > 3.17 %} If another non-primary node remains, the command runs `ghe-config-apply` and stops routing traffic to the removed node. If no non-primary node remains, the command removes cluster metadata and converts the primary to a standalone instance without running `ghe-config-apply`.{% else %} The command runs `ghe-config-apply` and stops routing traffic to the removed node.{% endif %}
 
 You can run the command with the following flags.
 
 Flag | Description
 ---- | ----------
-`-ne/--no-evacuate` | Skips evacuation of data services (warning: may result in data loss).
+`-ne/--no-evacuate` | Marks the node offline in the configuration instead of removing it, and skips evacuation of data services (warning: may result in data loss).
 `-v/--verbose` | Prints additional information to the console.
-`-h/--help` | Displays help text for the command.
 
 > [!NOTE]
-> * This command can only be used to remove a node from a cluster configuration. It cannot be used to remove a node from a high availability configuration.
+> {% ifversion ghes > 3.17 %}* In an HA configuration, you can use this command to remove an additional node. You cannot use it to remove the HA primary or a replica.{% endif %}
+> * The target node must report `ready` in `nomad node status` to complete removal. The `--no-evacuate` flag does not remove an offline node from the configuration.
 > * This command does not support parallel execution. To remove multiple nodes, you must wait until this command has finished before running it for another node.
 
 ### ghe-spokesctl
@@ -1083,6 +1390,81 @@ If your system is configured correctly, you'll see the following output:
 Actions was enabled!
 ```
 
+### ghe-actions-cache-disable
+
+This utility disables the {% data variables.product.prodname_actions %} cache service on {% data variables.location.product_location %} and stops the associated jobs.
+
+```shell
+ghe-actions-cache-disable
+```
+
+You can use the following flags with `ghe-actions-cache-disable`.
+
+Flag | Description
+---- | ----------
+`-y/--yes` | Skip the warning prompt.
+`-f/--force` | Ignore the current state of the service.
+
+### ghe-actions-cache-enable
+
+This utility enables the {% data variables.product.prodname_actions %} cache service on {% data variables.location.product_location %} and starts the associated jobs.
+
+```shell
+ghe-actions-cache-enable
+```
+
+You can use the following flags with `ghe-actions-cache-enable`.
+
+Flag | Description
+---- | ----------
+`-y/--yes` | Skip the warning prompt.
+`-f/--force` | Ignore the current state of the service.
+
+### ghe-actions-check-connectivity
+
+This utility checks network connectivity between {% data variables.product.prodname_actions %} services on {% data variables.location.product_location %}.
+
+```shell
+ghe-actions-check-connectivity
+```
+
+You can use the following flags with `ghe-actions-check-connectivity`.
+
+Flag | Description
+---- | ----------
+`-s/--source` | The name of the source service (`actions`, `mps`, `token`, `artifactcache`). Defaults to `token`.
+`-t/--target` | The name of the target service (`actions`, `mps`, `token`, `artifactcache`). Defaults to `mps`.
+
+{% ifversion ghes > 3.19 %}
+
+### ghe-actions-diagnostics
+
+This utility collects diagnostic information specific to {% data variables.product.prodname_actions %} on {% data variables.location.product_location %} that you can send to {% data variables.contact.github_support %} to help investigate issues.
+
+```shell
+ghe-actions-diagnostics
+```
+
+{% endif %}
+
+### ghe-actions-dump
+
+This utility creates a dump of {% data variables.product.prodname_actions %} services on {% data variables.location.product_location %}. You can also use this command to upload the dump directly to {% data variables.contact.github_support %}.
+
+```shell
+ghe-actions-dump
+```
+
+You can use the following flags with `ghe-actions-dump`.
+
+Flag | Description
+---- | ----------
+`-u/--upload` | Upload the bundle to {% data variables.contact.github_support %}.
+`-t/--ticket` | Upload the bundle to {% data variables.contact.github_support %} with a ticket ID.
+`-s/--service` | The service name (`actions`, `mps`, `token`, `artifactcache`, `launch-deployer`, `launch-receiver`, `launch-worker`, or `launch-hydro-consumer`). Defaults to `actions`.
+`-r/--role` | Role (`frontend`, `backend`, `none`). Defaults to `frontend`.
+`-y/--yes` | Skip the warning prompt.
+
 ## {% data variables.product.prodname_registry %}
 
 ### ghe-check-blob-connection
@@ -1104,6 +1486,22 @@ If your system is configured correctly, you'll see the following output:
 ```shell
 All Storage tests passed
 ```
+
+### ghe-packages-precheck
+
+This utility checks that a blob storage provider for {% data variables.product.prodname_registry %} is valid on {% data variables.location.product_location %}. Use this to verify your storage configuration before enabling {% data variables.product.prodname_registry %}.
+
+```shell
+ghe-packages-precheck -p PROVIDER -cs "CONNECTION-STRING"
+```
+
+You can use the following flags with `ghe-packages-precheck`.
+
+Flag | Description
+---- | ----------
+`-p/--provider` | The name of the storage provider (`Azure`, `S3`, or `MinIO`). Defaults to `S3`.
+`-cs/--connection-string` | The connection string to the storage provider.
+`-cn/--container-name` | The Azure container name to use.
 
 ## High availability
 
@@ -1191,6 +1589,26 @@ ghe-repl-teardown
 ### ghe-repl-stop-all
 
 This utility disables replication of all datastores on all replica nodes. Run this utility from the primary node before upgrading replicas. For more information, see [AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/upgrading-with-an-upgrade-package).
+
+### ghe-repl-node
+
+This utility manages node-specific replication settings, including enabling active-replica mode, configuring cache servers, and setting datacenter assignments.
+
+```shell
+ghe-repl-node
+```
+
+You can use the following flags with `ghe-repl-node`.
+
+Flag | Description
+---- | ----------
+`-a/--active` | Enable the active-replica setting on this node.
+`-i/--inactive` | Disable the active-replica setting on this node.
+`-c/--cache LOCATION` | Make this node a cache server and set its location.
+`--cache-domain DOMAIN` | Set the external domain name for the cache location (requires `--cache`).
+`-d/--datacenter DATACENTER` | Set the datacenter for this node.
+`--default-datacenter` | Reset the datacenter to the default value.
+`-v/--verbose` | Run with verbose output.
 
 ### ghe-repl-start-all
 
@@ -1327,6 +1745,23 @@ Currently, this utility's output is similar to downloading the diagnostics info 
 
 ```shell
 ghe-diagnostics
+```
+
+### ghe-diagnostics-io
+
+This utility gathers an I/O diagnostics bundle from {% data variables.location.product_location %}. The bundle includes disk I/O performance data that can help {% data variables.contact.github_support %} investigate storage-related issues.
+
+> [!TIP]
+> {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
+
+```shell
+ghe-diagnostics-io
+```
+
+You can optionally specify a timeout in seconds for data collection. Defaults to 120 seconds.
+
+```shell
+ghe-diagnostics-io TIMEOUT
 ```
 
 ### ghe-support-bundle
@@ -1554,3 +1989,129 @@ This utility unsuspends the specified user, granting them access to login, push,
 ```shell
 ghe-user-unsuspend USERNAME
 ```
+
+## Database and storage
+
+
+{% ifversion ghes > 3.17 %}
+
+### ghe-elasticsearch-watermarks
+
+This utility configures Elasticsearch disk watermark settings via API. This is an emergency break-glass solution that allows modification of watermark settings without requiring a configuration run.
+
+> [!TIP]
+> {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
+
+To set watermark percentages:
+
+```shell
+ghe-elasticsearch-watermarks set LOW-PERCENT HIGH-PERCENT
+```
+
+To remove all watermark settings and use defaults:
+
+```shell
+ghe-elasticsearch-watermarks remove
+```
+
+To show current watermark settings:
+
+```shell
+ghe-elasticsearch-watermarks status
+```
+
+{% endif %}
+
+{% ifversion ghes > 3.20 %}
+
+### ghe-es-repair-status
+
+This utility displays the status of Elasticsearch search index repair operations on {% data variables.location.product_location %}.
+
+```shell
+ghe-es-repair-status
+```
+
+{% endif %}
+
+### ghe-es-usage
+
+This utility calculates disk usage of indices in Elasticsearch on {% data variables.location.product_location %}.
+
+```shell
+ghe-es-usage
+```
+
+You can use the following flags with `ghe-es-usage`.
+
+Flag | Description
+---- | ----------
+`-s/--summarize` | Display only a total.
+`-H/--human-readable` | Print sizes in human-readable format.
+
+
+### ghe-mssql-console
+
+This utility opens a Microsoft SQL Server database session on {% data variables.location.product_location %}. The MSSQL database is used by {% data variables.product.prodname_actions %} services.
+
+> [!NOTE]
+> {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
+
+```shell
+ghe-mssql-console
+```
+
+You can use the following flags with `ghe-mssql-console`.
+
+Flag | Description
+---- | ----------
+`-p/--primary` | Connect to the primary MSSQL instance.
+`-q/--query` | The string query to execute.
+`-i/--input` | Input script file to execute.
+`-n/--no-headers` | Do not display column headers.
+`-r/--read-only` | Read-only mode for connecting to read-only replicas.
+`-y/--yes` | Skip the warning prompt.
+
+### ghe-mssql-diagnostics
+
+This utility displays diagnostic information for Microsoft SQL Server to help {% data variables.contact.github_support %} investigate {% data variables.product.prodname_actions %} issues.
+
+> [!NOTE]
+> {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
+
+```shell
+ghe-mssql-diagnostics
+```
+
+### ghe-mssql-health-check
+
+This utility runs checks on the state of the Microsoft SQL Server instance on {% data variables.location.product_location %}, including backups and transaction logs.
+
+```shell
+ghe-mssql-health-check
+```
+
+
+## Dependencies
+
+### ghe-dep-graph-enable
+
+This utility enables the Dependency Graph service on {% data variables.location.product_location %}.
+
+```shell
+ghe-dep-graph-enable
+```
+
+## Monitoring
+
+{% ifversion ghes > 3.17 %}
+
+### ghe-otelcol-validate
+
+This utility validates the OpenTelemetry Collector configuration file on {% data variables.location.product_location %}.
+
+```shell
+ghe-otelcol-validate
+```
+
+{% endif %}

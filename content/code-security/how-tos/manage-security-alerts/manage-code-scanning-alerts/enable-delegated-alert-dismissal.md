@@ -33,7 +33,7 @@ You must configure delegated dismissal for your organization using a custom secu
 {% data reusables.security-configurations.custom-security-configurations-org %}
 1. When creating the custom security configuration, under "{% data variables.product.prodname_code_scanning_caps %}", set "Prevent direct alert dismissals" to **Enabled**.
 1. Click **Save configuration**.
-1. Apply the security configuration to all (or selected) repositories in your organization. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration).
+1. Apply the security configuration to all (or selected) repositories in your organization. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/apply-custom-configuration).
 
 ## Configuring delegated dismissal for an enterprise
 
@@ -42,10 +42,10 @@ You must configure delegated dismissal for your enterprise using a custom securi
 {% data reusables.security-configurations.custom-security-configurations-enterprise %}
 1. When creating the custom security configuration, under "{% data variables.product.prodname_code_scanning %}", ensure that the dropdown menu for "Prevent direct alert dismissals" is set to **Enabled**.
 1. Click **Save configuration**.
-1. Apply the security configuration to all (or selected) repositories in your enterprise. See [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/applying-a-custom-security-configuration-to-your-enterprise).
+1. Apply the security configuration to all (or selected) repositories in your enterprise. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/apply-custom-configuration).
 
-To learn more about security configurations, see [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale).
+To learn more about security configurations, see [AUTOTITLE](/code-security/concepts/security-at-scale/organization-security).
 
 ## Next steps
 
-Now that you have enabled delegated alert dismissal for {% data variables.product.prodname_code_scanning %}, you should regularly review alert dismissal requests to maintain an accurate alert count and unblock your developers. See [AUTOTITLE](/code-security/security-overview/review-alert-dismissal-requests).
+Now that you have enabled delegated alert dismissal for {% data variables.product.prodname_code_scanning %}, you should regularly review alert dismissal requests to maintain an accurate alert count and unblock your developers. See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/review-alert-dismissal-requests).

@@ -15,7 +15,10 @@ const {
   contentFilesToEnglishUrls,
   hardPurgeUrls,
   rateLimitDelayMs,
+  PURGEABLE_PAGE_VERSIONS,
 } = await import('../purge-fastly-changed-content')
+
+const { latest: latestGhes } = await import('@/versions/lib/enterprise-server-releases')
 
 afterEach(() => {
   vi.clearAllMocks()
@@ -147,6 +150,22 @@ describe('contentFilesToEnglishUrls', () => {
       () => [],
     )
     expect(urls).toEqual([])
+  })
+})
+
+describe('PURGEABLE_PAGE_VERSIONS', () => {
+  test('is only the latest release of each plan (fpt, ghec, latest ghes)', () => {
+    expect([...PURGEABLE_PAGE_VERSIONS].sort()).toEqual(
+      ['free-pro-team@latest', 'enterprise-cloud@latest', `enterprise-server@${latestGhes}`].sort(),
+    )
+  })
+
+  test('excludes older, still-supported GHES releases', () => {
+    for (const version of PURGEABLE_PAGE_VERSIONS) {
+      if (version.startsWith('enterprise-server@')) {
+        expect(version).toBe(`enterprise-server@${latestGhes}`)
+      }
+    }
   })
 })
 

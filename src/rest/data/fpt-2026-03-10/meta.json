@@ -302,6 +302,9 @@
               "copilot": [
                 "192.0.2.1"
               ],
+              "commit_signing_keys": [
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+              ],
               "domains": {
                 "website": [
                   "*.example.com"
@@ -421,6 +424,12 @@
                   }
                 },
                 "copilot": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "commit_signing_keys": {
                   "type": "array",
                   "items": {
                     "type": "string"

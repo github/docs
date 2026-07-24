@@ -45,15 +45,6 @@ jobs:
 
       - uses: ./.github/actions/node-npm-setup
 
-      - name: Generate GitHub App token
-        id: app-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
-          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
-          owner: github
-          repositories: docs-internal,copilot-cli-generated-docs,docs-engineering
-
       - name: Install Copilot CLI
         run: npm install -g @github/copilot@prerelease
 
@@ -101,7 +92,7 @@ jobs:
 
       - name: Run content pipeline update script
         env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COPILOT_GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_COPILOT }}
         run: npx tsx src/content-pipelines/scripts/update.ts --id "${{ matrix.id }}"
@@ -149,7 +140,7 @@ jobs:
       - name: Create or update PR
         if: steps.commit.outputs.has_changes == 'true'
         env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           UPDATE_BRANCH: ${{ steps.branch.outputs.update_branch }}
           PIPELINE_ID: ${{ matrix.id }}
           SOURCE_REPO: ${{ steps.source-info.outputs.source_repo }}
@@ -204,4 +195,4 @@ jobs:
       - uses: ./.github/actions/create-workflow-failure-issue
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}

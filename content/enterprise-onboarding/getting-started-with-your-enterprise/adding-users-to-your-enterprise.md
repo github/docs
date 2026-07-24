@@ -51,4 +51,4 @@ To get started, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/unde
 
 ## Next steps
 
-Learn about how billing will work when your trial ends. See [AUTOTITLE](/enterprise-onboarding/getting-started-with-your-enterprise/about-enterprise-billing).
+Learn about how billing will work when your trial ends. See [AUTOTITLE](/billing/concepts/enterprise-billing/billing-for-enterprises).

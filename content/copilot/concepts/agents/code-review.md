@@ -160,6 +160,8 @@ When {% data variables.copilot.copilot_code-review_short %} is enabled for these
 
 If your repository includes agent skills, {% data variables.copilot.copilot_code-review_short %} can automatically use relevant skills when reviewing a pull request, extending {% data variables.product.prodname_copilot_short %} beyond its built-in analysis.
 
+{% data reusables.copilot.code-review.custom-instructions-branch %}
+
 For setup details, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills).
 
 ### MCP servers
@@ -230,9 +232,18 @@ For full instructions, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up
 > [!NOTE]
 > Unless {% data variables.product.prodname_copilot_short %} has been configured to review each push to a pull request, it will only review a pull request once. If you make changes to the pull request after it has been automatically reviewed and you want {% data variables.product.prodname_copilot_short %} to re-review it, you can request this manually. Click the {% octicon "sync" aria-label="Re-request review" %} button next to {% data variables.product.prodname_copilot_short %}'s name in the **Reviewers** menu.
 
-## Getting detailed code quality feedback for your whole repository
+## Getting detailed code quality feedback across your repository
 
-{% data variables.copilot.copilot_code-review %} reviews your code in pull requests and provides feedback. If you want actionable feedback on the reliability and maintainability of your whole repository, enable {% data variables.product.prodname_code_quality %}. See [AUTOTITLE](/code-security/concepts/about-code-quality).
+{% data variables.copilot.copilot_code-review %} reviews the changes in a pull request and suggests fixes. To add systematic feedback on the reliability and maintainability of your code, on pull requests and across your default branch, enable {% data variables.product.prodname_code_quality %}.
+
+{% data variables.product.prodname_code_quality %} complements {% data variables.copilot.copilot_code-review_short %} by adding:
+
+* **Hybrid detection** that combines rules-based {% data variables.product.prodname_codeql %} analysis with AI-powered analysis, on pull requests and on your default branch.
+* **Test-coverage metrics** on pull requests, so you can see whether a change maintains or reduces coverage.
+* **One-click, {% data variables.product.prodname_copilot_short %}-powered fixes**, including delegating remediation to {% data variables.copilot.copilot_cloud_agent %}.
+* **Optional merge gating** with rulesets, so pull requests with unresolved rules-based findings (or that miss a coverage threshold) can be blocked from merging.
+
+For more information, see [AUTOTITLE](/code-security/concepts/code-quality/code-quality).
 
 ## Further reading
 

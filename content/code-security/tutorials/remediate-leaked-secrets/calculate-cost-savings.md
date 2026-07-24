@@ -23,11 +23,11 @@ You can use the {% data variables.secret-scanning.roi-calculator %} to estimate 
 * Compare the estimated impact of push protection in different teams or environments.
 * Communicate time and cost implications of rollout decisions to stakeholders.
 
-Push protection is a paid feature which is available with {% data variables.product.prodname_GH_secret_protection %}. For more information, see [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/choosing-github-secret-protection).
+Push protection is a paid feature which is available with {% data variables.product.prodname_GH_secret_protection %}. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/protect-your-secrets).
 
 ## Prerequisites
 
-* You need to have generated a secret risk assessment for your organization. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/viewing-the-secret-risk-assessment-report-for-your-organization).
+* You need to have generated a secret risk assessment for your organization. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/viewing-your-security-risk-assessment-reports).
 * You have realistic values for:
   * Average remediation time per leaked secret (hours)
   * Average annual developer salary (USD)

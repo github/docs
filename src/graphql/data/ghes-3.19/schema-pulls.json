@@ -3904,7 +3904,7 @@
               "type": {
                 "name": "[PullRequestTimelineItemsItemType!]",
                 "id": "pullrequesttimelineitemsitemtype",
-                "href": "/graphql/reference/other#enum-pullrequesttimelineitemsitemtype"
+                "href": "/graphql/reference/pulls#enum-pullrequesttimelineitemsitemtype"
               }
             },
             {
@@ -7527,6 +7527,291 @@
         {
           "name": "OPEN",
           "description": "<p>A pull request that is still open.</p>"
+        }
+      ],
+      "category": "pulls"
+    },
+    {
+      "name": "PullRequestTimelineItemsItemType",
+      "id": "pullrequesttimelineitemsitemtype",
+      "href": "/graphql/reference/pulls#enum-pullrequesttimelineitemsitemtype",
+      "description": "<p>The possible item types found in a timeline.</p>",
+      "values": [
+        {
+          "name": "ADDED_TO_MERGE_QUEUE_EVENT",
+          "description": "<p>Represents an<code>added_to_merge_queue</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "ADDED_TO_PROJECT_EVENT",
+          "description": "<p>Represents a<code>added_to_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "ASSIGNED_EVENT",
+          "description": "<p>Represents an<code>assigned</code>event on any assignable object.</p>"
+        },
+        {
+          "name": "AUTOMATIC_BASE_CHANGE_FAILED_EVENT",
+          "description": "<p>Represents a<code>automatic_base_change_failed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTOMATIC_BASE_CHANGE_SUCCEEDED_EVENT",
+          "description": "<p>Represents a<code>automatic_base_change_succeeded</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_MERGE_DISABLED_EVENT",
+          "description": "<p>Represents a<code>auto_merge_disabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_MERGE_ENABLED_EVENT",
+          "description": "<p>Represents a<code>auto_merge_enabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_REBASE_ENABLED_EVENT",
+          "description": "<p>Represents a<code>auto_rebase_enabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_SQUASH_ENABLED_EVENT",
+          "description": "<p>Represents a<code>auto_squash_enabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "BASE_REF_CHANGED_EVENT",
+          "description": "<p>Represents a<code>base_ref_changed</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "BASE_REF_DELETED_EVENT",
+          "description": "<p>Represents a<code>base_ref_deleted</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "BASE_REF_FORCE_PUSHED_EVENT",
+          "description": "<p>Represents a<code>base_ref_force_pushed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "BLOCKED_BY_ADDED_EVENT",
+          "description": "<p>Represents a<code>blocked_by_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKED_BY_REMOVED_EVENT",
+          "description": "<p>Represents a<code>blocked_by_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_ADDED_EVENT",
+          "description": "<p>Represents a<code>blocking_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_REMOVED_EVENT",
+          "description": "<p>Represents a<code>blocking_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "CLOSED_EVENT",
+          "description": "<p>Represents a<code>closed</code>event on any <code>Closable</code>.</p>"
+        },
+        {
+          "name": "COMMENT_DELETED_EVENT",
+          "description": "<p>Represents a<code>comment_deleted</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONNECTED_EVENT",
+          "description": "<p>Represents a<code>connected</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_NOTE_TO_ISSUE_EVENT",
+          "description": "<p>Represents a<code>converted_note_to_issue</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_TO_DISCUSSION_EVENT",
+          "description": "<p>Represents a<code>converted_to_discussion</code>event on a given issue.</p>"
+        },
+        {
+          "name": "CONVERT_TO_DRAFT_EVENT",
+          "description": "<p>Represents a<code>convert_to_draft</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "CROSS_REFERENCED_EVENT",
+          "description": "<p>Represents a mention made by one issue or pull request to another.</p>"
+        },
+        {
+          "name": "DEMILESTONED_EVENT",
+          "description": "<p>Represents a<code>demilestoned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "DEPLOYED_EVENT",
+          "description": "<p>Represents a<code>deployed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "DEPLOYMENT_ENVIRONMENT_CHANGED_EVENT",
+          "description": "<p>Represents a<code>deployment_environment_changed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "DISCONNECTED_EVENT",
+          "description": "<p>Represents a<code>disconnected</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "HEAD_REF_DELETED_EVENT",
+          "description": "<p>Represents a<code>head_ref_deleted</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "HEAD_REF_FORCE_PUSHED_EVENT",
+          "description": "<p>Represents a<code>head_ref_force_pushed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "HEAD_REF_RESTORED_EVENT",
+          "description": "<p>Represents a<code>head_ref_restored</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT",
+          "description": "<p>Represents a comment on an Issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_ADDED_EVENT",
+          "description": "<p>Represents a<code>issue_type_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_CHANGED_EVENT",
+          "description": "<p>Represents a<code>issue_type_changed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>issue_type_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "LABELED_EVENT",
+          "description": "<p>Represents a<code>labeled</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "LOCKED_EVENT",
+          "description": "<p>Represents a<code>locked</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MARKED_AS_DUPLICATE_EVENT",
+          "description": "<p>Represents a<code>marked_as_duplicate</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MENTIONED_EVENT",
+          "description": "<p>Represents a<code>mentioned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MERGED_EVENT",
+          "description": "<p>Represents a<code>merged</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "MILESTONED_EVENT",
+          "description": "<p>Represents a<code>milestoned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MOVED_COLUMNS_IN_PROJECT_EVENT",
+          "description": "<p>Represents a<code>moved_columns_in_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "PARENT_ISSUE_ADDED_EVENT",
+          "description": "<p>Represents a<code>parent_issue_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "PARENT_ISSUE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>parent_issue_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "PINNED_EVENT",
+          "description": "<p>Represents a<code>pinned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "PULL_REQUEST_COMMIT",
+          "description": "<p>Represents a Git commit part of a pull request.</p>"
+        },
+        {
+          "name": "PULL_REQUEST_COMMIT_COMMENT_THREAD",
+          "description": "<p>Represents a commit comment thread part of a pull request.</p>"
+        },
+        {
+          "name": "PULL_REQUEST_REVIEW",
+          "description": "<p>A review object for a given pull request.</p>"
+        },
+        {
+          "name": "PULL_REQUEST_REVIEW_THREAD",
+          "description": "<p>A threaded list of comments for a given pull request.</p>"
+        },
+        {
+          "name": "PULL_REQUEST_REVISION_MARKER",
+          "description": "<p>Represents the latest point in the pull request timeline for which the viewer has seen the pull request's commits.</p>"
+        },
+        {
+          "name": "READY_FOR_REVIEW_EVENT",
+          "description": "<p>Represents a<code>ready_for_review</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "REFERENCED_EVENT",
+          "description": "<p>Represents a<code>referenced</code>event on a given <code>ReferencedSubject</code>.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_MERGE_QUEUE_EVENT",
+          "description": "<p>Represents a<code>removed_from_merge_queue</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_PROJECT_EVENT",
+          "description": "<p>Represents a<code>removed_from_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "RENAMED_TITLE_EVENT",
+          "description": "<p>Represents a<code>renamed</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REOPENED_EVENT",
+          "description": "<p>Represents a<code>reopened</code>event on any <code>Closable</code>.</p>"
+        },
+        {
+          "name": "REVIEW_DISMISSED_EVENT",
+          "description": "<p>Represents a<code>review_dismissed</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REVIEW_REQUESTED_EVENT",
+          "description": "<p>Represents an<code>review_requested</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "REVIEW_REQUEST_REMOVED_EVENT",
+          "description": "<p>Represents an<code>review_request_removed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "SUBSCRIBED_EVENT",
+          "description": "<p>Represents a<code>subscribed</code>event on a given <code>Subscribable</code>.</p>"
+        },
+        {
+          "name": "SUB_ISSUE_ADDED_EVENT",
+          "description": "<p>Represents a<code>sub_issue_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "SUB_ISSUE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>sub_issue_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "TRANSFERRED_EVENT",
+          "description": "<p>Represents a<code>transferred</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNASSIGNED_EVENT",
+          "description": "<p>Represents an<code>unassigned</code>event on any assignable object.</p>"
+        },
+        {
+          "name": "UNLABELED_EVENT",
+          "description": "<p>Represents an<code>unlabeled</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNLOCKED_EVENT",
+          "description": "<p>Represents an<code>unlocked</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNMARKED_AS_DUPLICATE_EVENT",
+          "description": "<p>Represents an<code>unmarked_as_duplicate</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNPINNED_EVENT",
+          "description": "<p>Represents an<code>unpinned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNSUBSCRIBED_EVENT",
+          "description": "<p>Represents an<code>unsubscribed</code>event on a given <code>Subscribable</code>.</p>"
+        },
+        {
+          "name": "USER_BLOCKED_EVENT",
+          "description": "<p>Represents a<code>user_blocked</code>event on a given user.</p>"
         }
       ],
       "category": "pulls"

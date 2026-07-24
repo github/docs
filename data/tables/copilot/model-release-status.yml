@@ -111,6 +111,10 @@
   provider: 'Google'
   release_status: 'GA'
 
+- name: 'Gemini 3.6 Flash'
+  provider: 'Google'
+  release_status: 'GA'
+
 # Microsoft models
 - name: 'MAI-Code-1-Flash'
   provider: 'Microsoft'

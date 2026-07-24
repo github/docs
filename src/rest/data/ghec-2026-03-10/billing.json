@@ -1808,14 +1808,14 @@
                               "number",
                               "null"
                             ],
-                            "description": "The AI credit pool cap target amount, in dollars. Null when the cap budget has not been materialized yet."
+                            "description": "The AI credit pool cap target amount, in AI Credits. Null when the cap budget has not been materialized yet."
                           },
                           "current_amount": {
                             "type": [
                               "number",
                               "null"
                             ],
-                            "description": "The current-month applied amount against the AI credit pool cap, in dollars. Null when the cap budget has not been materialized yet."
+                            "description": "The current-month applied amount against the AI credit pool cap, in AI Credits. Null when the cap budget has not been materialized yet."
                           }
                         }
                       },
@@ -1997,14 +1997,14 @@
                         "number",
                         "null"
                       ],
-                      "description": "The AI credit pool cap target amount, in dollars. Null when the cap budget has not been materialized yet."
+                      "description": "The AI credit pool cap target amount, in AI Credits. Null when the cap budget has not been materialized yet."
                     },
                     "current_amount": {
                       "type": [
                         "number",
                         "null"
                       ],
-                      "description": "The current-month applied amount against the AI credit pool cap, in dollars. Null when the cap budget has not been materialized yet."
+                      "description": "The current-month applied amount against the AI credit pool cap, in AI Credits. Null when the cap budget has not been materialized yet."
                     }
                   }
                 }
@@ -2184,14 +2184,14 @@
                         "number",
                         "null"
                       ],
-                      "description": "The AI credit pool cap target amount, in dollars. Null when the cap budget has not been materialized yet."
+                      "description": "The AI credit pool cap target amount, in AI Credits. Null when the cap budget has not been materialized yet."
                     },
                     "current_amount": {
                       "type": [
                         "number",
                         "null"
                       ],
-                      "description": "The current-month applied amount against the AI credit pool cap, in dollars. Null when the cap budget has not been materialized yet."
+                      "description": "The current-month applied amount against the AI credit pool cap, in AI Credits. Null when the cap budget has not been materialized yet."
                     }
                   }
                 }
@@ -2374,14 +2374,14 @@
                         "number",
                         "null"
                       ],
-                      "description": "The AI credit pool cap target amount, in dollars. Null when the cap budget has not been materialized yet."
+                      "description": "The AI credit pool cap target amount, in AI Credits. Null when the cap budget has not been materialized yet."
                     },
                     "current_amount": {
                       "type": [
                         "number",
                         "null"
                       ],
-                      "description": "The current-month applied amount against the AI credit pool cap, in dollars. Null when the cap budget has not been materialized yet."
+                      "description": "The current-month applied amount against the AI credit pool cap, in AI Credits. Null when the cap budget has not been materialized yet."
                     }
                   }
                 }
@@ -2492,14 +2492,14 @@
                         "number",
                         "null"
                       ],
-                      "description": "The AI credit pool cap target amount, in dollars. Null when the cap budget has not been materialized yet."
+                      "description": "The AI credit pool cap target amount, in AI Credits. Null when the cap budget has not been materialized yet."
                     },
                     "current_amount": {
                       "type": [
                         "number",
                         "null"
                       ],
-                      "description": "The current-month applied amount against the AI credit pool cap, in dollars. Null when the cap budget has not been materialized yet."
+                      "description": "The current-month applied amount against the AI credit pool cap, in AI Credits. Null when the cap budget has not been materialized yet."
                     }
                   }
                 }

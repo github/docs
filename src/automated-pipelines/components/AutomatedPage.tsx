@@ -73,28 +73,30 @@ export const AutomatedPage = ({ children, rawChildren, fullWidth }: Props) => {
             {articleContents}
           </ArticleInlineLayout>
           {isJourneyTrack ? (
-            <div className="container-lg mt-4 px-3">
+            <div className="width-full mt-4">
               <JourneyTrackNav context={currentJourneyTrack} />
             </div>
           ) : null}
         </>
       ) : (
-        <div className="container-xl px-3 px-md-6 my-4">
-          <ArticleGridLayout
-            fullWidth={fullWidth}
-            topper={<ArticleTitle>{title}</ArticleTitle>}
-            intro={introProp}
-            toc={toc}
-          >
-            {articleContents}
-          </ArticleGridLayout>
+        <>
+          <div className="container-xl px-3 px-md-6 my-4">
+            <ArticleGridLayout
+              fullWidth={fullWidth}
+              topper={<ArticleTitle>{title}</ArticleTitle>}
+              intro={introProp}
+              toc={toc}
+            >
+              {articleContents}
+            </ArticleGridLayout>
+          </div>
 
           {isJourneyTrack ? (
-            <div className="container-lg mt-4 px-3">
+            <div className="width-full mt-4">
               <JourneyTrackNav context={currentJourneyTrack} />
             </div>
           ) : null}
-        </div>
+        </>
       )}
     </DefaultLayout>
   )

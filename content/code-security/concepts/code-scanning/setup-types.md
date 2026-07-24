@@ -34,10 +34,10 @@ After running an initial analysis of your code with default setup, you can make 
 For existing configurations of default setup, you can edit:
 
 * Which languages default setup will analyze.
-* The query suite run during analysis. For more information on the available query suites, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites).
-* The threat models ({% data variables.release-phases.public_preview %}) to use for analysis. Your choice of threat model determines which sources of tainted data are treated as a risk to your application. During the {% data variables.release-phases.public_preview %}, threat models are supported only for analysis of {% data variables.code-scanning.code_scanning_threat_model_support %}. For more information about threat models, see [Including local sources of tainted data in default setup](/code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/editing-your-configuration-of-default-setup#including-local-sources-of-tainted-data-in-default-setup).
+* The query suite run during analysis. For more information on the available query suites, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/codeql-query-suites).
+* The threat models ({% data variables.release-phases.public_preview %}) to use for analysis. Your choice of threat model determines which sources of tainted data are treated as a risk to your application. During the {% data variables.release-phases.public_preview %}, threat models are supported only for analysis of {% data variables.code-scanning.code_scanning_threat_model_support %}. For more information about threat models, see [Including local sources of tainted data in default setup](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/edit-default-setup#including-local-sources-of-tainted-data-in-default-setup).
 
-If your codebase depends on a library or framework that is not recognized by the standard libraries included with {% data variables.product.prodname_codeql %}, you can also extend the {% data variables.product.prodname_codeql %} coverage in default setup using {% data variables.product.prodname_codeql %} model packs. For more information, see [Extending CodeQL coverage with CodeQL model packs in default setup](/code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/editing-your-configuration-of-default-setup#extending-codeql-coverage-with-codeql-model-packs-in-default-setup).
+If your codebase depends on a library or framework that is not recognized by the standard libraries included with {% data variables.product.prodname_codeql %}, you can also extend the {% data variables.product.prodname_codeql %} coverage in default setup using {% data variables.product.prodname_codeql %} model packs. For more information, see [Extending CodeQL coverage with CodeQL model packs in default setup](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/edit-default-setup#extending-codeql-coverage-with-codeql-model-packs-in-default-setup).
 
 {% ifversion codeql-custom-properties %}
 
@@ -68,14 +68,14 @@ If you need more granular control over your {% data variables.product.prodname_c
 By creating and editing a {% data variables.product.prodname_actions %} workflow file, you can define how to build compiled languages, choose which queries to run, select the languages to scan, use a matrix build, and more. You also have access to all the options for controlling workflows, for example: changing the scan schedule, defining workflow triggers, specifying specialist runners to use.
 
 {% ifversion ghes %}
-Your site administrator can also make third-party actions available to users for {% data variables.product.prodname_code_scanning %}, by setting up {% data variables.product.prodname_github_connect %}. For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#configuring-github-connect-to-sync-github-actions).
+Your site administrator can also make third-party actions available to users for {% data variables.product.prodname_code_scanning %}, by setting up {% data variables.product.prodname_github_connect %}. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configuring-code-scanning-for-your-appliance#configuring-github-connect-to-sync-github-actions).
 {% endif %}
 
 ### With a third-party CI/CD system
 
 As an alternative to running {% data variables.product.prodname_code_scanning %} within {% data variables.product.github %} using {% data variables.product.prodname_actions %}, you can analyze code in an external CI/CD system, then upload the results to {% data variables.product.github %}.
 
-The {% data variables.product.prodname_codeql_cli %} is a standalone, command-line tool that you can use to analyze code. You can add the {% data variables.product.prodname_codeql_cli %} to your third-party system, or use another third-party static analysis tool that can produce results as Static Analysis Results Interchange Format (SARIF) 2.1.0 data. For more information, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/about-the-codeql-cli) and [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning).
+The {% data variables.product.prodname_codeql_cli %} is a standalone, command-line tool that you can use to analyze code. You can add the {% data variables.product.prodname_codeql_cli %} to your third-party system, or use another third-party static analysis tool that can produce results as Static Analysis Results Interchange Format (SARIF) 2.1.0 data. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/codeql-cli) and [AUTOTITLE](/code-security/reference/code-scanning/sarif-files/sarif-support).
 
 Alerts for {% data variables.product.prodname_code_scanning %} that you generate externally are displayed in the same way as those for {% data variables.product.prodname_code_scanning %} that you generate within {% data variables.product.github %}.
 
@@ -83,7 +83,7 @@ Alerts for {% data variables.product.prodname_code_scanning %} that you generate
 
 You can enable default setup for a single repository, multiple repositories, or all repositories in an organization at the same time.
 
-* For a single repository, see [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/configure-code-scanning/configuring-default-setup-for-code-scanning).
-* For bulk enablement, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale).
+* For a single repository, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configure-code-scanning).
+* For bulk enablement, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/code-scanning-at-scale).
 
-To configure advanced setup instead, see [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/configure-code-scanning/configuring-advanced-setup-for-code-scanning).
+To configure advanced setup instead, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configuring-advanced-setup-for-code-scanning).

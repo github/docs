@@ -19,7 +19,7 @@ If you {% ifversion ghec %}use {% data variables.product.prodname_emus %}{% else
 
 Before you deprovision a user, it's important to understand the effects of deprovisioning, which depend on the **type of deprovisioning API call** that {% data variables.product.github %} receives from your identity provider.
 
->[!IMPORTANT] Before reading further, ensure you understand how your enterprise has implemented SCIM. {% data variables.product.company_short %} provides a "paved-path" application if you use a supported identity provider (IdP) for both authentication and provisioning. If you don't use a paved-path application, you will use the REST API to make SCIM requests. See {% ifversion ghec %}[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems){% else %}[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes#supported-identity-providers){% endif %}.
+> [!IMPORTANT] Before reading further, ensure you understand how your enterprise has implemented SCIM. {% data variables.product.company_short %} provides a "paved-path" application if you use a supported identity provider (IdP) for both authentication and provisioning. If you don't use a paved-path application, you will use the REST API to make SCIM requests. See {% ifversion ghec %}[AUTOTITLE](/admin/concepts/identity-and-access-management/enterprise-managed-users#identity-management-systems){% else %}[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes#supported-identity-providers){% endif %}.
 
 ## Types of user deprovisioning
 
@@ -127,7 +127,7 @@ You can reuse the username of the hard-deprovisioned user when provisioning the 
 
 ## Audit log events
 
-The audit log for your enterprise displays details about activity in your enterprise. You can use the audit log to support your configuration of SCIM. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise).
+The audit log for your enterprise displays details about activity in your enterprise. You can use the audit log to support your configuration of SCIM. For more information, see [AUTOTITLE](/admin/concepts/security-and-compliance/audit-log-for-an-enterprise).
 
 > [!IMPORTANT] We strongly recommend that an enterprise owner enables enterprise audit log features such as audit log streaming, source IP disclosure, and the option to stream API requests. Streaming these events allows administrators to set a log retention policy that fits the needs of their business and use their preferred tooling for querying these logs.
 
