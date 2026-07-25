@@ -323,7 +323,100 @@ The following user-teams report examples are returned by the `user-teams-1-day` 
 The following repository-level report example is returned in the NDJSON files downloaded from the `repos-1-day` endpoints. Each row represents one repository with pull request activity on the requested day. Both enterprise- and organization-scoped rows populate `organization_id` (the organization that owns each repository). Enterprise-scoped rows also populate `enterprise_id`, and organization-scoped rows populate `enterprise_id` only for organizations owned by an enterprise. For the field reference, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics#repository-level-fields-api-only).
 
 ```json copy
-{"day":"2026-07-14","enterprise_id":"1001","organization_id":"2002","repo_id":900000001,"repo_owner_name":"octodemo-metrics","repo_name":"example-service-alpha","repo_visibility":"INTERNAL","pull_requests":{"total_reviewed":1,"total_created":1,"total_created_by_copilot":1,"total_reviewed_by_copilot":1,"total_merged":1,"median_minutes_to_merge":372.62,"total_suggestions":0,"total_applied_suggestions":0,"total_merged_created_by_copilot":1,"median_minutes_to_merge_copilot_authored":372.62,"total_copilot_suggestions":0,"total_copilot_applied_suggestions":0,"total_merged_reviewed_by_copilot":1,"median_minutes_to_merge_copilot_reviewed":372.62,"copilot_suggestions_by_comment_type":[]}}
-{"day":"2026-07-14","enterprise_id":"1001","organization_id":"2002","repo_id":900000003,"repo_owner_name":"octodemo-metrics","repo_name":"example-service-gamma","repo_visibility":"INTERNAL","pull_requests":{"total_reviewed":1,"total_created":0,"total_created_by_copilot":0,"total_reviewed_by_copilot":1,"total_merged":1,"median_minutes_to_merge":1020.53,"total_suggestions":0,"total_applied_suggestions":1,"total_merged_created_by_copilot":0,"total_copilot_suggestions":0,"total_copilot_applied_suggestions":1,"total_merged_reviewed_by_copilot":1,"median_minutes_to_merge_copilot_reviewed":1020.53,"copilot_suggestions_by_comment_type":[{"comment_type":"spelling","total_copilot_suggestions":0,"total_copilot_applied_suggestions":1}]}}
-{"day":"2026-07-14","organization_id":"3003","enterprise_id":"","repo_id":900000010,"repo_owner_name":"octodemo-metrics","repo_name":"example-service-delta","repo_visibility":"PRIVATE","pull_requests":{"total_reviewed":1,"total_created":0,"total_created_by_copilot":0,"total_reviewed_by_copilot":1,"total_merged":2,"median_minutes_to_merge":1332.96,"total_suggestions":1,"total_applied_suggestions":2,"total_merged_created_by_copilot":1,"median_minutes_to_merge_copilot_authored":1329.47,"total_copilot_suggestions":1,"total_copilot_applied_suggestions":2,"total_merged_reviewed_by_copilot":2,"median_minutes_to_merge_copilot_reviewed":1332.96,"copilot_suggestions_by_comment_type":[{"comment_type":"documentation","total_copilot_suggestions":1,"total_copilot_applied_suggestions":1},{"comment_type":"spelling","total_copilot_suggestions":0,"total_copilot_applied_suggestions":1}]}}
+[
+  {
+    "day": "2026-07-14",
+    "enterprise_id": "1001",
+    "organization_id": "2002",
+    "repo_id": 900000001,
+    "repo_owner_name": "octodemo-metrics",
+    "repo_name": "example-service-alpha",
+    "repo_visibility": "INTERNAL",
+    "pull_requests": {
+      "total_reviewed": 1,
+      "total_created": 1,
+      "total_created_by_copilot": 1,
+      "total_reviewed_by_copilot": 1,
+      "total_merged": 1,
+      "median_minutes_to_merge": 372.62,
+      "total_suggestions": 0,
+      "total_applied_suggestions": 0,
+      "total_merged_created_by_copilot": 1,
+      "median_minutes_to_merge_copilot_authored": 372.62,
+      "total_copilot_suggestions": 0,
+      "total_copilot_applied_suggestions": 0,
+      "total_merged_reviewed_by_copilot": 1,
+      "median_minutes_to_merge_copilot_reviewed": 372.62,
+      "copilot_suggestions_by_comment_type": []
+    }
+  },
+  {
+    "day": "2026-07-14",
+    "enterprise_id": "1001",
+    "organization_id": "2002",
+    "repo_id": 900000003,
+    "repo_owner_name": "octodemo-metrics",
+    "repo_name": "example-service-gamma",
+    "repo_visibility": "INTERNAL",
+    "pull_requests": {
+      "total_reviewed": 1,
+      "total_created": 0,
+      "total_created_by_copilot": 0,
+      "total_reviewed_by_copilot": 1,
+      "total_merged": 1,
+      "median_minutes_to_merge": 1020.53,
+      "total_suggestions": 0,
+      "total_applied_suggestions": 1,
+      "total_merged_created_by_copilot": 0,
+      "total_copilot_suggestions": 0,
+      "total_copilot_applied_suggestions": 1,
+      "total_merged_reviewed_by_copilot": 1,
+      "median_minutes_to_merge_copilot_reviewed": 1020.53,
+      "copilot_suggestions_by_comment_type": [
+        {
+          "comment_type": "spelling",
+          "total_copilot_suggestions": 0,
+          "total_copilot_applied_suggestions": 1
+        }
+      ]
+    }
+  },
+  {
+    "day": "2026-07-14",
+    "organization_id": "3003",
+    "enterprise_id": "",
+    "repo_id": 900000010,
+    "repo_owner_name": "octodemo-metrics",
+    "repo_name": "example-service-delta",
+    "repo_visibility": "PRIVATE",
+    "pull_requests": {
+      "total_reviewed": 1,
+      "total_created": 0,
+      "total_created_by_copilot": 0,
+      "total_reviewed_by_copilot": 1,
+      "total_merged": 2,
+      "median_minutes_to_merge": 1332.96,
+      "total_suggestions": 1,
+      "total_applied_suggestions": 2,
+      "total_merged_created_by_copilot": 1,
+      "median_minutes_to_merge_copilot_authored": 1329.47,
+      "total_copilot_suggestions": 1,
+      "total_copilot_applied_suggestions": 2,
+      "total_merged_reviewed_by_copilot": 2,
+      "median_minutes_to_merge_copilot_reviewed": 1332.96,
+      "copilot_suggestions_by_comment_type": [
+        {
+          "comment_type": "documentation",
+          "total_copilot_suggestions": 1,
+          "total_copilot_applied_suggestions": 1
+        },
+        {
+          "comment_type": "spelling",
+          "total_copilot_suggestions": 0,
+          "total_copilot_applied_suggestions": 1
+        }
+      ]
+    }
+  }
+]
 ```

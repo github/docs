@@ -542,10 +542,32 @@
       },
       {
         "category": "enterprise-admin",
+        "slug": "revoke-a-single-credential-type-for-an-enterprise",
+        "subcategory": "credential-authorizations",
+        "verb": "post",
+        "requestPath": "/enterprises/{enterprise}/credential-authorizations/revoke-credential-type",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
         "slug": "revoke-credential-authorizations-for-a-user-in-an-enterprise",
         "subcategory": "credential-authorizations",
         "verb": "post",
         "requestPath": "/enterprises/{enterprise}/credential-authorizations/{username}/revoke",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "revoke-a-single-credential-type-for-a-user-in-an-enterprise",
+        "subcategory": "credential-authorizations",
+        "verb": "post",
+        "requestPath": "/enterprises/{enterprise}/credential-authorizations/{username}/revoke-credential-type",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -9942,6 +9964,28 @@
         "additional-permissions": false
       },
       {
+        "category": "activity",
+        "slug": "list-stargazers",
+        "subcategory": "starring",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/stargazers",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "activity",
+        "slug": "list-watchers",
+        "subcategory": "watching",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/subscribers",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
         "category": "repos",
         "slug": "download-a-repository-archive-tar",
         "subcategory": "contents",
@@ -11277,17 +11321,6 @@
         "additional-permissions": false
       },
       {
-        "category": "activity",
-        "slug": "list-stargazers",
-        "subcategory": "starring",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/stargazers",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
         "category": "metrics",
         "slug": "get-the-weekly-commit-activity",
         "subcategory": "statistics",
@@ -11337,17 +11370,6 @@
         "subcategory": "statistics",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/stats/punch_card",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "activity",
-        "slug": "list-watchers",
-        "subcategory": "watching",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/subscribers",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,

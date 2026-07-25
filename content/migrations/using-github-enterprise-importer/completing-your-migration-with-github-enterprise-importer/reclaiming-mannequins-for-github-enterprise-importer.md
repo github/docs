@@ -77,7 +77,7 @@ If your migration source is a {% data variables.product.prodname_dotcom %} produ
 
 If your migration source is Azure DevOps, you can reclaim mannequins with the {% data variables.product.prodname_ado2gh_cli %}.
 
-* {% data reusables.enterprise-migration-tool.add-pat-to-reclaim-mannequins %}{% ifversion fpt or ghec %} For {% data variables.product.pat_generic %} requirements, see [AUTOTITLE](/migrations/ado/manage-access#required-scopes-for-personal-access-tokens).{% endif %}
+* {% data reusables.enterprise-migration-tool.add-pat-to-reclaim-mannequins %}{% ifversion fpt or ghec %} For {% data variables.product.pat_generic %} requirements, see [AUTOTITLE](/migrations/ado/manage-access).{% endif %}
 * {% data reusables.enterprise-migration-tool.add-target-api-url %}
 
 {% data reusables.enterprise-migration-tool.create-csv-mannequins %}

@@ -456,7 +456,7 @@ These settings apply across all your sessions and repositories. You can use the 
 | `disabledSkills` | `string[]` | `[]` | Skill names to disable. Listed skills are discovered but not loaded. |
 | `dynamicRetrieval` | `{ skills?: boolean }` | unset | Per-category control of embeddings-based dynamic instruction retrieval. Set `skills` to `false` to disable retrieval for skills. |
 | `effortLevel` | `string` | `"medium"` | Reasoning effort level for extended thinking: `"low"`, `"medium"`, `"high"`, or `"xhigh"`. Higher levels use more compute. |
-| `enabledMcpServers` | `string[]` | `[]` | Enable built-in MCP servers that are disabled by default (for example, `"computer-use"`). |
+| `enabledMcpServers` | `string[]` | `[]` | Enable built-in MCP servers that are disabled by default. |
 | `enabledPlugins` | `Record<string, boolean>` | `{}` | Declarative plugin auto-install. Keys are plugin specs; values are `true` (enabled) or `false` (disabled). |
 | `experimental` | `boolean` | `false` | Enable experimental features. Can also be enabled with the `--experimental` command-line option or the `/experimental` slash command. |
 | `extraKnownMarketplaces` | `Record<string, {...}>` | `{}` | Additional plugin marketplaces. Each key is a marketplace name; the value specifies the source (`"directory"`, `"git"`, or `"github"`). |

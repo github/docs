@@ -76,7 +76,7 @@ Additional default filters for {% data variables.product.prodname_code_scanning 
 * `autofilter:true` includes only alerts that appear to be in application code. {% ifversion security-campaigns-autofix %}
 * `autofix:supported` includes only alerts that are for rules that are supported for {% data variables.copilot.copilot_autofix %}.{% endif %}
 
-For more information about filtering alerts, see [AUTOTITLE](/code-security/tutorials/secure-your-organization/best-practice-fix-alerts-at-scale#selecting-security-alerts-for-remediation) and [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/filtering-alerts-in-security-overview).
+For more information about filtering alerts, see [AUTOTITLE](/code-security/tutorials/secure-your-organization/best-practice-fix-alerts-at-scale#2-select-alerts-for-your-campaign) and [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/filtering-alerts-in-security-overview).
 
 {% ifversion security-campaigns-secrets %}
 
@@ -97,7 +97,7 @@ In addition to the core filters, you will usually want to add a filter to limit 
 In addition to the core filters, you will usually want to add a filter to limit results to a specific provider, secret type, or secrets that bypassed push protection (enterprise accounts only).
 
 * `is:open provider:azure` to show only alerts for the token provider Azure.
-* `is:open secret-type:azure_ai_services_key,azure_cognitive_services_key` to show only alerts for the tokens "azure_ai_services_key" and "azure_cognitive_services_key". See [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns#supported-secrets).
+* `is:open secret-type:azure_ai_services_key,azure_cognitive_services_key` to show only alerts for the tokens "azure_ai_services_key" and "azure_cognitive_services_key". See [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns#supported-provider-patterns).
 * `is:open props.BusinessPriority:Urgent` to show only alerts for repositories where the custom property "BusinessPriority" has the value "Urgent". See [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
 
 {% endif %}
@@ -121,7 +121,7 @@ The new campaign is shown in the sidebar of the **{% data variables.product.prod
 
 {% ifversion code-secret-alert-assignees %}
 > [!TIP]
-> You can assign a campaign alert to anyone with **write** access to the repository, see [Assigning alerts](/code-security/concepts/security-at-scale/about-security-campaigns#assigning-alerts).
+> You can assign a campaign alert to anyone with **write** access to the repository, see [Assigning alerts](/code-security/concepts/security-at-scale/about-security-campaigns#about-assigning-alerts-to-users-and-copilot-cloud-agent).
 {% endif %}
 
 {% else %}
@@ -134,7 +134,7 @@ For more information about the developer experience, see [AUTOTITLE](/code-secur
 
 ### How to increase engagement with the security campaign
 
-The best way to increase engagement with a campaign is to publicize it to the teams you want to collaborate with to remediate alerts. For example, you might work with engineering managers to choose a quieter development period to run a series of security campaigns, each focused on a different type of alert, with associated training sessions. For more ideas, see [AUTOTITLE](/code-security/tutorials/secure-your-organization/best-practice-fix-alerts-at-scale).
+The best way to increase engagement with a campaign is to publicize it to the teams you want to collaborate with to remediate alerts. For example, you might work with engineering managers to choose a quieter development period to run a series of security campaigns, each focused on a different type of alert, with associated training sessions. For more ideas, see [AUTOTITLE](/code-security/tutorials/secure-your-organization/best-practice-fix-alerts-at-scale#2-select-alerts-for-your-campaign).
 
 ## Editing security campaign details
 

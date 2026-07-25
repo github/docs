@@ -41,7 +41,7 @@ Repositories owned by personal accounts have a single owner who has full control
 | Manage security and analysis settings for the repository | [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) |
 | {% endif %} |
 | {% ifversion fpt or ghec %} |
-| Enable the dependency graph for a private {% ifversion ghec %}or internal {% endif %}repository, or public fork | [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/explore-dependencies#enabling-and-disabling-the-dependency-graph) |
+| Enable the dependency graph for a private {% ifversion ghec %}or internal {% endif %}repository, or public fork | [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/explore-dependencies) |
 | {% endif %} |
 | Delete and restore packages | [AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package) |
 | Customize the repository's social media preview | [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview) |

@@ -51,7 +51,7 @@ Some of the most common reasons people use {% data variables.product.github %} a
 * Write code, review code, manage security vulnerabilities and updates.
 * Collaborate and socialize on projects.
 * Contribute to open source software.
-* Issue tracking and project management.
+* Track and manage projects.
 * Automate software development workflows like CI/CD, testing, and deployments.
 * Showcase and share work.
 * Publish and release software packages.
@@ -63,9 +63,9 @@ Some of the most common reasons people use {% data variables.product.github %} a
 
 If you're new to {% data variables.product.github %} and unfamiliar with Git, we recommend working through the articles in the [AUTOTITLE](/get-started/start-your-journey) category. The articles show you how to perform common tasks software developers do using {% data variables.product.github %}, such as:
 
-* **Create a project** and store the code on {% data variables.product.github %}.
+* **Create a repository for your software project** and store the code on {% data variables.product.github %}, see [AUTOTITLE](/get-started/start-your-journey/creating-a-repository-for-your-project-on-github).
 * **Plan your work** by creating issues and tracking your project work.
-* **Connect to your project on your local machine** and use the {% data variables.product.prodname_desktop %} application to manage code changes with Git.
-* **Update your project code**, optionally pair with an AI assistant, and sync your changes with {% data variables.product.github %}.
+* **Connect to your code on your local machine** and use the {% data variables.product.prodname_desktop %} application to manage code changes with Git.
+* **Write and store your code**, optionally pair with an AI assistant, and sync your changes with {% data variables.product.github %}.
 * **Review your proposed code changes** by creating pull requests and reviewing your own changes before you merge.
-* **Deploy your project** using automated deployment workflows, allowing you to publish a basic website.
+* **Deploy your website** using automated deployment workflows, allowing you to publish a basic website for your software project.

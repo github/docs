@@ -118,7 +118,7 @@ counter notice form and alert GitHub Support. For more information, see [DMCA co
 
 ### Revoke exposed tokens
 
-If credentials have been exposed in a {% data variables.product.github %} repository, {% data variables.product.github %} {% data variables.product.prodname_secret_scanning %} can be used to report and revoke the credentials. For more information, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts/resolving-alerts#reporting-a-leaked-secret).
+If credentials have been exposed in a {% data variables.product.github %} repository, {% data variables.product.github %} {% data variables.product.prodname_secret_scanning %} can be used to report and revoke the credentials. For more information, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts/resolving-alerts#reporting-a-leaked-secret-in-a-private-repository).
 
 You can also revoke exposed credentials that you do not own and have been exposed outside of {% data variables.product.github %} repositories. By doing this, you are contributing to the overall security of the {% data variables.product.github %} community and can quickly limit the impact of these credentials. The API supports revoking:
 

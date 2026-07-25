@@ -39,11 +39,11 @@ If your code depends on packages in a private{% ifversion ghec or ghes %} or int
 
 {% endif %}
 
- For more information on how to grant {% data variables.product.prodname_dependabot %} access to private{% ifversion ghec or ghes %} or internal{% endif %} dependencies, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/configure-global-settings#granting-dependabot-access-to-private-and-internal-repositories).
+ For more information on how to grant {% data variables.product.prodname_dependabot %} access to private{% ifversion ghec or ghes %} or internal{% endif %} dependencies, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/configure-global-settings#granting-dependabot-access-to-private{% ifversion ghec or ghes %}-and-internal{% endif %}-repositories).
 
 ## Removing access to {% data variables.product.prodname_GHAS %} features from individual repositories in an organization
 
-You can use {% data variables.product.prodname_security_configurations %} to remove access to {% data variables.product.prodname_GHAS %} features from individual repositories in an organization. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/managing-your-github-advanced-security-license-usage#turning-off-github-advanced-security-features-on-select-repositories-in-your-organization).
+You can use {% data variables.product.prodname_security_configurations %} to remove access to {% data variables.product.prodname_GHAS %} features from individual repositories in an organization. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/managing-your-github-advanced-security-license-usage#turning-off-secret-protection-or-code-security).
 
 ## Further reading
 

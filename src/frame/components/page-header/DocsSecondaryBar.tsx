@@ -39,7 +39,7 @@ export const DocsSecondaryBar = () => {
               className={cx(styles.desktopOnly, 'color-fg-muted')}
               variant="invisible"
               size="small"
-              icon={collapsed ? SidebarExpandIcon : SidebarCollapseIcon}
+              icon={collapsed ? SidebarCollapseIcon : SidebarExpandIcon}
               aria-label={collapsed ? t('expand_sidebar') : t('collapse_sidebar')}
               aria-expanded={!collapsed}
               onClick={toggleCollapsed}
@@ -50,7 +50,7 @@ export const DocsSecondaryBar = () => {
               className={cx(styles.mobileOnly, 'color-fg-muted')}
               variant="invisible"
               size="small"
-              icon={mobileNavOpen ? SidebarCollapseIcon : SidebarExpandIcon}
+              icon={mobileNavOpen ? SidebarExpandIcon : SidebarCollapseIcon}
               aria-label={mobileNavOpen ? t('collapse_sidebar') : t('expand_sidebar')}
               aria-expanded={mobileNavOpen}
               onClick={toggleMobileNav}

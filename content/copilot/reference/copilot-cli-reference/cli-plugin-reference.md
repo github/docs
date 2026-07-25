@@ -89,12 +89,13 @@ All plugins consist of a plugin directory containing, at minimum, a manifest fil
 
 | Field   | Type   | Description |
 |---------|--------|-------------|
-| `name`  | string | Kebab-case plugin name (letters, numbers, hyphens only). Max 64 chars. |
+| `name`  | string | Kebab-case plugin name (letters, numbers, hyphens only). Max 64 chars. Plugins that opt into [Open Plugin Spec support](#open-plugin-spec-support) may also use dots (for example, `acme.tools`). |
 
 ### Optional metadata fields
 
 | Field        | Type      | Description |
 |--------------|-----------|-------------|
+| `$schema`    | string    | Set to the canonical Agent Plugins (Open Plugin Spec) v1.0.0 schema URL to opt into spec semantics. See [Open Plugin Spec support](#open-plugin-spec-support). |
 | `description`| string    | Brief description. Max 1024 chars. |
 | `version`    | string    | Semantic version (e.g., `1.0.0`). |
 | `author`     | object    | `name` (required), `email` (optional), `url` (optional). |
@@ -115,13 +116,18 @@ These tell the CLI where to find your plugin's components. All are optional. The
 | `skills`    | string \| string[] | `skills/`  | Path(s) to skill directories (`SKILL.md` files). |
 | `commands`  | string \| string[] | —          | Path(s) to command directories. |
 | `hooks`     | string \| object   | —          | Path to a hooks configuration file, or an inline hooks object. |
-| `extensions`| string \| string[] \| object | —          | Path(s) to extension directories. Use `{ paths: [...], exclusive: true }` to suppress built-in extensions. |
+| `extensions`| string \| string[] \| object | —          | Path(s) to extension directories. Use `{ paths: [...], exclusive: true }` to suppress built-in extensions. In [Open Plugin Spec mode](#open-plugin-spec-support), this field has a different meaning. |
 | `mcpServers`| string \| object   | —          | Path to an MCP configuration file (e.g., `.mcp.json`), or inline server definitions. |
 | `lspServers`| string \| object   | —          | Path to an LSP configuration file, or inline server definitions. |
 
 ### Example `plugin.json` file
 
 {% data reusables.copilot.copilot-cli.cli-example-plugin-file %}
+
+## Open Plugin Spec support
+
+Declaring the canonical `$schema` in `plugin.json` opts a plugin into the [Agent Plugins (Open Plugin Spec)](https://agent-plugins.org) v1.0.0 format, additively on top of standard plugin loading:
+
 
 ### LSP server configuration
 
@@ -196,7 +202,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 
 | Field      | Type     | Required | Description |
 |------------|----------|----------|-------------|
-| `name`     | string   | Yes      | Kebab-case marketplace name. Max 64 chars. |
+| `name`     | string   | Yes      | Kebab-case marketplace name. Max 64 chars. Dots are also accepted (for example, `acme.tools`) for [Open Plugin Spec](#open-plugin-spec-support) plugins. |
 | `owner`    | object   | Yes      | `{ name, email? }` — marketplace owner info. |
 | `plugins`  | array    | Yes      | List of plugin entries (see the table below). |
 | `metadata` | object   | No       | `{ description?, version?, pluginRoot? }` |
@@ -205,7 +211,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 
 | Field         | Type               | Required | Description |
 |---------------|--------------------|----------|-------------|
-| `name`        | string             | Yes      | Kebab-case plugin name. Max 64 chars. |
+| `name`        | string             | Yes      | Kebab-case plugin name. Max 64 chars. Dots are also accepted for [Open Plugin Spec](#open-plugin-spec-support) plugins. |
 | `source`      | string \| object   | Yes      | Where to fetch the plugin (relative path, {% data variables.product.github %}, or URL). |
 | `description` | string             | No       | Plugin description. Max 1024 chars. |
 | `version`     | string             | No       | Plugin version. |

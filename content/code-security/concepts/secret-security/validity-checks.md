@@ -47,7 +47,7 @@ You can enable extended metadata checks if validity checks are enabled. Then, yo
 * **Enhance compliance**: Ensure secrets align with your organization’s governance and security policies.
 * **Reduce false positives**: Use additional context to determine if a detection requires action.
 
-The specific metadata available depends on what the service provider shares with {% data variables.product.github %}. Not all secret types support extended metadata checks. For more information, see [AUTOTITLE](/code-security/tutorials/remediate-leaked-secrets/evaluating-alerts#verifying-token-metadata).
+The specific metadata available depends on what the service provider shares with {% data variables.product.github %}. Not all secret types support extended metadata checks. For more information, see [AUTOTITLE](/code-security/tutorials/remediate-leaked-secrets/evaluating-alerts).
 
 ## Getting started with validity and extended metadata checks
 

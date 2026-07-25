@@ -41,6 +41,7 @@ The dashboard and APIs use shared definitions for key metrics:
 | Acceptance rate | Code completion acceptance rate | `code_acceptance_activity_count` ÷ `code_generation_activity_count` | Both sources calculate acceptance rate the same way, though rounding may differ. |
 | Agent adoption | Agent adoption chart | `totals_by_feature` where feature = “agent” | Reflects users who interacted with the {% data variables.copilot.copilot_agent_short %}. |
 | Language usage | Language usage charts | `totals_by_language_feature` or `totals_by_language_model` | The dashboard visualizes these aggregated fields. |
+| Adoption cohort/phase | Adoption cohort distribution (impact dashboard) | `ai_adoption_phase`, `totals_by_ai_adoption_phase` | The dashboard and API read the same underlying field, so cohort counts should match between them. Users displayed as "Passive users" in the dashboard correspond to the `No Cohort` value in `totals_by_ai_adoption_phase`, and are included in that array like any other phase, so cohort percentages reflect all licensed users, not just those in Phase 1–3. |
 
 For complete field descriptions, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics).
 

@@ -17,6 +17,9 @@ The {% data variables.product.prodname_copilot_short %} usage metrics APIs do no
 
 The same join recipe supports any team-level slice you need: per `(team, day)`, per `(team, day, language)`, per `(team, day, IDE)`, over rolling windows, and so on.
 
+> [!NOTE]
+> If you only need a UI-based view of team-level adoption, the impact dashboard's user-team mapping surfaces team-level adoption cohort data natively, without requiring you to build the join described in this article. See [AUTOTITLE](/copilot/how-tos/administer-copilot/view-impact-dashboard). Use the manual join described below when you need raw per-team NDJSON data, such as for custom BI reporting, or team-level metrics beyond adoption cohorts.
+
 ## Fetching the reports
 
 The two reports referenced in this guide are downloaded in two steps. First, call the REST endpoint for the day you want. The endpoint returns time-limited signed URLs from which you can download the report files. Then download the newline-delimited JSON (NDJSON) files those URLs point to. The user-teams and per-user rows are in those NDJSON files; they are not returned inline by the REST endpoint.

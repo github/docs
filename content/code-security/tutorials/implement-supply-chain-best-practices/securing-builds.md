@@ -69,7 +69,7 @@ If you are using release assets from other projects in your build system, or cre
 
 There are many further steps you can take to additionally secure {% data variables.product.prodname_actions %}. In particular, be careful when evaluating third-party workflows, and consider using `CODEOWNERS` to limit who can make changes to your workflows.
 
-For more information, see [AUTOTITLE](/actions/reference/security/secure-use#writing-workflows) and [AUTOTITLE](/actions/reference/security/secure-use#s-security-features).
+For more information, see [AUTOTITLE](/actions/reference/security/secure-use#writing-workflows) and [AUTOTITLE](/actions/reference/security/secure-use).
 
 ## Next steps
 

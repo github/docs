@@ -21,7 +21,7 @@ Knowing what {% data variables.product.prodname_code_quality_short %} costs, and
 
 * **License usage**, based on the number of unique, active committers to repositories where {% data variables.product.prodname_code_quality_short %} is enabled.
 * **{% data variables.product.prodname_actions %} minutes**, consumed each time a scan runs (unless you use self-hosted runners).
-* **{% data variables.product.prodname_ai_credits %}**, consumed by {% data variables.product.prodname_code_quality_short %}'s AI features: the fixes it generates for findings, and the AI detections scans if you turn that page on.
+* **{% data variables.product.prodname_ai_credits %}**, consumed by {% data variables.product.prodname_code_quality_short %}'s AI features: the fixes it generates for findings, and the scans on the **{% data variables.code-quality.recent_suggestions %}** page if you turn it on.
 
 For exactly how each cost is measured, see [AUTOTITLE](/billing/concepts/product-billing/github-code-quality?utm_campaign=code-quality-ga-july-2026&utm_medium=docs&utm_source=docs-view-manage-cost-billing).
 
@@ -53,9 +53,7 @@ You have several levers to keep spend in check. In rough order of impact:
 * **Enable selectively.** Turn {% data variables.product.prodname_code_quality_short %} on where it adds value rather than across every repository at once. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/enable-code-quality).
 * **Disable low-value repositories.** Disabling {% data variables.product.prodname_code_quality_short %} on a repository frees the licenses for committers unique to it, and stops its scans and AI usage. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/disable-code-quality).
 * **Set a budget.** A budget for {% data variables.product.prodname_code_quality_short %} stops your spending automatically once you hit your limit, because the hard stop is mandatory (see below).
-* **Keep the AI detections page off.** This page is **off by default** and stays in {% data variables.release-phases.public_preview %}, so it only draws down {% data variables.product.prodname_ai_credits_short %} if you turn it on. Repositories that enabled it during the preview keep it on, so turn it off there if you don't want the usage.
-
-<!-- VERIFY before GA: exact path to turn off the AI detections page for a repo that enabled it during preview. (Default-off-at-GA confirmed in github/security-products#2357.) -->
+* **Keep the {% data variables.code-quality.recent_suggestions %} page off.** This page is **off by default** and stays in {% data variables.release-phases.public_preview %}, so it only draws down {% data variables.product.prodname_ai_credits_short %} if you turn it on. Repositories that enabled it during the preview keep it on. To turn it off for a repository, disable **{% data variables.code-quality.recent_suggestions %}** on the repository's **{% data variables.code-quality.code_quality_ui %}** settings page.
 
 ### Setting a budget
 

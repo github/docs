@@ -30,7 +30,7 @@ The reason partner alerts are directly sent to the secret providers whenever a l
 
 ## What are the supported secrets
 
-For information about the secrets and service providers supported by push protection, see [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns#supported-secrets).
+For information about the secrets and service providers supported by push protection, see [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns).
 
 ## Further reading
 

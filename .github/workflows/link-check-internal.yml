@@ -38,15 +38,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-      - name: Generate GitHub App token
-        id: app-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
-          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
-          owner: github
-          repositories: docs-engineering
-
       - uses: ./.github/actions/node-npm-setup
 
       - name: Set matrix
@@ -73,7 +64,7 @@ jobs:
       - uses: ./.github/actions/create-workflow-failure-issue
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
   check-internal-links:
     if: github.repository == 'github/docs-internal'
@@ -88,15 +79,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-      - name: Generate GitHub App token
-        id: app-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
-          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
-          owner: github
-          repositories: docs-content,docs-internal.es-es,docs-internal.ja-jp,docs-internal.pt-br,docs-internal.zh-cn,docs-internal.ru-ru,docs-internal.fr-fr,docs-internal.ko-kr,docs-internal.de-de,docs-engineering
-
       - uses: ./.github/actions/node-npm-setup
 
       - name: Install dependencies
@@ -107,7 +89,7 @@ jobs:
         if: matrix.language != 'en'
         uses: ./.github/actions/clone-translations
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - name: Check internal links
         env:
@@ -130,7 +112,7 @@ jobs:
         if: inputs.create_copilot_issue
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         with:
-          github-token: ${{ steps.app-token.outputs.token }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
             const fs = require('fs')
             const reportFile = 'artifacts/link-report-${{ matrix.version }}-${{ matrix.language }}.json'
@@ -209,7 +191,7 @@ jobs:
       - uses: ./.github/actions/create-workflow-failure-issue
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
   # Create combined report after all matrix jobs complete
   create-report:
@@ -222,15 +204,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-      - name: Generate GitHub App token
-        id: app-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
-          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
-          owner: github
-          repositories: docs-content,docs-engineering
-
       - name: Download all artifacts
         uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 # v8.0.0
         with:
@@ -266,7 +239,7 @@ jobs:
         if: steps.combine.outputs.has_reports == 'true' && (github.event_name != 'workflow_dispatch' || inputs.create_report != false)
         uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v5
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           repository: github/docs-content
           title: '🔗 Broken Internal Links Report'
           content-filepath: combined-report.md
@@ -280,4 +253,4 @@ jobs:
       - uses: ./.github/actions/create-workflow-failure-issue
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}

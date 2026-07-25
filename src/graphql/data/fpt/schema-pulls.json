@@ -4040,6 +4040,20 @@
           ]
         },
         {
+          "name": "stack",
+          "description": "<p>The stack this Pull Request belongs to, or null if it is not part of a stack.</p>",
+          "type": "PullRequestStack",
+          "id": "pullrequeststack",
+          "href": "/graphql/reference/pulls#object-pullrequeststack"
+        },
+        {
+          "name": "stackEntry",
+          "description": "<p>The stack entry for this Pull Request, or null if it is not part of a stack.</p>",
+          "type": "PullRequestStackEntry",
+          "id": "pullrequeststackentry",
+          "href": "/graphql/reference/pulls#object-pullrequeststackentry"
+        },
+        {
           "name": "state",
           "description": "<p>Identifies the state of the pull request.</p>",
           "type": "PullRequestState!",
@@ -4264,7 +4278,7 @@
               "type": {
                 "name": "[PullRequestTimelineItemsItemType!]",
                 "id": "pullrequesttimelineitemsitemtype",
-                "href": "/graphql/reference/other#enum-pullrequesttimelineitemsitemtype"
+                "href": "/graphql/reference/pulls#enum-pullrequesttimelineitemsitemtype"
               }
             },
             {
@@ -6575,6 +6589,201 @@
       "category": "pulls"
     },
     {
+      "name": "PullRequestStack",
+      "id": "pullrequeststack",
+      "href": "/graphql/reference/pulls#object-pullrequeststack",
+      "description": "<p>A stack of PullRequests.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "baseRefName",
+          "description": "<p>The branch that the stack's pull requests target.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "entries",
+          "description": "<p>The entries in the stack.</p>",
+          "type": "PullRequestStackEntryConnection!",
+          "id": "pullrequeststackentryconnection",
+          "href": "/graphql/reference/pulls#object-pullrequeststackentryconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the PullRequestStack object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "number",
+          "description": "<p>A number uniquely identifying the stack within its repository.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "size",
+          "description": "<p>The total number of pull requests in the stack.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "pulls"
+    },
+    {
+      "name": "PullRequestStackEntry",
+      "id": "pullrequeststackentry",
+      "href": "/graphql/reference/pulls#object-pullrequeststackentry",
+      "description": "<p>A member of a PullRequestStack.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the PullRequestStackEntry object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "position",
+          "description": "<p>This entry's position in the stack, where 1 is the closest to the base branch, 2 is stacked on top of 1, etc.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>The pull request that occupies this position in the stack.</p>",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "href": "/graphql/reference/pulls#object-pullrequest"
+        },
+        {
+          "name": "stack",
+          "description": "<p>The stack that this entry is a part of.</p>",
+          "type": "PullRequestStack",
+          "id": "pullrequeststack",
+          "href": "/graphql/reference/pulls#object-pullrequeststack"
+        }
+      ],
+      "category": "pulls"
+    },
+    {
+      "name": "PullRequestStackEntryConnection",
+      "id": "pullrequeststackentryconnection",
+      "href": "/graphql/reference/pulls#object-pullrequeststackentryconnection",
+      "description": "<p>Entries in a pull request stack.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[PullRequestStackEntryEdge]",
+          "id": "pullrequeststackentryedge",
+          "href": "/graphql/reference/pulls#object-pullrequeststackentryedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[PullRequestStackEntry]",
+          "id": "pullrequeststackentry",
+          "href": "/graphql/reference/pulls#object-pullrequeststackentry"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "pulls"
+    },
+    {
+      "name": "PullRequestStackEntryEdge",
+      "id": "pullrequeststackentryedge",
+      "href": "/graphql/reference/pulls#object-pullrequeststackentryedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "PullRequestStackEntry",
+          "id": "pullrequeststackentry",
+          "href": "/graphql/reference/pulls#object-pullrequeststackentry"
+        }
+      ],
+      "category": "pulls"
+    },
+    {
       "name": "PullRequestTemplate",
       "id": "pullrequesttemplate",
       "href": "/graphql/reference/pulls#object-pullrequesttemplate",
@@ -8136,6 +8345,335 @@
         {
           "name": "OPEN",
           "description": "<p>A pull request that is still open.</p>"
+        }
+      ],
+      "category": "pulls"
+    },
+    {
+      "name": "PullRequestTimelineItemsItemType",
+      "id": "pullrequesttimelineitemsitemtype",
+      "href": "/graphql/reference/pulls#enum-pullrequesttimelineitemsitemtype",
+      "description": "<p>The possible item types found in a timeline.</p>",
+      "values": [
+        {
+          "name": "ADDED_TO_MERGE_QUEUE_EVENT",
+          "description": "<p>Represents an<code>added_to_merge_queue</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "ADDED_TO_PROJECT_EVENT",
+          "description": "<p>Represents a<code>added_to_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "ADDED_TO_PROJECT_V2_EVENT",
+          "description": "<p>Represents a<code>added_to_project_v2</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "ARCHIVED_EVENT",
+          "description": "<p>Represents an<code>archived</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "ASSIGNED_EVENT",
+          "description": "<p>Represents an<code>assigned</code>event on any assignable object.</p>"
+        },
+        {
+          "name": "AUTOMATIC_BASE_CHANGE_FAILED_EVENT",
+          "description": "<p>Represents a<code>automatic_base_change_failed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTOMATIC_BASE_CHANGE_SUCCEEDED_EVENT",
+          "description": "<p>Represents a<code>automatic_base_change_succeeded</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_MERGE_DISABLED_EVENT",
+          "description": "<p>Represents a<code>auto_merge_disabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_MERGE_ENABLED_EVENT",
+          "description": "<p>Represents a<code>auto_merge_enabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_REBASE_ENABLED_EVENT",
+          "description": "<p>Represents a<code>auto_rebase_enabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_SQUASH_ENABLED_EVENT",
+          "description": "<p>Represents a<code>auto_squash_enabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "BASE_REF_CHANGED_EVENT",
+          "description": "<p>Represents a<code>base_ref_changed</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "BASE_REF_DELETED_EVENT",
+          "description": "<p>Represents a<code>base_ref_deleted</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "BASE_REF_FORCE_PUSHED_EVENT",
+          "description": "<p>Represents a<code>base_ref_force_pushed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "BLOCKED_BY_ADDED_EVENT",
+          "description": "<p>Represents a<code>blocked_by_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKED_BY_REMOVED_EVENT",
+          "description": "<p>Represents a<code>blocked_by_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_ADDED_EVENT",
+          "description": "<p>Represents a<code>blocking_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_REMOVED_EVENT",
+          "description": "<p>Represents a<code>blocking_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "CLOSED_EVENT",
+          "description": "<p>Represents a<code>closed</code>event on any <code>Closable</code>.</p>"
+        },
+        {
+          "name": "COMMENT_DELETED_EVENT",
+          "description": "<p>Represents a<code>comment_deleted</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONNECTED_EVENT",
+          "description": "<p>Represents a<code>connected</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_FROM_DRAFT_EVENT",
+          "description": "<p>Represents a<code>converted_from_draft</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_NOTE_TO_ISSUE_EVENT",
+          "description": "<p>Represents a<code>converted_note_to_issue</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_TO_DISCUSSION_EVENT",
+          "description": "<p>Represents a<code>converted_to_discussion</code>event on a given issue.</p>"
+        },
+        {
+          "name": "CONVERT_TO_DRAFT_EVENT",
+          "description": "<p>Represents a<code>convert_to_draft</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "CROSS_REFERENCED_EVENT",
+          "description": "<p>Represents a mention made by one issue or pull request to another.</p>"
+        },
+        {
+          "name": "DEMILESTONED_EVENT",
+          "description": "<p>Represents a<code>demilestoned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "DEPLOYED_EVENT",
+          "description": "<p>Represents a<code>deployed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "DEPLOYMENT_ENVIRONMENT_CHANGED_EVENT",
+          "description": "<p>Represents a<code>deployment_environment_changed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "DISCONNECTED_EVENT",
+          "description": "<p>Represents a<code>disconnected</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "HEAD_REF_DELETED_EVENT",
+          "description": "<p>Represents a<code>head_ref_deleted</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "HEAD_REF_FORCE_PUSHED_EVENT",
+          "description": "<p>Represents a<code>head_ref_force_pushed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "HEAD_REF_RESTORED_EVENT",
+          "description": "<p>Represents a<code>head_ref_restored</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT",
+          "description": "<p>Represents a comment on an Issue.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT_PINNED_EVENT",
+          "description": "<p>Represents a<code>issue_comment_pinned</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT_UNPINNED_EVENT",
+          "description": "<p>Represents a<code>issue_comment_unpinned</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_FIELD_ADDED_EVENT",
+          "description": "<p>Represents a<code>issue_field_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_FIELD_CHANGED_EVENT",
+          "description": "<p>Represents a<code>issue_field_changed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_FIELD_REMOVED_EVENT",
+          "description": "<p>Represents a<code>issue_field_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_ADDED_EVENT",
+          "description": "<p>Represents a<code>issue_type_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_CHANGED_EVENT",
+          "description": "<p>Represents a<code>issue_type_changed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>issue_type_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "LABELED_EVENT",
+          "description": "<p>Represents a<code>labeled</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "LOCKED_EVENT",
+          "description": "<p>Represents a<code>locked</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MARKED_AS_DUPLICATE_EVENT",
+          "description": "<p>Represents a<code>marked_as_duplicate</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MENTIONED_EVENT",
+          "description": "<p>Represents a<code>mentioned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MERGED_EVENT",
+          "description": "<p>Represents a<code>merged</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "MILESTONED_EVENT",
+          "description": "<p>Represents a<code>milestoned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MOVED_COLUMNS_IN_PROJECT_EVENT",
+          "description": "<p>Represents a<code>moved_columns_in_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "PARENT_ISSUE_ADDED_EVENT",
+          "description": "<p>Represents a<code>parent_issue_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "PARENT_ISSUE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>parent_issue_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "PINNED_EVENT",
+          "description": "<p>Represents a<code>pinned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "PROJECT_V2_ITEM_STATUS_CHANGED_EVENT",
+          "description": "<p>Represents a<code>project_v2_item_status_changed</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "PULL_REQUEST_COMMIT",
+          "description": "<p>Represents a Git commit part of a pull request.</p>"
+        },
+        {
+          "name": "PULL_REQUEST_COMMIT_COMMENT_THREAD",
+          "description": "<p>Represents a commit comment thread part of a pull request.</p>"
+        },
+        {
+          "name": "PULL_REQUEST_REVIEW",
+          "description": "<p>A review object for a given pull request.</p>"
+        },
+        {
+          "name": "PULL_REQUEST_REVIEW_THREAD",
+          "description": "<p>A threaded list of comments for a given pull request.</p>"
+        },
+        {
+          "name": "PULL_REQUEST_REVISION_MARKER",
+          "description": "<p>Represents the latest point in the pull request timeline for which the viewer has seen the pull request's commits.</p>"
+        },
+        {
+          "name": "READY_FOR_REVIEW_EVENT",
+          "description": "<p>Represents a<code>ready_for_review</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "REFERENCED_EVENT",
+          "description": "<p>Represents a<code>referenced</code>event on a given <code>ReferencedSubject</code>.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_MERGE_QUEUE_EVENT",
+          "description": "<p>Represents a<code>removed_from_merge_queue</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_PROJECT_EVENT",
+          "description": "<p>Represents a<code>removed_from_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_PROJECT_V2_EVENT",
+          "description": "<p>Represents a<code>removed_from_project_v2</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "RENAMED_TITLE_EVENT",
+          "description": "<p>Represents a<code>renamed</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REOPENED_EVENT",
+          "description": "<p>Represents a<code>reopened</code>event on any <code>Closable</code>.</p>"
+        },
+        {
+          "name": "REVIEW_DISMISSED_EVENT",
+          "description": "<p>Represents a<code>review_dismissed</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REVIEW_REQUESTED_EVENT",
+          "description": "<p>Represents an<code>review_requested</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "REVIEW_REQUEST_REMOVED_EVENT",
+          "description": "<p>Represents an<code>review_request_removed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "SUBSCRIBED_EVENT",
+          "description": "<p>Represents a<code>subscribed</code>event on a given <code>Subscribable</code>.</p>"
+        },
+        {
+          "name": "SUB_ISSUE_ADDED_EVENT",
+          "description": "<p>Represents a<code>sub_issue_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "SUB_ISSUE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>sub_issue_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "TRANSFERRED_EVENT",
+          "description": "<p>Represents a<code>transferred</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNARCHIVED_EVENT",
+          "description": "<p>Represents an<code>unarchived</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "UNASSIGNED_EVENT",
+          "description": "<p>Represents an<code>unassigned</code>event on any assignable object.</p>"
+        },
+        {
+          "name": "UNLABELED_EVENT",
+          "description": "<p>Represents an<code>unlabeled</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNLOCKED_EVENT",
+          "description": "<p>Represents an<code>unlocked</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNMARKED_AS_DUPLICATE_EVENT",
+          "description": "<p>Represents an<code>unmarked_as_duplicate</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNPINNED_EVENT",
+          "description": "<p>Represents an<code>unpinned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNSUBSCRIBED_EVENT",
+          "description": "<p>Represents an<code>unsubscribed</code>event on a given <code>Subscribable</code>.</p>"
+        },
+        {
+          "name": "USER_BLOCKED_EVENT",
+          "description": "<p>Represents a<code>user_blocked</code>event on a given user.</p>"
         }
       ],
       "category": "pulls"

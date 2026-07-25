@@ -77,7 +77,7 @@ Excluding non-production code from analysis is a simple way to reduce the size o
 
 Using a build command that compiles only one variant is a simple way to reduce the size of the results file.
 
-* {% data variables.product.prodname_codeql %} advanced setup for {% data variables.product.prodname_code_scanning %}: update the workflow file to specify your chosen build command. For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/codeql-for-compiled-languages#adding-build-steps-for-a-compiled-language).
+* {% data variables.product.prodname_codeql %} advanced setup for {% data variables.product.prodname_code_scanning %}: update the workflow file to specify your chosen build command. For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/codeql-for-compiled-languages#specify-build-steps-manually).
 * {% data variables.product.prodname_codeql_cli %} `database create`: specify your chosen build command either by calling the `database create` command with the `--command` option, or by defining the build command in a YAML configuration file for code scanning and calling the file using the `--codescanning-config` option. For more information, see [AUTOTITLE](/code-security/tutorials/customize-code-scanning/prepare-code-for-analysis#specifying-build-commands).
 
 ### Defining the query suite to run

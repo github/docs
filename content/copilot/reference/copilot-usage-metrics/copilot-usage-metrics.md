@@ -45,6 +45,17 @@ These metrics appear directly in the {% data variables.product.prodname_copilot_
 | Most used chat model | The most frequently used chat model in the last 28 days. |
 | Requests per chat mode | Number of chat requests by mode (ask, edit, plan, agent). |
 
+## Impact dashboard metrics
+
+These metrics appear in the impact dashboard, which groups users into adoption cohorts and connects that adoption to pull request output. For guidance on interpreting adoption cohorts, see [AUTOTITLE](/copilot/concepts/copilot-usage-metrics/copilot-metrics#understanding-adoption-cohorts).
+
+| Metric | Description |
+|:--|:--|
+| Engagement trends | How the organization's adoption cohort mix and pull request throughput (total pull requests merged per month) have changed over the last six months. |
+| Adoption cohort distribution | Share of licensed users grouped into each adoption phase (Passive users, Phase 1, Phase 2, Phase 3) for the period. Passive users correspond to the `No Cohort` value in the API. |
+| Adoption multiplier | Compares engaged users (Phase 1, 2, or 3) against passive users on code shipped (pull requests merged per user per month) and time to merge pull requests, to show the relative impact of deeper {% data variables.product.prodname_copilot_short %} adoption. |
+| Recommendations | Suggested actions, such as configuring {% data variables.copilot.copilot_cloud_agent %} or enabling {% data variables.copilot.copilot_code-review_short %}, based on the organization's current cohort distribution. |
+
 ## Code generation dashboard metrics
 
 These metrics appear in the code generation dashboard and provide a breakdown of how code is being generated across user-initiated and agent-initiated activity. All values are derived from lines of code (LoC) added or deleted in the IDE.
@@ -277,6 +288,21 @@ The `pull_requests` object appears in aggregated enterprise and organization rep
 ### AI adoption phase fields
 
 {% data variables.product.prodname_copilot_short %} groups users into AI adoption phases based on their activity. Phase information appears in two places: the per-user `ai_adoption_phase` object, and the aggregated `totals_by_ai_adoption_phase` array. For the phase values, see [Breakdown dimension values](#breakdown-dimension-values).
+
+#### Classification logic
+
+A user is classified into a phase based on which `used_*` per-user fields (see [Per-user report fields](#per-user-report-fields)) are `true` on at least **two active days within the trailing 28-day window**:
+
+| Phase | Surface criteria |
+|:--|:--|
+| No Cohort (displayed as "Passive users" in the impact dashboard) | The user has not met the two-day engagement threshold for any phase in the window. |
+| Phase 1: Code first | At least two active days where `used_chat` is `true`, `code_acceptance_activity_count` is greater than `0`, or `used_agent` is `true`. |
+| Phase 2: Agent first | At least two active days where a single GitHub-based agent surface was used: `used_cli` is `true`, `used_copilot_cloud_agent` is `true`, or `used_copilot_code_review_active` is `true`. Passive {% data variables.copilot.copilot_code-review_short %} activity (`used_copilot_code_review_passive`) doesn't count toward phase classification. |
+| Phase 3: Multi-agent | At least two active days where two or more of the GitHub-based agent surfaces listed under Phase 2 were used. |
+
+A user only needs two qualifying days on a phase's own criteria to reach that phase. A user doesn't need to independently meet Phase 1 criteria to reach Phase 2 or Phase 3, although in practice most agent surface usage co-occurs with completions or chat activity.
+
+Phase assignment is recalculated each day using the trailing 28-day window, so a user's phase can change from one day to the next as their activity within the window shifts. This is expected behavior and does not indicate a data error.
 
 The per-user `ai_adoption_phase` object contains:
 

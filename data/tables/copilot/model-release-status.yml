@@ -81,6 +81,10 @@
   provider: 'Anthropic'
   release_status: 'GA'
 
+- name: 'Claude Opus 5'
+  provider: 'Anthropic'
+  release_status: 'GA'
+
 - name: 'Claude Sonnet 4.5'
   provider: 'Anthropic'
   release_status: 'GA'

@@ -102,7 +102,7 @@ For information on bulk enablement, see [AUTOTITLE](/code-security/how-tos/secur
 
 1. When you have finished defining your configuration, add the new workflow to your default branch.
 
-   For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/use-workflow-templates#choosing-and-using-a-starter-workflow) and [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options).
+   For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/use-workflow-templates#choosing-and-using-a-workflow-template) and [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options).
 
 {% endif %}
 
@@ -110,13 +110,13 @@ For information on bulk enablement, see [AUTOTITLE](/code-security/how-tos/secur
 
 After your workflow runs successfully at least once, you are ready to start examining and resolving {% data variables.product.prodname_code_scanning %} alerts. For more information on {% data variables.product.prodname_code_scanning %} alerts, see [AUTOTITLE](/code-security/concepts/code-scanning/code-scanning-alerts) and [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/assess-alerts).
 
-Learn how {% data variables.product.prodname_code_scanning %} runs behave as checks on pull requests, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/triage-alerts-in-pull-requests#about-code-scanning-as-a-pull-request-check).
+Learn how {% data variables.product.prodname_code_scanning %} runs behave as checks on pull requests, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/triage-alerts-in-pull-requests).
 
 You can find detailed information about your {% data variables.product.prodname_code_scanning %} configuration, including timestamps for each scan and the percentage of files scanned, on the tool status page. For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/use-the-tools-status-page-for-code-scanning).
 
 ### Further reading
 
 * [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/triage-alerts-in-pull-requests).
-* [AUTOTITLE](/subscriptions-and-notifications/get-started/configuring-notifications#github-actions-notification-options).
+* [AUTOTITLE](/subscriptions-and-notifications/how-tos/managing-github-actions-notifications).
 * [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options).
 * [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/view-code-scanning-logs).

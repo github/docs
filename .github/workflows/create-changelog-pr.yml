@@ -25,15 +25,6 @@ jobs:
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
-      - name: Generate GitHub App token
-        id: app-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
-          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
-          owner: github
-          repositories: docs-internal,docs-engineering
-
       - name: 'Ensure ${{ env.CHANGELOG_FILE }} exists'
         run: |
           if [ ! -f ${{ env.CHANGELOG_FILE }} ]; then
@@ -45,7 +36,7 @@ jobs:
         id: hubber_check
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         with:
-          github-token: ${{ steps.app-token.outputs.token }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
             try {
               await github.rest.teams.getMembershipForUserInOrg({
@@ -117,7 +108,7 @@ jobs:
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         id: create_pull_request
         with:
-          github-token: ${{ steps.app-token.outputs.token }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
             const { data: pullRequest } = await github.rest.pulls.create({
               owner: context.repo.owner,
@@ -138,7 +129,7 @@ jobs:
           # Get the number of the PR that was just created:
           PULL_REQUEST_NUMBER: ${{ steps.create_pull_request.outputs.pull-request-number }}
         with:
-          github-token: ${{ steps.app-token.outputs.token }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
             await github.rest.issues.addLabels({
               owner: context.repo.owner,
@@ -154,7 +145,7 @@ jobs:
           # Reuse the PR number captured earlier
           PULL_REQUEST_NUMBER: ${{ steps.create_pull_request.outputs.pull-request-number }}
         with:
-          github-token: ${{ steps.app-token.outputs.token }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
             try {
               const username = context.payload.comment.user.login;
@@ -176,4 +167,4 @@ jobs:
       - uses: ./.github/actions/create-workflow-failure-issue
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}

@@ -144,7 +144,7 @@ Read access to the repository.
 ### Key resources
 
 * [AUTOTITLE](/code-security/concepts/security-at-scale/security-overview)
-* [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-security-insights#viewing-the-security-overview-dashboard-for-your-organization)
+* [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-security-insights)
 
 ### Notes and limitations
 

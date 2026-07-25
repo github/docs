@@ -471,6 +471,7 @@ Use `--model=MODEL` or the `COPILOT_MODEL` environment variable to select the AI
 | `gpt-5.3-codex` | Code-focused tasks |
 | `gemini-3.1-pro-preview` | Google Gemini reasoning |
 | `gemini-3.5-flash` | Fast Google Gemini responses |
+| `gemini-3.6-flash` | Fast Google Gemini responses |
 | `mai-code-1-flash` | Fast, adaptive coding tasks |
 
 You can also switch models during an interactive session using the `/model` slash command.
@@ -557,7 +558,6 @@ copilot --deny-tool='write(secret.txt)'
 | `COPILOT_ALLOW_ALL` | Set to `true` to allow all permissions automatically (equivalent to `--allow-all`). |
 | `COPILOT_AUTO_UPDATE` | Set to `false` to disable automatic updates. |
 | `COPILOT_CACHE_HOME` | Override the cache directory (used for marketplace caches, auto-update packages, and other ephemeral data). See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#changing-the-location-of-the-configuration-directory) for platform defaults. |
-| `COPILOT_COMPUTER_USE_LINUX` | Set to opt in to the `computer-use` MCP server on Linux distributions that support it. The `computer-use` server is not available on Alpine Linux (musl libc). |
 | `COPILOT_CUSTOM_INSTRUCTIONS_DIRS` | Comma-separated list of additional directories for custom instructions. |
 | `COPILOT_EDITOR` | Editor command for interactive editing (checked after `$VISUAL` and `$EDITOR`). Defaults to `vi` if none are set. |
 | `COPILOT_ENABLE_HTTP2` | Set to `1` or `true` to opt into HTTP/2 transport. HTTP/1.1 is the default. |
@@ -676,7 +676,7 @@ Use `copilot mcp` to manage MCP server configurations from the command line with
 | Type | Description | Required fields |
 |------|-------------|----------------|
 | `local` / `stdio` | Local process communicating via stdin/stdout. | `command`, `args` |
-| `http` | Remote server using streamable HTTP transport. | `url` |
+| `http` | Remote server using streamable HTTP transport. `"streamable-http"` is also accepted as an alias and is normalized to `"http"`. | `url` |
 | `sse` | Remote server using Server-Sent Events transport. | `url` |
 
 ### Local server configuration fields
@@ -717,7 +717,7 @@ The `--registry` flag and other npm configuration flags (`--userconfig`, `--glob
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `type` | Yes | `"http"` or `"sse"`. |
+| `type` | Yes | `"http"` or `"sse"` (`"streamable-http"` is also accepted as an alias for `"http"`). |
 | `url` | Yes | Server URL. |
 | `tools` | Yes | Tools to enable. |
 | `headers` | No | HTTP headers. Supports variable expansion. |
@@ -777,7 +777,6 @@ The CLI includes built-in MCP servers that are available without additional setu
 | `playwright` | Browser automation: navigate, click, type, screenshot, and form handling. |
 | `fetch` | HTTP requests via the `fetch` tool. |
 | `time` | Time utilities: `get_current_time` and `convert_time`. |
-| `computer-use` | Screen capture and mouse/keyboard automation. Not available on Alpine Linux (musl libc). Set `COPILOT_COMPUTER_USE_LINUX` to opt in on other Linux distributions where it is available. |
 
 Use `--disable-builtin-mcps` to disable all built-in servers, or `--disable-mcp-server SERVER-NAME` to disable a specific one.
 
@@ -1132,7 +1131,14 @@ Use `/permissions reset` to clear in-memory approvals for the current session.
 
 ### Plan mode
 
-`/plan` starts a read-only analysis session that prevents write operations and shell command execution while allowing full codebase exploration. Mutating tool calls—editor writes, `apply_patch` to non-plan files, mutating shell commands, and pull request creation—are hard-blocked at the tool layer, not just discouraged by the system prompt. Subagents spawned from a plan-mode session inherit the same restriction. Reads and writes to the plan file itself are still allowed.
+`/plan` starts a planning session where {% data variables.copilot.copilot_cli_short %} can explore and analyze your codebase but is blocked from editing your project files. Specifically:
+
+- **Your project files are protected.** Any attempt to edit, patch, or run a shell command that would change a file in your workspace is blocked automatically—this isn't just a suggestion to the model, it's enforced directly, so it doesn't depend on the model choosing to behave.
+- **The plan itself can still be written.** {% data variables.product.prodname_copilot_short %} needs somewhere to keep notes and draft the plan, so it's allowed to create and edit files in its own private planning workspace (including the plan file you'll review and approve).
+- **Delegated sub-tasks are protected too.** If {% data variables.product.prodname_copilot_short %} spins up a helper session to research part of your question, that helper inherits the same restrictions and can't edit your project either.
+- **It's a safety net, not a guarantee.** This protection is designed to catch clear, direct attempts to change your files—it's not an airtight lockdown. Some things are intentionally allowed through so research isn't overly restricted: for example, shell commands whose effect can't be clearly determined in advance, and calls to external/MCP tools you've connected. In practice this is rarely an issue, but plan mode should be thought of as "changes require your review before applying," not an absolute guarantee that nothing on disk can change.
+
+Once you're happy with the plan, approve it to exit plan mode and let {% data variables.product.prodname_copilot_short %} make the actual changes.
 
 ### Command safety analysis
 

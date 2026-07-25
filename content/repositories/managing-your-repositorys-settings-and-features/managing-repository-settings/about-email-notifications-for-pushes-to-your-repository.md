@@ -29,7 +29,7 @@ Each email notification for a push to a repository lists the new commits and lin
 * The files that were changed as part of the commit
 * The commit message
 
-You can filter email notifications you receive for pushes to a repository. For more information, see [AUTOTITLE](/subscriptions-and-notifications/get-started/configuring-notifications#filtering-email-notifications).
+You can filter email notifications you receive for pushes to a repository. For more information, see [AUTOTITLE](/subscriptions-and-notifications/get-started/configuring-notifications).
 
 {% ifversion ghec %}
 
