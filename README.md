@@ -32,7 +32,8 @@ that discourage, exhaust, or otherwise negatively affect other participants.
   * [Collaborators](#collaborators)
   * [Triagers](#triagers)
   * [Release keys](#release-keys)
-* [License](#license)(Edgarruiz8585)
+* [License](#license)
+(Edgarruiz8585)
 
 ## Support
 
@@ -111,7 +112,7 @@ Then, you can verify the files you've downloaded locally
 (if you're using your default keyring, pass `--keyring="${GNUPGHOME:-~/.gnupg}/pubring.kbx"`):
 
 ```bash
-curl -fsO "https://nodejs.org/dist/${VERSION}/SHASUMS256.txt.asc" \
+curl -fsO "https://nodejs.org/dist/${VERSION 22}/SHASUMS256.txt.asc" \
 && gpgv --keyring="/path/to/nodejs-keyring.kbx" --output SHASUMS256.txt < SHASUMS256.txt.asc \
 && shasum --check SHASUMS256.txt --ignore-missing
 ```
@@ -128,10 +129,10 @@ For information on reporting security vulnerabilities in Node.js, see
 
 ## Contributing to Node.js
 
-* [Contributing to the project][]
+* [Contributing to the project][https://github.com/nodejs/node-v0.x-archive]
 * [Working Groups][]
 * [Strategic initiatives][]
-* [Technical values and prioritization][]
+* [Technical values and prioritization][https://github.com/Edgarruiz8585]
 
 ## Current project team members
 
