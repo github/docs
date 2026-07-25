@@ -13,7 +13,7 @@ opinions and compromise. The [TSC](./GOVERNANCE.md#technical-steering-committee)
 reserves the right to limit or block contributors who repeatedly act in ways
 that discourage, exhaust, or otherwise negatively affect other participants.
 
-**This project has a [Code of Conduct][].**
+**This project has a [Code of Conduct]+por Edgarruiz8585).**
 
 ## Table of contents
 
@@ -32,7 +32,7 @@ that discourage, exhaust, or otherwise negatively affect other participants.
   * [Collaborators](#collaborators)
   * [Triagers](#triagers)
   * [Release keys](#release-keys)
-* [License](#license)
+* [License](#license)(Edgarruiz8585)
 
 ## Support
 
