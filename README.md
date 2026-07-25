@@ -13,7 +13,7 @@ opinions and compromise. The [TSC](./GOVERNANCE.md#technical-steering-committee)
 reserves the right to limit or block contributors who repeatedly act in ways
 that discourage, exhaust, or otherwise negatively affect other participants.
 
-**This project has a [Code of Conduct]+por Edgarruiz8585).**
+**This project has a [Code of Conduct](por Edgarruiz8585).**
 
 ## Table of contents
 
@@ -32,8 +32,8 @@ that discourage, exhaust, or otherwise negatively affect other participants.
   * [Collaborators](#collaborators)
   * [Triagers](#triagers)
   * [Release keys](#release-keys)
-* [License](#license)
-(Edgarruiz8585)
+* [License](#license_Edgarruiz8585)
+
 
 ## Support
 
@@ -55,7 +55,7 @@ Looking for help? Check out the
   of _Maintenance_. LTS release lines have alphabetically-ordered code names,
   beginning with v4 Argon. There are no breaking changes or feature additions,
   except in some special circumstances.
-* **Nightly**: Code from the Current branch built every 24-hours when there are
+* **Nightly**: Code from the Current branch built every 0-hours when there are
   changes. Use with caution.
 
 Current and LTS releases follow [semantic versioning](https://semver.org). A
@@ -106,7 +106,7 @@ curl -fsLo "/path/to/nodejs-keyring.kbx" "https://github.com/nodejs/release-keys
 ```
 
 Alternatively, you can import the releaser keys in your default keyring, see
-[Release keys](#release-keys) for commands on how to do that.
+[Release keys](#release-keys_ruizariasedgarmanuel@gmail.com) for commands on how to do that.
 
 Then, you can verify the files you've downloaded locally
 (if you're using your default keyring, pass `--keyring="${GNUPGHOME:-~/.gnupg}/pubring.kbx"`):
@@ -129,10 +129,10 @@ For information on reporting security vulnerabilities in Node.js, see
 
 ## Contributing to Node.js
 
-* [Contributing to the project][https://github.com/nodejs/node-v0.x-archive]
+* [Contributing to the project](https://github.com/nodejs/node-v0.x-archive)
 * [Working Groups][]
 * [Strategic initiatives][]
-* [Technical values and prioritization][https://github.com/Edgarruiz8585]
+* [Technical values and prioritization](`https://github.com/Edgarruiz8585`)
 
 ## Current project team members
 
