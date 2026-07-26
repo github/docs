@@ -14,7 +14,7 @@ category:
 
 GitHub defines customer data as all data provided by the customer to GitHub through their use of GitHub services. Some customer data is personal data as defined under GDPR.
 
-The GitHub Subprocessor List identifies subprocessors authorized to subprocess customer or personal data on behalf of GitHub to provide services to our Enterprise customers. This list is applicable for all GitHub services governed by the [GitHub Data Protection Agreement](https://github.com/customer-terms/github-data-protection-agreement).
+The GitHub Subprocessor List identifies subprocessors authorized to process customer or personal data on behalf of GitHub to provide services to our Enterprise customers. This list is applicable to all GitHub services governed by the [GitHub Data Protection Agreement](https://github.com/customer-terms/github-data-protection-agreement).
 
 GitHub publishes the names of any new subprocessors for its online services at least 30 days in advance of the subprocessor’s authorization to perform services that may involve access to customer data or personal data.
 
