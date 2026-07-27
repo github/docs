@@ -32,7 +32,6 @@ Enterprise owners can define a policy for the whole enterprise, or delegate the 
    * To view policies for **AI agents**, in the sidebar, click {% octicon "agent" aria-hidden="true" aria-label="agent" %} **Agents**.
    * To view policies for **{% data variables.product.prodname_copilot_short %}**, in the sidebar, click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} **{% data variables.product.prodname_copilot_short %}**.
    * To view policies for **Model Context Protocol (MCP)**, in the sidebar, click {% octicon "mcp" aria-hidden="true" aria-label="mcp" %} **MCP**.
-
 1. Configure your policies as follows:
    * For policies with a **dropdown menu**, select the menu and click an enforcement option.
    * For policies with a **toggle**, click the toggle to set availability or enforcement.
