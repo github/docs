@@ -4727,7 +4727,12 @@ input ClearProjectV2ItemFieldValueInput {
   """
   fieldId: ID!
     @possibleTypes(
-      concreteTypes: ["ProjectV2Field", "ProjectV2IterationField", "ProjectV2SingleSelectField"]
+      concreteTypes: [
+        "ProjectV2Field"
+        "ProjectV2IterationField"
+        "ProjectV2MultiSelectField"
+        "ProjectV2SingleSelectField"
+      ]
       abstractType: "ProjectV2FieldConfiguration"
     )
 
@@ -8864,6 +8869,11 @@ input CreateProjectV2FieldInput {
   iterationConfiguration: ProjectV2IterationFieldConfigurationInput
 
   """
+  Options for a multi select field. At least one value is required if data_type is MULTI_SELECT
+  """
+  multiSelectOptions: [ProjectV2MultiSelectFieldOptionInput!]
+
+  """
   The name of the field.
   """
   name: String!
@@ -10856,7 +10866,12 @@ input DeleteProjectV2FieldInput {
   """
   fieldId: ID!
     @possibleTypes(
-      concreteTypes: ["ProjectV2Field", "ProjectV2IterationField", "ProjectV2SingleSelectField"]
+      concreteTypes: [
+        "ProjectV2Field"
+        "ProjectV2IterationField"
+        "ProjectV2MultiSelectField"
+        "ProjectV2SingleSelectField"
+      ]
       abstractType: "ProjectV2FieldConfiguration"
     )
 }
@@ -29455,7 +29470,7 @@ type Mutation @docsCategory(name: "meta") {
 
   """
   This mutation updates the value of a field for an item in a Project. Currently
-  only single-select, text, number, date, and iteration fields are supported.
+  only single-select, multi-select, text, number, date, and iteration fields are supported.
   """
   updateProjectV2ItemFieldValue(
     """
@@ -40781,6 +40796,11 @@ enum ProjectV2CustomFieldType @docsCategory(name: "projects") {
   ITERATION
 
   """
+  Multi Select
+  """
+  MULTI_SELECT
+
+  """
   Number
   """
   NUMBER
@@ -40912,6 +40932,7 @@ Configurations for project fields.
 union ProjectV2FieldConfiguration @docsCategory(name: "projects") =
   | ProjectV2Field
   | ProjectV2IterationField
+  | ProjectV2MultiSelectField
   | ProjectV2SingleSelectField
 
 """
@@ -41079,6 +41100,11 @@ enum ProjectV2FieldType @docsCategory(name: "projects") {
   MILESTONE
 
   """
+  Multi Select
+  """
+  MULTI_SELECT
+
+  """
   Number
   """
   NUMBER
@@ -41147,6 +41173,11 @@ input ProjectV2FieldValue @docsCategory(name: "projects") {
   The id of the iteration to set on the field.
   """
   iterationId: String
+
+  """
+  The ids of the multi select options to set on the field.
+  """
+  multiSelectOptionIds: [String!]
 
   """
   The number to set on the field.
@@ -41503,6 +41534,57 @@ type ProjectV2ItemFieldMilestoneValue @docsCategory(name: "projects") {
 }
 
 """
+The value of a multi select field in a Project item.
+"""
+type ProjectV2ItemFieldMultiSelectValue implements Node & ProjectV2ItemFieldValueCommon
+  @docsCategory(name: "projects") {
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The actor who created the item.
+  """
+  creator: Actor
+
+  """
+  Identifies the primary key from the database.
+  """
+  databaseId: Int
+
+  """
+  The project field that contains this value.
+  """
+  field: ProjectV2FieldConfiguration!
+
+  """
+  The Node ID of the ProjectV2ItemFieldMultiSelectValue object
+  """
+  id: ID!
+
+  """
+  The project item that contains this value.
+  """
+  item: ProjectV2Item!
+
+  """
+  The selected multi select options.
+  """
+  options: [ProjectV2MultiSelectFieldOption!]
+
+  """
+  Identifies the date and time when the object was last updated.
+  """
+  updatedAt: DateTime!
+
+  """
+  Comma-separated names of the selected multi select options.
+  """
+  value: String!
+}
+
+"""
 The value of a number field in a Project item.
 """
 type ProjectV2ItemFieldNumberValue implements Node & ProjectV2ItemFieldValueCommon @docsCategory(name: "projects") {
@@ -41796,6 +41878,7 @@ union ProjectV2ItemFieldValue @docsCategory(name: "projects") =
   | ProjectV2ItemFieldIterationValue
   | ProjectV2ItemFieldLabelValue
   | ProjectV2ItemFieldMilestoneValue
+  | ProjectV2ItemFieldMultiSelectValue
   | ProjectV2ItemFieldNumberValue
   | ProjectV2ItemFieldPullRequestValue
   | ProjectV2ItemFieldRepositoryValue
@@ -42153,6 +42236,117 @@ type ProjectV2IterationFieldIteration @docsCategory(name: "projects") {
   The iteration's html title.
   """
   titleHTML: String!
+}
+
+"""
+A multi select field inside a project.
+"""
+type ProjectV2MultiSelectField implements Node & ProjectV2FieldCommon @docsCategory(name: "projects") {
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The field's type.
+  """
+  dataType: ProjectV2FieldType!
+
+  """
+  Identifies the primary key from the database.
+  """
+  databaseId: Int
+
+  """
+  The Node ID of the ProjectV2MultiSelectField object
+  """
+  id: ID!
+
+  """
+  Options for the multi select field
+  """
+  multiSelectOptions(
+    """
+    Filter returned options to only those matching these names, case insensitive.
+    """
+    names: [String!]
+  ): [ProjectV2MultiSelectFieldOption!]!
+
+  """
+  The project field's name.
+  """
+  name: String!
+
+  """
+  The project that contains this field.
+  """
+  project: ProjectV2!
+
+  """
+  Identifies the date and time when the object was last updated.
+  """
+  updatedAt: DateTime!
+}
+
+"""
+Multi select field option for a configuration for a project.
+"""
+type ProjectV2MultiSelectFieldOption @docsCategory(name: "projects") {
+  """
+  The option's display color.
+  """
+  color: ProjectV2SingleSelectFieldOptionColor!
+
+  """
+  The option's plain-text description.
+  """
+  description: String!
+
+  """
+  The option's description, possibly containing HTML.
+  """
+  descriptionHTML: String!
+
+  """
+  The option's ID.
+  """
+  id: String!
+
+  """
+  The option's name.
+  """
+  name: String!
+
+  """
+  The option's html name.
+  """
+  nameHTML: String!
+}
+
+"""
+Represents a multi select field option
+"""
+input ProjectV2MultiSelectFieldOptionInput @docsCategory(name: "projects") {
+  """
+  The display color of the option
+  """
+  color: ProjectV2SingleSelectFieldOptionColor!
+
+  """
+  The description text of the option
+  """
+  description: String!
+
+  """
+  The ID of an existing multi select option. Include this to preserve the
+  option's identity during updates, preventing item field values from being cleared.
+  """
+  id: String
+
+  """
+  The name of the option
+  """
+  name: String!
 }
 
 """
@@ -69798,7 +69992,12 @@ input UpdateProjectV2FieldInput {
   """
   fieldId: ID!
     @possibleTypes(
-      concreteTypes: ["ProjectV2Field", "ProjectV2IterationField", "ProjectV2SingleSelectField"]
+      concreteTypes: [
+        "ProjectV2Field"
+        "ProjectV2IterationField"
+        "ProjectV2MultiSelectField"
+        "ProjectV2SingleSelectField"
+      ]
       abstractType: "ProjectV2FieldConfiguration"
     )
 
@@ -69808,6 +70007,13 @@ input UpdateProjectV2FieldInput {
   be fetched for partial updates.
   """
   iterationConfiguration: ProjectV2IterationFieldConfigurationInput
+
+  """
+  Options for a field of type MULTI_SELECT. Empty input is ignored, provided
+  values overwrite existing options, and existing options should be fetched for
+  partial updates.
+  """
+  multiSelectOptions: [ProjectV2MultiSelectFieldOptionInput!]
 
   """
   The name to update.
@@ -69891,7 +70097,12 @@ input UpdateProjectV2ItemFieldValueInput {
   """
   fieldId: ID!
     @possibleTypes(
-      concreteTypes: ["ProjectV2Field", "ProjectV2IterationField", "ProjectV2SingleSelectField"]
+      concreteTypes: [
+        "ProjectV2Field"
+        "ProjectV2IterationField"
+        "ProjectV2MultiSelectField"
+        "ProjectV2SingleSelectField"
+      ]
       abstractType: "ProjectV2FieldConfiguration"
     )
 
