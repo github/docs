@@ -18,7 +18,7 @@ Tailor the {% data variables.copilot.github_copilot_app %} to your workflows so 
 
 ## Setting global and repository instructions
 
-You can set global instructions in the app settings under **General**. 
+You can set global instructions in the app settings under **General**.
 
 You can set repository-specific instructions in the app settings, under the repository name in the "Projects" section.
 
@@ -53,3 +53,9 @@ For more information, see [AUTOTITLE](/copilot/concepts/agents/about-plugins).
 ## Working with canvas extensions
 
 Use canvas extensions to build shared, agent-driven artifacts and interfaces for team or personal workflows. In a session, use `/create-canvas` to scaffold a canvas extension, then iterate on the canvas with the agent. For more information, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/working-with-canvas-extensions).
+
+## Organization and enterprise management
+
+Enterprise and organization owners can set policies to govern how {% data variables.product.prodname_copilot_short %} is used across surfaces. For the major policies supported by the {% data variables.copilot.github_copilot_app %}, see [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies).
+
+Enterprises can also define a `{% data variables.copilot.managed_setting_file %}` file to control which actions users can take in supported {% data variables.product.prodname_copilot_short %} clients, such as which plugins users can install and whether "YOLO-style" commands are permitted. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings).

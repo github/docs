@@ -26,6 +26,7 @@ You can add MCP servers in the following ways:
 * [Using the `/mcp add` command](#using-the-mcp-add-command)
 * [Using the `copilot mcp add` subcommand](#using-the-copilot-mcp-add-subcommand)
 * [Editing the configuration file](#editing-the-configuration-file)
+* [Adding per-repository MCP servers](#adding-per-repository-mcp-servers)
 * [Searching and installing from the registry (experimental)](#searching-and-installing-from-the-registry)
 
 For installation instructions, available tools, and URLs for specific MCP servers, see the [{% data variables.product.github %} MCP Registry](https://github.com/mcp).
@@ -137,6 +138,52 @@ The following example shows a configuration file with a local server and a remot
 ```
 
 For more information on MCP server configuration, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers#writing-a-json-configuration-for-mcp-servers).
+
+### Adding per-repository MCP servers
+
+You can configure MCP servers for a specific project by adding a JSON file to the repository. This is useful when you want servers to be available only when working in that project, or when you want to share an MCP setup with collaborators by committing it to the repository.
+
+{% data variables.copilot.copilot_cli_short %} looks for project-level configuration in the following locations:
+
+| Path | Recommended use |
+|------|-----------------|
+| `.mcp.json` (in any directory from your working directory up to the repository root) | Local or per-checkout configuration; commonly placed at the project root |
+| `.github/mcp.json` | Shared configuration that is committed to the repository |
+
+When you start {% data variables.copilot.copilot_cli_short %} inside a Git repository, the CLI walks from your current working directory up to the repository root, loading MCP configuration files along the way. If both `.mcp.json` and `.github/mcp.json` exist in the same directory, `.mcp.json` takes precedence. When server names conflict, definitions in files closer to your working directory take precedence. Project-level definitions also take precedence over those in `~/.copilot/mcp-config.json`. For more information on relative trust, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#mcp-server-trust-levels).
+
+Project-level files can use either the `mcpServers` top-level object shown in `~/.copilot/mcp-config.json`, or the bare top-level format where each key is an MCP server name. For example, this configuration uses the `mcpServers` object:
+
+```json copy
+{
+  "mcpServers": {
+    "playwright": {
+      "type": "local",
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"]
+    }
+  }
+}
+```
+
+The same server can also be configured with the bare top-level format:
+
+```json copy
+{
+  "playwright": {
+    "type": "local",
+    "command": "npx",
+    "args": ["@playwright/mcp@latest"]
+  }
+}
+```
+
+> [!NOTE]
+> Project-level MCP servers are loaded only after you confirm folder trust on first launch. They are silently skipped in untrusted directories. For more information on folder trust, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli#trusted-directories).
+
+In prompt mode (`copilot -p`), project-level MCP servers are loaded automatically if the current directory is already trusted. If the directory is not trusted, project-level MCP servers are skipped by default. To load them anyway, set the `GITHUB_COPILOT_PROMPT_MODE_WORKSPACE_MCP` environment variable to `true`, since prompt mode cannot show an interactive trust prompt. For more information, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#environment-variables).
+
+The `.vscode/mcp.json` file for {% data variables.product.prodname_vscode_shortname %} is not read by {% data variables.copilot.copilot_cli_short %}. It uses the unsupported top-level key `servers`. To migrate an existing `.vscode/mcp.json` to a format the CLI accepts, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#migrating-from-vscodemcpjson).
 
 ### Searching and installing from the registry
 

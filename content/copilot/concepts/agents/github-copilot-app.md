@@ -20,7 +20,7 @@ The app is built on {% data variables.copilot.copilot_cli %} and integrates nati
 
 ## Availability
 
-{% data reusables.gated-features.github-app %} {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} users must have the {% data variables.copilot.copilot_cli_short %} policy enabled by an administrator.
+{% data reusables.gated-features.github-app %} For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} users, the {% data variables.copilot.github_copilot_app %} policy must remain enabled. This policy is enabled by default and is separate from the {% data variables.copilot.copilot_cli_short %} policy.
 
 ## Supported operating systems
 

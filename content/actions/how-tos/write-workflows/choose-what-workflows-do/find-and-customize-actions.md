@@ -144,7 +144,7 @@ steps:
   - uses: actions/javascript-action@main
 ```
 
-For more information, see [AUTOTITLE](/actions/concepts/workflows-and-actions/custom-actions#using-release-management-for-actions).
+For more information, see [AUTOTITLE](/actions/how-tos/create-and-publish-actions/manage-custom-actions#using-release-management-for-actions).
 
 ## Using inputs and outputs with an action
 
