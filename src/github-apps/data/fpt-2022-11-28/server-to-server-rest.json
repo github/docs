@@ -2371,6 +2371,12 @@
       "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/enterprise-28-day/latest"
     },
     {
+      "slug": "get-copilot-enterprise-repository-report-for-a-specific-day",
+      "subcategory": "copilot-usage-metrics",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/repos-1-day"
+    },
+    {
       "slug": "get-copilot-enterprise-user-teams-report-for-a-specific-day",
       "subcategory": "copilot-usage-metrics",
       "verb": "get",
@@ -2483,6 +2489,12 @@
       "subcategory": "copilot-usage-metrics",
       "verb": "get",
       "requestPath": "/orgs/{org}/copilot/metrics/reports/organization-28-day/latest"
+    },
+    {
+      "slug": "get-copilot-organization-repository-report-for-a-specific-day",
+      "subcategory": "copilot-usage-metrics",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/metrics/reports/repos-1-day"
     },
     {
       "slug": "get-copilot-organization-user-teams-report-for-a-specific-day",
@@ -3447,6 +3459,24 @@
       "subcategory": "sub-issues",
       "verb": "patch",
       "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/sub_issues/priority"
+    },
+    {
+      "slug": "list-issue-suggestions",
+      "subcategory": "issues",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions"
+    },
+    {
+      "slug": "approve-an-issue-suggestion",
+      "subcategory": "issues",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions/{suggestion_id}/approve"
+    },
+    {
+      "slug": "dismiss-an-issue-suggestion",
+      "subcategory": "issues",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions/{suggestion_id}/dismiss"
     },
     {
       "slug": "list-timeline-events-for-an-issue",

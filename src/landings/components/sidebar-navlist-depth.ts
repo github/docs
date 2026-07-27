@@ -4,11 +4,12 @@
 type TreeNodeLike = { childPages: TreeNodeLike[] }
 
 // Brand NavList supports up to 5 nesting levels; a level-5 item cannot contain a
-// SubNav (it is dropped with a warning). SidebarProduct's group-less top-level
-// items start at brand level 2, so items can keep nesting while level < 5. Real
-// docs content currently bottoms out at exactly level 5, so the guard that uses
-// this is defensive: if a deeper tree ever appears, the overflow is flattened
-// into leaf links rather than silently dropped by brand.
+// SubNav (it is dropped with a warning). SidebarProduct injects a hidden sentinel so
+// brand numbers its top-level items from level 1 (without it brand starts at level 2
+// and wastes a level — see navListLevelSentinel in SidebarProduct.tsx), so items can
+// keep nesting while level < 5. Real docs content currently bottoms out at exactly
+// level 5, so the guard that uses this is defensive: if a deeper tree ever appears,
+// the overflow is flattened into leaf links rather than silently dropped by brand.
 //
 // Kept in its own dependency-free module (no React/SCSS/Next imports) so it can
 // be unit-tested without booting the Next.js app.

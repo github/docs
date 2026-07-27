@@ -28,14 +28,14 @@ You can enable delegated alert dismissal for:
 
 You can use a custom role to let team members who are not organization owners or security managers respond to dismissal requests and dismiss alerts directly. The custom role needs the following permissions:
 
-* Organization permissions for reviewing and bypassing alert dismissal requests. To find the exact permissions required for a particular product, see [Permissions for organization access](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles#permissions-for-organization-access).
-* Repository permissions to view, dismiss, and reopen alerts. To find the exact permissions required for a particular product, see [Security](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles#security).
+* Organization permissions for reviewing and bypassing alert dismissal requests. To find the exact permissions required for a particular product, see [Permissions for organization access](/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles#permissions-for-organization-access).
+* Repository permissions to view, dismiss, and reopen alerts. To find the exact permissions required for a particular product, see [Security](/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles#security).
 
 {% data reusables.organizations.custom-role-repo-perms-preview-note %}
 
 ## Next steps
 
 To configure delegated alert dismissal, see:
-* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/enabling-delegated-alert-dismissal-for-code-scanning)
-* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts/enabling-delegated-alert-dismissal-for-secret-scanning){% ifversion dependabot-delegated-alert-dismissal %}
+* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/enable-delegated-alert-dismissal)
+* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts/enable-delegated-dismissal){% ifversion dependabot-delegated-alert-dismissal %}
 * [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/enable-delegated-alert-dismissal){% endif %}

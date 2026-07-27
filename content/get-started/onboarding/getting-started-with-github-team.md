@@ -25,7 +25,7 @@ Once your personal account is set up, you can create an organization and pick a 
 
 ### 3. Managing billing for an organization
 
-You must manage billing settings, payment method, and paid features and products for each of your personal accounts and organizations separately. You can switch between settings for your different accounts using the context switcher in your settings. For more information, see [AUTOTITLE](/billing/get-started/how-billing-works#switching-between-settings-for-your-different-accounts).
+You must manage billing settings, payment method, and paid features and products for each of your personal accounts and organizations separately. You can switch between settings for your different accounts using the context switcher in your settings. For more information, see [AUTOTITLE](/billing/get-started/how-billing-works).
 
 Your organization's billing settings page allows you to manage settings like your payment method, billing cycle and billing email, or view information such as your subscription, billing date and payment history. You can also view and upgrade your storage and GitHub Actions minutes. For more information on managing your billing settings, see [AUTOTITLE](/billing/get-started).
 

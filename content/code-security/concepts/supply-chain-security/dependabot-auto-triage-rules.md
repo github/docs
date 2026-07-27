@@ -44,7 +44,7 @@ There are two types of {% data variables.dependabot.auto_triage_rules %}:
 * At worst, have limited effects like slow builds or long-running tests.
 * Are not indicative of issues in production.
 
-The rule is enabled by default for public repositories and can be opted into for private repositories. For instructions, see [Enabling the `Dismiss low impact issues for development-scoped dependencies` rule for your private repository](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/prioritize-with-preset-rules#enabling-the-dismiss-low-impact-issues-for-development-scoped-dependencies-rule-for-your-private-repository).
+The rule is enabled by default for public repositories and can be opted into for private repositories. For instructions, see [Enabling the `Dismiss low impact issues for development-scoped dependencies` rule for your private repository](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/prioritize-with-preset-rules#enabling-github-preset-rules).
 
 For more information about the criteria used by the rule, see [AUTOTITLE](/code-security/reference/supply-chain-security/criteria-for-preset-rules).
 
@@ -78,7 +78,7 @@ Additionally, auto-dismissed alerts are still available for reporting and review
 * If you change the scope of a dependency from development to production.
 * If {% data variables.product.company_short %} modifies certain metadata for the related advisory.
 
-Auto-dismissed alerts are defined by the `resolution:auto-dismiss` close reason. Automatic dismissal activity is included in alert webhooks, REST and GraphQL APIs, and the audit log. For more information, see [AUTOTITLE](/rest/dependabot/alerts), and the "`repository_vulnerability_alert`" section in [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#repository_vulnerability_alert-category-actions).
+Auto-dismissed alerts are defined by the `resolution:auto-dismiss` close reason. Automatic dismissal activity is included in alert webhooks, REST and GraphQL APIs, and the audit log. For more information, see [AUTOTITLE](/rest/dependabot/alerts), and the "`repository_vulnerability_alert`" section in [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization).
 
 ## Next steps
 

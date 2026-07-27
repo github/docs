@@ -19402,13 +19402,33 @@
               "name": "value",
               "description": "<p>The value to set for the field. For multi-select fields, provide an array of option names.</p>",
               "isRequired": true
+            },
+            {
+              "type": "string",
+              "name": "rationale",
+              "description": "<p>Optional reasoning for setting this field value.</p>"
+            },
+            {
+              "type": "boolean",
+              "name": "suggest",
+              "description": "<p>If <code>true</code>, the change is stored as a pending suggestion for human review rather than applied directly.</p>"
+            },
+            {
+              "type": "string",
+              "name": "confidence",
+              "description": "<p>The confidence level for this field value choice.</p>",
+              "enum": [
+                "low",
+                "medium",
+                "high"
+              ]
             }
           ]
         },
         {
-          "type": "string or null",
+          "type": "null or string or object",
           "name": "type",
-          "description": "<p>The name of the issue type to associate with this issue or use <code>null</code> to remove the current issue type. Only users with push access can set the type for issues. Without push access to the repository, type changes are silently dropped.</p>"
+          "description": "<p>The issue type to associate with this issue. Only users with push access can set the type for issues. Without push access to the repository, type changes are silently dropped.</p>"
         }
       ],
       "descriptionHTML": "<p>Issue owners and users with push access or Triage role can edit an issue.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
@@ -22477,7 +22497,176 @@
                 },
                 {
                   "type": "object",
-                  "properties": {}
+                  "properties": {
+                    "suggestions": {
+                      "type": "object",
+                      "description": "Pending suggestions for each suggestible field (`type`,\n`issue_field_values`, `labels`, `assignees`, `state`) the\nrequest touched. Omitted for fields not in the request or\nwith no pending suggestions. Items tagged `already_applied`\nare echoes of the current request's inputs whose target is\nalready applied to the issue; they are not persisted as\npending suggestions.\n",
+                      "properties": {
+                        "type": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "string"
+                              },
+                              "rationale": {
+                                "type": "string"
+                              },
+                              "suggest": {
+                                "type": "boolean"
+                              },
+                              "confidence": {
+                                "type": "string",
+                                "enum": [
+                                  "low",
+                                  "medium",
+                                  "high"
+                                ]
+                              },
+                              "already_applied": {
+                                "type": "boolean"
+                              }
+                            }
+                          }
+                        },
+                        "issue_field_values": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "field_id": {
+                                "type": "integer"
+                              },
+                              "value": {
+                                "oneOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "number"
+                                  },
+                                  {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    }
+                                  }
+                                ]
+                              },
+                              "rationale": {
+                                "type": "string"
+                              },
+                              "suggest": {
+                                "type": "boolean"
+                              },
+                              "confidence": {
+                                "type": "string",
+                                "enum": [
+                                  "low",
+                                  "medium",
+                                  "high"
+                                ]
+                              },
+                              "already_applied": {
+                                "type": "boolean"
+                              }
+                            }
+                          }
+                        },
+                        "labels": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string"
+                              },
+                              "rationale": {
+                                "type": "string"
+                              },
+                              "suggest": {
+                                "type": "boolean"
+                              },
+                              "confidence": {
+                                "type": "string",
+                                "enum": [
+                                  "low",
+                                  "medium",
+                                  "high"
+                                ]
+                              },
+                              "already_applied": {
+                                "type": "boolean"
+                              }
+                            }
+                          }
+                        },
+                        "assignees": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "login": {
+                                "type": "string"
+                              },
+                              "rationale": {
+                                "type": "string"
+                              },
+                              "suggest": {
+                                "type": "boolean"
+                              },
+                              "confidence": {
+                                "type": "string",
+                                "enum": [
+                                  "low",
+                                  "medium",
+                                  "high"
+                                ]
+                              },
+                              "already_applied": {
+                                "type": "boolean"
+                              }
+                            }
+                          }
+                        },
+                        "state": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "string"
+                              },
+                              "state_reason": {
+                                "type": "string"
+                              },
+                              "duplicate_issue_id": {
+                                "type": "integer"
+                              },
+                              "rationale": {
+                                "type": "string"
+                              },
+                              "suggest": {
+                                "type": "boolean"
+                              },
+                              "confidence": {
+                                "type": "string",
+                                "enum": [
+                                  "low",
+                                  "medium",
+                                  "high"
+                                ]
+                              },
+                              "already_applied": {
+                                "type": "boolean"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               ]
             }
@@ -22704,6 +22893,817 @@
         {
           "httpStatusCode": "404",
           "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Issues\" repository permissions": "write"
+          },
+          {
+            "\"Pull requests\" repository permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions",
+      "title": "List issue suggestions",
+      "category": "issues",
+      "subcategory": "issues",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "issue_number",
+          "description": "<p>The number that identifies the issue.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "state",
+          "in": "query",
+          "required": false,
+          "description": "<p>Filter suggestions by their state.</p>",
+          "schema": {
+            "type": "string",
+            "default": "pending",
+            "enum": [
+              "pending",
+              "applied",
+              "approved",
+              "dismissed",
+              "replaced",
+              "all"
+            ]
+          }
+        },
+        {
+          "name": "action",
+          "in": "query",
+          "required": false,
+          "description": "<p>Filter suggestions by the change they propose.</p>",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "set_type",
+              "add_label",
+              "add_field",
+              "add_assignee",
+              "close_issue"
+            ]
+          }
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 30
+          }
+        },
+        {
+          "name": "page",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 1
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Lists the suggestions on an issue. A suggestion is an agent-proposed change to an issue's type, labels, fields, assignees, or closed state that a maintainer can approve or dismiss.</p>\n<p>By default only pending suggestions are returned. Use <code>state=all</code> to return suggestions in every state, or <code>state=&#x3C;state></code> to filter to a single state. Use <code>action=&#x3C;action></code> to return only suggestions for a specific change.</p>\n<p>This endpoint is only available while the issue suggestions feature is enabled for the repository, and only supports issues, not pull requests.</p>\n<p>Requires triage access to the repository.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "issue_number": "ISSUE_NUMBER"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": [
+              {
+                "id": 12,
+                "issue_id": 4567,
+                "action": "add_label",
+                "state": "pending",
+                "target_id": 208045946,
+                "target_value": null,
+                "rationale": "This looks like a bug report based on the stack trace in the description.",
+                "confidence": "HIGH",
+                "actor_id": 41898282,
+                "issue_event_id": null,
+                "resolved_by": null,
+                "created_at": "2026-06-01T14:20:00Z",
+                "updated_at": "2026-06-01T14:20:00Z"
+              },
+              {
+                "id": 13,
+                "issue_id": 4567,
+                "action": "set_type",
+                "state": "pending",
+                "target_id": 3,
+                "target_value": "Bug",
+                "rationale": "The report describes unexpected behaviour with reproduction steps.",
+                "confidence": "MEDIUM",
+                "actor_id": 41898282,
+                "issue_event_id": null,
+                "resolved_by": null,
+                "created_at": "2026-06-01T14:21:00Z",
+                "updated_at": "2026-06-01T14:21:00Z"
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Issue Suggestion",
+                "description": "An agent-proposed change to an issue that a maintainer can approve or dismiss.",
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "description": "The unique identifier of the suggestion."
+                  },
+                  "issue_id": {
+                    "type": "integer",
+                    "description": "The unique identifier of the issue the suggestion applies to."
+                  },
+                  "action": {
+                    "type": "string",
+                    "description": "The kind of change proposed.",
+                    "enum": [
+                      "set_type",
+                      "add_label",
+                      "add_field",
+                      "add_assignee",
+                      "close_issue"
+                    ]
+                  },
+                  "state": {
+                    "type": "string",
+                    "description": "The suggestion's lifecycle state.",
+                    "enum": [
+                      "pending",
+                      "applied",
+                      "approved",
+                      "dismissed",
+                      "replaced"
+                    ]
+                  },
+                  "target_id": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "description": "The identifier of the target the change applies to (issue type, label, field, assignee, or duplicate issue), when applicable."
+                  },
+                  "target_value": {
+                    "description": "The proposed value, when applicable. An array for multi-select field suggestions.",
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    ],
+                    "type": [
+                      "null",
+                      "string",
+                      "number",
+                      "boolean",
+                      "array"
+                    ]
+                  },
+                  "rationale": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "The rationale the actor provided for the suggestion."
+                  },
+                  "confidence": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "The actor's confidence level in the suggestion.",
+                    "enum": [
+                      "LOW",
+                      "MEDIUM",
+                      "HIGH",
+                      null
+                    ]
+                  },
+                  "actor_id": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "description": "The unique identifier of the actor that proposed the suggestion."
+                  },
+                  "issue_event_id": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "description": "The identifier of the timeline event created when the suggestion was approved, when applicable."
+                  },
+                  "resolved_by": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "description": "The unique identifier of the user who approved or dismissed the suggestion."
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "description": "The time the suggestion was created.",
+                    "format": "date-time"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "description": "The time the suggestion was last updated.",
+                    "format": "date-time"
+                  }
+                },
+                "required": [
+                  "id",
+                  "issue_id",
+                  "action",
+                  "state",
+                  "target_id",
+                  "target_value",
+                  "rationale",
+                  "confidence",
+                  "actor_id",
+                  "issue_event_id",
+                  "resolved_by",
+                  "created_at",
+                  "updated_at"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Issues\" repository permissions": "read"
+          },
+          {
+            "\"Pull requests\" repository permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions/{suggestion_id}/approve",
+      "title": "Approve an issue suggestion",
+      "category": "issues",
+      "subcategory": "issues",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "issue_number",
+          "description": "<p>The number that identifies the issue.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "suggestion_id",
+          "in": "path",
+          "required": true,
+          "description": "<p>The unique identifier of the suggestion.</p>",
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Approves a pending suggestion on an issue. Applies the proposed change (creating the corresponding timeline event), transitions the suggestion to <code>approved</code>, and dismisses any competing pending suggestions for the same change.</p>\n<p>Requires triage access to the repository. Approving a suggestion also requires permission to perform the change it applies (for example, setting the issue type, adding a label or assignee, or closing the issue); this only affects fine-grained access tokens and GitHub Apps whose permissions are narrower than the triage role. This endpoint only supports issues, not pull requests.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "issue_number": "ISSUE_NUMBER",
+              "suggestion_id": "SUGGESTION_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "id": 12,
+              "issue_id": 4567,
+              "action": "add_label",
+              "state": "approved",
+              "target_id": 208045946,
+              "target_value": null,
+              "rationale": "This looks like a bug report based on the stack trace in the description.",
+              "confidence": "HIGH",
+              "actor_id": 41898282,
+              "issue_event_id": 6430295168,
+              "resolved_by": 583231,
+              "created_at": "2026-06-01T14:20:00Z",
+              "updated_at": "2026-06-01T15:05:00Z"
+            },
+            "schema": {
+              "title": "Issue Suggestion",
+              "description": "An agent-proposed change to an issue that a maintainer can approve or dismiss.",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "The unique identifier of the suggestion."
+                },
+                "issue_id": {
+                  "type": "integer",
+                  "description": "The unique identifier of the issue the suggestion applies to."
+                },
+                "action": {
+                  "type": "string",
+                  "description": "The kind of change proposed.",
+                  "enum": [
+                    "set_type",
+                    "add_label",
+                    "add_field",
+                    "add_assignee",
+                    "close_issue"
+                  ]
+                },
+                "state": {
+                  "type": "string",
+                  "description": "The suggestion's lifecycle state.",
+                  "enum": [
+                    "pending",
+                    "applied",
+                    "approved",
+                    "dismissed",
+                    "replaced"
+                  ]
+                },
+                "target_id": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "The identifier of the target the change applies to (issue type, label, field, assignee, or duplicate issue), when applicable."
+                },
+                "target_value": {
+                  "description": "The proposed value, when applicable. An array for multi-select field suggestions.",
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "type": [
+                    "null",
+                    "string",
+                    "number",
+                    "boolean",
+                    "array"
+                  ]
+                },
+                "rationale": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The rationale the actor provided for the suggestion."
+                },
+                "confidence": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The actor's confidence level in the suggestion.",
+                  "enum": [
+                    "LOW",
+                    "MEDIUM",
+                    "HIGH",
+                    null
+                  ]
+                },
+                "actor_id": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "The unique identifier of the actor that proposed the suggestion."
+                },
+                "issue_event_id": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "The identifier of the timeline event created when the suggestion was approved, when applicable."
+                },
+                "resolved_by": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "The unique identifier of the user who approved or dismissed the suggestion."
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "The time the suggestion was created.",
+                  "format": "date-time"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "description": "The time the suggestion was last updated.",
+                  "format": "date-time"
+                }
+              },
+              "required": [
+                "id",
+                "issue_id",
+                "action",
+                "state",
+                "target_id",
+                "target_value",
+                "rationale",
+                "confidence",
+                "actor_id",
+                "issue_event_id",
+                "resolved_by",
+                "created_at",
+                "updated_at"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Issues\" repository permissions": "write"
+          },
+          {
+            "\"Pull requests\" repository permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions/{suggestion_id}/dismiss",
+      "title": "Dismiss an issue suggestion",
+      "category": "issues",
+      "subcategory": "issues",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "issue_number",
+          "description": "<p>The number that identifies the issue.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "suggestion_id",
+          "in": "path",
+          "required": true,
+          "description": "<p>The unique identifier of the suggestion.</p>",
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Dismisses a pending suggestion on an issue. Transitions the suggestion to <code>dismissed</code> without applying any change or creating a timeline event.</p>\n<p>Requires triage access to the repository. This endpoint only supports issues, not pull requests.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "issue_number": "ISSUE_NUMBER",
+              "suggestion_id": "SUGGESTION_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "id": 12,
+              "issue_id": 4567,
+              "action": "add_label",
+              "state": "approved",
+              "target_id": 208045946,
+              "target_value": null,
+              "rationale": "This looks like a bug report based on the stack trace in the description.",
+              "confidence": "HIGH",
+              "actor_id": 41898282,
+              "issue_event_id": 6430295168,
+              "resolved_by": 583231,
+              "created_at": "2026-06-01T14:20:00Z",
+              "updated_at": "2026-06-01T15:05:00Z"
+            },
+            "schema": {
+              "title": "Issue Suggestion",
+              "description": "An agent-proposed change to an issue that a maintainer can approve or dismiss.",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "The unique identifier of the suggestion."
+                },
+                "issue_id": {
+                  "type": "integer",
+                  "description": "The unique identifier of the issue the suggestion applies to."
+                },
+                "action": {
+                  "type": "string",
+                  "description": "The kind of change proposed.",
+                  "enum": [
+                    "set_type",
+                    "add_label",
+                    "add_field",
+                    "add_assignee",
+                    "close_issue"
+                  ]
+                },
+                "state": {
+                  "type": "string",
+                  "description": "The suggestion's lifecycle state.",
+                  "enum": [
+                    "pending",
+                    "applied",
+                    "approved",
+                    "dismissed",
+                    "replaced"
+                  ]
+                },
+                "target_id": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "The identifier of the target the change applies to (issue type, label, field, assignee, or duplicate issue), when applicable."
+                },
+                "target_value": {
+                  "description": "The proposed value, when applicable. An array for multi-select field suggestions.",
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "type": [
+                    "null",
+                    "string",
+                    "number",
+                    "boolean",
+                    "array"
+                  ]
+                },
+                "rationale": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The rationale the actor provided for the suggestion."
+                },
+                "confidence": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The actor's confidence level in the suggestion.",
+                  "enum": [
+                    "LOW",
+                    "MEDIUM",
+                    "HIGH",
+                    null
+                  ]
+                },
+                "actor_id": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "The unique identifier of the actor that proposed the suggestion."
+                },
+                "issue_event_id": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "The identifier of the timeline event created when the suggestion was approved, when applicable."
+                },
+                "resolved_by": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "The unique identifier of the user who approved or dismissed the suggestion."
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "The time the suggestion was created.",
+                  "format": "date-time"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "description": "The time the suggestion was last updated.",
+                  "format": "date-time"
+                }
+              },
+              "required": [
+                "id",
+                "issue_id",
+                "action",
+                "state",
+                "target_id",
+                "target_value",
+                "rationale",
+                "confidence",
+                "actor_id",
+                "issue_event_id",
+                "resolved_by",
+                "created_at",
+                "updated_at"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
         }
       ],
       "previews": [],
@@ -26352,7 +27352,7 @@
       ],
       "bodyParameters": [
         {
-          "type": "array of strings",
+          "type": "array",
           "name": "assignees",
           "description": "<p>Usernames of people to assign this issue to. <em>NOTE: Only users with push access can add assignees to an issue. Assignees are silently ignored otherwise.</em></p>"
         }
@@ -43726,6 +44726,43 @@
                       }
                     ]
                   },
+                  "intent": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "title": "Issue Event Intent",
+                        "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                        "type": [
+                          "object",
+                          "null"
+                        ],
+                        "properties": {
+                          "rationale": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "The reasoning the agent provided for the change."
+                          },
+                          "confidence": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "The confidence level the agent had when performing this action.",
+                            "enum": [
+                              "LOW",
+                              "MEDIUM",
+                              "HIGH",
+                              null
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
                   "author_association": {
                     "title": "author_association",
                     "type": "string",
@@ -50016,6 +51053,43 @@
                     }
                   ]
                 },
+                "intent": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "title": "Issue Event Intent",
+                      "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "properties": {
+                        "rationale": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "The reasoning the agent provided for the change."
+                        },
+                        "confidence": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "The confidence level the agent had when performing this action.",
+                          "enum": [
+                            "LOW",
+                            "MEDIUM",
+                            "HIGH",
+                            null
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                },
                 "author_association": {
                   "title": "author_association",
                   "type": "string",
@@ -50934,6 +52008,43 @@
                           "name",
                           "color"
                         ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
+                        ]
                       }
                     },
                     "required": [
@@ -51394,6 +52505,43 @@
                         "required": [
                           "name",
                           "color"
+                        ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
                         ]
                       }
                     },
@@ -52055,6 +53203,43 @@
                           "subscriptions_url",
                           "type",
                           "url"
+                        ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
                         ]
                       }
                     },
@@ -59169,6 +60354,43 @@
                           "id",
                           "name"
                         ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
+                        ]
                       }
                     },
                     "required": [
@@ -59654,6 +60876,43 @@
                         "required": [
                           "id",
                           "name"
+                        ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
                         ]
                       }
                     },
@@ -60180,6 +61439,43 @@
                         "required": [
                           "id",
                           "name"
+                        ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
                         ]
                       }
                     },
@@ -81110,9 +82406,9 @@
       ],
       "bodyParameters": [
         {
-          "type": "array of strings",
+          "type": "array",
           "name": "labels",
-          "description": "<p>The names of the labels to add to the issue's existing labels. You can also pass an <code>array</code> of labels directly, but GitHub recommends passing an object with the <code>labels</code> key. To replace all of the labels for an issue, use \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/issues/labels#set-labels-for-an-issue\">Set labels for an issue</a>.\"</p>"
+          "description": "<p>The labels to add to the issue's existing labels. You can also pass an <code>array</code> of labels directly, but GitHub recommends passing an object with the <code>labels</code> key. To replace all of the labels for an issue, use \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/issues/labels#set-labels-for-an-issue\">Set labels for an issue</a>.\"</p>"
         }
       ],
       "descriptionHTML": "<p>Adds labels to an issue.</p>",
@@ -99771,6 +101067,14 @@
             "type": "integer",
             "default": 1
           }
+        },
+        {
+          "name": "exclude",
+          "in": "query",
+          "description": "<p>A comma-separated list of timeline event names to exclude from the response.</p>",
+          "schema": {
+            "type": "string"
+          }
         }
       ],
       "bodyParameters": [],
@@ -100409,6 +101713,43 @@
                           "name",
                           "color"
                         ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
+                        ]
                       }
                     },
                     "required": [
@@ -100869,6 +102210,43 @@
                         "required": [
                           "name",
                           "color"
+                        ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
                         ]
                       }
                     },
@@ -112261,6 +113639,43 @@
                           "type",
                           "url"
                         ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
+                        ]
                       }
                     },
                     "required": [
@@ -113270,6 +114685,43 @@
                           "string",
                           "null"
                         ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
+                        ]
                       }
                     },
                     "required": [
@@ -113754,6 +115206,43 @@
                         "required": [
                           "id",
                           "name"
+                        ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
                         ]
                       }
                     },
@@ -114240,6 +115729,43 @@
                         "required": [
                           "id",
                           "name"
+                        ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
                         ]
                       }
                     },
@@ -114766,6 +116292,43 @@
                         "required": [
                           "id",
                           "name"
+                        ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
                         ]
                       }
                     },

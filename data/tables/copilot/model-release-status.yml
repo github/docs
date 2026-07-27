@@ -81,6 +81,10 @@
   provider: 'Anthropic'
   release_status: 'GA'
 
+- name: 'Claude Opus 5'
+  provider: 'Anthropic'
+  release_status: 'GA'
+
 - name: 'Claude Sonnet 4.5'
   provider: 'Anthropic'
   release_status: 'GA'
@@ -108,6 +112,10 @@
   release_status: 'Public preview'
 
 - name: 'Gemini 3.5 Flash'
+  provider: 'Google'
+  release_status: 'GA'
+
+- name: 'Gemini 3.6 Flash'
   provider: 'Google'
   release_status: 'GA'
 

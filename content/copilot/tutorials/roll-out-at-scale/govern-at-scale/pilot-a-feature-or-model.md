@@ -104,6 +104,9 @@ Use {% data variables.product.prodname_copilot_short %} usage metrics to see how
 * To understand what the metrics cover and how to interpret them, see [AUTOTITLE](/copilot/concepts/copilot-usage-metrics/copilot-metrics).
 * To view the dashboard for your organization or enterprise, see [AUTOTITLE](/copilot/how-tos/administer-copilot/view-usage-and-adoption).
 
+> [!TIP]
+> A rising active-user count doesn't tell you whether that usage is meaningful, especially for an agentic feature. To see whether pilot participants are progressing to deeper, agent-driven usage, see [AUTOTITLE](/copilot/how-tos/administer-copilot/view-impact-dashboard).
+
 ### Collect developer feedback from your pilot group
 
 Metrics tell you *whether* people use the feature, but not *why* or how well it works for them. Gather qualitative feedback to fill that gap. Run short surveys, hold regular check-ins, or set up a dedicated channel where pilot users can report what's working and what isn't.
@@ -129,6 +132,7 @@ Pilot usage draws from the shared pool first (at no extra cost) before metered b
 You're ready to decide when you have:
 
 * Adoption metrics that show a stable pattern rather than a single early burst.
+* For agentic features, adoption cohort data showing whether participants are progressing to deeper usage rather than plateauing.
 * Actual cost data, spanning at least one billing cycle, that you can compare against your estimate.
 * Feedback from a representative range of your pilot users.
 

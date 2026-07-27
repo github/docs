@@ -1,5 +1,28 @@
 // The tree's typography now comes from @primer/react-brand NavList's own scale
 // (level-1 section headers at size-200, leaves at size-100). This class is kept
-// as the wrapper hook for `data-testid="sidebar"`; intentionally has no rules.
+// as the wrapper hook for `data-testid="sidebar"`.
 .sidebar {
+  // Brand's NavList draws the active accent bar only on nested leaves — its rule
+  // explicitly excludes level-1 (`.item--leaf:not(.item--level-1) .link[aria-current]`),
+  // so a top-level article like "Quickstart" gets only the subtle background pill
+  // and no green bar. Restore the bar for active top-level leaves to match nested
+  // items. Brand's classes are hashed, so match on the stable substrings.
+  :global([class*="NavList__item--leaf"][class*="NavList__item--level-1"])
+    :global([class*="NavList__link"])[aria-current]:not(
+      [aria-current="false"]
+    )::before {
+    content: "";
+    position: absolute;
+    // Level-1 links are shorter (~24px) than nested leaves, so use a small inset
+    // to keep the bar roughly the height of the background pill rather than the
+    // larger inset brand applies to taller nested items.
+    inset-block: var(--base-size-2);
+    // Level-1 leaves have no inline padding, so pull the bar into the NavList's
+    // own inline padding gutter to sit left of the label — matching where brand
+    // places the level-1 indicator on expandable section toggles.
+    inset-inline-start: calc(-1 * var(--base-size-8));
+    width: var(--base-size-4);
+    border-radius: var(--base-size-2);
+    background-color: var(--brand-NavList-activeIndicator-color);
+  }
 }

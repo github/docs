@@ -1,11 +1,12 @@
 name: Purge Fastly
 
-# **What it does**: Purges Fastly after a deploy and on demand. Soft purge by
-#   default; can hard purge specific languages, or hard purge the ENTIRE cache.
-# **Why we have it**: So that, right after a production deploy, we start afresh,
-#   and so docs engineering can clear a bad cache state without the Fastly UI.
-# **Who does it impact**: Writers and engineers. A full purge impacts all readers,
-#   origin sees a traffic spike while the cache refills, so it's gated below.
+# **What it does**:
+#   On production deploy, hard-purge the changed English content pages by key.
+#   On demand, soft or hard purge language keys, a single key, or entire cache.
+# **Why we have it**: So a just-deployed change is visible right away, and so
+#   docs engineering can clear a bad cache state without the Fastly UI.
+# **Who does it impact**: Writers and engineers. A full purge impacts all readers
+#   and spikes origin traffic while the cache refills, so it's gated below.
 
 on:
   deployment_status:
@@ -58,6 +59,17 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
+      - name: Generate GitHub App token
+        # Lets a scheduled-run failure open a tracking issue in docs-engineering
+        # (the default GITHUB_TOKEN can't write cross-repo).
+        id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
+          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
+          owner: github
+          repositories: docs-engineering
+
       - uses: ./.github/actions/node-npm-setup
 
       - name: Validate confirmation input
@@ -74,27 +86,22 @@ jobs:
             exit 1
           fi
 
-      - name: Purge Fastly
-        # Auto post-deploy runs wait for the build, purge English only (temporary),
-        # and stay soft. A manual run uses the inputs: blank languages = all, the
-        # `hard` toggle, or a confirmed full-cache purge.
-        #
+      - name: Wait for production to serve this build
+        if: ${{ github.event_name == 'deployment_status' }}
+        run: npm run wait-for-build
+
+      - name: Purge Fastly (manual)
         # Raw inputs are passed through the environment and quoted, never spliced
         # into the command string, so a value like `en' --everything` can't break
         # out of its argument and inject another flag.
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         env:
-          EVENT_NAME: ${{ github.event_name }}
           LANGUAGES_INPUT: ${{ inputs.languages }}
           HARD_INPUT: ${{ inputs.hard }}
           EVERYTHING_INPUT: ${{ inputs.everything }}
         run: |
           args=()
-          if [ "$EVENT_NAME" != "workflow_dispatch" ]; then
-            args+=(--wait-for-build)
-          fi
-          if [ "$EVENT_NAME" = "deployment_status" ]; then
-            args+=(--languages en)
-          elif [ -n "$LANGUAGES_INPUT" ]; then
+          if [ -n "$LANGUAGES_INPUT" ]; then
             args+=(--languages "$LANGUAGES_INPUT")
           fi
           if [ "$HARD_INPUT" = "true" ]; then
@@ -105,14 +112,9 @@ jobs:
           fi
           npm run purge-fastly -- "${args[@]}"
 
-      - name: Hard-purge changed English content URLs
-        # Prod deploys only. The soft purge above just marks `language:en` stale,
-        # so stale-while-revalidate can keep serving the pre-deploy copy of a
-        # just-changed page for a while. This evicts the specific English URLs
-        # whose content/ files changed in this deploy, so the next request fetches
-        # fresh. By the time the deploy succeeds the old pods are already gone, so
-        # the refill is deterministically the new content. data/ changes stay
-        # covered by the soft purge above (too many URLs to enumerate cheaply).
+      - name: Hard-purge changed English content pages
+        # On prod deploys, evict the surrogate keys of the English content pages
+        # whose content/ files changed in this deploy.
         if: ${{ github.event_name == 'deployment_status' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -123,3 +125,8 @@ jobs:
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+      - uses: ./.github/actions/create-workflow-failure-issue
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          token: ${{ steps.app-token.outputs.token }}

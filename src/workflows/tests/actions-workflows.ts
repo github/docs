@@ -36,6 +36,7 @@ interface WorkflowJob {
 
 interface WorkflowStep {
   uses?: string
+  with?: Record<string, unknown>
   [key: string]: unknown
 }
 
@@ -108,9 +109,12 @@ const alertWorkflows = workflows.filter(({ data }) =>
 )
 // to generate list, console.log(new Set(workflows.map(({ data }) => Object.keys(data.on)).flat()))
 
-const dailyWorkflows = scheduledWorkflows.filter(({ data }) =>
-  data.on.schedule!.find(({ cron }: { cron: string }) => /^20 \d{1,2} /.test(cron)),
-)
+const dailyWorkflows = scheduledWorkflows
+  // purge-fastly's daily soft purge runs every day off-peak (02:20 UTC)
+  .filter(({ filename }) => filename !== 'purge-fastly.yml')
+  .filter(({ data }) =>
+    data.on.schedule!.find(({ cron }: { cron: string }) => /^20 \d{1,2} /.test(cron)),
+  )
 
 // Weekly workflows have a single day-of-week digit (e.g. "20 16 * * 1")
 const weeklyWorkflows = dailyWorkflows.filter(({ data }) =>
@@ -213,6 +217,47 @@ describe('GitHub Actions workflows', () => {
           throw new Error(
             `Job ${filename} # ${name} missing a checkout before calling the composite action`,
           )
+        }
+      }
+    },
+  )
+
+  // A long-lived shared PAT (DOCS_BOT_PAT_BASE) must never be handed to a
+  // local composite action (`uses: ./...`) inside a `pull_request_target`
+  // workflow. That trigger runs with full repository secrets even for PRs
+  // opened from forks by anonymous outside contributors, and the local action
+  // lives in the checked-out PR workspace, so a malicious fork PR could rewrite
+  // it to exfiltrate the token. Such jobs should generate a short-lived, scoped
+  // GitHub App token instead.
+  //
+  // NOTE: this intentionally does NOT cover plain `pull_request`. That trigger
+  // does not expose secrets to fork PRs — only to same-repo branch PRs from
+  // contributors who already have write access — and passing the PAT to local
+  // actions there (e.g. get-docs-early-access) is a longstanding, accepted
+  // pattern across many workflows. See #62343.
+  const pullRequestTargetWorkflows = workflows.filter(({ data }) => {
+    const on = (data.on || {}) as Record<string, unknown>
+    // Use key presence, not truthiness: a trigger with no nested value parses
+    // to null, which a truthy check would skip.
+    return 'pull_request_target' in on
+  })
+
+  test.each(pullRequestTargetWorkflows)(
+    'does not pass DOCS_BOT_PAT_BASE to a local composite action in $filename',
+    ({ filename, data }) => {
+      for (const [name, job] of Object.entries(data.jobs)) {
+        for (const step of job.steps || []) {
+          const usesLocalAction = typeof step.uses === 'string' && step.uses.startsWith('./')
+          if (!usesLocalAction || !step.with) continue
+          const passesPat = Object.values(step.with).some(
+            (value) => typeof value === 'string' && value.includes('DOCS_BOT_PAT_BASE'),
+          )
+          if (passesPat) {
+            throw new Error(
+              `Job ${filename} # ${name} passes DOCS_BOT_PAT_BASE into local action ${step.uses}; ` +
+                `pull_request_target workflows must use a scoped GitHub App token instead`,
+            )
+          }
         }
       }
     },

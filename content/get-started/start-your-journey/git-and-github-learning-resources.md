@@ -7,7 +7,7 @@ redirect_from:
   - /github/getting-started-with-github/git-and-github-learning-resources
   - /github/getting-started-with-github/quickstart/git-and-github-learning-resources
   - /get-started/quickstart/git-and-github-learning-resources
-intro: 'There are a lot of helpful Git and {% data variables.product.github %} resources available.'
+intro: 'Discover essential Git and {% data variables.product.github %} resources, including tutorials, online courses, and community support to enhance your skills.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -26,34 +26,35 @@ Become better acquainted with {% data variables.product.github %} through our [A
 * To learn about the various tools for working with repositories hosted on {% data variables.product.github %}, and how to choose a tool that best suits your needs, see [AUTOTITLE](/get-started/using-github/connecting-to-github).
 * To understand the different communication tools on {% data variables.product.github %}, such as {% data variables.product.prodname_github_issues %}{% ifversion fpt or ghec %}, {% data variables.product.prodname_discussions %},{% endif %} and pull requests, see [AUTOTITLE](/get-started/using-github/communicating-on-github).
 
+You can also check out our [{% data variables.product.github %} for Beginners YouTube series](https://www.youtube.com/playlist?list=PL0lo9MOBetEFcp4SCWinBdpml9B2U25-f).
+
 ## Using Git
 
 Familiarize yourself with Git through our series of articles:
-* [AUTOTITLE](/get-started/git-basics).
-* [AUTOTITLE](/get-started/using-git).
 
-There are also lots of other online reading resources to help you learn Git:
-* [Official Git project site](https://git-scm.com).
-* [ProGit book](http://git-scm.com/book).
-* [Git command list](https://git-scm.com/docs).
+* [AUTOTITLE](/get-started/git-basics)
+* [AUTOTITLE](/get-started/using-git)
+
+There are also other online reading resources to help you learn Git:
+
+* [Official Git project site](https://git-scm.com)
+* [ProGit book](https://git-scm.com/book)
+* [Git command list](https://git-scm.com/docs)
+* [Git Guides](https://github.com/git-guides)
 
 ## Online courses
 
-* {% data variables.product.prodname_learning %} offers free interactive courses that are built into {% data variables.product.prodname_dotcom %} with instant automated feedback and help. Learn to open your first pull request, make your first open source contribution, create a {% data variables.product.prodname_pages %} site, and more. For more information about course offerings, see [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}).
+* {% data variables.product.prodname_learning %} offers free interactive courses that are built into {% data variables.product.github %} with instant automated feedback and help. Learn to open your first pull request, make your first open source contribution, create a {% data variables.product.prodname_pages %} site, and more. For more information about course offerings, see [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}).
 
-* [Git branching](http://learngitbranching.js.org/) is a free interactive tool for learning and practising Git concepts.
+* [GitHub Learn](https://learn.github.com/) is {% data variables.product.github %}'s unified learning hub for courses, {% data variables.product.prodname_learning %}, videos, and {% data variables.product.prodname_certifications %}.
 
-* An interactive [online Git course](https://www.pluralsight.com/courses/code-school-git-real) from [Pluralsight](https://www.pluralsight.com/codeschool) can also teach you the basics of Git.
+* [Microsoft Learn training for {% data variables.product.github %}](https://learn.microsoft.com/en-us/training/github/) offers {% data variables.product.github %}-authored, free training paths.
+
+* [Git branching](https://learngitbranching.js.org/) is a free interactive tool for learning and practising Git concepts.
 
 ## Training
 
-### {% data variables.product.prodname_dotcom %}'s web-based educational programs
-
-{% data variables.product.prodname_dotcom %} offers live [trainings](https://services.github.com/#upcoming-events) with a hands-on, project-based approach for those who love the command line and those who don't.
-
-### Training for your company
-
-{% data variables.product.prodname_dotcom %} offers [in-person classes](https://services.github.com/#offerings) taught by our highly-experienced educators. [Contact us](https://services.github.com/#contact) to ask your training-related questions.
+{% data variables.product.github %} offers [{% data variables.product.prodname_expert_services %}](https://github.com/services), with hands-on, project-based training for teams and individuals.
 
 ## Community
 

@@ -100,7 +100,7 @@ To access the firewall settings:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the "Code & automation" section of the sidebar, click **{% data variables.product.prodname_copilot_short %}** then **Internet access**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% data variables.product.prodname_copilot_short %}** then **Internet access**.
 
 ### Enabling or disabling the firewall
 

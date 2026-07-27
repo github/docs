@@ -18,7 +18,7 @@ category:
 
 You can check your current rate limit status at any time. For more information about rate limit rules, see [AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api).
 
-The REST API for searching items has a custom rate limit that is separate from the rate limit governing the other REST API endpoints. For more information, see [AUTOTITLE](/rest/search/search). The GraphQL API also has a custom rate limit that is separate from and calculated differently than rate limits in the REST API. For more information, see [AUTOTITLE](/graphql/overview/rate-limits-and-query-limits-for-the-graphql-api#rate-limit). For these reasons, the API response categorizes your rate limit. Under `resources`, you'll see objects relating to different categories:
+The REST API for searching items has a custom rate limit that is separate from the rate limit governing the other REST API endpoints. For more information, see [AUTOTITLE](/rest/search/search). The GraphQL API also has a custom rate limit that is separate from and calculated differently than rate limits in the REST API. For more information, see [AUTOTITLE](/graphql/overview/rate-limits-and-query-limits-for-the-graphql-api#primary-rate-limit). For these reasons, the API response categorizes your rate limit. Under `resources`, you'll see objects relating to different categories:
 
 * The `core` object provides your rate limit status for all non-search-related resources in the REST API.
 

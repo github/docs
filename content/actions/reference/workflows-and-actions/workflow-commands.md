@@ -651,7 +651,7 @@ echo "{environment_variable_name}={value}" >> "$GITHUB_ENV"
 
 You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access.
 
-{% data reusables.actions.environment-variables-are-fixed %} For more information about the default environment variables, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables#default-environment-variables).
+{% data reusables.actions.environment-variables-are-fixed %} For more information about the default environment variables, see [AUTOTITLE](/actions/reference/workflows-and-actions/variables#default-environment-variables).
 
 > [!NOTE]
 > Due to security restrictions, `GITHUB_ENV` cannot be used to set the `NODE_OPTIONS` environment variable.

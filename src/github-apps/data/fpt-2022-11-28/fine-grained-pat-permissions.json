@@ -2444,6 +2444,15 @@
       },
       {
         "category": "copilot",
+        "slug": "get-copilot-organization-repository-report-for-a-specific-day",
+        "subcategory": "copilot-usage-metrics",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/metrics/reports/repos-1-day",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "copilot",
         "slug": "get-copilot-organization-user-teams-report-for-a-specific-day",
         "subcategory": "copilot-usage-metrics",
         "verb": "get",
@@ -6511,6 +6520,24 @@
         "access": "write"
       },
       {
+        "category": "activity",
+        "slug": "list-stargazers",
+        "subcategory": "starring",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/stargazers",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "activity",
+        "slug": "list-watchers",
+        "subcategory": "watching",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/subscribers",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
         "category": "repos",
         "slug": "download-a-repository-archive-tar",
         "subcategory": "contents",
@@ -7256,6 +7283,33 @@
       },
       {
         "category": "issues",
+        "slug": "list-issue-suggestions",
+        "subcategory": "issues",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "issues",
+        "slug": "approve-an-issue-suggestion",
+        "subcategory": "issues",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions/{suggestion_id}/approve",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "issues",
+        "slug": "dismiss-an-issue-suggestion",
+        "subcategory": "issues",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions/{suggestion_id}/dismiss",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "issues",
         "slug": "list-timeline-events-for-an-issue",
         "subcategory": "timeline",
         "verb": "get",
@@ -7558,15 +7612,6 @@
         "access": "read"
       },
       {
-        "category": "activity",
-        "slug": "list-stargazers",
-        "subcategory": "starring",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/stargazers",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
         "category": "metrics",
         "slug": "get-the-weekly-commit-activity",
         "subcategory": "statistics",
@@ -7608,15 +7653,6 @@
         "subcategory": "statistics",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/stats/punch_card",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "activity",
-        "slug": "list-watchers",
-        "subcategory": "watching",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/subscribers",
         "additional-permissions": false,
         "access": "read"
       },
@@ -8016,6 +8052,33 @@
         "subcategory": "issues",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/lock",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "issues",
+        "slug": "list-issue-suggestions",
+        "subcategory": "issues",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "issues",
+        "slug": "approve-an-issue-suggestion",
+        "subcategory": "issues",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions/{suggestion_id}/approve",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "issues",
+        "slug": "dismiss-an-issue-suggestion",
+        "subcategory": "issues",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions/{suggestion_id}/dismiss",
         "additional-permissions": true,
         "access": "write"
       },

@@ -25,7 +25,7 @@ There are a couple of customization options you can implement to optimize {% dat
 
 ## Controlling the frequency and timings of dependency updates
 
-{% data variables.product.prodname_dependabot %} runs its checks for version updates at a frequency set by you in the configuration file, where the required field, `schedule.interval`, must be set to `daily`, `weekly`, `monthly`, `quarterly`, `semiannually`, `yearly`, or `cron` (see [`cronjob`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#cronjob)).
+{% data variables.product.prodname_dependabot %} runs its checks for version updates at a frequency set by you in the configuration file, where the required field, `schedule.interval`, must be set to `daily`, `weekly`, `monthly`, `quarterly`, `semiannually`, `yearly`, or `cron` (see [`cronjob`](/code-security/reference/supply-chain-security/dependabot-options-reference#cronjob)).
 
 By default, {% data variables.product.prodname_dependabot %} balances its workload by assigning a random time to check and raise pull requests for dependency updates.
 
@@ -54,7 +54,7 @@ updates:
       timezone: "Asia/Tokyo"
 ```
 
-See also [schedule](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#schedule-).
+See also [schedule](/code-security/reference/supply-chain-security/dependabot-options-reference#schedule-).
 
 {% ifversion dependabot-option-cooldown %}
 
@@ -106,7 +106,7 @@ SemVer is supported for most package managers. Updates to new versions for depen
 * Minor updates: Delayed by 7 days (`semver-minor-days: 7`).
 * Patch updates: Delayed by 3 days (`semver-patch-days: 3`).
 
-See also [`cooldown`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#cooldown-).
+See also [`cooldown`](/code-security/reference/supply-chain-security/dependabot-options-reference#cooldown-).
 
 {% endif %}
 
@@ -123,7 +123,7 @@ You must configure groups per individual package ecosystem, then you can create 
 * Dependency name: `patterns` and `exclude-patterns`
 * Semantic versioning levels: `update-types`
 
-To see all supported values for each criterion, see [`groups`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#groups--).
+To see all supported values for each criterion, see [`groups`](/code-security/reference/supply-chain-security/dependabot-options-reference#groups--).
 
 The below examples present several different methods to create groups of dependencies using the criteria.
 

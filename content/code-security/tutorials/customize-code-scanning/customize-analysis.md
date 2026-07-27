@@ -138,7 +138,7 @@ In this example, the relevant queries in the standard query pack `codeql/java-qu
 
 You can specify multiple published model packs in an analysis.
 
-For more information about writing your own model packs, see [AUTOTITLE](/code-security/tutorials/customize-code-scanning/create-and-work-with-codeql-packs#creating-a-model-pack).
+For more information about writing your own model packs, see [AUTOTITLE](/code-security/tutorials/customize-code-scanning/create-and-work-with-codeql-packs#creating-a-codeql-model-pack).
 
 ### About published packs
 

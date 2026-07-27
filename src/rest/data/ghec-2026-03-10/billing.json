@@ -1797,7 +1797,7 @@
                       },
                       "ai_credit_pool_enabled": {
                         "type": "boolean",
-                        "description": "Whether the cost center draws from the AI credit pool (capped from member license entitlements)."
+                        "description": "Whether the cost center draws from the AI credit pool.\n\nThis can only be enabled for cost centers that contain only user or team resources.\n\n- `false` — no cap; the cost center draws from the shared enterprise pool.\n- `true` — the cost center is capped at an amount derived from its members' license entitlements."
                       },
                       "ai_credit_pool_state": {
                         "type": "object",
@@ -1808,14 +1808,14 @@
                               "number",
                               "null"
                             ],
-                            "description": "The AI credit pool cap target amount, in dollars. Null when the cap budget has not been materialized yet."
+                            "description": "The AI credit pool cap target amount, in AI Credits. Null when the cap budget has not been materialized yet."
                           },
                           "current_amount": {
                             "type": [
                               "number",
                               "null"
                             ],
-                            "description": "The current-month applied amount against the AI credit pool cap, in dollars. Null when the cap budget has not been materialized yet."
+                            "description": "The current-month applied amount against the AI credit pool cap, in AI Credits. Null when the cap budget has not been materialized yet."
                           }
                         }
                       },
@@ -1910,7 +1910,7 @@
         {
           "type": "boolean",
           "name": "ai_credit_pool_enabled",
-          "description": "<p>Whether the cost center draws from the AI credit pool.</p>\n<ul>\n<li><code>false</code> — no cap; the cost center draws from the shared enterprise pool.</li>\n<li><code>true</code> — the cost center is capped at an amount derived from its members' license entitlements. Only User and Team resources are allowed.</li>\n</ul>"
+          "description": "<p>Whether the cost center draws from the AI credit pool.</p>\n<p>This can only be enabled for cost centers that contain only user or team resources.</p>\n<ul>\n<li><code>false</code> — no cap; the cost center draws from the shared enterprise pool.</li>\n<li><code>true</code> — the cost center is capped at an amount derived from its members' license entitlements.</li>\n</ul>"
         }
       ],
       "descriptionHTML": "<p>Creates a new cost center for an enterprise. The authenticated user must be an enterprise admin.</p>",
@@ -1997,14 +1997,14 @@
                         "number",
                         "null"
                       ],
-                      "description": "The AI credit pool cap target amount, in dollars. Null when the cap budget has not been materialized yet."
+                      "description": "The AI credit pool cap target amount, in AI Credits. Null when the cap budget has not been materialized yet."
                     },
                     "current_amount": {
                       "type": [
                         "number",
                         "null"
                       ],
-                      "description": "The current-month applied amount against the AI credit pool cap, in dollars. Null when the cap budget has not been materialized yet."
+                      "description": "The current-month applied amount against the AI credit pool cap, in AI Credits. Null when the cap budget has not been materialized yet."
                     }
                   }
                 }
@@ -2173,7 +2173,7 @@
                 },
                 "ai_credit_pool_enabled": {
                   "type": "boolean",
-                  "description": "Whether the cost center draws from the AI credit pool (capped from member license entitlements)."
+                  "description": "Whether the cost center draws from the AI credit pool.\n\nThis can only be enabled for cost centers that contain only user or team resources.\n\n- `false` — no cap; the cost center draws from the shared enterprise pool.\n- `true` — the cost center is capped at an amount derived from its members' license entitlements."
                 },
                 "ai_credit_pool_state": {
                   "type": "object",
@@ -2184,14 +2184,14 @@
                         "number",
                         "null"
                       ],
-                      "description": "The AI credit pool cap target amount, in dollars. Null when the cap budget has not been materialized yet."
+                      "description": "The AI credit pool cap target amount, in AI Credits. Null when the cap budget has not been materialized yet."
                     },
                     "current_amount": {
                       "type": [
                         "number",
                         "null"
                       ],
-                      "description": "The current-month applied amount against the AI credit pool cap, in dollars. Null when the cap budget has not been materialized yet."
+                      "description": "The current-month applied amount against the AI credit pool cap, in AI Credits. Null when the cap budget has not been materialized yet."
                     }
                   }
                 }
@@ -2272,7 +2272,7 @@
         {
           "type": "boolean",
           "name": "ai_credit_pool_enabled",
-          "description": "<p>Whether the cost center draws from the AI credit pool.</p>\n<ul>\n<li><code>false</code> — no cap; the cost center draws from the shared enterprise pool.</li>\n<li><code>true</code> — the cost center is capped at an amount derived from its members' license entitlements. Only User and Team resources are allowed.</li>\n</ul>"
+          "description": "<p>Whether the cost center draws from the AI credit pool.</p>\n<p>This can only be enabled for cost centers that contain only user or team resources.</p>\n<ul>\n<li><code>false</code> — no cap; the cost center draws from the shared enterprise pool.</li>\n<li><code>true</code> — the cost center is capped at an amount derived from its members' license entitlements.</li>\n</ul>"
         }
       ],
       "descriptionHTML": "<p>Updates an existing cost center name.</p>",
@@ -2363,7 +2363,7 @@
                 },
                 "ai_credit_pool_enabled": {
                   "type": "boolean",
-                  "description": "Whether the cost center draws from the AI credit pool (capped from member license entitlements)."
+                  "description": "Whether the cost center draws from the AI credit pool.\n\nThis can only be enabled for cost centers that contain only user or team resources.\n\n- `false` — no cap; the cost center draws from the shared enterprise pool.\n- `true` — the cost center is capped at an amount derived from its members' license entitlements."
                 },
                 "ai_credit_pool_state": {
                   "type": "object",
@@ -2374,14 +2374,14 @@
                         "number",
                         "null"
                       ],
-                      "description": "The AI credit pool cap target amount, in dollars. Null when the cap budget has not been materialized yet."
+                      "description": "The AI credit pool cap target amount, in AI Credits. Null when the cap budget has not been materialized yet."
                     },
                     "current_amount": {
                       "type": [
                         "number",
                         "null"
                       ],
-                      "description": "The current-month applied amount against the AI credit pool cap, in dollars. Null when the cap budget has not been materialized yet."
+                      "description": "The current-month applied amount against the AI credit pool cap, in AI Credits. Null when the cap budget has not been materialized yet."
                     }
                   }
                 }
@@ -2481,7 +2481,7 @@
                 },
                 "ai_credit_pool_enabled": {
                   "type": "boolean",
-                  "description": "Whether the cost center draws from the AI credit pool (capped from member license entitlements)."
+                  "description": "Whether the cost center draws from the AI credit pool.\n\nThis can only be enabled for cost centers that contain only user or team resources.\n\n- `false` — no cap; the cost center draws from the shared enterprise pool.\n- `true` — the cost center is capped at an amount derived from its members' license entitlements."
                 },
                 "ai_credit_pool_state": {
                   "type": "object",
@@ -2492,14 +2492,14 @@
                         "number",
                         "null"
                       ],
-                      "description": "The AI credit pool cap target amount, in dollars. Null when the cap budget has not been materialized yet."
+                      "description": "The AI credit pool cap target amount, in AI Credits. Null when the cap budget has not been materialized yet."
                     },
                     "current_amount": {
                       "type": [
                         "number",
                         "null"
                       ],
-                      "description": "The current-month applied amount against the AI credit pool cap, in dollars. Null when the cap budget has not been materialized yet."
+                      "description": "The current-month applied amount against the AI credit pool cap, in AI Credits. Null when the cap budget has not been materialized yet."
                     }
                   }
                 }

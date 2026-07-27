@@ -20,7 +20,7 @@ category:
 ## About SARIF output
 
 SARIF is designed to represent the output of a broad range of static analysis tools, and there are many features in the SARIF specification that are
-considered "optional". This document details the output produced when using the format type `sarifv2.1.0`, which corresponds to the SARIF v2.1.0.csd1 specification. For more information on selecting a file format for your analysis results, see [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-analyze).
+considered "optional". This document details the output produced when using the format type `sarifv2.1.0`, which corresponds to the SARIF v2.1.0.csd1 specification. For more information on selecting a file format for your analysis results, see [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-analyze).
 
 ## SARIF specification and schema
 

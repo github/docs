@@ -1,6 +1,6 @@
 ---
 title: Replacing a cluster node
-intro: If a node fails in a {% data variables.product.prodname_ghe_server %} cluster, or if you want to add a new node with more resources, mark any nodes to replace as offline, then add the new node.
+intro: Replace a functional or failed node in a {% data variables.product.prodname_ghe_server %} cluster while preserving the services that the node provides.
 product: '{% data reusables.gated-features.cluster %}'
 redirect_from:
   - /enterprise/admin/clustering/replacing-a-cluster-node
@@ -28,7 +28,9 @@ After you replace a node, {% data variables.location.product_location %} does no
 
 You can replace an existing, functional node in your cluster. For example, you may want to provide a virtual machine (VM) with additional CPU, memory, or storage resources.
 
-To replace a functional node, install the {% data variables.product.prodname_ghe_server %} appliance on a new VM, configure an IP address, add the new node to the cluster configuration file, initialize the cluster and apply the configuration, then take the node you replaced offline.
+To replace a functional node, install the {% data variables.product.prodname_ghe_server %} appliance on a new VM, configure an IP address, add the new node to the cluster configuration file, initialize the cluster and apply the configuration, then remove the node you replaced.
+
+Before starting the replacement, install the latest patch release for your feature release on every cluster node, including the replacement node. Every node must run the same exact release. Wait for any upgrade or configuration run to finish before starting replacement.
 
 > [!NOTE]
 > If you're replacing the primary database node, see [Replacing the primary database node](#replacing-the-primary-database-node-mysql-or-mysql-and-mssql).
@@ -38,13 +40,13 @@ To replace a functional node, install the {% data variables.product.prodname_ghe
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-modify-cluster-conf %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-initialize-new-node %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-config-node %}
-1. To take the node you're replacing offline, from the primary MySQL node of your cluster, run the following command.
+1. To remove the node you're replacing, from the primary MySQL node of your cluster, run the following command.
 
    ```shell
    ghe-remove-node NODE-HOSTNAME
    ```
 
-   This command will evacuate data from any data services running on the node, mark the node as offline in your configuration, and stop traffic being routed to the node. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-remove-node).
+   This command evacuates data from any data services running on the node, drains its workloads, removes the node from the cluster configuration, applies the change, and stops traffic from being routed to the node. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-remove-node).
 
 ## Replacing a node in an emergency
 
@@ -54,6 +56,8 @@ You can replace a failed node in your cluster. For example, a software or hardwa
 > If you're replacing the primary database node, see [Replacing the primary database node](#replacing-the-primary-database-node-mysql-or-mysql-and-mssql).
 
 To replace a node in an emergency, you'll take the failed node offline, add your replacement node to the cluster, then run commands to remove references to data services on the removed node.
+
+Before starting the replacement, confirm that every available node that will remain in the cluster already runs the latest patch release for your feature release. Install that exact release on the replacement node. If the remaining nodes are not already on that release, contact {% data variables.contact.github_support %} before continuing. Wait for any active upgrade or configuration run to finish.
 
 1. To remove the node that is experiencing issues from the cluster, from the primary MySQL node of your cluster, run the following command. Replace NODE-HOSTNAME with the hostname of the node you're taking offline.
 

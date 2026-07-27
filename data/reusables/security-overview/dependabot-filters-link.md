@@ -1,1 +1,1 @@
-See [{% data variables.product.prodname_dependabot %} dashboard view filters](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/filtering-alerts-in-security-overview#dependabot-dashboard-view-filters).
+See [{% data variables.product.prodname_dependabot %} dashboard view filters](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/filtering-alerts-in-security-overview).

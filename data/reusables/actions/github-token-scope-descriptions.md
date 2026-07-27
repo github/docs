@@ -13,13 +13,13 @@ Available permissions and details of what each allows an action to do:
 | {% endif %} |
 |  `checks` | Work with check runs and check suites. For example, `checks: write` permits an action to create a check run. For more information, see [AUTOTITLE](/rest/authentication/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-checks). |
 | {% ifversion code-quality %} |
-|  `code-quality` | Work with code quality. For example, `code-quality: write` permits an action to upload code coverage reports. For more information, see [AUTOTITLE](/code-security/concepts/about-code-quality). |
+|  `code-quality` | Work with code quality. For example, `code-quality: write` permits an action to upload code coverage reports. For more information, see [AUTOTITLE](/code-security/concepts/code-quality/code-quality). |
 | {% endif %} |
 |  `contents` | Work with the contents of the repository. For example, `contents: read` permits an action to list the commits, and `contents: write` allows the action to create a release. For more information, see [AUTOTITLE](/rest/authentication/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-contents). |
 |  `deployments` | Work with deployments. For example, `deployments: write` permits an action to create a new deployment. For more information, see [AUTOTITLE](/rest/authentication/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-deployments). |
 |  `discussions` | Work with GitHub Discussions. For example, `discussions: write` permits an action to close or delete a discussion. For more information, see [AUTOTITLE](/graphql/guides/using-the-graphql-api-for-discussions). |
 | {% ifversion fpt or ghec %} |
-|  `id-token` | Fetch an OpenID Connect (OIDC) token. This requires `id-token: write`. For more information, see [AUTOTITLE](/actions/concepts/security/openid-connect#updating-your-actions-for-oidc) |
+|  `id-token` | Fetch an OpenID Connect (OIDC) token. This requires `id-token: write`. For more information, see [AUTOTITLE](/actions/concepts/security/openid-connect#updating-your-workflows-for-oidc) |
 | {% endif %} |
 |  `issues` | Work with issues. For example, `issues: write` permits an action to add a comment to an issue. For more information, see [AUTOTITLE](/rest/authentication/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-issues). |
 | {% ifversion not ghes %} |

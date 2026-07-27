@@ -27,8 +27,7 @@ const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
 const nonEnterpriseDefaultPlan = nonEnterpriseDefaultVersion.split('@')[0]
 
 const opts = {
-  relativePath:
-    'pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md',
+  relativePath: 'pull-requests/reference/branches.md',
   basePath: path.join(__dirname, '../../../content'),
   languageCode: 'en',
 }
@@ -202,8 +201,7 @@ describe('Page class', () => {
 
     test('sets versioned values', async () => {
       const page = await Page.init(opts)
-      const expectedPath =
-        'pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches'
+      const expectedPath = 'pull-requests/reference/branches'
       expect(
         page!.permalinks.find((permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion)!
           .href,
