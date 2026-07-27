@@ -11,7 +11,7 @@ category:
 
 Use this reference to understand the currently supported keys in `{% data variables.copilot.managed_setting_file %}`.
 
-For deployment methods, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings#choosing-a-deployment-method).
+For deployment methods and supported clients, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings).
 
 ## Precedence rules
 
@@ -26,14 +26,14 @@ When multiple settings sources are present, settings earlier in this list take p
 
 {% rowheaders %}
 
-| Key | Type | Accepted values | Purpose |
-| --- | --- | --- | --- |
-| `permissions.disableBypassPermissionsMode` | `string` | `"disable"` | Disables bypass or YOLO-style allow-all behavior |
-| `permissions.model` | `string` | `"auto"` | Sets auto model selection as the default for new conversations|
-| `enabledPlugins` | `object` | Key format: `PLUGIN-NAME@MARKETPLACE-NAME`; value: `true` (enable) or `false` (disable) | Enables or disables specific plugins by key |
-| `extraKnownMarketplaces` | `object` | Named marketplace objects; supported source types: `"github"`, `"git"`, `"directory"` | Adds plugin marketplaces that users can access |
-| `strictKnownMarketplaces` | `array` | Array of marketplace objects; supported source types: `"github"`, `"git"`, `"url"`, `"npm"`, `"file"`, `"directory"`, `"hostPattern"`, `"pathPattern"` | Restricts plugin installation to explicitly listed marketplaces |
-| `telemetry` | `object` | `enabled` (`boolean`), `endpoint` (`string`), `protocol` (`"http/json"` or `"http/protobuf"`), `captureContent` (`boolean`), `lockCaptureContent` (`boolean`), `serviceName` (`string`), `resourceAttributes` (`object`), `headers` (`object`) | Configures OpenTelemetry export for {% data variables.product.prodname_vscode_shortname %} |
+| Key | Purpose | {% data variables.copilot.copilot_cli_short %} | {% data variables.product.prodname_vscode_shortname %} | {% data variables.copilot.github_copilot_app %} |
+| --- | --- | --- | --- | --- |
+| `permissions.disableBypassPermissionsMode` | Disables bypass or YOLO-style allow-all behavior | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| `permissions.model` | Sets auto model selection as the default for new conversations | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| `enabledPlugins` | Enables or disables specific plugins by key | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| `extraKnownMarketplaces` | Adds plugin marketplaces that users can access | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| `strictKnownMarketplaces` | Restricts plugin installation to explicitly listed marketplaces | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| `telemetry` | Configures OpenTelemetry export, routing {% data variables.product.prodname_copilot_short %} usage data to a collector of your choice | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 
 {% endrowheaders %}
 
@@ -112,22 +112,25 @@ Restricts plugin installation to only the marketplaces explicitly defined by the
 
 ### `disableBypassPermissionsMode`
 
-Prevents users from enabling bypass mode (also known as "YOLO mode") in {% data variables.copilot.copilot_cli_short %} and {% data variables.product.prodname_vscode_shortname %}. Bypass mode lets an agent run commands, access files, and fetch URLs without asking for approval.
+Prevents users from enabling bypass mode (also known as "YOLO mode"). Bypass mode lets an agent run commands, access files, and fetch URLs without asking for approval.
 
-When you set `disableBypassPermissionsMode` to `"disable"`, users cannot turn on bypass mode in either client:
+When you set `disableBypassPermissionsMode` to `"disable"`, users cannot turn on bypass mode:
 
 * In {% data variables.copilot.copilot_cli_short %}, the `--yolo` and `--allow-all` command-line options and the `/yolo` and `/allow-all` slash commands are blocked. Individual flags such as `--allow-all-tools` and `--allow-all-paths` are not blocked.
-* In {% data variables.product.prodname_vscode_shortname %}, the global auto-approve setting (`chat.tools.global.autoApprove`), also known as "YOLO mode," is turned off and cannot be re-enabled.
+* In {% data variables.product.prodname_vscode_shortname %}, the global auto-approve setting (`chat.tools.global.autoApprove`) is turned off and cannot be re-enabled.
+* In the {% data variables.copilot.github_copilot_app %}, the "Allow all" setting for "Tool Permissions" is blocked in the sessions settings.
 
 ### `model`
 
-Sets auto model selection as the default for new conversations in {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
+Sets auto model selection as the default for new conversations. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
 
 When you set `permissions.model` to `"auto"`, new sessions use Auto model unless the user specifies a different model on a per-conversation basis.
 
 ## `telemetry`
 
 Configures OpenTelemetry export, routing {% data variables.product.prodname_copilot_short %} usage data to a collector of your choice.
+
+This property is supported for {% data variables.copilot.copilot_cli_short %} and {% data variables.product.prodname_vscode_shortname %}.
 
 When you set the `telemetry` property, {% data variables.product.prodname_copilot_short %} telemetry is sent to the endpoint you specify. The following sub-properties are supported:
 
