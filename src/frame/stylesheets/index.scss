@@ -22,3 +22,13 @@
 
 // For primer Spinners and other animated components
 @import "@primer/primitives/dist/css/base/motion/motion.css";
+
+/* Prevent WebKit smooth-scroll hydration bug on page load */
+html {
+  scroll-behavior: auto !important;
+}
+
+/* Enable smooth scrolling only when user explicitly clicks an anchor link */
+html:focus-within {
+  scroll-behavior: smooth;
+}
