@@ -8,7 +8,6 @@ versions:
 children:
   - /start-copilot-sessions
   - /create-automations
-  - /manage-rationale-confidence-approvals
   - /changing-the-ai-model
   - /configuring-agent-settings
   - /create-custom-agents-in-your-ide
