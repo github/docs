@@ -75,10 +75,25 @@ describe('server', () => {
     expect(surrogateKeySplit.includes(makeLanguageSurrogateKey('en'))).toBeTruthy()
   })
 
+  test('caches responses with short edge freshness and a week-long stale window', async () => {
+    const week = 60 * 60 * 24 * 7
+    for (const path of ['/en/get-started', '/robots.txt']) {
+      const res = await get(path)
+      expect(res.statusCode).toBe(200)
+      const surrogate = res.headers['surrogate-control']
+      expect(surrogate).toContain(`stale-while-revalidate=${week}`)
+      expect(surrogate).toContain(`stale-if-error=${week}`)
+      // Edge freshness is short (well under the week-long stale window).
+      const maxAge = Number(surrogate.match(/(?:^|[ ,])max-age=(\d+)/)?.[1])
+      expect(maxAge).toBeGreaterThan(0)
+      expect(maxAge).toBeLessThan(week)
+    }
+    // Browser cache stays short: 60s, unpurgeable.
+    const res = await get('/en/get-started')
+    expect(res.headers['cache-control']).toMatch(/(^|[ ,])max-age=60([ ,]|$)/)
+  })
+
   test('sets fine-grained product and version surrogate keys on content pages', async () => {
-    // docs-engineering#6719: content pages emit language, product, version, and
-    // a product,language compound key so per-deploy purges can target the
-    // tightest key instead of a whole language.
     const res = await get('/en/get-started')
     expect(res.statusCode).toBe(200)
     const keys = res.headers['surrogate-key'].split(/\s/g)
