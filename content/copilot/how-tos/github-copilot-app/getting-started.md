@@ -25,12 +25,12 @@ In this quickstart, you will:
 ## Prerequisites
 
 * A {% data variables.product.github %} account.
-* Access to {% data variables.product.prodname_copilot_short %} or a configured model provider.
+* A {% data variables.product.prodname_copilot_short %} plan, or you can configure your own model provider.
   * If you use your own model provider, you will need provider credentials such as an API key. For setup steps, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/use-byok-models).
 * [Git](https://github.com/git-guides/install-git) installed on your computer.
 
 > [!NOTE]
-> If you use {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}, your plan administrator will need to enable the **{% data variables.copilot.copilot_cli_short %}** policy. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies) or [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
+> For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} users, the {% data variables.copilot.github_copilot_app %} policy must remain enabled. This policy is enabled by default and is separate from the {% data variables.copilot.copilot_cli_short %} policy. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies) or [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
 
 ## Installing the {% data variables.copilot.github_copilot_app %}
 
