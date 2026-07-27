@@ -9,6 +9,7 @@ import { loadPages } from '@/frame/lib/page-data'
 import {
   SURROGATE_ENUMS,
   makeLanguageSurrogateKey,
+  makePageSurrogateKey,
 } from '@/frame/middleware/set-fastly-surrogate-key'
 
 interface Category {
@@ -97,12 +98,14 @@ describe('server', () => {
     const res = await get('/en/get-started')
     expect(res.statusCode).toBe(200)
     const keys = res.headers['surrogate-key'].split(/\s/g)
-    // Language key stays first for anything that only reads the first token.
     expect(keys[0]).toBe(makeLanguageSurrogateKey('en'))
     expect(keys).toContain('product:get-started')
     expect(keys).toContain('product:get-started,language:en')
     expect(keys.some((key: string) => /^version:.+/.test(key))).toBe(true)
-    // Stays well under Fastly's limits: about 4 keys per page.
+    // Exact key, not just a pattern, to lock the render side byte-for-byte to what
+    // the purge job rebuilds from a changed file path (content/get-started/index.md).
+    expect(keys).toContain('language:en,path:get-started/index.md')
+    expect(keys).toContain(makePageSurrogateKey('en', 'get-started/index.md'))
     expect(keys.length).toBeLessThanOrEqual(6)
   })
 
