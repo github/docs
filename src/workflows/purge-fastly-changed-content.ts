@@ -5,12 +5,12 @@ import { makePageSurrogateKey } from '@/frame/middleware/set-fastly-surrogate-ke
 import github from './github'
 import { getActionContext } from './action-context'
 
-// Hard-purges the English content pages whose source changed in a production
-// deploy, by surrogate key. Each page has one `language:<lang>,path:<relativePath>`
-// key covering all its version-URLs (see set-fastly-surrogate-key.ts), and Fastly's
-// batch purge takes up to 256 keys per request, so a normal deploy is one
-// request. Hard, not soft, so a just-changed page is evicted rather than served
-// stale to the author who reloads it.
+// Purges the English content pages whose source changed in a production deploy, by surrogate key.
+// Each page has one `language:<lang>,path:<relativePath>` covering all versions.
+// Fastly's batch purge takes up to 256 keys per request.
+// Uses hard purge instead of soft for PR authors to see their changes more quickly.
+// `data/` changes and AUTOTITLE produce too many keys.
+// Translations only rebuild once per day.
 
 const CONTENT_PREFIX = 'content/'
 
