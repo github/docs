@@ -1,24 +1,33 @@
 import { useRouter } from 'next/router'
-import { type MouseEvent, type ReactNode, useEffect, useState } from 'react'
+import {
+  createContext,
+  memo,
+  type MouseEvent,
+  type ReactNode,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react'
 import { NavList } from '@primer/react-brand'
 
 import { ProductTreeNode, useMainContext } from '@/frame/components/context/MainContext'
 import { useAutomatedPageContext } from '@/automated-pipelines/components/AutomatedPageContext'
 import { nonAutomatedRestPaths } from '@/rest/lib/config'
+import { usePrefetchOnInteraction } from '@/frame/components/lib/prefetch'
 import { SidebarExpandStateProvider, useSidebarExpandState } from './useSidebarExpandState'
 import { flattenDescendants, MAX_NAVLIST_LEVEL } from './sidebar-navlist-depth'
 
 import styles from './SidebarProduct.module.scss'
 
+type Router = ReturnType<typeof useRouter>
+
 // Brand NavList.Item renders a plain <a> (its `as` prop only accepts 'a' | 'button',
 // not next/link), so intercept clicks to restore next/link-style client-side
 // navigation. Modifier/middle clicks fall through to the browser so open-in-new-tab
 // still works, and the <a href> keeps links crawlable for SSR. Mirrors Breadcrumbs.tsx.
-function handleNavClick(
-  router: ReturnType<typeof useRouter>,
-  event: MouseEvent<HTMLElement>,
-  href: string,
-) {
+function handleNavClick(router: Router, event: MouseEvent<HTMLElement>, href: string) {
   if (
     event.defaultPrevented ||
     event.button !== 0 ||
@@ -36,6 +45,50 @@ function handleNavClick(
   router.push(href, undefined, { locale: false })
 }
 
+// The sidebar renders the full product tree (hundreds of nodes) and fully remounts
+// on every navigation (key={asPath} in SidebarNav). To keep per-item cost down we
+// subscribe to the router ONCE here and hand items a stable routePath plus stable
+// navigate/prefetch callbacks, instead of every item calling useRouter itself.
+type SidebarNavValue = {
+  routePath: string
+  navigate: (event: MouseEvent<HTMLElement>, href: string) => void
+  prefetch: (href: string) => void
+}
+const SidebarNavContext = createContext<SidebarNavValue | null>(null)
+
+function useSidebarNav(): SidebarNavValue {
+  const value = useContext(SidebarNavContext)
+  if (!value) {
+    throw new Error('useSidebarNav must be used within SidebarProduct')
+  }
+  return value
+}
+
+// Separate context for the REST-only scroll-spy state (full asPath with query+hash,
+// and query). Kept out of SidebarNavValue so its per-navigation identity churn
+// doesn't invalidate the memoized common items — only RestNavListItem consumes it.
+type RestNavValue = {
+  asPath: string
+  query: ReturnType<typeof useRouter>['query']
+}
+const RestNavContext = createContext<RestNavValue | null>(null)
+
+function useRestNav(): RestNavValue {
+  const value = useContext(RestNavContext)
+  if (!value) {
+    throw new Error('useRestNav must be used within SidebarProduct REST section')
+  }
+  return value
+}
+
+// Hover/focus handlers for a leaf link: warm the destination so the click is fast.
+function prefetchHandlers(prefetch: (href: string) => void, href: string) {
+  return {
+    onMouseEnter: () => prefetch(href),
+    onFocus: () => prefetch(href),
+  }
+}
+
 export const SidebarProduct = () => {
   const router = useRouter()
   const {
@@ -46,6 +99,22 @@ export const SidebarProduct = () => {
     sidebarExpanded,
   } = useMainContext()
   const isRestPage = currentProduct && currentProduct.id === 'rest'
+
+  const { asPath, locale, query } = router
+  const routePath = `/${locale}${asPath.split('?')[0].split('#')[0]}`
+
+  const prefetchHref = usePrefetchOnInteraction()
+  // Stable callbacks so memoized items don't re-render on unrelated changes.
+  const navigate = useCallback(
+    (event: MouseEvent<HTMLElement>, href: string) => handleNavClick(router, event, href),
+    [router],
+  )
+  const prefetch = useCallback((href: string) => prefetchHref(router, href), [router, prefetchHref])
+  const navValue = useMemo<SidebarNavValue>(
+    () => ({ routePath, navigate, prefetch }),
+    [routePath, navigate, prefetch],
+  )
+  const restNavValue = useMemo<RestNavValue>(() => ({ asPath, query }), [asPath, query])
 
   useEffect(() => {
     // Brand NavList auto-expands the whole ancestor chain of the active item, so
@@ -84,31 +153,35 @@ export const SidebarProduct = () => {
       nonAutomatedRestPaths.every((item: string) => !page.href.includes(item)),
     )
     return (
-      <div>
-        <NavList aria-label="REST sidebar overview articles">
-          {navListLevelSentinel()}
-          {conceptualPages.map((childPage) => (
-            <NavListItem key={childPage.href} childPage={childPage} />
-          ))}
-        </NavList>
+      <RestNavContext.Provider value={restNavValue}>
+        <div>
+          <NavList aria-label="REST sidebar overview articles">
+            {navListLevelSentinel()}
+            {conceptualPages.map((childPage) => (
+              <NavListItem key={childPage.href} childPage={childPage} />
+            ))}
+          </NavList>
 
-        <hr data-testid="rest-sidebar-reference" className="m-2" />
+          <hr data-testid="rest-sidebar-reference" className="m-2" />
 
-        <NavList aria-label="REST sidebar reference pages">
-          {navListLevelSentinel()}
-          {restPages.map((category) => (
-            <RestNavListItem key={category.href} category={category} />
-          ))}
-        </NavList>
-      </div>
+          <NavList aria-label="REST sidebar reference pages">
+            {navListLevelSentinel()}
+            {restPages.map((category) => (
+              <RestNavListItem key={category.href} category={category} />
+            ))}
+          </NavList>
+        </div>
+      </RestNavContext.Provider>
     )
   }
 
   return (
     <div data-testid="sidebar" className={styles.sidebar}>
-      <SidebarExpandStateProvider initial={sidebarExpanded}>
-        {isRestPage ? restSection() : productSection()}
-      </SidebarExpandStateProvider>
+      <SidebarNavContext.Provider value={navValue}>
+        <SidebarExpandStateProvider initial={sidebarExpanded}>
+          {isRestPage ? restSection() : productSection()}
+        </SidebarExpandStateProvider>
+      </SidebarNavContext.Provider>
     </div>
   )
 }
@@ -169,26 +242,30 @@ function navListLevelSentinel() {
   )
 }
 
-function LeafLink({ node }: { node: ProductTreeNode }) {
-  const router = useRouter()
-  const { asPath, locale } = router
-  const routePath = `/${locale}${asPath.split('?')[0].split('#')[0]}`
+const LeafLink = memo(function LeafLink({ node }: { node: ProductTreeNode }) {
+  const { routePath, navigate, prefetch } = useSidebarNav()
   return (
     <NavList.Item
       as="a"
       href={node.href}
       aria-current={routePath === node.href ? 'page' : false}
-      onClick={(event: MouseEvent<HTMLElement>) => handleNavClick(router, event, node.href)}
+      onClick={(event: MouseEvent<HTMLElement>) => navigate(event, node.href)}
+      {...prefetchHandlers(prefetch, node.href)}
     >
       {node.title}
     </NavList.Item>
   )
-}
+})
 
-function NavListItem({ childPage, level = 1 }: { childPage: ProductTreeNode; level?: number }) {
-  const router = useRouter()
-  const { asPath, locale } = router
-  const routePath = `/${locale}${asPath.split('?')[0].split('#')[0]}`
+const NavListItem = memo(function NavListItem({
+  childPage,
+  level = 1,
+}: {
+  childPage: ProductTreeNode
+  level?: number
+}) {
+  const { routePath, navigate, prefetch } = useSidebarNav()
+  const locale = routePath.split('/')[1]
   const isActive = routePath === childPage.href
   const hasChildren = childPage.childPages.length > 0
   const specialCategory = childPage.layout === 'category-landing'
@@ -231,9 +308,8 @@ function NavListItem({ childPage, level = 1 }: { childPage: ProductTreeNode; lev
           as="a"
           href={sidebarLinkHref}
           aria-current={routePath === sidebarLinkHref ? 'page' : false}
-          onClick={(event: MouseEvent<HTMLElement>) =>
-            handleNavClick(router, event, sidebarLinkHref)
-          }
+          onClick={(event: MouseEvent<HTMLElement>) => navigate(event, sidebarLinkHref)}
+          {...prefetchHandlers(prefetch, sidebarLinkHref)}
         >
           {childPage.sidebarLink.text}
         </NavList.Item>
@@ -243,9 +319,8 @@ function NavListItem({ childPage, level = 1 }: { childPage: ProductTreeNode; lev
           as="a"
           href={childPage.href}
           aria-current={isActive ? 'page' : false}
-          onClick={(event: MouseEvent<HTMLElement>) =>
-            handleNavClick(router, event, childPage.href)
-          }
+          onClick={(event: MouseEvent<HTMLElement>) => navigate(event, childPage.href)}
+          {...prefetchHandlers(prefetch, childPage.href)}
         >
           {childPage.title}
         </NavList.Item>
@@ -255,13 +330,12 @@ function NavListItem({ childPage, level = 1 }: { childPage: ProductTreeNode; lev
       ))}
     </ExpandableItem>
   )
-}
+})
 
 function RestNavListItem({ category }: { category: ProductTreeNode }) {
-  const router = useRouter()
-  const { query, asPath, locale } = router
+  const { routePath, navigate, prefetch } = useSidebarNav()
+  const { asPath, query } = useRestNav()
   const [visibleAnchor, setVisibleAnchor] = useState('')
-  const routePath = `/${locale}${asPath.split('?')[0].split('#')[0]}`
   const miniTocItems =
     query.productId === 'rest' ||
     // These pages need the Article Page mini tocs instead of the Rest Pages
@@ -305,7 +379,8 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
         as="a"
         href={category.href}
         aria-current={routePath === category.href ? 'page' : false}
-        onClick={(event: MouseEvent<HTMLElement>) => handleNavClick(router, event, category.href)}
+        onClick={(event: MouseEvent<HTMLElement>) => navigate(event, category.href)}
+        {...prefetchHandlers(prefetch, category.href)}
       >
         {category.title}
       </NavList.Item>
@@ -355,9 +430,8 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
             as="a"
             href={childPage.href}
             aria-current={routePath === childPage.href ? 'page' : false}
-            onClick={(event: MouseEvent<HTMLElement>) =>
-              handleNavClick(router, event, childPage.href)
-            }
+            onClick={(event: MouseEvent<HTMLElement>) => navigate(event, childPage.href)}
+            {...prefetchHandlers(prefetch, childPage.href)}
           >
             {childPage.title}
           </NavList.Item>
