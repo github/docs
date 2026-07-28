@@ -61,14 +61,14 @@ You will get the best results from autopilot mode if you enable all permissions.
 
 ## Staying in autopilot mode between tasks
 
-By default, autopilot mode applies only to the current task. Once {% data variables.product.prodname_copilot_short %} determines that the task is complete, {% data variables.copilot.copilot_cli_short %} automatically switches back to the standard interactive mode. To run another task in autopilot mode, press <kbd>Shift</kbd>+<kbd>Tab</kbd> and cycle through the available modes until you re-enter autopilot mode, then enter your next prompt.
+By default, autopilot mode is sticky: once {% data variables.product.prodname_copilot_short %} determines that a task is complete, {% data variables.copilot.copilot_cli_short %} remains in autopilot mode, so the next prompt you enter is also handled in autopilot mode. You can switch back to the standard interactive mode at any time by pressing <kbd>Shift</kbd>+<kbd>Tab</kbd>.
 
-If you regularly run several tasks in autopilot mode, you can configure the CLI to stay in autopilot mode after each task completes, by enabling the `stayInAutopilot` setting. You can do this in either of the following ways:
+If you'd rather have {% data variables.copilot.copilot_cli_short %} automatically switch back to interactive mode after each task completes, you can disable this behavior by setting `stayInAutopilot` to `false`. You can do this in either of the following ways:
 
-* During an interactive session, enter `/settings stayInAutopilot true`.
-* Add `"stayInAutopilot": true` to your user configuration file (`~/.copilot/settings.json`). For more information, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#user-settings-copilotsettingsjson).
+* During an interactive session, enter `/settings stayInAutopilot false`.
+* Add `"stayInAutopilot": false` to your user configuration file (`~/.copilot/settings.json`). For more information, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#user-settings-copilotsettingsjson).
 
-When this setting is enabled, {% data variables.product.prodname_copilot_short %} remains in autopilot mode after a task completes, so the next prompt you enter is also handled in autopilot mode. You can switch back to interactive mode at any time by pressing <kbd>Shift</kbd>+<kbd>Tab</kbd>.
+When this setting is disabled, {% data variables.product.prodname_copilot_short %} automatically switches back to the standard interactive mode once a task completes. To run another task in autopilot mode, press <kbd>Shift</kbd>+<kbd>Tab</kbd> and cycle through the available modes until you re-enter autopilot mode, then enter your next prompt.
 
 > [!NOTE]
 > This setting only controls which mode you are in _after_ a task completes. It does not cause {% data variables.product.prodname_copilot_short %} to keep working after it has decided the task is done. Autopilot still stops when the task is complete, when a problem occurs, when you press <kbd>Ctrl</kbd>+<kbd>C</kbd>, or when the continuation limit is reached.

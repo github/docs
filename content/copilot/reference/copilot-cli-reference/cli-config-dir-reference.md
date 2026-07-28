@@ -493,7 +493,7 @@ These settings apply across all your sessions and repositories. You can use the 
 | `showTipsOnStartup` | `boolean` | `true` | Show a random command tip when the CLI starts. |
 | `skillDirectories` | `string[]` | `[]` | Additional directories to search for custom skill definitions (in addition to `~/.copilot/skills/`). |
 | `statusLine` | `object` | — | Custom status line display. `type`: must be `"command"`. `command`: path to an executable script that receives session JSON on stdin and prints status content to stdout. `padding`: optional number of left-padding spaces. |
-| `stayInAutopilot` | `boolean` | `false` | Remain in autopilot mode after each task completes. When enabled, the next prompt you enter after a task completes is also handled in autopilot mode. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot#staying-in-autopilot-mode-between-tasks). |
+| `stayInAutopilot` | `boolean` | `true` | Remain in autopilot mode after each task completes. When enabled, the next prompt you enter after a task completes is also handled in autopilot mode. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot#staying-in-autopilot-mode-between-tasks). |
 | `storeTokenPlaintext` | `boolean` | `false` | Allow authentication tokens to be stored in plain text in `config.json` when no system keychain is available. |
 | `stream` | `boolean` | `true` | Enable streaming responses. |
 | `streamerMode` | `boolean` | `false` | Hide preview model names, quota details, prompt timestamps, and the update-available notice. Useful when demonstrating {% data variables.copilot.copilot_cli_short %} or screen sharing. |
