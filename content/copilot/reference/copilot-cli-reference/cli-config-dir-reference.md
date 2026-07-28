@@ -509,6 +509,9 @@ These settings apply across all your sessions and repositories. You can use the 
 | `toolSearch` | `boolean` | model- and feature-dependent | Controls tool search (deferred tool loading). Set `toolSearch: false` to opt out of tool search. |
 | `updateTerminalTitle` | `boolean` | `true` | Show the current intent in the terminal tab or window title. |
 
+> [!TIP]
+> Run `copilot help sandbox` for the full sandbox reference, including supported hosts (macOS Seatbelt, Linux bubblewrap, and Windows) and all `sandbox` settings keys.
+
 ### Repository settings (`.github/copilot/settings.json`)
 
 Repository settings apply to everyone who works in the repository. They are committed to the repository and shared with collaborators.
