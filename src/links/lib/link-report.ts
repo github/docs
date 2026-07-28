@@ -21,6 +21,19 @@ export interface BrokenLink {
   errorMessage?: string
 }
 
+/**
+ * A cross-page anchor link (`/path#fragment`) whose fragment doesn't match any heading on
+ * the target page, along with the versions it breaks in. Reported separately from broken
+ * page links because the target page exists — only the fragment is stale.
+ */
+export interface CrossPageAnchorFlaw {
+  href: string
+  file: string
+  lines: number[]
+  text?: string
+  versions: string[]
+}
+
 export interface GroupedBrokenLinks {
   target: string
   occurrences: BrokenLink[]
@@ -120,7 +133,12 @@ ${rows}`
   noIssues: () => 'No issues found! 🎉',
 
   // PR comment
-  prComment: (errors: GroupedBrokenLinks[], warnings: GroupedBrokenLinks[], actionUrl?: string) => {
+  prComment: (
+    errors: GroupedBrokenLinks[],
+    warnings: GroupedBrokenLinks[],
+    anchorSection: string,
+    actionUrl?: string,
+  ) => {
     const errorSection =
       errors.length > 0
         ? `### ⚠️ ${errors.length} Broken Link${errors.length === 1 ? '' : 's'}
@@ -151,8 +169,33 @@ ${errors
 
     return `## 🔗 Link Check Results
 
-${errorSection}${warningSection}${detailsLink}
+${errorSection}${warningSection}${anchorSection}${detailsLink}
 <!-- link-checker-pr-comment -->`
+  },
+
+  // Cross-page anchor section. `blocking` reflects FAIL_ON_ANCHOR_FLAW so the wording
+  // can't claim the check is advisory once the rollout flips it to failing.
+  anchorSection: (anchors: CrossPageAnchorFlaw[], blocking = false) => {
+    if (anchors.length === 0) return ''
+    const shown = anchors.slice(0, 10)
+    const remaining = anchors.length - shown.length
+    const rows = shown
+      .map(
+        (a) =>
+          `- \`${a.href}\`\n  - \`${a.file}\` line ${a.lines.join(', ')} (${a.versions.join(', ')})`,
+      )
+      .join('\n')
+    const moreLine = remaining > 0 ? `\n- ... and ${remaining} more` : ''
+    const status = blocking
+      ? 'This check is failing.'
+      : 'Not blocking yet, so this check still passes.'
+    return `### ⚓ ${anchors.length} broken cross-page anchor${anchors.length === 1 ? '' : 's'}
+
+These links resolve to a real page, but the \`#fragment\` no longer matches a heading on the target. ${status}
+
+${rows}${moreLine}
+
+`
   },
 }
 
@@ -422,15 +465,21 @@ export function reportToMarkdown(report: LinkReport, isExternal = false): string
  */
 export function generatePRComment(
   brokenLinks: BrokenLink[],
-  options: { actionUrl?: string } = {},
+  options: {
+    actionUrl?: string
+    brokenAnchors?: CrossPageAnchorFlaw[]
+    anchorsBlocking?: boolean
+  } = {},
 ): string {
-  if (brokenLinks.length === 0) return ''
+  const brokenAnchors = options.brokenAnchors ?? []
+  if (brokenLinks.length === 0 && brokenAnchors.length === 0) return ''
 
   const groups = groupBrokenLinks(brokenLinks)
   const errors = groups.filter((g) => !g.isWarning)
   const warnings = groups.filter((g) => g.isWarning)
+  const anchorSection = TEMPLATES.anchorSection(brokenAnchors, options.anchorsBlocking)
 
-  return TEMPLATES.prComment(errors, warnings, options.actionUrl)
+  return TEMPLATES.prComment(errors, warnings, anchorSection, options.actionUrl)
 }
 
 // ============================================================================
