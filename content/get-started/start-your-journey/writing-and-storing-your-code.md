@@ -2,13 +2,13 @@
 title: 'Writing and storing your code'
 shortTitle: 'Write and store code'
 intro: 'Follow the core developer workflow to create a branch, write code, and open a pull request using {% data variables.product.prodname_copilot_short %} and {% data variables.product.prodname_desktop %}.'
-category:
-  - Learn to code
-contentType: get-started
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Start your GitHub journey
+contentType: get-started
 ---
 
 Now you'll build the website feature you planned: a page that lists starred repositories. Along the way, you'll follow the core developer workflow—setting up a space for your work, making and saving your changes, and proposing them for review—using branches, commits, and a pull request.

@@ -7,9 +7,9 @@ versions:
   ghec: '*'
 redirect_from:
   - /get-started/quickstart/hello-world
+  - /get-started/start-your-journey/hello-world
 category:
   - Explore and contribute
-contentType: get-started
 ---
 
 ## Introduction
@@ -25,7 +25,7 @@ In this quickstart guide, you will:
 
 ### Prerequisites
 
-* You must have a {% data variables.product.github %} account. {% ifversion fpt or ghec %}For more information, see [AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github).{% endif %}
+* You must have a {% data variables.product.github %} account. {% ifversion fpt or ghec %}For more information, see [AUTOTITLE](/account-and-profile/how-tos/account-management/creating-an-account-on-github).{% endif %}
 
 * You don't need to know how to code, use the command line, or install Git (the version control software that {% data variables.product.github %} is built on).
 
@@ -33,7 +33,7 @@ In this quickstart guide, you will:
 
 The first thing we'll do is create a repository. You can think of a repository as a folder that contains related items, such as files, images, videos, or even other folders. A repository usually groups together items that belong to the same "project" or thing you're working on.
 
-Often, repositories include a README file, a file with information about your project. README files are written in Markdown, which is an easy-to-read, easy-to-write language for formatting plain text. We'll learn more about Markdown in the next tutorial, [AUTOTITLE](/get-started/start-your-journey/setting-up-your-profile).
+Often, repositories include a README file, a file with information about your project. README files are written in Markdown, which is an easy-to-read, easy-to-write language for formatting plain text. You can learn more about Markdown and README files in [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) and [AUTOTITLE](/account-and-profile/how-tos/profile-customization/managing-your-profile-readme).
 
 {% data variables.product.github %} lets you add a README file at the same time you create your new repository. {% data variables.product.github %} also offers other common options such as a license file, but you do not have to select any of them now.
 
@@ -148,7 +148,7 @@ As part of that, we've learned how to:
 
 * Take a look at your {% data variables.product.github %} profile and you'll see your work reflected on your contribution graph.
 * If you want to practice the skills you've learned in this tutorial again, try the [{% data variables.product.prodname_learning %}](https://skills.github.com/) "Introduction to {% data variables.product.prodname_dotcom %}" course.
-* In the next tutorial, [AUTOTITLE](/get-started/start-your-journey/setting-up-your-profile), you'll learn how to personalize your profile and you'll also learn some basic Markdown syntax for writing on {% data variables.product.github %}.
+* Personalize your profile and learn some basic Markdown syntax for writing on {% data variables.product.github %}, see [AUTOTITLE](/account-and-profile/tutorials/personalize-your-profile).
 
 ## Further reading
 

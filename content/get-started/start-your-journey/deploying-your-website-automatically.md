@@ -2,13 +2,13 @@
 title: 'Deploying your website automatically'
 shortTitle: 'Deploy automatically'
 intro: 'Automate your code deployment with {% data variables.product.prodname_actions %} and {% data variables.product.prodname_pages %} to publish updates to a live site with every push to the main branch.'
-category:
-  - Learn to code
-contentType: get-started
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Start your GitHub journey
+contentType: get-started
 ---
 
 Your feature is merged, so now you can share it. In this tutorial, you'll set up automatic deployment so every push to `main` publishes your software project to a live website.
