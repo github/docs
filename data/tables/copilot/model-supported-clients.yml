@@ -248,6 +248,15 @@
   xcode: false
   jetbrains: false
 
+- name: Grok 4.5
+  dotcom: false
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
 - name: Kimi K2.7 Code
   dotcom: true
   cli: true

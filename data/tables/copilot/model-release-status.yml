@@ -133,3 +133,8 @@
 - name: 'Kimi K2.7 Code'
   provider: 'Moonshot AI'
   release_status: 'GA'
+
+# xAI models
+- name: 'Grok 4.5'
+  provider: 'xAI'
+  release_status: 'GA'

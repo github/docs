@@ -239,6 +239,7 @@ copilot_o3: 'o3'
 copilot_o4_mini: 'o4-mini'
 ## xAI:
 copilot_grok_code: 'Grok Code Fast 1'
+copilot_grok_45: 'Grok 4.5'
 # Qwen:
 copilot_qwen_25: 'Qwen2.5'
 # Microsoft:
