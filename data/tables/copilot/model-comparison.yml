@@ -3,6 +3,7 @@
 #    - OpenAI
 #    - Anthropic
 #    - Google
+#    - Microsoft
 #    - xAI
 # 2. Within each provider group, alphabetically by model name.
 
@@ -124,6 +125,12 @@
   task_area: General-purpose coding and writing
   excels_at: Fast, accurate code completions and explanations
   further_reading: '[MAI-Code-1-Flash model card](https://aka.ms/mai-code-1-flash-modelcard)'
+
+# xAI
+- name: Grok 4.5
+  task_area: General-purpose coding and agent tasks
+  excels_at: Complex problem-solving challenges, sophisticated reasoning
+  further_reading: '[Grok 4.5 model card](https://media.x.ai/v1/website/card-7f81d41b.pdf)'
 
 # Other providers (alphabetized by model name)
 - name: Qwen2.5

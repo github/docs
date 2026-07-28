@@ -187,6 +187,13 @@
   business: true
   enterprise: true
 
+- name: Grok 4.5
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
 - name: Kimi K2.7 Code
   pro: true
   pro_plus: true
