@@ -17,8 +17,8 @@ category:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the sidebar, under "Security and quality", click **{% data variables.code-quality.code_quality_ui_settings %}** to display the "{% data variables.code-quality.code_quality_ui %}" page.
-1. Under **Code Quality analysis**, toggle from **On** to **Off**.
+1. In the sidebar, under **{% data variables.product.prodname_security_and_quality_tab %}**, click **{% data variables.code-quality.code_quality_ui_settings %}** to display the "{% data variables.code-quality.code_quality_ui %}" page.
+1. Under **{% data variables.product.prodname_code_quality_short %} analysis**, toggle from **On** to **Off**.
 
 This stops all future {% data variables.product.prodname_code_quality_short %} scans, and the billing they generate, for that repository.
 
