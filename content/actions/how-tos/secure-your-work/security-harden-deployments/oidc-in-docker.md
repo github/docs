@@ -30,7 +30,7 @@ For more information, see [OIDC connections](https://docs.docker.com/enterprise/
 
 * You must have a Docker Business or Docker Team subscription.
 * You must be an organization owner or editor in your Docker organization.
-* You should plan which repositories, branches, and workflows need access to Docker, and configure rulesets accordingly.
+* You must plan which repositories, branches, and workflows need access to Docker, and configure rulesets accordingly.
 
 ## Adding the identity provider to Docker
 
