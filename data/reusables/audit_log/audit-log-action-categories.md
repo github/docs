@@ -79,7 +79,7 @@
 | {% ifversion ghec or ghes %} |
 | `org_credential_authorization` | Contains activities related to authorizing credentials for use with SAML single sign-on. |
 | {% endif %} |
-| `org_secret_scanning_automatic_validity_checks` | Contains activities related to enabling or disabling automatic validity checks for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization). |
+| `org_secret_scanning_automatic_validity_checks` | Contains activities related to enabling or disabling automatic validity checks for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/create-custom-configuration#creating-a-secret-protection-and-code-security-configuration). |
 | `org_secret_scanning_custom_pattern` | Contains activities related to custom patterns for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/customize-leak-detection/define-custom-patterns). |
 | `organization_default_label` | Contains activities related to default labels for repositories in an organization. |
 | `organization_domain` | Contains activities related to verified organization domains. |

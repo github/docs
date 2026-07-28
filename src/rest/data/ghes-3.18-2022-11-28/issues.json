@@ -19402,13 +19402,33 @@
               "name": "value",
               "description": "<p>The value to set for the field. For multi-select fields, provide an array of option names.</p>",
               "isRequired": true
+            },
+            {
+              "type": "string",
+              "name": "rationale",
+              "description": "<p>Optional reasoning for setting this field value.</p>"
+            },
+            {
+              "type": "boolean",
+              "name": "suggest",
+              "description": "<p>If <code>true</code>, the change is stored as a pending suggestion for human review rather than applied directly.</p>"
+            },
+            {
+              "type": "string",
+              "name": "confidence",
+              "description": "<p>The confidence level for this field value choice.</p>",
+              "enum": [
+                "low",
+                "medium",
+                "high"
+              ]
             }
           ]
         },
         {
-          "type": "string or null",
+          "type": "null or string or object",
           "name": "type",
-          "description": "<p>The name of the issue type to associate with this issue or use <code>null</code> to remove the current issue type. Only users with push access can set the type for issues. Without push access to the repository, type changes are silently dropped.</p>"
+          "description": "<p>The issue type to associate with this issue. Only users with push access can set the type for issues. Without push access to the repository, type changes are silently dropped.</p>"
         }
       ],
       "descriptionHTML": "<p>Issue owners and users with push access or Triage role can edit an issue.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
@@ -22477,7 +22497,176 @@
                 },
                 {
                   "type": "object",
-                  "properties": {}
+                  "properties": {
+                    "suggestions": {
+                      "type": "object",
+                      "description": "Pending suggestions for each suggestible field (`type`,\n`issue_field_values`, `labels`, `assignees`, `state`) the\nrequest touched. Omitted for fields not in the request or\nwith no pending suggestions. Items tagged `already_applied`\nare echoes of the current request's inputs whose target is\nalready applied to the issue; they are not persisted as\npending suggestions.\n",
+                      "properties": {
+                        "type": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "string"
+                              },
+                              "rationale": {
+                                "type": "string"
+                              },
+                              "suggest": {
+                                "type": "boolean"
+                              },
+                              "confidence": {
+                                "type": "string",
+                                "enum": [
+                                  "low",
+                                  "medium",
+                                  "high"
+                                ]
+                              },
+                              "already_applied": {
+                                "type": "boolean"
+                              }
+                            }
+                          }
+                        },
+                        "issue_field_values": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "field_id": {
+                                "type": "integer"
+                              },
+                              "value": {
+                                "oneOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "number"
+                                  },
+                                  {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    }
+                                  }
+                                ]
+                              },
+                              "rationale": {
+                                "type": "string"
+                              },
+                              "suggest": {
+                                "type": "boolean"
+                              },
+                              "confidence": {
+                                "type": "string",
+                                "enum": [
+                                  "low",
+                                  "medium",
+                                  "high"
+                                ]
+                              },
+                              "already_applied": {
+                                "type": "boolean"
+                              }
+                            }
+                          }
+                        },
+                        "labels": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string"
+                              },
+                              "rationale": {
+                                "type": "string"
+                              },
+                              "suggest": {
+                                "type": "boolean"
+                              },
+                              "confidence": {
+                                "type": "string",
+                                "enum": [
+                                  "low",
+                                  "medium",
+                                  "high"
+                                ]
+                              },
+                              "already_applied": {
+                                "type": "boolean"
+                              }
+                            }
+                          }
+                        },
+                        "assignees": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "login": {
+                                "type": "string"
+                              },
+                              "rationale": {
+                                "type": "string"
+                              },
+                              "suggest": {
+                                "type": "boolean"
+                              },
+                              "confidence": {
+                                "type": "string",
+                                "enum": [
+                                  "low",
+                                  "medium",
+                                  "high"
+                                ]
+                              },
+                              "already_applied": {
+                                "type": "boolean"
+                              }
+                            }
+                          }
+                        },
+                        "state": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "string"
+                              },
+                              "state_reason": {
+                                "type": "string"
+                              },
+                              "duplicate_issue_id": {
+                                "type": "integer"
+                              },
+                              "rationale": {
+                                "type": "string"
+                              },
+                              "suggest": {
+                                "type": "boolean"
+                              },
+                              "confidence": {
+                                "type": "string",
+                                "enum": [
+                                  "low",
+                                  "medium",
+                                  "high"
+                                ]
+                              },
+                              "already_applied": {
+                                "type": "boolean"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               ]
             }
@@ -26352,7 +26541,7 @@
       ],
       "bodyParameters": [
         {
-          "type": "array of strings",
+          "type": "array",
           "name": "assignees",
           "description": "<p>Usernames of people to assign this issue to. <em>NOTE: Only users with push access can add assignees to an issue. Assignees are silently ignored otherwise.</em></p>"
         }
@@ -42785,6 +42974,43 @@
                       }
                     ]
                   },
+                  "intent": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "title": "Issue Event Intent",
+                        "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                        "type": [
+                          "object",
+                          "null"
+                        ],
+                        "properties": {
+                          "rationale": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "The reasoning the agent provided for the change."
+                          },
+                          "confidence": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "The confidence level the agent had when performing this action.",
+                            "enum": [
+                              "LOW",
+                              "MEDIUM",
+                              "HIGH",
+                              null
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
                   "author_association": {
                     "title": "author_association",
                     "type": "string",
@@ -49066,6 +49292,43 @@
                     }
                   ]
                 },
+                "intent": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "title": "Issue Event Intent",
+                      "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "properties": {
+                        "rationale": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "The reasoning the agent provided for the change."
+                        },
+                        "confidence": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "The confidence level the agent had when performing this action.",
+                          "enum": [
+                            "LOW",
+                            "MEDIUM",
+                            "HIGH",
+                            null
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                },
                 "author_association": {
                   "title": "author_association",
                   "type": "string",
@@ -49984,6 +50247,43 @@
                           "name",
                           "color"
                         ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
+                        ]
                       }
                     },
                     "required": [
@@ -50444,6 +50744,43 @@
                         "required": [
                           "name",
                           "color"
+                        ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
                         ]
                       }
                     },
@@ -51105,6 +51442,43 @@
                           "subscriptions_url",
                           "type",
                           "url"
+                        ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
                         ]
                       }
                     },
@@ -58201,6 +58575,43 @@
                           "id",
                           "name"
                         ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
+                        ]
                       }
                     },
                     "required": [
@@ -58686,6 +59097,43 @@
                         "required": [
                           "id",
                           "name"
+                        ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
                         ]
                       }
                     },
@@ -59212,6 +59660,43 @@
                         "required": [
                           "id",
                           "name"
+                        ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
                         ]
                       }
                     },
@@ -66861,9 +67346,9 @@
       ],
       "bodyParameters": [
         {
-          "type": "array of strings",
+          "type": "array",
           "name": "labels",
-          "description": "<p>The names of the labels to add to the issue's existing labels. You can also pass an <code>array</code> of labels directly, but GitHub recommends passing an object with the <code>labels</code> key. To replace all of the labels for an issue, use \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues/labels#set-labels-for-an-issue\">Set labels for an issue</a>.\"</p>"
+          "description": "<p>The labels to add to the issue's existing labels. You can also pass an <code>array</code> of labels directly, but GitHub recommends passing an object with the <code>labels</code> key. To replace all of the labels for an issue, use \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/issues/labels#set-labels-for-an-issue\">Set labels for an issue</a>.\"</p>"
         }
       ],
       "descriptionHTML": "<p>Adds labels to an issue.</p>",
@@ -69851,6 +70336,14 @@
             "type": "integer",
             "default": 1
           }
+        },
+        {
+          "name": "exclude",
+          "in": "query",
+          "description": "<p>A comma-separated list of timeline event names to exclude from the response.</p>",
+          "schema": {
+            "type": "string"
+          }
         }
       ],
       "bodyParameters": [],
@@ -70489,6 +70982,43 @@
                           "name",
                           "color"
                         ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
+                        ]
                       }
                     },
                     "required": [
@@ -70949,6 +71479,43 @@
                         "required": [
                           "name",
                           "color"
+                        ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
                         ]
                       }
                     },
@@ -82323,6 +82890,43 @@
                           "type",
                           "url"
                         ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
+                        ]
                       }
                     },
                     "required": [
@@ -83332,6 +83936,43 @@
                           "string",
                           "null"
                         ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
+                        ]
                       }
                     },
                     "required": [
@@ -83816,6 +84457,43 @@
                         "required": [
                           "id",
                           "name"
+                        ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
                         ]
                       }
                     },
@@ -84302,6 +84980,43 @@
                         "required": [
                           "id",
                           "name"
+                        ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
                         ]
                       }
                     },
@@ -84828,6 +85543,43 @@
                         "required": [
                           "id",
                           "name"
+                        ]
+                      },
+                      "intent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Issue Event Intent",
+                            "description": "The intent behind an agent's action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rationale": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The reasoning the agent provided for the change."
+                              },
+                              "confidence": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The confidence level the agent had when performing this action.",
+                                "enum": [
+                                  "LOW",
+                                  "MEDIUM",
+                                  "HIGH",
+                                  null
+                                ]
+                              }
+                            }
+                          }
                         ]
                       }
                     },

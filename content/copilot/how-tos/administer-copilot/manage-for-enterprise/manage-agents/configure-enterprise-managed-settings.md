@@ -15,11 +15,21 @@ category:
   - Manage Copilot for a team
 ---
 
-With enterprise managed settings, enterprise owners can centrally define and distribute configuration settings to {% data variables.copilot.copilot_cli_short %} and {% data variables.product.prodname_vscode_shortname %} for users on your enterprise's {% data variables.product.prodname_copilot_short %} plan, ensuring every member works within the same guardrails. Additional client support will follow.
+With enterprise managed settings, enterprise owners can centrally define and distribute configuration settings to supported clients for users on your enterprise's {% data variables.product.prodname_copilot_short %} plan, ensuring every member works within the same guardrails.
+
+Supported clients are:
+
+* {% data variables.copilot.copilot_cli_short %}
+* {% data variables.product.prodname_vscode_shortname %}
+* The {% data variables.copilot.github_copilot_app %}
 
 These settings apply enterprise-wide, with no organization-level override. For each supported key, the `{% data variables.copilot.managed_setting_file %}` value takes precedence over any file-based configuration a user sets in their client.
 
 Managed settings are loaded locally when the client starts, even if the device has no network connection. This means controls such as disabled bypass mode and restricted plugin configuration still apply before sign in or any server round trip, and remain active when users switch accounts.
+
+## Defining settings
+
+For detailed information on the available properties and syntax, see [AUTOTITLE](/copilot/reference/enterprise-managed-settings-reference).
 
 ## Choosing a deployment method
 
@@ -28,6 +38,8 @@ There are multiple ways to deploy enterprise managed settings. Use the following
 * **Server-managed**: Default for most enterprises and best for review workflows and audit history
 * **MDM-managed**: Best when IT teams need device-group targeting through existing MDM tooling on macOS and Windows
 * **File-based**: Available on all platforms, and useful when server-managed and MDM-managed deployment are not available, including developer environments such as containers and {% data variables.product.prodname_codespaces %}
+
+There are additional considerations if you use a dedicated enterprise for {% data variables.copilot.copilot_business_short %}. See [Guidance for dedicated {% data variables.copilot.copilot_business_short %} enterprises](#guidance-for-dedicated-copilot-business-enterprises).
 
 ## Deploying server-managed settings
 
@@ -55,123 +67,32 @@ There are multiple ways to deploy enterprise managed settings. Use the following
 1. Ask users to restart supported clients so the updated policy is loaded at startup.
 1. Confirm the settings took effect. See [Verifying the configuration has applied](#verifying-the-configuration-has-applied).
 
-## Consolidated schema reference
-
-The `{% data variables.copilot.managed_setting_file %}` file supports the following top-level properties. You can include any combination of these properties based on which settings you want to enforce.
-
-```json copy
-{
-  "extraKnownMarketplaces": {
-    "agent-skills": {
-      "source": {
-        "source": "github",
-        "repo": "OWNER/REPO"
-      }
-    }
-  },
-  "strictKnownMarketplaces": [
-    {
-      "source": "github",
-      "repo": "OWNER/REPO"
-    }
-  ],
-  "enabledPlugins": {
-    "PLUGIN-NAME@MARKETPLACE-NAME": true
-  },
-  "permissions": {
-    "disableBypassPermissionsMode": "disable"
-  },
-  "model": "auto"
-}
-```
-
-* `extraKnownMarketplaces`: Defines additional plugin marketplaces available to users. Each entry is a named marketplace object containing a `source` property that specifies the provider (`"github"`) and the repository in `OWNER/REPO` format.
-* `strictKnownMarketplaces`: Restricts plugin installation to only the marketplaces explicitly defined by the enterprise. Each entry is a marketplace object containing a `source` property. The `source` specifies the provider as either `"github"` with a `repo` in `OWNER/REPO` format, or `"git"` with a `url` pointing to a git repository.
-* `enabledPlugins`: Defines plugins that are automatically installed for all enterprise users. Each entry uses the format `PLUGIN-NAME@MARKETPLACE-NAME` as the key, with a boolean value of `true` to enable the plugin.
-* `permissions`: Controls whether users can bypass command approval. Set `disableBypassPermissionsMode` to `"disable"` to prevent users from turning on bypass mode. See [Disabling bypass mode for your enterprise](#disabling-bypass-mode-for-your-enterprise) further in this article for more information.
-* `model`: Controls default model governance settings. Set to `"auto"` so new conversations start with Copilot auto model selection by default. Users can still switch to a different model on a per-conversation basis.
-
-## Configuring enterprise plugin standards
-
-You can apply settings to control users' available plugin marketplaces and default-installed plugins. See [AUTOTITLE](/copilot/concepts/agents/about-enterprise-plugin-standards).
-
-{% data reusables.copilot.create-managed-settings %}
-1. Add the `extraKnownMarketplaces`, `strictKnownMarketplaces`, and `enabledPlugins` properties you need to the file. See the example and property descriptions in [Consolidated schema reference](#consolidated-schema-reference). Merge these properties into an existing file rather than overwriting it, so you don't remove settings configured for other policies, such as `permissions`.
-
-   ```json copy
-   {
-     "extraKnownMarketplaces": {
-       "agent-skills": {
-         "source": {
-           "source": "github",
-           "repo": "OWNER/REPO"
-         }
-       }
-     },
-     "strictKnownMarketplaces": [
-       {
-         "source": "github",
-         "repo": "OWNER/REPO"
-       }
-     ],
-     "enabledPlugins": {
-       "PLUGIN-NAME@MARKETPLACE-NAME": true
-     }
-   }
-   ```
-
-1. Commit and push your changes to the default branch of the `.github-private` repository.
-
-## Setting {% data variables.product.prodname_copilot_short %} auto model selection as the default
-
-You can set auto model selection as the default model for new conversations in {% data variables.copilot.copilot_cli_short %} and {% data variables.product.prodname_vscode_shortname %}. To learn more see [AUTOTITLE](/copilot/concepts/models/auto-model-selection). By setting it as the default for your enterprise, you ensure new conversations start with Auto model selected.
-
-### What setting Auto model as the default does
-
-When you `model` to `"auto"`, new conversations start with Auto model selected in both clients:
-
-* In {% data variables.copilot.copilot_cli_short %}, new sessions use Auto model unless the user specifies a different model.
-* In {% data variables.product.prodname_vscode_shortname %}, the model picker defaults to Auto model when a user starts a new conversation.
-
-Users can still switch to a different model on a per-conversation basis.
-
-### Configuring the setting
-
-{% data reusables.copilot.create-managed-settings %}
-1. Add the `model` property to the file, set to `"auto"`.
-
-   ```json copy
-   {
-     "model": "auto"
-   }
-   ```
-
-## Disabling bypass mode for your enterprise
-
-You can prevent users from enabling bypass mode (also known as "YOLO mode") in {% data variables.copilot.copilot_cli_short %} and {% data variables.product.prodname_vscode_shortname %}. Bypass mode lets an agent run commands, access files, and fetch URLs without asking for approval. By disabling it for your enterprise, you ensure that a person reviews each of these actions.
-
-### What disabling bypass mode prevents
-
-When you set `disableBypassPermissionsMode` to `"disable"`, users cannot turn on bypass mode in either client:
-
-* In {% data variables.copilot.copilot_cli_short %}, the `--yolo`, `--allow-all`, `--allow-all-tools`, `--allow-all-paths`, and `--allow-all-urls` command-line options and the `/yolo` and `/allow-all` slash commands are blocked.
-* In {% data variables.product.prodname_vscode_shortname %}, the global auto-approve setting (`chat.tools.global.autoApprove`), also known as "YOLO mode," is turned off and cannot be re-enabled.
-
-### Configuring the setting
-
-{% data reusables.copilot.create-managed-settings %}
-1. Add the `permissions` property to the file, with `disableBypassPermissionsMode` set to `"disable"`. If the file already has a `permissions` object (for example, from other permission settings), merge this key into it rather than replacing the object.
-
-   ```json copy
-   {
-     "permissions": {
-       "disableBypassPermissionsMode": "disable"
-     }
-   }
-   ```
-
 ## Verifying the configuration has applied
 
 Once the configuration is committed, users on a supported client see the specified settings within about an hour, since clients periodically check the server for updated configuration. Restarting the client or signing in again applies the latest settings immediately.
 
 If a user does not see these settings, ensure they receive access to {% data variables.product.prodname_copilot_short %} through your enterprise or one of its organizations. If a user receives a license from multiple billing entities, ensure they have selected your enterprise in the "Usage billed to" dropdown in their [personal {% data variables.product.prodname_copilot_short %} settings](https://github.com/settings/copilot/features).
+
+## Guidance for dedicated {% data variables.copilot.copilot_business_short %} enterprises
+
+If you have a dedicated enterprise for {% data variables.copilot.copilot_business_short %} (sometimes called {% data variables.product.prodname_copilot_short %} Standalone), you can still use enterprise managed settings. The deployment method you choose determines what you need to set up first.
+
+### Using server-managed settings
+
+Server-managed settings require an organization and a `.github-private` repository. To create these, one user in your enterprise needs a {% data variables.product.prodname_enterprise %} license. With that license, the user can:
+
+1. Create an organization and a `.github-private` repository. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/create-github-private-repo).
+1. Add settings to the repository in a `copilot/{% data variables.copilot.managed_setting_file %}` file.
+1. Set that organization as the source of governance for your enterprise's AI standards. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/create-github-private-repo#selecting-your-repository-as-your-source-of-governance).
+
+From that point on, any user on your enterprise's {% data variables.product.prodname_copilot_short %} plan using {% data variables.copilot.copilot_cli_short %} or {% data variables.product.prodname_vscode_shortname %} is governed by those settings, whether or not they have access to the `.github-private` repository.
+
+The main limitation of this method is the {% data variables.product.prodname_enterprise %} license requirement to create the organization and repository.
+
+### Using MDM-managed or file-based settings
+
+If you don't want to add a {% data variables.product.prodname_enterprise %} license or create an organization, you can deploy the same settings through MDM (such as Intune or Jamf) or a file-based deployment. These methods use the same JSON schema and don't require an organization or `.github-private` repository. See [Deploying MDM-managed settings](#deploying-mdm-managed-settings) and [Deploying file-based settings](#deploying-file-based-settings). For {% data variables.product.prodname_vscode_shortname %}-specific guidance, see [Deploy Copilot managed settings](https://code.visualstudio.com/docs/enterprise/ai-settings#_deploy-copilot-managed-settings) in the {% data variables.product.prodname_vscode_shortname %} documentation.
+
+### Plugin access considerations
+
+Users don't need access to the `.github-private` repository for clients to pull in managed settings. However, if managed settings define a plugin using `enabledPlugins`, the client automatically tries to install it for each user. The user needs access to where the plugin files are hosted. If the plugin is hosted in a private repository on {% data variables.product.prodname_dotcom %}, the user needs authorization to that repository, which may require a license.

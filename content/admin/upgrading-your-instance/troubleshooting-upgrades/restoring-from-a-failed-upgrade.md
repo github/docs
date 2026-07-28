@@ -19,7 +19,7 @@ If your instance is configured for high availability and your primary node upgra
 
 To roll back a patch release, use the `ghe-upgrade` command with the `--allow-patch-rollback` switch. Before rolling back, replication must be temporarily stopped by running `ghe-repl-stop` on all replica nodes, or `ghe-repl-stop-all` on the primary node. {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
 
-After the rollback is complete, restart replication by running `ghe-repl-start` on all nodes, or `ghe-repl-start-all` on the primary node. See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-upgrade).
+After the rollback is complete, restart replication by running `ghe-repl-start` on all nodes, or `ghe-repl-start-all` on the primary node. See [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-upgrade).
 
 ## Rolling back a feature release
 

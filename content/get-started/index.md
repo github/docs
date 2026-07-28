@@ -1,7 +1,7 @@
 ---
 title: Get started with GitHub documentation
 shortTitle: Get started
-intro: 'Learn how to start building, shipping, and maintaining software with {% data variables.product.prodname_dotcom %}. Explore our products, sign up for an account, and connect with the world''s largest development community.'
+intro: 'Learn how to start building, shipping, and maintaining software with {% data variables.product.github %}. Explore our products, sign up for an account, and connect with the world''s largest development community.'
 redirect_from:
   - /categories/54/articles
   - /categories/bootcamp
@@ -26,15 +26,14 @@ versions:
   ghec: '*'
 layout: discovery-landing
 introLinks:
-  quickstart: /get-started/start-your-journey/hello-world
+  quickstart: /get-started/using-github/hello-world
   overview: /get-started/start-your-journey/what-is-github
 carousels:
   recommended:
     - /get-started/start-your-journey
     - /get-started/learning-to-code
-    - /get-started/start-your-journey/creating-an-account-on-github
     - /get-started/git-basics/set-up-git
-    - /get-started/start-your-journey/hello-world
+    - /get-started/using-github/hello-world
     - /get-started/onboarding/getting-started-with-your-github-account
     - /get-started/learning-about-github/githubs-plans
     - /get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github
@@ -49,6 +48,7 @@ includedCategories:
   - Share and reuse content
   - Learn to code
   - Customize your experience
+  - Start your GitHub journey
 children:
   - /start-your-journey
   - /onboarding

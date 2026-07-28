@@ -123,20 +123,26 @@ export function getLiquidIfVersionTokens(content: string): TagToken[] {
     .filter((token): token is TagToken => token.kind === TokenKind.Tag)
     .filter((token) => IFVERSION_TAG_NAMES.includes(token.name))
 
-  let inIfStatement = false
+  let ifDepth = 0
   let inCaseStatement = false
   const ifVersionTokens: TagToken[] = []
   for (const token of tokens) {
-    // Filter out `if` statements and their related tags
+    // Filter out `if` statements and their related tags (supports nesting)
     if (token.name === 'if') {
-      inIfStatement = true
+      ifDepth++
       continue
     }
-    if (inIfStatement && token.name !== 'endif') continue
-    if (inIfStatement && token.name === 'endif') {
-      inIfStatement = false
+    // While we're inside a regular if subtree, `endif` can close either
+    // `if` or `ifversion`, so count nested `ifversion` tags too.
+    if (ifDepth > 0 && token.name === 'ifversion') {
+      ifDepth++
       continue
     }
+    if (ifDepth > 0 && token.name === 'endif') {
+      ifDepth--
+      continue
+    }
+    if (ifDepth > 0) continue
     // Filter out `case` statements and their related tags (including `else`)
     if (token.name === 'case') {
       inCaseStatement = true

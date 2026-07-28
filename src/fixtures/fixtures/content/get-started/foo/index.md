@@ -1,11 +1,11 @@
 ---
 title: Fooing Around
 shortTitle: Foo
-intro: 'The most basic of fixture data for {% data variables.product.product_name %}'
+intro: "The most basic of fixture data for {% data variables.product.product_name %}"
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  fpt: "*"
+  ghes: "*"
+  ghec: "*"
 children:
   - /bar
   - /autotitling
@@ -19,4 +19,5 @@ children:
   - /table-with-ifversions
   - /code-snippet-with-hashbang
   - /journey-test-article
+  - /broken-frontmatter-translation
 ---

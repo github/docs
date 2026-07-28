@@ -71,7 +71,7 @@ delete the entire database directory.
 \[Advanced] Read a Code Scanning configuration file specifying options
 on how to create the CodeQL databases and what queries to run in later
 steps. For more details on the format of this configuration file, refer
-to [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning). To run queries from
+to [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options). To run queries from
 this file in a later step, invoke [codeql database analyze](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-analyze) without any other queries specified.
 
 #### `--[no-]db-cluster`

@@ -52,6 +52,41 @@ test('use sidebar to go to Hello World page', async ({ page }) => {
   await expect(page).toHaveTitle(/Hello World - GitHub Docs/)
 })
 
+test('press "/" to open the search overlay', async ({ page }) => {
+  await page.goto('/')
+  await turnOffExperimentsInPage(page)
+
+  // Wait for the header search button to render, so the keydown listener is attached.
+  await page.locator('[data-testid="search"]:visible').waitFor()
+
+  const searchInput = page.getByTestId('overlay-search-input')
+  // The overlay (and its input) is not in the DOM until it's opened.
+  await expect(searchInput).toHaveCount(0)
+
+  // Pressing "/" anywhere on the page opens the overlay and focuses the input.
+  await page.keyboard.press('/')
+  await expect(searchInput).toBeFocused()
+
+  // Escape closes it again.
+  await page.keyboard.press('Escape')
+  await expect(searchInput).toHaveCount(0)
+})
+
+test('"/" typed inside the search input is a literal slash', async ({ page }) => {
+  await page.goto('/')
+  await turnOffExperimentsInPage(page)
+
+  await page.locator('[data-testid="search"]:visible').waitFor()
+
+  await page.keyboard.press('/')
+  const searchInput = page.getByTestId('overlay-search-input')
+  await expect(searchInput).toBeFocused()
+
+  // The "/" shortcut must not fire while typing in a field, so it is not swallowed.
+  await page.keyboard.type('a/b')
+  await expect(searchInput).toHaveValue('a/b')
+})
+
 test('do a search from home page and click on "Foo" page', async ({ page }) => {
   test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
 
@@ -505,21 +540,21 @@ test.describe('test nav at different viewports', () => {
     })
     await page.goto('/get-started/foo/bar')
 
-    // in article breadcrumbs at our custom xl viewport should remove last
-    // breadcrumb so for this page we should only have 'Get Started / Foo'
-    expect(await page.getByTestId('breadcrumbs-in-article').getByRole('link').all()).toHaveLength(2)
-    await expect(page.getByTestId('breadcrumbs-in-article').getByText('Foo')).toBeVisible()
-    await expect(page.getByTestId('breadcrumbs-in-article').getByText('Bar')).not.toBeVisible()
+    // The Docs 2026 secondary bar leads with a Home crumb, then the full trail
+    // 'Get started / Foo / Bar' (no hidden last crumb).
+    expect(await page.getByTestId('breadcrumbs-bar').getByRole('link').all()).toHaveLength(4)
+    await expect(page.getByTestId('breadcrumbs-bar').getByText('Foo')).toBeVisible()
+    await expect(page.getByTestId('breadcrumbs-bar').getByText('Bar')).toBeVisible()
 
     // breadcrumbs show up in rest reference pages
     await page.goto('/rest/actions/artifacts')
-    await expect(page.getByTestId('breadcrumbs-in-article')).toBeVisible()
+    await expect(page.getByTestId('breadcrumbs-bar')).toBeVisible()
 
     // breadcrumbs show up in one of the pages that use the AutomatedPage
     // component (e.g. graphql, audit log, etc.) -- we test the webhooks
     // reference page here
     await page.goto('/webhooks/webhook-events-and-payloads')
-    await expect(page.getByTestId('breadcrumbs-in-article')).toBeVisible()
+    await expect(page.getByTestId('breadcrumbs-bar')).toBeVisible()
   })
 
   test('large -> x-large viewports - 1012+', async ({ page }) => {
@@ -549,17 +584,15 @@ test.describe('test nav at different viewports', () => {
     })
     await page.goto('/get-started/foo/bar')
 
-    // breadcrumbs show up in the header, for this page we should have
-    // 3 items 'Get Started / Foo / Bar'
-    // in-article breadcrumbs don't show up
-    await expect(page.getByTestId('breadcrumbs-header')).toBeVisible()
-    expect(await page.getByTestId('breadcrumbs-header').getByRole('link').all()).toHaveLength(3)
-    await expect(page.getByTestId('breadcrumbs-in-article')).not.toBeVisible()
+    // breadcrumbs show up in the secondary bar; for this page we should have
+    // a Home crumb plus 'Get started / Foo / Bar'
+    await expect(page.getByTestId('breadcrumbs-bar')).toBeVisible()
+    expect(await page.getByTestId('breadcrumbs-bar').getByRole('link').all()).toHaveLength(4)
 
-    // hamburger button for sidebar overlay is visible
-    await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
-    await page.getByTestId('sidebar-hamburger').click()
-    await expect(page.locator('[role="dialog"][class*="Header_dialog"]')).toBeVisible()
+    // the mobile nav toggle is visible and expands the doc-tree nav inline
+    await expect(page.getByTestId('sidebar-mobile-toggle')).toBeVisible()
+    await page.getByTestId('sidebar-mobile-toggle').click()
+    await expect(page.getByTestId('sidebar')).toBeVisible()
   })
 
   test('medium viewports - 768-1011', async ({ page }) => {
@@ -582,9 +615,9 @@ test.describe('test nav at different viewports', () => {
     await expect(page.getByTestId('mobile-signup')).toBeVisible()
 
     // hamburger button for sidebar overlay is visible
-    await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
-    await page.getByTestId('sidebar-hamburger').click()
-    await expect(page.locator('[role="dialog"][class*="Header_dialog"]')).toBeVisible()
+    await expect(page.getByTestId('sidebar-mobile-toggle')).toBeVisible()
+    await page.getByTestId('sidebar-mobile-toggle').click()
+    await expect(page.getByTestId('sidebar')).toBeVisible()
   })
 
   test('small viewports - 544-767', async ({ page }) => {
@@ -611,9 +644,9 @@ test.describe('test nav at different viewports', () => {
     await expect(page.getByTestId('mobile-signup')).toBeVisible()
 
     // hamburger button for sidebar overlay is visible
-    await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
-    await page.getByTestId('sidebar-hamburger').click()
-    await expect(page.locator('[role="dialog"][class*="Header_dialog"]')).toBeVisible()
+    await expect(page.getByTestId('sidebar-mobile-toggle')).toBeVisible()
+    await page.getByTestId('sidebar-mobile-toggle').click()
+    await expect(page.getByTestId('sidebar')).toBeVisible()
   })
 
   test('x-small viewports - 0-544', async ({ page }) => {
@@ -645,9 +678,9 @@ test.describe('test nav at different viewports', () => {
     await expect(page.getByTestId('mobile-signup')).toBeVisible()
 
     // hamburger button for sidebar overlay is visible
-    await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
-    await page.getByTestId('sidebar-hamburger').click()
-    await expect(page.locator('[role="dialog"][class*="Header_dialog"]')).toBeVisible()
+    await expect(page.getByTestId('sidebar-mobile-toggle')).toBeVisible()
+    await page.getByTestId('sidebar-mobile-toggle').click()
+    await expect(page.getByTestId('sidebar')).toBeVisible()
   })
 
   test('do a search when the viewport is x-small', async ({ page }) => {
@@ -696,6 +729,81 @@ test.describe('test nav at different viewports', () => {
       /\/search\?search-overlay-input=serve\+playwright&query=serve\+playwright/,
     )
     await expect(page).toHaveTitle(/\d Search results for "serve playwright"/)
+  })
+})
+
+test.describe('secondary-bar breadcrumb scroller', () => {
+  // The secondary bar (and its breadcrumb scroller) only renders at wide
+  // viewports, and the fixture trail is short enough to fit there, so we cap the
+  // scroller width to force a deterministic overflow independent of title
+  // lengths — then exercise the chevrons.
+  test('chevrons scroll one crumb at a time instead of jumping to the ends', async ({ page }) => {
+    // Smooth-scroll settle waits across several chevron clicks add up past the
+    // default 5s cap.
+    test.setTimeout(20000)
+    page.setViewportSize({ width: 1300, height: 700 })
+    await page.goto('/get-started/foo/bar')
+
+    const bar = page.getByTestId('breadcrumbs-bar')
+    await expect(bar).toBeVisible()
+
+    const scrollArea = page.locator('[data-search="breadcrumbs"]')
+    await expect(scrollArea).toBeVisible()
+
+    // Force a deterministic overflow independent of title lengths: cap the
+    // scroll region, drop the nav's min-width:100% (which otherwise stretches the
+    // short fixture trail to fill the container so it never overflows), and pad
+    // the crumbs so several are hidden at once — enough that a per-crumb nudge is
+    // distinguishable from a jump to the end.
+    await page.addStyleTag({
+      content: `
+        [data-search="breadcrumbs"] { max-width: 360px; }
+        [data-search="breadcrumbs"] nav { min-width: 0 !important; }
+        [data-search="breadcrumbs"] li { padding-right: 60px; }
+      `,
+    })
+
+    const scrollLeftOf = () => scrollArea.evaluate((el) => el.scrollLeft)
+    const maxScrollOf = () => scrollArea.evaluate((el) => el.scrollWidth - el.clientWidth)
+    await expect.poll(maxScrollOf).toBeGreaterThan(0)
+
+    // Anchor to the right end explicitly so we start from a known state: fully
+    // scrolled right (current page visible), only the left chevron active.
+    await scrollArea.evaluate((el) => el.scrollTo({ left: el.scrollWidth, behavior: 'instant' }))
+    const maxScroll = await maxScrollOf()
+    await expect.poll(scrollLeftOf).toBe(maxScroll)
+
+    const leftChevron = page.getByRole('button', { name: 'Scroll breadcrumbs left' })
+    const rightChevron = page.getByRole('button', { name: 'Scroll breadcrumbs right' })
+    // At the right extreme the left chevron is active and the right one is hidden.
+    await expect(leftChevron).toBeVisible()
+    await expect(rightChevron).toBeHidden()
+
+    // One left click nudges toward the start by a single crumb — it must move,
+    // but must NOT jump all the way to 0 (the old behavior) while more than one
+    // crumb is still hidden to the left.
+    await leftChevron.click()
+    await expect.poll(scrollLeftOf).toBeLessThan(maxScroll)
+    const afterOneLeft = await scrollLeftOf()
+    expect(afterOneLeft).toBeGreaterThan(0)
+    // The right chevron appears once we're no longer at the right extreme.
+    await expect(rightChevron).toBeVisible()
+
+    // A right click walks back toward the current page by one crumb, not a full
+    // jump back to the right extreme.
+    await rightChevron.click()
+    await expect.poll(scrollLeftOf).toBeGreaterThan(afterOneLeft)
+
+    // Repeated left clicks eventually reach the start, which hides the left
+    // chevron (canScrollLeft flips false). Drive off the chevron's own visibility
+    // rather than an exact scrollLeft, since smooth scrolling can leave a
+    // sub-pixel remainder.
+    for (let i = 0; i < 6 && (await leftChevron.isVisible()); i++) {
+      await leftChevron.click()
+      await page.waitForTimeout(200)
+    }
+    await expect(leftChevron).toBeHidden()
+    await expect.poll(scrollLeftOf).toBeLessThanOrEqual(1)
   })
 })
 
@@ -846,7 +954,10 @@ test.describe('survey', () => {
     await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
     await expect(page.locator('[for=survey-comment]')).toBeVisible()
 
-    await page.getByTestId('product-sidebar').getByLabel('Bar', { exact: true }).click()
+    await page
+      .getByTestId('product-sidebar')
+      .getByRole('link', { name: 'Bar', exact: true })
+      .click()
     await expect(page.getByRole('button', { name: 'Send' })).not.toBeVisible()
     await expect(page.locator('[for=survey-comment]')).not.toBeVisible()
   })
@@ -859,8 +970,13 @@ test.describe('rest API reference pages', () => {
     // URL that has that `?apiVersion=` query parameter.
     await expect(page).toHaveURL(/\/en\/rest\?apiVersion=/)
     await page.getByTestId('sidebar').getByText('Actions').click()
-    await page.getByTestId('sidebar').getByLabel('Artifacts').click()
-    await page.getByLabel('About artifacts in HubGit Actions').click()
+    // Brand NavList renders leaf articles as <a> links (not the label-associated
+    // controls Primer used), so locate them by link role rather than getByLabel.
+    await page.getByTestId('sidebar').getByRole('link', { name: 'Artifacts' }).click()
+    await page
+      .getByTestId('sidebar')
+      .getByRole('link', { name: 'About artifacts in HubGit Actions' })
+      .click()
     await expect(page).toHaveURL(/\/en\/rest\/actions\/artifacts\?apiVersion=/)
     await expect(page).toHaveTitle(/GitHub Actions Artifacts - GitHub Docs/)
   })

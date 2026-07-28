@@ -25,9 +25,9 @@ category:
 
 In most ecosystems, private dependencies are usually published to private package registries. These private registries are similar to their public equivalents, but they require authentication.
 
-For specific ecosystems, you can configure {% data variables.product.prodname_dependabot %} to access _only_ private registries by removing calls to public registries. For more information, see [AUTOTITLE](/code-security/dependabot/maintain-dependencies/removing-dependabot-access-to-public-registries).
+For specific ecosystems, you can configure {% data variables.product.prodname_dependabot %} to access _only_ private registries by removing calls to public registries. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/remove-access-to-public-registries).
 
-{% ifversion dependabot-on-actions-self-hosted %}To allow {% data variables.product.prodname_dependabot %} access to registries hosted privately or restricted to internal networks, configure {% data variables.product.prodname_dependabot %} to run on {% data variables.product.prodname_actions %} self-hosted runners. For more information, see [AUTOTITLE](/code-security/dependabot/maintain-dependencies/managing-dependabot-on-self-hosted-runners).{% endif %}
+{% ifversion dependabot-on-actions-self-hosted %}To allow {% data variables.product.prodname_dependabot %} access to registries hosted privately or restricted to internal networks, configure {% data variables.product.prodname_dependabot %} to run on {% data variables.product.prodname_actions %} self-hosted runners. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-on-self-hosted-runners).{% endif %}
 
 {% ifversion org-automatic-registry-access %}
 
@@ -70,7 +70,7 @@ You can configure {% data variables.product.prodname_dependabot %}'s access to p
 {% ifversion org-private-registry-oidc %}
 Organization-level registries support **Token**, **Username and password**, and **OIDC** authentication.
 {% endif %}
-For more information about configuration, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries).
+For more information about configuration, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries).
 
 {% endif %}
 
@@ -92,7 +92,7 @@ To give {% data variables.product.prodname_dependabot %} access to the private r
 {% data variables.product.prodname_dependabot %} secrets are encrypted credentials that you create at either the organization level or the repository level.
 When you add a secret at the organization level, you can specify which repositories can access the secret. You can use secrets to allow {% data variables.product.prodname_dependabot %} to update dependencies located in private package registries. When you add a secret, it's encrypted before it reaches {% data variables.product.prodname_dotcom %} and it remains encrypted until it's used by {% data variables.product.prodname_dependabot %} to access a private package registry.
 
-{% data variables.product.prodname_dependabot %} secrets also include secrets that are used by {% data variables.product.prodname_actions %} workflows triggered by {% data variables.product.prodname_dependabot %} pull requests. {% data variables.product.prodname_dependabot %} itself may not use these secrets, but the workflows require them. For more information, see [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/troubleshooting-dependabot-on-github-actions#accessing-secrets).
+{% data variables.product.prodname_dependabot %} secrets also include secrets that are used by {% data variables.product.prodname_actions %} workflows triggered by {% data variables.product.prodname_dependabot %} pull requests. {% data variables.product.prodname_dependabot %} itself may not use these secrets, but the workflows require them. For more information, see [AUTOTITLE](/code-security/reference/supply-chain-security/troubleshoot-dependabot/dependabot-on-actions#accessing-secrets).
 
 After you add a {% data variables.product.prodname_dependabot %} secret, you can reference it in the `dependabot.yml` configuration file like this: {% raw %}`${{secrets.NAME}}`{% endraw %}, where "NAME" is the name you chose for the secret. For example:
 
@@ -154,7 +154,7 @@ When creating a secret in an organization, you can use a policy to limit which r
 
 You can add {% data variables.product.prodname_dependabot %}-related IP addresses to your registries IP allow list.
 
-If your private registry is configured with an IP allow list, you can find the IP addresses {% data variables.product.prodname_dependabot %} uses to access the registry in the meta API endpoint, under the `actions` key. For more information, see [AUTOTITLE](/rest/meta/meta) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners).
+If your private registry is configured with an IP allow list, you can find the IP addresses {% data variables.product.prodname_dependabot %} uses to access the registry in the meta API endpoint, under the `actions` key. For more information, see [AUTOTITLE](/rest/meta/meta) and [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-on-actions).
 
 {% endif %}
 
@@ -169,7 +169,7 @@ With OIDC-based authentication, {% data variables.product.prodname_dependabot %}
 {% ifversion org-private-registry-oidc %}
 
 > [!TIP]
-> OIDC authentication is also available for **organization-level** private registries, which you can configure through the organization settings UI or the REST API. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries#configuring-oidc-authentication-for-a-private-registry).
+> OIDC authentication is also available for **organization-level** private registries, which you can configure through the organization settings UI or the REST API. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries#configuring-oidc-authentication-for-a-private-registry).
 
 {% endif %}
 

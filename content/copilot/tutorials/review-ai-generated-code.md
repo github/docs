@@ -22,6 +22,7 @@ Always run automated tests and static analysis tools first.
 
 * Make sure the code compiles and all tests pass. Check for any new warnings or errors.
 * Use tools like [{% data variables.product.prodname_codeql %}](https://codeql.github.com/) and [{% data variables.product.prodname_dependabot %}](/code-security/concepts/supply-chain-security/dependabot-version-updates) to catch vulnerabilities and dependency issues.
+* Use {% data variables.product.prodname_code_quality %} to catch reliability and maintainability issues and see code coverage. [AUTOTITLE](/code-security/concepts/about-code-quality).
 * See [AUTOTITLE](/copilot/tutorials/copilot-cookbook/testing-code/generate-unit-tests) and [AUTOTITLE](/copilot/tutorials/copilot-cookbook/testing-code/create-end-to-end-tests) for examples of verifying code with {% data variables.product.prodname_copilot_short %}.
 
 ### Example prompts
@@ -48,7 +49,7 @@ Check that the AI-generated code fits the purpose and architecture of your proje
 
 ## 3. Assess code quality
 
-Human standards still matter.
+In addition to automated tools like {% data variables.product.prodname_code_quality %}, human standards still matter.
 
 * Look for readability, maintainability, and clear naming.
 * Avoid accepting code that is hard to follow or would take longer to refactor than to rewrite.
@@ -104,7 +105,7 @@ Pairing and team input helps catch subtle issues.
 
 Let tools handle the repetitive work.
 
-* Set up CI checks for style, linting, and security.
+* Set up CI checks for style, linting, security, code quality and code coverage.
 * Use {% data variables.product.prodname_dependabot %} for dependency updates and alerts.
 * Apply {% data variables.product.prodname_codeql %} or similar scanners for static analysis.
 * [AUTOTITLE](/copilot/how-tos/get-code-suggestions/find-matching-code) shows how {% data variables.product.prodname_copilot_short %} can help track down code patterns and automate search tasks.

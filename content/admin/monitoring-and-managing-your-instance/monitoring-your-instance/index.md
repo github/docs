@@ -14,6 +14,7 @@ versions:
 children:
   - /about-monitoring-your-instance
   - /about-the-monitor-dashboards
+  - /analyze-git-traffic
   - /recommended-alert-thresholds
   - /opentelemetry-metrics
   - /collectd-metrics

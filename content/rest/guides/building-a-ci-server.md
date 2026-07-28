@@ -29,7 +29,7 @@ Travis, Jenkins, or something else entirely. The crux of this guide will be sett
 and configuring the server managing the communication.
 
 If you haven't already, [download `ngrok`](https://ngrok.com/), and learn how
-to [use it](/webhooks/using-webhooks/handling-webhook-deliveries#using-ngrok). We find it to be a very useful tool for exposing local
+to [use it](https://ngrok.com/docs/getting-started/). We find it to be a very useful tool for exposing local
 applications to the internet.
 
 {% ifversion cli-webhook-forwarding %}

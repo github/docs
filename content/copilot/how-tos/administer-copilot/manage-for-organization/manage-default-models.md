@@ -30,7 +30,7 @@ If the enterprise owner has set a model to **Optional**, you can enable or disab
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the sidebar, under "Code, planning, and automation", click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**.
 1. Click **Models**.
 1. Next to a model in the list, click the dropdown menu and select an option:
    * **Enabled**: The model is available to members of your organization.

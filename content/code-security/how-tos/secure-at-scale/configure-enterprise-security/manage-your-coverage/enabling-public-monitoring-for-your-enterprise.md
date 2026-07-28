@@ -17,7 +17,7 @@ category:
 Before enabling public monitoring, ensure your enterprise has:
 
 * {% data variables.product.prodname_GH_advanced_security %} or {% data variables.product.prodname_GH_secret_protection %} enabled
-* While not necessary, we recommend having at one verified domain configured (see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)) in order to get the full value for the feature.
+* While not necessary, we recommend having at one verified domain configured (see [AUTOTITLE](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)) in order to get the full value for the feature.
 
 ## Enabling public monitoring
 

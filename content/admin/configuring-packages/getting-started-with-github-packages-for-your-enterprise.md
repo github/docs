@@ -25,18 +25,18 @@ category:
 
 If you plan to enable {% data variables.product.prodname_container_registry %} for the users of your instance, at least 10% more CPU resources are required.
 
-We recommend reviewing the levels of activity for users and automations on the instance to ensure that you have provisioned adequate CPU for your users. For more information, see [AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance).
+We recommend reviewing the levels of activity for users and automations on the instance to ensure that you have provisioned adequate CPU for your users. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance).
 
 For more information about minimum hardware requirements for {% data variables.location.product_location %}, see the hardware considerations for your instance's platform.
 
-* [AWS](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-aws#hardware-considerations)
-* [Azure](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-azure#hardware-considerations)
-* [Google Cloud Platform](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-google-cloud-platform#hardware-considerations)
-* [Hyper-V](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-hyper-v#hardware-considerations)
-* [OpenStack KVM](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-openstack-kvm#hardware-considerations)
-* [VMware](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-vmware#hardware-considerations)
+* [AWS](/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-aws#hardware-considerations)
+* [Azure](/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-azure#hardware-considerations)
+* [Google Cloud Platform](/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-google-cloud-platform#hardware-considerations)
+* [Hyper-V](/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-hyper-v#hardware-considerations)
+* [OpenStack KVM](/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-openstack-kvm#hardware-considerations)
+* [VMware](/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-vmware#hardware-considerations)
 
-For more information about adjusting resources for an existing instance, see [AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources).
+For more information about adjusting resources for an existing instance, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources).
 
 ## Step 3: Enable {% data variables.product.prodname_registry %} and configure external storage
 
@@ -50,22 +50,22 @@ Supported external storage providers
 * MinIO
 
 To enable {% data variables.product.prodname_registry %} and configure third-party storage, see:
-* [AUTOTITLE](/admin/packages/enabling-github-packages-with-aws)
-* [AUTOTITLE](/admin/packages/enabling-github-packages-with-azure-blob-storage)
-* [AUTOTITLE](/admin/packages/enabling-github-packages-with-minio)
+* [AUTOTITLE](/admin/configuring-packages/enabling-github-packages-with-aws)
+* [AUTOTITLE](/admin/configuring-packages/enabling-github-packages-with-azure-blob-storage)
+* [AUTOTITLE](/admin/configuring-packages/enabling-github-packages-with-minio)
 
 ## Step 4: Specify the package ecosystems to support on your instance
 
-Choose which package ecosystems you'd like to enable, disable, or set to read-only on {% data variables.location.product_location %}. {% data reusables.package_registry.packages-ghes-supported-registries %} For more information, see [AUTOTITLE](/admin/packages/configuring-package-ecosystem-support-for-your-enterprise).
+Choose which package ecosystems you'd like to enable, disable, or set to read-only on {% data variables.location.product_location %}. {% data reusables.package_registry.packages-ghes-supported-registries %} For more information, see [AUTOTITLE](/admin/configuring-packages/configuring-package-ecosystem-support-for-your-enterprise).
 
 ## Step 5: Ensure you have a TLS certificate for your package host URL, if needed
 
 If subdomain isolation is enabled for {% data variables.location.product_location %}, you will need to create and upload a TLS certificate that allows the package host URL for each ecosystem you want to use, such as `{% data reusables.package_registry.container-registry-hostname %}`. Make sure each package host URL includes `https://`.
 
-  You can create the certificate manually, or you can use _Let's Encrypt_. If you already use _Let's Encrypt_, you must request a new TLS certificate after enabling {% data variables.product.prodname_registry %}. For more information about package host URLs, see [AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation). For more information about uploading TLS certificates to {% data variables.product.prodname_ghe_server %}, see [AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-tls).
+  You can create the certificate manually, or you can use _Let's Encrypt_. If you already use _Let's Encrypt_, you must request a new TLS certificate after enabling {% data variables.product.prodname_registry %}. For more information about package host URLs, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/enabling-subdomain-isolation). For more information about uploading TLS certificates to {% data variables.product.prodname_ghe_server %}, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/configuring-tls).
 
 ## Step 6: Check for and rename reserved names
 
 If you want to use the Docker ecosystem with subdomain isolation disabled, you **must** first rename any user or organization named `v2` on {% data variables.location.product_location %}, prior to enabling Docker ecosystem support in the {% data variables.enterprise.management_console %}. Docker uses a `v2` account name to manage path conflicts with the Docker API, and once Docker registry support is enabled, you won't be able to use this name anymore.
 
-You can view a full list of logins reserved for internal use by navigating to the "Reserved logins" page in the Site admin dashboard. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#reserved-logins).
+You can view a full list of logins reserved for internal use by navigating to the "Reserved logins" page in the Site admin dashboard. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/about-reserved-usernames-for-github-enterprise-server#viewing-reserved-username).

@@ -3,7 +3,7 @@ title: Customizing the GitHub Copilot app
 shortTitle: Customize the GitHub Copilot app
 intro: 'Customize the {% data variables.copilot.github_copilot_app %} so it works the way you and your team do.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_source=docs-customize-app-signup&utm_medium=docs&utm_campaign=github-copilot-app-ga-2026" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/ai/github-app" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download {% data variables.copilot.github_copilot_app %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 contentType: how-tos
@@ -18,7 +18,7 @@ Tailor the {% data variables.copilot.github_copilot_app %} to your workflows so 
 
 ## Setting global and repository instructions
 
-You can set global instructions in the app settings under **General**. 
+You can set global instructions in the app settings under **General**.
 
 You can set repository-specific instructions in the app settings, under the repository name in the "Projects" section.
 
@@ -53,3 +53,9 @@ For more information, see [AUTOTITLE](/copilot/concepts/agents/about-plugins).
 ## Working with canvas extensions
 
 Use canvas extensions to build shared, agent-driven artifacts and interfaces for team or personal workflows. In a session, use `/create-canvas` to scaffold a canvas extension, then iterate on the canvas with the agent. For more information, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/working-with-canvas-extensions).
+
+## Organization and enterprise management
+
+Enterprise and organization owners can set policies to govern how {% data variables.product.prodname_copilot_short %} is used across surfaces. For the major policies supported by the {% data variables.copilot.github_copilot_app %}, see [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies).
+
+Enterprises can also define a `{% data variables.copilot.managed_setting_file %}` file to control which actions users can take in supported {% data variables.product.prodname_copilot_short %} clients, such as which plugins users can install and whether "YOLO-style" commands are permitted. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings).

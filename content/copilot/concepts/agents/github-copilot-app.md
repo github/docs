@@ -2,7 +2,7 @@
 title: About the GitHub Copilot app
 shortTitle: GitHub Copilot app
 intro: 'The {% data variables.copilot.github_copilot_app %} is a desktop application for agent-driven development that brings parallel workstreams, {% data variables.product.github %} integration, and PR lifecycle management into one place.'
-product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_source=docs-about-app-signup&utm_medium=docs&utm_campaign=github-copilot-app-ga-2026" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/ai/github-app" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download {% data variables.copilot.github_copilot_app %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 contentType: concepts
@@ -12,8 +12,6 @@ category:
   - Learn about Copilot
 ---
 
-Install the app from the [download page for {% data variables.copilot.github_copilot_app %}](https://gh.io/app?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-about-app-download&utm_medium=docs&utm_campaign=github-copilot-app-ga-2026).
-
 ## Introduction
 
 The {% data variables.copilot.github_copilot_app %} is a desktop application purpose-built for agent-driven development. It gives you a single place to direct AI agents across parallel workstreams, work with {% data variables.product.github %} issues and pull requests, and manage the full development lifecycle—without context-switching between terminals, IDEs, and browser tabs.
@@ -22,7 +20,7 @@ The app is built on {% data variables.copilot.copilot_cli %} and integrates nati
 
 ## Availability
 
-{% data reusables.gated-features.github-app %} {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} users must have the {% data variables.copilot.copilot_cli_short %} policy enabled by an administrator.
+{% data reusables.gated-features.github-app %} For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} users, the {% data variables.copilot.github_copilot_app %} policy must remain enabled. This policy is enabled by default and is separate from the {% data variables.copilot.copilot_cli_short %} policy.
 
 ## Supported operating systems
 

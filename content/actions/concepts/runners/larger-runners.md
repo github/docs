@@ -18,7 +18,7 @@ contentType: concepts
 {% ifversion ghes %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-To learn about larger runners, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/concepts/runners/about-larger-runners).
+To learn about larger runners, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/concepts/runners/larger-runners).
 {% else %}
 
 ## About {% data variables.actions.hosted_runners %}
@@ -50,7 +50,7 @@ Consider configuring {% data variables.actions.hosted_runners %} for {% data var
 * Your scans with standard {% data variables.product.prodname_dotcom %}-hosted runners are returning memory or disk errors.
 * You want to customize aspects of your {% data variables.product.prodname_code_scanning %} runner, such as the runner size, runner image, and job concurrency, without using self-hosted runners.
 
-For more information on configuring {% data variables.actions.hosted_runners %} for {% data variables.product.prodname_code_scanning %} default setup, see [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/configuring-larger-runners-for-default-setup).
+For more information on configuring {% data variables.actions.hosted_runners %} for {% data variables.product.prodname_code_scanning %} default setup, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/configure-larger-runners).
 
 {% endif %}
 
@@ -59,13 +59,13 @@ For more information on configuring {% data variables.actions.hosted_runners %} 
 > [!NOTE]
 > {% data variables.actions.hosted_runner_caps %}s are not eligible for the use of included minutes on private repositories. For both private and public repositories, when {% data variables.actions.hosted_runners %} are in use, they will always be billed at the per-minute rate.
 
-Compared to standard {% data variables.product.github %}-hosted runners, {% data variables.actions.hosted_runners %} are billed differently. {% data reusables.actions.about-larger-runners-billing %} For more information, see [AUTOTITLE](/billing/reference/actions-minute-multipliers).
+Compared to standard {% data variables.product.github %}-hosted runners, {% data variables.actions.hosted_runners %} are billed differently. {% data reusables.actions.about-larger-runners-billing %} For more information, see [AUTOTITLE](/billing/reference/actions-runner-pricing).
 
 ## Next steps
 
-To start using larger runners, see [AUTOTITLE](/actions/how-tos/using-github-hosted-runners/using-larger-runners/managing-larger-runners).
+To start using larger runners, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners/manage-larger-runners).
 
-To find reference information about using {% data variables.actions.hosted_runners %}, see [AUTOTITLE](/actions/reference/larger-runners-reference).
+To find reference information about using {% data variables.actions.hosted_runners %}, see [AUTOTITLE](/actions/reference/runners/larger-runners).
 
 {% endif %}
 

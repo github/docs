@@ -28,7 +28,7 @@ Once the backup service is configured, it will automatically create backups base
 
 To create an on-demand backup—for example, before performing maintenance:
 
-1. Connect to your instance via SSH as the `admin` user. See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
+1. Connect to your instance via SSH as the `admin` user. See [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh).
 1. Run the backup command:
 
    ```shell

@@ -19,11 +19,11 @@ category:
 
 You can use the {% data variables.secret-scanning.pricing-calculator %} on the secret risk assessment page to estimate the monthly cost of {% data variables.product.prodname_GH_secret_protection %} for your organization. This tool allows you to preview costs based on your current repositories and active committers, so you can plan for purchase or rollout decisions.
 
-For more information about {% data variables.product.prodname_secret_protection %}, see [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/choosing-github-secret-protection).
+For more information about {% data variables.product.prodname_secret_protection %}, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/protect-your-secrets).
 
 ## Prerequisites
 
-You need to have generated a secret risk assessment for your organization. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/viewing-the-secret-risk-assessment-report-for-your-organization).
+You need to have generated a secret risk assessment for your organization. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/viewing-your-security-risk-assessment-reports).
 
 ## Estimating the price of {% data variables.product.prodname_secret_protection %}
 
