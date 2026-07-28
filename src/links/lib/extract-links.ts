@@ -351,6 +351,20 @@ async function getCachedRenderLiquid(): Promise<RenderLiquidModule> {
 }
 
 /**
+ * Render Liquid templates in content and return the rendered markdown.
+ *
+ * Unlike `extractLinksWithLiquid` and `renderAndExtractLinks`, a render failure is NOT
+ * swallowed: it propagates to the caller. Use this when falling back to the raw, unrendered
+ * markdown would be worse than no result at all — for example when the rendered headings
+ * drive a destructive edit, where unrendered `{% data %}` in a heading would silently
+ * produce the wrong anchor IDs.
+ */
+export async function renderMarkdownLiquid(content: string, context: Context): Promise<string> {
+  const renderLiquid = await getCachedRenderLiquid()
+  return renderLiquid(content, context)
+}
+
+/**
  * Render Liquid templates in content and extract links
  *
  * This renders the Liquid tags (like {% ifversion %}) to get the actual
