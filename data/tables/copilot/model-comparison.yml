@@ -73,6 +73,11 @@
   excels_at: Complex problem-solving challenges, sophisticated reasoning
   further_reading: '[Claude Opus 4.8 model card](https://www-cdn.anthropic.com/0b4915911bb0d19eca5b5ee635c80fef830a37ea.pdf)'
 
+- name: Claude Opus 5
+  task_area: Deep reasoning and debugging
+  excels_at: Complex problem-solving challenges, sophisticated reasoning
+  further_reading: '[Claude Opus 5 model card](https://www-cdn.anthropic.com/c5fbac3f0b1280a933ebd26d3cb8bb9f5bdeaf48/Claude%20Opus%205%20System%20Card.pdf)'
+
 - name: Claude Sonnet 4.5
   task_area: General-purpose coding and agent tasks
   excels_at: Complex problem-solving challenges, sophisticated reasoning
@@ -112,7 +117,7 @@
 - name: Gemini 3.6 Flash
   task_area: Fast help with simple or repetitive tasks
   excels_at: Fast, reliable answers to lightweight coding questions
-  further_reading: 'Not available'
+  further_reading: '[Gemini 3.6 Flash model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-6-Flash-Model-Card.pdf)'
 
 # Microsoft
 - name: MAI-Code-1-Flash

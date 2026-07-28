@@ -100,7 +100,7 @@
       "name": "clearProjectV2ItemFieldValue",
       "id": "clearprojectv2itemfieldvalue",
       "href": "/graphql/reference/projects#mutation-clearprojectv2itemfieldvalue",
-      "description": "<p>This mutation clears the value of a field for an item in a Project. Currently\nonly text, number, date, assignees, labels, single-select, iteration and\nmilestone fields are supported.</p>",
+      "description": "<p>This mutation clears the value of a field for an item in a Project. Currently\nonly text, number, date, assignees, labels, single-select, multi-select,\niteration and milestone fields are supported.</p>",
       "isDeprecated": false,
       "inputFields": [
         {
@@ -321,6 +321,38 @@
       "category": "projects"
     },
     {
+      "name": "createProjectV2View",
+      "id": "createprojectv2view",
+      "href": "/graphql/reference/projects#mutation-createprojectv2view",
+      "description": "<p>Creates a new view in a project.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateProjectV2ViewInput!",
+          "id": "createprojectv2viewinput",
+          "href": "/graphql/reference/projects#input-object-createprojectv2viewinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "projectV2View",
+          "type": "ProjectV2View",
+          "id": "projectv2view",
+          "href": "/graphql/reference/projects#object-projectv2view",
+          "description": "<p>The new view.</p>"
+        }
+      ],
+      "category": "projects"
+    },
+    {
       "name": "deleteProjectV2",
       "id": "deleteprojectv2",
       "href": "/graphql/reference/projects#mutation-deleteprojectv2",
@@ -451,6 +483,38 @@
           "id": "projectv2",
           "href": "/graphql/reference/projects#object-projectv2",
           "description": "<p>The project the deleted status update was in.</p>"
+        }
+      ],
+      "category": "projects"
+    },
+    {
+      "name": "deleteProjectV2View",
+      "id": "deleteprojectv2view",
+      "href": "/graphql/reference/projects#mutation-deleteprojectv2view",
+      "description": "<p>Deletes a view from a project.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteProjectV2ViewInput!",
+          "id": "deleteprojectv2viewinput",
+          "href": "/graphql/reference/projects#input-object-deleteprojectv2viewinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "projectV2View",
+          "type": "ProjectV2View",
+          "id": "projectv2view",
+          "href": "/graphql/reference/projects#object-projectv2view",
+          "description": "<p>The deleted view.</p>"
         }
       ],
       "category": "projects"
@@ -850,7 +914,7 @@
       "name": "updateProjectV2ItemFieldValue",
       "id": "updateprojectv2itemfieldvalue",
       "href": "/graphql/reference/projects#mutation-updateprojectv2itemfieldvalue",
-      "description": "<p>This mutation updates the value of a field for an item in a Project. Currently\nonly single-select, text, number, date, and iteration fields are supported.</p>",
+      "description": "<p>This mutation updates the value of a field for an item in a Project. Currently\nonly single-select, multi-select, text, number, date, and iteration fields are supported.</p>",
       "isDeprecated": false,
       "inputFields": [
         {
@@ -938,6 +1002,38 @@
           "id": "projectv2statusupdate",
           "href": "/graphql/reference/projects#object-projectv2statusupdate",
           "description": "<p>The status update updated in the project.</p>"
+        }
+      ],
+      "category": "projects"
+    },
+    {
+      "name": "updateProjectV2View",
+      "id": "updateprojectv2view",
+      "href": "/graphql/reference/projects#mutation-updateprojectv2view",
+      "description": "<p>Updates an existing view in a project.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateProjectV2ViewInput!",
+          "id": "updateprojectv2viewinput",
+          "href": "/graphql/reference/projects#input-object-updateprojectv2viewinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "projectV2View",
+          "type": "ProjectV2View",
+          "id": "projectv2view",
+          "href": "/graphql/reference/projects#object-projectv2view",
+          "description": "<p>The updated view.</p>"
         }
       ],
       "category": "projects"
@@ -2632,6 +2728,91 @@
       "category": "projects"
     },
     {
+      "name": "ProjectV2ItemFieldMultiSelectValue",
+      "id": "projectv2itemfieldmultiselectvalue",
+      "href": "/graphql/reference/projects#object-projectv2itemfieldmultiselectvalue",
+      "description": "<p>The value of a multi select field in a Project item.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "ProjectV2ItemFieldValueCommon",
+          "id": "projectv2itemfieldvaluecommon",
+          "href": "/graphql/reference/projects#interface-projectv2itemfieldvaluecommon"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "creator",
+          "description": "<p>The actor who created the item.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "field",
+          "description": "<p>The project field that contains this value.</p>",
+          "type": "ProjectV2FieldConfiguration!",
+          "id": "projectv2fieldconfiguration",
+          "href": "/graphql/reference/projects#union-projectv2fieldconfiguration"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the ProjectV2ItemFieldMultiSelectValue object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "item",
+          "description": "<p>The project item that contains this value.</p>",
+          "type": "ProjectV2Item!",
+          "id": "projectv2item",
+          "href": "/graphql/reference/projects#object-projectv2item"
+        },
+        {
+          "name": "options",
+          "description": "<p>The selected multi select options.</p>",
+          "type": "[ProjectV2MultiSelectFieldOption!]",
+          "id": "projectv2multiselectfieldoption",
+          "href": "/graphql/reference/projects#object-projectv2multiselectfieldoption"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "value",
+          "description": "<p>Comma-separated names of the selected multi select options.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "projects"
+    },
+    {
       "name": "ProjectV2ItemFieldNumberValue",
       "id": "projectv2itemfieldnumbervalue",
       "href": "/graphql/reference/projects#object-projectv2itemfieldnumbervalue",
@@ -3428,6 +3609,147 @@
         {
           "name": "titleHTML",
           "description": "<p>The iteration's html title.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "projects"
+    },
+    {
+      "name": "ProjectV2MultiSelectField",
+      "id": "projectv2multiselectfield",
+      "href": "/graphql/reference/projects#object-projectv2multiselectfield",
+      "description": "<p>A multi select field inside a project.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "ProjectV2FieldCommon",
+          "id": "projectv2fieldcommon",
+          "href": "/graphql/reference/projects#interface-projectv2fieldcommon"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "dataType",
+          "description": "<p>The field's type.</p>",
+          "type": "ProjectV2FieldType!",
+          "id": "projectv2fieldtype",
+          "href": "/graphql/reference/projects#enum-projectv2fieldtype"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the ProjectV2MultiSelectField object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "multiSelectOptions",
+          "description": "<p>Options for the multi select field.</p>",
+          "type": "[ProjectV2MultiSelectFieldOption!]!",
+          "id": "projectv2multiselectfieldoption",
+          "href": "/graphql/reference/projects#object-projectv2multiselectfieldoption",
+          "arguments": [
+            {
+              "name": "names",
+              "description": "<p>Filter returned options to only those matching these names, case insensitive.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "name",
+          "description": "<p>The project field's name.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "project",
+          "description": "<p>The project that contains this field.</p>",
+          "type": "ProjectV2!",
+          "id": "projectv2",
+          "href": "/graphql/reference/projects#object-projectv2"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        }
+      ],
+      "category": "projects"
+    },
+    {
+      "name": "ProjectV2MultiSelectFieldOption",
+      "id": "projectv2multiselectfieldoption",
+      "href": "/graphql/reference/projects#object-projectv2multiselectfieldoption",
+      "description": "<p>Multi select field option for a configuration for a project.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "color",
+          "description": "<p>The option's display color.</p>",
+          "type": "ProjectV2SingleSelectFieldOptionColor!",
+          "id": "projectv2singleselectfieldoptioncolor",
+          "href": "/graphql/reference/projects#enum-projectv2singleselectfieldoptioncolor"
+        },
+        {
+          "name": "description",
+          "description": "<p>The option's plain-text description.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "descriptionHTML",
+          "description": "<p>The option's description, possibly containing HTML.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The option's ID.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "name",
+          "description": "<p>The option's name.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "nameHTML",
+          "description": "<p>The option's html name.</p>",
           "type": "String!",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
@@ -5002,6 +5324,10 @@
           "description": "<p>Iteration.</p>"
         },
         {
+          "name": "MULTI_SELECT",
+          "description": "<p>Multi Select.</p>"
+        },
+        {
           "name": "NUMBER",
           "description": "<p>Number.</p>"
         },
@@ -5080,6 +5406,10 @@
         {
           "name": "MILESTONE",
           "description": "<p>Milestone.</p>"
+        },
+        {
+          "name": "MULTI_SELECT",
+          "description": "<p>Multi Select.</p>"
         },
         {
           "name": "NUMBER",
@@ -5508,6 +5838,11 @@
           "href": "/graphql/reference/projects#object-projectv2iterationfield"
         },
         {
+          "name": "ProjectV2MultiSelectField",
+          "id": "projectv2multiselectfield",
+          "href": "/graphql/reference/projects#object-projectv2multiselectfield"
+        },
+        {
           "name": "ProjectV2SingleSelectField",
           "id": "projectv2singleselectfield",
           "href": "/graphql/reference/projects#object-projectv2singleselectfield"
@@ -5601,6 +5936,11 @@
           "name": "ProjectV2ItemFieldMilestoneValue",
           "id": "projectv2itemfieldmilestonevalue",
           "href": "/graphql/reference/projects#object-projectv2itemfieldmilestonevalue"
+        },
+        {
+          "name": "ProjectV2ItemFieldMultiSelectValue",
+          "id": "projectv2itemfieldmultiselectvalue",
+          "href": "/graphql/reference/projects#object-projectv2itemfieldmultiselectvalue"
         },
         {
           "name": "ProjectV2ItemFieldNumberValue",
@@ -5903,6 +6243,13 @@
           "href": "/graphql/reference/projects#input-object-projectv2iterationfieldconfigurationinput"
         },
         {
+          "name": "multiSelectOptions",
+          "description": "<p>Options for a multi select field. At least one value is required if data_type is MULTI_SELECT.</p>",
+          "type": "[ProjectV2MultiSelectFieldOptionInput!]",
+          "id": "projectv2multiselectfieldoptioninput",
+          "href": "/graphql/reference/projects#input-object-projectv2multiselectfieldoptioninput"
+        },
+        {
           "name": "name",
           "description": "<p>The name of the field.</p>",
           "type": "String!",
@@ -6059,6 +6406,44 @@
       "category": "projects"
     },
     {
+      "name": "CreateProjectV2ViewInput",
+      "id": "createprojectv2viewinput",
+      "href": "/graphql/reference/projects#input-object-createprojectv2viewinput",
+      "description": "<p>Autogenerated input type of CreateProjectV2View.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "layout",
+          "description": "<p>The layout of the view.</p>",
+          "type": "ProjectV2ViewLayout!",
+          "id": "projectv2viewlayout",
+          "href": "/graphql/reference/projects#enum-projectv2viewlayout"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the view.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The ID of the project to create a view in.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "projects"
+    },
+    {
       "name": "DeleteProjectV2FieldInput",
       "id": "deleteprojectv2fieldinput",
       "href": "/graphql/reference/projects#input-object-deleteprojectv2fieldinput",
@@ -6154,6 +6539,30 @@
         {
           "name": "statusUpdateId",
           "description": "<p>The ID of the status update to be removed.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "projects"
+    },
+    {
+      "name": "DeleteProjectV2ViewInput",
+      "id": "deleteprojectv2viewinput",
+      "href": "/graphql/reference/projects#input-object-deleteprojectv2viewinput",
+      "description": "<p>Autogenerated input type of DeleteProjectV2View.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "viewId",
+          "description": "<p>The ID of the view to delete.</p>",
           "type": "ID!",
           "id": "id",
           "href": "/graphql/reference/other#scalar-id",
@@ -6353,6 +6762,13 @@
           "href": "/graphql/reference/other#scalar-string"
         },
         {
+          "name": "multiSelectOptionIds",
+          "description": "<p>The ids of the multi select options to set on the field.</p>",
+          "type": "[String!]",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
           "name": "number",
           "description": "<p>The number to set on the field.</p>",
           "type": "Float",
@@ -6499,6 +6915,44 @@
           "type": "Date!",
           "id": "date",
           "href": "/graphql/reference/other#scalar-date"
+        }
+      ],
+      "category": "projects"
+    },
+    {
+      "name": "ProjectV2MultiSelectFieldOptionInput",
+      "id": "projectv2multiselectfieldoptioninput",
+      "href": "/graphql/reference/projects#input-object-projectv2multiselectfieldoptioninput",
+      "description": "<p>Represents a multi select field option.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "color",
+          "description": "<p>The display color of the option.</p>",
+          "type": "ProjectV2SingleSelectFieldOptionColor!",
+          "id": "projectv2singleselectfieldoptioncolor",
+          "href": "/graphql/reference/projects#enum-projectv2singleselectfieldoptioncolor"
+        },
+        {
+          "name": "description",
+          "description": "<p>The description text of the option.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The ID of an existing multi select option. Include this to preserve the\noption's identity during updates, preventing item field values from being cleared.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the option.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
         }
       ],
       "category": "projects"
@@ -6863,6 +7317,13 @@
           "href": "/graphql/reference/projects#input-object-projectv2iterationfieldconfigurationinput"
         },
         {
+          "name": "multiSelectOptions",
+          "description": "<p>Options for a field of type MULTI_SELECT. Empty input is ignored, provided\nvalues overwrite existing options, and existing options should be fetched for\npartial updates.</p>",
+          "type": "[ProjectV2MultiSelectFieldOptionInput!]",
+          "id": "projectv2multiselectfieldoptioninput",
+          "href": "/graphql/reference/projects#input-object-projectv2multiselectfieldoptioninput"
+        },
+        {
           "name": "name",
           "description": "<p>The name to update.</p>",
           "type": "String",
@@ -7073,6 +7534,51 @@
           "type": "Date",
           "id": "date",
           "href": "/graphql/reference/other#scalar-date"
+        }
+      ],
+      "category": "projects"
+    },
+    {
+      "name": "UpdateProjectV2ViewInput",
+      "id": "updateprojectv2viewinput",
+      "href": "/graphql/reference/projects#input-object-updateprojectv2viewinput",
+      "description": "<p>Autogenerated input type of UpdateProjectV2View.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "filter",
+          "description": "<p>The new filter for the view.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "layout",
+          "description": "<p>The new layout for the view.</p>",
+          "type": "ProjectV2ViewLayout",
+          "id": "projectv2viewlayout",
+          "href": "/graphql/reference/projects#enum-projectv2viewlayout"
+        },
+        {
+          "name": "name",
+          "description": "<p>The new name for the view.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "viewId",
+          "description": "<p>The ID of the view to update.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
         }
       ],
       "category": "projects"

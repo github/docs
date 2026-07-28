@@ -24,14 +24,13 @@ import os from 'os'
 import { program } from 'commander'
 import chalk from 'chalk'
 
-import GithubSlugger from 'github-slugger'
-
 import warmServer from '@/frame/lib/warm-server'
 import { allVersions, allVersionKeys } from '@/versions/lib/all-versions'
 import languages from '@/languages/lib/languages-server'
 import {
   normalizeLinkPath,
   checkInternalLink,
+  resolveInternalLinkKey,
   checkAssetLink,
   isAssetLink,
   extractLinksWithLiquid,
@@ -48,6 +47,11 @@ import { uploadArtifact } from '@/links/scripts/upload-artifact'
 import { createReportIssue, linkReports } from '@/workflows/issue-report'
 import github from '@/workflows/github'
 import excludedLinks from '@/links/lib/excluded-links'
+import {
+  validateCrossPageAnchors,
+  type PendingCrossPageAnchor,
+} from '@/links/lib/cross-page-anchors'
+import { computeHeadingIds } from '@/links/lib/heading-anchors'
 import { getFeaturesByVersion } from '@/versions/middleware/features'
 import type { Page, Permalink, Context } from '@/types'
 import * as coreLib from '@actions/core'
@@ -120,7 +124,7 @@ async function getLinksFromMarkdown(
   context: Context,
   precomputedRawResult?: LinkExtractionResult,
   prerenderedResult?: LinkExtractionResult,
-): Promise<{ href: string; text: string | undefined; line: number }[]> {
+): Promise<{ href: string; text: string | undefined; line: number; fragment?: string }[]> {
   const fmOffset = getFrontmatterLineOffset(page.fullPath)
 
   // Build a map of raw-markdown line numbers per href, plus a parallel index
@@ -190,95 +194,19 @@ async function getLinksFromMarkdown(
   // extractLinksWithLiquid already catches Liquid render failures internally and
   // falls back to raw extraction with a warning, so no outer try/catch is needed.
   const renderedResult = prerenderedResult ?? (await extractLinksWithLiquid(page.markdown, context))
-  const renderedLinks = renderedResult.internalLinks.map((l) => ({ href: l.href, text: l.text }))
+  const renderedLinks = renderedResult.internalLinks.map((l) => ({
+    href: l.href,
+    text: l.text,
+    fragment: l.fragment,
+  }))
 
   return renderedLinks.map((link) => {
     const lines = rawLinesByHref.get(link.href)
     const idx = rawLinesIndex.get(link.href) ?? 0
     const line = lines && idx < lines.length ? lines[idx] : 0
     rawLinesIndex.set(link.href, idx + 1)
-    return { href: link.href, text: link.text, line }
+    return { href: link.href, text: link.text, line, fragment: link.fragment }
   })
-}
-
-/**
- * Strip inline Markdown markup from a heading to get plain text for slug computation.
- * Matches what hast-util-to-string produces on a heading node after remark parsing.
- *
- * Key design decisions:
- * - Inline code spans (backtick) are extracted verbatim so that `<job_id>` inside them
- *   is not incorrectly stripped by the HTML-tag regex (which is needed for octicon SVGs).
- * - HTML stripping only removes valid HTML element names (no underscores) to avoid stripping
- *   angle-bracket placeholders like <job_id> that appear in code-span heading text.
- * - No final .trim() — trailing whitespace from stripped SVGs becomes trailing hyphens via
- *   github-slugger, reproducing the live site's heading IDs (e.g. `allow--`).
- */
-function headingTextToPlain(text: string): string {
-  // Strip HTML tags using a state machine rather than a regex so that CodeQL can verify
-  // the stripping is complete. Tags like <script\n...> or tags with '>' in attribute values
-  // are handled correctly. Output is only used for slug computation, never rendered as HTML.
-  function stripHtmlTags(s: string): string {
-    let out = ''
-    let inTag = false
-    for (let i = 0; i < s.length; i++) {
-      if (!inTag && s[i] === '<') {
-        // Peek ahead: if this looks like an underscore-containing placeholder (e.g. <job_id>),
-        // emit the inner text instead of dropping it entirely so the slug stays correct.
-        const close = s.indexOf('>', i + 1)
-        if (close !== -1) {
-          const inner = s.slice(i + 1, close)
-          if (/^[a-zA-Z][a-zA-Z0-9]*(?:_[a-zA-Z0-9]+)+$/.test(inner)) {
-            out += inner
-            i = close
-            continue
-          }
-        }
-        inTag = true
-      } else if (inTag && s[i] === '>') {
-        inTag = false
-        // Don't emit a replacement space — surrounding whitespace in the source markdown
-        // already provides the correct spacing for github-slugger (e.g. `allow ` from
-        // the space before an octicon tag).
-      } else if (!inTag) {
-        out += s[i]
-      }
-    }
-    return out
-  }
-
-  // Process non-code portions: strip HTML and inline formatting markup.
-  function processNonCode(s: string): string {
-    return stripHtmlTags(s)
-      .replace(/!\[([^\]]*)\]\([^)]*\)/g, '$1') // images: ![alt](url) → alt
-      .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1') // links: [text](url) → text
-      .replace(/\*\*([^*]+)\*\*/g, '$1') // bold **text**
-      .replace(/\*([^*]+)\*/g, '$1') // italic *text*
-      .replace(/(?<![a-zA-Z0-9_])__([^_]+)__(?![a-zA-Z0-9_])/g, '$1') // bold __text__
-      .replace(/(?<![a-zA-Z0-9_])_([^_]+)_(?![a-zA-Z0-9_])/g, '$1') // italic _text_
-  }
-
-  // Split text into alternating non-code / code-span segments.
-  // Code spans are extracted verbatim (hast-util-to-string returns their raw text content).
-  const parts: string[] = []
-  let remaining = text
-  while (remaining.length > 0) {
-    const open = remaining.indexOf('`')
-    if (open === -1) {
-      parts.push(processNonCode(remaining))
-      break
-    }
-    if (open > 0) parts.push(processNonCode(remaining.slice(0, open)))
-    const close = remaining.indexOf('`', open + 1)
-    if (close === -1) {
-      // Unclosed backtick — treat remainder as non-code
-      parts.push(processNonCode(remaining.slice(open)))
-      break
-    }
-    parts.push(remaining.slice(open + 1, close)) // code content verbatim
-    remaining = remaining.slice(close + 1)
-  }
-  return parts.join('')
-  // Note: no .trim() — see comment above.
 }
 
 /**
@@ -287,42 +215,17 @@ function headingTextToPlain(text: string): string {
  *
  * Uses github-slugger (the same library as rehype-slug in the render pipeline) to compute
  * heading anchor IDs, producing results that match the live site.
+ *
+ * `headingIds` is precomputed once per page in checkPage and shared with the cross-page
+ * anchor cache, so this function only checks same-page (`#fragment`) links here.
  */
 function checkAnchorsFromHeadings(
   page: Page,
   rawResult: LinkExtractionResult,
   renderedResult: LinkExtractionResult,
-  renderedMarkdown: string,
+  headingIds: Set<string>,
 ): BrokenLink[] {
-  if (page.autogenerated) return []
-
   const fmOffset = getFrontmatterLineOffset(page.fullPath)
-
-  // Compute heading anchor IDs from the Liquid-rendered markdown in document order.
-  // github-slugger deduplicates identical headings with -1, -2, ... suffixes,
-  // matching the behaviour of rehype-slug in the full render pipeline.
-  const slugger = new GithubSlugger()
-  const headingIds = new Set<string>()
-
-  // ATX headings: ## Heading text (optional trailing ##)
-  const ATX_HEADING_RE = /^#{1,6}\s+(.+?)(?:\s+#+)?\s*$/gm
-  let m: RegExpExecArray | null
-  while ((m = ATX_HEADING_RE.exec(renderedMarkdown)) !== null) {
-    headingIds.add(slugger.slug(headingTextToPlain(m[1])))
-  }
-
-  // Setext headings: text line followed by === or --- underline
-  const SETEXT_HEADING_RE = /^([^\n]+)\n[=-]{2,}\s*$/gm
-  while ((m = SETEXT_HEADING_RE.exec(renderedMarkdown)) !== null) {
-    headingIds.add(slugger.slug(headingTextToPlain(m[1])))
-  }
-
-  // Explicit <a name="..."> and <a id="..."> anchors embedded in the markdown.
-  // Some pages (e.g. site-policy) use raw HTML anchors instead of headings.
-  const NAMED_ANCHOR_RE = /<a\s[^>]*(?:name|id)="([^"]+)"[^>]*>/gi
-  while ((m = NAMED_ANCHOR_RE.exec(renderedMarkdown)) !== null) {
-    headingIds.add(m[1])
-  }
 
   // Build line-number map from the raw (pre-Liquid) source for accurate file line numbers.
   const anchorLineMap = new Map<string, number>()
@@ -363,9 +266,16 @@ async function checkPage(
   pageMap: Record<string, Page>,
   redirects: Record<string, string>,
   options: { checkAnchors: boolean },
-): Promise<{ brokenLinks: BrokenLink[]; redirectLinks: BrokenLink[]; linksChecked: number }> {
+): Promise<{
+  brokenLinks: BrokenLink[]
+  redirectLinks: BrokenLink[]
+  linksChecked: number
+  headingIds: Set<string> | null
+  crossPageAnchors: PendingCrossPageAnchor[]
+}> {
   const brokenLinks: BrokenLink[] = []
   const redirectLinks: BrokenLink[] = []
+  const crossPageAnchors: PendingCrossPageAnchor[] = []
 
   const rawMarkdownLinks = extractLinksFromMarkdown(page.markdown)
 
@@ -375,6 +285,15 @@ async function checkPage(
     page.markdown,
     pageContext,
   )
+
+  // Compute this page's heading anchor IDs once from the Liquid-rendered markdown.
+  // Autogenerated pages (REST/GraphQL/webhooks) derive their anchors from OpenAPI
+  // operation IDs, not markdown headings, so we can't compute them here — leave them
+  // out of the cache so links into them are never flagged (they resolve at runtime).
+  // Skip the work entirely when anchor checking is disabled: nothing downstream reads
+  // the heading cache in that mode.
+  const headingIds =
+    options.checkAnchors && !page.autogenerated ? computeHeadingIds(renderedMarkdown) : null
 
   const links = await getLinksFromMarkdown(page, pageContext, rawMarkdownLinks, renderedLinkResult)
 
@@ -413,20 +332,35 @@ async function checkPage(
         isRedirect: true,
         redirectTarget: result.redirectTarget,
       })
+    } else if (options.checkAnchors && link.fragment) {
+      // Direct (non-redirect) hit with a fragment: defer a cross-page anchor check.
+      // We can't validate it now because the target page may not have been rendered
+      // yet, so collect it and validate after the whole version finishes.
+      const targetKey = resolveInternalLinkKey(link.href, pageMap)
+      if (targetKey) {
+        crossPageAnchors.push({
+          targetKey,
+          fragment: link.fragment,
+          href: `${link.href}#${link.fragment}`,
+          file: page.relativePath,
+          line: link.line,
+          text: link.text,
+        })
+      }
     }
   }
 
-  if (options.checkAnchors) {
+  if (options.checkAnchors && headingIds) {
     const anchorFlaws = checkAnchorsFromHeadings(
       page,
       rawMarkdownLinks,
       renderedLinkResult,
-      renderedMarkdown,
+      headingIds,
     )
     brokenLinks.push(...anchorFlaws)
   }
 
-  return { brokenLinks, redirectLinks, linksChecked: links.length }
+  return { brokenLinks, redirectLinks, linksChecked: links.length, headingIds, crossPageAnchors }
 }
 
 /**
@@ -474,6 +408,17 @@ async function checkVersion(
   let totalPagesChecked = 0
   let totalLinksChecked = 0
 
+  // Cross-page anchor validation is a two-pass process within the version:
+  //   pass 1 — render every page, caching its heading IDs and collecting the
+  //            cross-page anchor links it contains (target may not be rendered yet)
+  //   pass 2 — after all pages are rendered, validate each collected anchor against
+  //            the now-complete heading cache
+  // The cache is keyed by pageMap key (lang + version + path). A link whose target
+  // resolves to a different version isn't in this run's cache and is skipped here;
+  // it's validated when the workflow runs the checker for that target version.
+  const headingIdsByPageKey = new Map<string, Set<string>>()
+  const pendingCrossPageAnchors: PendingCrossPageAnchor[] = []
+
   // Bounded concurrency: process up to `options.concurrency` pages simultaneously.
   // All workers drain from the same shared iterator — no page is processed twice.
   const queue = relevantPages.entries()
@@ -493,6 +438,10 @@ async function checkVersion(
       // between await points cannot interleave with another worker's pushes.
       allBrokenLinks.push(...result.brokenLinks)
       allRedirectLinks.push(...result.redirectLinks)
+      if (result.headingIds) headingIdsByPageKey.set(permalink.href, result.headingIds)
+      if (result.crossPageAnchors.length) {
+        pendingCrossPageAnchors.push(...result.crossPageAnchors)
+      }
       totalPagesChecked++
       totalLinksChecked += result.linksChecked
 
@@ -504,6 +453,11 @@ async function checkVersion(
 
   // Launch `concurrency` workers that all drain from the same shared queue iterator.
   await Promise.all(Array.from({ length: options.concurrency }, worker))
+
+  // Pass 2: validate cross-page anchors now that every page's headings are cached.
+  if (options.checkAnchors) {
+    allBrokenLinks.push(...validateCrossPageAnchors(pendingCrossPageAnchors, headingIdsByPageKey))
+  }
 
   return {
     brokenLinks: allBrokenLinks,

@@ -163,7 +163,7 @@ Most of these commands are available only on the home page of the repository. If
 |`New discussion`|Create a new discussion in the repository. For more information, see [AUTOTITLE](/discussions/quickstart#creating-a-new-discussion).|
 |`New file`|Create a new file from any page in the repository. For more information, see [AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository).
 |`New issue`|Open a new issue from any page in the repository. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/creating-an-issue).|
-|`Open in {% data variables.codespaces.serverless %} editor`|Open the current repository in the {% data variables.codespaces.serverless %} editor. For more information, see [AUTOTITLE](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor).|
+|`Open in {% data variables.codespaces.serverless %} editor`|Open the current repository in the {% data variables.codespaces.serverless %} editor. For more information, see [AUTOTITLE](/codespaces/the-githubdev-web-based-editor#opening-the-githubdev-editor).|
 
 ### File commands
 
@@ -172,7 +172,7 @@ These commands are available only when you open the command palette from a file 
 | Command | Behavior|
 | :- | :- |
 |`Copy permalink`|Create a link to the file that includes the current commit SHA and copy the link to the clipboard. For more information, see [AUTOTITLE](/repositories/working-with-files/using-files/getting-permanent-links-to-files#press-y-to-permalink-to-a-file-in-a-specific-commit).
-|`Open in {% data variables.codespaces.serverless %} editor`|Open the currently displayed file in {% data variables.codespaces.serverless %} editor. For more information, see [AUTOTITLE](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor).|
+|`Open in {% data variables.codespaces.serverless %} editor`|Open the currently displayed file in {% data variables.codespaces.serverless %} editor. For more information, see [AUTOTITLE](/codespaces/the-githubdev-web-based-editor#opening-the-githubdev-editor).|
 
 ### Discussion commands
 

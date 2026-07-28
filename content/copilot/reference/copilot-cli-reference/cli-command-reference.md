@@ -20,7 +20,7 @@ docsTeamMetrics:
 |------------------------|----------------------------------------------------|
 | `copilot`              | Launch the interactive user interface.             |
 | `copilot completion SHELL` | Print a shell script for the chosen shell that can be used to enable tab completion for {% data variables.copilot.copilot_cli_short %}. Supported shells: `bash`, `zsh`, `fish`. See [Using `copilot completion`](#using-copilot-completion). |
-| `copilot help [TOPIC]` | Display help information. Help topics include: `billing`, `config`, `commands`, `environment`, `logging`, `monitoring`, `permissions`, and `providers`. |
+| `copilot help [TOPIC]` | Display help information. Help topics include: `billing`, `config`, `commands`, `environment`, `logging`, `monitoring`, `permissions`, `providers`, and `sandbox`. |
 | `copilot init`         | Initialize {% data variables.product.prodname_copilot_short %} custom instructions for this repository. |
 | `copilot login`        | Authenticate with {% data variables.product.prodname_copilot_short %} via the OAuth device flow. Accepts `--host HOST` to specify the {% data variables.product.github %} host URL (default: `https://github.com`). |
 | `copilot login [OPTION]` | Authenticate with {% data variables.product.prodname_copilot_short %} via the OAuth device flow. See [`copilot login` options](#copilot-login-options). |
@@ -471,6 +471,7 @@ Use `--model=MODEL` or the `COPILOT_MODEL` environment variable to select the AI
 | `gpt-5.3-codex` | Code-focused tasks |
 | `gemini-3.1-pro-preview` | Google Gemini reasoning |
 | `gemini-3.5-flash` | Fast Google Gemini responses |
+| `gemini-3.6-flash` | Fast Google Gemini responses |
 | `mai-code-1-flash` | Fast, adaptive coding tasks |
 
 You can also switch models during an interactive session using the `/model` slash command.
@@ -564,6 +565,7 @@ copilot --deny-tool='write(secret.txt)'
 | `COPILOT_GITHUB_TOKEN` | Authentication token. Takes precedence over `GH_TOKEN` and `GITHUB_TOKEN`. |
 | `COPILOT_HOME` | Override the configuration and state directory. Default: `$HOME/.copilot`. |
 | `COPILOT_LARGE_OUTPUT_THRESHOLD_BYTES` | Maximum UTF-8 byte size for tool output returned directly to the model. Default: `20480` (20 KiB). See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/context-management#managing-large-tool-output). |
+| `COPILOT_MCP_TOOL_CACHE` | Set to `false` to disable loading and persisting local MCP server tool snapshots for the entire process. See [Tool snapshot caching](#tool-snapshot-caching). |
 | `COPILOT_MODEL` | Set the AI model. |
 | `COPILOT_PROMPT_FRAME` | Set to `1` to enable the decorative UI frame around the input prompt, or `0` to disable it. Overrides the `PROMPT_FRAME` experimental feature flag for the current session. |
 | `COPILOT_SKILLS_DIRS` | Comma-separated list of additional directories for skills. |
@@ -675,7 +677,7 @@ Use `copilot mcp` to manage MCP server configurations from the command line with
 | Type | Description | Required fields |
 |------|-------------|----------------|
 | `local` / `stdio` | Local process communicating via stdin/stdout. | `command`, `args` |
-| `http` | Remote server using streamable HTTP transport. | `url` |
+| `http` | Remote server using streamable HTTP transport. `"streamable-http"` is also accepted as an alias and is normalized to `"http"`. | `url` |
 | `sse` | Remote server using Server-Sent Events transport. | `url` |
 
 ### Local server configuration fields
@@ -690,6 +692,13 @@ Use `copilot mcp` to manage MCP server configurations from the command line with
 | `timeout` | No | Tool call timeout in milliseconds. |
 | `type` | No | `"local"` or `"stdio"`. Default: `"local"`. |
 | `deferTools` | No | `"auto"` (default) or `"never"`. Set to `"never"` to keep this server's tools always visible even when tool search is active. |
+| `disableToolCache` | No | Set to `true` to skip loading and persisting the tool snapshot for this server. |
+
+### Tool snapshot caching
+
+{% data variables.copilot.copilot_cli_short %} persists a snapshot of each local server's tool list so tools are available immediately on startup while live discovery completes in the background. Live discovery always runs and replaces the snapshot once it finishes.
+
+Set `disableToolCache: true` on a server to force live discovery for that server only, or set the `COPILOT_MCP_TOOL_CACHE=false` environment variable to disable snapshot loading and persistence for the entire process. Both opt-outs leave existing cache files untouched.
 
 ### Private npm registry
 
@@ -716,7 +725,7 @@ The `--registry` flag and other npm configuration flags (`--userconfig`, `--glob
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `type` | Yes | `"http"` or `"sse"`. |
+| `type` | Yes | `"http"` or `"sse"` (`"streamable-http"` is also accepted as an alias for `"http"`). |
 | `url` | Yes | Server URL. |
 | `tools` | Yes | Tools to enable. |
 | `headers` | No | HTTP headers. Supports variable expansion. |
@@ -1130,7 +1139,14 @@ Use `/permissions reset` to clear in-memory approvals for the current session.
 
 ### Plan mode
 
-`/plan` starts a read-only analysis session that prevents write operations and shell command execution while allowing full codebase exploration. Mutating tool calls—editor writes, `apply_patch` to non-plan files, mutating shell commands, and pull request creation—are hard-blocked at the tool layer, not just discouraged by the system prompt. Subagents spawned from a plan-mode session inherit the same restriction. Reads and writes to the plan file itself are still allowed.
+`/plan` starts a planning session where {% data variables.copilot.copilot_cli_short %} can explore and analyze your codebase but is blocked from editing your project files. Specifically:
+
+- **Your project files are protected.** Any attempt to edit, patch, or run a shell command that would change a file in your workspace is blocked automatically—this isn't just a suggestion to the model, it's enforced directly, so it doesn't depend on the model choosing to behave.
+- **The plan itself can still be written.** {% data variables.product.prodname_copilot_short %} needs somewhere to keep notes and draft the plan, so it's allowed to create and edit files in its own private planning workspace (including the plan file you'll review and approve).
+- **Delegated sub-tasks are protected too.** If {% data variables.product.prodname_copilot_short %} spins up a helper session to research part of your question, that helper inherits the same restrictions and can't edit your project either.
+- **It's a safety net, not a guarantee.** This protection is designed to catch clear, direct attempts to change your files—it's not an airtight lockdown. Some things are intentionally allowed through so research isn't overly restricted: for example, shell commands whose effect can't be clearly determined in advance, and calls to external/MCP tools you've connected. In practice this is rarely an issue, but plan mode should be thought of as "changes require your review before applying," not an absolute guarantee that nothing on disk can change.
+
+Once you're happy with the plan, approve it to exit plan mode and let {% data variables.product.prodname_copilot_short %} make the actual changes.
 
 ### Command safety analysis
 

@@ -31,7 +31,7 @@ category:
 ## Next steps
 
 * To finish setting up {% data variables.product.prodname_copilot_short %} for your enterprise, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-enterprise).
-* For billing information, see [AUTOTITLE](/billing/concepts/product-billing/github-copilot-licenses#about-billing-for-github-copilot-business-and-github-copilot-enterprise) and [AUTOTITLE](/billing/get-started).
+* For billing information, see [AUTOTITLE](/billing/concepts/product-billing/github-copilot-licenses) and [AUTOTITLE](/billing/get-started).
 
 ## Further reading
 

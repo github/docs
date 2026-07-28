@@ -166,7 +166,7 @@ Examples include:
 1. Iterate in this way until the work is completed correctly.
 1. Approve and merge the pull request.
 
-For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions#assigning-an-issue-to-copilot) and [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/review-copilot-output).
+For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions) and [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/review-copilot-output).
 
 ### Safety guardrails
 

@@ -54,6 +54,13 @@
   business: true
   enterprise: true
 
+- name: Claude Opus 5
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
 - name: Claude Fable 5
   pro: false
   pro_plus: true

@@ -69,7 +69,7 @@ This error indicates that a {% data variables.product.pat_generic %} you provide
 Failures that include a `401` status code usually indicate that the {% data variables.product.pat_generic %} you provided to the {% data variables.product.prodname_cli %} does not have the required scopes. Verify the scopes on the {% data variables.product.pat_generic %}s you provided. For more information about required scopes, see the appropriate article for your migration path.
 
    {% ifversion fpt or ghec %}
-   * [AUTOTITLE](/migrations/ado/manage-access#required-scopes-for-personal-access-tokens)
+   * [AUTOTITLE](/migrations/ado/manage-access)
    {% endif %}
    * [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#required-scopes-for-personal-access-tokens)
    * [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens)

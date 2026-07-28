@@ -26,12 +26,12 @@ A hook is a callback you register once when creating a session. The SDK invokes 
 
 | Hook                                                                | When it fires                       | What you can do                            |
 | ------------------------------------------------------------------- | ----------------------------------- | ------------------------------------------ |
-| [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/session-lifecycle#session-start)     | Session begins (new or resumed)     | Inject context, load preferences           |
+| [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/session-lifecycle#session-start-hook-session-start)     | Session begins (new or resumed)     | Inject context, load preferences           |
 | [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/user-prompt-submitted)        | User sends a message                | Rewrite prompts, add context, filter input |
 | [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/pre-tool-use)                          | Before a tool executes              | Allow / deny / modify the call             |
 | [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/post-tool-use)                        | After a tool returns (success only) | Transform results, redact secrets, audit   |
 | [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/post-tool-use#failure-variant) | After a tool returns a failure      | Inject retry guidance, log failures        |
-| [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/session-lifecycle#session-end)         | Session ends                        | Clean up, record metrics                   |
+| [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/session-lifecycle#session-end-hook-session-end)         | Session ends                        | Clean up, record metrics                   |
 | [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/error-handling)                     | An error is raised                  | Custom logging, retry logic, alerts        |
 
 All hooks are **optional**—register only the ones you need. Returning `null` (or the language equivalent) from any hook tells the SDK to continue with default behavior.
