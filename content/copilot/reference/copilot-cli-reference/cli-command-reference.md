@@ -446,15 +446,16 @@ For a complete list of commands and options, run `copilot help`.
 
 You can use `--remote` with `--resume <TASK-ID>` to resume a remote task locally. This works even when the task was originally created outside a Git repository.
 
-> [!NOTE]
-> When `permissions.disableBypassPermissionsMode` is set to `"disable"`, all allow-all flags (`--allow-all-tools`, `--allow-all-paths`, `--allow-all-urls`, `--allow-all`, `--yolo`) are suppressed at startup and cannot be used to grant elevated permissions.
+### Restricting the --allow-all options
+
+When `permissions.disableBypassPermissionsMode` is set to `"disable"`, all of the command line options that allow all permissions (`--allow-all-tools`, `--allow-all-paths`, `--allow-all-urls`, `--allow-all`, `--yolo`) are suppressed at startup and cannot be used to grant elevated permissions. The `/allow-all` and `/yolo` slash commands are also suppressed in interactive mode.
 
 Three sources can set this restriction, in increasing order of permanence:
 
 | Source | Scope | Cleared by account switch? |
 |--------|-------|---------------------------|
 | User settings (`~/.copilot/settings.json`) | Machine | No — applies to all accounts |
-| Managed settings (server-fetched per account) | Account | Yes — cleared when switching to a different account that does not disable bypass mode |
+| Managed settings (server-fetched per account) | Account | Yes — cleared when switching to a different account that does not disable the allow-all options |
 | MDM policy (plist/registry/file) | Device | Never — device-level policy that cannot be overridden by account switches |
 
 For MDM configuration details, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#mdm-managed-settings).

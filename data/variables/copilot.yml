@@ -106,12 +106,6 @@ copilot_old-cli_short: 'Copilot in the CLI'
 copilot_old-cli: 'GitHub Copilot in the CLI'
 copilot_cli_npm_version: 'Node.js 22 or later'
 
-## GitHub Sandbox
-sandbox: 'cloud and local sandboxes for GitHub Copilot'
-sandbox_caps: 'Cloud and local sandboxes for GitHub Copilot'
-sandbox_short: 'sandboxes for GitHub Copilot'
-sandbox_short_caps: 'Sandboxes for GitHub Copilot'
-
 ## Copilot custom agents
 copilot_custom_agent: 'Copilot custom agent'
 copilot_custom_agents: 'Copilot custom agents'
