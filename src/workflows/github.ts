@@ -29,3 +29,18 @@ export function retryingGithub(token?: string) {
     auth: `token ${token || apiToken}`,
   })
 }
+
+// Duck-typing instead of `instanceof RequestError` on purpose.
+// `@octokit/request` throws a RequestError built from its own nested copy of
+// `@octokit/request-error`, which is a different module instance than the
+// top-level one. The two classes are not identical, so `instanceof` always
+// returns false across that boundary.
+export function isRequestError(
+  error: unknown,
+  status?: number,
+): error is Error & { status: number } {
+  if (!(error instanceof Error) || !('status' in error)) return false
+  const errorStatus = (error as { status: unknown }).status
+  if (typeof errorStatus !== 'number') return false
+  return status === undefined || errorStatus === status
+}
