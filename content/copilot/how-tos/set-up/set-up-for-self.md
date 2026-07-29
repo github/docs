@@ -14,6 +14,8 @@ category:
   - Configure Copilot
 ---
 
+To set up the {% data variables.copilot.github_copilot_app %} and create your first agent session, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/getting-started).
+
 ## 1. Get access to {% data variables.product.prodname_copilot %}
 
 There are a few ways that you can get access to {% data variables.product.prodname_copilot %}:

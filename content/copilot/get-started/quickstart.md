@@ -24,6 +24,8 @@ category:
 
 ## Introduction
 
+To get started with the {% data variables.copilot.github_copilot_app %}, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/getting-started).
+
 <!-- --------------------- -->
 <!-- Web browser -->
 <!-- --------------------- -->

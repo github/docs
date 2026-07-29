@@ -13,3 +13,4 @@ redirect_from:
 contentType: how-tos
 ---
 
+To set up the {% data variables.copilot.github_copilot_app %} and create your first agent session, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/getting-started).
