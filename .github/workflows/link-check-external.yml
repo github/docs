@@ -29,9 +29,6 @@ jobs:
 
       - uses: ./.github/actions/node-npm-setup
 
-      - name: Install dependencies
-        run: npm ci
-
       - name: Check external links
         id: check
         env:
