@@ -17,14 +17,15 @@ const RetryingOctokit = Octokit.plugin(retry)
 const apiToken = process.env.GITHUB_TOKEN
 
 // See https://github.com/octokit/rest.js/issues/1207
-export default function github() {
+// Pass `token` to authenticate as something other than GITHUB_TOKEN.
+export default function github(token?: string) {
   return new Octokit({
-    auth: `token ${apiToken}`,
+    auth: `token ${token || apiToken}`,
   })
 }
 
-export function retryingGithub() {
+export function retryingGithub(token?: string) {
   return new RetryingOctokit({
-    auth: `token ${apiToken}`,
+    auth: `token ${token || apiToken}`,
   })
 }
