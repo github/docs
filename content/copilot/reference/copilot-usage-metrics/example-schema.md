@@ -20,14 +20,14 @@ The following are example schemas for the user-level, enterprise-level, and repo
 ```json copy
 [{
   "ai_credits_used": 12.5,
-  "code_acceptance_activity_count": 1,
-  "code_generation_activity_count": 1,
+  "code_acceptance_activity_count": 3,
+  "code_generation_activity_count": 3,
   "day": "2025-10-01",
   "enterprise_id": "1",
-  "loc_added_sum": 8,
-  "loc_deleted_sum": 0,
-  "loc_suggested_to_add_sum": 10,
-  "loc_suggested_to_delete_sum": 0,
+  "loc_added_sum": 32,
+  "loc_deleted_sum": 6,
+  "loc_suggested_to_add_sum": 34,
+  "loc_suggested_to_delete_sum": 6,
   "totals_by_cli": {
     "last_known_cli_version": {
       "cli_version": "1.0.8",
@@ -42,6 +42,16 @@ The following are example schemas for the user-level, enterprise-level, and repo
       "prompt_tokens_sum": 3800
     }
   },
+  "totals_by_copilot_app": {
+    "prompt_count": 1,
+    "request_count": 3,
+    "session_count": 1,
+    "token_usage": {
+      "avg_tokens_per_request": 3200.0,
+      "output_tokens_sum": 4200,
+      "prompt_tokens_sum": 5400
+    }
+  },
   "totals_by_feature": [{
     "code_acceptance_activity_count": 1,
     "code_generation_activity_count": 1,
@@ -51,6 +61,15 @@ The following are example schemas for the user-level, enterprise-level, and repo
     "loc_suggested_to_add_sum": 10,
     "loc_suggested_to_delete_sum": 0,
     "user_initiated_interaction_count": 0
+  }, {
+    "code_acceptance_activity_count": 2,
+    "code_generation_activity_count": 2,
+    "feature": "copilot_app",
+    "loc_added_sum": 24,
+    "loc_deleted_sum": 6,
+    "loc_suggested_to_add_sum": 24,
+    "loc_suggested_to_delete_sum": 6,
+    "user_initiated_interaction_count": 1
   }],
   "totals_by_ide": [{
     "code_acceptance_activity_count": 1,
@@ -80,15 +99,25 @@ The following are example schemas for the user-level, enterprise-level, and repo
     "loc_deleted_sum": 0,
     "loc_suggested_to_add_sum": 10,
     "loc_suggested_to_delete_sum": 0
+  }, {
+    "code_acceptance_activity_count": 2,
+    "code_generation_activity_count": 2,
+    "feature": "copilot_app",
+    "language": "markdown",
+    "loc_added_sum": 24,
+    "loc_deleted_sum": 6,
+    "loc_suggested_to_add_sum": 24,
+    "loc_suggested_to_delete_sum": 6
   }],
   "totals_by_language_model": [],
   "totals_by_model_feature": [],
   "used_agent": false,
   "used_chat": false,
   "used_cli": true,
+  "used_copilot_app": true,
   "user_id": 1,
   "user_login": "login1",
-  "user_initiated_interaction_count": 0,
+  "user_initiated_interaction_count": 1,
   "etl_id": "green",
   "day_partition": "2025-10-01",
   "entity_id_partition": 1
@@ -100,16 +129,17 @@ The following are example schemas for the user-level, enterprise-level, and repo
 ```json copy
 [ {
   "day_totals" : [ {
-    "code_acceptance_activity_count" : 2,
-    "code_generation_activity_count" : 2,
+    "code_acceptance_activity_count" : 4,
+    "code_generation_activity_count" : 4,
     "daily_active_cli_users" : 2,
+    "daily_active_copilot_app_users" : 1,
     "daily_active_users" : 2,
     "day" : "2025-10-01",
     "enterprise_id" : "1",
-    "loc_added_sum" : 30,
-    "loc_deleted_sum" : 0,
-    "loc_suggested_to_add_sum" : 35,
-    "loc_suggested_to_delete_sum" : 0,
+    "loc_added_sum" : 54,
+    "loc_deleted_sum" : 6,
+    "loc_suggested_to_add_sum" : 59,
+    "loc_suggested_to_delete_sum" : 6,
     "monthly_active_agent_users" : 0,
     "monthly_active_chat_users" : 0,
     "monthly_active_users" : 2,
@@ -139,6 +169,16 @@ The following are example schemas for the user-level, enterprise-level, and repo
         "prompt_tokens_sum" : 5300
       }
     },
+    "totals_by_copilot_app" : {
+      "prompt_count" : 2,
+      "request_count" : 6,
+      "session_count" : 2,
+      "token_usage" : {
+        "avg_tokens_per_request" : 2466.67,
+        "output_tokens_sum" : 6200,
+        "prompt_tokens_sum" : 8600
+      }
+    },
     "totals_by_feature" : [ {
       "code_acceptance_activity_count" : 2,
       "code_generation_activity_count" : 2,
@@ -148,6 +188,15 @@ The following are example schemas for the user-level, enterprise-level, and repo
       "loc_suggested_to_add_sum" : 35,
       "loc_suggested_to_delete_sum" : 0,
       "user_initiated_interaction_count" : 0
+    }, {
+      "code_acceptance_activity_count" : 2,
+      "code_generation_activity_count" : 2,
+      "feature" : "copilot_app",
+      "loc_added_sum" : 24,
+      "loc_deleted_sum" : 6,
+      "loc_suggested_to_add_sum" : 24,
+      "loc_suggested_to_delete_sum" : 6,
+      "user_initiated_interaction_count" : 1
     } ],
     "totals_by_ide" : [ {
       "code_acceptance_activity_count" : 2,
@@ -168,10 +217,19 @@ The following are example schemas for the user-level, enterprise-level, and repo
       "loc_deleted_sum" : 0,
       "loc_suggested_to_add_sum" : 35,
       "loc_suggested_to_delete_sum" : 0
+    }, {
+      "code_acceptance_activity_count" : 2,
+      "code_generation_activity_count" : 2,
+      "feature" : "copilot_app",
+      "language" : "markdown",
+      "loc_added_sum" : 24,
+      "loc_deleted_sum" : 6,
+      "loc_suggested_to_add_sum" : 24,
+      "loc_suggested_to_delete_sum" : 6
     } ],
     "totals_by_language_model" : [ ],
     "totals_by_model_feature" : [ ],
-    "user_initiated_interaction_count" : 0,
+    "user_initiated_interaction_count" : 1,
     "weekly_active_users" : 2
   } ],
   "enterprise_id" : "1",
@@ -182,15 +240,15 @@ The following are example schemas for the user-level, enterprise-level, and repo
   "entity_id_partition" : 1
 }, {
   "day_totals" : [ {
-    "code_acceptance_activity_count" : 1,
-    "code_generation_activity_count" : 2,
+    "code_acceptance_activity_count" : 2,
+    "code_generation_activity_count" : 3,
     "daily_active_users" : 2,
     "day" : "2025-10-01",
     "enterprise_id" : "2",
-    "loc_added_sum" : 38,
-    "loc_deleted_sum" : 0,
-    "loc_suggested_to_add_sum" : 40,
-    "loc_suggested_to_delete_sum" : 0,
+    "loc_added_sum" : 50,
+    "loc_deleted_sum" : 3,
+    "loc_suggested_to_add_sum" : 52,
+    "loc_suggested_to_delete_sum" : 3,
     "monthly_active_agent_users" : 0,
     "monthly_active_chat_users" : 0,
     "monthly_active_users" : 2,
@@ -216,6 +274,15 @@ The following are example schemas for the user-level, enterprise-level, and repo
       "loc_suggested_to_add_sum" : 40,
       "loc_suggested_to_delete_sum" : 0,
       "user_initiated_interaction_count" : 0
+    }, {
+      "code_acceptance_activity_count" : 1,
+      "code_generation_activity_count" : 1,
+      "feature" : "copilot_app",
+      "loc_added_sum" : 12,
+      "loc_deleted_sum" : 3,
+      "loc_suggested_to_add_sum" : 12,
+      "loc_suggested_to_delete_sum" : 3,
+      "user_initiated_interaction_count" : 1
     } ],
     "totals_by_ide" : [ {
       "code_acceptance_activity_count" : 1,
@@ -236,10 +303,19 @@ The following are example schemas for the user-level, enterprise-level, and repo
       "loc_deleted_sum" : 0,
       "loc_suggested_to_add_sum" : 40,
       "loc_suggested_to_delete_sum" : 0
+    }, {
+      "code_acceptance_activity_count" : 1,
+      "code_generation_activity_count" : 1,
+      "feature" : "copilot_app",
+      "language" : "markdown",
+      "loc_added_sum" : 12,
+      "loc_deleted_sum" : 3,
+      "loc_suggested_to_add_sum" : 12,
+      "loc_suggested_to_delete_sum" : 3
     } ],
     "totals_by_language_model" : [ ],
     "totals_by_model_feature" : [ ],
-    "user_initiated_interaction_count" : 0,
+    "user_initiated_interaction_count" : 1,
     "weekly_active_users" : 2
   } ],
   "enterprise_id" : "2",

@@ -22959,6 +22959,7 @@
               "approved",
               "dismissed",
               "replaced",
+              "invalidated",
               "all"
             ]
           }
@@ -23081,7 +23082,8 @@
                       "applied",
                       "approved",
                       "dismissed",
-                      "replaced"
+                      "replaced",
+                      "invalidated"
                     ]
                   },
                   "target_id": {
@@ -23329,7 +23331,8 @@
                     "applied",
                     "approved",
                     "dismissed",
-                    "replaced"
+                    "replaced",
+                    "invalidated"
                   ]
                 },
                 "target_id": {
@@ -23580,7 +23583,8 @@
                     "applied",
                     "approved",
                     "dismissed",
-                    "replaced"
+                    "replaced",
+                    "invalidated"
                   ]
                 },
                 "target_id": {
