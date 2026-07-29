@@ -201,6 +201,12 @@ Utility models power background features across surfaces, and cannot be disabled
 
 {% data reusables.copilot.utility-models %}
 
+## Models eligible for default enablement
+
+{% data reusables.copilot.model-autoenablement %}
+
+{% data reusables.copilot.model-autoenablement-excluded-models %}
+
 ## Next steps
 
 * To get up and running with {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/get-started/quickstart).

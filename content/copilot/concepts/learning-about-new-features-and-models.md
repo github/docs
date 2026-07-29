@@ -1,12 +1,14 @@
 ---
-title: Preparing for new features and models
+title: Learning about new features and models
 shortTitle: New features and models
-intro: 'Stay informed about {% data variables.product.prodname_copilot %} features and models, and make confident decisions about enabling them for your enterprise.'
+intro: Stay informed about {% data variables.product.prodname_copilot %} features and models, and make confident decisions about enabling them for your enterprise.
 versions:
   feature: copilot
 contentType: concepts
 category:
   - Learn about Copilot
+redirect_from:
+  - /copilot/concepts/preparing-for-new-features-and-models
 ---
 
 {% data variables.product.prodname_copilot %} is evolving rapidly, with new features and models released regularly. If you're an enterprise administrator, staying informed helps you make confident decisions about which capabilities to enable, when to adopt them, and how to manage risk across your organizations.
@@ -53,6 +55,10 @@ You can find information about the models available and upcoming models in the f
 * **Supported models**: For a complete list of available models and their capabilities, see [AUTOTITLE](/copilot/reference/ai-models/supported-models).
 * **Model comparison**: To compare model capabilities side by side, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
 * **Changelog**: Model updates are announced in the [{% data variables.product.prodname_copilot_short %} changelog](https://github.blog/changelog/label/copilot/).
+
+#### Default enablement
+
+{% data reusables.copilot.model-autoenablement %}
 
 #### Special categories
 
