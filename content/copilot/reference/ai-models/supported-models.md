@@ -70,7 +70,8 @@ The latest {% data variables.product.prodname_copilot_short %} models support th
 Choosing a larger context window or higher reasoning will impact {% data variables.product.prodname_ai_credits_short %} consumption; more tokens will be consumed, so more credits will be used. For this reason, we recommend that you use the regular context window and regular reasoning by default, selecting the larger context window and higher reasoning for more complex tasks only.
 
 > [!NOTE]
-> * These extended capabilities are available in {% data variables.product.prodname_vscode %} and {% data variables.copilot.copilot_cli_short %} only.
+> * The 1 million token context window is available in {% data variables.product.prodname_vscode %} and {% data variables.copilot.copilot_cli_short %} only.
+> * Configurable reasoning levels are available in {% data variables.product.prodname_vscode %}, {% data variables.copilot.copilot_cli_short %}, and {% data variables.copilot.copilot_cloud_agent %}.
 > * Some models have extended capability pricing see [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing#pricing-tables)
 
 {% rowheaders %}
