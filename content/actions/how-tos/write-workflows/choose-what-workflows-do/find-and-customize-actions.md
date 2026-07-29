@@ -66,9 +66,51 @@ An action's listing page includes the action's version and the workflow syntax r
 
 ### Adding an action from the same repository
 
-If an action is defined in the same repository where your workflow file uses the action, you can reference the action with either the ‌`{owner}/{repo}@{ref}` or `./path/to/dir` syntax in your workflow file.
+If an action is defined in the same repository where your workflow file uses the action, you can reference the action with the `$/path/to/dir` self repository reference, or with the `{owner}/{repo}@{ref}` or `./path/to/dir` syntax in your workflow file. The `$/` syntax is not available in {% data variables.product.prodname_ghe_server %}.
 
-{% data reusables.actions.workflows.section-referencing-an-action-from-the-same-repository %}
+Example repository file structure:
+
+```shell
+|-- hello-world (repository)
+|   |__ .github
+|       └── workflows
+|           └── my-first-workflow.yml
+|       └── actions
+|           |__ hello-world-action
+|               └── action.yml
+```
+
+We recommend referencing the action with the `$/path/to/dir` self repository reference. This resolves to the same repository at the running commit, so you do not need to check out the repository first. For more information about how `$/` compares to `{owner}/{repo}@{ref}` and `./`, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#example-using-an-action-in-the-same-repository-as-the-workflow-at-the-running-commit-recommended).
+
+Example workflow file using `$/`:
+
+```yaml
+jobs:
+  my_first_job:
+    runs-on: ubuntu-latest
+    steps:
+      # This step references an action in the same repository at the
+      # running commit. No repository checkout is required.
+      - name: Use hello-world-action
+        uses: $/.github/actions/hello-world-action
+```
+
+You can also reference the action with the relative `./path/to/dir` syntax, but it is more error-prone. The path is relative (`./`) to the default working directory (`github.workspace`, `$GITHUB_WORKSPACE`), so it requires a checkout step, and if the action checks out the repository to a location different than the workflow, the relative path must be updated.
+
+Example workflow file using `./`:
+
+```yaml
+jobs:
+  my_first_job:
+    runs-on: ubuntu-latest
+    steps:
+      # This step checks out a copy of your repository.
+      - name: My first step - check out repository
+        uses: {% data reusables.actions.action-checkout %}
+      # This step references the directory that contains the action.
+      - name: Use local hello-world-action
+        uses: ./.github/actions/hello-world-action
+```
 
 The `action.yml` file is used to provide metadata for the action. Learn about the content of this file in [AUTOTITLE](/actions/reference/workflows-and-actions/metadata-syntax).
 
