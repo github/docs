@@ -4700,7 +4700,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Get API request count statistics for an actor broken down by route within a specified time frame.</p>",
+      "descriptionHTML": "<p>Get API request count statistics for an actor broken down by route within a specified time frame.</p>\n<p>Under normal conditions, you can expect API data to appear within 4–6 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.</p>",
       "codeExamples": [
         {
           "request": {
@@ -4871,7 +4871,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Get API request statistics for all subjects within an organization within a specified time frame. Subjects can be users or GitHub Apps.</p>",
+      "descriptionHTML": "<p>Get API request statistics for all subjects within an organization within a specified time frame. Subjects can be users or GitHub Apps.</p>\n<p>Under normal conditions, you can expect API data to appear within 4–6 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.</p>",
       "codeExamples": [
         {
           "request": {
@@ -4989,7 +4989,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Get overall statistics of API requests made within an organization by all users and apps within a specified time frame.</p>",
+      "descriptionHTML": "<p>Get overall statistics of API requests made within an organization by all users and apps within a specified time frame.</p>\n<p>Under normal conditions, you can expect API data to appear within 4–6 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5091,7 +5091,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Get overall statistics of API requests within the organization for a user.</p>",
+      "descriptionHTML": "<p>Get overall statistics of API requests within the organization for a user.</p>\n<p>Under normal conditions, you can expect API data to appear within 4–6 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5210,7 +5210,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Get overall statistics of API requests within the organization made by a specific actor. Actors can be GitHub App installations, OAuth apps or other tokens on behalf of a user.</p>",
+      "descriptionHTML": "<p>Get overall statistics of API requests within the organization made by a specific actor. Actors can be GitHub App installations, OAuth apps or other tokens on behalf of a user.</p>\n<p>Under normal conditions, you can expect API data to appear within 4–6 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5314,7 +5314,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Get the number of API requests and rate-limited requests made within an organization over a specified time period.</p>",
+      "descriptionHTML": "<p>Get the number of API requests and rate-limited requests made within an organization over a specified time period.</p>\n<p>Under normal conditions, you can expect API data to appear within 4–6 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5457,7 +5457,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Get the number of API requests and rate-limited requests made within an organization by a specific user over a specified time period.</p>",
+      "descriptionHTML": "<p>Get the number of API requests and rate-limited requests made within an organization by a specific user over a specified time period.</p>\n<p>Under normal conditions, you can expect API data to appear within 4–6 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5617,7 +5617,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Get the number of API requests and rate-limited requests made within an organization by a specific actor within a specified time period.</p>",
+      "descriptionHTML": "<p>Get the number of API requests and rate-limited requests made within an organization by a specific actor within a specified time period.</p>\n<p>Under normal conditions, you can expect API data to appear within 4–6 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5803,7 +5803,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Get API usage statistics within an organization for a user broken down by the type of access.</p>",
+      "descriptionHTML": "<p>Get API usage statistics within an organization for a user broken down by the type of access.</p>\n<p>Under normal conditions, you can expect API data to appear within 4–6 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.</p>",
       "codeExamples": [
         {
           "request": {
@@ -6623,6 +6623,319 @@
         "permissions": [
           {
             "\"Artifact metadata\" repository permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}/jobs",
+      "title": "Create a cluster deployment records job",
+      "category": "orgs",
+      "subcategory": "artifact-metadata",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "cluster",
+          "in": "path",
+          "description": "<p>The cluster name.</p>",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "logical_environment",
+          "description": "<p>The stage of the deployment.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "physical_environment",
+          "description": "<p>The physical region of the deployment.</p>"
+        },
+        {
+          "type": "array of objects",
+          "name": "deployments",
+          "description": "<p>The list of deployments to record.</p>",
+          "isRequired": true,
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "name",
+              "description": "<p>The name of the artifact.</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string",
+              "name": "digest",
+              "description": "<p>The hex encoded digest of the artifact.</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string",
+              "name": "version",
+              "description": "<p>The artifact version.</p>"
+            },
+            {
+              "type": "string",
+              "name": "status",
+              "description": "<p>The deployment status of the artifact.</p>",
+              "enum": [
+                "deployed",
+                "decommissioned"
+              ],
+              "default": "deployed"
+            },
+            {
+              "type": "string",
+              "name": "deployment_name",
+              "description": "<p>The unique identifier for the deployment represented by the new record.</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string",
+              "name": "github_repository",
+              "description": "<p>The name of the GitHub repository associated with the artifact.</p>"
+            },
+            {
+              "type": "object",
+              "name": "tags",
+              "description": "<p>Key-value pairs to tag the deployment record.</p>"
+            },
+            {
+              "type": "array of strings",
+              "name": "runtime_risks",
+              "description": "<p>A list of runtime risks associated with the deployment.\nSupported values are: <code>critical-resource</code>, <code>internet-exposed</code>, <code>lateral-movement</code>, <code>sensitive-data</code></p>"
+            }
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Create a background job to set deployment records for a given cluster.\nPerforms validation and permission checks synchronously, returning rejected\ndeployments immediately, then enqueues a background job for the actual\ndeployment updates. Use the companion GET endpoint to poll for job status.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "logical_environment": "prod",
+              "physical_environment": "pacific-east",
+              "deployments": [
+                {
+                  "name": "awesome-image",
+                  "digest": "sha256:1bb1e949e55dcefc6353e7b36c8897d2a107d8e8dca49d4e3c0ea8493fc0bc72",
+                  "version": "2.1.0",
+                  "status": "deployed",
+                  "deployment_name": "deployment-pod",
+                  "tags": {
+                    "owning-team": "platform"
+                  },
+                  "runtime_risks": [
+                    "sensitive-data"
+                  ]
+                }
+              ]
+            },
+            "parameters": {
+              "org": "ORG",
+              "cluster": "CLUSTER"
+            }
+          },
+          "response": {
+            "statusCode": "202",
+            "contentType": "application/json",
+            "description": "<p>Job created successfully. Authorized deployments will be processed in the background.</p>",
+            "example": {
+              "job_id": 123
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "job_id": {
+                  "description": "The ID of the created job.",
+                  "type": "integer"
+                },
+                "errors": {
+                  "description": "Deployments that were rejected during authorization.",
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              },
+              "required": [
+                "job_id"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "202",
+          "description": "<p>Job created successfully. Authorized deployments will be processed in the background.</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>A job is already in progress for this cluster.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Artifact metadata\" repository permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}/jobs/{job_id}",
+      "title": "Get cluster deployment records job status",
+      "category": "orgs",
+      "subcategory": "artifact-metadata",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "cluster",
+          "in": "path",
+          "description": "<p>The cluster name.</p>",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "job_id",
+          "in": "path",
+          "description": "<p>The ID of the job.</p>",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Get the status and results of a previously created cluster deployment records job.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG",
+              "cluster": "CLUSTER",
+              "job_id": "JOB_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Job status retrieved successfully.</p>",
+            "example": {
+              "job_id": 123,
+              "status": "completed",
+              "started_at": "2026-06-10T12:00:00Z",
+              "total_count": 5
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "job_id": {
+                  "description": "The ID of the job.",
+                  "type": "integer"
+                },
+                "status": {
+                  "description": "The current status of the job.",
+                  "type": "string",
+                  "enum": [
+                    "pending",
+                    "processing",
+                    "completed",
+                    "failed"
+                  ]
+                },
+                "started_at": {
+                  "description": "When the job started processing (only present when processing, completed, or failed).",
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "total_count": {
+                  "description": "The number of records successfully mutated (only present when completed).",
+                  "type": "integer"
+                },
+                "errors": {
+                  "description": "Processing errors (only present when completed or failed).",
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              },
+              "required": [
+                "job_id",
+                "status"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Job status retrieved successfully.</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Artifact metadata\" repository permissions": "read"
           }
         ]
       }

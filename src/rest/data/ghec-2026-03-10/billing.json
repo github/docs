@@ -2239,7 +2239,7 @@
       "serverUrl": "https://api.github.com",
       "verb": "patch",
       "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}",
-      "title": "Update a cost center name",
+      "title": "Update a cost center",
       "category": "billing",
       "subcategory": "cost-centers",
       "parameters": [
@@ -2266,8 +2266,7 @@
         {
           "type": "string",
           "name": "name",
-          "description": "<p>The new name for the cost center</p>",
-          "isRequired": true
+          "description": "<p>The new name for the cost center</p>"
         },
         {
           "type": "boolean",
@@ -2275,7 +2274,7 @@
           "description": "<p>Whether the cost center draws from the AI credit pool.</p>\n<p>This can only be enabled for cost centers that contain only user or team resources.</p>\n<ul>\n<li><code>false</code> — no cap; the cost center draws from the shared enterprise pool.</li>\n<li><code>true</code> — the cost center is capped at an amount derived from its members' license entitlements.</li>\n</ul>"
         }
       ],
-      "descriptionHTML": "<p>Updates an existing cost center name.</p>",
+      "descriptionHTML": "<p>Updates an existing cost center.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2400,7 +2399,6 @@
             "description": "Update cost center with AI credit pool enabled",
             "acceptHeader": "application/vnd.github.v3+json",
             "bodyParameters": {
-              "name": "New Cost Center Name",
               "ai_credit_pool_enabled": true
             },
             "parameters": {
@@ -2533,6 +2531,10 @@
         {
           "httpStatusCode": "409",
           "description": "<p>Conflict</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
         },
         {
           "httpStatusCode": "500",
