@@ -59,7 +59,7 @@ For Liquid variable usage, reusables, linking conventions, bullet-list markers, 
 
 ## Lists
 
-* Capitalize the first letter of each list item.
+* Capitalize the first letter of each list item, including the first letter after the colon in a term definition list (for example, `* **Filesystem**: Grant read-only access...`).
 * Use periods only if the item is a complete sentence.
 * Introduce lists with a descriptive sentence, not vague phrases like "the following" in isolation.
 

@@ -116,7 +116,7 @@ Prevents users from enabling bypass mode (also known as "YOLO mode"). Bypass mod
 
 When you set `disableBypassPermissionsMode` to `"disable"`, users cannot turn on bypass mode:
 
-* In {% data variables.copilot.copilot_cli_short %}, the `--yolo` and `--allow-all` command-line options and the `/yolo` and `/allow-all` slash commands are blocked. Individual flags such as `--allow-all-tools` and `--allow-all-paths` are not blocked.
+* In {% data variables.copilot.copilot_cli_short %}, all of the command line options for allowing all permissions (`--yolo`, `--allow-all`, and the individual `--allow-all-tools`, `--allow-all-paths`, and `--allow-all-urls` options) are suppressed at startup and cannot grant elevated permissions. The `/yolo` and `/allow-all` slash commands are also blocked.
 * In {% data variables.product.prodname_vscode_shortname %}, the global auto-approve setting (`chat.tools.global.autoApprove`) is turned off and cannot be re-enabled.
 * In the {% data variables.copilot.github_copilot_app %}, the "Allow all" setting for "Tool Permissions" is blocked in the sessions settings.
 

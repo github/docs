@@ -295,9 +295,11 @@ Details of your configured MCP servers are stored in the `mcp-config.json` file,
 
 For situations where you trust {% data variables.product.prodname_copilot_short %} to run freely, you can use the `--allow-all` or `--yolo` flags to enable all permissions at once.
 
-### Run in a sandbox
+### Use sandboxing
 
-You can run {% data variables.copilot.copilot_cli_short %} sessions inside a sandbox to restrict access to your filesystem, network, and system capabilities. To enable local sandboxing, enter `/sandbox enable` inside a session. To start a cloud-backed session instead, run `copilot --cloud`. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
+You can use sandboxing to restrict what {% data variables.product.prodname_copilot_short %} can access. Local sandboxing does not run the CLI itself in a sandbox; instead, the commands and tools that {% data variables.copilot.copilot_cli_short %} runs on your behalf are restricted, limiting their access to your filesystem, network, and system capabilities. To enable local sandboxing, enter `/sandbox enable` inside a session.
+
+Alternatively, with cloud sandboxing, the entire {% data variables.copilot.copilot_cli_short %} session runs remotely in an isolated environment. To start a {% data variables.copilot.copilot_cli_short %} session in the cloud, run `copilot ‑‑cloud`. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
 
 ### Toggle reasoning visibility
 
