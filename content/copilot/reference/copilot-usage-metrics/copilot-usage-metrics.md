@@ -120,12 +120,14 @@ Per-user reports contain one record per user for the reporting period. The 28-da
 | `used_agent` | `boolean` | No | Whether the user used agent mode in the IDE that day. Does not include {% data variables.copilot.copilot_code-review_short %} activity, which is captured separately in `used_copilot_code_review_active` and `used_copilot_code_review_passive`. |
 | `used_chat` | `boolean` | No | Whether the user used IDE chat that day. |
 | `used_cli` | `boolean` | No | Whether the user used {% data variables.copilot.copilot_cli_short %} that day. |
+| `used_copilot_app` | `boolean` | No | Whether the user used the {% data variables.copilot.github_copilot_app_short %} that day. |
 | `used_copilot_coding_agent` | `boolean` | No | Whether the user used {% data variables.copilot.copilot_cloud_agent %} (previously Copilot coding agent) that day. |
 | `used_copilot_cloud_agent` | `boolean` | No | Whether the user used {% data variables.copilot.copilot_cloud_agent %} that day. Carries the same value as `used_copilot_coding_agent`; both names are retained for backward compatibility. |
 | `used_copilot_code_review_active` | `boolean` | Yes | Whether the user actively engaged with {% data variables.copilot.copilot_code-review_short %} that day. A user is considered active if they manually requested a {% data variables.product.prodname_copilot_short %} review, or applied a {% data variables.product.prodname_copilot_short %} review suggestion. Null when there is no {% data variables.copilot.copilot_code-review_short %} signal for the user that day. |
 | `used_copilot_code_review_passive` | `boolean` | Yes | Whether the user had {% data variables.product.prodname_copilot_short %} automatically assigned to review their pull request that day, without actively engaging with the review. Null when there is no {% data variables.copilot.copilot_code-review_short %} signal for the user that day. |
 | `ai_adoption_phase` | `object` | No | The user's AI adoption phase for the day. Always present; defaults to the "No Cohort" phase. See [AI adoption phase fields](#ai-adoption-phase-fields). |
 | `totals_by_cli` | `object` | Yes | CLI-specific metrics for the user. Omitted when the user had no {% data variables.copilot.copilot_cli_short %} usage that day. See [{% data variables.copilot.copilot_cli_short %} metrics fields](#copilot-cli-metrics-fields). |
+| `totals_by_copilot_app` | `object` | Yes | {% data variables.copilot.github_copilot_app_short %} metrics for the user. Omitted when the user had no {% data variables.copilot.github_copilot_app_short %} usage that day. See [{% data variables.copilot.github_copilot_app_short %} metrics fields](#copilot-app-metrics-fields). |
 | `totals_by_ide` | `array` | No | Per-IDE breakdown of the user's activity. See [Activity breakdown objects](#activity-breakdown-objects). |
 | `totals_by_feature` | `array` | No | Per-feature breakdown of the user's activity. See [Activity breakdown objects](#activity-breakdown-objects). |
 | `totals_by_language_feature` | `array` | No | Breakdown combining language and feature dimensions. See [Activity breakdown objects](#activity-breakdown-objects). |
@@ -140,9 +142,9 @@ Active-user counts:
 
 | Field | Type | Nullable | Description |
 |:--|:--|:--|:--|
-| `daily_active_users` | `integer` | No | Number of unique users who used {% data variables.product.prodname_copilot_short %} on a given day. |
-| `weekly_active_users` | `integer` | No | Number of unique users who used {% data variables.product.prodname_copilot_short %} during a trailing seven-day window. |
-| `monthly_active_users` | `integer` | No | Number of unique users who used {% data variables.product.prodname_copilot_short %} during a trailing 28-day window. |
+| `daily_active_users` | `integer` | No | Number of unique users who used {% data variables.product.prodname_copilot_short %} on a given day, including users active only in the {% data variables.copilot.github_copilot_app_short %}. |
+| `weekly_active_users` | `integer` | No | Number of unique users who used {% data variables.product.prodname_copilot_short %} during a trailing seven-day window, including users active only in the {% data variables.copilot.github_copilot_app_short %}. |
+| `monthly_active_users` | `integer` | No | Number of unique users who used {% data variables.product.prodname_copilot_short %} during a trailing 28-day window, including users active only in the {% data variables.copilot.github_copilot_app_short %}. |
 | `monthly_active_chat_users` | `integer` | No | Number of unique users who used chat during a trailing 28-day window. |
 | `monthly_active_agent_users` | `integer` | No | Number of unique users who used agent mode during a trailing 28-day window. |
 | `daily_active_copilot_cloud_agent_users` | `integer` | No | Number of unique users who used {% data variables.copilot.copilot_cloud_agent %} on a given day. |
@@ -155,6 +157,7 @@ Active-user counts:
 | `weekly_passive_copilot_code_review_users` | `integer` | No | Number of unique users who had {% data variables.copilot.copilot_code-review_short %} automatically assigned to review their pull request during a trailing seven-day window, with no active engagement. |
 | `monthly_passive_copilot_code_review_users` | `integer` | No | Number of unique users who had {% data variables.copilot.copilot_code-review_short %} automatically assigned to review their pull request during a trailing 28-day window, with no active engagement. |
 | `daily_active_cli_users` | `integer` | Yes | Number of unique users who used {% data variables.copilot.copilot_cli_short %} on a given day. This count is **independent** of IDE active-user counts and is **not** included in IDE-based active-user definitions. Omitted for enterprises or organizations with no CLI usage that day. |
+| `daily_active_copilot_app_users` | `integer` | Yes | Number of unique users who used the {% data variables.copilot.github_copilot_app_short %} on a given day. Enterprise reports only. Null when the enterprise has no {% data variables.copilot.github_copilot_app_short %} activity that day. |
 
 Activity totals and breakdowns:
 
@@ -173,6 +176,7 @@ Activity totals and breakdowns:
 | `totals_by_language_model` | `array` | No | Aggregated language-and-model activity breakdown. See [Activity breakdown objects](#activity-breakdown-objects). |
 | `totals_by_model_feature` | `array` | No | Aggregated model-and-feature activity breakdown. See [Activity breakdown objects](#activity-breakdown-objects). |
 | `totals_by_cli` | `object` | Yes | Aggregated {% data variables.copilot.copilot_cli_short %} metrics for the day. Omitted when there is no CLI usage that day. Unlike the per-user form, it does not include `last_known_cli_version`. See [{% data variables.copilot.copilot_cli_short %} metrics fields](#copilot-cli-metrics-fields). |
+| `totals_by_copilot_app` | `object` | Yes | Aggregated {% data variables.copilot.github_copilot_app_short %} metrics for the day. Enterprise reports only. Null when the enterprise has no {% data variables.copilot.github_copilot_app_short %} activity that day. See [{% data variables.copilot.github_copilot_app_short %} metrics fields](#copilot-app-metrics-fields). |
 | `totals_by_ai_adoption_phase` | `array` | Yes | Per-phase aggregates of users and their average activity. Omitted when no adoption-phase data is available. See [AI adoption phase fields](#ai-adoption-phase-fields). |
 | `pull_requests` | `object` | No | Daily pull request activity for the enterprise or organization. See [Pull request activity fields](#pull-request-activity-fields). |
 
@@ -259,6 +263,19 @@ The `totals_by_cli` object contains the following nested fields when {% data var
 | `totals_by_cli.last_known_cli_version` | `object` | No | Most recent {% data variables.copilot.copilot_cli_short %} version detected for the user that day, as `{ cli_version, sampled_at }`. Per-user reports only. |
 | `totals_by_cli.last_known_cli_version.cli_version` | `string` | No | {% data variables.copilot.copilot_cli_short %} version string. Defaults to `unknown` if no version was detected. |
 | `totals_by_cli.last_known_cli_version.sampled_at` | `string` | Yes | Timestamp (ISO 8601) when the version was sampled. |
+
+### {% data variables.copilot.github_copilot_app_short %} metrics fields
+
+The `totals_by_copilot_app` object contains the following nested fields when {% data variables.copilot.github_copilot_app_short %} usage is present. It appears in per-user reports and in aggregated enterprise reports; it is omitted or null when the user or enterprise had no {% data variables.copilot.github_copilot_app_short %} activity that day. Unlike `totals_by_cli`, {% data variables.copilot.github_copilot_app_short %} coding activity is also reflected in `totals_by_feature`, `totals_by_model_feature`, `totals_by_language_feature`, and `totals_by_language_model` under the `copilot_app` feature value, and in the top-level code activity and lines-of-code metrics. There is no `last_known_app_version` field.
+
+| Field | Type | Nullable | Description |
+|:--|:--|:--|:--|
+| `totals_by_copilot_app.session_count` | `integer` | No | Number of distinct {% data variables.copilot.github_copilot_app_short %} sessions initiated on this day. |
+| `totals_by_copilot_app.request_count` | `integer` | No | Total number of requests made to {% data variables.product.prodname_copilot_short %} via the {% data variables.copilot.github_copilot_app_short %} on this day, including both user-initiated prompts and automated agentic follow-up calls. |
+| `totals_by_copilot_app.prompt_count` | `integer` | No | Total number of user prompts, commands, or queries executed within a session. |
+| `totals_by_copilot_app.token_usage.output_tokens_sum` | `integer` | No | Total output tokens generated across all {% data variables.copilot.github_copilot_app_short %} requests on this day. |
+| `totals_by_copilot_app.token_usage.prompt_tokens_sum` | `integer` | No | Total prompt tokens sent across all {% data variables.copilot.github_copilot_app_short %} requests on this day. |
+| `totals_by_copilot_app.token_usage.avg_tokens_per_request` | `number` | Yes | Average of output and prompt tokens per {% data variables.copilot.github_copilot_app_short %} request, computed as `(output_tokens_sum + prompt_tokens_sum) ÷ request_count`. Null when there were no requests that day. |
 
 ### Pull request activity fields
 
@@ -348,6 +365,7 @@ The `feature` dimension identifies the {% data variables.product.prodname_copilo
 | `chat_panel_unknown_mode` | Chat panel interactions where the mode is unknown. |
 | `agent_edit` | Lines added and deleted when {% data variables.product.prodname_copilot_short %} (in agent and edit mode) writes changes directly into your files in the IDE. Counts edits from custom agents as well. `agent_edit` is not included in suggestion-based metrics and may not populate suggestion-style fields, such as `user_initiated_interaction_count`. |
 | `copilot_cli` | Activity attributed to {% data variables.copilot.copilot_cli_short %}. |
+| `copilot_app` | Activity attributed to the {% data variables.product.prodname_copilot_short %} app. |
 | `others` | Any feature not covered by the values above. |
 
 The `ide` dimension identifies the IDE an activity occurred in. This is not an exhaustive list, but examples of observed values include `vscode`, `visualstudio`, `intellij`, `eclipse`, `xcode`, `neovim`, `vim`, `emacs`, and `zed`.

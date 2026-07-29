@@ -97,6 +97,7 @@ copilot_vsc_chat_participants: 'Copilot-enabled VS Code chat participants'
 
 ## GitHub Copilot app
 github_copilot_app: 'GitHub Copilot app'
+github_copilot_app_short: 'Copilot app'
 
 ## Copilot CLI
 copilot_cli_short: 'Copilot CLI'
