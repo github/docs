@@ -7,7 +7,7 @@ shortTitle: Teams
 redirect_from:
   - /admin/overview/about-teams
   - /enterprise-onboarding/setting-up-organizations-and-teams/managing-organization-members
-  - /enterprise-onboarding/setting-up-organizations-and-teams/about-teams-in-an-enterprise  
+  - /enterprise-onboarding/setting-up-organizations-and-teams/about-teams-in-an-enterprise
 contentType: concepts
 category:
   - Get started with GitHub Enterprise
@@ -52,11 +52,13 @@ To simplify administration at scale, {% data variables.product.company_short %} 
 
 You may need to create organization teams if the functionality you need is not covered by enterprise teams. The limitations listed below reflect the current capabilities of enterprise teams and may change over time.
 
+## What can enterprise teams do?
+
 {% data reusables.enterprise.enterprise-teams-can %}
 
 {%- ifversion enterprise-teams-ga %}
 
-To @-mention an enterprise team, or request a review from the team, use the team's slug in the format `@/ent:TEAM-SLUG`. {% data variables.product.github %} generates the slug from the team's name and adds the `ent:` prefix, so an enterprise team named `Platform SRE` has the slug `ent:platform-sre`. 
+To @-mention an enterprise team, or request a review from the team, use the team's slug in the format `@/ent:TEAM-SLUG`. {% data variables.product.github %} generates the slug from the team's name and adds the `ent:` prefix, so an enterprise team named `Platform SRE` has the slug `ent:platform-sre`.
 
 To mention the team from an organization it is assigned to, such as `octo-org`, use `@octo-org/ent:platform-sre`. You can mention an enterprise team from any organization the team is assigned to.
 

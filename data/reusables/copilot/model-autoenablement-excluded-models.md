@@ -5,7 +5,7 @@ New and existing unconfigured models will follow the default set in the policy. 
 <!-- end expires 2026-08-26 -->
 
 * At the enterprise level, models that have not been added to the models list on the models configuration page.
-* At the organization level, models that have been made "optional" by an enterprise administrator, and that an organization owner has not explicitly enabled or disabled.
+* At the organization level, models that have been made "optional" by an enterprise administrator, and that an organization owner has not explicitly enabled or disabled. (**Does not apply** if you are opted in to the enterprise teams model access preview.)
 
 When a new model is released, it is unconfigured by default.
 
