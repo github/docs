@@ -15288,6 +15288,1063 @@
     {
       "serverUrl": "https://api.github.com",
       "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge-async",
+      "title": "Merge a pull request asynchronously",
+      "category": "pulls",
+      "subcategory": "pulls",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "pull_number",
+          "description": "<p>The number that identifies the pull request.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "commit_title",
+          "description": "<p>Title for the automatic commit message.</p>"
+        },
+        {
+          "type": "string",
+          "name": "commit_message",
+          "description": "<p>Extra detail to append to automatic commit message.</p>"
+        },
+        {
+          "type": "string",
+          "name": "sha",
+          "description": "<p>SHA that pull request head must match to allow merge. If not provided, the current head of the PR at the time of the request will be used; if the PR is pushed in between the merge being requested and being executed, the merge will be cancelled.</p>"
+        },
+        {
+          "type": "string",
+          "name": "merge_method",
+          "description": "<p>The merge method to use.</p>",
+          "enum": [
+            "merge",
+            "squash",
+            "rebase"
+          ]
+        },
+        {
+          "type": "string",
+          "name": "merge_action",
+          "description": "<p>The action that will be taken to merge the pull request. <code>direct_merge</code> merges the pull request directly without using a merge queue; <code>merge_queue</code> adds the pull request to a merge queue; <code>default</code> selects the most appropriate option.</p>",
+          "enum": [
+            "default",
+            "direct_merge",
+            "merge_queue"
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Merges a pull request into the base branch in the background. Merging in this way allows certain types of errors to be retried, and avoids the risk of timeouts for particularly complex merges.</p>\n<p>This is the required method for merging stacked PRs, but also supports unstacked PRs. When using this endpoint to merge a stacked pull request, all pull requests in the stack up to and including the requested PR will be merged into the base branch.</p>\n<p>The response includes a UUID that can be used to fetch the result of the merge. If another asynchronous merge request has already been made for this pull request, the UUID of that request will be returned instead with a 409 response status to indicate that the merge options may be different from those that were requested. If there isn't an existing asynchronous merge request, a 202 response status is used.</p>\n<p>If the pull request is already merged, the merge commit OID will be returned immediately with a 200 status.</p>\n<p>If the pull request cannot be merged (e.g. because it is closed, or still a draft) this result will be returned immediately with a 400 response status. Branch protection rules and repository rules are not run at this stage, only basic pull request state checks are performed.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example 1: Status Code 200",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "commit_title": "Fix race condition",
+              "commit_message": "Avoids a race by trying to read the file and handling the exception if it does not exist.",
+              "sha": "6358cd125586d9def8c3e5943f23506202da81cc",
+              "merge_method": "squash",
+              "merge_action": "default"
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "pull_number": "PULL_NUMBER"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Already merged</p>",
+            "example": {
+              "status": "merged",
+              "details": {
+                "message": "Pull request is already merged.",
+                "sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e"
+              }
+            },
+            "schema": {
+              "title": "Pull Request Merge Async Result",
+              "description": "Pull Request Merge Async Result",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "pending",
+                    "merged",
+                    "enqueued",
+                    "failed"
+                  ]
+                },
+                "details": {
+                  "oneOf": [
+                    {
+                      "description": "When an asynchronous merge request was created or already existed",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        },
+                        "uuid": {
+                          "type": "string"
+                        },
+                        "merge_method": {
+                          "type": "string",
+                          "enum": [
+                            "default",
+                            "merge",
+                            "squash",
+                            "rebase"
+                          ]
+                        },
+                        "merge_action": {
+                          "type": "string",
+                          "enum": [
+                            "default",
+                            "merge_queue",
+                            "direct_merge"
+                          ]
+                        },
+                        "expected_head_sha": {
+                          "type": "string",
+                          "description": "SHA that the pull request head must match for the enqueued merge to proceed."
+                        }
+                      },
+                      "required": [
+                        "message",
+                        "uuid",
+                        "merge_method",
+                        "merge_action",
+                        "expected_head_sha"
+                      ]
+                    },
+                    {
+                      "description": "When the pull request cannot be merged",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    {
+                      "description": "When the pull request is already merged",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        },
+                        "sha": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message",
+                        "sha"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "status",
+                "details"
+              ]
+            }
+          }
+        },
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example 2: Status Code 200",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "commit_title": "Fix race condition",
+              "commit_message": "Avoids a race by trying to read the file and handling the exception if it does not exist.",
+              "sha": "6358cd125586d9def8c3e5943f23506202da81cc",
+              "merge_method": "squash",
+              "merge_action": "default"
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "pull_number": "PULL_NUMBER"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Already enqueued</p>",
+            "example": {
+              "status": "enqueued",
+              "details": {
+                "message": "Pull request is already in the merge queue."
+              }
+            },
+            "schema": {
+              "title": "Pull Request Merge Async Result",
+              "description": "Pull Request Merge Async Result",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "pending",
+                    "merged",
+                    "enqueued",
+                    "failed"
+                  ]
+                },
+                "details": {
+                  "oneOf": [
+                    {
+                      "description": "When an asynchronous merge request was created or already existed",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        },
+                        "uuid": {
+                          "type": "string"
+                        },
+                        "merge_method": {
+                          "type": "string",
+                          "enum": [
+                            "default",
+                            "merge",
+                            "squash",
+                            "rebase"
+                          ]
+                        },
+                        "merge_action": {
+                          "type": "string",
+                          "enum": [
+                            "default",
+                            "merge_queue",
+                            "direct_merge"
+                          ]
+                        },
+                        "expected_head_sha": {
+                          "type": "string",
+                          "description": "SHA that the pull request head must match for the enqueued merge to proceed."
+                        }
+                      },
+                      "required": [
+                        "message",
+                        "uuid",
+                        "merge_method",
+                        "merge_action",
+                        "expected_head_sha"
+                      ]
+                    },
+                    {
+                      "description": "When the pull request cannot be merged",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    {
+                      "description": "When the pull request is already merged",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        },
+                        "sha": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message",
+                        "sha"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "status",
+                "details"
+              ]
+            }
+          }
+        },
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example 3: Status Code 202",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "commit_title": "Fix race condition",
+              "commit_message": "Avoids a race by trying to read the file and handling the exception if it does not exist.",
+              "sha": "6358cd125586d9def8c3e5943f23506202da81cc",
+              "merge_method": "squash",
+              "merge_action": "default"
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "pull_number": "PULL_NUMBER"
+            }
+          },
+          "response": {
+            "statusCode": "202",
+            "contentType": "application/json",
+            "description": "<p>Request accepted</p>",
+            "example": {
+              "status": "pending",
+              "details": {
+                "message": "Merge request enqueued.",
+                "uuid": "630b9d5e-3f2a-4f7e-8b0c-2d5f9a8c1e42",
+                "merge_method": "merge",
+                "merge_action": "default",
+                "expected_head_sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e"
+              }
+            },
+            "schema": {
+              "title": "Pull Request Merge Async Result",
+              "description": "Pull Request Merge Async Result",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "pending",
+                    "merged",
+                    "enqueued",
+                    "failed"
+                  ]
+                },
+                "details": {
+                  "oneOf": [
+                    {
+                      "description": "When an asynchronous merge request was created or already existed",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        },
+                        "uuid": {
+                          "type": "string"
+                        },
+                        "merge_method": {
+                          "type": "string",
+                          "enum": [
+                            "default",
+                            "merge",
+                            "squash",
+                            "rebase"
+                          ]
+                        },
+                        "merge_action": {
+                          "type": "string",
+                          "enum": [
+                            "default",
+                            "merge_queue",
+                            "direct_merge"
+                          ]
+                        },
+                        "expected_head_sha": {
+                          "type": "string",
+                          "description": "SHA that the pull request head must match for the enqueued merge to proceed."
+                        }
+                      },
+                      "required": [
+                        "message",
+                        "uuid",
+                        "merge_method",
+                        "merge_action",
+                        "expected_head_sha"
+                      ]
+                    },
+                    {
+                      "description": "When the pull request cannot be merged",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    {
+                      "description": "When the pull request is already merged",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        },
+                        "sha": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message",
+                        "sha"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "status",
+                "details"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>if the pull request was already merged, or is already in a merge queue</p>"
+        },
+        {
+          "httpStatusCode": "202",
+          "description": "<p>if the merge request was accepted and will run in the background</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>if the pull request is not ready to be merged, e.g. because it is closed</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>if there is an existing merge request already enqueued for this pull request</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Contents\" repository permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge-async/{uuid}",
+      "title": "Get the result of an asynchronous merge",
+      "category": "pulls",
+      "subcategory": "pulls",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "pull_number",
+          "description": "<p>The number that identifies the pull request.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "uuid",
+          "description": "<p>The UUID of the asynchronous merge request, as returned when the merge was requested.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Fetches the current result of an asynchronous merge request, identified by the UUID that was returned when the merge was requested.</p>\n<p>While the merge is still queued, the response includes the UUID, merge method, and expected head SHA of the request. Once the merge has completed, the response reports whether it was merged, including the merge commit OID on success or a message describing why it could not be merged on failure.</p>\n<p>The result of an asynchronous merge request is retained for 24 hours after its most recent update. After this window the request expires and this endpoint returns a <code>404</code> response for its UUID.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example 1: Status Code 200",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "pull_number": "PULL_NUMBER",
+              "uuid": "UUID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Still queued</p>",
+            "example": {
+              "status": "pending",
+              "details": {
+                "message": "Merge request is in progress.",
+                "uuid": "630b9d5e-3f2a-4f7e-8b0c-2d5f9a8c1e42",
+                "merge_method": "merge",
+                "merge_action": "default",
+                "expected_head_sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e"
+              }
+            },
+            "schema": {
+              "title": "Pull Request Merge Async Result",
+              "description": "Pull Request Merge Async Result",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "pending",
+                    "merged",
+                    "enqueued",
+                    "failed"
+                  ]
+                },
+                "details": {
+                  "oneOf": [
+                    {
+                      "description": "When an asynchronous merge request was created or already existed",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        },
+                        "uuid": {
+                          "type": "string"
+                        },
+                        "merge_method": {
+                          "type": "string",
+                          "enum": [
+                            "default",
+                            "merge",
+                            "squash",
+                            "rebase"
+                          ]
+                        },
+                        "merge_action": {
+                          "type": "string",
+                          "enum": [
+                            "default",
+                            "merge_queue",
+                            "direct_merge"
+                          ]
+                        },
+                        "expected_head_sha": {
+                          "type": "string",
+                          "description": "SHA that the pull request head must match for the enqueued merge to proceed."
+                        }
+                      },
+                      "required": [
+                        "message",
+                        "uuid",
+                        "merge_method",
+                        "merge_action",
+                        "expected_head_sha"
+                      ]
+                    },
+                    {
+                      "description": "When the pull request cannot be merged",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    {
+                      "description": "When the pull request is already merged",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        },
+                        "sha": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message",
+                        "sha"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "status",
+                "details"
+              ]
+            }
+          }
+        },
+        {
+          "request": {
+            "description": "Example 2: Status Code 200",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "pull_number": "PULL_NUMBER",
+              "uuid": "UUID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Enqueued in the merge queue</p>",
+            "example": {
+              "status": "enqueued",
+              "details": {
+                "message": "Pull request is in the merge queue."
+              }
+            },
+            "schema": {
+              "title": "Pull Request Merge Async Result",
+              "description": "Pull Request Merge Async Result",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "pending",
+                    "merged",
+                    "enqueued",
+                    "failed"
+                  ]
+                },
+                "details": {
+                  "oneOf": [
+                    {
+                      "description": "When an asynchronous merge request was created or already existed",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        },
+                        "uuid": {
+                          "type": "string"
+                        },
+                        "merge_method": {
+                          "type": "string",
+                          "enum": [
+                            "default",
+                            "merge",
+                            "squash",
+                            "rebase"
+                          ]
+                        },
+                        "merge_action": {
+                          "type": "string",
+                          "enum": [
+                            "default",
+                            "merge_queue",
+                            "direct_merge"
+                          ]
+                        },
+                        "expected_head_sha": {
+                          "type": "string",
+                          "description": "SHA that the pull request head must match for the enqueued merge to proceed."
+                        }
+                      },
+                      "required": [
+                        "message",
+                        "uuid",
+                        "merge_method",
+                        "merge_action",
+                        "expected_head_sha"
+                      ]
+                    },
+                    {
+                      "description": "When the pull request cannot be merged",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    {
+                      "description": "When the pull request is already merged",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        },
+                        "sha": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message",
+                        "sha"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "status",
+                "details"
+              ]
+            }
+          }
+        },
+        {
+          "request": {
+            "description": "Example 3: Status Code 200",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "pull_number": "PULL_NUMBER",
+              "uuid": "UUID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Merge succeeded</p>",
+            "example": {
+              "status": "merged",
+              "details": {
+                "message": "Pull request was merged.",
+                "sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e"
+              }
+            },
+            "schema": {
+              "title": "Pull Request Merge Async Result",
+              "description": "Pull Request Merge Async Result",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "pending",
+                    "merged",
+                    "enqueued",
+                    "failed"
+                  ]
+                },
+                "details": {
+                  "oneOf": [
+                    {
+                      "description": "When an asynchronous merge request was created or already existed",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        },
+                        "uuid": {
+                          "type": "string"
+                        },
+                        "merge_method": {
+                          "type": "string",
+                          "enum": [
+                            "default",
+                            "merge",
+                            "squash",
+                            "rebase"
+                          ]
+                        },
+                        "merge_action": {
+                          "type": "string",
+                          "enum": [
+                            "default",
+                            "merge_queue",
+                            "direct_merge"
+                          ]
+                        },
+                        "expected_head_sha": {
+                          "type": "string",
+                          "description": "SHA that the pull request head must match for the enqueued merge to proceed."
+                        }
+                      },
+                      "required": [
+                        "message",
+                        "uuid",
+                        "merge_method",
+                        "merge_action",
+                        "expected_head_sha"
+                      ]
+                    },
+                    {
+                      "description": "When the pull request cannot be merged",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    {
+                      "description": "When the pull request is already merged",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        },
+                        "sha": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message",
+                        "sha"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "status",
+                "details"
+              ]
+            }
+          }
+        },
+        {
+          "request": {
+            "description": "Example 4: Status Code 200",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "pull_number": "PULL_NUMBER",
+              "uuid": "UUID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Merge failed</p>",
+            "example": {
+              "status": "failed",
+              "details": {
+                "message": "Merge conflict: the pull request could not be merged."
+              }
+            },
+            "schema": {
+              "title": "Pull Request Merge Async Result",
+              "description": "Pull Request Merge Async Result",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "pending",
+                    "merged",
+                    "enqueued",
+                    "failed"
+                  ]
+                },
+                "details": {
+                  "oneOf": [
+                    {
+                      "description": "When an asynchronous merge request was created or already existed",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        },
+                        "uuid": {
+                          "type": "string"
+                        },
+                        "merge_method": {
+                          "type": "string",
+                          "enum": [
+                            "default",
+                            "merge",
+                            "squash",
+                            "rebase"
+                          ]
+                        },
+                        "merge_action": {
+                          "type": "string",
+                          "enum": [
+                            "default",
+                            "merge_queue",
+                            "direct_merge"
+                          ]
+                        },
+                        "expected_head_sha": {
+                          "type": "string",
+                          "description": "SHA that the pull request head must match for the enqueued merge to proceed."
+                        }
+                      },
+                      "required": [
+                        "message",
+                        "uuid",
+                        "merge_method",
+                        "merge_action",
+                        "expected_head_sha"
+                      ]
+                    },
+                    {
+                      "description": "When the pull request cannot be merged",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    {
+                      "description": "When the pull request is already merged",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        },
+                        "sha": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message",
+                        "sha"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "status",
+                "details"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>the current result of the asynchronous merge request</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Contents\" repository permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "put",
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/update-branch",
       "title": "Update a pull request branch",
       "category": "pulls",
