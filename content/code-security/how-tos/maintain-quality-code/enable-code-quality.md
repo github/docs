@@ -19,7 +19,7 @@ You can enable {% data variables.product.prodname_code_quality_short %} for a si
 
 ## Prerequisites
 
-* An enterprise owner must have allowed {% data variables.product.prodname_code_quality_short %} in your enterprise. See [AUTOTITLE](/code-security/code-quality/how-tos/allow-in-enterprise).
+* An enterprise owner must have allowed {% data variables.product.prodname_code_quality_short %} in your enterprise. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/allow-github-code-quality-in-enterprise).
 * {% data variables.product.prodname_actions %} must be enabled because {% data variables.product.prodname_code_quality_short %} uses actions to run each {% data variables.product.prodname_codeql %} analysis.
 * To get the full benefit of the feature, your repository should include one of the languages supported for quality analysis by {% data variables.product.prodname_codeql %}. See [Supported languages](/code-security/concepts/code-quality/code-quality#supported-languages).
 
@@ -36,7 +36,7 @@ You can enable {% data variables.product.prodname_code_quality_short %} for a si
 
 1. Click **Save changes** to save your configuration for {% data variables.product.prodname_code_quality_short %}.
 
-If your organization has configured caching of private registries, these will be available for code quality analysis to use to resolve dependencies. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries#code-quality-access-to-private-registries).
+If your organization has configured caching of private registries, these will be available for code quality analysis to use to resolve dependencies. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries#code-quality-access-to-private-registries).
 
 ## Enabling {% data variables.product.prodname_code_quality_short %} for your organization
 

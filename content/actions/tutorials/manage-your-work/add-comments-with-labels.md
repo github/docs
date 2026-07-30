@@ -68,7 +68,7 @@ Every time an issue in your repository is labeled, this workflow will run. If th
 Test your workflow by applying your specified label to an issue.
 
 1. Open an issue in your repository. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/creating-an-issue).
-1. Label the issue with the specified label in your workflow file. For more information, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#applying-labels-to-issues-and-pull-requests).
+1. Label the issue with the specified label in your workflow file. For more information, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#applying-a-label).
 1. To see the workflow run triggered by labeling the issue, view the history of your workflow runs. For more information, see [AUTOTITLE](/actions/how-tos/monitor-workflows/view-workflow-run-history).
 1. When the workflow completes, the issue that you labeled should have a comment added.
 

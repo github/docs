@@ -59,7 +59,7 @@ If you are using an environment variable, check whether the `COPILOT_GITHUB_TOKE
  echo $COPILOT_GITHUB_TOKEN
  ```
   
-If the command prints nothing, the variable is not set. Set the variable to a valid token. To generate a token, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli#authenticate-with-a-personal-access-token-pat).
+If the command prints nothing, the variable is not set. Set the variable to a valid token. To generate a token, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli#authenticating-with-environment-variables).
   
 ```bash copy
  export $COPILOT_GITHUB_TOKEN=PERSONAL_ACCESS_TOKEN

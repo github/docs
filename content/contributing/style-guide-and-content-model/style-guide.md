@@ -501,7 +501,7 @@ Use alt text to express the core idea of the image, without duplicating the webp
 
 > Diagram showing a five-step process by which a {% data variables.product.prodname_actions %} runner can be automatically added to named classes of runners and then requested by specific jobs.
 
-For example, see [accompanying explanation of this diagram in the Actions documentation](/free-pro-team@latest/actions/concepts/runners/larger-runners#architectural-overview-of-larger-runners).
+For example, see [accompanying explanation of this diagram in the Actions documentation](/free-pro-team@latest/actions/concepts/runners/larger-runners).
 
 #### Alt text for images of command-line interfaces
 
@@ -938,7 +938,7 @@ steps:
 ```
 
 Examples:
-* See the code block in [Publishing to package registries](/actions/tutorials/build-and-test-code/python#publishing-to-package-registries)
+* See the code block in [Publishing to PyPI](/actions/tutorials/build-and-test-code/python#publishing-to-pypi)
 
 #### Pinning version numbers to SHA
 
@@ -1202,7 +1202,7 @@ A release note for a retired feature answers the following questions.
 
 #### Examples of release notes for retired features
 
-* > **Retired:** {% data variables.product.github %} no longer supports required workflows for {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %} 3.11 and later. Use repository rulesets instead. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging).
+* > **Retired:** {% data variables.product.github %} no longer supports required workflows for {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %} 3.11 and later. Use repository rulesets instead. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets).
 
 ### Errata
 
@@ -1249,7 +1249,7 @@ Use reusable strings for individual nouns (e.g. product names) or for complete s
 
 If a section of an article uses `H3` or `H4` headers to further divide the content and only some of the content is relevant to a reader, you can use a sectional table of contents (TOC) to help readers identify and navigate to the information that is most relevant to them. For example, in [AUTOTITLE](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#setting-up-streaming-to-amazon-s3) people will probably only set up audit log streaming for one provider, so the sectional TOC in "Setting up audit log streaming" allows people to select their provider and navigate to the relevant content without reading the entire section.
 
-Do not add a sectional TOC if `H3` or `H4` headers are used only to group content and all information could be of relevance to a reader. For example, in [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/identity-and-access-management/identity-and-access-management-fundamentals#identifying-the-best-authentication-method-for-your-enterprise), people should read and consider each section as it relates to their enterprise. We do not include a sectional TOC in this article because people should be reading through each section, not picking and choosing between them. Adding a sectional TOC would also force people who use screenreaders or other adaptive technology to tab and scroll through more headers before finding what they need.
+Do not add a sectional TOC if `H3` or `H4` headers are used only to group content and all information could be of relevance to a reader. For example, in [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/identity-and-access-management/identity-and-access-management-fundamentals#which-authentication-method-are-available-to-me), people should read and consider each section as it relates to their enterprise. We do not include a sectional TOC in this article because people should be reading through each section, not picking and choosing between them. Adding a sectional TOC would also force people who use screenreaders or other adaptive technology to tab and scroll through more headers before finding what they need.
 
 Format sectional TOCs as a list. Include all subsections in the order that they appear in the article and refer to them using the full header title.
 
@@ -1307,7 +1307,7 @@ Tables work best for presenting tabular data, such as information that needs to 
 
 A table’s data and why it is important should be clear from any preceding content, the column headers, and (if needed) the row headers. Avoid unneeded descriptions of the data in a table. If the data in a table is unclear without a lengthy description, consider if your table needs row headers or if the information would be better communicated in a different way.
 
-For example, in [AUTOTITLE](/actions/reference/runners/self-hosted-runners#recommended-autoscaling-solutions), a table comparing the features between two supported autoscaling solutions is introduced with the sentence `Each solution has certain specifics that may be important to consider.` The article does not describe any of the different features that are compared because that information is clearly communicated by the table.
+For example, in [AUTOTITLE](/actions/reference/runners/self-hosted-runners), a table comparing the features between two supported autoscaling solutions is introduced with the sentence `Each solution has certain specifics that may be important to consider.` The article does not describe any of the different features that are compared because that information is clearly communicated by the table.
 
 * **Use:** "Different size limits per repository apply depending on your GHES version."
 * **Avoid:** "The first row of the table shows the information for GitHub Enterprise Cloud. The second row shows the information for GitHub Enterprise Server."

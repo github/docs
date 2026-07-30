@@ -41,7 +41,7 @@ When you create an enterprise on {% data variables.product.github %}, you can de
 
 ### Authentication through {% data variables.location.product_location %}
 
-With authentication solely through {% data variables.location.product_location %}, each person you want to grant access to your enterprise must create and manage a personal account on {% data variables.location.product_location %}. After you grant access to your enterprise, the member can access your enterprise's resources after signing into the account on {% data variables.location.product_location %}. The member manages the account, and can contribute to other enterprises, organizations, and repositories on {% data variables.location.product_location %}. For more information about personal accounts, see [AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github).
+With authentication solely through {% data variables.location.product_location %}, each person you want to grant access to your enterprise must create and manage a personal account on {% data variables.location.product_location %}. After you grant access to your enterprise, the member can access your enterprise's resources after signing into the account on {% data variables.location.product_location %}. The member manages the account, and can contribute to other enterprises, organizations, and repositories on {% data variables.location.product_location %}. For more information about personal accounts, see [AUTOTITLE](/account-and-profile/how-tos/account-management/creating-an-account-on-github).
 
 ### Authentication through {% data variables.location.product_location %} with additional SAML access restriction
 

@@ -183,7 +183,7 @@ The `github` context contains information about the workflow run and the event t
 | `github.api_url` | `string` | The URL of the {% data variables.product.prodname_dotcom %} REST API. |
 | `github.base_ref` | `string` | The `base_ref` or target branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. |
 | `github.env` | `string` | Path on the runner to the file that sets environment variables from workflow commands. This file is unique to the current step and is a different file for each step in a job. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-commands#setting-an-environment-variable). |
-| `github.event` | `object` | The full event webhook payload. You can access individual properties of the event using this context. This object is identical to the webhook payload of the event that triggered the workflow run, and is different for each event. The webhooks for each {% data variables.product.prodname_actions %} event is linked in [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows). For example, for a workflow run triggered by the [`push` event](/actions/reference/workflows-and-actions/events-that-trigger-workflows#push), this object contains the contents of the [push webhook payload](/webhooks/webhook-events-and-payloads#push). |
+| `github.event` | `object` | The full event webhook payload. You can access individual properties of the event using this context. This object is identical to the webhook payload of the event that triggered the workflow run, and is different for each event. The webhooks for each {% data variables.product.prodname_actions %} event is linked in [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#workflow_call). For example, for a workflow run triggered by the [`push` event](/actions/reference/workflows-and-actions/events-that-trigger-workflows#push), this object contains the contents of the [push webhook payload](/webhooks/webhook-events-and-payloads#push). |
 | `github.event_name` | `string` | The name of the event that triggered the workflow run. |
 | `github.event_path` | `string` | The path to the file on the runner that contains the full event webhook payload. |
 | `github.graphql_url` | `string` | The URL of the {% data variables.product.prodname_dotcom %} GraphQL API. |
@@ -339,7 +339,7 @@ jobs:
 
 ## `vars` context
 
-The `vars` context contains custom configuration variables set at the organization, repository, and environment levels. For more information about defining configuration variables for use in multiple workflows, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables#defining-variables-for-multiple-workflows).
+The `vars` context contains custom configuration variables set at the organization, repository, and environment levels. For more information about defining configuration variables for use in multiple workflows, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables#defining-configuration-variables-for-multiple-workflows).
 
 ### Example contents of the `vars` context
 
@@ -823,7 +823,7 @@ jobs:
 
 ## `inputs` context
 
-The `inputs` context contains input properties passed to an action, to a reusable workflow, or to a manually triggered workflow. For reusable workflows, the input names and types are defined in the [`workflow_call` event configuration](/actions/reference/workflows-and-actions/events-that-trigger-workflows#workflow-reuse-events) of a reusable workflow, and the input values are passed from [`jobs.<job_id>.with`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idwith) in an external workflow that calls the reusable workflow. For manually triggered workflows, the inputs are defined in the [`workflow_dispatch` event configuration](/actions/reference/workflows-and-actions/events-that-trigger-workflows#workflow_dispatch) of a workflow.
+The `inputs` context contains input properties passed to an action, to a reusable workflow, or to a manually triggered workflow. For reusable workflows, the input names and types are defined in the [`workflow_call` event configuration](/actions/reference/workflows-and-actions/events-that-trigger-workflows) of a reusable workflow, and the input values are passed from [`jobs.<job_id>.with`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idwith) in an external workflow that calls the reusable workflow. For manually triggered workflows, the inputs are defined in the [`workflow_dispatch` event configuration](/actions/reference/workflows-and-actions/events-that-trigger-workflows#workflow_dispatch) of a workflow.
 
 The properties in the `inputs` context are defined in the workflow file. They are only available in a [reusable workflow](/actions/how-tos/reuse-automations/reuse-workflows) or in a workflow triggered by the [`workflow_dispatch` event](/actions/reference/workflows-and-actions/events-that-trigger-workflows#workflow_dispatch)
 

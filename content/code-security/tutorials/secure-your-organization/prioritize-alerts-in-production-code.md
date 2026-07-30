@@ -33,7 +33,7 @@ For more information on updating records, see [AUTOTITLE](/code-security/how-tos
 
 Production context filters are made available in the **{% data variables.product.prodname_security_and_quality_tab %}** tab.
 
-* **{% data variables.product.prodname_dependabot %} view**: See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/view-dependabot-alerts#viewing-dependabot-alerts).
+* **{% data variables.product.prodname_dependabot %} view**: See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/view-dependabot-alerts#viewing-and-prioritizing-dependabot-alerts).
 * **{% data variables.product.prodname_code_scanning_caps %} view**: See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/assess-alerts).
 * **Security campaign view**: See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/creating-managing-security-campaigns).
 

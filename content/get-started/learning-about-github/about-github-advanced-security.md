@@ -130,7 +130,7 @@ If you are on a {% data variables.product.prodname_team %} or {% data variables.
 
 ## Managing {% data variables.product.prodname_GHAS %}
 
-Enterprise owners can manage {% data variables.product.prodname_GHAS %} licensing and access for their enterprise, including disabling {% data variables.product.prodname_GHAS %} across all repositories and preventing future re-enablement. See [AUTOTITLE](/billing/how-tos/products/manage-ghas-licenses#disabling-github-advanced-security-across-your-enterprise).
+Enterprise owners can manage {% data variables.product.prodname_GHAS %} licensing and access for their enterprise, including disabling {% data variables.product.prodname_GHAS %} across all repositories and preventing future re-enablement. See [AUTOTITLE](/billing/how-tos/products/manage-ghas-licenses#disabling-github-advanced-security-in-an-enterprise).
 
 For information about managing your {% data variables.product.prodname_GHAS %} license, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/managing-your-github-advanced-security-license-usage).
 

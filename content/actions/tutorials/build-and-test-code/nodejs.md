@@ -146,7 +146,7 @@ jobs:
 ```
 
 If you don't specify a Node.js version, {% data variables.product.prodname_dotcom %} uses the environment's default Node.js version.
-For more information, see [AUTOTITLE](/actions/concepts/runners/github-hosted-runners#supported-software).
+For more information, see [AUTOTITLE](/actions/concepts/runners/github-hosted-runners#preinstalled-software-for-github-owned-images).
 
 ## Installing dependencies
 

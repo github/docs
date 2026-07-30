@@ -100,7 +100,7 @@ If your organization has disabled {% data variables.product.prodname_dotcom %}-h
 
 For more information on configuring runners, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-runners).
 
-You can view the {% data variables.product.prodname_actions %} minutes associated with {% data variables.copilot.copilot_code-review_short %} runs. For more information, see [{% data variables.product.prodname_actions %} minutes for code review](/copilot/reference/copilot-billing/models-and-pricing#github-actions-minutes-for-code-review).
+You can view the {% data variables.product.prodname_actions %} minutes associated with {% data variables.copilot.copilot_code-review_short %} runs. For more information, see [{% data variables.product.prodname_actions %} minutes for code review](/copilot/reference/copilot-billing/models-and-pricing#pricing-and-usage-cost-considerations-for-copilot-code-review).
 
 ## Review effort level
 
@@ -149,8 +149,6 @@ When {% data variables.copilot.copilot_code-review_short %} is enabled for these
 {% data reusables.copilot.ccr-model-settings %}
 
 ## MCP servers and agent skills for code review
-
-{% data reusables.copilot.code-review.skills-and-mcp-preview-note %}
 
 {% data variables.copilot.copilot_code-review_short %} can use repository-level agent skills and MCP servers when they are relevant to the review.
 

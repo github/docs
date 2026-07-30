@@ -28,7 +28,7 @@ You can see analysis and diagnostic information for {% data variables.product.pr
 
 {% data reusables.code-scanning.extractor-diagnostics %}
 
-You can see more detailed information about {% data variables.product.prodname_codeql %} extractor errors and warnings that occurred during database creation by enabling debug logging. See [AUTOTITLE](/code-security/reference/code-scanning/troubleshoot-analysis-errors/logs-not-detailed-enough#creating-codeql-debugging-artifacts-by-re-running-jobs-with-debug-logging-enabled).
+You can see more detailed information about {% data variables.product.prodname_codeql %} extractor errors and warnings that occurred during database creation by enabling debug logging. See [AUTOTITLE](/code-security/reference/code-scanning/troubleshoot-analysis-errors/logs-not-detailed-enough#re-running-jobs-with-debug-logging-enabled).
 
 {% ifversion org-private-registry %}
 

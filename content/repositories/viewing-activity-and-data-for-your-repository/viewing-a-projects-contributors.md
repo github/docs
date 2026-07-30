@@ -47,3 +47,9 @@ If you don't appear in a repository's contributors graph, it may be because:
 If all your commits in the repository are on non-default branches, you won't be in the contributors graph. For example, commits on the `gh-pages` branch aren't included in the graph unless `gh-pages` is the repository's default branch. To have your commits merged into the default branch, you can create a pull request. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
 If the email address you used to author the commits is not connected to your {% data variables.product.github %} account, your commits won't be linked to your account, and you won't appear in the contributors graph. For more information, see [AUTOTITLE](/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address) and [AUTOTITLE](/account-and-profile/how-tos/email-preferences/adding-an-email-address-to-your-github-account).
+
+### Contributor data is stale after history changes
+
+After force-pushing, rewriting history, or deleting commits, repository contributor displays and statistics can take about 24 hours to refresh.
+
+If you're a repository owner and contributor data is still incorrect after waiting about 24 hours, contact {% data variables.contact.github_support %}. For more information about creating a support ticket, see [AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket).
