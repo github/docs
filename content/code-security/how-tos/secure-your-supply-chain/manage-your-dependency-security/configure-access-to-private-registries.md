@@ -33,7 +33,7 @@ For specific ecosystems, you can configure {% data variables.product.prodname_de
 
 ## Configuring private {% data variables.product.github %}-hosted registries
 
-For packages stored in {% data variables.product.prodname_registry %} or {% data variables.product.prodname_container_registry %}, {% data variables.product.prodname_dependabot %} can authenticate automatically using its `GITHUB_TOKEN`. This uses the same "Manage Actions access" grants that {% data variables.product.prodname_actions %} workflows use. No {% data variables.product.pat_generic_plural %} or `dependabot.yml` registry entries are required.git push
+For packages stored in {% data variables.product.prodname_registry %} or {% data variables.product.prodname_container_registry %}, {% data variables.product.prodname_dependabot %} can authenticate automatically using its `GITHUB_TOKEN`. This uses the same "Manage Actions access" grants that {% data variables.product.prodname_actions %} workflows use. No {% data variables.product.pat_generic_plural %} or `dependabot.yml` registry entries are required.
 
 The `dependabot.yml` registry configuration using {% data variables.product.pat_generic_title_case %}-based registry entries and described in [Configuring private third-party registries](#configuring-private-third-party-registries) is still required for third-party private registries (such as Artifactory, Azure Artifacts, or Nexus).
  
