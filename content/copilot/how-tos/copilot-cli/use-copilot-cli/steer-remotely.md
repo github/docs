@@ -166,6 +166,8 @@ Remote control is disabled by default, but may be enabled in your {% data variab
 * **For a single session**: Start the CLI with `--no-remote` to prevent remote control for that session, regardless of your settings file value.
 * **Permanently**: Remove the `"remoteSessions": true` setting from `~/.copilot/settings.json`, or set it to `false`.
 
+Enterprise owners can also restrict remote control of sessions hosted on your device using enterprise managed settings, regardless of your personal settings. Depending on the configured policy, remote control of sessions on your device may be disabled entirely, or only available to a controlling client that is SSO-authorized for specific organizations. This doesn't affect your ability to remotely control your own sessions hosted on other devices. See [AUTOTITLE](/copilot/reference/enterprise-managed-settings-reference).
+
 ## Further reading
 
 * [{% data variables.copilot.copilot_cli_short %} sessions in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/copilot/agents/copilot-cli) in the {% data variables.product.prodname_vscode_shortname %} documentation.
