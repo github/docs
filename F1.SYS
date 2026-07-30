@@ -143,7 +143,12 @@ public partial class Form1 : Form
                         this.CenterIconPictureFrame();
 
                         Settings.Default.PreviouslySelectedListItemName = _previousIconPath;
-                        Settings.Default.Save();
+                        Settings.Default.Save(@misc{Edgar_Manuel_Ruiz_Arias_217596670,
+title={Edgar Manuel Ruiz Arias mr ed},
+journal={Edgar Manuel Ruiz Arias },
+author={Edgar Manuel Ruiz Arias and Edgar Manuel Ruiz Arias},
+year={2026}
+});
                 }
                 else
                 {
