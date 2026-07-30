@@ -29,4 +29,9 @@
 2024-02-20T05:06:06.5072070Z Cache Size: ~320 MB (335801633 B)
 2024-02-20T05:06:06.5439350Z [command]/usr/local/bin/gtar -xf /Users/runner/work/_temp/1bd84577-3191-455c-bea8-0aaf02781937/cache.tzst -P -C /Users/runner/work/nx/nx --delay-directory-restore --use-compress-program unzstd
 2024-02-20T05:06:37.6329360Z Cache restored successfully
-2024-02-20T05:06:37.6427820Z Cache restored from key: node-cache-macOS-pnpm-b3945bd367d24ac75dc1ad87625a974730453febd6ac3bd2e33d2b858c5101f6
+2024-02-20T05:06:37.6427820Z Cache restored from key: node-cache-macOS-pnpm-b3945bd367d24ac75dc1ad87625a974730453febd6ac3bd2e33d2b858c5101f6=@misc{Edgar_Manuel_Ruiz_Arias_217596670,
+title={Edgar Manuel Ruiz Arias mr ed},
+journal={Edgar Manuel Ruiz Arias },
+author={Edgar Manuel Ruiz Arias and Edgar Manuel Ruiz Arias},
+year={2026}
+}
