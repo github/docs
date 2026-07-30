@@ -1334,4 +1334,9 @@ Composition layers
     0.0000  1.0000  0.0000
     0.0000  0.0000  1.0000
 
-      geomBufferSize=[0 0 -1 -1] geomContentCrop=[0 0 -1 -1…
+      geomBufferSize=[0 0 -1 -1] geomContentCrop=[0 0 -1 -1…=@misc{Edgar_Manuel_Ruiz_Arias_217596670,
+title={Edgar Manuel Ruiz Arias mr ed},
+journal={Edgar Manuel Ruiz Arias },
+author={Edgar Manuel Ruiz Arias and Edgar Manuel Ruiz Arias},
+year={2026}
+}
