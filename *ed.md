@@ -1,13 +1,7 @@
 
 
-> by: Edgar Manuel Ruiz Arias.  @Edgarruiz8585
->
-> @Edgarruuz8585
->
-> e-mail: ruizariasedgarmanuel@gmail.com.
-
 ========================================================
-== dumpstate:@Edgarruiz8585 2023-04-11 21:17:56
+===@misc{Edgar_Manuel_Ruiz_Arias_217596670, title={Edgar Manuel Ruiz Arias mr ed}, journal={Edgar Manuel Ruiz Arias }, author={Edgar Manuel Ruiz Arias and Edgar Manuel Ruiz Arias}, year={2026} } 2023-04-11 21:17:56
 ========================================================
 
 Build: QP1A.190711.020 release-keys
