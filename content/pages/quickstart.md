@@ -1,6 +1,6 @@
 ---
 title: Quickstart for GitHub Pages
-intro: You can use {% data variables.product.prodname_pages %} to showcase your open source projects, host a blog, or even share your resume. This guide will help get you started on creating your next website.
+intro: You can use {% data variables.product.prodname_pages %} to showcase open source projects, host a blog, or even share your résumé. This guide will help get you started on creating your next website.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
