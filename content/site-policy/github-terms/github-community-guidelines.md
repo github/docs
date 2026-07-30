@@ -45,6 +45,19 @@ While some disagreements can be resolved with direct, respectful communication b
 
 While we are passionate about empowering maintainers to moderate their own projects, please contact {% data variables.contact.contact_support %} if you need additional support in dealing with a situation.
 
+## Using AI Responsibly
+
+AI-assisted tools can help contributors write documentation, generate examples, summarize discussions, and prototype code more quickly. They should be treated as productivity tools rather than authoritative sources.
+
+When using AI-generated content:
+
+- Review all generated code and documentation before submitting.
+- Verify technical accuracy and security implications.
+- Remove any sensitive or proprietary information before sharing it with external AI services.
+- Ensure contributions comply with this project's licensing and contribution policies.
+- Contributors remain fully responsible for the correctness and quality of their submissions, regardless of whether AI tools were used.
+
+
 ## What happens if someone violates GitHub's policies?
 
 We rely on reports from the community, as well as proactive detection, to help ensure that GitHub is a safe, welcoming, and productive platform for software developers. There are a variety of factors we consider when we’re made aware of behavior or content not in line with GitHub’s policies. However, our policy enforcement and content moderation approach prioritizes our vision to be the home for all developers. This means:
