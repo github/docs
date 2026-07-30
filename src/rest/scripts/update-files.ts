@@ -22,7 +22,6 @@ import { syncWebhookData } from '../../webhooks/scripts/sync'
 import { syncGitHubAppsData } from '../../github-apps/scripts/sync'
 import { syncRestRedirects } from './utils/get-redirects'
 import { syncChangelogs } from './utils/sync-changelogs'
-import { MODELS_GATEWAY_ROOT, injectModelsSchema } from './utils/inject-models-schema'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const TEMP_OPENAPI_DIR = path.join(__dirname, '../../../rest-api-description/openApiTemp')
@@ -50,8 +49,8 @@ program
       '-s, --source-repos [repos...]',
       `The source repositories to get the dereferenced files from. When the source repo is ${REST_API_DESCRIPTION_ROOT}, the bundler is not run to generate the source dereferenced OpenAPI files because the ${REST_API_DESCRIPTION_ROOT} repo already contains them.`,
     )
-      .choices(['github', REST_API_DESCRIPTION_ROOT, MODELS_GATEWAY_ROOT])
-      .default(['github', MODELS_GATEWAY_ROOT]),
+      .choices(['github', REST_API_DESCRIPTION_ROOT])
+      .default(['github']),
   )
   .option(
     '-v --versions [VERSIONS...]',
@@ -130,7 +129,7 @@ async function main() {
 
   if (pipelines.includes('rest')) {
     console.log(`\n▶️  Generating REST data files...\n`)
-    await syncRestData(TEMP_OPENAPI_DIR, restSchemas, sourceRepoDirectory, injectModelsSchema)
+    await syncRestData(TEMP_OPENAPI_DIR, restSchemas, sourceRepoDirectory)
     await syncChangelogs(sourceRepoDirectory, VERSION_NAMES)
   }
 
