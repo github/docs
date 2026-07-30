@@ -157,7 +157,6 @@ childGroups:
       - rest
       - graphql
       - webhooks
-      - github-models
   - name: Community
     octicon: GlobeIcon
     children:

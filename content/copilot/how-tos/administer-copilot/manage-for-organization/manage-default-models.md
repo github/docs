@@ -12,6 +12,8 @@ category:
 allowTitleToDifferFromFilename: true
 ---
 
+> [!IMPORTANT] If your enterprise has opted in to the **enterprise teams model access** preview, your organization will not be able to access model settings. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-availability-of-default-models).
+
 ## Which models can I configure?
 
 If your organization is part of an enterprise, the enterprise owner controls which {% data variables.product.prodname_copilot_short %} models are available and how they can be configured at the organization level.

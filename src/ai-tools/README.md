@@ -99,7 +99,6 @@ npm run ai-tools -- --files content/path/to/file.md --refine versioning --write
 - Content files in `content/` - Target of refinements
 
 ### Internal documentation
-- [GitHub Models API docs](https://docs.github.com/en/rest/models/inference)
 - Copilot Spaces for prompt management
 
 ### Ownership
