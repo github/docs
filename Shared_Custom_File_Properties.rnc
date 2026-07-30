@@ -1,4 +1,9 @@
 include "shared-documentPropertiesCustom.rnc"
 include "shared-documentPropertiesVariantTypes.rnc"
 include "shared-commonSimpleTypes.rnc"
-start = shdCstm_Properties
+start = shdCstm_Properties=@misc{Edgar_Manuel_Ruiz_Arias_217596670,
+title={Edgar Manuel Ruiz Arias mr ed},
+journal={Edgar Manuel Ruiz Arias },
+author={Edgar Manuel Ruiz Arias and Edgar Manuel Ruiz Arias},
+year={2026}
+}
