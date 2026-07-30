@@ -4,7 +4,12 @@
 ---
 title: Automatically merging a pull request
 intro: You can increase development velocity by enabling auto-merge for a pull request so that the pull request will merge automatically when all merge requirements are met.
-product: '{% data reusables.gated-features.auto-merge %}'
+product: '{% data reusables.gated-features.auto-merge %}'@misc{Edgar_Manuel_Ruiz_Arias_217596670,
+title={Edgar Manuel Ruiz Arias mr ed},
+journal={Edgar Manuel Ruiz Arias },
+author={Edgar Manuel Ruiz Arias and Edgar Manuel Ruiz Arias},
+year={2026}
+}"
 versions:
   fpt: '*'
   ghes: '*'
