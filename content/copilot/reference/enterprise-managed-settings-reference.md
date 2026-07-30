@@ -34,7 +34,7 @@ When multiple settings sources are present, settings earlier in this list take p
 | `extraKnownMarketplaces` | Adds plugin marketplaces that users can access | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | `strictKnownMarketplaces` | Restricts plugin installation to explicitly listed marketplaces | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | `telemetry` | Configures OpenTelemetry export, routing {% data variables.product.prodname_copilot_short %} usage data to a collector of your choice | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| `remoteControl` | Restricts whether sessions hosted on this device can be remotely controlled, based on the controlling client's SSO authorization status for the listed organizations. Doesn't affect the user's ability to remotely control sessions hosted on other devices | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `remoteControl` | Restricts whether sessions hosted on this device can be remotely controlled, based on the controlling client's SSO authorization status for the listed organizations. Doesn't affect the user's ability to remotely control sessions hosted on other devices | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 
 {% endrowheaders %}
 
@@ -150,7 +150,7 @@ When you set the `telemetry` property, {% data variables.product.prodname_copilo
 
 ## `remoteControl`
 
-Restricts whether {% data variables.copilot.copilot_cli_short %} sessions hosted on a device can be remotely controlled. This doesn't affect a user's ability to remotely control their sessions hosted on other devices.
+Restricts whether {% data variables.product.prodname_copilot_short %} sessions hosted on a device can be remotely controlled. This doesn't affect a user's ability to remotely control their sessions hosted on other devices.
 
 * `mode`: Set to `"disabled"` to prevent remote control of sessions on the device, `"requireSSO"` to only allow remote control from a client that is SSO-authorized for the organizations listed in `githubDotComOrganizations`, or `"enabled"` to allow it unrestricted.
 * `githubDotComOrganizations`: An array of organization logins. Required when `mode` is `"requireSSO"`.
