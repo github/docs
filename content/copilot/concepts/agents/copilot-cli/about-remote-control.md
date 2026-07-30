@@ -32,6 +32,8 @@ Remote control requires:
 * **The machine must be online**: The CLI session must be actively running in a terminal on a machine with an internet connection. If the machine goes to sleep or loses its connection, remote control is unavailable until the machine is back online. See [Reconnection](#reconnection) later in this article.
 * **An interactive session**: Remote access is only available for interactive sessions. It is not available when you use the CLI programmatically with the `--prompt` command-line option, for example when you use the CLI in a script.
 
+Remote control does not require the working directory to contain a Git repository hosted on {% data variables.product.prodname_dotcom_the_website %}. For users whose {% data variables.product.prodname_copilot_short %} seat comes from an enterprise or organization, the applicable enterprise or organization policy, not repository hosting, determines whether remote control is available. See [Administering remote control](#administering-remote-control) later in this article.
+
 ## Accessing a session remotely
 
 When you enable remote control for a {% data variables.copilot.copilot_cli_short %} session, you can go to {% data variables.product.prodname_dotcom_the_website %} or {% data variables.product.prodname_mobile %} and find the session in the list of your recent agent sessions. The remote interface is updated in real time, allowing you to monitor ongoing output from the session and respond to prompts and permission requests as they come in.
