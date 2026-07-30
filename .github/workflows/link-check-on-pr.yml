@@ -55,6 +55,11 @@ jobs:
           ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           SHOULD_COMMENT: ${{ secrets.DOCS_BOT_PAT_BASE != '' }}
           FAIL_ON_FLAW: true
+          # Cross-page anchor checking is on, but non-blocking during rollout: broken
+          # anchors are reported in the PR comment without failing the build. Flip
+          # FAIL_ON_ANCHOR_FLAW to true once false-positive/perf rates look clean.
+          CHECK_ANCHORS: true
+          FAIL_ON_ANCHOR_FLAW: false
           ENABLED_LANGUAGES: en
         run: npm run check-links-pr
 

@@ -150,8 +150,6 @@ When {% data variables.copilot.copilot_code-review_short %} is enabled for these
 
 ## MCP servers and agent skills for code review
 
-{% data reusables.copilot.code-review.skills-and-mcp-preview-note %}
-
 {% data variables.copilot.copilot_code-review_short %} can use repository-level agent skills and MCP servers when they are relevant to the review.
 
 {% data variables.copilot.copilot_code-review_short %} is more likely to use skills and MCP context when your repository or pull request gives clear signals, including review-focused skill directory names, custom instructions that reference MCP context, and pull request descriptions that include identifiers referencing configured MCP servers such as issue keys or incident IDs.

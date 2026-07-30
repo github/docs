@@ -72,15 +72,17 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           number: ${{ steps.create-pull-request.outputs.pull-request-number }}
 
+      - uses: ./.github/actions/create-workflow-failure-issue
+        id: create-failure-issue
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-
-      - uses: ./.github/actions/create-workflow-failure-issue
-        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
-        with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          issue_url: ${{ steps.create-failure-issue.outputs.issue_url }}
 
   notify_ignored_changes:
     if: github.repository == 'github/docs-internal' && needs.update_graphql_files.outputs.ignored-count > 0 && github.event_name != 'workflow_dispatch'

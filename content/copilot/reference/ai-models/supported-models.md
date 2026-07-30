@@ -70,7 +70,8 @@ The latest {% data variables.product.prodname_copilot_short %} models support th
 Choosing a larger context window or higher reasoning will impact {% data variables.product.prodname_ai_credits_short %} consumption; more tokens will be consumed, so more credits will be used. For this reason, we recommend that you use the regular context window and regular reasoning by default, selecting the larger context window and higher reasoning for more complex tasks only.
 
 > [!NOTE]
-> * These extended capabilities are available in {% data variables.product.prodname_vscode %} and {% data variables.copilot.copilot_cli_short %} only.
+> * The 1 million token context window is available in {% data variables.product.prodname_vscode %} and {% data variables.copilot.copilot_cli_short %} only.
+> * Configurable reasoning levels are available in {% data variables.product.prodname_vscode %}, {% data variables.copilot.copilot_cli_short %}, and {% data variables.copilot.copilot_cloud_agent %}.
 > * Some models have extended capability pricing see [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing#pricing-tables)
 
 {% rowheaders %}
@@ -151,6 +152,7 @@ Some {% data variables.product.prodname_copilot_short %} models require minimum 
 | {% data variables.copilot.copilot_claude_fable_5 %}      | `v1.124` | `17.14.6`                    | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_kimi_k27_code %}     | `v1.127` | `17.14.6`            | `1.9.1-251` | TBD | TBD |
 | {% data variables.copilot.copilot_mai_code_1_flash %}    | `v1.121` | TBD                            | TBD | TBD | TBD |
+| {% data variables.copilot.copilot_grok_45 %}             | TBD | `17.14.19` | TBD | TBD | TBD |
 
 {% endrowheaders %}
 
@@ -198,6 +200,12 @@ Access to evaluation models in {% data variables.copilot.copilot_auto_model_sele
 Utility models power background features across surfaces, and cannot be disabled or selected in the model picker. See [AUTOTITLE](/copilot/concepts/models/utility-models).
 
 {% data reusables.copilot.utility-models %}
+
+## Models eligible for default enablement
+
+{% data reusables.copilot.model-autoenablement %}
+
+{% data reusables.copilot.model-autoenablement-excluded-models %}
 
 ## Next steps
 

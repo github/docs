@@ -97,6 +97,7 @@ copilot_vsc_chat_participants: 'Copilot-enabled VS Code chat participants'
 
 ## GitHub Copilot app
 github_copilot_app: 'GitHub Copilot app'
+github_copilot_app_short: 'Copilot app'
 
 ## Copilot CLI
 copilot_cli_short: 'Copilot CLI'
@@ -104,12 +105,6 @@ copilot_cli: 'GitHub Copilot CLI'
 copilot_old-cli_short: 'Copilot in the CLI'
 copilot_old-cli: 'GitHub Copilot in the CLI'
 copilot_cli_npm_version: 'Node.js 22 or later'
-
-## GitHub Sandbox
-sandbox: 'cloud and local sandboxes for GitHub Copilot'
-sandbox_caps: 'Cloud and local sandboxes for GitHub Copilot'
-sandbox_short: 'sandboxes for GitHub Copilot'
-sandbox_short_caps: 'Sandboxes for GitHub Copilot'
 
 ## Copilot custom agents
 copilot_custom_agent: 'Copilot custom agent'
@@ -239,6 +234,7 @@ copilot_o3: 'o3'
 copilot_o4_mini: 'o4-mini'
 ## xAI:
 copilot_grok_code: 'Grok Code Fast 1'
+copilot_grok_45: 'Grok 4.5'
 # Qwen:
 copilot_qwen_25: 'Qwen2.5'
 # Microsoft:

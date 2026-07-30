@@ -52,6 +52,58 @@ test('use sidebar to go to Hello World page', async ({ page }) => {
   await expect(page).toHaveTitle(/Hello World - GitHub Docs/)
 })
 
+test('sidebar highlights the clicked item optimistically while navigation is pending', async ({
+  page,
+}) => {
+  // Article pages are getServerSideProps routes, so router.asPath (and thus the real
+  // aria-current) only updates after the destination loads. The sidebar marks the
+  // clicked link with a visual-only `data-pending` accent so the click is acknowledged
+  // immediately. Throttle the client-side data fetch so the navigation stays pending
+  // long enough to observe that intermediate state.
+  await page.goto('/get-started')
+  await page.getByTestId('product-sidebar').getByText('Start your journey').click()
+
+  const sidebar = page.getByTestId('product-sidebar')
+  const helloWorld = sidebar.getByRole('link', { name: 'Hello World' })
+  const linkRewriting = sidebar.getByRole('link', { name: 'Link rewriting' })
+
+  // Hold the next data request open until we release it, so navigation stays pending.
+  let releaseNavigation = () => {}
+  const navigationHeld = new Promise<void>((resolve) => {
+    releaseNavigation = resolve
+  })
+  await page.route('**/_next/data/**', async (route) => {
+    await navigationHeld
+    await route.continue()
+  })
+
+  await helloWorld.click()
+
+  // While pending: the clicked link carries the optimistic visual marker, but the URL
+  // and the semantic aria-current still reflect the (still-loaded) get-started page.
+  await expect(helloWorld).toHaveAttribute('data-pending', '')
+  await expect(helloWorld).not.toHaveAttribute('aria-current', 'page')
+  await expect(page).not.toHaveURL(/hello-world/)
+
+  // Let the navigation finish: the marker gives way to a real aria-current.
+  releaseNavigation()
+  await expect(page).toHaveURL(/\/en\/get-started\/start-your-journey\/hello-world/)
+  await expect(helloWorld).toHaveAttribute('aria-current', 'page')
+  await expect(helloWorld).not.toHaveAttribute('data-pending', '')
+
+  // A modifier-click (open in new tab) must NOT move the optimistic selection.
+  // handleNavClick bails on modifier clicks, so pendingHref is never set: the current
+  // page keeps its URL, its aria-current, and the clicked link gets no data-pending.
+  // Use ControlOrMeta so the real "open in new tab" modifier is sent per-platform
+  // (Ctrl on Linux/Windows CI, Meta on macOS). The click opens a background tab we
+  // don't need to assert on; catch any popup so it doesn't leak.
+  page.on('popup', (popup) => popup.close())
+  await linkRewriting.click({ modifiers: ['ControlOrMeta'] })
+  await expect(linkRewriting).not.toHaveAttribute('data-pending', '')
+  await expect(helloWorld).toHaveAttribute('aria-current', 'page')
+  await expect(page).toHaveURL(/\/en\/get-started\/start-your-journey\/hello-world/)
+})
+
 test('press "/" to open the search overlay', async ({ page }) => {
   await page.goto('/')
   await turnOffExperimentsInPage(page)

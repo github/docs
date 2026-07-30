@@ -3,6 +3,7 @@ import {
   extractLinksFromMarkdown,
   normalizeLinkPath,
   checkInternalLink,
+  resolveInternalLinkKey,
   checkAssetLink,
   isAssetLink,
 } from '../lib/extract-links'
@@ -558,6 +559,40 @@ describe('checkInternalLink', () => {
     expect(result.exists).toBe(true)
     expect(result.isRedirect).toBe(true)
     expect(result.redirectTarget).toBe('/')
+  })
+})
+
+describe('resolveInternalLinkKey', () => {
+  const pageMap = {
+    '/en/actions/getting-started': {} as unknown as Page,
+    '/actions/guides': {} as unknown as Page,
+    [`/en/enterprise-server@${latestStable}/admin/overview`]: {} as unknown as Page,
+  }
+
+  test('resolves a direct pageMap key', () => {
+    expect(resolveInternalLinkKey('/actions/guides', pageMap)).toBe('/actions/guides')
+  })
+
+  test('resolves a language-prefixed page from a bare path', () => {
+    expect(resolveInternalLinkKey('/actions/getting-started', pageMap)).toBe(
+      '/en/actions/getting-started',
+    )
+  })
+
+  test('ignores query strings and fragments when resolving', () => {
+    expect(resolveInternalLinkKey('/actions/guides?foo=1#some-anchor', pageMap)).toBe(
+      '/actions/guides',
+    )
+  })
+
+  test('normalizes enterprise-server@latest to the latest stable release', () => {
+    expect(resolveInternalLinkKey('/enterprise-server@latest/admin/overview', pageMap)).toBe(
+      `/en/enterprise-server@${latestStable}/admin/overview`,
+    )
+  })
+
+  test('returns null when the path does not resolve directly to a page', () => {
+    expect(resolveInternalLinkKey('/does/not/exist', pageMap)).toBeNull()
   })
 })
 

@@ -32,18 +32,34 @@ gh api -X PUT "/orgs/github/teams/docs-engineering/repos/github/docs-ghes-$versi
         -f 'permission=admin' --silent
 echo "--- github/employees as read"
 gh api -X PUT "/orgs/github/teams/employees/repos/github/docs-ghes-$version" --silent
-echo "--- Require a pull request review before merging"
-repositoryId="$(gh api graphql -f query="{repository(owner:\"github\",name:\"docs-ghes-$version\"){id}}" -q .data.repository.id)"
-gh api graphql -f query='
-mutation($repositoryId:ID!,$branch:String!,$requiredReviews:Int!) {
-  createBranchProtectionRule(input: {
-    repositoryId: $repositoryId
-    pattern: $branch
-    requiresApprovingReviews: true
-    requiredApprovingReviewCount: $requiredReviews
-    requiresCodeOwnerReviews: true
-  }) { clientMutationId }
-}' -f repositoryId="$repositoryId" -f branch=main -F requiredReviews=1 --silent
+echo "--- Protect main with a repository ruleset (1 review + code owners, no force-push or deletion)"
+gh api -X POST "/repos/github/docs-ghes-$version/rulesets" --input - --silent <<'RULESET'
+{
+  "name": "main branch protection",
+  "target": "branch",
+  "enforcement": "active",
+  "bypass_actors": [
+    { "actor_id": 5, "actor_type": "RepositoryRole", "bypass_mode": "always" }
+  ],
+  "conditions": {
+    "ref_name": { "include": ["refs/heads/main"], "exclude": [] }
+  },
+  "rules": [
+    { "type": "deletion" },
+    { "type": "non_fast_forward" },
+    {
+      "type": "pull_request",
+      "parameters": {
+        "required_approving_review_count": 1,
+        "dismiss_stale_reviews_on_push": false,
+        "require_code_owner_review": true,
+        "require_last_push_approval": false,
+        "required_review_thread_resolution": false
+      }
+    }
+  ]
+}
+RULESET
 echo "--- Enable GitHub Pages, set source to main in root directory, and make the pages site public"
 gh api -X POST "/repos/github/docs-ghes-$version/pages" \
   -f "source[branch]=main" -f "source[path]=/" -F "public=true" --silent

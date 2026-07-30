@@ -15,11 +15,17 @@ category:
   - Manage Copilot for a team
 ---
 
-With enterprise managed settings, enterprise owners can centrally define and distribute configuration settings to {% data variables.copilot.copilot_cli_short %} and {% data variables.product.prodname_vscode_shortname %} for users on your enterprise's {% data variables.product.prodname_copilot_short %} plan, ensuring every member works within the same guardrails. Additional client support will follow.
+With enterprise managed settings, enterprise owners can centrally define and distribute configuration settings to supported clients for users on your enterprise's {% data variables.product.prodname_copilot_short %} plan, ensuring every member works within the same guardrails.
+
+Supported clients are:
+
+* {% data variables.copilot.copilot_cli_short %}
+* {% data variables.product.prodname_vscode_shortname %}
+* The {% data variables.copilot.github_copilot_app %}
 
 These settings apply enterprise-wide, with no organization-level override. For each supported key, the `{% data variables.copilot.managed_setting_file %}` value takes precedence over any file-based configuration a user sets in their client.
 
-Managed settings are loaded locally when the client starts, even if the device has no network connection. This means controls such as disabled bypass mode and restricted plugin configuration still apply before sign in or any server round trip, and remain active when users switch accounts.
+Managed settings are loaded locally when the client starts, even if the device has no network connection. This means controls such as suppressing the `allow-all` permission options and restricting plugin configuration still apply before sign in or any server round trip, and remain active when users switch accounts.
 
 ## Defining settings
 

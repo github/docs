@@ -32,6 +32,8 @@ Remote control requires:
 * **The machine must be online**: The CLI session must be actively running in a terminal on a machine with an internet connection. If the machine goes to sleep or loses its connection, remote control is unavailable until the machine is back online. See [Reconnection](#reconnection) later in this article.
 * **An interactive session**: Remote access is only available for interactive sessions. It is not available when you use the CLI programmatically with the `--prompt` command-line option, for example when you use the CLI in a script.
 
+Remote control does not require the working directory to contain a Git repository hosted on {% data variables.product.prodname_dotcom_the_website %}. For users whose {% data variables.product.prodname_copilot_short %} seat comes from an enterprise or organization, the applicable enterprise or organization policy, not repository hosting, determines whether remote control is available. See [Administering remote control](#administering-remote-control) later in this article.
+
 ## Accessing a session remotely
 
 When you enable remote control for a {% data variables.copilot.copilot_cli_short %} session, you can go to {% data variables.product.prodname_dotcom_the_website %} or {% data variables.product.prodname_mobile %} and find the session in the list of your recent agent sessions. The remote interface is updated in real time, allowing you to monitor ongoing output from the session and respond to prompts and permission requests as they come in.
@@ -79,5 +81,7 @@ Enterprise and organization owners control whether users can enable remote contr
 * **Enterprise-level policy**: Enterprise owners can enforce a setting across all organizations, or select "Let organizations decide" to let each organization choose its own level. If the enterprise enforces "View and control," all organizations under it receive that setting.
 
 For remote control to be available, the applicable policy (enterprise-enforced or organization-level) must be set to "View and control."
+
+Enterprise owners can further restrict remote control using the `remoteControl` enterprise managed setting, which applies on top of the "Store local sessions in the Cloud" policy. This setting is applied per device and controls whether a session **hosted on that device** can be remotely controlled: it can require that the controlling client is SSO-authorized for specific organizations, or disable remote control of sessions hosted on that device entirely. It doesn't affect the same user's ability to remotely control sessions hosted on other devices. See [AUTOTITLE](/copilot/reference/enterprise-managed-settings-reference).
 
 For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies) and [AUTOTITLE](/copilot/how-tos/copilot-cli/administer-copilot-cli-for-your-enterprise).

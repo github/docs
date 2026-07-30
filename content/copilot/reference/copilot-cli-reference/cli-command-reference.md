@@ -20,7 +20,7 @@ docsTeamMetrics:
 |------------------------|----------------------------------------------------|
 | `copilot`              | Launch the interactive user interface.             |
 | `copilot completion SHELL` | Print a shell script for the chosen shell that can be used to enable tab completion for {% data variables.copilot.copilot_cli_short %}. Supported shells: `bash`, `zsh`, `fish`. See [Using `copilot completion`](#using-copilot-completion). |
-| `copilot help [TOPIC]` | Display help information. Help topics include: `billing`, `config`, `commands`, `environment`, `logging`, `monitoring`, `permissions`, and `providers`. |
+| `copilot help [TOPIC]` | Display help information. Help topics include: `billing`, `config`, `commands`, `environment`, `logging`, `monitoring`, `permissions`, `providers`, and `sandbox`. |
 | `copilot init`         | Initialize {% data variables.product.prodname_copilot_short %} custom instructions for this repository. |
 | `copilot login`        | Authenticate with {% data variables.product.prodname_copilot_short %} via the OAuth device flow. Accepts `--host HOST` to specify the {% data variables.product.github %} host URL (default: `https://github.com`). |
 | `copilot login [OPTION]` | Authenticate with {% data variables.product.prodname_copilot_short %} via the OAuth device flow. See [`copilot login` options](#copilot-login-options). |
@@ -446,15 +446,16 @@ For a complete list of commands and options, run `copilot help`.
 
 You can use `--remote` with `--resume <TASK-ID>` to resume a remote task locally. This works even when the task was originally created outside a Git repository.
 
-> [!NOTE]
-> When `permissions.disableBypassPermissionsMode` is set to `"disable"`, all allow-all flags (`--allow-all-tools`, `--allow-all-paths`, `--allow-all-urls`, `--allow-all`, `--yolo`) are suppressed at startup and cannot be used to grant elevated permissions.
+### Restricting the --allow-all options
+
+When `permissions.disableBypassPermissionsMode` is set to `"disable"`, all of the command line options that allow all permissions (`--allow-all-tools`, `--allow-all-paths`, `--allow-all-urls`, `--allow-all`, `--yolo`) are suppressed at startup and cannot be used to grant elevated permissions. The `/allow-all` and `/yolo` slash commands are also suppressed in interactive mode.
 
 Three sources can set this restriction, in increasing order of permanence:
 
 | Source | Scope | Cleared by account switch? |
 |--------|-------|---------------------------|
 | User settings (`~/.copilot/settings.json`) | Machine | No — applies to all accounts |
-| Managed settings (server-fetched per account) | Account | Yes — cleared when switching to a different account that does not disable bypass mode |
+| Managed settings (server-fetched per account) | Account | Yes — cleared when switching to a different account that does not disable the allow-all options |
 | MDM policy (plist/registry/file) | Device | Never — device-level policy that cannot be overridden by account switches |
 
 For MDM configuration details, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#mdm-managed-settings).
@@ -565,6 +566,7 @@ copilot --deny-tool='write(secret.txt)'
 | `COPILOT_GITHUB_TOKEN` | Authentication token. Takes precedence over `GH_TOKEN` and `GITHUB_TOKEN`. |
 | `COPILOT_HOME` | Override the configuration and state directory. Default: `$HOME/.copilot`. |
 | `COPILOT_LARGE_OUTPUT_THRESHOLD_BYTES` | Maximum UTF-8 byte size for tool output returned directly to the model. Default: `20480` (20 KiB). See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/context-management#managing-large-tool-output). |
+| `COPILOT_MCP_TOOL_CACHE` | Set to `false` to disable loading and persisting local MCP server tool snapshots for the entire process. See [Tool snapshot caching](#tool-snapshot-caching). |
 | `COPILOT_MODEL` | Set the AI model. |
 | `COPILOT_PROMPT_FRAME` | Set to `1` to enable the decorative UI frame around the input prompt, or `0` to disable it. Overrides the `PROMPT_FRAME` experimental feature flag for the current session. |
 | `COPILOT_SKILLS_DIRS` | Comma-separated list of additional directories for skills. |
@@ -691,6 +693,13 @@ Use `copilot mcp` to manage MCP server configurations from the command line with
 | `timeout` | No | Tool call timeout in milliseconds. |
 | `type` | No | `"local"` or `"stdio"`. Default: `"local"`. |
 | `deferTools` | No | `"auto"` (default) or `"never"`. Set to `"never"` to keep this server's tools always visible even when tool search is active. |
+| `disableToolCache` | No | Set to `true` to skip loading and persisting the tool snapshot for this server. |
+
+### Tool snapshot caching
+
+{% data variables.copilot.copilot_cli_short %} persists a snapshot of each local server's tool list so tools are available immediately on startup while live discovery completes in the background. Live discovery always runs and replaces the snapshot once it finishes.
+
+Set `disableToolCache: true` on a server to force live discovery for that server only, or set the `COPILOT_MCP_TOOL_CACHE=false` environment variable to disable snapshot loading and persistence for the entire process. Both opt-outs leave existing cache files untouched.
 
 ### Private npm registry
 

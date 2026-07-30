@@ -597,11 +597,42 @@ jobs:
         uses: actions/aws/ec2@main
 ```
 
+### Example: Using an action in the same repository as the workflow at the running commit (recommended)
+
+`$/path/to/action`
+
+The `$/` prefix is the self repository reference. It references an action stored in the same repository as the workflow or action that is currently running, and resolves to that repository at the running commit (the same SHA as the running workflow or action). You do not need to check out the repository first, so it is the recommended way to reference an action within its own repository.
+
+The `$/` syntax is not available in {% data variables.product.prodname_ghe_server %}.
+
+A `$/` reference must not include an `@{ref}` suffix. The ref is always the commit the running workflow or action is using, so a reference such as `$/actions/my-action@v1` is invalid.
+
+`$/` always resolves against the repository of the file it appears in, not the repository that called it. For example, if a reusable workflow in one repository is called by a workflow in another repository, a `$/` reference in the called workflow resolves to the called workflow's repository, not the calling workflow's repository. This makes `$/` reliable for action composition, where a relative `./` path would instead resolve against whatever is checked out in the caller's workspace. For using `$/` in a composite action's steps, see [AUTOTITLE](/actions/reference/workflows-and-actions/metadata-syntax#runsstepsuses).
+
+The following table compares the ways to reference an action.
+
+| Syntax | Resolves to | Recommended for |
+| ------ | ----------- | --------------- |
+| `$/path/to/action` | The same repository as the running workflow or action, at the running commit | Actions in the same repository |
+| `{owner}/{repo}@{ref}` | The specified repository at the specified ref | Actions in another repository |
+| `./path/to/action` | A path in the runner's checked-out workspace, relative to the default working directory (`{% raw %}${{ github.workspace }}{% endraw %}`) | Edge cases only |
+
+```yaml
+on: [push]
+
+jobs:
+  my_first_job:
+    runs-on: ubuntu-latest
+    steps:
+      # References an action in the same repository at the running commit
+      - uses: $/.github/actions/hello-world-action
+```
+
 ### Example: Using an action in the same repository as the workflow
 
 `./path/to/dir`
 
-The path to the directory that contains the action in your workflow's repository. You must check out your repository before using the action.
+The path to the directory that contains the action in your workflow's repository. You must check out your repository before using the action, and the `./` path resolves against the runner's workspace rather than the repository of the running workflow. For most cases, use the `$/` syntax shown above instead.
 
 {% data reusables.actions.workflows.section-referencing-an-action-from-the-same-repository %}
 

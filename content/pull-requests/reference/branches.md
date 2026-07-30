@@ -29,7 +29,7 @@ Branches let you develop features, fix bugs, or safely experiment with new ideas
 
 You always create a branch from an existing branch. Typically, you might create a new branch from the default branch of your repository. You can then work on this new branch in isolation from changes that other people are making to the repository.
 
-A branch you create to build a feature is commonly called a feature branch or topic branch. See [AUTOTITLE](/pull-requests/how-tos/create-pull-requests/creating-and-deleting-branches-within-your-repository).
+A branch you create to build a feature is commonly called a feature branch or topic branch. See [AUTOTITLE](/pull-requests/how-tos/commit-changes/managing-branches-within-your-repository).
 
 You can also use a branch to publish a {% data variables.product.prodname_pages %} site. See [AUTOTITLE](/pages/getting-started-with-github-pages/what-is-github-pages).
 

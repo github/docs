@@ -339,6 +339,8 @@ runs:
     - uses: actions/checkout@main
     # References a subdirectory in a public GitHub repository at a specific branch, ref, or SHA
     - uses: actions/aws/ec2@main
+    # References an action in the same repository at the running commit
+    - uses: $/.github/actions/my-action
     # References a local action
     - uses: ./.github/actions/my-action
     # References a docker public registry action
@@ -346,6 +348,10 @@ runs:
     # Reference a docker image published on docker hub
     - uses: docker://alpine:3.8
 ```
+
+To reference an action stored in the same repository as your composite action, use the `$/` self repository reference, as shown in the `$/.github/actions/my-action` example above. It resolves to that repository at the running commit, so you do not need to check out the repository first, and it must not include an `@{ref}` suffix. The `$/` syntax is not available in {% data variables.product.prodname_ghe_server %}.
+
+For a comparison of `$/`, `{owner}/{repo}@{ref}`, and `./`, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#example-using-an-action-in-the-same-repository-as-the-workflow-at-the-running-commit-recommended).
 
 #### `runs.steps[*].with`
 

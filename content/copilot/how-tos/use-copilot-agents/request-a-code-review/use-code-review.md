@@ -84,8 +84,6 @@ To automatically request re-reviews from {% data variables.product.prodname_copi
 
 ## MCP servers and agent skills
 
-{% data reusables.copilot.code-review.skills-and-mcp-preview-note %}
-
 {% data variables.copilot.copilot_code-review_short %} can use agent skills and MCP servers configured in the repository, when they are relevant to the code being reviewed.
 
 To make these available for {% data variables.copilot.copilot_code-review_short %} on {% data variables.product.github %}, configure:

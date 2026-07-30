@@ -46,15 +46,17 @@ jobs:
       - name: Check out repo
         if: ${{ failure() }}
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: ./.github/actions/create-workflow-failure-issue
+        id: create-failure-issue
+        if: ${{ failure() }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() }}
         with:
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-
-      - uses: ./.github/actions/create-workflow-failure-issue
-        if: ${{ failure() }}
-        with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          issue_url: ${{ steps.create-failure-issue.outputs.issue_url }}
 
   stale_staff:
     name: Remind staff about PRs waiting for review
@@ -65,6 +67,7 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/stale@3a9db7e6a41a89f618792c92c0e97cc736e1b13f # v10.0.0
+        id: stale
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           only-labels: 'waiting for review'
@@ -81,12 +84,14 @@ jobs:
       - name: Check out repo
         if: ${{ failure() }}
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: ./.github/actions/create-workflow-failure-issue
+        id: create-failure-issue
+        if: ${{ failure() }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() }}
         with:
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-
-      - uses: ./.github/actions/create-workflow-failure-issue
-        if: ${{ failure() }}
-        with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          issue_url: ${{ steps.create-failure-issue.outputs.issue_url }}

@@ -37,6 +37,7 @@ jobs:
           # source-path, target-articles, etc.) is read from
           # src/content-pipelines/config.yml by the update script.
           - id: copilot-cli
+          - id: gh-stack
           # - id: mcp-server
 
     steps:
@@ -187,12 +188,14 @@ jobs:
               --label "workflow-generated,content-pipeline-update,ready-for-doc-review,skip FR board"
           fi
 
+      - uses: ./.github/actions/create-workflow-failure-issue
+        id: create-failure-issue
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-
-      - uses: ./.github/actions/create-workflow-failure-issue
-        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
-        with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          issue_url: ${{ steps.create-failure-issue.outputs.issue_url }}

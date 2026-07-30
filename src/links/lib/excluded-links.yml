@@ -153,3 +153,29 @@
 
 # Example domain used in style guide documentation.
 - startsWith: https://some-docs.com
+
+# These github.com links require authentication or are private repos/org pages
+# that return 404 to the link checker.
+- startsWith: https://github.com/customer-terms/
+- startsWith: https://github.com/orgs/github/projects/
+- startsWith: https://github.com/signup?
+- startsWith: https://github.com/pulls?
+- startsWith: https://github.com/account/enterprises/
+- startsWith: https://github.com/new?
+- startsWith: https://github.com/github/copilot-plugins/
+- startsWith: https://github.com/github-copilot/signup?
+
+# gh.io is a GitHub URL shortener; links return transient 500 errors from CI.
+- startsWith: https://gh.io/
+
+# JFrog docs block automated link checkers.
+- startsWith: https://jfrog.com/help/
+
+# VMware/Broadcom docs block automated link checkers with 404.
+- startsWith: https://techdocs.broadcom.com/
+
+# crates.io returns 404 for specific crate paths from CI runners.
+- startsWith: https://crates.io/crates/
+
+# registry.modelcontextprotocol.io blocks automated link checkers.
+- startsWith: https://registry.modelcontextprotocol.io/
