@@ -5505,6 +5505,36 @@
       "subcategory": "pulls",
       "verb": "put",
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/update-branch"
+    },
+    {
+      "slug": "list-pull-request-stacks",
+      "subcategory": "stacks",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stacks"
+    },
+    {
+      "slug": "create-a-pull-request-stack",
+      "subcategory": "stacks",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/stacks"
+    },
+    {
+      "slug": "get-a-pull-request-stack",
+      "subcategory": "stacks",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stacks/{stack_number}"
+    },
+    {
+      "slug": "add-pull-requests-to-a-pull-request-stack",
+      "subcategory": "stacks",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/stacks/{stack_number}/add"
+    },
+    {
+      "slug": "remove-pull-requests-from-a-pull-request-stack",
+      "subcategory": "stacks",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/stacks/{stack_number}/unstack"
     }
   ],
   "rate-limit": [
