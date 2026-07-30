@@ -6,7 +6,7 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/overview
   - /github/collaborating-with-pull-requests/getting-started
 shortTitle: Concepts
-intro: 'Understand the foundational concepts of pull requests, including branches, forks, commits, reviews, and merges to streamline collaboration on {% data variables.product.github %}.'
+intro: 'Understand how pull requests help you write code and collaborate effectively on {% data variables.product.github %}.'
 versions:
   fpt: '*'
   ghes: '*'

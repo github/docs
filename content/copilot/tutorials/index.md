@@ -24,6 +24,7 @@ children:
   - /optimize-ai-usage
   - /optimize-code-reviews
   - /reduce-technical-debt
+  - /stack-ai-generated-code-in-pull-requests
   - /review-ai-generated-code
   - /learn-a-new-language
   - /modernize-legacy-code
