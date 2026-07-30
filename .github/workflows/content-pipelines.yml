@@ -37,6 +37,7 @@ jobs:
           # source-path, target-articles, etc.) is read from
           # src/content-pipelines/config.yml by the update script.
           - id: copilot-cli
+          - id: gh-stack
           # - id: mcp-server
 
     steps:

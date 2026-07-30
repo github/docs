@@ -36,6 +36,24 @@ copilot-cli:
     All other CLI topics (MCP, skills, agents, permissions, etc.) belong in content/copilot/reference/copilot-cli-reference/cli-command-reference.md even when they mention plugins.
     Do not overwrite the paragraph starting "OTel configuration can also be set in..." in cli-command-reference.md
 
+gh-stack:
+  name: gh stack CLI
+  source-repo: github/gh-stack
+  source-path: docs/src/content/docs/reference
+  target-articles:
+    - content/pull-requests/reference/stacked-prs-cli-commands.md
+  exclusions:
+    - Webhook payloads and webhook event reference (webhooks.md). Webhook events and payloads are generated on GitHub Docs from the webhook schemas, not by this pipeline. See /webhooks/webhook-events-and-payloads.
+    - REST API endpoint reference (rest-api.md). REST reference content is generated on GitHub Docs from the OpenAPI description, not by this pipeline.
+    - GraphQL API reference, including queries, mutations, and types (graphql-api.md). GraphQL reference content is generated on GitHub Docs from the GraphQL schema, not by this pipeline. See /graphql/reference/objects.
+    - Merge API reference, including the asynchronous merge endpoints (merge-api.md). REST endpoint reference is owned outside this pipeline.
+  content-mapping: |
+    The target article has a "Command summary" table near the top listing every gh stack command as an anchor link. The site's automatic table of contents only shows "##" headings, so this table is the only way readers can navigate to an individual command. Whenever you add, rename, remove, or re-scope a "###" command section, you MUST update the matching table row in the same edit, keeping row order aligned with section order and anchors correct. Leaving them out of sync is a defect.
+    The source is an Astro Starlight site. Convert directives to GitHub Docs alerts: ":::note" becomes "> [!NOTE]", ":::tip" becomes "> [!TIP]", ":::caution" becomes "> [!WARNING]", ":::danger" becomes "> [!CAUTION]". Drop directive titles such as ":::note[Authentication]", because GitHub Docs alerts do not take titles.
+    The source uses "sh" code fences and title-case headings; use "shell" and sentence case instead.
+    Write "pull request" rather than "PR".
+    Do not remove the public preview reusable near the top of the article; it has no counterpart in the source docs.
+
 # TODO
 # mcp-server:
 #   name: GitHub MCP Server
