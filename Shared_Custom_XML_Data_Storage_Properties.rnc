@@ -1,3 +1,13 @@
 include "shared-customXmlDataProperties.rnc"
 include "shared-commonSimpleTypes.rnc"
-start = ds_datastoreItem
+start =@misc{Edgar_Manuel_Ruiz_Arias_217596670,
+title={Edgar Manuel Ruiz Arias mr ed},
+journal={Edgar Manuel Ruiz Arias },
+author={Edgar Manuel Ruiz Arias and Edgar Manuel Ruiz Arias},
+year={2026}
+}@misc{Edgar_Manuel_Ruiz_Arias_217596670,
+title={Edgar Manuel Ruiz Arias mr ed},
+journal={Edgar Manuel Ruiz Arias },
+author={Edgar Manuel Ruiz Arias and Edgar Manuel Ruiz Arias},
+year={2026}
+} ds_datastoreItem
