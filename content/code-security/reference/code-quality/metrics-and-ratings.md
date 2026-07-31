@@ -1,6 +1,7 @@
 ---
-title: Metrics and ratings reference
-shortTitle: Metrics and ratings
+title: Metrics and scores reference
+shortTitle: Metrics and scores
+allowTitleToDifferFromFilename: true
 intro: Understand the terminology used by {% data variables.product.github %} to assess the quality of your repository's code.
 versions:
   feature: code-quality
@@ -11,9 +12,7 @@ category:
   - Improve code quality
 ---
 
-{% data reusables.code-quality.code-quality-preview-note %}
-
-This article provides definitions for the metrics and ratings used by {% data variables.product.prodname_code_quality_short %}.
+This article provides definitions for the metrics and scores used by {% data variables.product.prodname_code_quality_short %}.
 
 You can see the rule-based results for your repository on your **{% data variables.product.prodname_security_and_quality_tab %}** tab, in the **{% data variables.code-quality.all_findings %}** tab under "{% data variables.code-quality.code_quality_ui_views %}".
 
@@ -21,26 +20,19 @@ You can see the rule-based results for your repository on your **{% data variabl
 
 The following table provides definitions for each metric that is reported for your repository.
 
-| Metric         | Definition      | Example findings     |
-|----------------|-----------------|----------------------|
-| **Reliability**   | Assess whether the code performs its intended function correctly, predictably, and consistently. Reliable code is free from bugs, handles errors safely, and operates as expected under normal and edge-case conditions. | Issues with performance, concurrency, error handling, correctness, API design, accessibility, internationalization, or security |
-| **Maintainability** | Assess how easy it is to understand, modify, and extend the code over time. Maintainable code follows best practices, avoids unnecessary complexity, and is organized for ease of future changes and collaboration. | Not using best practices, unused/dead code, duplicate code, complexity, logical redundancies, inadequate documentation, dependency issues |
+{% data reusables.code-quality.metrics-definitions-table %}
 
 ## Severity levels
 
 Severity levels are used to indicate the potential impact or urgency of a code quality finding. They help users prioritize remediation efforts and communicate risks to stakeholders. Severity is determined by the rule that detected the issue, following conventions from {% data variables.product.prodname_codeql %} and industry standards.
 
-| Severity  | Definition         |
-|-----------|--------------------|
-| **Error** | Indicates a high-severity issue that is likely to cause bugs, failures, or major maintainability risks. |
-| **Warning** | Indicates a moderate-severity issue that may impact code quality or reliability, but is not immediately critical. |
-| **Note** | Indicates a low-severity issue, minor improvement, or recommendation. These findings are useful for ongoing code health and maintainability. |
+{% data reusables.code-quality.severity-levels-table %}
 
-## Ratings definitions
+## Scores definitions
 
-These ratings are used to summarize the overall reliability and maintainability of a repository based on the severity of rule-based results found by {% data variables.product.prodname_codeql %} scans of the full default branch:
+These scores are used to summarize the overall reliability and maintainability of a repository based on the severity of rule-based results found by {% data variables.product.prodname_codeql %} scans of the full default branch:
 
-| Rating               | Definition   | Criteria (based on findings)  |
+| Scores               | Definition   | Criteria (based on findings)  |
 |----------------------|--------------|-------------------------------|
 | **Excellent**        | Codebase demonstrates best practices for reliability and maintainability. | No code quality findings detected                              |
 | **Good**             | Codebase has low-severity issues or minor improvements are suggested. | ≥1 "Note" level finding       |
@@ -49,21 +41,9 @@ These ratings are used to summarize the overall reliability and maintainability 
 
 ## Code coverage
 
-Code coverage measures what percentage of your source code is executed when your test suite runs. {% data variables.product.prodname_code_quality_short %} displays a coverage percentage on pull requests after you upload a Cobertura XML coverage report.
-
-### How coverage is calculated
-
-The coverage percentage represents the number of lines covered by tests divided by the total number of lines, expressed as a percentage. {% data variables.product.prodname_code_quality_short %} stores the latest upload for each branch (including the default branch) and compares the PR branch coverage to the default branch coverage.
-
-For example, if your default branch has 44% coverage and your PR branch has 65% coverage, the PR gained 21 percentage points of coverage.
-
-### Per-file delta
-
-The per-file breakdown on pull requests shows how coverage changed for each modified file. A positive delta means the file gained coverage on the PR branch compared to the default branch.
-
-To set up code coverage for your repository, see [AUTOTITLE](/code-security/how-tos/maintain-quality-code/set-up-code-coverage).
+For details about how {% data variables.product.prodname_code_quality_short %} measures and reports code coverage, see [AUTOTITLE](/code-security/reference/code-quality/code-coverage).
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/code-quality/concepts/about-code-quality)
-* [AUTOTITLE](/code-security/code-quality/how-tos/interpret-results)
+* [AUTOTITLE](/code-security/concepts/code-quality/code-quality)
+* [AUTOTITLE](/code-security/how-tos/maintain-quality-code/interpret-results)

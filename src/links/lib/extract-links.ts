@@ -46,6 +46,13 @@ export interface ExtractedLink {
   isAutotitle?: boolean
   isImage?: boolean
   isAnchor?: boolean
+  /**
+   * The URL fragment (the part after `#`) for internal links that carry one, e.g.
+   * `some-heading` for `/foo/bar#some-heading`. `href` keeps the fragment stripped
+   * (so path resolution is unaffected); this field preserves it for cross-page anchor
+   * validation. Undefined when the link has no fragment.
+   */
+  fragment?: string
 }
 
 export interface LinkExtractionResult {
@@ -126,6 +133,17 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
   const imageLinks: ExtractedLink[] = []
   const liquidPrefixedLinks: ExtractedLink[] = []
 
+  // Split an internal link destination into its path and optional fragment.
+  // href keeps the fragment stripped (so path resolution is unaffected); the
+  // fragment is returned separately for cross-page anchor validation. An empty
+  // fragment (a trailing bare `#`) is treated as no fragment.
+  const splitFragment = (raw: string): { href: string; fragment?: string } => {
+    const hashIndex = raw.indexOf('#')
+    if (hashIndex === -1) return { href: raw }
+    const fragment = raw.slice(hashIndex + 1)
+    return { href: raw.slice(0, hashIndex), fragment: fragment.length ? fragment : undefined }
+  }
+
   // Strip fenced code blocks to avoid checking example/placeholder URLs
   // Replaces non-newline characters with spaces to preserve line numbers and positions
   const withoutFences = content.replace(
@@ -156,7 +174,7 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
   let match
   while ((match = AUTOTITLE_LINK_PATTERN.exec(strippedContent)) !== null) {
     const { line, column } = getLineAndColumn(lineOffsets, match.index)
-    const href = match[1].split('#')[0] // Remove anchor if present
+    const { href, fragment } = splitFragment(match[1]) // Split off anchor if present
     if (href.startsWith('/')) {
       internalLinks.push({
         href,
@@ -164,6 +182,7 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
         column,
         text: 'AUTOTITLE',
         isAutotitle: true,
+        fragment,
       })
     }
   }
@@ -181,7 +200,7 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
     const { line, column } = getLineAndColumn(lineOffsets, match.index)
     // Extract href from ](/path) format. The destination is captured in group 1,
     // which handles balanced parentheses (e.g. asset filenames like `(fr).pdf`).
-    const href = match[1].split('#')[0]
+    const { href, fragment } = splitFragment(match[1])
     const text = extractLinkText(strippedContent, match.index)
 
     internalLinks.push({
@@ -190,6 +209,7 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
       column,
       text,
       isAutotitle: false,
+      fragment,
     })
   }
 
@@ -252,12 +272,13 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
   // These are distinct from inline links but point to the same targets that need validating.
   while ((match = LINK_DEFINITION_PATTERN.exec(strippedContent)) !== null) {
     const { line, column } = getLineAndColumn(lineOffsets, match.index)
-    const href = match[1].split('#')[0]
+    const { href, fragment } = splitFragment(match[1])
     internalLinks.push({
       href,
       line,
       column,
       isAutotitle: false,
+      fragment,
     })
   }
 
@@ -327,6 +348,20 @@ async function getCachedRenderLiquid(): Promise<RenderLiquidModule> {
     _renderLiquid = mod.renderLiquid
   }
   return _renderLiquid
+}
+
+/**
+ * Render Liquid templates in content and return the rendered markdown.
+ *
+ * Unlike `extractLinksWithLiquid` and `renderAndExtractLinks`, a render failure is NOT
+ * swallowed: it propagates to the caller. Use this when falling back to the raw, unrendered
+ * markdown would be worse than no result at all — for example when the rendered headings
+ * drive a destructive edit, where unrendered `{% data %}` in a heading would silently
+ * produce the wrong anchor IDs.
+ */
+export async function renderMarkdownLiquid(content: string, context: Context): Promise<string> {
+  const renderLiquid = await getCachedRenderLiquid()
+  return renderLiquid(content, context)
 }
 
 /**
@@ -414,6 +449,34 @@ export function normalizeLinkPath(href: string): string {
   }
 
   return normalized
+}
+
+/**
+ * Resolve an internal link href to the exact pageMap key of the page it lands on,
+ * but ONLY for direct (non-redirect) hits. Returns null when the link doesn't
+ * resolve directly to a page (redirect, archived version, or broken).
+ *
+ * This mirrors the two direct-hit branches of `checkInternalLink` (a bare path or a
+ * language-prefixed path). It's used by the cross-page anchor checker to look up the
+ * target page's precomputed heading IDs. Redirects are intentionally excluded: the
+ * link is already reported as a redirect-to-update, and its final anchor is ambiguous.
+ */
+export function resolveInternalLinkKey(href: string, pageMap: Record<string, Page>): string | null {
+  const normalized = normalizeLinkPath(href)
+
+  const latestPrefix = '/enterprise-server@latest'
+  const stablePrefix = `/enterprise-server@${latestStable}`
+  const resolved =
+    normalized.startsWith(latestPrefix) || normalized.startsWith(`/en${latestPrefix}`)
+      ? normalized.replace(latestPrefix, stablePrefix)
+      : normalized
+
+  if (pageMap[resolved]) return resolved
+
+  const withLang = `/en${resolved}`
+  if (pageMap[withLang]) return withLang
+
+  return null
 }
 
 /**

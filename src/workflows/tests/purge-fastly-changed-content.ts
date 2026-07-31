@@ -5,15 +5,13 @@ const fetchWithRetry = vi.fn()
 vi.mock('@/frame/lib/fetch-utils', () => ({
   fetchWithRetry: (...args: unknown[]) => fetchWithRetry(...args),
 }))
-// warmServer is only used by the entry point, not the exported helpers under
-// test, but importing the module pulls it in, so stub it to stay light.
-vi.mock('@/frame/lib/warm-server', () => ({ default: vi.fn() }))
 
 const {
   resolvePreviousProductionSha,
   getChangedContentFiles,
-  contentFilesToEnglishUrls,
-  hardPurgeUrls,
+  contentFilesToPageKeys,
+  chunk,
+  hardPurgeSurrogateKeys,
   rateLimitDelayMs,
 } = await import('../purge-fastly-changed-content')
 
@@ -120,37 +118,42 @@ describe('getChangedContentFiles', () => {
   })
 })
 
-describe('contentFilesToEnglishUrls', () => {
-  test('maps content paths to full prod URLs across versions and dedupes', () => {
-    const permalinks: Record<string, string[]> = {
-      'get-started/foo.md': ['/en/get-started/foo', '/en/enterprise-server@3.14/get-started/foo'],
-      'get-started/bar.md': ['/en/get-started/bar'],
-    }
-    const urls = contentFilesToEnglishUrls(
-      [
-        { filename: 'content/get-started/foo.md', status: 'modified' },
-        { filename: 'content/get-started/bar.md', status: 'added' },
-        { filename: 'content/get-started/foo.md', status: 'modified' },
-      ],
-      (relativePath) => permalinks[relativePath] || [],
-    )
-    expect(urls).toEqual([
-      'https://docs.github.com/en/get-started/foo',
-      'https://docs.github.com/en/enterprise-server@3.14/get-started/foo',
-      'https://docs.github.com/en/get-started/bar',
+describe('contentFilesToPageKeys', () => {
+  test('maps content files to one deduped English page key each', () => {
+    const keys = contentFilesToPageKeys([
+      { filename: 'content/get-started/foo.md', status: 'modified' },
+      { filename: 'content/get-started/bar.md', status: 'added' },
+      { filename: 'content/get-started/foo.md', status: 'modified' },
+    ])
+    // One key per source page, deduped, covering every version-URL of the page.
+    expect(keys).toEqual([
+      'language:en,path:get-started/foo.md',
+      'language:en,path:get-started/bar.md',
     ])
   })
 
-  test('skips files that resolve to no permalinks', () => {
-    const urls = contentFilesToEnglishUrls(
-      [{ filename: 'content/unknown/page.md', status: 'modified' }],
-      () => [],
-    )
-    expect(urls).toEqual([])
+  test('honors an explicit language', () => {
+    expect(
+      contentFilesToPageKeys([{ filename: 'content/x/y.md', status: 'modified' }], 'ja'),
+    ).toEqual(['language:ja,path:x/y.md'])
+  })
+
+  test('returns an empty list for no files', () => {
+    expect(contentFilesToPageKeys([])).toEqual([])
   })
 })
 
-describe('hardPurgeUrls', () => {
+describe('chunk', () => {
+  test('splits into batches of at most the given size', () => {
+    expect(chunk([1, 2, 3, 4, 5], 2)).toEqual([[1, 2], [3, 4], [5]])
+  })
+
+  test('returns no batches for an empty list', () => {
+    expect(chunk([], 256)).toEqual([])
+  })
+})
+
+describe('hardPurgeSurrogateKeys', () => {
   // A minimal stand-in for a fetch Response, with a case-insensitive headers.get.
   function fakeResponse(
     status: number,
@@ -167,31 +170,44 @@ describe('hardPurgeUrls', () => {
     }
   }
 
-  test('issues a hard URL purge per URL (no soft-purge header)', async () => {
+  test('sends one hard batch purge with a surrogate_keys body (no soft header)', async () => {
     fetchWithRetry.mockResolvedValue({ ok: true })
-    await hardPurgeUrls(
-      ['https://docs.github.com/en/foo', 'https://docs.github.com/en/bar'],
+    await hardPurgeSurrogateKeys(
+      ['language:en,path:a.md', 'language:en,path:b.md'],
       'token-123',
-      2,
+      'svc-1',
     )
-    expect(fetchWithRetry).toHaveBeenCalledTimes(2)
+    expect(fetchWithRetry).toHaveBeenCalledTimes(1)
     const [url, init] = fetchWithRetry.mock.calls[0]
-    expect(url).toBe('https://api.fastly.com/purge/docs.github.com/en/foo')
+    expect(url).toBe('https://api.fastly.com/service/svc-1/purge')
     expect(init.method).toBe('POST')
     expect(init.headers['fastly-key']).toBe('token-123')
     expect(init.headers['fastly-soft-purge']).toBeUndefined()
+    expect(JSON.parse(init.body)).toEqual({
+      surrogate_keys: ['language:en,path:a.md', 'language:en,path:b.md'],
+    })
   })
 
-  test('throws if any purge fails, after attempting all of them', async () => {
+  test('splits more than 256 keys into multiple batches', async () => {
+    fetchWithRetry.mockResolvedValue({ ok: true })
+    const keys = Array.from({ length: 257 }, (_unused, i) => `language:en,path:p${i}.md`)
+    await hardPurgeSurrogateKeys(keys, 'tok', 'svc')
+    expect(fetchWithRetry).toHaveBeenCalledTimes(2)
+    expect(JSON.parse(fetchWithRetry.mock.calls[0][1].body).surrogate_keys).toHaveLength(256)
+    expect(JSON.parse(fetchWithRetry.mock.calls[1][1].body).surrogate_keys).toHaveLength(1)
+  })
+
+  test('throws if any batch fails, after attempting all of them', async () => {
     fetchWithRetry.mockResolvedValueOnce({ ok: true }).mockResolvedValueOnce({
       ok: false,
       status: 500,
       statusText: 'err',
       text: async () => 'boom',
     })
-    await expect(
-      hardPurgeUrls(['https://docs.github.com/en/foo', 'https://docs.github.com/en/bar'], 'tok', 1),
-    ).rejects.toThrow(/1 of 2 URL purge\(s\) failed/)
+    const keys = Array.from({ length: 300 }, (_unused, i) => `language:en,path:p${i}.md`)
+    await expect(hardPurgeSurrogateKeys(keys, 'tok', 'svc')).rejects.toThrow(
+      /1 of 2 batch purge\(s\) failed/,
+    )
     expect(fetchWithRetry).toHaveBeenCalledTimes(2)
   })
 
@@ -199,33 +215,17 @@ describe('hardPurgeUrls', () => {
     fetchWithRetry
       .mockResolvedValueOnce(fakeResponse(429, { headers: { 'retry-after': '0' } }))
       .mockResolvedValueOnce(fakeResponse(200, { ok: true }))
-    await hardPurgeUrls(['https://docs.github.com/en/foo'], 'tok', 1, 0, undefined, () => 0)
+    await hardPurgeSurrogateKeys(['language:en,path:a.md'], 'tok', 'svc', () => 0)
     expect(fetchWithRetry).toHaveBeenCalledTimes(2)
   })
 
-  test('gives up after the retry budget and reports the URL as failed', async () => {
+  test('gives up after the retry budget and reports the batch as failed', async () => {
     fetchWithRetry.mockResolvedValue(fakeResponse(429, { headers: { 'retry-after': '0' } }))
     await expect(
-      hardPurgeUrls(['https://docs.github.com/en/foo'], 'tok', 1, 0, undefined, () => 0),
-    ).rejects.toThrow(/1 of 1 URL purge\(s\) failed/)
+      hardPurgeSurrogateKeys(['language:en,path:a.md'], 'tok', 'svc', () => 0),
+    ).rejects.toThrow(/1 of 1 batch purge\(s\) failed/)
     // Initial attempt + 5 retries.
     expect(fetchWithRetry).toHaveBeenCalledTimes(6)
-  })
-
-  test('stops starting purges once the time budget is exceeded', async () => {
-    fetchWithRetry.mockResolvedValue(fakeResponse(200, { ok: true }))
-    // Budget below zero: the deadline is already in the past on the first loop
-    // check, so no purge is attempted and every URL is reported as skipped.
-    await expect(
-      hardPurgeUrls(
-        ['https://docs.github.com/en/foo', 'https://docs.github.com/en/bar'],
-        'tok',
-        1,
-        0,
-        -1,
-      ),
-    ).rejects.toThrow(/2 of 2 URL purge\(s\) failed/)
-    expect(fetchWithRetry).not.toHaveBeenCalled()
   })
 })
 
@@ -268,7 +268,7 @@ describe('rateLimitDelayMs', () => {
 
   test('adds jitter on top of a server hint to decorrelate workers', () => {
     // Math.random -> 0.5 gives jitter = floor(0.5 * 150) = 75ms, added on top of
-    // the honored 5000ms hint so concurrent workers don't wake in lockstep.
+    // the honored 5000ms hint so concurrent retries don't wake in lockstep.
     vi.spyOn(Math, 'random').mockReturnValue(0.5)
     expect(rateLimitDelayMs(fakeResponse({ 'retry-after': '5' }), 0)).toBe(5075)
   })

@@ -57,7 +57,7 @@ Disabling {% data variables.copilot.copilot_autofix_short %} at the organization
 {% data reusables.security-configurations.display-global-settings %}
 1. Under the "{% data variables.product.prodname_code_scanning_caps %}" section, deselect **{% data variables.copilot.copilot_autofix_short %}**.
 
-For more information about configuring global {% data variables.product.prodname_code_scanning %} settings, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#configuring-global-code-scanning-settings).
+For more information about configuring global {% data variables.product.prodname_code_scanning %} settings, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/configure-global-settings#configuring-global-code-scanning-settings).
 
 ### Disabling {% data variables.copilot.copilot_autofix_short %} for a repository
 

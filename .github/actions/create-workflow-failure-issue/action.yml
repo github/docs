@@ -10,6 +10,11 @@ inputs:
     default: github/docs-engineering
     required: false
 
+outputs:
+  issue_url:
+    description: URL of the created or updated workflow-failure issue (empty if creation failed).
+    value: ${{ steps.create-new.outputs.issue_url || steps.comment-existing.outputs.issue_url }}
+
 runs:
   using: composite
   steps:
@@ -31,6 +36,7 @@ runs:
         echo "existing_issue=$existing" >> "$GITHUB_OUTPUT"
 
     - name: Comment on existing issue
+      id: comment-existing
       if: steps.check-existing.outputs.existing_issue != ''
       shell: bash
       env:
@@ -57,8 +63,10 @@ runs:
         gh issue comment "$ISSUE_NUMBER" \
           --repo "$ISSUE_REPO" \
           --body "$body"
+        echo "issue_url=$GITHUB_SERVER_URL/$ISSUE_REPO/issues/$ISSUE_NUMBER" >> "$GITHUB_OUTPUT"
 
     - name: Create workflow failure issue
+      id: create-new
       if: steps.check-existing.outputs.existing_issue == ''
       shell: bash
       env:
@@ -86,9 +94,10 @@ runs:
         This issue was automatically created by the create-workflow-failure-issue action to enable automated diagnosis.
         EOF
         )
-        gh issue create \
+        url=$(gh issue create \
           --repo "$ISSUE_REPO" \
           --label "workflow-failure" \
           --label "workflow-generated" \
           --title "[Workflow Failure] $WORKFLOW_NAME" \
-          --body "$body"
+          --body "$body")
+        echo "issue_url=$url" >> "$GITHUB_OUTPUT"

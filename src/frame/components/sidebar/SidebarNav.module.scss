@@ -11,9 +11,16 @@
 }
 
 // When the mobile nav is expanded inline, the rail spans the full width and
-// flows in the page (no fixed height / sticky) below the xxl breakpoint.
+// flows in the page (no fixed height / sticky) below the xxl breakpoint. At xxl
+// the desktop rail takes over, so revert to the fixed rail width even if the
+// mobile-open state is momentarily still set (e.g. mid-resize) — otherwise the
+// full-width rail covers the article content.
 .sidebarFullMobileOpen {
   width: 100%;
+
+  @include breakpoint-xxl {
+    width: 326px;
+  }
 }
 
 .sidebarContentFull {

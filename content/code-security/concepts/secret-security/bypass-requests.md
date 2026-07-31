@@ -16,7 +16,7 @@ redirect_from:
 
 ## About bypass requests for push protection
 
-When push protection blocks a commit containing a secret, contributors may need to bypass the block to complete their push. If delegated bypass for push protection is enabled, contributors without bypass privileges must submit a bypass request and wait for approval from designated reviewers. This allows organizations to maintain security oversight while enabling legitimate exceptions when needed. For more information, see [AUTOTITLE](/code-security/concepts/secret-security/about-delegated-bypass-for-push-protection).
+When push protection blocks a commit containing a secret, contributors may need to bypass the block to complete their push. If delegated bypass for push protection is enabled, contributors without bypass privileges must submit a bypass request and wait for approval from designated reviewers. This allows organizations to maintain security oversight while enabling legitimate exceptions when needed. For more information, see [AUTOTITLE](/code-security/concepts/secret-security/delegated-bypass).
 
 If delegated bypass for push protection is not enabled, contributors can bypass push protection at their own discretion.
 
@@ -64,4 +64,4 @@ You can use {% data variables.product.prodname_github_apps %} with fine-grained 
 
 ## Next steps
 
-* To learn how to manage bypass requests for push protection as a reviewer, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/manage-bypass-requests/managing-requests-to-bypass-push-protection).
+* To learn how to manage bypass requests for push protection as a reviewer, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/manage-bypass-requests/manage-bypass-requests).

@@ -72,6 +72,8 @@ You can manually select the tools you want to enable, or you can use the **Sugge
 
 An {% data variables.copilot.copilot_automation %} can only take action in the single repository it is scoped to.
 
+When an {% data variables.copilot.copilot_automation %} changes an issue, it can explain each change and rate its confidence, applying high-confidence changes automatically and proposing others for your review. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-automation-rationale-and-approvals).
+
 ## Configuration inherited from the repository
 
 {% data variables.copilot.copilot_automations_cap %} use the {% data variables.copilot.copilot_cloud_agent %} configuration for the repository they are scoped to, including:

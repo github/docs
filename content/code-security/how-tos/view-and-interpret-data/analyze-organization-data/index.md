@@ -10,7 +10,6 @@ contentType: how-tos
 children:
   - /assessing-code-security-risk
   - /assessing-adoption-code-security
-  - /explore-code-quality
   - /find-insecure-repositories
   - /export-data
   - /viewing-security-insights

@@ -100,7 +100,7 @@ If you disable automatic inheritance of access permissions, new packages scoped 
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the sidebar, in the "Code, planning, and automation" section, click **{% octicon "package" aria-hidden="true" aria-label="package" %} Packages**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "package" aria-hidden="true" aria-label="package" %} Packages**.
 1. Under "Default Package Settings", deselect **Inherit access from source repository**.
 1. Click **Save**.
 
@@ -117,14 +117,14 @@ If you publish a package that is linked to a repository, {% data variables.produ
 {% endif %}
 
 {% ifversion org-automatic-registry-access %}
- 
+
 Granting a repository access here also allows {% data variables.product.prodname_dependabot %} to pull from this package automatically, without requiring {% data variables.product.pat_generic_plural %} or `dependabot.yml` registry configuration. See [AUTOTITLE](/code-security/concepts/supply-chain-security/automatic-dependabot-access-to-github-registries).
- 
+
 {% endif %}
 
 > [!NOTE]
 > * Syncing your package with a repository {% data variables.package_registry.package-settings-actions-access-menu %} is different than connecting your package to a repository. For more information about linking a repository to your package, see [AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package).
-> * You can choose to limit permissions to workflow jobs using the `permissions` key and `packages` scope. For more information, see [AUTOTITLE](/actions/tutorials/authenticate-with-github_token#modifying-the-permissions-for-the-githubtoken).
+> * You can choose to limit permissions to workflow jobs using the `permissions` key and `packages` scope. For more information, see [AUTOTITLE](/actions/tutorials/authenticate-with-github_token#modifying-the-permissions-for-the-github_token).
 > * {% data reusables.package_registry.public-forks-private-packages %}
 
 ### {% data variables.product.prodname_actions %} access for packages scoped to personal accounts

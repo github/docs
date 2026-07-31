@@ -179,7 +179,7 @@ If you were using {% data variables.actions.hosted_runner %}s, self-hosted runne
    * Update your workflows to point to your runners. For more information, see [AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/running-jobs-on-larger-runners).
 1. Re-add any encrypted secrets.
 
-   * To use the browser, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets#creating-encrypted-secrets-for-a-repository).
+   * To use the browser, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets#creating-secrets-for-a-repository).
    * To use {% data variables.product.prodname_cli %}, see [`gh secret`](https://cli.github.com/manual/gh_secret) in the {% data variables.product.prodname_cli %} documentation.
 1. Reconfigure environments. For more information, see [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments).
 

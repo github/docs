@@ -10,7 +10,7 @@ category:
   - Author and optimize with Copilot
 ---
 
-{% data variables.copilot.copilot_code-review_short %} is also available for organization members without a {% data variables.product.prodname_copilot_short %} license, when enabled by an enterprise administrator or organization owner. See [{% data variables.copilot.copilot_code-review_short %} for organization members without a {% data variables.product.prodname_copilot_short %} license](/copilot/concepts/agents/code-review#copilot-code-review-for-organization-members-without-a-copilot-license).
+{% data variables.copilot.copilot_code-review_short %} is also available for organization members without a {% data variables.product.prodname_copilot_short %} license, when enabled by an enterprise administrator or organization owner. See [{% data variables.copilot.copilot_code-review_short %} for organization members without a {% data variables.product.prodname_copilot_short %} license](/copilot/concepts/agents/code-review#copilot-code-review-without-a-copilot-license).
 
 ## Request a review from {% data variables.product.prodname_copilot_short %}
 
@@ -71,8 +71,6 @@ By default, you request reviews from {% data variables.product.prodname_copilot_
 {% data reusables.copilot.code-review.custom-instructions-information %}
 
 ## MCP servers and agent skills
-
-{% data reusables.copilot.code-review.skills-and-mcp-preview-note %}
 
 {% data variables.copilot.copilot_code-review_short %} can use agent skills and MCP servers configured in the repository, when they are relevant to the review.
 

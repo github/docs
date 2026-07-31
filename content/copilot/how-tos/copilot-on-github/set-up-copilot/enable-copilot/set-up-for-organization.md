@@ -34,7 +34,7 @@ Control which {% data variables.product.prodname_copilot_short %} features are a
 
 If your organization members connect through an HTTP proxy server or firewall, add the required URLs to the allowlist. See [AUTOTITLE](/copilot/reference/copilot-allowlist-reference).
 
-If your environment uses custom SSL certificates, install them on your members' machines. See [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-network-settings#-installing-custom-certificates).
+If your environment uses custom SSL certificates, install them on your members' machines. See [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-network-settings#installing-custom-certificates).
 
 ## Grant access to members
 

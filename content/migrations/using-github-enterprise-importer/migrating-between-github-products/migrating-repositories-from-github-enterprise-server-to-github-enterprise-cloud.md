@@ -512,7 +512,7 @@ gh gei generate-script --github-source-org SOURCE \
 
 | Argument | Description |
 | -------- | ----------- |
-| `--download-migration-logs` | Download the migration log for each migrated repository. For more information about migration logs, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer#downloading-all-migration-logs-for-an-organization). |
+| `--download-migration-logs` | Download the migration log for each migrated repository. For more information about migration logs, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer#downloading-all-the-repository-migration-logs-for-a-migration-script). |
 | `--lock-source-repo` | Lock the source repository when migrating. **Warning:** Locking a source repository prevents further changes and may disrupt workflows. It is recommended to only use this option if you are certain it is appropriate. For more information, see [AUTOTITLE](/migrations/overview/about-locked-repositories). |
 | `--no-ssl-verify` | {% data reusables.enterprise-migration-tool.ssl-flag %} |
 | `--skip-releases` | {% data reusables.enterprise-migration-tool.skip-releases %} |

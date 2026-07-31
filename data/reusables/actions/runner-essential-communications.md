@@ -75,4 +75,5 @@ release-assets.githubusercontent.com
 
 ```shell copy
 api.snapcraft.io
+*.core.windows.net
 ```

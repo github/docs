@@ -68,10 +68,13 @@ Once enabled, automatic dependency submission jobs will run on the self-hosted r
 
 >[!NOTE] For Maven or Gradle projects that use self-hosted runners with private Maven registries, you need to modify the Maven server settings file to allow the dependency submission workflows to connect to the registries. For more information about the Maven server settings file, see [Security and Deployment Settings](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#transitive-dependencies) in the Maven documentation.
 
-For network allowlist URLs, larger runner configuration, troubleshooting details, and package ecosystem-specific information, see [AUTOTITLE](/code-security/reference/supply-chain-security/automatic-dependency-submission).
+On a restricted network, automatic dependency submission has several outbound needs. Depending on the ecosystem, a job might download the language toolchain it runs on, the tooling it uses to detect and submit dependencies (such as the Gradle dependency-submission plugin), and your project's own dependencies from your registries.
+
+Configuring access to your dependency registry covers only the last of these. Make sure the other paths are reachable too, or mirrored internally where the ecosystem supports it.
+
+For network allowlist URLs, the option to resolve the Gradle submission plugin from an internal repository, larger runner configuration, troubleshooting details, and package ecosystem-specific information, see [AUTOTITLE](/code-security/reference/supply-chain-security/automatic-dependency-submission).
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/reference/supply-chain-security/automatic-dependency-submission)
 * [AUTOTITLE](/code-security/concepts/supply-chain-security/supply-chain-security)
 * [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/use-dependency-submission-api)

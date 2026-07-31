@@ -243,7 +243,7 @@ The following reusable workflow has a single job containing two steps. In each o
 
 The `value` must be set to the value of a job-level output within the called workflow. Step-level outputs must first be mapped to job-level outputs as shown below.
 
-For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/pass-job-outputs#overview) and [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#onworkflow_calloutputs).
+For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/pass-job-outputs) and [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#onworkflow_calloutputs).
 
 {% raw %}
 

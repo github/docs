@@ -52,6 +52,25 @@ When a cost center's budget is exhausted, only users in that cost center are blo
 
 Unlike a cost center budget, which caps metered charges only after the shared pool of {% data variables.product.prodname_ai_credits_short %} is exhausted, an included usage control limits how much of the pool a cost center can draw **before** the metered phase begins. To enable it, see [AUTOTITLE](/billing/how-tos/set-up-budgets).
 
+Cost center administrators can view the included usage cap and current consumption on the cost center home page. When the included usage pool cap is enabled, the home page shows **AI credit pool enabled** and displays the {% data variables.product.prodname_ai_credits_short %} consumed in that cost center out of the total cap.
+
+#### How the included usage cap is calculated
+
+The cap is the sum of the included {% data variables.product.prodname_ai_credits_short %} for every license assigned to the cost center's members, even when license types are mixed:
+
+* Each {% data variables.copilot.copilot_business_short %} license adds {% data variables.copilot.ai_credits_per_user_business %} {% data variables.product.prodname_ai_credits_short %}.
+* Each {% data variables.copilot.copilot_enterprise_short %} license adds {% data variables.copilot.ai_credits_per_user_enterprise %} {% data variables.product.prodname_ai_credits_short %}.
+
+For example, at current included amounts, a cost center with 10 {% data variables.copilot.copilot_business_short %} licenses and 5 {% data variables.copilot.copilot_enterprise_short %} licenses has a cap of 38,500 {% data variables.product.prodname_ai_credits_short %}: 19,000 from the {% data variables.copilot.copilot_business_short %} licenses (10 × {% data variables.copilot.ai_credits_per_user_business %}) plus 19,500 from the {% data variables.copilot.copilot_enterprise_short %} licenses (5 × {% data variables.copilot.ai_credits_per_user_enterprise %}).
+
+The cap updates automatically if {% data variables.product.github %} changes the included amount for a license type. It's also recalculated as the cost center's own licenses change: increases apply right away, so a growing team isn't blocked, while decreases take effect at the start of the next billing cycle, so {% data variables.product.prodname_ai_credits_short %} that members have already used aren't clawed back mid-cycle.
+
+| Change | Effect on the cap | When it applies |
+| --- | --- | --- |
+| A licensed user is added or granted a license, or an existing license is upgraded (for example, {% data variables.copilot.copilot_business_short %} to {% data variables.copilot.copilot_enterprise_short %}) | Increases | Right away |
+| A licensed user is removed or loses their license, or an existing license is downgraded | Decreases | Start of the next billing cycle |
+| A licensed member moves between two cost centers that both use included usage controls | Recalculated for both cost centers | Start of the next billing cycle |
+| An unlicensed user is added or removed | No change | Not applicable |
 ### Organization budget
 
 An organization budget caps metered charges for users who receive their {% data variables.product.prodname_copilot_short %} license through that organization. Like cost center budgets, it is only active after the shared pool is exhausted.

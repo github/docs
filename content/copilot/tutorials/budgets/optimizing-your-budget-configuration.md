@@ -22,7 +22,7 @@ Before optimizing your budget configuration, make sure you understand how budget
 
 If you haven't set up budgets yet, start with [AUTOTITLE](/copilot/tutorials/budgets/getting-started-with-budget-controls) to get the basics in place, then come back to this guide to optimize your configuration.
 
-To decide between a simple setup and cost-center-based controls before you fine-tune, see the basic and advanced approaches in [AUTOTITLE](/billing/tutorials/control-costs-at-scale#choose-your-approach-basic-or-advanced-spend-controls).
+To decide between managing cost centers using the user interface or the REST API see [AUTOTITLE](/billing/tutorials/control-costs-at-scale).
 
 ## Sizing your budgets
 
