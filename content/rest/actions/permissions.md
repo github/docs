@@ -16,6 +16,6 @@ category:
 
 ## About permissions for {% data variables.product.prodname_actions %}
 
-You can use the REST API to set permissions for the {% ifversion ghes or ghec %}enterprises, {% endif %}organizations and repositories that are allowed to run {% data variables.product.prodname_actions %}, and the actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} that are allowed to run. For more information, see [AUTOTITLE](/actions/concepts/billing-and-usage#disabling-or-limiting-github-actions-for-your-repository-or-organization).
+You can use the REST API to set permissions for the {% ifversion ghes or ghec %}enterprises, {% endif %}organizations and repositories that are allowed to run {% data variables.product.prodname_actions %}, and the actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} that are allowed to run. For more information, see {% ifversion ghec or ghes %}[AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise), {% endif %}[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization), and [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository).
 
 <!-- Content after this section is automatically generated -->

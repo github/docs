@@ -167,7 +167,7 @@ If you view a code file in a repository using the **Code** view and click on any
 |<kbd>T</kbd> | Move your cursor to the "Filter changed files" field |
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> (Windows/Linux) | Submit a review comment |
 |<kbd>Option</kbd> and click (Mac) or <kbd>Alt</kbd> and click (Windows/Linux) | Toggle between collapsing and expanding all outdated or resolved review comments in a pull request (for example, by holding down <kbd>Alt</kbd> and clicking **Show outdated** or **Hide outdated**) |
-|Click, then <kbd>Shift</kbd> and click | Comment on multiple lines of a pull request by clicking a line number, holding <kbd>Shift</kbd>, then clicking another line number. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request).|
+|Click, then <kbd>Shift</kbd> and click | Comment on multiple lines of a pull request by clicking a line number, holding <kbd>Shift</kbd>, then clicking another line number. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request#adding-comments-to-a-pull-request).|
 
 ## {% data variables.projects.projects_v2_caps %}
 

@@ -33,7 +33,12 @@ export const LandingHero = ({ title, intro, heroImage, introLinks }: LandingHero
           {title}
         </Heading>
         {intro && (
-          <Text as="div" size="200" variant="muted" className={styles.heroDescription}>
+          <Text
+            as="div"
+            size="200"
+            variant="muted"
+            className={`${styles.heroDescription} ${styles.heroIntroScrim}`}
+          >
             <RenderedHTML as="div" html={intro} />
           </Text>
         )}

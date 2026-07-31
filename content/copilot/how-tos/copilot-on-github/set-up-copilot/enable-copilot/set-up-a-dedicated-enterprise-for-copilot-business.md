@@ -61,6 +61,15 @@ Give people access to {% data variables.product.prodname_copilot_short %} by ass
 
 For detailed steps, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/grant-access#assigning-licenses-to-users-or-teams).
 
+## Govern the use of {% data variables.product.prodname_copilot_short %} in your enterprise
+
+After you assign licenses, you can centrally govern how members use {% data variables.product.prodname_copilot_short %}:
+
+* **Policies**. Control feature availability with policies in AI Controls.
+* **Enterprise managed settings**. Distribute client governance and extensibility configuration from a centrally defined source. You can apply permission seetings like disabling bypass mode, restrict plugins, and set the default model for new conversations to {% data variables.copilot.copilot_cli_short %} and {% data variables.product.prodname_vscode_shortname %}. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings).
+
+To use server-managed settings, you need an organization and a `.github-private` repository, which requires a {% data variables.product.prodname_enterprise %} license for the user who creates them. Alternatively, you can deploy managed settings through MDM or a file-based deployment without creating an organization.
+
 ## Next steps
 
 Help your developers start using {% data variables.product.prodname_copilot_short %} and measure its impact. See [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/enable-developers/drive-adoption).

@@ -131,9 +131,6 @@ sections:
         # https://github.com/github/releases/issues/7290
         - |
           When a workflow job is skipped because of an `if:` conditional, the job log now shows how the conditional expression was evaluated. This helps users verify whether a job was skipped for the expected reason or if there is an error in their workflow logic.
-        # https://github.com/github/releases/issues/7112
-        - |
-          {% data variables.product.prodname_actions %} expressions support a new `case` function that enables conditional logic (if/else if/else) directly within workflow expressions. Users can use the `case` function to select values based on conditions without needing to store that logic externally.
         # https://github.com/github/releases/issues/7074
         - |
           The {% data variables.product.prodname_actions %} workflow visualization page now supports rendering workflows with more than 300 jobs. Jobs are lazy loaded to prevent page errors when viewing large workflows. This feature is in public preview and subject to change.
@@ -299,3 +296,5 @@ sections:
   errata:
     - |
       These release notes previously included a note about pull requeset reviewers being able to comment on any line of a changed file, not just lines within the diff. The note was added prematurely and has been removed. We will republish it when the feature is ready. [Updated: 2026-06-23]
+    - |
+      These release notes incorrecly indicated that the `case` function is supported in {% data variables.product.prodname_actions %} expressions. [Updated: 2026-07-30]

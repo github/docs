@@ -21,8 +21,6 @@ category:
 
 A {% data variables.product.prodname_ghe_server %} cluster comprises multiple nodes, with redundant services distributed across two or more nodes. If an individual service or an entire node fails, users should not notice. Failures affect performance and redundancy, so it's important to monitor the health of your cluster. You can monitor the health of your cluster using a command-line utility or an external monitoring tool like Nagios.
 
-You can also monitor the health of individual nodes using {% data variables.product.prodname_nes %}. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/monitoring-the-health-of-your-cluster-nodes-with-node-eligibility-service).
-
 ## Manually checking cluster status
 
 {% data variables.product.prodname_ghe_server %} has a built-in command line utility for monitoring the health of the cluster. From the administrative shell, running the `ghe-cluster-status` command executes a series of health checks on each node including verification of connectivity and service status. The output shows all test results including the text `ok` or `error`. For example, to only display failing tests, run:

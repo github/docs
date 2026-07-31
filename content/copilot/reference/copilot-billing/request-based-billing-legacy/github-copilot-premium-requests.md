@@ -60,7 +60,7 @@ Usage of premium requests is tracked monthly and is based on the following facto
 
 When you use {% data variables.copilot.copilot_cloud_agent %}, including any {% data variables.copilot.copilot_custom_agents %}, both **{% data variables.product.prodname_actions %} minutes** and **premium requests** are consumed:
 
-* **{% data variables.product.prodname_actions %} minutes** come from your account’s monthly allowance of free minutes for {% data variables.product.github %}-hosted runners. This allowance is shared with all {% data variables.product.prodname_actions %} workflows. See [AUTOTITLE](/billing/concepts/product-billing/github-actions#included-storage-and-minutes).
+* **{% data variables.product.prodname_actions %} minutes** come from your account’s monthly allowance of free minutes for {% data variables.product.github %}-hosted runners. This allowance is shared with all {% data variables.product.prodname_actions %} workflows. See [AUTOTITLE](/billing/concepts/product-billing/github-actions#free-use-of-github-actions).
 * **Premium requests** come from the monthly allowance associated with your {% data variables.product.prodname_copilot_short %} license. This allowance is shared with other features, such as {% data variables.copilot.copilot_chat_short %}.
 
 Each cloud agent **session** consumes one premium request. A session begins when you:

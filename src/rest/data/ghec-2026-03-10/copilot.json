@@ -54,7 +54,9 @@
               "require_actions_workflow_approval": true,
               "is_firewall_enabled": true,
               "is_firewall_recommended_allowlist_enabled": true,
-              "custom_allowlist": []
+              "custom_allowlist": [],
+              "is_automations_enabled": true,
+              "require_write_access_for_automation_triggers": true
             },
             "schema": {
               "type": "object",
@@ -114,6 +116,14 @@
                     "type": "string",
                     "description": "A custom allowlist entry, as a host or URL, that the firewall will allow the Copilot cloud agent to access."
                   }
+                },
+                "is_automations_enabled": {
+                  "type": "boolean",
+                  "description": "Whether automations are enabled in this repository. When true, users can create automations that automatically run agents on a schedule or in response to events like new issues or updated pull requests."
+                },
+                "require_write_access_for_automation_triggers": {
+                  "type": "boolean",
+                  "description": "Whether write access is required for automation triggers. When true, automations will only run if the user triggering the event has write access to the repository. When false, users can create automations that listen for events triggered by users without write access."
                 }
               },
               "required": [
@@ -122,7 +132,9 @@
                 "require_actions_workflow_approval",
                 "is_firewall_enabled",
                 "is_firewall_recommended_allowlist_enabled",
-                "custom_allowlist"
+                "custom_allowlist",
+                "is_automations_enabled",
+                "require_write_access_for_automation_triggers"
               ]
             }
           }
@@ -173,7 +185,9 @@
               "custom_allowlist": [
                 "sentry.io",
                 "https://api.example.com"
-              ]
+              ],
+              "is_automations_enabled": true,
+              "require_write_access_for_automation_triggers": false
             },
             "schema": {
               "type": "object",
@@ -233,6 +247,14 @@
                     "type": "string",
                     "description": "A custom allowlist entry, as a host or URL, that the firewall will allow the Copilot cloud agent to access."
                   }
+                },
+                "is_automations_enabled": {
+                  "type": "boolean",
+                  "description": "Whether automations are enabled in this repository. When true, users can create automations that automatically run agents on a schedule or in response to events like new issues or updated pull requests."
+                },
+                "require_write_access_for_automation_triggers": {
+                  "type": "boolean",
+                  "description": "Whether write access is required for automation triggers. When true, automations will only run if the user triggering the event has write access to the repository. When false, users can create automations that listen for events triggered by users without write access."
                 }
               },
               "required": [
@@ -241,7 +263,9 @@
                 "require_actions_workflow_approval",
                 "is_firewall_enabled",
                 "is_firewall_recommended_allowlist_enabled",
-                "custom_allowlist"
+                "custom_allowlist",
+                "is_automations_enabled",
+                "require_write_access_for_automation_triggers"
               ]
             }
           }
@@ -3250,6 +3274,116 @@
     {
       "serverUrl": "https://api.github.com",
       "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/repos-1-day",
+      "title": "Get Copilot enterprise repository report for a specific day",
+      "category": "copilot",
+      "subcategory": "copilot-usage-metrics",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "day",
+          "description": "<p>The day to request data for, in <code>YYYY-MM-DD</code> format.</p>",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Use this endpoint to retrieve download links for the Copilot enterprise repository report for a specific day. The report provides per-repository pull request metrics for Copilot across the enterprise, with one entry per repository.</p>\n<p>The report contains repository-level pull request activity for the specified day, including the Copilot Coding Agent (CCA) and Copilot Code Review (CCR) breakdowns. Only repositories that had activity on the specified day are included. Reports are generated daily and made available for download through signed URLs with a limited expiration time.</p>\n<p>The response includes download links to the report files, along with the specific date of the report. The report covers a complete day for which data has been processed.</p>\n<p>Enterprise owners, billing managers, and authorized users with fine-grained \"View Enterprise Copilot Metrics\" permission can retrieve Copilot metrics reports for the enterprise. OAuth app tokens and personal access tokens (classic) need either the <code>manage_billing:copilot</code> or <code>read:enterprise</code> scopes to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "download_links": [
+                "https://example.com/copilot-usage-report-1.ndjson",
+                "https://example.com/copilot-usage-report-2.ndjson"
+              ],
+              "report_day": "2025-07-01"
+            },
+            "schema": {
+              "type": "object",
+              "title": "Copilot Metrics 1 Day Report",
+              "description": "Links to download the Copilot usage metrics report for an enterprise/organization for a specific day.",
+              "properties": {
+                "download_links": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "description": "The URLs to download the Copilot usage metrics report for the enterprise/organization for the specified day."
+                },
+                "report_day": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The day of the report in `YYYY-MM-DD` format."
+                }
+              },
+              "required": [
+                "download_links",
+                "report_day"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "204",
+          "description": "<p>A header with no content is returned.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise Copilot metrics\" enterprise permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
       "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/user-teams-1-day",
       "title": "Get Copilot enterprise user-teams report for a specific day",
       "category": "copilot",
@@ -3935,6 +4069,116 @@
         {
           "httpStatusCode": "200",
           "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Organization Copilot metrics\" organization permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/metrics/reports/repos-1-day",
+      "title": "Get Copilot organization repository report for a specific day",
+      "category": "copilot",
+      "subcategory": "copilot-usage-metrics",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "day",
+          "description": "<p>The day to request data for, in <code>YYYY-MM-DD</code> format.</p>",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Use this endpoint to retrieve download links for the Copilot organization repository report for a specific day. The report provides per-repository pull request metrics for Copilot across the organization, with one entry per repository.</p>\n<p>The report contains repository-level pull request activity for the specified day, including the Copilot Coding Agent (CCA) and Copilot Code Review (CCR) breakdowns. Only repositories that had activity on the specified day are included. Reports are generated daily and made available for download through signed URLs with a limited expiration time.</p>\n<p>The response includes download links to the report files, along with the specific date of the report. The report covers a complete day for which data has been processed.</p>\n<p>Organization owners and authorized users with fine-grained \"View Organization Copilot Metrics\" permission can retrieve Copilot metrics reports for the organization. OAuth app tokens and personal access tokens (classic) need the <code>read:org</code> scope to use this endpoint.</p>\n<p>For more information about organization metrics attribution, see <a href=\"https://docs.github.com/enterprise-cloud@latest/copilot/concepts/copilot-metrics#how-are-metrics-attributed-across-organizations\">How are metrics attributed across organizations</a>.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "download_links": [
+                "https://example.com/copilot-usage-report-1.ndjson",
+                "https://example.com/copilot-usage-report-2.ndjson"
+              ],
+              "report_day": "2025-07-01"
+            },
+            "schema": {
+              "type": "object",
+              "title": "Copilot Metrics 1 Day Report",
+              "description": "Links to download the Copilot usage metrics report for an enterprise/organization for a specific day.",
+              "properties": {
+                "download_links": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "description": "The URLs to download the Copilot usage metrics report for the enterprise/organization for the specified day."
+                },
+                "report_day": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The day of the report in `YYYY-MM-DD` format."
+                }
+              },
+              "required": [
+                "download_links",
+                "report_day"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "204",
+          "description": "<p>A header with no content is returned.</p>"
         },
         {
           "httpStatusCode": "403",

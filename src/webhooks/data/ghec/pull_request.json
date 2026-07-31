@@ -1278,6 +1278,12 @@
         "childParamsGroups": []
       },
       {
+        "type": "object or null",
+        "name": "stack",
+        "description": "<p>The stack information associated with a pull request.</p>",
+        "childParamsGroups": []
+      },
+      {
         "type": "integer",
         "name": "number",
         "description": "<p>The pull request number.</p>",

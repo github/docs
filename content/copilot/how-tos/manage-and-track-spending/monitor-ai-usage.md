@@ -10,20 +10,20 @@ category:
   - Configure Copilot
 ---
 
-You can track your monthly usage of {% data variables.product.prodname_ai_credits_short %} to help you get the most value from your {% data variables.product.prodname_copilot_short %} plan.
+You can track your monthly usage of {% data variables.product.prodname_ai_credits_short %} to help you get the most value from your {% data variables.product.prodname_copilot_short %} plan. How to view your usage depends on the {% data variables.product.prodname_copilot_short %} plan you are on.
 
-## Viewing usage in {% data variables.product.prodname_dotcom_the_website %}
+## For {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} users
 
-There are several ways to view your {% data variables.product.prodname_ai_credits_short %} usage in {% data variables.product.prodname_dotcom_the_website %}.
+If you access {% data variables.product.prodname_copilot_short %} through a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan, you can see your individual {% data variables.product.prodname_ai_credits_short %} consumption under the {% data variables.product.prodname_copilot_short %} settings page.
 
-### Viewing an overview in your Billing and licensing settings
+{% data reusables.copilot.your-copilot %}
+1. Under **Usage**, review **Usage this cycle** to see your {% data variables.product.prodname_ai_credit_singular %} consumption for the current billing period.
+   * If a user-level budget has been set, the card shows credits consumed out of your budget total (for example, "450 / 1,000 {% data variables.product.prodname_ai_credits_short %} used").
+   * If no user-level budget applies to you, the card shows the total number of {% data variables.product.prodname_ai_credits_short %} you have consumed this cycle (for example, "100 {% data variables.product.prodname_ai_credits_short %} used").
 
-You can view an overview of your {% data variables.product.prodname_ai_credits_short %} usage at any time in your "Billing and licensing" settings on {% data variables.product.prodname_dotcom_the_website %}.
+## For {% data variables.copilot.copilot_individuals_short %} users
 
-{% data reusables.user-settings.access_billing_settings_url %} 
-1. Scroll down to the "Metered usage" area and click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} **{% data variables.product.prodname_copilot_short %}** to show only your {% data variables.product.prodname_copilot_short %} use.
-
-### Viewing detailed analytics of your AI usage
+If you're on a {% data variables.copilot.copilot_individuals_short %} plan, you can see your individual {% data variables.product.prodname_ai_credits_short %} consumption on the **AI usage** page, under "Billing and licensing" settings.
 
 {% data reusables.user-settings.access_billing_settings_url %}
 1. In the side bar, click **AI usage**.
@@ -33,6 +33,14 @@ You can view an overview of your {% data variables.product.prodname_ai_credits_s
    * How much **additional usage** you've consumed beyond your plan's included amount.
    * A chart showing which **models** you've used.
    * A breakdown of the models used, the credits consumed per model, and the cost.
+
+> [!NOTE]
+> This view is only available to users on a {% data variables.copilot.copilot_individuals_short %} plan.
+
+Alternatively, you can view your usage under the {% data variables.product.prodname_copilot_short %} settings page.
+
+{% data reusables.copilot.your-copilot %}
+1. Under "Usage", you can see your {% data variables.product.prodname_ai_credit_singular %} consumption for the current billing period.
 
 ### Downloading a usage report
 

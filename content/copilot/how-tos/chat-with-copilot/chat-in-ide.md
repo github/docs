@@ -77,7 +77,7 @@ For more information, see [Chat overview](https://aka.ms/vscode-copilot-agent) i
 1. In the {% data variables.copilot.copilot_chat_short %} window, click the tools icon.
 1. Enable the `runSubagent` tool.
 
-If you use custom prompt files or {% data variables.copilot.custom_agents_short %}, ensure you specify the `runSubagent` tool in the `tools` frontmatter property. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/create-custom-agents#creating-a-custom-agent-profile-in-visual-studio-code), and [Use prompt files in VS Code](https://code.visualstudio.com/docs/copilot/customization/prompt-files) in the {% data variables.product.prodname_vscode %} documentation.
+If you use custom prompt files or {% data variables.copilot.custom_agents_short %}, ensure you specify the `runSubagent` tool in the `tools` frontmatter property. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/create-custom-agents#configuring-an-agent-profile), and [Use prompt files in VS Code](https://code.visualstudio.com/docs/copilot/customization/prompt-files) in the {% data variables.product.prodname_vscode %} documentation.
 
 #### Invoking {% data variables.copilot.subagents_short %}
 
@@ -238,7 +238,7 @@ To leave feedback about the {% data variables.copilot.copilot_chat %} extension,
     * **{% data variables.copilot.copilot_chat %} extension**. See [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states?ref_product=copilot&ref_type=engagement&ref_style=text) in the {% data variables.product.prodname_vs %} documentation.
 
    _{% data variables.product.prodname_vs %} 17.10 and later have the {% data variables.product.prodname_copilot %} and {% data variables.copilot.copilot_chat %} extensions built in. You don't need to install them separately._
-* **Sign in to {% data variables.product.company_short %} in {% data variables.product.prodname_vs %}**. If you experience authentication issues, see [AUTOTITLE](/copilot/how-tos/troubleshoot-copilot/troubleshoot-common-issues#troubleshooting-authentication-issues-in-your-editor).
+* **Sign in to {% data variables.product.company_short %} in {% data variables.product.prodname_vs %}**. If you experience authentication issues, see [AUTOTITLE](/copilot/how-tos/troubleshoot-copilot/troubleshoot-common-issues#authentication-problems-in-visual-studio).
 
 {% data reusables.copilot.chat-access-denied %}
 
@@ -538,7 +538,7 @@ To share feedback about {% data variables.copilot.copilot_chat_short %}, you can
 
 * **Access to {% data variables.product.prodname_copilot %}**. {% data reusables.copilot.subscription-prerequisite %}
 * **Latest version of the {% data variables.product.prodname_copilot %} extension**. For installation instructions, see [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension).
-* **Sign in to {% data variables.product.company_short %} in Xcode**. If you experience authentication issues, see [AUTOTITLE](/copilot/how-tos/troubleshoot-copilot/troubleshoot-common-issues#troubleshooting-authentication-issues-in-your-editor).
+* **Sign in to {% data variables.product.company_short %} in Xcode**.
 
 {% data reusables.copilot.chat-access-denied %}
 
@@ -660,7 +660,7 @@ To indicate whether a response was helpful, use {% octicon "thumbsup" aria-label
 
 {% data reusables.copilot.eclipse-prerequisites %}
 * **Latest version of the {% data variables.product.prodname_copilot %} extension**. Download this from the [Eclipse Marketplace](https://aka.ms/copiloteclipse?ref_product=copilot&ref_type=engagement&ref_style=text). For more information, see [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension?tool=eclipse).
-* **Sign in to {% data variables.product.company_short %} in Eclipse**. If you experience authentication issues, see [AUTOTITLE](/copilot/how-tos/troubleshoot-copilot/troubleshoot-common-issues#troubleshooting-authentication-issues-in-your-editor).
+* **Sign in to {% data variables.product.company_short %} in Eclipse**.
 
 {% data reusables.copilot.chat-access-denied %}
 

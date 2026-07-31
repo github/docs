@@ -39,6 +39,13 @@ Depending on the ecosystems you use, you may need to allowlist additional URLs.
 * `https://repo.maven.apache.org`—Maven Central repository for downloading dependencies.
 * `https://api.adoptium.net`—For downloading Adoptium/Temurin JDK distributions (default distribution used by `actions/setup-java`).
 
+For Gradle projects, you also need access to the Gradle Plugin Portal, where the autosubmission action downloads the `github-dependency-graph-gradle-plugin` by default:
+
+* `https://plugins.gradle.org`—Serves the plugin marker and `maven-metadata.xml`.
+* `https://plugins-artifacts.gradle.org`—Serves the plugin's POM, module metadata, and JAR. The Gradle Plugin Portal redirects artifact downloads to this host, so allowlisting only `plugins.gradle.org` resolves the metadata and then fails when the plugin artifact is downloaded.
+
+If your runners cannot reach the Gradle Plugin Portal, or you want to avoid depending on hosts that can change over time, resolve the plugin from an internal repository you control instead. For more information, see [Gradle projects](#gradle-projects).
+
 If you use a different JDK distribution, you may also need:
 
 * `https://aka.ms` and `https://download.microsoft.com`—For Microsoft Build of OpenJDK (note: `aka.ms` is also used for .NET downloads).
@@ -88,6 +95,21 @@ If your repository's dependencies seem inaccurate, check that the timestamp of t
 ### Gradle projects
 
 For Gradle projects, automatic dependency submission runs a fork of the open source Gradle actions from [gradle/actions](https://github.com/gradle/actions). The fork is available at [actions/gradle-build-tools-actions](https://github.com/actions/gradle-build-tools-actions). You can view the results of the autosubmission action under your repository's **Actions** tab. Each run will be labeled "Automatic Dependency Submission (Gradle)" and its output will contain the JSON payload which the action submitted to the API.
+
+#### Resolving the submission plugin from an internal repository
+
+By default, the action downloads the `github-dependency-graph-gradle-plugin` from the Gradle Plugin Portal (`https://plugins.gradle.org`). For self-hosted runners on a restricted network, hosting the plugin in an internal repository that you control, such as a private Artifactory or Nexus instance, is more reliable than allowlisting the portal, whose hosts and CDNs can change over time. You can point the action at your internal repository with these environment variables:
+
+* `GRADLE_PLUGIN_REPOSITORY_URL`—The URL of the internal repository to resolve the plugin from.
+* `GRADLE_PLUGIN_REPOSITORY_USERNAME` and `GRADLE_PLUGIN_REPOSITORY_PASSWORD`—Credentials, if the repository requires authentication.
+
+Automatic dependency submission runs a workflow that {% data variables.product.company_short %} manages, not one you author in your repository, so you cannot add an `env:` block to it. You can set these variables on the runner, but every job scheduled on that runner, not only automatic dependency submission jobs, inherits them.
+
+If your internal repository allows anonymous read access, you only need to set `GRADLE_PLUGIN_REPOSITORY_URL` and can omit the credential variables entirely, avoiding this concern. If the repository requires authentication, use read-only credentials and a dedicated runner. For organization- or enterprise-level runners, also restrict runner-group access to only the repositories that need these credentials. See [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/manage-access).
+
+Resolving the plugin from an internal repository is separate from configuring how your build resolves its own dependencies, for example an `init.gradle` file that points at an internal registry. These variables control only where the dependency-submission plugin is downloaded from.
+
+For the latest configuration details, see the [actions/gradle-build-tools-actions](https://github.com/actions/gradle-build-tools-actions) documentation.
 
 ### .NET projects
 

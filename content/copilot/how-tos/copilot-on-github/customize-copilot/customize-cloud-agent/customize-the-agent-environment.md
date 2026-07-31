@@ -141,7 +141,7 @@ By default, {% data variables.product.prodname_copilot_short %} works in a stand
 
 You can run {% data variables.copilot.copilot_cloud_agent %} on self-hosted runners. You may want to do this to match how you run CI/CD workflows on {% data variables.product.prodname_actions %}, or to give {% data variables.product.prodname_copilot_short %} access to internal resources on your network.
 
-We recommend that you only use {% data variables.copilot.copilot_cloud_agent %} with ephemeral, single-use runners that are not reused for multiple jobs. Most customers set this up using ARC (Actions Runner Controller) or the {% data variables.product.prodname_actions %} Runner Scale Set Client. For more information, see [AUTOTITLE](/actions/reference/runners/self-hosted-runners#supported-autoscaling-solutions).
+We recommend that you only use {% data variables.copilot.copilot_cloud_agent %} with ephemeral, single-use runners that are not reused for multiple jobs. Most customers set this up using ARC (Actions Runner Controller) or the {% data variables.product.prodname_actions %} Runner Scale Set Client. For more information, see [AUTOTITLE](/actions/reference/runners/self-hosted-runners#autoscaling).
 
 > [!NOTE]
 > {% data variables.copilot.copilot_cloud_agent %} is only compatible with Ubuntu x64 and Windows 64-bit runners. Runners with macOS or other operating systems are not supported.

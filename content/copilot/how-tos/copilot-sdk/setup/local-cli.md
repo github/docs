@@ -44,7 +44,7 @@ const client = new CopilotClient({
     cliPath: "/usr/local/bin/copilot",
 });
 
-const session = await client.createSession({ model: "gpt-4.1" });
+const session = await client.createSession({ model: "gpt-5.4" });
 const response = await session.sendAndWait({ prompt: "Hello!" });
 console.log(response?.data.content);
 
@@ -64,7 +64,7 @@ client = CopilotClient({
 })
 await client.start()
 
-session = await client.create_session(on_permission_request=PermissionHandler.approve_all, model="gpt-4.1")
+session = await client.create_session(on_permission_request=PermissionHandler.approve_all, model="gpt-5.4")
 response = await session.send_and_wait("Hello!")
 if response:
     match response.data:
@@ -101,7 +101,7 @@ func main() {
 	}
 	defer client.Stop()
 
-	session, _ := client.CreateSession(ctx, &copilot.SessionConfig{Model: "gpt-4.1"})
+	session, _ := client.CreateSession(ctx, &copilot.SessionConfig{Model: "gpt-5.4"})
 	response, _ := session.SendAndWait(ctx, copilot.MessageOptions{Prompt: "Hello!"})
 	if response != nil {
 		if d, ok := response.Data.(*copilot.AssistantMessageData); ok {
@@ -120,7 +120,7 @@ if err := client.Start(ctx); err != nil {
 }
 defer client.Stop()
 
-session, _ := client.CreateSession(ctx, &copilot.SessionConfig{Model: "gpt-4.1"})
+session, _ := client.CreateSession(ctx, &copilot.SessionConfig{Model: "gpt-5.4"})
 response, _ := session.SendAndWait(ctx, copilot.MessageOptions{Prompt: "Hello!"})
 if response != nil {
     if d, ok := response.Data.(*copilot.AssistantMessageData); ok {
@@ -139,7 +139,7 @@ var client = new CopilotClient(new CopilotClientOptions
 });
 
 await using var session = await client.CreateSessionAsync(
-    new SessionConfig { Model = "gpt-4.1" });
+    new SessionConfig { Model = "gpt-5.4" });
 
 var response = await session.SendAndWaitAsync(
     new MessageOptions { Prompt = "Hello!" });
@@ -187,7 +187,7 @@ Sessions default to ephemeral. To create resumable sessions, provide your own se
 // Create a named session
 const session = await client.createSession({
     sessionId: "my-project-analysis",
-    model: "gpt-4.1",
+    model: "gpt-5.4",
 });
 
 // Later, resume it

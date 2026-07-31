@@ -268,6 +268,116 @@
           }
         ]
       }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/interaction-limits/pulls/creation-cap",
+      "title": "Update pull request creation cap for an org",
+      "category": "interactions",
+      "subcategory": "orgs",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "boolean",
+          "name": "enabled",
+          "description": "<p>Whether the pull request creation cap is enabled</p>",
+          "isRequired": true
+        },
+        {
+          "type": "integer",
+          "name": "max_open_pull_requests",
+          "description": "<p>The maximum number of open pull requests a user can have at one time</p>"
+        }
+      ],
+      "descriptionHTML": "<p>Updates the pull request creation cap for an organization. The cap limits the total number\nof open pull requests a user can have across all public repositories in the organization\nat one time.</p>\n<p>Only users with admin access to the organization can configure the cap.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example request body",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "enabled": true,
+              "max_open_pull_requests": 1
+            },
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "enabled": true,
+              "max_open_pull_requests": 1
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean",
+                  "description": "Whether the pull request creation cap is enabled"
+                },
+                "max_open_pull_requests": {
+                  "type": "integer",
+                  "description": "The maximum number of open pull requests a user can have at one time",
+                  "minimum": 1,
+                  "maximum": 1000
+                }
+              },
+              "required": [
+                "enabled",
+                "max_open_pull_requests"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "405",
+          "description": "<p>Method Not Allowed</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" organization permissions": "write"
+          }
+        ]
+      }
     }
   ],
   "repos": [

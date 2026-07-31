@@ -21,7 +21,7 @@ category:
 
 If you require additional software packages on {% data variables.product.prodname_dotcom %}-hosted runners, you can create a job that installs the packages as part of your workflow.
 
-To see which packages are already installed by default, see [AUTOTITLE](/actions/concepts/runners/github-hosted-runners#preinstalled-software).
+To see which packages are already installed by default, see [AUTOTITLE](/actions/concepts/runners/github-hosted-runners#preinstalled-software-for-github-owned-images).
 
 This guide demonstrates how to create a job that installs additional software on a {% data variables.product.prodname_dotcom %}-hosted runner.
 

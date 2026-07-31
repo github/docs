@@ -89,13 +89,13 @@ If the assignee for a {% data variables.product.prodname_secret_scanning %} aler
 * When they are assigned to an alert
 * When that alert is dismissed
 
-For {% data variables.product.prodname_code_scanning %}, you can also perform some of these operations programmatically using the REST API, such as assigning or unassigning users to alerts, and filtering alerts by assignee. For more information, see [AUTOTITLE](/rest/reference/code-scanning) in the REST API documentation. Additionally, webhooks are available to notify you when an alert is assigned or an assignment is removed.
+For {% data variables.product.prodname_code_scanning %}, you can also perform some of these operations programmatically using the REST API, such as assigning or unassigning users to alerts, and filtering alerts by assignee. For more information, see [AUTOTITLE](/rest/code-scanning/code-scanning) in the REST API documentation. Additionally, webhooks are available to notify you when an alert is assigned or an assignment is removed.
 
 {% endif %}
 
 {% ifversion security-campaigns-assign-to-cca %}
 
-If an autofix has been generated for alerts in a security campaign, you can select those alerts and assign them to {% data variables.copilot.copilot_cloud_agent %}. {% data variables.product.prodname_copilot_short %} will create a pull request and add you as a requested reviewer. See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign#assigning-alerts-to-copilot-cloud-agent).
+If an autofix has been generated for alerts in a security campaign, you can select those alerts and assign them to {% data variables.copilot.copilot_cloud_agent %}. {% data variables.product.prodname_copilot_short %} will create a pull request and add you as a requested reviewer. See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/fixing-alerts-in-security-campaign#assigning-alerts-to-copilot-cloud-agent).
 
 {% endif %}
 
@@ -103,5 +103,5 @@ If an autofix has been generated for alerts in a security campaign, you can sele
 
 ## Next steps
 
-* [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale)
-* [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-managing-security-campaigns)
+* [AUTOTITLE](/code-security/tutorials/secure-your-organization/best-practice-fix-alerts-at-scale)
+* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/creating-managing-security-campaigns)

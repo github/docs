@@ -60,11 +60,11 @@ curl --include --request GET \
 --header "Accept: application/vnd.github+json"
 ```
 
-The URLs in the `link` header use query parameters to indicate which page of results to return. The query parameters in the `link` URLs may differ between endpoints, however each paginated endpoint will use the `page`, `before`/`after`, or `since` query parameters. (Some endpoints use the `since` parameter for something other than pagination.) In all cases, you can use the URLs in the `link` header to fetch additional pages of results. For more information about query parameters see [AUTOTITLE](/rest/using-the-rest-api/getting-started-with-the-rest-api#using-query-parameters).
+The URLs in the `link` header use query parameters to indicate which page of results to return. The query parameters in the `link` URLs may differ between endpoints, however each paginated endpoint will use the `page`, `before`/`after`, or `since` query parameters. (Some endpoints use the `since` parameter for something other than pagination.) In all cases, you can use the URLs in the `link` header to fetch additional pages of results. For more information about query parameters see [AUTOTITLE](/rest/using-the-rest-api/getting-started-with-the-rest-api#query-parameters).
 
 ## Changing the number of items per page
 
-If an endpoint supports the `per_page` query parameter, then you can control how many results are returned on a page. For more information about query parameters see [AUTOTITLE](/rest/using-the-rest-api/getting-started-with-the-rest-api#using-query-parameters).
+If an endpoint supports the `per_page` query parameter, then you can control how many results are returned on a page. For more information about query parameters see [AUTOTITLE](/rest/using-the-rest-api/getting-started-with-the-rest-api#query-parameters).
 
 For most endpoints, the maximum value of `per_page` is `100`. If you specify a value greater than the maximum, {% data variables.product.company_short %} does not return an error. Instead, the value is automatically reduced to the maximum, and the response includes no more than the maximum number of results per page. Because the request still succeeds, you may receive fewer results than you expect without any indication that the `per_page` value was reduced. To confirm the default and maximum `per_page` values for an endpoint, see the reference documentation for that endpoint.
 

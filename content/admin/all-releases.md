@@ -76,7 +76,7 @@ If you run analysis in an external CI system, we recommend using the same versio
 For instances with {% data variables.product.prodname_actions %} enabled, self-hosted {% data variables.product.prodname_actions %} runners must run a minimum required version of the {% data variables.product.prodname_actions %} Runner application.
 
 * For most instances, the Runner application is updated automatically.
-* If your instance uses ephemeral self-hosted runners and you've disabled automatic updates, you must upgrade your runners before upgrading {% data variables.product.prodname_ghe_server %}. See [AUTOTITLE](/actions/concepts/runners/self-hosted-runners#requirements-for-self-hosted-runner-machines).
+* If your instance uses ephemeral self-hosted runners and you've disabled automatic updates, you must upgrade your runners before upgrading {% data variables.product.prodname_ghe_server %}. See [AUTOTITLE](/actions/reference/runners/self-hosted-runners#requirements-for-self-hosted-runner-machines).
 
 | {% data variables.product.prodname_ghe_server %} version | Minimum Runner version |
 | ------------------------------------------------- | ---------------------- |
