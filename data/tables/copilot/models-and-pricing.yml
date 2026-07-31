@@ -268,26 +268,6 @@
   cache_write: $12.50
 
 # Google
-- model: 'Gemini 2.5 Pro'
-  provider: google
-  release_status: GA
-  category: Powerful
-  threshold: 'Not applicable'
-  tier: 'Default'
-  input: $1.25
-  cached_input: $0.125
-  output: $10.00
-
-- model: 'Gemini 3 Flash'
-  provider: google
-  release_status: Public preview
-  category: Lightweight
-  threshold: 'Not applicable'
-  tier: 'Default'
-  input: $0.50
-  cached_input: $0.05
-  output: $3.00
-
 - model: 'Gemini 3.1 Pro'
   provider: google
   release_status: Public preview
