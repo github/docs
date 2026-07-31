@@ -88,6 +88,9 @@ The following example OIDC token uses a subject (`sub`) that references a job en
 }
 ```
 
+> [!NOTE]
+> The `sub` claim in this example uses the previous format. Repositories created after July 15, 2026 use an immutable default subject format that includes owner and repository IDs (not available on {% data variables.product.prodname_ghe_server %}). For more information, see [AUTOTITLE](/actions/reference/security/oidc#immutable-subject-claims).
+
 {% ifversion ghec %}
 
 ## Establishing OIDC trust with your cloud provider
