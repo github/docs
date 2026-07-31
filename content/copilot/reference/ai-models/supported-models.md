@@ -134,7 +134,6 @@ Some {% data variables.product.prodname_copilot_short %} models require minimum 
 
 | Model                                                    | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vs %} | JetBrains IDEs | Xcode | Eclipse |
 |----------------------------------------------------------|----------------------------------------------|------------------------------------------|----------------|-------|---------|
-| {% data variables.copilot.copilot_gemini_3_flash %}      | `v1.115.0` | `17.14.22` or `18.1.0`         | `1.5.62` | `0.46.0` | `0.14.0` |
 | {% data variables.copilot.copilot_gemini_31_pro %}       | `v1.115.0` | `17.14.22` or `18.1.0`         | `1.5.62` | `0.46.0` | `0.14.0` |
 | {% data variables.copilot.copilot_gemini_35_flash %}     | `v1.115.0` | `17.14.22` or `18.1.0`         | `1.5.62` | `0.46.0` | `0.14.0` |
 | {% data variables.copilot.copilot_gemini_36_flash %}     | `v1.128.0` | `17.14.22` or `18.1.0`         | TBD | TBD | TBD |
