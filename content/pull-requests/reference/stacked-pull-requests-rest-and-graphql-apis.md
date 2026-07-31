@@ -24,7 +24,7 @@ The REST API exposes stacked pull requests in two ways:
 * **The Stacks API.** A dedicated set of endpoints to list, read, create, extend, and dissolve stacks. This is the surface for creating and modifying stacks.
 
 > [!NOTE]
-> If you merge via the API and want to use stacked pull requests, you'll need to update your code to use the new merge API for stacks.
+> If you merge via the API and want to use stacked pull requests, you'll need to update your code to use the new merge API for stacks. See [AUTOTITLE](/rest/pulls/pulls?apiVersion=2026-03-10#merge-a-pull-request-asynchronously).
 
 For endpoints, parameters, and schemas, see [AUTOTITLE](/rest/pulls/pulls).
 
