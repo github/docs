@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Enum value <code>GITLAB</code> was added to enum <code>MigrationSourceType</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-07-31"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type 'ProjectV2ViewConfiguration' was added</p>",
           "<p>Field <code>visibleFields</code> was added to object type 'ProjectV2ViewConfiguration'</p>",
           "<p>Argument <code>after: String</code> added to field 'ProjectV2ViewConfiguration.visibleFields'</p>",
