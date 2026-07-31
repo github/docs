@@ -7,6 +7,8 @@ intro: >-
 versions:
   fpt: '*'
   ghec: '*'
+redirect_from:
+  - /copilot/how-tos/copilot-sdk/troubleshooting/sdk-and-cli-compatibility
 contentType: how-tos
 ---
 

@@ -25,6 +25,7 @@ children:
   - /skills
   - /steering-and-queueing
   - /streaming-events
+  - /usage-and-billing
 ---
 
 <!-- markdownlint-disable GHD046 GHD005 -->
