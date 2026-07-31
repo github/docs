@@ -188,7 +188,7 @@ The `.vscode/mcp.json` file for {% data variables.product.prodname_vscode_shortn
 ### Searching and installing from the registry
 
 > [!NOTE]
-> The `/mcp search` command is currently an experimental feature. To use it, start {% data variables.copilot.copilot_cli_short %} with the `--experimental` command line option, or enter `/experimental on` during a session.
+> The `/mcp search` command is currently an experimental feature. To use it, start {% data variables.copilot.copilot_cli_short %} with the `‑‑experimental` command line option, or enter `/experimental on` during a session.
 
 You can discover and install MCP servers directly from the [{% data variables.product.github %} MCP Registry](https://github.com/mcp) using the `/mcp search` command in interactive mode. This lets you browse available servers, view their details, and install them without manually filling out the configuration form.
 

@@ -64,6 +64,9 @@ When your pooled {% data variables.product.prodname_ai_credits_short %} are exha
 * **Additional usage allowed**: Usage continues at published per-credit rates. The additional spend is charged to your organization or enterprise.
 * **Additional usage not allowed**: Usage is blocked until the next billing cycle when monthly amounts are refreshed.
 
+> [!NOTE]
+> Additional usage is **enabled by default** for organizations and enterprises. If you want to prevent any spending beyond your included {% data variables.product.prodname_ai_credits_short %}, an administrator must explicitly disable the **{% data variables.product.prodname_ai_credits_short %} paid usage** policy in your enterprise's or organization's AI Controls settings.
+
 If you have set a user-level budget and a user exhausts it, that user's access to {% data variables.product.prodname_copilot_short %} is halted, regardless of whether the organization's pool still has capacity. A user can also be blocked by an enterprise spending limit before they reach their individual user-level budget, if the spending limit runs out first. There is no automatic fallback to lower-cost models when a budget is exhausted. For more information about how these controls interact, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
 
 Additional usage budgets are set in US dollars, and usage is shown in {% data variables.product.prodname_ai_credits_short %}. {% data variables.product.prodname_ai_credits_short %} draw down the budget at a fixed rate: 1 {% data variables.product.prodname_ai_credit_singular %} = {% data variables.product.prodname_ai_credits_value %}, so a $10 USD budget covers 1,000 AI credits.

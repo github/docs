@@ -3,6 +3,7 @@
 #    - OpenAI
 #    - Anthropic
 #    - Google
+#    - Microsoft
 #    - xAI
 # 2. Within each provider group, alphabetically by model name.
 
@@ -94,16 +95,6 @@
   further_reading: '[Claude Sonnet 5 model card](https://www-cdn.anthropic.com/9e6a1044980d8c4ed85669faf9c2a8342e2e9f1e/Claude%20Sonnet%205%20System%20Card.pdf)'
 
 # Google
-- name: Gemini 2.5 Pro
-  task_area: Deep reasoning and debugging
-  excels_at: Complex code generation, debugging, and research workflows
-  further_reading: '[Gemini 2.5 Pro model card](https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro.pdf)'
-
-- name: Gemini 3 Flash
-  task_area: Fast help with simple or repetitive tasks
-  excels_at: Fast, reliable answers to lightweight coding questions
-  further_reading: '[Gemini 3 Flash model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Flash-Model-Card.pdf)'
-
 - name: Gemini 3.1 Pro
   task_area: Deep reasoning and debugging
   excels_at: Effective and efficient edit-then-test loops with high tool precision
@@ -124,6 +115,12 @@
   task_area: General-purpose coding and writing
   excels_at: Fast, accurate code completions and explanations
   further_reading: '[MAI-Code-1-Flash model card](https://aka.ms/mai-code-1-flash-modelcard)'
+
+# xAI
+- name: Grok 4.5
+  task_area: General-purpose coding and agent tasks
+  excels_at: Complex problem-solving challenges, sophisticated reasoning
+  further_reading: '[Grok 4.5 model card](https://media.x.ai/v1/website/card-7f81d41b.pdf)'
 
 # Other providers (alphabetized by model name)
 - name: Qwen2.5

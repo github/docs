@@ -31,7 +31,8 @@ Developers get the most value from {% data variables.product.prodname_copilot_sh
 
 Consider enabling vetted capabilities promptly, rather than disabling features by default and enabling them only after review:
 
-* **Enable new features and models as they become available**, unless you have a specific compliance reason not to. {% data variables.product.github %} vets all features and models before release.
+* **Enable new features as they become available**, unless you have a specific compliance reason not to. {% data variables.product.github %} vets all features and models before release.
+* **Enable new models automatically**. By default, most new generally available models are enabled automatically. We recommend keeping the **Default availability for released models** policy enabled and only explicitly disabling individual models that you do not want to be available.
 * **Only set enterprise-level defaults to disabled for non-negotiables**, such as compliance-critical controls or features that conflict with regulatory requirements.
 * **Scope restrictions to sensitive organizations**. Rather than blocking features enterprise-wide, disable them only in organizations with stricter compliance requirements. This lets other organizations move faster.
 

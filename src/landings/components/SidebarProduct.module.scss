@@ -7,10 +7,15 @@
   // so a top-level article like "Quickstart" gets only the subtle background pill
   // and no green bar. Restore the bar for active top-level leaves to match nested
   // items. Brand's classes are hashed, so match on the stable substrings.
+  //
+  // This also covers `[data-pending]` — the optimistic marker on a just-clicked item
+  // (see the pending rules below) — so a clicked top-level leaf gets the bar too.
   :global([class*="NavList__item--leaf"][class*="NavList__item--level-1"])
     :global([class*="NavList__link"])[aria-current]:not(
       [aria-current="false"]
-    )::before {
+    )::before,
+  :global([class*="NavList__item--leaf"][class*="NavList__item--level-1"])
+    :global([class*="NavList__link"])[data-pending]::before {
     content: "";
     position: absolute;
     // Level-1 links are shorter (~24px) than nested leaves, so use a small inset
@@ -24,5 +29,39 @@
     width: var(--base-size-4);
     border-radius: var(--base-size-2);
     background-color: var(--brand-NavList-activeIndicator-color);
+  }
+
+  // Optimistic "pending" highlight. Article pages are getServerSideProps routes and can
+  // be slow to load, so router.asPath — and thus aria-current — only updates once the
+  // page has loaded. We keep aria-current on the *loaded* page (assistive tech must not
+  // be told a still-loading destination is the current page), and instead mark the
+  // just-clicked link with `data-pending` for a VISUAL-ONLY accent. Brand couples its
+  // active styling to `[aria-current]`, so mirror that treatment here for `[data-pending]`.
+  // data-pending is only set while a *different* page is loading, so it never collides
+  // with the real aria-current item.
+  :global([class*="NavList__link"])[data-pending] {
+    color: var(--brand-color-text-default);
+    background-color: var(--brand-color-canvas-subtle);
+  }
+
+  // Nested leaves: brand moves the background pill onto the label and adds a leading
+  // accent bar (mirrors `.item--leaf:not(.item--level-1) .link[aria-current]`).
+  :global([class*="NavList__item--leaf"]:not([class*="NavList__item--level-1"]))
+    :global([class*="NavList__link"])[data-pending] {
+    background-color: transparent;
+
+    :global([class*="NavList__labelArea"]) {
+      background-color: var(--brand-color-canvas-subtle);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset-block: var(--base-size-8);
+      inset-inline-start: 0;
+      width: var(--base-size-4);
+      border-radius: var(--base-size-2);
+      background-color: var(--brand-NavList-activeIndicator-color);
+    }
   }
 }

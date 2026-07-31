@@ -510,6 +510,8 @@ Tools with no Claude equivalent keep their runtime names.
 
 ### `subagentStop` / `SubagentStop`
 
+Fires when a subagent completes normally, before returning results to the parent. `stopReason` is currently always `"end_turn"`. This hook fires before large-response spill handling, so `response` (or `last_assistant_message` in the {% data variables.product.prodname_vscode_shortname %} compatible format) carries the full final subagent response text.
+
 **camelCase input:**
 
 ```typescript
@@ -518,8 +520,11 @@ Tools with no Claude equivalent keep their runtime names.
     timestamp: number;
     cwd: string;
     transcriptPath: string;
+    agentId: string;
+    agentType: string;
     agentName: string;
     agentDisplayName?: string;
+    response: string;       // Full final subagent response text
     stopReason: "end_turn";
 }
 ```
@@ -533,8 +538,11 @@ Tools with no Claude equivalent keep their runtime names.
     timestamp: string;      // ISO 8601 timestamp
     cwd: string;
     transcript_path: string;
+    agent_id: string;
+    agent_type: string;
     agent_name: string;
     agent_display_name?: string;
+    last_assistant_message: string; // The `response` text
     stop_reason: "end_turn";
 }
 ```
@@ -621,6 +629,13 @@ The `preToolUse` hook can control tool execution by writing a JSON object to std
 |-------|--------|-------------|
 | `decision` | `"block"`, `"allow"` | `"block"` forces another agent turn using `reason` as the prompt. |
 | `reason` | string | Prompt for the next turn when `decision` is `"block"`. |
+| `modifiedResponse` | string | **`subagentStop` only.** Replaces the response returned to the parent when the subagent is allowed to complete—useful for redacting or reformatting subagent output. Not applicable to `agentStop`. |
+
+`decision` and `reason` behave the same for both `agentStop` and `subagentStop`. `modifiedResponse` applies only to `subagentStop`:
+
+* A valid `block` decision wins over `modifiedResponse`: if a hook returns both, the subagent continues and the rewrite is discarded.
+* Rewrites do not compose across multiple matching hooks. Every hook receives the same original `response`, and the last hook to return `modifiedResponse` wins—chaining a redactor and a formatter does not feed the redacted text into the formatter.
+* The output field names (`decision`, `reason`, `modifiedResponse`) are the same for both the camelCase and {% data variables.product.prodname_vscode_shortname %} compatible configs.
 
 > [!NOTE]
 > **Runaway guard.** After 8 consecutive `block` continuations, the CLI overrides the hook and ends the turn anyway, to prevent an unbounded loop. Use the `stop_hook_active` input field on `agentStop` to detect that this turn was already forced to continue, and self-limit before hitting the cap.

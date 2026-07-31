@@ -93,14 +93,16 @@ The following command-line options give {% data variables.copilot.copilot_cli_sh
 
 {% data reusables.copilot.disable-bypass %}
 
+Before you grant {% data variables.product.prodname_copilot_short %} wide-ranging permissions with an allow-all option, consider using local sandboxing, or running the session in a cloud sandbox, to limit what {% data variables.product.prodname_copilot_short %} can access. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
+
 * `--allow-all-tools` — Full access to the available tools.
 
 * `--allow-all`  or `--yolo` — Equivalent to using all of the `--allow-all-tools`, `--allow-all-paths`, and `--allow-all-urls` options when starting the CLI.
 
   Within an interactive session, you can use the `/allow-all` or `/yolo` slash commands to allow all tools without needing to restart the session.
 
-  > [!NOTE]
-  > It is strongly recommended that you only use these options in an isolated environment. You should never use an alias to apply one of these options every time you start {% data variables.copilot.copilot_cli_short %}, as doing so would allow {% data variables.product.prodname_copilot_short %} to use any tool without your explicit permission every time you use the CLI, which could lead to unintended consequences.
+> [!CAUTION]
+> It is strongly recommended that you only use these options in an isolated environment. You should never use an alias to apply one of these options every time you start {% data variables.copilot.copilot_cli_short %}, as doing so would allow {% data variables.product.prodname_copilot_short %} to use any tool without your explicit permission every time you use the CLI, which could lead to unintended consequences.
 
 ## Resetting permissions
 

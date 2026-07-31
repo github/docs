@@ -113,24 +113,6 @@
   xcode: true
   jetbrains: true
 
-- name: Gemini 2.5 Pro
-  dotcom: false
-  cli: false
-  vscode: true
-  vs: true
-  eclipse: true
-  xcode: true
-  jetbrains: true
-
-- name: Gemini 3 Flash
-  dotcom: false
-  cli: false
-  vscode: true
-  vs: true
-  eclipse: true
-  xcode: true
-  jetbrains: true
-
 - name: Gemini 3.1 Pro
   dotcom: false
   cli: true
@@ -247,6 +229,15 @@
   eclipse: false
   xcode: false
   jetbrains: false
+
+- name: Grok 4.5
+  dotcom: false
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
 
 - name: Kimi K2.7 Code
   dotcom: true

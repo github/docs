@@ -26,14 +26,15 @@ When multiple settings sources are present, settings earlier in this list take p
 
 {% rowheaders %}
 
-| Key | Purpose | {% data variables.copilot.copilot_cli_short %} | {% data variables.product.prodname_vscode_shortname %} | {% data variables.copilot.github_copilot_app %} |
-| --- | --- | --- | --- | --- |
-| `permissions.disableBypassPermissionsMode` | Disables bypass or YOLO-style allow-all behavior | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| `permissions.model` | Sets auto model selection as the default for new conversations | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| `enabledPlugins` | Enables or disables specific plugins by key | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| `extraKnownMarketplaces` | Adds plugin marketplaces that users can access | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| `strictKnownMarketplaces` | Restricts plugin installation to explicitly listed marketplaces | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| `telemetry` | Configures OpenTelemetry export, routing {% data variables.product.prodname_copilot_short %} usage data to a collector of your choice | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| Key | Purpose | {% data variables.copilot.copilot_cli_short %} | {% data variables.product.prodname_vscode_shortname %} | {% data variables.copilot.github_copilot_app %} | {% data variables.copilot.copilot_cloud_agent %} |
+| --- | --- | --- | --- | --- | --- |
+| `permissions.disableBypassPermissionsMode` | Disables bypass or YOLO-style allow-all behavior | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `permissions.model` | Sets auto model selection as the default for new conversations | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `enabledPlugins` | Enables or disables specific plugins by key | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| `extraKnownMarketplaces` | Adds plugin marketplaces that users can access | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| `strictKnownMarketplaces` | Restricts plugin installation to explicitly listed marketplaces | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| `telemetry` | Configures OpenTelemetry export, routing {% data variables.product.prodname_copilot_short %} usage data to a collector of your choice | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `remoteControl` | Restricts whether sessions hosted on this device can be remotely controlled, based on the controlling client's SSO authorization status for the listed organizations. Doesn't affect the user's ability to remotely control sessions hosted on other devices | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 
 {% endrowheaders %}
 
@@ -77,6 +78,10 @@ The following example shows these keys in one managed settings file.
     "headers": {
       "Authorization": "Bearer TOKEN"
     }
+  },
+  "remoteControl": {
+    "mode": "requireSSO",
+    "githubDotComOrganizations": ["ORG-NAME"]
   }
 }
 ```
@@ -116,7 +121,7 @@ Prevents users from enabling bypass mode (also known as "YOLO mode"). Bypass mod
 
 When you set `disableBypassPermissionsMode` to `"disable"`, users cannot turn on bypass mode:
 
-* In {% data variables.copilot.copilot_cli_short %}, the `--yolo` and `--allow-all` command-line options and the `/yolo` and `/allow-all` slash commands are blocked. Individual flags such as `--allow-all-tools` and `--allow-all-paths` are not blocked.
+* In {% data variables.copilot.copilot_cli_short %}, all of the command line options for allowing all permissions (`--yolo`, `--allow-all`, and the individual `--allow-all-tools`, `--allow-all-paths`, and `--allow-all-urls` options) are suppressed at startup and cannot grant elevated permissions. The `/yolo` and `/allow-all` slash commands are also blocked.
 * In {% data variables.product.prodname_vscode_shortname %}, the global auto-approve setting (`chat.tools.global.autoApprove`) is turned off and cannot be re-enabled.
 * In the {% data variables.copilot.github_copilot_app %}, the "Allow all" setting for "Tool Permissions" is blocked in the sessions settings.
 
@@ -142,3 +147,10 @@ When you set the `telemetry` property, {% data variables.product.prodname_copilo
 * `serviceName`: A label for the telemetry service name (for example, `"copilot"`).
 * `resourceAttributes`: An object of OpenTelemetry resource attributes to attach to all exported telemetry (for example, `{"deployment.environment": "production"}`).
 * `headers`: An object of HTTP headers to include with each telemetry request (for example, an `Authorization` header for your collector).
+
+## `remoteControl`
+
+Restricts whether {% data variables.product.prodname_copilot_short %} sessions hosted on a device can be remotely controlled. This doesn't affect a user's ability to remotely control their sessions hosted on other devices.
+
+* `mode`: Set to `"disabled"` to prevent remote control of sessions on the device, `"requireSSO"` to only allow remote control from a client that is SSO-authorized for the organizations listed in `githubDotComOrganizations`, or `"enabled"` to allow it unrestricted.
+* `githubDotComOrganizations`: An array of organization logins. Required when `mode` is `"requireSSO"`.

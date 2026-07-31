@@ -2013,6 +2013,17 @@
         "additional-permissions": false
       },
       {
+        "category": "interactions",
+        "slug": "update-pull-request-creation-cap-for-an-org",
+        "subcategory": "orgs",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/interaction-limits/pulls/creation-cap",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
         "category": "copilot",
         "slug": "get-copilot-seat-assignment-details-for-a-user",
         "subcategory": "copilot-user-management",
@@ -8178,6 +8189,28 @@
       },
       {
         "category": "orgs",
+        "slug": "create-a-cluster-deployment-records-job",
+        "subcategory": "artifact-metadata",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}/jobs",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
+        "slug": "get-cluster-deployment-records-job-status",
+        "subcategory": "artifact-metadata",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}/jobs/{job_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
         "slug": "create-artifact-metadata-storage-record",
         "subcategory": "artifact-metadata",
         "verb": "post",
@@ -9771,6 +9804,28 @@
         "subcategory": "pulls",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "pulls",
+        "slug": "merge-a-pull-request-asynchronously",
+        "subcategory": "pulls",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge-async",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "pulls",
+        "slug": "get-the-result-of-an-asynchronous-merge",
+        "subcategory": "pulls",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge-async/{uuid}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -12383,6 +12438,61 @@
         "subcategory": "pulls",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/update-branch",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "pulls",
+        "slug": "list-pull-request-stacks",
+        "subcategory": "stacks",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/stacks",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "pulls",
+        "slug": "create-a-pull-request-stack",
+        "subcategory": "stacks",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/stacks",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "pulls",
+        "slug": "get-a-pull-request-stack",
+        "subcategory": "stacks",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/stacks/{stack_number}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "pulls",
+        "slug": "add-pull-requests-to-a-pull-request-stack",
+        "subcategory": "stacks",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/stacks/{stack_number}/add",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "pulls",
+        "slug": "remove-pull-requests-from-a-pull-request-stack",
+        "subcategory": "stacks",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/stacks/{stack_number}/unstack",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,

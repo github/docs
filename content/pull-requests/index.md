@@ -40,6 +40,7 @@ children:
   - /concepts
   - /how-tos
   - /reference
+  - /tutorials
 contentType: landing
 ---
 

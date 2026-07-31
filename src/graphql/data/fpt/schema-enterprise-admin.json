@@ -60,7 +60,7 @@
       "type": "EnterpriseAdministratorInvitation",
       "id": "enterpriseadministratorinvitation",
       "href": "/graphql/reference/enterprise-admin#object-enterpriseadministratorinvitation",
-      "description": "<p>Look up a pending enterprise administrator invitation by invitation token.</p>",
+      "description": "<p>Look up a pending enterprise administrator invitation by invitation token. If\nthe invitation was sent to an email address, the viewer must have verified\nthat email address, or otherwise be an administrator of the enterprise.</p>",
       "args": [
         {
           "name": "invitationToken",
@@ -101,7 +101,7 @@
       "type": "EnterpriseMemberInvitation",
       "id": "enterprisememberinvitation",
       "href": "/graphql/reference/enterprise-admin#object-enterprisememberinvitation",
-      "description": "<p>Look up a pending enterprise unaffiliated member invitation by invitation token.</p>",
+      "description": "<p>Look up a pending enterprise unaffiliated member invitation by invitation\ntoken. If the invitation was sent to an email address, the viewer must have\nverified that email address, or otherwise be an administrator of the enterprise.</p>",
       "args": [
         {
           "name": "invitationToken",
@@ -11744,6 +11744,10 @@
         {
           "name": "REAUTH",
           "description": "<p>Members must complete a fresh re-authentication against the enterprise identity provider.</p>"
+        },
+        {
+          "name": "SECURITY_KEY",
+          "description": "<p>Members must satisfy a phishing-resistant security key re-authentication (Microsoft Entra only).</p>"
         }
       ],
       "category": "enterprise-admin"

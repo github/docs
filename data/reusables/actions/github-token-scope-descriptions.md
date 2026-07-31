@@ -22,9 +22,6 @@ Available permissions and details of what each allows an action to do:
 |  `id-token` | Fetch an OpenID Connect (OIDC) token. This requires `id-token: write`. For more information, see [AUTOTITLE](/actions/concepts/security/openid-connect#updating-your-workflows-for-oidc) |
 | {% endif %} |
 |  `issues` | Work with issues. For example, `issues: write` permits an action to add a comment to an issue. For more information, see [AUTOTITLE](/rest/authentication/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-issues). |
-| {% ifversion not ghes %} |
-|  `models`  | Generate AI inference responses with {% data variables.product.prodname_github_models %}. For example, `models: read` permits an action to use the {% data variables.product.prodname_github_models %} inference API. See [AUTOTITLE](/github-models/use-github-models/prototyping-with-ai-models). |
-| {% endif %} |
 |  `packages` | Work with GitHub Packages. For example, `packages: write` permits an action to upload and publish packages on GitHub Packages. For more information, see [AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries). |
 |  `pages` | Work with GitHub Pages. For example, `pages: write` permits an action to request a GitHub Pages build. For more information, see [AUTOTITLE](/rest/authentication/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-pages). |
 |  `pull-requests` | Work with pull requests. For example, `pull-requests: write` permits an action to add a label to a pull request. For more information, see [AUTOTITLE](/rest/authentication/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-pull-requests). |

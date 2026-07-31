@@ -372,7 +372,7 @@ describe('server', () => {
     })
 
     test('regular article .md URL includes title and intro', async () => {
-      const res = await get('/en/get-started/start-your-journey/hello-world.md')
+      const res = await get('/en/get-started/using-github/hello-world.md')
       expect(res.statusCode).toBe(200)
       expect(res.headers['content-type']).toContain('text/markdown')
       expect(res.body).toMatch(/^# Hello World/)

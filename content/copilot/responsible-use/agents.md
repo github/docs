@@ -118,7 +118,7 @@ Copilot CLI uses a large language model to reason about tasks, generate code, mo
 The Copilot SDK communicates with Copilot CLI over JSON-RPC, using the same underlying models and capabilities. Applications built with the SDK use the same models available to the authenticated Copilot user or organization. Developers can also bring their own API keys (BYOK) to use custom model providers.
 
 {% ifversion spark %}
-GitHub Spark uses a large language model to power its agent within the development environment. The agent writes code and runs commands to build your application. Spark's SDK natively integrates with GitHub Models, allowing your application to incorporate model inference capabilities. For information on the models used by GitHub Models, see [AUTOTITLE](/github-models/responsible-use-of-github-models). Spark does not test the prompts you create within your application for inference—you must ensure that your included capabilities act as intended.
+GitHub Spark uses a large language model to power its agent within the development environment. The agent writes code and runs commands to build your application. Spark does not test the prompts you create within your application for inference—you must ensure that your included capabilities act as intended.
 {% endif %}
 
 ## 6. Performance
@@ -349,7 +349,6 @@ For additional guidance on the responsible use of Copilot agentic features, we r
 * [AUTOTITLE](/copilot/tutorials/spark/your-first-spark)
 * [AUTOTITLE](/copilot/tutorials/spark/build-apps-with-spark)
 * [AUTOTITLE](/billing/concepts/product-billing/github-spark)
-* [AUTOTITLE](/github-models/responsible-use-of-github-models)
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms)
 {% endif %}
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)

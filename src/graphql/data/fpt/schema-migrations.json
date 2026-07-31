@@ -898,6 +898,10 @@
         {
           "name": "GITHUB_ARCHIVE",
           "description": "<p>A GitHub Migration API source.</p>"
+        },
+        {
+          "name": "GITLAB",
+          "description": "<p>A GitLab migration source.</p>"
         }
       ],
       "category": "migrations"

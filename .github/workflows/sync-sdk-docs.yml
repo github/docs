@@ -64,14 +64,8 @@ jobs:
           echo "SDK_TMP=$tmp" >> "$GITHUB_ENV"
           echo "Fetched copilot-sdk@${SDK_SHA::7}"
 
-      - name: Setup Node.js
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
-        with:
-          node-version: 22
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
+      - name: Set up Node and dependencies
+        uses: ./.github/actions/node-npm-setup
 
       - name: Install mermaid-cli
         run: npm install -g @mermaid-js/mermaid-cli@11
@@ -238,12 +232,14 @@ jobs:
         if: always()
         run: rm -rf "$SDK_TMP"
 
+      - uses: ./.github/actions/create-workflow-failure-issue
+        id: create-failure-issue
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-
-      - uses: ./.github/actions/create-workflow-failure-issue
-        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
-        with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          issue_url: ${{ steps.create-failure-issue.outputs.issue_url }}

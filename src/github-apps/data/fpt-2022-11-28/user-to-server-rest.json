@@ -3565,6 +3565,12 @@
       "requestPath": "/orgs/{org}/interaction-limits"
     },
     {
+      "slug": "update-pull-request-creation-cap-for-an-org",
+      "subcategory": "orgs",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/interaction-limits/pulls/creation-cap"
+    },
+    {
       "slug": "get-interaction-restrictions-for-a-repository",
       "subcategory": "repos",
       "verb": "get",
@@ -4195,6 +4201,18 @@
       "subcategory": "artifact-metadata",
       "verb": "post",
       "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}"
+    },
+    {
+      "slug": "create-a-cluster-deployment-records-job",
+      "subcategory": "artifact-metadata",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}/jobs"
+    },
+    {
+      "slug": "get-cluster-deployment-records-job-status",
+      "subcategory": "artifact-metadata",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}/jobs/{job_id}"
     },
     {
       "slug": "create-artifact-metadata-storage-record",
@@ -5281,6 +5299,18 @@
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge"
     },
     {
+      "slug": "merge-a-pull-request-asynchronously",
+      "subcategory": "pulls",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge-async"
+    },
+    {
+      "slug": "get-the-result-of-an-asynchronous-merge",
+      "subcategory": "pulls",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge-async/{uuid}"
+    },
+    {
       "slug": "get-all-requested-reviewers-for-a-pull-request",
       "subcategory": "review-requests",
       "verb": "get",
@@ -5351,6 +5381,36 @@
       "subcategory": "pulls",
       "verb": "put",
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/update-branch"
+    },
+    {
+      "slug": "list-pull-request-stacks",
+      "subcategory": "stacks",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stacks"
+    },
+    {
+      "slug": "create-a-pull-request-stack",
+      "subcategory": "stacks",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/stacks"
+    },
+    {
+      "slug": "get-a-pull-request-stack",
+      "subcategory": "stacks",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stacks/{stack_number}"
+    },
+    {
+      "slug": "add-pull-requests-to-a-pull-request-stack",
+      "subcategory": "stacks",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/stacks/{stack_number}/add"
+    },
+    {
+      "slug": "remove-pull-requests-from-a-pull-request-stack",
+      "subcategory": "stacks",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/stacks/{stack_number}/unstack"
     }
   ],
   "rate-limit": [

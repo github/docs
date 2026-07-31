@@ -99,14 +99,6 @@
 
 # Google models
 
-- name: 'Gemini 2.5 Pro'
-  provider: 'Google'
-  release_status: 'GA'
-
-- name: 'Gemini 3 Flash'
-  provider: 'Google'
-  release_status: 'Public preview'
-
 - name: 'Gemini 3.1 Pro'
   provider: 'Google'
   release_status: 'Public preview'
@@ -132,4 +124,9 @@
 # Open-weight models
 - name: 'Kimi K2.7 Code'
   provider: 'Moonshot AI'
+  release_status: 'GA'
+
+# xAI models
+- name: 'Grok 4.5'
+  provider: 'xAI'
   release_status: 'GA'

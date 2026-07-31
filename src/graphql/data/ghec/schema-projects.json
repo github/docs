@@ -100,7 +100,7 @@
       "name": "clearProjectV2ItemFieldValue",
       "id": "clearprojectv2itemfieldvalue",
       "href": "/graphql/reference/projects#mutation-clearprojectv2itemfieldvalue",
-      "description": "<p>This mutation clears the value of a field for an item in a Project. Currently\nonly text, number, date, assignees, labels, single-select, iteration and\nmilestone fields are supported.</p>",
+      "description": "<p>This mutation clears the value of a field for an item in a Project. Currently\nonly text, number, date, assignees, labels, single-select, multi-select,\niteration and milestone fields are supported.</p>",
       "isDeprecated": false,
       "inputFields": [
         {
@@ -321,6 +321,38 @@
       "category": "projects"
     },
     {
+      "name": "createProjectV2View",
+      "id": "createprojectv2view",
+      "href": "/graphql/reference/projects#mutation-createprojectv2view",
+      "description": "<p>Creates a new view in a project.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateProjectV2ViewInput!",
+          "id": "createprojectv2viewinput",
+          "href": "/graphql/reference/projects#input-object-createprojectv2viewinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "projectV2View",
+          "type": "ProjectV2View",
+          "id": "projectv2view",
+          "href": "/graphql/reference/projects#object-projectv2view",
+          "description": "<p>The new view.</p>"
+        }
+      ],
+      "category": "projects"
+    },
+    {
       "name": "deleteProjectV2",
       "id": "deleteprojectv2",
       "href": "/graphql/reference/projects#mutation-deleteprojectv2",
@@ -451,6 +483,38 @@
           "id": "projectv2",
           "href": "/graphql/reference/projects#object-projectv2",
           "description": "<p>The project the deleted status update was in.</p>"
+        }
+      ],
+      "category": "projects"
+    },
+    {
+      "name": "deleteProjectV2View",
+      "id": "deleteprojectv2view",
+      "href": "/graphql/reference/projects#mutation-deleteprojectv2view",
+      "description": "<p>Deletes a view from a project.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteProjectV2ViewInput!",
+          "id": "deleteprojectv2viewinput",
+          "href": "/graphql/reference/projects#input-object-deleteprojectv2viewinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "projectV2View",
+          "type": "ProjectV2View",
+          "id": "projectv2view",
+          "href": "/graphql/reference/projects#object-projectv2view",
+          "description": "<p>The deleted view.</p>"
         }
       ],
       "category": "projects"
@@ -938,6 +1002,38 @@
           "id": "projectv2statusupdate",
           "href": "/graphql/reference/projects#object-projectv2statusupdate",
           "description": "<p>The status update updated in the project.</p>"
+        }
+      ],
+      "category": "projects"
+    },
+    {
+      "name": "updateProjectV2View",
+      "id": "updateprojectv2view",
+      "href": "/graphql/reference/projects#mutation-updateprojectv2view",
+      "description": "<p>Updates an existing view in a project.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateProjectV2ViewInput!",
+          "id": "updateprojectv2viewinput",
+          "href": "/graphql/reference/projects#input-object-updateprojectv2viewinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "projectV2View",
+          "type": "ProjectV2View",
+          "id": "projectv2view",
+          "href": "/graphql/reference/projects#object-projectv2view",
+          "description": "<p>The updated view.</p>"
         }
       ],
       "category": "projects"
@@ -4148,6 +4244,13 @@
       ],
       "fields": [
         {
+          "name": "configuration",
+          "description": "<p>The view's configuration.</p>",
+          "type": "ProjectV2ViewConfiguration!",
+          "id": "projectv2viewconfiguration",
+          "href": "/graphql/reference/projects#object-projectv2viewconfiguration"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
           "type": "DateTime!",
@@ -4640,6 +4743,61 @@
           ],
           "isDeprecated": true,
           "deprecationReason": "<p>The <code>ProjectV2View#visibleFields</code> API is deprecated in favour of the more capable <code>ProjectV2View#fields</code> API. Check out the <code>ProjectV2View#fields</code> API as an example for the more capable alternative. Removal on 2023-01-01 UTC.</p>"
+        }
+      ],
+      "category": "projects"
+    },
+    {
+      "name": "ProjectV2ViewConfiguration",
+      "id": "projectv2viewconfiguration",
+      "href": "/graphql/reference/projects#object-projectv2viewconfiguration",
+      "description": "<p>Configuration for a ProjectV2 view.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "visibleFields",
+          "description": "<p>The fields visible in the view, in configured order.</p>",
+          "type": "ProjectV2FieldConfigurationConnection!",
+          "id": "projectv2fieldconfigurationconnection",
+          "href": "/graphql/reference/projects#object-projectv2fieldconfigurationconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
         }
       ],
       "category": "projects"
@@ -6310,6 +6468,51 @@
       "category": "projects"
     },
     {
+      "name": "CreateProjectV2ViewInput",
+      "id": "createprojectv2viewinput",
+      "href": "/graphql/reference/projects#input-object-createprojectv2viewinput",
+      "description": "<p>Autogenerated input type of CreateProjectV2View.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "configuration",
+          "description": "<p>The configuration for the view.</p>",
+          "type": "ProjectV2ViewConfigurationInput",
+          "id": "projectv2viewconfigurationinput",
+          "href": "/graphql/reference/projects#input-object-projectv2viewconfigurationinput"
+        },
+        {
+          "name": "layout",
+          "description": "<p>The layout of the view.</p>",
+          "type": "ProjectV2ViewLayout!",
+          "id": "projectv2viewlayout",
+          "href": "/graphql/reference/projects#enum-projectv2viewlayout"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the view.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The ID of the project to create a view in.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "projects"
+    },
+    {
       "name": "DeleteProjectV2FieldInput",
       "id": "deleteprojectv2fieldinput",
       "href": "/graphql/reference/projects#input-object-deleteprojectv2fieldinput",
@@ -6405,6 +6608,30 @@
         {
           "name": "statusUpdateId",
           "description": "<p>The ID of the status update to be removed.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "projects"
+    },
+    {
+      "name": "DeleteProjectV2ViewInput",
+      "id": "deleteprojectv2viewinput",
+      "href": "/graphql/reference/projects#input-object-deleteprojectv2viewinput",
+      "description": "<p>Autogenerated input type of DeleteProjectV2View.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "viewId",
+          "description": "<p>The ID of the view to delete.</p>",
           "type": "ID!",
           "id": "id",
           "href": "/graphql/reference/other#scalar-id",
@@ -6881,6 +7108,24 @@
           "type": "ProjectV2StatusUpdateOrderField!",
           "id": "projectv2statusupdateorderfield",
           "href": "/graphql/reference/projects#enum-projectv2statusupdateorderfield"
+        }
+      ],
+      "category": "projects"
+    },
+    {
+      "name": "ProjectV2ViewConfigurationInput",
+      "id": "projectv2viewconfigurationinput",
+      "href": "/graphql/reference/projects#input-object-projectv2viewconfigurationinput",
+      "description": "<p>Configuration for a ProjectV2 view.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "visibleFieldIds",
+          "description": "<p>The ordered IDs of the fields visible in the view.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
         }
       ],
       "category": "projects"
@@ -7376,6 +7621,58 @@
           "type": "Date",
           "id": "date",
           "href": "/graphql/reference/other#scalar-date"
+        }
+      ],
+      "category": "projects"
+    },
+    {
+      "name": "UpdateProjectV2ViewInput",
+      "id": "updateprojectv2viewinput",
+      "href": "/graphql/reference/projects#input-object-updateprojectv2viewinput",
+      "description": "<p>Autogenerated input type of UpdateProjectV2View.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "configuration",
+          "description": "<p>The new configuration for the view.</p>",
+          "type": "ProjectV2ViewConfigurationInput",
+          "id": "projectv2viewconfigurationinput",
+          "href": "/graphql/reference/projects#input-object-projectv2viewconfigurationinput"
+        },
+        {
+          "name": "filter",
+          "description": "<p>The new filter for the view.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "layout",
+          "description": "<p>The new layout for the view.</p>",
+          "type": "ProjectV2ViewLayout",
+          "id": "projectv2viewlayout",
+          "href": "/graphql/reference/projects#enum-projectv2viewlayout"
+        },
+        {
+          "name": "name",
+          "description": "<p>The new name for the view.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "viewId",
+          "description": "<p>The ID of the view to update.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
         }
       ],
       "category": "projects"

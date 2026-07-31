@@ -17,15 +17,16 @@ category:
 
 With enterprise managed settings, enterprise owners can centrally define and distribute configuration settings to supported clients for users on your enterprise's {% data variables.product.prodname_copilot_short %} plan, ensuring every member works within the same guardrails.
 
-Supported clients are:
+The following clients are supported, although not every client supports every property:
 
 * {% data variables.copilot.copilot_cli_short %}
 * {% data variables.product.prodname_vscode_shortname %}
 * The {% data variables.copilot.github_copilot_app %}
+* {% data variables.copilot.copilot_cloud_agent %}
 
 These settings apply enterprise-wide, with no organization-level override. For each supported key, the `{% data variables.copilot.managed_setting_file %}` value takes precedence over any file-based configuration a user sets in their client.
 
-Managed settings are loaded locally when the client starts, even if the device has no network connection. This means controls such as disabled bypass mode and restricted plugin configuration still apply before sign in or any server round trip, and remain active when users switch accounts.
+Managed settings are loaded locally when the client starts, even if the device has no network connection. This means controls such as suppressing the `allow-all` permission options and restricting plugin configuration still apply before sign in or any server round trip, and remain active when users switch accounts.
 
 ## Defining settings
 
@@ -35,9 +36,9 @@ For detailed information on the available properties and syntax, see [AUTOTITLE]
 
 There are multiple ways to deploy enterprise managed settings. Use the following guidelines to choose the right method for you. For any method, pilot on a small device group before broad deployment.
 
-* **Server-managed**: Default for most enterprises and best for review workflows and audit history
-* **MDM-managed**: Best when IT teams need device-group targeting through existing MDM tooling on macOS and Windows
-* **File-based**: Available on all platforms, and useful when server-managed and MDM-managed deployment are not available, including developer environments such as containers and {% data variables.product.prodname_codespaces %}
+* **Server-managed**: Default for most enterprises and best for review workflows and audit history. Applies to all clients, including {% data variables.copilot.copilot_cloud_agent %}.
+* **MDM-managed**: Best when IT teams need device-group targeting through existing MDM tooling on macOS and Windows. Local clients only.
+* **File-based**: Available on all platforms, and useful when server-managed and MDM-managed deployment are not available, including developer environments such as containers and {% data variables.product.prodname_codespaces %}. Local clients only.
 
 There are additional considerations if you use a dedicated enterprise for {% data variables.copilot.copilot_business_short %}. See [Guidance for dedicated {% data variables.copilot.copilot_business_short %} enterprises](#guidance-for-dedicated-copilot-business-enterprises).
 
