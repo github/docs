@@ -1,5 +1,5 @@
 ---
-title: 'Stacked pull requests 🥞'
+title: 'Stacked pull requests'
 shortTitle: 'Stacked pull requests'
 intro: 'Use stacked pull requests to break large code changes into a chain of smaller, dependent pull requests you can review and merge independently.'
 versions:
