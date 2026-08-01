@@ -14,13 +14,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Downgrades
-  - Enterprise
-  - Licensing
-  - Organizations
-  - Billing
 contentType: reference
+category:
+  - Manage your plan and licenses
 ---
 
 {% data reusables.billing.about-billing %} For organizations and enterprises, the "plan" component of the bill is based on the number of licensed seats you use.
@@ -41,6 +37,7 @@ contentType: reference
 * Billing managers
 * Anyone with a pending invitation to become a billing manager
 * Anyone with a pending invitation to become an outside collaborator on a public repository owned by your organization
+* Anyone with a failed invitation to become an organization member or an outside collaborator on a repository owned by your organization
 
 ## Organizations on {% data variables.product.prodname_ghe_cloud %}
 
@@ -54,23 +51,25 @@ contentType: reference
   * {% data variables.product.company_short %} counts each outside collaborator once, even if the user account has access to multiple repositories in your organization.
 * Dormant users who are a member or owner of at least one organization in the enterprise
 
-If your enterprise does not use {% data variables.product.prodname_emus %}, you will also be billed for each of the following accounts:
+If your enterprise does not use {% data variables.product.prodname_emus %} or usage-based billing, you will also be billed for each of the following accounts. Under usage-based billing, pending invitations do not consume a license. See [AUTOTITLE](/billing/concepts/enterprise-billing/usage-based-licenses).
 
 * Anyone with a pending invitation to become an organization owner or member
+  * If the invited user already consumes an enterprise license, a pending organization invitation won't use an additional license—as long as the invitation is sent to their {% data variables.product.github %} username or a verified email address on their account. 
 * Anyone with a pending invitation to become an outside collaborator on private or internal repositories owned by your organization, excluding forks
   * {% data reusables.organizations.org-invite-scim %}
-  * Inviting an outside collaborator to a repository using their email address temporarily uses an available seat, even if they already have access to other repositories. After they accept the invite, the seat will be freed up again. Inviting them using their username does not temporarily use a seat.
+  * If the invited user already consumes an enterprise license because they're a collaborator on an internal or private repository in the enterprise, a pending collaborator invitation using their email address for another repository in the enterprise consumes an available seat. After they accept the invite, the seat will be freed up again. Inviting them using their username does not temporarily use a seat.
 
 ### People who don't consume licenses
 
-* {% data variables.enterprise.prodname_managed_users_caps %} that are suspended
+* Suspended {% data variables.enterprise.prodname_managed_users_caps %}
 * Enterprise owners who are not a member or owner of at least one organization in the enterprise
 * The user who set up the enterprise
 * Enterprise billing managers
 * Billing managers for individual organizations
 * Anyone with a pending invitation to become a billing manager
 * Anyone who is an outside collaborator on a public repository owned by your organization, or who has a pending invitation to become one
-* Guest collaborators who are not organization members or repository collaborators (see [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#guest-collaborators))
+* Anyone with a failed invitation to become an organization member or an outside collaborator on a repository owned by your organization
+* Guest collaborators who are not organization members or repository collaborators (see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/abilities-of-roles#guest-collaborators))
 * Users of {% data variables.visual_studio.prodname_vss_ghe %} whose accounts on {% data variables.product.prodname_dotcom %} are not linked, and who do not meet any of the other criteria for per-user pricing
 * Unaffiliated users: people who have been added to the enterprise, but are not members of any organizations in the enterprise
   * However, these users consume a bundled {% data variables.product.prodname_vs %} license if they are linked with a {% data variables.product.prodname_vs %} subscription
@@ -89,8 +88,8 @@ If your enterprise does not use {% data variables.product.prodname_emus %}, you 
 ## Further reading
 
 {%- ifversion not fpt %}
-* [AUTOTITLE](/admin/overview/about-enterprise-accounts)
-* [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
+* [AUTOTITLE](/admin/concepts/enterprise-fundamentals/enterprise-accounts)
+* [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/abilities-of-roles)
 {%- endif %}
 * [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)
 * [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)

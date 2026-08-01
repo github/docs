@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 redirect_from:
   - /contributing/syntax-and-versioning-for-github-docs/changing-an-articles-title
+category:
+  - Write and format content
 ---
 
 ## Changing the title of an article

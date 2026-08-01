@@ -1,15 +1,15 @@
 ---
 title: Troubleshooting GitHub Codespaces clients
 shortTitle: Codespaces clients
-intro: 'This article provides troubleshooting information for issues you may encounter with the client you use for {% data variables.product.prodname_github_codespaces %}.'
+intro: This article provides troubleshooting information for issues you may encounter with the client you use for {% data variables.product.prodname_github_codespaces %}.
 versions:
   fpt: '*'
   ghec: '*'
-type: reference
-topics:
-  - Codespaces
 redirect_from:
   - /codespaces/troubleshooting/troubleshooting-codespaces-clients
+contentType: reference
+category:
+  - Troubleshoot codespaces
 ---
 
 {% webui %}

@@ -21,12 +21,10 @@ versions:
   fpt: '*'
   ghec: '*'
 permissions: 'Billing manager or organization owner'
-topics:
-  - Billing
-  - Organizations
-  - Upgrades
 shortTitle: Manage client org
 contentType: how-tos
+category:
+  - Pay third parties and manage client accounts
 ---
 
 If you're not already billing manager for the organization, an organization owner at your client will need to add you to the organization as a billing manager. See [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization).

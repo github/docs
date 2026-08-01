@@ -12,14 +12,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 children:
+  - /attestations
   - /autolinks
   - /bypass-requests
   - /contents
   - /custom-properties
   - /forks
+  - /issue-types
   - /lfs
   - /repos
   - /rule-suites

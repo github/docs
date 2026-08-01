@@ -1,13 +1,10 @@
 ---
 title: Configure MCP server access for your organization or enterprise
-intro: You can configure an MCP registry URL and access control policy to determine which MCP servers developers can discover and use in supported IDEs with {% data variables.product.prodname_copilot %}.
+intro: You can configure an MCP registry URL and access control policy to determine which MCP servers developers can discover and use in supported IDEs and {% data variables.copilot.copilot_cli_short %}.
 permissions: Enterprise owners and organization owners
 product: '{% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
-  - Enterprise
 shortTitle: Configure MCP server access
 redirect_from:
   - /copilot/how-tos/administer-copilot/configure-mcp-server-access
@@ -46,7 +43,7 @@ To ensure uniform access, you can set and maintain your MCP registry URL and all
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the sidebar, under "Code, planning, and automation", click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, then click **Policies**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, then click **Policies**.
 1. In the "Features" section, ensure **MCP servers in {% data variables.product.prodname_copilot_short %}** is set to **Enabled**.
 1. In the **MCP Registry URL (optional)** field, enter the URL of your registry, then click **Save**.
 
@@ -61,3 +58,7 @@ To ensure uniform access, you can set and maintain your MCP registry URL and all
 ## Next steps
 
 For detailed information on MCP allowlist enforcement and limitations, see [AUTOTITLE](/copilot/reference/mcp-allowlist-enforcement).
+
+## Further reading
+
+* [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies)

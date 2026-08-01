@@ -9,8 +9,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
+category:
+  - Build apps and integrations
 ---
 
 
@@ -29,13 +29,13 @@ Heroku, Amazon, or something else entirely. The crux of this guide will be setti
 and configuring the server managing the communication.
 
 If you haven't already, be sure to [download `ngrok`](https://ngrok.com/), and learn how
-to [use it](/webhooks-and-events/webhooks/configuring-your-server-to-receive-payloads#using-ngrok). We find it to be a very useful tool for exposing local
+to [use it](https://ngrok.com/docs/getting-started/). We find it to be a very useful tool for exposing local
 applications to the internet.
 
 {% ifversion cli-webhook-forwarding %}
 
 > [!NOTE]
-> Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see [AUTOTITLE](/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli).
+> Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see [AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/using-the-github-cli-to-forward-webhooks-for-testing).
 
 {% endif %}
 
@@ -175,14 +175,14 @@ After the deployment is finished, we set the status to `success`.
 
 ## Conclusion
 
-At GitHub, we've used a version of [Heaven](https://github.com/atmos/heaven) to manage
+At GitHub, we've used a version of `Heaven` to manage
 our deployments for years. A common flow is essentially the same as the
 server we've built above:
 
 * Wait for a response on the state of the CI checks (success or failure)
 * If the required checks succeed, merge the pull request
-* Heaven takes the merged code, and deploys it to staging and production servers
-* In the meantime, Heaven also notifies everyone about the build, via [Hubot](https://github.com/github/hubot) sitting in our chat rooms
+* `Heaven` takes the merged code, and deploys it to staging and production servers
+* In the meantime, `Heaven` also notifies everyone about the build, via [Hubot](https://github.com/github/hubot) sitting in our chat rooms
 
 That's it! You don't need to build your own deployment setup to use this example.
 You can always rely on [GitHub integrations](https://github.com/integrations).

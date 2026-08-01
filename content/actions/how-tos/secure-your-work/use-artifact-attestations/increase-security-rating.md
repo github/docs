@@ -2,10 +2,6 @@
 title: Using artifact attestations and reusable workflows to achieve SLSA v1 Build Level 3
 shortTitle: Increase security rating
 intro: Building software with reusable workflows and artifact attestations can streamline your supply chain security and help you achieve SLSA v1.0 Build Level 3.
-topics:
-  - Actions
-  - Security
-  - Workflows
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,14 +9,17 @@ redirect_from:
   - /actions/security-guides/using-artifact-attestations-and-reusable-workflows-to-achieve-slsa-v1-build-level-3
   - /actions/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-and-reusable-workflows-to-achieve-slsa-v1-build-level-3
   - /actions/how-tos/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-and-reusable-workflows-to-achieve-slsa-v1-build-level-3
+category:
+  - Secure your workflows
+contentType: how-tos
 ---
 
 ## Prerequisites
 
 Before starting this guide, you should be familiar with:
 * The usage and security benefits of artifact attestations. See [AUTOTITLE](/actions/concepts/security/artifact-attestations).
-* Generating artifact attestations. See [AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds).
-* Writing and using reusable workflows. See [AUTOTITLE](/actions/using-workflows/reusing-workflows).
+* Generating artifact attestations. See [AUTOTITLE](/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations).
+* Writing and using reusable workflows. See [AUTOTITLE](/actions/how-tos/reuse-automations/reuse-workflows).
 
 ## Step 1: Configuring your builds
 
@@ -52,7 +51,7 @@ To verify the artifact attestations generated with your builds, you can use [`gh
 The `gh attestation verify` command requires either `--owner` or `--repo` flags to be used with it. These flags do two things.
 
 * They tell `gh attestation verify` where to fetch the attestation from. This will always be your caller workflow.
-* They tell `gh attestation verify` where the workflow that did the signing came from. This will always be the workflow that uses [`attest-build-provenance` action](https://github.com/actions/attest-build-provenance), which may be a reusable workflow.
+* They tell `gh attestation verify` where the workflow that did the signing came from. This will always be the workflow that uses the [`attest` action](https://github.com/actions/attest), which may be a reusable workflow.
 
 You can use optional flags with the `gh attestation verify` command.
 

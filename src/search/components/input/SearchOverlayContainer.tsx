@@ -7,7 +7,7 @@ type Props = {
   setIsSearchOpen: (value: boolean) => void
   params: QueryParams
   updateParams: (updates: Partial<QueryParams>) => void
-  searchButtonRef: React.RefObject<HTMLButtonElement>
+  searchButtonRef: React.RefObject<HTMLButtonElement | null>
 }
 
 export function SearchOverlayContainer({

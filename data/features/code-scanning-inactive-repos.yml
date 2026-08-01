@@ -1,0 +1,5 @@
+# Ref: 22601
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.22'

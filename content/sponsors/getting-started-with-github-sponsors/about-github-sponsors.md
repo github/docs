@@ -7,10 +7,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: overview
-topics:
-  - Open Source
-  - Fundamentals
+contentType: concepts
+category:
+  - Understand sponsorships
 ---
 
 ## About {% data variables.product.prodname_sponsors %}

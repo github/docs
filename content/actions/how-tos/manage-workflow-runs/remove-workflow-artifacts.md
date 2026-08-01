@@ -1,6 +1,6 @@
 ---
 title: Removing workflow artifacts
-intro: 'You can reclaim used {% data variables.product.prodname_actions %} storage by deleting artifacts before they expire on {% data variables.product.github %}.'
+intro: You can reclaim used {% data variables.product.prodname_actions %} storage by deleting artifacts before they expire on {% data variables.product.github %}.
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,6 +10,9 @@ redirect_from:
   - /actions/managing-workflow-runs/removing-workflow-artifacts
   - /actions/managing-workflow-runs-and-deployments/managing-workflow-runs/removing-workflow-artifacts
   - /actions/how-tos/managing-workflow-runs-and-deployments/managing-workflow-runs/removing-workflow-artifacts
+category:
+  - Manage and monitor workflow runs
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -33,9 +36,9 @@ redirect_from:
 
 ## Setting the retention period for an artifact
 
-Retention periods for artifacts and logs can be configured at the repository, organization, and enterprise level. For more information, see [AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration#artifact-and-log-retention-policy).
+Retention periods for artifacts and logs can be configured at the repository, organization, and enterprise level. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-artifact-and-log-retention-period-for-a-repository) and [AUTOTITLE](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization).
 
-You can also define a custom retention period for individual artifacts using the `actions/upload-artifact` action in a workflow. For more information, see [AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts#configuring-a-custom-artifact-retention-period).
+You can also define a custom retention period for individual artifacts using the `actions/upload-artifact` action in a workflow. For more information, see [AUTOTITLE](/actions/tutorials/store-and-share-data#configuring-a-custom-artifact-retention-period).
 
 ## Finding the expiration date of an artifact
 

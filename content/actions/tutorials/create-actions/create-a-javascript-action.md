@@ -1,7 +1,7 @@
 ---
 title: Creating a JavaScript action
 shortTitle: Create a JavaScript action
-intro: 'In this tutorial, you''ll learn how to build a JavaScript action using the actions toolkit.'
+intro: In this tutorial, you'll learn how to build a JavaScript action using the actions toolkit.
 redirect_from:
   - /articles/creating-a-javascript-action
   - /github/automating-your-workflow-with-github-actions/creating-a-javascript-action
@@ -14,10 +14,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
-topics:
-  - Action development
-  - JavaScript
+contentType: tutorials
+category:
+  - Reuse and share automations
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -60,7 +59,7 @@ Before you begin, you'll need to download Node.js and create a public {% data va
 
 ## Creating an action metadata file
 
-Create a new file named `action.yml` in the `hello-world-javascript-action` directory with the following example code. For more information, see [AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions).
+Create a new file named `action.yml` in the `hello-world-javascript-action` directory with the following example code. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/metadata-syntax).
 
 ```yaml copy
 name: Hello World
@@ -134,7 +133,7 @@ try {
 
 {% endraw %}
 
-If an error is thrown in the above `index.js` example, `core.setFailed(error.message);` uses the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) package to log a message and set a failing exit code. For more information, see [AUTOTITLE](/actions/creating-actions/setting-exit-codes-for-actions).
+If an error is thrown in the above `index.js` example, `core.setFailed(error.message);` uses the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) package to log a message and set a failing exit code. For more information, see [AUTOTITLE](/actions/how-tos/create-and-publish-actions/set-exit-codes).
 
 ## Creating a README
 

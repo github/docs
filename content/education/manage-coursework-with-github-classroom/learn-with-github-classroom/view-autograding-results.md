@@ -6,6 +6,8 @@ versions:
 redirect_from:
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-students
   - /education/manage-coursework-with-github-classroom/view-autograding-results
+category:
+  - Track assignment progress
 ---
 ## About autograding
 
@@ -15,7 +17,7 @@ If you're a student and your instructor has configured autograding for your assi
 
 ## Viewing autograding results for an assignment repository
 
-{% data variables.product.prodname_classroom %} uses {% data variables.product.prodname_actions %} to run autograding tests. For more information about viewing the logs for an autograding test, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures).
+{% data variables.product.prodname_classroom %} uses {% data variables.product.prodname_actions %} to run autograding tests. For more information about viewing the logs for an autograding test, see [AUTOTITLE](/actions/how-tos/monitor-workflows/use-workflow-run-logs#viewing-logs-to-diagnose-failures).
 
 The **Actions** tab shows the full history of test runs.
 

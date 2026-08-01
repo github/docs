@@ -1,15 +1,18 @@
 import fs from 'fs'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import { cuss } from 'cuss'
 import { cuss as cussPt } from 'cuss/pt'
 import { cuss as cussFr } from 'cuss/fr'
 import { cuss as cussEs } from 'cuss/es'
-let language: any = null
+interface LanguageGuesser {
+  guessBest(text: string, langs: string[]): { alpha2: string } | null
+}
+let language: LanguageGuesser | null = null
 
 async function getLanguageInstance() {
   if (!language) {
     const { Language } = await import('@horizon-rs/language-guesser')
-    language = new Language()
+    language = new Language() as LanguageGuesser
   }
   return language
 }
@@ -222,7 +225,7 @@ function splitWords(text: string) {
   return [...segmentedText].filter((s) => s.isWordLike).map((s) => s.segment)
 }
 
-const surveyYaml = yaml.load(fs.readFileSync('data/survey-words.yml', 'utf8')) as {
+const surveyYaml = load(fs.readFileSync('data/survey-words.yml', 'utf8')) as {
   words: string[]
 }
 const surveyWords = surveyYaml.words.map((word: string) => word.toLowerCase())

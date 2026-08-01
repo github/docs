@@ -1,0 +1,5 @@
+# Poetry PEP 621 project section support for Dependabot
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.21'

@@ -1,6 +1,6 @@
 ---
 title: Restricting email notifications for your organization
-intro: 'To prevent organization information from leaking into personal email accounts, you can restrict the domains where members can receive email notifications about organization activity.'
+intro: To prevent organization information from leaking into personal email accounts, you can restrict the domains where members can receive email notifications about organization activity.
 permissions: Organization owners can restrict email notifications for an organization.
 redirect_from:
   - /articles/restricting-email-notifications-about-organization-activity-to-an-approved-email-domain
@@ -11,13 +11,10 @@ redirect_from:
 versions:
   ghes: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Notifications
-  - Organizations
-  - Policy
 shortTitle: Restrict email notifications
+contentType: how-tos
+category:
+  - Secure and monitor your organization
 ---
 
 ## About email restrictions
@@ -35,7 +32,7 @@ When restricted email notifications are enabled in an organization, members can 
 
 Outside collaborators are not subject to restrictions on email notifications for verified or approved domains. For more information about outside collaborators, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators).
 
-If your organization is owned by an enterprise account, organization members will be able to receive notifications from any domains verified or approved for the enterprise account, in addition to any domains verified or approved for the organization. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise).
+If your organization is owned by an enterprise account, organization members will be able to receive notifications from any domains verified or approved for the enterprise account, in addition to any domains verified or approved for the organization. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise).
 
 ## Restricting email notifications
 

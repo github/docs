@@ -2,9 +2,6 @@
 title: Acceptable Use Policies
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 children:
   - github-acceptable-use-policies
   - github-active-malware-or-exploits

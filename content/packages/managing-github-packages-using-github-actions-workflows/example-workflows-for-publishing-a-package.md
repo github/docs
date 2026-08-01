@@ -6,13 +6,15 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Example workflows
+category:
+  - Publish and manage packages
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
 You can find example workflows in [AUTOTITLE](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions) or in any of these {% data variables.product.prodname_actions %} guides:
 
-* [Publishing Node.js packages](/actions/publishing-packages/publishing-nodejs-packages)
-* [Publishing Docker images](/actions/publishing-packages/publishing-docker-images)
-* [Publishing Java packages with Maven](/actions/publishing-packages/publishing-java-packages-with-maven)
-* [Publishing Java packages with Gradle](/actions/publishing-packages/publishing-java-packages-with-gradle)
+* [Publishing Node.js packages](/actions/tutorials/publish-packages/publish-nodejs-packages)
+* [Publishing Docker images](/actions/tutorials/publish-packages/publish-docker-images)
+* [Publishing Java packages with Maven](/actions/tutorials/publish-packages/publish-java-packages-with-maven)
+* [Publishing Java packages with Gradle](/actions/tutorials/publish-packages/publish-java-packages-with-gradle)

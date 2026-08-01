@@ -1,5 +1,4 @@
-import { Octokit } from '@octokit/rest'
-import { retry } from '@octokit/plugin-retry'
+import { retryingGithub } from '@/workflows/github'
 
 const DEFAULT_MIN_DAYS = 30
 
@@ -15,7 +14,7 @@ export async function cleanUpOldBranches(options: Options) {
   if (!process.env.GITHUB_TOKEN) {
     throw new Error('You must set the GITHUB_TOKEN environment variable.')
   }
-  const octokit = retryingOctokit(process.env.GITHUB_TOKEN)
+  const octokit = retryingGithub(process.env.GITHUB_TOKEN)
 
   const [owner, repo] = options.repository.split('/')
   const { data: refs } = await octokit.request(
@@ -52,11 +51,4 @@ export async function cleanUpOldBranches(options: Options) {
       console.log(`Branch ${name} is not old enough (min days: ${minDays})`)
     }
   }
-}
-
-function retryingOctokit(token: string) {
-  const RetryingOctokit = Octokit.plugin(retry)
-  return new RetryingOctokit({
-    auth: `token ${token}`,
-  })
 }

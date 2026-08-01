@@ -1,11 +1,11 @@
 import { describe, expect, test } from 'vitest'
-import cheerio from 'cheerio'
+import type { CheerioAPI } from 'cheerio'
 
 import { getDOM } from '@/tests/helpers/e2etest'
 
 describe('annotations', () => {
   test('code-snippet-with-hashbang', async () => {
-    const $: cheerio.Root = await getDOM('/get-started/foo/code-snippet-with-hashbang')
+    const $: CheerioAPI = await getDOM('/get-started/foo/code-snippet-with-hashbang')
     const annotations = $('#article-contents .annotate')
 
     // Check http://localhost:4000/en/get-started/foo/code-snippet-with-hashbang
@@ -22,7 +22,7 @@ describe('annotations', () => {
       expect(annotation.find('.annotate-inline').length).toBe(1)
       expect(annotation.find('.annotate-row').length).toBe(3)
       const notes = $('.annotate-row .annotate-note p', annotation)
-      const noteTexts = notes.map((i: number, el: any) => $(el).text()).get()
+      const noteTexts = notes.map((_, el) => $(el).text()).get()
       expect(noteTexts).toEqual(["Let's get started", 'This is just a sample', 'End of the script'])
     }
     // Second code snippet block
@@ -33,7 +33,7 @@ describe('annotations', () => {
       expect(annotation.find('.annotate-inline').length).toBe(1)
       expect(annotation.find('.annotate-row').length).toBe(2)
       const notes = $('.annotate-row .annotate-note p', annotation)
-      const noteTexts = notes.map((i: number, el: any) => $(el).text()).get()
+      const noteTexts = notes.map((_, el) => $(el).text()).get()
       expect(noteTexts).toEqual(['Has to start with a comment.', 'This is the if statement'])
     }
     // Yaml code snippet that starts with an empty comment
@@ -44,7 +44,7 @@ describe('annotations', () => {
       expect(annotation.find('.annotate-inline').length).toBe(1)
       expect(annotation.find('.annotate-row').length).toBe(3)
       const notes = $('.annotate-row .annotate-note p', annotation)
-      const noteTexts = notes.map((i: number, el: any) => $(el).text()).get()
+      const noteTexts = notes.map((_, el) => $(el).text()).get()
       expect(noteTexts).toEqual([
         'Configures this workflow to run every time a change is pushed to the branch called release.',
         "This job checks out the repository contents ...\nAnd here's the second comment line.",

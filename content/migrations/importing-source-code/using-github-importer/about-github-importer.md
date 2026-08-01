@@ -14,6 +14,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+category:
+  - Import source code
 ---
 
 ## About {% data variables.product.prodname_importer %}

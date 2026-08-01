@@ -2,18 +2,22 @@ import type { Response } from 'express'
 
 import type { Failbot } from '@github/failbot'
 import { get } from 'lodash-es'
+import { createLogger } from '@/observability/logger'
 
-import getMiniTocItems from '@/frame/lib/get-mini-toc-items'
+import { buildMiniTocFromCollected, type CollectedHeading } from '@/frame/lib/get-mini-toc-items'
 import patterns from '@/frame/lib/patterns'
 import FailBot from '@/observability/lib/failbot'
-import statsd from '@/observability/lib/statsd'
+import statsd, { adaptForTimer } from '@/observability/lib/statsd'
 import type { ExtendedRequest } from '@/types'
 import { allVersions } from '@/versions/lib/all-versions'
+import { transformerRegistry } from '@/article-api/transformers'
+import { normalizeRenderedMarkdown } from '@/article-api/lib/normalize-markdown'
+import { renderContentToHast } from '@/content-render/index'
 import { minimumNotFoundHtml } from '../lib/constants'
-import { defaultCacheControl } from './cache-control'
-import { isConnectionDropped } from './halt-on-dropped-connection'
+import { contentTypeCacheControl, defaultCacheControl } from './cache-control'
 import { nextHandleRequest } from './next'
 
+const logger = createLogger(import.meta.url)
 const STATSD_KEY_RENDER = 'middleware.render_page'
 
 async function buildRenderedPage(req: ExtendedRequest): Promise<string> {
@@ -23,9 +27,52 @@ async function buildRenderedPage(req: ExtendedRequest): Promise<string> {
   if (!page) throw new Error('page not set in context')
   const path = req.pagePath || req.path
 
-  const pageRenderTimed = statsd.asyncTimer(page.render, STATSD_KEY_RENDER, [`path:${path}`])
+  // Set up collection array for the collect-mini-toc rehype plugin only when
+  // the page actually needs a mini-TOC, avoiding unnecessary work.
+  if (page.showMiniToc) {
+    const collectMiniToc: CollectedHeading[] = []
+    context.collectMiniToc = collectMiniToc
+  }
+
+  const pageRenderTimed = statsd.asyncTimer(adaptForTimer(page.render), STATSD_KEY_RENDER, [
+    `path:${path}`,
+  ])
 
   return (await pageRenderTimed(context)) as string
+}
+
+/**
+ * Spike for #6619 (remove dangerouslySetInnerHTML): produce the article body as
+ * a serializable hast (HTML AST) tree alongside the legacy HTML string.
+ *
+ * Must run AFTER buildRenderedPage, which calls page.render and populates the
+ * context fields the pipeline reads (englishHeadings, alertTitles). We render
+ * the same raw `page.markdown`, but with a context clone that omits
+ * `collectMiniToc` so the mini-TOC isn't collected a second time.
+ *
+ * Wrapped so a hast failure can never break the page: the React layer falls
+ * back to the string path when this is undefined. NOTE: this currently renders
+ * the body pipeline twice; the production design (see #6619 plan) should produce
+ * hast once and derive the string from it.
+ */
+async function buildRenderedPageHast(req: ExtendedRequest) {
+  const { context } = req
+  if (!context) throw new Error('request not contextualized')
+  const { page } = context
+  if (!page || !page.markdown) return undefined
+
+  try {
+    const hastContext = { ...context, collectMiniToc: undefined }
+    const { hast } = await renderContentToHast(page.markdown, hastContext)
+    return hast || undefined
+  } catch (error) {
+    logger.error(
+      'buildRenderedPageHast failed; falling back to string path',
+      error instanceof Error ? error : new Error(String(error)),
+      { path: req.pagePath || req.path },
+    )
+    return undefined
+  }
 }
 
 function buildMiniTocItems(req: ExtendedRequest) {
@@ -38,15 +85,14 @@ function buildMiniTocItems(req: ExtendedRequest) {
     return
   }
 
-  return getMiniTocItems(context.renderedPage || '', 0)
+  // Use headings collected during rendering via the collect-mini-toc rehype plugin.
+  const collected = context.collectMiniToc as CollectedHeading[] | undefined
+  if (collected) {
+    return buildMiniTocFromCollected(collected, 2)
+  }
 }
 
 export default async function renderPage(req: ExtendedRequest, res: Response) {
-  // Skip if App Router has already handled this request
-  if (res.locals?.handledByAppRouter) {
-    return
-  }
-
   const { context } = req
 
   // This is a contextualizing the request so that when this `req` is
@@ -62,9 +108,9 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
   // render a 404 page
   if (!page) {
     if (process.env.NODE_ENV !== 'test' && context.redirectNotFound) {
-      console.error(
-        `\nTried to redirect to ${context.redirectNotFound}, but that page was not found.\n`,
-      )
+      logger.error('Tried to redirect to a page that was not found', {
+        redirectNotFound: context.redirectNotFound,
+      })
     }
 
     // send minimal 404 at this point since we ran into hydration issues trying to pass
@@ -87,15 +133,30 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
     res.setHeader('Last-Modified', new Date(page.effectiveDate).toUTCString())
   }
 
-  // Stop processing if the connection was already dropped
-  if (isConnectionDropped(req, res)) return
+  // Content negotiation: serve markdown when the client prefers it over HTML.
+  // Agents like Claude Code send Accept headers that omit text/html.
+  if (req.accepts(['text/html', 'text/markdown']) === 'text/markdown') {
+    context.markdownRequested = true
+  }
 
   if (!req.context) throw new Error('request not contextualized')
-  req.context.renderedPage = await buildRenderedPage(req)
-  req.context.miniTocItems = buildMiniTocItems(req)
 
-  // Stop processing if the connection was already dropped
-  if (isConnectionDropped(req, res)) return
+  if (context.markdownRequested) {
+    const transformer = transformerRegistry.findTransformer(page)
+    if (!transformer) throw new Error(`No transformer found for page: ${req.pagePath}`)
+    // Pass context without markdownRequested — transformers set it themselves
+    // when rendering templates. Having it set during prepareTemplateData()
+    // causes renderTitle/renderProp to output markdown instead of HTML,
+    // which breaks the cheerio-based unwrap logic.
+    const transformerContext = { ...context, markdownRequested: false }
+    req.context.renderedPage = normalizeRenderedMarkdown(
+      await transformer.transform(page, path, transformerContext),
+    )
+  } else {
+    req.context.renderedPage = await buildRenderedPage(req)
+    req.context.renderedPageHast = await buildRenderedPageHast(req)
+    req.context.miniTocItems = buildMiniTocItems(req)
+  }
 
   // Create string for <title> tag
   page.fullTitle = page.title
@@ -106,7 +167,7 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
       req.context.currentVersion === 'free-pro-team@latest' ||
       !allVersions[req.context.currentVersion!]
     ) {
-      page.fullTitle += ` - ${context.site!.data.ui.header.github_docs}`
+      page.fullTitle += ` - ${get(context.site!.data.ui, 'header.github_docs')}`
     } else {
       const { versionTitle } = allVersions[req.context.currentVersion!]
       page.fullTitle += ' - '
@@ -145,15 +206,17 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
   }
 
   if (context.markdownRequested) {
-    if (!page.autogenerated && page.documentType === 'article') {
-      return res.type('text/markdown').send(req.context.renderedPage)
+    if (context.markdownViaUrl) {
+      // .md URL suffix always returns markdown — Vary: accept would be misleading
+      defaultCacheControl(res)
     } else {
-      const newUrl = req.originalUrl.replace(req.path, req.path.replace(/\.md$/, ''))
-      return res.redirect(newUrl)
+      // Accept header determines the representation — Vary: accept is correct
+      contentTypeCacheControl(res)
     }
+    return res.type('text/markdown').send(req.context.renderedPage)
   }
 
-  defaultCacheControl(res)
+  contentTypeCacheControl(res)
 
   return nextHandleRequest(req, res)
 }

@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 shortTitle: Activate optional features
+category:
+  - Maintain and share your app
 ---
 
 > [!WARNING]
@@ -27,4 +27,4 @@ shortTitle: Activate optional features
 
 ## Further reading
 
-* [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)
+* [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration)

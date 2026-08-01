@@ -4,14 +4,12 @@ intro: 'Sync licenses manually or with {% data variables.product.prodname_github
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
-  - Licensing
 shortTitle: Sync license usage
 redirect_from:
   - /billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud
 contentType: how-tos
+category:
+  - Manage enterprise licenses
 ---
 
 A {% data variables.product.prodname_enterprise %} license allows a user to use both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}. See [AUTOTITLE](/billing/concepts/enterprise-billing/combined-enterprise-use).
@@ -64,4 +62,4 @@ You can download a JSON file from {% data variables.product.prodname_ghe_server 
 
 {% data reusables.enterprise-licensing.view-consumed-licenses %}
 
-To make troubleshooting easier, if you synchronize license usage and do not use {% data variables.product.prodname_emus %}, we highly recommend enabling verified domains for your enterprise account on {% data variables.product.prodname_ghe_cloud %}. See [AUTOTITLE](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
+To make troubleshooting easier, if you synchronize license usage and do not use {% data variables.product.prodname_emus %}, we highly recommend enabling verified domains for your enterprise account on {% data variables.product.prodname_ghe_cloud %}. See [AUTOTITLE](/enterprise-cloud@latest/admin/configuring-settings/configuring-user-applications-for-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}

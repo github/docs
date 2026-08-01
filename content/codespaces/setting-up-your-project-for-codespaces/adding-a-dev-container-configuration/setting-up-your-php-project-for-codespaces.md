@@ -2,18 +2,16 @@
 title: Setting up a PHP project for GitHub Codespaces
 allowTitleToDifferFromFilename: true
 shortTitle: Setting up a PHP project
-intro: 'Get started with a PHP project in {% data variables.product.prodname_github_codespaces %} by creating a custom dev container configuration.'
+intro: Get started with a PHP project in {% data variables.product.prodname_github_codespaces %} by creating a custom dev container configuration.
 versions:
   fpt: '*'
   ghec: '*'
 redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-php-project-in-codespaces
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-php-project-for-codespaces
-type: tutorial
-topics:
-  - Codespaces
-  - Developer
-  - Set up
+contentType: tutorials
+category:
+  - Set up dev containers for a project
 ---
 
 ## Introduction
@@ -52,7 +50,7 @@ The default development container, or "dev container," for {% data variables.pro
 {
   "name": "PHP",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "mcr.microsoft.com/devcontainers/php:1-8.2-bullseye",
+  "image": "mcr.microsoft.com/devcontainers/php:3-8.5-trixie",
 
   // Features to add to the dev container. More info: https://containers.dev/features.
   // "features": {},
@@ -131,7 +129,7 @@ With your dev container configuration added and a basic understanding of what ev
    {
      "name": "PHP",
      // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-     "image": "mcr.microsoft.com/devcontainers/php:1-8.2-bullseye",
+     "image": "mcr.microsoft.com/devcontainers/php:3-8.5-trixie",
 
      // Configure tool-specific properties.
      "customizations": {

@@ -1,7 +1,7 @@
 ---
 title: Configuring SAML single sign-on for Enterprise Managed Users
 shortTitle: Configure SAML
-intro: 'You can automatically manage access to your enterprise account on {% data variables.product.prodname_dotcom %} by configuring Security Assertion Markup Language (SAML) single sign-on (SSO).'
+intro: You can automatically manage access to your enterprise account on {% data variables.product.prodname_dotcom %} by configuring Security Assertion Markup Language (SAML) single sign-on (SSO).
 product: '{% data reusables.gated-features.emus %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users
@@ -12,11 +12,9 @@ redirect_from:
   - /admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users
 versions:
   ghec: '*'
-type: tutorial
-topics:
-  - Authentication
-  - Enterprise
-  - SSO
+contentType: tutorials
+category:
+  - Provision and manage enterprise users
 ---
 
 **Before** following the steps in this article, make sure that your enterprise uses **managed users** and that you are signed in as the setup user whose username is your enterprise's shortcode suffixed with `_admin`. You can verify you are signed in with the correct user by checking whether your enterprise view has the "Viewing as SHORTCODE_admin" header bar at the top of the screen. If you see this, you are signed in with the correct user and you can follow the steps in this article. For more information about the setup user, see [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users).
@@ -29,6 +27,8 @@ With {% data variables.product.prodname_emus %}, access to your enterprise's res
 
 After you configure SAML SSO, we recommend storing your recovery codes so you can recover access to your enterprise in the event that your IdP is unavailable.
 
+{% data reusables.enterprise-accounts.gov-cloud-idp-not-supported %}
+
 {% data reusables.enterprise_user_management.SAML-to-OIDC-migration-for-EMU %}
 
 ## Prerequisites
@@ -38,7 +38,7 @@ After you configure SAML SSO, we recommend storing your recovery codes so you ca
   * {% data variables.product.company_short %} offers a "paved-path" integration and full support if you use a **partner IdP** for both authentication and provisioning.
   * Alternatively, you can use any system or combination of systems that conforms to SAML 2.0 and SCIM 2.0. However, support for resolving problems with these systems may be limited.
 
-  For more details, see [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems).
+  For more details, see [AUTOTITLE](/admin/concepts/identity-and-access-management/enterprise-managed-users#identity-management-systems).
 * Your IdP must adhere to the SAML 2.0 specification. See the [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website.
 * You must have tenant administrative access to your IdP.
 * If you're configuring SAML SSO for a new enterprise, make sure to complete all previous steps in the initial configuration process. See [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users).
@@ -72,12 +72,12 @@ To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterpr
    | Identity provider | Documentation for {% data variables.product.prodname_dotcom_the_website %} | Documentation for {% data variables.enterprise.data_residency_site %} |
    | ----------------- | ------------- | ------------------- |
    | Microsoft Entra ID | [Microsoft Learn](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-tutorial) | [Microsoft Learn](https://learn.microsoft.com/en-us/entra/identity/saas-apps/github-enterprise-managed-user-ghe-com-tutorial) |
-   | Okta | [AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-with-okta-for-enterprise-managed-users) | [AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-with-okta-for-enterprise-managed-users) |
+   | Okta | [AUTOTITLE](/admin/managing-iam/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-with-okta-for-enterprise-managed-users) | [AUTOTITLE](/admin/managing-iam/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-with-okta-for-enterprise-managed-users) |
    | PingFederate | [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-pingfederate) ("Prerequisites" and "1. Configure SAML" sections) | [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-pingfederate) ("Prerequisites" and "1. Configure SAML" sections) |
 
    {% endrowheaders %}
 
-   Alternatively, if you don't use a partner IdP, you can use the SAML configuration reference for {% data variables.product.github %} to create and configure a generic SAML 2.0 application on your IdP. See [AUTOTITLE](/admin/identity-and-access-management/iam-configuration-reference/saml-configuration-reference).
+   Alternatively, if you don't use a partner IdP, you can use the SAML configuration reference for {% data variables.product.github %} to create and configure a generic SAML 2.0 application on your IdP. See [AUTOTITLE](/admin/managing-iam/iam-configuration-reference/saml-configuration-reference).
 
 1. To test and configure your enterprise, assign yourself or the user that will configure SAML SSO for your enterprise on {% data variables.product.github %} to the application you configured for {% data variables.product.prodname_emus %} on your IdP.
 
@@ -90,13 +90,13 @@ To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterpr
     | :- | :- | :- |
     | IdP Sign-On URL | Login URL, IdP URL | Application's URL on your IdP |
     | IdP Identifier URL | Issuer | IdP's identifier to service providers for SAML authentication |
-    | Signing certificate, Base64-encoded | Public certificate | Public certificate that IdP uses to sign authentication requests |
+    | Signing certificate, PEM-encoded | Public certificate | Public certificate that IdP uses to sign authentication requests |
 
 ### Configure your enterprise
 
 After you configure SAML SSO for {% data variables.product.prodname_emus %} on your IdP, you can configure your enterprise on {% data variables.product.github %}.
 
-After the initial configuration of SAML SSO, the only setting you can update on {% data variables.product.github %} for your existing SAML configuration is the SAML certificate, which can be done by any member with the enterprise owner role. If you need to update the sign-on URL or issuer URL, you must first disable SAML SSO, then reconfigure SAML SSO with the new settings. For more information, see [AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/disabling-authentication-for-enterprise-managed-users).
+After the initial configuration of SAML SSO, the only setting you can update on {% data variables.product.github %} for your existing SAML configuration is the SAML certificate, which can be done by any member with the enterprise owner role. If you need to update the sign-on URL or issuer URL, you must first disable SAML SSO, then reconfigure SAML SSO with the new settings. For more information, see [AUTOTITLE](/admin/managing-iam/configuring-authentication-for-enterprise-managed-users/disabling-authentication-and-provisioning-for-enterprise-managed-users).
 
 {% data reusables.emus.sign-in-as-setup-user %}
 
@@ -104,7 +104,7 @@ After the initial configuration of SAML SSO, the only setting you can update on 
    > {% data reusables.enterprise-accounts.emu-password-reset-session %}
 
 1. If you're using a **non-partner IdP** (an IdP other than Okta, PingFederate or Entra ID), before enabling SAML, you must update a setting so that you will be able to set up SCIM using the REST API. See [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#configuring-provisioning-for-other-identity-management-systems).
-{% data reusables.enterprise-accounts.access-enterprise-emu %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.identity-provider-tab %}
 {% data reusables.enterprise-accounts.sso-configuration %}
 
@@ -114,7 +114,7 @@ After the initial configuration of SAML SSO, the only setting you can update on 
 1. Under **Public Certificate**, paste the certificate that you noted while configuring your IdP, to verify SAML responses.
 
    > [!NOTE]
-   > {% data variables.product.github %} does not enforce the expiration of this SAML IdP certificate. This means that even if this certificate expires, your SAML authentication will continue to work. However, if your IdP administrator regenerates the SAML certificate, and you don't update it on the {% data variables.product.github %} side, users will encounter a `digest mismatch` error during SAML authentication attempts due to the certificate mismatch. See [Error: Digest mismatch](/admin/managing-iam/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#error-digest-mismatch).
+   > {% data variables.product.github %} does not enforce the expiration of this SAML IdP certificate. This means that even if this certificate expires, your SAML authentication will continue to work. However, {% data variables.product.github %}'s recommendation is to update the certificate before it expires. We will accept a SAML response signed with an expired certificate, but we cannot comment on how the certificate expiring will be handled at the identity provider level. If your IdP administrator regenerates the SAML certificate, and you don't update it on the {% data variables.product.github %} side, users will encounter a `digest mismatch` error during SAML authentication attempts due to the certificate mismatch. See [Error: Digest mismatch](/admin/managing-iam/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#error-digest-mismatch).
 1. Under the same **Public Certificate** section, select the **Signature Method** and **Digest Method** dropdown menus, then click the hashing algorithm used by your SAML issuer.
 1. Before enabling SAML SSO for your enterprise, to ensure that the information you've entered is correct, click **Test SAML configuration**. {% data reusables.saml.test-must-succeed %}
 1. Click **Save SAML settings**.
@@ -126,7 +126,7 @@ After the initial configuration of SAML SSO, the only setting you can update on 
 
 ### Enable provisioning
 
-After you enable SAML SSO, enable provisioning. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users).
+After you enable SAML SSO, enable provisioning. For more information, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users).
 
 ### Enable guest collaborators
 

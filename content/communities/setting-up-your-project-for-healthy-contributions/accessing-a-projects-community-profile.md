@@ -8,9 +8,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Community
 shortTitle: Access community profiles
+category:
+  - Set up your project for contributions
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

@@ -1,5 +1,10 @@
+// Applied to the brand Hero's root <section>. The hero background image is
+// baked in here (not a Hero.Image visual slot), so these rules must stay.
 .section {
   height: 21rem;
+  // Brand Hero's root is display:flex/column but defaults to top alignment;
+  // restore the vertical centering the old `flex-justify-center` provided.
+  justify-content: center;
   background-image: image-set(
     url("/assets/images/banner-images/hero-home.webp") type("image/webp"),
     url("/assets/images/banner-images/hero-home.png") type("image/png")
@@ -14,6 +19,7 @@
   line-height: 1.2;
 }
 
+// Frosted-glass panel keeping heading/lede readable over the background image.
 .content {
   backdrop-filter: blur(1rem);
   background-color: color-mix(

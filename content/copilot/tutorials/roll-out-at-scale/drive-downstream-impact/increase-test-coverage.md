@@ -40,7 +40,7 @@ Improving test coverage is a recognized best practice, but it requires time and 
 
 {% data reusables.copilot.evaluate-options-intro %}
 
-<a href="https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=trial&ref_style=button&ref_plan=enterprise" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+<a href="https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Contact Sales</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
 ### How {% data variables.product.prodname_copilot_short %} can help
 
@@ -124,18 +124,18 @@ Developers **should not**:
 
 ### Resources for developers
 
-* [AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/writing-tests-with-github-copilot)
+* [AUTOTITLE](/copilot/tutorials/write-tests)
 * [How to generate unit tests with {% data variables.product.prodname_copilot %}: Tips and examples](https://github.blog/ai-and-ml/github-copilot/how-to-generate-unit-tests-with-github-copilot-tips-and-examples/)
 * [{% data variables.product.prodname_copilot %} is EVERYWHERE in Visual Studio](https://learn.microsoft.com/en-us/shows/github-copilot-for-visual-studio/github-copilot-is-everywhere-in-visual-studio-miniseries) (video content with a section on testing)
-* [AUTOTITLE](/copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat)
-* [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat)
+* [AUTOTITLE](/copilot/concepts/prompting/prompt-engineering)
+* [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-chat-model)
 
 ### Recommended features
 
-* [{% data variables.copilot.copilot_chat_dotcom_short %}](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github)
-* [{% data variables.product.prodname_copilot_short %} inline suggestions](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot)
-* [{% data variables.copilot.copilot_chat_short %} in the IDE](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide)
-* [{% data variables.copilot.copilot_coding_agent %}](/copilot/concepts/about-copilot-coding-agent)
+* [{% data variables.copilot.copilot_chat_dotcom_short %}](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github)
+* [{% data variables.product.prodname_copilot_short %} inline suggestions](/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions)
+* [{% data variables.copilot.copilot_chat_short %} in the IDE](/copilot/how-tos/chat-with-copilot/chat-in-ide)
+* [{% data variables.copilot.copilot_cloud_agent %}](/copilot/concepts/agents/cloud-agent/about-cloud-agent)
 
 ## Metrics to watch
 
