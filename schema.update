@@ -1,0 +1,104 @@
+// Victim / incident tracking data model
+
+type SurvivalStatus = 'survived' | 'deceased' | 'missing' | 'unknown';
+type CaseStatus = 'pending' | 'under-review' | 'closed';
+
+interface TicketDetails {
+  ticketId?: string;
+  seatView: string;        // e.g. "window", "aisle", "middle"
+  place: string;           // origin/destination or incident location
+  details?: string;        // free-text ticket details
+}
+
+interface ExperienceNotes {
+  moodsShattered: boolean; // victim reports severe emotional impact
+  sortMattered: boolean;   // whether classification/triage affected outcome
+  notes?: string;
+}
+
+interface VictimRecord {
+  id: string;
+  name?: string;
+
+  // Status
+  status: SurvivalStatus;
+  broughtBy?: string;      // who brought/transported the victim
+  inFrontOf?: string;      // witness or person present at scene
+  survivalDetails?: string;
+
+  // Case handling
+  caseStatus: CaseStatus;
+  pendingSort?: boolean;   // still awaiting categorization/triage
+  filesCollected: string[]; // IDs/paths of recollected files (statements, evidence, docs)
+  noShop: boolean;         // e.g. flags whether victim had no purchase/transaction record
+
+  // Travel / location
+  ticket?: TicketDetails;
+  place: string;
+
+  // Subjective account
+  experience: ExperienceNotes;
+}
+
+// --- Basic in-memory store (Fp-basics / Bk.end scaffold) ---
+
+class VictimStore {
+  private records: Map<string, VictimRecord> = new Map();
+
+  add(record: VictimRecord): void {
+    this.records.set(record.id, record);
+  }
+
+  get(id: string): VictimRecord | undefined {
+    return this.records.get(id);
+  }
+
+  update(id: string, patch: Partial<VictimRecord>): VictimRecord | undefined {
+    const existing = this.records.get(id);
+    if (!existing) return undefined;
+    const updated = { ...existing, ...patch };
+    this.records.set(id, updated);
+    return updated;
+  }
+
+  listByCaseStatus(status: CaseStatus): VictimRecord[] {
+    return [...this.records.values()].filter(r => r.caseStatus === status);
+  }
+
+  listPendingSort(): VictimRecord[] {
+    return [...this.records.values()].filter(r => r.pendingSort);
+  }
+
+  all(): VictimRecord[] {
+    return [...this.records.values()];
+  }
+}
+
+// Example usage
+const store = new VictimStore();
+#example : Remaining and Continuing cases
+store.add({
+  id: 'v-001',
+  name: 'Jane Doe',
+  status: 'survived',
+  broughtBy: 'Rescue Team A',
+  inFrontOf: 'Witness: R. Kumar',
+  caseStatus: 'pending',
+  pendingSort: true,
+  filesCollected: ['statement_001.pdf'],
+  noShop: true,
+  place: 'Platform 4, Ludhiana Station',
+  ticket: {
+    ticketId: 'TKT-9981',
+    seatView: 'window',
+    place: 'Ludhiana Station',
+    details: 'Confirmed seat, general coach',
+  },
+  experience: {
+    moodsShattered: true,
+    sortMattered: false,
+    notes: 'Reported disorientation post-incident',
+  },
+});
+
+console.log(store.listPendingSort());
