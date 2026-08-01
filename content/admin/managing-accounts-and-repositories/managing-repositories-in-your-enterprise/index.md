@@ -8,8 +8,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /governing-how-people-use-repositories-in-your-enterprise
   - /viewing-user-owned-repositories-in-your-enterprise

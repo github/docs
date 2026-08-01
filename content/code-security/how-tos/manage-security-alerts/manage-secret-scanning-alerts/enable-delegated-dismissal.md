@@ -1,0 +1,61 @@
+---
+title: Enabling delegated alert dismissal for secret scanning
+intro: You can use delegated alert dismissal to control who can dismiss an alert found by {% data variables.product.prodname_secret_scanning %}.
+permissions: '{% data reusables.permissions.delegated-alert-dismissal %}'
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+contentType: how-tos
+shortTitle: Enable delegated dismissal
+redirect_from:
+  - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/enabling-delegated-alert-dismissal-for-secret-scanning
+  - /code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts/enabling-delegated-alert-dismissal-for-secret-scanning
+  - /code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts/delegated-alert-dismissal
+category:
+  - Protect your secrets
+---
+
+>[!NOTE]
+> {% data reusables.security.delegated-alert-dismissal-capacity %}
+> 
+> Alert dismissal requests expire after 1 week. After this, dismissal requests must be resubmitted.
+
+## Configuring delegated dismissal for a repository
+
+>[!NOTE] If an organization owner configures delegated alert dismissal via an enforced security configuration, the settings can't be changed at the repository level.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. Under "{% data variables.product.prodname_secret_protection %}", to the right of "Prevent direct alert dismissals", click **Enable**.
+
+## Configuring delegated dismissal for an organization
+
+You must configure delegated dismissal for your organization using a custom security configuration. You can then apply the security configuration to all (or selected) repositories in your organization.
+
+{% data reusables.security-configurations.custom-security-configurations-org %}
+1. When defining the custom security configuration, under "{% data variables.product.prodname_secret_scanning_caps %}", ensure that the dropdown menu for "Prevent direct alert dismissals" is set to **Enabled**.
+1. Click **Save configuration**.
+1. Apply the security configuration to all (or selected) repositories in your organization. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/apply-custom-configuration).
+
+To learn more about security configurations, see [AUTOTITLE](/code-security/concepts/security-at-scale/organization-security).
+
+>[!NOTE]
+> You can use {% data variables.product.prodname_github_apps %} with fine-grained permissions to programmatically review and approve delegated dismissal requests. This enables your organization to streamline security request reviews and enforce policies, or integrate with external security tools, ensuring that all reviews meet established standards. _For {% data variables.product.prodname_ghe_server %}, the use of {% data variables.product.prodname_github_apps %} to review requests for delegated dismissals is available from version 3.19._
+> For more information about permissions, see [Organization permissions for "Organization bypass requests for secret scanning"](/enterprise-cloud@latest/rest/authentication/permissions-required-for-github-apps?apiVersion=2022-11-28#organization-permissions-for-organization-bypass-requests-for-secret-scanning).
+
+{% ifversion secret-scanning-alert-dismiss-custom-role %}
+
+## Configuring delegated dismissal for an enterprise
+
+{% data reusables.security-configurations.custom-security-configurations-enterprise %}
+1. When defining the custom security configuration, under "{% data variables.product.prodname_secret_protection %}", ensure that the dropdown menu for "Prevent direct alert dismissals" is set to **Enabled**.
+1. Click **Save configuration**.
+1. Apply the security configuration to all (or selected) repositories in your enterprise. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/apply-custom-configuration).
+
+{% endif %}
+
+## Next steps
+
+Now that you have enabled delegated alert dismissal for {% data variables.product.prodname_secret_scanning %}, you should regularly review alert dismissal requests to maintain an accurate alert count and unblock your developers. See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/review-alert-dismissal-requests).

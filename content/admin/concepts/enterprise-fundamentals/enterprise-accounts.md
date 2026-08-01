@@ -16,10 +16,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: concepts
-topics:
-  - Accounts
-  - Enterprise
-  - Fundamentals
+category:
+  - Get started with GitHub Enterprise
 ---
 
 An enterprise account is the central point of administration for your business on {% data variables.product.github %}. It brings together administrative tools for access management, policies, billing, and more. Enterprise administrators can set up features and policies efficiently at scale before deploying them across the business.
@@ -62,7 +60,7 @@ Teams can be synced with IdP groups, allowing you to manage any privileges that 
 
 Repositories host files such as your company's source code or internal documentation. They are where developers typically do their work, and they contain their own features and administration options that need to live closer to the code, such as {% data variables.product.prodname_actions %} workflows.
 
-Repositories are owned by organizations and are not directly accessible under the enterprise account.{% ifversion custom-properties-enterprise %} However, your enterprise can define custom properties to apply the same governance model to all repositories with shared characteristics. For example, if you do not want anyone to delete repositories that contain production code, this is something you can govern from the enterprise level.{% endif %}
+Repositories are owned by organizations and are not directly accessible under the enterprise account.{% ifversion custom-properties-enterprise %} However, your enterprise can define custom properties to apply the same governance model to all repositories with shared characteristics.{% endif %} {% ifversion repo-policy-rules %} For example, if you do not want anyone to delete repositories that contain production code, this is something you can govern from the enterprise level.{% endif %}
 
 {% ifversion ghec %}
 

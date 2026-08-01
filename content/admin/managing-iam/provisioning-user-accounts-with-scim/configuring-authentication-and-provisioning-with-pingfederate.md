@@ -1,23 +1,17 @@
 ---
 title: Configuring authentication and provisioning with PingFederate
-intro: 'Set up PingFederate as an identity provider (IdP) {% ifversion ghes %}to centrally manage authentication and provisioning for your enterprise{% else %}for {% data variables.product.prodname_emus %} on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %}{% endif %}.'
+intro: Set up PingFederate as an identity provider (IdP) {% ifversion ghes %}to centrally manage authentication and provisioning for your enterprise{% else %}for {% data variables.product.prodname_emus %} on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %}{% endif %}.
 permissions: Enterprise owners with admin access to the IdP
 shortTitle: Set up PingFederate
 versions:
   feature: scim-for-ghes-public-beta
   ghec: '*'
-type: how_to
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
-  - SSO
+contentType: how-tos
+category:
+  - Provision and manage enterprise users
 ---
 
-{% data reusables.scim.ghes-beta-note %}
-
-{% data reusables.saml.idp-saml-and-scim-explanation %} For more information, see {% ifversion ghec %}[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users).{% else %}[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes).{% endif %}
+{% data reusables.saml.idp-saml-and-scim-explanation %} For more information, see {% ifversion ghec %}[AUTOTITLE](/admin/concepts/identity-and-access-management/enterprise-managed-users).{% else %}[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes).{% endif %}
 
 ## Overview
 

@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub search
 shortTitle: Search issues & PRs
+category:
+  - Search for work and community content
 ---
 You can search for issues and pull requests globally across all of {% data variables.product.github %}, or search for issues and pull requests within a particular organization. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
 
@@ -67,6 +67,18 @@ You can filter issues and pull requests based on whether they're open or closed 
 | `state:closed` | [**design state:closed in:body**](https://github.com/search?utf8=%E2%9C%93&q=design+state%3Aclosed+in%3Abody&type=Issues) matches closed issues with the word "design" in the body.
 | `is:open` | [**performance is:open is:issue**](https://github.com/search?q=performance+is%3Aopen+is%3Aissue&type=Issues) matches open issues with the word "performance."
 | `is:closed` | [**android is:closed**](https://github.com/search?utf8=%E2%9C%93&q=android+is%3Aclosed&type=) matches closed issues and pull requests with the word "android."
+
+{% ifversion archive-pull-requests %}
+
+## Search based on whether a pull request is archived
+
+Repository administrators can archive a pull request to remove it from public view. You can search for archived pull requests using the `is:archived` qualifier. For more information, see [AUTOTITLE](/communities/moderating-comments-and-conversations/archive-pull-requests).
+
+| Qualifier        | Example
+| ------------- | -------------
+| `is:archived` | [**is:archived is:pr spam**](https://github.com/search?q=is%3Aarchived+is%3Apr+spam) matches archived pull requests that contain the word "spam" in repositories where you are a repository administrator.
+
+{% endif %}
 
 ## Search for pull requests in the merge queue
 
@@ -198,9 +210,6 @@ You can use the `project` qualifier to find issues that are associated with a sp
 | Qualifier        | Example
 | ------------- | -------------
 | <code>project:<em>PROJECT_NUMBER</em></code> | **project:github/57** matches issues owned by GitHub that are associated with the organization's project 57.
-| {% ifversion projects-v1 %} |
-| <code>project:<em>REPOSITORY/PROJECT_NUMBER</em></code> | **project:github-linguist/linguist/1** matches issues that are associated with project 1 in @github's linguist repository.
-| {% endif %} |
 
 ## Search by commit status
 
@@ -286,8 +295,12 @@ You can filter pull requests based on their [review status](/pull-requests/colla
 | `review:changes_requested` | [**type:pr review:changes_requested**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Achanges_requested&type=Issues) matches pull requests in which a reviewer has asked for changes.
 | <code>reviewed-by:<em>USERNAME</em></code> | [**type:pr reviewed-by:gjtorikian**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+reviewed-by%3Agjtorikian&type=Issues) matches pull requests reviewed by a particular person.
 | <code>review-requested:<em>USERNAME</em></code> | [**type:pr review-requested:benbalter**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review-requested%3Abenbalter&type=Issues) matches pull requests where a specific person is requested for review. Requested reviewers are no longer listed in the search results after they review a pull request. If the requested person is on a team that is requested for review, then review requests for that team will also appear in the search results.
+| {% ifversion review-involves-search %} |
+| <code>review-involves:<em>USERNAME</em></code> | [**type:pr review-involves:gjtorikian**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review-involves%3Agjtorikian&type=pullrequests) matches pull requests that a particular person is involved in reviewing, whether they were asked to review directly, are on a team that was asked, or have already reviewed. Unlike with `review-requested`, these pull requests remain in the results after the person or a teammate has reviewed them.
+| {% endif %} |
 | <code>user-review-requested:@me</code> | [**type:pr user-review-requested:@me**](https://github.com/search?q=is%3Apr+user-review-requested%3A%40me+) matches pull requests that you have directly been asked to review.
 | <code>team-review-requested:<em>TEAMNAME</em></code> | [**type:pr team-review-requested:github/docs**](https://github.com/search?q=type%3Apr+team-review-requested%3Agithub%2Fdocs&type=pullrequests) matches pull requests that have review requests from the team `github/docs`. Requested reviewers are no longer listed in the search results after they review a pull request.
+| <code>team-review-requested-user:<em>USERNAME</em></code> | [**type:pr team-review-requested-user:benbalter**](https://github.com/search?q=type%3Apr+team-review-requested-user%3Abenbalter&type=pullrequests) matches pull requests that have review requests from any team that a specific person is a member of. Review requests directed at the user specifically are not included. Requested reviewers are no longer listed in the search results after they review a pull request.
 
 ## Search by when an issue or pull request was created or last updated
 

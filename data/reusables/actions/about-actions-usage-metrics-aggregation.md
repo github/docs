@@ -1,4 +1,4 @@
-The time period selection feature allows you to view {% data variables.product.prodname_actions %} metrics over predefined periods, as detailed in the following table. These metrics include skipped runs and those that use zero minutes. Data is presented using Coordinated Universal Time (UTC) days.
+The time period selection feature allows you to view {% data variables.product.prodname_actions %} metrics over predefined periods, as detailed in the following table. These metrics exclude skipped runs and those that use zero minutes. Data is presented using Coordinated Universal Time (UTC) days.
 
 {% rowheaders %}
 

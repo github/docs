@@ -16,7 +16,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
+contentType: reference
+category:
+  - Write workflows
 ---
 
 ## `cache` action usage
@@ -130,7 +132,7 @@ jobs:
 
 ### Using contexts to create cache keys
 
-A cache key can include any of the contexts, functions, literals, and operators supported by {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts) and [AUTOTITLE](/actions/learn-github-actions/expressions).
+A cache key can include any of the contexts, functions, literals, and operators supported by {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/contexts) and [AUTOTITLE](/actions/reference/workflows-and-actions/expressions).
 
 Using expressions to create a `key` allows you to automatically create a new cache when dependencies change.
 
@@ -226,14 +228,14 @@ For example, if a pull request contains a `feature` branch and targets the defau
 
 If you are caching the package managers listed below, using their respective setup-* actions requires minimal configuration and will create and restore dependency caches for you.
 
-| Package managers | setup-* action for caching |
-|---|---|
-| npm, Yarn, pnpm | [setup-node](https://github.com/actions/setup-node#caching-global-packages-data) |
-| pip, pipenv, Poetry | [setup-python](https://github.com/actions/setup-python#caching-packages-dependencies) |
-| Gradle, Maven | [setup-java](https://github.com/actions/setup-java#caching-packages-dependencies) |
-| RubyGems | [setup-ruby](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically) |
-| Go `go.sum` | [setup-go](https://github.com/actions/setup-go#caching-dependency-files-and-build-outputs) |
-| .NET NuGet | [setup-dotnet](https://github.com/actions/setup-dotnet?tab=readme-ov-file#caching-nuget-packages) |
+| Package managers    | setup-* action for caching                                                                        |
+| ------------------- | ------------------------------------------------------------------------------------------------- |
+| npm, Yarn, pnpm     | [setup-node](https://github.com/actions/setup-node#caching-global-packages-data)                  |
+| pip, pipenv, Poetry | [setup-python](https://github.com/actions/setup-python#caching-packages-dependencies)             |
+| Gradle, Maven       | [setup-java](https://github.com/actions/setup-java#caching-packages-dependencies)                 |
+| RubyGems            | [setup-ruby](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically)             |
+| Go `go.sum`         | [setup-go](https://github.com/actions/setup-go#caching-dependency-files-and-build-outputs)        |
+| .NET NuGet          | [setup-dotnet](https://github.com/actions/setup-dotnet?tab=readme-ov-file#caching-nuget-packages) |
 
 ## Restrictions for accessing a cache
 
@@ -255,18 +257,79 @@ Multiple workflow runs in a repository can share caches. A cache created for a b
 >
 > All the metadata are managed by the artifact cache service, which is a microservice within {% data variables.product.prodname_actions %}.
 >
-> For more information on cache storage, see [External storage requirements](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements).
+> For more information on cache storage, see [External storage requirements](/admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements).
 
 {% endif %}
 
+## Cache access for low-trust workflow triggers
+
+Some workflows run in response to events that can be initiated by people who do not have write access to the repository, such as a fork pull request or an issue comment. When these events run in the context of the default branch, they could be used to write a malicious cache that a later, more privileged workflow restores and trusts. This class of attack is known as _cache poisoning_.
+
+To reduce this risk, only these workflow triggers can create or overwrite caches in the default branch’s scope:
+ * `push`
+ * `workflow_dispatch`
+ * `repository_dispatch`
+ * `delete`
+ * `registry_package`
+ * `page_build`
+ * `schedule`
+
+Runs triggered by any other event that resolves to the default branch are given read-only access to caches in the default branch's scope. These runs can restore existing caches but cannot create or overwrite them. This includes triggers whose payload or initiating actor can be influenced by someone outside the repository, such as `pull_request_target`, `issue_comment`, and `workflow_run`.
+
+The `pull_request` event is not affected. Caches created by a `pull_request` run are already scoped to the merge ref (`refs/pull/.../merge`) and cannot be written to the default branch's scope. For more information, see [Restrictions for accessing a cache](#restrictions-for-accessing-a-cache).
+
+When a run with read-only cache access tries to save a cache, the save fails but the step and the job do not. The workflow continues, and the failure is reported as a warning in the workflow log. In that case, consider the following:
+ * To retain the performance benefits of caching on the default branch scope, ensure there is a trusted workflow that keeps the cache updated, for example a CI build triggered by a `push` to the default branch. Those cache entries can then be restored by workflows triggered by low-trust events such as `pull_request_target`.
+ * In low-trust workflows, switch to a restore-only cache operation such as `actions/cache/restore` to make the intended cache usage clear and avoid the warning in the workflow run logs.
+
+## Best practices for using caches securely
+
+Cache contents are not signed or verified, and any workflow run that can read a cache may extract its contents. Extracted caches may modify files that are subsequently executed in a workflow run, leading to malicious code execution. Follow these practices to reduce the security risk of using caches.
+
+ * **Don't store sensitive information in a cache.** Anyone who can open a pull request against your repository can read the contents of caches in the base branch. Don't write secrets, tokens, or credentials to a cached path. Store sensitive values as secrets instead. See [AUTOTITLE](/actions/concepts/security/secrets).
+ * **Save caches from trusted triggers.** Restrict cache writes to workflows triggered by trusted actors (typically those with write access to the repository). See [Cache access for low-trust workflow triggers](#cache-access-for-low-trust-workflow-triggers) for the default restrictions that are enforced to limit what workflow triggers can write to the cache. Additionally, consider using environments with deployment protection rules to further limit the workflows that can modify the cache. See [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments).
+ * **Follow workflow best security practices to harden your workflows:** Limit workflows that have cache-write access to those that have been hardened against workflow vulnerabilities. Follow the guidance at [AUTOTITLE](/actions/reference/security/secure-use#writing-workflows) to prevent vulnerabilities in your workflows that could lead to code execution and the introduction of malicious cache entries.
+
+For broader guidance on securing your workflows, see [AUTOTITLE](/actions/reference/security/secure-use).
+
 ## Usage limits and eviction policy
 
-{% data variables.product.prodname_dotcom %} will remove any cache entries that have not been accessed in over 7 days. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited{% ifversion ghes %}. By default, the limit is 10 GB per repository, but this limit might be different depending on policies set by your enterprise owners or repository administrators.{% else %} to 10 GB.{% endif %} {% data reusables.actions.cache-eviction-policy %}
+{% data variables.product.prodname_dotcom %} applies limits to cache storage and retention to manage storage costs and prevent abuse. Understanding these limits helps you optimize your cache usage.
 
-{% data reusables.actions.cache-eviction-process %} The cache eviction process may cause cache thrashing, where caches are created and deleted at a high frequency. To reduce this, you can review the caches for a repository and take corrective steps, such as removing caching from specific workflows. See [AUTOTITLE](/actions/how-tos/managing-workflow-runs-and-deployments/managing-workflow-runs/manage-caches).{% ifversion ghes %} You can also increase the cache size limit for a repository. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository).
+### Default limits
+
+{% data variables.product.github %} will remove any cache entries that have not been accessed in over 7 days. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited. By default, the limit is 10 GB per repository, but this limit can be increased by enterprise owners, organization owners, or repository administrators. {% ifversion fpt or ghec %}Any usage beyond 10 GB is billed to your account.{% endif %} {% data reusables.actions.cache-eviction-policy %}
+
+{% data reusables.actions.cache-eviction-process %} The cache eviction process may cause cache thrashing, where caches are created and deleted at a high frequency. To reduce this, you can review the caches for a repository and take corrective steps, such as removing caching from specific workflows{% ifversion fpt or ghec %} or increasing your cache size. This functionality is only available to users with a payment method on file who opt in by configuring cache settings{% endif %}. See [AUTOTITLE](/actions/how-tos/manage-workflow-runs/manage-caches).{% ifversion ghes %} You can also increase the cache size limit for a repository. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository).
+
+{% endif %}
+{% ifversion fpt or ghec %}
+
+You can create cache entries at a rate of up to 200 uploads per minute per repository, and download them at a rate of 1500 downloads per minute per repository. If you exceed this rate, subsequent cache upload or download attempts will fail until the relevant rate limit resets. The time until the rate limit resets is returned in the `Retry-After` header of the response. See [AUTOTITLE](/actions/reference/limits) for more information about {% data variables.product.prodname_actions %} rate limits.
+
+### Increasing cache size
+
+If you want to reduce the rate at which cache entries are evicted, you can increase the storage limits for your cache in the Actions Settings. Repositories owned by users can configure up to 10 TB per repository. For repositories owned by organizations, the maximum configurable limit is determined by the organization's settings. For organizations owned by an enterprise, the maximum configurable limit is determined by the enterprise's settings. Increasing the limit beyond the default 10 GB will incur additional costs, if that storage is used.
+
+For more information, see:
+* [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-settings-for-your-repository)
+* [AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#managing-github-actions-cache-storage-for-your-organization)
+* [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#artifact-and-log-retention)
+
+Usage of additional storage is also controlled by budgets set for {% data variables.product.prodname_actions %} or the Actions Cache Storage SKU. If you have limits configured, and you exceed a budget, your cache will become read-only until your billing status is resolved, or your usage goes beneath the free limit of 10GB by caches expiring or being explicitly deleted. For more information on how to set up budgets, see [AUTOTITLE](/billing/how-tos/set-up-budgets).
+
+Setting your Actions Cache Storage SKU budgets lower than the total cost of using your configured storage over your billing period can lead to your cache frequently going into read-only mode. For example, if your budget for the SKU is $0, and you've configured your repository's maximum cache size at 20GB, your cache will enter read-only mode as soon as storage exceeds the free threshold.
+
+Below are some illustrative monthly costs to inform budgets you may wish to set for the Actions Cache Storage SKU.
+
+| Cache size | Monthly cost (if fully utilized) |
+| ---------- | -------------------------------- |
+| 50GB       | $2.80                            |
+| 200GB      | $13.30                           |
+| 1000GB     | $69.30                           |
 
 {% endif %}
 
 ## Next steps
 
-To manage your dependency caches, see [AUTOTITLE](/actions/how-tos/managing-workflow-runs-and-deployments/managing-workflow-runs/manage-caches).
+To manage your dependency caches, see [AUTOTITLE](/actions/how-tos/manage-workflow-runs/manage-caches).

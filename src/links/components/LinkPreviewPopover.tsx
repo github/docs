@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { HOVERCARDS_ENABLED } from '@/frame/lib/constants'
 
 // We postpone the initial delay a bit in case the user didn't mean to
 // hover over the link. Perhaps they just dragged the mouse over on their
@@ -450,6 +451,8 @@ export function LinkPreviewPopover() {
   // This is to track if the user entirely tabs out of the window.
   // For example if they go to the address bar.
   useEffect(() => {
+    if (!HOVERCARDS_ENABLED) return
+
     function windowBlur() {
       popoverHide()
     }
@@ -460,6 +463,8 @@ export function LinkPreviewPopover() {
   }, [])
 
   useEffect(() => {
+    if (!HOVERCARDS_ENABLED) return
+
     function showPopover(event: MouseEvent) {
       const target = event.currentTarget as HTMLLinkElement
       popoverShow(target)
@@ -550,6 +555,9 @@ export function LinkPreviewPopover() {
       link.addEventListener('mouseover', showPopover)
       link.addEventListener('mouseout', hidePopover)
       link.addEventListener('keydown', keyboardHandler)
+      // Expose the keyboard shortcut to assistive technologies so screen
+      // reader users can discover how to open the link preview hovercard.
+      link.setAttribute('aria-keyshortcuts', 'Alt+ArrowUp')
     }
 
     document.addEventListener('keydown', escapeHandler)
@@ -559,6 +567,7 @@ export function LinkPreviewPopover() {
         link.removeEventListener('mouseover', showPopover)
         link.removeEventListener('mouseout', hidePopover)
         link.removeEventListener('keydown', keyboardHandler)
+        link.removeAttribute('aria-keyshortcuts')
       }
       document.removeEventListener('keydown', escapeHandler)
     }

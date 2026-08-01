@@ -1,5 +1,4 @@
-1. In the top-right corner of {% data variables.product.github %}, click your profile picture.
-1. Click **Enterprises** then click the enterprise you want to view.
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 1. On the "Members" page, click **Invite member**.
 1. Search for the users you want to invite, then click **Invite**.

@@ -1,20 +1,18 @@
 ---
 title: Billing reports reference
 shortTitle: Billing reports
-intro: 'Billing reports show detailed {% data variables.product.github %} usage, premium request usage, and billing information for your account.'
+intro: 'Billing reports show detailed {% data variables.product.github %} usage, {% data variables.product.prodname_ai_credits_short %} consumption, and billing information for your account.'
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
-  - Team
 permissions: '{% data reusables.permissions.enhanced-billing-enterprise %}'
 redirect_from:
   - /billing/managing-your-billing/about-usage-reports
   - /billing/reference/usage-reports
 contentType: reference
+category:
+  - Track spending and control costs
 ---
 
 Usage reports show detailed information about your account’s {% data variables.product.github %} usage, including how much of each SKU was used and the resulting billable amount.
@@ -28,9 +26,8 @@ The following report types are available.
 * Metered usage page:
    * **Summarized usage report**: A summary of usage for all paid products for a maximum period of one year.
    * **Detailed usage report**: A detailed usage report for all paid products for a maximum period of 31 days.
-* Premium request analytics page:
-   * **Premium requests usage report**: A detailed per-user breakdown of premium requests consumed for a maximum period of 31 days.
-   * **Legacy premium request usage report**: A detailed, user-based report of premium request usage for the last 45 days.
+* AI usage page:
+   * **AI usage report**: A detailed per-user breakdown of {% data variables.product.prodname_ai_credits_short %} consumed for a maximum period of 31 days.
 
 ### Summarized usage report
 
@@ -44,17 +41,9 @@ This report sums the `quantity`, `gross_amount`, `discount_amount`, and `net_amo
 
 {% data reusables.billing.usage-reports-api-limitation %}
 
-### Premium requests usage report
+### AI usage report
 
-This report includes additional detail about premium request usage. The report sums the `quantity`, `gross_amount`, `discount_amount`, and `net_amount` fields based on the combination of the following values: `date`, `model`, `username`.
-
-This report contains usage beginning October 01, 2025 00:00 UTC.
-
-### Legacy premium request usage report
-
-This report includes each recorded use of a premium request and includes the following fields: `Timestamp`,`User`,`Model`,`Requests Used`,`Exceeds Monthly Quota`, and `Total Monthly Quota`. The time period of the report is the most recent 45 days.
-
-This report will be closing down on December 1, 2025, at which point all premium request usage activity will be available via the Premium requests usage report.
+This report includes additional detail about {% data variables.product.prodname_ai_credits_short %} consumption. The report sums the `quantity`, `gross_amount`, `discount_amount`, and `net_amount` fields based on the combination of the following values: `date`, `model`, `username`.
 
 ## Usage report fields
 
@@ -76,9 +65,7 @@ The usage reports contain the following fields.
 | `repository`             | The repository associated with the usage, if applicable. |
 | `workflow_path`          | The path of the {% data variables.product.prodname_actions %} workflow that generated the usage, if applicable. <br><br>Only available in the `Detailed usage report` |
 | `cost_center_name`       | The cost center associated with the usage, if applicable. |
-| `model`                  | The model used. This might be an LLM like `claude-sonnet-4`, or a product-specific model like `Code Review model`. <br><br>Only available in the `Premium request usage report` |
-| `exceeds_quota`          | Indicates whether the premium request exceeds the user's monthly quota:<br>- `FALSE`: The request is covered by the monthly quota included in the user's plan.<br>- `TRUE`: The request exceeds the monthly quota and will be billed <br><br>Only available in the `Premium request usage report` |
-| `total_monthly_quota`    | The number of requests included in the user's current plan. {% ifversion fpt or ghec %}See [AUTOTITLE](/copilot/concepts/billing/individual-plans) and [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises).{% endif %} <br><br>Only available in the `Premium request usage report` |
+| `model` | The model used, for example `claude-sonnet-4`. <br><br>Only available in the `AI usage report` |
 
 ## Receiving the report
 

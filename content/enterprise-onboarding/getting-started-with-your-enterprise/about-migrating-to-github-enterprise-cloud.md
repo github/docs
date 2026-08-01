@@ -3,12 +3,10 @@ title: About migrating to GitHub Enterprise Cloud
 intro: Explore migrating your current solution into {% data variables.product.prodname_ghe_cloud %}.
 versions:
   ghec: '*'
-type: overview
-topics:
-  - Accounts
-  - Enterprise
 shortTitle: Migrations
-contentType: other
+contentType: concepts
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 {% data reusables.migrations.about-migrations %}
@@ -39,4 +37,4 @@ If you're planning to switch to {% data variables.product.prodname_actions %}, w
 
 ## Next steps
 
-Now that you've started your trial and added users to your enterprise, you can set up organizations and teams to manage access. See [AUTOTITLE](/enterprise-onboarding/setting-up-organizations-and-teams/best-practices-for-organizations-in-your-enterprise).
+Now that you've started your trial and added users to your enterprise, you can set up organizations and teams to manage access. See [AUTOTITLE](/enterprise-onboarding/setting-up-organizations-and-teams/best-practices).

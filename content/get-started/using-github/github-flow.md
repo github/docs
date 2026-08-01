@@ -13,9 +13,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
-  - Fundamentals
+category:
+  - Explore and contribute
 ---
 ## Introduction
 
@@ -23,7 +22,7 @@ topics:
 
 ## Prerequisites
 
-To follow {% data variables.product.prodname_dotcom %} flow, you will need a {% data variables.product.prodname_dotcom %} account and a repository. {% ifversion fpt or ghec %}For information on how to create an account, see [AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github).{% elsif ghes %}For more information, contact your site administrator.{% endif %} For information on how to create a repository, see [AUTOTITLE](/repositories/creating-and-managing-repositories/quickstart-for-repositories).{% ifversion fpt or ghec %} For information on how to find an existing repository to contribute to, see [AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github).{% endif %}
+To follow {% data variables.product.prodname_dotcom %} flow, you will need a {% data variables.product.prodname_dotcom %} account and a repository. {% ifversion fpt or ghec %}For information on how to create an account, see [AUTOTITLE](/account-and-profile/how-tos/account-management/creating-an-account-on-github).{% elsif ghes %}For more information, contact your site administrator.{% endif %} For information on how to create a repository, see [AUTOTITLE](/repositories/creating-and-managing-repositories/quickstart-for-repositories).{% ifversion fpt or ghec %} For information on how to find an existing repository to contribute to, see [AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github).{% endif %}
 
 ## Following {% data variables.product.prodname_dotcom %} flow
 
@@ -57,7 +56,7 @@ Continue to make, commit, and push changes to your branch until you are ready to
 
 Create a pull request to ask collaborators for feedback on your changes. Pull request review is so valuable that some repositories require an approving review before pull requests can be merged. If you want early feedback or advice before you complete your changes, you can mark your pull request as a draft. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
 
-When you create a pull request, include a summary of the changes and what problem they solve. You can include images, links, and tables to help convey this information. If your pull request addresses an issue, link the issue so that issue stakeholders are aware of the pull request and vice versa. If you link with a keyword, the issue will close automatically when the pull request merges. For more information, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) and [AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue).
+When you create a pull request, include a summary of the changes and what problem they solve. You can include images, links, and tables to help convey this information. If your pull request addresses an issue, link the issue so that issue stakeholders are aware of the pull request and vice versa. If you link with a keyword, the issue will close automatically when the pull request merges. For more information, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) and [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue).
 
 In addition to filling out the body of the pull request, you can add comments to specific lines of the pull request to explicitly point something out to the reviewers.
 

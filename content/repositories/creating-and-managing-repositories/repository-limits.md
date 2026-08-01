@@ -5,8 +5,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
+category:
+  - Create and set up a repository
 ---
 
 Certain types of repository resources can be quite large, requiring excessive processing on {% data variables.product.github %}. Because of this, limits are set to ensure requests complete in a reasonable amount of time. Exceeding the recommended maximum limit increases the risk of degraded repository health, which includes, but is not limited to, slow response times for basic Git operations and UI latency.
@@ -86,13 +86,9 @@ The compare view and pull requests pages display a list of commits between the `
 
 The maximum count of commits displayed on the Commits tab is **10,000**. Use other tools such as `git rev-list --count mybranch` to count and enumerate a high volume of commits when needed.
 
-{% ifversion fpt or ghec or ghes > 3.16 %}
-
 ## Rebase limits
 
 Merging a pull request using the "Rebase and merge" option is limited to **100** commits.  If you have a pull request with more than 100 commits, you need to create a merge commit, squash and merge, or split the commits up into multiple pull requests.
-
-{% endif %}
 
 ## Organization and account limits
 

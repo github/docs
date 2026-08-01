@@ -12,8 +12,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Community
 children:
   - /about-wikis
   - /adding-or-editing-wiki-pages

@@ -7,6 +7,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: About passkeys
+category:
+  - Learn about authentication
 ---
 
 {% data reusables.passkeys.ghes-disable %}

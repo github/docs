@@ -25,10 +25,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Fundamentals
 contentType: get-started
+category:
+  - Get started with billing
 ---
 
 <!--
@@ -44,14 +43,14 @@ You can use {% data variables.product.github %} without incurring any costs. If 
 * **Metered usage**: Variable costs that depend on how much you use certain features above the amounts included with your {% data variables.product.github %} plan (for example: {% data variables.product.prodname_actions %}). For more information see, [AUTOTITLE](/billing/reference/product-usage-included) and [AUTOTITLE](/billing/concepts/budgets-and-alerts).
 
 > [!TIP]
-> {% data variables.product.github %} has discounted plans for verified students and academic faculties, and for non-profit organizations. For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/discounted-plans-for-github-accounts).
+> {% data variables.product.github %} has discounted plans for verified students and academic faculties, and for non-profit organizations. For more information, see [AUTOTITLE](/billing/concepts/discounted-plans).
 
 ## How does billing work?
 
 {% data variables.product.github %} bills you separately for each account you own (personal, organization, or enterprise). Each account has a separate:
 
 * Billing date
-* Billing period, monthly or yearly, for {% data variables.product.github %} and {% data variables.product.prodname_copilot_short %} plans
+* Billing period for {% data variables.product.github %} plans
 * Payment method of credit card, PayPal, or a connected Azure subscription
 * Receipt
 
@@ -61,9 +60,11 @@ If required, {% data variables.product.prodname_ghe_cloud %} accounts can reques
 
 Each account has a **billing date** and a **billing cycle**.
 
-For credit card and PayPal payments, the billing date is the day you started a paid plan (not necessarily when the account was created). For example, if you started a paid plan on the 15th of a month, you will be billed on the 15th of each subsequent month. For payments using an Azure subscription ID, the billing date is available in the Azure commerce portal.
+For **personal and organization accounts** set up for credit card and PayPal payments, the **billing date** is typically the day you started a paid plan (not necessarily when the account was created). For example, if you started a paid plan on the 15th of a month, you will be billed on the 15th of each subsequent month. For payments using an Azure subscription ID, the billing date is available in the Azure commerce portal.
 
-Most users pay for {% data variables.product.github %} using metered billing. The billing cycle for all metered products is a fixed period from the first day to the last day of the month.
+For **enterprise accounts**, your **billing date** will vary. See [AUTOTITLE](/billing/concepts/billing-cycles).
+
+Most users pay for {% data variables.product.github %} using metered billing. The **billing cycle** for all metered products is a fixed period from the first day to the last day of the month.
 
 ### Authorization holds
 
@@ -75,11 +76,11 @@ If the authorization is unsuccessful, the chosen service will not be activated a
 
 ## How do I see what I'm billed for?
 
-You can see the billing and usage information for your account at anytime in the "Billing and licensing" pages of your account or using the REST API. For more information, see [AUTOTITLE](/billing/how-tos/products/view-product-use).
+You can see the billing and usage information for your account at anytime in the "Billing and licensing" pages of your account or using the REST API. For more information, see [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
 
 ## Next steps
 
 * [AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)
-* [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information)
-* [AUTOTITLE](/billing/tutorials/set-up-budgets)
+* [AUTOTITLE](/billing/how-tos/set-up-payment/manage-payment-info)
+* [AUTOTITLE](/billing/how-tos/set-up-budgets)
 * [AUTOTITLE](/billing/how-tos/set-up-payment/add-sales-tax-certificate)

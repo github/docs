@@ -1,0 +1,40 @@
+---
+title: Pricing and enabling {% data variables.product.prodname_GH_secret_protection %}
+shortTitle: Protect your secrets
+intro: Secure your organization's secrets within your budget by enabling {% data variables.product.prodname_GH_secret_protection %}.
+product: Organizations on {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %}
+allowTitleToDifferFromFilename: true
+contentType: how-tos
+versions:
+  feature: secret-risk-assessment
+redirect_from:
+  - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/choosing-github-secret-protection
+  - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/protect-your-secrets
+category:
+  - Secure at scale
+---
+
+## Prerequisites
+
+Before you configure {% data variables.product.prodname_GH_secret_protection %}:
+
+* Run the free {% data variables.product.prodname_secret_risk_assessment %} to inform your enablement strategy. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/assess-your-secret-risk).
+* Review best practices for choosing pilot repositories. See [AUTOTITLE](/code-security/concepts/security-at-scale/select-pilot-repositories).
+
+## Configuring {% data variables.product.prodname_GH_secret_protection %}
+
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.security-overview %}
+{% data reusables.security-overview.open-assessments-view %}
+1. In the banner display, select the **Get started** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click one of following enablement options:
+   * **For public repositories for free**: Click to enable for _only_ public repositories in your organization.
+   * **For all repositories**: Click to see an estimated cost for {% data variables.product.prodname_GH_secret_protection %} for all repositories in your organization.
+     * If you are satisfied with the pricing estimate, to enable {% data variables.product.prodname_secret_scanning %} alerts and push protection across your organization, click **Enable {% data variables.product.prodname_secret_protection %}**.
+     * Alternatively, click **Configure in settings** to customize which repositories you want to enable {% data variables.product.prodname_secret_protection %} for. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/create-custom-configuration).
+
+{% ifversion secret-scanning-public-monitoring %}
+
+> [!TIP]
+> To extend secret detection beyond repositories your enterprise owns, enterprise owners can enable public monitoring. Public monitoring detects secrets leaked by enterprise members in public repositories across {% data variables.product.github %}. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/manage-your-coverage/enabling-public-monitoring-for-your-enterprise).
+
+{% endif %}

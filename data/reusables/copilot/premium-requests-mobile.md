@@ -1,1 +1,0 @@
-> [!NOTE] The option to purchase additional premium requests is not available to users who subscribe, or have subscribed, to {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} through {% data variables.product.prodname_mobile %} on iOS or Android.

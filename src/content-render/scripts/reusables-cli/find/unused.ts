@@ -1,5 +1,7 @@
 import fs from 'fs'
 import path from 'path'
+import { TokenKind } from 'liquidjs'
+import type { TagToken } from 'liquidjs'
 import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils'
 import {
   getAllContentFilePaths,
@@ -21,7 +23,9 @@ export function findUnused({ absolute }: { absolute: boolean }) {
   for (let i = 0; i < totalFiles; i++) {
     const filePath = allFilePaths[i]
     const fileContents = fs.readFileSync(filePath, 'utf-8')
-    const liquidTokens = getLiquidTokens(fileContents)
+    const liquidTokens = getLiquidTokens(fileContents).filter(
+      (token): token is TagToken => token.kind === TokenKind.Tag,
+    )
     for (const token of liquidTokens) {
       const { args, name } = token
       if (

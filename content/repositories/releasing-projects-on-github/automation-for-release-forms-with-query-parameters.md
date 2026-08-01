@@ -9,9 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Automate release forms
+category:
+  - Release software
 ---
 Query parameters are optional parts of a URL you can customize to share a specific web page view, such as search filter results, an issue template, or the release form page on {% data variables.product.prodname_dotcom %}. To create your own query parameters, you must match the key and value pair.
 
@@ -31,5 +31,5 @@ Query parameter | Example
 
 ## Further reading
 
-* [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-url-query)
+* [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/creating-an-issue#creating-an-issue-from-a-url-query)
 * [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request)

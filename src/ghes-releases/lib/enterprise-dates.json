@@ -229,19 +229,19 @@
   },
   "3.14": {
     "releaseDate": "2024-08-06",
-    "deprecationDate": "2026-03-17",
+    "deprecationDate": "2026-04-23",
     "releaseCandidateDate": "2024-08-06",
     "generalAvailabilityDate": "2024-08-27"
   },
   "3.15": {
     "releaseDate": "2024-11-12",
-    "deprecationDate": "2026-03-17",
+    "deprecationDate": "2026-04-23",
     "releaseCandidateDate": "2024-11-12",
     "generalAvailabilityDate": "2024-12-03"
   },
   "3.16": {
     "releaseDate": "2025-02-25",
-    "deprecationDate": "2026-06-02",
+    "deprecationDate": "2026-07-01",
     "releaseCandidateDate": "2025-02-25",
     "generalAvailabilityDate": "2025-03-11"
   },
@@ -258,22 +258,22 @@
     "generalAvailabilityDate": "2025-10-14"
   },
   "3.19": {
-    "releaseDate": "2025-11-11",
+    "releaseDate": "2025-12-02",
     "deprecationDate": "2026-12-09",
-    "releaseCandidateDate": "2025-11-11",
+    "releaseCandidateDate": "2025-12-02",
     "generalAvailabilityDate": "2025-12-09"
   },
   "3.20": {
-    "releaseDate": "2026-02-17",
+    "releaseDate": "2026-02-24",
     "deprecationDate": "2027-03-17",
-    "releaseCandidateDate": "2026-02-17",
+    "releaseCandidateDate": "2026-02-24",
     "generalAvailabilityDate": "2026-03-17"
   },
   "3.21": {
     "releaseDate": "2026-05-12",
-    "deprecationDate": "2027-06-02",
+    "deprecationDate": "2027-06-11",
     "releaseCandidateDate": "2026-05-12",
-    "generalAvailabilityDate": "2026-06-02"
+    "generalAvailabilityDate": "2026-06-11"
   },
   "3.22": {
     "releaseDate": "2026-08-04",
@@ -286,5 +286,29 @@
     "deprecationDate": "2027-12-08",
     "releaseCandidateDate": "2026-11-10",
     "generalAvailabilityDate": "2026-12-08"
+  },
+  "3.24": {
+    "releaseDate": "2027-02-23",
+    "deprecationDate": "2028-03-16",
+    "releaseCandidateDate": "2027-02-23",
+    "generalAvailabilityDate": "2027-03-16"
+  },
+  "3.25": {
+    "releaseDate": "2027-05-18",
+    "deprecationDate": "2028-06-08",
+    "releaseCandidateDate": "2027-05-18",
+    "generalAvailabilityDate": "2027-06-08"
+  },
+  "3.26": {
+    "releaseDate": "2027-08-10",
+    "deprecationDate": "2028-08-31",
+    "releaseCandidateDate": "2027-08-10",
+    "generalAvailabilityDate": "2027-08-31"
+  },
+  "3.27": {
+    "releaseDate": "2027-11-16",
+    "deprecationDate": "2028-12-07",
+    "releaseCandidateDate": "2027-11-16",
+    "generalAvailabilityDate": "2027-12-07"
   }
 }

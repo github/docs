@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Understand the GitHub approach to docs
 ---
 
 ## About {% data variables.product.prodname_dotcom %}'s content design principles

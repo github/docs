@@ -1,7 +1,7 @@
 ---
 title: Canceling a workflow run
 shortTitle: Cancel a workflow run
-intro: 'You can cancel a workflow run, including all jobs and steps, that is in progress.'
+intro: You can cancel a workflow run, including all jobs and steps, that is in progress.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,6 +11,9 @@ redirect_from:
   - /actions/managing-workflow-runs/canceling-a-workflow
   - /actions/managing-workflow-runs-and-deployments/managing-workflow-runs/canceling-a-workflow
   - /actions/how-tos/managing-workflow-runs-and-deployments/managing-workflow-runs/canceling-a-workflow
+category:
+  - Manage and monitor workflow runs
+contentType: how-tos
 ---
 
 ## Canceling a workflow run
@@ -24,4 +27,4 @@ redirect_from:
 
 ## Next steps
 
-To learn about the process {% data variables.product.prodname_dotcom %} uses to cancel a workflow run, as well as the ways you can free up related resources, see [AUTOTITLE](/actions/reference/workflow-cancellation-reference).
+To learn about the process {% data variables.product.prodname_dotcom %} uses to cancel a workflow run, as well as the ways you can free up related resources, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-cancellation).

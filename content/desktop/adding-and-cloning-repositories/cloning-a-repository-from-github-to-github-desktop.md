@@ -10,6 +10,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Clone a GitHub repo
+category:
+  - Add and clone repositories
 ---
 
 > [!TIP]

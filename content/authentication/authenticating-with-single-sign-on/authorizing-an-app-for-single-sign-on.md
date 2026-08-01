@@ -3,9 +3,9 @@ title: Authorizing an app for single sign-on
 intro: 'To use an {% data variables.product.prodname_oauth_app %} or {% data variables.product.prodname_github_app %} with an organization that uses single sign-on (SSO), you must first set up your SSO sessions and then authorize the application.'
 versions:
   ghec: '*'
-topics:
-  - SSO
 shortTitle: Apps and SSO
+category:
+  - Sign in with SSO or a passkey
 ---
 
 ## About authorizing apps with SSO
@@ -24,11 +24,11 @@ Apps are automatically authorized for all of the organizations you have an SSO s
 
 If you sign into an app but it is unable to access an organization you belong to, first check that the app is approved or installed for the organization. If it is, you then need to sign into that organization's SSO providers using the following steps: 
 
-1. Go to your [organization settings](https://github.com/settings/organizations).
-1. Under "Single sign-on", find the organization you need to authenticate to, and click **Sign in**.
+1. Go to your [single sign-on settings](https://github.com/settings/sso).
+1. Find the organization you need to authenticate to, and click **Sign in**.
    If your enterprise manages SSO for your organization, signing in to one organization in the enterprise works as an SSO session for all organizations in the enterprise.
 
-1. Try to sign into the the app again. When you are authorizing the app you will see the organizations you've signed into and be able to request or install the app for those organizations. 
+1. Try to sign into the app again. When you are authorizing the app, you will see the organizations you've signed into and be able to request or install the app for those organizations.
 
 For more information, see [AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-a-third-party), [AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-organizations), and [AUTOTITLE](/apps/using-github-apps/requesting-a-github-app-from-your-organization-owner).
 

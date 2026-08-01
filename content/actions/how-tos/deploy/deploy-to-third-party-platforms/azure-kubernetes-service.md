@@ -6,14 +6,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CD
-  - Azure Kubernetes Service
 redirect_from:
   - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-to-azure-kubernetes-service
   - /actions/use-cases-and-examples/deploying/deploying-to-azure-kubernetes-service
   - /actions/how-tos/use-cases-and-examples/deploying/deploying-to-azure-kubernetes-service
   - /actions/how-tos/managing-workflow-runs-and-deployments/deploying-to-third-party-platforms/deploying-to-azure-kubernetes-service
+category:
+  - Deploy to environments
+contentType: how-tos
 ---
 
 ## Prerequisites

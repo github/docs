@@ -29,10 +29,7 @@ describe('get-product-groups helper functions', () => {
         { name: 'Security', octicon: 'ShieldLockIcon', children: ['code-security'] },
       ]
 
-      // Using any to cast mock data structure to match library's expected ProductGroupData type
-      const octiconToName: { [key: string]: string } = createOcticonToNameMap(
-        mockChildGroups as any,
-      )
+      const octiconToName: { [key: string]: string } = createOcticonToNameMap(mockChildGroups)
 
       expect(octiconToName['RocketIcon']).toBe('Get started')
       expect(octiconToName['CopilotIcon']).toBe('GitHub Copilot')
@@ -48,9 +45,9 @@ describe('get-product-groups helper functions', () => {
         { name: '', octicon: 'EmptyNameIcon', children: [] }, // empty name
       ]
 
-      // Using any to test edge cases with partial/missing fields that wouldn't normally pass strict typing
+      // Using unknown cast to test edge cases with partial/missing fields that wouldn't normally pass strict typing
       const octiconToName: { [key: string]: string } = createOcticonToNameMap(
-        mockChildGroups as any,
+        mockChildGroups as unknown as Parameters<typeof createOcticonToNameMap>[0],
       )
 
       expect(octiconToName['RocketIcon']).toBe('Valid Group')
@@ -74,9 +71,8 @@ describe('get-product-groups helper functions', () => {
         CopilotIcon: 'GitHub Copilot', // Some names stay the same
       }
 
-      // Using any to cast mock data structure to match library's expected ProductGroupData type
       const nameMap: { [key: string]: string } = mapEnglishToLocalizedNames(
-        englishGroups as any,
+        englishGroups,
         localizedByOcticon,
       )
 
@@ -98,9 +94,8 @@ describe('get-product-groups helper functions', () => {
         // MissingIcon is not in the localized map
       }
 
-      // Using any to cast mock data structure to match library's expected ProductGroupData type
       const nameMap: { [key: string]: string } = mapEnglishToLocalizedNames(
-        englishGroups as any,
+        englishGroups,
         localizedByOcticon,
       )
 
@@ -123,9 +118,8 @@ describe('get-product-groups helper functions', () => {
         RocketIcon: 'Empezar', // Get started comes second
       }
 
-      // Using any to cast mock data structure to match library's expected ProductGroupData type
       const nameMap: { [key: string]: string } = mapEnglishToLocalizedNames(
-        englishGroups as any,
+        englishGroups,
         localizedByOcticon,
       )
 
@@ -190,15 +184,12 @@ describe('get-product-groups helper functions', () => {
       ]
 
       // Step 1: Create octicon -> localized name mapping
-      // Using any to cast mock data structure to match library's expected ProductGroupData type
-      const localizedByOcticon: { [key: string]: string } = createOcticonToNameMap(
-        mockLocalizedChildGroups as any,
-      )
+      const localizedByOcticon: { [key: string]: string } =
+        createOcticonToNameMap(mockLocalizedChildGroups)
 
       // Step 2: Map English names to localized names
-      // Using any to cast mock data structure to match library's expected ProductGroupData type
       const localizedNames: { [key: string]: string } = mapEnglishToLocalizedNames(
-        englishChildGroups as any,
+        englishChildGroups,
         localizedByOcticon,
       )
 
