@@ -8,11 +8,13 @@ children:
   - /manage-larger-runners
   - /control-access
   - /use-larger-runners
+  - /use-custom-images
 redirect_from:
   - /actions/using-github-hosted-runners/about-larger-runners
   - /actions/using-github-hosted-runners/using-larger-runners
   - /actions/how-tos/using-github-hosted-runners/using-larger-runners
   - /actions/how-tos/using-larger-runners
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

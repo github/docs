@@ -12,23 +12,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
+category:
+  - Write and format content
 ---
-
-{% ifversion ghes %}
-
-> [!WARNING]
-> When you upload an image or video to a pull request or issue comment, or upload a file to a ticket in the {% data variables.contact.landing_page_portal %}, anyone can view the anonymized URL without authentication, even if the pull request or issue is in a private repository, or if private mode is enabled. To keep sensitive media files private, serve them from a private network or server that requires authentication.
-
-{% endif %}
-
-{% ifversion fpt or ghec %}
 
 > [!NOTE]
 > For public repositories, uploaded files can be accessed without authentication. In the case of private and internal repositories, only people with access to the repository can view the uploaded files.
-
-{% endif %}
 
 To attach a file to an issue or pull request conversation, drag and drop it into the comment box.
 Alternatively, you can click {% octicon "paperclip" aria-label="Attach files" %} below the issue comment box to browse, select, and add a file from your computer.
@@ -57,9 +46,9 @@ The maximum file size is:
 
 ## Supported file types
 
-### Image and media files
-
 The following image and media file types are supported in all contexts.
+
+### Image and media files
 
 * PNG (`.png`)
 * GIF (`.gif`)
@@ -72,39 +61,46 @@ The following image and media file types are supported in all contexts.
   > [!NOTE]
   > Video codec compatibility is browser specific, and it's possible that a video you upload to one browser is not viewable on another browser. At the moment we recommend using H.264 for greatest compatibility.
 
-### Additional file types
+## Additional file types
 
 The following file types are supported for uploads in issue comments, pull request comments, and discussion comments within repositories. This list of file types is also supported in organization discussions.
 
-### Supported file types for uploads
-
-#### Documents
+### Documents
 
 * PDFs (`.pdf`)
-* Microsoft Office documents (`.docx`, `.pptx`, `.xlsx`, `.xls`, `.xlsm`)
+* Microsoft Office documents (`.docx`, `.pptx`, `.xlsx`, `.xls`{% ifversion fpt or ghec or ghes > 3.18 %}, `.xlsm`{% endif %})
+{%- ifversion fpt or ghec or ghes > 3.18 %}
 * OpenDocument formats (`.odt`, `.fodt`, `.ods`, `.fods`, `.odp`, `.fodp`, `.odg`, `.fodg`, `.odf`)
 * Rich text and word processing files (`.rtf`, `.doc`)
+{%- endif %}
 
-#### Text and data files
+### Text and data files
 
-* Plain text and markup (`.txt`, `.md`, `.copilotmd`)
-* Data and tabular files (`.csv`, `.tsv`, `.log`, `.json`, `.jsonc`)
+* Plain text and markup (`.txt`{% ifversion fpt or ghec or ghes > 3.18 %}, `.md`, `.copilotmd`{% endif %})
+* Data and tabular files (`.csv`,{% ifversion fpt or ghec or ghes > 3.18 %} `.tsv`,{% endif %} `.log`, `.json`, `.jsonc`)
 
-#### Development and code files
+### Development and code files
 
+{%- ifversion fpt or ghec or ghes > 3.18 %}
 * C files (`.c`)
 * C# files (`.cs`)
 * C++ files (`.cpp`)
 * CSS files (`.css`)
 * Diagrams (`.drawio`)
+{%- endif %}
 * Dump files (`.dmp`)
+{%- ifversion fpt or ghec or ghes > 3.18 %}
 * HTML files (`.html`, `.htm`)
 * Java files (`.java`)
 * JavaScript files (`.js`)
 * Jupyter notebooks (`.ipynb`)
+{%- endif %}
 * Patch files (`.patch`)
+{%- ifversion fpt or ghec or ghes > 3.18 %}
 * PHP files (`.php`)
+{%- endif %}
 * Profiling files (`.cpuprofile`)
+{%- ifversion fpt or ghec or ghes > 3.18 %}
 * Program database files (`.pdb`)
 * Python files (`.py`)
 * Shell scripts (`.sh`)
@@ -112,22 +108,26 @@ The following file types are supported for uploads in issue comments, pull reque
 * TypeScript files (`.ts`, `.tsx`)
 * XML files (`.xml`)
 * YAML files (`.yaml`, `.yml`)
+{%- endif %}
 
 > [!NOTE]
 > If you use Linux and try to upload a `.patch` file, you will receive an error message. This is a known issue.
 
-#### Archive and compressed files
+### Archive and compressed files
 
 * Archives and packages (`.zip`, `.gz`, `.tgz`)
 
-#### Communication and logs
+{% ifversion fpt or ghec or ghes > 3.18 %}
+
+### Communication and logs
 
 * Text and email files (`.debug`, `.msg`, `.eml`)
 
-#### Images
+### Images
 
 * Bitmap and TIFF images (`.bmp`, `.tif`, `.tiff`)
 
-#### Audio
+### Audio
 
 * Audio files (`.mp3`, `.wav`)
+{% endif %}

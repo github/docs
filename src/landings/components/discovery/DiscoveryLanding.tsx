@@ -1,27 +1,56 @@
-import { useMemo } from 'react'
+import { useRouter } from 'next/router'
 
 import { DefaultLayout } from '@/frame/components/DefaultLayout'
-import { useDiscoveryContext } from '@/landings/context/DiscoveryContext'
+import { useLandingContext } from '@/landings/context/LandingContext'
 import { LandingHero } from '@/landings/components/shared/LandingHero'
 import { ArticleGrid } from '@/landings/components/shared/LandingArticleGridWithFilter'
 import { LandingCarousel } from '@/landings/components/shared/LandingCarousel'
-
-import type { ArticleCardItems } from '@/landings/types'
+import { UtmPreserver } from '@/frame/components/UtmPreserver'
+import { RestRedirect } from '@/rest/components/RestRedirect'
+import { useMultiQueryParams } from '@/search/components/hooks/useMultiQueryParams'
 
 export const DiscoveryLanding = () => {
-  const { title, intro, tocItems, recommended } = useDiscoveryContext()
-
-  const flatArticles: ArticleCardItems = useMemo(
-    () => tocItems.flatMap((item) => item.childTocItems || []),
-    [tocItems],
-  )
+  const router = useRouter()
+  const {
+    title,
+    intro,
+    heroImage,
+    introLinks,
+    tocItems,
+    carousels,
+    includedCategories,
+    landingType,
+  } = useLandingContext()
+  const { params, updateParams } = useMultiQueryParams({
+    useHistory: true,
+    excludeFromHistory: ['articles-filter'],
+  })
 
   return (
     <DefaultLayout>
-      <div>
-        <LandingHero title={title} intro={intro} />
-        <LandingCarousel flatArticles={flatArticles} recommended={recommended} />
-        <ArticleGrid flatArticles={flatArticles} />
+      <UtmPreserver />
+      {router.query.productId === 'rest' && <RestRedirect />}
+      <div data-search="article-body">
+        <LandingHero title={title} intro={intro} heroImage={heroImage} introLinks={introLinks} />
+        <div className="container-xl px-3 px-md-6 mt-6 mb-4">
+          {/* Render carousels */}
+          {carousels &&
+            Object.entries(carousels).map(([carouselKey, articles]) => (
+              <LandingCarousel
+                key={carouselKey}
+                carouselKey={carouselKey}
+                carouselArticles={articles}
+              />
+            ))}
+
+          <ArticleGrid
+            tocItems={tocItems}
+            includedCategories={includedCategories}
+            landingType={landingType}
+            params={params}
+            updateParams={updateParams}
+          />
+        </div>
       </div>
     </DefaultLayout>
   )

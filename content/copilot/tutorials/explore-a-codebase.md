@@ -2,14 +2,15 @@
 title: Using GitHub Copilot to explore a codebase
 shortTitle: Explore a codebase
 intro: '{% data variables.copilot.copilot_chat %} can help you gain an understanding of the content, structure, and functionality of a codebase.'
-topics:
-  - Copilot
 versions:
   feature: copilot
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot/using-copilot-to-explore-a-codebase
   - /copilot/tutorials/using-copilot-to-explore-a-codebase
 contentType: tutorials
+category:
+  - Scale institutional knowledge
+  - Author and optimize with Copilot
 ---
 
 ## Introduction
@@ -18,27 +19,30 @@ If you've been assigned to work on a project that you're not familiar with—or 
 
 ## Working with {% data variables.copilot.copilot_chat_short %}
 
-Throughout this guide, we'll work on {% data variables.product.prodname_dotcom_the_website %}, using {% data variables.copilot.copilot_chat_short %} in assistive mode, which displays a {% data variables.copilot.copilot_chat_short %} panel over the bottom right corner of your current page on {% data variables.product.prodname_dotcom_the_website %}.
+Throughout this guide, we'll work with {% data variables.copilot.copilot_chat_short %} on {% data variables.product.prodname_dotcom_the_website %}, which you can find at [github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text).
 
-You can expand the {% data variables.copilot.copilot_chat_short %} panel, to give more space for displaying {% data variables.product.prodname_copilot_short %}'s responses, by clicking and dragging the edges of the panel.
+## Providing repository context
 
-## Using the predefined prompts
+You can ask {% data variables.copilot.copilot_chat_short %} about a codebase in either of these ways.
 
-{% data variables.copilot.copilot_chat_short %} comes with a set of predefined prompts that can help you get started with exploring a codebase. You can use the prompts by clicking a button in the chat panel. The buttons are displayed when you start a new conversation with {% data variables.copilot.copilot_chat_short %}. The selection of prompts varies depending on the currently displayed page on {% data variables.product.prodname_dotcom_the_website %}.
+### Attaching a repository in chat
 
-1. Open the repository you want to explore on {% data variables.product.prodname_dotcom_the_website %}.
-1. Click the **Code** tab to display the main page of the repository.
-1. {% data reusables.copilot.assistive-mode-instructions %}
-1. Click the **Tell me about this repository** button in the chat panel.
+Attaching a repository gives {% data variables.copilot.copilot_chat_short %} access to the code in the repository, and is best when you want to compare or switch between repositories during a conversation.
 
-   ![Screenshot of the chat panel with the 'Tell me about this repository' button highlighted.](/assets/images/help/copilot/tell-me-about-repo.png)
+1. On {% data variables.product.github %}, navigate to [github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text).
+1. In the text box, click **{% octicon "plus" aria-label="Add attachments" %} Add repositories, files, and spaces**, then click **Repositories**.
+1. Search for and select the repository you want to explore.
 
-   > [!TIP]
-   > If this button is not displayed, make sure you are on the main page of the repository and click the plus sign ({% octicon "plus" aria-hidden="true" aria-label="plus" %}) at the top right of the {% data variables.product.prodname_copilot_short %} panel to start a new conversation.
+### Asking from the repository page
 
-   A predefined prompt is submitted to {% data variables.product.prodname_copilot_short %} and the response is displayed in the chat panel.
+> [!NOTE]
+> This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
-1. Optionally, after reading the response, click the plus sign ({% octicon "plus" aria-hidden="true" aria-label="plus" %}) at the top right of the {% data variables.product.prodname_copilot_short %} panel to start a new conversation, then click **How to get started with this repository**.
+You can ask {% data variables.copilot.copilot_chat_short %} about a repository directly from its page on {% data variables.product.github %}, without attaching it first. This is a quick way to get oriented in a project you haven't worked on before.
+
+1. On {% data variables.product.github %}, navigate to the repository you want to explore.
+1. Open {% data variables.copilot.copilot_chat_short %} from the repository page and ask a question. {% data variables.product.prodname_copilot_short %} uses the repository as context and grounds its answers in the repository's actual files and symbols.
+1. Ask a follow-up question to go deeper, using the same shared context.
 
 ## Example prompts
 
@@ -49,6 +53,10 @@ The following prompts are examples of the kind of questions you can ask {% data 
 <!-- Blank lines left between list items to space out the output slightly. -->
 
 * `Based on the code in this repository, give me an overview of the architecture of the codebase. Provide evidence.`
+
+* `Give me an overview of this repository: its purpose, structure, key components, and how to run it.`
+
+* `What are the main entry points and how do the key components fit together?`
 
 * `Which languages are used in this repo? Show the percentages for each language.`
 
@@ -77,13 +85,17 @@ Use {% data variables.product.prodname_copilot_short %} to help you understand t
 To find out about the files in a directory:
 
 1. Navigate to the directory on {% data variables.product.prodname_dotcom_the_website %}.
-1. {% data reusables.copilot.assistive-mode-instructions %}
+1. In the top right corner of the page, click the {% data variables.product.prodname_copilot_short %} icon (**{% octicon "copilot" aria-label="Copilot icon" %}**) to open {% data variables.copilot.copilot_chat_short %}.
+
+    {% data variables.product.prodname_copilot_short %} will use the directory contents as context for your question.
 1. Ask {% data variables.product.prodname_copilot_short %}: `Explain the files in this directory`.
 
 To find out about a specific file:
 
 1. Open the file on {% data variables.product.prodname_dotcom_the_website %}.
-1. {% data reusables.copilot.assistive-mode-instructions %}
+1. In the top right corner of the page, click the {% data variables.product.prodname_copilot_short %} icon (**{% octicon "copilot" aria-label="Copilot icon" %}**) to open {% data variables.copilot.copilot_chat_short %}.
+
+    {% data variables.product.prodname_copilot_short %} will use the file contents as context for your question.
 1. For a small file, ask {% data variables.product.prodname_copilot_short %}: `Explain this file`.
 1. For a large file, ask: `Explain what this file does. Start with an overview of the purpose of the file. Then, in appropriately headed sections, go through each part of the file and explain what it does in detail.`
 
@@ -107,11 +119,13 @@ To find out about a specific line of code:
 
 Use {% data variables.product.prodname_copilot_short %} to help you understand the purpose of a specific file or symbol in the codebase. A symbol is a named entity in the code, such as a function, class, or variable.
 
-1. Navigate to a repository on {% data variables.product.github %}.
-{% data reusables.copilot.open-chat-panel %}
-1. In the prompt box, click **{% octicon "paperclip" aria-label="Add attachments" %} Attach**, then click **Files, folders, and symbols**.
-1. Search for and select one or more files, folders, or symbols.
-1. In the prompt box, type a question and press <kbd>Enter</kbd>.
+1. On {% data variables.product.github %}, navigate to a repository and open a file.
+1. At the top of the file, click the {% data variables.product.prodname_copilot_short %} icon (**{% octicon "copilot" aria-label="Copilot icon" %}**) to open {% data variables.copilot.copilot_chat_short %}.
+
+     {% data variables.product.prodname_copilot_short %} will display the file contents in a split screen as context for your question.
+
+1. If you want to ask about a specific symbol, highlight the symbol in the file.
+1. In the prompt box, type a question about the file or highlighted symbol, and press <kbd>Enter</kbd>.
 
    {% data variables.product.prodname_copilot_short %} replies in the chat panel.
 
@@ -137,4 +151,4 @@ For more information, see [AUTOTITLE](/repositories/viewing-activity-and-data-fo
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github)

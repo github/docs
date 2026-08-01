@@ -13,26 +13,26 @@ redirect_from:
   - /billing/managing-your-billing/adding-licenses-to-an-organization
   - /billing/how-tos/manage-plan-and-licenses/manage-organization-licenses
   - /billing/how-tos/manage-plan-and-licenses/add-licenses
-topics:
-  - Billing
-  - Enterprise
-  - Team
-permissions: '{% data reusables.permissions.enhanced-billing-platform %}'
 shortTitle: Manage user licenses
 contentType: how-tos
+category:
+  - Manage your plan and licenses
 ---
 
 ## Organizations on {% data variables.product.prodname_team %}
 
-If you're the owner of an organization on a {% data variables.product.prodname_team %} plan, you can add or remove user licenses to your plan through the "Licensing" page.
+If you're the **owner** or **billing manager** of an organization on a {% data variables.product.prodname_team %} plan, you can add or remove user licenses to your plan through the "Licensing" page.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.billing.org-billing-menu %}
-1. Click **Licensing**.
+{% data reusables.billing.click-licensing %}
 1. In the {% data variables.product.prodname_team %} banner, click **Edit** and select **Add seats** or **Remove seats**.
 1. Define the number of new seats you require. The details of the prorated cost for the remainder of the billing cycle and the total for your next bill are updated automatically.
 1. Click **Add seats** or **Remove seats**.
+
+> [!NOTE]
+> **Remove seats** is only displayed when you have unassigned seats available.
 
 ### Changing members to outside collaborators
 
@@ -54,8 +54,10 @@ To add or remove licenses from your enterprise account:
 
 ### Self-serve customers with volume licenses
 
-1. Navigate to your enterprise account.
+Enterprise **owners** or **billing managers** can add or remove user licenses.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.billing.enterprise-billing-menu %}
-1. In the left sidebar, click **Licensing**.
+{% data reusables.billing.click-licensing %}
 1. Next to "Enterprise Cloud", click **{% octicon "kebab-horizontal" aria-hidden="true" aria-label="kebab-horizontal" %}**, then click **Manage licenses**.
 1. Choose your number of licenses, then click **Confirm licenses**.

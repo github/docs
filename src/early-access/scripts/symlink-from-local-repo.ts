@@ -1,10 +1,7 @@
-// [start-readme]
-//
-// This script is run on a writer's machine while developing Early Access content locally.
-// You must pass the script the location of your local copy of
-// the `github/docs-early-access` git repo as the first argument.
-//
-// [end-readme]
+/**
+ * @purpose Writer tool
+ * @description Create or destroy symlinks to your local docs-early-access checkout
+ */
 
 import { rimraf } from 'rimraf'
 import fs from 'fs'
@@ -71,11 +68,11 @@ const destinationDirsMap: Record<string, string> = destinationDirNames.reduce(
 )
 
 // Remove all existing early access directories from this repo
-destinationDirNames.forEach((dirName) => {
+for (const dirName of destinationDirNames) {
   const destDir = destinationDirsMap[dirName]
   rimraf.sync(destDir)
   console.log(`- Removed symlink for early access directory '${dirName}' from this repo`)
-})
+}
 
 // If removing symlinks, just stop here!
 if (unlink) {
@@ -87,8 +84,8 @@ if (unlink) {
 //
 
 // Move the latest early access source directories into this repo
-destinationDirNames.forEach((dirName) => {
-  if (!earlyAccessLocalRepoDir) return
+for (const dirName of destinationDirNames) {
+  if (!earlyAccessLocalRepoDir) continue
 
   const sourceDir = path.join(earlyAccessLocalRepoDir, dirName)
   const destDir = destinationDirsMap[dirName]
@@ -96,7 +93,7 @@ destinationDirNames.forEach((dirName) => {
   // If the source directory doesn't exist, skip it
   if (!fs.existsSync(sourceDir)) {
     console.warn(`Early access directory '${dirName}' does not exist. Skipping...`)
-    return
+    continue
   }
 
   // Create a symbolic link to the directory
@@ -116,4 +113,4 @@ destinationDirNames.forEach((dirName) => {
   }
 
   console.log(`+ Added symlink for early access directory '${dirName}' into this repo`)
-})
+}

@@ -1,25 +1,19 @@
 ---
 title: Enforcing code governance in your enterprise with rulesets
 allowTitleToDifferFromFilename: true
-intro: 'You can create a ruleset to target multiple repositories in your enterprise.'
+intro: You can create a ruleset to target multiple repositories in your enterprise.
 versions:
   feature: enterprise-code-rulesets
-permissions: 'Enterprise owners'
+permissions: Enterprise owners
 shortTitle: Create rulesets
-type: how_to
-topics:
-  - Enterprise
-  - Policies
-  - Repositories
-  - Security
+contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## Introduction
 
-You can create rulesets to control how users can interact with code in repositories across your enterprise. You can:
-
-* Create a **branch or tag ruleset** to control things like who can push commits to a certain branch, how commits must be formatted, or who can delete or rename a tag.
-* Create a **push ruleset** to block pushes to a private or internal repository and the repository's entire fork network. Push rulesets allow you to block pushes based on file extensions, file path lengths, file and folder paths, and file sizes.
+{% data reusables.enterprise-onboarding.rulesets-intro %}
 
 To learn more, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
 
@@ -33,11 +27,10 @@ To import a prebuilt ruleset created by {% data variables.product.company_short 
 
 Rulesets allow you to flexibly target the organizations, repositories, and branches where you want rules to apply.
 
-* To target **organizations**, you can select all, choose from a list, or define a dynamic pattern for organization names using `fnmatch` syntax. For syntax details, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#using-fnmatch-syntax).
-* Within those organizations, you can target all **repositories**, or target a dynamic list by custom property. See [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
-* Within the repositories, you can target certain **branches or tags**: all branches, the default branch, or a dynamic list using `fnmatch` syntax.
+* To target **organizations**, you can select all, choose from a list, define a dynamic pattern for organization names using `fnmatch` syntax, or use organization custom properties to dynamically target organizations based on metadata. For syntax details, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#using-fnmatch-syntax). For information on custom properties, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/custom-properties).
 
-When you create a ruleset that targets branches in a repository, repository administrators can no longer rename branches or change the default branch in the targeted repository. They can still create and delete branches if they have the appropriate permissions.
+* Within those organizations, you can target all **repositories**, or target a dynamic list by custom property or deployment context.
+* Within the repositories, you can target certain **branches or tags**: all branches, the default branch, or a dynamic list using `fnmatch` syntax.
 
 ## How can I control the format of commits?
 
@@ -62,8 +55,12 @@ If you select **Must match a given regex pattern restriction**, you can use regu
 You can grant certain roles, teams, or apps bypass permissions as well as the ability to approve bypass requests for your ruleset.
 
 The following are eligible for bypass access:
+* Enterprise teams, enterprise apps, and enterprise roles ({% data variables.release-phases.public_preview %})
 * Repository admins, organization owners, and enterprise owners
 * The maintain or write role, or deploy keys.
+{%- ifversion ghec %}
+* {% data variables.copilot.copilot_cloud_agent %}. For more information about {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent#limitations-in-copilot-cloud-agents-compatibility-with-other-features).
+{%- endif %}
 
 1. To grant bypass permissions for the ruleset, in the "Bypass list" section, click **Add bypass**.
 
@@ -79,7 +76,12 @@ If you set a dynamic list, you'll add one or more naming patterns using `fnmatch
 
 ### Choosing which repositories to target in your enterprise
 
-Within the selected organizations, you can target all repositories or target a dynamic list by custom property. See [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
+Within the selected organizations, you can target all repositories or target a dynamic list based on a filter:
+
+* You can filter by custom property. See [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
+{%- ifversion virtual-registry %}
+* {% data reusables.security.deployable-rulesets %}
+{%- endif %}
 
 ### Choosing which branches or tags to target
 
@@ -96,8 +98,6 @@ In the "Branch protections" or "Tag protections" section, select the rules you w
 ### Finalizing your branch or tag ruleset and next steps
 
 {% data reusables.repositories.rulesets-create-and-insights-step %}
-
-{% ifversion push-rulesets %}
 
 ## Creating a push ruleset
 
@@ -118,8 +118,12 @@ You can create a push ruleset for private or internal repositories in your enter
 
 You can grant certain roles, teams, or apps bypass permissions as well as the ability to approve bypass requests for your ruleset. The following are eligible for bypass access:
 
+* Enterprise teams, enterprise apps, and enterprise roles ({% data variables.release-phases.public_preview %})
 * Repository admins, organization owners, and enterprise owners
 * The maintain or write role, or deploy keys
+{%- ifversion ghec %}
+* {% data variables.copilot.copilot_cloud_agent %}. For more information about {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent#limitations-in-copilot-cloud-agents-compatibility-with-other-features).
+{%- endif %}
 
 1. To grant bypass permissions for the ruleset, in the "Bypass list" section, click **Add bypass**.
 1. In the "Add bypass" modal dialog that appears, search for the role, team, or app you would like to grant bypass permissions, then select the role, team, or app from the "Suggestions" section and click Add Selected.
@@ -141,5 +145,3 @@ Within your chosen organizations, you can target all repositories, or target a d
 ### Finalizing your push ruleset and next steps
 
 {% data reusables.repositories.rulesets-create-and-insights-step %}
-
-{% endif %}

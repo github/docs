@@ -1,7 +1,7 @@
 ---
 title: Get started with GitHub documentation
 shortTitle: Get started
-intro: 'Learn how to start building, shipping, and maintaining software with {% data variables.product.prodname_dotcom %}. Explore our products, sign up for an account, and connect with the world''s largest development community.'
+intro: 'Learn how to start building, shipping, and maintaining software with {% data variables.product.github %}. Explore our products, sign up for an account, and connect with the world''s largest development community.'
 redirect_from:
   - /categories/54/articles
   - /categories/bootcamp
@@ -24,34 +24,31 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-layout: product-landing
+layout: discovery-landing
 introLinks:
-  quickstart: /get-started/start-your-journey
-featuredLinks:
-  startHere:
-    - /get-started/start-your-journey/about-github-and-git
-    - /get-started/learning-about-github/githubs-plans
-    - /get-started/onboarding/getting-started-with-your-github-account
-    - /get-started/onboarding/getting-started-with-github-team
-    - /get-started/onboarding/getting-started-with-github-enterprise-cloud
-    - /get-started/onboarding/getting-started-with-github-enterprise-server
-    - /get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github
-  popular:
-    - /get-started/start-your-journey/creating-an-account-on-github
-    - /get-started/start-your-journey/hello-world
+  quickstart: /get-started/using-github/hello-world
+  overview: /get-started/start-your-journey/what-is-github
+carousels:
+  recommended:
+    - /get-started/start-your-journey
+    - /get-started/learning-to-code
     - /get-started/git-basics/set-up-git
-    - /get-started/using-github-docs/about-versions-of-github-docs
-    - /get-started/learning-about-github/github-glossary
-    - /get-started/accessibility/keyboard-shortcuts
-  guideCards:
-    - /get-started/learning-about-github/types-of-github-accounts
+    - /get-started/using-github/hello-world
+    - /get-started/onboarding/getting-started-with-your-github-account
+    - /get-started/learning-about-github/githubs-plans
+    - /get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github
     - /get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github
-    - /get-started/using-github/troubleshooting-connectivity-problems
-topics:
-  - Pull requests
-  - Issues
-  - Notifications
-  - Accounts
+includedCategories:
+  - Set up your account on GitHub
+  - Explore GitHub plans and features
+  - Set up Git
+  - Work with Git
+  - Explore and contribute
+  - Write and format content
+  - Share and reuse content
+  - Learn to code
+  - Customize your experience
+  - Start your GitHub journey
 children:
   - /start-your-journey
   - /onboarding
@@ -63,7 +60,6 @@ children:
   - /exploring-projects-on-github
   - /git-basics
   - /using-git
-  - /exploring-integrations
   - /archiving-your-github-personal-account-and-public-repositories
   - /using-github-docs
   - /showcase-your-expertise-with-github-certifications

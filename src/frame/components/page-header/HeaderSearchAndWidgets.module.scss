@@ -10,3 +10,29 @@
     visibility: hidden !important;
   }
 }
+
+// The ... menu button when the smaller width search UI is open. Since the search
+// UI is open, we don't show the button at smaller widths but we do show it as
+// the browser width increases to md, and then at lg and above widths we hide
+// the button again since the pickers and sign-up button are shown in the header.
+.menuButtonSearchOpen {
+  margin-left: 0.5rem;
+  display: none;
+
+  @include breakpoint(md) {
+    display: inline-block;
+    margin-left: 0.25rem;
+  }
+}
+
+// The ... menu button when the smaller width search UI is closed, the button is
+// shown up to lg. At lg and above we don't show the button since the pickers
+// and sign-up button are shown in the header.
+.menuButtonSearchClosed {
+  margin-left: 1rem;
+
+  @include breakpoint(lg) {
+    margin-left: 0;
+    display: none;
+  }
+}

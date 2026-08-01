@@ -4,8 +4,8 @@ shortTitle: Metrics data
 intro: See how GitHub calculates properties from APIs and reports.
 versions:
   feature: copilot
-topics:
-  - Copilot
+category:
+  - Learn about Copilot
 allowTitleToDifferFromFilename: true
 contentType: reference
 ---
@@ -20,7 +20,7 @@ The timestamp of a user's most recent interaction with {% data variables.product
 
 This property is consistent across the following surfaces:
 
-* The CSV report downloaded from the "Access management" page (see [AUTOTITLE](/copilot/how-tos/administer/organizations/reviewing-activity-related-to-github-copilot-in-your-organization/reviewing-user-activity-data-for-copilot-in-your-organization))
+* The CSV report downloaded from the "Access management" page (see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/review-activity/review-user-activity-data))
 * The [AUTOTITLE](/rest/copilot/copilot-user-management)
 
 ### Calculation
@@ -29,7 +29,6 @@ The following interactions count as activity:
 
 * Receiving a code suggestion in an IDE
 * Chatting with {% data variables.copilot.copilot_chat_short %} in an IDE
-* Creating or updating a knowledge base
 * Generating a pull request summary
 * Interacting with {% data variables.copilot.copilot_chat_short %} in GitHub
 * Interacting with Copilot on a mobile device
@@ -72,7 +71,7 @@ The activity report provides visibility into usage of all generally available (G
 
 #### IDE features
 
-* Code completions
+* Inline suggestions
 * {% data variables.copilot.next_edit_suggestions_caps %}
 * {% data variables.copilot.copilot_chat_short %}
 * Agent mode
@@ -81,9 +80,8 @@ The activity report provides visibility into usage of all generally available (G
 #### GitHub features
 
 * {% data variables.copilot.copilot_chat_short %}
-* {% data variables.copilot.copilot_coding_agent %}
+* {% data variables.copilot.copilot_cloud_agent %}
 * Copilot for Docs
-* Knowledge base management
 * {% data variables.copilot.copilot_for_prs %}
 * {% data variables.copilot.copilot_code-review_short %}
 

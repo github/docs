@@ -10,6 +10,8 @@ children:
   - /view-logs
   - /troubleshoot-firewall-settings
   - /troubleshoot-network-errors
+  - /troubleshoot-spark
+  - /troubleshoot-copilot-slowness
 redirect_from:
   - /copilot/troubleshooting-github-copilot
   - /copilot/how-tos/troubleshoot

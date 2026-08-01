@@ -1,15 +1,16 @@
 ---
 title: Actions Runner Controller
-intro: 'You can host your own runners and customize the environment used to run jobs in your {% data variables.product.prodname_actions %} workflows.'
+intro: You can host your own runners and customize the environment used to run jobs in your {% data variables.product.prodname_actions %} workflows.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Actions Runner Controller
 redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller
   - /actions/concepts/runners/about-actions-runner-controller
+category:
+  - Set up runners
+contentType: concepts
 ---
 
 ## About {% data variables.product.prodname_actions_runner_controller %}
@@ -25,10 +26,10 @@ The following diagram illustrates the architecture of ARC's autoscaling runner s
 
 <!-- The numbers in the ordered list below correspond to numbers in the above diagram, which is why we use explicit numbering here. -->
 
-1. {% data variables.product.prodname_actions_runner_controller %} is installed using the supplied Helm charts, and the controller manager pod is deployed in the specified namespace. A new AutoScalingRunnerSet resource is deployed via the supplied Helm charts or a customized manifest file. The AutoScalingRunnerSet Controller calls GitHub's APIs to fetch the runner group ID that the runner scale set will belong to.
-1. The AutoScalingRunnerSet Controller calls the APIs one more time to either fetch or create a runner scale set in the {% data variables.product.prodname_actions %} service before creating the Runner ScaleSet Listener resource.
+1. {% data variables.product.prodname_actions_runner_controller %} is installed using the supplied Helm charts, and the controller manager pod is deployed in the specified namespace. A new AutoScalingRunnerSet resource is deployed via the supplied Helm charts or a customized manifest file. The AutoScalingRunnerSet Controller calls the {% data variables.product.github %}'s API to fetch the runner group ID that the runner scale set will belong to.
+1. The AutoScalingRunnerSet Controller calls the API one more time to either fetch or create a runner scale set in the {% data variables.product.prodname_actions %} service before creating the Runner ScaleSet Listener resource.
 1. A Runner ScaleSet Listener pod is deployed by the AutoScalingListener Controller. In this pod, the listener application connects to the {% data variables.product.prodname_actions %} Service to authenticate and establish an HTTPS long poll connection. The listener stays idle until it receives a `Job Available` message from the {% data variables.product.prodname_actions %} Service.
-1. When a workflow run is triggered from a repository, the {% data variables.product.prodname_actions %} Service dispatches individual job runs to the runners or runner scale sets where the `runs-on` key matches the name of the runner scale set or labels of self-hosted runners.
+1. When a workflow run is triggered from a repository, the {% data variables.product.prodname_actions %} Service dispatches individual job runs to the runners or runner scale sets where the `runs-on` key matches the name of a runner scale set or the labels of a runner scale set or self-hosted runner.
 1. When the Runner ScaleSet Listener receives the `Job Available` message, it checks whether it can scale up to the desired count. If it can, the Runner ScaleSet Listener acknowledges the message.
 1. The Runner ScaleSet Listener uses a Service Account and a Role bound to that account to make an HTTPS call through the Kubernetes APIs to patch the Ephemeral RunnerSet resource with the number of desired replicas count.
 1. The Ephemeral RunnerSet attempts to create new runners and the EphemeralRunner Controller requests a Just-in-Time (JIT) configuration token to register these runners. The controller attempts to create runner pods. If the pod's status is `failed`, the controller retries up to 5 times. After 24 hours the {% data variables.product.prodname_actions %} Service unassigns the job if no runner accepts it.
@@ -70,7 +71,7 @@ Each resource that is deployed by ARC is given a name composed of:
 |-------|---------------|------|-----------------|-------------|-------|
 | `autoscalingrunnerset.yaml` | AutoscalingRunnerSet | INSTALLATION_NAME | 0 | Top level resource working with scale sets | The name is limited to 45 characters in length. |
 | `no_permission_service_account.yaml` | ServiceAccount | INSTALLATION_NAME-gha-rs-no-permission | 21 | Service account mounted to the runner container | This is created if the container mode is not "kubernetes" and `template.spec.serviceAccountName` is not specified. |
-| `githubsecret.yaml` | Secret | INSTALLATION_NAME-gha-rs-github-secret | 20 | Secret containing values needed to authenticate to the GitHub API | This is created if `githubConfigSecret` is an object. If a string is provided, this secret will not be created. |
+| `githubsecret.yaml` | Secret | INSTALLATION_NAME-gha-rs-github-secret | 20 | Secret containing values needed to authenticate to the {% data variables.product.github %} API | This is created if `githubConfigSecret` is an object. If a string is provided, this secret will not be created. |
 | `manager_role.yaml` | Role | INSTALLATION_NAME-gha-rs-manager | 15 | Role provided to the manager to be able to reconcile on resources in the autoscaling runner set's namespace  | This is always created. |
 | `manager_role_binding.yaml` | RoleBinding | INSTALLATION_NAME-gha-rs-manager | 15 | Binding manager_role to the manager service account.  | This is always created. |
 | `kube_mode_role.yaml` | Role | INSTALLATION_NAME-gha-rs-kube-mode | 17 | Role providing necessary permissions for the hook  | This is created when the container mode is set to "kubernetes" and `template.spec.serviceAccount` is not provided. |
@@ -83,9 +84,9 @@ ARC consists of several custom resource definitions (CRDs). For more information
 * [actions.github.com/v1alpha1](https://pkg.go.dev/github.com/actions/actions-runner-controller/apis/actions.github.com/v1alpha1)
 * [actions.summerwind.net/v1alpha1](https://pkg.go.dev/github.com/actions/actions-runner-controller/apis/actions.summerwind.net/v1alpha1)
 
-Because custom resources are extensions of the Kubernetes API, they won't be available in a default Kubernetes installation. You will need to install these custom resources to use ARC. For more information on installing custom resources, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/quickstart-for-actions-runner-controller).
+Because custom resources are extensions of the Kubernetes API, they won't be available in a default Kubernetes installation. You will need to install these custom resources to use ARC. For more information on installing custom resources, see [AUTOTITLE](/actions/tutorials/use-actions-runner-controller/get-started).
 
-Once the custom resources are installed, you can deploy ARC into your Kubernetes cluster. For information about deploying ARC, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller).
+Once the custom resources are installed, you can deploy ARC into your Kubernetes cluster. For information about deploying ARC, see [AUTOTITLE](/actions/how-tos/manage-runners/use-actions-runner-controller/deploy-runner-scale-sets).
 
 ### About the runner container image
 
@@ -93,13 +94,15 @@ Once the custom resources are installed, you can deploy ARC into your Kubernetes
 
 This image contains the least amount of packages necessary for the container runtime and the runner binaries. To install additional software, you can create your own runner image. You can use ARC's runner image as a base, or use the corresponding setup actions. For instance, `actions/setup-java` for Java or `actions/setup-node` for Node.
 
-You can find the definition of ARC's runner image in [this Dockerfile](https://github.com/actions/runner/blob/main/images/Dockerfile) and the definition of the base image in [this Dockerfile](https://github.com/dotnet/dotnet-docker/blob/main/src/runtime-deps/8.0/bookworm-slim/amd64/Dockerfile).
+You can find the definition of ARC's runner image in [this Dockerfile](https://github.com/actions/runner/blob/main/images/Dockerfile). To view the current base image, check the `FROM` line in the runner image Dockerfile, then search for that tag in the [`dotnet/dotnet-docker`](https://github.com/dotnet/dotnet-docker/tree/main/src/runtime-deps) repository.
+
+For example, if the `FROM` line in the runner image Dockerfile is `mcr.microsoft.com/dotnet/runtime-deps:8.0-jammy AS build`, then you can find the base image in [`https://github.com/dotnet/dotnet-docker/blob/main/src/runtime-deps/8.0/jammy/amd64/Dockerfile`](https://github.com/dotnet/dotnet-docker/blob/main/src/runtime-deps/8.0/jammy/amd64/Dockerfile).
 
 #### Creating your own runner image
 
 You can create your own runner image that meets your requirements. Your runner image must fulfill the following conditions.
 
-* Use a base image that can run the self-hosted runner application. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners).
+* Use a base image that can run the self-hosted runner application. See [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners).
 
 * The [runner binary](https://github.com/actions/runner/releases) must be placed under `/home/runner/` and launched using `/home/runner/run.sh`.
 * If you use Kubernetes mode, the [runner container hooks](https://github.com/actions/runner-container-hooks/releases) must be placed under `/home/runner/k8s`.
@@ -173,8 +176,10 @@ The supported runner image is released as a separate container image, which you 
 
 ## Next steps
 
-When you're ready to use ARC to execute workflows, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/using-actions-runner-controller-runners-in-a-workflow).
+If you're new to ARC, see [AUTOTITLE](/actions/tutorials/use-actions-runner-controller/get-started) to try out the basics.
 
-{% data reusables.actions.actions-runner-controller-labels %} For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow).
+When you're ready to use ARC to execute workflows, see [AUTOTITLE](/actions/how-tos/manage-runners/use-actions-runner-controller/use-arc-in-a-workflow).
 
-You can scale runners statically or dynamically depending on your needs. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#scaling-runners).
+{% data reusables.actions.actions-runner-controller-labels %} See [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/use-in-a-workflow).
+
+You can scale runners statically or dynamically depending on your needs. See [AUTOTITLE](/actions/how-tos/manage-runners/use-actions-runner-controller/deploy-runner-scale-sets).

@@ -1,1 +1,1 @@
-actions/stale@v9
+actions/stale@v10

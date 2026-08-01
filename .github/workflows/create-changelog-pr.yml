@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - name: 'Ensure ${{ env.CHANGELOG_FILE }} exists'
         run: |
@@ -34,7 +34,7 @@ jobs:
 
       - name: Check that the user belongs to the github org
         id: hubber_check
-        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         with:
           github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
@@ -105,7 +105,7 @@ jobs:
 
       - name: Create a pull request
         if: env.CONTINUE_WORKFLOW == 'true'
-        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         id: create_pull_request
         with:
           github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
@@ -122,9 +122,9 @@ jobs:
             core.setOutput('pull-request-number', pullRequest.number);
             core.setOutput('pull-request-url', pullRequest.html_url);
 
-      - name: Add 'ready-for-doc-review' label to PR
+      - name: Add 'ready-for-doc-review' and 'skip FR board' labels to PR
         if: env.CONTINUE_WORKFLOW == 'true'
-        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         env:
           # Get the number of the PR that was just created:
           PULL_REQUEST_NUMBER: ${{ steps.create_pull_request.outputs.pull-request-number }}
@@ -135,12 +135,12 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: Number(process.env.PULL_REQUEST_NUMBER),
-              labels: ['ready-for-doc-review']
+              labels: ['ready-for-doc-review','skip FR board']
             });
 
       - name: Assign PR to commenter
         if: env.CONTINUE_WORKFLOW == 'true'
-        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         env:
           # Reuse the PR number captured earlier
           PULL_REQUEST_NUMBER: ${{ steps.create_pull_request.outputs.pull-request-number }}
@@ -159,8 +159,14 @@ jobs:
               core.info(`Failed to assign PR to @${context.payload.comment.user.login}: ${err.message}`);
             }
 
+      - uses: ./.github/actions/create-workflow-failure-issue
+        id: create-failure-issue
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          issue_url: ${{ steps.create-failure-issue.outputs.issue_url }}

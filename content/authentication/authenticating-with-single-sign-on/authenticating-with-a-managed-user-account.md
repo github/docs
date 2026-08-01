@@ -7,12 +7,9 @@ redirect_from:
   - /authentication/authenticating-with-saml-single-sign-on/authenticating-with-a-managed-user-account
 versions:
   ghec: '*'
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - SSO
 allowTitleToDifferFromFilename: true
+category:
+  - Sign in with SSO or a passkey
 ---
 
 If you use a {% data variables.enterprise.prodname_managed_user %}, you must authenticate through your identity provider (IdP) to access {% data variables.product.prodname_dotcom %}. The location where you can authenticate depends on whether your enterprise uses SAML or OIDC authentication.

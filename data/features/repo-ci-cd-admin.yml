@@ -1,0 +1,5 @@
+# Versioning for repo/org/enterprise policy settings for actions blocklist and SHA pinning policies.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.19'

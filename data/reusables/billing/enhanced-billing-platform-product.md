@@ -1,1 +1,1 @@
-The new billing platform is now fully rolled out to all users.
+The new billing platform is now available to all users.

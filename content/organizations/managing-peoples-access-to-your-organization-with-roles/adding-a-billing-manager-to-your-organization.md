@@ -7,11 +7,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
-  - Billing
 shortTitle: Add a billing manager
+category:
+  - Assign roles and permissions
 ---
 
 Members of your organization's Owners team can give _billing manager_ permissions to people. Once a person accepts their invitation to become a billing manager for your organization, they can invite additional people to be billing managers.
@@ -23,12 +21,7 @@ Members of your organization's Owners team can give _billing manager_ permission
 
 Billing managers can:
 
-* Upgrade or downgrade between {% data variables.product.prodname_free_user %} and {% data variables.product.prodname_team %} plans
-* Add, update, or remove payment methods
-* View payment history
-* Download receipts
-* View, invite, and remove billing managers
-* Start, modify, or cancel sponsorships
+{% data reusables.billing.org-billing-manager-permissions %}
 
 In addition, all billing managers will receive billing receipts by email on the organization's billing date.
 
@@ -46,7 +39,7 @@ Billing managers **are not** able to:
 
 ## Inviting a billing manager
 
->[!NOTE] If your organization is owned by an enterprise account, you cannot invite billing managers at the organization level. For more information, see [AUTOTITLE](/admin/overview/about-enterprise-accounts).
+>[!NOTE] If your organization is owned by an enterprise account, you cannot invite billing managers at the organization level. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise).
 
 The invited person will receive an invitation email asking them to become a billing manager for your organization. Once the invited person clicks the accept link in their invitation email, they will automatically be added to the organization as a billing manager. If they don't already have a {% data variables.product.prodname_dotcom %} account, they will be directed to sign up for one, and they will be automatically added to the organization as a billing manager after they create an account.
 
@@ -57,4 +50,4 @@ The invited person will receive an invitation email asking them to become a bill
 
 ## Further reading
 
-* [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
+* [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}

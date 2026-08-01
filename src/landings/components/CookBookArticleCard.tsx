@@ -1,5 +1,8 @@
-import { Label, LabelGroup, Link } from '@primer/react'
+import { Label } from '@primer/react-brand'
+import { Link } from '@primer/react'
 import { ValidOcticon, getOcticonComponent } from '../lib/octicons'
+
+import styles from './CookBookArticleCard.module.scss'
 
 type IconType = ValidOcticon
 
@@ -12,22 +15,11 @@ type Props = {
   spotlight?: boolean
   image?: string
   complexity?: string
+  surface?: string
 }
 
 function setImage(image: string, alt: string) {
-  return image ? (
-    <img
-      src={image}
-      alt={alt}
-      style={{
-        backgroundColor: 'gray',
-        marginBottom: 20,
-        borderRadius: 5,
-        width: '100%',
-        height: 'auto',
-      }}
-    />
-  ) : null
+  return image ? <img src={image} alt={alt} className={styles.spotlightImage} /> : null
 }
 const spotlightClasses = 'd-flex flex-column align-items-center'
 export const CookBookArticleCard = ({
@@ -43,8 +35,7 @@ export const CookBookArticleCard = ({
   return (
     <div className="m-2">
       <div
-        style={{ minHeight: 200 }}
-        className={spotlight ? spotlightClasses : 'd-flex pb-3 border-bottom'}
+        className={`${styles.cardContainer} ${spotlight ? spotlightClasses : 'd-flex flex-wrap pb-3 border-bottom'}`}
       >
         {spotlight ? setImage(image, title) : null}
         {spotlight
@@ -52,21 +43,21 @@ export const CookBookArticleCard = ({
           : IconComponent && (
               <IconComponent
                 size={48}
-                className="mr-4 bgColor-accent-muted p-3 circle fgColor-accent"
+                className="mr-4 bgColor-accent-muted p-3 circle fgColor-accent flex-shrink-0"
               />
             )}
-        <div>
+        <div className="min-width-0 flex-1">
           <h3 className="h4 fgColor-accent">
             <Link href={url}>{title}</Link>
           </h3>
           <div className="fgColor-muted mb-3 mt-2">{description}</div>
-          <LabelGroup>
+          <div className={styles.labelGroup}>
             {tags.map((tag, index) => (
-              <Label key={index} variant="accent" sx={{ mr: 1 }} size="small">
+              <Label key={index} color="blue" className={styles.label} size="small">
                 {tag}
               </Label>
             ))}
-          </LabelGroup>
+          </div>
         </div>
       </div>
     </div>

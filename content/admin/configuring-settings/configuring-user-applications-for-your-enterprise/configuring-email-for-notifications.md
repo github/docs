@@ -1,6 +1,6 @@
 ---
 title: Configuring email for notifications
-intro: 'To make it easy for users to respond quickly to activity, you can configure {% data variables.location.product_location %} to send email notifications for issue, pull request, and commit comments.'
+intro: To make it easy for users to respond quickly to activity, you can configure {% data variables.location.product_location %} to send email notifications for issue, pull request, and commit comments.
 redirect_from:
   - /enterprise/admin/guides/installation/email-configuration
   - /enterprise/admin/articles/configuring-email
@@ -13,13 +13,10 @@ redirect_from:
 permissions: Site administrators can configure email for notifications.
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Notifications
 shortTitle: Configure email notifications
+contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## Configuring SMTP for your enterprise
@@ -69,7 +66,7 @@ If you want to allow email replies to notifications, you must configure your DNS
 1. Ensure that port 25 on the instance is accessible to your SMTP server.
 1. Create an A record that points to `reply.[hostname]`. Depending on your DNS provider and instance host configuration, you may be able to instead create a single A record that points to `*.[hostname]`.
 1. Create an MX record that points to `reply.[hostname]` so that emails to that domain are routed to the instance.
-1. Create an MX record that points `noreply.[hostname]` to `[hostname]` so that replies to the `cc` address in notification emails are routed to the instance. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications).
+1. Create an MX record that points `noreply.[hostname]` to `[hostname]` so that replies to the `cc` address in notification emails are routed to the instance. For more information, see [AUTOTITLE](/subscriptions-and-notifications/get-started/configuring-notifications).
 
 ## Troubleshooting email delivery
 

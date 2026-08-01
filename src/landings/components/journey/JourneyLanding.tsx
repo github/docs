@@ -1,16 +1,25 @@
 import { DefaultLayout } from '@/frame/components/DefaultLayout'
-import { useJourneyContext } from '@/landings/context/JourneyContext'
+import { useLandingContext } from '@/landings/context/LandingContext'
 import { LandingHero } from '@/landings/components/shared/LandingHero'
+import { JourneyLearningTracks } from './JourneyLearningTracks'
+import { UtmPreserver } from '@/frame/components/UtmPreserver'
 
 export const JourneyLanding = () => {
-  const { title, intro } = useJourneyContext()
+  const { title, intro, heroImage, introLinks, journeyTracks, journeyArticlesHeading } =
+    useLandingContext()
 
   return (
     <DefaultLayout>
-      <div>
-        <LandingHero title={title} intro={intro} />
+      <UtmPreserver />
+      <div data-search="article-body">
+        <LandingHero title={title} intro={intro} heroImage={heroImage} introLinks={introLinks} />
 
-        <div>TODO</div>
+        <div className="container-xl px-3 px-md-6 mt-6 mb-4">
+          <JourneyLearningTracks
+            tracks={journeyTracks ?? []}
+            articlesHeading={journeyArticlesHeading}
+          />
+        </div>
       </div>
     </DefaultLayout>
   )

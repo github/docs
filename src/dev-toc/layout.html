@@ -24,40 +24,69 @@
 <button class="btn mb-3 js-expand" type="button">Expand All</button>
 <div/>
 
+{% assign maxTocDepth = 5 %}
+
 {% for productPage in currentEnglishTree.childPages %}
-{% assign productId = productPage.page.relativePath | replace: "/index.md", "" %}
-{% if defaultOpenSections contains productId %}
-<details open class="mb-1"><summary>{{productPage.renderedFullTitle}}</summary>
-{% else %}
-<details class="mb-1"><summary>{{productPage.renderedFullTitle}}</summary>
-{% endif %}
-<ul class="products-list">
-<li title="{{productPage.renderedFullTitle}}" style="margin: 3px 0 0 30px;">
-  <a title="{{ productPage.page.documentType }}" href="{{ docsRoot }}{{productPage.href}}">{{ productPage.renderedFullTitle }}</a>
-  {% for categoryPage in productPage.childPages %}
-  <ul>
-  <li style="margin: 3px 0 0 30px;">
-    <a title="{{ categoryPage.page.documentType }}" href="{{ docsRoot }}{{ categoryPage.href }}">{{ categoryPage.renderedFullTitle }}</a>
-      <ul>
-        {% for subcategoryPage in categoryPage.childPages %}
+  {% assign productId = productPage.page.relativePath | replace: "/index.md", "" %}
+  {% if defaultOpenSections contains productId %}
+    <details open class="mb-1"><summary>{{productPage.renderedFullTitle}}</summary>
+  {% else %}
+    <details class="mb-1"><summary>{{productPage.renderedFullTitle}}</summary>
+  {% endif %}
+
+  <ul class="products-list">
+    <li title="{{productPage.renderedFullTitle}}" style="margin: 3px 0 0 30px;">
+      <a title="{{ productPage.page.documentType }}" href="{{ docsRoot }}{{productPage.href}}">{{ productPage.renderedFullTitle }}</a>
+
+      {% comment %} Unified nested rendering with depth control {% endcomment %}
+      {% if productPage.childPages and productPage.childPages.size > 0 %}
+        <ul>
+          {% for l1 in productPage.childPages %}
             <li style="margin: 3px 0 0 30px;">
-              <a title="{{ subcategoryPage.page.documentType }}" href="{{ docsRoot }}{{ subcategoryPage.href }}">{{ subcategoryPage.renderedFullTitle }}</a>
-              <ul>
-                {% for articlePage in subcategoryPage.childPages %}
-                <li style="margin: 3px 0 0 30px;">
-                  <a title="{{ articlePage.page.documentType }}" href="{{ docsRoot }}{{ articlePage.href }}">{{ articlePage.renderedFullTitle }}</a>
-                </li>
-                {% endfor %}
-              </ul>
+              <a title="{{ l1.page.documentType }}" href="{{ docsRoot }}{{ l1.href }}">{{ l1.renderedFullTitle }}</a>
+              {% if l1.childPages and l1.childPages.size > 0 and maxTocDepth >= 2 %}
+                <ul>
+                  {% for l2 in l1.childPages %}
+                    <li style="margin: 3px 0 0 30px;">
+                      <a title="{{ l2.page.documentType }}" href="{{ docsRoot }}{{ l2.href }}">{{ l2.renderedFullTitle }}</a>
+                      {% if l2.childPages and l2.childPages.size > 0 and maxTocDepth >= 3 %}
+                        <ul>
+                          {% for l3 in l2.childPages %}
+                            <li style="margin: 3px 0 0 30px;">
+                              <a title="{{ l3.page.documentType }}" href="{{ docsRoot }}{{ l3.href }}">{{ l3.renderedFullTitle }}</a>
+                              {% if l3.childPages and l3.childPages.size > 0 and maxTocDepth >= 4 %}
+                                <ul>
+                                  {% for l4 in l3.childPages %}
+                                    <li style="margin: 3px 0 0 30px;">
+                                      <a title="{{ l4.page.documentType }}" href="{{ docsRoot }}{{ l4.href }}">{{ l4.renderedFullTitle }}</a>
+                                      {% if l4.childPages and l4.childPages.size > 0 and maxTocDepth >= 5 %}
+                                        <ul>
+                                          {% for l5 in l4.childPages %}
+                                            <li style="margin: 3px 0 0 30px;">
+                                              <a title="{{ l5.page.documentType }}" href="{{ docsRoot }}{{ l5.href }}">{{ l5.renderedFullTitle }}</a>
+                                            </li>
+                                          {% endfor %}
+                                        </ul>
+                                      {% endif %}
+                                    </li>
+                                  {% endfor %}
+                                </ul>
+                              {% endif %}
+                            </li>
+                          {% endfor %}
+                        </ul>
+                      {% endif %}
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
             </li>
-        {% endfor %}
-      </ul>
-  </li>
-  {% endfor %}
-</ul>
-</li>
-</ul>
-</details>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </li>
+  </ul>
+  </details>
 {% endfor %}
 {% endif %}
 

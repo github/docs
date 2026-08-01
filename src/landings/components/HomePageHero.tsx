@@ -1,22 +1,21 @@
-import { OctocatHeader } from '@/landings/components/OctocatHeader'
+import { Hero } from '@primer/react-brand'
 import { useTranslation } from '@/languages/components/useTranslation'
+import styles from './HomePageHero.module.scss'
+import cx from 'classnames'
 
 export const HomePageHero = () => {
   const { t } = useTranslation(['header', 'homepage'])
 
   return (
-    <section id="landing" className="color-bg-subtle p-6">
-      <div className="container-xl px-xl-6">
-        <div className="gutter gutter-xl-spacious d-lg-flex flex-row-reverse flex-items-center">
-          <div className="col-lg-6 col-xl-7 mb-4 mb-lg-0">
-            <OctocatHeader />
-          </div>
-          <div className="col-lg-6 col-xl-5">
-            <h1 id="title-h1">{t('github_docs')}</h1>
-            <p className="color-fg-muted f2 mb-0">{t('description')}</p>
-          </div>
-        </div>
+    <Hero
+      id="landing"
+      align="center"
+      className={cx('border-bottom color-border-muted color-bg-subtle', styles.section)}
+    >
+      <div className={cx('mx-auto px-4 rounded-3', styles.content)}>
+        <Hero.Heading>{t('github_docs')}</Hero.Heading>
+        <Hero.Description>{t('description')}</Hero.Description>
       </div>
-    </section>
+    </Hero>
   )
 }

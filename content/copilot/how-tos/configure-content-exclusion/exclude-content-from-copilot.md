@@ -21,19 +21,22 @@ redirect_from:
   - /copilot/managing-copilot/configuring-and-auditing-content-exclusion/excluding-content-from-github-copilot
   - /copilot/how-tos/content-exclusion/excluding-content-from-github-copilot
   - /copilot/how-tos/content-exclusion/exclude-content-from-copilot
-topics:
-  - Copilot
 contentType: how-tos
+category:
+  - Configure Copilot
 ---
 
 ## Configuring content exclusion for your repository
 
 You can use your repository settings to specify content in your repository that {% data variables.product.prodname_copilot %} should ignore.
 
+> [!NOTE]
+> {% data variables.copilot.copilot_cli %} and Agent mode in {% data variables.copilot.copilot_chat_short %} in IDEs do not support content exclusion. For more information about these {% data variables.product.prodname_copilot_short %} features, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli) and [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 
-1. In the "Code & automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** then click **Content exclusion**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** then click **Content exclusion**.
 
    If your repository inherits any exclusions from its parent organization, or from organizations in the same enterprise, you'll see one or more gray boxes at the top of the page, containing details of these exclusions. You cannot edit these settings.
 
@@ -150,9 +153,9 @@ git@gitlab.com:gitlab-org/gitlab-runner.git:
 As an enterprise owner, you can use the enterprise settings to specify files that {% data variables.product.prodname_copilot %} should ignore. The files can be within a Git repository or anywhere on the file system that is not under Git control.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.copilot-tab %}
-1. Click the **Content exclusion** tab.
+{% data reusables.enterprise-accounts.ai-controls-tab %}
+{% data reusables.enterprise-accounts.view-copilot-policies %}
+1. Click {% octicon "circle-slash" aria-hidden="true" aria-label="circle-slash" %} **Content exclusion**.
 1. Use paths to specify which content to exclude. See the previous section, [Configuring content exclusion for your organization](#configuring-content-exclusion-for-your-organization).
 
 > [!NOTE]
@@ -179,7 +182,7 @@ You can verify that content exclusions you have configured are working as expect
 
 1. First confirm that content exclusion is working in files that are not subject to content exclusion. To do this:
    * In your IDE, open a file that is not subject to content exclusion.
-   * Make an edit that would normally generate a code completion suggestion. A suggestion should be offered
+   * Make an edit that would normally generate an inline suggestion. A suggestion should be offered
 1. Open a file that should be excluded and make the same edit. No suggestion should be offered.
 1. To test content exclusion for {% data variables.copilot.copilot_chat_short %}:
    * In your IDE, open the {% data variables.copilot.copilot_chat_short %} panel.
@@ -189,8 +192,15 @@ You can verify that content exclusions you have configured are working as expect
 
      If the file is excluded, {% data variables.copilot.copilot_chat_short %} will not be able to use the file to generate a response. The file will not be listed as a reference in {% data variables.product.prodname_copilot_short %}'s response.
 
+## Manage content exclusions with the REST API
+
+Organization owners and enterprise owners can also manage content exclusions programmatically using the {% data variables.product.github %} REST API.
+
+For more information, see [AUTOTITLE](/rest/copilot/copilot-content-exclusion-management).
+
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/content-exclusion-for-github-copilot)
-* [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/reviewing-changes-to-content-exclusions-for-github-copilot)
+* [AUTOTITLE](/copilot/concepts/context/content-exclusion)
+* [AUTOTITLE](/copilot/how-tos/configure-content-exclusion/review-changes)
 * [Configuring content exclusion for {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-admin?view=vs-2022#configure-content-exclusion) in the Microsoft Learn documentation
+* [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies)

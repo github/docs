@@ -1,0 +1,20 @@
+# Variables used in GitHub Code Quality that are not product names
+
+# Variables for CodeQL analysis
+
+workflow_name_actions: 'Code Quality'
+workflow_name_billing: 'dynamic/github-code-scanning/codeql'
+check_status_name: 'CodeQL - Code Quality'
+pr_commenter: 'github-code-quality[bot]'
+
+# Variables for LLM analysis
+
+num_ai_findings: '5'
+
+# Variables for UI elements to simplify updates for future changes
+
+code_quality_ui: 'Code quality'
+code_quality_ui_settings: '{% octicon "code-square" aria-hidden="true" aria-label="code review" %} Code quality'
+code_quality_ui_views: '{% octicon "code-review" aria-hidden="true" aria-label="code review" %} Code quality'
+all_findings: 'Standard findings'
+recent_suggestions: 'AI findings'

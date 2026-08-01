@@ -138,8 +138,7 @@ describe('recently deprecated redirects', () => {
 })
 
 describe('deprecation banner', () => {
-  // The deprecation banner is temporarily hidden for supported versions
-  test.skip('renders a deprecation warning banner on oldest supported Enterprise version', async () => {
+  test('renders a deprecation warning banner on oldest supported Enterprise version', async () => {
     const { $ } = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}`)
     expect($('[data-testid=deprecation-banner]').length).toBe(1)
   })
@@ -154,8 +153,7 @@ describe('deprecation banner', () => {
     expect($('[data-testid=deprecation-banner] b').text().endsWith('discontinued on .')).toBe(false)
   })
 
-  // The deprecation banner is temporarily hidden for supported versions
-  test.skip('deprecation warning banner includes the right text depending on the date', async () => {
+  test('deprecation warning banner includes the right text depending on the date', async () => {
     const { $ } = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}`)
     const expectedString = enterpriseServerReleases.isOldestReleaseDeprecated
       ? 'was discontinued'

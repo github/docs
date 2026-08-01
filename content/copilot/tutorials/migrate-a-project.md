@@ -2,8 +2,6 @@
 title: Using GitHub Copilot to migrate a project to another programming language
 allowTitleToDifferFromFilename: true
 intro: '{% data variables.copilot.copilot_chat %} can help you move a project to a different language. This guide describes what''s involved in a migration process and gives an example of a PHP to Python migration.'
-topics:
-  - Copilot
 versions:
   feature: copilot
 shortTitle: Migrate a project
@@ -11,6 +9,9 @@ redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot/using-copilot-to-migrate-a-project
   - /copilot/tutorials/using-copilot-to-migrate-a-project
 contentType: tutorials
+category:
+  - Burn down tech debt
+  - Author and optimize with Copilot
 ---
 
 ## Introduction
@@ -31,7 +32,7 @@ Consider the points before you start a migration process:
 
 * **Use AI to help you**
 
-  If you don't understand a particular part of the code you are about to translate, use {% data variables.product.prodname_copilot_short %}'s "explain" feature, either on the whole file, or a selected portion of the code within a file. See [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
+  If you don't understand a particular part of the code you are about to translate, use {% data variables.product.prodname_copilot_short %}'s "explain" feature, either on the whole file, or a selected portion of the code within a file. See [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
 
 * **Schedule time to complete the migration**
 
@@ -53,12 +54,14 @@ Consider the points before you start a migration process:
 
 Assuming you've already familiarized yourself with the existing project, a good way to start a migration is to open a branch of the repository in your editor and ask {% data variables.product.prodname_copilot_short %} for help.
 
-1. In your editor, open the {% data variables.copilot.copilot_chat_short %} panel. See [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
+1. In your editor, open the {% data variables.copilot.copilot_chat_short %} panel. See [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
 1. Ask {% data variables.product.prodname_copilot_short %} to outline the steps you need to take to migrate the project to the new language.
 
    For example, for a migration from PHP to Python, you could ask:
 
-   `@workspace I want to migrate this project from PHP to Python. Give me a high level overview of the steps I need to take. Don't go into detail at this stage.`
+   ```copilot copy
+   @workspace I want to migrate this project from PHP to Python. Give me a high-level overview of the steps I need to take. Don't go into detail at this stage.
+   ```
 
    > [!NOTE]
    > The `@workspace` chat participant sets the files in the current workspace as the context for the question you ask.
@@ -73,7 +76,7 @@ Assuming you've already familiarized yourself with the existing project, a good 
    If you think a change suggested by {% data variables.product.prodname_copilot_short %} is not right in some way, ask for an alternative suggestion.
 
 1. As soon as you've migrated a component to a state that you can run, check that it works as expected. If it generates an error, copy the error into the {% data variables.copilot.copilot_chat_short %} view, and ask {% data variables.product.prodname_copilot_short %} to help you fix it.
-1. After you've completed the initial conversion, use {% data variables.product.prodname_copilot_short %} to help you refactor the code in the new language. For more information, see [AUTOTITLE](/copilot/tutorials/refactoring-code-with-github-copilot).
+1. After you've completed the initial conversion, use {% data variables.product.prodname_copilot_short %} to help you refactor the code in the new language. For more information, see [AUTOTITLE](/copilot/tutorials/refactor-code).
 
 ## Example: migrating a PHP project to Python
 
@@ -136,11 +139,15 @@ After completing this example migration you can then use the same methodology on
    1. Open the {% data variables.copilot.copilot_chat_short %} view.
    1. Enter a prompt such as:
 
-      `@workspace Describe this project in detail, explaining what the various components do and how they interact.`
+      ```copilot copy
+      @workspace Describe this project in detail, explaining what the various components do and how they interact.
+      ```
 
 1. Ask {% data variables.product.prodname_copilot_short %} for a high-level overview of the migration process:
 
-   `@workspace I want to migrate this project from PHP to Python. Give me a high level overview of the steps I need to take. Don't go into detail at this stage.`
+   ```copilot copy
+   @workspace I want to migrate this project from PHP to Python. Give me a high-level overview of the steps I need to take. Don't go into detail at this stage.
+   ```
 
    {% data variables.product.prodname_copilot_short %} will reply with instructions such as:
 
@@ -183,7 +190,9 @@ After completing this example migration you can then use the same methodology on
 
 1. If you haven't already decided which Python framework you want to use, you can ask {% data variables.product.prodname_copilot_short %} for advice:
 
-   `@workspace What Python frameworks can I use for this project once it is migrated to Python? Give me a selection of options, with a brief summary of the pros and cons of each in relation to this website project. Which framework would you recommend?`
+   ```copilot copy
+   @workspace What Python frameworks can I use for this project once it is migrated to Python? Give me a selection of options, with a brief summary of the pros and cons of each in relation to this website project. Which framework would you recommend?
+   ```
 
     {% data variables.product.prodname_copilot_short %} replies with information about various frameworks, and concludes:
 
@@ -195,7 +204,9 @@ After completing this example migration you can then use the same methodology on
 
 1. Returning to {% data variables.product.prodname_copilot_short %}'s high-level overview, the first step is to set up a Python environment and install the necessary packages. To find out how to do this, in {% data variables.copilot.copilot_chat_short %}, enter:
 
-   `@workspace I want to use Flask. Tell me how to set up a virtual environment and install the necessary packages.`
+   ```copilot copy
+   @workspace I want to use Flask. Tell me how to set up a virtual environment and install the necessary packages.
+   ```
 
    {% data variables.product.prodname_copilot_short %} will reply with instructions such as:
 
@@ -225,7 +236,9 @@ After completing this example migration you can then use the same methodology on
 1. Follow {% data variables.product.prodname_copilot_short %}'s instructions and use `pip list` to verify that Flask is installed.
 1. Returning to {% data variables.product.prodname_copilot_short %}'s overview for the migration process, the next step is to convert the configuration. Ask {% data variables.product.prodname_copilot_short %} for help with this. For example:
 
-   `@workspace As the first step in migrating this project from PHP to Python, create a Python configuration file by converting the functions in functions.php to Python functions. Tell me where to locate the Python config file in the project.`
+   ```copilot copy
+   @workspace As the first step in migrating this project from PHP to Python, create a Python configuration file by converting the functions in functions.php to Python functions. Tell me where to locate the Python config file in the project.
+   ```
 
    {% data variables.product.prodname_copilot_short %} suggests that you create a file called `config.py` in the `includes` directory, containing the following code.
 
@@ -293,7 +306,9 @@ After completing this example migration you can then use the same methodology on
 1. Create the `includes/config.py` file and delete the existing `includes/config.php` file.
 1. Returning to the overview again, ask {% data variables.product.prodname_copilot_short %} to help you rewrite the PHP functions.
 
-   `@workspace Continuing the migration of this project from PHP to Python, create Python functions to replace the existing PHP functions. Tell me where to locate the Python functions in the project.`
+   ```copilot copy
+   @workspace Continuing the migration of this project from PHP to Python, create Python functions to replace the existing PHP functions. Tell me where to locate the Python functions in the project.
+   ```
 
    {% data variables.product.prodname_copilot_short %} suggests you create a file called `functions.py` in the `includes` directory, containing the following code.
 
@@ -347,7 +362,9 @@ After completing this example migration you can then use the same methodology on
 1. Create the `includes/functions.py` file and delete the existing `includes/functions.php` file.
 1. Continuing with the overview, the next step is to create a Flask application. Ask {% data variables.product.prodname_copilot_short %} to help you with this:
 
-   `@workspace Set up a Flask application to handle routing and views, and map the routes to corresponding views. Tell me the location of any files that need to be created or changed.`
+   ```copilot copy
+   @workspace Set up a Flask application to handle routing and views, and map the routes to corresponding views. Tell me the location of any files that need to be created or changed.
+   ```
 
    {% data variables.product.prodname_copilot_short %} suggests you create a file called `app.py` in the root of the project, containing the following code.
 
@@ -455,7 +472,9 @@ After completing this example migration you can then use the same methodology on
 
 1. Copy the initial `TemplateNotFound` error message to the {% data variables.copilot.copilot_chat_short %} view and ask how you can fix this. For example:
 
-   ``@workspace When I run `python3 app.py`, I get the following error in the browser: `jinja2.exceptions.TemplateNotFound: template.html`. How can I fix this?``
+   ```copilot copy
+   @workspace When I run `python3 app.py`, I get the following error in the browser: `jinja2.exceptions.TemplateNotFound: template.html`. How can I fix this?
+   ```
 
    {% data variables.product.prodname_copilot_short %} replies that the error indicates that Flask is unable to locate the `template.html` file.
 
@@ -469,7 +488,9 @@ After completing this example migration you can then use the same methodology on
 
    Copy this error message to the {% data variables.copilot.copilot_chat_short %} view and ask for help.
 
-   ``@workspace When I run `python3 app.py`, I get the following error in the browser: `jinja2.exceptions.UndefinedError: 'get_config' is undefined.` How can I fix this?``
+   ```copilot copy
+   @workspace When I run `python3 app.py`, I get the following error in the browser: `jinja2.exceptions.UndefinedError: 'get_config' is undefined.` How can I fix this?
+   ```
 
    {% data variables.product.prodname_copilot_short %} replies that the error occurs because `get_config` is not available in the Jinja2 template context. It advises you to add the following code to the `app.py` file, directly before the line `@app.route('/')`:
 
@@ -485,7 +506,9 @@ After completing this example migration you can then use the same methodology on
 
 1. Ask {% data variables.product.prodname_copilot_short %}:
 
-   `@workspace The deployed website does not use the CSS styles. How can I fix this?`
+   ```copilot copy
+   @workspace The deployed website does not use the CSS styles. How can I fix this?
+   ```
 
    {% data variables.product.prodname_copilot_short %} tells you that Flask expects your CSS file to be in a directory called `static`. It suggests moving the existing `style.css` file from the `template` directory into a new `static` directory, and then updating the path to the `style.css` file within the `head` portion of the `template.html` file. Change this to:
 

@@ -4,6 +4,8 @@ intro: 'Troubleshooting common errors with the GitHub for Nonprofits process.'
 versions:
   fpt: '*'
 shortTitle: Frequently asked questions
+category:
+  - Apply for nonprofit benefits
 ---
 
 ## How do I convert my user account to an organization account?
@@ -38,8 +40,9 @@ The following elements should be included in your GitHub for Nonprofits applicat
 * Proof of your nonprofit status with your local government (501(c)(3) status in the United States)
 * The registered name of your nonprofit
 * A summary of what your nonprofit organization does
-* Confirmation that your organization is nongovernmental, nonacademic, noncommercial, nonpolitical and has no religious affiliation
+* Confirmation that your organization is nongovernmental, nonacademic, noncommercial, and nonpolitical
 * If your application is denied, please check that your submission included all of these details. If you were missing some of these elements, consider applying again through GitHub for Nonprofits with complete information.
+* Please note religious or faith-based organizations in India are ineligible. See [mission eligibility exceptions](https://www.microsoft.com/en-us/nonprofits/eligibility) in the Microsoft documentation.
 
 ## Why can't I select the free GitHub Team plan?
 
@@ -100,3 +103,9 @@ Unfortunately at this time, we do not subsidize our add-on tooling such as GitHu
 GitHub now offers Copilot Free for individual accounts, providing access to a limited set of Copilot's features. This allows you to experience AI-assisted code suggestions and other functionalities at no cost.
 
 Please stay tuned to our website for further updates from our work on the Social Impact team: [socialimpact.github.com](https://github.com/social-impact).
+
+## I received the error message: “We’re sorry, but something went wrong” when logging into my account. How do I fix this?
+
+We are sorry you are running into trouble with our GitHub for Nonprofits portal. An error message like this is most likely prompted by revoking or not allowing full permissions to the nonprofits.github.com site.
+Please try logging out of your account, deleting the OAuth app from your account, and then logging in again. For more about deleting the OAuth app from your account, please visit [Learn more about deleting the OAuth app from your account](/nonprofit/troubleshooting/cannot-find-my-organization-on-github-for-nonprofits).
+If the error message persists and you are a part of an organization within an enterprise, your account may have different permissions. Please reach out to the GitHub for Nonprofits support team at that time.

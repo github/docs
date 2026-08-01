@@ -13,11 +13,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CI
-  - Java
-  - Maven
 shortTitle: Java with Maven
+category:
+  - Build and test code
+contentType: tutorials
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -26,13 +25,13 @@ shortTitle: Java with Maven
 
 This guide shows you how to create a workflow that performs continuous integration (CI) for your Java project using the Maven software project management tool. The workflow you create will allow you to see when commits to a pull request cause build or test failures against your default branch; this approach can help ensure that your code is always healthy. You can extend your CI workflow to cache files and upload artifacts from a workflow run.
 
-{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Java Development Kits (JDKs) and Maven. For a list of software and the pre-installed versions for JDK and Maven, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software).
+{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Java Development Kits (JDKs) and Maven. For a list of software and the pre-installed versions for JDK and Maven, see [AUTOTITLE](/actions/concepts/runners/github-hosted-runners#preinstalled-software-for-github-owned-images).
 
 ## Prerequisites
 
 You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see:
-* [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)
-* [AUTOTITLE](/actions/learn-github-actions)
+* [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax)
+* [AUTOTITLE](/actions/how-tos/write-workflows)
 
 We recommend that you have a basic understanding of Java and the Maven framework. For more information, see the [Maven Getting Started Guide](https://maven.apache.org/guides/getting-started/index.html) in the Maven documentation.
 
@@ -55,6 +54,7 @@ We recommend that you have a basic understanding of Java and the Maven framework
    If you don't find the "Java with Maven" workflow template, copy the following workflow code to a new file called `maven.yml` in the `.github/workflows` directory of your repository.
 
    ```yaml copy
+   {% data reusables.actions.actions-not-certified-by-github-comment %}
    name: Java CI with Maven
 
    on:
@@ -134,7 +134,7 @@ This workflow will save the contents of your local Maven repository, located in 
 
 ## Packaging workflow data as artifacts
 
-After your build has succeeded and your tests have passed, you may want to upload the resulting Java packages as a build artifact. This will store the built packages as part of the workflow run, and allow you to download them. Artifacts can help you test and debug pull requests in your local environment before they're merged. For more information, see [AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts).
+After your build has succeeded and your tests have passed, you may want to upload the resulting Java packages as a build artifact. This will store the built packages as part of the workflow run, and allow you to download them. Artifacts can help you test and debug pull requests in your local environment before they're merged. For more information, see [AUTOTITLE](/actions/tutorials/store-and-share-data).
 
 Maven will usually create output files like JARs, EARs, or WARs in the `target` directory. To upload those as artifacts, you can copy them into a new directory that contains artifacts to upload. For example, you can create a directory called `staging`. Then you can upload the contents of that directory using the `upload-artifact` action.
 

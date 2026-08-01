@@ -1,0 +1,5 @@
+# Ref: 5084
+# Introduction of the security manager role at the Enterprise level (public preview)
+versions:
+  ghec: '*'
+  ghes: '>=3.20'

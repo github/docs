@@ -1,29 +1,28 @@
-import { useState, useEffect, useRef, FormEvent } from 'react'
+import React, { useState, useEffect, useRef, FormEvent } from 'react'
 import { FormControl, IconButton, Select, SegmentedControl } from '@primer/react'
 import { CheckIcon, CopyIcon, InfoIcon } from '@primer/octicons-react'
 import { announce } from '@primer/live-region-element'
 import Cookies from '@/frame/components/lib/cookies'
 import cx from 'classnames'
 
-import hljs from 'highlight.js/lib/core'
-import json from 'highlight.js/lib/languages/json'
-import javascript from 'highlight.js/lib/languages/javascript'
 import { generateExampleOptions } from '@/rest/lib/code-example-utils'
-import hljsCurl from 'highlightjs-curl'
 
 import { useTranslation } from '@/languages/components/useTranslation'
 import useClipboard from '@/rest/components/useClipboard'
+import { CODE_SAMPLE_LANGUAGE_COOKIE_NAME } from '@/frame/lib/constants'
 import {
   getShellExample,
   getGHExample,
   getJSExample,
 } from '@/rest/components/get-rest-code-samples'
+import { HighlightedCode } from '@/frame/components/HighlightedCode'
 import styles from './RestCodeSamples.module.scss'
 import { RestMethod } from './RestMethod'
 import type { Operation, ExampleT } from './types'
 import { ResponseKeys, CodeSampleKeys } from './types'
 import { useVersion } from '@/versions/components/useVersion'
 import { useMainContext } from '@/frame/components/context/MainContext'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type Props = {
   slug: string
@@ -33,33 +32,17 @@ type Props = {
 
 const responseSelectOptions = Object.values(ResponseKeys)
 
-// Add as needed. It's pretty cheap to add but please don't use
-// highlight.js import that loads all and everything.
-hljs.registerLanguage('json', json)
-hljs.registerLanguage('javascript', javascript)
-hljs.registerLanguage('curl', hljsCurl)
-
+// Map a REST code-sample language to the highlight language name passed to
+// <HighlightedCode>. Add cases as needed.
 function getLanguageHighlight(selectedLanguage: string) {
   return selectedLanguage === CodeSampleKeys.javascript ? 'javascript' : 'curl'
-}
-
-function highlightElement(element: HTMLElement) {
-  element.className = 'hljs'
-  // If the element was already highlighted, remove the dataset property
-  // otherwise the `hljs.highlightElement` function will not highlight.
-  delete element.dataset.highlighted
-  hljs.highlightElement(element)
 }
 
 export function RestCodeSamples({ operation, slug, heading }: Props) {
   const { t } = useTranslation(['rest_reference'])
   const { isEnterpriseServer, isEnterpriseCloud } = useVersion()
 
-  // Refs to track the request example, response example
-  // and the first render
-  const requestCodeExample = useRef<HTMLSpanElement>(null)
-  const responseCodeExample = useRef<HTMLSpanElement>(null)
-  const firstRender = useRef(true)
+  // Ref for resetting scroll position when switching response views.
   const scrollRef = useRef<HTMLDivElement>(null)
 
   const { currentVersion } = useVersion()
@@ -78,13 +61,9 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   // Menu options for the language selector
   const languageSelectOptions: CodeSampleKeys[] = [CodeSampleKeys.curl]
 
-  // Management Console, GHES Manage API, and GitHub Models
-  // operations are not supported by Octokit
-  if (
-    operation.category !== 'models' &&
-    operation.subcategory !== 'management-console' &&
-    operation.subcategory !== 'manage-ghes'
-  ) {
+  // Management Console and GHES Manage API operations are not supported
+  // by Octokit
+  if (operation.subcategory !== 'management-console' && operation.subcategory !== 'manage-ghes') {
     languageSelectOptions.push(CodeSampleKeys.javascript)
 
     // Not all examples support the GH CLI language option. If any of
@@ -100,7 +79,6 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   const [selectedLanguage, setSelectedLanguage] = useState(languageSelectOptions[0])
   const [selectedExample, setSelectedExample] = useState(exampleSelectOptions[0])
   const [selectedResponse, setSelectedResponse] = useState(responseSelectOptions[0])
-  const [responseMaxHeight, setResponseMaxHeight] = useState(0)
 
   const isSingleExample = languageExamples.length === 1
   const displayedExample: ExampleT = languageExamples[selectedExample.languageIndex]
@@ -115,95 +93,28 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
 
   const handleLanguageSelection = (languageKey: CodeSampleKeys) => {
     setSelectedLanguage(languageKey)
-    Cookies.set('codeSampleLanguagePreferred', languageKey)
-  }
-
-  const handleResponseResize = () => {
-    if (requestCodeExample.current) {
-      const requestCodeHeight = requestCodeExample.current.clientHeight || 0
-      const { innerHeight: height } = window
-      if (responseCodeExample) {
-        // 520 pixels roughly accounts for the space taken up by the
-        // nav bar, headers, language picker, method section, and response
-        // picker
-        setResponseMaxHeight(height - requestCodeHeight - 520)
-      }
-    }
+    Cookies.set(CODE_SAMPLE_LANGUAGE_COOKIE_NAME, languageKey)
   }
 
   // Change the language based on cookies
   useEffect(() => {
     // If the user previously selected a language preference and the language
     // is available in this component set it as the selected language
-    const cookieValue = Cookies.get('codeSampleLanguagePreferred')
+    const cookieValue = Cookies.get(CODE_SAMPLE_LANGUAGE_COOKIE_NAME)
     const preferredCodeLanguage = languageSelectOptions.find((item) => item === cookieValue)
     if (cookieValue && preferredCodeLanguage) {
       setSelectedLanguage(cookieValue as CodeSampleKeys)
     }
   }, [])
 
-  // Handle syntax highlighting when the language changes or
-  // a cookie is set
+  // Reset scroll position to the top when switching between example response and
+  // response schema. Highlighting is handled React-natively by <HighlightedCode>.
   useEffect(() => {
-    const reqElem = requestCodeExample.current
-
-    // Do not highlight on the first render because the
-    // intersection observer syntax highlighting
-    // (ClientSideHighlightJS) will have already handled highlighting
-    if (reqElem && !firstRender.current) {
-      highlightElement(reqElem)
-      handleResponseResize()
-    }
-  }, [selectedLanguage])
-
-  // Handle syntax highlighting and scroll position when the language changes or
-  // a cookie is set, changing the default language
-  useEffect(() => {
-    const reqElem = responseCodeExample.current
     const scrollElem = scrollRef.current
-
-    // Reset scroll position to the top when switching between example response and
-    // response schema
     if (scrollElem) {
       scrollElem.scrollTop = 0
     }
-    // Do not highlight on the first render because the
-    // intersection observer syntax highlighting
-    // (ClientSideHighlightJS) will have already handled highlighting
-    if (reqElem && !firstRender.current) {
-      highlightElement(reqElem)
-    }
   }, [selectedResponse])
-
-  // Handle highlighting when there is more than one example and
-  // the example changes.
-  useEffect(() => {
-    const reqElem = requestCodeExample.current
-    if (reqElem) {
-      highlightElement(reqElem)
-    }
-
-    const resElem = responseCodeExample.current
-    if (resElem) {
-      highlightElement(resElem)
-    }
-  }, [selectedExample])
-
-  // Keep track of the first render so we can skip highlighting
-  useEffect(() => {
-    if (firstRender.current) {
-      firstRender.current = false
-    }
-  }, [])
-
-  // Handle the resizing of the response section when the window is resized
-  useEffect(() => {
-    handleResponseResize()
-    window.addEventListener('resize', handleResponseResize)
-    return () => {
-      window.removeEventListener('resize', handleResponseResize)
-    }
-  })
 
   const [isCopied, setCopied] = useClipboard(displayedExample[selectedLanguage] as string, {
     successDuration: 1400,
@@ -227,10 +138,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
       {isEnterpriseCloud && selectedLanguage === CodeSampleKeys.curl ? (
         <span className="f5">
           <InfoIcon className="d-inline mx-1" />
-          <p
-            className="d-inline"
-            dangerouslySetInnerHTML={{ __html: t('data_residency_notice') }}
-          />
+          <RenderedHTML as="p" className="d-inline" html={t('data_residency_notice')} />
         </span>
       ) : null}
 
@@ -303,21 +211,22 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
             styles.requestCodeBlock,
             `border-top rounded-1 my-0 ${getLanguageHighlight(selectedLanguage)}`,
           )}
-          data-highlight={getLanguageHighlight(selectedLanguage)}
           // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
           tabIndex={0}
         >
-          <code ref={requestCodeExample}>{displayedExample[selectedLanguage]}</code>
+          <HighlightedCode
+            language={getLanguageHighlight(selectedLanguage)}
+            code={String(displayedExample[selectedLanguage] ?? '')}
+          />
         </div>
       </div>
 
       {/* Response section */}
-      <h4
+      <RenderedHTML
+        as="h4"
         className="mt-5 mb-2 h5"
-        dangerouslySetInnerHTML={{
-          __html: displayedExample.response.description || t('response'),
-        }}
-      ></h4>
+        html={displayedExample.response.description || t('response')}
+      />
       <div className="border rounded-1 pt-2">
         {displayedExample.response.schema ? (
           <SegmentedControl
@@ -359,16 +268,17 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
                 styles.responseCodeBlock,
                 'border-top rounded-1 my-0',
               )}
-              data-highlight={'json'}
-              style={{ maxHeight: responseMaxHeight }}
               // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
               tabIndex={0}
             >
-              <code ref={responseCodeExample}>
-                {selectedResponse === ResponseKeys.example
-                  ? displayedExampleResponse
-                  : displayedExampleSchema}
-              </code>
+              <HighlightedCode
+                language="json"
+                code={String(
+                  (selectedResponse === ResponseKeys.example
+                    ? displayedExampleResponse
+                    : displayedExampleSchema) ?? '',
+                )}
+              />
             </div>
           )}
         </div>

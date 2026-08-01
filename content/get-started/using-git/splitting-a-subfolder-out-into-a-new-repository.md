@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Splitting a subfolder
+category:
+  - Work with Git
 ---
 
 > [!NOTE]

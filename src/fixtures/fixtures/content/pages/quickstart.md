@@ -6,10 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: quick_start
+contentType: get-started
 permissions: These are permissions details, for more pages info start at the beginning with this [article intro link](#introduction). Also here's [another link](/get-started/start-your-journey/hello-world).
-topics:
-  - Pages
 shortTitle: Quickstart
 product: '{% data reusables.gated-features.pages %}'
 ---

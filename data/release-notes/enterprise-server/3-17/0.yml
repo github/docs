@@ -21,7 +21,7 @@ sections:
           During the upgrade to 3.17, the database transitions will be run concurrently. You may notice the upgrade taking less time.
         # https://github.com/github/releases/issues/5675
         - |
-          GitHub Enterprise Server Backup Service is a managed backup solution built directly into the appliance. It provides simplified alternative to the `backup-utils`. The backup service is in public preview. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/backup-service-for-github-enterprise-server/about-the-backup-service-for-github-enterprise-server).
+          GitHub Enterprise Server Backup Service is a managed backup solution built directly into the appliance. It provides simplified alternative to the `backup-utils`. The backup service is in public preview. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/about-the-backup-service-for-github-enterprise-server).
 
     - heading: Secret Protection and Code Security
       notes:
@@ -86,6 +86,12 @@ sections:
         - |
           Developers using `pnpm` workspaces can ensure more reliable dependency updates with full Dependabot support for `pnpm` workspace catalogs. Dependabot prevents lockfile inconsistencies, avoids broken dependency trees, and improves update reliability in monorepos. See [the GitHub blog post](https://github.blog/changelog/2025-02-04-dependabot-now-supports-pnpm-workspace-catalogs-ga/).
 
+    - heading: GitHub Actions
+      notes:
+        # Required Actions Runner version
+        - |
+          {% data reusables.actions.actions-runner-release-note %}
+
     - heading: Identity and access management
       notes:
         # https://github.com/github/releases/issues/5040
@@ -116,15 +122,9 @@ sections:
         # https://github.com/github/releases/issues/4042
         - |
           Push rulesets are generally available. Users can block pushes to private and internal repositories, and their forks, based on file type, path, or size. Unlike pre-receive hooks, push rules are built-in, configurable via the UI or API, and support audit logs, evaluate mode, and bypass lists. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#push-rulesets).
-        # https://github.com/github/releases/issues/5128
-        - |
-          Enterprise administrators can manage rules more efficiently with the general availability of ruleset history, import, and export. Ruleset history allows tracking and rolling back changes, while import and export simplify sharing and reusing rulesets, including GitHub's ruleset-recipes. See [`github/ruleset-recipes`](https://github.com/github/ruleset-recipes).
         # https://github.com/github/releases/issues/5129
         - |
           Repository administrators can easily convert a fork into a standalone repository by leaving the fork network, which stops automatic syncing with the upstream repository. This is useful for taking a project in a new direction or maintaining separate versions.
-        # https://github.com/github/releases/issues/5273
-        - |
-          Users can more easily explore contributors and code frequency insights with improved navigation, interactive chart legends for hiding data series, and options to view or download the data as a CSV or PNG. See [Repositories - Updated insight views (General Availability)](https://github.blog/changelog/2025-02-25-repositories-updated-insight-views-general-availability/) on the GitHub Blog.
 
     - heading: Pull requests
       notes:
@@ -194,7 +194,7 @@ sections:
     - |
       Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
     - |
-      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+      When following the instructions for [Replacing the primary database node](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-database-node-mysql-or-mysql-and-mssql), `ghe-cluster-config-apply` might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
     - |
       Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
     - |
@@ -215,13 +215,17 @@ sections:
       When publishing npm packages in a workflow after restoring from a backup to GitHub Enterprise Server 3.13.5.gm4 or 3.14.2.gm3, you may encounter a `401 Unauthorized` error from the GitHub Packages service. This can happen if the restore is from an N-1 or N-2 version and the workflow targets the npm endpoint on the backup instance. To avoid this issue, ensure the access token is valid and includes the correct scopes for publishing to GitHub Packages.
     - |
       Uploading a new license with unbundled GitHub Advanced Security may not fully unbundle all the Security Configurations on the instance in certain cases. Any active Security Configurations will continue to function, but when attempting to apply the configurations to new repositories you may see errors like "Advanced Security is not purchased" or `Validation failed: Secret scanning non provider patterns Non-provider patterns must be disabled when secret scanning is disabled`. Contact GitHub Support for assistance clearing this state in version 3.17.0. This issue will be resolved in version 3.17.2.
+    - |
+      Upgrading to this version from GHES 3.15.14 and higher or 3.16.10 and higher will cause the upgrade to fail due to this version containing an older version of MySQL. To avoid this issue please upgrade to GHES 3.17.7 or higher.
+
+      [Updated: 2025-11-24]
 
   closing_down:
     # https://github.com/github/releases/issues/5177
     - |
       In GitHub Enterprise Server 3.20, GitHub will retire the security manager API in favor of the organization roles API. See the [GitHub Blog](https://github.blog/changelog/2024-12-10-notice-of-breaking-changes-security-manager-rest-api-will-be-retired-and-replaced-with-the-organization-roles-rest-api/).
     - |
-      Microsoft Exchange Online is retiring SMTP basic authentication in September 2025. If your GitHub Enterprise Server instance uses this method to send email, delivery may fail after the retirement date. Microsoft recommends switching to a supported alternative. As another option, you may consider using an SMTP OAuth proxy such as [email-oauth2-proxy](https://github.com/simonrob/email-oauth2-proxy), though this is not officially supported. For details and configuration guidance, see the [Microsoft announcement](https://techcommunity.microsoft.com/blog/exchange/exchange-online-to-retire-basic-auth-for-client-submission-smtp-auth/4114750) and the proxy’s [documentation](https://github.com/simonrob/email-oauth2-proxy/blob/main/emailproxy.config).
+      Microsoft Exchange Online is retiring SMTP basic authentication during March-April 2026. If your GitHub Enterprise Server instance uses this method to send email, delivery may fail after the retirement date. Microsoft recommends switching to a supported alternative. As another option, you may consider using an SMTP OAuth proxy such as [email-oauth2-proxy](https://github.com/simonrob/email-oauth2-proxy), though this is not officially supported. For details and configuration guidance, see the [Microsoft announcement](https://techcommunity.microsoft.com/blog/exchange/exchange-online-to-retire-basic-auth-for-client-submission-smtp-auth/4114750) and the proxy’s [documentation](https://github.com/simonrob/email-oauth2-proxy/blob/main/emailproxy.config). [Updated: 2025-09-03]
 
   retired:
     # https://github.com/github/releases/issues/5433
@@ -236,3 +240,7 @@ sections:
     # https://github.com/github/releases/issues/5204
     - |
       Dependabot is no longer supporting NPM version 6, which has reached its end-of-life. If you continue to use NPM version 6, Dependabot will be unable to create pull requests to update dependencies. If this affects you, we recommend updating to a supported release of NPM. As of December 2024, NPM 9 is the newest supported release.
+
+  errata:
+    - |
+      The "Features" section incorrectly indicated that updated insight views for repositories are available in this release. This feature is unavailable in GitHub Enterprise Server 3.17, and is available from GitHub Enterprise Server 3.19.0. [Updated: 2026-01-12]

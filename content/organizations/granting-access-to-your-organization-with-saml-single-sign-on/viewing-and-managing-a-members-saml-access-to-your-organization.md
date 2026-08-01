@@ -8,10 +8,9 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/viewing-and-managing-a-members-saml-access-to-your-organization
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Manage SAML access
+category:
+  - Configure SAML single sign-on
 ---
 
 ## About SAML access to your organization
@@ -69,4 +68,4 @@ When available, the entry will include SCIM data. For more information, see [AUT
 ## Further reading
 
 * [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)
-* [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)
+* [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)

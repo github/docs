@@ -1,0 +1,5 @@
+# Reference: #60482.
+# Documentation for renaming the Security tab to "Security and quality".
+versions:
+  fpt: '*'
+  ghec: '*'

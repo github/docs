@@ -1,18 +1,18 @@
 ---
 title: Troubleshooting Actions Runner Controller errors
 shortTitle: Troubleshoot
-intro: 'Learn how to troubleshoot {% data variables.product.prodname_actions_runner_controller %} errors.'
+intro: Learn how to troubleshoot {% data variables.product.prodname_actions_runner_controller %} errors.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: how_to
-topics:
-  - Actions Runner Controller
 redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/troubleshooting-actions-runner-controller-errors
   - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/troubleshooting-actions-runner-controller-errors
   - /actions/tutorials/actions-runner-controller/troubleshooting-actions-runner-controller-errors
+contentType: tutorials
+category:
+  - Use and manage runners
 ---
 
 ## Logging
@@ -88,7 +88,7 @@ If the controller pod is running, but the listener pod is not, inspect the logs 
 
 If you have a proxy configured or you're using a sidecar proxy that's automatically injected, such as [Istio](https://istio.io/), ensure it's configured to allow traffic from the controller container (manager) to the Kubernetes API server.
 
-If you have installed the autoscaling runner set, but the listener pod is not created, verify that the `githubConfigSecret` you provided is correct and that the `githubConfigUrl` you provided is accurate. See [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/authenticating-to-the-github-api) and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller) for more information.
+If you have installed the autoscaling runner set, but the listener pod is not created, verify that the `githubConfigSecret` you provided is correct and that the `githubConfigUrl` you provided is accurate. See [AUTOTITLE](/actions/how-tos/manage-runners/use-actions-runner-controller/authenticate-to-the-api) and [AUTOTITLE](/actions/how-tos/manage-runners/use-actions-runner-controller/deploy-runner-scale-sets) for more information.
 
 ## Runner pods are recreated after a canceled workflow run
 
@@ -156,6 +156,14 @@ A `401 Unauthorized` error when attempting to obtain an access token for a {% da
 ## Runner group limits
 
 {% data reusables.actions.self-hosted-runner-group-limit %}
+
+## Runner updates
+
+{% data reusables.actions.self-hosted-runner-update-warning %}
+
+Validate that your runner software version and/or custom runner image(s) in use are running the latest version.
+
+For more information, see [AUTOTITLE](/actions/reference/runners/self-hosted-runners).
 
 ## Legal notice
 

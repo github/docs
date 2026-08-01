@@ -72,6 +72,8 @@ $mutedTextColor: var(--fgColor-muted, var(--color-fg-muted, #656d76));
   background-color: var(--overlay-bgColor);
   overflow-y: auto;
   min-height: 15vh;
+  border-top: 1px solid
+    var(--borderColor-default, var(--color-border-default, #d0d7de));
 
   @include breakpoint(sm) {
     min-height: fit-content !important;
@@ -121,4 +123,77 @@ $mutedTextColor: var(--fgColor-muted, var(--color-fg-muted, #656d76));
 
 .noResultsFound {
   color: $mutedTextColor !important;
+}
+
+.screenReaderOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.overlayPadding {
+  padding: 0 16px 0 16px;
+}
+
+.askAILabel {
+  display: flex;
+  margin-right: 8px;
+  font-weight: bolder;
+}
+
+.askAILabelHidden {
+  display: none;
+  margin-right: 8px;
+  font-weight: bolder;
+}
+
+.stackMinWidth {
+  min-width: 34px;
+}
+
+.dividerTopMargin {
+  display: block;
+  margin-top: 16px;
+  width: 100%;
+}
+
+.dividerTopMarginHidden {
+  display: none;
+  margin-top: 16px;
+  width: 100%;
+}
+
+.dividerFullWidth {
+  width: 100%;
+}
+
+.privacyDisclaimer {
+  color: var(--color-fg-muted);
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  font-size: small;
+}
+
+.trailingVisualActive {
+  visibility: visible;
+  width: 1rem;
+}
+
+.trailingVisualHidden {
+  visibility: hidden;
+  width: 1rem;
+}
+
+.leadingVisualHidden {
+  visibility: hidden;
+}
+
+.leadingVisualVisible {
+  visibility: visible;
 }

@@ -5,15 +5,13 @@ intro: Build skills and knowledge about billing through examples and hands-on ac
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '*'
-topics:
-  - Billing
 children:
   - /automate-usage-reporting
-  - /set-up-budgets
-  - /use-cost-centers
-  - /estimate-spending
+  - /soft-budgets
+  - /control-costs-at-scale
   - /gather-insights
 contentType: tutorials
+redirect_from:
+  - /billing/tutorials/estimate-actions-costs
 ---
 

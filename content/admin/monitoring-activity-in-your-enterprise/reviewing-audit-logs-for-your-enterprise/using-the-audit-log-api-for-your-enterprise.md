@@ -2,16 +2,13 @@
 title: Using the audit log API for your enterprise
 intro: Learn how to programmatically retrieve enterprise events with the REST API.
 shortTitle: Audit log API
-permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}'
+permissions: Enterprise owners {% ifversion ghes %}and site administrators {% endif %}
 versions:
   ghec: '*'
   ghes: '*'
-type: tutorial
-topics:
-  - Auditing
-  - Enterprise
-  - Logging
-  - API
+contentType: tutorials
+category:
+  - Monitor and audit your enterprise
 ---
 
 >[!NOTE] {% data reusables.webhooks.webhooks-as-audit-log-alternative %}
@@ -36,15 +33,15 @@ You can use the `read:audit_log` scope to access the audit log via the API.
 
 ## Rate limit
 
-Each audit log API endpoint has a rate limit of 1,750 queries per hour for a given combination of user and IP address. To avoid rate limiting, integrations that query the audit log API should query at a maximum frequency of 1,750 queries per hour. Additionally, if your integration receives a rate limit error (typically a 403 or 429 response), it should wait before making another request to the API. See [AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api) and [AUTOTITLE](/rest/guides/best-practices-for-integrators).{% endif %}
+Each audit log API endpoint has a rate limit of 1,750 queries per hour for a given combination of user and IP address. To avoid rate limiting, integrations that query the audit log API should query at a maximum frequency of 1,750 queries per hour. Additionally, if your integration receives a rate limit error (typically a 403 or 429 response), it should wait before making another request to the API. See [AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api) and [AUTOTITLE](/rest/using-the-rest-api/best-practices-for-using-the-rest-api). {% endif %}
 
 ## Example 1: All events in an enterprise, for a specific date, with pagination
 
-You can use {% ifversion ghes %}page-based{% else %}cursor based{% endif %} pagination. For more information about pagination, see [AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api).
+You can use {% ifversion ghes %}page-based{% else %}cursor-based{% endif %} pagination. For more information about pagination, see [AUTOTITLE](/rest/using-the-rest-api/using-pagination-in-the-rest-api).
 
 {% ifversion ghes %}
 
-The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and return the first page with a maximum of 100 items per page using pagination. For more information about pagination, see [AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api).
+The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and returns the first page with a maximum of 100 items per page using pagination. For more information about pagination, see [AUTOTITLE](/rest/using-the-rest-api/using-pagination-in-the-rest-api).
 
 ```shell
 curl -H "Authorization: Bearer TOKEN" \
@@ -54,7 +51,7 @@ curl -H "Authorization: Bearer TOKEN" \
 
 {% else %}
 
-The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and returns the first page with a maximum of 100 items per page using pagination. For more information about pagination, see [AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api). The `--include` flag causes the headers to be returned along with the response.
+The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and returns the first page with a maximum of 100 items per page using pagination. For more information about pagination, see [AUTOTITLE](/rest/using-the-rest-api/using-pagination-in-the-rest-api). The `--include` flag causes the headers to be returned along with the response.
 
 ```shell
 curl --include -H "Authorization: Bearer TOKEN" \
@@ -65,9 +62,9 @@ curl --include -H "Authorization: Bearer TOKEN" \
 If there are more than 100 results, the `link` header will include URLs to fetch the next, first, and previous pages of results.
 
 ```text
-link: <{% data variables.product.rest_url %}/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=MS42NjQzODMzNTk5MjdlKzEyfDloQzBxdURzaFdVbVlLWjkxRU9mNXc%3D&before=>; rel="next",
-<{% data variables.product.rest_url %}/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=&before=>; rel="first",
-<{% data variables.product.rest_url %}/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=&before=MS42Njc4NDA2MjM4MzNlKzEyfExqeG5sUElvNEZMbG1XZHA5akdKTVE%3D>; rel="prev"
+link: <{% data variables.product.rest_url %}/enterprises/13827/audit-log?phrase%3A2022-11-01=&per_page=100&after=MS42NjQzODMzNTk5MjdlKzEyfDloQzBxdURzaFdVbVlLWjkxRU9mNXc%3D&before=>; rel="next",
+<{% data variables.product.rest_url %}/enterprises/13827/audit-log?phrase%3A2022-11-01=&per_page=100&after=&before=>; rel="first",
+<{% data variables.product.rest_url %}/enterprises/13827/audit-log?phrase%3A2022-11-01=&per_page=100&after=&before=MS42Njc4NDA2MjM4MzNlKzEyfExqeG5sUElvNEZMbG1XZHA5akdKTVE%3D>; rel="prev"
 ```
 
 Copy the corresponding pagination link into your next request. For example:
@@ -75,7 +72,7 @@ Copy the corresponding pagination link into your next request. For example:
 ```shell
 curl -I -H "Authorization: Bearer TOKEN" \
 --request GET \
-"{% data variables.product.rest_url %}/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=MS42Njc4NDA2MjM5NDFlKzEyfHRYa3AwSkxUd2xyRjA5bWxfOS1RbFE%3D&before="
+"{% data variables.product.rest_url %}/enterprises/13827/audit-log?phrase%3A2022-11-01=&per_page=100&after=MS42Njc4NDA2MjM5NDFlKzEyfHRYa3AwSkxUd2xyRjA5bWxfOS1RbFE%3D&before="
 ```
 
 {% endif %}

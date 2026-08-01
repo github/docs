@@ -55,7 +55,7 @@ Most subject folders have their own mention in `.github/workflows/test.yml`.
 Open the file to see the beginning of it. It's manually maintained but
 it's important to point out two things:
 
-1. It's manually entered so creating a `src/foo/tests/*.js` doesn't
+1. It's manually entered so creating a `src/foo/tests/*.ts` doesn't
    automatically start running those tests.
 1. When you add an entry to `.github/workflows/test.yml`, and it's
    gone into `main`, don't forget to add it to the branch protection's

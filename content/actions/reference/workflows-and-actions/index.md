@@ -15,8 +15,10 @@ children:
   - /contexts
   - /deployments-and-environments
   - /dependency-caching
-  - /reusable-workflows
+  - /reusing-workflow-configurations
   - /metadata-syntax
   - /workflow-cancellation
   - /dockerfile-support
+contentType: reference
 ---
+

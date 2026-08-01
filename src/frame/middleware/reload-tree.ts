@@ -19,7 +19,7 @@ import path from 'path'
 import type { Response, NextFunction } from 'express'
 
 import type { ExtendedRequest, UnversionedTree, SiteTree } from '@/types'
-import languages, { languageKeys } from '@/languages/lib/languages'
+import languages, { languageKeys } from '@/languages/lib/languages-server'
 import createTree from '@/frame/lib/create-tree'
 import warmServer from '@/frame/lib/warm-server'
 import { loadSiteTree, loadPages, loadPageMap } from '@/frame/lib/page-data'
@@ -46,7 +46,7 @@ export default async function reloadTree(req: ExtendedRequest, res: Response, ne
     path.join(languages.en.dir, 'content'),
     undefined,
     warmed.unversionedTree.en,
-  )) as UnversionedTree // Note! Have to use `as` until create-tree.js is JS
+  )) as UnversionedTree
   const after = getMtimes(warmed.unversionedTree.en)
   // The next couple of operations are much slower (in total) than
   // refreshing the tree. So we want to know if the tree changed before

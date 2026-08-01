@@ -1,32 +1,62 @@
 ---
-title: 'Tutorials for {% data variables.product.prodname_copilot %}'
+title: Tutorials for {% data variables.product.prodname_copilot %}
 shortTitle: Tutorials
-intro: 'Build skills and knowledge about {% data variables.product.prodname_copilot %} through examples and hands-on activities.'
+intro: Build skills and knowledge about {% data variables.product.prodname_copilot %} through examples and hands-on activities.
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
-  - /copilot-chat-cookbook
-  - /coding-agent
-  - /compare-ai-models
+  - /copilot-cookbook
+  - /customization-library
+  - /cloud-agent
+  - /budgets
+  - /spark
+  - /customize-code-review
+  - /use-copilot-code-review-across-the-pull-request-lifecycle
   - /enhance-agent-mode-with-mcp
-  - /try-extensions
+  - /compare-ai-models
   - /speed-up-development-work
+  - /roll-out-at-scale
   - /explore-a-codebase
   - /explore-issues-and-discussions
   - /explore-pull-requests
   - /write-tests
   - /refactor-code
+  - /optimize-ai-usage
+  - /optimize-code-reviews
+  - /reduce-technical-debt
+  - /stack-ai-generated-code-in-pull-requests
+  - /review-ai-generated-code
   - /learn-a-new-language
-  - /easy-apps-with-spark
-  - /build-apps-with-spark
   - /modernize-legacy-code
+  - /modernize-java-applications
   - /migrate-a-project
+  - /plan-a-project
+  - /vibe-coding
   - /upgrade-projects
-  - /roll-out-at-scale
+  - /copilot-cli-hooks
+  - /use-an-ai-sme
+  - /create-an-extension
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot
 contentType: tutorials
+heroImage: /assets/images/banner-images/hero-3
+layout: bespoke-landing
+sidebarLink:
+  text: All tutorials
+  href: /copilot/tutorials
+carousels:
+  recommended:
+    - /copilot/tutorials/copilot-cookbook
+    - /copilot/tutorials/customization-library
+    - /copilot/tutorials/roll-out-at-scale
+includedCategories:
+  - Accelerate PR velocity
+  - Automate simple user stories
+  - Improve quality and maintainability
+  - Scale institutional knowledge
+  - Burn down tech debt
+  - Rapid prototyping
+  - Unblock complex work
+  - Modernize applications
+  - Roll Copilot out at scale
 ---
-

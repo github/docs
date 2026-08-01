@@ -1,0 +1,1 @@
+Multiple types of custom instructions can apply to a request sent to {% data variables.product.prodname_copilot_short %}. Personal instructions take the highest priority. Repository instructions come next, and then organization instructions are prioritized last. However, all sets of relevant instructions are provided to {% data variables.product.prodname_copilot_short %}.

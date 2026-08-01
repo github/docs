@@ -1,6 +1,6 @@
 ---
 title: Configuring TLS
-intro: 'You can configure Transport Layer Security (TLS) on {% data variables.location.product_location %} so that you can use a certificate that is signed by a trusted certificate authority.'
+intro: You can configure Transport Layer Security (TLS) on {% data variables.location.product_location %} so that you can use a certificate that is signed by a trusted certificate authority.
 redirect_from:
   - /enterprise/admin/articles/ssl-configuration
   - /enterprise/admin/guides/installation/about-tls
@@ -11,13 +11,9 @@ redirect_from:
   - /admin/configuration/hardening-security-for-your-enterprise/configuring-tls
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Networking
-  - Security
+contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 ## About Transport Layer Security
 
@@ -31,13 +27,13 @@ To allow users to use FIDO U2F for two-factor authentication or deploy {% data v
 
 ## Prerequisites
 
-To use TLS in production, you must have a certificate in an unencrypted PEM format signed by a trusted certificate authority. To use a certificate signed by an internal certificate authority, you must install the root certificate and any intermediate certificates. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/troubleshooting-tls-errors#installing-self-signed-or-untrusted-certificate-authority-ca-root-certificates).
+To use TLS in production, you must have a certificate in an unencrypted PEM format signed by a trusted certificate authority. To use a certificate signed by an internal certificate authority, you must install the root certificate and any intermediate certificates. For more information, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/troubleshooting-tls-errors#installing-self-signed-or-untrusted-certificate-authority-ca-root-certificates).
 
-Your certificate will also need Subject Alternative Names configured for the subdomains listed in [AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation#about-subdomain-isolation) and will need to include the full certificate chain if it has been signed by an intermediate certificate authority. For more information, see [Subject Alternative Name](https://en.wikipedia.org/wiki/SubjectAltName) on Wikipedia.
+Your certificate will also need Subject Alternative Names configured for the subdomains listed in [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/enabling-subdomain-isolation#about-subdomain-isolation) and will need to include the full certificate chain if it has been signed by an intermediate certificate authority. For more information, see [Subject Alternative Name](https://en.wikipedia.org/wiki/SubjectAltName) on Wikipedia.
 
-You can generate a certificate signing request (CSR) for your instance using the `ghe-ssl-generate-csr` command. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-generate-csr).
+You can generate a certificate signing request (CSR) for your instance using the `ghe-ssl-generate-csr` command. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-ssl-generate-csr).
 
-Your key must be an RSA key and must not have a passphrase. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/troubleshooting-tls-errors#removing-the-passphrase-from-your-key-file).
+Your key must be an RSA key and must not have a passphrase. For more information, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/troubleshooting-tls-errors#removing-the-passphrase-from-your-key-file).
 
 ## Uploading a custom TLS certificate
 
@@ -61,7 +57,7 @@ Let's Encrypt is a public certificate authority that issues free, automated TLS 
 
 When you enable automation of TLS certificate management using Let's Encrypt, {% data variables.location.product_location %} will contact the Let's Encrypt servers to obtain a certificate. To renew a certificate, Let's Encrypt servers must validate control of the configured domain name with inbound HTTP requests.
 
-You can also use the `ghe-ssl-acme` command line utility on {% data variables.location.product_location %} to automatically generate a Let's Encrypt certificate. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-acme).
+You can also use the `ghe-ssl-acme` command line utility on {% data variables.location.product_location %} to automatically generate a Let's Encrypt certificate. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-ssl-acme).
 
 ## Configuring TLS using Let's Encrypt
 
@@ -120,4 +116,13 @@ To resolve these errors, you must update the Subject Alternative Names (SANs) yo
    ```
 
 {% data reusables.enterprise.apply-configuration %}
+
 1. If you configured a user message or maintenance mode, remove the message and disable maintenance mode.
+
+{% ifversion ghes > 3.18 %}
+
+## Configuring cipher suites and cryptographic algorithms
+
+You can configure the cipher suites and cryptographic algorithms that {% data variables.product.prodname_ghe_server %} uses for TLS and SSH connections. For more information, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/configuring-tls-and-ssh-ciphers).
+
+{% endif %}

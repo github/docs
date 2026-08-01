@@ -6,9 +6,9 @@ versions:
   ghec: '*'
   ghes: '*'
 permissions: Organization owners and repository administrators can require all commits to a repository to be signed off by the commit author.
-topics:
-  - Repositories
 shortTitle: Manage the commit signoff policy
+category:
+  - Configure merges and pull requests
 ---
 
 ## About commit signoffs

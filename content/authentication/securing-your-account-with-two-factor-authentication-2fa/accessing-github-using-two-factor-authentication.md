@@ -12,9 +12,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - 2FA
 shortTitle: Access GitHub with 2FA
+category:
+  - Set up two-factor authentication
 ---
 
 {% ifversion 2fa-check-up-period %}
@@ -25,7 +25,7 @@ If you access {% data variables.product.github %} using other methods, such as t
 
 {% else %}
 
-With two-factor authentication enabled, you'll need to provide an authentication code{% ifversion fpt or ghec %}, tap a notification in GitHub Mobile,{% endif %} or use a security key when accessing {% data variables.product.github %} through your browser. If you access {% data variables.product.github %} using other methods, such as the API or the command line, you'll need to use an alternative form of authentication. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github).
+With two-factor authentication enabled, you'll need to provide an authentication code{% ifversion fpt or ghec %}, tap a notification in GitHub Mobile,{% endif %} or use a passkey or security key when accessing {% data variables.product.github %} through your browser. If you access {% data variables.product.github %} using other methods, such as the API or the command line, you'll need to use an alternative form of authentication. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github).
 
 {% endif %}
 
@@ -93,7 +93,7 @@ You must create a {% data variables.product.pat_generic %} to use as a password 
 
 When prompted for a username and password on the command line, use your {% data variables.product.github %} username and {% data variables.product.pat_generic %}. The command line prompt won't specify that you should enter your {% data variables.product.pat_generic %} when it asks for your password.
 
-For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 ### Authenticating on the command line using SSH
 
@@ -101,20 +101,12 @@ Enabling 2FA doesn't change how you authenticate to {% data variables.product.gi
 
 ## Troubleshooting
 
-If you lose access to your two-factor authentication credentials, you can use your recovery codes or another recovery method (if you've set one up) to regain access to your account. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials).
-
-{% ifversion fpt or ghec %}
-
-> [!NOTE]
-> {% data reusables.two_fa.unlink-email-address %}
-
-{% endif %}
-
-If your authentication fails several times, you may wish to synchronize your phone's clock with your mobile provider. Often, this involves checking the "Set automatically" option on your phone's clock, rather than providing your own time zone.
+If you are receiving a "Two-factor authentication failed" error when authenticating with 2FA, the authentication code you are entering is incorrect. You can try troubleshooting your configured authentication methods before attempting account recovery. See [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/troubleshooting-two-factor-authentication-issues).
 
 ## Further reading
 
 * [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)
 * [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)
 * [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)
+* [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/troubleshooting-two-factor-authentication-issues)
 * [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)

@@ -10,11 +10,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Sponsors
 shortTitle: GitHub Sponsors
 contentType: concepts
+category:
+  - Pay third parties and manage client accounts
 ---
 
 This article describes the billing model for {% data variables.product.prodname_sponsors %} from the sponsor’s point of view.

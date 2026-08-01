@@ -4,15 +4,13 @@ intro: 'Learn how your spending is assigned to cost centers for licensed and met
 shortTitle: Cost center allocation
 versions:
   feature: enhanced-billing-platform
-topics:
-  - Billing
-  - Enterprise
-  - Team
 contentType: reference
 product: '{% data variables.product.prodname_ghe_cloud %}'
+category:
+  - Track spending and control costs
 ---
 
-This article contains reference information for how spending is assigned to cost centers. To create and manage cost centers, see [AUTOTITLE](/billing/tutorials/use-cost-centers).
+This article contains reference information for how spending is assigned to cost centers. To create and manage cost centers, see [AUTOTITLE](/billing/how-tos/products/use-cost-centers).
 
 ## Overview
 
@@ -24,37 +22,39 @@ This article contains reference information for how spending is assigned to cost
 | ------- | ----------------------------------------------------- |
 | {% data variables.product.prodname_actions %} | The repository or organization where the workflow runs. |
 | {% data variables.product.prodname_github_codespaces %} | The repository or organization where the codespace is created. |
-| {% data variables.product.prodname_copilot %} | The user who receives the license (priority), or the organization that is billed for the {% data variables.product.prodname_copilot_short %} license. |
+| {% data variables.product.prodname_copilot %} license | The user who receives the license (priority), or the organization that is billed for the {% data variables.product.prodname_copilot_short %} license. |
+| {% data variables.product.prodname_enterprise %} | The user who receives the license (priority), or the organization that is billed for the license. |
 | Git Large File Storage | The repository or organization where Git LFS is used. |
-| {% data variables.product.prodname_GH_cs_and_sp %} | The user who receives the license. |
-| {% data variables.product.prodname_enterprise %} | The user who receives the license. |
 | {% data variables.product.prodname_registry %} | The repository or organization that owns the package. |
+| {% data variables.product.prodname_ai_credits_short %} | The user who triggered {% data variables.product.prodname_ai_credit_singular %} usage (priority), or the organization that granted the user's {% data variables.product.prodname_copilot_short %} license. |
+| {% data variables.product.prodname_GHAS %} | A user who uses a license (priority), or the organization that is billed for the license. |
 
 ## Details for license-based products
 
-To ensure your cost centers reflect spending as intended, it's important to understand how spending is allocated to cost centers for license-based products like {% data variables.product.prodname_copilot %}, and how changes are reflected in your bill.
+To ensure your cost centers reflect spending as intended, it's important to understand how the cost of licenses is allocated to cost centers, and how changes are reflected in your bill.
 
-### {% data variables.product.prodname_copilot %}
+| User associated with a cost center | License granted | License and product costs charged |
+|--|--|--|
+| Direct assignment | By any organization | To the **cost center** the user is assigned to. |
+| By enterprise team membership | By any organization | To the **cost center** the user's enterprise team is assigned to. Direct assignment to another cost center takes precedence; if the user is in multiple enterprise teams assigned to different cost centers, the team created first applies. |
+| By organization membership only | By an organization assigned to a cost center | To the **cost center** the organization belongs to. If the organization does not belong to a cost center, to the **enterprise**. |
 
-* If a user belongs to a cost center, all usage associated with the user is charged to the cost center.
-* If a user does not belong to any cost center, if the organization that provides the user their {% data variables.product.prodname_copilot_short %} license belongs to a cost center, all usage associated with the user is charged to the cost center.
-* If the user receives access to {% data variables.product.prodname_copilot_short %} through **multiple organizations**, only one of the organizations is billed, and any cost center containing that organization is charged accordingly. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-the-copilot-subscription-for-your-enterprise/about-billing-for-github-copilot-in-your-enterprise#about-seat-assignment-for-copilot-in-your-enterprise).
+When you assign an enterprise team to a cost center, its members are allocated to that cost center the same way other group-based assignments are, and membership stays current automatically as people join or leave the team. If a user is also assigned to a different cost center directly, the direct assignment takes precedence. If a user belongs to more than one enterprise team, and those teams are assigned to different cost centers, the user is associated with the cost center of the enterprise team that was created first.
 
-### {% data variables.product.prodname_GH_cs_and_sp %}
+Users who belong to multiple organizations in an enterprise or who receive a {% data variables.product.prodname_copilot_short %} license from multiple organizations:
 
-* If a user belongs to a cost center, licenses consumed by the user are charged to the cost center.
-* If a user does not belong to any cost center, licenses consumed by the user are charged to the enterprise.
+* **{% data variables.product.prodname_enterprise %}** and **{% data variables.product.prodname_GHAS %}** license usage is allocated to the oldest organization and charges are allocated to the cost center containing that organization.
+* **{% data variables.product.prodname_copilot_short %}** license and product usage is allocated to one of the organizations and charges are allocated to the cost center containing that organization.
 
-### {% data variables.product.prodname_enterprise %}
+To confirm which organization is charged for a given user's license, you can request a detailed usage report. See [AUTOTITLE](/billing/reference/billing-reports#detailed-usage-report).
 
-* If a user belongs to a cost center, the license consumed by the user is charged to the cost center.
-* If a user does not belong to any cost center, the license consumed by the user is charged to the enterprise.
+See [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises#seat-assignment).
 
 ## Understanding cost center usage and attribution
 
 To view usage by cost center, go to the "Usage" page and group or filter by cost center. Any usage that is not assigned to a specific cost center is categorized as "Enterprise Only" when grouping by cost center. See [AUTOTITLE](/billing/tutorials/gather-insights).
 
-To understand how usage for a specific resource is being attributed to cost centers, request a detailed usage report and refer to the `cost_center_name` column. See [AUTOTITLE](/billing/reference/usage-reports).
+To understand how usage for a specific resource is being attributed to cost centers, request a detailed usage report and refer to the `cost_center_name` column. See [AUTOTITLE](/billing/reference/billing-reports).
 
 ## Effects of changes to cost centers
 
@@ -86,6 +86,8 @@ The following example illustrates how usage is assigned to cost centers for lice
 
 ### The users
 
+![Diagram illustrating the description of four users and their organization membership.](/assets/images/help/billing/cost-center-example-1.png)
+
 There are four users, each a member of one or more organizations in the enterprise.
 
 | User | Organization membership |
@@ -112,14 +114,11 @@ There are two cost centers in the enterprise, each with different users or organ
 
 ### How usage is allocated
 
-The following table illustrates how spending for each user is allocated to a cost center based on their membership of an organization or cost center. Any usage not assigned to a cost center is categorized as "Enterprise Only" spending.
-
 {% rowheaders %}
 
 |             | Copilot charges | GHSP charges | GHE charges | Explanation |
 | ----------- | --------------- | ------------ | ----------- | ----------- |
 | Cost Center A | `user-1`, `user-3` | `user-1`, `user-3` | `user-1`, `user-3` | These users are assigned directly to the cost center. |
-| Cost Center B | `user-2`, `user-4` | {% octicon "dash" aria-label="Not applicable" %} | {% octicon "dash" aria-label="Not applicable" %} | These users aren't directly assigned to a cost center, so Copilot charges are assigned based on organization membership, whereas GHSP and GHE default to enterprise spending. |
-| Enterprise Only (default) | {% octicon "dash" aria-label="Not applicable" %} | `user-2`, `user-4` | `user-2`, `user-4` | These users aren't directly assigned to a cost center, so GHSP and GHE default to enterprise spending. |
+| Cost Center B | `user-2`, `user-4` | `user-2`, `user-4` | `user-2`, `user-4` | These users aren't directly assigned to a cost center, so {% data variables.product.prodname_copilot %}, {% data variables.enterprise.data_residency %}, and {% data variables.product.prodname_GH_secret_protection %} charges are assigned based on organization membership. |
 
 {% endrowheaders %}

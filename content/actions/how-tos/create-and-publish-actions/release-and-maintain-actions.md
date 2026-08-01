@@ -2,10 +2,6 @@
 title: Releasing and maintaining actions
 shortTitle: Release and maintain actions
 intro: You can leverage automation and open source best practices to release and maintain actions.
-topics:
-  - Action development
-  - Actions
-  - Community
 versions:
   fpt: '*'
   ghec: '*'
@@ -15,6 +11,9 @@ redirect_from:
   - /actions/sharing-automations/creating-actions/releasing-and-maintaining-actions
   - /actions/how-tos/sharing-automations/creating-actions/releasing-and-maintaining-actions
   - /actions/how-tos/creating-and-publishing-actions/releasing-and-maintaining-actions
+category:
+  - Reuse and share automations
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -55,6 +54,11 @@ To support the developer process in the next section, add two {% data variables.
 1. Add a workflow that triggers when a commit is pushed to a feature branch or to `main` or when a pull request is created. Configure the workflow to run your unit and integration tests. For an example, see [this workflow](https://github.com/actions/javascript-action/blob/main/.github/workflows/ci.yml).
 1. Add a workflow that triggers when a release is published or edited. Configure the workflow to ensure semantic tags are in place. You can use an action like [JasonEtco/build-and-tag-action](https://github.com/JasonEtco/build-and-tag-action) to compile and bundle the JavaScript and metadata file and force push semantic major, minor, and patch tags. For more information about semantic tags, see [About semantic versioning](https://docs.npmjs.com/about-semantic-versioning).
 
+    {% ifversion immutable-releases %}
+    > [!NOTE]
+    > If you enable immutable releases for your repository, you cannot use this action to force push tags tied to releases on {% data variables.product.github %}. To learn how to manage your releases with immutable releases, see [AUTOTITLE](/actions/how-tos/create-and-publish-actions/using-immutable-releases-and-tags-to-manage-your-actions-releases).
+    {% endif %}
+
 ### Example developer process
 
 Here is an example process that you can follow to automatically run tests, create a release{% ifversion fpt or ghec %} and publish to {% data variables.product.prodname_marketplace %}{% endif %}, and publish your action.
@@ -66,9 +70,9 @@ Here is an example process that you can follow to automatically run tests, creat
 
    * When a pull request is opened, either from a branch or a fork, your testing workflow will again run the tests, this time with the merge commit.
 
-   * **Note:** for security reasons, workflows triggered by `pull_request` from forks have restricted `GITHUB_TOKEN` permissions and do not have access to secrets. If your tests or other workflows triggered upon pull request require access to secrets, consider using a different event like a [manual trigger](/actions/using-workflows/events-that-trigger-workflows#manual-events) or a [`pull_request_target`](/actions/using-workflows/events-that-trigger-workflows#pull_request_target). For more information, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#pull-request-events-for-forked-repositories).
+   * **Note:** for security reasons, workflows triggered by `pull_request` from forks have restricted `GITHUB_TOKEN` permissions and do not have access to secrets. If your tests or other workflows triggered upon pull request require access to secrets, consider using a different event like a [manual trigger](/actions/reference/workflows-and-actions/events-that-trigger-workflows#workflow_dispatch) or a [`pull_request_target`](/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request_target). For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull-request-events-for-forked-repositories).
 
-1. Create a semantically tagged release. {% ifversion fpt or ghec %} You may also publish to {% data variables.product.prodname_marketplace %} with a simple checkbox. {% endif %} For more information, see [AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release){% ifversion fpt or ghec %} and [AUTOTITLE](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action){% endif %}.
+1. Create a semantically tagged release. {% ifversion fpt or ghec %} You may also publish to {% data variables.product.prodname_marketplace %} with a simple checkbox. {% endif %} For more information, see [AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release){% ifversion fpt or ghec %} and [AUTOTITLE](/actions/how-tos/create-and-publish-actions/publish-in-github-marketplace#publishing-an-action){% endif %}.
 
    * When a release is published or edited, your release workflow will automatically take care of compilation and adjusting tags.
 
@@ -85,10 +89,10 @@ Using semantic releases means that the users of your actions can pin their workf
 {% data variables.product.github %} provides tools and guides to help you work with the open source community. Here are a few tools we recommend setting up for healthy bidirectional communication. By providing the following signals to the community, you encourage others to use, modify, and contribute to your action:
 
 * Maintain a `README` with plenty of usage examples and guidance. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes).
-* Include a workflow status badge in your `README` file. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge). Also visit [shields.io](https://shields.io/) to learn about other badges that you can add.{% ifversion fpt or ghec %}
+* Include a workflow status badge in your `README` file. For more information, see [AUTOTITLE](/actions/how-tos/monitor-workflows/add-a-status-badge). Also visit [shields.io](https://shields.io/) to learn about other badges that you can add.{% ifversion fpt or ghec %}
 * Add community health files like `CODE_OF_CONDUCT`, `CONTRIBUTING`, and `SECURITY`. For more information, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file#supported-file-types).{% endif %}
 * Keep issues current by utilizing actions like [actions/stale](https://github.com/actions/stale).{% ifversion fpt or ghec %}
-* Use {% data variables.product.github %}'s security features to communicate about vulnerabilities and how to fix them. For more information, see [AUTOTITLE](/actions/security-guides/using-githubs-security-features-to-secure-your-use-of-github-actions#protecting-actions-youve-created).{% endif %}
+* Use {% data variables.product.github %}'s security features to communicate about vulnerabilities and how to fix them. For more information, see [AUTOTITLE](/actions/reference/security/secure-use#protecting-actions-youve-created).{% endif %}
 
 ## Further reading
 

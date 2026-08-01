@@ -33,27 +33,28 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
 shortTitle: View product/license use
 permissions: '{% data reusables.permissions.enhanced-billing-cloud-all %}'
-product: Cloud only
+product: '{% data variables.product.prodname_ghe_cloud %} only'
 contentType: how-tos
+category:
+  - Manage your plan and licenses
 ---
 
 > [!TIP]
-> **{% data variables.product.prodname_ghe_server %}** administrators should instead see [AUTOTITLE](/billing/how-tos/products/download-ghas-license-use).
+> **{% data variables.product.prodname_ghe_server %}** administrators should instead see [AUTOTITLE](/billing/how-tos/products/download-license-use).
 
 ## Viewing a summary of usage
 
 The options available to you vary according to your role and {% data variables.product.github %} plan.
 
-{% data variables.product.github %} cloud:
-* Anyone can view usage data for their own personal account unless their account is managed by their enterprise (EMU).
+{% data variables.product.prodname_ghe_cloud %}:
+
+* Anyone can view usage data for their own personal account unless a license for a metered product (for example, {% data variables.product.prodname_copilot_short %}) is assigned to them by an organization or enterprise account.
 * If you are an **owner** or **billing manager** of an enterprise, or an organization on {% data variables.product.prodname_team %}, you will also have access to usage data for that organization or enterprise account.
 
 {% data variables.product.prodname_ghe_server %}:
-* Enterprise owners can access and download usage data for licenses, see [AUTOTITLE](/billing/how-tos/products/download-ghas-license-use).
+* Enterprise owners can access and download usage data for licenses, see [AUTOTITLE](/billing/how-tos/products/download-license-use).
 
 ### Personal accounts
 
@@ -66,17 +67,12 @@ The options available to you vary according to your role and {% data variables.p
 
 ### Organization and enterprise accounts
 
-1. Display the settings for the organization or enterprise account you want to view data for. For example, using the context switcher shown on all personal and organization account settings pages.
-
-   ![Screenshot of the "Public profile" settings for The Octocat. Next to "Your personal profile," a "Switch settings context" link is outlined in orange.](/assets/images/help/settings/context-switcher-button.png)
-
-1. Click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing** to display the billing and licensing overview for the account:
-   * **Organization** accounts: under "Access" in the sidebar for settings.
-   * **Enterprise** accounts: a separate tab at the top of the page.
+{% data reusables.billing.nav-to-org-or-ent %}
+{% data reusables.billing.access-org-or-ent-page %}
 
 ## Exploring usage data in more detail
 
-You can also explore usage data in more detail in the **{% octicon "graph" aria-label="chart" aria-hidden="true" %} Usage** view.
+You can also explore usage data for all metered products in more detail in the **Usage** or **Metered usage** view.
 
 * **Filter data on the page**: click in the text box to see a list of available filters.
 * **Group data**: options in the "Group" option vary based on the filters you define.
@@ -88,28 +84,46 @@ The metered usage chart and usage break down table both show your current choice
 
 {% ifversion fpt or ghec %}
 > [!TIP]
-> For GitHub Actions, you can also view the billable job execution minutes for an individual workflow run. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time).
+> For {% data variables.product.prodname_actions %}, you can also view the billable job execution minutes for an individual workflow run. For more information, see [AUTOTITLE](/actions/how-tos/monitor-workflows/view-job-execution-time).
+{% endif %}
+
+{% ifversion copilot %}
+
+## Analyzing {% data variables.product.prodname_ai_credits_short %} usage
+
+> [!NOTE]
+> Enterprise owners and billing managers can filter AI usage data by user. Organization owners cannot view user-level data directly—to see per-user consumption, download a usage report instead. See [Downloading usage reports](#downloading-usage-reports).
+
+If you use {% data variables.product.prodname_copilot_short %}, an additional **AI usage** view is listed under **Usage**. You can use this view to dig deeper into how your enterprise is consuming {% data variables.product.prodname_ai_credits_short %} and where additional spend is occurring. For example:
+
+* What's our total {% data variables.product.prodname_ai_credits_short %} consumption across all users?
+* Which users are the heaviest consumers, and are they within their budget?
+* Which models are driving the most spend?
+* How widespread is adoption in the organizations where we rolled out {% data variables.product.prodname_copilot_short %}?
+
+To understand how {% data variables.product.prodname_ai_credits_short %} are pooled across your enterprise and what the usage data represents, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
+
 {% endif %}
 
 ## Downloading usage reports
 
-You can download two different types of usage report from the "Usage" page.
+1. Visit the "Metered Usage" page to access a metered billing report for all products{% ifversion copilot %}, or navigate to the "AI usage" page for a detailed report on {% data variables.product.prodname_ai_credits_short %} consumption.{% else %}.{% endif %}
+1. At the top of the page, click **Get usage report**.
+1. Specify the report details.
+1. Click **Email me the report**.
 
-### General usage reports
+When the report is ready for you to download, you'll receive a message to your primary email account with a link to download the report. The link will expire after 24 hours.
 
-1. At the top of the "Usage" page, click **Get usage report**.
-1. Choose the report that you want to download.
+For details of the fields included in the reports, see [AUTOTITLE](/billing/reference/billing-reports).
 
-For details of the fields included in the report, see [AUTOTITLE](/billing/reference/usage-reports).
+### Downloading the data plotted in the chart
 
-### Downloading the data plotted in the usage chart
+When the chart on the "Metered usage" {% ifversion copilot %}or "AI usage"{% endif %} page shows the data you want to download, click the {% octicon "kebab-horizontal" aria-label="Chart options" aria-hidden="true" %} button and select your preferred format.
 
-When the chart on the "Usage" page shows the data you want to download, click the {% octicon "kebab-horizontal" aria-label="Chart options" aria-hidden="true" %} "Chart options" button and select your preferred format.
-
-![Screenshot of the metered usage chart on the "Usage" page with the "Chart options" outlined in dark orange.](/assets/images/help/billing/overview-chart-download-button.png)
+![Screenshot of the usage chart on the "AI usage" page with "Chart options" open and outlined in dark orange.](/assets/images/help/billing/premium-request-analytics-chart-download.png)
 
 ## Next steps
 
-* [AUTOTITLE](/billing/reference/usage-reports){% ifversion fpt or ghec %}
-* [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending)
-* [AUTOTITLE](/billing/managing-your-billing/automating-usage-reporting){% endif %}
+* [AUTOTITLE](/billing/reference/billing-reports){% ifversion fpt or ghec %}
+* [AUTOTITLE](/billing/how-tos/set-up-budgets)
+* [AUTOTITLE](/billing/tutorials/automate-usage-reporting){% endif %}

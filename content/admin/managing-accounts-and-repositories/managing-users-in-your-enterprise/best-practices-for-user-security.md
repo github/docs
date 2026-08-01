@@ -1,18 +1,16 @@
 ---
 title: Best practices for user security
-intro: 'Outside of instance-level security measures (SSL, subdomain isolation, configuring a firewall) that a site administrator can implement, there are steps your users can take to help protect your enterprise.'
+intro: Outside of instance-level security measures (SSL, subdomain isolation, configuring a firewall) that a site administrator can implement, there are steps your users can take to help protect your enterprise.
 redirect_from:
   - /enterprise/admin/user-management/best-practices-for-user-security
   - /admin/user-management/best-practices-for-user-security
   - /admin/user-management/managing-users-in-your-enterprise/best-practices-for-user-security
 versions:
   ghes: '*'
-type: reference
-topics:
-  - Enterprise
-  - Security
-  - User account
 shortTitle: User security best practices
+contentType: reference
+category:
+  - Manage accounts and repositories
 ---
 
 ## Enabling two-factor authentication

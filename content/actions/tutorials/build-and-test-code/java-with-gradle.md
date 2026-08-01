@@ -13,11 +13,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CI
-  - Java
-  - Gradle
 shortTitle: Java with Gradle
+category:
+  - Build and test code
+contentType: tutorials
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -26,13 +25,13 @@ shortTitle: Java with Gradle
 
 This guide shows you how to create a workflow that performs continuous integration (CI) for your Java project using the Gradle build system. The workflow you create will allow you to see when commits to a pull request cause build or test failures against your default branch; this approach can help ensure that your code is always healthy. You can extend your CI workflow to cache files and upload artifacts from a workflow run.
 
-{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Java Development Kits (JDKs) and Gradle. For a list of software and the pre-installed versions for JDK and Gradle, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software).
+{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Java Development Kits (JDKs) and Gradle. For a list of software and the pre-installed versions for JDK and Gradle, see [AUTOTITLE](/actions/concepts/runners/github-hosted-runners#preinstalled-software-for-github-owned-images).
 
 ## Prerequisites
 
 You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see:
-* [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)
-* [AUTOTITLE](/actions/learn-github-actions)
+* [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax)
+* [AUTOTITLE](/actions/how-tos/write-workflows)
 
 We recommend that you have a basic understanding of Java and the Gradle framework. For more information, see the [Gradle User Manual](https://docs.gradle.org/current/userguide/userguide.html).
 
@@ -55,6 +54,7 @@ We recommend that you have a basic understanding of Java and the Gradle framewor
    If you don't find the "Java with Gradle" workflow template, copy the following workflow code to a new file called `gradle.yml` in the `.github/workflows` directory of your repository.
 
    ```yaml copy
+   {% data reusables.actions.actions-not-certified-by-github-comment %}
    name: Java CI with Gradle
 
    on:
@@ -78,7 +78,7 @@ We recommend that you have a basic understanding of Java and the Gradle framewor
            distribution: 'temurin'
 
        - name: Setup Gradle
-         uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+         uses: gradle/actions/setup-gradle@017a9effdb900e5b5b2fddfb590a105619dca3c3 # v4.4.2
 
        - name: Build with Gradle
          run: ./gradlew build
@@ -109,6 +109,7 @@ The workflow template will run the `build` task by default. In the default Gradl
 If you use different commands to build your project, or you want to use a different task, you can specify those. For example, you may want to run the `package` task that's configured in your `ci.gradle` file.
 
 ```yaml copy
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 steps:
   - uses: {% data reusables.actions.action-checkout %}
   - uses: {% data reusables.actions.action-setup-java %}
@@ -117,7 +118,7 @@ steps:
       distribution: 'temurin'
 
   - name: Setup Gradle
-    uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+    uses: gradle/actions/setup-gradle@017a9effdb900e5b5b2fddfb590a105619dca3c3 # v4.4.2
 
   - name: Build with Gradle
     run: ./gradlew -b ci.gradle package
@@ -131,11 +132,12 @@ Caching is enabled by default when using the `gradle/actions/setup-gradle` actio
 
 ## Packaging workflow data as artifacts
 
-After your build has succeeded and your tests have passed, you may want to upload the resulting Java packages as a build artifact. This will store the built packages as part of the workflow run, and allow you to download them. Artifacts can help you test and debug pull requests in your local environment before they're merged. For more information, see [AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts).
+After your build has succeeded and your tests have passed, you may want to upload the resulting Java packages as a build artifact. This will store the built packages as part of the workflow run, and allow you to download them. Artifacts can help you test and debug pull requests in your local environment before they're merged. For more information, see [AUTOTITLE](/actions/tutorials/store-and-share-data).
 
 Gradle will usually create output files like JARs, EARs, or WARs in the `build/libs` directory. You can upload the contents of that directory using the `upload-artifact` action.
 
 ```yaml copy
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 steps:
   - uses: {% data reusables.actions.action-checkout %}
   - uses: {% data reusables.actions.action-setup-java %}
@@ -144,7 +146,7 @@ steps:
       distribution: 'temurin'
 
   - name: Setup Gradle
-    uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+    uses: gradle/actions/setup-gradle@017a9effdb900e5b5b2fddfb590a105619dca3c3 # v4.4.2
 
   - name: Build with Gradle
     run: ./gradlew build

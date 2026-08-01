@@ -1,23 +1,17 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { useRouter } from 'next/router'
 import { ChevronLeftIcon, ChevronRightIcon } from '@primer/octicons-react'
-import { Token } from '@primer/react'
 import cx from 'classnames'
-import type { TocItem } from '@/landings/types'
+import type { ResolvedArticle } from '@/types'
 import { useTranslation } from '@/languages/components/useTranslation'
+import { useVersion } from '@/versions/components/useVersion'
 import styles from './LandingCarousel.module.scss'
-
-type ProcessedArticleItem = {
-  article: string
-  title: string
-  description: string
-  url: string
-  category: string[]
-}
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type LandingCarouselProps = {
   heading?: string
-  recommended?: string[] // Array of article paths
-  flatArticles: TocItem[]
+  carouselKey?: string // Optional key for translation lookup (e.g., "recommended")
+  carouselArticles?: ResolvedArticle[]
 }
 
 // Hook to get current items per view based on screen size
@@ -49,56 +43,88 @@ const useResponsiveItemsPerView = () => {
 
 export const LandingCarousel = ({
   heading = '',
-  flatArticles,
-  recommended,
+  carouselKey,
+  carouselArticles,
 }: LandingCarouselProps) => {
   const [currentPage, setCurrentPage] = useState(0)
+  const [isAnimating, setIsAnimating] = useState(false)
   const itemsPerView = useResponsiveItemsPerView()
-  const { t } = useTranslation('discovery_landing')
-  const headingText = heading || t('recommended')
+  const { t } = useTranslation('carousels')
+  const router = useRouter()
+  const { currentVersion } = useVersion()
+
+  // Determine heading text
+  let headingText = heading
+  if (!headingText && carouselKey) {
+    // Try to get translation for the carousel key
+    const translated = t(carouselKey)
+
+    // Check if we got a real translation or a fallback
+    const looksLikeFallback = !translated || translated === carouselKey
+
+    if (!looksLikeFallback) {
+      headingText = translated
+    }
+  }
+
+  // Ref to store timeout IDs for cleanup
+  const animationTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   // Reset to first page when itemsPerView changes (screen size changes)
   useEffect(() => {
     setCurrentPage(0)
   }, [itemsPerView])
 
-  // Helper function to find article data from tocItems
-  const findArticleData = (articlePath: string) => {
-    if (typeof articlePath !== 'string') {
-      console.warn('Invalid articlePath:', articlePath)
-      return null
-    }
-    const cleanPath = articlePath.startsWith('/') ? articlePath.slice(1) : articlePath
-    return flatArticles.find(
-      (item) =>
-        item.fullPath?.endsWith(cleanPath) ||
-        item.fullPath?.includes(cleanPath.split('/').pop() || ''),
-    )
-  }
+  const processedItems: ResolvedArticle[] = carouselArticles || []
 
-  // Process recommended articles to get article data
-  const processedItems = (recommended || [])
-    .filter((item) => typeof item === 'string' && item.length > 0)
-    .map((recommendedArticlePath) => {
-      const articleData = findArticleData(recommendedArticlePath)
-      return {
-        article: recommendedArticlePath,
-        title: articleData?.title || 'Unknown Article',
-        description: articleData?.intro || '',
-        url: articleData?.fullPath || recommendedArticlePath,
-        category: articleData?.category || [],
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (animationTimeoutRef.current) {
+        clearTimeout(animationTimeoutRef.current)
       }
-    })
+    }
+  }, [])
 
   const totalItems = processedItems.length
   const totalPages = Math.ceil(totalItems / itemsPerView)
 
   const goToPrevious = () => {
+    if (currentPage === 0 || isAnimating) return
+
+    // Clear any existing timeout
+    if (animationTimeoutRef.current) {
+      clearTimeout(animationTimeoutRef.current)
+    }
+
+    setIsAnimating(true)
     setCurrentPage((prev) => Math.max(0, prev - 1))
+
+    // Set animation state to false after transition completes
+    // Duration matches CSS custom property --carousel-transition-duration (100ms)
+    animationTimeoutRef.current = setTimeout(() => {
+      setIsAnimating(false)
+      animationTimeoutRef.current = null
+    }, 100)
   }
 
   const goToNext = () => {
+    if (currentPage >= totalPages - 1 || isAnimating) return
+
+    // Clear any existing timeout
+    if (animationTimeoutRef.current) {
+      clearTimeout(animationTimeoutRef.current)
+    }
+
+    setIsAnimating(true)
     setCurrentPage((prev) => Math.min(totalPages - 1, prev + 1))
+
+    // Set animation state to false after transition completes
+    // Duration matches CSS custom property --carousel-transition-duration (100ms)
+    animationTimeoutRef.current = setTimeout(() => {
+      setIsAnimating(false)
+      animationTimeoutRef.current = null
+    }, 100)
   }
 
   // Calculate the start index based on current page
@@ -110,9 +136,12 @@ export const LandingCarousel = ({
   }
 
   return (
-    <div className={styles.carousel} data-testid="landing-carousel">
+    <div
+      className={cx(styles.carousel, { [styles.noHeading]: !headingText })}
+      data-testid="landing-carousel"
+    >
       <div className={styles.header}>
-        <h2 className={styles.heading}>{headingText}</h2>
+        {headingText && <h2 className={styles.heading}>{headingText}</h2>}
         {totalItems > itemsPerView && (
           <div className={styles.navigation}>
             <button
@@ -136,24 +165,21 @@ export const LandingCarousel = ({
         )}
       </div>
 
-      <div className={styles.itemsGrid} data-testid="carousel-items">
-        {visibleItems.map((article: ProcessedArticleItem, index) => (
-          <div
+      <div
+        className={cx(styles.itemsGrid, { [styles.animating]: isAnimating })}
+        data-testid="carousel-items"
+      >
+        {visibleItems.map((article: ResolvedArticle, index) => (
+          <a
             key={startIndex + index}
+            href={`/${router.locale}/${currentVersion}${article.href}`}
             className={cx(styles.articleCard, 'border', 'border-default', 'rounded-2')}
           >
-            <div className="mb-2">
-              {article.category.map((cat) => (
-                <Token key={cat} text={cat} className="mr-1 mb-2" />
-              ))}
-            </div>
             <h3 className={styles.articleTitle}>
-              <a href={article.url} className={styles.articleLink}>
-                {article.title}
-              </a>
+              <span className={styles.articleLink}>{article.title}</span>
             </h3>
-            <p className={styles.articleDescription}>{article.description}</p>
-          </div>
+            <RenderedHTML as="div" className={styles.articleDescription} html={article.intro} />
+          </a>
         ))}
       </div>
     </div>

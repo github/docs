@@ -10,14 +10,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
+category:
+  - Create and set up a repository
 ---
 ## About cloning a repository
 
 {% webui %}
 
-You can clone a repository from {% data variables.location.product_location %} to your local computer{% ifversion codespaces %}, or to a codespace,{% endif %} to make it easier to fix merge conflicts, add or remove files, and push larger commits. When you clone a repository, you copy the repository from {% data variables.location.product_location %} to your local machine{% ifversion codespaces %}, or to a remote virtual machine when you create a codespace. For more information about cloning to a codespace, see [AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository).{% else %}.{% endif %}
+You can clone a repository from {% data variables.location.product_location %} to your local computer{% ifversion codespaces %}, or to a codespace,{% endif %} to make it easier to fix merge conflicts, add or remove files, and push larger commits. When you clone a repository, you copy the repository from {% data variables.location.product_location %} to your local machine{% ifversion codespaces %}, or to a remote virtual machine when you create a codespace. For more information about cloning to a codespace, see [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository).{% else %}.{% endif %}
 
 {% endwebui %}
 
@@ -103,7 +103,7 @@ When cloning a repository it's possible that you might encounter some errors.
 If you're unable to clone a repository, check that:
 
 * You can connect using HTTPS. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors).
-* You have permission to access the repository you want to clone. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors).
+* You have permission to access the repository you want to clone. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors#check-your-permissions).
 * The default branch you want to clone still exists. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors#error-remote-head-refers-to-nonexistent-ref-unable-to-checkout).
 
 {% ifversion fpt or ghec %}

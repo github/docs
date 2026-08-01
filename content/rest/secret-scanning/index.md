@@ -7,10 +7,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - API
 children:
   - /alert-dismissal-requests
+  - /custom-patterns
   - /delegated-bypass
   - /push-protection
   - /secret-scanning

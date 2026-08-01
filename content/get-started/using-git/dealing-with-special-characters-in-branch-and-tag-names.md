@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Special characters in names
+category:
+  - Work with Git
 ---
 
 ## About branch and tag names

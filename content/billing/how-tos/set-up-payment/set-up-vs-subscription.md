@@ -3,22 +3,21 @@ title: Setting up Visual Studio subscriptions with GitHub Enterprise
 intro: 'Your team''s subscription to {% data variables.product.prodname_vs %} can also provide access to {% data variables.product.prodname_enterprise %}.'
 versions:
   ghec: '*'
+  ghes: '*'
 redirect_from:
   - /billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise
   - /billing/managing-billing-for-your-products/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise
   - /billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise
   - /billing/managing-billing-for-your-products/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise
-topics:
-  - Billing
-  - Enterprise
-  - Licensing
 shortTitle: Set up VS subscription
 contentType: how-tos
+category:
+  - Manage enterprise licenses
 ---
 
 > [!NOTE] Customers with a {% data variables.product.prodname_vs %} bundle can **switch to usage-based billing** for {% data variables.product.prodname_enterprise %} licenses. This allows you to pay for licenses on a flexible monthly cycle for users who are not part of your {% data variables.product.prodname_vs %} subscription. See [AUTOTITLE](/billing/concepts/enterprise-billing/usage-based-licenses).
 
-{% data reusables.enterprise-accounts.vss-ghe-description %} See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise).
+{% data reusables.enterprise-accounts.vss-ghe-description %} See [AUTOTITLE](/billing/concepts/enterprise-billing/visual-studio-subs).
 
 ## Prerequisites
 
@@ -26,7 +25,7 @@ contentType: how-tos
    * [{% data variables.product.prodname_vs %} Subscriptions and Benefits](https://visualstudio.microsoft.com/subscriptions/) on the {% data variables.product.prodname_vs %} website
    * [Overview of admin responsibilities](https://docs.microsoft.com/en-us/visualstudio/subscriptions/admin-responsibilities) in Microsoft Docs.
 
-* Your team must have an enterprise on {% data variables.product.github %}, see [AUTOTITLE](/admin/overview/about-enterprise-accounts).
+* Your team must have an enterprise on {% data variables.product.github %}, see [AUTOTITLE](/admin/concepts/enterprise-fundamentals/enterprise-accounts).
    * If you're not sure whether your team has an enterprise, contact your {% data variables.product.github %} administrator.
    * If you're not sure who on your team is responsible for {% data variables.product.github %} services, contact {% data variables.contact.contact_enterprise_sales %}.
 
@@ -36,7 +35,7 @@ To set up {% data variables.visual_studio.prodname_vss_ghe %}, members of your t
 
 One person may be able to complete the tasks because the person has all of the roles, but you may need to coordinate the tasks with multiple people. For more information, see [AUTOTITLE](/billing/reference/roles-for-visual-studio).
 
-1. A {% data variables.product.github %} enterprise owner must create at least one organization in your enterprise. For more information, see [AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise).
+1. A {% data variables.product.github %} enterprise owner must create at least one organization in your enterprise. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
 
 1. The {% data variables.product.prodname_vs %} subscription admin must assign a license for {% data variables.product.prodname_vs %} to a subscriber in {% data variables.visual_studio.prodname_vss_admin_portal_with_url %}. For more information, see [Overview of the {% data variables.product.prodname_vs %} Subscriptions Administrator Portal](https://docs.microsoft.com/en-us/visualstudio/subscriptions/using-admin-portal) and [Assign {% data variables.product.prodname_vs %} Licenses in the {% data variables.product.prodname_vs %} Subscriptions Administration Portal](https://docs.microsoft.com/en-us/visualstudio/subscriptions/assign-license) in Microsoft Docs.
 
@@ -44,16 +43,16 @@ One person may be able to complete the tasks because the person has all of the r
 
 1. If the {% data variables.product.prodname_vs %} subscription admin has not disabled email notifications, the subscriber will receive two confirmation emails. For more information, see [{% data variables.product.prodname_vs %} subscriptions with {% data variables.product.prodname_enterprise %}](https://docs.microsoft.com/en-us/visualstudio/subscriptions/access-github#what-is-the-visual-studio-subscription-with-github-enterprise-setup-process) in Microsoft Docs.
 
-1. A {% data variables.product.github %} organization owner must invite the subscriber to the organization created in step 1. The subscriber can accept the invitation with an existing personal account or create a new account. After the subscriber joins the organization, the subscriber becomes an enterprise member. For more information, see [AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization).
+1. A {% data variables.product.github %} organization owner must invite the subscriber to the organization created in step 1. The subscriber can accept the invitation with an existing personal account or create a new account. After the subscriber joins the organization, the subscriber becomes an enterprise member. For more information, see [AUTOTITLE](/enterprise-cloud@latest/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
 
    > [!TIP]
    > * While not required, we recommend that the organization owner sends an invitation to the same email address used for the subscriber's User Primary Name (UPN). When the email address on {% data variables.product.github %} matches the subscriber's UPN, you can ensure that another enterprise does not claim the subscriber's license.
-   > * If the subscriber accepts the invitation to the organization with an existing personal account on {% data variables.product.github %}, we recommend that the subscriber add the email address they use for {% data variables.product.prodname_vs %} to their personal account on {% data variables.product.github %}. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account).
+   > * If the subscriber accepts the invitation to the organization with an existing personal account on {% data variables.product.github %}, we recommend that the subscriber add the email address they use for {% data variables.product.prodname_vs %} to their personal account on {% data variables.product.github %}. For more information, see [AUTOTITLE](/account-and-profile/how-tos/email-preferences/adding-an-email-address-to-your-github-account).
    > * If the organization owner must invite a large number of subscribers, a script may make the process faster. For more information, see [the sample PowerShell script](https://github.com/github/platform-samples/blob/master/api/powershell/invite_members_to_org.ps1) in the `github/platform-samples` repository.
 
 1. If any enterprise members aren't automatically matched to their {% data variables.product.prodname_vs %} account, an enterprise owner can match the accounts manually on {% data variables.product.github %}. See [Reconciling users across {% data variables.product.prodname_vs %} and {% data variables.product.github %}](#reconciling-users-across-visual-studio-and-github).
 
-After {% data variables.visual_studio.prodname_vss_ghe %} is set up for subscribers on your team, enterprise owners can review licensing information on {% data variables.product.github %}. For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account).
+After {% data variables.visual_studio.prodname_vss_ghe %} is set up for subscribers on your team, enterprise owners can review licensing information on {% data variables.product.github %}. For more information, see [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/view-enterprise-usage).
 
 ## Reconciling users across {% data variables.product.prodname_vs %} and {% data variables.product.github %}
 
@@ -80,12 +79,12 @@ When you've identified {% data variables.product.github %} users who aren't corr
 
 ## Viewing available licenses
 
-You can view the number of {% data variables.product.prodname_enterprise %} licenses available to your enterprise on {% data variables.location.product_location %}. The list of pending invitations includes subscribers who are not yet members of at least one organization in your enterprise. For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account) and [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-members-and-outside-collaborators).
+You can view the number of {% data variables.product.prodname_enterprise %} licenses available to your enterprise on {% data variables.location.product_location %}. The list of pending invitations includes subscribers who are not yet members of at least one organization in your enterprise. For more information, see [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/view-enterprise-usage) and [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-members-and-outside-collaborators).
 
-> [!TIP] If you download a CSV file with your enterprise's license usage in step 6 of [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account#viewing-the-subscription-and-usage-for-your-enterprise-account), any members with a missing value for the "Name" or "Profile" columns have not yet accepted an invitation to join an organization within the enterprise.
+> [!TIP] If you download a CSV file with your enterprise's license usage in step 6 of [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/view-enterprise-usage#viewing-the-subscription-and-usage-for-your-enterprise-account), any members with a missing value for the "Name" or "Profile" columns have not yet accepted an invitation to join an organization within the enterprise.
 
 You can also see pending {% data variables.product.prodname_enterprise %} invitations to subscribers in {% data variables.visual_studio.prodname_vss_admin_portal_with_url %}.
 
 ## Further reading
 
-* [AUTOTITLE](/get-started/onboarding/getting-started-with-github-enterprise-cloud)
+* [AUTOTITLE](/enterprise-cloud@latest/get-started/onboarding/getting-started-with-github-enterprise-cloud){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% else %}{% endif %}

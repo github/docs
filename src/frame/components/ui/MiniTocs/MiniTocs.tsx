@@ -4,6 +4,11 @@ import cx from 'classnames'
 
 import type { MiniTocItem } from '@/frame/components/context/ArticleContext'
 import { useTranslation } from '@/languages/components/useTranslation'
+import {
+  classifyToggleClass,
+  isContentVisible,
+  useSelection,
+} from '@/tools/components/SelectionContext'
 
 import styles from './Minitocs.module.scss'
 
@@ -13,6 +18,7 @@ export type MiniTocsPropsT = {
 
 function RenderTocItem(item: MiniTocItem) {
   const [currentAnchor, setCurrentAnchor] = useState('')
+  const { platform, tool } = useSelection()
 
   useEffect(() => {
     const onHashChanged = () => {
@@ -26,6 +32,14 @@ function RenderTocItem(item: MiniTocItem) {
     }
   }, [])
 
+  // `item.platform` holds the class string of the heading's `.ghd-tool` ancestor
+  // (platform OR tool value). Hide the TOC entry when its platform/tool isn't the
+  // selected one, replacing the old imperative parent-<li> `style.display` hack.
+  const classification = classifyToggleClass(item.platform)
+  if (classification && !isContentVisible(classification, { platform, tool })) {
+    return null
+  }
+
   return (
     <>
       <NavList.Item
@@ -36,7 +50,7 @@ function RenderTocItem(item: MiniTocItem) {
         {item.contents.title}
       </NavList.Item>
       {item.items && item.items.length > 0 && (
-        <ul className={cx(styles.indentNested)}>
+        <ul role="list" className={cx(styles.indentNested)}>
           {item.items.map((toc) => (
             <RenderTocItem
               key={toc.contents.href}
@@ -59,13 +73,7 @@ export function MiniTocs({ miniTocItems }: MiniTocsPropsT) {
       <Heading
         as="h2"
         id="in-this-article"
-        className="mb-1 ml-3"
-        sx={{
-          '@media (min-width: 1012px) and (max-width: 1400px)': {
-            marginTop: '2rem',
-          },
-          fontSize: 1,
-        }}
+        className={cx('mb-1 ml-3', styles.heading)}
         aria-label={t('miniToc')}
       >
         {t('miniToc')}

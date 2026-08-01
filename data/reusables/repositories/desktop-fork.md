@@ -1,1 +1,0 @@
-You can use {% data variables.product.prodname_desktop %} to fork a repository. For more information, see [AUTOTITLE](/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop).

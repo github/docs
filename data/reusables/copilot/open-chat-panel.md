@@ -1,1 +1,0 @@
-1. At the top right of the page, click {% octicon "triangle-down" aria-label="The downwards triangle icon" %} next to the **{% octicon "copilot" aria-label="Copilot" %}** icon, then click **Assistive** to open the {% data variables.copilot.copilot_chat_short %} panel.

@@ -30,9 +30,9 @@ import { brotliCompressSync } from 'zlib'
 import chalk from 'chalk'
 import { program, Option } from 'commander'
 
-import { languageKeys } from '@/languages/lib/languages'
+import { languageKeys } from '@/languages/lib/languages-server'
 import { loadPages, loadUnversionedTree } from '@/frame/lib/page-data'
-import { CACHE_FILE_PATH, getPageInfo } from '../middleware/article-pageinfo'
+import { CACHE_FILE_PATH, getCacheablePageInfo } from '../middleware/article-pageinfo'
 
 program
   .description('Generates a JSON file with precompute pageinfo data by pathname')
@@ -90,7 +90,7 @@ async function main(options: Options) {
     for (const permalink of page.permalinks) {
       const pathname = permalink.href
       try {
-        const computed = await getPageInfo(page, pathname)
+        const computed = await getCacheablePageInfo(page, pathname)
         if (computed) {
           pageinfos[pathname] = computed
         }

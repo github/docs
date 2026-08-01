@@ -9,6 +9,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Share and reuse content
 ---
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}

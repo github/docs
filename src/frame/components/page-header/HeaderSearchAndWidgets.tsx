@@ -1,4 +1,5 @@
 import cx from 'classnames'
+import type { JSX } from 'react'
 import { KebabHorizontalIcon, LinkExternalIcon } from '@primer/octicons-react'
 import { IconButton, ActionMenu, ActionList } from '@primer/react'
 
@@ -55,36 +56,8 @@ export function HeaderSearchAndWidgets({ width, isSearchOpen, SearchButton }: Pr
                 data-testid="mobile-menu"
                 icon={KebabHorizontalIcon}
                 aria-label={t('header.open_menu_label')}
-                sx={
-                  isSearchOpen
-                    ? // The ... menu button when the smaller width search UI is open.  Since the search
-                      // UI is open, we don't show the button at smaller widths but we do show it as
-                      // the browser width increases to md, and then at lg and above widths we hide
-                      // the button again since the pickers and sign-up button are shown in the header.
-                      {
-                        marginLeft: '8px',
-                        display: 'none',
-                        // breakpoint(md)
-                        '@media (min-width: 768px)': {
-                          display: 'inline-block',
-                          marginLeft: '4px',
-                        },
-                        // breakpoint(lg)
-                        '@media (min-width: 1012px)': {
-                          display: 'inline-block',
-                          marginLeft: '4px',
-                        },
-                      }
-                    : // The ... menu button when the smaller width search UI is closed, the button is
-                      // shown up to md.  At lg and above we don't show the button since the pickers
-                      // and sign-up button are shown in the header.
-                      {
-                        marginLeft: '16px',
-                        '@media (min-width: 1012px)': {
-                          marginLeft: '0',
-                          display: 'none',
-                        },
-                      }
+                className={
+                  isSearchOpen ? styles.menuButtonSearchOpen : styles.menuButtonSearchClosed
                 }
               />
             </ActionMenu.Anchor>

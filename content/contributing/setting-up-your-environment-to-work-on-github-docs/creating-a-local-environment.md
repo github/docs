@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Get set up to contribute
 ---
 
 ## About {% data variables.product.prodname_docs %} site structure
@@ -16,8 +18,8 @@ Today it's a dynamic Node.js webserver powered by Express, using middleware to s
 
 The tooling for this site has changed over the years, but many of the tried-and-true authoring conventions of the original Jekyll site have been preserved.
 
-* Content is written in Markdown files, which live in the `content` directory.
-<!-- - Content can use the [Liquid templating language](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-for-github-docs).-->
+* Content is written in Markdown files. These live in the `content` directory.
+* Content can use the Liquid templating language. See [AUTOTITLE](/contributing/writing-for-github-docs/using-markdown-and-liquid-in-github-docs).
 * Files in the `data` directory are available to templates via the {% raw %}`{% data %}`{% endraw %} tag.
 * Markdown files can contain [frontmatter](https://jekyllrb.com/docs/front-matter).
 * The [`redirect_from`](https://github.com/jekyll/jekyll-redirect-from) Jekyll plugin behavior is supported.
@@ -60,10 +62,6 @@ When you're ready to stop your local server, type <kbd>Ctrl</kbd>+<kbd>C</kbd> i
 > * `npm run build` creates static assets, such as JavaScript and CSS files.
 
 If you would like to read more about debugging and troubleshooting the {% data variables.product.prodname_docs %} application, see [AUTOTITLE](/contributing/setting-up-your-environment-to-work-on-github-docs/troubleshooting-your-environment) in the github/docs repository.
-
-### Using browser shortcuts
-
-The [`src/bookmarklets`](https://github.com/github/docs/tree/main/src/bookmarklets) directory in the {% data variables.product.prodname_docs %} repository contains browser shortcuts that can help with reviewing {% data variables.product.company_short %} documentation. For more information, see the directory's [`README`](https://github.com/github/docs/tree/main/src/bookmarklets/README.md).
 
 ### Enabling different languages
 

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { uniqBy } from 'lodash-es'
 import { executeAISearch } from '../helpers/execute-search-actions'
 import { useRouter } from 'next/router'
@@ -22,9 +22,9 @@ import { sendEvent, uuidv4 } from '@/events/components/events'
 import { EventType } from '@/events/types'
 import { generateAISearchLinksJson } from '../helpers/ai-search-links-json'
 import { ASK_AI_EVENT_GROUP } from '@/events/components/event-groups'
-import { useCTAPopoverContext } from '@/frame/components/context/CTAContext'
 
 import type { AIReference } from '../types'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type AIQueryResultsProps = {
   query: string
@@ -83,7 +83,6 @@ export function AskAIResults({
     aiCouldNotAnswer: boolean
     connectedEventId?: string
   }>('ai-query-cache', 1000, 7)
-  const { isOpen: isCTAOpen, permanentDismiss: permanentlyDismissCTA } = useCTAPopoverContext()
 
   let copyUrl = ``
   if (window?.location?.href) {
@@ -144,12 +143,6 @@ export function AskAIResults({
     setInitialLoading(true)
     setResponseLoading(true)
     disclaimerRef.current?.focus()
-
-    // We permanently dismiss the CTA after performing an AI Search because the
-    // user has tried it and doesn't require additional CTA prompting to try it
-    if (isCTAOpen) {
-      permanentlyDismissCTA()
-    }
 
     const cachedData = getItem(query, version, router.locale || 'en')
     if (cachedData) {
@@ -243,12 +236,20 @@ export function AskAIResults({
         let leftover = '' // <= carry‑over buffer
         setInitialLoading(false)
 
-        const processLine = (parsedLine: any) => {
+        type ParsedLine = {
+          chunkType?: string
+          conversation_id?: string
+          sources?: AIReference[]
+          text?: string
+          errors?: unknown
+        }
+
+        const processLine = (parsedLine: ParsedLine) => {
           switch (parsedLine.chunkType) {
             // A conversation ID will still be sent when a question cannot be answered
             case 'CONVERSATION_ID':
-              conversationIdBuffer = parsedLine.conversation_id
-              setConversationId(parsedLine.conversation_id)
+              conversationIdBuffer = parsedLine.conversation_id ?? ''
+              setConversationId(parsedLine.conversation_id ?? '')
               break
 
             case 'NO_CONTENT_SIGNAL':
@@ -259,7 +260,7 @@ export function AskAIResults({
             case 'SOURCES':
               if (!isCancelled) {
                 sourcesBuffer = uniqBy(
-                  sourcesBuffer.concat(parsedLine.sources as AIReference[]),
+                  sourcesBuffer.concat((parsedLine.sources ?? []) as AIReference[]),
                   'url',
                 )
                 setReferences(sourcesBuffer)
@@ -268,7 +269,7 @@ export function AskAIResults({
 
             case 'MESSAGE_CHUNK':
               if (!isCancelled) {
-                messageBuffer += parsedLine.text
+                messageBuffer += parsedLine.text ?? ''
                 setMessage(messageBuffer)
               }
               break
@@ -306,7 +307,7 @@ export function AskAIResults({
             for (const raw of lines) {
               if (!raw.trim()) continue
 
-              let parsedLine: any
+              let parsedLine: ParsedLine
               try {
                 parsedLine = JSON.parse(raw)
                 if (parsedLine?.errors) {
@@ -339,7 +340,7 @@ export function AskAIResults({
             console.warn('Failed to parse tail JSON:', leftover, err)
           }
         }
-      } catch (error: any) {
+      } catch (error: unknown) {
         if (!isCancelled) {
           console.error('Failed to fetch search results:', error)
           setAISearchError()
@@ -398,7 +399,7 @@ export function AskAIResults({
         <article aria-busy={responseLoading} aria-live="assertive">
           {!aiCouldNotAnswer && message !== '' ? (
             <span ref={disclaimerRef} className={styles.disclaimerText}>
-              <span dangerouslySetInnerHTML={{ __html: t('search.ai.disclaimer') }} />
+              <RenderedHTML as="span" html={t('search.ai.disclaimer')} />
             </span>
           ) : null}
           <UnrenderedMarkdownContent
@@ -414,14 +415,8 @@ export function AskAIResults({
         <div className={styles.postAnswerWidgets}>
           <IconButton
             icon={ThumbsupIcon}
-            className={'btn-octicon'}
+            className={`btn-octicon ${styles.thumbsUpButton} ${feedbackSelected === 'up' ? styles.selected : ''}`}
             aria-label={t('ai.thumbs_up')}
-            sx={{
-              border: 'none',
-              backgroundColor: feedbackSelected === 'up' ? '' : 'unset',
-              boxShadow: 'unset',
-              color: feedbackSelected === 'up' ? 'var(--fgColor-accent) !important;' : '',
-            }}
             onClick={() => {
               setFeedbackSelected('up')
               announce(t('ai.thumbs_announcement'))
@@ -436,14 +431,8 @@ export function AskAIResults({
           ></IconButton>
           <IconButton
             icon={ThumbsdownIcon}
-            className={'btn-octicon'}
+            className={`btn-octicon ${styles.thumbsDownButton} ${feedbackSelected === 'down' ? styles.selected : ''}`}
             aria-label={t('ai.thumbs_down')}
-            sx={{
-              border: 'none',
-              backgroundColor: feedbackSelected === 'down' ? '' : 'unset',
-              boxShadow: 'unset',
-              color: feedbackSelected === 'down' ? 'var(--fgColor-accent) !important;' : '',
-            }}
             onClick={() => {
               setFeedbackSelected('down')
               announce(t('ai.thumbs_announcement'))
@@ -457,14 +446,8 @@ export function AskAIResults({
             }}
           ></IconButton>
           <IconButton
-            sx={{
-              border: 'none',
-              backgroundColor: 'unset',
-              boxShadow: 'unset',
-              color: isCopied ? 'var(--fgColor-accent) !important;' : '',
-            }}
             icon={isCopied ? CheckIcon : ShareIcon}
-            className="btn-octicon"
+            className={`btn-octicon ${styles.shareButton} ${isCopied ? styles.copied : ''}`}
             aria-label={
               isCopied ? t('search.ai.share_copied_announcement') : t('search.ai.share_answer')
             }
@@ -483,7 +466,7 @@ export function AskAIResults({
       ) : null}
       {!aiCouldNotAnswer && !responseLoading && references && references.length > 0 ? (
         <>
-          <ActionList className={styles.referencesList} showDividers>
+          <ActionList className={styles.referencesList}>
             <ActionList.Group data-testid="ai-references">
               <ActionList.GroupHeading
                 as="h3"
@@ -507,7 +490,7 @@ export function AskAIResults({
                         referenceOnSelect(source.url)
                       }}
                       active={refIndex === selectedIndex}
-                      ref={(element) => {
+                      ref={(element: HTMLLIElement | null) => {
                         if (listElementsRef.current) {
                           listElementsRef.current[refIndex] = element
                         }
@@ -525,20 +508,7 @@ export function AskAIResults({
           </ActionList>
         </>
       ) : null}
-      <div
-        aria-live="assertive"
-        style={{
-          position: 'absolute',
-          width: '1px',
-          height: '1px',
-          padding: '0',
-          margin: '-1px',
-          overflow: 'hidden',
-          clip: 'rect(0, 0, 0, 0)',
-          whiteSpace: 'nowrap',
-          border: '0',
-        }}
-      >
+      <div aria-live="assertive" className={styles.displayForScreenReader}>
         {announcement}
       </div>
     </div>
@@ -566,6 +536,6 @@ function sendAISearchResultEvent({
     ai_search_result_response_status: status,
     ai_search_result_connected_event_id: connectedEventId,
     eventGroupKey: ASK_AI_EVENT_GROUP,
-    eventGroupId: eventGroupId,
+    eventGroupId,
   })
 }

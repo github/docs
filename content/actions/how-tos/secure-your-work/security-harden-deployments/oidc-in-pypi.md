@@ -5,14 +5,13 @@ intro: Use OpenID Connect within your workflows to authenticate with PyPI.
 versions:
   fpt: '*'
   ghec: '*'
-type: tutorial
-topics:
-  - Security
-  - Actions
 redirect_from:
   - /actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-pypi
   - /actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-pypi
   - /actions/how-tos/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-pypi
+contentType: how-tos
+category:
+  - Secure your workflows
 ---
 
 ## Overview
@@ -56,6 +55,7 @@ The [`pypa/gh-action-pypi-publish`](https://github.com/marketplace/actions/pypi-
 The following example uses the `pypa/gh-action-pypi-publish` action to exchange an OIDC token for a PyPI API token, which is then used to upload a package's release distributions to PyPI.
 
 ```yaml copy
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 jobs:
   release-build:
     runs-on: ubuntu-latest

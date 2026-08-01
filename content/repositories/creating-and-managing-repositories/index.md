@@ -1,6 +1,6 @@
 ---
 title: Creating and managing repositories
-intro: 'You can create a repository on {% data variables.product.github %} to store and collaborate on your project''s files, then manage the repository''s name and location.'
+intro: You can create a repository on {% data variables.product.github %} to store and collaborate on your project's files, then manage the repository's name and location.
 redirect_from:
   - /articles/creating-a-repository-on-github
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github
@@ -8,14 +8,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 children:
   - /about-repositories
   - /best-practices-for-repositories
   - /quickstart-for-repositories
   - /repository-limits
   - /creating-a-new-repository
+  - /access-to-repositories
   - /creating-a-repository-from-a-template
   - /creating-a-template-repository
   - /creating-an-issues-only-repository
@@ -26,5 +25,7 @@ children:
   - /transferring-a-repository
   - /deleting-a-repository
   - /restoring-a-deleted-repository
+  - /viewing-all-your-repositories
 shortTitle: Create & manage repositories
 ---
+

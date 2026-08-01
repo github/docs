@@ -6,9 +6,6 @@ product: '{% data variables.copilot.copilot_enterprise_short %} or {% data varia
 versions:
   feature: copilot
 allowTitleToDifferFromFilename: true
-topics:
-  - Copilot
-  - Enterprise
 shortTitle: Manage enterprise policies
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise
@@ -16,24 +13,39 @@ redirect_from:
   - /copilot/how-tos/administer/enterprises/manage-enterprise-policies
   - /copilot/how-tos/administer/manage-for-enterprise/manage-enterprise-policies
 contentType: how-tos
+category:
+  - Manage Copilot for a team
 ---
 
 When an organization owner assigns a {% data variables.product.prodname_copilot_short %} license to a member of their organization, the availability of features and models is controlled by policies.
+
+If you're setting up {% data variables.product.prodname_copilot_short %} for the first time, see [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/govern-at-scale/govern-for-adoption) for guidance on setting a governance posture that balances compliance with developer productivity.
 
 ## Defining policies for your enterprise
 
 Enterprise owners can define a policy for the whole enterprise, or delegate the decision to individual organization owners. See [AUTOTITLE](/copilot/concepts/policies).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.copilot-tab %}
-1. On the "{% data variables.product.prodname_copilot %}" page:
-   * Click the **Policies** tab to edit the policies that control privacy and availability of features.
-   * Click the **Models** tab to edit the policies that control availability of models beyond the basic models provided with {% data variables.product.prodname_copilot_short %}, which may incur additional costs.
-1. For each policy you want to configure, click the dropdown menu and select an enforcement option. Select **No policy** to delegate the decision to individual organization owners. For more information, see [AUTOTITLE](/copilot/reference/feature-availability-enterprise).
+{% data reusables.enterprise-accounts.ai-controls-tab %}
+1. Navigate to the page containing the policies you want to manage:
 
-## Opting in to previews or feedback
+   * To view policies for **AI agents**, in the sidebar, click {% octicon "agent" aria-hidden="true" aria-label="agent" %} **Agents**.
+   * To view policies for **{% data variables.product.prodname_copilot_short %}**, in the sidebar, click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} **{% data variables.product.prodname_copilot_short %}**.
+   * To view policies for **Model Context Protocol (MCP)**, in the sidebar, click {% octicon "mcp" aria-hidden="true" aria-label="mcp" %} **MCP**.
+1. Configure your policies as follows:
+   * For policies with a **dropdown menu**, select the menu and click an enforcement option.
+   * For policies with a **toggle**, click the toggle to set availability or enforcement.
+   * For policies with **no visible dropdown menu or toggle**, click the name of the policy for configuration options.
 
-If your enterprise has a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan and you enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}" on the "Policies" tab, two additional options are displayed:
+{% data reusables.copilot.mcp-servers-policy-note %}
 
-  {% data reusables.copilot.policies-for-dotcom %}
+{% data reusables.copilot.policy.suggestions-code-enterprise-default %}
+
+## Opting in to feedback collection
+
+If you enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}" from the "{% data variables.product.prodname_copilot_short %}" page of the "AI Controls" tab, you can also opt in to user feedback collection to help {% data variables.product.github %} improve {% data variables.product.prodname_copilot_short %} features.
+
+## Further reading
+
+* [AUTOTITLE](/copilot/reference/policy-conflicts)
+* [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies)

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import cx from 'classnames'
 import { ChevronUpIcon } from '@primer/octicons-react'
+
 import styles from './ScrollButton.module.scss'
 
 const { transition200, opacity0, opacity100, customFocus } = styles
@@ -53,6 +54,8 @@ export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
     return () => window.removeEventListener('resize', updateDocumentSize)
   }, [])
 
+  const isVisible = show && isTallEnough
+
   const onClick = () => {
     document?.getElementById('github-logo')?.focus()
     document?.getElementById('main-content')?.scrollIntoView()
@@ -61,17 +64,24 @@ export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
   return (
     <div
       role="tooltip"
-      className={cx(className, transition200, show && isTallEnough ? opacity100 : opacity0)}
+      className={cx(
+        className,
+        transition200,
+        isVisible ? opacity100 : opacity0,
+        styles.scrollWrapper,
+      )}
+      aria-hidden={!show}
     >
       <button
         onClick={onClick}
+        tabIndex={show ? 0 : -1}
         className={cx(
           'ghd-scroll-to-top', // for data tracking, see events.ts
           'tooltipped tooltipped-n tooltipped-no-delay btn circle border-1',
           'd-flex flex-items-center flex-justify-center',
           customFocus,
+          styles.scrollButton,
         )}
-        style={{ width: 40, height: 40 }}
         aria-label={ariaLabel}
       >
         <ChevronUpIcon />

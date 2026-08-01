@@ -8,9 +8,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Pages
 shortTitle: Secure site with HTTPS
+category:
+  - Set up a GitHub Pages site
 ---
 
 People with admin permissions for a repository can enforce HTTPS for a {% data variables.product.prodname_pages %} site.
@@ -54,7 +54,7 @@ Assets are commonly found in the following locations:
 * Images are often found in the `<body>` section.
 
 > [!TIP]
-> If you can't find your assets in your site's source files, try searching your site's source files for `http` in your text editor or on {% data variables.product.github %}.
+> If you can't find your assets in your site's source files, try searching your site's source files for `http://` in your text editor or on {% data variables.product.github %}.
 
 ### Examples of assets referenced in an HTML file
 

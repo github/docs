@@ -1,6 +1,6 @@
 ---
 title: Viewing all issues and pull requests
-intro: 'The Issues and Pull Request dashboards list the open issues and pull requests you''ve created{% ifversion issues-saved-views %}, as well as your saved views{% endif %}. You can use them to update items that have gone stale, close them, or keep track of where you''ve been mentioned across all repositories—including those you''re not subscribed to.'
+intro: The Issues and Pull Request dashboards list the open issues and pull requests you've created{% ifversion issues-saved-views %}, as well as your saved views{% endif %}. You can use them to update items that have gone stale, close them, or keep track of where you've been mentioned across all repositories—including those you're not subscribed to.
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/viewing-all-of-your-issues-and-pull-requests
   - /articles/viewing-all-of-your-issues-and-pull-requests
@@ -12,11 +12,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
-  - Issues
 shortTitle: View all issues & PRs
-type: how_to
+contentType: how-tos
+category:
+  - Create and work with issues
 ---
 
 ## Viewing your issues and pull requests
@@ -27,7 +26,7 @@ Your issue and pull request dashboards are available at the top of any page. On 
 
    ![Screenshot of the header of any page on {% data variables.product.github %}. The "Pull requests" and "Issues" icons are outlined in dark orange.](/assets/images/help/navigation/issues-and-prs-new-navigation.png)
 
-1. Optionally, choose a filter or use the search bar to filter for more specific results. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests).
+1. Optionally, choose a filter or use the search bar to filter for more specific results. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests).
 
 {% ifversion issues-saved-views %}
 
@@ -40,10 +39,7 @@ You can create up to 25 saved views.
 ### Create a saved view
 
 1. At the top of any page, click {% octicon "issue-opened" aria-label="Issues" %} to see your issues.
-1. On the left sidebar, under "Views", click **{% octicon "plus" aria-label="Create view" %}**.
-
-   ![Screenshot of the {% octicon "plus" aria-label="Create view" %}. The icon is outlined in dark orange.](/assets/images/help/issues/issues-create-saved-view.png)
-
+1. On the left sidebar, to the right of "Views", click **{% octicon "plus" aria-label="Create view" %}**.
 1. Add a title, description, and custom icon for your view.
 1. Under "Query", build your search query using the advanced filters. For help using filters, see [AUTOTITLE](/search-github/searching-on-github/searching-issues-and-pull-requests).
    > [!TIP] Use the `is:pr` filter to include pull requests in the saved view.
@@ -60,4 +56,4 @@ You can create up to 25 saved views.
 
 ## Further reading
 
-* [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching)
+* [AUTOTITLE](/subscriptions-and-notifications/how-tos/managing-subscriptions-for-activity-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching)

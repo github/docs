@@ -5,18 +5,14 @@ import { Flash } from '@primer/react'
 import cx from 'classnames'
 
 import styles from './DeprecationBanner.module.scss'
-
-// GHES deprecation dates are being extended while
-// performance issues are being addressed in versions >= 3.15.
-// This banner should remain hidden for the supported versions (>=3.14) until
-// new deprecation dates are announced.
-const DEPRECATION_BANNER_EXCEPTIONS = ['3.14']
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 export const DeprecationBanner = () => {
   const { data, enterpriseServerReleases } = useMainContext()
   const { currentVersion } = useVersion()
+  const currentRelease = currentVersion.replace('enterprise-server@', '')
 
-  if (!currentVersion.includes(enterpriseServerReleases.oldestSupported)) {
+  if (!enterpriseServerReleases.releasesWithOldestDeprecationDate.includes(currentRelease)) {
     return null
   }
 
@@ -29,10 +25,6 @@ export const DeprecationBanner = () => {
     ? enterpriseDeprecation.version_was_deprecated
     : enterpriseDeprecation.version_will_be_deprecated
 
-  if (DEPRECATION_BANNER_EXCEPTIONS.some((version) => currentVersion.includes(version))) {
-    return null
-  }
-
   return (
     <div
       data-testid="deprecation-banner"
@@ -41,17 +33,13 @@ export const DeprecationBanner = () => {
       <Flash variant="warning">
         <p>
           <b className="text-bold">
-            <span dangerouslySetInnerHTML={{ __html: message }} />{' '}
+            <RenderedHTML as="span" html={message} />{' '}
             <span data-date={enterpriseServerReleases.nextDeprecationDate} data-format="%B %d, %Y">
               {enterpriseServerReleases.nextDeprecationDate}
             </span>
             .
           </b>{' '}
-          <span
-            dangerouslySetInnerHTML={{
-              __html: enterpriseDeprecation.deprecation_details,
-            }}
-          />
+          <RenderedHTML as="span" html={enterpriseDeprecation.deprecation_details} />
         </p>
       </Flash>
     </div>

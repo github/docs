@@ -10,11 +10,13 @@ children:
   - /variables
   - /contexts
   - /expressions
-  - /reusable-workflows
+  - /reusing-workflow-configurations
   - /custom-actions
   - /deployment-environments
   - /concurrency
   - /workflow-artifacts
   - /dependency-caching
   - /notifications-for-workflow-runs
+contentType: concepts
 ---
+

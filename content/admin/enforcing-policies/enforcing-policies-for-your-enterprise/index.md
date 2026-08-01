@@ -10,17 +10,15 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
-  - Policies
 children:
-  - /about-enterprise-policies
   - /enforcing-repository-management-policies-in-your-enterprise
   - /enforcing-policies-for-projects-in-your-enterprise
+  - /control-offboarding
   - /restricting-email-notifications-for-your-enterprise
   - /enforcing-policies-for-github-sponsors-in-your-enterprise
   - /enforcing-policies-for-security-settings-in-your-enterprise
   - /enforcing-policies-for-github-actions-in-your-enterprise
+  - /actions-policies
   - /enforcing-policies-for-github-copilot-in-your-enterprise
   - /enforcing-policies-for-github-codespaces-in-your-enterprise
   - /enforcing-policies-for-code-security-and-analysis-for-your-enterprise
@@ -29,3 +27,5 @@ children:
   - /managing-policies-for-code-governance
 shortTitle: Enforce policies
 ---
+
+

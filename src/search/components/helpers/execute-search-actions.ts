@@ -4,11 +4,11 @@ import { DEFAULT_VERSION } from '@/versions/components/useVersion'
 import { NextRouter } from 'next/router'
 import { sendEvent } from '@/events/components/events'
 import { SEARCH_OVERLAY_EVENT_GROUP } from '@/events/components/event-groups'
+import { sanitizeSearchQuery } from '@/search/lib/sanitize-search-query'
 
 // Search context values for identifying each search event
 export const GENERAL_SEARCH_CONTEXT = 'general-search'
 export const AI_SEARCH_CONTEXT = 'ai-search'
-export const COMBINED_SEARCH_CONTEXT = 'combined-search'
 
 // The logic that redirects to the /search page with the proper query params
 // The query params will be consumed in the general search middleware
@@ -21,7 +21,7 @@ export function executeGeneralSearch(
 ) {
   sendEvent({
     type: EventType.search,
-    search_query: localQuery,
+    search_query: sanitizeSearchQuery(localQuery),
     search_context: GENERAL_SEARCH_CONTEXT,
     eventGroupKey: SEARCH_OVERLAY_EVENT_GROUP,
     eventGroupId,
@@ -74,9 +74,9 @@ export async function executeCombinedSearch(
   debug = false,
   abortSignal?: AbortSignal,
 ) {
-  let language = router.locale || 'en'
+  const language = router.locale || 'en'
 
-  const params = new URLSearchParams({ query: query, version, language })
+  const params = new URLSearchParams({ query, version, language })
   if (debug) {
     params.set('debug', '1')
   }

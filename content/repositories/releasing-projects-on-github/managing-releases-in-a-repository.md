@@ -15,21 +15,28 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Manage releases
+category:
+  - Release software
 ---
 ## About release management
 
 You can create new releases with release notes, @mentions of contributors, and links to binary files, as well as edit or delete existing releases. You can also create, modify, and delete releases by using the Releases API. For more information, see [AUTOTITLE](/rest/releases/releases) in the REST API documentation.
 
 {% ifversion fpt or ghec %}
-You can also publish an action from a specific release in {% data variables.product.prodname_marketplace %}. For more information, see [AUTOTITLE](/actions/creating-actions/publishing-actions-in-github-marketplace).
+You can also publish an action from a specific release in {% data variables.product.prodname_marketplace %}. For more information, see [AUTOTITLE](/actions/how-tos/create-and-publish-actions/publish-in-github-marketplace).
 
 You can choose whether {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.github %} creates for each release. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository).
 {% endif %}
 
 ## Creating a release
+
+{% ifversion immutable-releases %}
+
+> [!TIP]
+> If you have enabled immutable releases for your repository, it's recommended to create releases as drafts first, attach all assets, and then publish. This ensures all assets are in place before the release becomes immutable. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/immutable-releases).
+
+{% endif %}
 
 {% webui %}
 
@@ -57,9 +64,13 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 
 1. Follow the interactive prompts. Alternatively, you can specify arguments to skip these prompts. For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_release_create). For example, this command creates a prerelease with the specified title and notes.
 
+<!-- markdownlint-disable outdated-release-phase-terminology --> <!-- disable the outdated-release-phase-terminology rule since "beta" is part of the CLI command --> 
+
    ```shell
    gh release create v1.3.2 --title "v1.3.2 (beta)" --notes "this is a {% data variables.release-phases.public_preview %} release" --prerelease
    ```
+
+<!-- markdownlint-enable outdated-release-phase-terminology -->
 
 If you @mention any {% data variables.product.github %} users in the notes, the published release will include a **Contributors** section with an avatar list of all the mentioned users.
 
@@ -67,9 +78,11 @@ If you @mention any {% data variables.product.github %} users in the notes, the 
 
 ## Editing a release
 
-{% ifversion immutable-releases-preview %}
+{% ifversion immutable-releases %}
+
 > [!NOTE]
-> If you have enabled immutable releases for your repository, you can only edit the title and release notes after a release is published. See [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/immutable-releases).
+> If you have enabled immutable releases for your repository, you can only edit the title and release notes after a release is published. See [AUTOTITLE](/code-security/concepts/supply-chain-security/immutable-releases).
+
 {% endif %}
 
 {% webui %}

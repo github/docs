@@ -1,11 +1,9 @@
 ---
 title: Getting started with a GitHub Copilot plan
 shortTitle: Get started with a Copilot plan
-intro: 'You can use {% data variables.product.prodname_copilot_short %} for free, or choose a paid plan to unlock additional features, models, and request limits.'
+intro: 'You can use {% data variables.product.prodname_copilot_short %} for free, or choose a paid plan to unlock additional features, models, and limits.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/accessing-github-copilot-free
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/subscribing-to-copilot-pro-as-an-individual-user
@@ -20,13 +18,15 @@ redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/getting-started-with-a-copilot-plan
   - /copilot/how-tos/manage-your-account/getting-started-with-a-copilot-plan
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 You can get started with your {% data variables.product.prodname_copilot_short %} plan by:
 
 * [Accessing {% data variables.copilot.copilot_free_short %}](#accessing-copilot-free)
 * [Upgrading from {% data variables.copilot.copilot_free_short %}](#upgrading-from-copilot-free)
-* [Subscribing to {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %}](#subscribing-to-copilot-pro-or-copilot-pro)
+* [Subscribing to {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %}](#subscribing-to-copilot-pro-copilot-pro-or-copilot-max)
 
 ## Accessing {% data variables.copilot.copilot_free_short %}
 
@@ -34,8 +34,9 @@ Most individual developers can start using {% data variables.copilot.copilot_fre
 
 * You have a {% data variables.enterprise.prodname_managed_user %}.
 * You are assigned a {% data variables.product.prodname_copilot_short %} seat through an organization.
-* You have an existing {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan or {% data variables.copilot.copilot_pro_short %} trial.
-* You have free access to {% data variables.copilot.copilot_pro_short %} as a student, teacher, or open-source maintainer.
+* You have an existing {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} plan.
+* You have access to {% data variables.product.prodname_copilot_short %} through {% data variables.copilot.copilot_student_short %}.
+* You have free access to {% data variables.copilot.copilot_pro_short %} as a teacher or open-source maintainer.
 
 There are a few ways to start using {% data variables.copilot.copilot_free_short %}, depending on where you're working.
 
@@ -49,7 +50,7 @@ In {% data variables.product.prodname_vs %} and {% data variables.product.prodna
 
 ### {% data variables.product.prodname_dotcom_the_website %}
 
-With {% data variables.copilot.copilot_free_short %}, you can ask {% data variables.product.prodname_copilot_short %} questions within a chat interface on {% data variables.product.github %}. Go to [https://github.com/copilot](https://github.com/copilot) to start chatting with {% data variables.product.prodname_copilot_short %}.
+With {% data variables.copilot.copilot_free_short %}, you can ask {% data variables.product.prodname_copilot_short %} questions within a chat interface on {% data variables.product.github %}. Go to [https://github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text&ref_plan=free) to start chatting with {% data variables.product.prodname_copilot_short %}.
 
 ### {% data variables.product.prodname_mobile %}
 
@@ -63,8 +64,8 @@ You can also chat with {% data variables.product.prodname_copilot_short %} in {%
 To use {% data variables.copilot.copilot_free_short %} in other IDEs, you'll need to activate it from your {% data variables.product.github %} account settings first.
 
 {% data reusables.user-settings.copilot-settings %}
-1. Click **Start using {% data variables.copilot.copilot_free_short %}** to activate {% data variables.copilot.copilot_free_short %} and open immersive mode.
-1. To the right of "Install {% data variables.product.prodname_copilot_short %} in your favorite code editor", select the {% octicon "triangle-down" aria-label="More edit options" %} dropdown menu and click your preferred editor.
+1. Click **Start using {% data variables.copilot.copilot_free_short %}** to activate {% data variables.copilot.copilot_free_short %} and open [https://github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text&ref_plan=free).
+1. In the top right corner, next to **Download**, select the {% octicon "triangle-down" aria-label="More edit options" %} dropdown menu and click your preferred editor.
 
 ## Upgrading from {% data variables.copilot.copilot_free_short %}
 
@@ -74,23 +75,38 @@ If you’re already using {% data variables.copilot.copilot_free_short %} and re
   You’ll receive a message with your reset date and a link to upgrade to {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %}.
 
 * **In other IDEs**:
-  You’ll see an error message. You can start a trial or paid plan from your [{% data variables.product.prodname_copilot %} settings](https://github.com/settings/copilot).
+  You’ll see an error message. You can start a paid plan from your [{% data variables.product.prodname_copilot %} settings](https://github.com/settings/copilot).
 
 * **In {% data variables.product.prodname_mobile %}**:
   When you hit the usage limit, you’ll be prompted to upgrade via in-app purchase.
 
-## Subscribing to {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %}
+## Subscribing to {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %}
 
-You can subscribe to {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} at any time to unlock advanced AI features, higher usage limits, and access to additional models.
+You can subscribe to {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} at any time to unlock advanced AI features, higher usage limits, and access to additional models.
 
-> [!TIP] Not sure which plan to choose? For a side-by-side comparison, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/about-individual-copilot-plans-and-benefits).
+> [!TIP] Not sure which plan to choose? For a side-by-side comparison, see [AUTOTITLE](/copilot/concepts/billing/individual-plans).
 
-1. Go to the [plans page](https://github.com/features/copilot/plans).
+1. Go to the [plans page](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro).
 1. Click **Get started** under the plan you want to subscribe to.
-1. Choose whether you want to pay monthly or yearly, and click **Subscribe to {% data variables.copilot.copilot_pro_short %}/{% data variables.copilot.copilot_pro_plus_short %}**.
+1. Click **Subscribe to {% data variables.copilot.copilot_pro_short %}/{% data variables.copilot.copilot_pro_plus_short %}/{% data variables.copilot.copilot_max_short %}**.
 
-   If your personal account meets the criteria for a free {% data variables.product.prodname_copilot %} plan instead of a trial or paid plan, you will automatically be taken to step 6.
+   If your personal account meets the criteria for a free {% data variables.product.prodname_copilot %} plan instead of a paid plan, you will automatically be taken to step 6.
 
-1. To enable usage beyond your included premium request allowance, select **Yes, I want to enable additional usage for {% data variables.product.prodname_copilot_short %} premium requests**. You can change this setting at any time. Click **Save & continue**.
+1. To enable usage beyond your included allowance, select **Yes, I want to enable additional usage for {% data variables.product.prodname_copilot_short %}**. You can change this setting at any time. Click **Save & continue**.
 1. Follow the steps to enter and confirm your billing information and payment details, then click **Submit**.
-1. After reviewing your plan details, click **Activate {% data variables.copilot.copilot_pro_short %}/{% data variables.copilot.copilot_pro_plus_short %}**.
+
+   During checkout, {% data variables.product.github %} may place a temporary authorization hold on your payment method to verify it. This hold is not the subscription charge.
+
+   If payment method verification does not succeed, or if you do not complete the activation step on the next screen, your plan will not activate.
+
+1. After reviewing your plan details, click **Activate {% data variables.copilot.copilot_pro_short %}/{% data variables.copilot.copilot_pro_plus_short %}/{% data variables.copilot.copilot_max_short %}**.
+
+## Troubleshooting
+
+### Account still shows {% data variables.copilot.copilot_free_short %} after checkout
+
+If the plan does not appear after following the checkout steps [when subscribing](#subscribing-to-copilot-pro-copilot-pro-or-copilot-max), follow these further steps to confirm and recover your subscription.
+
+1. Confirm that the plan appears in your {% data variables.product.prodname_copilot %} settings or in your personal account settings under **Billing & licensing**. For more information, see [AUTOTITLE](/copilot/how-tos/manage-your-account/view-and-change-your-copilot-plan).
+1. If payment method verification failed or you did not complete the activation step, retry the checkout flow.
+1. If you completed activation and the plan still does not appear, contact {% data variables.contact.contact_support_page %}.

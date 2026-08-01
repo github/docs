@@ -5,8 +5,6 @@ intro: 'You can communicate information to users in your enterprise by customizi
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /customizing-user-messages-for-your-enterprise
   - /configuring-custom-footers

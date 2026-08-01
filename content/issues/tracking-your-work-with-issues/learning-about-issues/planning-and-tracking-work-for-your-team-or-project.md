@@ -1,17 +1,16 @@
 ---
 title: Planning and tracking work for your team or project
-intro: 'The essentials for using {% data variables.product.prodname_dotcom %}''s planning and tracking tools to manage work on a team or project.'
+intro: The essentials for using {% data variables.product.prodname_dotcom %}'s planning and tracking tools to manage work on a team or project.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
-topics:
-  - Project management
-  - Projects
 redirect_from:
   - /issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project
   - /issues/tracking-your-work-with-issues/configuring-issues/planning-and-tracking-work-for-your-team-or-project
+contentType: concepts
+category:
+  - Create and work with issues
 ---
 ## Introduction
 
@@ -69,7 +68,7 @@ Now that we created the bug report issue template, you are able to select it whe
 
 ## Opening issues and breaking down work
 
-You can organize and track your work by creating issues. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue).
+You can organize and track your work by creating issues. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/creating-an-issue).
 
 ### Issue example
 
@@ -95,17 +94,11 @@ You can use issue types to classify work in repositories across the organization
 
 ### Task list example
 
-You can use task lists to break larger issues down into smaller tasks and to track issues as part of a larger goal. {% ifversion fpt or ghec %} Task lists have additional functionality when added to the body of an issue. You can see the number of tasks completed out of the total at the top of the issue, and if someone closes an issue linked in the task list, the checkbox will automatically be marked as complete.{% endif %} For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists).
+You can use task lists to break larger issues down into smaller tasks and to track issues as part of a larger goal. {% ifversion fpt or ghec %} Task lists have additional functionality when added to the body of an issue. You can see the number of tasks completed out of the total at the top of the issue, and if someone closes an issue linked in the task list, the checkbox will automatically be marked as complete.{% endif %} For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-tasklists).
 
 Below we have added a task list to our Project Octocat issue, breaking it down into smaller issues.
 
 ![Screenshot of an issue called "Front-end work for Project Octocat." The issue body contains a task list, with a checkbox preceding each issue link.](/assets/images/help/issues/quickstart-add-task-list-to-issue.png)
-
-## Using labels to highlight project goals and status
-
-You can create labels for a repository to categorize issues, pull requests, and discussions. {% data variables.product.prodname_dotcom %} also provides default labels for every new repository that you can edit or delete. Labels are useful for keeping track of project goals, bugs, types of work, and the status of an issue. See [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label).
-
-Once you have created a label in a repository, you can apply it on any issue, pull request, or discussion in the repository. You can then filter issues and pull requests by label to find all associated work. For example, find all the front end bugs in your project by filtering for issues with the `front-end` and `bug` labels. See [AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests).
 
 ### Label example
 
@@ -170,7 +163,7 @@ You can create labels for a repository to categorize issues, pull requests, and 
 
 For more information, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label).
 
-Once you have created a label in a repository, you can apply it on any issue, pull request or discussion in the repository. You can then filter issues and pull requests by label to find all associated work. For example, find all the front end bugs in your project by filtering for issues with the `front-end` and `bug` labels. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests).
+Once you have created a label in a repository, you can apply it on any issue, pull request or discussion in the repository. You can then filter issues and pull requests by label to find all associated work. For example, find all the front end bugs in your project by filtering for issues with the `front-end` and `bug` labels. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests).
 
 ### Label example
 
@@ -192,18 +185,6 @@ We can also view the same project as a board.
 
 ![Screenshot of the board view of a project, with issues organized into columns for "No Status," "Todo," "In Progress," and "Done."](/assets/images/help/issues/quickstart-projects-board-view.png)
 
-{% ifversion projects-v1 %}
-
-You can also use the existing {% data variables.product.prodname_projects_v1 %} on {% data variables.product.prodname_dotcom %} to plan and track your or your team's work. {% data variables.projects.projects_v1_boards_caps %} are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. You can create {% data variables.projects.projects_v1_boards %} for feature work, high-level roadmaps, or even release checklists. For more information, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards).
-
-### {% data variables.projects.projects_v1_board_caps %} example
-
-Below is a {% data variables.projects.projects_v1_board %} for our example Project Octocat with the issue we created, and the smaller issues we broke it down into, added to it.
-
-![Screenshot of a {% data variables.projects.projects_v1_board %} called "Project Octocat Board," with issues organized into columns for "To do," "In progress," and "Done."](/assets/images/help/issues/quickstart-project-board.png)
-
-{% endif %}
-
 ## Next steps
 
 You have now learned about the tools {% data variables.product.prodname_dotcom %} offers for planning and tracking your work, and made a start in setting up your cross-functional team or project repository! Here are some helpful resources for further customizing your repository and organizing your work.
@@ -216,5 +197,4 @@ You have now learned about the tools {% data variables.product.prodname_dotcom %
 * [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-types-in-an-organization) for managing issue types{% endif %}
 * [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels) for learning how to create, edit and delete labels{% ifversion sub-issues %}
 * [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues) for learning about adding sub-issues{% endif %}
-* [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists) for learning more about task lists
-{% ifversion projects-v1 %}- [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards) for learning how to manage {% data variables.projects.projects_v1_boards %}{% endif %}
+* [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-tasklists) for learning more about task lists

@@ -1,6 +1,6 @@
-import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import type { Components } from 'react-markdown'
+import type { JSX } from 'react'
 import remarkGfm from 'remark-gfm'
 import cx from 'classnames'
 import { IconButton } from '@primer/react'
@@ -12,20 +12,7 @@ import useCopyClipboard from '@/rest/components/useClipboard'
 import { EventType } from '@/events/types'
 import { sendEvent } from '@/events/components/events'
 
-// Create a unique identifier by sampling characters distributed across content
-function getBlockId(text: string, targetLength: number = 8) {
-  const alphanumeric = text.replace(/[^a-zA-Z0-9]+/g, '').toLowerCase()
-  if (!alphanumeric || alphanumeric.length <= targetLength) {
-    return Math.random().toString(36).substring(2, 10)
-  }
-  const step = alphanumeric.length / targetLength
-  let result = ''
-  for (let i = 0; i < targetLength; i++) {
-    const index = Math.floor(i * step)
-    result += alphanumeric[index]
-  }
-  return result
-}
+import styles from './MarkdownContent.module.scss'
 
 export type MarkdownContentPropsT = {
   children: string
@@ -44,7 +31,7 @@ export const UnrenderedMarkdownContent = ({
   className,
   openLinksInNewTab = true,
   includeQueryParams = true,
-  codeBlocksCopyable = true,
+  codeBlocksCopyable = false,
   eventGroupKey = '',
   eventGroupId = '',
   ...restProps
@@ -80,17 +67,18 @@ export const UnrenderedMarkdownContent = ({
         if (isCopied) {
           return t('search.ai.response.copied_code')
         }
-        return t('search.ai.response.copy_code_lang')
-          .replace('{language}', language ? `${language} ` : '')
-          .replace('{block}', getBlockId(text))
+        return t('search.ai.response.copy_code_lang').replace(
+          '{language}',
+          language ? `${language} ` : '',
+        )
       }
 
       return (
-        <div style={{ position: 'relative' }}>
+        <div className={styles.codeBlockContainer}>
           <IconButton
             size="small"
             icon={isCopied ? CheckIcon : CopyIcon}
-            className="btn-octicon"
+            className={cx('btn-octicon', styles.copyButton)}
             aria-label={getAriaLabel()}
             onClick={async () => {
               await copyToClipboard()
@@ -98,15 +86,9 @@ export const UnrenderedMarkdownContent = ({
               sendEvent({
                 type: EventType.clipboard,
                 clipboard_operation: 'copy',
-                eventGroupKey: eventGroupKey,
-                eventGroupId: eventGroupId,
+                eventGroupKey,
+                eventGroupId,
               })
-            }}
-            sx={{
-              position: 'absolute',
-              right: '-.7rem',
-              top: '-.7rem',
-              zIndex: 1,
             }}
           ></IconButton>
           <code {...props}>{props.children}</code>

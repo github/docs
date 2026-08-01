@@ -1,0 +1,2543 @@
+{
+  "mutations": [
+    {
+      "name": "createCommitOnBranch",
+      "id": "createcommitonbranch",
+      "href": "/graphql/reference/commits#mutation-createcommitonbranch",
+      "description": "<p>Appends a commit to the given branch as the authenticated user.</p>\n<p>This mutation creates a commit whose parent is the HEAD of the provided\nbranch and also updates that branch to point to the new commit.\nIt can be thought of as similar to <code>git commit</code>.</p>\n<h3 id=\"locating-a-branch\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#locating-a-branch\">Locating a Branch<span class=\"heading-link-symbol\" aria-hidden=\"true\"></span></a></h3>\n<p>Commits are appended to a <code>branch</code> of type <code>Ref</code>.\nThis must refer to a git branch (i.e.  the fully qualified path must\nbegin with <code>refs/heads/</code>, although including this prefix is optional.</p>\n<p>Callers may specify the <code>branch</code> to commit to either by its global node\nID or by passing both of <code>repositoryNameWithOwner</code> and <code>refName</code>.  For\nmore details see the documentation for <code>CommittableBranch</code>.</p>\n<h3 id=\"describing-changes\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#describing-changes\">Describing Changes<span class=\"heading-link-symbol\" aria-hidden=\"true\"></span></a></h3>\n<p><code>fileChanges</code> are specified as a <code>FilesChanges</code> object describing\n<code>FileAdditions</code> and <code>FileDeletions</code>.</p>\n<p>Please see the documentation for <code>FileChanges</code> for more information on\nhow to use this argument to describe any set of file changes.</p>\n<h3 id=\"authorship\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#authorship\">Authorship<span class=\"heading-link-symbol\" aria-hidden=\"true\"></span></a></h3>\n<p>Similar to the web commit interface, this mutation does not support\nspecifying the author or committer of the commit and will not add\nsupport for this in the future.</p>\n<p>A commit created by a successful execution of this mutation will be\nauthored by the owner of the credential which authenticates the API\nrequest.  The committer will be identical to that of commits authored\nusing the web interface.</p>\n<p>If you need full control over author and committer information, please\nuse the Git Database REST API instead.</p>\n<h3 id=\"commit-signing\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#commit-signing\">Commit Signing<span class=\"heading-link-symbol\" aria-hidden=\"true\"></span></a></h3>\n<p>Commits made using this mutation are automatically signed by GitHub if\nsupported and will be marked as verified in the user interface.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateCommitOnBranchInput!",
+          "id": "createcommitonbranchinput",
+          "href": "/graphql/reference/commits#input-object-createcommitonbranchinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "commit",
+          "type": "Commit",
+          "id": "commit",
+          "href": "/graphql/reference/commits#object-commit",
+          "description": "<p>The new commit.</p>"
+        },
+        {
+          "name": "ref",
+          "type": "Ref",
+          "id": "ref",
+          "href": "/graphql/reference/git#object-ref",
+          "description": "<p>The ref which has been updated to point to the new commit.</p>"
+        }
+      ],
+      "category": "commits"
+    }
+  ],
+  "objects": [
+    {
+      "name": "Commit",
+      "id": "commit",
+      "href": "/graphql/reference/commits#object-commit",
+      "description": "<p>Represents a Git commit.</p>",
+      "implements": [
+        {
+          "name": "GitObject",
+          "id": "gitobject",
+          "href": "/graphql/reference/git#interface-gitobject"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "Subscribable",
+          "id": "subscribable",
+          "href": "/graphql/reference/activity#interface-subscribable"
+        },
+        {
+          "name": "UniformResourceLocatable",
+          "id": "uniformresourcelocatable",
+          "href": "/graphql/reference/meta#interface-uniformresourcelocatable"
+        }
+      ],
+      "fields": [
+        {
+          "name": "abbreviatedOid",
+          "description": "<p>An abbreviated version of the Git object ID.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "additions",
+          "description": "<p>The number of additions in this commit.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "associatedPullRequests",
+          "description": "<p>The merged Pull Request that introduced the commit to the repository. If the\ncommit is not present in the default branch, additionally returns open Pull\nRequests associated with the commit.</p>",
+          "type": "PullRequestConnection",
+          "id": "pullrequestconnection",
+          "href": "/graphql/reference/pulls#object-pullrequestconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for pull requests.</p>",
+              "type": {
+                "name": "PullRequestOrder",
+                "id": "pullrequestorder",
+                "href": "/graphql/reference/pulls#input-object-pullrequestorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "author",
+          "description": "<p>Authorship details of the commit.</p>",
+          "type": "GitActor",
+          "id": "gitactor",
+          "href": "/graphql/reference/git#object-gitactor"
+        },
+        {
+          "name": "authoredByCommitter",
+          "description": "<p>Check if the committer and the author match.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "authoredDate",
+          "description": "<p>The datetime when this commit was authored.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "authors",
+          "description": "<p>The list of authors for this commit based on the git author and the Co-authored-by\nmessage trailer. The git author will always be first.</p>",
+          "type": "GitActorConnection!",
+          "id": "gitactorconnection",
+          "href": "/graphql/reference/git#object-gitactorconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "blame",
+          "description": "<p>Fetches <code>git blame</code> information.</p>",
+          "type": "Blame!",
+          "id": "blame",
+          "href": "/graphql/reference/git#object-blame",
+          "arguments": [
+            {
+              "name": "path",
+              "description": "<p>The file whose Git blame information you want.</p>",
+              "type": {
+                "name": "String!",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "changedFiles",
+          "description": "<p>We recommend using the <code>changedFilesIfAvailable</code> field instead of\n<code>changedFiles</code>, as <code>changedFiles</code> will cause your request to return an error\nif GitHub is unable to calculate the number of changed files.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>changedFiles</code> will be removed. Use <code>changedFilesIfAvailable</code> instead. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "changedFilesIfAvailable",
+          "description": "<p>The number of changed files in this commit. If GitHub is unable to calculate\nthe number of changed files (for example due to a timeout), this will return\n<code>null</code>. We recommend using this field instead of <code>changedFiles</code>.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "checkSuites",
+          "description": "<p>The check suites associated with a commit.</p>",
+          "type": "CheckSuiteConnection",
+          "id": "checksuiteconnection",
+          "href": "/graphql/reference/checks#object-checksuiteconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "filterBy",
+              "description": "<p>Filters the check suites by this type.</p>",
+              "type": {
+                "name": "CheckSuiteFilter",
+                "id": "checksuitefilter",
+                "href": "/graphql/reference/checks#input-object-checksuitefilter"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "comments",
+          "description": "<p>Comments made on the commit.</p>",
+          "type": "CommitCommentConnection!",
+          "id": "commitcommentconnection",
+          "href": "/graphql/reference/commits#object-commitcommentconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "commitResourcePath",
+          "description": "<p>The HTTP path for this Git object.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "commitUrl",
+          "description": "<p>The HTTP URL for this Git object.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "committedDate",
+          "description": "<p>The datetime when this commit was committed.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "committedViaWeb",
+          "description": "<p>Check if committed via GitHub web UI.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "committer",
+          "description": "<p>Committer details of the commit.</p>",
+          "type": "GitActor",
+          "id": "gitactor",
+          "href": "/graphql/reference/git#object-gitactor"
+        },
+        {
+          "name": "deletions",
+          "description": "<p>The number of deletions in this commit.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "deployments",
+          "description": "<p>The deployments associated with a commit.</p>",
+          "type": "DeploymentConnection",
+          "id": "deploymentconnection",
+          "href": "/graphql/reference/deployments#object-deploymentconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "environments",
+              "description": "<p>Environments to list deployments for.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for deployments returned from the connection.</p>",
+              "type": {
+                "name": "DeploymentOrder",
+                "id": "deploymentorder",
+                "href": "/graphql/reference/deployments#input-object-deploymentorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "file",
+          "description": "<p>The tree entry representing the file located at the given path.</p>",
+          "type": "TreeEntry",
+          "id": "treeentry",
+          "href": "/graphql/reference/git#object-treeentry",
+          "arguments": [
+            {
+              "name": "path",
+              "description": "<p>The path for the file.</p>",
+              "type": {
+                "name": "String!",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "history",
+          "description": "<p>The linear commit history starting from (and including) this commit, in the same order as <code>git log</code>.</p>",
+          "type": "CommitHistoryConnection!",
+          "id": "commithistoryconnection",
+          "href": "/graphql/reference/commits#object-commithistoryconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "author",
+              "description": "<p>If non-null, filters history to only show commits with matching authorship.</p>",
+              "type": {
+                "name": "CommitAuthor",
+                "id": "commitauthor",
+                "href": "/graphql/reference/commits#input-object-commitauthor"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "path",
+              "description": "<p>If non-null, filters history to only show commits touching files under this path.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "since",
+              "description": "<p>Allows specifying a beginning time or date for fetching commits. Unexpected\nresults may be returned for dates not between 1970-01-01 and 2099-12-13 (inclusive).</p>",
+              "type": {
+                "name": "GitTimestamp",
+                "id": "gittimestamp",
+                "href": "/graphql/reference/other#scalar-gittimestamp"
+              }
+            },
+            {
+              "name": "until",
+              "description": "<p>Allows specifying an ending time or date for fetching commits. Unexpected\nresults may be returned for dates not between 1970-01-01 and 2099-12-13 (inclusive).</p>",
+              "type": {
+                "name": "GitTimestamp",
+                "id": "gittimestamp",
+                "href": "/graphql/reference/other#scalar-gittimestamp"
+              }
+            }
+          ]
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Commit object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "message",
+          "description": "<p>The Git commit message.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "messageBody",
+          "description": "<p>The Git commit message body.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "messageBodyHTML",
+          "description": "<p>The commit message body rendered to HTML.</p>",
+          "type": "HTML!",
+          "id": "html",
+          "href": "/graphql/reference/other#scalar-html"
+        },
+        {
+          "name": "messageHeadline",
+          "description": "<p>The Git commit message headline.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "messageHeadlineHTML",
+          "description": "<p>The commit message headline rendered to HTML.</p>",
+          "type": "HTML!",
+          "id": "html",
+          "href": "/graphql/reference/other#scalar-html"
+        },
+        {
+          "name": "oid",
+          "description": "<p>The Git object ID.</p>",
+          "type": "GitObjectID!",
+          "id": "gitobjectid",
+          "href": "/graphql/reference/other#scalar-gitobjectid"
+        },
+        {
+          "name": "onBehalfOf",
+          "description": "<p>The organization this commit was made on behalf of.</p>",
+          "type": "Organization",
+          "id": "organization",
+          "href": "/graphql/reference/orgs#object-organization"
+        },
+        {
+          "name": "parents",
+          "description": "<p>The parents of a commit.</p>",
+          "type": "CommitConnection!",
+          "id": "commitconnection",
+          "href": "/graphql/reference/commits#object-commitconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "pushedDate",
+          "description": "<p>The datetime when this commit was pushed.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>pushedDate</code> is no longer supported. Removal on 2023-07-01 UTC.</p>"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The Repository this commit belongs to.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this commit.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "signature",
+          "description": "<p>Commit signing information, if present.</p>",
+          "type": "GitSignature",
+          "id": "gitsignature",
+          "href": "/graphql/reference/git#interface-gitsignature"
+        },
+        {
+          "name": "status",
+          "description": "<p>Status information for this commit.</p>",
+          "type": "Status",
+          "id": "status",
+          "href": "/graphql/reference/commits#object-status"
+        },
+        {
+          "name": "statusCheckRollup",
+          "description": "<p>Check and Status rollup information for this commit.</p>",
+          "type": "StatusCheckRollup",
+          "id": "statuscheckrollup",
+          "href": "/graphql/reference/commits#object-statuscheckrollup"
+        },
+        {
+          "name": "submodules",
+          "description": "<p>Returns a list of all submodules in this repository as of this Commit parsed from the .gitmodules file.</p>",
+          "type": "SubmoduleConnection!",
+          "id": "submoduleconnection",
+          "href": "/graphql/reference/git#object-submoduleconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "tarballUrl",
+          "description": "<p>Returns a URL to download a tarball archive for a repository.\nNote: For private repositories, these links are temporary and expire after five minutes.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "tree",
+          "description": "<p>Commit's root Tree.</p>",
+          "type": "Tree!",
+          "id": "tree",
+          "href": "/graphql/reference/git#object-tree"
+        },
+        {
+          "name": "treeResourcePath",
+          "description": "<p>The HTTP path for the tree of this commit.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "treeUrl",
+          "description": "<p>The HTTP URL for the tree of this commit.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this commit.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "viewerCanSubscribe",
+          "description": "<p>Check if the viewer is able to change their subscription status for the repository.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerSubscription",
+          "description": "<p>Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.</p>",
+          "type": "SubscriptionState",
+          "id": "subscriptionstate",
+          "href": "/graphql/reference/activity#enum-subscriptionstate"
+        },
+        {
+          "name": "zipballUrl",
+          "description": "<p>Returns a URL to download a zipball archive for a repository.\nNote: For private repositories, these links are temporary and expire after five minutes.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "CommitAuthorEmailPatternParameters",
+      "id": "commitauthoremailpatternparameters",
+      "href": "/graphql/reference/commits#object-commitauthoremailpatternparameters",
+      "description": "<p>Parameters to be used for the commit_author_email_pattern rule.</p>",
+      "fields": [
+        {
+          "name": "name",
+          "description": "<p>How this rule will appear to users.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "negate",
+          "description": "<p>If true, the rule will fail if the pattern matches.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "operator",
+          "description": "<p>The operator to use for matching.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "pattern",
+          "description": "<p>The pattern to match with.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "CommitComment",
+      "id": "commitcomment",
+      "href": "/graphql/reference/commits#object-commitcomment",
+      "description": "<p>Represents a comment on a given Commit.</p>",
+      "implements": [
+        {
+          "name": "Comment",
+          "id": "comment",
+          "href": "/graphql/reference/issues#interface-comment"
+        },
+        {
+          "name": "Deletable",
+          "id": "deletable",
+          "href": "/graphql/reference/issues#interface-deletable"
+        },
+        {
+          "name": "Minimizable",
+          "id": "minimizable",
+          "href": "/graphql/reference/issues#interface-minimizable"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "Reactable",
+          "id": "reactable",
+          "href": "/graphql/reference/reactions#interface-reactable"
+        },
+        {
+          "name": "RepositoryNode",
+          "id": "repositorynode",
+          "href": "/graphql/reference/repos#interface-repositorynode"
+        },
+        {
+          "name": "Updatable",
+          "id": "updatable",
+          "href": "/graphql/reference/issues#interface-updatable"
+        },
+        {
+          "name": "UpdatableComment",
+          "id": "updatablecomment",
+          "href": "/graphql/reference/issues#interface-updatablecomment"
+        }
+      ],
+      "fields": [
+        {
+          "name": "author",
+          "description": "<p>The actor who authored the comment.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "authorAssociation",
+          "description": "<p>Author's association with the subject of the comment.</p>",
+          "type": "CommentAuthorAssociation!",
+          "id": "commentauthorassociation",
+          "href": "/graphql/reference/issues#enum-commentauthorassociation"
+        },
+        {
+          "name": "body",
+          "description": "<p>Identifies the comment body.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "bodyHTML",
+          "description": "<p>The body rendered to HTML.</p>",
+          "type": "HTML!",
+          "id": "html",
+          "href": "/graphql/reference/other#scalar-html"
+        },
+        {
+          "name": "bodyText",
+          "description": "<p>The body rendered to text.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "commit",
+          "description": "<p>Identifies the commit associated with the comment, if the commit exists.</p>",
+          "type": "Commit",
+          "id": "commit",
+          "href": "/graphql/reference/commits#object-commit"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "createdViaEmail",
+          "description": "<p>Check if this comment was created via an email reply.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "editor",
+          "description": "<p>The actor who edited the comment.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the CommitComment object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "includesCreatedEdit",
+          "description": "<p>Check if this comment was edited and includes an edit with the creation data.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isMinimized",
+          "description": "<p>Returns whether or not a comment has been minimized.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "lastEditedAt",
+          "description": "<p>The moment the editor made the last edit.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "minimizedReason",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "path",
+          "description": "<p>Identifies the file path associated with the comment.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "position",
+          "description": "<p>Identifies the line position associated with the comment.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "publishedAt",
+          "description": "<p>Identifies when the comment was published at.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "reactionGroups",
+          "description": "<p>A list of reactions grouped by content left on the subject.</p>",
+          "type": "[ReactionGroup!]",
+          "id": "reactiongroup",
+          "href": "/graphql/reference/reactions#object-reactiongroup"
+        },
+        {
+          "name": "reactions",
+          "description": "<p>A list of Reactions left on the Issue.</p>",
+          "type": "ReactionConnection!",
+          "id": "reactionconnection",
+          "href": "/graphql/reference/reactions#object-reactionconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "content",
+              "description": "<p>Allows filtering Reactions by emoji.</p>",
+              "type": {
+                "name": "ReactionContent",
+                "id": "reactioncontent",
+                "href": "/graphql/reference/reactions#enum-reactioncontent"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Allows specifying the order in which reactions are returned.</p>",
+              "type": {
+                "name": "ReactionOrder",
+                "id": "reactionorder",
+                "href": "/graphql/reference/reactions#input-object-reactionorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository associated with this node.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path permalink for this commit comment.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL permalink for this commit comment.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "userContentEdits",
+          "description": "<p>A list of edits to this content.</p>",
+          "type": "UserContentEditConnection",
+          "id": "usercontenteditconnection",
+          "href": "/graphql/reference/users#object-usercontenteditconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "viewerCanDelete",
+          "description": "<p>Check if the current viewer can delete this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanMinimize",
+          "description": "<p>Check if the current viewer can minimize this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanReact",
+          "description": "<p>Can user react to this subject.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanUpdate",
+          "description": "<p>Check if the current viewer can update this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCannotUpdateReasons",
+          "description": "<p>Reasons why the current viewer can not update this comment.</p>",
+          "type": "[CommentCannotUpdateReason!]!",
+          "id": "commentcannotupdatereason",
+          "href": "/graphql/reference/issues#enum-commentcannotupdatereason"
+        },
+        {
+          "name": "viewerDidAuthor",
+          "description": "<p>Did the viewer author this comment.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "CommitCommentConnection",
+      "id": "commitcommentconnection",
+      "href": "/graphql/reference/commits#object-commitcommentconnection",
+      "description": "<p>The connection type for CommitComment.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[CommitCommentEdge]",
+          "id": "commitcommentedge",
+          "href": "/graphql/reference/commits#object-commitcommentedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[CommitComment]",
+          "id": "commitcomment",
+          "href": "/graphql/reference/commits#object-commitcomment"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "CommitCommentEdge",
+      "id": "commitcommentedge",
+      "href": "/graphql/reference/commits#object-commitcommentedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "CommitComment",
+          "id": "commitcomment",
+          "href": "/graphql/reference/commits#object-commitcomment"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "CommitCommentThread",
+      "id": "commitcommentthread",
+      "href": "/graphql/reference/commits#object-commitcommentthread",
+      "description": "<p>A thread of comments on a commit.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "RepositoryNode",
+          "id": "repositorynode",
+          "href": "/graphql/reference/repos#interface-repositorynode"
+        }
+      ],
+      "fields": [
+        {
+          "name": "comments",
+          "description": "<p>The comments that exist in this thread.</p>",
+          "type": "CommitCommentConnection!",
+          "id": "commitcommentconnection",
+          "href": "/graphql/reference/commits#object-commitcommentconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "commit",
+          "description": "<p>The commit the comments were made on.</p>",
+          "type": "Commit",
+          "id": "commit",
+          "href": "/graphql/reference/commits#object-commit"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the CommitCommentThread object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "path",
+          "description": "<p>The file the comments were made on.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "position",
+          "description": "<p>The position in the diff for the commit that the comment was made on.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository associated with this node.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "CommitConnection",
+      "id": "commitconnection",
+      "href": "/graphql/reference/commits#object-commitconnection",
+      "description": "<p>The connection type for Commit.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[CommitEdge]",
+          "id": "commitedge",
+          "href": "/graphql/reference/commits#object-commitedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Commit]",
+          "id": "commit",
+          "href": "/graphql/reference/commits#object-commit"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "CommitContributionsByRepository",
+      "id": "commitcontributionsbyrepository",
+      "href": "/graphql/reference/commits#object-commitcontributionsbyrepository",
+      "description": "<p>This aggregates commits made by a user within one repository.</p>",
+      "fields": [
+        {
+          "name": "contributions",
+          "description": "<p>The commit contributions, each representing a day.</p>",
+          "type": "CreatedCommitContributionConnection!",
+          "id": "createdcommitcontributionconnection",
+          "href": "/graphql/reference/users#object-createdcommitcontributionconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for commit contributions returned from the connection.</p>",
+              "type": {
+                "name": "CommitContributionOrder",
+                "id": "commitcontributionorder",
+                "href": "/graphql/reference/commits#input-object-commitcontributionorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository in which the commits were made.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for the user's commits to the repository in this time range.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for the user's commits to the repository in this time range.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "CommitEdge",
+      "id": "commitedge",
+      "href": "/graphql/reference/commits#object-commitedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "Commit",
+          "id": "commit",
+          "href": "/graphql/reference/commits#object-commit"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "CommitHistoryConnection",
+      "id": "commithistoryconnection",
+      "href": "/graphql/reference/commits#object-commithistoryconnection",
+      "description": "<p>The connection type for Commit.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[CommitEdge]",
+          "id": "commitedge",
+          "href": "/graphql/reference/commits#object-commitedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Commit]",
+          "id": "commit",
+          "href": "/graphql/reference/commits#object-commit"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "CommitMessagePatternParameters",
+      "id": "commitmessagepatternparameters",
+      "href": "/graphql/reference/commits#object-commitmessagepatternparameters",
+      "description": "<p>Parameters to be used for the commit_message_pattern rule.</p>",
+      "fields": [
+        {
+          "name": "name",
+          "description": "<p>How this rule will appear to users.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "negate",
+          "description": "<p>If true, the rule will fail if the pattern matches.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "operator",
+          "description": "<p>The operator to use for matching.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "pattern",
+          "description": "<p>The pattern to match with.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "CommitterEmailPatternParameters",
+      "id": "committeremailpatternparameters",
+      "href": "/graphql/reference/commits#object-committeremailpatternparameters",
+      "description": "<p>Parameters to be used for the committer_email_pattern rule.</p>",
+      "fields": [
+        {
+          "name": "name",
+          "description": "<p>How this rule will appear to users.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "negate",
+          "description": "<p>If true, the rule will fail if the pattern matches.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "operator",
+          "description": "<p>The operator to use for matching.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "pattern",
+          "description": "<p>The pattern to match with.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "Comparison",
+      "id": "comparison",
+      "href": "/graphql/reference/commits#object-comparison",
+      "description": "<p>Represents a comparison between two commit revisions.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "aheadBy",
+          "description": "<p>The number of commits ahead of the base branch.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "baseTarget",
+          "description": "<p>The base revision of this comparison.</p>",
+          "type": "GitObject!",
+          "id": "gitobject",
+          "href": "/graphql/reference/git#interface-gitobject"
+        },
+        {
+          "name": "behindBy",
+          "description": "<p>The number of commits behind the base branch.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "commits",
+          "description": "<p>The commits which compose this comparison.</p>",
+          "type": "ComparisonCommitConnection!",
+          "id": "comparisoncommitconnection",
+          "href": "/graphql/reference/commits#object-comparisoncommitconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "headTarget",
+          "description": "<p>The head revision of this comparison.</p>",
+          "type": "GitObject!",
+          "id": "gitobject",
+          "href": "/graphql/reference/git#interface-gitobject"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Comparison object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "status",
+          "description": "<p>The status of this comparison.</p>",
+          "type": "ComparisonStatus!",
+          "id": "comparisonstatus",
+          "href": "/graphql/reference/commits#enum-comparisonstatus"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "ComparisonCommitConnection",
+      "id": "comparisoncommitconnection",
+      "href": "/graphql/reference/commits#object-comparisoncommitconnection",
+      "description": "<p>The connection type for Commit.</p>",
+      "fields": [
+        {
+          "name": "authorCount",
+          "description": "<p>The total count of authors and co-authors across all commits.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[CommitEdge]",
+          "id": "commitedge",
+          "href": "/graphql/reference/commits#object-commitedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Commit]",
+          "id": "commit",
+          "href": "/graphql/reference/commits#object-commit"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "Status",
+      "id": "status",
+      "href": "/graphql/reference/commits#object-status",
+      "description": "<p>Represents a commit status.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "combinedContexts",
+          "description": "<p>A list of status contexts and check runs for this commit.</p>",
+          "type": "StatusCheckRollupContextConnection!",
+          "id": "statuscheckrollupcontextconnection",
+          "href": "/graphql/reference/commits#object-statuscheckrollupcontextconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "commit",
+          "description": "<p>The commit this status is attached to.</p>",
+          "type": "Commit",
+          "id": "commit",
+          "href": "/graphql/reference/commits#object-commit"
+        },
+        {
+          "name": "context",
+          "description": "<p>Looks up an individual status context by context name.</p>",
+          "type": "StatusContext",
+          "id": "statuscontext",
+          "href": "/graphql/reference/commits#object-statuscontext",
+          "arguments": [
+            {
+              "name": "name",
+              "description": "<p>The context name.</p>",
+              "type": {
+                "name": "String!",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "contexts",
+          "description": "<p>The individual status contexts for this commit.</p>",
+          "type": "[StatusContext!]!",
+          "id": "statuscontext",
+          "href": "/graphql/reference/commits#object-statuscontext"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Status object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "state",
+          "description": "<p>The combined commit status.</p>",
+          "type": "StatusState!",
+          "id": "statusstate",
+          "href": "/graphql/reference/commits#enum-statusstate"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "StatusCheckConfiguration",
+      "id": "statuscheckconfiguration",
+      "href": "/graphql/reference/commits#object-statuscheckconfiguration",
+      "description": "<p>Required status check.</p>",
+      "fields": [
+        {
+          "name": "context",
+          "description": "<p>The status check context name that must be present on the commit.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "integrationId",
+          "description": "<p>The optional integration ID that this status check must originate from.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "StatusCheckRollup",
+      "id": "statuscheckrollup",
+      "href": "/graphql/reference/commits#object-statuscheckrollup",
+      "description": "<p>Represents the rollup for both the check runs and status for a commit.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "commit",
+          "description": "<p>The commit the status and check runs are attached to.</p>",
+          "type": "Commit",
+          "id": "commit",
+          "href": "/graphql/reference/commits#object-commit"
+        },
+        {
+          "name": "contexts",
+          "description": "<p>A list of status contexts and check runs for this commit.</p>",
+          "type": "StatusCheckRollupContextConnection!",
+          "id": "statuscheckrollupcontextconnection",
+          "href": "/graphql/reference/commits#object-statuscheckrollupcontextconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the StatusCheckRollup object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "state",
+          "description": "<p>The combined status for the commit.</p>",
+          "type": "StatusState!",
+          "id": "statusstate",
+          "href": "/graphql/reference/commits#enum-statusstate"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "StatusCheckRollupContextConnection",
+      "id": "statuscheckrollupcontextconnection",
+      "href": "/graphql/reference/commits#object-statuscheckrollupcontextconnection",
+      "description": "<p>The connection type for StatusCheckRollupContext.</p>",
+      "fields": [
+        {
+          "name": "checkRunCount",
+          "description": "<p>The number of check runs in this rollup.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "checkRunCountsByState",
+          "description": "<p>Counts of check runs by state.</p>",
+          "type": "[CheckRunStateCount!]",
+          "id": "checkrunstatecount",
+          "href": "/graphql/reference/checks#object-checkrunstatecount"
+        },
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[StatusCheckRollupContextEdge]",
+          "id": "statuscheckrollupcontextedge",
+          "href": "/graphql/reference/commits#object-statuscheckrollupcontextedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[StatusCheckRollupContext]",
+          "id": "statuscheckrollupcontext",
+          "href": "/graphql/reference/commits#union-statuscheckrollupcontext"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "statusContextCount",
+          "description": "<p>The number of status contexts in this rollup.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "statusContextCountsByState",
+          "description": "<p>Counts of status contexts by state.</p>",
+          "type": "[StatusContextStateCount!]",
+          "id": "statuscontextstatecount",
+          "href": "/graphql/reference/commits#object-statuscontextstatecount"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "StatusCheckRollupContextEdge",
+      "id": "statuscheckrollupcontextedge",
+      "href": "/graphql/reference/commits#object-statuscheckrollupcontextedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "StatusCheckRollupContext",
+          "id": "statuscheckrollupcontext",
+          "href": "/graphql/reference/commits#union-statuscheckrollupcontext"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "StatusContext",
+      "id": "statuscontext",
+      "href": "/graphql/reference/commits#object-statuscontext",
+      "description": "<p>Represents an individual commit status context.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "RequirableByPullRequest",
+          "id": "requirablebypullrequest",
+          "href": "/graphql/reference/pulls#interface-requirablebypullrequest"
+        }
+      ],
+      "fields": [
+        {
+          "name": "avatarUrl",
+          "description": "<p>The avatar of the OAuth application or the user that created the status.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri",
+          "arguments": [
+            {
+              "name": "size",
+              "defaultValue": "40",
+              "description": "<p>The size of the resulting square image.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "commit",
+          "description": "<p>This commit this status context is attached to.</p>",
+          "type": "Commit",
+          "id": "commit",
+          "href": "/graphql/reference/commits#object-commit"
+        },
+        {
+          "name": "context",
+          "description": "<p>The name of this status context.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "creator",
+          "description": "<p>The actor who created this status context.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "description",
+          "description": "<p>The description for this status context.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the StatusContext object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "isRequired",
+          "description": "<p>Whether this is required to pass before merging for a specific pull request.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "arguments": [
+            {
+              "name": "pullRequestId",
+              "description": "<p>The id of the pull request this is required for.</p>",
+              "type": {
+                "name": "ID",
+                "id": "id",
+                "href": "/graphql/reference/other#scalar-id"
+              }
+            },
+            {
+              "name": "pullRequestNumber",
+              "description": "<p>The number of the pull request this is required for.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "state",
+          "description": "<p>The state of this status context.</p>",
+          "type": "StatusState!",
+          "id": "statusstate",
+          "href": "/graphql/reference/commits#enum-statusstate"
+        },
+        {
+          "name": "targetUrl",
+          "description": "<p>The URL for this status context.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "StatusContextStateCount",
+      "id": "statuscontextstatecount",
+      "href": "/graphql/reference/commits#object-statuscontextstatecount",
+      "description": "<p>Represents a count of the state of a status context.</p>",
+      "fields": [
+        {
+          "name": "count",
+          "description": "<p>The number of statuses with this state.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "state",
+          "description": "<p>The state of a status context.</p>",
+          "type": "StatusState!",
+          "id": "statusstate",
+          "href": "/graphql/reference/commits#enum-statusstate"
+        }
+      ],
+      "category": "commits"
+    }
+  ],
+  "enums": [
+    {
+      "name": "CommitContributionOrderField",
+      "id": "commitcontributionorderfield",
+      "href": "/graphql/reference/commits#enum-commitcontributionorderfield",
+      "description": "<p>Properties by which commit contribution connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "COMMIT_COUNT",
+          "description": "<p>Order commit contributions by how many commits they represent.</p>"
+        },
+        {
+          "name": "OCCURRED_AT",
+          "description": "<p>Order commit contributions by when they were made.</p>"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "ComparisonStatus",
+      "id": "comparisonstatus",
+      "href": "/graphql/reference/commits#enum-comparisonstatus",
+      "description": "<p>The status of a git comparison between two refs.</p>",
+      "values": [
+        {
+          "name": "AHEAD",
+          "description": "<p>The head ref is ahead of the base ref.</p>"
+        },
+        {
+          "name": "BEHIND",
+          "description": "<p>The head ref is behind the base ref.</p>"
+        },
+        {
+          "name": "DIVERGED",
+          "description": "<p>The head ref is both ahead and behind of the base ref, indicating git history has diverged.</p>"
+        },
+        {
+          "name": "IDENTICAL",
+          "description": "<p>The head ref and base ref are identical.</p>"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "StatusState",
+      "id": "statusstate",
+      "href": "/graphql/reference/commits#enum-statusstate",
+      "description": "<p>The possible commit status states.</p>",
+      "values": [
+        {
+          "name": "ERROR",
+          "description": "<p>Status is errored.</p>"
+        },
+        {
+          "name": "EXPECTED",
+          "description": "<p>Status is expected.</p>"
+        },
+        {
+          "name": "FAILURE",
+          "description": "<p>Status is failing.</p>"
+        },
+        {
+          "name": "PENDING",
+          "description": "<p>Status is pending.</p>"
+        },
+        {
+          "name": "SUCCESS",
+          "description": "<p>Status is successful.</p>"
+        }
+      ],
+      "category": "commits"
+    }
+  ],
+  "unions": [
+    {
+      "name": "StatusCheckRollupContext",
+      "id": "statuscheckrollupcontext",
+      "href": "/graphql/reference/commits#union-statuscheckrollupcontext",
+      "description": "<p>Types that can be inside a StatusCheckRollup context.</p>",
+      "possibleTypes": [
+        {
+          "name": "CheckRun",
+          "id": "checkrun",
+          "href": "/graphql/reference/checks#object-checkrun"
+        },
+        {
+          "name": "StatusContext",
+          "id": "statuscontext",
+          "href": "/graphql/reference/commits#object-statuscontext"
+        }
+      ],
+      "category": "commits"
+    }
+  ],
+  "inputObjects": [
+    {
+      "name": "CommitAuthor",
+      "id": "commitauthor",
+      "href": "/graphql/reference/commits#input-object-commitauthor",
+      "description": "<p>Specifies an author for filtering Git commits.</p>",
+      "inputFields": [
+        {
+          "name": "emails",
+          "description": "<p>Email addresses to filter by. Commits authored by any of the specified email addresses will be returned.</p>",
+          "type": "[String!]",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>ID of a User to filter by. If non-null, only commits authored by this user\nwill be returned. This field takes precedence over emails.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "CommitAuthorEmailPatternParametersInput",
+      "id": "commitauthoremailpatternparametersinput",
+      "href": "/graphql/reference/commits#input-object-commitauthoremailpatternparametersinput",
+      "description": "<p>Parameters to be used for the commit_author_email_pattern rule.</p>",
+      "inputFields": [
+        {
+          "name": "name",
+          "description": "<p>How this rule will appear to users.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "negate",
+          "description": "<p>If true, the rule will fail if the pattern matches.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "operator",
+          "description": "<p>The operator to use for matching.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "pattern",
+          "description": "<p>The pattern to match with.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "CommitContributionOrder",
+      "id": "commitcontributionorder",
+      "href": "/graphql/reference/commits#input-object-commitcontributionorder",
+      "description": "<p>Ordering options for commit contribution connections.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field by which to order commit contributions.</p>",
+          "type": "CommitContributionOrderField!",
+          "id": "commitcontributionorderfield",
+          "href": "/graphql/reference/commits#enum-commitcontributionorderfield"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "CommitMessage",
+      "id": "commitmessage",
+      "href": "/graphql/reference/commits#input-object-commitmessage",
+      "description": "<p>A message to include with a new commit.</p>",
+      "inputFields": [
+        {
+          "name": "body",
+          "description": "<p>The body of the message.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "headline",
+          "description": "<p>The headline of the message.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "CommitMessagePatternParametersInput",
+      "id": "commitmessagepatternparametersinput",
+      "href": "/graphql/reference/commits#input-object-commitmessagepatternparametersinput",
+      "description": "<p>Parameters to be used for the commit_message_pattern rule.</p>",
+      "inputFields": [
+        {
+          "name": "name",
+          "description": "<p>How this rule will appear to users.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "negate",
+          "description": "<p>If true, the rule will fail if the pattern matches.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "operator",
+          "description": "<p>The operator to use for matching.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "pattern",
+          "description": "<p>The pattern to match with.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "CommitterEmailPatternParametersInput",
+      "id": "committeremailpatternparametersinput",
+      "href": "/graphql/reference/commits#input-object-committeremailpatternparametersinput",
+      "description": "<p>Parameters to be used for the committer_email_pattern rule.</p>",
+      "inputFields": [
+        {
+          "name": "name",
+          "description": "<p>How this rule will appear to users.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "negate",
+          "description": "<p>If true, the rule will fail if the pattern matches.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "operator",
+          "description": "<p>The operator to use for matching.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "pattern",
+          "description": "<p>The pattern to match with.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "CreateCommitOnBranchInput",
+      "id": "createcommitonbranchinput",
+      "href": "/graphql/reference/commits#input-object-createcommitonbranchinput",
+      "description": "<p>Autogenerated input type of CreateCommitOnBranch.</p>",
+      "inputFields": [
+        {
+          "name": "branch",
+          "description": "<p>The Ref to be updated.  Must be a branch.</p>",
+          "type": "CommittableBranch!",
+          "id": "committablebranch",
+          "href": "/graphql/reference/git#input-object-committablebranch"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "expectedHeadOid",
+          "description": "<p>The git commit oid expected at the head of the branch prior to the commit.</p>",
+          "type": "GitObjectID!",
+          "id": "gitobjectid",
+          "href": "/graphql/reference/other#scalar-gitobjectid"
+        },
+        {
+          "name": "fileChanges",
+          "description": "<p>A description of changes to files in this commit.</p>",
+          "type": "FileChanges",
+          "id": "filechanges",
+          "href": "/graphql/reference/git#input-object-filechanges"
+        },
+        {
+          "name": "message",
+          "description": "<p>The commit message the be included with the commit.</p>",
+          "type": "CommitMessage!",
+          "id": "commitmessage",
+          "href": "/graphql/reference/commits#input-object-commitmessage"
+        }
+      ],
+      "category": "commits"
+    },
+    {
+      "name": "StatusCheckConfigurationInput",
+      "id": "statuscheckconfigurationinput",
+      "href": "/graphql/reference/commits#input-object-statuscheckconfigurationinput",
+      "description": "<p>Required status check.</p>",
+      "inputFields": [
+        {
+          "name": "context",
+          "description": "<p>The status check context name that must be present on the commit.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "integrationId",
+          "description": "<p>The optional integration ID that this status check must originate from.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "commits"
+    }
+  ]
+}

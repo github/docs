@@ -4,8 +4,7 @@
 .vscode/
 contributing/
 docs/
-node_modules/
-tests/
-# Folder is cloned during the Dockerfile build
 docs-early-access/
+node_modules/
 README.md
+tests/

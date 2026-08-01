@@ -1,7 +1,7 @@
 ---
 title: Reference for subscriptions and notifications
 shortTitle: Reference
-intro: 'Find information to use when managing your subscriptions and notifications on {% data variables.product.github %}.'
+intro: Find information to use when managing your subscriptions and notifications on {% data variables.product.github %}.
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,4 +9,7 @@ versions:
 children:
   - /inbox-filters
   - /email-notification-headers
+  - /types-of-emails-github-sends
+contentType: reference
 ---
+

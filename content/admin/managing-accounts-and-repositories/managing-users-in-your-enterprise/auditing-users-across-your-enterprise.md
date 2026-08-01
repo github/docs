@@ -1,6 +1,6 @@
 ---
 title: Auditing users across your enterprise
-intro: 'The audit log dashboard shows site administrators the actions performed by all users and organizations across your enterprise within the last 180 days. The audit log includes details such as who performed the action, what the action was, and when the action was performed.'
+intro: The audit log dashboard shows site administrators the actions performed by all users and organizations across your enterprise within the last 180 days. The audit log includes details such as who performed the action, what the action was, and when the action was performed.
 redirect_from:
   - /enterprise/admin/guides/user-management/auditing-users-across-an-organization
   - /enterprise/admin/user-management/auditing-users-across-your-instance
@@ -9,14 +9,10 @@ redirect_from:
   - /admin/user-management/managing-users-in-your-enterprise/auditing-users-across-your-enterprise
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Auditing
-  - Enterprise
-  - Organizations
-  - Security
-  - User account
 shortTitle: Audit users
+contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 ## Accessing the audit log
 
@@ -33,7 +29,7 @@ Within the map, you can pan and zoom to see events around the world. Hover over 
 The audit log lists the following information about actions made within your enterprise:
 
 * [The repository](#search-based-on-the-repository) an action was performed in
-* [The user](#search-based-on-the-user) who performed the action
+* [The {% data variables.product.github %} account](#search-based-on-the-actor) that performed the action
 * [Which organization](#search-based-on-the-organization) an action pertained to
 * [The action](#search-based-on-the-action-performed) that was performed
 * [Which country](#search-based-on-the-location) the action took place in
@@ -53,13 +49,13 @@ The `repo` qualifier limits actions to a specific repository owned by your organ
 
 You must include your organization's name within the `repo` qualifier; searching for just `repo:our-repo` will not work.
 
-### Search based on the user
+### Search based on the actor
 
-The `actor` qualifier scopes events based on the member of your organization that performed the action. For example:
+The `actor` qualifier scopes events based on the person or agent that performed the action. For example:
 
 * `actor:octocat` finds all events performed by `octocat`.
-* `actor:octocat actor:hubot` finds all events performed by both `octocat` and `hubot`.
-* `-actor:hubot` excludes all events performed by `hubot`.
+* `actor:octocat actor:Copilot` finds all events performed by both `octocat` and `Copilot`.
+* `-actor:Copilot` excludes all events performed by `Copilot`.
 
 You can only use a {% data variables.product.github %} username, not an individual's real name.
 

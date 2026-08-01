@@ -1,6 +1,179 @@
 @import "@primer/css/support/variables/layout.scss";
 @import "@primer/css/support/mixins/layout.scss";
 
+.headerTitleText {
+  font-size: var(--h3-size, 1.25rem);
+  font-weight: var(--base-text-weight-semibold, 600);
+  line-height: var(--heading-lineHeight);
+}
+
+.noArticlesContainer {
+  width: 100%;
+  text-align: left;
+}
+
+.noArticlesText {
+  color: var(--fgColor-muted, var(--color-fg-muted, #656d76));
+}
+
+.articleCardBox {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  min-height: 7.5rem;
+  box-shadow:
+    0 0.0625rem 0.1875rem 0 rgba(31, 35, 40, 0.08),
+    0 0.0625rem 0 0 rgba(31, 35, 40, 0.06);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  text-decoration: none !important;
+  color: inherit;
+
+  &:hover {
+    box-shadow:
+      0 0.25rem 0.5rem 0 rgba(31, 35, 40, 0.12),
+      0 0.125rem 0.25rem 0 rgba(31, 35, 40, 0.08);
+    transform: translateY(-2px);
+    background-color: var(--bgColor-muted, var(--color-canvas-subtle));
+    text-decoration: none !important;
+  }
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardTitle {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: var(--base-text-weight-semibold, 600);
+}
+
+.cardTitleLink {
+  color: var(--fgColor-accent);
+  text-decoration: none;
+}
+
+.cardIntro {
+  margin: 0;
+  color: var(--fgColor-muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-decoration: none !important;
+}
+
+.tagsContainer {
+  margin-bottom: 0.5rem;
+}
+
+.filterHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-bottom: 1px solid var(--borderColor-default);
+  padding-bottom: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  gap: 0.75rem;
+
+  // Medium screens: horizontal layout with tighter spacing
+  @include breakpoint(md) {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  // Large screens: horizontal layout with normal spacing
+  @include breakpoint(lg) {
+    gap: 1rem;
+  }
+}
+
+.titleAndDropdownRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+
+  // Medium screens and up: maintain tight spacing, don't grow
+  @include breakpoint(md) {
+    gap: 1rem;
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+}
+
+.headerTitle {
+  flex-shrink: 0;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: left;
+  width: auto;
+
+  // All screen sizes: keep title compact
+  @include breakpoint(md) {
+    flex-shrink: 0;
+    width: auto;
+  }
+}
+
+.categoryDropdown {
+  min-width: 12rem;
+  flex: 1;
+
+  button {
+    width: fit-content;
+    text-align: left !important;
+
+    span {
+      justify-content: start !important;
+    }
+
+    // Medium screens: full width but constrained by container
+    @include breakpoint(md) {
+      width: 100%;
+    }
+  }
+
+  // Medium screens: smaller min-width and constrained max-width
+  @include breakpoint(md) {
+    min-width: 20rem;
+    max-width: 30%;
+  }
+
+  // Large screens: larger sizing
+  @include breakpoint(lg) {
+    min-width: 20rem;
+    max-width: 40%;
+  }
+}
+
+.searchContainer {
+  margin-left: 0;
+  width: auto;
+
+  input {
+    font-size: 1rem;
+  }
+
+  // Medium screens: flexible width with spacing
+  @include breakpoint(md) {
+    flex: 0 1 25%;
+    min-width: 12.5rem;
+    margin-left: auto;
+  }
+
+  // Large screens: larger width with auto margin
+  @include breakpoint(lg) {
+    width: 30%;
+    flex: 0 0 30%;
+    margin-left: auto;
+  }
+}
+
 .articleGrid {
   display: grid;
   gap: 1.5rem;
@@ -25,12 +198,24 @@
   height: 100%;
 }
 
-.cardContent {
+.paginationContainer {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  gap: 0.75rem;
+
+  // Medium screens and up: horizontal layout with space between
+  @include breakpoint(md) {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+  }
 }
 
-.cardFooter {
-  margin-top: auto;
+.showingResults {
+  color: var(--fgColor-muted, var(--color-fg-muted, #656d76));
+  font-size: 0.875rem;
 }

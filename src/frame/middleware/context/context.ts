@@ -2,7 +2,7 @@ import type { NextFunction, Response } from 'express'
 
 import type { ExtendedRequest, Context } from '@/types'
 
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
 import { allVersions } from '@/versions/lib/all-versions'
 import { productMap } from '@/products/lib/all-products'
@@ -25,7 +25,7 @@ const enterpriseServerVersions = Object.keys(allVersions).filter((version) =>
 )
 
 // Supply all route handlers with a baseline `req.context` object
-// Note that additional middleware in middleware/index.js adds to this context object
+// Note that additional middleware in middleware/index.ts adds to this context object
 export default async function contextualize(
   req: ExtendedRequest,
   res: Response,
@@ -43,6 +43,10 @@ export default async function contextualize(
     // req.pagePath is used later in the rendering pipeline to
     // locate the file in the tree so it cannot have .md
     req.pagePath = req.pagePath.replace(/\/index\.md$/, '').replace(/\.md$/, '')
+    req.context.markdownRequested = true
+    // Track that markdown was requested via URL suffix, not Accept header.
+    // This avoids adding a misleading Vary: accept cache header.
+    req.context.markdownViaUrl = true
   }
 
   // define each context property explicitly for code-search friendliness
@@ -70,15 +74,19 @@ export default async function contextualize(
   req.context.redirects = redirects
   req.context.site = {
     data: {
-      ui: getUIDataMerged(req.language),
+      ui: getUIDataMerged(req.language!),
     },
   }
-  req.context.getDottedData = (dottedPath) => getDataByLanguage(dottedPath, req.language)
+  req.context.getDottedData = (dottedPath) => getDataByLanguage(dottedPath, req.language!)
   req.context.siteTree = siteTree
   req.context.pages = pageMap
   req.context.nonEnterpriseDefaultVersion = nonEnterpriseDefaultVersion
   req.context.initialRestVersioningReleaseDate =
     allVersions[nonEnterpriseDefaultVersion].apiVersions[0]
+  // The default REST API version that requests use when no X-GitHub-Api-Version header is specified
+  // This is the oldest supported version (last in the sorted descending array)
+  const apiVersions = allVersions[nonEnterpriseDefaultVersion].apiVersions
+  req.context.defaultRestApiVersion = apiVersions[apiVersions.length - 1]
 
   const restDate = new Date(req.context.initialRestVersioningReleaseDate)
   req.context.initialRestVersioningReleaseDateLong = restDate.toUTCString().split(' 00:')[0]
@@ -91,20 +99,20 @@ export default async function contextualize(
     // The reason this is a function is because most of the time, we don't
     // need to know the English equivalent. It only comes into play if a
     // translated
-    req.context.getEnglishPage = (context) => {
-      if (!context.enPage) {
-        const { page } = context
+    req.context.getEnglishPage = (ctx) => {
+      if (!ctx.enPage) {
+        const { page } = ctx
         if (!page) {
           throw new Error("The 'page' has not been put into the context yet.")
         }
-        const enPath = context.currentPath!.replace(`/${page.languageCode}`, '/en')
-        const enPage = context.pages![enPath]
+        const enPath = ctx.currentPath!.replace(`/${page.languageCode}`, '/en')
+        const enPage = ctx.pages![enPath]
         if (!enPage) {
           throw new Error(`Unable to find equivalent English page by the path '${enPath}'`)
         }
-        context.enPage = enPage
+        ctx.enPage = enPage
       }
-      return context.enPage
+      return ctx.enPage
     }
   }
 

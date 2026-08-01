@@ -1,7 +1,7 @@
 ---
 title: Publishing Docker images
 shortTitle: Publish Docker images
-intro: 'In this tutorial, you''ll learn how to publish Docker images to a registry, such as Docker Hub or {% data variables.product.prodname_registry %}, as part of your continuous integration (CI) workflow.'
+intro: In this tutorial, you'll learn how to publish Docker images to a registry, such as Docker Hub or {% data variables.product.prodname_registry %}, as part of your continuous integration (CI) workflow.
 redirect_from:
   - /actions/language-and-framework-guides/publishing-docker-images
   - /actions/guides/publishing-docker-images
@@ -13,12 +13,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
-topics:
-  - Packaging
-  - Publishing
-  - Docker
 layout: inline
+contentType: tutorials
+category:
+  - Build and test code
 ---
 
 ## Introduction
@@ -30,12 +28,12 @@ This guide shows you how to create a workflow that performs a Docker build, and 
 
 ## Prerequisites
 
-We recommend that you have a basic understanding of workflow configuration options and how to create a workflow file. For more information, see [AUTOTITLE](/actions/learn-github-actions).
+We recommend that you have a basic understanding of workflow configuration options and how to create a workflow file. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows).
 
 You might also find it helpful to have a basic understanding of the following:
 
-* [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)
-* [AUTOTITLE](/actions/security-guides/automatic-token-authentication){% ifversion fpt or ghec %}
+* [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets)
+* [AUTOTITLE](/actions/tutorials/authenticate-with-github_token){% ifversion fpt or ghec %}
 * [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry){% else %}
 * [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry){% endif %}
 
@@ -60,7 +58,7 @@ In the example workflow below, we use the Docker `login-action` and `build-push-
 To push to Docker Hub, you will need to have a Docker Hub account, and have a Docker Hub repository created. For more information, see [Pushing a Docker container image to Docker Hub](https://docs.docker.com/docker-hub/quickstart/#step-3-build-and-push-an-image-to-docker-hub) in the Docker documentation.
 
 The `login-action` options required for Docker Hub are:
-* `username` and `password`: This is your Docker Hub username and password. We recommend storing your Docker Hub username and password as secrets so they aren't exposed in your workflow file. For more information, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
+* `username` and `password`: This is your Docker Hub username and password. We recommend storing your Docker Hub username and password as secrets so they aren't exposed in your workflow file. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
 
 The `metadata-action` option required for Docker Hub is:
 * `images`: The namespace and name for the Docker image you are building/pushing to Docker Hub.
@@ -117,7 +115,7 @@ jobs:
 
 {% ifversion artifact-attestations %}
       - name: Generate artifact attestation
-        uses: actions/attest-build-provenance@v2
+        uses: actions/attest@v4
         with:
           subject-name: index.docker.io/my-docker-hub-namespace/my-docker-hub-repository
           subject-digest: {% raw %}${{ steps.push.outputs.digest }}{% endraw %}
@@ -141,8 +139,8 @@ In the example workflow below, we use the Docker `login-action`{% ifversion fpt 
 
 The `login-action` options required for {% data variables.product.prodname_registry %} are:
 * `registry`: Must be set to {% ifversion fpt or ghec %}`ghcr.io`{% elsif ghes %}`{% data reusables.package_registry.container-registry-hostname %}`{% endif %}.
-* `username`: You can use the {% raw %}`${{ github.actor }}`{% endraw %} context to automatically use the username of the user that triggered the workflow run. For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts#github-context).
-* `password`: You can use the automatically-generated `GITHUB_TOKEN` secret for the password. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication).
+* `username`: You can use the {% raw %}`${{ github.actor }}`{% endraw %} context to automatically use the username of the user that triggered the workflow run. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/contexts#github-context).
+* `password`: You can use the automatically-generated `GITHUB_TOKEN` secret for the password. For more information, see [AUTOTITLE](/actions/tutorials/authenticate-with-github_token).
 
 {% ifversion fpt or ghec %}
 The `metadata-action` option required for {% data variables.product.prodname_registry %} is:
@@ -191,8 +189,6 @@ jobs:
     permissions:
       packages: write
       contents: read
-      {% ifversion artifact-attestations %}attestations: write{% endif %}
-      {% ifversion artifact-attestations %}id-token: write{% endif %}
     steps:
       - name: Check out the repo
         uses: {% data reusables.actions.action-checkout %}
@@ -226,18 +222,27 @@ jobs:
           push: true
           tags: {% raw %}${{ steps.meta.outputs.tags }}{% endraw %}
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
-
-{% ifversion artifact-attestations %}
-      - name: Generate artifact attestation
-        uses: actions/attest-build-provenance@v2
-        with:
-          subject-name: {% data reusables.package_registry.container-registry-hostname %}/{% raw %}${{ github.repository }}{% endraw %}
-          subject-digest: {% raw %}${{ steps.push.outputs.digest }}{% endraw %}
-          push-to-registry: true
-{% endif -%}
 ```
 
 The above workflow checks out the {% data variables.product.github %} repository, uses the `login-action` twice to log in to both registries and generates tags and labels with the `metadata-action` action.
 Then the `build-push-action` action builds and pushes the Docker image to Docker Hub and the {% data variables.product.prodname_container_registry %}.
 
-{% ifversion artifact-attestations %}{% data reusables.actions.artifact-attestations-step-explanation %}{% endif %}
+{% ifversion artifact-attestations %}> [!NOTE]
+> When pushing to multiple registries:
+> 
+> * Image digests may differ between registries, making attestation verification difficult.
+> * To maintain a consistent digest and allow a single attestation to verify all copies, push to one registry first and use a tool like [`crane copy`](https://github.com/google/go-containerregistry/blob/main/cmd/crane/doc/crane_copy.md) to replicate the image elsewhere.
+> * If you choose to build and push to each registry separately instead, you must generate a distinct attestation for each one to ensure your artifacts remain verifiable.
+{% endif %}
+
+## Hands-on practice
+
+Practice publishing Docker images with the [Publishing Docker images](https://github.com/skills/publish-docker-images) {% data variables.product.prodname_learning %} exercise.
+
+In this exercise, you will learn how to:
+
+* Authenticate to {% data variables.product.prodname_registry %} using the `GITHUB_TOKEN`.
+* Build and publish container images to the {% data variables.product.prodname_container_registry %} (`ghcr.io`).
+* Use official Docker actions, such as `docker/login-action`, `docker/build-push-action`, and `docker/setup-buildx-action`.
+* Generate tags automatically with `docker/metadata-action` based on branches, pull requests, and releases.
+* Create features, pull requests, and releases with proper container versioning.

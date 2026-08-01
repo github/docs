@@ -5,6 +5,8 @@ import { useRouter } from 'next/router'
 import { MarkGithubIcon, CommentDiscussionIcon } from '@primer/octicons-react'
 import { Lead } from '@/frame/components/ui/Lead'
 
+import styles from './GenericError.module.scss'
+
 export function GenericError() {
   return (
     <div className="min-h-screen d-flex flex-column">
@@ -44,7 +46,7 @@ export const SimpleHeader = () => {
         role="banner"
         aria-label="Main"
       >
-        <div className="d-flex flex-items-center" style={{ zIndex: 3 }} id="github-logo-mobile">
+        <div className={`d-flex flex-items-center ${styles.logoContainer}`} id="github-logo-mobile">
           <Link href={`/${router.locale}`} aria-hidden="true" tabIndex={-1}>
             <MarkGithubIcon size={32} className="color-fg-default" />
           </Link>
@@ -65,16 +67,16 @@ export const SimpleFooter = () => {
   return (
     <footer className="py-6">
       <div className="container-xl px-3 px-md-6">
-        <ul className="d-flex flex-wrap list-style-none">
-          <li className="d-flex mr-xl-3 color-fg-muted">
+        <ul role="list" className="d-flex flex-wrap list-style-none">
+          <li role="listitem" className="d-flex mr-xl-3 color-fg-muted">
             <span>&copy; {new Date().getFullYear()} GitHub, Inc.</span>
           </li>
-          <li className="ml-3">
+          <li role="listitem" className="ml-3">
             <a className="text-underline" href="/site-policy/github-terms/github-terms-of-service">
               Terms
             </a>
           </li>
-          <li className="ml-3">
+          <li role="listitem" className="ml-3">
             <a
               className="text-underline"
               href="/site-policy/privacy-policies/github-privacy-statement"
@@ -82,22 +84,22 @@ export const SimpleFooter = () => {
               Privacy{' '}
             </a>
           </li>
-          <li className="ml-3">
+          <li role="listitem" className="ml-3">
             <a className="text-underline" href="https://www.githubstatus.com/">
               Status
             </a>
           </li>
-          <li className="ml-3">
+          <li role="listitem" className="ml-3">
             <a className="text-underline" href="https://github.com/pricing">
               Pricing
             </a>
           </li>
-          <li className="ml-3">
+          <li role="listitem" className="ml-3">
             <a className="text-underline" href="https://services.github.com/">
               Expert services
             </a>
           </li>
-          <li className="ml-3">
+          <li role="listitem" className="ml-3">
             <a className="text-underline" href="https://github.blog/">
               Blog
             </a>

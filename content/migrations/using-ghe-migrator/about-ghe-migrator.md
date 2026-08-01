@@ -1,6 +1,6 @@
 ---
 title: About ghe-migrator
-intro: 'You can use `ghe-migrator` to transfer data from a *source* location (either a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance.'
+intro: You can use `ghe-migrator` to transfer data from a *source* location (either a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance.
 redirect_from:
   - /enterprise/admin/migrations/about-migrations
   - /enterprise/admin/user-management/about-migrations
@@ -10,10 +10,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: overview
-topics:
-  - Enterprise
-  - Migration
+contentType: concepts
+category:
+  - Understand enterprise migration tools
 ---
 
 ## Types of migrations
@@ -43,9 +42,6 @@ The items in the table below can be migrated with a repository. Any items not sh
 | Wikis | All wiki data is migrated.
 | Teams | **@mentions** of teams are rewritten to match the target.
 | Milestones | Timestamps are preserved.
-| {% ifversion projects-v1 %} |
-| {% data variables.product.prodname_projects_v1_caps %} boards | {% data variables.projects.projects_v1_boards_caps %} associated with the repository and with the organization that owns the repository are migrated. {% data variables.product.prodname_projects_v2 %}, the all-new projects experience, is not supported.
-| {% endif %} |
 | Issues | Issue references and timestamps are preserved.
 | Issue comments | Cross-references to comments are rewritten for the target instance.
 | Pull requests | Cross-references to pull requests are rewritten to match the target. Timestamps are preserved.
@@ -61,6 +57,6 @@ The items in the table below can be migrated with a repository. Any items not sh
 
 ## About migration of external authentication data
 
-If the source location for your migration is a {% data variables.product.company_short %} product that uses LDAP or SAML authentication, `ghe-migrator` does not migrate external authentication data linked to user accounts. For more information about authentication options, see {% data variables.product.prodname_ghe_server %}, see "About authentication for your enterprise" in the [{% data variables.product.prodname_ghe_server %} docs](/enterprise-server@latest/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise) or the [{% data variables.product.prodname_ghe_cloud %} docs](/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise).
+If the source location for your migration is a {% data variables.product.company_short %} product that uses LDAP or SAML authentication, `ghe-migrator` does not migrate external authentication data linked to user accounts. For more information about authentication options, see "About authentication for your enterprise" in the [{% data variables.product.prodname_ghe_server %} docs](/enterprise-server@latest/admin/concepts/identity-and-access-management/identity-and-access-management-fundamentals) or the [{% data variables.product.prodname_ghe_cloud %} docs](/enterprise-cloud@latest/admin/concepts/identity-and-access-management/identity-and-access-management-fundamentals).
 
 If you migrate to a destination instance and then configure external authentication, users must sign in to the destination instance with a user account that has the same username or user ID as the account on the source instance. Administrators can review the external attribute that an instance uses to map user account names from the {% data variables.enterprise.management_console %}. For more information, see [AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/administering-your-instance/administering-your-instance-from-the-web-ui/accessing-the-management-console).

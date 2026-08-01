@@ -10,3 +10,8 @@
     visibility: hidden !important;
   }
 }
+
+// Fix z-index for ActionMenu overlays (version picker, etc.) to appear above site header
+#__primerPortalRoot__ * {
+  z-index: 3 !important;
+}

@@ -11,9 +11,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - 2FA
 shortTitle: Recover an account with 2FA
+category:
+  - Troubleshoot authentication issues
 ---
 {% ifversion fpt or ghec %}
 
@@ -34,6 +34,9 @@ Use one of your recovery codes to automatically regain entry into your account. 
 
 {% data reusables.accounts.prompt-for-2fa-recovery-code %}
 1. Type one of your recovery codes, then click **Verify**.
+
+> [!NOTE]
+> If you are receiving a "Recovery code authentication failed" error when using a recovery code, the code you are entering is invalid. You can try troubleshooting your recovery codes. See [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/troubleshooting-two-factor-authentication-issues).
 
 ## Authenticating with a passkey
 
@@ -95,10 +98,11 @@ If you have lost access to your two-factor authentication credentials and your r
 
 ## Unlinking your email address
 
-If you have exhausted your recovery options, you can unlink your email address from your account. The email address is then available for you to link it to a new or existing account, maintaining your commit history. See [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/unlinking-your-email-address-from-a-locked-account).
+If you have exhausted your recovery options, you can unlink your email address from your account. The email address is then available for you to link it to a new or existing account, maintaining your commit history. See [AUTOTITLE](/account-and-profile/how-tos/account-management/unlinking-your-email-address-from-a-locked-account).
 
 {% endif %}
 
 ## Further reading
 
+* [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/troubleshooting-two-factor-authentication-issues)
 * [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)
