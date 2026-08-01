@@ -526,6 +526,18 @@ export function correctTranslatedContentStrings(
       '{% endif %} 上で{% endif %}エンタープライズとの通信を実行できるように Okta を構成する方法を学習します。',
       '{% endif %} 上でエンタープライズとの通信を実行できるように Okta を構成する方法を学習します。',
     )
+
+    // [SCRAPE-6759] admin/managing-iam/iam-configuration-reference/username-considerations-for-external-authentication.md
+    // (intro): the second conditional block was scrambled — `{% endif %}`,
+    // `{% elsif ghes %}` and `{% ifversion ghec %}` ended up out of order, leaving
+    // an orphan `endif` and a never-closed `ifversion`. This breaks the admin
+    // landing page render (`tag "endif" not found`). Reconstruct to match English:
+    // determine the username for each user account {% ifversion ghec %}in your
+    // enterprise{% elsif ghes %}on your instance{% endif %}. Prose preserved.
+    content = content.replaceAll(
+      'は一定のルールに従って、インスタンス{% endif %}上のエンタープライズ{% elsif ghes %}内の各ユーザーアカウント{% ifversion ghec %}のユーザー名を決定します。',
+      'は一定のルールに従って、{% ifversion ghec %}エンタープライズ内{% elsif ghes %}インスタンス上{% endif %}の各ユーザーアカウントのユーザー名を決定します。',
+    )
   }
 
   if (context.code === 'pt') {
@@ -918,6 +930,18 @@ export function correctTranslatedContentStrings(
       '企业中 {% data variables.product.github %}{% elsif ghes %} 上 {% data variables.location.product_location %}{% endif %} 上每个新个人帐户 {% ifversion ghec %} 的用户名。',
       '{% ifversion ghec %}企业中 {% data variables.product.github %}{% elsif ghes %} 上 {% data variables.location.product_location %}{% endif %} 上每个新个人帐户的用户名。',
     )
+
+    // [SCRAPE-6759] admin/managing-iam/iam-configuration-reference/username-considerations-for-external-authentication.md
+    // (intro): the second conditional block was scrambled — `{% endif %}`,
+    // `{% elsif ghes %}` and `{% ifversion ghec %}` ended up out of order, leaving
+    // an orphan `endif` and a never-closed `ifversion`. This breaks the admin
+    // landing page render (`tag "endif" not found`). Reconstruct to match English:
+    // determine the username for each user account {% ifversion ghec %}in your
+    // enterprise{% elsif ghes %}on your instance{% endif %}. Prose preserved.
+    content = content.replaceAll(
+      '会按照特定规则确定您实例{% endif %}上您企业{% elsif ghes %}中各个用户帐户{% ifversion ghec %}的用户名。',
+      '会按照特定规则确定{% ifversion ghec %}您企业中{% elsif ghes %}您实例上{% endif %}各个用户帐户的用户名。',
+    )
   }
 
   if (context.code === 'ru') {
@@ -1273,6 +1297,19 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll(
       'связанную личность, активные сессии и авторизованные учетные{% else %}данные {% ifversion ghec %}SAML{% endif %}',
       '{% ifversion ghec %}связанную личность, активные сессии и авторизованные учетные данные{% else %}активные сессии SAML{% endif %}',
+    )
+
+    // [SCRAPE-6759] admin/managing-iam/understanding-iam-for-enterprises/about-saml-for-enterprise-iam.md
+    // (intro): the `{% ifversion ghec %}...{% elsif ghes %}...{% endif %}` block was
+    // scrambled — `{% endif %}` was placed before `{% elsif ghes %}` and the final
+    // `{% endif %}` was dropped, leaving an orphan `elsif`. This breaks the admin
+    // landing page render (`tag "elsif" not found`). Reconstruct to match English:
+    // centrally manage access {% ifversion ghec %}to organizations owned by your
+    // enterprise on {% data ...dotcom_the_website %}{% elsif ghes %}to
+    // {% data ...product_location %}{% endif %}. Prose preserved.
+    content = content.replaceAll(
+      'доступом {% ifversion ghec %}к организациям, принадлежащим вашей организации{% endif %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.location.product_location %}.',
+      'доступом {% ifversion ghec %}к организациям, принадлежащим вашей организации на {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}к {% data variables.location.product_location %}{% endif %}.',
     )
   }
 

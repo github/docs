@@ -584,7 +584,8 @@
               "runner_type": "standard",
               "runner_label": null,
               "updated_at": "2023-01-01T00:00:00Z",
-              "schedule": "weekly"
+              "schedule": "weekly",
+              "ai_findings_option": "on_push"
             },
             "schema": {
               "description": "Configuration for code quality setup.",
@@ -649,6 +650,18 @@
                   ],
                   "enum": [
                     "weekly",
+                    null
+                  ]
+                },
+                "ai_findings_option": {
+                  "description": "The AI findings configuration for the repository.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "enum": [
+                    "disabled",
+                    "on_push",
                     null
                   ]
                 }
@@ -742,6 +755,15 @@
           "type": "array of strings",
           "name": "languages",
           "description": "<p>Languages to be analyzed.\nSupported values are: <code>csharp</code>, <code>go</code>, <code>java-kotlin</code>, <code>javascript-typescript</code>, <code>python</code>, <code>ruby</code></p>"
+        },
+        {
+          "type": "string",
+          "name": "ai_findings_option",
+          "description": "<p>Whether AI findings run for Code Quality on this repository.</p>",
+          "enum": [
+            "disabled",
+            "on_push"
+          ]
         }
       ],
       "descriptionHTML": "<p>Updates a code quality setup configuration.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",

@@ -1,8 +1,8 @@
 ---
-title: About {% data variables.copilot.sandbox %}
+title: About cloud and local sandboxes for {% data variables.product.prodname_copilot %}
 shortTitle: Cloud and local sandboxes
 allowTitleToDifferFromFilename: true
-intro: '{% data variables.copilot.sandbox_caps %} provide isolated execution environments that let {% data variables.product.prodname_copilot_short %} safely interact with code, tools, filesystem, and network resources securely on your local machine or in fully isolated cloud environments.'
+intro: 'Cloud and local sandboxes provide isolated execution environments that let {% data variables.product.prodname_copilot_short %} safely interact with code, tools, filesystem, and network resources securely on your local machine or in fully isolated cloud environments.'
 versions:
   feature: copilot
 redirect_from:
@@ -19,16 +19,29 @@ docsTeamMetrics:
 
 ## Introduction
 
-{% data variables.copilot.sandbox_caps %} are the execution platform powering secure sandboxed experiences for {% data variables.copilot.copilot_cli %}, both locally and in the cloud. As {% data variables.product.prodname_copilot_short %} takes more actions on your behalf—running tools, executing commands, and modifying files—{% data variables.copilot.sandbox_short %} provide the isolation, portability, and policy controls needed to adopt agentic workflows safely. {% data variables.copilot.sandbox_caps %} currently apply to {% data variables.copilot.copilot_cli_short %} sessions, and you can also use cloud sandboxes for sessions in the {% data variables.copilot.github_copilot_app %}.
+{% data variables.product.prodname_copilot_short %} cloud and local sandboxes are the execution platform powering secure sandboxed experiences for {% data variables.copilot.copilot_cli %}, both locally and in the cloud. As {% data variables.product.prodname_copilot_short %} takes more actions on your behalf—running tools, executing commands, and modifying files—sandboxing provides the isolation, portability, and policy controls needed to adopt agentic workflows safely.
 
-With {% data variables.copilot.sandbox %}, you can choose where {% data variables.product.prodname_copilot_short %} runs:
+Sandboxing currently applies to {% data variables.copilot.copilot_cli_short %} sessions. You can also choose to use cloud sandboxing when you start a new session in the {% data variables.copilot.github_copilot_app %}. For more information, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/agent-sessions#starting-a-session).
 
-* **Local sandboxing**: Run {% data variables.product.prodname_copilot_short %} securely on your own machine, with restricted access to filesystem, network, and system capabilities.
-* **Cloud sandboxing**: Run {% data variables.product.prodname_copilot_short %} inside fully isolated, ephemeral Linux environments hosted by {% data variables.product.github %}.
+With sandboxing, you can choose where {% data variables.product.prodname_copilot_short %} runs:
+
+* **Local sandboxing**: Run {% data variables.product.prodname_copilot_short %} securely on your own machine. The commands that {% data variables.product.prodname_copilot_short %} runs have restricted access to your filesystem, network, and system capabilities. You can use local sandboxing at no extra charge.
+* **Cloud sandboxing**: Run the entire {% data variables.copilot.copilot_cli_short %} session remotely, inside a fully isolated, ephemeral Linux environment hosted by {% data variables.product.github %}. Cloud sandboxing is billed based on usage.
 
 ## Local sandboxing
 
+> [!NOTE]
+> Local sandboxing is currently an experimental feature. To use it, start {% data variables.copilot.copilot_cli_short %} with the `‑‑experimental` command line option, or enter `/experimental on` during a session.
+
 Local sandboxing lets {% data variables.product.prodname_copilot_short %} run in a sandboxed environment directly on your machine, with restricted access to your filesystem, network connectivity, and system capabilities.
+
+Local sandboxing is turned off by default. Until you enable it, the shell commands that {% data variables.product.prodname_copilot_short %} runs execute directly on your machine with the same access as your user account: they can read, write, and delete wherever you can, reach any network your machine can reach, and use your credentials without restriction. Enabling local sandboxing constrains this access to a policy that you control.
+
+### How local sandboxing works
+
+Local sandboxing is powered by Microsoft eXecution Container (MXC), a cross-platform technology that provides a common interface to the isolation mechanisms available on each operating system. {% data variables.copilot.copilot_cli_short %} declares the sandbox policy it wants to enforce—which paths are readable or writable, whether network access is allowed, and so on—and MXC applies that policy using the appropriate isolation backend for your operating system.
+
+Isolation technologies exist on a spectrum, from strong isolation such as full hypervisors or containers, to lighter-weight isolation such as OS-level process and filesystem containment. Local sandboxing currently sits at the lighter-weight end of this spectrum: it restricts what a process can read, write, and reach on the network, but it does not run your commands inside a separate virtual machine or container. If you want to evaluate whether this level of isolation meets your security requirements, see the [microsoft/mxc repository](https://github.com/microsoft/mxc) for implementation details.
 
 ### Enabling local sandboxing
 
@@ -38,15 +51,38 @@ To enable local sandboxing inside a {% data variables.copilot.copilot_cli_short 
 /sandbox enable
 ```
 
-Once enabled, commands that {% data variables.product.prodname_copilot_short %} executes on your behalf run inside the sandbox, limiting their access to your system.
+After you enable local sandboxing, the commands and tools that an agent runs on your behalf—shell commands, file search, and, by default, the MCP and language (LSP) servers the CLI starts—run inside an operating-system-level sandbox, limiting their access to your system. The CLI continues to use local sandboxing whenever you use the CLI in future—for programmatic as well as interactive use—until you run `/sandbox disable` to disable it.
+
+The CLI's built-in file tools—first-party commands that are part of the CLI, rather than shell commands like `sed`—run in-process in the CLI. Because the CLI itself is not sandboxed, the operating-system sandbox never sees the file operations these tools perform and cannot constrain them. Instead, the built-in tools are coded to check the sandbox policy themselves and honor your configured settings on a best-effort basis.
+
+For more information, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/using-local-sandboxing).
+
+### Configuring local sandboxing
+
+You can use the default local sandboxing behavior, or you can modify what {% data variables.product.prodname_copilot_short %} can access. When you configure local sandboxing, you can control several dimensions of access:
+
+* **Filesystem**: Grant read-only or read/write access to specific paths, or deny paths.
+* **Network**: Allow or block outbound internet access and local network access independently.
+* **Credentials**: Choose whether your Git and {% data variables.product.prodname_cli %} (`gh`) credentials are made available inside the sandbox.
+* **Subprocesses**: Choose whether local MCP servers and language servers also run inside the sandbox. Remote MCP servers are never sandboxed.
+* **Keychain (macOS)**: Choose whether the system keychain is reachable from inside the sandbox.
+* **Per-command exceptions**: Allow or prevent individual commands from running outside the sandbox when they need broader access.
+
+For more information, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings).
 
 ### Cross-platform support
 
-Local sandboxing is available on macOS and Linux. Sandboxing support and isolation behavior vary by platform because each operating system uses a different sandboxing backend. Windows is supported on Windows Insiders builds. For details on current limitations, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings).
+Local sandboxing is available on macOS and Linux, and on Windows Insiders builds. Support and isolation behavior vary by platform because each operating system uses a different isolation backend:
+
+* **macOS** uses the Seatbelt backend (`sandbox-exec`).
+* **Linux** uses the bubblewrap backend, which requires the `bwrap` command to be installed and available on your `PATH`. If `/sandbox` reports that sandboxing isn't supported on Linux, install bubblewrap.
+* **Windows** uses the ProcessContainer backend.
+
+Because each platform uses a different backend, a few policy options behave differently. Most notably, on Windows the sandbox cannot block individual paths, so any denied-path rules you add are ignored there. Instead of denying a path on Windows, grant access only to the specific directories that {% data variables.product.prodname_copilot_short %} needs, rather than granting a broad directory and then trying to exclude part of it. This keeps a sensitive location out of the sandbox's reach even though denied paths aren't enforced. Denied paths are enforced on macOS and Linux.
 
 ### Enterprise policy enforcement
 
-For organizations and enterprises, local sandbox policies can be centrally configured and enforced using Microsoft Intune and other MDM (mobile device management) platforms. This gives administrators control over how {% data variables.product.prodname_copilot_short %} interacts with local resources across managed devices.
+For organizations and enterprises, local sandbox policies can be centrally configured and enforced using Microsoft Intune and other MDM (mobile device management) platforms. This gives administrators control over how {% data variables.product.prodname_copilot_short %} interacts with local resources across managed devices. See [Deploying MDM-managed settings](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings#deploying-mdm-managed-settings).
 
 ## Cloud sandboxing
 
@@ -54,15 +90,26 @@ Cloud sandboxing lets you run {% data variables.copilot.copilot_cli_short %} ses
 
 Cloud sandboxing is built on Azure Container Apps Sandboxes, with {% data variables.product.github %} providing the identity, policy, and billing layer.
 
+> [!NOTE]
+> If you get {% data variables.product.prodname_copilot_short %} through an organization, access to cloud sandboxing depends on it being enabled in the organization or enterprise settings, where it is disabled by default. For more information, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/enabling-or-disabling-cloud-sandboxes-for-your-organization).
+
 ### Starting a cloud sandbox session
 
 To start a cloud-backed session, run the following command:
 
 ```shell copy
-copilot --cloud
+copilot ‑‑cloud ‑‑experimental
 ```
 
-This launches an interactive {% data variables.copilot.copilot_cli_short %} session inside a cloud sandbox. You can prompt {% data variables.product.prodname_copilot_short %} to perform tasks, run shell commands, and iterate on code, the same way you would in a local session. The commands that {% data variables.product.prodname_copilot_short %} runs execute in the cloud environment, not on your local machine.
+> [!NOTE]
+> Cloud sandboxing is currently an experimental feature. To use it, you must have experimental features enabled for {% data variables.copilot.copilot_cli_short %}—for example, by using the `‑‑experimental` command line option when starting a CLI session, as shown above.
+
+The `‑‑cloud` command line option launches an interactive {% data variables.copilot.copilot_cli_short %} session inside a cloud sandbox. You can prompt {% data variables.product.prodname_copilot_short %} to perform tasks, run shell commands, and iterate on code, the same way you would in a local session. The commands that {% data variables.product.prodname_copilot_short %} runs execute in the cloud environment, not on your local machine.
+
+Running `copilot ‑‑cloud` starts a single {% data variables.copilot.copilot_cli_short %} session in a cloud sandbox. It does not affect future {% data variables.product.prodname_copilot_short %} sessions. Each time you want to run a new session in a cloud sandbox, you must start the CLI with the `‑‑cloud` option.
+
+> [!NOTE]
+> Cloud sandboxing is only available for interactive {% data variables.copilot.copilot_cli_short %} sessions. You can't run the CLI programmatically in a cloud sandbox—that is, you can't combine the `‑‑cloud` option with the `-p` or `-i` options.
 
 ### Continue sessions across devices
 
@@ -88,11 +135,11 @@ When you stop a session, the cloud sandbox creates a snapshot of its state so yo
 
 ## Authentication and access
 
-{% data variables.copilot.sandbox_short_caps %} use your existing {% data variables.copilot.copilot_cli_short %} authentication. If you can sign in to {% data variables.copilot.copilot_cli_short %} and have access to {% data variables.product.prodname_copilot_short %}, you can use {% data variables.copilot.sandbox_short %}. You don't need to configure a separate cloud provider, manage API keys, or set up infrastructure.
+Sandboxing uses your existing {% data variables.copilot.copilot_cli_short %} authentication. If you can sign in to {% data variables.copilot.copilot_cli_short %} and have access to {% data variables.product.prodname_copilot_short %}, you can use sandboxing. You don't need to configure a separate cloud provider, manage API keys, or set up infrastructure.
 
-An organization or enterprise owner must enable the **Cloud Sandbox access** policy in the organization or enterprise settings before members can use {% data variables.copilot.sandbox_short %}.
+An organization or enterprise owner must enable the **Cloud Sandbox access** policy in the organization or enterprise settings before members can use cloud sandboxes.
 
-For information about signing in to {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli).
+For information about enabling or disabling cloud sandboxes for members of your organization, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/enabling-or-disabling-cloud-sandboxes-for-your-organization).
 
 ## Billing
 
@@ -111,5 +158,5 @@ For more information about how cloud sandbox usage is measured and billed, see [
 ## Further reading
 
 * [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli)
-* [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/enabling-or-disabling-cloud-sandboxes-for-your-organization)
-* [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli)
+* [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/using-local-sandboxing)
+* [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings)

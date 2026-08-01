@@ -75,6 +75,16 @@ Anthropic models include a cache write cost in addition to cached input.
 | {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
 | {% endif %}{% endfor %} |
 
+### xAI
+
+{% data reusables.copilot.extended-context-pricing %}
+
+| Model | Release status | Category | Tier | Threshold (input tokens) | Input | Cached input | Output |
+| --- | --- | --- | --- | --- | ---: | ---: | ---: |
+| {% for entry in tables.copilot.models-and-pricing %}{% if entry.provider == "xai" %} |
+| {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.tier }} | {{ entry.threshold }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
+| {% endif %}{% endfor %} |
+
 ### Moonshot AI
 
 | Model | Release status | Category | Input | Cached input | Output |

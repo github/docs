@@ -4,6 +4,8 @@ intro: 'You can install {% data variables.product.prodname_github_apps %} on you
 versions:
   feature: enterprise-installed-apps
 shortTitle: Install apps on your enterprise
+redirect_from:
+  - /enterprise-onboarding/github-apps/install-enterprise-apps
 permissions: 'Enterprise owners can install {% data variables.product.prodname_github_apps %} on their enterprise. App managers cannot install apps at the enterprise level.'
 category:
   - Install and authorize apps

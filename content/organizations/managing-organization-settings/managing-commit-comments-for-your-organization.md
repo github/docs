@@ -29,7 +29,7 @@ When you disable commit comments for your organization:
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, select **{% octicon "repo" aria-hidden="true" aria-label="repo" %} Repository**, then click **General**.
+1. {% data reusables.user-settings.code-planning-automation %} select **{% octicon "repo" aria-hidden="true" aria-label="repo" %} Repository**, then click **General**.
 1. Under "Commits", select or deselect **Allow comments on individual commits**.
 
 

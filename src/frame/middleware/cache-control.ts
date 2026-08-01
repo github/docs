@@ -3,43 +3,43 @@ import type { Response } from 'express'
 import { createLogger } from '@/observability/logger'
 const logger = createLogger(import.meta.url)
 
+type CacheControlKey = 'cache-control' | 'surrogate-control'
+
 interface CacheControlOptions {
-  key?: string
-  public_?: boolean
+  key?: CacheControlKey
   immutable?: boolean
-  maxAgeZero?: boolean
+  staleWhileRevalidate?: number
+  staleIfError?: number
 }
 
-// Return a function you can pass a Response object to and it will
-// set the `Cache-Control` header.
-//
-// For example:
-//
-//    const cacheControlYear = getCacheControl(60 * 60 * 24 * 365)
-//    ...
-//    cacheControlYear(res)
-//    res.send(body)
-//
-// Max age is in seconds
-// Max age should not be greater than 31536000 https://www.ietf.org/rfc/rfc2616.txt
+const ONE_MINUTE = 60
+const TEN_MINUTES = 10 * ONE_MINUTE
+const ONE_HOUR = 60 * ONE_MINUTE
+const ONE_DAY = 24 * ONE_HOUR
+const ONE_WEEK = 7 * ONE_DAY
+const ONE_YEAR = 365 * ONE_DAY
+
+// Return a function you can pass a Response object to and it will set the `Cache-Control` header.
+// Max age is in seconds.
+// Max age should not be greater than 31536000, per <https://www.ietf.org/rfc/rfc2616.txt>.
 function cacheControlFactory(
-  maxAge: number = 60 * 60,
+  maxAge: number = 0,
   {
     key = 'cache-control',
-    public_ = true,
     immutable = false,
-    maxAgeZero = false,
+    staleWhileRevalidate = 0,
+    staleIfError = 0,
   }: CacheControlOptions = {},
 ): (res: Response) => void {
   const directives = [
-    maxAge && public_ && 'public',
-    maxAge && `max-age=${maxAge}`,
-    maxAge && immutable && 'immutable',
-    !maxAge && 'private',
-    !maxAge && 'no-store',
-    maxAge >= 60 * 60 && `stale-while-revalidate=${60 * 60}`,
-    maxAge >= 60 * 60 && `stale-if-error=${24 * 60 * 60}`,
-    (maxAgeZero || maxAge === 0) && 'max-age=0',
+    maxAge > 0 && 'public',
+    maxAge > 0 && `max-age=${maxAge}`,
+    maxAge <= 0 && 'max-age=0',
+    maxAge > 0 && immutable && 'immutable',
+    maxAge <= 0 && 'private',
+    maxAge <= 0 && 'no-store',
+    maxAge > 0 && staleWhileRevalidate > 0 && `stale-while-revalidate=${staleWhileRevalidate}`,
+    maxAge > 0 && staleIfError > 0 && `stale-if-error=${staleIfError}`,
   ]
     .filter(Boolean)
     .join(', ')
@@ -53,64 +53,73 @@ function cacheControlFactory(
   }
 }
 
-// These are roughly in order from shortest to longest
+// ### These are roughly in order from shortest to longest. ###
 
-// If you do not want caching
+// If you do not want caching.
 export const noCacheControl = cacheControlFactory(0)
 
-// Short cache for 4xx errors
-export const errorCacheControl = cacheControlFactory(60) // 1 minute
+// Short cache for 4xx errors.
+export const errorCacheControl = cacheControlFactory(ONE_MINUTE)
 
-// This means we tell the browser to cache the XHR request for 1h
-const searchBrowserCacheControl = cacheControlFactory(60 * 60)
-// This tells the CDN to cache the response for 24 hours
-const searchCdnCacheControl = cacheControlFactory(60 * 60 * 24, {
+// For default cache control, up to one week in cache but much shorter in browser.
+// Most responses are under the default cache control policy.
+const browserCacheControl = cacheControlFactory(ONE_MINUTE)
+const defaultCDNCacheControl = cacheControlFactory(TEN_MINUTES, {
   key: 'surrogate-control',
+  staleWhileRevalidate: ONE_WEEK,
+  staleIfError: ONE_WEEK,
 })
-export function searchCacheControl(res: Response): void {
-  searchBrowserCacheControl(res)
-  searchCdnCacheControl(res)
-}
-
-// 24 hours for CDN, we soft-purge this with each deploy
-const defaultCDNCacheControl = cacheControlFactory(60 * 60 * 24, {
-  key: 'surrogate-control',
-})
-// Shorter because between deployments and their (sort) purges,
-// we don't want the browser to overly cache because with them we
-// can't control purging.
-const defaultBrowserCacheControl = cacheControlFactory(60)
-// A general default configuration that is useful to almost all responses
-// that can be cached.
 export function defaultCacheControl(res: Response): void {
+  browserCacheControl(res)
   defaultCDNCacheControl(res)
-  defaultBrowserCacheControl(res)
 }
+export const searchCacheControl = defaultCacheControl
 
-// Vary on content type for pages that support content negotiation (HTML vs markdown)
+// For requests where the response can vary between a HTML and Markdown response
+// using the accept header.
 export function contentTypeCacheControl(res: Response): void {
   defaultCacheControl(res)
   res.append('vary', 'accept')
 }
 
-// Vary on language when needed
-// x-user-language is a custom request header derived from req.cookie:user_language
-// accept-language is truncated to one of our available languages
+// Vary on language when needed.
+// `x-user-language` is a custom request header derived from `req.cookie:user_language`.
+// `accept-language` is truncated to one of our available languages.
 // https://bit.ly/3u5UeRN
 export function languageCacheControl(res: Response): void {
   defaultCacheControl(res)
   res.append('vary', 'accept-language, x-user-language')
 }
 
-// Vary on both language and version for homepage redirects
-// x-user-version is a custom request header derived from req.cookie:user_version
+// Vary on both language and version for homepage redirects.
+// `x-user-version` is a custom request header derived from `req.cookie:user_version`.
 export function languageAndVersionCacheControl(res: Response): void {
   defaultCacheControl(res)
   res.append('vary', 'accept-language, x-user-language, x-user-version')
 }
 
-// Long cache control for versioned assets: images, CSS, JS...
-export const assetCacheControl = cacheControlFactory(60 * 60 * 24 * 7, { immutable: true })
+// Long cache control for versioned assets: such as images, CSS, prebuilt JS.
+const assetBrowserCacheControl = cacheControlFactory(TEN_MINUTES)
+const assetCDNCacheControl = cacheControlFactory(ONE_WEEK, {
+  key: 'surrogate-control',
+  immutable: true,
+  staleWhileRevalidate: ONE_WEEK,
+  staleIfError: ONE_WEEK,
+})
+export function assetCacheControl(res: Response): void {
+  assetBrowserCacheControl(res)
+  assetCDNCacheControl(res)
+}
 
-// Long caching for archived pages and assets
-export const archivedCacheControl = cacheControlFactory(60 * 60 * 24 * 365)
+// Long caching for archived pages and assets.
+const archivedBrowserCacheControl = cacheControlFactory(TEN_MINUTES)
+const archivedCDNCacheControl = cacheControlFactory(ONE_YEAR, {
+  key: 'surrogate-control',
+  immutable: true,
+  staleWhileRevalidate: ONE_WEEK,
+  staleIfError: ONE_WEEK,
+})
+export function archivedCacheControl(res: Response): void {
+  archivedBrowserCacheControl(res)
+  archivedCDNCacheControl(res)
+}

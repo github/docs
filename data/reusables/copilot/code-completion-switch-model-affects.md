@@ -8,7 +8,7 @@ Changing the model that's used for {% data variables.product.prodname_copilot_sh
 
 There are no changes to the data collection and usage policy if you change the AI model.
 
-If you are on a {% data variables.copilot.copilot_free_short %} plan, all completions count against your completions quota regardless of the model used. See [AUTOTITLE](/copilot/get-started/plans#comparing-copilot-subscriptions).
+If you are on a {% data variables.copilot.copilot_free_short %} plan, all completions count against your completions quota regardless of the model used. See [AUTOTITLE](/copilot/get-started/plans#comparing-copilot-plans).
 
 The setting to enable or disable suggestions that match public code is applied irrespective of which model you choose. See [AUTOTITLE](/copilot/how-tos/get-code-suggestions/find-matching-code).
 

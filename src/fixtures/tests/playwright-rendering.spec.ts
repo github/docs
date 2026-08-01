@@ -52,6 +52,58 @@ test('use sidebar to go to Hello World page', async ({ page }) => {
   await expect(page).toHaveTitle(/Hello World - GitHub Docs/)
 })
 
+test('sidebar highlights the clicked item optimistically while navigation is pending', async ({
+  page,
+}) => {
+  // Article pages are getServerSideProps routes, so router.asPath (and thus the real
+  // aria-current) only updates after the destination loads. The sidebar marks the
+  // clicked link with a visual-only `data-pending` accent so the click is acknowledged
+  // immediately. Throttle the client-side data fetch so the navigation stays pending
+  // long enough to observe that intermediate state.
+  await page.goto('/get-started')
+  await page.getByTestId('product-sidebar').getByText('Start your journey').click()
+
+  const sidebar = page.getByTestId('product-sidebar')
+  const helloWorld = sidebar.getByRole('link', { name: 'Hello World' })
+  const linkRewriting = sidebar.getByRole('link', { name: 'Link rewriting' })
+
+  // Hold the next data request open until we release it, so navigation stays pending.
+  let releaseNavigation = () => {}
+  const navigationHeld = new Promise<void>((resolve) => {
+    releaseNavigation = resolve
+  })
+  await page.route('**/_next/data/**', async (route) => {
+    await navigationHeld
+    await route.continue()
+  })
+
+  await helloWorld.click()
+
+  // While pending: the clicked link carries the optimistic visual marker, but the URL
+  // and the semantic aria-current still reflect the (still-loaded) get-started page.
+  await expect(helloWorld).toHaveAttribute('data-pending', '')
+  await expect(helloWorld).not.toHaveAttribute('aria-current', 'page')
+  await expect(page).not.toHaveURL(/hello-world/)
+
+  // Let the navigation finish: the marker gives way to a real aria-current.
+  releaseNavigation()
+  await expect(page).toHaveURL(/\/en\/get-started\/start-your-journey\/hello-world/)
+  await expect(helloWorld).toHaveAttribute('aria-current', 'page')
+  await expect(helloWorld).not.toHaveAttribute('data-pending', '')
+
+  // A modifier-click (open in new tab) must NOT move the optimistic selection.
+  // handleNavClick bails on modifier clicks, so pendingHref is never set: the current
+  // page keeps its URL, its aria-current, and the clicked link gets no data-pending.
+  // Use ControlOrMeta so the real "open in new tab" modifier is sent per-platform
+  // (Ctrl on Linux/Windows CI, Meta on macOS). The click opens a background tab we
+  // don't need to assert on; catch any popup so it doesn't leak.
+  page.on('popup', (popup) => popup.close())
+  await linkRewriting.click({ modifiers: ['ControlOrMeta'] })
+  await expect(linkRewriting).not.toHaveAttribute('data-pending', '')
+  await expect(helloWorld).toHaveAttribute('aria-current', 'page')
+  await expect(page).toHaveURL(/\/en\/get-started\/start-your-journey\/hello-world/)
+})
+
 test('press "/" to open the search overlay', async ({ page }) => {
   await page.goto('/')
   await turnOffExperimentsInPage(page)
@@ -729,6 +781,81 @@ test.describe('test nav at different viewports', () => {
       /\/search\?search-overlay-input=serve\+playwright&query=serve\+playwright/,
     )
     await expect(page).toHaveTitle(/\d Search results for "serve playwright"/)
+  })
+})
+
+test.describe('secondary-bar breadcrumb scroller', () => {
+  // The secondary bar (and its breadcrumb scroller) only renders at wide
+  // viewports, and the fixture trail is short enough to fit there, so we cap the
+  // scroller width to force a deterministic overflow independent of title
+  // lengths — then exercise the chevrons.
+  test('chevrons scroll one crumb at a time instead of jumping to the ends', async ({ page }) => {
+    // Smooth-scroll settle waits across several chevron clicks add up past the
+    // default 5s cap.
+    test.setTimeout(20000)
+    page.setViewportSize({ width: 1300, height: 700 })
+    await page.goto('/get-started/foo/bar')
+
+    const bar = page.getByTestId('breadcrumbs-bar')
+    await expect(bar).toBeVisible()
+
+    const scrollArea = page.locator('[data-search="breadcrumbs"]')
+    await expect(scrollArea).toBeVisible()
+
+    // Force a deterministic overflow independent of title lengths: cap the
+    // scroll region, drop the nav's min-width:100% (which otherwise stretches the
+    // short fixture trail to fill the container so it never overflows), and pad
+    // the crumbs so several are hidden at once — enough that a per-crumb nudge is
+    // distinguishable from a jump to the end.
+    await page.addStyleTag({
+      content: `
+        [data-search="breadcrumbs"] { max-width: 360px; }
+        [data-search="breadcrumbs"] nav { min-width: 0 !important; }
+        [data-search="breadcrumbs"] li { padding-right: 60px; }
+      `,
+    })
+
+    const scrollLeftOf = () => scrollArea.evaluate((el) => el.scrollLeft)
+    const maxScrollOf = () => scrollArea.evaluate((el) => el.scrollWidth - el.clientWidth)
+    await expect.poll(maxScrollOf).toBeGreaterThan(0)
+
+    // Anchor to the right end explicitly so we start from a known state: fully
+    // scrolled right (current page visible), only the left chevron active.
+    await scrollArea.evaluate((el) => el.scrollTo({ left: el.scrollWidth, behavior: 'instant' }))
+    const maxScroll = await maxScrollOf()
+    await expect.poll(scrollLeftOf).toBe(maxScroll)
+
+    const leftChevron = page.getByRole('button', { name: 'Scroll breadcrumbs left' })
+    const rightChevron = page.getByRole('button', { name: 'Scroll breadcrumbs right' })
+    // At the right extreme the left chevron is active and the right one is hidden.
+    await expect(leftChevron).toBeVisible()
+    await expect(rightChevron).toBeHidden()
+
+    // One left click nudges toward the start by a single crumb — it must move,
+    // but must NOT jump all the way to 0 (the old behavior) while more than one
+    // crumb is still hidden to the left.
+    await leftChevron.click()
+    await expect.poll(scrollLeftOf).toBeLessThan(maxScroll)
+    const afterOneLeft = await scrollLeftOf()
+    expect(afterOneLeft).toBeGreaterThan(0)
+    // The right chevron appears once we're no longer at the right extreme.
+    await expect(rightChevron).toBeVisible()
+
+    // A right click walks back toward the current page by one crumb, not a full
+    // jump back to the right extreme.
+    await rightChevron.click()
+    await expect.poll(scrollLeftOf).toBeGreaterThan(afterOneLeft)
+
+    // Repeated left clicks eventually reach the start, which hides the left
+    // chevron (canScrollLeft flips false). Drive off the chevron's own visibility
+    // rather than an exact scrollLeft, since smooth scrolling can leave a
+    // sub-pixel remainder.
+    for (let i = 0; i < 6 && (await leftChevron.isVisible()); i++) {
+      await leftChevron.click()
+      await page.waitForTimeout(200)
+    }
+    await expect(leftChevron).toBeHidden()
+    await expect.poll(scrollLeftOf).toBeLessThanOrEqual(1)
   })
 })
 

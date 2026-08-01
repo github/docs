@@ -31,7 +31,7 @@ Validity checks help you prioritize alerts by telling you which secrets are `act
 
 By default, {% data variables.product.company_short %} checks the validity of {% data variables.product.company_short %} tokens and displays the validation status of the token in the alert view.
 
-{% ifversion secret-scanning-validity-check-partner-patterns %}Organizations using {% data variables.product.prodname_team %}, {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_secret_protection %}, or {% data variables.product.prodname_ghe_server %} with a license for {% data variables.product.prodname_GH_secret_protection %} can also enable validity checks for partner patterns. For more information, see [Checking a secret's validity](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity).{% endif %}
+{% ifversion secret-scanning-validity-check-partner-patterns %}Organizations using {% data variables.product.prodname_team %}, {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_secret_protection %}, or {% data variables.product.prodname_ghe_server %} with a license for {% data variables.product.prodname_GH_secret_protection %} can also enable validity checks for partner patterns. For more information, see [Checking a secret's validity](/code-security/tutorials/remediate-leaked-secrets/evaluating-alerts#checking-a-secrets-validity).{% endif %}
 
 {% data reusables.secret-scanning.validity-check-table %}
 
@@ -41,17 +41,17 @@ By default, {% data variables.product.company_short %} checks the validity of {%
 
 {% ifversion secret-scanning-validity-check-partner-patterns %}
 
-For information on how to enable validity checks for partner patterns, see [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository), and for information on which partner patterns are currently supported, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns).{% endif %}
+For information on how to enable validity checks for partner patterns, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/customize-leak-detection/enable-validity-checks), and for information on which partner patterns are currently supported, see [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns).{% endif %}
 
 {% ifversion secret-scanning-validity-check-partner-patterns %}
 
-You can enable validity checks for partner patterns by using security configurations, either set at the enterprise or at the organization level. See [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/creating-a-custom-security-configuration-for-your-enterprise) and [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).{% endif %}
+You can enable validity checks for partner patterns by using security configurations, either set at the enterprise or at the organization level. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/create-custom-configuration) and [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/create-custom-configuration).{% endif %}
 
-For information on which partner patterns are currently supported, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns).
+For information on which partner patterns are currently supported, see [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns).
 
 {% ifversion copilot-chat-ghas-alerts %}
 
-With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% data variables.copilot.copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_secret_scanning %} alerts, in repositories in your organization. For more information, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features).
+With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% data variables.copilot.copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_secret_scanning %} alerts, in repositories in your organization. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github#asking-questions-about-alerts-from-github-advanced-security-features).
 
 {% endif %}
 
@@ -70,7 +70,7 @@ Once you have enabled validity checks for partner patterns for your repository, 
 
 In the view for an active {% data variables.product.company_short %} token alert, you can review certain metadata about the token. This metadata may help you identify the token and decide what remediation steps to take.
 
-Tokens, like {% data variables.product.pat_generic %} and other credentials, are considered personal information. For more information about using {% data variables.product.company_short %} tokens, see [GitHub's Privacy Statement](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement) and [Acceptable Use Policies](/free-pro-team@latest/site-policy/acceptable-use-policies/github-acceptable-use-policies).
+Tokens, like {% data variables.product.pat_generic %} and other credentials, are considered personal information. For more information about using {% data variables.product.company_short %} tokens, see [GitHub's Privacy Statement](/free-pro-team@latest/site-policy/privacy-policies/github-general-privacy-statement) and [Acceptable Use Policies](/free-pro-team@latest/site-policy/acceptable-use-policies/github-acceptable-use-policies).
 
    ![Screenshot of the UI for a {% data variables.product.company_short %} token, showing the token metadata.](/assets/images/help/repository/secret-scanning-github-token-metadata.png)
 
@@ -117,7 +117,7 @@ The following table shows **all the available metadata**. Note that metadata che
 
 ## Asking {% data variables.copilot.copilot_chat %} about {% data variables.product.prodname_secret_scanning %} alerts
 
-With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% data variables.copilot.copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_secret_scanning %} alerts, in repositories in your organization. For more information, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features).
+With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% data variables.copilot.copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_secret_scanning %} alerts, in repositories in your organization. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github#asking-questions-about-alerts-from-github-advanced-security-features).
 
 {% endif %}
 

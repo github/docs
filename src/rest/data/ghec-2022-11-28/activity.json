@@ -95463,6 +95463,9 @@
         "permissions": [
           {
             "\"Metadata\" repository permissions": "read"
+          },
+          {
+            "\"Contents\" repository permissions": "write"
           }
         ],
         "allowsPublicRead": true
@@ -99269,6 +99272,9 @@
         "permissions": [
           {
             "\"Metadata\" repository permissions": "read"
+          },
+          {
+            "\"Contents\" repository permissions": "write"
           }
         ],
         "allowsPublicRead": true

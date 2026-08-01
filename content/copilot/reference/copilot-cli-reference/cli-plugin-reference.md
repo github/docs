@@ -30,10 +30,10 @@ You can use the following commands in the terminal to manage plugins for {% data
 | `copilot plugin update NAME`                   | Update a named plugin. Use `--all` to update all installed plugins at once. |
 | `copilot plugin enable NAME`                   | Enable a previously disabled plugin |
 | `copilot plugin disable NAME`                  | Disable a plugin without uninstalling it |
-| `copilot plugin marketplace add SPECIFICATION` | Register a marketplace. Use `--name NAME` to set a custom local name. |
+| `copilot plugin marketplace add SPECIFICATION` | Register a marketplace. The marketplace's own name, from its `marketplace.json` manifest, becomes its registration key—there is no option to set a custom local name. |
 | `copilot plugin marketplace list`              | List registered marketplaces |
 | `copilot plugin marketplace browse NAME`       | Browse marketplace plugins |
-| `copilot plugin marketplace update NAME`       | Re-fetch a marketplace's plugin catalog. Use `--all` to refresh every registered marketplace. |
+| `copilot plugin marketplace update [NAME]` (alias `refresh`) | Re-fetch a marketplace's plugin catalog. Omit `NAME` to refresh the catalogs of every registered marketplace. |
 | `copilot plugin marketplace remove NAME`       | Unregister a marketplace. Refused if plugins from the marketplace are still installed; pass `--force` to also uninstall those plugins. |
 
 Non-interactively, `copilot plugins enable NAME --plugin`, `copilot plugins disable NAME --plugin`, and `copilot plugins remove NAME --plugin` provide the same enable, disable, and uninstall operations. `--plugin` is the default kind and can be omitted for these three commands. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#using-copilot-plugins-list) for the non-interactive `--mcp` and `--skill` kinds, which extend these commands to MCP servers and skills.
@@ -48,6 +48,39 @@ Non-interactively, `copilot plugins enable NAME --plugin`, `copilot plugins disa
 | Git URL       | `https://github.com/o/r.git`    | Any Git URL |
 | Local path    | `./my-plugin` or `/abs/path`    | Local directory |
 
+### `copilot plugins install` options
+
+In addition to installing a plugin from a specification, `copilot plugins install` can install an individual skill from a file, URL, or directory with `--skill`. A skill install isn't a plugin install and doesn't go through a marketplace—see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#skills-reference) for details on skills themselves.
+
+| Option                | Description                                                                       |
+|------------------------|------------------------------------------------------------------------------------|
+| `--plugin`            | Install a plugin (default).                                                       |
+| `--skill`             | Install a skill from a local path or URL.                                         |
+| `--scope SCOPE`       | For a file or URL `--skill` install: `user` (default) or `project`. `project` scopes the install to the current repository's `.github/skills` directory instead of your user account, and only applies to file or URL skill installs. |
+| `--config-dir=DIRECTORY` | Path to the configuration directory. This option is deprecated. Use `COPILOT_HOME` instead. | <!-- markdownlint-disable-line GHD046 -->
+
+Installing a directory registers it as a custom skill source rather than copying it; installing a file or URL copies the skill's content into your personal or project skills directory.
+
+MCP servers install from a policy-configured registry, which requires authentication and interactive secret entry. Use the `/plugins` dashboard (Online mode) or the `/mcp` slash command to add MCP servers instead of `copilot plugins install`.
+
+### `copilot plugins update` options
+
+| Option    | Description                            |
+|-----------|-----------------------------------------|
+| `--all`   | Update every installed plugin           |
+
+### `copilot plugins marketplace` subcommands
+
+Built-in default marketplaces ship with the runtime and can't be removed.
+
+| Subcommand              | Description                                                                 |
+|--------------------------|-------------------------------------------------------------------------------|
+| `list [--json]`         | List every registered marketplace, including built-in defaults               |
+| `add SOURCE`            | Add a marketplace (`owner/repo`, `owner/repo#ref`, a URL, or a local path)    |
+| `remove NAME [--force]` | Remove a marketplace; `--force` also uninstalls plugins sourced from it   |
+| `browse NAME [--json]`  | List the plugins offered by a marketplace's catalog                        |
+| `update [NAME]` (alias `refresh`) | Refresh the plugin catalog for one marketplace, or all if `NAME` is omitted   |
+
 ## `plugin.json`
 
 All plugins consist of a plugin directory containing, at minimum, a manifest file named `plugin.json` located at the root of the plugin directory. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-creating).
@@ -56,12 +89,13 @@ All plugins consist of a plugin directory containing, at minimum, a manifest fil
 
 | Field   | Type   | Description |
 |---------|--------|-------------|
-| `name`  | string | Kebab-case plugin name (letters, numbers, hyphens only). Max 64 chars. |
+| `name`  | string | Kebab-case plugin name (letters, numbers, hyphens only). Max 64 chars. Plugins that opt into [Open Plugin Spec support](#open-plugin-spec-support) may also use dots (for example, `acme.tools`). |
 
 ### Optional metadata fields
 
 | Field        | Type      | Description |
 |--------------|-----------|-------------|
+| `$schema`    | string    | Set to the canonical Agent Plugins (Open Plugin Spec) v1.0.0 schema URL to opt into spec semantics. See [Open Plugin Spec support](#open-plugin-spec-support). |
 | `description`| string    | Brief description. Max 1024 chars. |
 | `version`    | string    | Semantic version (e.g., `1.0.0`). |
 | `author`     | object    | `name` (required), `email` (optional), `url` (optional). |
@@ -82,13 +116,18 @@ These tell the CLI where to find your plugin's components. All are optional. The
 | `skills`    | string \| string[] | `skills/`  | Path(s) to skill directories (`SKILL.md` files). |
 | `commands`  | string \| string[] | —          | Path(s) to command directories. |
 | `hooks`     | string \| object   | —          | Path to a hooks configuration file, or an inline hooks object. |
-| `extensions`| string \| string[] \| object | —          | Path(s) to extension directories. Use `{ paths: [...], exclusive: true }` to suppress built-in extensions. |
+| `extensions`| string \| string[] \| object | —          | Path(s) to extension directories. Use `{ paths: [...], exclusive: true }` to suppress built-in extensions. In [Open Plugin Spec mode](#open-plugin-spec-support), this field has a different meaning. |
 | `mcpServers`| string \| object   | —          | Path to an MCP configuration file (e.g., `.mcp.json`), or inline server definitions. |
 | `lspServers`| string \| object   | —          | Path to an LSP configuration file, or inline server definitions. |
 
 ### Example `plugin.json` file
 
 {% data reusables.copilot.copilot-cli.cli-example-plugin-file %}
+
+## Open Plugin Spec support
+
+Declaring the canonical `$schema` in `plugin.json` opts a plugin into the [Agent Plugins (Open Plugin Spec)](https://agent-plugins.org) v1.0.0 format, additively on top of standard plugin loading:
+
 
 ### LSP server configuration
 
@@ -163,7 +202,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 
 | Field      | Type     | Required | Description |
 |------------|----------|----------|-------------|
-| `name`     | string   | Yes      | Kebab-case marketplace name. Max 64 chars. |
+| `name`     | string   | Yes      | Kebab-case marketplace name. Max 64 chars. Dots are also accepted (for example, `acme.tools`) for [Open Plugin Spec](#open-plugin-spec-support) plugins. |
 | `owner`    | object   | Yes      | `{ name, email? }` — marketplace owner info. |
 | `plugins`  | array    | Yes      | List of plugin entries (see the table below). |
 | `metadata` | object   | No       | `{ description?, version?, pluginRoot? }` |
@@ -172,7 +211,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 
 | Field         | Type               | Required | Description |
 |---------------|--------------------|----------|-------------|
-| `name`        | string             | Yes      | Kebab-case plugin name. Max 64 chars. |
+| `name`        | string             | Yes      | Kebab-case plugin name. Max 64 chars. Dots are also accepted for [Open Plugin Spec](#open-plugin-spec-support) plugins. |
 | `source`      | string \| object   | Yes      | Where to fetch the plugin (relative path, {% data variables.product.github %}, or URL). |
 | `description` | string             | No       | Plugin description. Max 1024 chars. |
 | `version`     | string             | No       | Plugin version. |

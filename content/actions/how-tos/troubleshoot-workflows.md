@@ -122,19 +122,19 @@ For more information, see [AUTOTITLE](/actions/how-tos/monitor-workflows/view-jo
 
 ### Canceling Workflows
 
-If standard cancellation through the [UI](/actions/how-tos/manage-workflow-runs/cancel-a-workflow-run) or [API](/rest/actions/workflow-runs?apiVersion=2022-11-28#cancel-a-workflow-run) does not process as expected, there may be a conditional statement configured for your running workflow job(s) that causes it to not cancel.
+If standard cancellation through the [UI](/actions/reference/workflows-and-actions/workflow-cancellation) or [API](/rest/actions/workflow-runs?apiVersion=2022-11-28#cancel-a-workflow-run) does not process as expected, there may be a conditional statement configured for your running workflow job(s) that causes it to not cancel.
 
 In these cases, you can leverage the API to force cancel the run. For more information, see [AUTOTITLE](/rest/actions/workflow-runs?apiVersion=2022-11-28#force-cancel-a-workflow-run).
 
 A common cause can be using the `always()` [status check function](/actions/reference/workflows-and-actions/expressions#status-check-functions) which returns `true`, even on cancellation. An alternative is to use the inverse of the `cancelled()` function, `{% raw %}${{ !cancelled() }}{% endraw %}`.
 
-For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-when-workflows-run/control-jobs-with-conditions) and [AUTOTITLE](/actions/how-tos/manage-workflow-runs/cancel-a-workflow-run#steps-github-takes-to-cancel-a-workflow-run).
+For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-when-workflows-run/control-jobs-with-conditions) and [AUTOTITLE](/actions/how-tos/manage-workflow-runs/cancel-a-workflow-run).
 
 ## Troubleshooting runners
 
 ### Defining runner labels
 
-{% data variables.product.github %}-hosted runners leverage [preset labels](/actions/concepts/runners/github-hosted-runners#standard-github-hosted-runners-for-public-repositories) maintained through the [`actions/runner-images`](https://github.com/actions/runner-images?tab=readme-ov-file#available-images) repository.
+{% data variables.product.github %}-hosted runners leverage [preset labels](/actions/reference/runners/github-hosted-runners{% ifversion fpt or ghec %}#standard-github-hosted-runners-for-public-repositories{% endif %}) maintained through the [`actions/runner-images`](https://github.com/actions/runner-images?tab=readme-ov-file#available-images) repository.
 
 We recommend using unique label names for larger and self-hosted runners. If a label matches to any of the existing preset labels, there can be runner assignment issues where there is no guarantee on which matching runner option the job will run on.
 

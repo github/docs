@@ -207,12 +207,38 @@ If you need to allocate more resources to your primary MySQL (or MySQL and MSSQL
    /usr/local/share/enterprise/ghe-mssql-repl-promote
    ```
 
-    This will attempt to access the current primary MSSQL node and perform a graceful failover
+    This will attempt to access the current primary MSSQL node and perform a graceful failover.
+
+1. If the new node will also become the primary Redis node, confirm that the new node is a healthy, caught-up Redis replica before you continue. From any node in the cluster, run the following command.
+
+   ```shell copy
+   ghe-cluster-status-redis -v
+   ```
+
+   Confirm that the new node's entry reports `ok` and `Redis replication is in sync`, and that the current primary Redis node's entry also reports `ok`.
+
+   > [!WARNING]
+   > Do not set `redis-master` to a node that is not a caught-up replica. If you do, the cluster can reconfigure the current primary Redis node as a replica of the new node and discard any data that hasn't replicated yet.
+
+   `ghe-cluster-status-redis` reports sync freshness, not exact replication offsets. Immediately before you edit `redis-master` in the next step, look up the current primary Redis node's hostname. Because `mysql-master` and `redis-master` are configured independently, the current primary Redis node isn't necessarily the database node you're replacing.
+
+   ```shell copy
+   ghe-config cluster.redis-master
+   ```
+
+   Then compare offsets directly, replacing `NEW-NODE-HOSTNAME` with the hostname of the new node and `CURRENT-REDIS-MASTER-HOSTNAME` with the value from the previous command. Check the new node first, then the current primary Redis node, so that a match reflects the primary's most recent state.
+
+   ```shell copy
+   ghe-redis-cli --remote -h NEW-NODE-HOSTNAME INFO replication
+   ghe-redis-cli --remote -h CURRENT-REDIS-MASTER-HOSTNAME INFO replication
+   ```
+
+   Confirm that the new node's `slave_repl_offset` value matches the current primary Redis node's `master_repl_offset` value. If the values don't match, wait and check again. Do not continue until the offsets match.
 
 1. After the GTIDs on the primary and replica MySQL nodes match, update the cluster configuration by opening the cluster configuration file at `/data/user/common/cluster.conf` in a text editor.
 
    * Create a backup of the `cluster.conf` file before you edit the file.
-   * In the top-level `[cluster]` section, remove the hostname for the node you replaced from the `mysql-master` key-value pair, then assign the new node instead. If the new node is also a primary Redis node, adjust the `redis-master` key-value pair.
+   * In the top-level `[cluster]` section, remove the hostname for the node you replaced from the `mysql-master` key-value pair, then assign the new node instead. If the new node is also a primary Redis node, adjust the `redis-master` key-value pair only after the replication check in the previous step confirms the offsets match.
    * If {% data variables.product.prodname_actions %} is enabled in the cluster, you will have to include the `mssql-server = true` key-value pair as well.
 
    <pre>
@@ -232,6 +258,15 @@ If you need to allocate more resources to your primary MySQL (or MySQL and MSSQL
    ```shell copy
    /usr/local/share/enterprise/ghe-repl-post-failover-mssql
    ```
+
+1. If you changed `redis-master`, confirm that the new primary Redis node is serving traffic and that the former primary Redis node has reconfigured as a healthy replica. Run the following commands.
+
+   ```shell copy
+   ghe-redis-cli PING
+   ghe-cluster-status-redis -v
+   ```
+
+   Confirm that `ghe-redis-cli PING` returns `PONG` through the default HAProxy Redis endpoint, the new node's entry reports `ok`, and the former primary Redis node's entry reports `ok` and `Redis replication is in sync`.
 
 1. Check the status of the MySQL(or MySQL and MSSQL) replication from any node in the cluster by running `ghe-cluster-status -v`.
 1. When the MySQL(or MySQL and MSSQL) replication is finished, from any node in the cluster, disable maintenance mode. See [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#enabling-or-disabling-maintenance-mode-for-all-nodes-in-a-cluster-via-the-cli).

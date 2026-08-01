@@ -36,4 +36,4 @@ The following types of users can always bypass push protection:
 
 ## Next steps
 
-To start managing bypass privileges, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/enabling-delegated-bypass-for-push-protection).
+To start managing bypass privileges, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/manage-bypass-requests/enable-delegated-bypass).

@@ -1,7 +1,8 @@
 ---
-title: Restricting code coverage on pull requests
-shortTitle: Restrict code coverage
-intro: Protect your test coverage by automatically blocking pull requests that fall below the coverage levels your team requires.
+title: Setting code coverage thresholds for pull requests
+shortTitle: Set coverage thresholds
+intro: Protect your code coverage by automatically blocking pull requests that fall below the coverage levels your team requires.
+allowTitleToDifferFromFilename: true
 versions:
   feature: code-quality
 permissions: '{% data reusables.permissions.code-quality-repo-enable %}'

@@ -477,10 +477,10 @@ When opening an issue or asking for help, collect:
 
 * [ ] SDK language and version
 * [ ] CLI version (`copilot --version`)
-* [ ] MCP server type (Node.js, Python, .NET, Go, Rust, etc.)
+* [ ] MCP server type (Node.js, Python, .NET, Go, Rust, and more)
 * [ ] Full MCP server configuration (redact secrets)
 * [ ] Result of manual `initialize` test
-* [ ] Result of manual `tools/list` test  
+* [ ] Result of manual `tools/list` test
 * [ ] Debug logs from SDK
 * [ ] Any error messages
 

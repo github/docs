@@ -384,6 +384,11 @@
           "type": "integer",
           "name": "parent_team_id",
           "description": "<p>The ID of a team to set as the parent team.</p>"
+        },
+        {
+          "type": "string",
+          "name": "parent_team_slug",
+          "description": "<p>The slug of a team to set as the parent team. Ignored when <code>parent_team_id</code> is also provided.</p>"
         }
       ],
       "descriptionHTML": "<p>To create a team, the authenticated user must be a member or owner of <code>{org}</code>. By default, organization members can create teams. Organization owners can limit team creation to organization owners. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/articles/setting-team-creation-permissions-in-your-organization\">Setting team creation permissions</a>.\"</p>\n<p>When you create a new team, you automatically become a team maintainer without explicitly adding yourself to the optional array of <code>maintainers</code>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/github/setting-up-and-managing-organizations-and-teams/about-teams\">About teams</a>\".</p>",
@@ -1584,6 +1589,11 @@
           "type": "integer or null",
           "name": "parent_team_id",
           "description": "<p>The ID of a team to set as the parent team.</p>"
+        },
+        {
+          "type": "string or null",
+          "name": "parent_team_slug",
+          "description": "<p>The slug of a team to set as the parent team. Ignored when <code>parent_team_id</code> is also provided.</p>"
         }
       ],
       "descriptionHTML": "<p>To edit a team, the authenticated user must either be an organization owner or a team maintainer.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nYou can also specify a team by <code>org_id</code> and <code>team_id</code> using the route <code>PATCH /organizations/{org_id}/team/{team_id}</code>.</p>\n</div>",
@@ -5619,6 +5629,11 @@
           "type": "integer or null",
           "name": "parent_team_id",
           "description": "<p>The ID of a team to set as the parent team.</p>"
+        },
+        {
+          "type": "string or null",
+          "name": "parent_team_slug",
+          "description": "<p>The slug of a team to set as the parent team. Ignored when <code>parent_team_id</code> is also provided.</p>"
         }
       ],
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Endpoint closing down notice:</strong> This endpoint route is closing down and will be removed from the Teams API. We recommend migrating your existing code to use the new <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/teams/teams#update-a-team\">Update a team</a> endpoint.</p>\n</div>\n<p>To edit a team, the authenticated user must either be an organization owner or a team maintainer.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nWith nested teams, the <code>privacy</code> for parent teams cannot be <code>secret</code>.</p>\n</div>",
