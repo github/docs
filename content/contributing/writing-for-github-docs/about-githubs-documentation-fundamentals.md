@@ -26,7 +26,7 @@ Documentation is correct and accurate.
 Documentation is up to date with the latest accessibility standards, and is written to be inclusive and translation-friendly.
 
 * Ensure content adheres to the accessibility and screenshot guidelines. For more information, see [AUTOTITLE](/contributing/writing-for-github-docs/creating-screenshots).
-* Ensure content can be successfully translated. For more information, see [AUTOTITLE](/contributing/writing-for-github-docs/writing-content-to-be-translated).
+
 
 ## Consistent
 
