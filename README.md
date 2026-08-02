@@ -1,38 +1,91 @@
-# GitHub Docs <!-- omit in toc -->
+# 📚 GitHub Docs
 
-Welcome to GitHub Docs! GitHub’s documentation is open source, meaning anyone from inside or outside the company can contribute. For full contributing guidelines, visit our [contributing guide](https://docs.github.com/en/contributing).
+Welcome to the **GitHub Docs** repository!
 
+GitHub's documentation is open source, allowing both GitHub employees and the open-source community to contribute. If you'd like to improve the documentation, fix issues, or add new content, you're welcome to participate.
 
-## Quick links by contributor type
+👉 **Start here:** https://docs.github.com/en/contributing
 
-* **Hubbers (GitHub employees):** See [CONTRIBUTING.md](https://github.com/github/docs-content/blob/main/CONTRIBUTING.md) in the `docs-content` repository for GitHub-specific processes.
+---
 
-* **Open source contributors:** See [CONTRIBUTING.md](https://github.com/github/docs/blob/main/.github/CONTRIBUTING.md) in the `docs` repository for a quick-start summary.
+## 🚀 Contributor Guides
 
-## How we sync changes across Docs repositories
+Choose the guide that matches your role:
 
-There are two GitHub Docs repositories: 
+### 👥 GitHub Employees (Hubbers)
 
-- **`github/docs`** (public): Open to external contributions
+See the `CONTRIBUTING.md` file in the **docs-content** repository for GitHub-specific development workflows and internal processes.
 
-- **`github/docs-internal`** (private): For GitHub employee contributions. 
+- https://github.com/github/docs-content/blob/main/CONTRIBUTING.md
 
-The two repositories sync frequently. Content changes in one are reflected in the other.  Hubbers might prefer to post in `docs` when working with a customer, but `docs` has limitations on the types of contributions it accepts to safeguard the site and our workflows. Internal contributions should usually go to `docs-internal`.
+### 🌍 Open Source Contributors
 
-**Important:** The `docs` repository accepts contributions to content files (`.md` files in `/content` and select `/data` sections like reusables only). Infrastructure files, workflows, and site-building code are not open for external modification.
+If you're contributing from the community, follow the quick-start guide in the **docs** repository.
 
-## New to contributing
+- https://github.com/github/docs/blob/main/.github/CONTRIBUTING.md
 
-Here are some resources to help you get started with open source contributions:
+---
 
-* [Finding ways to contribute to open source on GitHub](https://docs.github.com/en/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)
-* [Set up Git](https://docs.github.com/en/get-started/git-basics/set-up-git)
-* [GitHub flow](https://docs.github.com/en/get-started/using-github/github-flow)
-* [Collaborating with pull requests](https://docs.github.com/en/github/collaborating-with-pull-requests)
+## 🔄 Repository Structure
 
-## License
+GitHub Docs is maintained across two repositories:
 
-This project is dual-licensed under:
+| Repository | Visibility | Purpose |
+|------------|------------|---------|
+| `github/docs` | 🌐 Public | Accepts community contributions |
+| `github/docs-internal` | 🔒 Private | Used by GitHub employees |
 
-* **Creative Commons Attribution 4.0** - for documentation and content in the assets, content, and data folders (see [LICENSE](LICENSE))
-* **MIT License** - for code (see [LICENSE-CODE](LICENSE-CODE))
+Both repositories synchronize regularly, so content updates made in one are reflected in the other.
+
+> **Note**
+>
+> The public `github/docs` repository only accepts documentation-related contributions, including:
+>
+> - Markdown files (`/content`)
+> - Supported `/data` files (such as reusable content)
+>
+> Infrastructure, workflows, build scripts, and site-generation code are maintained internally and aren't open to external contributions.
+
+---
+
+## 🌱 New to Open Source?
+
+These resources will help you get started:
+
+- 📖 Finding ways to contribute to open source
+  https://docs.github.com/en/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github
+
+- ⚙️ Set up Git
+  https://docs.github.com/en/get-started/git-basics/set-up-git
+
+- 🌿 GitHub Flow
+  https://docs.github.com/en/get-started/using-github/github-flow
+
+- 🔀 Collaborating with Pull Requests
+  https://docs.github.com/en/github/collaborating-with-pull-requests
+
+---
+
+## 📄 License
+
+This project is dual licensed.
+
+### 📚 Documentation
+
+Content in the `assets`, `content`, and `data` directories is licensed under the **Creative Commons Attribution 4.0 International (CC BY 4.0)** License.
+
+See: `LICENSE`
+
+### 💻 Source Code
+
+All code in this repository is licensed under the **MIT License**.
+
+See: `LICENSE-CODE`
+
+---
+
+## ❤️ Thank You
+
+Every contribution—whether it's fixing a typo, improving existing documentation, or writing new content—helps make GitHub Docs better for millions of developers worldwide.
+
+Happy contributing! 🎉
