@@ -16,7 +16,7 @@ category:
 
 A ruleset is a named list of rules that applies to a repository or to multiple repositories in an organization for customers on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} plans. You can have up to 75 rulesets per repository, and 75 organization-wide rulesets.
 
-When you create a ruleset, you can allow certain users to bypass the rules in the ruleset. This can be users with a certain role, such as repository administrator, or it can be specific teams or {% data variables.product.prodname_github_apps %}. For more information about granting bypass permissions, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#granting-bypass-permissions-for-your-ruleset).
+When you create a ruleset, you can allow certain users to bypass the rules in the ruleset. This can be users with a certain role, such as repository administrator, or it can be specific teams or {% data variables.product.prodname_github_apps %}. For more information about granting bypass permissions, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository).
 
 {% ifversion not ghes %}
 
@@ -51,7 +51,7 @@ Rulesets have the following advantages over branch protection rules.
 * Unlike protection rules, multiple rulesets can apply at the same time, so you can be confident that every rule targeting a branch in your repository will be evaluated when someone interacts with that branch. See [About rule layering](#about-rule-layering).
 * Rulesets have statuses, so you can easily manage which rulesets are active in a repository without needing to delete rulesets.
 * Anyone with read access to a repository can view the active rulesets for the repository. This means a developer can understand why they have hit a rule, or an auditor can check the security constraints for the repository, without requiring admin access to the repository.
-* You can create additional rules to control the metadata of commits entering a repository, such as the commit message and the author's email address. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#metadata-restrictions){% ifversion ghec %}."{% else %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
+* You can create additional rules to control the metadata of commits entering a repository, such as the commit message and the author's email address. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets){% ifversion ghec %}."{% else %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
 
 ## Using ruleset enforcement statuses
 

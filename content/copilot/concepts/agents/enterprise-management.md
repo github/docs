@@ -23,11 +23,11 @@ The AI Controls view provides a centralized platform where you can manage and mo
 
 Enterprise owners and AI managers can control how {% data variables.copilot.copilot_cloud_agent %} is adopted across the enterprise by choosing one of four policy states. This allows you to pilot adoption progressively and manage risk.
 
-If you choose the **Enabled for selected organizations** policy, you can select organizations individually or based on organization custom properties. This lets you define dynamic groups of organizations that align with your existing organizational structure—for example, by region, compliance tier, or department. You can manage this policy setting using the REST API endpoints or directly in the AI Controls page.  See [REST API endpoints for Copilot coding agent management](/rest/copilot/copilot-coding-agent-management#copilot-coding-agent-policy-states). Please note that using custom properties to enable CCA is evaluated once at the time of configuration. Organizations will not be automatically enabled or disabled for CCA if the custom property is added, removed, or modified later. 
+If you choose the **Enabled for selected organizations** policy, you can select organizations individually or based on organization custom properties. This lets you define dynamic groups of organizations that align with your existing organizational structure—for example, by region, compliance tier, or department. You can manage this policy setting using the REST API endpoints or directly in the AI Controls page.  See [REST API endpoints for Copilot coding agent management](/rest/copilot/copilot-coding-agent-management#copilot-coding-agent-policy-states). Please note that using custom properties to enable CCA is evaluated once at the time of configuration. Organizations will not be automatically enabled or disabled for CCA if the custom property is added, removed, or modified later.
 
 ## {% data variables.copilot.copilot_custom_agents %}
 
-{% data variables.copilot.copilot_custom_agents %} are specialized versions of {% data variables.copilot.copilot_cloud_agent %} that you can configure with tailored prompts, tools, and context, making them excel at specific tasks. {% data variables.copilot.custom_agents_caps_short %} can be defined and managed at the enterprise level for greater control and compliance, or at the organization and repository levels to allow teams the flexibility to build for their specific needs. 
+{% data variables.copilot.copilot_custom_agents %} are specialized versions of {% data variables.copilot.copilot_cloud_agent %} that you can configure with tailored prompts, tools, and context, making them excel at specific tasks. {% data variables.copilot.custom_agents_caps_short %} can be defined and managed at the enterprise level for greater control and compliance, or at the organization and repository levels to allow teams the flexibility to build for their specific needs.
 
 You can manage your enterprise-level {% data variables.copilot.custom_agents_short %}:
 * From the AI Controls view
@@ -73,6 +73,12 @@ To help you meet security and compliance requirements, you can choose to:
 Private MCP registries apply to {% data variables.copilot.copilot_cli_short %} and IDEs, but not to cloud agents that run on {% data variables.product.github %}. For {% data variables.copilot.copilot_cloud_agent %}, MCP servers can be configured at the repository level or in custom agent profiles defined at the enterprise level.
 
 For more information, see [AUTOTITLE](/copilot/concepts/mcp-management).
+
+## Enterprise-managed settings
+
+The `{% data variables.copilot.managed_setting_file %}` file allows enterprises to control how users can interact with agents across {% data variables.product.prodname_copilot_short %} clients. For example: which plugins can people install, and can people use "allow all" commands that let agents run commands without asking for permission? This file can be hosted on {% data variables.product.company_short %} or installed directly on users' machines.
+
+For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings).
 
 ## Agent mode in the IDE
 

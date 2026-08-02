@@ -15,7 +15,7 @@ category:
   - Plan your security strategy
 ---
 
-This article assumes that you have planned and then started a trial of {% data variables.product.prodname_GHAS %}. For more information, see [AUTOTITLE](/code-security/trialing-github-advanced-security/planning-a-trial-of-ghas).
+This article assumes that you have planned and then started a trial of {% data variables.product.prodname_GHAS %}. For more information, see [AUTOTITLE](/code-security/tutorials/trialing-github-advanced-security/planning-a-trial-of-ghas).
 
 The aim is to enable all the security features you want to trial quickly, as a starting point for deeper exploration. You should start getting results soon on the repositories in your trial enterprise and you can fine-tune the configuration later.
 
@@ -65,13 +65,13 @@ You may find it helpful to apply an enterprise security configuration to all rep
 1. Optionally, select the **Apply to** dropdown menu and click either **All repositories**, to apply any configuration to all repositories in the organization, or **All repositories without configurations**, to configure just the repositories in the organization without an existing security configuration.
 1. Optionally, click the **Repositories** tab, then in the "Apply configurations" section, use the "Search repositories" field or **Filter** button to filter repositories. Then select one or more repositories and use the **Apply configuration** button to choose a configuration to apply to those repositories.
 
-For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration).
+For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/apply-custom-configuration).
 
-After you apply a configuration, each repository's configuration status reflects the result. For example, a repository may show as `attached`, `attaching`, or `failed`. For a full list of statuses and recommended actions, see [AUTOTITLE](/code-security/reference/security-at-scale/security-configuration-statuses).
+After you apply a configuration, each repository's configuration status reflects the result. For example, a repository may show as `attached`, `attaching`, or `failed`. For a full list of statuses and recommended actions, see [AUTOTITLE](/code-security/reference/security-at-scale/configuration-statuses).
 
 ## Next steps
 
 Now that you have enabled the security features you want to test, you are ready to look more deeply into how {% data variables.product.prodname_GH_secret_protection %} and {% data variables.product.prodname_GH_code_security %} protect your code.
 
-1. [AUTOTITLE](/code-security/trialing-github-advanced-security/explore-trial-secret-scanning)
-1. [AUTOTITLE](/code-security/trialing-github-advanced-security/explore-trial-code-scanning)
+1. [AUTOTITLE](/code-security/tutorials/trialing-github-advanced-security/explore-trial-secret-scanning)
+1. [AUTOTITLE](/code-security/tutorials/trialing-github-advanced-security/explore-trial-code-scanning)

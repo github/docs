@@ -84,7 +84,7 @@ delete the entire database directory.
 \[Advanced] Read a Code Scanning configuration file specifying options
 on how to create the CodeQL databases and what queries to run in later
 steps. For more details on the format of this configuration file, refer
-to [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning). To run queries from
+to [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options). To run queries from
 this file in a later step, invoke [codeql database analyze](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-analyze) without any other queries specified.
 
 #### `--[no-]db-cluster`
@@ -141,7 +141,7 @@ Available since `v2.16.4`.
 build tracing," which allows integration into existing build workflows
 when an explicit build command is not available. For information about
 when and how to use this feature, please refer to our documentation at
-[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis).
+[AUTOTITLE](/code-security/tutorials/customize-code-scanning/prepare-code-for-analysis).
 
 ### Baseline calculation options
 

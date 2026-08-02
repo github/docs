@@ -21,7 +21,7 @@ children:
   - /policies
   - /mcp-management
   - /network-settings
-  - /preparing-for-new-features-and-models
+  - /learning-about-new-features-and-models
 contentType: concepts
 ---
 

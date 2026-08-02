@@ -28,7 +28,9 @@ This article explains how to enable and use remote control. For more conceptual 
   > [!TIP]
   > Use the `/keep-alive` slash command to prevent your machine from going to sleep while you're away. See [Preventing your machine from going to sleep](#preventing-your-machine-from-going-to-sleep).
 
-* The working directory must contain a Git repository hosted on {% data variables.product.prodname_dotcom_the_website %}. If you are not in a {% data variables.product.prodname_dotcom %} repository, the CLI displays: "Remote session disabled: not in a {% data variables.product.github %} repository."
+* Remote control does not require a Git repository hosted on {% data variables.product.prodname_dotcom_the_website %}. You can enable remote control from directories that are not themselves Git repositories, including parent directories containing multiple repositories, and from repositories hosted somewhere other than {% data variables.product.prodname_dotcom_the_website %}. Sessions started outside of a {% data variables.product.prodname_dotcom %} repository appear unassociated with any repository ("no repository") and are only listed on your agents page at [github.com/copilot/agents](https://github.com/copilot/agents). Sessions started inside a {% data variables.product.prodname_dotcom %} repository also appear on that repository's **Agents** tab.
+
+  In some cases, the CLI may still be unable to resolve the working directory's repository—for example, if a Git remote is configured but inaccessible. When this happens, remote control is disabled and the CLI displays a "Remote session disabled" message.
 
 ## Enabling remote control for a session
 
@@ -165,6 +167,8 @@ Remote control is disabled by default, but may be enabled in your {% data variab
 
 * **For a single session**: Start the CLI with `--no-remote` to prevent remote control for that session, regardless of your settings file value.
 * **Permanently**: Remove the `"remoteSessions": true` setting from `~/.copilot/settings.json`, or set it to `false`.
+
+Enterprise owners can also restrict remote control of sessions hosted on your device using enterprise managed settings, regardless of your personal settings. Depending on the configured policy, remote control of sessions on your device may be disabled entirely, or only available to a controlling client that is SSO-authorized for specific organizations. This doesn't affect your ability to remotely control your own sessions hosted on other devices. See [AUTOTITLE](/copilot/reference/enterprise-managed-settings-reference).
 
 ## Further reading
 

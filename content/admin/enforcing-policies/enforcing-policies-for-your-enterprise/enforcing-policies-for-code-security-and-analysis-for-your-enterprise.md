@@ -32,7 +32,7 @@ Additionally, you can enforce policies for the use of {% data variables.product.
 
 ## Enforcing a policy for the availability of {% data variables.product.prodname_AS %} in your enterprise's organizations
 
-You are billed for {% data variables.product.prodname_GHAS_cs_and_sp %} products on a per-committer basis. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#managing-committers-and-costs).
+You are billed for {% data variables.product.prodname_GHAS_cs_and_sp %} products on a per-committer basis. See [AUTOTITLE](/billing/concepts/product-billing/github-advanced-security#managing-committers-and-costs).
 
 You can enforce a policy that controls whether repository administrators are allowed to enable features for {% data variables.product.prodname_AS %} in an organization's repositories. You can configure a policy for all organizations owned by your enterprise account, or for individual organizations that you choose.
 
@@ -118,5 +118,22 @@ Across all of your enterprise's organizations, you can allow or disallow people 
 
 > [!NOTE]
 > This policy controls the use of {% data variables.copilot.copilot_autofix_short %} on results found by {% data variables.product.prodname_code_scanning %} security queries only. {% data variables.copilot.copilot_autofix_short %} is an integral part of {% data variables.product.prodname_code_quality %} and cannot be disabled for that feature.
+
+{% endif %}
+
+{% ifversion ai-powered-security-detections %}
+
+## Enforcing a policy to manage the use of AI-powered security detections in your enterprise's repositories
+
+As an enterprise owner, you can control whether organization and repository administrators can enable AI-powered security detections for their organizations and repositories. This policy is set to "Not allowed" by default.
+
+Allowing AI-powered security detections at the enterprise level does not enable the feature. Organization administrators must still explicitly enable AI-powered security detections. Repository administrators can opt-out of the feature.
+
+This policy only takes effect if {% data variables.product.prodname_codeql %} default setup is enabled.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
+1. Under "AI Findings", select the dropdown menu and click a policy.
 
 {% endif %}

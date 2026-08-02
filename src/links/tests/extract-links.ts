@@ -3,6 +3,7 @@ import {
   extractLinksFromMarkdown,
   normalizeLinkPath,
   checkInternalLink,
+  resolveInternalLinkKey,
   checkAssetLink,
   isAssetLink,
 } from '../lib/extract-links'
@@ -208,6 +209,74 @@ And [another real link](https://real.example.com/page).
     expect(result.externalLinks).toHaveLength(2)
     expect(result.externalLinks[0].href).toBe('https://example.com')
     expect(result.externalLinks[1].href).toBe('https://real.example.com/page')
+  })
+
+  test('skips links inside inline code spans', () => {
+    const content = `
+See [a real link](/real/path) for details.
+
+* For links to other pages: \`See [AUTOTITLE](/PATH/TO/PAGE).\`
+* With a query: \`See [AUTOTITLE](/path/to/page?tool=TOOLNAME).\`
+
+And [another real link](/another/real/path) here.
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(2)
+    expect(result.internalLinks.map((l) => l.href)).toEqual(['/real/path', '/another/real/path'])
+  })
+
+  test('handles inline code and a real link on the same line', () => {
+    const content = `Use \`[AUTOTITLE](/PLACEHOLDER)\` and then see [the guide](/real/guide).`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(1)
+    expect(result.internalLinks[0].href).toBe('/real/guide')
+  })
+
+  test('does not mask links when backtick runs are mismatched', () => {
+    // Per CommonMark, a code span needs equal-length, maximal backtick runs on
+    // both ends. These lines have mismatched runs, so they are NOT code spans
+    // and the links between the backticks are real and must be extracted.
+    const content = [
+      `A single-open, double-close: \`[one](/real/one)\`\``,
+      `A double-open, triple-close: \`\`[two](/real/two)\`\`\``,
+    ].join('\n')
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks.map((l) => l.href)).toEqual(['/real/one', '/real/two'])
+  })
+
+  test('still masks links inside valid multi-backtick code spans', () => {
+    // A matched double-backtick run is a real code span, even when it wraps an
+    // inner single backtick, so the link inside must be ignored.
+    const content = `Example: \`\` \`[skip](/placeholder)\` \`\` and see [the guide](/real/guide).`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(1)
+    expect(result.internalLinks[0].href).toBe('/real/guide')
+  })
+
+  test('captures internal links with balanced parentheses in the path', () => {
+    const content = `See the [privacy statement (PDF)](/assets/images/help/site-policy/github-privacy-statement(07.22.20)(fr).pdf).`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(1)
+    expect(result.internalLinks[0].href).toBe(
+      '/assets/images/help/site-policy/github-privacy-statement(07.22.20)(fr).pdf',
+    )
+  })
+
+  test('does not let an unclosed link destination span multiple lines', () => {
+    const content = `
+Broken: [AUTOTITLE](/code-security/create-custom-configuration.
+1. A following list item with [a real link](/real/target).
+`
+    const result = extractLinksFromMarkdown(content)
+
+    // The unclosed link is not extracted, and it does not swallow the real link
+    // on the next line into a giant multi-line href.
+    expect(result.internalLinks.map((l) => l.href)).toEqual(['/real/target'])
   })
 
   test('handles complex nested brackets', () => {
@@ -490,6 +559,40 @@ describe('checkInternalLink', () => {
     expect(result.exists).toBe(true)
     expect(result.isRedirect).toBe(true)
     expect(result.redirectTarget).toBe('/')
+  })
+})
+
+describe('resolveInternalLinkKey', () => {
+  const pageMap = {
+    '/en/actions/getting-started': {} as unknown as Page,
+    '/actions/guides': {} as unknown as Page,
+    [`/en/enterprise-server@${latestStable}/admin/overview`]: {} as unknown as Page,
+  }
+
+  test('resolves a direct pageMap key', () => {
+    expect(resolveInternalLinkKey('/actions/guides', pageMap)).toBe('/actions/guides')
+  })
+
+  test('resolves a language-prefixed page from a bare path', () => {
+    expect(resolveInternalLinkKey('/actions/getting-started', pageMap)).toBe(
+      '/en/actions/getting-started',
+    )
+  })
+
+  test('ignores query strings and fragments when resolving', () => {
+    expect(resolveInternalLinkKey('/actions/guides?foo=1#some-anchor', pageMap)).toBe(
+      '/actions/guides',
+    )
+  })
+
+  test('normalizes enterprise-server@latest to the latest stable release', () => {
+    expect(resolveInternalLinkKey('/enterprise-server@latest/admin/overview', pageMap)).toBe(
+      `/en/enterprise-server@${latestStable}/admin/overview`,
+    )
+  })
+
+  test('returns null when the path does not resolve directly to a page', () => {
+    expect(resolveInternalLinkKey('/does/not/exist', pageMap)).toBeNull()
   })
 })
 

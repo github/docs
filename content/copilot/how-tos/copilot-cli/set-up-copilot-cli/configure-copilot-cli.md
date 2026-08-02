@@ -24,7 +24,7 @@ This article shows you how to set trusted directories, configure access for tool
 
 ## Setting trusted directories
 
-Trusted directories control where {% data variables.copilot.copilot_cli_short %} can read, modify, and execute files. Trusting a directory has security implications, see [Security considerations](/copilot/concepts/agents/copilot-cli/about-copilot-cli#trusted-directories).
+Trusted directories control where {% data variables.copilot.copilot_cli_short %} can read, modify, and execute files. Trusting a directory has security implications, see [Security considerations](/copilot/concepts/agents/copilot-cli/about-copilot-cli#security-considerations).
 
 ### Choosing to trust a directory
 
@@ -54,7 +54,7 @@ You can edit the list of permanently trusted directories. Trusted directories ar
 
 You can control which tools {% data variables.copilot.copilot_cli_short %} can use, either by responding to approval prompts when {% data variables.product.prodname_copilot_short %} attempts to use a tool, or by specifying permissions via command-line flags.
 
-Be aware that allowing tool access has security implications, see [Security considerations](/copilot/concepts/agents/copilot-cli/about-copilot-cli#allowed-tools).
+Be aware that allowing tool access has security implications, see [Security considerations](/copilot/concepts/agents/copilot-cli/about-copilot-cli#security-considerations).
 
 In this section, you can learn how to:
 
@@ -269,7 +269,13 @@ This flag combines:
 
 During an interactive session, you can also enable all permissions with the `/allow-all` or `/yolo` slash commands.
 
-{% data reusables.copilot.disable-bypass %}
+> [!NOTE] {% data reusables.copilot.disable-bypass %}
+
+## Restrict access to files
+
+The various `--allow-all...` options save you from having to decide whether to allow {% data variables.product.prodname_copilot_short %} to access individual tools, files, and URLs. However, using them widens the scope for {% data variables.product.prodname_copilot_short %} to perform actions that you might not want it to—for example, altering files outside of the repository you are working in.
+
+To mitigate this risk, you can instruct the CLI to sandbox its commands (local sandboxing), or you can run the entire {% data variables.copilot.copilot_cli_short %} session within a remote, sandboxed environment (cloud sandboxing). For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
 
 ## Further reading
 

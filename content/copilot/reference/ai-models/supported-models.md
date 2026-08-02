@@ -70,7 +70,8 @@ The latest {% data variables.product.prodname_copilot_short %} models support th
 Choosing a larger context window or higher reasoning will impact {% data variables.product.prodname_ai_credits_short %} consumption; more tokens will be consumed, so more credits will be used. For this reason, we recommend that you use the regular context window and regular reasoning by default, selecting the larger context window and higher reasoning for more complex tasks only.
 
 > [!NOTE]
-> * These extended capabilities are available in {% data variables.product.prodname_vscode %} and {% data variables.copilot.copilot_cli_short %} only.
+> * The 1 million token context window is available in {% data variables.product.prodname_vscode %} and {% data variables.copilot.copilot_cli_short %} only.
+> * Configurable reasoning levels are available in {% data variables.product.prodname_vscode %}, {% data variables.copilot.copilot_cli_short %}, and {% data variables.copilot.copilot_cloud_agent %}.
 > * Some models have extended capability pricing see [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing#pricing-tables)
 
 {% rowheaders %}
@@ -81,6 +82,7 @@ Choosing a larger context window or higher reasoning will impact {% data variabl
 | {% data variables.copilot.copilot_claude_opus_46 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_claude_opus_47 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_claude_opus_48 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.copilot_claude_opus_5 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_claude_sonnet_5 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_claude_opus_48_fast %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_claude_fable_5 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
@@ -131,22 +133,25 @@ Some {% data variables.product.prodname_copilot_short %} models require minimum 
 {% rowheaders %}
 
 | Model                                                    | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vs %} | JetBrains IDEs | Xcode | Eclipse |
-|----------------------------------------------------------| --- |------------------------------------------| -- | --- | --- |
-| {% data variables.copilot.copilot_gemini_3_flash %}      | `v1.115.0` and later | `17.14.22` or `18.1.0` and later         | `1.5.62` and later | `0.46.0` and later | `0.14.0` and later |
-| {% data variables.copilot.copilot_gemini_31_pro %}       | `v1.115.0` and later | `17.14.22` or `18.1.0` and later         | `1.5.62` and later | `0.46.0` and later | `0.14.0` and later |
-| {% data variables.copilot.copilot_gemini_35_flash %}     | `v1.115.0` and later | `17.14.22` or `18.1.0` and later         | `1.5.62` and later | `0.46.0` and later | `0.14.0` and later |
-| {% data variables.copilot.copilot_gpt_52_codex %}        | No minimum listed    | `17.14.19` or `18.0.0` and later         | `1.5.61` and later | `0.45.0` and later | `0.13.0` and later |
-| {% data variables.copilot.copilot_gpt_53_codex %}        | `v1.104.1` and later | `17.14.19` and later                     | `1.5.61` and later | `0.45.0` and later | `0.13.0` and later |
-| {% data variables.copilot.copilot_gpt_54 %}              | `v1.104.1` and later | `17.14.19` and later                     | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
-| {% data variables.copilot.copilot_gpt_54_mini %}         | `v1.104.1` and later | `17.14.19` and later                     | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
-| {% data variables.copilot.copilot_gpt_55 %}              | `v1.117` and later   | `17.14.19` and later                     | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
+|----------------------------------------------------------|----------------------------------------------|------------------------------------------|----------------|-------|---------|
+| {% data variables.copilot.copilot_gemini_31_pro %}       | `v1.115.0` | `17.14.22` or `18.1.0`         | `1.5.62` | `0.46.0` | `0.14.0` |
+| {% data variables.copilot.copilot_gemini_35_flash %}     | `v1.115.0` | `17.14.22` or `18.1.0`         | `1.5.62` | `0.46.0` | `0.14.0` |
+| {% data variables.copilot.copilot_gemini_36_flash %}     | `v1.128.0` | `17.14.22` or `18.1.0`         | TBD | TBD | TBD |
+| {% data variables.copilot.copilot_gpt_52_codex %}        | No minimum listed | `17.14.19` or `18.0.0`         | `1.5.61` | `0.45.0` | `0.13.0` |
+| {% data variables.copilot.copilot_gpt_53_codex %}        | `v1.104.1` | `17.14.19`                     | `1.5.61` | `0.45.0` | `0.13.0` |
+| {% data variables.copilot.copilot_gpt_54 %}              | `v1.104.1` | `17.14.19`                     | `1.5.66` | `0.47.0` | `0.15.0` |
+| {% data variables.copilot.copilot_gpt_54_mini %}         | `v1.104.1` | `17.14.19`                     | `1.5.66` | `0.47.0` | `0.15.0` |
+| {% data variables.copilot.copilot_gpt_55 %}              | `v1.117` | `17.14.19`                     | `1.5.66` | `0.47.0` | `0.15.0` |
 | {% data variables.copilot.copilot_gpt_56_luna %}         | `1.128.0` | TBD | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_gpt_56_sol %}          | `1.128.0` | TBD | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_gpt_56_terra %}        | `1.128.0` | TBD | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_claude_opus_48 %}      | `v1.118` and later   | `17.14.6` and later                     | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_claude_sonnet_5 %}  | `v1.124` and later | `17.14.6` and later | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_claude_fable_5 %}      | `v1.124` and later   | `17.14.6` and later                    | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_mai_code_1_flash %}    | `v1.121` and later   | TBD                            | TBD | TBD | TBD |
+| {% data variables.copilot.copilot_claude_opus_48 %}      | `v1.118` | `17.14.6`                     | TBD | TBD | TBD |
+| {% data variables.copilot.copilot_claude_opus_5 %}       | `v1.128.0` | `17.14.22` | TBD | TBD | TBD |
+| {% data variables.copilot.copilot_claude_sonnet_5 %}  | `v1.124` | `17.14.6` | TBD | TBD | TBD |
+| {% data variables.copilot.copilot_claude_fable_5 %}      | `v1.124` | `17.14.6`                    | TBD | TBD | TBD |
+| {% data variables.copilot.copilot_kimi_k27_code %}     | `v1.127` | `17.14.6`            | `1.9.1-251` | TBD | TBD |
+| {% data variables.copilot.copilot_mai_code_1_flash %}    | `v1.121` | TBD                            | TBD | TBD | TBD |
+| {% data variables.copilot.copilot_grok_45 %}             | TBD | `17.14.19` | TBD | TBD | TBD |
 
 {% endrowheaders %}
 
@@ -163,7 +168,7 @@ The following table shows which AI models are available in each {% data variable
 {% data reusables.copilot.available-models-per-plan %}
 
 > [!NOTE]
-> * If you're an organization or enterprise owner, you can enable or restrict access to specific models for your members. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models#setup-for-organization-and-enterprise-use).
+> * If you're an organization or enterprise owner, you can enable or restrict access to specific models for your members. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models#setup-for-organization-and-enterprise-plans).
 
 ## Fallback and long-term support (LTS) models
 
@@ -194,6 +199,12 @@ Access to evaluation models in {% data variables.copilot.copilot_auto_model_sele
 Utility models power background features across surfaces, and cannot be disabled or selected in the model picker. See [AUTOTITLE](/copilot/concepts/models/utility-models).
 
 {% data reusables.copilot.utility-models %}
+
+## Models eligible for default enablement
+
+{% data reusables.copilot.model-autoenablement %}
+
+{% data reusables.copilot.model-autoenablement-excluded-models %}
 
 ## Next steps
 

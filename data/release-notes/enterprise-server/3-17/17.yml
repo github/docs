@@ -67,8 +67,6 @@ sections:
     - |
       When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
     - |
-      When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
-    - |
       In a cluster, the host running restore requires access to the storage nodes via their private IPs.
     - |
       On an instance hosted on Azure, commenting on an issue via email meant the comment was not added to the issue.

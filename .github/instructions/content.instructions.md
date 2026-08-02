@@ -16,6 +16,14 @@ Before committing content changes, always:
 3. **Verify [AUTOTITLE] links** point to existing articles
 4. **Run tests** on changed content: `npm run test -- src/content-render/tests/render-changed-and-deleted-files.ts`
 
+## Accuracy and flagging uncertainty
+
+AI assistants can produce plausible but incorrect information. To protect readers and writers:
+
+* Never fabricate product behavior, settings, permissions, API parameters, or limits. If you cannot verify a detail from the source material or the product itself, say so instead of guessing.
+* Flag uncertainty at the level of the specific claim, not the whole article. Identify the individual sentence, step, value, or setting you are unsure about, rather than labeling an entire article as "needs review."
+* After writing or editing, give the writer a checklist of each specific claim to verify, noting where it appears (the exact step or sentence) and why it needs checking. Prioritize claims where being wrong could have serious consequences, such as security, authentication, permissions, billing, or any irreversible action, and recommend confirming those with the relevant product or engineering team.
+
 ## Bullet lists
 
 The bulleted points in a bullet list should always be denoted in Markdown using an asterisk, not a hyphen.
@@ -106,6 +114,17 @@ For such content, DO NOT use in-article Liquid versioning such as `{% ifversion 
 ### GHES-only articles
 
 All articles that are ONLY for GitHub Enterprise Server (GHES) should be versioned in the frontmatter using feature-based versioning defined in `data/features/`. 
+
+### Versioning for GHES content: always use feature-based versioning
+
+If content is intended to ship to GitHub Enterprise Server, use **feature-based versioning (FBV)**.
+
+* Do **not** suggest removing GHES frontmatter versioning or hardcode version strings (for example, `free-pro-team@latest`) just to make links or tests pass.
+* If CI fails because a GHES link cannot be built, treat that as a versioning mismatch—not a signal to de-scope GHES.
+* Add or reuse the appropriate feature flag in `data/features/`. Use it in `versions.feature` frontmatter when an article's availability follows the feature, and use Liquid conditionals only for version-specific blocks within a broader article.
+* Keep frontmatter and in-article versioning aligned so links render for every supported version.
+
+For guidance, see [About feature-based versioning](https://docs.github.com/en/contributing/writing-for-github-docs/versioning-documentation#about-feature-based-versioning).
 
 ### FPT, GHEC, GHES articles
 

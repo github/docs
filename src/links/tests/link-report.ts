@@ -337,6 +337,69 @@ describe('generatePRComment', () => {
     expect(comment).toContain('[View full details]')
     expect(comment).toContain('https://example.com/run')
   })
+
+  test('renders a cross-page anchor section with versions', () => {
+    const comment = generatePRComment([], {
+      brokenAnchors: [
+        {
+          href: '/actions/foo#gone',
+          file: 'content/actions/bar.md',
+          lines: [12],
+          versions: ['enterprise-server@3.17', 'free-pro-team@latest'],
+        },
+      ],
+    })
+
+    expect(comment).toContain('broken cross-page anchor')
+    expect(comment).toContain('`/actions/foo#gone`')
+    expect(comment).toContain('content/actions/bar.md')
+    expect(comment).toContain('line 12')
+    expect(comment).toContain('enterprise-server@3.17')
+    expect(comment).toContain('<!-- link-checker-pr-comment -->')
+  })
+
+  test('returns a comment when only anchors are broken', () => {
+    const comment = generatePRComment([], {
+      brokenAnchors: [
+        { href: '/a#x', file: 'content/a.md', lines: [1], versions: ['free-pro-team@latest'] },
+      ],
+    })
+
+    expect(comment).not.toBe('')
+    expect(comment).toContain('⚓')
+  })
+
+  test('limits anchor occurrences to 10', () => {
+    const brokenAnchors = Array.from({ length: 13 }, (_, i) => ({
+      href: `/a#x${i}`,
+      file: `content/file${i}.md`,
+      lines: [i],
+      versions: ['free-pro-team@latest'],
+    }))
+
+    const comment = generatePRComment([], { brokenAnchors })
+
+    expect(comment).toContain('file0.md')
+    expect(comment).toContain('file9.md')
+    expect(comment).not.toContain('file10.md')
+    expect(comment).toContain('and 3 more')
+  })
+
+  test('anchor wording tracks the blocking mode', () => {
+    // The comment must not claim the check is advisory once FAIL_ON_ANCHOR_FLAW flips it
+    // to failing, and vice versa.
+    const brokenAnchors = [
+      { href: '/a#x', file: 'content/a.md', lines: [1], versions: ['free-pro-team@latest'] },
+    ]
+
+    const advisory = generatePRComment([], { brokenAnchors })
+    expect(advisory).toContain('Not blocking yet')
+    expect(advisory).not.toContain('This check is failing')
+
+    const blocking = generatePRComment([], { brokenAnchors, anchorsBlocking: true })
+    expect(blocking).toContain('This check is failing')
+    expect(blocking).not.toContain('Not blocking yet')
+  })
 })
 
 describe('generateSampleReports', () => {

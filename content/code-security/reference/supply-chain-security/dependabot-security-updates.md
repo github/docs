@@ -15,7 +15,7 @@ category:
 
 Settings for grouped {% data variables.product.prodname_dependabot_security_updates %} are applied in the following order, from highest to lowest priority:
 
-1. Settings defined in a `dependabot.yml` file. See [About the `dependabot.yml` file](/code-security/reference/supply-chain-security/dependabot-options-reference#about-the-dependabotyml-file).
+1. Settings defined in a `dependabot.yml` file. See [About the `dependabot.yml` file](/code-security/concepts/supply-chain-security/about-the-dependabot-yml-file).
 1. Repository-level settings defined in the UI
 1. Organization-level settings defined in the UI
 

@@ -17,6 +17,21 @@ category:
 
 {% data reusables.user-settings.no-verification-disposable-emails %}
 
+{% ifversion fpt or ghec %}
+
+## Account is restricted until you change your email address
+
+If your account is restricted and you're told to change the email address on your account before access can be restored, you must update your account email and then ask {% data variables.contact.github_support %} to review the restriction.
+
+1. Add a different, non-disposable email address and set it as your primary email address. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address).
+1. Verify your new primary email address. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address).
+1. Remove the previous email address from your account.
+1. Contact {% data variables.contact.github_support %} and ask for a review of the restriction.
+
+Using a `noreply` email address can help protect your commit privacy, but it does not replace the need for a valid account email address. For more information, see [AUTOTITLE](/account-and-profile/reference/email-addresses-reference#your-noreply-email-address).
+
+{% endif %}
+
 ## Error page after clicking verification link
 
 The verification link expires after 24 hours. If you don't verify your email within 24 hours, you can request another email verification link.

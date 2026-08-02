@@ -18,6 +18,7 @@ redirect_from:
   - /articles/github-business-cloud-support
   - /admin/enterprise-support/about-support-for-advanced-security
   - /enterprise-server/admin/enterprise-support/about-support-for-advanced-security
+  - /enterprise-onboarding/support-for-your-enterprise/understanding-support 
 category:
   - Understand your support options
 ---

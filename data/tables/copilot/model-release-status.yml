@@ -81,6 +81,10 @@
   provider: 'Anthropic'
   release_status: 'GA'
 
+- name: 'Claude Opus 5'
+  provider: 'Anthropic'
+  release_status: 'GA'
+
 - name: 'Claude Sonnet 4.5'
   provider: 'Anthropic'
   release_status: 'GA'
@@ -95,19 +99,15 @@
 
 # Google models
 
-- name: 'Gemini 2.5 Pro'
-  provider: 'Google'
-  release_status: 'GA'
-
-- name: 'Gemini 3 Flash'
-  provider: 'Google'
-  release_status: 'Public preview'
-
 - name: 'Gemini 3.1 Pro'
   provider: 'Google'
   release_status: 'Public preview'
 
 - name: 'Gemini 3.5 Flash'
+  provider: 'Google'
+  release_status: 'GA'
+
+- name: 'Gemini 3.6 Flash'
   provider: 'Google'
   release_status: 'GA'
 
@@ -122,6 +122,11 @@
   release_status: 'GA'
 
 # Open-weight models
-- name: 'Kimi-K2.7-Code'
+- name: 'Kimi K2.7 Code'
   provider: 'Moonshot AI'
+  release_status: 'GA'
+
+# xAI models
+- name: 'Grok 4.5'
+  provider: 'xAI'
   release_status: 'GA'

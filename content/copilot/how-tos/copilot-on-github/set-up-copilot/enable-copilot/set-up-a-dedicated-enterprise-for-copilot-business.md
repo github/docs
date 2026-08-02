@@ -22,7 +22,7 @@ With a dedicated enterprise account, you get enterprise-grade identity provider 
 
 ## Create an enterprise account
 
-To create an enterprise account, contact {% data variables.product.company_short %}'s [sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=purchase). They will provision you with a standard enterprise account with {% data variables.product.prodname_copilot_short %} enabled.
+To create an enterprise account, contact {% data variables.product.company_short %}'s [sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=purchase&ref_style=text). They will provision you with a standard enterprise account with {% data variables.product.prodname_copilot_short %} enabled.
 
 
 ## Add users to your enterprise
@@ -60,6 +60,15 @@ To begin using {% data variables.copilot.copilot_business_short %} after your tr
 Give people access to {% data variables.product.prodname_copilot_short %} by assigning {% data variables.copilot.copilot_business_short %} licenses to users or enterprise teams.
 
 For detailed steps, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/grant-access#assigning-licenses-to-users-or-teams).
+
+## Govern the use of {% data variables.product.prodname_copilot_short %} in your enterprise
+
+After you assign licenses, you can centrally govern how members use {% data variables.product.prodname_copilot_short %}:
+
+* **Policies**. Control feature availability with policies in AI Controls.
+* **Enterprise managed settings**. Distribute client governance and extensibility configuration from a centrally defined source. You can apply permission seetings like disabling bypass mode, restrict plugins, and set the default model for new conversations to {% data variables.copilot.copilot_cli_short %} and {% data variables.product.prodname_vscode_shortname %}. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings).
+
+To use server-managed settings, you need an organization and a `.github-private` repository, which requires a {% data variables.product.prodname_enterprise %} license for the user who creates them. Alternatively, you can deploy managed settings through MDM or a file-based deployment without creating an organization.
 
 ## Next steps
 

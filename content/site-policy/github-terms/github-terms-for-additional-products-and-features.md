@@ -147,9 +147,3 @@ GitHub Sponsors allows the developer community to financially support the people
 ## SQL Server Images
 
 You may download Microsoft SQL Server Standard Edition container image for Linux files ("SQL Server Images"). You must uninstall the SQL Server Images when your right to use the Software ends. Microsoft Corporation may disable SQL Server Images at any time.
-
-## GitHub Models
-
-GitHub Models is a feature that allows you to learn, try, and test artificial intelligence models on GitHub.com. You can access GitHub Models via the [GitHub Marketplace](https://github.com/marketplace). Learn more about GitHub Models by visiting [Prototyping with AI models](/github-models/use-github-models/prototyping-with-ai-models).
-
-Your use of this feature is subject to the terms of the company hosting the model and the model license.

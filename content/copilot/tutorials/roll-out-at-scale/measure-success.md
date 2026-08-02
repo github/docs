@@ -54,6 +54,9 @@ The dashboard shows 28 days of aggregated IDE telemetry data for all licensed us
 
 {% data reusables.copilot.copilot-usage-metrics-sources %}
 
+> [!TIP]
+> Total active users and DAU show whether developers are using {% data variables.product.prodname_copilot_short %} at all, but not how deeply. For a signal that tracks whether trial usage is deepening over time, such as developers progressing from completions to agent workflows, see [AUTOTITLE](/copilot/how-tos/administer-copilot/view-impact-dashboard).
+
 ## Step 3: Evaluate your trial results
 
 Compare your dashboard data to your trial goals. Common success indicators include:
@@ -128,4 +131,4 @@ Document your findings and share them with stakeholders to inform the next phase
 
 ## Next steps
 
-Now that you know how to measure the success of your {% data variables.product.prodname_copilot_short %} trial, you can continue to monitor adoption and engagement as you expand usage. To learn more about driving adoption and enabling developers, see [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/enable-developers/drive-adoption).
+Now that you know how to measure the success of your {% data variables.product.prodname_copilot_short %} trial, you can continue to monitor adoption and engagement as you expand usage. To learn more about driving adoption and enabling developers, see [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/enable-developers/drive-adoption). To track adoption depth and connect spend to pull request output as you scale beyond the trial, see [AUTOTITLE](/copilot/how-tos/administer-copilot/view-impact-dashboard).

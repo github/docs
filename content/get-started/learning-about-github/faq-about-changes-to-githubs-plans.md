@@ -71,7 +71,7 @@ Most small teams use fewer than 3,000 Actions minutes/month, but some teams migh
 
 ## How do the seat limit changes affect me?
 
-Now that {% data variables.product.prodname_team %} has no minimum seat requirement, if you are using fewer than five seats in your organization, you can remove paid seats to reduce your bill. For more information, see [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/downgrade-plan#removing-paid-seats-from-your-organization).
+Now that {% data variables.product.prodname_team %} has no minimum seat requirement, if you are using fewer than five seats in your organization, you can remove paid seats to reduce your bill. For more information, see [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/downgrade-plan).
 
 ## Is anything changing for teams on the GitHub Team for Open Source plan?
 

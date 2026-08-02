@@ -9,7 +9,6 @@ import { useAutomatedPageContext } from '@/automated-pipelines/components/Automa
 import { Operation } from './types'
 import { ClientSideRedirects } from '@/rest/components/ClientSideRedirects'
 import { RestRedirect } from '@/rest/components/RestRedirect'
-import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
 
 export type StructuredContentT = {
   restOperations: Operation[]
@@ -43,9 +42,6 @@ export const RestReferencePage = ({ restOperations }: StructuredContentT) => {
       <ClientSideRedirects />
       <RestRedirect />
       <div className="px-3 px-md-6 my-4 container-xl" data-search="article-body">
-        <div className="d-none d-xl-block my-3 mr-auto width-full">
-          <Breadcrumbs />
-        </div>
         <h1 id="title-h1" className="mb-3">
           {title}
         </h1>

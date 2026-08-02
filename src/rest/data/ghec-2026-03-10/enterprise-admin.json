@@ -2816,6 +2816,112 @@
     {
       "serverUrl": "https://api.github.com",
       "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/credential-authorizations/revoke-credential-type",
+      "title": "Revoke a single credential type for an enterprise",
+      "category": "enterprise-admin",
+      "subcategory": "credential-authorizations",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "credential_type",
+          "description": "<p>The type of credential to revoke across the enterprise.</p>",
+          "isRequired": true,
+          "enum": [
+            "classic_pat",
+            "fine_grained_pat",
+            "ssh_key",
+            "oauth_app_token"
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "revoke_credentials",
+          "description": "<p>Whether to also destroy the actual credentials of this type owned by\nenterprise members. This option is only available for Enterprise Managed\nUser (EMU) enterprises. When set to <code>true</code>, all credentials of the given\ntype owned by enterprise members will be destroyed in addition to the\ncredential authorizations. Note that <code>oauth_app_token</code> credentials cannot\nbe destroyed; for that type only the credential authorizations are revoked.</p>",
+          "default": false
+        }
+      ],
+      "descriptionHTML": "<p>Revokes a single credential type (for example, classic personal access tokens)\nacross all organizations within the enterprise. This removes the sign-in\nauthorizations for that credential type for every member of the enterprise.</p>\n<p>For Enterprise Managed User (EMU) enterprises, you can optionally also destroy the\nactual credentials of that type owned by enterprise members by setting the\n<code>revoke_credentials</code> parameter to <code>true</code>.</p>\n<p>This operation is performed asynchronously. A background job will be queued to process\nthe revocations.</p>\n<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\nIf you use a personal access token to call this endpoint, that token may also be\nrevoked or destroyed as part of this operation.</p>\n</div>\n<p>The authenticated user must be an enterprise owner or have the <code>write_enterprise_credentials</code> permission to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:enterprise</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "credential_type": "classic_pat",
+              "revoke_credentials": false
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "202",
+            "contentType": "application/json",
+            "description": "<p>Accepted - The revocation request has been queued</p>",
+            "example": {
+              "message": "Credential type revocation has been queued"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "A message indicating the revocation has been queued"
+                },
+                "warning": {
+                  "type": "string",
+                  "description": "A warning message if the token used for this request may be revoked"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "202",
+          "description": "<p>Accepted - The revocation request has been queued</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation error - The <code>credential_type</code> is missing or invalid, or <code>revoke_credentials</code> is not available for this enterprise</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise credentials\" enterprise permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
       "requestPath": "/enterprises/{enterprise}/credential-authorizations/{username}/revoke",
       "title": "Revoke credential authorizations for a user in an enterprise",
       "category": "enterprise-admin",
@@ -2902,6 +3008,122 @@
         {
           "httpStatusCode": "422",
           "description": "<p>Validation error - The target user cannot be revoked, or <code>revoke_credentials</code> is not available for this enterprise</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise credentials\" enterprise permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/credential-authorizations/{username}/revoke-credential-type",
+      "title": "Revoke a single credential type for a user in an enterprise",
+      "category": "enterprise-admin",
+      "subcategory": "credential-authorizations",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "username",
+          "description": "<p>The handle for the GitHub user account.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "credential_type",
+          "description": "<p>The type of credential to revoke for the user.</p>",
+          "isRequired": true,
+          "enum": [
+            "classic_pat",
+            "fine_grained_pat",
+            "ssh_key",
+            "oauth_app_token"
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "revoke_credentials",
+          "description": "<p>Whether to also destroy the actual credential of this type owned by the\nuser. This option is only available for Enterprise Managed User (EMU)\nenterprises. When set to <code>true</code>, the credential of the given type owned\nby the user will be destroyed in addition to the credential authorizations.\nNote that <code>oauth_app_token</code> credentials cannot be destroyed; for that type\nonly the credential authorizations are revoked.</p>",
+          "default": false
+        }
+      ],
+      "descriptionHTML": "<p>Revokes a single credential type (for example, classic personal access tokens)\nfor a single user within the enterprise. This removes the sign-in authorizations\nfor that credential type across all organizations in the enterprise for the user.</p>\n<p>For Enterprise Managed User (EMU) enterprises, you can optionally also destroy the\nactual credential of that type owned by the user by setting the <code>revoke_credentials</code>\nparameter to <code>true</code>.</p>\n<p>This operation is performed asynchronously. A background job will be queued to process\nthe revocations.</p>\n<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\nIf you use a personal access token to call this endpoint and target yourself, that\ntoken may also be revoked or destroyed as part of this operation.</p>\n</div>\n<p>The authenticated user must be an enterprise owner or have the <code>write_enterprise_credentials</code> permission to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:enterprise</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "response": {
+            "statusCode": "202",
+            "contentType": "application/json",
+            "description": "<p>Accepted - The revocation request has been queued</p>",
+            "example": {
+              "message": "Credential type revocation for user 'octocat' has been queued"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "A message indicating the revocation has been queued"
+                },
+                "warning": {
+                  "type": "string",
+                  "description": "A warning message if the token used for this request may be revoked"
+                }
+              }
+            }
+          },
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "credential_type": "classic_pat",
+              "revoke_credentials": false
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "username": "USERNAME"
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "202",
+          "description": "<p>Accepted - The revocation request has been queued</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation error - The <code>credential_type</code> is missing or invalid, the target user cannot be revoked, or <code>revoke_credentials</code> is not available for this enterprise</p>"
         }
       ],
       "previews": [],
@@ -7631,6 +7853,361 @@
           }
         ]
       }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/visual-studio-subscriptions",
+      "title": "Get a list of Visual Studio subscriptions for the enterprise",
+      "category": "enterprise-admin",
+      "subcategory": "licensing",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "<p>The slug version of the enterprise name</p>"
+        },
+        {
+          "name": "is_unmatched_only",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "<p>When true, only returns Visual Studio subscriptions that are not matched to a GitHub user.</p>"
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 30
+          }
+        },
+        {
+          "name": "page",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 1
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Retrieves a list of Visual Studio subscriptions for the specified enterprise.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "total_count": 1,
+              "visual_studio_subscription_assignments": [
+                {
+                  "email": "test@example.com",
+                  "subscriptionId": "00000000-0000-0000-0000-000000000000",
+                  "username": "gh-user",
+                  "manual_match": true
+                }
+              ]
+            },
+            "schema": {
+              "type": "object",
+              "required": [
+                "total_count",
+                "visual_studio_subscriptions"
+              ],
+              "properties": {
+                "total_count": {
+                  "type": "integer"
+                },
+                "visual_studio_subscriptions": {
+                  "type": "array",
+                  "items": {
+                    "title": "Visual Studio Subscription Assignment",
+                    "description": "Visual Studio Subscription Assignment",
+                    "type": "object",
+                    "properties": {
+                      "visual_studio_subscription_email": {
+                        "type": "string",
+                        "description": "The email associated with the Visual Studio subscription assignment in the visual studio portal."
+                      },
+                      "subscription_id": {
+                        "type": "string",
+                        "description": "The ID of the Visual Studio Subscription. This is a GUID that comes from the Visual Studio management portal."
+                      },
+                      "username": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "The GitHub username of the user associated with the Visual Studio subscription assignment."
+                      },
+                      "manual_match": {
+                        "type": "boolean",
+                        "description": "Indicates if the Visual Studio subscription assignment was manually matched to a user."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise Licensing\" enterprise permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/visual-studio-subscriptions/{visual_studio_subscription_id}",
+      "title": "Add or update a Visual Studio subscription user match",
+      "category": "enterprise-admin",
+      "subcategory": "licensing",
+      "parameters": [
+        {
+          "name": "visual_studio_subscription_id",
+          "description": "<p>The ID of the Visual Studio subscription to add or update the match for. This is a GUID that comes from the Visual Studio management portal.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "enterprise",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "<p>The slug version of the enterprise name</p>"
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "user_identifier",
+          "description": "<p>The handle for the GitHub user account or a verified email associated with their account.</p>"
+        }
+      ],
+      "descriptionHTML": "<p>Updates a manual match between a user and a Visual Studio subscription.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "user_identifier": "monalisa"
+            },
+            "parameters": {
+              "visual_studio_subscription_id": "VISUAL_STUDIO_SUBSCRIPTION_ID",
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "visual_studio_subscription_email": "test@example.com",
+              "subscription_id": "00000000-0000-0000-0000-000000000000",
+              "username": "gh-user",
+              "manual_match": true
+            },
+            "schema": {
+              "title": "Visual Studio Subscription Assignment",
+              "description": "Visual Studio Subscription Assignment",
+              "type": "object",
+              "properties": {
+                "visual_studio_subscription_email": {
+                  "type": "string",
+                  "description": "The email associated with the Visual Studio subscription assignment in the visual studio portal."
+                },
+                "subscription_id": {
+                  "type": "string",
+                  "description": "The ID of the Visual Studio Subscription. This is a GUID that comes from the Visual Studio management portal."
+                },
+                "username": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The GitHub username of the user associated with the Visual Studio subscription assignment."
+                },
+                "manual_match": {
+                  "type": "boolean",
+                  "description": "Indicates if the Visual Studio subscription assignment was manually matched to a user."
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise Licensing\" enterprise permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/visual-studio-subscriptions/{visual_studio_subscription_id}",
+      "title": "Delete a Visual Studio subscription user match",
+      "category": "enterprise-admin",
+      "subcategory": "licensing",
+      "parameters": [
+        {
+          "name": "visual_studio_subscription_id",
+          "description": "<p>The ID of the Visual Studio subscription to delete the match for. This is a GUID that comes from the visual studio management portal.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "enterprise",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "<p>The slug version of the enterprise name</p>"
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Deletes a manual match between a user and a Visual Studio subscription.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "visual_studio_subscription_id": "VISUAL_STUDIO_SUBSCRIPTION_ID",
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "visual_studio_subscription_email": "test@example.com",
+              "subscription_id": "00000000-0000-0000-0000-000000000000",
+              "username": null,
+              "manual_match": false
+            },
+            "schema": {
+              "title": "Visual Studio Subscription Assignment",
+              "description": "Visual Studio Subscription Assignment",
+              "type": "object",
+              "properties": {
+                "visual_studio_subscription_email": {
+                  "type": "string",
+                  "description": "The email associated with the Visual Studio subscription assignment in the visual studio portal."
+                },
+                "subscription_id": {
+                  "type": "string",
+                  "description": "The ID of the Visual Studio Subscription. This is a GUID that comes from the Visual Studio management portal."
+                },
+                "username": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The GitHub username of the user associated with the Visual Studio subscription assignment."
+                },
+                "manual_match": {
+                  "type": "boolean",
+                  "description": "Indicates if the Visual Studio subscription assignment was manually matched to a user."
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise Licensing\" enterprise permissions": "write"
+          }
+        ]
+      }
     }
   ],
   "network-configurations": [
@@ -8745,7 +9322,7 @@
                   "permissions": {
                     "title": "App Permissions",
                     "type": "object",
-                    "description": "The permissions granted to the user access token.",
+                    "description": "The permissions granted to the fine-grained access token.",
                     "properties": {
                       "actions": {
                         "type": "string",
@@ -9614,7 +10191,7 @@
                 "permissions": {
                   "title": "App Permissions",
                   "type": "object",
-                  "description": "The permissions granted to the user access token.",
+                  "description": "The permissions granted to the fine-grained access token.",
                   "properties": {
                     "actions": {
                       "type": "string",
@@ -10866,7 +11443,7 @@
                 "permissions": {
                   "title": "App Permissions",
                   "type": "object",
-                  "description": "The permissions granted to the user access token.",
+                  "description": "The permissions granted to the fine-grained access token.",
                   "properties": {
                     "actions": {
                       "type": "string",

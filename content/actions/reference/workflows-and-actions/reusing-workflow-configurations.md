@@ -28,8 +28,8 @@ A reusable workflow can be used by another workflow if any of the following is t
   You cannot directly use reusable workflows defined on {% data variables.product.prodname_dotcom_the_website %}. Instead store a copy of the reusable workflow on {% data variables.location.product_location %}, and call the workflow from that path.
 
   {% elsif actions-workflow-policy %}, and your {% ifversion ghec %}enterprise{% else %}organization{% endif %} allows you to use public reusable workflows.{% endif %}{% ifversion ghes or ghec %}
-* The called workflow is stored in an internal repository and the settings for that repository allow it to be accessed. For more information, see [AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise).{% endif %}
-* The called workflow is stored in a private repository and the settings for that repository allow it to be accessed. For more information, see {% ifversion ghes or ghec %}[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise).{% else %}[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-organization) and [AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-from-your-private-repository).{% endif %}
+* The called workflow is stored in an internal repository and the settings for that repository allow it to be accessed. For more information, see [AUTOTITLE](/actions/how-tos/reuse-automations/share-with-your-enterprise).{% endif %}
+* The called workflow is stored in a private repository and the settings for that repository allow it to be accessed. For more information, see {% ifversion ghes or ghec %}[AUTOTITLE](/actions/how-tos/reuse-automations/share-with-your-enterprise).{% else %}[AUTOTITLE](/actions/how-tos/reuse-automations/share-with-your-organization) and [AUTOTITLE](/actions/how-tos/reuse-automations/share-across-private-repositories).{% endif %}
 
 The following table shows the accessibility of reusable workflows to a caller workflow, depending on the visibility of the host repository.
 
@@ -50,36 +50,36 @@ For {% ifversion ghes or ghec %}internal or {% endif %}private repositories, the
 ### Limitations of reusable workflows
 
 
-* You can connect up to {% ifversion fpt or ghec %}ten {% else %}four {% endif %}levels of workflows. For more information, see [Nesting reusable workflows](/actions/how-tos/sharing-automations/reuse-workflows#nesting-reusable-workflows).
+* You can connect up to {% ifversion fpt or ghec %}ten {% else %}four {% endif %}levels of workflows. For more information, see [Nesting reusable workflows](/actions/how-tos/reuse-automations/reuse-workflows#nesting-reusable-workflows).
 * You can call a maximum of {% ifversion fpt or ghec %}50 {% else %}20 {% endif %}unique reusable workflows from a single workflow file. This limit includes any trees of nested reusable workflows that may be called starting from your top-level caller workflow file.
 
   For example, _top-level-caller-workflow.yml_ → _called-workflow-1.yml_ → _called-workflow-2.yml_ counts as 2 reusable workflows.
 
-* Any environment variables set in an `env` context defined at the workflow level in the caller workflow are not propagated to the called workflow. For more information, see [AUTOTITLE](/actions/learn-github-actions/variables) and [AUTOTITLE](/actions/learn-github-actions/contexts#env-context).
-* Similarly, environment variables set in the `env` context, defined in the called workflow, are not accessible in the `env` context of the caller workflow. Instead, you must use outputs of the reusable workflow. For more information, see [Using outputs from a reusable workflow](/actions/how-tos/sharing-automations/reuse-workflows#using-outputs-from-a-reusable-workflow).
-* To reuse variables in multiple workflows, set them at the organization, repository, or environment levels and reference them using the `vars` context. For more information see [AUTOTITLE](/actions/learn-github-actions/variables) and [AUTOTITLE](/actions/learn-github-actions/contexts#vars-context).
+* Any environment variables set in an `env` context defined at the workflow level in the caller workflow are not propagated to the called workflow. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables) and [AUTOTITLE](/actions/reference/workflows-and-actions/contexts#env-context).
+* Similarly, environment variables set in the `env` context, defined in the called workflow, are not accessible in the `env` context of the caller workflow. Instead, you must use outputs of the reusable workflow. For more information, see [Using outputs from a reusable workflow](/actions/how-tos/reuse-automations/reuse-workflows#using-outputs-from-a-reusable-workflow).
+* To reuse variables in multiple workflows, set them at the organization, repository, or environment levels and reference them using the `vars` context. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables) and [AUTOTITLE](/actions/reference/workflows-and-actions/contexts#vars-context).
 * Reusable workflows are called directly within a job, and not from within a job step. You cannot, therefore, use `GITHUB_ENV` to pass values to job steps in the caller workflow.
 
 ### Supported keywords for jobs that call a reusable workflow
 
 When you call a reusable workflow, you can only use the following keywords in the job containing the call:
 
-* [`jobs.<job_id>.name`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname)
-* [`jobs.<job_id>.uses`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iduses)
-* [`jobs.<job_id>.with`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idwith)
-* [`jobs.<job_id>.with.<input_id>`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idwithinput_id)
-* [`jobs.<job_id>.secrets`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecrets)
-* [`jobs.<job_id>.secrets.<secret_id>`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretssecret_id)
-* [`jobs.<job_id>.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit)
-* [`jobs.<job_id>.strategy`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategy)
-* [`jobs.<job_id>.needs`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds)
-* [`jobs.<job_id>.if`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif)
-* [`jobs.<job_id>.concurrency`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idconcurrency)
-* [`jobs.<job_id>.permissions`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idpermissions)
+* [`jobs.<job_id>.name`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idname)
+* [`jobs.<job_id>.uses`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_iduses)
+* [`jobs.<job_id>.with`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idwith)
+* [`jobs.<job_id>.with.<input_id>`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idwithinput_id)
+* [`jobs.<job_id>.secrets`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idsecrets)
+* [`jobs.<job_id>.secrets.<secret_id>`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idsecretssecret_id)
+* [`jobs.<job_id>.secrets.inherit`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idsecretsinherit)
+* [`jobs.<job_id>.strategy`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstrategy)
+* [`jobs.<job_id>.needs`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idneeds)
+* [`jobs.<job_id>.if`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idif)
+* [`jobs.<job_id>.concurrency`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idconcurrency)
+* [`jobs.<job_id>.permissions`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idpermissions)
 
   > [!NOTE]
   >
-  > * If `jobs.<job_id>.permissions` is not specified in the calling job, the called workflow will have the default permissions for the `GITHUB_TOKEN`. For more information, see [AUTOTITLE](/actions/reference/workflow-syntax-for-github-actions#permissions).
+  > * If `jobs.<job_id>.permissions` is not specified in the calling job, the called workflow will have the default permissions for the `GITHUB_TOKEN`. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#permissions).
   > * The `GITHUB_TOKEN` permissions passed from the caller workflow can be only downgraded (not elevated) by the called workflow.
   > * If you use `jobs.<job_id>.concurrency.cancel-in-progress: true`, don't use the same value for `jobs.<job_id>.concurrency.group` in the called and caller workflows as this will cause the workflow that's already running to be cancelled. A called workflow uses the name of its caller workflow in {% raw %}${{ github.workflow }}{% endraw %}, so using this context as the value of `jobs.<job_id>.concurrency.group` in both caller and called workflows will cause the caller workflow to be cancelled when the called workflow runs.
 
@@ -87,7 +87,7 @@ When you call a reusable workflow, you can only use the following keywords in th
 
 #### {% data variables.product.github %}-hosted runners
 
-The assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. Billing for {% data variables.product.prodname_dotcom %}-hosted runners is always associated with the caller. The caller workflow cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners).
+The assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. Billing for {% data variables.product.prodname_dotcom %}-hosted runners is always associated with the caller. The caller workflow cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository. For more information, see [AUTOTITLE](/actions/concepts/runners/github-hosted-runners).
 
 #### Self-hosted runners
 
@@ -99,9 +99,9 @@ Called workflows that are owned by the same user or organization{% ifversion ghe
 
 A workflow that contains nested reusable workflows will fail if any of the nested workflows is inaccessible to the initial caller workflow. For more information, see [Access to reusable workflows](#access-to-reusable-workflows).
 
-`GITHUB_TOKEN` permissions can only be the same or more restrictive in nested workflows. For example, in the workflow chain A > B > C, if workflow A has `package: read` token permission, then B and C cannot have `package: write` permission. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication).
+`GITHUB_TOKEN` permissions can only be the same or more restrictive in nested workflows. For example, in the workflow chain A > B > C, if workflow A has `package: read` token permission, then B and C cannot have `package: write` permission. For more information, see [AUTOTITLE](/actions/tutorials/authenticate-with-github_token).
 
-For information on how to use the API to determine which workflow files were involved in a particular workflow run, see [AUTOTITLE](/actions/how-tos/sharing-automations/reuse-workflows#monitoring-which-workflows-are-being-used).
+For information on how to use the API to determine which workflow files were involved in a particular workflow run, see [AUTOTITLE](/actions/how-tos/reuse-automations/reuse-workflows#monitoring-which-workflows-are-being-used).
 
 ### Behavior of reusable workflows when re-running jobs
 
@@ -109,7 +109,7 @@ For information on how to use the API to determine which workflow files were inv
 
 ### `github` context
 
-When a reusable workflow is triggered by a caller workflow, the `github` context is always associated with the caller workflow. The called workflow is automatically granted access to `github.token` and `secrets.GITHUB_TOKEN`. For more information about the `github` context, see [AUTOTITLE](/actions/learn-github-actions/contexts#github-context).
+When a reusable workflow is triggered by a caller workflow, the `github` context is always associated with the caller workflow. The called workflow is automatically granted access to `github.token` and `secrets.GITHUB_TOKEN`. For more information about the `github` context, see [AUTOTITLE](/actions/reference/workflows-and-actions/contexts#github-context).
 
 ## Workflow templates
 

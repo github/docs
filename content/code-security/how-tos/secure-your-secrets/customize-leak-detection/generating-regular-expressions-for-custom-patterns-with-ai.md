@@ -48,4 +48,4 @@ category:
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-regex-generator)
+* [AUTOTITLE](/code-security/responsible-use/security-and-quality-ai-features)

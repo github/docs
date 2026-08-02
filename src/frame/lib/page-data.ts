@@ -164,7 +164,7 @@ async function translateTree(
     content = read.content
     data = read.data as Record<string, unknown>
 
-    if (!data) {
+    if (!data || typeof data !== 'object' || Array.isArray(data)) {
       // If the file's frontmatter Yaml is entirely broken,
       // the result of `readFileContents()` is that you just
       // get a `errors` key. E.g.
@@ -176,6 +176,15 @@ async function translateTree(
       //       filepath: 'translations/ja-JP/content/get-started/index.md'
       //     }
       //   ]
+      //
+      // A translated file can also be corrupted so that the frontmatter
+      // parses to a non-object. For example, if machine translation replaces
+      // the ASCII `:` key/value separators with fullwidth colons (`：`), YAML
+      // parses the whole block as a single scalar string. `data` is then a
+      // string rather than an object, so none of the frontmatter keys (like
+      // `title`) exist and the per-key English fallback below never fires,
+      // leaving the page with an empty title. Treat that the same as entirely
+      // broken frontmatter and fall back to English.
       //
       // If this the case throw error so we can lump this error with
       // how we deal with the file not even being present on disk.

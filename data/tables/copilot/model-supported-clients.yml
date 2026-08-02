@@ -68,6 +68,15 @@
   xcode: true
   jetbrains: true
 
+- name: Claude Opus 5
+  dotcom: true
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
 - name: Claude Fable 5
   dotcom: true
   cli: true
@@ -104,24 +113,6 @@
   xcode: true
   jetbrains: true
 
-- name: Gemini 2.5 Pro
-  dotcom: false
-  cli: false
-  vscode: true
-  vs: true
-  eclipse: true
-  xcode: true
-  jetbrains: true
-
-- name: Gemini 3 Flash
-  dotcom: false
-  cli: false
-  vscode: true
-  vs: true
-  eclipse: true
-  xcode: true
-  jetbrains: true
-
 - name: Gemini 3.1 Pro
   dotcom: false
   cli: true
@@ -132,6 +123,15 @@
   jetbrains: true
 
 - name: Gemini 3.5 Flash
+  dotcom: false
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
+- name: Gemini 3.6 Flash
   dotcom: false
   cli: true
   vscode: true
@@ -230,7 +230,16 @@
   xcode: false
   jetbrains: false
 
-- name: Kimi-K2.7-Code
+- name: Grok 4.5
+  dotcom: false
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
+- name: Kimi K2.7 Code
   dotcom: true
   cli: true
   vscode: true

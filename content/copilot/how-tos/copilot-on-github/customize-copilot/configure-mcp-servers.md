@@ -31,8 +31,7 @@ As a repository administrator, you can configure MCP servers for use within your
 This repository-level MCP configuration is shared by {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}. For information on disabling use of MCP servers by {% data variables.copilot.copilot_code-review_short %}, see [Disabling MCP tools for {% data variables.copilot.copilot_code-review_short %}](#disabling-mcp-tools-for-code-review).
 
 > [!NOTE]
-> * Support for agent skills and MCP servers with {% data variables.copilot.copilot_code-review_short %} is in {% data variables.release-phases.public_preview %} and subject to change.
-> * Existing repository MCP configurations that were previously managed under {% data variables.copilot.copilot_cloud_agent %} settings were automatically moved to the new shared MCP settings page. No migration action is required.
+> Existing repository MCP configurations that were previously managed under {% data variables.copilot.copilot_cloud_agent %} settings were automatically moved to the new shared MCP settings page. No migration action is required.
 
 The {% data variables.product.github %} MCP server and Playwright MCP server are enabled by default. You can add your own MCP servers alongside these defaults.
 
@@ -49,7 +48,7 @@ Repository administrators can configure MCP servers by following these steps:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the "Code & automation" section of the sidebar, click **{% data variables.product.prodname_copilot_short %}** then **MCP servers**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% data variables.product.prodname_copilot_short %}** then **MCP servers**.
 1. On the "Model Context Protocol (MCP)" page, add your configuration in the "MCP configuration" section.
 
    The following sections in this article explain how to write the JSON configuration that you need to enter here.
@@ -354,7 +353,7 @@ If you want to allow {% data variables.product.prodname_copilot_short %} to acce
 1. Create a {% data variables.product.pat_generic %} with the appropriate permissions. We recommend using a {% data variables.product.pat_v2 %}, where you can limit the token's access to read-only permissions on specific repositories. For more information on {% data variables.product.pat_generic_plural %}, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the "Code & automation" section of the sidebar, click **{% data variables.product.prodname_copilot_short %}** then **MCP servers**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% data variables.product.prodname_copilot_short %}** then **MCP servers**.
 1. Add your configuration in the "MCP configuration" section. For example, you can add the following:
 
    ```javascript copy
@@ -385,9 +384,6 @@ For information on using the {% data variables.product.github %} MCP server in o
 
 ## Disabling MCP tools for code review
 
-> [!NOTE]
-> Support for agent skills and MCP servers with {% data variables.copilot.copilot_code-review_short %} is in {% data variables.release-phases.public_preview %} and subject to change.
-
 In repository settings, use of MCP tools by {% data variables.copilot.copilot_code-review_short %} is enabled by default.
 
 Disable this setting if you want the configured MCP servers available only for {% data variables.copilot.copilot_cloud_agent %}, and not for {% data variables.copilot.copilot_code-review_short %}.
@@ -396,7 +392,7 @@ If you disable this setting, {% data variables.copilot.copilot_code-review_short
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the "Code & automation" section of the sidebar, click **{% data variables.product.prodname_copilot_short %}** then **Code review**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% data variables.product.prodname_copilot_short %}** then **Code review**.
 1. Click the **Allow Copilot to use MCP tools when reviewing pull requests** toggle to disable the setting.
 
 ## Next steps

@@ -22,7 +22,7 @@ category:
   - Manage access and repository policies
 ---
 {% data reusables.user-settings.access_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "repo" aria-hidden="true" aria-label="repo" %} Repositories**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "repo" aria-hidden="true" aria-label="repo" %} Repositories**.
 1. Next to the repository you want to leave, click **Leave**.
 1. Read the warning carefully, then click **I understand, leave this repository.**
 

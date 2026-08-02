@@ -101,7 +101,7 @@ Backup snapshots created by {% data variables.product.prodname_enterprise_backup
       > To ensure a recovered instance is immediately available, perform backups targeting the primary instance even in a geo-replication configuration.
 
    1. Set the `GHE_DATA_DIR` value to the filesystem location where you want to store backup snapshots. We recommend choosing a location on the same filesystem as your backup host.
-1. To grant your backup host access to your instance, open your primary instance's settings page at `http(s)://HOSTNAME/setup/settings` and add the backup host's SSH key to the list of authorized SSH keys. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh).
+1. To grant your backup host access to your instance, open your primary instance's settings page at `http(s)://HOSTNAME/setup/settings` and add the backup host's SSH key to the list of authorized SSH keys. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh).
 1. On your backup host, verify SSH connectivity with {% data variables.location.product_location %} with the `ghe-host-check` command.
 
    ```shell
@@ -150,10 +150,10 @@ Network settings are excluded from the backup snapshot. After restoration, you m
 
 ### Prerequisites
 
-1. Ensure maintenance mode is enabled on the primary instance and all active processes have completed. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
-1. Stop replication on all replica nodes in a high-availability configuration. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#ghe-repl-stop).
-1. Provision a new {% data variables.product.prodname_ghe_server %} instance to use as a target for the restoration of your backup. For more information, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance).
-1. If {% data variables.location.product_location %} has {% data variables.product.prodname_actions %} enabled, you must configure the external storage provider for {% data variables.product.prodname_actions %} on the replacement instance. For more information, see [AUTOTITLE](/admin/github-actions/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled).
+1. Ensure maintenance mode is enabled on the primary instance and all active processes have completed. For more information, see [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode).
+1. Stop replication on all replica nodes in a high-availability configuration. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-high-availability/about-high-availability-configuration#ghe-repl-stop).
+1. Provision a new {% data variables.product.prodname_ghe_server %} instance to use as a target for the restoration of your backup. For more information, see [AUTOTITLE](/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance).
+1. If {% data variables.location.product_location %} has {% data variables.product.prodname_actions %} enabled, you must configure the external storage provider for {% data variables.product.prodname_actions %} on the replacement instance. For more information, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled).
 
 ### Starting the restore operation
 
@@ -181,7 +181,7 @@ $ ghe-restore -c 169.154.1.1
 > Visit https://169.154.1.1/setup/settings to review appliance configuration.
 ```
 
-Optionally, to validate the restore, configure an IP exception list to allow access to a specified list of IP addresses. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list).
+Optionally, to validate the restore, configure an IP exception list to allow access to a specified list of IP addresses. For more information, see [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list).
 
 On an instance in a high-availability configuration, after you restore to new disks on an existing or empty instance, `ghe-repl-status` may report that Git or Alambic replication is out of sync due to stale server UUIDs. These stale UUIDs can be the result of a retired node in a high-availability configuration still being present in the application database, but not in the restored replication configuration.
 

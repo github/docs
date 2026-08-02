@@ -15,7 +15,7 @@ category:
   - Find and fix code vulnerabilities
 ---
 
-Anyone with read permission for a repository can see {% data variables.product.prodname_code_scanning %} annotations on pull requests. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests).
+Anyone with read permission for a repository can see {% data variables.product.prodname_code_scanning %} annotations on pull requests. For more information, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/triage-alerts-in-pull-requests).
 
 ## Viewing the alerts for a repository
 
@@ -43,16 +43,16 @@ By default, the {% data variables.product.prodname_code_scanning %} alerts page 
 1. Alerts from {% data variables.product.prodname_codeql %} analysis include a description of the problem. Click **Show more** for guidance on how to fix your code.
 {% data reusables.security.alert-assignee-step %}
 
-For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts).
+For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/code-scanning-alerts).
 
 > [!NOTE]
-> You can see information about when {% data variables.product.prodname_code_scanning %} analysis last ran on the tool status page. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page).
+> You can see information about when {% data variables.product.prodname_code_scanning %} analysis last ran on the tool status page. For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/use-the-tools-status-page-for-code-scanning).
 
 {% ifversion copilot-chat-ghas-alerts %}
 
 ## Asking {% data variables.copilot.copilot_chat %} about {% data variables.product.prodname_code_scanning %} alerts
 
-With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% data variables.copilot.copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_code_scanning %} alerts, in repositories in your organization. For more information, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features).
+With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% data variables.copilot.copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_code_scanning %} alerts, in repositories in your organization. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github#asking-questions-about-alerts-from-github-advanced-security-features).
 
 {% endif %}
 
@@ -76,7 +76,7 @@ You can prefix the `tag` filter with `-` to exclude results with that tag. For e
 
 ### Restricting results to application code only
 
-You can use the "Only alerts in application code" filter or `autofilter:true` keyword and value to restrict results to alerts in application code. For more information about the types of code that are automatically labeled as not application code, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-labels-for-alerts-that-are-not-found-in-application-code).
+You can use the "Only alerts in application code" filter or `autofilter:true` keyword and value to restrict results to alerts in application code. For more information about the types of code that are automatically labeled as not application code, see [AUTOTITLE](/code-security/concepts/code-scanning/code-scanning-alerts#about-labels-for-alerts-that-are-not-found-in-application-code).
 
 ## Searching {% data variables.product.prodname_code_scanning %} alerts
 
@@ -109,7 +109,7 @@ You can search the list of alerts. This is useful if there is a large number of 
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/resolving-code-scanning-alerts)
-* [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests)
-* [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)
-* [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning)
+* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/resolve-alerts)
+* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/triage-alerts-in-pull-requests)
+* [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configure-code-scanning)
+* [AUTOTITLE](/code-security/concepts/code-scanning/integration-with-code-scanning)

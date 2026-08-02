@@ -28,8 +28,8 @@ You can check for updates manually with the **{% data variables.product.prodname
 
 ## Using a different {% data variables.product.prodname_codeql_cli %} installation
 
-To override the default behavior and use a specific version of the {% data variables.product.prodname_codeql_cli %}, you can specify the {% data variables.product.prodname_codeql_cli %} **Executable Path** in the extension settings. See [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/customizing-settings).
+To override the default behavior and use a specific version of the {% data variables.product.prodname_codeql_cli %}, you can specify the {% data variables.product.prodname_codeql_cli %} **Executable Path** in the extension settings. See [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-vs-code/customize-settings).
 
 ## Troubleshooting
 
-You can check the {% data variables.product.prodname_codeql %} Extension log for error messages or to see the location of the {% data variables.product.prodname_codeql_cli %} being used. See [AUTOTITLE](/code-security/codeql-for-vs-code/troubleshooting-codeql-for-vs-code/accessing-logs).
+You can check the {% data variables.product.prodname_codeql %} Extension log for error messages or to see the location of the {% data variables.product.prodname_codeql_cli %} being used. See [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-vs-code/accessing-logs).
