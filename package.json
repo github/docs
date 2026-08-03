@@ -230,7 +230,7 @@
     "is-svg": "6.0.0",
     "javascript-stringify": "^2.1.0",
     "js-cookie": "^3.0.7",
-    "js-yaml": "^5.1.0",
+    "js-yaml": "^5.2.2",
     "liquidjs": "^10.27.0",
     "lodash": "^4.18.0",
     "lodash-es": "^4.18.0",
@@ -262,7 +262,7 @@
     "remark-remove-comments": "^1.1.1",
     "remark-stringify": "^11.0.0",
     "semver": "^7.7.4",
-    "sharp": "0.33.5",
+    "sharp": "0.35.3",
     "slash": "^5.1.0",
     "strip-ansi": "7.1.0",
     "swr": "^2.4.0",
@@ -363,7 +363,10 @@
     "cheerio": {
       "undici": "^7.28.0"
     },
-    "markdown-it": "^14.2.0"
+    "markdown-it": "^14.2.0",
+    "minimatch@10": {
+      "brace-expansion": "^5.0.8"
+    }
   },
   "optionalDependencies": {
     "esm": "^3.2.25"
