@@ -138,6 +138,20 @@ Liquid syntax for alerts is still supported and may still appear in older articl
 
 For more information on formatting alerts, see “Alerts” in [AUTOTITLE](/contributing/writing-for-github-docs/using-markdown-and-liquid-in-github-docs#alerts).
 
+### Using alerts with reusable text
+
+Alerts frequently form part of reusable content (see [AUTOTITLE](/contributing/writing-for-github-docs/creating-reusable-content)).
+
+Call reusable content inside alert environments, rather than placing alert environments inside reusable Markdown files.
+
+For example:
+
+```markdown
+> [!CAUTION]
+> {% raw %}{% data reusables.foo.bar %}{% endraw %}
+> Here is some additional optional text.
+```
+
 ## Call to action (CTA)
 
 A CTA is a link or button prompting users to take the next step in their journey. It will send a user to a different location.
