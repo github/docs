@@ -30,6 +30,12 @@ When you configure access to the private registries used in your organization, {
 | Go | GOPROXY server, Git Source |
 | Java | Maven Repository |
 
+{% ifversion codeql-config-property %}
+
+Additionally, _Git Source_ registries are supported for granting {% data variables.product.prodname_code_scanning %} access to configuration files in private repositories. For more information about customizing {% data variables.product.prodname_code_scanning %} using custom configuration files, see [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options#custom-configuration-files).
+
+{% endif %}
+
 > [!TIP]
 > You can define one of each type of registry for each organization. If the codebases in your organization use more than one registry of a given type, you should set up a unified access point or define access to the most important registry for the codebases in that organization.
 
