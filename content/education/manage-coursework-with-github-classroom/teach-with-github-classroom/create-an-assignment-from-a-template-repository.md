@@ -11,6 +11,7 @@ shortTitle: Template repository
 category:
   - Create and manage assignments
 ---
+{% data reusables.classroom.closing-down-notice %}
 
 You can use a template repository on {% data variables.product.github %} as starter code for an assignment on {% data variables.product.prodname_classroom %}. Your template repository can contain boilerplate code, documentation, and other resources for your students. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-template-repository).
 
