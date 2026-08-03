@@ -93,11 +93,11 @@ Checks move through statuses as they run, then receive a conclusion when they fi
 | `expected` | The check run is waiting for a status to be reported. | Yes |
 | `failure` | The check run failed. | No |
 | `in_progress` | The check run is in progress. | No |
-| `pending` | The check run is at the front of the queue but the [group-based concurrency](/actions/writing-workflows/choosing-what-your-workflow-does/control-the-concurrency-of-workflows-and-jobs) limit has been reached. | Yes |
+| `pending` | The check run is at the front of the queue but the [group-based concurrency](/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency) limit has been reached. | Yes |
 | `queued` | The check run has been queued. | No |
 | `requested` | The check run has been created but has not been queued. | Yes |
 | `startup_failure` | The check suite failed during startup. This status is not applicable to check runs. | Yes |
-| `waiting` | The check run is waiting for a [deployment protection rule](/actions/managing-workflow-runs-and-deployments/managing-deployments/managing-environments-for-deployment) to be satisfied. | Yes |
+| `waiting` | The check run is waiting for a [deployment protection rule](/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments) to be satisfied. | Yes |
 
 When a check has a status of `completed`, it has a conclusion. A successful conclusion usually means the check does not block merging. A failure, timeout, or action-required conclusion usually means someone must review the details before the pull request can merge.
 
