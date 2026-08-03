@@ -25,6 +25,8 @@ Each session in the {% data variables.copilot.github_copilot_app %} runs in its 
 
 The agent starts working. Your active sessions appear in the sidebar grouped by repository—click any session to switch to it.
 
+For a list of commands you can use in the prompt box, see [AUTOTITLE](/copilot/reference/github-copilot-app-reference/slash-commands).
+
 ## Choosing a session mode
 
 The session mode controls how much autonomy the agent has. You can set the mode from the dropdown below the prompt field and change it at any time.

@@ -11,6 +11,7 @@ children:
   - /copilot-feature-matrix
   - /keyboard-shortcuts
   - /copilot-cli-reference
+  - /github-copilot-app-reference
   - /custom-agents-configuration
   - /custom-instructions-support
   - /hooks-reference
