@@ -32,7 +32,10 @@ jobs:
           days-before-pr-close: -1 # never close
 
       - name: Print outputs
-        run: echo "Staled issues/PRs:${{ steps.stale.outputs.staled-issues-prs || '0' }}, Closed issues/PRs:${{ steps.stale.outputs.closed-issues-prs || '0' }}"
+        env:
+          STALED: ${{ steps.stale.outputs.staled-issues-prs || '0' }}
+          CLOSED: ${{ steps.stale.outputs.closed-issues-prs || '0' }}
+        run: echo "Staled issues/PRs:${STALED}, Closed issues/PRs:${CLOSED}"
 
       - name: Check out repo
         if: ${{ failure() }}
