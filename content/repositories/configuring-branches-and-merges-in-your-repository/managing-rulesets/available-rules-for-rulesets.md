@@ -188,6 +188,8 @@ You can prevent users from force pushing to the targeted branches or tags. This 
 
 If someone force pushes to a branch or tag, commits that other collaborators have based their work on may be removed from the history of the branch or tag. This may lead to merge conflicts or corrupted pull requests. Force pushing can also be used to delete branches or point a branch to commits that were not approved in a pull request.
 
+> [!NOTE] If force pushes are blocked, organization owners or repository administrators will be unable to change or rename the default branch unless they are authorized to bypass the ruleset.
+
 Enabling force pushes will not override any other rules. For example, if a branch requires a linear commit history, you cannot force push merge commits to that branch.
 
 {% ifversion ghes %}You cannot enable force pushes for a branch if a site administrator has blocked force pushes to all branches in your repository. For more information, see [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise).
