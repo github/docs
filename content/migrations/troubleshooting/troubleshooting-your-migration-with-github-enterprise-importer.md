@@ -86,7 +86,7 @@ First, try excluding releases from the migration by using the `--skip-releases` 
 
 If that doesn't work, we'd recommend upgrading to {% data variables.product.prodname_ghe_server %} 3.8.0 or later. If you're unable to upgrade, another option is to generate your repository archives manually using `ghe-migrator`:
 
-1. Generate a migration archive for your repository. You must only export one repository at a time. For instructions, see [Exporting migration data from your enterprise]({% ifversion fpt or ghec %}/enterprise-server@latest{% endif %}/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-your-enterprise){% ifversion ghes %}.{% else %} in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
+1. Generate a migration archive for your repository. You must only export one repository at a time. For instructions, see [Exporting migration data from your enterprise]({% ifversion fpt or ghec %}/enterprise-server@latest{% endif %}/migrations/using-ghe-migrator/exporting-migration-data-from-github-enterprise-server){% ifversion ghes %}.{% else %} in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
 1. Upload your migration archive to your choice of blob storage provider.
 1. Generate a short-lived URL for your migration archive which is accessible to {% data variables.product.prodname_dotcom %}, such as an AWS S3 pre-signed URL or Azure Blob Storage SAS URL.
 1. Call the `migrate-repo` command with the `--git-archive-url` and `--metadata-archive-url` flags both set to the URL of your archive from the previous step.
@@ -192,7 +192,7 @@ After a migration, you may find that your source or destination repositories are
 
 The process for unlocking a repository depends on the {% data variables.product.prodname_dotcom %} product where the repository is stored.
 
-* If the locked repository is on {% data variables.product.prodname_ghe_server %}, a site administrator can unlock the repository using the site admin dashboard. For more information, see [AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-repositories-in-your-enterprise/locking-a-repository){% ifversion ghes %}.{% else %} in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
+* If the locked repository is on {% data variables.product.prodname_ghe_server %}, a site administrator can unlock the repository using the site admin dashboard. For more information, see [AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/locking-a-repository){% ifversion ghes %}.{% else %} in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
 * If the locked repository is on {% data variables.product.prodname_dotcom_the_website %}, you can contact {% data variables.contact.contact_support %} to unlock the repository.
 
 > [!NOTE]

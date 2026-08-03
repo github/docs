@@ -138,6 +138,20 @@ Liquid syntax for alerts is still supported and may still appear in older articl
 
 For more information on formatting alerts, see “Alerts” in [AUTOTITLE](/contributing/writing-for-github-docs/using-markdown-and-liquid-in-github-docs#alerts).
 
+### Using alerts with reusable text
+
+Alerts frequently form part of reusable content (see [AUTOTITLE](/contributing/writing-for-github-docs/creating-reusable-content)).
+
+Call reusable content inside alert environments, rather than placing alert environments inside reusable Markdown files.
+
+For example:
+
+```markdown
+> [!CAUTION]
+> {% raw %}{% data reusables.foo.bar %}{% endraw %}
+> Here is some additional optional text.
+```
+
 ## Call to action (CTA)
 
 A CTA is a link or button prompting users to take the next step in their journey. It will send a user to a different location.
@@ -1040,7 +1054,7 @@ A release note for a feature answers the following questions.
 
 * > Site administrators can increase the security of the Management Console by configuring the rate limit for sign-in attempts, as well as the lockout duration after exceeding the rate limit. For more information, see [Configuring rate limits](/enterprise-server@3.7/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-authentication-to-the-management-console).
 
-* > Enterprise owners can control where users can fork repositories. Forking can be limited to preset combinations of organizations, the same organization as the parent repository, user accounts, or everywhere. For more information, see [Enforcing repository management policies in your enterprise](/enterprise-server@3.7/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories).
+* > Enterprise owners can control where users can fork repositories. Forking can be limited to preset combinations of organizations, the same organization as the parent repository, user accounts, or everywhere. For more information, see [Enforcing repository management policies in your enterprise](/enterprise-server@3.7/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories).
 
 * > Users can create files with geoJSON, topoJSON, and STL diagrams and render the diagrams in the web interface. For more information, see [Working with non-code files](/enterprise-server@3.7/repositories/working-with-files/using-files/working-with-non-code-files).
 

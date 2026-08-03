@@ -217,13 +217,19 @@ You can also use Copilot SDK's native tool definition alongside MAF tools:
 {% codetab typescript %}
 
 ```typescript
-import { CopilotClient, DefineTool } from "@github/copilot-sdk";
+import { CopilotClient, defineTool } from "@github/copilot-sdk";
 
-const getWeather = DefineTool({
-    name: "GetWeather",
+const getWeather = defineTool("GetWeather", {
     description: "Get the current weather for a given location.",
-    parameters: { location: { type: "string", description: "City name" } },
-    execute: async ({ location }) => `The weather in ${location} is sunny, 25°C.`,
+    parameters: {
+        type: "object",
+        properties: {
+            location: { type: "string", description: "City name" },
+        },
+        required: ["location"],
+    },
+    handler: async ({ location }: { location: string }) =>
+        `The weather in ${location} is sunny, 25°C.`,
 });
 
 const client = new CopilotClient();
@@ -536,7 +542,7 @@ const session = await client.createSession({
 });
 
 session.on("assistant.message_delta", (event) => {
-    process.stdout.write(event.data.delta ?? "");
+    process.stdout.write(event.data.deltaContent ?? "");
 });
 
 await session.sendAndWait({ prompt: "Write a quicksort implementation in TypeScript" });

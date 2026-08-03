@@ -31,6 +31,24 @@ const COMPARE_FILE_LIMIT = 300
 // giving up on it.
 const PURGE_MAX_RATE_LIMIT_RETRIES = 5
 
+// Every key is purged twice because of Fastly shielding. A purge doesn't reach
+// every POP at the same instant, so a request arriving in between can repopulate
+// an already-purged edge node from the not-yet-purged shield, leaving the edge
+// holding pre-deploy content again. The second pass evicts that copy. Same
+// reasoning as the double purge in purge-fastly.ts; see the "Race conditions"
+// section of
+// https://www.fastly.com/documentation/guides/concepts/cache/purging#race-conditions
+const PURGE_PASSES = 2
+
+// How long to wait before the second pass. It has to be long enough that any
+// re-populated edge copy already exists, otherwise the second purge runs too
+// early and the re-population happens after it. purge-fastly.ts uses the same
+// 20s for the same reason: Fastly suggests ~2s, but that has been too short in
+// practice. Unlike purge-fastly.ts we don't stagger keys within a pass, because
+// that spacing exists to keep whole-language purges from stampeding the backend
+// and we only purge the handful of pages that actually changed.
+const DELAY_BEFORE_SECOND_PURGE = 20 * 1000
+
 // Jitter ceiling (ms) added to each backoff so retries that saw the same reset
 // timestamp don't wake in lockstep and re-burst.
 const PURGE_JITTER_MS = 150
@@ -248,30 +266,50 @@ async function hardPurgeKeyBatch(
   }
 }
 
-// Hard-purge every key in batches of <= 256, one batch at a time. Collects
-// failures so one bad batch doesn't drop the rest, then throws at the end if any
-// failed so the workflow's failure alerting fires.
+// Hard-purge every key in batches of <= 256, one batch at a time, then do it all
+// again after a delay to clear anything the origin shield re-populated (see
+// PURGE_PASSES). Collects failures so one bad batch doesn't drop the rest, then
+// throws at the end if any failed so the workflow's failure alerting fires.
 export async function hardPurgeSurrogateKeys(
   keys: string[],
   fastlyToken: string,
   serviceId: string,
   rateLimitDelayFn: (response: Response, attempt: number) => number = rateLimitDelayMs,
+  sleepFn: (ms: number) => Promise<void> = sleep,
 ): Promise<void> {
   const batches = chunk(keys, MAX_KEYS_PER_PURGE)
   const errors: Error[] = []
-  for (const [index, batch] of batches.entries()) {
-    const label = `batch ${index + 1}/${batches.length} (${batch.length} key(s))`
-    try {
-      console.log(`Hard-purging ${label}...`)
-      await hardPurgeKeyBatch(batch, fastlyToken, serviceId, rateLimitDelayFn)
-      console.log(`Hard-purged ${label}.`)
-    } catch (error) {
-      console.error(error)
-      errors.push(error instanceof Error ? error : new Error(String(error)))
+  let attempts = 0
+
+  const purgeAllBatches = async (pass: number): Promise<void> => {
+    for (const [index, batch] of batches.entries()) {
+      const label =
+        `pass ${pass}/${PURGE_PASSES}, batch ${index + 1}/${batches.length} ` +
+        `(${batch.length} key(s))`
+      attempts++
+      try {
+        console.log(`Hard-purging ${label}...`)
+        await hardPurgeKeyBatch(batch, fastlyToken, serviceId, rateLimitDelayFn)
+        console.log(`Hard-purged ${label}.`)
+      } catch (error) {
+        console.error(error)
+        errors.push(error instanceof Error ? error : new Error(String(error)))
+      }
     }
   }
+
+  for (let pass = 1; pass <= PURGE_PASSES; pass++) {
+    // A failed first pass still gets a second one: the later attempt may well
+    // succeed, and giving up here would guarantee stale content.
+    if (pass > 1) {
+      console.log(`Waiting ${DELAY_BEFORE_SECOND_PURGE}ms before pass ${pass}...`)
+      await sleepFn(DELAY_BEFORE_SECOND_PURGE)
+    }
+    await purgeAllBatches(pass)
+  }
+
   if (errors.length) {
-    throw new Error(`${errors.length} of ${batches.length} batch purge(s) failed`)
+    throw new Error(`${errors.length} of ${attempts} batch purge(s) failed`)
   }
 }
 

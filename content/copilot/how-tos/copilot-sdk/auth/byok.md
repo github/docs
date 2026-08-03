@@ -22,15 +22,15 @@ contentType: how-tos
 | Provider | Type Value | Notes |
 |----------|------------|-------|
 | OpenAI | `"openai"` | OpenAI API and OpenAI-compatible endpoints |
-| Azure OpenAI / Azure AI Foundry | `"azure"` | Azure-hosted models |
+| Microsoft Foundry / Azure OpenAI | `"openai"` or `"azure"` | Use `"openai"` for `/openai/v1/`; use `"azure"` for native Azure endpoints |
 | Anthropic | `"anthropic"` | Claude models |
 | Ollama | `"openai"` | Local models via OpenAI-compatible API |
 | Microsoft Foundry Local | `"openai"` | Run AI models locally on your device via OpenAI-compatible API |
 | Other OpenAI-compatible | `"openai"` | vLLM, LiteLLM, etc. |
 
-## Quick start: Azure AI Foundry
+## Quick start: Microsoft Foundry
 
-Azure AI Foundry (formerly Azure OpenAI) is a common BYOK deployment target for enterprises. Here's a complete example:
+Microsoft Foundry is a common BYOK deployment target for enterprises. Here's a complete example:
 
 {% codetabs %}
 {% codetab python %}
@@ -215,7 +215,7 @@ client.stop().get();
 | `bearerToken` / `bearer_token` | string | Bearer token auth (takes precedence over apiKey) |
 | `bearerTokenProvider` / `bearer_token_provider` | callback | Returns a bearer token on demand (takes precedence over `apiKey` and `bearerToken`) |
 | `wireApi` / `wire_api` | `"completions"` \| `"responses"` | Select `"completions"` for broad model compatibility (the Chat Completions API); select `"responses"` for multi-turn state management, tool namespacing, and reasoning support (the Responses API). Anthropic models always use the Messages API regardless of this setting. |
-| `azure.apiVersion` / `azure.api_version` | string | Azure API version (default: `"2024-10-21"`) |
+| `azure.apiVersion` / `azure.api_version` | string | Azure API version. When set, the runtime uses the versioned deployment route; when omitted, it uses the GA versionless `v1` route. |
 
 ### Wire API format
 
@@ -268,9 +268,9 @@ provider: {
 }
 ```
 
-### Azure AI Foundry (OpenAI-compatible endpoint)
+### Microsoft Foundry (OpenAI-compatible endpoint)
 
-For Azure AI Foundry deployments with `/openai/v1/` endpoints, use `type: "openai"`:
+For Microsoft Foundry deployments with `/openai/v1/` endpoints, use `type: "openai"`:
 
 ```typescript
 provider: {
@@ -494,14 +494,6 @@ Results are cached after the first call, just like the default behavior. The han
 
 ## Limitations
 
-When using BYOK, be aware of these limitations:
-
-### Identity limitations
-
-BYOK authentication uses **static credentials only**.
-
-You must use an API key or static bearer token that you manage yourself.
-
 ### Feature limitations
 
 Some Copilot features may behave differently with BYOK:
@@ -515,9 +507,8 @@ Some Copilot features may behave differently with BYOK:
 
 | Provider | Limitations |
 |----------|-------------|
-| Azure AI Foundry | No Entra ID auth; must use API keys |
-| Ollama | No API key; local only; model support varies |
 | [Microsoft Foundry Local](https://foundrylocal.ai) | Local only; model availability depends on device hardware; no API key required |
+| Ollama | No API key; local only; model support varies |
 | OpenAI | Subject to OpenAI rate limits and quotas |
 
 ## Troubleshooting
@@ -574,7 +565,7 @@ provider: {
 }
 ```
 
-However, if your Azure AI Foundry deployment provides an OpenAI-compatible endpoint path (e.g., `/openai/v1/`), use `type: "openai"`:
+However, if your Microsoft Foundry deployment provides an OpenAI-compatible endpoint path (for example, `/openai/v1/`), use `type: "openai"`:
 
 <!-- docs-validate: hidden -->
 
@@ -594,7 +585,7 @@ const session = await client.createSession({
 <!-- /docs-validate: hidden -->
 
 ```typescript
-// ✅ Correct: OpenAI-compatible Azure AI Foundry endpoint
+// ✅ Correct: OpenAI-compatible Microsoft Foundry endpoint
 provider: {
     type: "openai",
     baseUrl: "https://your-resource.openai.azure.com/openai/v1/",

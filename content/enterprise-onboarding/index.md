@@ -17,7 +17,7 @@ journeyTracks:
     description: 'Organize work effectively and ensure people have the access they need to resources and administrative settings.'
     guides:
       - href: '/admin/concepts/enterprise-best-practices/organize-work'
-      - href: '/enterprise-onboarding/setting-up-organizations-and-teams/setting-up-an-organization'
+      - href: '/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise'
       - href: '/admin/concepts/enterprise-fundamentals/roles-in-an-enterprise'
       - href: '/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/identify-role-requirements'
       - href: '/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/create-custom-roles'
@@ -45,7 +45,6 @@ versions:
   ghec: '*'
 children:
   - /getting-started-with-your-enterprise
-  - /setting-up-organizations-and-teams
   - /govern-people-and-repositories
 redirect_from:
   - /enterprise-onboarding/feature-enhancements
