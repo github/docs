@@ -243,7 +243,7 @@
     "mdast-util-to-markdown": "2.1.2",
     "mdast-util-to-string": "^4.0.0",
     "micromark-extension-gfm": "^3.0.0",
-    "next": "^16.2.6",
+    "next": "^16.3.0",
     "ora": "^9.3.0",
     "parse5": "8.0.1",
     "quick-lru": "7.0.1",
@@ -359,7 +359,7 @@
     "@opentelemetry/otlp-transformer": {
       "protobufjs": "^8.6.5"
     },
-    "undici": "^6.27.0",
+    "undici": "^6.28.0",
     "cheerio": {
       "undici": "^7.28.0"
     },
