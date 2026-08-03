@@ -54,6 +54,7 @@ Examples of strong intros by content type:
 * Only include a CTA link when it genuinely makes the reader's task easier, for example by saving them the time of navigating to a settings page themselves. Do not force a CTA; if none would genuinely help the reader, do not add one. Avoid turning articles into clickbait.
 * A CTA can take several forms, for example a direct link to the relevant product or feature, a Copilot prompt the reader can run, or a link to start a free trial.
 * Only link to a URL that is the same for everyone on that version. Do not add a CTA when the in-product URL must include an enterprise, organization, or repository name (for example, `https://github.com/ORG/REPO/settings/copilot/code_review`), because the link cannot be made to work for all readers.
+* Place a CTA as close as possible to the step where the reader completes the task it supports. A CTA near the final step measurably reduces time-to-task, while a CTA at an early step (for example, at the start of a multi-step setup) does not change whether or how quickly readers finish.
 * Procedural articles: include a CTA wherever one genuinely helps, as directly as possible.
 * Conceptual articles: point the reader to exactly one clear next step, usually a link to the related procedure (for example, an "About pull requests" article points to "Creating a pull request"). Place it where the reader is ready to act, typically at the end of the article.
 
