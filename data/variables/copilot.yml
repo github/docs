@@ -262,3 +262,5 @@ copilot_byok_supported_features: '{% data variables.copilot.copilot_chat_short %
 
 ## File for enterprise client management
 managed_setting_file: 'managed-settings.json'
+team_mappings_file: 'team-mappings.json'
+team_settings_directory: 'teams/'

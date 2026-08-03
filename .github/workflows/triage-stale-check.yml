@@ -37,12 +37,6 @@ jobs:
           stale-pr-label: 'Inactive'
           close-pr-label: 'Closed as inactive'
 
-          # Both output options are set true for debugging.
-          # The numbers should always match unless we change `days-before-close` from `0`.
-
-          staled-issues-prs: true # report issues and PRs that were commented on as stale in the output
-          closed-issues-prs: true # report issues and PRs that were closed in the output
-
       - name: Check out repo
         if: ${{ failure() }}
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -79,7 +73,10 @@ jobs:
           stale-pr-label: 'Waiting on Docs team review'
 
       - name: Print outputs
-        run: echo "Staled issues/PRs:${{ steps.stale.outputs.staled-issues-prs || '0' }}, Closed issues/PRs:${{ steps.stale.outputs.closed-issues-prs || '0' }}"
+        env:
+          STALED: ${{ steps.stale.outputs.staled-issues-prs || '0' }}
+          CLOSED: ${{ steps.stale.outputs.closed-issues-prs || '0' }}
+        run: echo "Staled issues/PRs:${STALED}, Closed issues/PRs:${CLOSED}"
 
       - name: Check out repo
         if: ${{ failure() }}

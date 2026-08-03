@@ -38,6 +38,13 @@ When multiple settings sources are present, settings earlier in this list take p
 
 {% endrowheaders %}
 
+## Applying different settings to enterprise teams
+
+For server-managed deployments, the enterprise can apply different governance to groups of users based on their enterprise team membership. The enterprise defines all settings—team membership only determines which users receive a given set of values.
+
+To make a key eligible for team-specific values, mark it as overridable in `{% data variables.copilot.managed_setting_file %}` using the `{ "overridable": <VALUE> }` syntax. An overridable key uses the team's value when set, or falls back to your enterprise default when the team leaves it unset. The `{ "overridable": <VALUE> }` syntax applies to the governance keys `permissions.model` and `permissions.disableBypassPermissionsMode`. Keys not marked overridable remain an enterprise-level decision that teams can't modify. `enabledPlugins` and `extraKnownMarketplaces` work additively. The enterprise `{% data variables.copilot.managed_setting_file %}` sets a baseline, and an enterprise team file can add more plugins and marketplaces on top of it. For the full setup steps, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings#overriding-settings-for-specific-teams).
+ 
+
 ## Example configuration
 
 The following example shows these keys in one managed settings file.
@@ -124,12 +131,14 @@ When you set `disableBypassPermissionsMode` to `"disable"`, users cannot turn on
 * In {% data variables.copilot.copilot_cli_short %}, all of the command line options for allowing all permissions (`--yolo`, `--allow-all`, and the individual `--allow-all-tools`, `--allow-all-paths`, and `--allow-all-urls` options) are suppressed at startup and cannot grant elevated permissions. The `/yolo` and `/allow-all` slash commands are also blocked.
 * In {% data variables.product.prodname_vscode_shortname %}, the global auto-approve setting (`chat.tools.global.autoApprove`) is turned off and cannot be re-enabled.
 * In the {% data variables.copilot.github_copilot_app %}, the "Allow all" setting for "Tool Permissions" is blocked in the sessions settings.
+* This key is overridable by enterprise team mapping. In your `{% data variables.copilot.managed_setting_file %}`, use the `{ "overridable": "disable" }` syntax to specialize the key's configuration on a per-team basis. You can then set `"disableBypassPermissionsMode": "unmanaged"` in a team settings file, providing a specialization that takes precedence over `{% data variables.copilot.managed_setting_file %}` for members of the subject team.
 
 ### `model`
 
 Sets auto model selection as the default for new conversations. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
 
-When you set `permissions.model` to `"auto"`, new sessions use Auto model unless the user specifies a different model on a per-conversation basis.
+* When you set `permissions.model` to `"auto"`, new sessions use Auto model unless the user specifies a different model on a per-conversation basis.
+* This key is overridable by enterprise team mapping. In your `{% data variables.copilot.managed_setting_file %}`, use the `{ "overridable": "auto" }` syntax to specialize the key's configuration on a per-team basis. You can then set `"model": "unmanaged"` in a team settings file, providing a specialization that takes precedence over `{% data variables.copilot.managed_setting_file %}` for members of the subject team.
 
 ## `telemetry`
 
