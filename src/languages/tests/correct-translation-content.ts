@@ -2467,4 +2467,74 @@ Para más información, consulta "[AUTOTITLE](/path)".
       expect(fix(fixed, 'ru')).toBe(fixed)
     })
   })
+
+  // ─── New patterns ───────────────────────────────────────────────────
+
+  describe('es: you-can-fork.md per-file fix', () => {
+    test('replaces leading elsif with ifversion', () => {
+      const broken = '{% elsif ghes or ghec %} Puedes bifurcar...'
+      const fixed = '{% ifversion ghes or ghec %} Puedes bifurcar...'
+      const ctx = {
+        code: 'es',
+        relativePath: 'data/reusables/repositories/you-can-fork.md',
+        skipOrphanStripping: true,
+      }
+      expect(correctTranslatedContentStrings(broken, '', ctx)).toBe(fixed)
+      // already correct input is unchanged
+      expect(correctTranslatedContentStrings(fixed, '', ctx)).toBe(fixed)
+    })
+
+    test('does not affect other es content', () => {
+      const other = '{% elsif ghes or ghec %} other content'
+      expect(fix(other, 'es')).toBe(other)
+    })
+  })
+
+  describe('fr: stray < before plan name in ifversion', () => {
+    test('removes stray < before plan name in ifversion', () => {
+      expect(fix('{% ifversion <ghec %}foo{% endif %}', 'fr')).toBe(
+        '{% ifversion ghec %}foo{% endif %}',
+      )
+      expect(fix('{% ifversion <fpt %}foo{% endif %}', 'fr')).toBe(
+        '{% ifversion fpt %}foo{% endif %}',
+      )
+      expect(fix('{% elsif <ghes %}foo{% endif %}', 'fr')).toBe('{% elsif ghes %}foo{% endif %}')
+    })
+
+    test('does not affect valid fr ifversion tags', () => {
+      expect(fix('{% ifversion ghec %}foo{% endif %}', 'fr')).toBe(
+        '{% ifversion ghec %}foo{% endif %}',
+      )
+    })
+  })
+
+  describe('fr: translated classroom reusable per-file fix', () => {
+    test('restores canonical reusable tag', () => {
+      const broken = '{% reusable (fr) classroom.vous-pouvez-créer-une-pull-request-pour-retour %}'
+      const fixed = '{% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}'
+      expect(fix(broken, 'fr')).toBe(fixed)
+      // already correct is unchanged
+      expect(fix(fixed, 'fr')).toBe(fixed)
+    })
+  })
+
+  describe('ko: about-READMEs.md per-file fix', () => {
+    test('removes orphan endif before first ifversion', () => {
+      const broken = '파일{% endif %}{% ifversion fpt or ghec %}, 기여'
+      const fixed = '파일{% ifversion fpt or ghec %}, 기여'
+      const ctx = {
+        code: 'ko',
+        relativePath: 'data/reusables/repositories/about-READMEs.md',
+        skipOrphanStripping: true,
+      }
+      expect(correctTranslatedContentStrings(broken, '', ctx)).toBe(fixed)
+      // already correct is unchanged
+      expect(correctTranslatedContentStrings(fixed, '', ctx)).toBe(fixed)
+    })
+
+    test('does not affect other ko content', () => {
+      const other = 'foo{% endif %}{% ifversion fpt or ghec %}, bar'
+      expect(fix(other, 'ko')).toBe(other)
+    })
+  })
 })
