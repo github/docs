@@ -1,10 +1,21 @@
-## Managing requests to bypass push rules
+---
+title: Managing requests to bypass push rules
+intro: View and manage requests for bypass privileges to push commits containing restricted content to a repository.
+allowTitleToDifferFromFilename: true
+permissions: Enterprise owners
+versions:
+  feature: repo-policy-rules
+shortTitle: Manage requests to bypass push rules
+contentType: how-tos
+category:
+  - Manage accounts and repositories
+---
 
 > [!NOTE] Repository policy delegated bypass is in {% data variables.release-phases.public_preview %} and subject to change.
 
 You can view and manage all requests for bypass privileges on the “Bypass Requests" page, located under the **Policy** settings.
 
-You can filter requests by approver (member of the bypass list), requester (contributor making the request), timeframe, and status. The following statuses are assigned to a request:
+Filter requests by approver (member of the bypass list), requester (contributor making the request), timeframe, and status. The following statuses are assigned to a request:
 
 |Status|Description|
 |---------|-----------|

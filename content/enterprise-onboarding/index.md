@@ -31,7 +31,7 @@ journeyTracks:
     guides:
       - href: '/admin/concepts/security-and-compliance/enterprise-policies'
       - href: '/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/managing-custom-properties-for-repositories-in-your-enterprise'
-      - href: '/enterprise-onboarding/govern-people-and-repositories/create-repository-policies'
+      - href: '/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/governing-how-people-use-repositories-in-your-enterprise'
       - href: '/enterprise-onboarding/govern-people-and-repositories/protect-branches'
       - href: '/admin/concepts/security-and-compliance/audit-log-for-an-enterprise'
   - id: 'github_apps'
