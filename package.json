@@ -303,7 +303,7 @@
     "@types/website-scraper": "^1.2.11",
     "@typescript-eslint/eslint-plugin": "^8.33.1",
     "@typescript-eslint/parser": "^8.33.1",
-    "chalk": "^5.0.1",
+    "chalk": "^6.0.0",
     "change-case": "^5.4.4",
     "commander": "^15.0.0",
     "cross-env": "^10.1.0",
