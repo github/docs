@@ -213,7 +213,7 @@ To leave feedback about the {% data variables.copilot.copilot_chat %} extension,
 ## Further reading
 
 * [AUTOTITLE](/copilot/concepts/prompting/prompt-engineering)
-* [Using {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/copilot-chat) and [Getting started with {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/getting-started) in the {% data variables.product.prodname_vscode %} documentation
+* [Using {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/copilot-chat) in the {% data variables.product.prodname_vscode %} documentation
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents)
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github)
 * [AUTOTITLE](/copilot/responsible-use/chat)
