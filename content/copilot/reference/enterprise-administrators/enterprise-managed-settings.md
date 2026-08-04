@@ -1,10 +1,11 @@
 ---
-title: Enterprise managed settings reference
-shortTitle: Managed settings reference
-intro: 'Reference for the enterprise managed settings schema used by {% data variables.product.prodname_copilot_short %} clients.'
+title: Enterprise managed settings
+intro: 'Understand the enterprise managed settings schema used by {% data variables.product.prodname_copilot_short %} clients.'
 versions:
   feature: copilot
 contentType: reference
+redirect_from:
+  - /copilot/reference/enterprise-managed-settings-reference
 category:
   - Configure Copilot
 ---

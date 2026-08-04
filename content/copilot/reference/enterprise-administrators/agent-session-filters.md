@@ -5,6 +5,8 @@ intro: 'Search agentic activity in your enterprise with filters for agent sessio
 permissions: Enterprise owners
 versions:
   feature: copilot
+redirect_from:
+  - /copilot/reference/agent-session-filters  
 contentType: reference
 category:
   - Track Copilot usage
