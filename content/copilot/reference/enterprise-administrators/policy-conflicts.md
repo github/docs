@@ -2,13 +2,14 @@
 title: Feature availability when GitHub Copilot policies conflict in organizations
 shortTitle: Policy conflicts
 allowTitleToDifferFromFilename: true
-intro: 'Learn how delegating {% data variables.product.prodname_copilot_short %} policy decisions to organizations affects users granted a license by organizations with different policies.'
+intro: 'Delegating {% data variables.product.prodname_copilot_short %} policy decisions to organizations affects users granted a license by organizations with different policies.'
 versions:
   feature: copilot
 category:
   - Learn about Copilot
 redirect_from:
   - /copilot/reference/feature-availability-enterprise
+  - /copilot/reference/policy-conflicts
 contentType: reference
 ---
 
@@ -35,7 +36,7 @@ Feature, model, and privacy settings for users are set according to the **least 
 | Policy | Availability matches | More information |
 | :---- | :---- | :---- |
 | {% data variables.product.prodname_copilot_short %} Metrics API | Most restrictive organization | {% ifversion ghec %}[AUTOTITLE](/rest/copilot/copilot-usage-metrics){% else %}Not applicable{% endif %} |
-| Semantic indexing for non-GitHub repositories | Most restrictive organization (only available when all organizations explicitly set **Enabled**; **Unconfigured** behaves as disabled) | [AUTOTITLE](/copilot/concepts/context/repository-indexing) |
+| Semantic indexing for non-{% data variables.product.github %} repositories | Most restrictive organization (only available when all organizations explicitly set **Enabled**; **Unconfigured** behaves as disabled) | [AUTOTITLE](/copilot/concepts/context/repository-indexing) |
 | Suggestions matching public code (privacy policy) | Most restrictive organization | [AUTOTITLE](/copilot/concepts/completions/code-suggestions) |
 | Allow members without a {% data variables.product.prodname_copilot_short %} license to use {% data variables.copilot.copilot_code-review_short %} in {% data variables.product.prodname_dotcom_the_website %} | Most restrictive organization | [AUTOTITLE](/copilot/responsible-use/agents) |
 | {% data variables.product.prodname_copilot_short %} can search the web | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |

@@ -59,5 +59,5 @@ If you're rolling out the feature across many teams, we recommend you pilot on a
 
 ## Next steps
 
-* **Add code coverage:** Upload reported code coverage from your test suite to see coverage results directly on pull requests. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/set-up-code-coverage).
+* **Add code coverage:** Upload reported code coverage from your test suite to see coverage results directly on pull requests. {% data reusables.code-quality.workflow-generation %}
 * **For your organization:** Understand the code health of your repositories at a glance. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/explore-code-quality).

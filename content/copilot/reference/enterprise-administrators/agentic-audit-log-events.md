@@ -5,6 +5,8 @@ intro: 'Understand the structure of audit log events for agents in your enterpri
 permissions: Enterprise owners
 versions:
   feature: copilot
+redirect_from:
+  - /copilot/reference/agentic-audit-log-events  
 contentType: reference
 category:
   - Learn about Copilot
