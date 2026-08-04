@@ -25,6 +25,8 @@ category:
 
 This guide describes how to use {% data variables.copilot.copilot_chat_short %} and agents to automate coding tasks by breaking them into steps, using tools to read files, edit code, and run commands, and self-correcting when something goes wrong. You can also ask general questions about software development, or specific questions about the code in your project. For more information, see [AUTOTITLE](/copilot/concepts/chat).
 
+To learn how to use {% data variables.product.prodname_copilot_short %} for agent-driven workflows in a desktop app, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/getting-started).
+
 <!-- --------------------- -->
 <!-- VS Code -->
 <!-- --------------------- -->
