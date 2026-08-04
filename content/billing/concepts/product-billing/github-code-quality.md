@@ -37,7 +37,6 @@ For more information about how {% data variables.product.prodname_ai_credits_sho
 * Your license usage is calculated based on the number of unique, active committers to repositories with {% data variables.product.prodname_code_quality_short %} enabled. 
 * Each **active committer** uses **one {% data variables.product.prodname_code_quality_short %} license**. 
 * A committer is considered active if one of their commits has been pushed to the repository within the last 90 days, regardless of when it was originally authored.
-* A committer is considered active if one of their commits has been pushed to the repository within the last 90 days, regardless of when it was originally authored.
 
 To understand your license usage, and which licenses you can free up, it helps to distinguish between active and unique committers. You can see the number of licenses you're using on the **Licensing** page for your organization or enterprise, shown as **"Consumed licenses"**:
 * **Active committers** are committers who contributed to at least one repository and have a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} license with your organization or enterprise. This includes members, enterprise-managed users, external collaborators, and people with a pending invitation to join your organization or enterprise.
