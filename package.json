@@ -352,21 +352,22 @@
     "path-to-regexp": "^8.4.0",
     "apache-arrow": "file:src/search/vendor/apache-arrow-stub",
     "uuid": "^14.0.0",
-    "postcss": "^8.5.10",
+    "postcss": "^8.5.23",
     "@grpc/proto-loader": {
       "protobufjs": "^7.6.4"
     },
     "@opentelemetry/otlp-transformer": {
       "protobufjs": "^8.6.5"
     },
-    "undici": "^6.27.0",
+    "undici": "^6.28.0",
     "cheerio": {
-      "undici": "^7.28.0"
+      "undici": "^7.29.0"
     },
     "markdown-it": "^14.2.0",
     "minimatch@10": {
       "brace-expansion": "^5.0.8"
-    }
+    },
+    "fast-uri": "^3.1.5"
   },
   "optionalDependencies": {
     "esm": "^3.2.25"
