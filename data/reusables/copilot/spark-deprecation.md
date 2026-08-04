@@ -1,0 +1,1 @@
+Beginning August 3, 2026, {% data variables.product.prodname_spark %} will no longer accept new users or allow the creation of new apps. Existing users can continue to access and use apps they have already created. Open Spark workbench for your app, select "..." and "Create repository" to save your app code before August 31, 2026.

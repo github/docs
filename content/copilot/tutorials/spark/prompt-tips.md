@@ -13,6 +13,9 @@ category:
   - Author and optimize with Copilot
 ---
 
+> [!NOTE]
+> {% data reusables.copilot.spark-deprecation %}
+
 ## Introduction
 
 {% data variables.product.prodname_spark_short %} can build a publishable web app from a single natural language prompt.
