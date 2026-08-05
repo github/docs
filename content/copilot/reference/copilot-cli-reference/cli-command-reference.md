@@ -653,18 +653,30 @@ Use `copilot mcp` to manage MCP server configurations from the command line with
 |------------|-------------|
 | `list [--json]` | List all configured MCP servers grouped by source, including plugin-provided servers. |
 | `get <name> [--json]` | Show configuration and tools for a specific server. For plugin-provided servers, also shows the source plugin name and version. |
-| `add <name>` | Add a server to the user configuration. Writes to `~/.copilot/mcp-config.json`. |
+| `add [options] <name> [url]` | Add a server to the user configuration. Writes to `~/.copilot/mcp-config.json`. |
 | `remove <name>` | Remove a user-level server. Workspace servers must be edited in their configuration files directly. |
+
+For local (stdio) servers, provide the command after `--`:
+
+```shell copy
+copilot mcp add SERVER-NAME -- COMMAND [ARGS...]
+```
+
+For remote HTTP or SSE servers, specify the transport and provide the URL:
+
+```shell copy
+copilot mcp add --transport http SERVER-NAME URL
+```
 
 **`copilot mcp add` options:**
 
 | Option | Description |
 |--------|-------------|
 | `-- <command> [args...]` | Command and arguments for local (stdio) servers. |
-| `--url <url>` | URL for remote servers. |
-| `--type <type>` | Transport type: `local`, `stdio`, `http`, or `sse`. |
+| `<url>` | URL for remote servers. |
+| `--transport <transport>` | Transport type: `stdio`, `http`, or `sse`. The default is `stdio`. |
 | `--env KEY=VALUE` | Environment variable (repeatable). |
-| `--header KEY=VALUE` | HTTP header for remote servers (repeatable). |
+| `--header "HEADER: VALUE"` | HTTP header for remote servers (repeatable). |
 | `--tools <tools>` | Tool filter: `"*"` for all, a comma-separated list, or `""` for none. |
 | `--timeout <ms>` | Timeout in milliseconds. |
 | `--json` | Output added configuration as JSON. |
