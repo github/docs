@@ -43,7 +43,7 @@
         "type": "array of objects",
         "name": "repositories_removed",
         "description": "<p>An array of repository objects, which were removed from the installation.</p>",
-        "isRequired": true,
+        "isRequired": false,
         "childParamsGroups": []
       },
       {
@@ -121,7 +121,7 @@
         "type": "array of objects",
         "name": "repositories_added",
         "description": "<p>An array of repository objects, which were added to the installation.</p>",
-        "isRequired": true,
+        "isRequired": false,
         "childParamsGroups": []
       },
       {
