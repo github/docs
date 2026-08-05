@@ -67,11 +67,11 @@ To sustain adoption, review any in-house tools, bots, or dashboards that create,
 If your organization provides an internal CLI or other developer tooling, you can use the Stacks API to integrate stack creation and management into those existing tools instead of requiring developers to adopt `gh stack`.
 
 > [!IMPORTANT]
-> Merging a stacked pull request programmatically requires the asynchronous merge API, which supports both stacked and standalone pull requests. The legacy pull request merge endpoint can't merge a stack. If your organization merges pull requests programmatically, update that tooling to use the asynchronous merge API before rolling out stacked pull requests. See [AUTOTITLE](/rest/pulls/pulls?apiVersion=2026-03-10#merge-a-pull-request-asynchronously).
+> Merging a stacked pull request requires the asynchronous merge API. The legacy pull request merge endpoints can't merge a stack. If your organization merges pull requests programmatically, for example, through in-house tooling or ChatOps bots, update that tooling to call the asynchronous merge API, which supports both stacked and regular pull requests, before rolling out stacked pull requests. See [AUTOTITLE](/rest/pulls/pulls?apiVersion=2026-03-10#merge-a-pull-request-asynchronously).
 
 You may also want to track stack activity programmatically, for example, across dashboards, bots, or internal tooling.
 
-* **REST API**: Every pull request returned by the API includes a `stack` object when it belongs to a stack, showing the stack's number, size, the pull request's position within it, and the stack's base branch. A dedicated Stacks API (`GET /repos/{owner}/{repo}/stacks`) also lists every stack in a repository, or the specific stack containing a given pull request. See [AUTOTITLE](/pull-requests/reference/stacked-pull-requests-rest-and-graphql-apis).
+* **REST API**: Every pull request returned by the API includes a `stack` object when it belongs to a stack, showing the stack's number, size, the pull request's position within it, and the stack's base branch. A dedicated Stacks API (`GET /repos/{owner}/{repo}/stacks`) also lists every stack in a repository, or the specific stack containing a given pull request. See [AUTOTITLE](/pull-requests/reference/stacked-pull-requests-apis-and-webhooks).
 * **Webhooks**: The `pull_request` webhook payload includes the same `stack` object whenever a pull request belongs to a stack. A dedicated `stacked` action fires when a pull request is first added to a stack, so you can react the moment a stack forms.
 
 In both cases, the `stack` field is `null` for standalone pull requests, so existing integrations that don't expect stacks continue to work unchanged.
