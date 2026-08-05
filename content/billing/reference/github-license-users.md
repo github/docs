@@ -77,11 +77,11 @@ If your enterprise does not use {% data variables.product.prodname_emus %} or us
 ## Organizations on {% data variables.product.prodname_ghe_server %}
 
 * Any active user who has successfully authenticated to your {% data variables.product.prodname_ghe_server %} instance
-* Dormant users (administrators can suspend dormant users to free licenses, see [Managing dormant users]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users){% ifversion not ghes %} in the {% data variables.product.prodname_ghe_server %} documentation{% endif %})
+* Dormant users (administrators can suspend dormant users to free licenses, see [Managing dormant users]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-dormant-users){% ifversion not ghes %} in the {% data variables.product.prodname_ghe_server %} documentation{% endif %})
 
 ### People who don't consume a license
 
-* Suspended users (see [Suspending and unsuspending users]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users){% ifversion not ghes %} in the {% data variables.product.prodname_ghe_server %} documentation{% else %}.{% endif %})
+* Suspended users (see [Suspending and unsuspending users]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/suspending-and-unsuspending-users){% ifversion not ghes %} in the {% data variables.product.prodname_ghe_server %} documentation{% else %}.{% endif %})
 * If you have enabled SCIM on your {% data variables.product.prodname_ghe_server %} instance, the built-in setup user you create, provided you use the `scim-admin` username.
 * Users who already consume a license on {% data variables.product.prodname_ghe_cloud %}, provided you sync license usage between environments. See [AUTOTITLE](/billing/concepts/enterprise-billing/combined-enterprise-use).
 

@@ -16,14 +16,17 @@ category:
 ---
 
 > [!NOTE]
-> * {% data reusables.spark.preview-note-spark %}
-> * The {% data variables.product.prodname_copilot %} setting that blocks suggestions matching public code may not work as intended when using {% data variables.product.prodname_spark_short %}. See [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-suggestions-matching-public-code).
+> {% data reusables.copilot.spark-deprecation %}
 
 ## Introduction
 
 {% data reusables.copilot.spark-overview %}
 
 This tutorial will guide you through the full lifecycle of building and deploying an app with {% data variables.product.prodname_spark_short %} and exploring its features.
+
+> [!NOTE]
+> * {% data reusables.spark.preview-note-spark %}
+> * The {% data variables.product.prodname_copilot %} setting that blocks suggestions matching public code may not work as intended when using {% data variables.product.prodname_spark_short %}. See [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-suggestions-matching-public-code).
 
 ### Prerequisites
 

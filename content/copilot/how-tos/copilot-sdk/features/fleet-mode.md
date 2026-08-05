@@ -181,7 +181,7 @@ Native typed bindings for fleet mode were verified in Node.js/TypeScript, Python
 Plan-mode UIs can start fleet deployment by returning the `autopilot_fleet` exit action. The generated session event types describe it as:
 
 ```typescript
-type PlanModeExitAction =
+type ExitPlanModeAction =
   | "exit_only"
   | "interactive"
   | "autopilot"

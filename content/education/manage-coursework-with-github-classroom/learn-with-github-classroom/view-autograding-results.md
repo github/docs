@@ -9,6 +9,8 @@ redirect_from:
 category:
   - Track assignment progress
 ---
+{% data reusables.classroom.closing-down-notice %}
+
 ## About autograding
 
 Your teacher can configure tests that automatically check your work when you push to an assignment repository on {% data variables.location.product_location %}.

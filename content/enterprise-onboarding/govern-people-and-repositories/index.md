@@ -5,10 +5,8 @@ intro: Implement policies, custom properties, and rulesets to govern users and r
 versions:
   ghec: '*'
 children:
-  - /create-repository-policies
   - /protect-branches
 contentType: concepts
 docsTeamMetrics:
   - enterprise-onboarding
 ---
-

@@ -13,14 +13,17 @@ category:
 ---
 
 > [!NOTE]
-> * {% data reusables.spark.preview-note-spark %}
-> * {% data reusables.copilot.spark-data-res %}
+> * {% data reusables.copilot.spark-deprecation %}
 
 ## About {% data variables.product.prodname_spark_short %}
 
 {% data variables.product.prodname_spark_short %} allows users to build intelligent applications using natural-language prompts. {% data variables.product.prodname_spark_short %} includes advanced controls and built-in design tools for customization. Once published, applications can be shared with teammates or deployed to production.
 
 For details about benefits, development experience, billing, and enterprise considerations, see [AUTOTITLE](/copilot/concepts/spark#enterprise-considerations).
+
+> [!NOTE]
+> * {% data reusables.spark.preview-note-spark %}
+> * {% data reusables.copilot.spark-data-res %}
 
 ## Prerequisites
 

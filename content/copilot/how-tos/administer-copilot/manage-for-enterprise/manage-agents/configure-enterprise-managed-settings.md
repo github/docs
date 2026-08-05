@@ -15,7 +15,7 @@ category:
   - Manage Copilot for a team
 ---
 
-With enterprise managed settings, enterprise owners can centrally define and distribute configuration settings to supported clients for users on your enterprise's {% data variables.product.prodname_copilot_short %} plan, ensuring every member works within the same guardrails.
+With enterprise managed settings, enterprise owners can centrally define and distribute configuration settings to supported clients for users on your enterprise's {% data variables.product.prodname_copilot_short %} plan, ensuring every member works within the guardrails you define, while letting teams tailor the settings you allow.
 
 The following clients are supported, although not every client supports every property:
 
@@ -24,13 +24,15 @@ The following clients are supported, although not every client supports every pr
 * The {% data variables.copilot.github_copilot_app %}
 * {% data variables.copilot.copilot_cloud_agent %}
 
-These settings apply enterprise-wide, with no organization-level override. For each supported key, the `{% data variables.copilot.managed_setting_file %}` value takes precedence over any file-based configuration a user sets in their client.
+These settings apply enterprise-wide and enterprises can customize specific keys to enterprise teams. For each supported key, the `{% data variables.copilot.managed_setting_file %}` value takes precedence over any file-based configuration a user sets in their client.
 
 Managed settings are loaded locally when the client starts, even if the device has no network connection. This means controls such as suppressing the `allow-all` permission options and restricting plugin configuration still apply before sign in or any server round trip, and remain active when users switch accounts.
 
 ## Defining settings
 
 For detailed information on the available properties and syntax, see [AUTOTITLE](/copilot/reference/enterprise-managed-settings-reference).
+
+Use `copilot/{% data variables.copilot.team_mappings_file %}` and the `copilot/{% data variables.copilot.team_settings_directory %}` directory when you need one or more enterprise teams to use settings that differ from the defaults in `copilot/{% data variables.copilot.managed_setting_file %}`. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings#overriding-settings-for-specific-teams).
 
 ## Choosing a deployment method
 
@@ -49,6 +51,47 @@ There are additional considerations if you use a dedicated enterprise for {% dat
 1. Add your enterprise policy keys and values in JSON format.
 1. Commit and push your changes to the default branch.
 1. Confirm that enterprise users are running a supported client. Updated settings are applied automatically within about an hour, or immediately after the client restarts or the user signs in again.
+
+## Overriding settings for specific teams
+
+For server-managed deployments, use `copilot/{% data variables.copilot.team_mappings_file %}` and the `copilot/{% data variables.copilot.team_settings_directory %}` directory when one or more enterprise teams should use settings that differ from your default `copilot/{% data variables.copilot.managed_setting_file %}` values. `enabledPlugins` and `extraKnownMarketplaces` work additively. The enterprise `{% data variables.copilot.managed_setting_file %}` sets a baseline, and an enterprise team file can add more plugins and marketplaces on top of it.
+
+1. In your enterprise's `copilot/{% data variables.copilot.managed_setting_file %}` file, mark each key you want to make eligible for override using the `{ "overridable": <VALUE> }` syntax. The `json` files you map to teams can only send different values for keys you mark overridable. An `overridable` value you provide in `managed-settings.json` is the default when teams files do not declare a different value for a given key. 
+For example, to defer both `model` and `disableBypassPermissionsMode`:
+
+    ```json
+    {
+      "model": { "overridable": "auto" },
+      "permissions": {
+        "disableBypassPermissionsMode": { "overridable": "disable" }
+      }
+    }
+    ```
+   
+1. In your enterprise's `.github-private` repository, create `copilot/{% data variables.copilot.team_mappings_file %}`. Map each team settings file to one or more enterprise team slugs. The key is the settings file name and the value is an array of team slugs, so you can apply one file across multiple teams.
+    
+    ```json
+    {
+      "devs.json": ["developers-all", "finops-dev"],
+      "ai-users.json": ["ai-baseline-trained"],
+      "frontier.json": ["ai-pioneers"]
+    }
+    ```
+  
+1. Create the team settings file under `copilot/{% data variables.copilot.team_settings_directory %}`. Include only the keys you marked as overridable. Every other key stays governed by your enterprise default.
+
+   ```json
+   {
+     "model": "unmanaged",
+     "permissions": {
+       "disableBypassPermissionsMode": "unmanaged"
+     }
+   }
+   ```
+
+1. Commit and push your changes to the default branch.
+
+{% data variables.product.prodname_dotcom %} evaluates enterprise team membership and applies matching settings for each person. If a user belongs to multiple teams, their team files are combined using the least restrictive value for each key, then applied beneath the enterprise settings, where platform decisions always win.
 
 ## Deploying MDM-managed settings
 
@@ -70,7 +113,9 @@ There are additional considerations if you use a dedicated enterprise for {% dat
 
 ## Verifying the configuration has applied
 
-Once the configuration is committed, users on a supported client see the specified settings within about an hour, since clients periodically check the server for updated configuration. Restarting the client or signing in again applies the latest settings immediately.
+Once the configuration is committed, users on a supported client see the specified settings within about an hour, since clients periodically check the server for updated configuration. For server-managed deployments, this includes `copilot/{% data variables.copilot.managed_setting_file %}`, `copilot/{% data variables.copilot.team_mappings_file %}`, and files in `copilot/{% data variables.copilot.team_settings_directory %}`.
+
+ Restarting the client or signing in again applies the latest settings immediately.
 
 If a user does not see these settings, ensure they receive access to {% data variables.product.prodname_copilot_short %} through your enterprise or one of its organizations. If a user receives a license from multiple billing entities, ensure they have selected your enterprise in the "Usage billed to" dropdown in their [personal {% data variables.product.prodname_copilot_short %} settings](https://github.com/settings/copilot/features).
 

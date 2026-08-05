@@ -11,6 +11,8 @@ redirect_from:
 category:
   - Track assignment progress
 ---
+{% data reusables.classroom.closing-down-notice %}
+
 ## About autograding
 
 {% data reusables.classroom.about-autograding %}

@@ -859,6 +859,59 @@ test.describe('secondary-bar breadcrumb scroller', () => {
   })
 })
 
+test.describe('anchor link scrolling', () => {
+  // The doc-tree rail only renders at the xxl breakpoint (1400px) and up. Its
+  // "centre the active item" effect used to call scrollIntoView, which scrolls
+  // every scrollable ancestor including the document, so it undid the browser's
+  // scroll to the #anchor and dumped the reader at the top of the article.
+  // These tests only mean anything with the rail on screen.
+  const WIDE = { width: 1400, height: 720 }
+
+  // The heading is offset from the top of the viewport by `scroll-margin-top`
+  // (109px at xxl, see src/frame/stylesheets/scroll-top.scss). Allow slack for
+  // rounding and sticky-header tweaks, but stay well clear of "not scrolled".
+  const expectScrolledToTarget = async (page: import('@playwright/test').Page) => {
+    const heading = page.locator('#target-heading')
+    await expect(heading).toBeVisible()
+    await expect.poll(async () => Math.round((await heading.boundingBox())!.y)).toBeLessThan(200)
+    expect(await page.evaluate(() => Math.round(window.scrollY))).toBeGreaterThan(300)
+  }
+
+  test('a direct load of a URL with an #anchor scrolls to that section', async ({ page }) => {
+    page.setViewportSize(WIDE)
+    await page.goto('/get-started/foo/anchor-scrolling#target-heading')
+    await expect(page.getByTestId('sidebar')).toBeVisible()
+    await expectScrolledToTarget(page)
+
+    // Guard the setup: the regression only shows when the rail has actually
+    // scrolled its own container to centre the active item. If a fixture change
+    // ever makes the rail short enough that it doesn't need to scroll, these
+    // tests would keep passing while covering nothing — fail loudly instead.
+    const railScrollTop = await page
+      .getByTestId('sidebar')
+      .evaluate((el) => el.closest('[role="region"]')!.scrollTop)
+    expect(railScrollTop).toBeGreaterThan(0)
+  })
+
+  test('clicking a cross-page #anchor link scrolls to that section', async ({ page }) => {
+    page.setViewportSize(WIDE)
+    await page.goto('/get-started/foo/for-playwright')
+    await page.locator('main a[href$="/get-started/foo/anchor-scrolling#target-heading"]').click()
+    await expect(page).toHaveURL(/anchor-scrolling#target-heading/)
+    await expectScrolledToTarget(page)
+  })
+
+  test('navigating to a page without an #anchor still lands at the top', async ({ page }) => {
+    page.setViewportSize(WIDE)
+    await page.goto('/get-started/foo/anchor-scrolling#target-heading')
+    await expectScrolledToTarget(page)
+
+    await page.getByTestId('sidebar').getByRole('link', { name: 'Bar', exact: true }).click()
+    await expect(page).toHaveURL(/\/en\/get-started\/foo\/bar$/)
+    await expect.poll(async () => page.evaluate(() => Math.round(window.scrollY))).toBe(0)
+  })
+})
+
 test.describe('survey', () => {
   test.skip(!ANALYTICS_ENABLED, 'Analytics are disabled')
 

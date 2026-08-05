@@ -369,7 +369,13 @@ In the workflow file, use the `config-file` parameter of the `init` action to sp
 
 {% data reusables.code-scanning.custom-configuration-file %}
 
-If the configuration file is located in an external private repository, use the `external-repository-token` parameter of the `init` action to specify a token that has access to the private repository.
+{% ifversion codeql-config-property %}
+
+If the configuration file is located in an external private repository and you want to use it for a {% data variables.product.prodname_code_scanning %} default setup analysis, you can set up a _Git Source_ private registry configuration for your organization with credentials that allow access to the private repository containing the configuration file. For information about how to set up a private registry configuration, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries).
+
+{% endif %}
+
+If the configuration file is located in an external private repository and you are using {% data variables.product.prodname_code_scanning %} advanced setup, use the `external-repository-token` parameter of the `init` action to specify a token that has access to the private repository.
 
 ```yaml copy
 - uses: {% data reusables.actions.action-codeql-action-init %}
