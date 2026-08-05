@@ -1,14 +1,20 @@
 ---
 title: Adding users to your enterprise
 shortTitle: Add users
-intro: 'Add users to your enterprise and control access to your organization''s resources.'
+intro: You can add people directly to your enterprise.
+permissions: Enterprise owners
 versions:
   ghec: '*'
-redirect_from:
-  - /enterprise-onboarding/getting-started-with-your-enterprise/securing-enterprise-resources-with-single-sign-on
-  - /enterprise-onboarding/getting-started-with-your-enterprise/securing-your-enterprise-with-managed-users
+contentType: other
+category:
+  - Manage accounts and repositories
 docsTeamMetrics:
   - enterprise-onboarding
+redirect_from:
+  - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/invite-users-directly
+  - /enterprise-onboarding/getting-started-with-your-enterprise/securing-enterprise-resources-with-single-sign-on
+  - /enterprise-onboarding/getting-started-with-your-enterprise/securing-your-enterprise-with-managed-users
+  - /enterprise-onboarding/getting-started-with-your-enterprise/adding-users-to-your-enterprise
 ---
 
 The method of adding users to your enterprise and controlling authentication varies depending on the enterprise type that you chose.
@@ -17,9 +23,14 @@ The method of adding users to your enterprise and controlling authentication var
 
 If you chose an enterprise with personal accounts, you will invite users to your enterprise with their existing {% data variables.product.github %} account.
 
-{% data reusables.enterprise-onboarding.inviting-users-to-your-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
+1. On the "Members" page, click **Invite member**.
+1. Search for the users you want to invite, then click **Invite**.
 
-Later in this onboarding journey, you will add users to teams to grant access to organizations and delegate administrative roles.
+After you invite someone to join the enterprise account, they must accept the emailed invitation before they can access the enterprise account. Pending invitations will expire after 7 days.
+
+Users will join the enterprise as unaffiliated users. You can then add users to organizations or enterprise teams and assign {% data variables.product.prodname_copilot_short %} licenses to them. For more information about unaffiliated users, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/abilities-of-roles#unaffiliated-users).
 
 ### Enabling single sign-on for personal accounts
 
@@ -48,7 +59,3 @@ To use {% data variables.product.prodname_emus %}, you will:
 * Provision users to your enterprise
 
 To get started, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users).
-
-## Next steps
-
-Learn about how billing will work when your trial ends. See [AUTOTITLE](/billing/concepts/enterprise-billing/billing-for-enterprises).
