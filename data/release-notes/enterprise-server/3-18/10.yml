@@ -10,6 +10,8 @@ sections:
     - |
       **HIGH**: An attacker could extract sensitive environment variables from a GitHub Enterprise Server instance through a timing side-channel attack against the security advisories package lookup feature. On instances with GitHub Packages enabled, the package URL endpoint did not validate the supplied package name, enabling a Server-Side Request Forgery (SSRF) to internal services. This required no authentication when private mode was disabled, or any authenticated user otherwise. To mitigate this issue, GitHub removed the affected endpoint from GitHub Enterprise Server. GitHub has requested CVE ID [CVE-2026-8606](https://www.cve.org/cverecord?id=CVE-2026-8606) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
     - |
+      **MEDIUM**: An attacker could render a GitHub Enterprise Server instance unresponsive, causing a denial of service, by sending a crafted form-encoded HTTP POST request containing deeply nested parameters that forced excessive CPU consumption during parameter parsing and exhausted the request-handling worker pool. GitHub parsed parameters before routing and authentication, so an attacker could use any POST endpoint without an account or privileges. GitHub has requested CVE ID [CVE-2026-15996](https://www.cve.org/cverecord?id=CVE-2026-15996) for this vulnerability.
+    - |
       Packages have been updated to the latest security versions.
   bugs:
     - |

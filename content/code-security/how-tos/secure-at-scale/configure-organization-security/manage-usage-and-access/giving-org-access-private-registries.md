@@ -14,7 +14,7 @@ category:
 
 ## About the importance of providing access to private registries
 
-When code in a repository has dependencies that are stored in a private registry, some security features need access to the registry to enable them to work effectively. Without access to all the dependencies of a repository, the effectiveness of {% ifversion code-quality %}{% data variables.product.prodname_code_quality_short %} ({% data variables.release-phases.public_preview %}), {% endif %}{% data variables.product.prodname_code_scanning %} default setup and {% data variables.product.prodname_dependabot %} are limited.
+When code in a repository has dependencies that are stored in a private registry, some security features need access to the registry to enable them to work effectively. Without access to all the dependencies of a repository, the effectiveness of {% ifversion code-quality %}{% data variables.product.prodname_code_quality_short %}, {% endif %}{% data variables.product.prodname_code_scanning %} default setup and {% data variables.product.prodname_dependabot %} are limited.
 
 ## {% data variables.product.prodname_code_scanning_caps %} default setup access to private registries
 
@@ -113,8 +113,6 @@ For more information about how OIDC works, see [AUTOTITLE](/actions/concepts/sec
 {% ifversion code-quality %}
 
 ## {% data variables.product.prodname_code_quality_short %} access to private registries
-
-{% data reusables.code-quality.code-quality-preview-note %}
 
 {% data variables.product.prodname_code_quality %} can use any of the organization-level private registries that are available when it is enabled for a repository.
 
