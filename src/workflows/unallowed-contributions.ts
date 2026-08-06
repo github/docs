@@ -1,6 +1,6 @@
 import * as coreLib from '@actions/core'
 import { readFileSync } from 'fs'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import { difference } from 'lodash-es'
 
 import { checkContentType } from '@/workflows/fm-utils'
@@ -17,9 +17,9 @@ const {
   ADDED_CONTENT_FILES,
 } = process.env
 const [owner, repo] = (REPO_OWNER_AND_NAME || '').split('/') || []
-const filters = yaml.load(
-  readFileSync('src/workflows/unallowed-contribution-filters.yml', 'utf8'),
-) as { notAllowed: string[] }
+const filters = load(readFileSync('src/workflows/unallowed-contribution-filters.yml', 'utf8')) as {
+  notAllowed: string[]
+}
 
 main()
 

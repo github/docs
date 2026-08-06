@@ -49,14 +49,14 @@ If you have questions, please contact {% data variables.contact.contact_support_
 
 You can use the REST API to download the usage report for a personal or organization account. First you will need to create a fine-grained access token with the permissions defined by the end point, see:
 
-* [Get billing usage report for a user](/rest/billing/enhanced-billing?apiVersion=2022-11-28#get-billing-usage-report-for-a-user)
-* [Get billing usage report for an organization](/rest/billing/enhanced-billing?apiVersion=2022-11-28#get-billing-usage-report-for-an-organization)
-* [Get billing usage report for an enterprise](/rest/enterprise-admin/billing?apiVersion=2022-11-28#get-billing-usage-report-for-an-enterprise)
+* [Get billing usage report for a user](/rest/billing/usage?apiVersion=2022-11-28#get-billing-usage-report-for-a-user)
+* [Get billing usage report for an organization](/rest/billing/usage?apiVersion=2022-11-28#get-billing-usage-report-for-an-organization)
+* [Get billing usage report for an enterprise](/rest/billing/usage?apiVersion=2022-11-28#get-billing-usage-report-for-an-enterprise)
 
-For more information, see [AUTOTITLE](/enterprise-cloud@latest/billing/managing-your-billing/automating-usage-reporting).
+For more information, see [AUTOTITLE](/enterprise-cloud@latest/billing/tutorials/automate-usage-reporting).
 
 ## Next steps
 
-* [AUTOTITLE](/billing/how-tos/products/view-product-use)
-* [AUTOTITLE](/billing/tutorials/set-up-budgets)
+* [AUTOTITLE](/billing/how-tos/products/view-productlicense-use)
+* [AUTOTITLE](/billing/how-tos/set-up-budgets)
 * [AUTOTITLE](/billing/tutorials/control-costs-at-scale)

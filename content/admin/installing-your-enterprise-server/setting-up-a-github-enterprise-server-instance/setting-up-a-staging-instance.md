@@ -34,7 +34,7 @@ To thoroughly test {% data variables.product.prodname_ghe_server %} and recreate
 
 ## Setting up a staging instance
 
-You can set up a staging instance from scratch and configure the instance however you like. For more information, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance) and [AUTOTITLE](/admin/configuration/configuring-your-enterprise).
+You can set up a staging instance from scratch and configure the instance however you like. For more information, see [AUTOTITLE](/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance) and [AUTOTITLE](/admin/configuring-settings).
 
 Alternatively, you can create a staging instance that reflects your production configuration by restoring a backup of your production instance to the staging instance.
 
@@ -48,7 +48,7 @@ Alternatively, you can create a staging instance that reflects your production c
 
 ### 1. Back up your production instance
 
-If you want to test changes on an instance that contains the same data and configuration as your production instance, back up the data and configuration from the production instance using {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).
+If you want to test changes on an instance that contains the same data and configuration as your production instance, back up the data and configuration from the production instance using {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance).
 
 > [!WARNING]
 > If you use {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} in production, your backup will include your production configuration for external storage. To avoid potential loss of data by writing to your production storage from your staging instance, you must configure each feature in steps 3 and 4 before you restore your backup.
@@ -57,7 +57,7 @@ If you want to test changes on an instance that contains the same data and confi
 
 Set up a new instance to act as your staging environment. When following the setup process, be sure to select the **New Install** option. This will ensure your staging environment is initialized properly and is ready for restoring a backup if needed.
 
-You can use the same guides for provisioning and installing your staging instance as you did for your production instance. For more information, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance).
+You can use the same guides for provisioning and installing your staging instance as you did for your production instance. For more information, see [AUTOTITLE](/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance).
 
 If you plan to restore a backup of your production instance, continue to the next step. Alternatively, you can configure the instance manually and skip the following steps.
 
@@ -73,7 +73,7 @@ To configure {% data variables.product.prodname_actions %} on your staging insta
 The {% data variables.enterprise.management_console %} provides a secure, browser-based interface for low-level configuration of your {% data variables.product.prodname_ghe_server %} instance, including {% data variables.product.prodname_actions %}. All configuration changes are audited, and access is protected via dedicated credentials and network controls.
 
 > [!WARNING]
-> If you don't configure {% data variables.product.prodname_actions %} on the staging instance before restoring your production backup, your staging instance will use your production instance's external storage, which could result in loss of data. We strongly recommended that you use different external storage for your staging instance. For more information, see [AUTOTITLE](/admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment).
+> If you don't configure {% data variables.product.prodname_actions %} on the staging instance before restoring your production backup, your staging instance will use your production instance's external storage, which could result in loss of data. We strongly recommend that you use different external storage for your staging instance. For more information, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/using-a-staging-environment).
 
 1. Access the {% data variables.enterprise.management_console %}. See [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/accessing-the-management-console).
 
@@ -90,7 +90,7 @@ Once you've configured and enabled {% data variables.product.prodname_actions %}
 Optionally, if you use {% data variables.product.prodname_registry %} on your production instance, configure the feature on the staging instance before restoring your production backup. If you don't use {% data variables.product.prodname_registry %}, skip to [Restore your production backup](#5-restore-your-production-backup).
 
 > [!WARNING]
-> If you don't configure {% data variables.product.prodname_registry %} on the staging instance before restoring your production backup, your staging instance will use your production instance's external storage, which could result in loss of data. We strongly recommended that you use different external storage for your staging instance. For more information, see [AUTOTITLE](/admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment).
+> If you don't configure {% data variables.product.prodname_registry %} on the staging instance before restoring your production backup, your staging instance will use your production instance's external storage, which could result in loss of data. We strongly recommend that you use different external storage for your staging instance. For more information, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/using-a-staging-environment).
 
 To configure {% data variables.product.prodname_registry %} for your staging instance:
 
@@ -106,7 +106,7 @@ To configure {% data variables.product.prodname_registry %} for your staging ins
 
 ### 5. Restore your production backup
 
-Use the `ghe-restore` command to restore the rest of the data from the backup. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance#restoring-a-backup).
+Use the `ghe-restore` command to restore the rest of the data from the backup. For more information, see [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance#restoring-a-backup).
 
 If the staging instance is already configured and you want to overwrite settings, certificate, and license data, add the `-c` option to the command. For more information about the option, see [Using the backup and restore commands](https://github.com/github/backup-utils/blob/master/docs/usage.md#restoring-settings-tls-certificate-and-license) in the {% data variables.product.prodname_enterprise_backup_utilities %} documentation.
 
@@ -115,9 +115,9 @@ If the staging instance is already configured and you want to overwrite settings
 To access the staging instance using the same hostname, update your local hosts file to resolve the staging instance's hostname by IP address by editing the `/etc/hosts` file in macOS or Linux, or the `C:\Windows\system32\drivers\etc` file in Windows.
 
 > [!NOTE]
-> Your staging instance must be accessible from the same hostname as your production instance. Changing the hostname for {% data variables.location.product_location %} is not supported. For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-a-hostname).
+> Your staging instance must be accessible from the same hostname as your production instance. Changing the hostname for {% data variables.location.product_location %} is not supported. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-network-settings/configuring-the-hostname-for-your-instance).
 
-Then, review the staging instance's configuration in the {% data variables.enterprise.management_console %}. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console).
+Then, review the staging instance's configuration in the {% data variables.enterprise.management_console %}. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui).
 
 > [!WARNING]
 > If you configured {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} for the staging instance, to avoid overwriting production data, ensure that the external storage configuration in the {% data variables.enterprise.management_console %} does not match your production instance.

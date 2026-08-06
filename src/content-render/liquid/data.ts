@@ -38,7 +38,9 @@ export default {
   },
 
   async render(scope: CustomScope) {
-    let text = getDataByLanguage(this.path, scope.environments.currentLanguage || '')
+    let text = getDataByLanguage(this.path, scope.environments.currentLanguage || '') as
+      | string
+      | undefined
     if (text === undefined) {
       if (scope.environments.currentLanguage === 'en') {
         const message = `Can't find the key 'data ${this.path}' in the scope.`

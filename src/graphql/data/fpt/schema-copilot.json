@@ -15,6 +15,13 @@
           "href": "/graphql/reference/other#scalar-string"
         },
         {
+          "name": "exp",
+          "description": "<p>Copilot experimentation (edge TAS) endpoint.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
           "name": "originTracker",
           "description": "<p>Copilot origin tracker endpoint.</p>",
           "type": "String!",

@@ -86,7 +86,7 @@ git clone SUBDOMAIN@SUBDOMAIN.ghe.com:OWNER/REPO.git
 
 ## Supported regions for Azure private networking
 
-If you use Azure private networking for {% data variables.product.company_short %}-hosted runners, the supported Azure regions on {% data variables.enterprise.data_residency_site %} differ from those on {% data variables.product.prodname_dotcom_the_website %}.
+{% data variables.product.company_short %} deploys your runners in the same Azure region as the subnet you connect them to. Because of this, your subnet must be in one of the supported regions. If you use Azure private networking for {% data variables.product.company_short %}-hosted runners, the supported Azure regions on {% data variables.enterprise.data_residency_site %} differ from those on {% data variables.product.prodname_dotcom_the_website %}.
 
 ### Supported regions in the EU
 
@@ -132,11 +132,17 @@ Actions IPs:
 
 EU region:
 * 108.143.197.176/28
+* 108.143.197.160/28
 * 20.123.213.96/28
+* 20.123.214.144/28
 * 20.224.46.144/28
+* 20.224.46.160/28
 * 20.240.194.240/28
+* 20.240.194.224/28
 * 20.240.220.192/28
+* 20.240.220.176/28
 * 20.240.211.208/28
+* 20.240.211.224/28
 
 #### Australia
 
@@ -145,22 +151,26 @@ Actions IPs:
 * 20.53.114.78
 
 Australia region:
+* 4.237.73.144/28
 * 4.237.73.192/28
+* 20.5.226.96/28
 * 20.5.226.112/28
+* 20.248.163.160/28
 * 20.248.163.176/28
 
 #### Japan
 
 Actions IPs:
-
 * 20.63.233.164
 * 172.192.153.164
 
 Japan region:
-
-74.226.88.241
-40.81.176.225
-4.190.169.240
+* 74.226.88.240/28
+* 74.226.88.224/28
+* 40.81.176.224/28
+* 40.81.178.160/28
+* 4.190.169.240/28
+* 4.190.170.0/28
 
 #### Required for all regions
 

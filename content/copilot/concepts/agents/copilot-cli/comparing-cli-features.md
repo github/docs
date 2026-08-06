@@ -93,7 +93,7 @@ Avoid or keep them minimal when:
 
 ### Find out more about custom instructions
 
-See [AUTOTITLE](/copilot/how-tos/copilot-cli/add-custom-instructions).
+See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions).
 
 ## Skills
 
@@ -170,7 +170,7 @@ You’ll see {% data variables.product.prodname_copilot_short %} using tools whe
 
 ### Find out more about allowing or denying tools
 
-See [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli#allowed-tools).
+See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli#allowed-tools).
 
 ## MCP servers
 
@@ -270,7 +270,7 @@ Avoid hooks when:
 ### Find out more about hooks
 
 See:
-* [AUTOTITLE](/copilot/how-tos/copilot-cli/use-hooks)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/use-hooks)
 * [AUTOTITLE](/copilot/reference/hooks-reference)
 
 ## Subagents

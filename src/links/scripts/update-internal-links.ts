@@ -12,7 +12,7 @@ import path from 'path'
 
 import { program } from 'commander'
 import chalk from 'chalk'
-import yaml from 'js-yaml'
+import { dump } from 'js-yaml'
 
 import { updateInternalLinks } from '@/links/lib/update-internal-links'
 import frontmatter from '@/frame/lib/read-frontmatter'
@@ -28,6 +28,10 @@ program
   .option('--check', 'Exit and fail if it found something to fix')
   .option('--aggregate-stats', 'Display aggregate numbers about all possible changes')
   .option('--strict', "Throw an error (instead of a warning) if a link can't be processed")
+  .option(
+    '--keep-stale-fragments',
+    "Keep a link's #anchor after a redirect rewrites its path, even when the anchor doesn't exist on the destination page (default: drop such anchors)",
+  )
   .option('--exclude [paths...]', 'Specific files to exclude')
   .arguments('[files-or-directories...]')
   .parse(process.argv)
@@ -43,6 +47,7 @@ type Options = {
   check: boolean
   aggregateStats: boolean
   strict: boolean
+  keepStaleFragments: boolean
   exclude: string[]
   filesOrDirectories?: string[]
 }
@@ -99,6 +104,7 @@ async function main(files: string[], opts: Options) {
       fixHref: !opts.dontFixHref,
       verbose,
       strict: !!opts.strict,
+      keepStaleFragments: !!opts.keepStaleFragments,
     }
 
     // Remember, updateInternalLinks() doesn't actually change the files
@@ -148,7 +154,7 @@ async function main(files: string[], opts: Options) {
         }
         if (!opts.dryRun) {
           if (file.endsWith('.yml')) {
-            fs.writeFileSync(file, yaml.dump(newData), 'utf-8')
+            fs.writeFileSync(file, dump(newData), 'utf-8')
           } else {
             // Remember the `content` and `newContent` is the "meat" of the
             // Markdown page. To save it you need the frontmatter data too.
@@ -307,14 +313,14 @@ type Replacement = {
   asMarkdown: string
   newAsMarkdown: string
   line: number
-  column: number
+  column?: number
 }
 
 type Warning = {
   warning: string
   asMarkdown: string
   line: number
-  column: number
+  column?: number
 }
 
 type UpdateResult = {

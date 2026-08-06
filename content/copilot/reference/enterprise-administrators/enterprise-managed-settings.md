@@ -1,0 +1,218 @@
+---
+title: Enterprise managed settings
+intro: 'Understand the enterprise managed settings schema used by {% data variables.product.prodname_copilot_short %} clients.'
+versions:
+  feature: copilot
+contentType: reference
+redirect_from:
+  - /copilot/reference/enterprise-managed-settings-reference
+category:
+  - Configure Copilot
+---
+
+Use this reference to understand the currently supported keys in `{% data variables.copilot.managed_setting_file %}`.
+
+For deployment methods and supported clients, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings).
+
+## Precedence rules
+
+When multiple settings sources are present, settings earlier in this list take precedence over settings later in the list:
+
+1. MDM-managed settings
+1. Server-managed settings
+1. File-based settings
+1. User-level settings
+
+In {% data variables.copilot.copilot_cli_short %}, the `sandbox` key is an exception to these precedence rules. Managed sandbox restrictions from MDM-managed, server-managed, and file-based settings combine with one another and with the user's sandbox settings in the most restrictive direction.
+
+## Supported keys
+
+{% rowheaders %}
+
+| Key | Purpose | {% data variables.copilot.copilot_cli_short %} | {% data variables.product.prodname_vscode_shortname %} | {% data variables.copilot.github_copilot_app %} | {% data variables.copilot.copilot_cloud_agent %} |
+| --- | --- | --- | --- | --- | --- |
+| `permissions.disableBypassPermissionsMode` | Disables bypass or YOLO-style allow-all behavior | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `permissions.model` | Sets auto model selection as the default for new conversations | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| `enabledPlugins` | Enables or disables specific plugins by key | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| `extraKnownMarketplaces` | Adds plugin marketplaces that users can access | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| `strictKnownMarketplaces` | Restricts plugin installation to explicitly listed marketplaces | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| `telemetry` | Configures OpenTelemetry export, routing {% data variables.product.prodname_copilot_short %} usage data to a collector of your choice | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `remoteControl` | Restricts whether sessions hosted on this device can be remotely controlled, based on the controlling client's SSO authorization status for the listed organizations. Doesn't affect the user's ability to remotely control sessions hosted on other devices | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `sandbox` | Enforces minimum local sandbox restrictions for command execution, filesystem and network access, credentials, and local MCP and LSP servers | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+
+{% endrowheaders %}
+
+## Applying different settings to enterprise teams
+
+For server-managed deployments, the enterprise can apply different governance to groups of users based on their enterprise team membership. The enterprise defines all settings—team membership only determines which users receive a given set of values.
+
+To make a key eligible for team-specific values, mark it as overridable in `{% data variables.copilot.managed_setting_file %}` using the `{ "overridable": <VALUE> }` syntax. An overridable key uses the team's value when set, or falls back to your enterprise default when the team leaves it unset. The `{ "overridable": <VALUE> }` syntax applies to the governance keys `permissions.model` and `permissions.disableBypassPermissionsMode`. Keys not marked overridable remain an enterprise-level decision that teams can't modify. `enabledPlugins` and `extraKnownMarketplaces` work additively. The enterprise `{% data variables.copilot.managed_setting_file %}` sets a baseline, and an enterprise team file can add more plugins and marketplaces on top of it. For the full setup steps, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings#overriding-settings-for-specific-teams).
+ 
+
+## Example configuration
+
+The following example shows these keys in one managed settings file.
+
+```json
+{
+  "permissions": {
+    "disableBypassPermissionsMode": "disable",
+    "model": "auto"
+  },
+  "enabledPlugins": {
+    "my-plugin@agent-skills": true
+  },
+  "extraKnownMarketplaces": {
+    "agent-skills": {
+      "source": {
+        "source": "github",
+        "repo": "OWNER/REPO"
+      }
+    }
+  },
+  "strictKnownMarketplaces": [
+    {
+      "source": "github",
+      "repo": "OWNER/REPO"
+    }
+  ],
+  "telemetry": {
+    "enabled": true,
+    "endpoint": "https://otel-collector.example.com",
+    "protocol": "http/protobuf",
+    "captureContent": false,
+    "lockCaptureContent": true,
+    "serviceName": "copilot",
+    "resourceAttributes": {
+      "deployment.environment": "production"
+    },
+    "headers": {
+      "Authorization": "Bearer TOKEN"
+    }
+  },
+  "remoteControl": {
+    "mode": "requireSSO",
+    "githubDotComOrganizations": ["ORG-NAME"]
+  },
+  "sandbox": {
+    "enabled": true,
+    "allowBypass": false,
+    "sandboxMcpServers": true,
+    "sandboxLspServers": true
+  }
+}
+```
+
+## `enabledPlugins`
+
+Defines plugins that are automatically installed or blocked for all enterprise users. Each entry uses the format `PLUGIN-NAME@MARKETPLACE-NAME` as the key, with a boolean value: `true` to require the plugin to be enabled, or `false` to require it to be disabled. See [AUTOTITLE](/copilot/concepts/agents/about-enterprise-plugin-standards).
+
+## `extraKnownMarketplaces`
+
+Defines additional plugin marketplaces available to users. Each entry is a named marketplace object containing a `source` property. The following source types are supported:
+
+* `"github"` — requires `repo` in `OWNER/REPO` format; optional `ref` (branch, tag, or SHA) and `path` (subdirectory)
+* `"git"` — requires `url`; optional `ref` and `path`
+* `"directory"` — requires `path`
+
+See [AUTOTITLE](/copilot/concepts/agents/about-enterprise-plugin-standards).
+
+## `strictKnownMarketplaces`
+
+Restricts plugin installation to only the marketplaces explicitly defined by the enterprise. An empty array means complete lockdown. Each entry is a marketplace object with a `source` property indicating the source type. The following source types are supported:
+
+* `"github"` — requires `repo` in `OWNER/REPO` format; optional `ref` and `path`
+* `"git"` — requires `url`; optional `ref` and `path`
+* `"url"` — requires `url`; optional `headers` object
+* `"npm"` — requires `package`
+* `"file"` — requires `path`
+* `"directory"` — requires `path`
+* `"hostPattern"` — requires `hostPattern` (regex matching marketplace hosts)
+* `"pathPattern"` — requires `pathPattern` (regex matching marketplace paths)
+
+## `permissions`
+
+### `disableBypassPermissionsMode`
+
+Prevents users from enabling bypass mode (also known as "YOLO mode"). Bypass mode lets an agent run commands, access files, and fetch URLs without asking for approval.
+
+When you set `disableBypassPermissionsMode` to `"disable"`, users cannot turn on bypass mode:
+
+* In {% data variables.copilot.copilot_cli_short %}, all of the command line options for allowing all permissions (`--yolo`, `--allow-all`, and the individual `--allow-all-tools`, `--allow-all-paths`, and `--allow-all-urls` options) are suppressed at startup and cannot grant elevated permissions. The `/yolo` and `/allow-all` slash commands are also blocked.
+* In {% data variables.product.prodname_vscode_shortname %}, the global auto-approve setting (`chat.tools.global.autoApprove`) is turned off and cannot be re-enabled.
+* In the {% data variables.copilot.github_copilot_app %}, the "Allow all" setting for "Tool Permissions" is blocked in the sessions settings.
+* This key is overridable by enterprise team mapping. In your `{% data variables.copilot.managed_setting_file %}`, use the `{ "overridable": "disable" }` syntax to specialize the key's configuration on a per-team basis. You can then set `"disableBypassPermissionsMode": "unmanaged"` in a team settings file, providing a specialization that takes precedence over `{% data variables.copilot.managed_setting_file %}` for members of the subject team.
+
+### `model`
+
+Sets auto model selection as the default for new conversations. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
+
+* When you set `permissions.model` to `"auto"`, new sessions use Auto model unless the user specifies a different model on a per-conversation basis.
+* This key is overridable by enterprise team mapping. In your `{% data variables.copilot.managed_setting_file %}`, use the `{ "overridable": "auto" }` syntax to specialize the key's configuration on a per-team basis. You can then set `"model": "unmanaged"` in a team settings file, providing a specialization that takes precedence over `{% data variables.copilot.managed_setting_file %}` for members of the subject team.
+
+## `telemetry`
+
+Configures OpenTelemetry export, routing {% data variables.product.prodname_copilot_short %} usage data to a collector of your choice.
+
+This property is supported for {% data variables.copilot.copilot_cli_short %} and {% data variables.product.prodname_vscode_shortname %}.
+
+When you set the `telemetry` property, {% data variables.product.prodname_copilot_short %} telemetry is sent to the endpoint you specify. The following sub-properties are supported:
+
+* `enabled`: Set to `true` to turn on telemetry export, or `false` to turn it off.
+* `endpoint`: The URL of your OTLP collector (for example, `https://otel-collector.example.com`).
+* `protocol`: The transport protocol for telemetry export. Accepted values are `"http/json"` and `"http/protobuf"`.
+* `captureContent`: Set to `true` to include prompt and response content in the telemetry payload, or `false` to exclude it.
+* `lockCaptureContent`: Set to `true` to prevent users from changing the `captureContent` setting.
+* `serviceName`: A label for the telemetry service name (for example, `"copilot"`).
+* `resourceAttributes`: An object of OpenTelemetry resource attributes to attach to all exported telemetry (for example, `{"deployment.environment": "production"}`).
+* `headers`: An object of HTTP headers to include with each telemetry request (for example, an `Authorization` header for your collector).
+
+## `remoteControl`
+
+Restricts whether {% data variables.product.prodname_copilot_short %} sessions hosted on a device can be remotely controlled. This doesn't affect a user's ability to remotely control their sessions hosted on other devices.
+
+* `mode`: Set to `"disabled"` to prevent remote control of sessions on the device, `"requireSSO"` to only allow remote control from a client that is SSO-authorized for the organizations listed in `githubDotComOrganizations`, or `"enabled"` to allow it unrestricted.
+* `githubDotComOrganizations`: An array of organization logins. Required when `mode` is `"requireSSO"`.
+
+## `sandbox`
+
+Enforces minimum local sandbox restrictions for {% data variables.copilot.copilot_cli_short %}. Managed sandbox settings impose restrictions rather than defaults:
+
+* For force-on settings, a managed value of `true` enforces the setting. `false` or omission leaves the user's configuration unchanged.
+* For capability settings, a managed value of `false` prohibits the capability. `true` or omission leaves the user's configuration unchanged.
+* Managed read/write and read-only path lists restrict user-configured grants, while managed denied paths add to user-configured denials.
+
+The following sub-properties are supported:
+
+* `enabled`: `true` requires sandboxing and prevents users from disabling it.
+* `allowBypass`: `false` prevents the model from requesting that an individual command run outside the sandbox.
+* `addCurrentWorkingDirectory`: `false` prevents {% data variables.copilot.copilot_cli_short %} from automatically adding the current working directory to the sandbox's read/write paths.
+* `sandboxMcpServers`: `true` requires local MCP servers started by {% data variables.copilot.copilot_cli_short %} to run in the sandbox. Remote MCP servers do not run in the local sandbox.
+* `sandboxLspServers`: `true` requires language servers started by {% data variables.copilot.copilot_cli_short %} to run in the sandbox.
+* `gitAuth`: `false` prevents {% data variables.copilot.copilot_cli_short %} from injecting a {% data variables.product.github %} token for authenticated Git HTTPS operations in the sandbox.
+* `ghAuth`: `false` prevents {% data variables.copilot.copilot_cli_short %} from injecting a {% data variables.product.github %} token for {% data variables.product.prodname_cli %} in the sandbox.
+* `allowDevToolAccess`: `false` prevents automatic access to development-tool configuration, caches, registries, and toolchains. These locations can contain package registry credentials or tokens. Disabling access can cause package restoration, authenticated registry operations, or builds that use shared caches to fail unless you explicitly grant the required paths.
+* `userPolicy`: An object that configures filesystem, network, and macOS-specific Seatbelt restrictions. The supported properties are described in the following sections.
+
+### `sandbox.userPolicy.filesystem`
+
+Configures filesystem access for sandboxed processes. Paths should be absolute. Managed grant lists are matched against user-configured lists by exact path string, not by parent or child path coverage.
+
+* `readwritePaths`: An array of paths that sandboxed processes can read and write. A user-configured path remains available only if its exact string also appears in every managed source that specifies this property. An empty managed array removes all user-configured read/write path grants, but does not remove access assembled separately, such as temporary directories or the current working directory.
+* `readonlyPaths`: An array of paths that sandboxed processes can read but not write. A user-configured path remains available only if its exact string also appears in every managed source that specifies this property. An empty managed array removes all user-configured read-only path grants, but does not remove access assembled separately.
+* `deniedPaths`: An array of paths that sandboxed processes cannot access. A managed value adds to, rather than replaces, a user's denied paths.
+
+### `sandbox.userPolicy.network`
+
+Configures network access for sandboxed processes.
+
+* `allowOutbound`: `false` blocks outbound network access.
+* `allowLocalNetwork`: `false` prevents access to the local network.
+
+Network behavior varies by operating system. In particular, a proxy is not a complete egress-control boundary because some applications can ignore proxy settings.
+
+### `sandbox.userPolicy.seatbelt`
+
+Configures macOS-specific Seatbelt options.
+
+* `keychainAccess`: `false` prevents sandboxed processes from accessing the macOS Keychain.

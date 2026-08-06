@@ -73,7 +73,7 @@ If you choose this option, actions {% ifversion actions-workflow-policy %}and re
 * **Allow actions created by {% data variables.product.prodname_dotcom %}:** Allows all actions created by {% data variables.product.prodname_dotcom %}, located in the [`actions`](https://github.com/actions) and [`github`](https://github.com/github) organizations.
 * **Allow Marketplace actions by verified creators:** Allows all {% data variables.product.prodname_marketplace %} actions created by verified creators, labeled with {% octicon "verified" aria-label="The verified badge" %}.{% ifversion ghes %}
 
-   Only available if you have {% data variables.product.prodname_github_connect %} enabled and configured with {% data variables.product.prodname_actions %}. See [AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect).{% endif %}
+   Only available if you have {% data variables.product.prodname_github_connect %} enabled and configured with {% data variables.product.prodname_actions %}. See [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect).{% endif %}
 * **Allow{% ifversion actions-blocklist-sha-pinning %} or block{% endif %} specified actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}:** Allows actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} that you specify. You can specify individual actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} or entire organizations and repositories.
 
 When specifying actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, use the following syntax:
@@ -111,6 +111,18 @@ In the "Runners" section, you can mediate these risks by disabling the use of re
 {% endif %}
 
 {% data reusables.actions.disable-selfhosted-runners-note %}
+
+## Disabling standard hosted runners
+
+You can disable standard {% data variables.product.github %}-hosted runners at the enterprise level. This setting requires workflows to target runners through runner groups and helps enforce consistent access controls and governance.
+
+For information about job concurrency limits for {% data variables.product.github %}-hosted runners, see [AUTOTITLE](/actions/reference/limits#job-concurrency-limits-for-github-hosted-runners).
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+1. Scroll to the "Standard hosted runners" section and click **Disable for all organizations**.
+1. Click **Save**.
 
 ## Custom images
 

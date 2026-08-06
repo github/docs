@@ -116,7 +116,7 @@ You pay for any additional use above your quota using the payment method set up 
 Bandwidth is billed for each GiB of data downloaded. Storage is billed by calculating an hourly usage rate.
 
 * To estimate costs for paid {% data variables.large_files.product_name_short %} usage, use the {% data variables.product.github %} [pricing calculator](https://github.com/pricing/calculator?feature=lfs).
-* To view your current storage and bandwidth, see [AUTOTITLE](/billing/managing-billing-for-your-products/viewing-your-product-usage).
+* To view your current storage and bandwidth, see [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
 
 ### Example storage cost calculation
 

@@ -51,7 +51,9 @@ You can ask {% data variables.product.prodname_copilot_short %} to start work fr
    > [!NOTE]
    > If you have enabled the **New Dashboard Experience** in feature preview, the new session will appear in "Agent sessions" under the prompt box in your dashboard. For more information, see [AUTOTITLE](/account-and-profile/reference/personal-dashboard#home-dashboard-view).
 
-## Starting from Copilot Chat
+## Starting from {% data variables.copilot.copilot_chat_short %}
+
+When you start a task from {% data variables.copilot.copilot_chat_short %}, the new {% data variables.copilot.copilot_cloud_agent %} session incorporates the context of your current chat conversation. This means you don't need to restate details you have already shared with {% data variables.product.prodname_copilot_short %} in your `/task` prompt.
 
 1. Open {% data variables.copilot.copilot_chat %} on {% data variables.product.prodname_dotcom_the_website %}.
 1. Type `/task` to ask {% data variables.product.prodname_copilot_short %} to create a pull request, and give details of what you want {% data variables.product.prodname_copilot_short %} to change.
@@ -91,7 +93,7 @@ You can ask {% data variables.product.prodname_copilot_short %} to start working
 
    For example, you might include instructions about specific coding patterns or frameworks to use, testing requirements, code style preferences, files or directories that should or shouldn't be modified.
 
-   In addition to the details you supply here, {% data variables.product.prodname_copilot_short %} will use any custom instructions that have been configured for the target repository. See [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
+   In addition to the details you supply here, {% data variables.product.prodname_copilot_short %} will use any custom instructions that have been configured for the target repository. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions).
 
 1. You can use the dropdown menus in the dialog to change the repository that {% data variables.product.prodname_copilot_short %} will work in and the branch that it will branch off from.
 
@@ -126,9 +128,6 @@ When creating a new repository, you can ask {% data variables.product.prodname_c
     {% data variables.product.prodname_copilot_short %} will immediately open a draft pull request. {% data variables.product.prodname_copilot_short %} will work on the task and push changes to its pull request, then add you as a reviewer when it has finished, triggering a notification.
 
 ## Fixing a failing {% data variables.product.prodname_actions %} workflow run
-
-> [!NOTE]
-> This feature is only available to {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} users.
 
 When an {% data variables.product.prodname_actions %} workflow run fails on a pull request branch, you can ask {% data variables.product.prodname_copilot_short %} to investigate and fix the failure.
 

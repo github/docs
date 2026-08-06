@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Cookies from '../../frame/components/lib/cookies'
 import { COLOR_MODE_COOKIE_NAME } from '@/frame/lib/constants'
 
-enum CssColorMode {
+export enum CssColorMode {
   auto = 'auto',
   light = 'light',
   dark = 'dark',
@@ -14,7 +14,7 @@ enum ComponentColorMode {
   night = 'night',
 }
 
-enum SupportedTheme {
+export enum SupportedTheme {
   light = 'light',
   dark = 'dark',
   dark_dimmed = 'dark_dimmed',

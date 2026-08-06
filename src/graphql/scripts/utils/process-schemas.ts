@@ -4,10 +4,13 @@ import type {
   DocumentNode,
   ObjectTypeDefinitionNode,
   InputObjectTypeDefinitionNode,
+  EnumTypeDefinitionNode,
+  UnionTypeDefinitionNode,
   FieldDefinitionNode,
   InputValueDefinitionNode,
   ConstDirectiveNode,
   DefinitionNode,
+  TypeNode,
 } from 'graphql/language'
 import helpers from './schema-helpers'
 import { OTHER_CATEGORY, isValidCategory } from '@/graphql/lib/categories'
@@ -21,7 +24,8 @@ interface PreviewInfo {
 // Interface for arguments returned by helpers.getArguments()
 interface FieldArgumentInfo {
   name: string
-  defaultValue?: any // GraphQL default values can be any JSON-serializable type
+  // GraphQL scalar default values come through the AST as a string or boolean.
+  defaultValue?: string | boolean
   description: string
   type: {
     name: string
@@ -42,7 +46,8 @@ interface ScalarInfo {
 
 interface QueryArgumentInfo {
   name: string
-  defaultValue?: any // GraphQL default values can be any JSON-serializable type
+  // GraphQL scalar default values come through the AST as a string or boolean.
+  defaultValue?: string | boolean
   type: string
   id: string
   href: string
@@ -322,10 +327,10 @@ export default async function processSchemas(
     mutationFieldCategoryMap.get(mutFieldName) ?? fallbackMutationMap[mutFieldName.toLowerCase()]
 
   // Walk through a TypeNode chain (NonNull/List wrappers) to the NamedType.
-  const namedTypeName = (typeNode: any): string | undefined => {
-    let t = typeNode
-    while (t && t.type) t = t.type
-    return t?.name?.value
+  const namedTypeName = (typeNode: TypeNode): string | undefined => {
+    let t: TypeNode = typeNode
+    while ('type' in t) t = t.type
+    return t.kind === 'NamedType' ? t.name.value : undefined
   }
 
   // (a) input objects from mutation field args
@@ -389,6 +394,124 @@ export default async function processSchemas(
       }
     }
     if (!changed) break
+  }
+
+  // (c) General reference-based inheritance. An un-annotated enum, union, or
+  // input object inherits the category of the type(s) that reference it, but
+  // only when every referrer resolves to a single category; ambiguous types
+  // (referrers disagree, or a referrer is itself ambiguous) stay in `other`.
+  // This is the derived successor to a static exception list: it catches
+  // generated/indirect types that github/github never annotates directly while
+  // still letting the upstream team own the outcome via the parent type's
+  // `docs_category`.
+  //
+  // Examples this resolves today:
+  //   - `IssueTimelineItemsItemType` / `PullRequestTimelineItemsItemType`:
+  //     runtime-generated enums used only as the `itemTypes` argument on
+  //     `Issue.timelineItems` (issues) / `PullRequest.timelineItems` (pulls).
+  //   - `RepositoryRuleType` (enum) and `RuleParameters` (union): referenced
+  //     from the annotated `RepositoryRule` object (repos).
+  //   - `RuleParametersInput` (input): referenced from the annotated
+  //     `RepositoryRuleInput` input object (repos).
+  //
+  // A "referrer category" is the category of:
+  //   - the owning object type, for a field's return type or a field argument's
+  //     type (interfaces are intentionally excluded: they are cross-cutting and
+  //     make coincidental single-category matches likely);
+  //   - the Mutation root field, for that field's arguments;
+  //   - the owning input object, for an input field's type. Input objects can
+  //     themselves be uncategorized-but-derivable, so this rule propagates
+  //     transitively through nested inputs.
+  //
+  // Implemented as a monotone fixpoint over candidate category *sets* rather
+  // than committing categories as we go: a type is only assigned once its
+  // candidate set has stopped growing, so the result is independent of
+  // definition/derivation order and a later-discovered conflicting referrer
+  // can never be missed. Explicit annotations and derivations (a)/(b) always
+  // win: we only compute candidates for ids `lookupCat` still can't resolve.
+  const derivableTargets = schemaAST.definitions.filter(
+    (
+      def,
+    ): def is EnumTypeDefinitionNode | UnionTypeDefinitionNode | InputObjectTypeDefinitionNode =>
+      def.kind === 'EnumTypeDefinition' ||
+      def.kind === 'UnionTypeDefinition' ||
+      def.kind === 'InputObjectTypeDefinition',
+  )
+  const inputDefs = schemaAST.definitions.filter(
+    (def): def is InputObjectTypeDefinitionNode => def.kind === 'InputObjectTypeDefinition',
+  )
+
+  const targetIds = new Set<string>()
+  for (const def of derivableTargets) {
+    const id = helpers.getId(def.name.value)
+    if (!lookupCat(id)) targetIds.add(id)
+  }
+
+  if (targetIds.size > 0) {
+    const candidates = new Map<string, Set<string>>()
+    for (const id of targetIds) candidates.set(id, new Set())
+
+    // Categories a type contributes when it appears as a referrer. Annotated /
+    // fallback types contribute their single category; an uncommitted derivable
+    // referrer (only ever an input object here) contributes its current
+    // candidate set so ambiguity propagates downstream.
+    const contribution = (referrerId: string): Iterable<string> => {
+      const explicit = lookupCat(referrerId)
+      if (explicit) return [explicit]
+      return candidates.get(referrerId) ?? []
+    }
+    const addRef = (targetName: string | undefined, cats: Iterable<string>): boolean => {
+      if (!targetName) return false
+      const id = helpers.getId(targetName)
+      const set = candidates.get(id)
+      if (!set) return false
+      let grew = false
+      for (const c of cats) {
+        if (!set.has(c)) {
+          set.add(c)
+          grew = true
+        }
+      }
+      return grew
+    }
+
+    // Bounded by the worst-case propagation depth; each pass only adds to sets,
+    // so this terminates well before the cap.
+    const maxPasses = targetIds.size + 2
+    for (let pass = 0; pass < maxPasses; pass++) {
+      let changed = false
+
+      for (const def of objectDefs) {
+        const name = def.name.value
+        if (name === 'Query') continue
+        const isMutation = name === 'Mutation'
+        for (const field of def.fields || []) {
+          // Mutation fields carry their own category and their payload return
+          // type is already annotated, so (like rule (a)) we only walk args.
+          const fieldCats: Iterable<string> = isMutation
+            ? ((c) => (c ? [c] : []))(getMutationCat(field.name.value))
+            : contribution(helpers.getId(name))
+          if (!isMutation && addRef(namedTypeName(field.type), fieldCats)) changed = true
+          for (const arg of field.arguments || []) {
+            if (addRef(namedTypeName(arg.type), fieldCats)) changed = true
+          }
+        }
+      }
+
+      for (const def of inputDefs) {
+        const ownerCats = contribution(helpers.getId(def.name.value))
+        for (const field of def.fields || []) {
+          if (addRef(namedTypeName(field.type), ownerCats)) changed = true
+        }
+      }
+
+      if (!changed) break
+    }
+
+    // Assign only the targets whose final candidate set is unambiguous.
+    for (const [id, cats] of candidates) {
+      if (cats.size === 1) typeCategoryMap.set(id, [...cats][0])
+    }
   }
 
   // Normalize unknown categories (e.g. `:checks`, `:search`, `:packages`,
@@ -459,12 +582,11 @@ export default async function processSchemas(
               (field.arguments || []).map(async (arg: InputValueDefinitionNode) => {
                 const queryArg: Partial<QueryArgumentInfo> = {}
                 queryArg.name = arg.name.value
-                // ConstValueNode is a complex union; accessing value property generically
-                queryArg.defaultValue = arg.defaultValue
-                  ? (arg.defaultValue as any).value
-                  : undefined
-                // InputValueDefinitionNode.type is compatible with getType's expected structure
-                const argType = helpers.getType(arg as any)
+                queryArg.defaultValue =
+                  arg.defaultValue && 'value' in arg.defaultValue
+                    ? arg.defaultValue.value
+                    : undefined
+                const argType = helpers.getType(arg)
                 if (!argType) return
                 queryArg.type = argType
                 queryArg.id = helpers.getId(queryArg.type)
@@ -539,8 +661,7 @@ export default async function processSchemas(
               (field.arguments || []).map(async (arg: InputValueDefinitionNode) => {
                 const inputField: Partial<InputFieldInfo> = {}
                 inputField.name = arg.name.value
-                // InputValueDefinitionNode.type is compatible with getType's expected structure
-                const argType = helpers.getType(arg as any)
+                const argType = helpers.getType(arg)
                 if (!argType) return
                 inputField.type = argType
                 inputField.id = helpers.getId(inputField.type)
@@ -663,11 +784,7 @@ export default async function processSchemas(
               const fieldKind = helpers.getTypeKind(objectField.type, schema)
               if (!fieldKind) return
               objectField.href = linkTo(fieldKind, objectField.id)
-              // InputValueDefinitionNode structure is compatible with ArgumentNode expected by getArguments
-              objectField.arguments = await helpers.getArguments(
-                (field.arguments || []) as any,
-                schema,
-              )
+              objectField.arguments = await helpers.getArguments(field.arguments || [], schema)
               objectField.isDeprecated = helpers.getDeprecationStatus(
                 (field.directives || []) as readonly ConstDirectiveNode[],
               )
@@ -732,11 +849,7 @@ export default async function processSchemas(
               const fieldKind = helpers.getTypeKind(interfaceField.type, schema)
               if (!fieldKind) return
               interfaceField.href = linkTo(fieldKind, interfaceField.id)
-              // InputValueDefinitionNode structure is compatible with ArgumentNode expected by getArguments
-              interfaceField.arguments = await helpers.getArguments(
-                (field.arguments || []) as any,
-                schema,
-              )
+              interfaceField.arguments = await helpers.getArguments(field.arguments || [], schema)
               interfaceField.isDeprecated = helpers.getDeprecationStatus(
                 (field.directives || []) as readonly ConstDirectiveNode[],
               )
@@ -874,8 +987,7 @@ export default async function processSchemas(
 
               inputField.name = field.name.value
               inputField.description = await helpers.getDescription(field.description?.value || '')
-              // InputValueDefinitionNode.type is compatible with getType's expected structure
-              const fieldType = helpers.getType(field as any)
+              const fieldType = helpers.getType(field)
               if (!fieldType) return
               inputField.type = fieldType
               inputField.id = helpers.getId(inputField.type)

@@ -45,7 +45,7 @@ clone and rename the repository in a single step by running
 Within this repository, the queries and libraries are organized into {% data variables.product.prodname_codeql %}
 packs. Along with the queries themselves, {% data variables.product.prodname_codeql %} packs contain important metadata
 that tells the {% data variables.product.prodname_codeql_cli %} how to process the query files. For more information,
-see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs).
+see [AUTOTITLE](/code-security/tutorials/customize-code-scanning/create-and-work-with-codeql-packs).
 
 > [!NOTE]
 > There are different versions of the {% data variables.product.prodname_codeql %} queries available for different users. Check out the correct version for your use case:

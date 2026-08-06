@@ -124,6 +124,13 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- icono "check" %}', 'es')).toBe('{%- octicon "check" %}')
     })
 
+    test('fixes alto → octicon', () => {
+      expect(fix('{% alto "link-external":16 aria-label="link-external" %}', 'es')).toBe(
+        '{% octicon "link-external":16 aria-label="link-external" %}',
+      )
+      expect(fix('{%- alto "check" %}', 'es')).toBe('{%- octicon "check" %}')
+    })
+
     test('fixes octicon "bombilla" → octicon "light-bulb"', () => {
       expect(fix('{% octicon "bombilla" aria-label="The light-bulb icon" %}', 'es')).toBe(
         '{% octicon "light-bulb" aria-label="The light-bulb icon" %}',
@@ -424,6 +431,14 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% if condition ou other %}', 'pt')).toBe('{% if condition or other %}')
     })
 
+    test('fixes multi-plan word-order swap with ou (ghes ifversion ou ghec)', () => {
+      // `{% ghes ifversion ou ghec %}` — word-order swap + Portuguese "ou" for "or"
+      expect(fix('{% ghes ifversion ou ghec %}', 'pt')).toBe('{% ifversion ghes or ghec %}')
+      expect(fix('{%- ghes ifversion ou ghec %}', 'pt')).toBe('{%- ifversion ghes or ghec %}')
+      expect(fix('{% fpt ifversion ou ghec %}', 'pt')).toBe('{% ifversion fpt or ghec %}')
+      expect(fix('{% ghec ifversion ou ghes %}', 'pt')).toBe('{% ifversion ghec or ghes %}')
+    })
+
     test('fixes fully translated reutilizáveis reusables path', () => {
       // `reutilizáveis` is Portuguese for "reusables"
       expect(fix('{% dados reutilizáveis.repositórios.reaction_list %}', 'pt')).toBe(
@@ -562,6 +577,76 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- 捕获 myvar -%}', 'zh')).toBe('{%- capture myvar -%}')
       expect(fix('{%- 捕获myvar %}', 'zh')).toBe('{%- capture myvar %}')
     })
+
+    test('[per-file] azure-vnet: premature endif leaves orphan else', () => {
+      function fixAt(content: string, code: string, relativePath: string) {
+        return correctTranslatedContentStrings(content, '', {
+          code,
+          relativePath,
+          skipOrphanStripping: true,
+        })
+      }
+      const path = 'data/reusables/actions/azure-vnet-creating-network-configuration-prereqs.md'
+      const broken =
+        '可以{% ifversion ghec%}在企业或组织级别{% endif %}在组织级别{% else %}创建网络配置，从而将 Azure 虚拟网络 (VNET) 用于专用网络。'
+      const fixed =
+        '可以{% ifversion ghec %}在企业或组织级别{% else %}在组织级别{% endif %}创建网络配置，从而将 Azure 虚拟网络 (VNET) 用于专用网络。'
+      expect(fixAt(broken, 'zh', path)).toBe(fixed)
+      // unchanged if already correct
+      expect(fixAt(fixed, 'zh', path)).toBe(fixed)
+    })
+
+    test('[per-file] ghas-ghec: scrambled ifversion with stray elsif after endif', () => {
+      function fixAt(content: string, code: string, relativePath: string) {
+        return correctTranslatedContentStrings(content, '', {
+          code,
+          relativePath,
+          skipOrphanStripping: true,
+        })
+      }
+      const path = 'data/reusables/gated-features/ghas-ghec.md'
+      const broken =
+        '适用于{% data variables.product.prodname_team %}上的{% ifversion fpt or ghec %}账户以及{% data variables.product.prodname_ghe_server %}{% endif %}上的{% data variables.product.prodname_ghe_cloud %}{% elsif ghes %}账户。'
+      const fixed =
+        '适用于{% ifversion fpt or ghec %}{% data variables.product.prodname_team %}和{% data variables.product.prodname_ghe_cloud %}上的账户{% elsif ghes %}{% data variables.product.prodname_ghe_server %}上的账户{% endif %}。'
+      expect(fixAt(broken, 'zh', path)).toBe(fixed)
+      expect(fixAt(fixed, 'zh', path)).toBe(fixed)
+    })
+
+    test('[per-file] scim/after-you-configure-saml: ifversion opener dropped leaving orphan else', () => {
+      function fixAt(content: string, code: string, relativePath: string) {
+        return correctTranslatedContentStrings(content, '', {
+          code,
+          relativePath,
+          skipOrphanStripping: true,
+        })
+      }
+      const path = 'data/reusables/scim/after-you-configure-saml.md'
+      const broken =
+        '{% data variables.product.github %}{% else %}{% data variables.location.product_location_enterprise %}{% endif %} 上的{% ifversion fpt or ghec %}企业资源'
+      const fixed =
+        '{% ifversion fpt or ghec %}{% data variables.product.github %} 上的企业资源{% else %}{% data variables.location.product_location_enterprise %}{% endif %}'
+      expect(fixAt(broken, 'zh', path)).toBe(fixed)
+      expect(fixAt(fixed, 'zh', path)).toBe(fixed)
+    })
+
+    test('[per-file] consider-usernames: ifversion ghec opener dropped leaving orphan elsif', () => {
+      function fixAt(content: string, code: string, relativePath: string) {
+        return correctTranslatedContentStrings(content, '', {
+          code,
+          relativePath,
+          skipOrphanStripping: true,
+        })
+      }
+      const path =
+        'data/reusables/enterprise_user_management/consider-usernames-for-external-authentication.md'
+      const broken =
+        '企业中 {% data variables.product.github %}{% elsif ghes %} 上 {% data variables.location.product_location %}{% endif %} 上每个新个人帐户 {% ifversion ghec %} 的用户名。'
+      const fixed =
+        '{% ifversion ghec %}企业中 {% data variables.product.github %}{% elsif ghes %} 上 {% data variables.location.product_location %}{% endif %} 上每个新个人帐户的用户名。'
+      expect(fixAt(broken, 'zh', path)).toBe(fixed)
+      expect(fixAt(fixed, 'zh', path)).toBe(fixed)
+    })
   })
 
   // ─── RUSSIAN (ru) ──────────────────────────────────────────────────
@@ -600,6 +685,19 @@ describe('correctTranslatedContentStrings', () => {
       )
       expect(fix('{% данных reusables.foo %}', 'ru')).toBe('{% data reusables.foo %}')
       expect(fix('{% данные reusables.foo %}', 'ru')).toBe('{% data reusables.foo %}')
+    })
+
+    test('fixes fully translated "data reusables" tag prefixes', () => {
+      // "данных, многократно используемых" = "data, repeatedly used"
+      expect(fix('{% данных, многократно используемых.copilot.jetbrains-settings %}', 'ru')).toBe(
+        '{% data reusables.copilot.jetbrains-settings %}',
+      )
+      // "данных, которые можно использовать повторно" = "data that can be reused"
+      expect(
+        fix('{% данных, которые можно использовать повторно.projects.what-gets-copied %}', 'ru'),
+      ).toBe('{% data reusables.projects.what-gets-copied %}')
+      // already-correct input is left unchanged
+      expect(fix('{% data reusables.copilot.foo %}', 'ru')).toBe('{% data reusables.copilot.foo %}')
     })
 
     test('fixes broadened данных. pattern', () => {
@@ -821,6 +919,17 @@ describe('correctTranslatedContentStrings', () => {
         '{% ifversion enterprise-licensing-language %}licenses{% else %}licensed seats{% endif %}',
       )
     })
+
+    test('fixes doubled plan name before ifversion (ghes ghes ifversion → ifversion ghes)', () => {
+      // `{% ghes ghes ifversion %}` — plan name appears twice before `ifversion`;
+      // collapses the duplicate and swaps to canonical `{% ifversion PLAN %}`.
+      expect(fix('{% ghes ghes ifversion %}', 'ru')).toBe('{% ifversion ghes %}')
+      expect(fix('{%- ghec ghec ifversion %}', 'ru')).toBe('{%- ifversion ghec %}')
+      // Does not affect normal word-order swap (single plan name)
+      expect(fix('{% ghes ifversion %}', 'ru')).toBe('{% ifversion ghes %}')
+      // Unchanged when already correct
+      expect(fix('{% ifversion ghes %}', 'ru')).toBe('{% ifversion ghes %}')
+    })
   })
 
   // ─── FRENCH (fr) ───────────────────────────────────────────────────
@@ -955,6 +1064,41 @@ describe('correctTranslatedContentStrings', () => {
       expect(
         fix('{% données réutilisables propriétés-personnalisées valeurs-requises %}', 'fr'),
       ).toBe('{% data reusables.organizations.custom-properties-required-values %}')
+    })
+
+    test('fixes modules réutilisables → data reusables', () => {
+      expect(fix('{% modules réutilisables.enterprise_migrations.ready-to-import %}', 'fr')).toBe(
+        '{% data reusables.enterprise_migrations.ready-to-import %}',
+      )
+      expect(fix('{%- modules réutilisables.foo.bar %}', 'fr')).toBe(
+        '{%- data reusables.foo.bar %}',
+      )
+    })
+
+    test('fixes flux de travail variables → data variables', () => {
+      // `{% flux de travail variables.` — French "flux de travail" (workflow) mistakenly
+      // used as the Liquid tag name instead of "data".
+      expect(fix('{% flux de travail variables.product.prodname_actions %}', 'fr')).toBe(
+        '{% data variables.product.prodname_actions %}',
+      )
+      expect(fix('{%- flux de travail variables.copilot.foo %}', 'fr')).toBe(
+        '{%- data variables.copilot.foo %}',
+      )
+    })
+
+    test('fixes invite → prompt', () => {
+      expect(fix('{% invite %}', 'fr')).toBe('{% prompt %}')
+      expect(fix('{%- invite %}', 'fr')).toBe('{%- prompt %}')
+      expect(fix('{% invite -%}', 'fr')).toBe('{% prompt -%}')
+    })
+
+    test('fixes collaborateurs invités ifversion → ifversion guest-collaborators', () => {
+      expect(fix('{% collaborateurs invités ifversion %}', 'fr')).toBe(
+        '{% ifversion guest-collaborators %}',
+      )
+      expect(fix('{%- collaborateurs invités ifversion %}', 'fr')).toBe(
+        '{%- ifversion guest-collaborators %}',
+      )
     })
   })
 
@@ -1349,6 +1493,24 @@ describe('correctTranslatedContentStrings', () => {
         '{%- data variables.product.github %}',
       )
     })
+
+    test('[per-file] hardware-considerations-all-platforms: ifversion ghes opener stripped', () => {
+      function fixAt(content: string, code: string, relativePath: string) {
+        return correctTranslatedContentStrings(content, '', {
+          code,
+          relativePath,
+          skipOrphanStripping: true,
+        })
+      }
+      const path = 'data/reusables/enterprise_installation/hardware-considerations-all-platforms.md'
+      const broken =
+        'werden 200 GB auf dem Stammdateisystem verfügbar sein. Die verbleibenden 200GB{% else %}100GB sind auf dem Stammdateisystem verfügbar.'
+      const fixed =
+        'werden {% ifversion ghes %}200 GB auf dem Stammdateisystem verfügbar sein. Die verbleibenden 200GB{% else %}100GB sind auf dem Stammdateisystem verfügbar.'
+      expect(fixAt(broken, 'de', path)).toBe(fixed)
+      // unchanged if already correct
+      expect(fixAt(fixed, 'de', path)).toBe(fixed)
+    })
   })
 
   describe('Generic fixes (all languages)', () => {
@@ -1604,6 +1766,24 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% data variables.product.github Привет', 'ru')).toBe(
         '{% data variables.product.github %} Привет',
       )
+    })
+
+    test('fixes missing endprompt on the JS-numCats line (all translation languages)', () => {
+      // The `${}` template literal inside a backtick confused translators and they dropped
+      // `{% endprompt %}` from the line. Fix is applied universally across all languages.
+      const input =
+        "* {% prompt %}How do I write `The ${'cat is' : 'cats are'} hungry.`?{% endprompt %}\n" +
+        "* {% prompt %}In JS I'd write: `The ${'cat is' : 'cats are'} hungry.`. ¿How in NEW-LANGUAGE?\n" +
+        '* {% prompt %}Next question?{% endprompt %}'
+      const output =
+        "* {% prompt %}How do I write `The ${'cat is' : 'cats are'} hungry.`?{% endprompt %}\n" +
+        "* {% prompt %}In JS I'd write: `The ${'cat is' : 'cats are'} hungry.`. ¿How in NEW-LANGUAGE?{% endprompt %}\n" +
+        '* {% prompt %}Next question?{% endprompt %}'
+      expect(fix(input, 'es')).toBe(output)
+      expect(fix(input, 'pt')).toBe(output)
+      expect(fix(input, 'zh')).toBe(output)
+      expect(fix(input, 'de')).toBe(output)
+      expect(fix(input, 'fr')).toBe(output)
     })
 
     test('recovers linebreaks from English', () => {
@@ -2178,6 +2358,183 @@ Para más información, consulta "[AUTOTITLE](/path)".
       const out = fix(broken, 'ru')
       expect(out).not.toContain('внес{% endif %}')
       expect(out).toMatch(/\{% ifversion fpt or ghec %\} и его зависимости\{% endif %\}\.$/)
+    })
+  })
+
+  // ─── SCRAPE-6608: discovery-landing index-scrape failures ────────────
+  // The discovery-landing index pages render every descendant's title+intro.
+  // A descendant whose translated title/intro drops its `{% endif %}` throws,
+  // 500s `/api/article`, and the index "fails to scrape" (github/docs-engineering#6608).
+  // The earlier 6604 attempts matched the RAW file text (block-scalar trailing
+  // newline / YAML quote), but the corrector runs on the PARSED value, so they
+  // never fired at render time. These assert the parsed values are corrected.
+  describe('SCRAPE-6608 per-file fixes', () => {
+    test('ja: enabling-github-advanced-security-for-your-enterprise title closes ghas-products', () => {
+      // Parsed `|2-` block-scalar title (trailing newline stripped).
+      const broken =
+        '{% data variables.product.prodname_GHAS %}\n{% ifversion ghas-products %}製品をあなたの企業のために有効にする'
+      const out = fix(broken, 'ja')
+      expect(out).toBe(
+        '{% data variables.product.prodname_GHAS %}\n{% ifversion ghas-products %}製品{% endif %}をあなたの企業のために有効にする',
+      )
+    })
+
+    test('ko: permissions-of-custom-organization-roles intro closes org-custom-role conditional', () => {
+      const broken =
+        '사용자 지정 조직 역할을 사용하여 {% ifversion org-custom-role-with-repo-permissions %}조직의 설정 및 리포지토리{% else %}에 대한 액세스를 제어할 수 있습니다.'
+      const out = fix(broken, 'ko')
+      expect(out).toBe(
+        '사용자 지정 조직 역할을 사용하여 {% ifversion org-custom-role-with-repo-permissions %}조직의 설정 및 리포지토리{% else %}조직의 설정{% endif %}에 대한 액세스를 제어할 수 있습니다.',
+      )
+    })
+
+    test('zh: permissions-of-custom-organization-roles intro closes org-custom-role conditional', () => {
+      const broken =
+        '可以使用自定义组织角色控制对 {% ifversion org-custom-role-with-repo-permissions %}组织的设置和存储库{% else %} 的访问权限。'
+      const out = fix(broken, 'zh')
+      expect(out).toBe(
+        '可以使用自定义组织角色控制对 {% ifversion org-custom-role-with-repo-permissions %}组织的设置和存储库{% else %}组织的设置{% endif %} 的访问权限。',
+      )
+    })
+  })
+
+  // ─── SCRAPE-6642: search-scrape failures ─────────────────────────────
+  // Six translated title/intro corruptions from the June 10 batch broke the
+  // admin and code-security index scrapes (github/docs-engineering#6642).
+  // The corrector runs on the PARSED title/intro value, so the title fixes
+  // must match the unquoted substring (no surrounding YAML quote).
+  describe('SCRAPE-6642 per-file fixes', () => {
+    test('es: configuring-scim-provisioning-with-okta title closes ghec conditional', () => {
+      const broken =
+        'Configuración de la autenticación de {% ifversion ghec %}SCIM{% else %} con Okta'
+      expect(fix(broken, 'es')).toBe(
+        'Configuración de la autenticación de {% ifversion ghec %}SCIM{% else %} con Okta{% endif %}',
+      )
+    })
+
+    test('zh: configuring-scim-provisioning-with-okta intro unswaps endif/ifversion', () => {
+      const broken =
+        '在{% data variables.product.prodname_dotcom_the_website %}或{% data variables.enterprise.data_residency_site %}{% endif %}上的企业{% ifversion ghec %}进行通信。'
+      expect(fix(broken, 'zh')).toBe(
+        '的企业{% ifversion ghec %}在{% data variables.product.prodname_dotcom_the_website %}或{% data variables.enterprise.data_residency_site %}{% endif %}进行通信。',
+      )
+    })
+
+    test('ru: configuring-scim-provisioning-with-okta title unswaps branches', () => {
+      const broken =
+        'Настройка {% ifversion ghec %}аутентификации и{% endif %} провизионирования SCIM{% else %}с помощью Okta'
+      expect(fix(broken, 'ru')).toBe(
+        'Настройка {% ifversion ghec %}SCIM{% else %}аутентификации и{% endif %} провизионирования с помощью Okta',
+      )
+    })
+
+    test('ko: configuring-code-scanning-for-your-appliance intro closes ifversion', () => {
+      const broken =
+        '에서 {% data variables.product.prodname_dotcom %}.{% ifversion default-setup-self-hosted-runners-GHEC %}'
+      expect(fix(broken, 'ko')).toBe(
+        '에서 {% data variables.product.prodname_dotcom %}.{% endif %}',
+      )
+    })
+
+    test('de: configuring-authentication-and-provisioning-with-pingfederate intro unswaps branches', () => {
+      const broken =
+        '{% ifversion ghes %}ein, um Authentifizierung und Provisionierung für {% data variables.product.prodname_emus %} auf {% data variables.product.prodname_dotcom_the_website %} oder {% data variables.enterprise.data_residency_site %}{% endif %} für Ihr Unternehmen{% else %} zentral zu verwalten.'
+      expect(fix(broken, 'de')).toBe(
+        '{% ifversion ghes %}ein, um Authentifizierung und Provisionierung für Ihr Unternehmen zentral zu verwalten{% else %}für {% data variables.product.prodname_emus %} auf {% data variables.product.prodname_dotcom_the_website %} oder {% data variables.enterprise.data_residency_site %}{% endif %}.',
+      )
+    })
+
+    test('de: configure-access-to-private-registries intro restores endif', () => {
+      const broken =
+        'auf selbst-gehosteten Runnern ausführen.{% data variables.product.prodname_dependabot %}'
+      expect(fix(broken, 'de')).toBe('auf selbst-gehosteten Runnern ausführen.{% endif %}')
+    })
+  })
+
+  // ─── SCRAPE-6732: search-scrape failures ─────────────────────────────
+  // The ru admin landing page failed to scrape with `tag "else" not found`
+  // because the intro of viewing-and-managing-a-users-saml-access-to-your-enterprise.md
+  // had an orphaned `{% else %}` before any opening `{% ifversion %}`
+  // (github/docs-engineering#6732). The corrector runs on the PARSED intro value.
+  describe('SCRAPE-6732 per-file fixes', () => {
+    test('ru: viewing-and-managing-a-users-saml-access intro reorders orphaned else', () => {
+      const broken =
+        'Вы можете просматривать и отзывать связанную личность, активные сессии и авторизованные учетные{% else %}данные {% ifversion ghec %}SAML{% endif %} участника предприятия.'
+      const fixed =
+        'Вы можете просматривать и отзывать {% ifversion ghec %}связанную личность, активные сессии и авторизованные учетные данные{% else %}активные сессии SAML{% endif %} участника предприятия.'
+      expect(fix(broken, 'ru')).toBe(fixed)
+      // idempotent: the fix only matches the broken form
+      expect(fix(fixed, 'ru')).toBe(fixed)
+    })
+  })
+
+  // ─── New patterns ───────────────────────────────────────────────────
+
+  describe('es: you-can-fork.md per-file fix', () => {
+    test('replaces leading elsif with ifversion', () => {
+      const broken = '{% elsif ghes or ghec %} Puedes bifurcar...'
+      const fixed = '{% ifversion ghes or ghec %} Puedes bifurcar...'
+      const ctx = {
+        code: 'es',
+        relativePath: 'data/reusables/repositories/you-can-fork.md',
+        skipOrphanStripping: true,
+      }
+      expect(correctTranslatedContentStrings(broken, '', ctx)).toBe(fixed)
+      // already correct input is unchanged
+      expect(correctTranslatedContentStrings(fixed, '', ctx)).toBe(fixed)
+    })
+
+    test('does not affect other es content', () => {
+      const other = '{% elsif ghes or ghec %} other content'
+      expect(fix(other, 'es')).toBe(other)
+    })
+  })
+
+  describe('fr: stray < before plan name in ifversion', () => {
+    test('removes stray < before plan name in ifversion', () => {
+      expect(fix('{% ifversion <ghec %}foo{% endif %}', 'fr')).toBe(
+        '{% ifversion ghec %}foo{% endif %}',
+      )
+      expect(fix('{% ifversion <fpt %}foo{% endif %}', 'fr')).toBe(
+        '{% ifversion fpt %}foo{% endif %}',
+      )
+      expect(fix('{% elsif <ghes %}foo{% endif %}', 'fr')).toBe('{% elsif ghes %}foo{% endif %}')
+    })
+
+    test('does not affect valid fr ifversion tags', () => {
+      expect(fix('{% ifversion ghec %}foo{% endif %}', 'fr')).toBe(
+        '{% ifversion ghec %}foo{% endif %}',
+      )
+    })
+  })
+
+  describe('fr: translated classroom reusable per-file fix', () => {
+    test('restores canonical reusable tag', () => {
+      const broken = '{% reusable (fr) classroom.vous-pouvez-créer-une-pull-request-pour-retour %}'
+      const fixed = '{% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}'
+      expect(fix(broken, 'fr')).toBe(fixed)
+      // already correct is unchanged
+      expect(fix(fixed, 'fr')).toBe(fixed)
+    })
+  })
+
+  describe('ko: about-READMEs.md per-file fix', () => {
+    test('removes orphan endif before first ifversion', () => {
+      const broken = '파일{% endif %}{% ifversion fpt or ghec %}, 기여'
+      const fixed = '파일{% ifversion fpt or ghec %}, 기여'
+      const ctx = {
+        code: 'ko',
+        relativePath: 'data/reusables/repositories/about-READMEs.md',
+        skipOrphanStripping: true,
+      }
+      expect(correctTranslatedContentStrings(broken, '', ctx)).toBe(fixed)
+      // already correct is unchanged
+      expect(correctTranslatedContentStrings(fixed, '', ctx)).toBe(fixed)
+    })
+
+    test('does not affect other ko content', () => {
+      const other = 'foo{% endif %}{% ifversion fpt or ghec %}, bar'
+      expect(fix(other, 'ko')).toBe(other)
     })
   })
 })

@@ -1,4 +1,5 @@
 import { GetServerSideProps } from 'next'
+import type { Response } from 'express'
 
 import {
   getMainContext,
@@ -37,7 +38,7 @@ export default function SupportedSecretScanningPatterns({
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const req = context.req as unknown as ExtendedRequest
-  const res = context.res as object
+  const res = context.res as unknown as Response
   const mainContext = await getMainContext(req, res)
   addUINamespaces(req, mainContext.data.ui, ['secret_scanning'])
   const automatedPageContext = getAutomatedPageContextFromRequest(req)

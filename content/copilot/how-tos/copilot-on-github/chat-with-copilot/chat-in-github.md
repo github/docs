@@ -19,7 +19,7 @@ redirect_from:
   - /copilot/how-tos/chat-with-copilot/use-chat-in-github
   - /copilot/how-tos/chat-with-copilot/chat-in-github
 contentType: how-tos
-category: 
+category:
   - Author and optimize with Copilot
 ---
 
@@ -68,9 +68,13 @@ The response to your edited question is displayed in a new subthread. An edit co
 
 ### Using images in {% data variables.copilot.copilot_chat_short %}
 
-> [!NOTE] This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
+{% data reusables.copilot.using-images-in-chat %}
 
-You can attach images to your prompts by pasting, dragging, or clicking {% octicon "plus" aria-label="Add attachment" %} in the prompt box and then selecting **{% octicon "file-code" aria-hidden="true" %} Upload from computer**. Select a model that supports images from the model picker. For supported file types and example questions, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/provide-visual-inputs).
+To attach a file, drag and drop it into the prompt box, or click {% octicon "plus" aria-label="Add attachment" %} and select **{% octicon "file-code" aria-hidden="true" %} Upload from computer**. Select a model that supports image input from the model picker.
+
+### Continuing a conversation alongside an agent session
+
+When you start a {% data variables.copilot.copilot_cloud_agent %} task from {% data variables.copilot.copilot_chat_short %}—for example, by asking {% data variables.product.prodname_copilot_short %} to create a pull request or research a repository—you can keep chatting while the {% data variables.copilot.copilot_cloud_agent_short %} session runs. {% data variables.copilot.copilot_chat_short %} reflects the status of the in-progress session and draws on its context, so you can ask follow-up questions about what the agent is doing. When the session is complete, you can ask further questions about the work or start another session from {% data variables.copilot.copilot_chat_short %}. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents).
 
 ### Conversation history and retention
 
@@ -78,4 +82,4 @@ You can attach images to your prompts by pasting, dragging, or clicking {% octic
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/tutorials/using-copilot-to-explore-a-codebase)
+* [AUTOTITLE](/copilot/tutorials/explore-a-codebase)

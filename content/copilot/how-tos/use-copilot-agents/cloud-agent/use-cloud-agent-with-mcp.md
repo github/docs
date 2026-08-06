@@ -16,7 +16,7 @@ category:
 
 ## Starting a session
 
-1. Install the {% data variables.product.github %} MCP Server in your preferred IDE or agentic coding tool. See [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/using-the-github-mcp-server).
+1. Install the {% data variables.product.github %} MCP Server in your preferred IDE or agentic coding tool. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/use-the-github-mcp-server).
 
 1. Ensure the `create_pull_request_with_copilot` tool is enabled.
 

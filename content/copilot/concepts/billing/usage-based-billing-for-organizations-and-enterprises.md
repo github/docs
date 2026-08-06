@@ -40,6 +40,8 @@ A user's included {% data variables.product.prodname_ai_credits_short %} are poo
 
 Adding licenses mid-cycle increases the pool immediately. Removing licenses mid-cycle doesn't shrink the pool: the decrease is reflected at the start of the next billing cycle.
 
+Included {% data variables.product.prodname_ai_credits_short %} do not carry over between months. Unused credits are forfeited, and the pool resets to the full monthly amount at 00:00:00 UTC on the first day of each calendar month. This reset date is fixed and does not change based on when licenses are added, removed, or billed. See [AUTOTITLE](/billing/concepts/billing-cycles#billing-cycles-for-metered-products).
+
 <!-- expires 2026-09-01 -->
 
 ### Promotional amounts for existing customers
@@ -62,18 +64,21 @@ When your pooled {% data variables.product.prodname_ai_credits_short %} are exha
 * **Additional usage allowed**: Usage continues at published per-credit rates. The additional spend is charged to your organization or enterprise.
 * **Additional usage not allowed**: Usage is blocked until the next billing cycle when monthly amounts are refreshed.
 
+> [!NOTE]
+> Additional usage is **enabled by default** for organizations and enterprises. If you want to prevent any spending beyond your included {% data variables.product.prodname_ai_credits_short %}, an administrator must explicitly disable the **{% data variables.product.prodname_ai_credits_short %} paid usage** policy in your enterprise's or organization's AI Controls settings.
+
 If you have set a user-level budget and a user exhausts it, that user's access to {% data variables.product.prodname_copilot_short %} is halted, regardless of whether the organization's pool still has capacity. A user can also be blocked by an enterprise spending limit before they reach their individual user-level budget, if the spending limit runs out first. There is no automatic fallback to lower-cost models when a budget is exhausted. For more information about how these controls interact, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
 
 Additional usage budgets are set in US dollars, and usage is shown in {% data variables.product.prodname_ai_credits_short %}. {% data variables.product.prodname_ai_credits_short %} draw down the budget at a fixed rate: 1 {% data variables.product.prodname_ai_credit_singular %} = {% data variables.product.prodname_ai_credits_value %}, so a $10 USD budget covers 1,000 AI credits.
 
 ## How can I control costs with budgets?
 
-Budget controls let you govern how individual users draw from the shared pool and cap any additional spending once it's exhausted. You can set budgets at four levels:
+Budget controls let you govern how individual users draw from the shared pool and cap any additional spending once it's exhausted. You can set budgets at multiple levels:
 
 * **User-level budgets** cap how much an individual user can consume per billing cycle, from both the shared pool and additional usage. A $0 USD user-level budget blocks the user immediately.
 * **Cost-center budgets** cap metered charges for a defined group of users after the pool is exhausted.
 * **Enterprise spending limits** cap total metered charges across your entire enterprise after the pool is exhausted.
-* **Organization-level budgets** track spending for all repositories in the organization.
+* **Organization-level budgets** cap metered charges for users whose {% data variables.product.prodname_copilot_short %} seats are billed to the organization, after the pool is exhausted.
 
 For a full explanation of how these controls work together and when usage gets blocked, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
 
@@ -90,7 +95,7 @@ For the best experience with usage-based billing, update your IDE, client, and {
 | --- | --- |
 | {% data variables.product.prodname_vscode_shortname %} | 1.120 |
 | {% data variables.product.prodname_vs %} 2022 (17.x) | 17.14.33 |
-| {% data variables.product.prodname_vs %} 2025 (18.x) | 18.6.0 |
+| {% data variables.product.prodname_vs %} 2026 (18.x) | 18.6.0 |
 | SQL Server Management Studio | 22.6 |
 | JetBrains IDEs (plugin) | 1.9.1 |
 | Eclipse (plugin) | 0.18.0 |

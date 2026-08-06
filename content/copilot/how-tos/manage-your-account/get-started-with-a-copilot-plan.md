@@ -82,13 +82,9 @@ If you’re already using {% data variables.copilot.copilot_free_short %} and re
 
 ## Subscribing to {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %}
 
-> [!IMPORTANT]
-> * {% data reusables.copilot.plans.individual-plans-paused %}
-> * {% data reusables.copilot.plans.copilot-max-upgrade-only %}
-
 You can subscribe to {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} at any time to unlock advanced AI features, higher usage limits, and access to additional models.
 
-> [!TIP] Not sure which plan to choose? For a side-by-side comparison, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/about-individual-copilot-plans-and-benefits).
+> [!TIP] Not sure which plan to choose? For a side-by-side comparison, see [AUTOTITLE](/copilot/concepts/billing/individual-plans).
 
 1. Go to the [plans page](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro).
 1. Click **Get started** under the plan you want to subscribe to.
@@ -98,4 +94,19 @@ You can subscribe to {% data variables.copilot.copilot_pro_short %}, {% data var
 
 1. To enable usage beyond your included allowance, select **Yes, I want to enable additional usage for {% data variables.product.prodname_copilot_short %}**. You can change this setting at any time. Click **Save & continue**.
 1. Follow the steps to enter and confirm your billing information and payment details, then click **Submit**.
+
+   During checkout, {% data variables.product.github %} may place a temporary authorization hold on your payment method to verify it. This hold is not the subscription charge.
+
+   If payment method verification does not succeed, or if you do not complete the activation step on the next screen, your plan will not activate.
+
 1. After reviewing your plan details, click **Activate {% data variables.copilot.copilot_pro_short %}/{% data variables.copilot.copilot_pro_plus_short %}/{% data variables.copilot.copilot_max_short %}**.
+
+## Troubleshooting
+
+### Account still shows {% data variables.copilot.copilot_free_short %} after checkout
+
+If the plan does not appear after following the checkout steps [when subscribing](#subscribing-to-copilot-pro-copilot-pro-or-copilot-max), follow these further steps to confirm and recover your subscription.
+
+1. Confirm that the plan appears in your {% data variables.product.prodname_copilot %} settings or in your personal account settings under **Billing & licensing**. For more information, see [AUTOTITLE](/copilot/how-tos/manage-your-account/view-and-change-your-copilot-plan).
+1. If payment method verification failed or you did not complete the activation step, retry the checkout flow.
+1. If you completed activation and the plan still does not appear, contact {% data variables.contact.contact_support_page %}.

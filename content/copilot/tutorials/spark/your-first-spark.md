@@ -4,7 +4,7 @@ shortTitle: Your first spark
 intro: 'Learn how to build your first {% data variables.product.prodname_spark %} app in minutes, without writing any code.'
 versions:
   feature: spark
-product: 'Anyone with a {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_max_short %}, or {% data variables.copilot.copilot_enterprise_short %} license can use {% data variables.product.prodname_spark_short %}.'
+product: 'Anyone with a {% data variables.copilot.copilot_pro_plus_short %} or {% data variables.copilot.copilot_enterprise_short %} license can use {% data variables.product.prodname_spark_short %}.'
 redirect_from:
   - /copilot/tutorials/building-your-first-app-in-minutes-with-github-spark
   - /copilot/tutorials/spark/easy-apps-with-spark
@@ -17,9 +17,13 @@ category:
 Have you ever had a great idea for an app, but you didn't have the tools to build it? With the help of AI, you can now bring your app ideas to life in minutes using only natural language. In this article, we'll use {% data variables.product.prodname_spark %} to build, improve, and share a word search app without writing a single line of code ourselves.
 
 > [!NOTE]
-> {% data reusables.spark.preview-note-spark %}
+> {% data reusables.copilot.spark-deprecation %}
+
 
 ## Creating a prototype of your app
+
+> [!NOTE]
+> {% data reusables.spark.preview-note-spark %}
 
 Let's start by generating an initial, basic version of our app that we can build on later.
 
@@ -89,5 +93,5 @@ We just created a word search app, but {% data variables.product.prodname_spark_
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-spark)
-* [AUTOTITLE](/copilot/concepts/copilot-billing/about-billing-for-github-spark)
+* [AUTOTITLE](/copilot/responsible-use/agents)
+* [AUTOTITLE](/billing/concepts/product-billing/github-spark)

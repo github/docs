@@ -4,10 +4,13 @@ shortTitle: Spark
 intro: 'Learn about building and deploying intelligent apps with natural language using {% data variables.product.prodname_spark %}.'
 versions:
   feature: spark
+product: '{% data variables.copilot.copilot_pro_plus_short %} and {% data variables.copilot.copilot_enterprise_short %}'
 contentType: concepts
 category: 
   - Learn about Copilot
 ---
+
+{% data reusables.copilot.spark-deprecation %}
 
 ## Overview
 
@@ -136,6 +139,6 @@ By default, your spark's data store is shared for all users of the published spa
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/responsible-use/spark)
+* [AUTOTITLE](/copilot/responsible-use/agents)
 * [AUTOTITLE](/copilot/tutorials/spark/build-apps-with-spark)
 * [AUTOTITLE](/copilot/how-tos/troubleshoot-copilot/troubleshoot-spark)

@@ -34,7 +34,7 @@ category:
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the sidebar, under "Code, planning, and automation", click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**.
    * Click **Policies** to edit the policies that control privacy and availability of features.
    * Click **Models** to edit the policies that control availability of models beyond the basic models provided with {% data variables.product.prodname_copilot_short %}, which may incur additional costs.
 1. For each policy you want to configure, click the dropdown menu and select an enforcement option.
@@ -73,6 +73,4 @@ If your organization has a {% data variables.copilot.copilot_business_short %} o
 
 * [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-default-models)
 * [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-availability-of-default-models)
-* [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page)
-* [AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions)
-* [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise)
+* [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies)

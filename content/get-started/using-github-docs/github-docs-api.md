@@ -20,7 +20,7 @@ The Article endpoint returns the Markdown content and metadata of any {% data va
 The Article endpoint accepts the following query parameter:
 
 * `pathname` (required): The article path, including a language prefix such as `/en/` or `/ja/`.
-  * For example, `/en/get-started/start-your-journey/about-github-and-git`.
+  * For example, `/en/get-started/start-your-journey/what-is-github`.
 
 In addition, `GET /api/article` and `GET /api/article/body` accept the following optional query parameter:
 
@@ -31,7 +31,7 @@ In addition, `GET /api/article` and `GET /api/article/body` accept the following
 `GET https://docs.github.com/api/article/body` returns the full article content as Markdown.
 
 ```shell
-curl "https://docs.github.com/api/article/body?pathname=/en/get-started/start-your-journey/about-github-and-git"
+curl "https://docs.github.com/api/article/body?pathname=/en/get-started/start-your-journey/what-is-github"
 ```
 
 To access a versioned article (for example, for {% data variables.product.prodname_ghe_cloud %}), include the version in the path:
@@ -45,7 +45,7 @@ curl "https://docs.github.com/api/article/body?pathname=/en/enterprise-cloud@lat
 `GET https://docs.github.com/api/article/meta` returns metadata about an article as JSON, including the title, intro, product area, document type, and breadcrumbs.
 
 ```shell
-curl "https://docs.github.com/api/article/meta?pathname=/en/get-started/start-your-journey/about-github-and-git"
+curl "https://docs.github.com/api/article/meta?pathname=/en/get-started/start-your-journey/what-is-github"
 ```
 
 ### Getting content and metadata together
@@ -53,7 +53,7 @@ curl "https://docs.github.com/api/article/meta?pathname=/en/get-started/start-yo
 `GET https://docs.github.com/api/article` returns both metadata and the article body in a single JSON response, combining the results of the body and meta endpoints.
 
 ```shell
-curl "https://docs.github.com/api/article?pathname=/en/get-started/start-your-journey/about-github-and-git"
+curl "https://docs.github.com/api/article?pathname=/en/get-started/start-your-journey/what-is-github"
 ```
 
 ## Pagelist endpoint

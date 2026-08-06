@@ -38,4 +38,4 @@ Teachers are not eligible for the partner offers that come with the [{% data var
 
 ## Further reading
 
-* [AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)
+* [AUTOTITLE](/education/about-github-education/github-education-for-teachers/apply-to-github-education-as-a-teacher)

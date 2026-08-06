@@ -86,6 +86,6 @@ If you're not sure how best to distribute licenses, {% data variables.product.co
 
 For detailed guidance, see:
 
-* [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/driving-copilot-adoption-in-your-company)
-* [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/setting-up-a-self-serve-process-for-github-copilot-licenses)
-* [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/reminding-inactive-users)
+* [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/enable-developers/drive-adoption)
+* [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/assign-licenses/set-up-self-serve-licenses)
+* [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/assign-licenses/remind-inactive-users)

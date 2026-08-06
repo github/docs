@@ -2,9 +2,9 @@
 title: Local CLI setup
 shortTitle: Local CLI
 intro: >-
-  Use a specific CLI binary instead of the SDK's bundled CLI. This is an
-  advanced option—you supply the CLI path explicitly, and you are responsible
-  for ensuring version compatibility with the SDK.
+  Use a specific CLI binary instead of the SDK's automatic CLI management. This
+  is an advanced option—you supply the CLI path explicitly, and you are
+  responsible for ensuring version compatibility with the SDK.
 versions:
   fpt: '*'
   ghec: '*'
@@ -16,7 +16,7 @@ contentType: how-tos
 <!-- markdownlint-disable GHD046 GHD005 -->
 <!-- Suppressed: GHD046 (outdated release terminology), GHD005 (hardcoded data variable) -->
 
-**Use when:** You need to pin a specific CLI version, or work with the Go SDK (which does not bundle a CLI).
+**Use when:** You need to pin a specific CLI version, or work with the Go SDK (which does not include a CLI automatically).
 
 ## How it works
 
@@ -44,7 +44,7 @@ const client = new CopilotClient({
     cliPath: "/usr/local/bin/copilot",
 });
 
-const session = await client.createSession({ model: "gpt-4.1" });
+const session = await client.createSession({ model: "gpt-5.4" });
 const response = await session.sendAndWait({ prompt: "Hello!" });
 console.log(response?.data.content);
 
@@ -56,7 +56,7 @@ await client.stop();
 
 ```python
 from copilot import CopilotClient
-from copilot.generated.session_events import AssistantMessageData
+from copilot.session_events import AssistantMessageData
 from copilot.session import PermissionHandler
 
 client = CopilotClient({
@@ -64,7 +64,7 @@ client = CopilotClient({
 })
 await client.start()
 
-session = await client.create_session(on_permission_request=PermissionHandler.approve_all, model="gpt-4.1")
+session = await client.create_session(on_permission_request=PermissionHandler.approve_all, model="gpt-5.4")
 response = await session.send_and_wait("Hello!")
 if response:
     match response.data:
@@ -78,7 +78,7 @@ await client.stop()
 {% codetab go %}
 
 > [!NOTE]
-> The Go SDK does not bundle a CLI, so you must always provide `Connection`.
+> The Go SDK does not ship a CLI automatically. Install `copilot` on `PATH`, set the `COPILOT_CLI_PATH` environment variable, embed a CLI with the [bundler tool](https://github.com/github/copilot-sdk/tree/main/go/README.md#distributing-your-application-with-an-embedded-github-copilot-cli), or point `StdioConnection.Path` at an installed binary.
 
 ```golang
 package main
@@ -101,7 +101,7 @@ func main() {
 	}
 	defer client.Stop()
 
-	session, _ := client.CreateSession(ctx, &copilot.SessionConfig{Model: "gpt-4.1"})
+	session, _ := client.CreateSession(ctx, &copilot.SessionConfig{Model: "gpt-5.4"})
 	response, _ := session.SendAndWait(ctx, copilot.MessageOptions{Prompt: "Hello!"})
 	if response != nil {
 		if d, ok := response.Data.(*copilot.AssistantMessageData); ok {
@@ -120,7 +120,7 @@ if err := client.Start(ctx); err != nil {
 }
 defer client.Stop()
 
-session, _ := client.CreateSession(ctx, &copilot.SessionConfig{Model: "gpt-4.1"})
+session, _ := client.CreateSession(ctx, &copilot.SessionConfig{Model: "gpt-5.4"})
 response, _ := session.SendAndWait(ctx, copilot.MessageOptions{Prompt: "Hello!"})
 if response != nil {
     if d, ok := response.Data.(*copilot.AssistantMessageData); ok {
@@ -139,7 +139,7 @@ var client = new CopilotClient(new CopilotClientOptions
 });
 
 await using var session = await client.CreateSessionAsync(
-    new SessionConfig { Model = "gpt-4.1" });
+    new SessionConfig { Model = "gpt-5.4" });
 
 var response = await session.SendAndWaitAsync(
     new MessageOptions { Prompt = "Hello!" });
@@ -187,7 +187,7 @@ Sessions default to ephemeral. To create resumable sessions, provide your own se
 // Create a named session
 const session = await client.createSession({
     sessionId: "my-project-analysis",
-    model: "gpt-4.1",
+    model: "gpt-5.4",
 });
 
 // Later, resume it

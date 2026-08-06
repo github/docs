@@ -69,4 +69,4 @@ Questions you submit in a space count as {% data variables.copilot.copilot_chat_
 
 ## Next steps
 
-To start using {% data variables.copilot.copilot_spaces_short %}, see [AUTOTITLE](/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces).
+To start using {% data variables.copilot.copilot_spaces_short %}, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/copilot-spaces/create-copilot-spaces).

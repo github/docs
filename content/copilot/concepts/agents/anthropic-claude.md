@@ -27,4 +27,4 @@ When starting a task with the {% data variables.product.prodname_anthropic_claud
 * Auto
 {% data reusables.copilot.anthropic-claude-agent-models %}
 
-If you select **Auto**, {% data variables.copilot.copilot_auto_model_selection %} will select the best model based on availability and to help reduce rate limiting. For more information, see [AUTOTITLE](/copilot/concepts/auto-model-selection).
+If you select **Auto**, {% data variables.copilot.copilot_auto_model_selection %} will select the best model based on availability and to help reduce rate limiting. For more information, see [AUTOTITLE](/copilot/concepts/models/auto-model-selection).

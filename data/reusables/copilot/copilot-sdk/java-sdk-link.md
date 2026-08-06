@@ -1,1 +1,0 @@
-For Java, see the [`github/copilot-sdk-java` repository](https://github.com/github/copilot-sdk-java).

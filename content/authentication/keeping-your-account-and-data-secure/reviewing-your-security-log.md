@@ -34,7 +34,7 @@ The events listed in your security log are triggered by your actions. Actions ar
 |  {% ifversion fpt or ghec %} |
 | `billing` | Contains all activities related to your billing information. |
 | `codespaces` | Contains all activities related to {% data variables.product.prodname_github_codespaces %}. For more information, see [AUTOTITLE](/codespaces/quickstart). |
-| `copilot` | Contains all activities related to {% data variables.copilot.copilot_business_short %}. For more information, see [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot). |
+| `copilot` | Contains all activities related to {% data variables.copilot.copilot_business_short %}. For more information, see [AUTOTITLE](/copilot/get-started/what-is-github-copilot). |
 | `marketplace_agreement_signature` | Contains all activities related to signing the {% data variables.product.prodname_marketplace %} Developer Agreement. |
 | `marketplace_listing`| Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}. |
 |  {% endif %} |
@@ -44,7 +44,7 @@ The events listed in your security log are triggered by your actions. Actions ar
 |  {% ifversion fpt or ghec %} |
 | `payment_method` | Contains all activities related to paying for your {% data variables.product.prodname_dotcom %} subscription.
 |  {% endif %} |
-| `personal_access_token` | Contains activities related to {% data variables.product.pat_v2 %}s. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). |
+| `personal_access_token` | Contains activities related to {% data variables.product.pat_v2 %}s. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens). |
 | `profile_picture`| Contains all activities related to your profile picture. |
 | `project` | Contains all activities related to {% data variables.projects.projects_v2 %}. |
 | `public_key` | Contains all activities related to [your public SSH keys](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account). |

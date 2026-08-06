@@ -4,7 +4,7 @@ intro: Get reminders in Slack when you or your team have pull requests waiting f
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>= 3.17'
+  ghes: '*'
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-your-scheduled-reminders
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/managing-your-scheduled-reminders

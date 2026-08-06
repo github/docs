@@ -48,6 +48,14 @@ const modelsAndPricingSchema = {
             type: 'string',
             lintable: true,
           },
+          threshold: {
+            type: 'string',
+            lintable: true,
+          },
+          tier: {
+            type: 'string',
+            lintable: true,
+          },
           cache_write: {
             type: 'string',
             lintable: true,

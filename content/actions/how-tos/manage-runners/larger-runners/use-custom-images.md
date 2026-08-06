@@ -31,7 +31,7 @@ Before you can create custom images, make sure the following requirements are me
   * Manage organization hosted runner custom images
   * Manage organization runners and runner groups
 
-  For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles).
+  For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles).
 
 ## Setting up an image-generation runner
 
@@ -39,11 +39,12 @@ To create a custom image, you must first set up an image-generation runner. When
 
 1. Create a {% data variables.actions.hosted_runner %}:
    * For organizations, see [Adding a larger runner to an organization](/actions/how-tos/manage-runners/larger-runners/manage-larger-runners#adding-a-larger-runner-to-an-organization).
-   * For enterprises, see [Adding a larger runner to an enterprise](/actions/how-tos/manage-runners/larger-runners/manage-larger-runners#adding-a-larger-runner-to-an-enterprise).
+   * For enterprises, see [Adding a larger runner to an enterprise](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}actions/how-tos/manage-runners/larger-runners/manage-larger-runners#adding-a-larger-runner-to-an-enterprise).
 1. When configuring the runner, select the following configurations for your image-generation runner:
    * **Platform**: Select a supported platform that matches the platform of the image you plan to create (Linux x64, Linux ARM64, or Windows x64).
    * **Image**: Select an image to build on, then enable the checkbox **Enable this runner to generate custom images**.
      * You can start from a {% data variables.product.github %}-owned image or choose a base image to start from a clean OS.
+     * You can start from an existing custom image as the base, enabling layered image workflows.
      * For ARM64 platforms, you can also select an ARM-maintained image with preinstalled tooling.
    * **Runner group**: Select the group for your runner to be a member of. Once the custom image is created, only runners in this runner group can generate new versions of that image.
 
@@ -58,7 +59,7 @@ To configure a workflow for image generation:
   * Each successful run of a job that includes the `snapshot` keyword creates a new version of that image.
 
  > [!NOTE]
- > {% data variables.product.company_short %} recommends configuring image generation as a scheduled workflow on a weekly basis. This approach ensures dependencies remain up-to-date and have the latest security patches. For more information, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#schedule).
+ > {% data variables.product.company_short %} recommends configuring image generation as a scheduled workflow on a weekly basis. This approach ensures dependencies remain up-to-date and have the latest security patches. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
 
 It can take some time for your image to be fully generated and ready to use after the workflow completes. Provisioning time varies based on runner size and configuration, and may take several hours for larger runners.
 
@@ -94,6 +95,24 @@ jobs:
       # Add any steps to download and setup any dependencies here
 ```
 
+### Conditionals
+
+The `snapshot` keyword supports conditional execution using the `if` keyword around the snapshot mapping. You can use conditions to control when an image snapshot is created. For example, the following job skips image creation for tag builds.
+
+```yaml
+jobs: 
+  build:
+    runs-on: my-image-generation-runner
+    snapshot: 
+        if: {% raw %}${{ ! startsWith(github.ref, 'refs/tags/') }}{% endraw %}
+        image-name: my-custom-image
+        version: 2.*
+    steps:
+      # Add any steps to download and setup any dependencies here
+```
+
+For more information about the `if` keyword, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-when-workflows-run/control-jobs-with-conditions).
+
 ## Versioning
 
 When you generate custom images, {% data variables.product.github %} automatically assigns version numbers to help you manage updates and track image history.
@@ -121,6 +140,12 @@ If you specify an older major version in the YAML (for example, version: 1.* whe
 > [!NOTE]
 > {% data variables.actions.github_hosted_larger_runner %} creation does not support wildcards in image version selection.
 
+## Expiration for images built from custom images
+
+When a custom image is built from another custom image, the derived image inherits the expiration timeline of its base image. The maximum version age is calculated from when the base custom image was built, not when the derived image was created.
+
+For example, if Custom Image A is built on Day 2 and Custom Image B is built from A on Day 4 with a 7-day maximum version age policy, both A and B expire on Day 9.
+
 ## Billing and storage for custom images
 
 Jobs that use custom images are billed at the same per-minute rate as the {% data variables.actions.hosted_runner %} that uses the image. Storage for custom images is billed separately through {% data variables.product.prodname_actions %} storage.
@@ -143,7 +168,7 @@ Once your custom image is ready, you can install it on a new {% data variables.a
 
 1. Follow the steps for creating a {% data variables.actions.hosted_runner %}:
    * For organizations, see [Adding a larger runner to an organization](/actions/how-tos/manage-runners/larger-runners/manage-larger-runners#adding-a-larger-runner-to-an-organization).
-   * For enterprises, see [Adding a larger runner to an enterprise](/actions/how-tos/manage-runners/larger-runners/manage-larger-runners#adding-a-larger-runner-to-an-enterprise).
+   * For enterprises, see [Adding a larger runner to an enterprise](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}actions/how-tos/manage-runners/larger-runners/manage-larger-runners#adding-a-larger-runner-to-an-enterprise).
 1. When configuring the runner:
    * **Platform**: Select the same platform that you used to generate the image (Linux x64, Linux ARM64, or Windows x64).
    * **Image**: Select the **Custom** tab, then choose your custom image from the list.

@@ -12,7 +12,7 @@ contentType: concepts
 ---
 
 > [!NOTE]
-> Agent skills work with {% data variables.copilot.copilot_cloud_agent %}, {% data variables.copilot.copilot_code-review_short %}, the {% data variables.copilot.copilot_cli %}, and agent mode in {% data variables.product.prodname_vscode %}.
+> Agent skills work with {% data variables.copilot.copilot_cloud_agent %}, {% data variables.copilot.copilot_code-review_short %}, the {% data variables.copilot.copilot_cli %}, the {% data variables.copilot.github_copilot_app %}, and agent mode in {% data variables.product.prodname_vscode %} and {% data variables.jetbrains.prodname_jetbrains_ides %}.
 
 ## About agent skills
 
@@ -20,19 +20,18 @@ Agent skills are folders of instructions, scripts, and resources that {% data va
 
 You can create your own skills to teach {% data variables.product.prodname_copilot_short %} to perform tasks in a specific, repeatable way—or use skills shared online, for example in the [`anthropics/skills`](https://github.com/anthropics/skills) repository or {% data variables.product.company_short %}'s community-created [`github/awesome-copilot`](https://github.com/github/awesome-copilot) collection. 
 
-You can also use `gh skill` in {% data variables.product.prodname_cli %} to discover and install skills from {% data variables.product.github %} repositories. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/add-skills#managing-skills-with-github-cli).
+You can also use `gh skill` in {% data variables.product.prodname_cli %} to discover and install skills from {% data variables.product.github %} repositories. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills#managing-skills-with-github-cli).
 
 {% data variables.product.prodname_copilot_short %} supports:
 
 * Project skills, stored in your repository (`.github/skills`, `.claude/skills`, or `.agents/skills`)
 * Personal skills, stored in your home directory and shared across projects (`~/.copilot/skills` or `~/.agents/skills`)
 
-Support for organization-level and enterprise-level skills is coming soon.
-
 ## Next steps
 
 To create or add agent skills, see:
 
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/add-skills)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills)
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-skills)
+* [AUTOTITLE](/copilot/how-tos/github-copilot-app/customize-github-copilot-app)
 * [AUTOTITLE](/copilot/reference/customization-cheat-sheet)

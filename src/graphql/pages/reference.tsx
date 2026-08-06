@@ -1,4 +1,5 @@
 import { GetServerSideProps } from 'next'
+import type { Response } from 'express'
 
 import { GraphqlCategoryPage, type CategorySchema } from '@/graphql/components/GraphqlCategoryPage'
 import {
@@ -8,6 +9,7 @@ import {
   addUINamespaces,
 } from '@/frame/components/context/MainContext'
 import type { ObjectT } from '@/graphql/components/types'
+import type { ExtendedRequest } from '@/types/types'
 import { AutomatedPage } from '@/automated-pipelines/components/AutomatedPage'
 import {
   AutomatedPageContext,
@@ -55,10 +57,14 @@ export default function GraphqlReferencePage({
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const { getGraphqlSchema, getAllGraphqlObjects } = await import('@/graphql/lib/index')
 
-  const req = context.req as any
-  const res = context.res as any
-  const language = req.context.currentLanguage as string
-  const currentVersion = req.context.currentVersion as string
+  const req = context.req as unknown as ExtendedRequest
+  const res = context.res
+  const ctx = req.context
+  if (!ctx?.currentLanguage || !ctx?.currentVersion) {
+    throw new Error('Request is missing currentLanguage or currentVersion in context')
+  }
+  const language: string = ctx.currentLanguage
+  const currentVersion: string = ctx.currentVersion
   const page = context.query.page as string
 
   if (!isValidCategory(page)) {
@@ -109,7 +115,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     })
   }
 
-  const mainContext = await getMainContext(req, res)
+  const mainContext = await getMainContext(req, res as unknown as Response)
   addUINamespaces(req, mainContext.data.ui, ['graphql'])
 
   return {

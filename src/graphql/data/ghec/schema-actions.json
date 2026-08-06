@@ -256,6 +256,13 @@
           ]
         },
         {
+          "name": "displayTitle",
+          "description": "<p>The human-readable title of the workflow run.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
           "name": "event",
           "description": "<p>The event that triggered the workflow run.</p>",
           "type": "String!",
@@ -327,6 +334,13 @@
           "type": "URI!",
           "id": "uri",
           "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "runAttempt",
+          "description": "<p>The attempt number of this workflow run.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
         },
         {
           "name": "runNumber",

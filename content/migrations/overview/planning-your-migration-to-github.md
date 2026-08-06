@@ -62,7 +62,7 @@ If you’re migrating from {% data variables.product.prodname_ghe_cloud %} or {%
 {% data reusables.enterprise-migration-tool.gh-repo-stats-not-supported %}
 
 {% ifversion fpt or ghec %}
-If you’re migrating from Azure DevOps, we recommend the `inventory-report` command in the {% data variables.product.prodname_ado2gh_cli %}. The `inventory-report` command will connect with the Azure DevOps API, then build a simple CSV with some of the fields suggested above. For more information about how to install the {% data variables.product.prodname_ado2gh_cli %}, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/migrating-repositories-from-azure-devops-to-github-enterprise-cloud).
+If you’re migrating from Azure DevOps, we recommend the `inventory-report` command in the {% data variables.product.prodname_ado2gh_cli %}. The `inventory-report` command will connect with the Azure DevOps API, then build a simple CSV with some of the fields suggested above. For more information about how to install the {% data variables.product.prodname_ado2gh_cli %}, see [AUTOTITLE](/migrations/ado/migrate-your-repositories-from-azure-devops-to-github).
 {% endif %}
 
 If you’re migrating from Bitbucket Server or Bitbucket Data Center, we recommend the `inventory-report` command in the {% data variables.product.prodname_bbs2gh_cli %}. The `inventory-report` command will use your Bitbucket instance's API to build a simple CSV. For more information about how to install the {% data variables.product.prodname_bbs2gh_cli %}, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/migrating-repositories-from-bitbucket-server-to-github-enterprise-cloud).
@@ -150,7 +150,7 @@ In {% data variables.product.prodname_dotcom %}, each repository belongs to an o
 
 Whether you’re adopting {% data variables.product.prodname_dotcom %} for the first time or already using {% data variables.product.prodname_dotcom %}, pause to consider the most effective structure for your organizations and repositories after your migration. The design you choose can maximize collaboration and discovery and minimize administrative burden, or it can create unnecessary silos and administrative overhead.
 
-We recommend that you minimize the number of organizations and structure them according to one of five archetypes. For detailed guidance, see [AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/best-practices-for-structuring-organizations-in-your-enterprise).
+We recommend that you minimize the number of organizations and structure them according to one of five archetypes. For detailed guidance, see [AUTOTITLE](/admin/concepts/enterprise-best-practices/organize-work).
 
 ## Performing a dry run migration for every repository
 
@@ -188,7 +188,7 @@ If you’re moving between {% data variables.product.company_short %} products, 
 
 If you’re not using {% data variables.product.prodname_actions %}, the situation is more complicated. If you plan to continue using the same CI/CD provider, you'll need to check that the provider is compatible with {% data variables.product.prodname_dotcom %}, and connect the provider to your new organization and repositories.
 
-If you're planning to switch to {% data variables.product.prodname_actions %}, we do not recommend doing so at the same time that you migrate your repositories. Instead, wait until a later date, and perform your CI/CD migration as a separate step. This makes the migration process more manageable. When you're ready to migrate, see [AUTOTITLE](/actions/migrating-to-github-actions).
+If you're planning to switch to {% data variables.product.prodname_actions %}, we do not recommend doing so at the same time that you migrate your repositories. Instead, wait until a later date, and perform your CI/CD migration as a separate step. This makes the migration process more manageable. When you're ready to migrate, see [AUTOTITLE](/actions/tutorials/migrate-to-github-actions).
 
 ### Migrating integrations
 

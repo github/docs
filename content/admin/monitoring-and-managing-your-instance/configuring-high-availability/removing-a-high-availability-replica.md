@@ -45,4 +45,4 @@ category:
    ```
 
   > [!NOTE]
-  > If you have {% data variables.product.prodname_actions %} enabled, you should decommission the former replica server or update its {% data variables.product.prodname_actions %} configuration to use different external storage. For more information, see [AUTOTITLE](/admin/github-actions/advanced-configuration-and-troubleshooting/high-availability-for-github-actions#high-availability-replicas).
+  > If you have {% data variables.product.prodname_actions %} enabled, you should decommission the former replica server or update its {% data variables.product.prodname_actions %} configuration to use different external storage. For more information, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/high-availability-for-github-actions#high-availability-replicas).

@@ -19,7 +19,7 @@ contentType: reference
 
 > [!NOTE]
 > * Different models consume {% data variables.product.prodname_ai_credits_short %} at different rates based on their token pricing. For details, see [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing).
-> * {% data reusables.copilot.auto-model-selection %}
+> * Choosing the **Auto** option when selecting a model automatically selects the optimum model for your task, based on model availability and task complexity.  If you are on a paid {% data variables.product.prodname_copilot_short %} plan, you qualify for a discount on model costs when you use the **Auto** option. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
 
 ### Recommended models by task
 
@@ -39,6 +39,7 @@ Use these models for common development tasks that require a balance of quality,
 |---------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | {% data variables.copilot.copilot_gpt_53_codex %} | Delivers higher-quality code on complex engineering tasks like features, tests, debugging, refactors, and reviews without lengthy instructions. |
 | {% data variables.copilot.copilot_gpt_5_mini %}   | Reliable default for most coding and writing tasks. Fast, accurate, and works well across languages and frameworks.                             |
+| {% data variables.copilot.copilot_gpt_56_terra %} | Balanced all-round choice for everyday interactive and agentic coding.                                                                          |
 | {% data variables.copilot.copilot_raptor_mini %}  | Specialized for fast, accurate inline suggestions and explanations.                                        |
 | {% data variables.copilot.copilot_mai_code_1_flash %} | Strong instruction-following and adaptive reasoning make it a reliable default for everyday coding tasks, writing, and multi-turn development workflows. |
 
@@ -63,6 +64,7 @@ These models are optimized for speed and responsiveness. They’re ideal for qui
 
 | Model                                                 | Why it's a good fit                                                                                        |
 |-------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| {% data variables.copilot.copilot_gpt_56_luna %}      | Lightweight, cost-efficient option for smaller, faster tasks. The lowest-cost model in the GPT-5.6 family. |
 | {% data variables.copilot.copilot_claude_haiku_45 %}  | Balances fast responses with quality output. Ideal for small tasks and lightweight code explanations.      |
 | {% data variables.copilot.copilot_mai_code_1_flash %} | Handles quick coding tasks with adaptive efficiency, stays concise for simple requests and delivers fast, accurate responses without unnecessary depth. |
 
@@ -90,6 +92,7 @@ These models are designed for tasks that require step-by-step reasoning, complex
 |-------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | {% data variables.copilot.copilot_gpt_5_mini %}       | Delivers deep reasoning and debugging with faster responses and lower resource usage than GPT-5. Ideal for interactive sessions and step-by-step code analysis. |
 | {% data variables.copilot.copilot_gpt_55 %}           | Great at complex reasoning, code analysis, and technical decision-making.                                                                                       |
+| {% data variables.copilot.copilot_gpt_56_sol %}       | The highest reasoning ceiling in the GPT-5.6 family. Best for complex reasoning over large codebases and demanding, long-running agentic work. |
 | {% data variables.copilot.copilot_claude_sonnet_46 %} | Improves on Sonnet 4.5 with more reliable completions and smarter reasoning under pressure.                                                                     |
 | {% data variables.copilot.copilot_claude_opus_47 %}   | Anthropic’s most powerful model. Improves on {% data variables.copilot.copilot_claude_opus_46 %}.                                                               |
 | {% data variables.copilot.copilot_gemini_31_pro %}    | Advanced reasoning across long contexts and scientific or technical analysis.                                                                                   |
@@ -128,7 +131,7 @@ Use one of these models if you want to:
 * Understand front-end behavior from visual context.
 
 > [!TIP]
-> If you're using a model in a context that doesn’t support image input (like a code editor), you won’t see visual reasoning benefits. You may be able to use an MCP server to get access to visual input indirectly. See [AUTOTITLE](/copilot/customizing-copilot/using-model-context-protocol/extending-copilot-chat-with-mcp).
+> If you're using a model in a context that doesn’t support image input (like a code editor), you won’t see visual reasoning benefits. You may be able to use an MCP server to get access to visual input indirectly. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp).
 
 ### When to use a different model
 
@@ -138,9 +141,9 @@ If your task involves deep reasoning or large-scale refactoring, consider a mode
 
 [^mai-code-1-flash]: {% data variables.copilot.copilot_mai_code_1_flash %} is a continuously improving model. Performance and behavior may evolve over time as new checkpoints are released.
 
-Choosing the right model helps you get the most out of {% data variables.product.prodname_copilot_short %}. If you're not sure which model to use, start with a general-purpose option like {% data variables.copilot.copilot_gpt_41 %}, then adjust based on your needs.
+Choosing the right model helps you get the most out of {% data variables.product.prodname_copilot_short %}. If you're not sure which model to use, start with a general-purpose option like {% data variables.copilot.copilot_gpt_5_mini %}, then adjust based on your needs.
 
-* For detailed model specs and pricing, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/supported-ai-models-in-copilot).
-* For more examples of how to use different models, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/comparing-ai-models-using-different-tasks).
-* To switch between models, refer to [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat) or [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-completion-model).
+* For detailed model specs and pricing, see [AUTOTITLE](/copilot/reference/ai-models/supported-models).
+* For more examples of how to use different models, see [AUTOTITLE](/copilot/tutorials/compare-ai-models).
+* To switch between models, refer to [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-chat-model) or [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-completion-model).
 * To learn how {% data variables.copilot.copilot_chat_short %} serves different AI models, see [AUTOTITLE](/copilot/reference/ai-models/model-hosting).

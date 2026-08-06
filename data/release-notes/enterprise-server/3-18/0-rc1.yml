@@ -232,8 +232,8 @@ sections:
     - |
       The entry for Private Registries in the organization settings menu is not visible unless Dependabot is enabled.
     - |
-      Customers operating at high scale or near capacity may experience unexpected performance degradation, such as slow response times, background job queue spikes, elevated CPU usage, and increased MySQL load. Consider upgrading to {% ifversion ghes = 3.16 %}3.16{% endif %} {% ifversion ghes = 3.17 %}3.17{% endif %} {% ifversion ghes = 3.18 %}3.18{% endif %} with caution.
-  
+      Customers operating at high scale or near capacity may experience unexpected performance degradation, such as slow response times, background job queue spikes, elevated CPU usage, and increased MySQL load. Consider upgrading to {% ifversion ghes = 3.17 %}3.17 {% endif %}{% ifversion ghes = 3.18 %}3.18 {% endif %}with caution.
+
   closing_down:
     # https://github.com/github/releases/issues/5177
     - |

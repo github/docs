@@ -26,7 +26,7 @@ For more information, see [AUTOTITLE](/webhooks/about-webhooks) and [AUTOTITLE](
 
 To disable a repository webhook, you can deactivate or delete it. You must be a repository owner, or have admin access in the repository, to disable webhooks.
 
-You can use the {% data variables.product.github %} web interface or the REST API to delete a webhook for a repository. For more information about using the REST API to delete a repository webhook, see [AUTOTITLE](/rest/webhooks/repos#delete-a-repository-webhook).
+You can use the {% data variables.product.github %} web interface or the REST API to delete a webhook for a repository. For more information about using the REST API to delete a repository webhook, see [AUTOTITLE](/rest/repos/webhooks#delete-a-repository-webhook).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

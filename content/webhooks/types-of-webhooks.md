@@ -31,7 +31,7 @@ You can create webhooks in a repository to subscribe to events that occur in tha
 
 You can create multiple webhooks in a single repository. However, you can only create up to {% ifversion ghes %}250{% else %}20{% endif %} webhooks that subscribe to each individual event type. For example, in a single repository you could only create up to {% ifversion ghes %}250{% else %}20{% endif %} different webhooks that each subscribe to the `push` event.
 
-You can use the {% data variables.product.github %} web interface or the REST API to manage repository webhooks. For more information, see [AUTOTITLE](/webhooks/using-webhooks/creating-webhooks#creating-a-repository-webhook), [AUTOTITLE](/webhooks/using-webhooks/editing-webhooks#editing-a-repository-webhook), and [AUTOTITLE](/webhooks/using-webhooks/disabling-webhooks#disabling-a-repository-webhook). For more information about using the REST API to manage repository webhooks, see [AUTOTITLE](/rest/webhooks).
+You can use the {% data variables.product.github %} web interface or the REST API to manage repository webhooks. For more information, see [AUTOTITLE](/webhooks/using-webhooks/creating-webhooks#creating-a-repository-webhook), [AUTOTITLE](/webhooks/using-webhooks/editing-webhooks#editing-a-repository-webhook), and [AUTOTITLE](/webhooks/using-webhooks/disabling-webhooks#disabling-a-repository-webhook). For more information about using the REST API to manage repository webhooks, see [AUTOTITLE](/rest/repos/webhooks).
 
 ## Organization webhooks
 

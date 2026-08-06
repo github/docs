@@ -18,9 +18,11 @@ category:
   - Manage Copilot for a team
 ---
 
-Before optimizing your budget configuration, make sure you understand how the four budget controls work and how the system evaluates them. See [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
+Before optimizing your budget configuration, make sure you understand how budget controls work and how the system evaluates them. See [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
 
 If you haven't set up budgets yet, start with [AUTOTITLE](/copilot/tutorials/budgets/getting-started-with-budget-controls) to get the basics in place, then come back to this guide to optimize your configuration.
+
+To decide between managing cost centers using the user interface or the REST API see [AUTOTITLE](/billing/tutorials/control-costs-at-scale).
 
 ## Sizing your budgets
 
@@ -28,18 +30,40 @@ The relationship between user-level budgets (ULB) and other budgets is the most 
 
 Here's how to estimate:
 
-1. Calculate the maximum total consumption your user-level budgets allow: multiply the number of regular users by the universal ULB, then add the sum of any individual ULB overrides.
+1. Calculate the maximum total consumption your user-level budgets allow. For users on the universal budget, multiply their number by the universal ULB. Add the total for any cost center user-level budgets—the per-user amount multiplied by the number of users in each cost center. Then add the sum of any individual ULB overrides.
 1. Calculate your pool value: multiply your {% data variables.copilot.copilot_business_short %} seats by {% data variables.copilot.cfb_price_per_month %} and your {% data variables.copilot.copilot_enterprise_short %} seats by {% data variables.copilot.ce_price_per_month %}, then add them together.
 1. Subtract the pool value from the maximum total consumption. The result is the maximum metered charges your budgets need to cover.
 
 If you also use cost center budgets, the sum of your cost center budgets and your enterprise budget should cover the gap. The enterprise budget applies to users not assigned to a cost center.
 
+If you want each cost center to stay within the {% data variables.product.prodname_ai_credits_short %} its own licenses fund, apply an included usage control to that cost center. This automatically caps the team's draw from the shared pool, so heavy use by one team doesn't consume another team's share before metered budgets apply. See [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing#included-usage-controls-for-cost-centers).
+
 > [!TIP]
 > Whenever you raise user-level budgets, re-check this calculation. Raising ULBs without raising the enterprise budget can cause the enterprise budget to block users before they reach their individual budgets.
 
+## Choosing a scope
+
+For most enterprises, we recommend **cost center budgets with users directly assigned**. When users are assigned directly to a cost center, charges always follow the user, so enforcement is predictable regardless of how licenses are structured.
+
+| Scope | Use when | Who can set it |
+| --- | --- | --- |
+| Cost center budget | You want predictable organization-level spending control as an enterprise admin. | Enterprise owners, billing managers |
+| Organization budget | Organization owners need to set their own spending limits without enterprise admin involvement. | Organization owners |
+| Enterprise budget | You need a failsafe that caps total metered charges for all users not covered by a narrower budget. | Enterprise owners, billing managers |
+
+If users in your enterprise have {% data variables.product.prodname_copilot_short %} licenses from multiple organizations, both organization budgets and cost centers that only contain organizations (not users) will enforce unpredictably. The billing organization is chosen at random each cycle, so spend may count against a different budget from month to month. Assigning users directly to cost centers avoids this problem.
+
+### Migrating from organization budgets to cost centers
+
+If your enterprise already has organization budgets, they will continue to work. However, if you have users with {% data variables.product.prodname_copilot_short %} licenses assigned through multiple organizations, migrating to cost centers with direct user assignment gives more predictable enforcement.
+
+1. Create cost centers and assign users directly (not just organizations).
+1. Set cost center budgets matching your desired spending caps.
+1. Remove the organization budgets once cost center budgets are in place.
+
 ## Common scenarios
 
-The following scenarios show common budget configurations for different enterprise structures. Each one builds on the previous, adding more controls. Start with the simplest configuration that matches your needs. You can layer on additional controls later as your usage patterns become clearer.
+The following scenarios show common budget configurations for different enterprise structures.
 
 ### Manage shared usage responsibly
 
@@ -61,6 +85,7 @@ This is the simplest configuration and a good starting point for most enterprise
 **Configuration:**
 
 * Create **cost centers** scoped to each organization. See [AUTOTITLE](/billing/how-tos/products/use-cost-centers).
+* Apply an **included usage control** to each cost center so a business unit can't draw more of the shared pool than the included {% data variables.product.prodname_ai_credits_short %} its own licenses fund, choosing whether to block or allow paid overage at the cap.
 * Set a **cost center budget** for each business unit.
 * Set an **enterprise budget** as a failsafe for any users not assigned to a cost center.
 * Enable **"Stop usage when budget limit is reached"** on all budgets.
@@ -68,6 +93,20 @@ This is the simplest configuration and a good starting point for most enterprise
 With this configuration, each business unit has its own metered spending cap. When a cost center's budget runs out, only users in that cost center are blocked, other business units are unaffected. The enterprise budget catches any users who aren't assigned to a cost center.
 
 Consider enabling **cost center exclusion** if you want business units to operate independently of the enterprise budget. This allows cost center users to keep spending even if the enterprise budget reaches $0 USD, but it means their metered charges are only capped by their own cost center budget.
+
+### Differentiate per-user limits by team
+
+**Situation:** Different departments need different per-user limits, for example, engineering needs more capacity per developer than marketing, but you don't want to manage thousands of individual budgets.
+
+**Configuration:**
+
+* Create **cost centers** for each department and assign users directly. See [AUTOTITLE](/billing/how-tos/products/use-cost-centers).
+* Set a **cost center user-level budget** for each department to give every member of that cost center the same per-user limit.
+* Set **individual user-level budget overrides** for any specific users who need a different limit than their department's default.
+* Set an **enterprise budget** as a failsafe for metered charges.
+* Enable **"Stop usage when budget limit is reached"** on the enterprise budget.
+
+A cost center user-level budget sets one per-user amount that applies to every current and future member of the cost center, so you can adjust a department's limit in one place instead of editing budgets user by user. Precedence runs from most specific to least specific: an individual budget overrides a cost center user-level budget, which overrides the universal budget.
 
 ### Power users within business units
 
@@ -83,6 +122,20 @@ Consider enabling **cost center exclusion** if you want business units to operat
 * Enable **"Stop usage when budget limit is reached"** on all budgets.
 
 This is the most granular configuration. It combines per-user controls (who can consume how much), per-team controls (how much metered spend each business unit can generate), and an enterprise-wide safety net. Use this when you have a mix of usage patterns across teams and need fine-grained governance.
+
+### Delegating control to organization owners
+
+**Situation:** Organization owners need to set their own spending guardrails without involving an enterprise admin.
+
+**Configuration:**
+
+* Each organization owner sets an **organization budget** for their organization.
+* The enterprise admin sets an **enterprise budget** as a safety net.
+* Enable **"Stop usage when budget limit is reached"** on all budgets.
+
+Organization budgets are the only budget option available to organization owners. An organization budget can only further restrict usage below any budget set by an enterprise admin. It cannot override a higher-level budget.
+
+If users in your enterprise have {% data variables.product.prodname_copilot_short %} licenses assigned through multiple organizations, organization budgets may not enforce predictably for those users. In this case, {% data variables.product.github %} picks one organization at random each billing cycle to bill the seat. This means the user's spend could count against a different organization's budget from month to month, making enforcement unpredictable. To avoid this, ensure each user has a single license through one organization, or use cost center budgets with direct user assignment.
 
 ## Using historical data to size budgets
 

@@ -62,5 +62,5 @@ After you configure content exclusion, the client (for example, the {% data vari
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/how-tos/content-exclusion/excluding-content-from-github-copilot)
-* [AUTOTITLE](/copilot/how-tos/content-exclusion/reviewing-changes-to-content-exclusions-for-github-copilot)
+* [AUTOTITLE](/copilot/how-tos/configure-content-exclusion/exclude-content-from-copilot)
+* [AUTOTITLE](/copilot/how-tos/configure-content-exclusion/review-changes)

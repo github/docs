@@ -114,62 +114,36 @@ function extractSourceNotes(yamlPath: string): SourceNote[] {
 }
 
 /**
- * Calculate the next weekday (Mon–Fri) at least `days` calendar days from now.
- * If the resulting date lands on a weekend, it rolls forward to Monday.
- */
-function getReviewDeadline(days: number): string {
-  const date = new Date()
-  date.setDate(date.getDate() + days)
-  const day = date.getDay()
-  if (day === 0) date.setDate(date.getDate() + 1) // Sunday → Monday
-  if (day === 6) date.setDate(date.getDate() + 2) // Saturday → Monday
-  return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
-}
-
-/**
  * Build the comment body for a release issue notification.
  */
 export function buildCommentBody(
   version: string,
   rc: boolean,
   prNumber: number,
-  relativeFilePath: string,
-  reviewDate?: string,
+  assignees: string[],
 ): string {
   const releaseType = rc ? 'RC' : 'GA'
   const prUrl = `https://github.com/github/docs-internal/pull/${prNumber}`
   const fileUrl = `${prUrl}/files`
-  const deadline = reviewDate
-    ? new Date(`${reviewDate}T00:00:00`).toLocaleDateString('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric',
-      })
-    : getReviewDeadline(10)
 
-  // Use a marker so we can identify our comments later (for check-release-approvals).
+  // Use a marker so we can identify our comments later (for duplicate-prevention).
   // Include releaseType so RC and GA comments are distinguishable.
   const marker = buildMarker(version, releaseType.toLowerCase() as 'rc' | 'ga')
+
+  const mentions = assignees.length > 0 ? `${assignees.map((a) => `@${a}`).join(' ')} ` : ''
 
   return `${marker}
 ### GHES ${version} ${releaseType} release note review
 
-Hello! A release note has been created for this feature by the Docs team assisted by Copilot. If you'd like to review it:
+👋 ${mentions}A Copilot-generated release note has been added in [docs-internal PR #${prNumber}](${fileUrl}).
 
-1. [**Review the note in the PR**](${fileUrl}) (search for this issue's URL within \`${relativeFilePath}\`)
-2. If the note looks good, **react to this comment with 🚀**.
-3. If it needs changes, suggest edits directly in the PR, then **react with 🚀** to this comment when you're done.
+You're welcome to edit it in the PR. If you do nothing, the note will be published after review from a Docs team member.
 
-We ask that you submit any changes by **${deadline}** to help ensure timely release notes.
-
-The 🚀 tells us you've completed your review. If we don't hear from you, we'll go ahead with this note.
-
-If you think this issue should **not** have a release note, please let us know in [#docs-ghes-releases](https://github-grid.enterprise.slack.com/archives/C0AQ37XBK7D).`
+Any questions, ask in [#docs-ghes-releases](https://github-grid.enterprise.slack.com/archives/C0AQ37XBK7D).`
 }
 
 /**
  * Build the marker string used to identify notification comments.
- * Must stay in sync with check-release-approvals.
  */
 export function buildMarker(version: string, releaseType: 'rc' | 'ga'): string {
   return `<!-- ghes-release-note-review: ${version}-${releaseType} -->`
@@ -339,7 +313,21 @@ program
 
       for (let i = 0; i < toNotify.length; i++) {
         const note = toNotify[i]
-        const commentBody = buildCommentBody(release, rc, prNumber, relativeFilePath, reviewDate)
+        // Fetch assignees (or fall back to issue author) for the release issue
+        let assignees: string[] = []
+        try {
+          const raw = ghRead(['api', `repos/github/releases/issues/${note.issueNumber}`])
+          const issue = JSON.parse(raw)
+          assignees = (issue.assignees || []).map((a: { login: string }) => a.login)
+          // Fall back to the issue author unless they're a bot
+          if (assignees.length === 0 && issue.user?.login && issue.user.type !== 'Bot') {
+            assignees = [issue.user.login]
+          }
+        } catch {
+          // If we can't fetch the issue, post without mentions
+        }
+
+        const commentBody = buildCommentBody(release, rc, prNumber, assignees)
 
         const label = `[${i + 1}/${toNotify.length}] #${note.issueNumber}`
 

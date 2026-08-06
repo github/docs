@@ -13,6 +13,9 @@ category:
   - Build with Copilot CLI # Copilot CLI bespoke page
 ---
 
+> [!NOTE]
+> The `/every` and `/after` commands are currently experimental features and are only available if you have used the `/experimental on` slash command, or the `‑‑experimental` command line option.
+
 In an interactive {% data variables.copilot.copilot_cli_short %} session you can schedule a prompt to be submitted automatically. This is useful when you want {% data variables.product.prodname_copilot_short %} to repeat a task at a regular cadence or to perform a one-off task after a delay, without you having to remember to submit the prompt manually.
 
 There are two slash commands for this:
@@ -41,6 +44,9 @@ The prompt will be submitted after the interval you specified has elapsed and th
 ```copilot
 /every 30m check for new comments on my open pull requests
 ```
+
+> [!NOTE]
+> `/loop` is an alias of `/every`. So you can enter `/loop` instead of `/every`, if you prefer, and the effect is the same.
 
 ## Scheduling a once-only prompt with `/after`
 

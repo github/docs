@@ -5,7 +5,10 @@ import sharp from 'sharp'
 
 import type { ExtendedRequest } from '@/types'
 import { assetCacheControl, defaultCacheControl } from '@/frame/middleware/cache-control'
-import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
+import {
+  setFastlySurrogateKey,
+  makeLanguageSurrogateKey,
+} from '@/frame/middleware/set-fastly-surrogate-key'
 import { createLogger } from '@/observability/logger'
 
 const logger = createLogger(import.meta.url)
@@ -170,7 +173,7 @@ export default async function dynamicAssets(
   // it could be that the next prod deployment fixes the missing image.
   // For example, a PR landed that introduced the *reference* to the image
   // but forgot to check in the new image, then a follow-up PR adds the image.
-  setFastlySurrogateKey(res, SURROGATE_ENUMS.DEFAULT)
+  setFastlySurrogateKey(res, makeLanguageSurrogateKey(), true)
 
   // Don't use something like `next(404)` because we don't want a fancy
   // HTML "Page not found" page response because a failed asset lookup

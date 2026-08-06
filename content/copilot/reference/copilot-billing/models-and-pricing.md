@@ -31,14 +31,15 @@ All prices are **per 1 million tokens**.
 
 ### OpenAI
 
-| Model | Release status | Category | Input | Cached input | Output |
-| --- | --- | --- | ---: | ---: | ---: |
-| {% for entry in tables.copilot.models-and-pricing %}{% if entry.provider == "openai" %} |
-| {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
-| {% endif %}{% endfor %} |
+{% data reusables.copilot.extended-context-pricing %}
 
-[^1]: {% data variables.copilot.copilot_gpt_41 %} and {% data variables.copilot.copilot_gpt_5_mini %} are included models.
-[^2]: {% data variables.copilot.copilot_gpt_54 %} pricing applies to prompts with ≤272K tokens.
+{% data variables.copilot.copilot_gpt_56_sol %}, {% data variables.copilot.copilot_gpt_56_terra %}, and {% data variables.copilot.copilot_gpt_56_luna %} include a cache write cost in addition to cached input. Earlier OpenAI models have no cache write cost.
+
+| Model | Release status | Category | Tier | Threshold (input tokens) | Input | Cached input | Cache write | Output |
+| --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: |
+| {% for entry in tables.copilot.models-and-pricing %}{% if entry.provider == "openai" %} |
+| {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.tier }} | {{ entry.threshold }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.cache_write }} | {{ entry.output }} |
+| {% endif %}{% endfor %} |
 
 ### Anthropic
 
@@ -52,14 +53,13 @@ Anthropic models include a cache write cost in addition to cached input.
 
 ### Google
 
-| Model | Release status | Category | Input | Cached input | Output |
-| --- | --- | --- | ---: | ---: | ---: |
-| {% for entry in tables.copilot.models-and-pricing %}{% if entry.provider == "google" %} |
-| {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
-| {% endif %}{% endfor %} |
+{% data reusables.copilot.extended-context-pricing %}
 
-[^5]: {% data variables.copilot.copilot_gemini_25_pro %} and {% data variables.copilot.copilot_gemini_31_pro %} pricing applies to prompts with ≤200K tokens.
-[^6]: {% data variables.copilot.copilot_gemini_3_flash %} has no long-context surcharge.
+| Model | Release status | Category | Tier | Threshold (input tokens) | Input | Cached input | Output |
+| --- | --- | --- | --- | --- | ---: | ---: | ---: |
+| {% for entry in tables.copilot.models-and-pricing %}{% if entry.provider == "google" %} |
+| {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.tier }} | {{ entry.threshold }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
+| {% endif %}{% endfor %} |
 
 ### Fine-tuned ({% data variables.product.github %})
 
@@ -69,13 +69,29 @@ Anthropic models include a cache write cost in addition to cached input.
 | {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
 | {% endif %}{% endfor %} |
 
-[^7]: {% data variables.copilot.copilot_raptor_mini %} uses {% data variables.copilot.copilot_gpt_5_mini %} pricing.
-
 ### Microsoft
 
 | Model | Release status | Category | Input | Cached input | Output |
 | --- | --- | --- | ---: | ---: | ---: |
 | {% for entry in tables.copilot.models-and-pricing %}{% if entry.provider == "microsoft" %} |
+| {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
+| {% endif %}{% endfor %} |
+
+### xAI
+
+{% data reusables.copilot.extended-context-pricing %}
+
+| Model | Release status | Category | Tier | Threshold (input tokens) | Input | Cached input | Output |
+| --- | --- | --- | --- | --- | ---: | ---: | ---: |
+| {% for entry in tables.copilot.models-and-pricing %}{% if entry.provider == "xai" %} |
+| {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.tier }} | {{ entry.threshold }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
+| {% endif %}{% endfor %} |
+
+### Moonshot AI
+
+| Model | Release status | Category | Input | Cached input | Output |
+| --- | --- | --- | ---: | ---: | ---: |
+| {% for entry in tables.copilot.models-and-pricing %}{% if entry.provider == "moonshot_ai" %} |
 | {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
 | {% endif %}{% endfor %} |
 
@@ -98,4 +114,6 @@ You can view your current {% data variables.product.prodname_actions %} usage fo
 
 ## Model multipliers for annual {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %} subscribers
 
-{% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %} subscribers on **existing annual billing plans** using the **request-based billing** model have different model multipliers. See [AUTOTITLE](/copilot/reference/copilot-billing/model-multipliers-for-annual-plans).
+{% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %} subscribers on **existing annual billing plans** using the **request-based billing** model have different model multipliers. See [AUTOTITLE](/copilot/reference/copilot-billing/request-based-billing-legacy/model-multipliers-for-annual-plans).
+
+[^sonnet-5-promo]: {% data variables.copilot.copilot_claude_sonnet_5 %} is available at the promotional pricing of $2.00 per 1M input tokens, $0.20 per 1M cached input tokens, $2.50 per 1M cache write tokens, and $10.00 per 1M output tokens through August 31, 2026. 
