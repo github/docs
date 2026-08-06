@@ -2,7 +2,7 @@
 title: About autofix for code scanning
 shortTitle: Autofix
 allowTitleToDifferFromFilename: true
-intro: 'Autofix provides targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts and avoid introducing new security vulnerabilities.'
+intro: 'Autofix automatically generates fixes for {% data variables.product.prodname_code_scanning %} alerts, helping you remediate existing vulnerabilities.'
 product: '{% data reusables.rai.code-scanning.gated-feature-autofix %}'
 versions:
   feature: code-scanning-autofix
