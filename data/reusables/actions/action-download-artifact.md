@@ -1,1 +1,1 @@
-actions/download-artifact@{% ifversion artifacts-v3-deprecation %}v5{% else %}v3{% endif %}
+actions/download-artifact@{% ifversion artifacts-v3-deprecation %}v6{% else %}v3-node20{% endif %}
