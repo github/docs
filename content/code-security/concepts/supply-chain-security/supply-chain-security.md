@@ -180,7 +180,7 @@ When you use {% data variables.product.prodname_actions %} to generate attestati
 * **{% data variables.product.prodname_dependabot_security_updates %}:** Not enabled by default. You can enable {% data variables.product.prodname_dependabot_security_updates %} for any repository that uses {% data variables.product.prodname_dependabot_alerts %} and the dependency graph. For information about enabling security updates, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates).
 * **{% data variables.product.prodname_dependabot_version_updates %}:** Not enabled by default. People with write permissions to a repository can enable {% data variables.product.prodname_dependabot_version_updates %}. For information about enabling version updates, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates).
 * **Immutable releases:** Not enabled by default. You can enable release immutability for a repository or organization. See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/preventing-changes-to-your-releases).
-* **Artifact attestations:** Available in all public repositories, but you must explicitly generate attestations in your build workflows. Only available in private repositories on {% data variables.product.prodname_ghe_cloud %}. See [AUTOTITLE](/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations).
+* **Artifact attestations:** Available for {% data variables.product.prodname_ghe_cloud %} and must be explicitly enabled in workflows. See [AUTOTITLE](/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations).
 {% endif %}
 
 {% ifversion ghes %}
