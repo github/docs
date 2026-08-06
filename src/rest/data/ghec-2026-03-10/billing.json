@@ -662,10 +662,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
+          }
+        ]
       }
     },
     {
