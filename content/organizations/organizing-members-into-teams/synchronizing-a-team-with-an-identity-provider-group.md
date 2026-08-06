@@ -41,6 +41,8 @@ To manage repository access for any {% data variables.product.github %} team, in
 
 {% ifversion ghec %}You can also manage team synchronization with the API. For more information, see [AUTOTITLE](/rest/teams/team-sync).{% endif %}
 
+If you are managing a team's membership with an IdP group, you cannot assign the team maintainer role to a member of that team. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member).
+
 {% ifversion ghec %}
 
 ## Requirements for members of synchronized teams

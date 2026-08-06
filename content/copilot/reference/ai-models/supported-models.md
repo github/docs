@@ -104,10 +104,12 @@ The following table lists AI models that are retired or scheduled for retirement
 | Model name                                                  | Retirement date             | Suggested alternative             |
 |-------------------------------------------------------------|-----------------------------|-----------------------------------|
 | {% for model in tables.copilot.model-deprecation-history %} |
-| {{ model.name }}                                            | {{ model.retirement_date }} | {{ model.suggested_alternative }} |
+| {{ model.name }}{% if model.name == 'Claude Sonnet 4.6' %}[^claude-sonnet-46-annual]{% endif %} | {{ model.retirement_date }} | {{ model.suggested_alternative }} |
 | {% endfor %}                                                |
 
 {% endrowheaders %}
+
+[^claude-sonnet-46-annual]: {% data variables.copilot.copilot_claude_sonnet_46 %} remains available to individual {% data variables.product.prodname_copilot_short %} subscribers on annual plans. The retirement of {% data variables.copilot.copilot_claude_sonnet_46 %} does not apply to these subscribers.
 
 ## Supported AI models per client
 

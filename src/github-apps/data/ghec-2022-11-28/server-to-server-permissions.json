@@ -525,6 +525,23 @@
       }
     ]
   },
+  "enterprise_billing": {
+    "title": "Enterprise billing",
+    "displayTitle": "Enterprise permissions for \"Enterprise billing\"",
+    "permissions": [
+      {
+        "category": "billing",
+        "slug": "get-all-budgets",
+        "subcategory": "budgets",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/settings/billing/budgets",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
   "enterprise_credentials": {
     "title": "Enterprise credentials",
     "displayTitle": "Enterprise permissions for \"Enterprise credentials\"",
@@ -2007,6 +2024,17 @@
         "subcategory": "orgs",
         "verb": "delete",
         "requestPath": "/orgs/{org}/interaction-limits",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "interactions",
+        "slug": "get-pull-request-creation-cap-for-an-org",
+        "subcategory": "orgs",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/interaction-limits/pulls/creation-cap",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -5595,6 +5623,17 @@
       },
       {
         "category": "actions",
+        "slug": "get-runner-version-end-of-life-schedule-for-an-organization",
+        "subcategory": "self-hosted-runners",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/runners/deprecations/{version}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
         "slug": "list-runner-applications-for-an-organization",
         "subcategory": "self-hosted-runners",
         "verb": "get",
@@ -6734,6 +6773,17 @@
         "subcategory": "self-hosted-runners",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/actions/runners",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "get-runner-version-end-of-life-schedule-for-a-repository",
+        "subcategory": "self-hosted-runners",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/runners/deprecations/{version}",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,

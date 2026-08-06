@@ -35,9 +35,6 @@ The following is an overview of repository properties you can set up which affec
 | `github-codeql-extra-queries` | Text |
 | `github-codeql-disable-overlay` | True/false |
 | `github-codeql-file-coverage-on-prs` | True/false |
-| {% ifversion codeql-config-property %} |
-| `github-codeql-tools` | Text |
-| {% endif %} |
 
 > [!NOTE]
 > The repository properties which are supported depend on the version of the [github/codeql-action](https://github.com/github/codeql-action/) that is used by your {% data variables.product.prodname_code_scanning %} analyses. For {% data variables.product.prodname_code_scanning %} advanced setup, check that your workflow is referencing the latest major version. {% data variables.product.prodname_code_scanning_caps %} default setup automatically uses the latest version.{% ifversion ghes %} If the server on which you are running {% data variables.product.prodname_ghe_server %} is not connected to the internet, you may need to use the {% data variables.product.prodname_codeql %} action sync tool. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access).{% endif %}
@@ -58,14 +55,6 @@ A value specified for the `github-codeql-config-file` property will apply to bot
 {% endif %}
 
 The `github-codeql-extra-queries` property allows you to configure additional queries that should be run. This is useful to add queries to all relevant analyses in your organization without needing to modify individual workflows or switch to an advanced setup. This accepts the same values as the `queries` input of the [github/codeql-action](https://github.com/github/codeql-action/). See [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options).
-
-{% ifversion codeql-config-property %}
-
-By default, {% data variables.product.prodname_code_scanning %} analyses use the latest released version of CodeQL. It is not generally recommended to change this, unless you are running into a specific issue that is resolved by switching to a different version. If you do need to change this, the `github-codeql-tools` property allows you to specify a different version.
-
-If an advanced setup workflow specifies an explicit input for the `tools` parameter of the `codeql-action/init` action, then that input will take precedence over the value configured in the repository property. This allows advanced workflows to use different configurations than those applied to default setup workflows, if desired. To enforce the value of the repository property to advanced setup workflows even if they have an explicit `tools` input, add a `!` prefix to the value of the repository property. For example, `!nightly` enforces that all workflows use the latest `nightly` release.
-
-{% endif %}
 
 ### Enabling or disabling features
 

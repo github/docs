@@ -10,7 +10,7 @@ children:
   - /pull-requests
   - /stacked-pull-requests
   - /stacked-prs-cli-commands
-  - /stacked-pull-requests-rest-and-graphql-apis
+  - /stacked-pull-requests-apis-and-webhooks
   - /branches
   - /forks
   - /commits

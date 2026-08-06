@@ -23,6 +23,8 @@ When multiple settings sources are present, settings earlier in this list take p
 1. File-based settings
 1. User-level settings
 
+In {% data variables.copilot.copilot_cli_short %}, the `sandbox` key is an exception to these precedence rules. Managed sandbox restrictions from MDM-managed, server-managed, and file-based settings combine with one another and with the user's sandbox settings in the most restrictive direction.
+
 ## Supported keys
 
 {% rowheaders %}
@@ -30,12 +32,13 @@ When multiple settings sources are present, settings earlier in this list take p
 | Key | Purpose | {% data variables.copilot.copilot_cli_short %} | {% data variables.product.prodname_vscode_shortname %} | {% data variables.copilot.github_copilot_app %} | {% data variables.copilot.copilot_cloud_agent %} |
 | --- | --- | --- | --- | --- | --- |
 | `permissions.disableBypassPermissionsMode` | Disables bypass or YOLO-style allow-all behavior | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| `permissions.model` | Sets auto model selection as the default for new conversations | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `permissions.model` | Sets auto model selection as the default for new conversations | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | `enabledPlugins` | Enables or disables specific plugins by key | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | `extraKnownMarketplaces` | Adds plugin marketplaces that users can access | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | `strictKnownMarketplaces` | Restricts plugin installation to explicitly listed marketplaces | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | `telemetry` | Configures OpenTelemetry export, routing {% data variables.product.prodname_copilot_short %} usage data to a collector of your choice | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | `remoteControl` | Restricts whether sessions hosted on this device can be remotely controlled, based on the controlling client's SSO authorization status for the listed organizations. Doesn't affect the user's ability to remotely control sessions hosted on other devices | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `sandbox` | Enforces minimum local sandbox restrictions for command execution, filesystem and network access, credentials, and local MCP and LSP servers | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 
 {% endrowheaders %}
 
@@ -90,6 +93,12 @@ The following example shows these keys in one managed settings file.
   "remoteControl": {
     "mode": "requireSSO",
     "githubDotComOrganizations": ["ORG-NAME"]
+  },
+  "sandbox": {
+    "enabled": true,
+    "allowBypass": false,
+    "sandboxMcpServers": true,
+    "sandboxLspServers": true
   }
 }
 ```
@@ -164,3 +173,46 @@ Restricts whether {% data variables.product.prodname_copilot_short %} sessions h
 
 * `mode`: Set to `"disabled"` to prevent remote control of sessions on the device, `"requireSSO"` to only allow remote control from a client that is SSO-authorized for the organizations listed in `githubDotComOrganizations`, or `"enabled"` to allow it unrestricted.
 * `githubDotComOrganizations`: An array of organization logins. Required when `mode` is `"requireSSO"`.
+
+## `sandbox`
+
+Enforces minimum local sandbox restrictions for {% data variables.copilot.copilot_cli_short %}. Managed sandbox settings impose restrictions rather than defaults:
+
+* For force-on settings, a managed value of `true` enforces the setting. `false` or omission leaves the user's configuration unchanged.
+* For capability settings, a managed value of `false` prohibits the capability. `true` or omission leaves the user's configuration unchanged.
+* Managed read/write and read-only path lists restrict user-configured grants, while managed denied paths add to user-configured denials.
+
+The following sub-properties are supported:
+
+* `enabled`: `true` requires sandboxing and prevents users from disabling it.
+* `allowBypass`: `false` prevents the model from requesting that an individual command run outside the sandbox.
+* `addCurrentWorkingDirectory`: `false` prevents {% data variables.copilot.copilot_cli_short %} from automatically adding the current working directory to the sandbox's read/write paths.
+* `sandboxMcpServers`: `true` requires local MCP servers started by {% data variables.copilot.copilot_cli_short %} to run in the sandbox. Remote MCP servers do not run in the local sandbox.
+* `sandboxLspServers`: `true` requires language servers started by {% data variables.copilot.copilot_cli_short %} to run in the sandbox.
+* `gitAuth`: `false` prevents {% data variables.copilot.copilot_cli_short %} from injecting a {% data variables.product.github %} token for authenticated Git HTTPS operations in the sandbox.
+* `ghAuth`: `false` prevents {% data variables.copilot.copilot_cli_short %} from injecting a {% data variables.product.github %} token for {% data variables.product.prodname_cli %} in the sandbox.
+* `allowDevToolAccess`: `false` prevents automatic access to development-tool configuration, caches, registries, and toolchains. These locations can contain package registry credentials or tokens. Disabling access can cause package restoration, authenticated registry operations, or builds that use shared caches to fail unless you explicitly grant the required paths.
+* `userPolicy`: An object that configures filesystem, network, and macOS-specific Seatbelt restrictions. The supported properties are described in the following sections.
+
+### `sandbox.userPolicy.filesystem`
+
+Configures filesystem access for sandboxed processes. Paths should be absolute. Managed grant lists are matched against user-configured lists by exact path string, not by parent or child path coverage.
+
+* `readwritePaths`: An array of paths that sandboxed processes can read and write. A user-configured path remains available only if its exact string also appears in every managed source that specifies this property. An empty managed array removes all user-configured read/write path grants, but does not remove access assembled separately, such as temporary directories or the current working directory.
+* `readonlyPaths`: An array of paths that sandboxed processes can read but not write. A user-configured path remains available only if its exact string also appears in every managed source that specifies this property. An empty managed array removes all user-configured read-only path grants, but does not remove access assembled separately.
+* `deniedPaths`: An array of paths that sandboxed processes cannot access. A managed value adds to, rather than replaces, a user's denied paths.
+
+### `sandbox.userPolicy.network`
+
+Configures network access for sandboxed processes.
+
+* `allowOutbound`: `false` blocks outbound network access.
+* `allowLocalNetwork`: `false` prevents access to the local network.
+
+Network behavior varies by operating system. In particular, a proxy is not a complete egress-control boundary because some applications can ignore proxy settings.
+
+### `sandbox.userPolicy.seatbelt`
+
+Configures macOS-specific Seatbelt options.
+
+* `keychainAccess`: `false` prevents sandboxed processes from accessing the macOS Keychain.

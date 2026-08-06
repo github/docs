@@ -785,6 +785,15 @@
       },
       {
         "category": "interactions",
+        "slug": "get-pull-request-creation-cap-for-an-org",
+        "subcategory": "orgs",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/interaction-limits/pulls/creation-cap",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "interactions",
         "slug": "update-pull-request-creation-cap-for-an-org",
         "subcategory": "orgs",
         "verb": "patch",
