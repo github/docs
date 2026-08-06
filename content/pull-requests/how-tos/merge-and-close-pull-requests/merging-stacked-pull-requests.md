@@ -27,7 +27,7 @@ The merge box for a stacked pull request shows the status of the entire stack, n
 If the stack is not linear, for example, after changes were pushed to a lower branch or after the trunk moved ahead, a **Rebase stack** button will appear in the merge box and you'll need to rebase the stack before you can merge.
 
 > [!NOTE]
-> * If you merge via the API and want to use stacked pull requests, you'll need to update your code to use the new merge API for stacks. See [AUTOTITLE](/rest/pulls/pulls?apiVersion=2026-03-10#merge-a-pull-request-asynchronously).
+> * If you merge via the API and want to use stacked pull requests, you'll need use the asynchronous merge API for stacks. See [AUTOTITLE](/rest/pulls/pulls?apiVersion=2026-03-10#merge-a-pull-request-asynchronously).
 > * Auto-merge is not supported for stacked pull requests.
 
 ## Merging using a merge queue

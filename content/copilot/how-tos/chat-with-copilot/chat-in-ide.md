@@ -25,6 +25,8 @@ category:
 
 This guide describes how to use {% data variables.copilot.copilot_chat_short %} and agents to automate coding tasks by breaking them into steps, using tools to read files, edit code, and run commands, and self-correcting when something goes wrong. You can also ask general questions about software development, or specific questions about the code in your project. For more information, see [AUTOTITLE](/copilot/concepts/chat).
 
+To learn how to use {% data variables.product.prodname_copilot_short %} for agent-driven workflows in a desktop app, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/getting-started).
+
 <!-- --------------------- -->
 <!-- VS Code -->
 <!-- --------------------- -->
@@ -213,7 +215,7 @@ To leave feedback about the {% data variables.copilot.copilot_chat %} extension,
 ## Further reading
 
 * [AUTOTITLE](/copilot/concepts/prompting/prompt-engineering)
-* [Using {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/copilot-chat) and [Getting started with {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/getting-started) in the {% data variables.product.prodname_vscode %} documentation
+* [Using {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/copilot-chat) in the {% data variables.product.prodname_vscode %} documentation
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents)
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github)
 * [AUTOTITLE](/copilot/responsible-use/chat)

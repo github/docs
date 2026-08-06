@@ -8,6 +8,7 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from 'react'
 import { NavList } from '@primer/react-brand'
@@ -20,6 +21,22 @@ import { SidebarExpandStateProvider, useSidebarExpandState } from './useSidebarE
 import { flattenDescendants, MAX_NAVLIST_LEVEL } from './sidebar-navlist-depth'
 
 import styles from './SidebarProduct.module.scss'
+
+// The nearest ancestor that actually scrolls vertically. Brand's NavList.SubNav
+// wrappers use `overflow-y: hidden`, so match only auto/scroll to skip past them
+// and land on the sidebar's own overflow container. Returns null when the rail is
+// hidden (below the xxl breakpoint it is `display: none`, so nothing scrolls).
+function findScrollableAncestor(element: Element): HTMLElement | null {
+  let node = element.parentElement
+  while (node) {
+    const { overflowY } = getComputedStyle(node)
+    if ((overflowY === 'auto' || overflowY === 'scroll') && node.scrollHeight > node.clientHeight) {
+      return node
+    }
+    node = node.parentElement
+  }
+  return null
+}
 
 type Router = ReturnType<typeof useRouter>
 
@@ -148,6 +165,7 @@ export const SidebarProduct = () => {
     [routePath, pendingHref, navigate, prefetch],
   )
   const restNavValue = useMemo<RestNavValue>(() => ({ asPath, query }), [asPath, query])
+  const rootRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     // Clear the optimistic highlight if a navigation genuinely fails, so it doesn't
@@ -165,13 +183,22 @@ export const SidebarProduct = () => {
     // Brand NavList auto-expands the whole ancestor chain of the active item, so
     // scroll to the item marked aria-current="page" (the active article) rather
     // than the top-most expanded section.
-    const activeArticle = document.querySelector('[aria-current="page"]')
+    const activeArticle = rootRef.current?.querySelector('[aria-current="page"]')
+    if (!activeArticle) return
+
+    // Scroll the sidebar's own overflow container by hand. `scrollIntoView` would
+    // scroll every scrollable ancestor, including the document, which cancels the
+    // browser's scroll to a #anchor on load and leaves the reader at the top of
+    // the article. See BreadcrumbsScroller for the same approach.
+    const container = findScrollableAncestor(activeArticle)
+    if (!container) return
+
+    const containerRect = container.getBoundingClientRect()
+    const activeRect = activeArticle.getBoundingClientRect()
     // Setting to the top doesn't give enough context of surrounding categories
-    activeArticle?.scrollIntoView({ block: 'center' })
-    // scrollIntoView affects some articles that are very low in the sidebar
-    // The content scrolls down a bit. This sets the article content back up
-    // top unless the route contains a link heading.
-    if (!router.asPath.includes('#')) window?.scrollTo(0, 0)
+    const delta =
+      activeRect.top - containerRect.top - (container.clientHeight - activeRect.height) / 2
+    container.scrollBy({ top: delta, behavior: 'instant' })
   }, [])
 
   if (!sidebarTree) {
@@ -221,7 +248,7 @@ export const SidebarProduct = () => {
   }
 
   return (
-    <div data-testid="sidebar" className={styles.sidebar}>
+    <div data-testid="sidebar" className={styles.sidebar} ref={rootRef}>
       <SidebarNavContext.Provider value={navValue}>
         <SidebarExpandStateProvider initial={sidebarExpanded}>
           {isRestPage ? restSection() : productSection()}

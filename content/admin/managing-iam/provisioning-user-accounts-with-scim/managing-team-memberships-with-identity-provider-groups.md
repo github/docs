@@ -33,6 +33,8 @@ When a change to an IdP group or a new team connection results in a user joining
 
 Teams connected to IdP groups cannot be parents of other teams nor a child of another team. If the team you want to connect to an IdP group is a parent or child team, we recommend creating a new team or removing the nested relationships that make your team a parent team.
 
+If you are managing a team's membership with an IdP group, you cannot assign the team maintainer role to a member of that team. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member).
+
 To manage repository access for any team in your enterprise, including teams connected to an IdP group, you must make changes on {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository).
 
 ## Requirements for connecting IdP groups with teams
@@ -70,7 +72,7 @@ Any member of an organization can create a new team and connect the team to an I
 
 ## Managing the connection between an existing organization team and an IdP group
 
-Organization owners {% ifversion ghes %}and team maintainers {% endif %}can manage the existing connection between an IdP group and a team.{% ifversion ghec %} If your enterprise does not use {% data variables.enterprise.prodname_managed_users %}, team maintainers can also manage the connection.{% endif %}
+Organization owners can manage the existing connection between an IdP group and a team.
 
 > [!NOTE]
 > Before you connect an existing team on {% data variables.product.prodname_dotcom %} to an IdP group for the first time, all members of the team on {% data variables.product.prodname_dotcom %} must first be removed. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/removing-organization-members-from-a-team).

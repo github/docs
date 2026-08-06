@@ -47,6 +47,6 @@ journeyTracks:
     title: 'Adopting new features'
     description: 'Expand your capabilities by assessing and rolling out any new feature or model.'
     guides:
-      - href: '/copilot/concepts/preparing-for-new-features-and-models'
+      - href: '/copilot/concepts/learning-about-new-features-and-models'
       - href: '/copilot/tutorials/roll-out-at-scale/govern-at-scale/pilot-a-feature-or-model'
 ---

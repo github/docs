@@ -156,7 +156,7 @@ You may have multiple {% data variables.product.prodname_code_scanning %} config
 
 1. Once you have removed any unwanted configurations and confirmed the expected configurations are displayed, click **Save changes**.
 
-   If you save your changes after accidentally deleting a configuration, re-run the configuration to update the alert. For more information on re-running configurations that use {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/managing-workflow-runs/re-running-workflows-and-jobs#re-running-all-the-jobs-in-a-workflow).
+   If you save your changes after accidentally deleting a configuration, re-run the configuration to update the alert. For more information on re-running configurations that use {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/how-tos/manage-workflow-runs/re-run-workflows-and-jobs#re-running-all-the-jobs-in-a-workflow).
 
 > [!NOTE]
 > * If you remove all {% data variables.product.prodname_code_scanning %} configurations for the default branch of your repository, the default branch will remain in the "Affected branches" sidebar, but it will not be analyzed by any configurations.
@@ -165,5 +165,5 @@ You may have multiple {% data variables.product.prodname_code_scanning %} config
 ## Further reading
 
 * [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/triage-alerts-in-pull-requests)
-* [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)
-* [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning)
+* [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configure-code-scanning)
+* [AUTOTITLE](/code-security/concepts/code-scanning/integration-with-code-scanning)

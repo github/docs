@@ -67,10 +67,6 @@ Several {% data variables.copilot.copilot_code-review-tools_short %} are in {% d
 
 Allow {% data variables.product.prodname_copilot_short %} to work autonomously in the IDE. {% data variables.product.prodname_copilot_short %} will determine which files to make changes to, offer code changes and terminal commands for the user's approval, and iterate to remediate issues until the original task is complete.
 
-### {% data variables.product.prodname_spark %} ({% data variables.release-phases.public_preview %})
-
-Build and deploy full-stack applications using natural-language prompts that seamlessly integrate with the {% data variables.product.github %} platform for advanced development. See [AUTOTITLE](/copilot/tutorials/spark/build-apps-with-spark).
-
 ## Features for customization
 
 These features can be used to add context to {% data variables.product.prodname_copilot_short %} and improve its performance. For a comparison of when to use each feature, see [AUTOTITLE](/copilot/reference/customization-cheat-sheet).

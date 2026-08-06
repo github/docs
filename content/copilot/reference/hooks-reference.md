@@ -227,7 +227,7 @@ The table below lists every supported event. The **Cloud agent** column shows wh
 | `sessionStart` | A new or resumed session begins. | Optional — can inject `additionalContext` into the session. | Fires once per job, as a new session (not a resume). See the Prompt hooks note above for the behavior of `prompt` entries under cloud agent. |
 | `subagentStart` | A subagent is spawned (before it runs). Supports a `matcher` regex pattern (the value of the `matcher` field) to filter by agent name. | Optional — cannot block creation, but `additionalContext` is prepended to the subagent's prompt. | Fires. |
 | `subagentStop` | A subagent completes. | Yes — can block and force continuation. | Fires. |
-| `userPromptSubmitted` | The user submits a prompt. | No | Fires at most once, for the prompt supplied to the job. There is no follow-up user input. |
+| `userPromptSubmitted` | The user submits a prompt. | Optional—`modifiedPrompt` is honored only by SDK programmatic hooks. | Fires at most once, for the prompt supplied to the job. There is no follow-up user input. |
 | `userPromptTransformed` | Fires after the runtime transforms a submitted prompt into its model-facing content, just before that content is emitted and persisted to session history. Runs for the primary message and for every preceding message in a batched submission. Mutation-only — it can rewrite the content the model receives, but not block or handle the turn. System notifications never trigger it. | Yes — can rewrite the model-facing content. | Fires. |
 
 ## Hook event input payloads
@@ -313,6 +313,20 @@ Each hook event delivers a JSON payload to the hook handler. Two payload formats
     prompt: string;
 }
 ```
+
+**Output:**
+
+```typescript
+{
+    modifiedPrompt?: string; // Replaces the prompt for the rest of the turn (SDK programmatic hooks only)
+}
+```
+
+Return `{}` or empty to leave the prompt unchanged.
+
+> [!NOTE]
+> * `modifiedPrompt` is only honored by SDK programmatic hooks. Command and HTTP config-file `userPromptSubmitted` hooks have their output dropped, including `modifiedPrompt`. The lighter hooks-processing runtime used by hosted or steering {% data variables.copilot.copilot_cloud_agent %} sessions also ignores it. This is the same runtime split as `preToolUse`.
+> * A non-string `modifiedPrompt`, `modifiedTransformedPrompt`, or a handled `responseContent` value is ignored rather than corrupting the session—a type warning naming the field is logged and emitted as a `session.warning` event. An empty-string override is rejected instead of blanking the model-facing content. A `null` `additionalContext` value is treated as absent instead of being injected as the literal text `null`. Hook output (stdout for command hooks, the response body for HTTP hooks) is bounded at 10 MiB per invocation—a larger response is truncated rather than exhausting memory.
 
 ### `userPromptTransformed`
 

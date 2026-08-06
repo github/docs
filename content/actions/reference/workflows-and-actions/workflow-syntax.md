@@ -28,6 +28,12 @@ Workflow files use YAML syntax, and must have either a `.yml` or `.yaml` file ex
 
 You must store workflow files in the `.github/workflows` directory of your repository.
 
+{% ifversion copilot %}
+
+> [!TIP]
+> Unlike traditional {% data variables.product.prodname_actions %} workflows that require you to script every decision as YAML job steps, {% data variables.copilot.github_agentic_workflows %} use YAML frontmatter for triggers and configuration, but let you describe what you want in natural-language Markdown—so you don't need to anticipate and encode every scenario in advance. For more information, see [AUTOTITLE](/copilot/how-tos/github-agentic-workflows/creating-github-agentic-workflows).
+
+{% endif %}
 ## `name`
 
 {% data reusables.actions.workflows.workflow-syntax-name %}
@@ -1566,3 +1572,5 @@ Path patterns must match the whole path, and start from the repository's root.
 | `'**/migrate-*.sql'`                                | A file with the prefix `migrate-` and suffix `.sql` anywhere in the repository.                                                                                                               | `migrate-10909.sql`<br/><br/>`db/migrate-v1.0.sql`<br/><br/>`db/sept/migrate-v1.sql`    |
 | `'*.md'`<br/><br/>`'!README.md'`                    | Using an exclamation mark (`!`) in front of a pattern negates it. When a file matches a pattern and also matches a negative pattern defined later in the file, the file will not be included. | `hello.md`<br/><br/>_Does not match_<br/><br/>`README.md`<br/><br/>`docs/hello.md`      |
 | `'*.md'`<br/><br/>`'!README.md'`<br/><br/>`README*` | Patterns are checked sequentially. A pattern that negates a previous pattern will re-include file paths.                                                                                      | `hello.md`<br/><br/>`README.md`<br/><br/>`README.doc`                                   |
+
+

@@ -563,7 +563,7 @@ Package manager | YAML value      | Supported versions |
 | {% ifversion dependabot-bazel-support %} |
 | Bazel         | `bazel`          | v7, v8, v9               |
 | {% endif %} |
-| Bun | `bun`         | >=v1.2.5              |
+| Bun | `bun`         | >=v1.1.39              |
 | Bundler | `bundler` | v2 |
 | Cargo       | `cargo`          | v1               |
 | Composer       | `composer`       | v2         |
@@ -593,14 +593,14 @@ Package manager | YAML value      | Supported versions |
 | {% ifversion dependabot-nix-support %} |
 | Nix flakes | `nix`            | Not applicable   |
 | {% endif %} |
-| npm            | `npm`            |  v7, v8, v9, v10   |
+| npm            | `npm`            |  v7, v8, v9, v10, v11   |
 | NuGet          | `nuget`          | <=6.12.0 |
 | {% ifversion dependabot-opentofu-support %} |
 | OpenTofu     | `opentofu`       | Not applicable     |
 | {% endif %} |
-| pip         | `pip`            | 24.2             |
+| pip         | `pip`            | 26.1.1             |
 | pip-compile | `pip`            | 7.5.3            |
-| pipenv      | `pip`            | <= 2024.4.1      |
+| pipenv      | `pip`            | 2024.4.1      |
 | pnpm   | `npm`            | v7, v8, v9, v10   |
 | poetry      | `pip`    | v2    |
 | {% ifversion dependabot-pre-commit-support %} |
@@ -614,7 +614,7 @@ Package manager | YAML value      | Supported versions |
 | sbt          | `sbt`            | Not applicable   |
 | {% endif %} |
 | Swift   | `swift`      | v5  |
-| Terraform    | `terraform`      | >= 0.13, <= 1.10.x  |
+| Terraform    | `terraform`      | >= 0.13, <= 1.15.x  |
 | uv           | `uv`             | v0 |
 | {% ifversion dependabot-vcpkg-support %} |
 | vcpkg       | `vcpkg`          | Not applicable   |

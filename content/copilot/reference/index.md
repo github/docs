@@ -11,19 +11,16 @@ children:
   - /copilot-feature-matrix
   - /keyboard-shortcuts
   - /copilot-cli-reference
+  - /github-copilot-app-reference
   - /custom-agents-configuration
   - /custom-instructions-support
   - /hooks-reference
-  - /policy-conflicts
   - /supported-surfaces-for-policies
-  - /enterprise-managed-settings-reference
   - /copilot-allowlist-reference
-  - /mcp-allowlist-enforcement
   - /metrics-data
   - /copilot-billing
-  - /agentic-audit-log-events
-  - /agent-session-filters
   - /review-excluded-files
   - /copilot-usage-metrics
+  - /enterprise-administrators
 contentType: reference
 ---

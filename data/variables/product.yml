@@ -51,6 +51,9 @@ prodname_ado2gh_cli_short: ADO2GH extension
 prodname_bbs2gh: BBS2GH
 prodname_bbs2gh_cli: BBS2GH extension of the GitHub CLI
 prodname_bbs2gh_cli_short: BBS2GH extension
+prodname_gl2gh_cli: GL2GH extension of the GitHub CLI
+prodname_gl2gh_cli_short: GL2GH extension
+prodname_gl2gh: GL2GH
 prodname_ghos: GitHub-owned blob storage
 
 ## Enterprise Live Migrations
@@ -124,8 +127,7 @@ pat_v2: 'fine-grained personal access token'
 pat_v2_plural: 'fine-grained personal access tokens'
 pat_v2_caps: 'Fine-grained personal access token'
 pat_v2_caps_plural: 'Fine-grained personal access tokens'
-pat_v1: >-
-  personal access token (classic)
+pat_v1: 'personal access token (classic)'
 pat_v1_plural: >-
   personal access tokens (classic)
 pat_v1_caps: >-
