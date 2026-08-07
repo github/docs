@@ -31,7 +31,7 @@ For a conceptual overview of cloud and local sandboxes for {% data variables.pro
 
 ## Configuring general settings
 
-The **General** tab controls the top-level sandbox behavior.
+The **General** tab controls the top-level sandbox behavior. When enterprise managed settings enforce a value, the dialog labels the setting as `(managed)` and prevents you from changing it.
 
 | Setting | Description |
 | --- | --- |
@@ -47,7 +47,7 @@ The **General** tab controls the top-level sandbox behavior.
 
 The **Allow sandbox bypass** setting controls what happens when {% data variables.product.prodname_copilot_short %} can't run a command successfully inside the sandbox.
 
-* **On (default)**: If a command fails inside the sandbox, you are prompted to allow {% data variables.product.prodname_copilot_short %} to run the command outside the sandbox. Your response to this prompt applies to this specific attempt to run the command. Optionally, you can choose to disable the sandbox for the rest of the session, or you can enter an instruction for {% data variables.product.prodname_copilot_short %} to work on instead.
+* **On (default)**: If a command fails inside the sandbox, you are prompted to allow {% data variables.product.prodname_copilot_short %} to run the command outside the sandbox. Your response to this prompt applies to this specific attempt to run the command. Optionally, you can choose to disable the sandbox for the rest of the session (if permitted by your enterprise), or you can enter an instruction for {% data variables.product.prodname_copilot_short %} to work on instead.
 * **Off**: If {% data variables.product.prodname_copilot_short %} can't run a command successfully in the sandbox, it stops working on the task and reports the failure.
 
 ## Configuring filesystem settings

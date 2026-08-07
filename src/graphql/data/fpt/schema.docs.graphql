@@ -8636,7 +8636,7 @@ input CreateIssueTypeInput {
   """
   The ID for the organization on which the issue type is created
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["Organization"])
+  ownerId: ID!
 }
 
 """
@@ -28577,7 +28577,7 @@ type Mutation @docsCategory(name: "meta") {
   ): RemoveEnterpriseIdentityProviderPayload @docsCategory(name: "enterprise-admin")
 
   """
-  Completely removes a user from the enterprise
+  Completely removes a user from the enterprise asynchronously.
   """
   removeEnterpriseMember(
     """

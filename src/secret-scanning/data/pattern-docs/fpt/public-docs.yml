@@ -3261,7 +3261,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: MongoDB
@@ -4201,7 +4201,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Salesforce
@@ -4281,7 +4281,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: SendGrid

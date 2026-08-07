@@ -9,7 +9,7 @@ journeyTracks:
     guides:
       - href: '/admin/concepts/enterprise-fundamentals/choose-an-enterprise-type'
       - href: '/enterprise-onboarding/getting-started-with-your-enterprise/setting-up-a-trial-of-github-enterprise'
-      - href: '/enterprise-onboarding/getting-started-with-your-enterprise/adding-users-to-your-enterprise'
+      - href: '/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/add-users'
       - href: '/billing/concepts/enterprise-billing/billing-for-enterprises'
       - href: '/enterprise-onboarding/getting-started-with-your-enterprise/about-migrating-to-github-enterprise-cloud'
   - id: 'setting_up_organizations_and_teams'
@@ -17,7 +17,7 @@ journeyTracks:
     description: 'Organize work effectively and ensure people have the access they need to resources and administrative settings.'
     guides:
       - href: '/admin/concepts/enterprise-best-practices/organize-work'
-      - href: '/enterprise-onboarding/setting-up-organizations-and-teams/setting-up-an-organization'
+      - href: '/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise'
       - href: '/admin/concepts/enterprise-fundamentals/roles-in-an-enterprise'
       - href: '/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/identify-role-requirements'
       - href: '/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/create-custom-roles'
@@ -31,7 +31,7 @@ journeyTracks:
     guides:
       - href: '/admin/concepts/security-and-compliance/enterprise-policies'
       - href: '/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/managing-custom-properties-for-repositories-in-your-enterprise'
-      - href: '/enterprise-onboarding/govern-people-and-repositories/create-repository-policies'
+      - href: '/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/governing-how-people-use-repositories-in-your-enterprise'
       - href: '/enterprise-onboarding/govern-people-and-repositories/protect-branches'
       - href: '/admin/concepts/security-and-compliance/audit-log-for-an-enterprise'
   - id: 'github_apps'
@@ -45,7 +45,6 @@ versions:
   ghec: '*'
 children:
   - /getting-started-with-your-enterprise
-  - /setting-up-organizations-and-teams
   - /govern-people-and-repositories
 redirect_from:
   - /enterprise-onboarding/feature-enhancements

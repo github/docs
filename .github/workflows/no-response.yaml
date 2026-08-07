@@ -33,7 +33,7 @@ jobs:
       github.actor != 'github-actions' &&
       !endsWith(github.actor, '[bot]')
     steps:
-      - uses: actions/stale@3a9db7e6a41a89f618792c92c0e97cc736e1b13f # v10.0.0
+      - uses: actions/stale@4391f3da665fdf50b6810c1a66712fb9ba21aa93 # v11.0.0
         id: stale
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
@@ -63,7 +63,10 @@ jobs:
             to describe your changes. Then we can reopen this PR and begin the review process.
 
       - name: Print outputs
-        run: echo "Staled issues/PRs:${{ steps.stale.outputs.staled-issues-prs || '0' }}, Closed issues/PRs:${{ steps.stale.outputs.closed-issues-prs || '0' }}"
+        env:
+          STALED: ${{ steps.stale.outputs.staled-issues-prs || '0' }}
+          CLOSED: ${{ steps.stale.outputs.closed-issues-prs || '0' }}
+        run: echo "Staled issues/PRs:${STALED}, Closed issues/PRs:${CLOSED}"
 
       - name: Check out repo
         if: ${{ failure() }}

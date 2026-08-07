@@ -14,6 +14,9 @@ contentType: tutorials
 
 ## Introduction
 
+> [!NOTE]
+> {% data reusables.copilot.spark-deprecation %}
+
 If you’re developing your spark further in a {% data variables.product.github %} codespace, you can deploy it directly from the command line using the {% data variables.product.prodname_spark_short %} CLI, an extension of the {% data variables.product.prodname_cli %}.
 
 ### Prerequisites

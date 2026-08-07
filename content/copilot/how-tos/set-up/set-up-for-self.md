@@ -64,4 +64,6 @@ If you have your own {% data variables.product.prodname_copilot_short %} plan (i
 
 Start using {% data variables.product.prodname_copilot_short %} to help you write code faster and more efficiently. For all the ways you can use {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/how-tos). {% data variables.product.prodname_copilot_short %} code suggestions, {% data variables.copilot.copilot_chat_dotcom_short %}, and {% data variables.copilot.copilot_chat_short %} in your IDE are a great place to start.
 
+To get started with agent-driven development in the {% data variables.copilot.github_copilot_app %}, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/getting-started).
+
 To learn how to best use {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/get-started/best-practices) and [AUTOTITLE](/copilot/concepts/prompting/prompt-engineering).

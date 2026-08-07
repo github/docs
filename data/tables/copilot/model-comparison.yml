@@ -36,17 +36,17 @@
 - name: GPT-5.6 Luna
   task_area: Fast help with simple or repetitive tasks
   excels_at: Quick, cost-efficient responses for smaller, faster coding tasks
-  further_reading: 'Not available'
+  further_reading: '[GPT-5.6 model card](https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf)'
 
 - name: GPT-5.6 Sol
   task_area: Deep reasoning and debugging
   excels_at: Complex reasoning over large codebases and long-running agentic work
-  further_reading: 'Not available'
+  further_reading: '[GPT-5.6 model card](https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf)'
 
 - name: GPT-5.6 Terra
   task_area: General-purpose coding and agent tasks
   excels_at: Balanced everyday interactive and agentic coding
-  further_reading: 'Not available'
+  further_reading: '[GPT-5.6 model card](https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf)'
 
 # Anthropic
 - name: Claude Fable 5
@@ -138,3 +138,8 @@
   task_area: General-purpose coding and agent tasks
   excels_at: Fast, reliable answers to lightweight coding questions
   further_reading: '[Kimi K2.7 Code model card](https://huggingface.co/moonshotai/Kimi-K2.7-Code)'
+
+- name: Kimi K3
+  task_area: Agentic coding and long-context work
+  excels_at: Multi-step agent tasks across large codebases
+  further_reading: '[Kimi K3 model card](https://huggingface.co/moonshotai/Kimi-K3)'

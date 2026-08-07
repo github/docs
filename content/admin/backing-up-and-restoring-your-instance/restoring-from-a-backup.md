@@ -54,7 +54,7 @@ To restore from a snapshot:
      ghe-restore -s <SNAPSHOT_TIMESTAMP>
      ```
 
-   * (Optional) Force overwrite of configuration, certificates, and license data:
+   * (Optional) Overwrite appliance configuration, certificates, and license data from the backup. The `-c` option does not control database or repository restoration:
 
      ```shell
      ghe-restore -c          # Latest snapshot

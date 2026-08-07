@@ -22,6 +22,7 @@ children:
   - /write-tests
   - /refactor-code
   - /optimize-ai-usage
+  - /optimize-chat-usage
   - /optimize-code-reviews
   - /reduce-technical-debt
   - /stack-ai-generated-code-in-pull-requests

@@ -23,7 +23,7 @@ children:
   - /content/pull-requests/tutorials/stack-code-changes-in-pull-requests
   - /content/pull-requests/reference/stacked-pull-requests
   - /content/pull-requests/reference/stacked-prs-cli-commands
-  - /content/pull-requests/reference/stacked-pull-requests-rest-and-graphql-apis
+  - /content/pull-requests/reference/stacked-pull-requests-apis-and-webhooks
   - /content/rest/pulls/pulls
   - /content/graphql/reference/pulls
   - /content/webhooks/webhook-events-and-payloads

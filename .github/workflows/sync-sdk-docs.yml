@@ -77,7 +77,7 @@ jobs:
       - name: Copy SDK docs
         run: |
           mkdir -p "$SDK_DOCS_TARGET"
-          rsync -av --exclude='.validation/' "$SDK_TMP/docs/" "$SDK_DOCS_TARGET/"
+          rsync -av --exclude='.validation/' --exclude='developer-docs/' "$SDK_TMP/docs/" "$SDK_DOCS_TARGET/"
           echo "Copied $(find "$SDK_DOCS_TARGET" -name '*.md' | wc -l | tr -d ' ') markdown files"
 
       - name: Normalize content

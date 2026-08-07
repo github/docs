@@ -1,7 +1,7 @@
 ---
 title: Exploring GitHub Code Quality results in your organization
 shortTitle: Explore code quality
-intro: Understand your organization's code health at a glance with the organization-level dashboard for {% data variables.product.prodname_code_quality_short %}.
+intro: Use the organization-level {% data variables.product.prodname_code_quality_short %} dashboard to spot repositories that need attention and track your organization's code health at a glance.
 product: '{% data reusables.gated-features.code-quality-availability %}'
 permissions: Organization members
 audience:
@@ -52,7 +52,3 @@ You can sort the repository table in ascending or descending order for any colum
 1. Scroll down to the repository table. By default, the table is sorted from most to least recent repository scan, helping you prioritize current quality issues.
 1. Optionally, to prioritize repositories with the highest number of {% data variables.product.prodname_codeql %} findings, click **Standard Findings** twice.
 1. To view the repository-level dashboard for a specific repository, click the repository's name.
-
-## Next steps
-
-To understand the code health information available on the repository-level dashboard, see [AUTOTITLE](/code-security/how-tos/maintain-quality-code/interpret-results).

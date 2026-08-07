@@ -152,6 +152,9 @@ sections:
 
     - heading: Organizations
       notes:
+        # https://github.com/github/releases/issues/6789
+        - |
+          Enterprise owners can apply custom properties to organizations, allowing them to associate organizations with metadata such as regions or compliance requirements and target them in rulesets. For details, see the [changelog](https://github.blog/changelog/2026-01-13-organization-custom-properties-now-generally-available/). [Updated: 2026-08-04]
         # https://github.com/github/releases/issues/7596
         - |
           Organization owners can require that contributors explicitly select a value for required custom properties when creating a repository, rather than relying on a default value. This ensures repositories meet organizational policy requirements at creation time, improving adoption of rulesets and accuracy of property values. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization). For details, see the [changelog](https://github.blog/changelog/2026-02-17-custom-properties-and-rule-insights-improvements/).
@@ -295,6 +298,6 @@ sections:
 
   errata:
     - |
-      These release notes previously included a note about pull requeset reviewers being able to comment on any line of a changed file, not just lines within the diff. The note was added prematurely and has been removed. We will republish it when the feature is ready. [Updated: 2026-06-23]
+      These release notes previously included a note about pull request reviewers being able to comment on any line of a changed file, not just lines within the diff. The note was added prematurely and has been removed. We will republish it when the feature is ready. [Updated: 2026-06-23]
     - |
       These release notes incorrecly indicated that the `case` function is supported in {% data variables.product.prodname_actions %} expressions. [Updated: 2026-07-30]

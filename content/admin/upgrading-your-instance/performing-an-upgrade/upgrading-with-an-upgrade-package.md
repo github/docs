@@ -111,7 +111,7 @@ Phased upgrade execution allows {% data variables.product.prodname_ghe_server %}
 1. Run the upgrade phase
 
    ```shell
-   ghe-upgrade --phase pre-upgrade GITHUB-UPGRADE.pkg
+   ghe-upgrade --phase upgrade GITHUB-UPGRADE.pkg
    ```
 
 1. Optionally, after the upgrade, validate the upgrade by configuring an IP exception list to allow access to a specified list of IP addresses. See [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list).

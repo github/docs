@@ -10,6 +10,8 @@ category:
   - Learn about Copilot
 ---
 
+{% data reusables.copilot.spark-deprecation %}
+
 ## Overview
 
 {% data reusables.copilot.spark-overview %}
