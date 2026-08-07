@@ -8636,7 +8636,7 @@ input CreateIssueTypeInput {
   """
   The ID for the organization on which the issue type is created
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["Organization"])
+  ownerId: ID!
 }
 
 """

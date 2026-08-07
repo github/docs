@@ -11734,8 +11734,7 @@
           "description": "<p>The ID for the organization on which the issue type is created.</p>",
           "type": "ID!",
           "id": "id",
-          "href": "/graphql/reference/other#scalar-id",
-          "isDeprecated": false
+          "href": "/graphql/reference/other#scalar-id"
         }
       ],
       "category": "issues"

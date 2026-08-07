@@ -7,7 +7,7 @@ children:
   - /agent-session-filters
   - /agentic-audit-log-events
   - /enterprise-managed-settings
-  - /mcp-allowlist-enforcement
+  - /mcp-private-registry-enforcement
   - /policy-conflicts
 contentType: reference
 ---

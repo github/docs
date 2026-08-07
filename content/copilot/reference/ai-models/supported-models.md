@@ -92,6 +92,7 @@ Choosing a larger context window or higher reasoning will impact {% data variabl
 | {% data variables.copilot.copilot_gpt_56_luna %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_gpt_56_sol %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_gpt_56_terra %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.copilot_kimi_k3 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 
 {% endrowheaders %}
 
@@ -152,6 +153,7 @@ Some {% data variables.product.prodname_copilot_short %} models require minimum 
 | {% data variables.copilot.copilot_claude_sonnet_5 %}  | `v1.124` | `17.14.6` | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_claude_fable_5 %}      | `v1.124` | `17.14.6`                    | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_kimi_k27_code %}     | `v1.127` | `17.14.6`            | `1.9.1-251` | TBD | TBD |
+| {% data variables.copilot.copilot_kimi_k3 %}     | `v1.131` | TBD            | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_mai_code_1_flash %}    | `v1.121` | TBD                            | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_grok_45 %}             | TBD | `17.14.19` | TBD | TBD | TBD |
 
