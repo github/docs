@@ -1212,9 +1212,12 @@ test('open search, Ask AI returns 400 error and shows general search results', a
   // Pressing enter should trigger Ask AI, get 400 error, and show general search results
   await page.keyboard.press('Enter')
 
-  // Wait for general search results to appear
-  await expect(page.getByRole('link', { name: 'Foo' })).toBeVisible()
-  await expect(page.getByRole('link', { name: 'Bar' })).toBeVisible()
+  // Wait for the general search results to appear inside the overlay's suggestions
+  // group. These render as ActionList items (buttons), so scope the lookup to the
+  // group rather than matching page-level links of the same name.
+  const generalSuggestions = page.getByTestId('general-autocomplete-suggestions')
+  await expect(generalSuggestions.getByRole('button', { name: 'Foo' })).toBeVisible()
+  await expect(generalSuggestions.getByRole('button', { name: 'Bar' })).toBeVisible()
 
   // Wait for the AI error message to appear
   // This is a canned response for the 400 error
