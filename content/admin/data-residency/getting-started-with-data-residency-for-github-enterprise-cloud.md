@@ -57,7 +57,7 @@ To get started with {% data variables.enterprise.data_residency_short %}, you wi
 
 1. Click **Create enterprise**.
 
-Your enterprise can take a few hours to be provisioned. When it's ready, you'll receive a welcome email and an invitation to reset your password, delivered to the "Admin work email" address.
+Your enterprise can take a few hours to be provisioned. You'll receive a welcome email and an invitation to reset your password, delivered to the "Admin work email" address. If opening the password reset link displays a certificate error (such as `net::ERR_CERT_COMMON_NAME_INVALID`), wait for provisioning to finish, then try the link again.
 
 ## 2. Add users to your enterprise
 
