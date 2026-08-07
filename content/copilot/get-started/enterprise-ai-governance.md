@@ -32,7 +32,7 @@ journeyTracks:
       - href: '/copilot/tutorials/roll-out-at-scale/enable-developers/integrate-ai-agents'
       - href: '/copilot/concepts/agents/enterprise-management'
       - href: '/copilot/tutorials/cloud-agent/build-guardrails'
-      - href: '/copilot/concepts/mcp-management'
+      - href: '/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-enterprise-allowlist'
   - id: 'enable_agents'
     title: 'Enabling agents'
     description: 'Roll out and monitor agentic features.'
