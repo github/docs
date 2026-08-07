@@ -1,7 +1,7 @@
 name: docs-internal Moda CI
 
-# More info on CI actions setup can be found here:
-# https://github.com/github/ops/blob/master/docs/playbooks/build-systems/moving-moda-apps-from-bp-to-actions.md
+# More info on CI actions setup:
+# https://docs.github.com/en/actions
 
 on:
   workflow_dispatch:
@@ -12,92 +12,22 @@ on:
     types: [checks_requested]
 
 jobs:
-  ##########################
-  # Generate Vault keys
-  ##########################
-  set-vault-keys:
+  build:
     runs-on: ubuntu-latest
-    outputs:
-      modified_vault_keys: ${{ steps.modify_vault_keys.outputs.modified }}
     steps:
-      - name: Set vault-keys output
-        id: modify_vault_keys
-        run: |
-          if [ -z "${{ vars.VAULT_KEYS }}" ]; then
-            # We want to add the DOCS_BOT_PAT_BASE to the list of keys
-            # so that builds fetch the secret from the docs-internal vault
-            # where --environment is "ci"
-            echo "modified=DOCS_BOT_PAT_BASE" >> $GITHUB_OUTPUT
-          else
-            echo "modified=${{ vars.VAULT_KEYS }},DOCS_BOT_PAT_BASE" >> $GITHUB_OUTPUT
-          fi
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-  #############
-  # Moda jobs
-  #############
-  moda-config-bundle:
-    if: ${{ github.repository == 'github/docs-internal' }}
-    name: ${{ matrix.ci_job.job }}
-    needs: set-vault-keys
-    strategy:
-      fail-fast: false
-      matrix:
-        ci_job: [{ 'job': 'docs-internal-moda-config-bundle' }]
-    uses: github/internal-actions/.github/workflows/moda.yml@main
-    with:
-      ci-formatted-job-name: ${{ matrix.ci_job.job }}
-      vault-keys: ${{ needs.set-vault-keys.outputs.modified_vault_keys }}
-    secrets:
-      dx-bot-token: ${{ secrets.INTERNAL_ACTIONS_DX_BOT_ACCOUNT_TOKEN }}
-      datadog-api-key: ${{ secrets.DATADOG_API_KEY }}
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-  #############
-  # Docker Image jobs
-  #############
-  docker-image:
-    if: ${{ github.repository == 'github/docs-internal' }}
-    name: ${{ matrix.ci_job.job }}
-    needs: set-vault-keys
-    strategy:
-      fail-fast: false
-      matrix:
-        ci_job: [{ 'job': 'docs-internal-docker-image' }]
-    uses: github/internal-actions/.github/workflows/kube.yml@main
-    with:
-      ci-formatted-job-name: ${{ matrix.ci_job.job }}
-      vault-keys: ${{ needs.set-vault-keys.outputs.modified_vault_keys }}
-      # Passes 'DOCS_BOT_PAT_BASE' secret from Vault to docker as --secret id=DOCS_BOT_PAT_BASE,src=<PAT value>
-      attest: true
-      docker-build-env-secrets: 'DOCS_BOT_PAT_BASE'
-    secrets:
-      dx-bot-token: ${{ secrets.INTERNAL_ACTIONS_DX_BOT_ACCOUNT_TOKEN }}
-      datadog-api-key: ${{ secrets.DATADOG_API_KEY }}
+      - name: Install dependencies
+        run: npm ci
 
-  #############
-  # Docker Security jobs
-  #############
-  docker-security:
-    if: ${{ github.repository == 'github/docs-internal' }}
-    name: ${{ matrix.ci_job.job }}
-    needs: set-vault-keys
-    strategy:
-      fail-fast: false
-      matrix:
-        ci_job: [{ 'job': 'docs-internal-docker-security' }]
-    uses: github/internal-actions/.github/workflows/docker_security.yml@main
-    with:
-      ci-formatted-job-name: ${{ matrix.ci_job.job }}
-      vault-keys: ${{ needs.set-vault-keys.outputs.modified_vault_keys }}
-      # Passes 'DOCS_BOT_PAT_BASE' secret from Vault to docker as --secret id=DOCS_BOT_PAT_BASE,src=<PAT value>
-      docker-build-env-secrets: 'DOCS_BOT_PAT_BASE'
-    secrets:
-      dx-bot-token: ${{ secrets.INTERNAL_ACTIONS_DX_BOT_ACCOUNT_TOKEN }}
-      datadog-api-key: ${{ secrets.DATADOG_API_KEY }}
+      - name: Build
+        run: npm run build
 
-permissions:
-  actions: read
-  checks: read
-  contents: read
-  statuses: read
-  id-token: write
-  attestations: write
+      - name: Run tests
+        run: npm test
