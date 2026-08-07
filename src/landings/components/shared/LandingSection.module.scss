@@ -27,6 +27,12 @@
   }
 }
 
+// The secondary bar above the first section already draws the top divider, so
+// the hero band would otherwise double it. Drop the first section's top rule.
+.band:first-child {
+  border-top: 0;
+}
+
 // The frame draws the vertical side rules and holds the content. It is capped at
 // container-xl and centered within the band, so on very wide viewports the
 // content stays centered rather than hugging the left. Content padding (32px)
