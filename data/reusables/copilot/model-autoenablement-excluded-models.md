@@ -13,6 +13,6 @@ The following models are **not** eligible for default enablement, regardless of 
 
 * Models that have been explicitly disabled
 * Pre-GA models
-* Open weight models (DeepSeek, {% data variables.copilot.copilot_kimi_k27_code %})
+* Open weight models (DeepSeek, {% data variables.copilot.copilot_kimi_k27_code %}, {% data variables.copilot.copilot_kimi_k3 %})
 * Models that are not covered by {% data variables.product.company_short %}'s data retention agreement ({% data variables.copilot.copilot_claude_fable_5 %})
 * For enterprises that have restricted models to data-resident or FedRAMP-compliant models, any models that do not respect these policies

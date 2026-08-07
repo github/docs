@@ -51,7 +51,7 @@ To enable local sandboxing inside a {% data variables.copilot.copilot_cli_short 
 /sandbox enable
 ```
 
-After you enable local sandboxing, the commands and tools that an agent runs on your behalf—shell commands, file search, and, by default, the MCP and language (LSP) servers the CLI starts—run inside an operating-system-level sandbox, limiting their access to your system. The CLI continues to use local sandboxing whenever you use the CLI in future—for programmatic as well as interactive use—until you run `/sandbox disable` to disable it.
+After you enable local sandboxing, the commands and tools that an agent runs on your behalf—shell commands, file search, and, by default, the MCP and language (LSP) servers the CLI starts—run inside an operating-system-level sandbox, limiting their access to your system. The CLI continues to use local sandboxing whenever you use the CLI in future—for programmatic as well as interactive use—until you run `/sandbox disable` to disable it. If enterprise managed settings require sandboxing, you cannot disable it.
 
 The CLI's built-in file tools—first-party commands that are part of the CLI, rather than shell commands like `sed`—run in-process in the CLI. Because the CLI itself is not sandboxed, the operating-system sandbox never sees the file operations these tools perform and cannot constrain them. Instead, the built-in tools are coded to check the sandbox policy themselves and honor your configured settings on a best-effort basis.
 
@@ -78,11 +78,9 @@ Local sandboxing is available on macOS and Linux, and on Windows Insiders builds
 * **Linux** uses the bubblewrap backend, which requires the `bwrap` command to be installed and available on your `PATH`. If `/sandbox` reports that sandboxing isn't supported on Linux, install bubblewrap.
 * **Windows** uses the ProcessContainer backend.
 
-Because each platform uses a different backend, a few policy options behave differently. Most notably, on Windows the sandbox cannot block individual paths, so any denied-path rules you add are ignored there. Instead of denying a path on Windows, grant access only to the specific directories that {% data variables.product.prodname_copilot_short %} needs, rather than granting a broad directory and then trying to exclude part of it. This keeps a sensitive location out of the sandbox's reach even though denied paths aren't enforced. Denied paths are enforced on macOS and Linux.
-
 ### Enterprise policy enforcement
 
-For organizations and enterprises, local sandbox policies can be centrally configured and enforced using Microsoft Intune and other MDM (mobile device management) platforms. This gives administrators control over how {% data variables.product.prodname_copilot_short %} interacts with local resources across managed devices. See [Deploying MDM-managed settings](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings#deploying-mdm-managed-settings).
+Enterprises can require local sandboxing and enforce its configuration through server-managed, MDM-managed, or file-based managed settings. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings).
 
 ## Cloud sandboxing
 

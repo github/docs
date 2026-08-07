@@ -50,6 +50,14 @@ For Liquid variable usage, reusables, linking conventions, bullet-list markers, 
 * Keep alerts concise (a couple of sentences max).
 * Use Markdown syntax: `> [!NOTE]`, `> [!TIP]`, `> [!WARNING]`, `> [!CAUTION]`, `> [!IMPORTANT]`.
 
+Call reusable content inside alert environments, rather than placing alert environments inside reusable Markdown files. For example:
+
+```
+> [!CAUTION]
+> {% data reusables.foo.bar %}
+> Here is some additional optional text.
+```
+
 ## Links
 
 * Introduce links with "For more information, see" or "See" when context is clear.

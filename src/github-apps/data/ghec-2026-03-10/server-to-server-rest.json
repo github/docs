@@ -439,6 +439,12 @@
       "requestPath": "/orgs/{org}/actions/runners"
     },
     {
+      "slug": "get-runner-version-end-of-life-schedule-for-an-organization",
+      "subcategory": "self-hosted-runners",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/runners/deprecations/{version}"
+    },
+    {
       "slug": "list-runner-applications-for-an-organization",
       "subcategory": "self-hosted-runners",
       "verb": "get",
@@ -827,6 +833,12 @@
       "subcategory": "self-hosted-runners",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/actions/runners"
+    },
+    {
+      "slug": "get-runner-version-end-of-life-schedule-for-a-repository",
+      "subcategory": "self-hosted-runners",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/runners/deprecations/{version}"
     },
     {
       "slug": "list-runner-applications-for-a-repository",
@@ -1486,6 +1498,12 @@
     }
   ],
   "billing": [
+    {
+      "slug": "get-all-budgets",
+      "subcategory": "budgets",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets"
+    },
     {
       "slug": "list-usage-report-exports",
       "subcategory": "usage-reports",
@@ -3647,6 +3665,12 @@
       "subcategory": "orgs",
       "verb": "delete",
       "requestPath": "/orgs/{org}/interaction-limits"
+    },
+    {
+      "slug": "get-pull-request-creation-cap-for-an-org",
+      "subcategory": "orgs",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/interaction-limits/pulls/creation-cap"
     },
     {
       "slug": "update-pull-request-creation-cap-for-an-org",

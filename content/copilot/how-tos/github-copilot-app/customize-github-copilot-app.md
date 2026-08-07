@@ -28,11 +28,14 @@ Agent skills are folders of instructions, scripts, and resources that {% data va
 
 For more information about agent skills, see [AUTOTITLE](/copilot/concepts/agents/about-agent-skills).
 
+For a {% data variables.product.github %}-provided built-in skills reference, see [AUTOTITLE](/copilot/reference/github-copilot-app-reference/built-in-skills).
+
 ## Configuring MCP servers
 
 MCP servers connect the agent to external tools and data sources. Any MCP servers configured for your repositories or {% data variables.product.prodname_copilot_short %} CLI are automatically available in the {% data variables.copilot.github_copilot_app %}. You can also add and manage additional MCP servers in the app settings under **MCP Servers**. The app includes a catalog of popular servers, or you can add a custom server.
 
 For more information about MCP, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers).
+
 
 ## Using custom agents
 

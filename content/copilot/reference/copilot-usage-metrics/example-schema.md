@@ -52,6 +52,15 @@ The following are example schemas for the user-level, enterprise-level, and repo
       "prompt_tokens_sum": 5400
     }
   },
+  "totals_by_3rd_party_agent": [{
+    "agent_id": "2246796",
+    "agent_name": "Claude (Anthropic)",
+    "user_initiated_interaction_count": 2
+  }, {
+    "agent_id": "2248422",
+    "agent_name": "Codex (OpenAI)",
+    "user_initiated_interaction_count": 2
+  }],
   "totals_by_feature": [{
     "code_acceptance_activity_count": 1,
     "code_generation_activity_count": 1,
@@ -124,6 +133,8 @@ The following are example schemas for the user-level, enterprise-level, and repo
 }]
 ```
 
+Organization per-user reports use the same `totals_by_3rd_party_agent` entry fields and also include `organization_id`. Per-user entries do not include `session_count`.
+
 ## Enterprise-level schema example
 
 ```json copy
@@ -159,6 +170,17 @@ The following are example schemas for the user-level, enterprise-level, and repo
       "total_reviewed_by_copilot" : 1,
       "total_suggestions" : 1
     },
+    "totals_by_3rd_party_agent" : [ {
+      "agent_id" : "2246796",
+      "agent_name" : "Claude (Anthropic)",
+      "session_count" : 1,
+      "user_initiated_interaction_count" : 2
+    }, {
+      "agent_id" : "2248422",
+      "agent_name" : "Codex (OpenAI)",
+      "session_count" : 2,
+      "user_initiated_interaction_count" : 2
+    } ],
     "totals_by_cli" : {
       "prompt_count" : 3,
       "request_count" : 3,
@@ -326,6 +348,8 @@ The following are example schemas for the user-level, enterprise-level, and repo
   "entity_id_partition" : 2
 } ]
 ```
+
+Organization aggregated reports use the same `totals_by_3rd_party_agent` entry fields, including `session_count`, and also include `organization_id`.
 
 The following user-teams report examples are returned by the `user-teams-1-day` endpoints and are intended to be joined with the per-user usage report on `user_id`, `day`, and the relevant entity id (`organization_id` for the organization scope, `enterprise_id` for the enterprise scope) to derive team-level metrics. For more guidance, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/team-level-metrics).
 

@@ -243,6 +243,7 @@ copilot_mai_code_1_flash: 'MAI-Code-1-Flash'
 copilot_raptor_mini: 'Raptor mini'
 # Open-weight models:
 copilot_kimi_k27_code: 'Kimi K2.7 Code'
+copilot_kimi_k3: 'Kimi K3'
 
 ## Current model used by Copilot cloud agent and Copilot CLI
 cca_current_model: '{% data variables.copilot.copilot_claude_opus_46 %}'
@@ -262,3 +263,5 @@ copilot_byok_supported_features: '{% data variables.copilot.copilot_chat_short %
 
 ## File for enterprise client management
 managed_setting_file: 'managed-settings.json'
+team_mappings_file: 'team-mappings.json'
+team_settings_directory: 'teams/'

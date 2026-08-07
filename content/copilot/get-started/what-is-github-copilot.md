@@ -50,6 +50,7 @@ Use {% data variables.product.prodname_copilot_short %} in the following places:
 * {% data variables.product.prodname_mobile %}, as a chat interface
 * {% data variables.product.prodname_windows_terminal %} Canary, through the Terminal Chat interface
 * The command line, through the {% data variables.product.prodname_cli %}
+* The {% data variables.copilot.github_copilot_app %}, a desktop application for agent-driven development. See [AUTOTITLE](/copilot/concepts/agents/github-copilot-app).
 * The {% data variables.product.github %} website
 
 See [AUTOTITLE](/copilot/get-started/features).

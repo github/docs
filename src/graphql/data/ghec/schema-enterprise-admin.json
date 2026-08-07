@@ -694,7 +694,7 @@
       "name": "removeEnterpriseMember",
       "id": "removeenterprisemember",
       "href": "/graphql/reference/enterprise-admin#mutation-removeenterprisemember",
-      "description": "<p>Completely removes a user from the enterprise.</p>",
+      "description": "<p>Completely removes a user from the enterprise asynchronously.</p>",
       "isDeprecated": false,
       "inputFields": [
         {

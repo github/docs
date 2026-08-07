@@ -263,7 +263,23 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 
 {% data variables.copilot.copilot_cli_short %} comes with the {% data variables.product.github %} MCP server already configured. This MCP server allows you to interact with resources on {% data variables.product.prodname_dotcom_the_website %}—for example, allowing you to merge pull requests from the CLI.
 
-To extend the functionality available to you in {% data variables.copilot.copilot_cli_short %}, you can add more MCP servers:
+To extend the functionality available to you in {% data variables.copilot.copilot_cli_short %}, you can add more MCP servers.
+
+To add a remote HTTP server directly from your terminal without starting an interactive session, use:
+
+```shell copy
+copilot mcp add --transport http SERVER-NAME URL
+```
+
+For example:
+
+```shell copy
+copilot mcp add --transport http sentry https://mcp.sentry.dev/mcp
+```
+
+For local servers and additional options, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers#using-the-copilot-mcp-add-subcommand).
+
+Alternatively, add a server from an interactive session:
 
 1. Use the following slash command:
 

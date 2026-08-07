@@ -179,3 +179,9 @@
 
 # registry.modelcontextprotocol.io blocks automated link checkers.
 - startsWith: https://registry.modelcontextprotocol.io/
+
+# marketplace.microsoft.com returns 403 from CI runners (bot-blocking).
+- startsWith: https://marketplace.microsoft.com/
+
+# dotnet.microsoft.com returns 403 from CI runners (bot-blocking).
+- startsWith: https://dotnet.microsoft.com/

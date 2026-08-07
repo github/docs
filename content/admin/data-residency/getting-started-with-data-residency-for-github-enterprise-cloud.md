@@ -57,7 +57,7 @@ To get started with {% data variables.enterprise.data_residency_short %}, you wi
 
 1. Click **Create enterprise**.
 
-Your enterprise can take a few hours to be provisioned. When it's ready, you'll receive a welcome email and an invitation to reset your password, delivered to the "Admin work email" address.
+Your enterprise can take a few hours to be provisioned. You'll receive a welcome email and an invitation to reset your password, delivered to the "Admin work email" address. If opening the password reset link displays a certificate error (such as `net::ERR_CERT_COMMON_NAME_INVALID`), wait for provisioning to finish, then try the link again.
 
 ## 2. Add users to your enterprise
 
@@ -115,7 +115,7 @@ To migrate existing data to your new enterprise on {% data variables.enterprise.
 
 Optionally, you can migrate data to {% data variables.enterprise.data_residency_site %} during your trial. However, migrated organizations will count towards the limit of three new organizations during the trial.
 
-* If you're migrating from {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_ghe_server %}, Azure DevOps, or Bitbucket Server, you can migrate source code history and metadata with {% data variables.product.prodname_importer_proper_name %}. See [AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer).
+* If you're migrating from {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_ghe_server %}, Azure DevOps, Bitbucket Server, or GitLab, you can migrate source code history and metadata with {% data variables.product.prodname_importer_proper_name %}. See [AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer).
 * For migrations from {% data variables.product.prodname_ghe_server %} 3.17 and later, you can use {% data variables.product.prodname_elm %}. This offers less downtime and better support for complex monorepos. See [AUTOTITLE](/migrations/elm/about-live-migrations).
 * If you're migrating from a different platform, see [AUTOTITLE](/migrations/overview/migration-paths-to-github#migrations-to-ghecom).
 
