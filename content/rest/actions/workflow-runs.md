@@ -16,6 +16,6 @@ category:
 
 ## About workflow runs in {% data variables.product.prodname_actions %}
 
-You can use the REST API to view, re-run, cancel, and view logs for workflow runs in {% data variables.product.prodname_actions %}. {% data reusables.actions.about-workflow-runs %} For more information, see [AUTOTITLE](/actions/how-tos/manage-workflow-runs).
+You can use the REST API to view, re-run, cancel, and view logs for workflow runs in {% data variables.product.prodname_actions %}. {% data reusables.actions.about-workflow-runs %} For reference information about `status` and `conclusion` values, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-run-statuses). For more information, see [AUTOTITLE](/actions/how-tos/manage-workflow-runs).
 
 <!-- Content after this section is automatically generated -->

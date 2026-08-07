@@ -18,6 +18,7 @@ children:
   - /reusing-workflow-configurations
   - /metadata-syntax
   - /workflow-cancellation
+  - /workflow-run-statuses
   - /dockerfile-support
 contentType: reference
 ---
