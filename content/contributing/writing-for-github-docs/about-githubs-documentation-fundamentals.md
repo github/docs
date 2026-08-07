@@ -12,26 +12,45 @@ category:
 
 ## About {% data variables.product.github %}'s documentation fundamentals
 
-These fundamentals are required for {% data variables.product.github %} documentation. Use the lists below to help ensure your contributions are accurate, accessible and inclusive, and consistent.
+These fundamentals define minimum expectations for all documentation on {% data variables.product.github %}. Use them to make sure your contributions are accurate, inclusive, accessible, and consistent.
+
+Why this matters
+- Readers rely on docs to make decisions and complete tasks; clear, accurate, and accessible content increases trust and reduces support requests.
+- Consistent voice, terminology, and formatting create a predictable experience across the site.
 
 ## Accurate
 
-Documentation is correct and accurate.
+Make sure information is correct and up to date.
 
-* Ensure that the content is free from factual errors.
-* Ensure that the content is free from spelling and formatting errors.
+- Check facts, commands, API versions, and any examples before publishing.
+- Proofread for spelling, grammar, punctuation, and formatting errors.
+- Update or remove content that is obsolete or no longer reflects product behavior.
 
 ## Accessible and inclusive
 
-Documentation is up to date with the latest accessibility standards, and is written to be inclusive and translation-friendly.
+Write so people of different abilities, backgrounds, and languages can use your content.
 
-* Ensure content adheres to the accessibility and screenshot guidelines. For more information, see [AUTOTITLE](/contributing/writing-for-github-docs/creating-screenshots).
-* Ensure content can be successfully translated. For more information, see [AUTOTITLE](/contributing/writing-for-github-docs/writing-content-to-be-translated).
+- Follow the accessibility and screenshot guidelines. For more information, see [AUTOTITLE](/contributing/writing-for-github-docs/creating-screenshots).
+- Write for successful translation: keep sentences short, avoid idioms, and use consistent terminology. For more information, see [AUTOTITLE](/contributing/writing-for-github-docs/writing-content-to-be-translated).
+- Use descriptive link text, include alt text for images, and present information in a logical reading order.
 
 ## Consistent
 
-Documentation maintains a consistent voice, tone, and style throughout, creating a cohesive experience for readers.
+Keep voice, style, and terminology consistent across docs.
 
-* Ensure content adheres to the {% data variables.product.prodname_docs %} style guide. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/style-guide).
-* Apply consistent terminology and naming conventions.
-* Use branding elements (for example, product and feature names, logos, color schemes) consistently in the content.
+- Follow the {% data variables.product.prodname_docs %} style guide. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/style-guide).
+- Use consistent product and feature names, and apply naming conventions uniformly.
+- Prefer plain language and the active voice; be direct and actionable in instructions.
+
+## Quick checklist before you submit
+
+- [ ] Are facts and examples correct?
+- [ ] Is language clear and concise?
+- [ ] Are images, screenshots, and code samples accessible and up to date?
+- [ ] Could this content be translated easily?
+- [ ] Does it follow the style guide and use consistent terminology?
+
+Related resources
+- Accessibility and screenshots: [AUTOTITLE](/contributing/writing-for-github-docs/creating-screenshots)
+- Writing for translation: [AUTOTITLE](/contributing/writing-for-github-docs/writing-content-to-be-translated)
+- Style guide: [AUTOTITLE](/contributing/style-guide-and-content-model/style-guide)
