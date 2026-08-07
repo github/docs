@@ -372,3 +372,11 @@
   input: $0.95
   cached_input: $0.19
   output: $4.00
+
+- model: 'Kimi K3'
+  provider: moonshot_ai
+  release_status: GA
+  category: Powerful
+  input: $3.00
+  cached_input: $0.30
+  output: $15.00

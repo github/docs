@@ -75,7 +75,3 @@ If you need automation around your rollout, you can fetch {% data variables.prod
 Enabling {% data variables.product.prodname_code_quality_short %} does not automatically turn on code coverage. Coverage is opt-in per repository, and it starts reporting only after a workflow that uploads coverage data is added to the repository. This means teams can adopt {% data variables.product.prodname_code_quality_short %} first and add coverage later.
 
 To set up coverage for a repository, see [AUTOTITLE](/code-security/how-tos/maintain-quality-code/set-up-code-coverage).
-
-## Next steps
-
-Now that you've rolled out {% data variables.product.prodname_code_quality_short %} across your organization, you can assess the health of your repositories at a glance and decide where to focus. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/explore-code-quality).

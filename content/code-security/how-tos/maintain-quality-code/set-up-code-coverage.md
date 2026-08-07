@@ -1,7 +1,7 @@
 ---
 title: Setting up code coverage for your repository
 shortTitle: Set up code coverage
-intro: 'Give your teams visibility into code coverage directly on pull requests, without paying for or maintaining a separate third-party coverage service.'
+intro: 'Use built-in code coverage from {% data variables.product.prodname_code_quality_short %} to find untested code on pull requests, without paying for or maintaining a separate third-party service.'
 versions:
   feature: code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'
@@ -163,8 +163,3 @@ jobs:
 1. After the workflow completes, look for a comment from `{% data variables.code-quality.pr_commenter %}` on the pull request. The comment includes:
    * The aggregate coverage percentage for the pull request branch compared to the default branch.
    * A per-file breakdown showing which files gained or lost coverage.
-
-## Next steps
-
-* **Interpret results:** Understand coverage metrics and per-file breakdowns on your pull requests. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/interpret-results).
-* **Enforce coverage thresholds:** Block pull requests that don't meet a minimum coverage percentage or that cause coverage to drop. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/restrict-code-coverage).
