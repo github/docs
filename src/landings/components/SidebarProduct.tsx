@@ -180,6 +180,11 @@ export const SidebarProduct = () => {
   }, [router.events])
 
   useEffect(() => {
+    // Skip all sidebar scroll adjustments when the URL carries landing-page
+    // article filters (search/category/page). Those are shallow same-page
+    // updates that must not move the reader (the article grid manages its own
+    // scroll position).
+    if (/[?&]articles-(filter|category|page)=/.test(router.asPath)) return
     // Brand NavList auto-expands the whole ancestor chain of the active item, so
     // scroll to the item marked aria-current="page" (the active article) rather
     // than the top-most expanded section.

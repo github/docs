@@ -9,7 +9,7 @@ journeyTracks:
     guides:
       - href: '/admin/concepts/enterprise-fundamentals/choose-an-enterprise-type'
       - href: '/enterprise-onboarding/getting-started-with-your-enterprise/setting-up-a-trial-of-github-enterprise'
-      - href: '/enterprise-onboarding/getting-started-with-your-enterprise/adding-users-to-your-enterprise'
+      - href: '/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/add-users'
       - href: '/billing/concepts/enterprise-billing/billing-for-enterprises'
       - href: '/enterprise-onboarding/getting-started-with-your-enterprise/about-migrating-to-github-enterprise-cloud'
   - id: 'setting_up_organizations_and_teams'
