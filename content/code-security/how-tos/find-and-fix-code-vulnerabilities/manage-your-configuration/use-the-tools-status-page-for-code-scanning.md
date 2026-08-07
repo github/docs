@@ -30,8 +30,8 @@ The {% data variables.product.prodname_code_scanning %} alerts page for each rep
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
-1. Click **Tool status** in the tools banner.
-   ![Screenshot showing how to access the tool status page from a repository. The "Tool status" button is highlighted in a dark orange outline.](/assets/images/help/repository/code-scanning-tool-status-page-access.png)
+1. Click **Tools** in the tools banner.
+   ![Screenshot showing how to access the tool status page from a repository. The "Tools" button is highlighted in a red outline.](/assets/images/help/repository/code-scanning-tool-status-page-access.png)
 
 ## Using the {% data variables.code-scanning.tool_status_page %}
 
