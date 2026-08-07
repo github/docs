@@ -99,6 +99,8 @@ homepage:
   explore_by_product: Explore by product
   version_picker: Version
   description: Help for wherever you are on your GitHub journey.
+  search_placeholder: Search for anything...
+  all_docs: All docs
 
 toc:
   getting_started: Getting started
