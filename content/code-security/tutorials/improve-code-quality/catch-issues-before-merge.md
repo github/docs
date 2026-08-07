@@ -21,7 +21,7 @@ category:
 
 In this tutorial, you'll follow a single pull request through {% data variables.product.prodname_code_quality_short %}'s analysis, from first comment to merge. You'll learn:
 
-* How to read the {% data variables.product.prodname_code_quality_short %} comments on a pull request and tell the two types of finding apart.
+* How to read the {% data variables.product.prodname_code_quality_short %} comments on your pull request.
 * How to use a finding's severity label to decide what to fix, what to dismiss, and in what order.
 * How the choices you make on a pull request shape your repository's scores, backlog, and merge gates.
 
@@ -45,17 +45,13 @@ Resolving findings at the pull request stage means your team spends less time tr
 
 ## Step 1: Find the {% data variables.product.prodname_code_quality_short %} comments on your pull request
 
-When you open a pull request, {% data variables.product.prodname_code_quality_short %} runs **two types of analysis** and posts findings as comments. Open the **Files changed** tab of your pull request and look at who left each comment—the author tells you which type of finding it is.
+When you open a pull request, {% data variables.product.prodname_code_quality_short %} uses {% data variables.product.prodname_codeql %} to scan your changes against a set of rules and posts findings as comments by `{% data variables.code-quality.pr_commenter %}`. Each comment includes a suggested autofix. Open the **Files changed** tab of your pull request to review the findings.
 
-1. **Rules-based findings** are posted by the **`{% data variables.code-quality.pr_commenter %}`**. {% data variables.product.prodname_code_quality_short %} uses {% data variables.product.prodname_codeql %} to scan your changes against a set of rules, and each comment includes a suggested autofix.
-
-1. **AI-powered findings** are posted by **{% data variables.product.prodname_copilot_short %}**. If your organization has {% data variables.product.prodname_copilot_short %} licenses and AI features are enabled for your enterprise, {% data variables.copilot.copilot_code-review_short %} looks for quality issues that rules-based analysis may miss. These comments also include a suggested autofix.
-
-In our example, we'll look at three comments that have come from `{% data variables.code-quality.pr_commenter %}`, so they're rules-based findings. On your own pull request you may see both types—note which is which before you go further, because severity labels (Step 2) apply only to the rules-based comments.
+In our example, we'll look at three comments from `{% data variables.code-quality.pr_commenter %}`. Note the severity labels on each. Step 2 explains what they mean.
 
 ## Step 2: Read the severity label to decide what matters
 
-Every rules-based finding from `{% data variables.code-quality.pr_commenter %}` carries a severity label—**Error**, **Warning**, or **Note**. Find the label on one of the comments and check it against this table.
+Every finding from `{% data variables.code-quality.pr_commenter %}` carries a severity label—**Error**, **Warning**, or **Note**. Find the label on one of the comments and check it against this table.
 
 {% data reusables.code-quality.severity-levels-table %}
 
@@ -78,7 +74,7 @@ For every finding, decide whether it applies to your code and, if it does, how t
 
 | Assessment | Recommended action | Notes |
 | --- | --- | --- |
-| The finding is legitimate and the suggested fix looks correct | **Apply the autofix suggestion** | Clicking **Commit suggestion** doesn't consume {% data variables.product.prodname_ai_credits_short %}, and rules-based autofixes don't require a {% data variables.product.prodname_copilot_short %} license. |
+| The finding is legitimate and the suggested fix looks correct | **Apply the autofix suggestion** | Clicking **Commit suggestion** doesn't consume {% data variables.product.prodname_ai_credits_short %}, and autofixes don't require a {% data variables.product.prodname_copilot_short %} license. |
 | The finding is real but you want to fix several at once, or the suggested fix needs adapting | **Delegate to {% data variables.product.prodname_copilot_short %}**—mention `@copilot` in a comment to hand the work to the cloud agent. {% data variables.product.prodname_copilot_short %} reacts with 👀, starts a new agent session, and pushes the necessary fixes to the pull request's branch | Requires a {% data variables.product.prodname_copilot_short %} license and consumes {% data variables.product.prodname_ai_credits_short %}. |
 | The finding doesn't apply, for example, it's test code, an intentional pattern, or a false positive | Click **Dismiss finding** and provide a reason | You'll be able to merge your pull request, but the finding will appear in the repository backlog, and in future pull requests. |
 
@@ -92,25 +88,11 @@ In our example:
 
 ## Step 4: Confirm your pull request is unblocked (optional)
 
-If you *do* have blocking findings, once you've fixed or dismissed the relevant findings, return to the **Checks** section at the bottom of the pull request. 
+If you *do* have blocking findings, once you've fixed or dismissed the relevant findings, return to the **Checks** section at the bottom of the pull request.
 
 In our example, with the **Error** and **Warning** findings resolved, the merge block banner disappears. Your pull request is now clear to merge.
 
 If the banner is still there, it means a finding at or above the blocking severity is still open.
-
-## Step 5: Resolve the AI-powered findings from {% data variables.product.prodname_copilot_short %}
-
-If your organization has {% data variables.product.prodname_copilot_short %} licenses and AI features are enabled for your enterprise, you'll also see comments posted by {% data variables.product.prodname_copilot_short %}. These are the **AI-powered findings** introduced in Step 1, and they come from {% data variables.copilot.copilot_code-review_short %} rather than from `{% data variables.code-quality.pr_commenter %}`.
-
-Where the rules-based findings match your changes against a fixed set of {% data variables.product.prodname_codeql %} rules, {% data variables.copilot.copilot_code-review_short %} reasons about the intent of your code. It catches quality issues that don't map to a specific rule, so it's a useful complement to the rules-based comments rather than a replacement for them.
-
-These findings don't carry a severity label of "Error", "Warning", or "Note". Since the merge gate you saw in Step 2 counts only the severity of *rules-based findings*, AI-powered findings never block your pull request on their own. That doesn't make them optional, resolving them in context is still the optimal place to keep quality issues out of your default branch.
-
-You resolve an AI-powered finding with the same three choices you used in Step 3:
-
-* **Apply the autofix suggestion.** Each comment includes a suggested fix. If it's correct as-is, click **Commit suggestion**. Applying the autofix doesn't consume {% data variables.product.prodname_ai_credits %}.
-* **Delegate to {% data variables.product.prodname_copilot_short %}**—mention `@copilot` in a comment to hand the work to the cloud agent. {% data variables.product.prodname_copilot_short %} reacts with 👀, starts a new agent session, and pushes the necessary fixes to the pull request's branch. This option requires a {% data variables.product.prodname_copilot_short %} license, and does consume {% data variables.product.prodname_ai_credits %}.
-* **Resolve the comment.** If it doesn't apply to your code, click **Resolve**.
 
 ## How this connects to the rest of your code health
 
@@ -125,7 +107,6 @@ The healthiest teams combine all three: deliberate triage and remediation at the
 ## Troubleshooting
 
 * **I don't see any {% data variables.product.prodname_code_quality_short %} comments.** The scan may still be running, your changes may not touch a supported language, or you don't have any findings. Confirm {% data variables.product.prodname_code_quality_short %} is enabled and give the check (called "{% data variables.code-quality.check_status_name %}") time to finish. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/enable-code-quality).
-* **I only see comments from `{% data variables.code-quality.pr_commenter %}`, never from {% data variables.product.prodname_copilot_short %}.** AI-powered findings require {% data variables.product.prodname_copilot_short %} licenses and AI features enabled for your enterprise. Without them, you'll see only rules-based findings.
 * **I don't see autofixes for my code quality findings.** Autofix generation consumes {% data variables.product.prodname_ai_credits %}. Your organization may have depleted its monthly budget of {% data variables.product.prodname_ai_credits_short %}.
 * **The merge block banner won't clear.** At least one finding at or above the blocking severity is still open. If you don't see a severity level defined in the merge block banner, it means that your repository is using the most stringent code quality thresholds, which require *all* findings to be addressed before merging. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/unblock-your-pr).
 

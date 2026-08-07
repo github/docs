@@ -59,9 +59,3 @@ For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-c
 {% data reusables.code-quality.codeql-supported-languages %}
 
 It also performs AI-powered analysis on pull requests and on your repository's recently changed code, including languages beyond those supported by rule-based queries.
-
-## Next steps
-
-* **For your enterprise:** Ensure repositories in your enterprise can enable {% data variables.product.prodname_code_quality_short %}. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/allow-github-code-quality-in-enterprise?utm_campaign=code-quality-ga-july-2026&utm_medium=docs&utm_source=docs-cq-intro-enable-cq-enterprise).
-* **For your repository or organization:** Turn on {% data variables.product.prodname_code_quality_short %} to start generating results. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/enable-code-quality?utm_campaign=code-quality-ga-july-2026&utm_medium=docs&utm_source=docs-cq-intro-enable-cq-repo).
-* **On your pull request:** Learn how to fix code quality findings on your pull request. See [AUTOTITLE](/code-security/tutorials/improve-code-quality/catch-issues-before-merge?utm_campaign=code-quality-ga-july-2026&utm_medium=docs&utm_source=docs-cq-intro-fix-on-pr).
