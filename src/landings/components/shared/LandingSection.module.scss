@@ -1,0 +1,46 @@
+// Docs 2026 "framed section": horizontal rules span the full content column
+// while the vertical side rules are inset by a gutter, framing the section on
+// all four sides. brand border-subtle adapts gray-2 light / gray-6 dark.
+@import "@primer/css/support/variables/layout.scss";
+@import "@primer/css/support/mixins/layout.scss";
+
+// The band spans the full content column and draws the horizontal rules. It
+// also holds the minimum horizontal gutter (as padding) so the framed content
+// never touches the band edges, and the horizontal rules always extend past the
+// vertical ones. Each section draws its own top + bottom, so consecutive
+// sections separated by a gap show the paired-rule look from the Figma.
+.band {
+  padding-inline: 16px;
+  border-top: 1px solid var(--brand-color-border-subtle);
+  border-bottom: 1px solid var(--brand-color-border-subtle);
+
+  @include breakpoint(md) {
+    padding-inline: 24px;
+  }
+
+  & + & {
+    margin-top: 1.5rem;
+
+    @media (min-width: 768px) {
+      margin-top: 3rem;
+    }
+  }
+}
+
+// The frame draws the vertical side rules and holds the content. It is capped at
+// container-xl and centered within the band, so on very wide viewports the
+// content stays centered rather than hugging the left. Content padding (32px)
+// sits inside the border and matches the cards' internal padding so section
+// headers/pagination align with the card text; the card grid bleeds back out to
+// the border with a negative margin so its dividers reach the vertical rules.
+.frame {
+  max-width: $container-xl;
+  margin-inline: auto;
+  padding-inline: 16px;
+  border-left: 1px solid var(--brand-color-border-subtle);
+  border-right: 1px solid var(--brand-color-border-subtle);
+
+  @include breakpoint(md) {
+    padding-inline: 32px;
+  }
+}

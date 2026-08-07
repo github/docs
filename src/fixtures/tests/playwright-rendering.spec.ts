@@ -1247,15 +1247,14 @@ test.describe('LandingCarousel component', () => {
     const carousel = page.locator('[data-testid="landing-carousel"]')
     await expect(carousel).toBeVisible()
 
-    // Check that article cards are present
+    // Check that article cards are present. Brand Card renders each card's title
+    // as an <h3> (Card.Heading) wrapping a stretched <a>, so target the heading.
     const items = page.locator('[data-testid="carousel-items"]')
-    const cards = items.locator('a')
-    await expect(cards.first()).toBeVisible()
+    const cardHeadings = items.locator('h3')
+    await expect(cardHeadings.first()).toBeVisible()
 
     // Verify cards have real titles (not "Unknown Article" when article not found)
-    const firstCardTitle = cards.first().locator('h3')
-    await expect(firstCardTitle).toBeVisible()
-    await expect(firstCardTitle).not.toHaveText('Unknown Article')
+    await expect(cardHeadings.first()).not.toHaveText('Unknown Article')
   })
 
   test('navigation works on desktop', async ({ page }) => {
@@ -1537,10 +1536,12 @@ test.describe('LandingArticleGridWithFilter component', () => {
     await expect(articleCards.first()).toBeVisible()
 
     const firstCard = articleCards.first()
-    const titleLink = firstCard.locator('h3 span')
+    // Brand Card renders the title as an <h3> (Card.Heading) wrapping a
+    // stretched <a>, and the intro as a Card.Description <p>.
+    const titleLink = firstCard.locator('h3 a')
     await expect(titleLink).toBeVisible()
 
-    const intro = firstCard.locator('div').last() // cardIntro is the last div
+    const intro = firstCard.locator('p').last()
     await expect(intro).toBeVisible()
     const introText = await intro.textContent()
     expect(introText).toBeTruthy()
@@ -1656,6 +1657,36 @@ test.describe('LandingArticleGridWithFilter component', () => {
     await expect(articleGrid).toBeVisible()
   })
 
+  test('card is keyboard-navigable via Enter (client-side)', async ({ page }) => {
+    // The brand Card renders a native stretched anchor; a synthetic click from
+    // pressing Enter on that anchor must bubble to the card's onClick handler so
+    // keyboard users get the same client-side SPA navigation as mouse users.
+    // Guards against a regression if the click-intercept logic is refactored.
+    await page.goto('/get-started/article-grid-discovery')
+
+    const articleGrid = page.getByTestId('article-grid')
+    await expect(articleGrid).toBeVisible()
+
+    const firstCardLink = articleGrid.getByTestId('article-card').first().getByRole('link').first()
+    const href = await firstCardLink.getAttribute('href')
+    expect(href).toBeTruthy()
+
+    // Mark the current document so we can prove navigation was client-side
+    // (no full page reload): a hard navigation would wipe this window property.
+    await page.evaluate(() => {
+      ;(window as unknown as { __spaMarker?: boolean }).__spaMarker = true
+    })
+
+    await firstCardLink.focus()
+    await page.keyboard.press('Enter')
+
+    await expect(page).toHaveURL(new RegExp(href!.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')))
+    const stillClientSide = await page.evaluate(
+      () => (window as unknown as { __spaMarker?: boolean }).__spaMarker === true,
+    )
+    expect(stillClientSide).toBe(true)
+  })
+
   test('bespoke landing page does not show duplicate articles', async ({ page }) => {
     // The bespoke fixture lists individual articles AND their parent group
     // as children, which would cause duplicates without deduplication.
@@ -1674,7 +1705,7 @@ test.describe('LandingArticleGridWithFilter component', () => {
     const titles: string[] = []
     const count = await articleCards.count()
     for (let i = 0; i < count; i++) {
-      const title = await articleCards.nth(i).locator('h3 span').textContent()
+      const title = await articleCards.nth(i).locator('h3').textContent()
       titles.push(title!)
     }
     const uniqueTitles = new Set(titles)
