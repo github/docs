@@ -1,4 +1,35 @@
----
+
+Commit message I used
+- docs: add simplified Windows platform-check example to MCP server doc
+
+Unified diff (contextual) — apply or review:
+
+--- a/content/copilot/how-tos/provide-context/use-mcp-in-your-ide/use-the-github-mcp-server.md
++++ b/content/copilot/how-tos/provide-context/use-mcp-in-your-ide/use-the-github-mcp-server.md
+@@
+ {% endeclipse %}
+ 
++## Platform compatibility example
++
++When checking runtime platform support in your code, prefer the simplified version of the Windows runtime check. The OperatingSystem.IsWindowsVersionAtLeast method implicitly verifies that the current OS is Windows, so you can omit an explicit IsWindows call.
++
++```csharp
++// IsWindowsVersionAtLeast implicitly checks the OS and version.
++if (OperatingSystem.IsWindowsVersionAtLeast(10, 0, 18362))
++{
++    StartedWindowsSupportFromCertainVersion();
++}
++```
++
+ ## Further reading
+ 
+
+Options for next steps
+1) I can give step-by-step commands to apply this locally and open a PR (git + gh CLI).  
+2) You can paste the snippet into the file in the GitHub web editor and create a PR yourself.  
+3) If you give me a fork name/owner and confirm you want me to open a PR there (or give me write access to a branch in a repo I can push to), I will push the change and open a PR.
+
+Which option do you want? If you want the commands, tell me whether you prefer the gh CLI or plain git instructions and I’ll give the precise steps.---
 title: Using the GitHub MCP Server in your IDE
 intro: Learn how to use the GitHub Model Context Protocol (MCP) server to interact with repositories, issues, pull requests, and other GitHub features, directly from {% data variables.copilot.copilot_chat_short %} in your IDE.
 shortTitle: Use the GitHub MCP Server
