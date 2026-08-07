@@ -82,3 +82,5 @@ mutation {
   }
 }
 ```
+
+The REST API also has the concept of conditional requests, which allow you to use ETAG and If-None-Modified headers to observe if the previous query has changed without incurring a rate limit query charge. For more information, see [AUTOTITLE](/rest/using-the-rest-api/best-practices-for-using-the-rest-api#use-conditional-requests-if-appropriate).
