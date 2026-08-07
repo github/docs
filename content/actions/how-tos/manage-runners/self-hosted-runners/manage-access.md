@@ -56,6 +56,12 @@ For runner groups in an enterprise, you can change what organizations in the ent
 
 For runner groups in an organization, you can change what repositories in the organization can access a runner group.
 
+{% note %}
+
+**Note:** Some users have reported that organization-level runners assigned to custom runner groups don't appear on the legacy **Settings > Actions > Runners** page for individual repositories, even when the group has valid repository access configured. If a runner you expect to see is missing there, check the repository's **Actions > Runners** management page, which reflects custom group membership more reliably.
+
+{% endnote %}
+
 {% data reusables.actions.runner-groups-org-navigation %}
 {% data reusables.actions.changing-repository-access-for-a-runner-group %}
 
