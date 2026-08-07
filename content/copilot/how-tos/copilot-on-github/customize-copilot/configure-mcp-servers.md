@@ -48,8 +48,8 @@ Repository administrators can configure MCP servers by following these steps:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. {% data reusables.user-settings.code-planning-automation %} click **{% data variables.product.prodname_copilot_short %}** then **MCP servers**.
-1. On the "Model Context Protocol (MCP)" page, add your configuration in the "MCP configuration" section.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% data variables.product.prodname_copilot_short %}** then **{% data variables.copilot.copilot_cloud_agent_short_cap_c %}**.
+1. On the "{% data variables.copilot.copilot_cloud_agent_short_cap_c %}" page, in the "Model Context Protocol (MCP)" section, add your configuration in the "MCP configuration" section.
 
    The following sections in this article explain how to write the JSON configuration that you need to enter here.
 
@@ -353,8 +353,8 @@ If you want to allow {% data variables.product.prodname_copilot_short %} to acce
 1. Create a {% data variables.product.pat_generic %} with the appropriate permissions. We recommend using a {% data variables.product.pat_v2 %}, where you can limit the token's access to read-only permissions on specific repositories. For more information on {% data variables.product.pat_generic_plural %}, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. {% data reusables.user-settings.code-planning-automation %} click **{% data variables.product.prodname_copilot_short %}** then **MCP servers**.
-1. Add your configuration in the "MCP configuration" section. For example, you can add the following:
+1. {% data reusables.user-settings.code-planning-automation %} click **{% data variables.product.prodname_copilot_short %}** then **{% data variables.copilot.copilot_cloud_agent_short_cap_c %}**.
+1. On the "{% data variables.copilot.copilot_cloud_agent_short_cap_c %}" page, in the "Model Context Protocol (MCP)" section, add your configuration in the "MCP configuration" section. For example, you can add the following:
 
    ```javascript copy
     // If you copy and paste this example, you will need to remove the comments prefixed with `//`, which are not valid JSON.
@@ -399,6 +399,6 @@ If you disable this setting, {% data variables.copilot.copilot_code-review_short
 
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers)
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review)
-* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/create-custom-agents)
-* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment)
-* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp)
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents)
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment)
+* [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-chat-with-mcp)
