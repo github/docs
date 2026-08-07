@@ -21,7 +21,7 @@ Create stacked pull requests with the `gh stack` extension in {% data variables.
 1. Initialize a stack. This creates and checks out the first branch on top of your trunk branch.
 
    ```shell copy
-   gh stack init auth-layer
+   gh stack init BRANCH-NAME
    ```
 
 1. Write code for the first layer, then stage and commit your changes.
