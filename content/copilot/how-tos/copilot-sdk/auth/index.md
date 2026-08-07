@@ -12,6 +12,7 @@ contentType: how-tos
 children:
   - /authenticate
   - /byok
+  - /server-to-server-tokens
 ---
 
 <!-- markdownlint-disable GHD046 GHD005 -->

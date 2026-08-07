@@ -89,20 +89,6 @@
   business: true
   enterprise: true
 
-- name: Gemini 2.5 Pro
-  pro: true
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
-
-- name: Gemini 3 Flash
-  pro: true
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
-
 - name: Gemini 3.1 Pro
   pro: true
   pro_plus: true
@@ -195,6 +181,13 @@
   enterprise: true
 
 - name: Kimi K2.7 Code
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Kimi K3
   pro: true
   pro_plus: true
   max: true

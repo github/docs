@@ -150,8 +150,6 @@ When {% data variables.copilot.copilot_code-review_short %} is enabled for these
 
 ## MCP servers and agent skills for code review
 
-{% data reusables.copilot.code-review.skills-and-mcp-preview-note %}
-
 {% data variables.copilot.copilot_code-review_short %} can use repository-level agent skills and MCP servers when they are relevant to the review.
 
 {% data variables.copilot.copilot_code-review_short %} is more likely to use skills and MCP context when your repository or pull request gives clear signals, including review-focused skill directory names, custom instructions that reference MCP context, and pull request descriptions that include identifiers referencing configured MCP servers such as issue keys or incident IDs.
@@ -238,7 +236,7 @@ For full instructions, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up
 
 {% data variables.product.prodname_code_quality %} complements {% data variables.copilot.copilot_code-review_short %} by adding:
 
-* **Hybrid detection** that combines rules-based {% data variables.product.prodname_codeql %} analysis with AI-powered analysis, on pull requests and on your default branch.
+* **Rules-based  {% data variables.product.prodname_codeql %}-powered analysis** on pull requests and on your default branch.
 * **Test-coverage metrics** on pull requests, so you can see whether a change maintains or reduces coverage.
 * **One-click, {% data variables.product.prodname_copilot_short %}-powered fixes**, including delegating remediation to {% data variables.copilot.copilot_cloud_agent %}.
 * **Optional merge gating** with rulesets, so pull requests with unresolved rules-based findings (or that miss a coverage threshold) can be blocked from merging.

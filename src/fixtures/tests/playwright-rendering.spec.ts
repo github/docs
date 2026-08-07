@@ -52,6 +52,58 @@ test('use sidebar to go to Hello World page', async ({ page }) => {
   await expect(page).toHaveTitle(/Hello World - GitHub Docs/)
 })
 
+test('sidebar highlights the clicked item optimistically while navigation is pending', async ({
+  page,
+}) => {
+  // Article pages are getServerSideProps routes, so router.asPath (and thus the real
+  // aria-current) only updates after the destination loads. The sidebar marks the
+  // clicked link with a visual-only `data-pending` accent so the click is acknowledged
+  // immediately. Throttle the client-side data fetch so the navigation stays pending
+  // long enough to observe that intermediate state.
+  await page.goto('/get-started')
+  await page.getByTestId('product-sidebar').getByText('Start your journey').click()
+
+  const sidebar = page.getByTestId('product-sidebar')
+  const helloWorld = sidebar.getByRole('link', { name: 'Hello World' })
+  const linkRewriting = sidebar.getByRole('link', { name: 'Link rewriting' })
+
+  // Hold the next data request open until we release it, so navigation stays pending.
+  let releaseNavigation = () => {}
+  const navigationHeld = new Promise<void>((resolve) => {
+    releaseNavigation = resolve
+  })
+  await page.route('**/_next/data/**', async (route) => {
+    await navigationHeld
+    await route.continue()
+  })
+
+  await helloWorld.click()
+
+  // While pending: the clicked link carries the optimistic visual marker, but the URL
+  // and the semantic aria-current still reflect the (still-loaded) get-started page.
+  await expect(helloWorld).toHaveAttribute('data-pending', '')
+  await expect(helloWorld).not.toHaveAttribute('aria-current', 'page')
+  await expect(page).not.toHaveURL(/hello-world/)
+
+  // Let the navigation finish: the marker gives way to a real aria-current.
+  releaseNavigation()
+  await expect(page).toHaveURL(/\/en\/get-started\/start-your-journey\/hello-world/)
+  await expect(helloWorld).toHaveAttribute('aria-current', 'page')
+  await expect(helloWorld).not.toHaveAttribute('data-pending', '')
+
+  // A modifier-click (open in new tab) must NOT move the optimistic selection.
+  // handleNavClick bails on modifier clicks, so pendingHref is never set: the current
+  // page keeps its URL, its aria-current, and the clicked link gets no data-pending.
+  // Use ControlOrMeta so the real "open in new tab" modifier is sent per-platform
+  // (Ctrl on Linux/Windows CI, Meta on macOS). The click opens a background tab we
+  // don't need to assert on; catch any popup so it doesn't leak.
+  page.on('popup', (popup) => popup.close())
+  await linkRewriting.click({ modifiers: ['ControlOrMeta'] })
+  await expect(linkRewriting).not.toHaveAttribute('data-pending', '')
+  await expect(helloWorld).toHaveAttribute('aria-current', 'page')
+  await expect(page).toHaveURL(/\/en\/get-started\/start-your-journey\/hello-world/)
+})
+
 test('press "/" to open the search overlay', async ({ page }) => {
   await page.goto('/')
   await turnOffExperimentsInPage(page)
@@ -804,6 +856,59 @@ test.describe('secondary-bar breadcrumb scroller', () => {
     }
     await expect(leftChevron).toBeHidden()
     await expect.poll(scrollLeftOf).toBeLessThanOrEqual(1)
+  })
+})
+
+test.describe('anchor link scrolling', () => {
+  // The doc-tree rail only renders at the xxl breakpoint (1400px) and up. Its
+  // "centre the active item" effect used to call scrollIntoView, which scrolls
+  // every scrollable ancestor including the document, so it undid the browser's
+  // scroll to the #anchor and dumped the reader at the top of the article.
+  // These tests only mean anything with the rail on screen.
+  const WIDE = { width: 1400, height: 720 }
+
+  // The heading is offset from the top of the viewport by `scroll-margin-top`
+  // (109px at xxl, see src/frame/stylesheets/scroll-top.scss). Allow slack for
+  // rounding and sticky-header tweaks, but stay well clear of "not scrolled".
+  const expectScrolledToTarget = async (page: import('@playwright/test').Page) => {
+    const heading = page.locator('#target-heading')
+    await expect(heading).toBeVisible()
+    await expect.poll(async () => Math.round((await heading.boundingBox())!.y)).toBeLessThan(200)
+    expect(await page.evaluate(() => Math.round(window.scrollY))).toBeGreaterThan(300)
+  }
+
+  test('a direct load of a URL with an #anchor scrolls to that section', async ({ page }) => {
+    page.setViewportSize(WIDE)
+    await page.goto('/get-started/foo/anchor-scrolling#target-heading')
+    await expect(page.getByTestId('sidebar')).toBeVisible()
+    await expectScrolledToTarget(page)
+
+    // Guard the setup: the regression only shows when the rail has actually
+    // scrolled its own container to centre the active item. If a fixture change
+    // ever makes the rail short enough that it doesn't need to scroll, these
+    // tests would keep passing while covering nothing — fail loudly instead.
+    const railScrollTop = await page
+      .getByTestId('sidebar')
+      .evaluate((el) => el.closest('[role="region"]')!.scrollTop)
+    expect(railScrollTop).toBeGreaterThan(0)
+  })
+
+  test('clicking a cross-page #anchor link scrolls to that section', async ({ page }) => {
+    page.setViewportSize(WIDE)
+    await page.goto('/get-started/foo/for-playwright')
+    await page.locator('main a[href$="/get-started/foo/anchor-scrolling#target-heading"]').click()
+    await expect(page).toHaveURL(/anchor-scrolling#target-heading/)
+    await expectScrolledToTarget(page)
+  })
+
+  test('navigating to a page without an #anchor still lands at the top', async ({ page }) => {
+    page.setViewportSize(WIDE)
+    await page.goto('/get-started/foo/anchor-scrolling#target-heading')
+    await expectScrolledToTarget(page)
+
+    await page.getByTestId('sidebar').getByRole('link', { name: 'Bar', exact: true }).click()
+    await expect(page).toHaveURL(/\/en\/get-started\/foo\/bar$/)
+    await expect.poll(async () => page.evaluate(() => Math.round(window.scrollY))).toBe(0)
   })
 })
 

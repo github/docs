@@ -213,7 +213,9 @@ From {% data variables.product.prodname_dotcom %}:
 
 ### Setting up streaming to Azure Event Hubs
 
-> [!NOTE] Event Hubs instances in Azure Government are not supported.
+> [!NOTE] 
+> - Event Hubs instances in Azure Government are not supported.
+> - With **{% data variables.enterprise.data_residency %},** audit log streaming to Azure Event Hubs is not supported with IP Firewall rules enabled.
 
 Before setting up a stream in {% data variables.product.prodname_dotcom %}, you need:
 

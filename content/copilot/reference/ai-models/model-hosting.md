@@ -71,13 +71,11 @@ When using {% data variables.copilot.copilot_claude %}, input prompts and output
 
 Used for:
 
-* {% data variables.copilot.copilot_gemini_25_pro %}
-* {% data variables.copilot.copilot_gemini_3_flash %}
 * {% data variables.copilot.copilot_gemini_31_pro %}
 * {% data variables.copilot.copilot_gemini_35_flash %}
 * {% data variables.copilot.copilot_gemini_36_flash %}
 
-{% data variables.product.prodname_copilot %} uses {% data variables.copilot.copilot_gemini_31_pro %}, {% data variables.copilot.copilot_gemini_3_flash %}, and {% data variables.copilot.copilot_gemini_25_pro %} hosted on Google Cloud Platform (GCP). When using {% data variables.copilot.copilot_gemini %} models, prompts and metadata are sent to GCP, which makes the [following data commitment](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance): _{% data variables.copilot.copilot_gemini %} doesn't use your prompts, or its responses, as data to train its models._
+{% data variables.product.prodname_copilot %} uses {% data variables.copilot.copilot_gemini %} models hosted on Google Cloud Platform (GCP). When using {% data variables.copilot.copilot_gemini %} models, prompts and metadata are sent to GCP, which makes the [following data commitment](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance): _{% data variables.copilot.copilot_gemini %} doesn't use your prompts, or its responses, as data to train its models._
 
 To provide better service quality and reduce latency, {% data variables.product.github %} uses [prompt caching](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance#customer_data_retention_and_achieving_zero_data_retention).
 
@@ -129,10 +127,13 @@ Open-weight models have publicly available weights. {% data reusables.copilot.op
 Used for:
 
 * {% data variables.copilot.copilot_kimi_k27_code %}
+* {% data variables.copilot.copilot_kimi_k3 %}
 
-{% data variables.copilot.copilot_kimi_k27_code %} was developed by Moonshot AI. It is an open-weight model. {% data variables.product.github %}'s content filtering applies, but you should review the [{% data variables.copilot.copilot_kimi_k27_code %} model card](https://huggingface.co/moonshotai/Kimi-K2.7-Code) and conduct your own evaluations before enabling it.
+{% data variables.copilot.copilot_kimi_k27_code %} and {% data variables.copilot.copilot_kimi_k3 %} were developed by Moonshot AI. They are open-weight models that may be less aligned than other {% data variables.product.prodname_copilot_short %} models, with an elevated risk of geographic bias. Before you enable either model, review the [{% data variables.copilot.copilot_kimi_k27_code %} model card](https://huggingface.co/moonshotai/Kimi-K2.7-Code) or the [{% data variables.copilot.copilot_kimi_k3 %} model card](https://huggingface.co/moonshotai/Kimi-K3) and run your own evaluations before enabling.
 
-When using {% data variables.copilot.copilot_kimi_k27_code %}, input prompts and output completions continue to run through {% data variables.product.prodname_copilot %}'s content filters for public code matching, when applied, along with those for harmful or offensive content.
+{% data variables.copilot.copilot_kimi_k27_code %} is hosted on US-based Azure AI Foundry infrastructure managed by {% data variables.product.github %} and Microsoft.
+
+{% data variables.copilot.copilot_kimi_k3 %} is hosted by {% data variables.product.github %} on Fireworks AI.
 
 ## Inline suggestions
 

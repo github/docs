@@ -39,6 +39,8 @@ Enterprise owners can define a policy for the whole enterprise, or delegate the 
 
 {% data reusables.copilot.mcp-servers-policy-note %}
 
+{% data reusables.copilot.policy.suggestions-code-enterprise-default %}
+
 ## Opting in to feedback collection
 
 If you enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}" from the "{% data variables.product.prodname_copilot_short %}" page of the "AI Controls" tab, you can also opt in to user feedback collection to help {% data variables.product.github %} improve {% data variables.product.prodname_copilot_short %} features.

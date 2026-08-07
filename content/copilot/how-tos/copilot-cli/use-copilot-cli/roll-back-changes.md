@@ -24,9 +24,9 @@ You can trigger a rewind by pressing <kbd>Esc</kbd> twice, or by using the `/und
 
 * **Git-based rewind**: rolls back to a workspace snapshot taken at the start of a prompt.
 * **Tools-based rewind**: lets you rewind conversation history only, or rewind conversation history and restore files that {% data variables.product.prodname_copilot_short %} changed.
- 
+
 > [!NOTE]
-> Tools-based rewind is currently an experimental feature and is only available if you have used the `/experimental on` slash command, or the `--experimental` command line option.
+> Tools-based rewind is currently an experimental feature and is only available if you have used the `/experimental on` slash command, or the `‑‑experimental` command line option.
 
 {% data variables.copilot.copilot_cli_short %} automatically chooses one of these rewind behaviors based on your environment to provide the best possible rewind experience.
 

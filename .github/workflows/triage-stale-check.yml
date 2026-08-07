@@ -21,7 +21,7 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: actions/stale@3a9db7e6a41a89f618792c92c0e97cc736e1b13f # v10.0.0
+      - uses: actions/stale@4391f3da665fdf50b6810c1a66712fb9ba21aa93 # v11.0.0
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           days-before-stale: 30
@@ -36,12 +36,6 @@ jobs:
           stale-pr-message: 'A stale label has been added to this pull request because it has been open 30 days with no activity. If you think this pull request should remain open, please add a new comment.'
           stale-pr-label: 'Inactive'
           close-pr-label: 'Closed as inactive'
-
-          # Both output options are set true for debugging.
-          # The numbers should always match unless we change `days-before-close` from `0`.
-
-          staled-issues-prs: true # report issues and PRs that were commented on as stale in the output
-          closed-issues-prs: true # report issues and PRs that were closed in the output
 
       - name: Check out repo
         if: ${{ failure() }}
@@ -66,7 +60,8 @@ jobs:
       issues: write
       pull-requests: write
     steps:
-      - uses: actions/stale@3a9db7e6a41a89f618792c92c0e97cc736e1b13f # v10.0.0
+      - uses: actions/stale@4391f3da665fdf50b6810c1a66712fb9ba21aa93 # v11.0.0
+        id: stale
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           only-labels: 'waiting for review'
@@ -78,7 +73,10 @@ jobs:
           stale-pr-label: 'Waiting on Docs team review'
 
       - name: Print outputs
-        run: echo "Staled issues/PRs:${{ steps.stale.outputs.staled-issues-prs || '0' }}, Closed issues/PRs:${{ steps.stale.outputs.closed-issues-prs || '0' }}"
+        env:
+          STALED: ${{ steps.stale.outputs.staled-issues-prs || '0' }}
+          CLOSED: ${{ steps.stale.outputs.closed-issues-prs || '0' }}
+        run: echo "Staled issues/PRs:${STALED}, Closed issues/PRs:${CLOSED}"
 
       - name: Check out repo
         if: ${{ failure() }}

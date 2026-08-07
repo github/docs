@@ -14,7 +14,7 @@ category:
 
 ## About the importance of providing access to private registries
 
-When code in a repository has dependencies that are stored in a private registry, some security features need access to the registry to enable them to work effectively. Without access to all the dependencies of a repository, the effectiveness of {% ifversion code-quality %}{% data variables.product.prodname_code_quality_short %} ({% data variables.release-phases.public_preview %}), {% endif %}{% data variables.product.prodname_code_scanning %} default setup and {% data variables.product.prodname_dependabot %} are limited.
+When code in a repository has dependencies that are stored in a private registry, some security features need access to the registry to enable them to work effectively. Without access to all the dependencies of a repository, the effectiveness of {% ifversion code-quality %}{% data variables.product.prodname_code_quality_short %}, {% endif %}{% data variables.product.prodname_code_scanning %} default setup and {% data variables.product.prodname_dependabot %} are limited.
 
 ## {% data variables.product.prodname_code_scanning_caps %} default setup access to private registries
 
@@ -29,6 +29,12 @@ When you configure access to the private registries used in your organization, {
 | C# | NuGet Feed |
 | Go | GOPROXY server, Git Source |
 | Java | Maven Repository |
+
+{% ifversion codeql-config-property %}
+
+Additionally, _Git Source_ registries are supported for granting {% data variables.product.prodname_code_scanning %} access to configuration files in private repositories. For more information about customizing {% data variables.product.prodname_code_scanning %} using custom configuration files, see [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options#custom-configuration-files).
+
+{% endif %}
 
 > [!TIP]
 > You can define one of each type of registry for each organization. If the codebases in your organization use more than one registry of a given type, you should set up a unified access point or define access to the most important registry for the codebases in that organization.
@@ -81,19 +87,6 @@ Any private registries used by the build must also be accessible to the workflow
 
 When you configure access to one or more private registries, {% data variables.product.prodname_dependabot %} can propose pull requests to upgrade a vulnerable dependency or to maintain a dependency, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries) and [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-private-registries).
 
-{% ifversion org-automatic-registry-access %}
-
-### Automatic access to {% data variables.product.github %}-hosted registries
- 
-For packages stored in {% data variables.product.prodname_registry %} and {% data variables.product.prodname_container_registry %}, {% data variables.product.prodname_dependabot %} can authenticate automatically without {% data variables.product.pat_generic_plural %} or `dependabot.yml` registry configuration. 
-
-{% data variables.product.prodname_dependabot %} uses its `GITHUB_TOKEN` to request read access, reusing the same package access grants that {% data variables.product.prodname_actions %} workflows use.
- 
-To enable this, grant the repository **Read** access to each package in the package settings. Once access is granted, {% data variables.product.prodname_dependabot %} can pull from those packages automatically, and you can remove any {% data variables.product.pat_generic %}-based registry entries you previously configured for them.
- 
-See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#configuring-private-github-hosted-registries).
-{% endif %}
-
 {% ifversion org-private-registry-oidc %}
 
 ### Configuring OIDC authentication for a private registry
@@ -120,8 +113,6 @@ For more information about how OIDC works, see [AUTOTITLE](/actions/concepts/sec
 {% ifversion code-quality %}
 
 ## {% data variables.product.prodname_code_quality_short %} access to private registries
-
-{% data reusables.code-quality.code-quality-preview-note %}
 
 {% data variables.product.prodname_code_quality %} can use any of the organization-level private registries that are available when it is enabled for a repository.
 

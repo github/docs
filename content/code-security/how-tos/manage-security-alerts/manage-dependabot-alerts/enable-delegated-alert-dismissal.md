@@ -12,7 +12,7 @@ category:
   - Secure your dependencies
 ---
 
-{% data reusables.security.delegated-alert-dismissal-capacity %}
+>[!NOTE] {% data reusables.security.delegated-alert-dismissal-capacity %}
 
 ## Configuring delegated dismissal for a repository
 

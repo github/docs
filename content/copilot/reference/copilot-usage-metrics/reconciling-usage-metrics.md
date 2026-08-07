@@ -31,6 +31,8 @@ If you notice missing users or unexpectedly low adoption numbers, verify IDE tel
 
 {% data variables.copilot.copilot_cli_short %} metrics (`daily_active_cli_users` and `totals_by_cli`) are collected and reported separately from IDE telemetry. CLI usage does **not** contribute to IDE-based active user counts or other IDE metrics.
 
+Do not reconcile `totals_by_3rd_party_agent[].user_initiated_interaction_count`, which counts user-initiated {% data variables.copilot.agent_app %} jobs, with the top-level `user_initiated_interaction_count`, which counts explicit prompts from other supported telemetry.
+
 ## Metric alignment
 
 The dashboard and APIs use shared definitions for key metrics:

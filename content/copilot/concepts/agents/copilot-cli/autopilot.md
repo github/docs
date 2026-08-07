@@ -59,6 +59,10 @@ When entering autopilot mode, if you have not already granted {% data variables.
 
 You will get the best results from autopilot mode if you enable all permissions. If you choose to continue with limited permissions, {% data variables.product.prodname_copilot_short %} will automatically deny any tool requests that require approval, which may prevent it from completing certain tasks. You can change your mind later and grant full permissions, during an autopilot session, by using the `/allow-all` command (or its alias `/yolo`).
 
+Before granting {% data variables.product.prodname_copilot_short %} wide-ranging permissions, consider using local sandboxing, or running the session in a cloud sandbox, to limit what {% data variables.product.prodname_copilot_short %} can access.
+
+If you enable local sandboxing while using autopilot mode, {% data variables.product.prodname_copilot_short %} completes anything it can achieve inside the sandbox without interruption. However, any step that needs to escape the sandbox—for example, writing to a file outside the current working directory—is denied. For more information about local sandboxing, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
+
 ## Staying in autopilot mode between tasks
 
 By default, autopilot mode is sticky: once {% data variables.product.prodname_copilot_short %} determines that a task is complete, {% data variables.copilot.copilot_cli_short %} remains in autopilot mode, so the next prompt you enter is also handled in autopilot mode. You can switch back to the standard interactive mode at any time by pressing <kbd>Shift</kbd>+<kbd>Tab</kbd>.

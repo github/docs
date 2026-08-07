@@ -8,6 +8,7 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from 'react'
 import { NavList } from '@primer/react-brand'
@@ -21,13 +22,31 @@ import { flattenDescendants, MAX_NAVLIST_LEVEL } from './sidebar-navlist-depth'
 
 import styles from './SidebarProduct.module.scss'
 
+// The nearest ancestor that actually scrolls vertically. Brand's NavList.SubNav
+// wrappers use `overflow-y: hidden`, so match only auto/scroll to skip past them
+// and land on the sidebar's own overflow container. Returns null when the rail is
+// hidden (below the xxl breakpoint it is `display: none`, so nothing scrolls).
+function findScrollableAncestor(element: Element): HTMLElement | null {
+  let node = element.parentElement
+  while (node) {
+    const { overflowY } = getComputedStyle(node)
+    if ((overflowY === 'auto' || overflowY === 'scroll') && node.scrollHeight > node.clientHeight) {
+      return node
+    }
+    node = node.parentElement
+  }
+  return null
+}
+
 type Router = ReturnType<typeof useRouter>
 
 // Brand NavList.Item renders a plain <a> (its `as` prop only accepts 'a' | 'button',
 // not next/link), so intercept clicks to restore next/link-style client-side
 // navigation. Modifier/middle clicks fall through to the browser so open-in-new-tab
 // still works, and the <a href> keeps links crawlable for SSR. Mirrors Breadcrumbs.tsx.
-function handleNavClick(router: Router, event: MouseEvent<HTMLElement>, href: string) {
+// Returns true when it performed a client-side navigation (so the caller can move the
+// optimistic selection), false when the click was left to the browser.
+function handleNavClick(router: Router, event: MouseEvent<HTMLElement>, href: string): boolean {
   if (
     event.defaultPrevented ||
     event.button !== 0 ||
@@ -37,12 +56,13 @@ function handleNavClick(router: Router, event: MouseEvent<HTMLElement>, href: st
     event.altKey ||
     !href.startsWith('/')
   ) {
-    return
+    return false
   }
   event.preventDefault()
   // hrefs already include the locale prefix (e.g. /en/...), so disable Next.js
   // locale handling to avoid double-prefixing.
   router.push(href, undefined, { locale: false })
+  return true
 }
 
 // The sidebar renders the full product tree (hundreds of nodes) and fully remounts
@@ -50,7 +70,14 @@ function handleNavClick(router: Router, event: MouseEvent<HTMLElement>, href: st
 // subscribe to the router ONCE here and hand items a stable routePath plus stable
 // navigate/prefetch callbacks, instead of every item calling useRouter itself.
 type SidebarNavValue = {
+  // The real loaded route. Drives aria-current (the semantic "current page") and the
+  // auto-expanded active ancestor chain — both must reflect the page actually loaded.
   routePath: string
+  // The in-flight click target, or null. Drives a VISUAL-ONLY optimistic accent bar
+  // (via data-pending) so the click feels acknowledged before the slow
+  // getServerSideProps page loads — without lying to assistive tech about the current
+  // page. Once navigation completes, the keyed remount clears it and routePath catches up.
+  pendingHref: string | null
   navigate: (event: MouseEvent<HTMLElement>, href: string) => void
   prefetch: (href: string) => void
 }
@@ -62,6 +89,17 @@ function useSidebarNav(): SidebarNavValue {
     throw new Error('useSidebarNav must be used within SidebarProduct')
   }
   return value
+}
+
+// Props for a leaf link's <a>: aria-current tracks the loaded page (semantics), while
+// data-pending marks the in-flight click so CSS can move the accent bar optimistically
+// without changing what screen readers announce as current. data-pending is only set
+// while a *different* page is loading, so it never double-marks the already-current item.
+function leafLinkProps(nav: SidebarNavValue, href: string) {
+  return {
+    'aria-current': (nav.routePath === href ? 'page' : false) as 'page' | false,
+    'data-pending': nav.pendingHref === href && nav.routePath !== href ? '' : undefined,
+  }
 }
 
 // Separate context for the REST-only scroll-spy state (full asPath with query+hash,
@@ -103,30 +141,64 @@ export const SidebarProduct = () => {
   const { asPath, locale, query } = router
   const routePath = `/${locale}${asPath.split('?')[0].split('#')[0]}`
 
+  // Optimistic selection: the href of an in-flight click. Used to move the accent bar
+  // visually (data-pending) the instant a link is clicked, even while the destination
+  // page is still loading. This SidebarProduct instance persists during the pending
+  // fetch (SidebarNav keys it on asPath, which only changes once navigation completes),
+  // so the state survives the wait and is discarded by the keyed remount when the new
+  // route lands. aria-current is NOT derived from this — it stays on the loaded route.
+  const [pendingHref, setPendingHref] = useState<string | null>(null)
+
   const prefetchHref = usePrefetchOnInteraction()
   // Stable callbacks so memoized items don't re-render on unrelated changes.
   const navigate = useCallback(
-    (event: MouseEvent<HTMLElement>, href: string) => handleNavClick(router, event, href),
+    (event: MouseEvent<HTMLElement>, href: string) => {
+      // Only move the optimistic highlight on a real client-side nav, not on a
+      // modifier/middle click that opens a new tab (the current page stays put).
+      if (handleNavClick(router, event, href)) setPendingHref(href)
+    },
     [router],
   )
   const prefetch = useCallback((href: string) => prefetchHref(router, href), [router, prefetchHref])
   const navValue = useMemo<SidebarNavValue>(
-    () => ({ routePath, navigate, prefetch }),
-    [routePath, navigate, prefetch],
+    () => ({ routePath, pendingHref, navigate, prefetch }),
+    [routePath, pendingHref, navigate, prefetch],
   )
   const restNavValue = useMemo<RestNavValue>(() => ({ asPath, query }), [asPath, query])
+  const rootRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    // Clear the optimistic highlight if a navigation genuinely fails, so it doesn't
+    // stick on a page that never loaded. Skip cancellations (err.cancelled) — those
+    // fire when a second click supersedes the first, and pendingHref already points at
+    // that newer target, which we want to keep highlighted.
+    const clearPending = (err: { cancelled?: boolean }) => {
+      if (!err?.cancelled) setPendingHref(null)
+    }
+    router.events.on('routeChangeError', clearPending)
+    return () => router.events.off('routeChangeError', clearPending)
+  }, [router.events])
 
   useEffect(() => {
     // Brand NavList auto-expands the whole ancestor chain of the active item, so
     // scroll to the item marked aria-current="page" (the active article) rather
     // than the top-most expanded section.
-    const activeArticle = document.querySelector('[aria-current="page"]')
+    const activeArticle = rootRef.current?.querySelector('[aria-current="page"]')
+    if (!activeArticle) return
+
+    // Scroll the sidebar's own overflow container by hand. `scrollIntoView` would
+    // scroll every scrollable ancestor, including the document, which cancels the
+    // browser's scroll to a #anchor on load and leaves the reader at the top of
+    // the article. See BreadcrumbsScroller for the same approach.
+    const container = findScrollableAncestor(activeArticle)
+    if (!container) return
+
+    const containerRect = container.getBoundingClientRect()
+    const activeRect = activeArticle.getBoundingClientRect()
     // Setting to the top doesn't give enough context of surrounding categories
-    activeArticle?.scrollIntoView({ block: 'center' })
-    // scrollIntoView affects some articles that are very low in the sidebar
-    // The content scrolls down a bit. This sets the article content back up
-    // top unless the route contains a link heading.
-    if (!router.asPath.includes('#')) window?.scrollTo(0, 0)
+    const delta =
+      activeRect.top - containerRect.top - (container.clientHeight - activeRect.height) / 2
+    container.scrollBy({ top: delta, behavior: 'instant' })
   }, [])
 
   if (!sidebarTree) {
@@ -176,7 +248,7 @@ export const SidebarProduct = () => {
   }
 
   return (
-    <div data-testid="sidebar" className={styles.sidebar}>
+    <div data-testid="sidebar" className={styles.sidebar} ref={rootRef}>
       <SidebarNavContext.Provider value={navValue}>
         <SidebarExpandStateProvider initial={sidebarExpanded}>
           {isRestPage ? restSection() : productSection()}
@@ -243,14 +315,14 @@ function navListLevelSentinel() {
 }
 
 const LeafLink = memo(function LeafLink({ node }: { node: ProductTreeNode }) {
-  const { routePath, navigate, prefetch } = useSidebarNav()
+  const nav = useSidebarNav()
   return (
     <NavList.Item
       as="a"
       href={node.href}
-      aria-current={routePath === node.href ? 'page' : false}
-      onClick={(event: MouseEvent<HTMLElement>) => navigate(event, node.href)}
-      {...prefetchHandlers(prefetch, node.href)}
+      {...leafLinkProps(nav, node.href)}
+      onClick={(event: MouseEvent<HTMLElement>) => nav.navigate(event, node.href)}
+      {...prefetchHandlers(nav.prefetch, node.href)}
     >
       {node.title}
     </NavList.Item>
@@ -264,9 +336,9 @@ const NavListItem = memo(function NavListItem({
   childPage: ProductTreeNode
   level?: number
 }) {
-  const { routePath, navigate, prefetch } = useSidebarNav()
+  const nav = useSidebarNav()
+  const { routePath, navigate, prefetch } = nav
   const locale = routePath.split('/')[1]
-  const isActive = routePath === childPage.href
   const hasChildren = childPage.childPages.length > 0
   const specialCategory = childPage.layout === 'category-landing'
   const canNest = level < MAX_NAVLIST_LEVEL
@@ -307,7 +379,7 @@ const NavListItem = memo(function NavListItem({
         <NavList.Item
           as="a"
           href={sidebarLinkHref}
-          aria-current={routePath === sidebarLinkHref ? 'page' : false}
+          {...leafLinkProps(nav, sidebarLinkHref)}
           onClick={(event: MouseEvent<HTMLElement>) => navigate(event, sidebarLinkHref)}
           {...prefetchHandlers(prefetch, sidebarLinkHref)}
         >
@@ -318,7 +390,7 @@ const NavListItem = memo(function NavListItem({
         <NavList.Item
           as="a"
           href={childPage.href}
-          aria-current={isActive ? 'page' : false}
+          {...leafLinkProps(nav, childPage.href)}
           onClick={(event: MouseEvent<HTMLElement>) => navigate(event, childPage.href)}
           {...prefetchHandlers(prefetch, childPage.href)}
         >
@@ -333,7 +405,8 @@ const NavListItem = memo(function NavListItem({
 })
 
 function RestNavListItem({ category }: { category: ProductTreeNode }) {
-  const { routePath, navigate, prefetch } = useSidebarNav()
+  const nav = useSidebarNav()
+  const { routePath, navigate, prefetch } = nav
   const { asPath, query } = useRestNav()
   const [visibleAnchor, setVisibleAnchor] = useState('')
   const miniTocItems =
@@ -378,7 +451,7 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
       <NavList.Item
         as="a"
         href={category.href}
-        aria-current={routePath === category.href ? 'page' : false}
+        {...leafLinkProps(nav, category.href)}
         onClick={(event: MouseEvent<HTMLElement>) => navigate(event, category.href)}
         {...prefetchHandlers(prefetch, category.href)}
       >
@@ -429,7 +502,7 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
             key={childPage.href}
             as="a"
             href={childPage.href}
-            aria-current={routePath === childPage.href ? 'page' : false}
+            {...leafLinkProps(nav, childPage.href)}
             onClick={(event: MouseEvent<HTMLElement>) => navigate(event, childPage.href)}
             {...prefetchHandlers(prefetch, childPage.href)}
           >
