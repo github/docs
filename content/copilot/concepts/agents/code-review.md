@@ -236,7 +236,7 @@ For full instructions, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up
 
 {% data variables.product.prodname_code_quality %} complements {% data variables.copilot.copilot_code-review_short %} by adding:
 
-* **Hybrid detection** that combines rules-based {% data variables.product.prodname_codeql %} analysis with AI-powered analysis, on pull requests and on your default branch.
+* **Rules-based  {% data variables.product.prodname_codeql %}-powered analysis** on pull requests and on your default branch.
 * **Test-coverage metrics** on pull requests, so you can see whether a change maintains or reduces coverage.
 * **One-click, {% data variables.product.prodname_copilot_short %}-powered fixes**, including delegating remediation to {% data variables.copilot.copilot_cloud_agent %}.
 * **Optional merge gating** with rulesets, so pull requests with unresolved rules-based findings (or that miss a coverage threshold) can be blocked from merging.
