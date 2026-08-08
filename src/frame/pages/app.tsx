@@ -5,6 +5,7 @@ import Head from 'next/head'
 import { ThemeProvider } from '@primer/react'
 import { ThemeProvider as BrandThemeProvider } from '@primer/react-brand'
 import { useRouter } from 'next/router'
+import { Analytics } from '@vercel/analytics/next'
 
 import { initializeEvents } from '@/events/components/events'
 import {
@@ -125,6 +126,7 @@ const MyApp = ({ Component, pageProps, languagesContext, stagingName }: MyAppPro
             <SharedUIContextProvider>
               <ClientSideHashFocus />
               <Component {...pageProps} />
+              <Analytics />
             </SharedUIContextProvider>
           </LanguagesContext.Provider>
         </BrandThemeProvider>
