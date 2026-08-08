@@ -193,6 +193,7 @@
     "@primer/primitives": "^11.3.1",
     "@primer/react": "38.19.0",
     "@primer/react-brand": "^0.70.0",
+    "@vercel/analytics": "^2.0.1",
     "accept-language-parser": "^1.5.0",
     "ajv": "^8.18.0",
     "ajv-errors": "^3.0.0",
