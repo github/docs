@@ -1,5 +1,5 @@
 ---
-title: "Manage access"
+title: "Managing access for a migration from Azure DevOps"
 shortTitle: "2. Manage access"
 intro: "Set up the required access for migrating from Azure DevOps to {% data variables.product.github %}."
 versions:
