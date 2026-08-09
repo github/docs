@@ -55,7 +55,7 @@ jobs:
 
 Because a workflow runs for every pull request in a stack, you can use the `stack` fields to run expensive jobs only at the positions that matter. Two conditions are especially useful:
 
-* **Lowest unmerged pull request** — the pull request currently at the bottom of the remaining stack. Because it targets the stack base directly, `github.event.pull_request.stack.base.ref` equals `github.event.pull_request.base.ref`.
+* **Lowest unmerged pull request** — the pull request currently at the bottom of the remaining stack, targeting the stack base directly. It is the pull request where `github.event.pull_request.stack.base.ref` equals `github.event.pull_request.base.ref`.
 * **Top pull request** — the last pull request in the stack, containing the full set of changes. It is the pull request where `github.event.pull_request.stack.position` equals `github.event.pull_request.stack.size`.
 
 ```yaml
