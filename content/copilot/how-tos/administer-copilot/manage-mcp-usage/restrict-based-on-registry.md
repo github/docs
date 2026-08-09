@@ -1,21 +1,21 @@
 ---
-title: Configure MCP server access for your organization or enterprise
+title: Restrict MCP server access to a custom registry
 intro: You can configure an MCP registry URL and access control policy to determine which MCP servers developers can discover and use in supported IDEs and {% data variables.copilot.copilot_cli_short %}.
 permissions: Enterprise owners and organization owners
 product: '{% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}'
 versions:
   feature: copilot
-shortTitle: Configure MCP server access
+shortTitle: Restrict based on registry
 redirect_from:
   - /copilot/how-tos/administer-copilot/configure-mcp-server-access
   - /copilot/how-tos/administer-copilot/manage-for-organization/set-extension-permissions
+  - /copilot/how-tos/administer-copilot/manage-mcp-usage/configure-mcp-server-access
 contentType: how-tos
 category:
   - Manage Copilot for a team
 ---
 
-> [!NOTE]
-> The MCP registry URL and allowlist are in {% data variables.release-phases.public_preview %} and subject to change.
+> [!IMPORTANT] {% data reusables.copilot.mcp.registry-alternative %}
 
 ## Prerequisites
 

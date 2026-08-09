@@ -187,6 +187,13 @@
   business: true
   enterprise: true
 
+- name: Kimi K3
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
 - name: MAI-Code-1-Flash
   pro: true
   pro_plus: true

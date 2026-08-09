@@ -58,7 +58,7 @@ There are additional considerations if you use a dedicated enterprise for {% dat
 
 For server-managed deployments, use `copilot/{% data variables.copilot.team_mappings_file %}` and the `copilot/{% data variables.copilot.team_settings_directory %}` directory when one or more enterprise teams should use settings that differ from your default `copilot/{% data variables.copilot.managed_setting_file %}` values. `enabledPlugins` and `extraKnownMarketplaces` work additively. The enterprise `{% data variables.copilot.managed_setting_file %}` sets a baseline, and an enterprise team file can add more plugins and marketplaces on top of it.
 
-1. In your enterprise's `copilot/{% data variables.copilot.managed_setting_file %}` file, mark each key you want to make eligible for override using the `{ "overridable": <VALUE> }` syntax. The `json` files you map to teams can only send different values for keys you mark overridable. An `overridable` value you provide in `managed-settings.json` is the default when teams files do not declare a different value for a given key. 
+1. In your enterprise's `copilot/{% data variables.copilot.managed_setting_file %}` file, mark each key you want to make eligible for override using the `{ "overridable": <VALUE> }` syntax. The `json` files you map to teams can only send different values for keys you mark overridable. An `overridable` value you provide in `managed-settings.json` is the default when teams files do not declare a different value for a given key.
 For example, to defer both `model` and `disableBypassPermissionsMode`:
 
     ```json
@@ -66,12 +66,17 @@ For example, to defer both `model` and `disableBypassPermissionsMode`:
       "model": { "overridable": "auto" },
       "permissions": {
         "disableBypassPermissionsMode": { "overridable": "disable" }
+      },
+      "allowedMcpServers": {
+        "overridable": [
+          { "serverUrl": "https://mcp.company.com/*" }
+        ]
       }
     }
     ```
-   
+
 1. In your enterprise's `.github-private` repository, create `copilot/{% data variables.copilot.team_mappings_file %}`. Map each team settings file to one or more enterprise team slugs. The key is the settings file name and the value is an array of team slugs, so you can apply one file across multiple teams.
-    
+
     ```json
     {
       "devs.json": ["developers-all", "finops-dev"],
@@ -79,7 +84,7 @@ For example, to defer both `model` and `disableBypassPermissionsMode`:
       "frontier.json": ["ai-pioneers"]
     }
     ```
-  
+
 1. Create the team settings file under `copilot/{% data variables.copilot.team_settings_directory %}`. Include only the keys you marked as overridable. Every other key stays governed by your enterprise default.
 
    ```json
@@ -87,7 +92,10 @@ For example, to defer both `model` and `disableBypassPermissionsMode`:
      "model": "unmanaged",
      "permissions": {
        "disableBypassPermissionsMode": "unmanaged"
-     }
+     },
+     "allowedMcpServers": [
+       { "serverUrl": "https://team-specific-mcp.company.com/*" }
+     ]
    }
    ```
 

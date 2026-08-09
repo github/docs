@@ -1,3 +1,85 @@
-.groupIcon {
-  height: 22px;
+// A single "All Docs" grid cell: category heading at the top, product links
+// bottom-aligned (space-between) so every cell in a row shares the tallest
+// height — matching the Docs 2026 design. Internal dividers are the cell's left
+// border (skipped on the first column of each row, per breakpoint, so they don't
+// double the container rail) plus a bottom border for row dividers. The column
+// count steps 1 -> 2 -> 3 -> 4, so each breakpoint re-applies the left border to
+// every cell and then clears it on the new first-of-row.
+.cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2.25rem;
+  padding: 2rem;
+  border-bottom: var(--brand-borderWidth-thin, 1px) solid
+    var(--brand-color-border-muted);
+
+  // Mobile: single column — no internal vertical dividers.
+  border-left: 0;
+
+  @media (min-width: 34rem) {
+    // 2 columns.
+    border-left: var(--brand-borderWidth-thin, 1px) solid
+      var(--brand-color-border-muted);
+
+    &:nth-child(2n + 1) {
+      border-left: 0;
+    }
+  }
+
+  @media (min-width: 63.25rem) {
+    // 3 columns.
+    &:nth-child(n) {
+      border-left: var(--brand-borderWidth-thin, 1px) solid
+        var(--brand-color-border-muted);
+    }
+
+    &:nth-child(3n + 1) {
+      border-left: 0;
+    }
+  }
+
+  @media (min-width: 80rem) {
+    // 4 columns.
+    &:nth-child(n) {
+      border-left: var(--brand-borderWidth-thin, 1px) solid
+        var(--brand-color-border-muted);
+    }
+
+    &:nth-child(4n + 1) {
+      border-left: 0;
+    }
+  }
+}
+
+.groupName {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-fg-default);
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.linkList li {
+  min-height: 1rem;
+}
+
+.link {
+  display: block;
+  overflow: hidden;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1rem;
+  letter-spacing: 0.01rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

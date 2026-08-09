@@ -36,7 +36,7 @@ Metrics are available through:
 
 ## Which usage is included?
 
-{% data variables.product.prodname_copilot_short %} usage metrics are derived from telemetry across multiple {% data variables.product.prodname_copilot_short %} surfaces, including IDE and {% data variables.copilot.copilot_cli_short %} activity. Most metrics come from client-side IDE telemetry, and **end users need telemetry enabled in their IDE** for the richest data in these metrics.
+{% data variables.product.prodname_copilot_short %} usage metrics are derived from telemetry across multiple {% data variables.product.prodname_copilot_short %} surfaces, including IDE, {% data variables.copilot.copilot_cli_short %}, and {% data variables.copilot.agent_apps %} activity. Most metrics come from client-side IDE telemetry, and **end users need telemetry enabled in their IDE** for the richest data in these metrics.
 
 In addition, {% data variables.product.prodname_copilot_short %} usage metrics incorporate **server-side telemetry** to identify active users that client-side telemetry alone may miss. Network conditions, proxy configurations, and client settings can prevent client telemetry from reaching {% data variables.product.github %}, so server-side signals ensure those users still appear in your reports.
 

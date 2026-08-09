@@ -12,6 +12,8 @@ category:
   - Manage Copilot for a team
 ---
 
+> [!IMPORTANT] {% data reusables.copilot.mcp.registry-alternative %}
+
 ## Prerequisites
 
 Before you create your Model Context Protocol (MCP) registry, you should understand the functionality and benefits of MCP management for your company. See [AUTOTITLE](/copilot/concepts/mcp-management).

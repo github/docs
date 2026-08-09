@@ -2,7 +2,7 @@
 title: Interpreting the code quality results for your repository
 shortTitle: Interpret results
 allowTitleToDifferFromFilename: true
-intro: Understand the maintainability and reliability of your codebase so you can prioritize where your teams focus remediation effort.
+intro: Use {% data variables.product.prodname_code_quality_short %} results to assess the maintainability and reliability of your codebase, so your teams can focus remediation where it matters most.
 versions:
   feature: code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'
@@ -53,8 +53,3 @@ Code quality results should always be interpreted in the context of your reposit
 * Large repositories with a lot of code in a fully supported language often have many results even if the majority of the code has good maintainability and reliability standards.
 
 To learn more about the metrics and how the scores are calculated, see [AUTOTITLE](/code-security/reference/code-quality/metrics-and-ratings).
-
-## Next steps
-
-* Remediate quality findings in your default branch and improve the maintainability and reliability score for your repository. See [AUTOTITLE](/code-security/tutorials/improve-code-quality/raise-your-quality-rating).
-* Stop your repository from accumulating more code quality problems by setting a quality threshold for pull requests using rulesets. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/set-pr-thresholds).
