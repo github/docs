@@ -126,6 +126,10 @@
   provider: 'Moonshot AI'
   release_status: 'GA'
 
+- name: 'Kimi K3'
+  provider: 'Moonshot AI'
+  release_status: 'GA'
+
 # xAI models
 - name: 'Grok 4.5'
   provider: 'xAI'
