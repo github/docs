@@ -1623,6 +1623,9 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('["AUTOTITLE](/path)', 'es')).toBe('"[AUTOTITLE](/path)')
       expect(fix('[ AUTOTITLE](/path)', 'es')).toBe('[AUTOTITLE](/path)')
       expect(fix('[ "AUTOTITLE](/path)', 'es')).toBe('[AUTOTITLE](/path)')
+      expect(fix('[AUTOTITLE] (/path)', 'es')).toBe('[AUTOTITLE](/path)')
+      // Already-correct input is left unchanged.
+      expect(fix('[AUTOTITLE](/path)', 'es')).toBe('[AUTOTITLE](/path)')
     })
 
     test('fixes double-brace Liquid tag corruptions', () => {

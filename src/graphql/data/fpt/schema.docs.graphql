@@ -5946,8 +5946,14 @@ input CommitAuthorEmailPatternParametersInput @docsCategory(name: "commits") {
 """
 Represents a comment on a given Commit.
 """
-type CommitComment implements Comment & Deletable & Minimizable & Node & Reactable & RepositoryNode & Updatable & UpdatableComment
-  @docsCategory(name: "commits") {
+type CommitComment implements Comment &
+  Deletable &
+  Minimizable &
+  Node &
+  Reactable &
+  RepositoryNode &
+  Updatable &
+  UpdatableComment @docsCategory(name: "commits") {
   """
   The actor who authored the comment.
   """
@@ -12637,8 +12643,17 @@ type DisconnectedEvent implements Node @docsCategory(name: "issues") {
 """
 A discussion in a repository.
 """
-type Discussion implements Closable & Comment & Deletable & Labelable & Lockable & Node & Reactable & RepositoryNode & Subscribable & Updatable & Votable
-  @docsCategory(name: "discussions") {
+type Discussion implements Closable &
+  Comment &
+  Deletable &
+  Labelable &
+  Lockable &
+  Node &
+  Reactable &
+  RepositoryNode &
+  Subscribable &
+  Updatable &
+  Votable @docsCategory(name: "discussions") {
   """
   Reason that the conversation was locked.
   """
@@ -13088,8 +13103,14 @@ enum DiscussionCloseReason @docsCategory(name: "discussions") {
 """
 A comment on a discussion.
 """
-type DiscussionComment implements Comment & Deletable & Minimizable & Node & Reactable & Updatable & UpdatableComment & Votable
-  @docsCategory(name: "discussions") {
+type DiscussionComment implements Comment &
+  Deletable &
+  Minimizable &
+  Node &
+  Reactable &
+  Updatable &
+  UpdatableComment &
+  Votable @docsCategory(name: "discussions") {
   """
   The actor who authored the comment.
   """
@@ -19900,8 +19921,21 @@ enum IpAllowListUserLevelEnforcementEnabledSettingValue @docsCategory(name: "ent
 """
 An Issue is a place to discuss ideas, enhancements, tasks, and bugs for a project.
 """
-type Issue implements Assignable & Closable & Comment & Deletable & Labelable & Lockable & Node & ProjectV2Owner & Reactable & RepositoryNode & Subscribable & SubscribableThread & UniformResourceLocatable & Updatable & UpdatableComment
-  @docsCategory(name: "issues") {
+type Issue implements Assignable &
+  Closable &
+  Comment &
+  Deletable &
+  Labelable &
+  Lockable &
+  Node &
+  ProjectV2Owner &
+  Reactable &
+  RepositoryNode &
+  Subscribable &
+  SubscribableThread &
+  UniformResourceLocatable &
+  Updatable &
+  UpdatableComment @docsCategory(name: "issues") {
   """
   Reason that the conversation was locked.
   """
@@ -20885,8 +20919,15 @@ enum IssueClosedStateReason @docsCategory(name: "issues") {
 """
 Represents a comment on an Issue.
 """
-type IssueComment implements Comment & Deletable & Minimizable & Node & Pinnable & Reactable & RepositoryNode & Updatable & UpdatableComment
-  @docsCategory(name: "issues") {
+type IssueComment implements Comment &
+  Deletable &
+  Minimizable &
+  Node &
+  Pinnable &
+  Reactable &
+  RepositoryNode &
+  Updatable &
+  UpdatableComment @docsCategory(name: "issues") {
   """
   The actor who authored the comment.
   """
@@ -25096,8 +25137,10 @@ interface MemberStatusable @docsCategory(name: "users") {
 """
 Audit log entry for a members_can_delete_repos.clear event.
 """
-type MembersCanDeleteReposClearAuditEntry implements AuditEntry & EnterpriseAuditEntryData & Node & OrganizationAuditEntryData
-  @docsCategory(name: "enterprise-admin") {
+type MembersCanDeleteReposClearAuditEntry implements AuditEntry &
+  EnterpriseAuditEntryData &
+  Node &
+  OrganizationAuditEntryData @docsCategory(name: "enterprise-admin") {
   """
   The action name
   """
@@ -25258,8 +25301,10 @@ type MembersCanDeleteReposClearAuditEntry implements AuditEntry & EnterpriseAudi
 """
 Audit log entry for a members_can_delete_repos.disable event.
 """
-type MembersCanDeleteReposDisableAuditEntry implements AuditEntry & EnterpriseAuditEntryData & Node & OrganizationAuditEntryData
-  @docsCategory(name: "enterprise-admin") {
+type MembersCanDeleteReposDisableAuditEntry implements AuditEntry &
+  EnterpriseAuditEntryData &
+  Node &
+  OrganizationAuditEntryData @docsCategory(name: "enterprise-admin") {
   """
   The action name
   """
@@ -25420,8 +25465,10 @@ type MembersCanDeleteReposDisableAuditEntry implements AuditEntry & EnterpriseAu
 """
 Audit log entry for a members_can_delete_repos.enable event.
 """
-type MembersCanDeleteReposEnableAuditEntry implements AuditEntry & EnterpriseAuditEntryData & Node & OrganizationAuditEntryData
-  @docsCategory(name: "enterprise-admin") {
+type MembersCanDeleteReposEnableAuditEntry implements AuditEntry &
+  EnterpriseAuditEntryData &
+  Node &
+  OrganizationAuditEntryData @docsCategory(name: "enterprise-admin") {
   """
   The action name
   """
@@ -29952,8 +29999,10 @@ interface OauthApplicationAuditEntryData @docsCategory(name: "apps") {
 """
 Audit log entry for a oauth_application.create event.
 """
-type OauthApplicationCreateAuditEntry implements AuditEntry & Node & OauthApplicationAuditEntryData & OrganizationAuditEntryData
-  @docsCategory(name: "enterprise-admin") {
+type OauthApplicationCreateAuditEntry implements AuditEntry &
+  Node &
+  OauthApplicationAuditEntryData &
+  OrganizationAuditEntryData @docsCategory(name: "enterprise-admin") {
   """
   The action name
   """
@@ -32494,8 +32543,10 @@ type OrgInviteToBusinessAuditEntry implements AuditEntry & EnterpriseAuditEntryD
 """
 Audit log entry for a org.oauth_app_access_approved event.
 """
-type OrgOauthAppAccessApprovedAuditEntry implements AuditEntry & Node & OauthApplicationAuditEntryData & OrganizationAuditEntryData
-  @docsCategory(name: "orgs") {
+type OrgOauthAppAccessApprovedAuditEntry implements AuditEntry &
+  Node &
+  OauthApplicationAuditEntryData &
+  OrganizationAuditEntryData @docsCategory(name: "orgs") {
   """
   The action name
   """
@@ -32656,8 +32707,10 @@ type OrgOauthAppAccessApprovedAuditEntry implements AuditEntry & Node & OauthApp
 """
 Audit log entry for a org.oauth_app_access_blocked event.
 """
-type OrgOauthAppAccessBlockedAuditEntry implements AuditEntry & Node & OauthApplicationAuditEntryData & OrganizationAuditEntryData
-  @docsCategory(name: "orgs") {
+type OrgOauthAppAccessBlockedAuditEntry implements AuditEntry &
+  Node &
+  OauthApplicationAuditEntryData &
+  OrganizationAuditEntryData @docsCategory(name: "orgs") {
   """
   The action name
   """
@@ -32818,8 +32871,10 @@ type OrgOauthAppAccessBlockedAuditEntry implements AuditEntry & Node & OauthAppl
 """
 Audit log entry for a org.oauth_app_access_denied event.
 """
-type OrgOauthAppAccessDeniedAuditEntry implements AuditEntry & Node & OauthApplicationAuditEntryData & OrganizationAuditEntryData
-  @docsCategory(name: "orgs") {
+type OrgOauthAppAccessDeniedAuditEntry implements AuditEntry &
+  Node &
+  OauthApplicationAuditEntryData &
+  OrganizationAuditEntryData @docsCategory(name: "orgs") {
   """
   The action name
   """
@@ -32980,8 +33035,10 @@ type OrgOauthAppAccessDeniedAuditEntry implements AuditEntry & Node & OauthAppli
 """
 Audit log entry for a org.oauth_app_access_requested event.
 """
-type OrgOauthAppAccessRequestedAuditEntry implements AuditEntry & Node & OauthApplicationAuditEntryData & OrganizationAuditEntryData
-  @docsCategory(name: "orgs") {
+type OrgOauthAppAccessRequestedAuditEntry implements AuditEntry &
+  Node &
+  OauthApplicationAuditEntryData &
+  OrganizationAuditEntryData @docsCategory(name: "orgs") {
   """
   The action name
   """
@@ -33142,8 +33199,10 @@ type OrgOauthAppAccessRequestedAuditEntry implements AuditEntry & Node & OauthAp
 """
 Audit log entry for a org.oauth_app_access_unblocked event.
 """
-type OrgOauthAppAccessUnblockedAuditEntry implements AuditEntry & Node & OauthApplicationAuditEntryData & OrganizationAuditEntryData
-  @docsCategory(name: "orgs") {
+type OrgOauthAppAccessUnblockedAuditEntry implements AuditEntry &
+  Node &
+  OauthApplicationAuditEntryData &
+  OrganizationAuditEntryData @docsCategory(name: "orgs") {
   """
   The action name
   """
@@ -35118,8 +35177,19 @@ type OrgUpdateMemberRepositoryInvitationPermissionAuditEntry implements AuditEnt
 """
 An account on GitHub, with one or more owners, that has repositories, members and teams.
 """
-type Organization implements Actor & MemberStatusable & Node & PackageOwner & ProfileOwner & ProjectOwner & ProjectV2Owner & ProjectV2Recent & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable
-  @docsCategory(name: "orgs") {
+type Organization implements Actor &
+  MemberStatusable &
+  Node &
+  PackageOwner &
+  ProfileOwner &
+  ProjectOwner &
+  ProjectV2Owner &
+  ProjectV2Recent &
+  RepositoryDiscussionAuthor &
+  RepositoryDiscussionCommentAuthor &
+  RepositoryOwner &
+  Sponsorable &
+  UniformResourceLocatable @docsCategory(name: "orgs") {
   """
   The announcement banner set on this organization, if any. Only visible to members of the organization's enterprise.
   """
@@ -39068,8 +39138,11 @@ scalar PreciseDateTime
 """
 Audit log entry for a private_repository_forking.disable event.
 """
-type PrivateRepositoryForkingDisableAuditEntry implements AuditEntry & EnterpriseAuditEntryData & Node & OrganizationAuditEntryData & RepositoryAuditEntryData
-  @docsCategory(name: "enterprise-admin") {
+type PrivateRepositoryForkingDisableAuditEntry implements AuditEntry &
+  EnterpriseAuditEntryData &
+  Node &
+  OrganizationAuditEntryData &
+  RepositoryAuditEntryData @docsCategory(name: "enterprise-admin") {
   """
   The action name
   """
@@ -39250,8 +39323,11 @@ type PrivateRepositoryForkingDisableAuditEntry implements AuditEntry & Enterpris
 """
 Audit log entry for a private_repository_forking.enable event.
 """
-type PrivateRepositoryForkingEnableAuditEntry implements AuditEntry & EnterpriseAuditEntryData & Node & OrganizationAuditEntryData & RepositoryAuditEntryData
-  @docsCategory(name: "enterprise-admin") {
+type PrivateRepositoryForkingEnableAuditEntry implements AuditEntry &
+  EnterpriseAuditEntryData &
+  Node &
+  OrganizationAuditEntryData &
+  RepositoryAuditEntryData @docsCategory(name: "enterprise-admin") {
   """
   The action name
   """
@@ -43891,8 +43967,19 @@ type PublishSponsorsTierPayload {
 """
 A repository pull request.
 """
-type PullRequest implements Assignable & Closable & Comment & Labelable & Lockable & Node & ProjectV2Owner & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment
-  @docsCategory(name: "pulls") {
+type PullRequest implements Assignable &
+  Closable &
+  Comment &
+  Labelable &
+  Lockable &
+  Node &
+  ProjectV2Owner &
+  Reactable &
+  RepositoryNode &
+  Subscribable &
+  UniformResourceLocatable &
+  Updatable &
+  UpdatableComment @docsCategory(name: "pulls") {
   """
   Reason that the conversation was locked.
   """
@@ -45539,8 +45626,14 @@ input PullRequestParametersInput @docsCategory(name: "pulls") {
 """
 A review object for a given pull request.
 """
-type PullRequestReview implements Comment & Deletable & Minimizable & Node & Reactable & RepositoryNode & Updatable & UpdatableComment
-  @docsCategory(name: "pulls") {
+type PullRequestReview implements Comment &
+  Deletable &
+  Minimizable &
+  Node &
+  Reactable &
+  RepositoryNode &
+  Updatable &
+  UpdatableComment @docsCategory(name: "pulls") {
   """
   The actor who authored the comment.
   """
@@ -45826,8 +45919,14 @@ type PullRequestReview implements Comment & Deletable & Minimizable & Node & Rea
 """
 A review comment associated with a given repository pull request.
 """
-type PullRequestReviewComment implements Comment & Deletable & Minimizable & Node & Reactable & RepositoryNode & Updatable & UpdatableComment
-  @docsCategory(name: "pulls") {
+type PullRequestReviewComment implements Comment &
+  Deletable &
+  Minimizable &
+  Node &
+  Reactable &
+  RepositoryNode &
+  Updatable &
+  UpdatableComment @docsCategory(name: "pulls") {
   """
   The actor who authored the comment.
   """
@@ -50775,8 +50874,11 @@ enum RepoAddMemberAuditEntryVisibility @docsCategory(name: "repos") {
 """
 Audit log entry for a repo.add_topic event.
 """
-type RepoAddTopicAuditEntry implements AuditEntry & Node & OrganizationAuditEntryData & RepositoryAuditEntryData & TopicAuditEntryData
-  @docsCategory(name: "repos") {
+type RepoAddTopicAuditEntry implements AuditEntry &
+  Node &
+  OrganizationAuditEntryData &
+  RepositoryAuditEntryData &
+  TopicAuditEntryData @docsCategory(name: "repos") {
   """
   The action name
   """
@@ -51147,8 +51249,10 @@ enum RepoArchivedAuditEntryVisibility @docsCategory(name: "repos") {
 """
 Audit log entry for a repo.change_merge_setting event.
 """
-type RepoChangeMergeSettingAuditEntry implements AuditEntry & Node & OrganizationAuditEntryData & RepositoryAuditEntryData
-  @docsCategory(name: "repos") {
+type RepoChangeMergeSettingAuditEntry implements AuditEntry &
+  Node &
+  OrganizationAuditEntryData &
+  RepositoryAuditEntryData @docsCategory(name: "repos") {
   """
   The action name
   """
@@ -51350,8 +51454,10 @@ enum RepoChangeMergeSettingAuditEntryMergeType @docsCategory(name: "repos") {
 """
 Audit log entry for a repo.config.disable_anonymous_git_access event.
 """
-type RepoConfigDisableAnonymousGitAccessAuditEntry implements AuditEntry & Node & OrganizationAuditEntryData & RepositoryAuditEntryData
-  @docsCategory(name: "enterprise-admin") {
+type RepoConfigDisableAnonymousGitAccessAuditEntry implements AuditEntry &
+  Node &
+  OrganizationAuditEntryData &
+  RepositoryAuditEntryData @docsCategory(name: "enterprise-admin") {
   """
   The action name
   """
@@ -51517,8 +51623,10 @@ type RepoConfigDisableAnonymousGitAccessAuditEntry implements AuditEntry & Node 
 """
 Audit log entry for a repo.config.disable_collaborators_only event.
 """
-type RepoConfigDisableCollaboratorsOnlyAuditEntry implements AuditEntry & Node & OrganizationAuditEntryData & RepositoryAuditEntryData
-  @docsCategory(name: "enterprise-admin") {
+type RepoConfigDisableCollaboratorsOnlyAuditEntry implements AuditEntry &
+  Node &
+  OrganizationAuditEntryData &
+  RepositoryAuditEntryData @docsCategory(name: "enterprise-admin") {
   """
   The action name
   """
@@ -51684,8 +51792,10 @@ type RepoConfigDisableCollaboratorsOnlyAuditEntry implements AuditEntry & Node &
 """
 Audit log entry for a repo.config.disable_contributors_only event.
 """
-type RepoConfigDisableContributorsOnlyAuditEntry implements AuditEntry & Node & OrganizationAuditEntryData & RepositoryAuditEntryData
-  @docsCategory(name: "enterprise-admin") {
+type RepoConfigDisableContributorsOnlyAuditEntry implements AuditEntry &
+  Node &
+  OrganizationAuditEntryData &
+  RepositoryAuditEntryData @docsCategory(name: "enterprise-admin") {
   """
   The action name
   """
@@ -51851,8 +51961,10 @@ type RepoConfigDisableContributorsOnlyAuditEntry implements AuditEntry & Node & 
 """
 Audit log entry for a repo.config.disable_sockpuppet_disallowed event.
 """
-type RepoConfigDisableSockpuppetDisallowedAuditEntry implements AuditEntry & Node & OrganizationAuditEntryData & RepositoryAuditEntryData
-  @docsCategory(name: "enterprise-admin") {
+type RepoConfigDisableSockpuppetDisallowedAuditEntry implements AuditEntry &
+  Node &
+  OrganizationAuditEntryData &
+  RepositoryAuditEntryData @docsCategory(name: "enterprise-admin") {
   """
   The action name
   """
@@ -52018,8 +52130,10 @@ type RepoConfigDisableSockpuppetDisallowedAuditEntry implements AuditEntry & Nod
 """
 Audit log entry for a repo.config.enable_anonymous_git_access event.
 """
-type RepoConfigEnableAnonymousGitAccessAuditEntry implements AuditEntry & Node & OrganizationAuditEntryData & RepositoryAuditEntryData
-  @docsCategory(name: "enterprise-admin") {
+type RepoConfigEnableAnonymousGitAccessAuditEntry implements AuditEntry &
+  Node &
+  OrganizationAuditEntryData &
+  RepositoryAuditEntryData @docsCategory(name: "enterprise-admin") {
   """
   The action name
   """
@@ -52185,8 +52299,10 @@ type RepoConfigEnableAnonymousGitAccessAuditEntry implements AuditEntry & Node &
 """
 Audit log entry for a repo.config.enable_collaborators_only event.
 """
-type RepoConfigEnableCollaboratorsOnlyAuditEntry implements AuditEntry & Node & OrganizationAuditEntryData & RepositoryAuditEntryData
-  @docsCategory(name: "enterprise-admin") {
+type RepoConfigEnableCollaboratorsOnlyAuditEntry implements AuditEntry &
+  Node &
+  OrganizationAuditEntryData &
+  RepositoryAuditEntryData @docsCategory(name: "enterprise-admin") {
   """
   The action name
   """
@@ -52352,8 +52468,10 @@ type RepoConfigEnableCollaboratorsOnlyAuditEntry implements AuditEntry & Node & 
 """
 Audit log entry for a repo.config.enable_contributors_only event.
 """
-type RepoConfigEnableContributorsOnlyAuditEntry implements AuditEntry & Node & OrganizationAuditEntryData & RepositoryAuditEntryData
-  @docsCategory(name: "enterprise-admin") {
+type RepoConfigEnableContributorsOnlyAuditEntry implements AuditEntry &
+  Node &
+  OrganizationAuditEntryData &
+  RepositoryAuditEntryData @docsCategory(name: "enterprise-admin") {
   """
   The action name
   """
@@ -52519,8 +52637,10 @@ type RepoConfigEnableContributorsOnlyAuditEntry implements AuditEntry & Node & O
 """
 Audit log entry for a repo.config.enable_sockpuppet_disallowed event.
 """
-type RepoConfigEnableSockpuppetDisallowedAuditEntry implements AuditEntry & Node & OrganizationAuditEntryData & RepositoryAuditEntryData
-  @docsCategory(name: "enterprise-admin") {
+type RepoConfigEnableSockpuppetDisallowedAuditEntry implements AuditEntry &
+  Node &
+  OrganizationAuditEntryData &
+  RepositoryAuditEntryData @docsCategory(name: "enterprise-admin") {
   """
   The action name
   """
@@ -52686,8 +52806,10 @@ type RepoConfigEnableSockpuppetDisallowedAuditEntry implements AuditEntry & Node
 """
 Audit log entry for a repo.config.lock_anonymous_git_access event.
 """
-type RepoConfigLockAnonymousGitAccessAuditEntry implements AuditEntry & Node & OrganizationAuditEntryData & RepositoryAuditEntryData
-  @docsCategory(name: "enterprise-admin") {
+type RepoConfigLockAnonymousGitAccessAuditEntry implements AuditEntry &
+  Node &
+  OrganizationAuditEntryData &
+  RepositoryAuditEntryData @docsCategory(name: "enterprise-admin") {
   """
   The action name
   """
@@ -52853,8 +52975,10 @@ type RepoConfigLockAnonymousGitAccessAuditEntry implements AuditEntry & Node & O
 """
 Audit log entry for a repo.config.unlock_anonymous_git_access event.
 """
-type RepoConfigUnlockAnonymousGitAccessAuditEntry implements AuditEntry & Node & OrganizationAuditEntryData & RepositoryAuditEntryData
-  @docsCategory(name: "enterprise-admin") {
+type RepoConfigUnlockAnonymousGitAccessAuditEntry implements AuditEntry &
+  Node &
+  OrganizationAuditEntryData &
+  RepositoryAuditEntryData @docsCategory(name: "enterprise-admin") {
   """
   The action name
   """
@@ -53621,8 +53745,11 @@ enum RepoRemoveMemberAuditEntryVisibility @docsCategory(name: "repos") {
 """
 Audit log entry for a repo.remove_topic event.
 """
-type RepoRemoveTopicAuditEntry implements AuditEntry & Node & OrganizationAuditEntryData & RepositoryAuditEntryData & TopicAuditEntryData
-  @docsCategory(name: "repos") {
+type RepoRemoveTopicAuditEntry implements AuditEntry &
+  Node &
+  OrganizationAuditEntryData &
+  RepositoryAuditEntryData &
+  TopicAuditEntryData @docsCategory(name: "repos") {
   """
   The action name
   """
@@ -53838,8 +53965,14 @@ enum ReportedContentClassifiers @docsCategory(name: "meta") {
 """
 A repository contains the content for a project.
 """
-type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent & RepositoryInfo & Starrable & Subscribable & UniformResourceLocatable
-  @docsCategory(name: "repos") {
+type Repository implements Node &
+  PackageOwner &
+  ProjectOwner &
+  ProjectV2Recent &
+  RepositoryInfo &
+  Starrable &
+  Subscribable &
+  UniformResourceLocatable @docsCategory(name: "repos") {
   """
   Whether or not a pull request head branch that is behind its base branch can
   always be updated even if it is not required to be up to date before merging.
@@ -57947,8 +58080,10 @@ enum RepositoryVisibility @docsCategory(name: "repos") {
 """
 Audit log entry for a repository_visibility_change.disable event.
 """
-type RepositoryVisibilityChangeDisableAuditEntry implements AuditEntry & EnterpriseAuditEntryData & Node & OrganizationAuditEntryData
-  @docsCategory(name: "enterprise-admin") {
+type RepositoryVisibilityChangeDisableAuditEntry implements AuditEntry &
+  EnterpriseAuditEntryData &
+  Node &
+  OrganizationAuditEntryData @docsCategory(name: "enterprise-admin") {
   """
   The action name
   """
@@ -58109,8 +58244,10 @@ type RepositoryVisibilityChangeDisableAuditEntry implements AuditEntry & Enterpr
 """
 Audit log entry for a repository_visibility_change.enable event.
 """
-type RepositoryVisibilityChangeEnableAuditEntry implements AuditEntry & EnterpriseAuditEntryData & Node & OrganizationAuditEntryData
-  @docsCategory(name: "enterprise-admin") {
+type RepositoryVisibilityChangeEnableAuditEntry implements AuditEntry &
+  EnterpriseAuditEntryData &
+  Node &
+  OrganizationAuditEntryData @docsCategory(name: "enterprise-admin") {
   """
   The action name
   """
@@ -65481,8 +65618,11 @@ type TeamAddMemberAuditEntry implements AuditEntry & Node & OrganizationAuditEnt
 """
 Audit log entry for a team.add_repository event.
 """
-type TeamAddRepositoryAuditEntry implements AuditEntry & Node & OrganizationAuditEntryData & RepositoryAuditEntryData & TeamAuditEntryData
-  @docsCategory(name: "teams") {
+type TeamAddRepositoryAuditEntry implements AuditEntry &
+  Node &
+  OrganizationAuditEntryData &
+  RepositoryAuditEntryData &
+  TeamAuditEntryData @docsCategory(name: "teams") {
   """
   The action name
   """
@@ -66326,8 +66466,11 @@ type TeamRemoveMemberAuditEntry implements AuditEntry & Node & OrganizationAudit
 """
 Audit log entry for a team.remove_repository event.
 """
-type TeamRemoveRepositoryAuditEntry implements AuditEntry & Node & OrganizationAuditEntryData & RepositoryAuditEntryData & TeamAuditEntryData
-  @docsCategory(name: "teams") {
+type TeamRemoveRepositoryAuditEntry implements AuditEntry &
+  Node &
+  OrganizationAuditEntryData &
+  RepositoryAuditEntryData &
+  TeamAuditEntryData @docsCategory(name: "teams") {
   """
   The action name
   """
@@ -71373,8 +71516,19 @@ type UpdateUserListsForItemPayload {
 """
 A user is an individual's account on GitHub that owns repositories and can make new content.
 """
-type User implements Actor & Agentic & Node & PackageOwner & ProfileOwner & ProjectOwner & ProjectV2Owner & ProjectV2Recent & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable
-  @docsCategory(name: "users") {
+type User implements Actor &
+  Agentic &
+  Node &
+  PackageOwner &
+  ProfileOwner &
+  ProjectOwner &
+  ProjectV2Owner &
+  ProjectV2Recent &
+  RepositoryDiscussionAuthor &
+  RepositoryDiscussionCommentAuthor &
+  RepositoryOwner &
+  Sponsorable &
+  UniformResourceLocatable @docsCategory(name: "users") {
   """
   Determine if this repository owner has any items that can be pinned to their profile.
   """
