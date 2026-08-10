@@ -17,7 +17,7 @@ A {% data variables.product.prodname_enterprise %} license allows a user to use 
 To view combined license details on {% data variables.product.prodname_ghe_cloud %} and ensure users only consume one license, you must sync licenses between deployments. You can do this:
 
 * Automatically, using {% data variables.product.prodname_github_connect %}.
-* Manually, by uploading a license file from from {% data variables.product.prodname_ghe_server %} to {% data variables.product.github %}.
+* Manually, by uploading a license file from {% data variables.product.prodname_ghe_server %} to {% data variables.product.github %}.
 
 When you synchronize license usage, only the user ID and email addresses for each user account on {% data variables.product.prodname_ghe_server %} are transmitted to {% data variables.product.prodname_ghe_cloud %}.
 
