@@ -42,8 +42,23 @@ git clone SUBDOMAIN@SUBDOMAIN.ghe.com:OWNER/REPO.git
 * `*.actions.{% data variables.enterprise.data_residency_domain %}`
 * `*.githubassets.com`
 * `*.githubusercontent.com`
-* `*.blob.core.windows.net`
+* `*.blob.core.windows.net`. If you cannot allow access to wildcard domains, see [Azure Blob Storage hostnames](#azure-blob-storage-hostnames).
 * `auth.ghe.com`
+
+### Azure Blob Storage hostnames
+
+If you cannot allow access to `*.blob.core.windows.net`, use the `/meta` API endpoint for your enterprise to retrieve the complete list of client-facing Azure Blob Storage hostnames. For example, using the {% data variables.product.prodname_cli %}:
+
+```shell
+gh api /meta --hostname octocorp.ghe.com --jq '.domains.storage[]'
+```
+
+Allow access to every hostname returned in `domains.storage`. The list is specific to your enterprise and {% data variables.product.company_short %} keeps it up to date as network requirements change.
+
+For more information about the `/meta` endpoint, see [AUTOTITLE](/rest/meta/meta#get-github-meta-information).
+
+> [!NOTE]
+> If you stream audit logs to your own Azure Blob Storage destination, you must allow access to that destination separately.
 
 ## {% data variables.product.github %}'s IP addresses
 
@@ -204,40 +219,8 @@ Japan region:
 * `<TENANT>.ghe.com`
 * `github.com`
 * `*.githubusercontent.com`
-* `*.blob.core.windows.net` (can be further restricted by region, see below)
+* `*.blob.core.windows.net`. To allow access only to the hostnames used by your enterprise, see [Azure Blob Storage hostnames](#azure-blob-storage-hostnames).
 * `*.web.core.windows.net`
-
-#### EU
-
-`*.blob.core.windows.net` can be replaced with:
-* `memoryalphaprodsdc01.blob.core.windows.net`
-* `memoryalphaprodweu01.blob.core.windows.net`
-* `prodsdc01resultssa0.blob.core.windows.net`
-* `prodsdc01resultssa1.blob.core.windows.net`
-* `prodsdc01resultssa2.blob.core.windows.net`
-* `prodsdc01resultssa3.blob.core.windows.net`
-* `prodweu01resultssa0.blob.core.windows.net`
-* `prodweu01resultssa1.blob.core.windows.net`
-* `prodweu01resultssa2.blob.core.windows.net`
-* `prodweu01resultssa3.blob.core.windows.net` 
-
-#### Australia
-
-`*.blob.core.windows.net` can be replaced with:
-* `memoryalphaprodae01.blob.core.windows.net`
-* `prodae01resultssa0.blob.core.windows.net`
-* `prodae01resultssa1.blob.core.windows.net`
-* `prodae01resultssa2.blob.core.windows.net`
-* `prodae01resultssa3.blob.core.windows.net`
-
-#### Japan
-
-`*.blob.core.windows.net` can be replaced with:
-* `memoryalphaprodjpw01.blob.core.windows.net`
-* `prodjpw01resultssa0.blob.core.windows.net`
-* `prodjpw01resultssa1.blob.core.windows.net`
-* `prodjpw01resultssa2.blob.core.windows.net`
-* `prodjpw01resultssa3.blob.core.windows.net`
 
 ### OAuth callback URL for connecting an Azure subscription for billing
 

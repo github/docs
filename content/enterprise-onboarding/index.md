@@ -11,7 +11,7 @@ journeyTracks:
       - href: '/enterprise-onboarding/getting-started-with-your-enterprise/setting-up-a-trial-of-github-enterprise'
       - href: '/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/add-users'
       - href: '/billing/concepts/enterprise-billing/billing-for-enterprises'
-      - href: '/enterprise-onboarding/getting-started-with-your-enterprise/about-migrating-to-github-enterprise-cloud'
+      - href: '/migrations/overview/planning-your-migration-to-github'
   - id: 'setting_up_organizations_and_teams'
     title: 'Setting up organizations and teams in your enterprise'
     description: 'Organize work effectively and ensure people have the access they need to resources and administrative settings.'
