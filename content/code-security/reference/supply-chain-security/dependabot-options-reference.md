@@ -63,7 +63,7 @@ For a real-world example of a `dependabot.yml` file, see [{% data variables.prod
 
 ## `allow` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
-Use to define exactly which dependencies to maintain for a package ecosystem. Often used with the [`ignore`](#ignore--) option. For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#allowing-specific-dependencies-to-be-updated).
+Use to define exactly which dependencies to maintain for a package ecosystem. Often used with the [`ignore`](#ignore--) option. For examples, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/controlling-dependencies-updated#allowing-specific-dependencies-to-be-updated).
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
@@ -99,10 +99,10 @@ For most package managers, you should define a value that will match the depende
 | Dependency types | Supported by package managers | Allow updates |
 |------------------|-------------------------------|--------|
 | `direct` | All | All explicitly defined dependencies. |
-| `indirect` | `bundler`, `pip`, `composer`, `cargo`, `gomod`{% ifversion dependabot-uv-support %}, `uv`{% endif %} | Dependencies of direct dependencies (also known as sub-dependencies, or transitive dependencies).|
-| `all` | All | All explicitly defined dependencies. For `bundler`, `pip`, `composer`, `cargo`, `gomod`{% ifversion dependabot-uv-support %}, `uv`{% endif %}, also the dependencies of direct dependencies.|
-| `production` | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip`{% ifversion dependabot-uv-support %}, `uv`{% endif %} (not all managers) | Only to dependencies defined by the package manager as production dependencies. |
-| `development`| `bundler`, `composer`, `mix`, `maven`, `npm`, `pip`{% ifversion dependabot-uv-support %}, `uv`{% endif %} (not all managers) | Only to dependencies defined by the package manager as development dependencies. |
+| `indirect` | `bundler`, `pip`, `composer`, `cargo`, `gomod`, `uv` | Dependencies of direct dependencies (also known as sub-dependencies, or transitive dependencies).|
+| `all` | All | All explicitly defined dependencies. For `bundler`, `pip`, `composer`, `cargo`, `gomod`, `uv`, also the dependencies of direct dependencies.|
+| `production` | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip`, `uv` (not all managers) | Only to dependencies defined by the package manager as production dependencies. |
+| `development`| `bundler`, `composer`, `mix`, `maven`, `npm`, `pip`, `uv` (not all managers) | Only to dependencies defined by the package manager as development dependencies. |
 
 {% ifversion dependabot-allow-update-types %}
 
@@ -126,7 +126,7 @@ You can combine `update-types` with `dependency-name` or `dependency-type` to fu
 
 ## `assignees` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
-Specify individual assignees for all pull requests raised for a package ecosystem.  For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs).
+Specify individual assignees for all pull requests raised for a package ecosystem.  For examples, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/customizing-dependabot-prs).
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
@@ -141,7 +141,7 @@ Assignees must have write access to the repository. For organization-owned repos
 
 ## `commit-message` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
-Define the format for commit messages. Since the titles of pull requests are written based on commit messages, this setting also impacts the titles of pull requests. For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs).
+Define the format for commit messages. Since the titles of pull requests are written based on commit messages, this setting also impacts the titles of pull requests. For examples, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/customizing-dependabot-prs).
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
@@ -170,11 +170,7 @@ When `commit-message` is defined:
 
 ### `prefix-development`
 
-{% ifversion dependabot-uv-support %}
 Supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, `pip`, and `uv`.
-{% else %}
-Supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
-{% endif %}
 
 * Used only for commit messages that update dependencies in the Development dependency group.
 * Otherwise, the parameter behaves exactly as the `prefix` parameter.
@@ -190,14 +186,27 @@ Supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
 
 Defines a **cooldown period** for dependency updates, allowing updates to be delayed for a configurable number of days. The `cooldown` option is only available for _version_ updates, not _security_ updates.
 
-This feature enables users to customize how often {% data variables.product.prodname_dependabot %} generates new version updates, offering greater control over update frequency. For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates#setting-up-a-cooldown-period-for-dependency-updates).
+This feature enables users to customize how often {% data variables.product.prodname_dependabot %} generates new version updates, offering greater control over update frequency. For examples, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/optimizing-pr-creation-version-updates#setting-up-a-cooldown-period-for-dependency-updates).
+
+{% ifversion dependabot-cooldown-default-days %}
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
-* Check for updates according to the scheduled defined via `schedule.interval`.
+* Check for updates according to the schedule defined via `schedule.interval`.
+* Apply a **default cooldown period of 3 days** to version updates, even when `cooldown` is not configured. A new version is not considered for a version update until 3 days after its release. **This default cooldown does not apply to security updates.**
+
+You can configure the `cooldown` option to customize these default cooldown periods and control which dependencies they apply to. When **`cooldown`** is defined:
+
+{% else %}
+
+{% data variables.product.prodname_dependabot %} default behavior:
+
+* Check for updates according to the schedule defined via `schedule.interval`.
 * Consider all new versions **immediately** for updates.
 
 When **`cooldown`** is defined:
+
+{% endif %}
 
 1. {% data variables.product.prodname_dependabot %} checks for updates according to the defined `schedule.interval` settings.
 1. {% data variables.product.prodname_dependabot %} checks for any cooldown settings.
@@ -211,7 +220,7 @@ You can specify the duration of the cooldown using the options below.
 
 | Parameter | Description |
 |-----------|-------------|
-| `default-days` | **Default cooldown period for dependencies** without specific rules (optional). |
+| `default-days` | **Default cooldown period for dependencies** without specific rules (optional).{% ifversion dependabot-cooldown-default-days %} If not specified, {% data variables.product.prodname_dependabot %} applies a default cooldown of 3 days.{% endif %} |
 | `semver-major-days` | Cooldown period for **major version updates** (optional, applies only to package managers supporting SemVer). |
 | `semver-minor-days` | Cooldown period for **minor version updates** (optional, applies only to package managers supporting SemVer). |
 | `semver-patch-days` | Cooldown period for **patch version updates** (optional, applies only to package managers supporting SemVer). |
@@ -232,7 +241,9 @@ The table below shows the package managers that support `cooldown`. The `default
 | {% ifversion dependabot-conda-support %} |
 | Conda                 | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
 | {% endif %} |
+| {% ifversion dependabot-deno-support %} |
 | Deno                  | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% endif %} |
 | Devcontainers         | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
 | Docker                | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
 | Docker Compose        | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
@@ -264,6 +275,9 @@ The table below shows the package managers that support `cooldown`. The `default
 | {% ifversion dependabot-rust-toolchain-support %} |
 | Rust toolchain        | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
 | {% endif %} |
+| {% ifversion dependabot-sbt-support %} |
+| sbt                   | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% endif %} |
 | Swift                 | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
 | Terraform             | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
 | UV                    | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
@@ -280,7 +294,7 @@ The table below shows the package managers that support `cooldown`. The `default
 
 ## `directories` or `directory` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
-**Required option**. Use to define the location of the package manifests for each package manager (for example, the _package.json_ or _Gemfile_). Without this information {% data variables.product.prodname_dependabot %} cannot create pull requests for version updates. For examples, see [Defining multiple locations for manifest files](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#defining-multiple-locations-for-manifest-files).
+**Required option**. Use to define the location of the package manifests for each package manager (for example, the _package.json_ or _Gemfile_). Without this information {% data variables.product.prodname_dependabot %} cannot create pull requests for version updates. For examples, see [Defining multiple locations for manifest files](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/controlling-dependencies-updated#defining-multiple-locations-for-manifest-files).
 
 * Use `directory` to define a single directory of manifests.
 * Use `directories` to define a list of multiple directories of manifests.
@@ -299,7 +313,7 @@ Not currently in use.
 
 ## `groups` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
-Define rules to create one or more sets of dependencies managed by a package manager, to group updates into fewer, targeted pull requests. For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates).
+Define rules to create one or more sets of dependencies managed by a package manager, to group updates into fewer, targeted pull requests. For examples, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/optimizing-pr-creation-version-updates).
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
@@ -368,11 +382,11 @@ By default, a group will include updates for all semantic versions (SemVer). Sem
 * Use `minor` to include minor releases.
 * Use `major` to include major releases.
 
-For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#specifying-the-semantic-versioning-level-to-ignore).
+For examples, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/controlling-dependencies-updated#specifying-the-semantic-versioning-level-to-ignore).
 
 ## `ignore` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
-Use with the [`allow`](#allow--) option to define exactly which dependencies to maintain for a package ecosystem. {% data variables.product.prodname_dependabot %} checks for all allowed dependencies and then filters out any ignored dependencies or versions. So a dependency that is matched by both an allow and an ignore will be ignored. For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#ignoring-specific-dependencies).
+Use with the [`allow`](#allow--) option to define exactly which dependencies to maintain for a package ecosystem. {% data variables.product.prodname_dependabot %} checks for all allowed dependencies and then filters out any ignored dependencies or versions. So a dependency that is matched by both an allow and an ignore will be ignored. For examples, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/controlling-dependencies-updated#ignoring-specific-dependencies).
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
@@ -411,7 +425,7 @@ Use to ignore specific versions or ranges of versions. If you want to define a r
 * NuGet: use `7.*`
 * Maven: use `[1.4,)`
 
-For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#ignoring-specific-versions-or-ranges-of-versions).
+For examples, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/controlling-dependencies-updated#ignoring-specific-versions-or-ranges-of-versions).
 
 ### `update-types` (`ignore`)
 
@@ -425,7 +439,7 @@ Specify which semantic versions (SemVer) to ignore. SemVer is an accepted standa
 
 Supported by: `bundler`, `mix`, and `pip`.
 
-Allow {% data variables.product.prodname_dependabot %} to execute external code in the manifest during updates. For examples, see [Allowing external code execution](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot#allowing-external-code-execution).
+Allow {% data variables.product.prodname_dependabot %} to execute external code in the manifest during updates. For examples, see [Allowing external code execution](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#allowing-external-code-execution).
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
@@ -442,7 +456,7 @@ Supported value: `allow`.
 
 ## `labels` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
-Specify your own labels for all pull requests raised for a package manager.  For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs).
+Specify your own labels for all pull requests raised for a package manager.  For examples, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/customizing-dependabot-prs).
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
@@ -462,7 +476,7 @@ When `labels` is defined:
 
 ## `milestone` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
-Associate all pull requests raised for a package manager with a milestone.  For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs).
+Associate all pull requests raised for a package manager with a milestone.  For examples, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/customizing-dependabot-prs).
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
@@ -497,7 +511,7 @@ When `multi-ecosystem-groups` is used:
 Assign individual package ecosystems to a multi-ecosystem group using the `multi-ecosystem-group` parameter in your `updates` configuration.
 
 > [!IMPORTANT]
-> Multi-ecosystem updates require specific configuration patterns and have unique parameter merging behavior. For complete setup instructions, configuration examples, and detailed parameter reference, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/configuring-multi-ecosystem-updates).
+> Multi-ecosystem updates require specific configuration patterns and have unique parameter merging behavior. For complete setup instructions, configuration examples, and detailed parameter reference, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configuring-multi-ecosystem-updates).
 
 ```yaml copy
 # Basic `dependabot.yml` file defining a multi-ecosystem-group
@@ -529,38 +543,39 @@ Change the limit on the maximum number of pull requests for version updates open
 {% data variables.product.prodname_dependabot %} default behavior:
 
 * If five pull requests with version updates are open, no further pull requests are raised until some of those open requests are merged or closed.
-* Security updates have a separate, internal limit of ten open pull requests which cannot be changed.
+
+> [!NOTE]
+> _Security update_ pull requests are not subject to this limit and do not count toward it. There is no limit on the number of open pull requests for security updates.
 
 When `open-pull-requests-limit` is defined:
 
 * {% data variables.product.prodname_dependabot %} opens pull requests up to the defined integer value. A large value can be set to effectively remove the open pull request limit.
-* You can temporarily disable version updates for a package manager by setting this option to zero, see [Disabling {% data variables.product.prodname_dependabot_version_updates %}](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#disabling-dependabot-version-updates).
+* You can temporarily disable version updates for a package manager by setting this option to zero, see [Disabling {% data variables.product.prodname_dependabot_version_updates %}](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-version-updates#disabling-dependabot-version-updates).
 
 ## `package-ecosystem` {% octicon "versions" aria-label="Version updates only" height="24" %}
 
 <!--Note: When making updates to this section, please make sure any changes are also reflected in `data/reusables/dependabot/supported-package-managers.md`.-->
 
-**Required option.** Define one `package-ecosystem` element for each package manager that you want {% data variables.product.prodname_dependabot %} to monitor for new versions. The repository must also contain a dependency manifest or lock file for each package manager, see [Example `dependabot.yml` file](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#example-dependabotyml-file).
+**Required option.** Define one `package-ecosystem` element for each package manager that you want {% data variables.product.prodname_dependabot %} to monitor for new versions. The repository must also contain a dependency manifest or lock file for each package manager, see [Example `dependabot.yml` file](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-version-updates#example-dependabotyml-file).
 
 Package manager | YAML value      | Supported versions |
 ---------------|------------------|:------------------:|
 | {% ifversion dependabot-bazel-support %} |
 | Bazel         | `bazel`          | v7, v8, v9               |
 | {% endif %} |
-| {% ifversion dependabot-bun-support %} |
-| Bun | `bun`         | >=v1.2.5              |
-| {% endif %} |
+| Bun | `bun`         | >=v1.1.39              |
 | Bundler | `bundler` | v2 |
 | Cargo       | `cargo`          | v1               |
 | Composer       | `composer`       | v2         |
 | {% ifversion dependabot-conda-support %} |
 | Conda         | `conda`          | Not applicable               |
 | {% endif %} |
+| {% ifversion dependabot-deno-support %} |
+| Deno         | `deno`          | >=v2               |
+| {% endif %} |
 | Dev containers | `devcontainers`         | Not applicable               |
 | Docker         | `docker`         | v1               |
-| {% ifversion dependabot-docker-compose-support %} |
 | Docker Compose | `docker-compose`         | v2, v3               |
-| {% endif %} |
 | .NET SDK       | `dotnet-sdk`         | >=.NET Core 3.1           |
 | {% ifversion dependabot-helm-support %} |
 | Helm Charts            | `helm`            | v3               |
@@ -578,14 +593,14 @@ Package manager | YAML value      | Supported versions |
 | {% ifversion dependabot-nix-support %} |
 | Nix flakes | `nix`            | Not applicable   |
 | {% endif %} |
-| npm            | `npm`            |  v7, v8, v9, v10   |
+| npm            | `npm`            |  v7, v8, v9, v10, v11   |
 | NuGet          | `nuget`          | <=6.12.0 |
 | {% ifversion dependabot-opentofu-support %} |
 | OpenTofu     | `opentofu`       | Not applicable     |
 | {% endif %} |
-| pip         | `pip`            | 24.2             |
+| pip         | `pip`            | 26.1.1             |
 | pip-compile | `pip`            | 7.5.3            |
-| pipenv      | `pip`            | <= 2024.4.1      |
+| pipenv      | `pip`            | 2024.4.1      |
 | pnpm   | `npm`            | v7, v8, v9, v10   |
 | poetry      | `pip`    | v2    |
 | {% ifversion dependabot-pre-commit-support %} |
@@ -595,19 +610,119 @@ Package manager | YAML value      | Supported versions |
 | {% ifversion dependabot-rust-toolchain-support %} |
 | Rust toolchain | `rust-toolchain` | Not applicable   |
 | {% endif %} |
-| Swift   | `swift`      | v5  |
-| Terraform    | `terraform`      | >= 0.13, <= 1.10.x  |
-| {% ifversion dependabot-uv-support %} |
-| uv           | `uv`             | v0 |
+| {% ifversion dependabot-sbt-support %} |
+| sbt          | `sbt`            | Not applicable   |
 | {% endif %} |
+| Swift   | `swift`      | v5  |
+| Terraform    | `terraform`      | >= 0.13, <= 1.15.x  |
+| uv           | `uv`             | v0 |
 | {% ifversion dependabot-vcpkg-support %} |
 | vcpkg       | `vcpkg`          | Not applicable   |
 | {% endif %} |
 | yarn         | `npm`            | v1, v2, v3, v4     |
 
-## `pull-request-branch-name.separator` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
+## `pull-request-branch-name` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
-Specify a separator to use when generating branch names. For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs).
+{% ifversion dependabot-branch-name-options %}
+
+Configure how {% data variables.product.prodname_dependabot %} generates branch names for pull requests. You can customize the separator, prefix, length, casing, word separator, and provide a custom template. For examples, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/customizing-dependabot-prs).
+
+{% data variables.product.prodname_dependabot %} default behavior:
+
+* Generate branch names of the form: `dependabot/PACKAGE-MANAGER/DEPENDENCY`
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| [`separator`](#separator) | String | `"/"` | Character used between segments of the branch name. |
+| [`prefix`](#prefix) | String (max 50 characters) | `"dependabot"` | String prepended to the branch name. |
+| [`max-length`](#max-length) | Integer (20–244) | `100` | Maximum character length of the branch name. |
+| [`word-separator`](#word-separator) | String | Not set | Character to replace underscores (`_`) in branch name content after the prefix. |
+| [`branch-name-case`](#branch-name-case) | String | Not set | Apply case transformation to the branch name content after the prefix. |
+| [`template`](#template) | String (max 200 characters) | Not set | Custom format template using placeholders. |
+
+All options are composable. When `template` is set alongside simple options, the processing order is:
+
+1. Template rendering (placeholder substitution)
+1. Separator replacement (`/` replaced with configured separator)
+1. Word-separator replacement (`_` replaced with configured word-separator)
+1. Case transformation applied to content after the prefix
+1. Max-length truncation
+
+### `separator`
+
+Specify a character to use in place of `/` between branch name segments.
+
+Supported values: `"-"`, `_`, `/`
+
+For example, with `separator: "-"`: `dependabot/npm_and_yarn/lodash-4.17.21` becomes `dependabot-npm_and_yarn-lodash-4.17.21`.
+
+> [!TIP]
+> The hyphen symbol must be escaped so it is not interpreted as starting an empty YAML list.
+
+### `prefix`
+
+Specify a custom string to use at the start of the branch name instead of the default `dependabot`.
+
+The value can be up to 50 characters.
+
+For example, with `prefix: "deps"`: `dependabot/npm_and_yarn/lodash-4.17.21` becomes `deps/npm_and_yarn/lodash-4.17.21`.
+
+### `max-length`
+
+Set the maximum allowed length for generated branch names.
+
+* Minimum value: `20`.
+* Maximum value: `244`.
+* Default value: `100`.
+* When a branch name exceeds this limit, it is truncated and a hash suffix is appended to preserve uniqueness.
+
+For example, with `max-length: 40`, a branch name like `dependabot/npm_and_yarn/some-long-dependency-name-1.0.0` is truncated to 40 characters with a hash suffix.
+
+### `word-separator`
+
+Specify a character to replace underscores (`_`) in all branch name content after the prefix—including package manager names, dependency names, group names, and directory paths.
+
+For example, with `word-separator: "-"`:
+
+* `npm_and_yarn` → `npm-and-yarn`
+* `front_end_dir` → `front-end-dir`
+
+### `branch-name-case`
+
+Apply a case transformation to the branch name content after the prefix.
+
+Supported values: `"lowercase"`, `"uppercase"`
+
+For example, with `branch-name-case: "lowercase"`: `dependabot/npm_and_yarn/Lodash-4.17.21` becomes `dependabot/npm_and_yarn/lodash-4.17.21`.
+
+### `template`
+
+Define a custom branch name format using placeholders. The template gives you full control over the structure of generated branch names. For examples, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/customizing-dependabot-prs).
+
+Available placeholders depend on the update strategy:
+
+| Placeholder | Solo updates | Grouped updates | Multi-ecosystem groups | Description |
+|-------------|:---:|:---:|:---:|-------------|
+| `{prefix}` | {% octicon "check" aria-label="Available" %} | {% octicon "check" aria-label="Available" %} | {% octicon "check" aria-label="Available" %} | The configured prefix (default `dependabot`). |
+| `{package_manager}` | {% octicon "check" aria-label="Available" %} | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} | The package ecosystem identifier (for example, `npm_and_yarn`). |
+| `{directory}` | {% octicon "check" aria-label="Available" %} | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} | The dependency file directory. |
+| `{target_branch}` | {% octicon "check" aria-label="Available" %} | {% octicon "check" aria-label="Available" %} | {% octicon "check" aria-label="Available" %} | The target branch if configured. |
+| `{dependency}` | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} | {% octicon "x" aria-label="Not available" %} | The dependency name(s). |
+| `{version}` | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} | {% octicon "x" aria-label="Not available" %} | The new version or ref. |
+| `{group_name}` | {% octicon "x" aria-label="Not available" %} | {% octicon "check" aria-label="Available" %} | {% octicon "check" aria-label="Available" %} | The configured group name. |
+| `{name}` | {% octicon "check" aria-label="Available" %} | {% octicon "check" aria-label="Available" %} | {% octicon "check" aria-label="Available" %} | Strategy-appropriate name: dependency and version for solo updates, group name for grouped updates. |
+
+Template validation rules:
+
+* All placeholders must be recognized and allowed for the update strategy in use.
+* Braces must be well-formed (no unclosed `{` or `}`).
+* Using `{package_manager}` in a multi-ecosystem group template raises a validation error because no single package manager applies.
+* The rendered branch name must be a valid Git reference name. Characters such as spaces, `~`, `^`, `:`, `?`, `*`, `[`, and `\` are not allowed, and sequences like `..` or `@{` are rejected.
+* For grouped and multi-ecosystem updates, a 10-character digest is automatically appended to the branch name to guarantee uniqueness. This is not user-controlled.
+
+{% else %}
+
+Specify a separator to use when generating branch names. For examples, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/customizing-dependabot-prs).
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
@@ -617,10 +732,12 @@ When `pull-request-branch-name.separator` is defined:
 
 * Use the specified character in place of `/`.
 
-Supported values: `"-"`, `_`,  `/`
+Supported values: `"-"`, `_`, `/`
 
 > [!TIP]
 > The hyphen symbol must be escaped so it is not interpreted as starting an empty YAML list.
+
+{% endif %}
 
 ## `rebase-strategy` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
@@ -640,11 +757,11 @@ When `rebase-strategy` is set to `disabled`, {% data variables.product.prodname_
 
 ## `registries` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
-Configure access to private package registries to allow {% data variables.product.prodname_dependabot %} to update a wider range of dependencies, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot) and [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/guidance-for-the-configuration-of-private-registries-for-dependabot).
+Configure access to private package registries to allow {% data variables.product.prodname_dependabot %} to update a wider range of dependencies, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries) and [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-private-registries).
 
 There are 2 locations in the `dependabot.yml` file where you can use the `registries` key:
 
-1. At the top level, where you define the private registries you want to use and their access information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot).
+1. At the top level, where you define the private registries you want to use and their access information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries).
 1. Within the `updates` blocks, where you can specify which private registries each package manager should use.
 
 {% data variables.product.prodname_dependabot %} default behavior is to raise pull requests only to update dependencies stored in publicly accessible registries.
@@ -667,7 +784,7 @@ Supported values: `REGISTRY_NAME` or `"*"`
 >
 > You can also automatically add reviewers and assignees using a CODEOWNERS file. See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners).
 
-Specify individual reviewers, or teams of reviewers, for all pull requests raised for a package manager.  For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs).
+Specify individual reviewers, or teams of reviewers, for all pull requests raised for a package manager.  For examples, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/customizing-dependabot-prs).
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
@@ -684,7 +801,7 @@ Reviewers must have at least read access to the repository.
 
 ## `schedule` {% octicon "versions" aria-label="Version updates only" height="24" %}
 
-**Required option.** Define how often to check for new versions for each package manager you configure using the `interval` parameter. Optionally, for daily and weekly intervals, you can customize when {% data variables.product.prodname_dependabot %} checks for updates. For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates).
+**Required option.** Define how often to check for new versions for each package manager you configure using the `interval` parameter. Optionally, for daily and weekly intervals, you can customize when {% data variables.product.prodname_dependabot %} checks for updates. For examples, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/optimizing-pr-creation-version-updates).
 
 | Parameters | Purpose |
 |------------|---------|
@@ -770,7 +887,7 @@ The time zone identifier must match a timezone in the database maintained by [ia
 
 ## `target-branch` {% octicon "versions" aria-label="Version updates only" height="24" %}
 
-Define a specific branch to check for version updates and to target pull requests for version updates against.  For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs).
+Define a specific branch to check for version updates and to target pull requests for version updates against.  For examples, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/customizing-dependabot-prs).
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
@@ -848,7 +965,7 @@ Supported by: `bundler` and `gomod` only.
 
 Tell {% data variables.product.prodname_dependabot %} to maintain your vendored dependencies as well as the dependencies defined by manifest files. A dependency is described as "vendored" or "cached" when you store the code within your repository, see [`bundle cache` documentation](https://bundler.io/man/bundle-cache.1.html) and [`go mod vendor` documentation](https://golang.org/ref/mod#go-mod-vendor).
 
-For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#updating-vendored-dependencies).
+For examples, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/controlling-dependencies-updated#updating-vendored-dependencies).
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
@@ -865,13 +982,9 @@ Supported values: `true` or `false`
 
 ## `versioning-strategy` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
-{% ifversion dependabot-uv-support %}
-Supported by: `bundler`, `cargo`, `composer`, `mix`, `npm`, `pip`, `pub`, and `uv`
-{% else %}
-Supported by: `bundler`, `cargo`, `composer`, `mix`, `npm`, `pip`, and `pub`
-{% endif %}
+Supported by: `bundler`, `cargo`, `composer`, `helm`, `mix`, `npm`, `pip`, `pub`, and `uv`
 
-Define how {% data variables.product.prodname_dependabot %} should edit manifest files. For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#defining-a-versioning-strategy).
+Define how {% data variables.product.prodname_dependabot %} should edit manifest files. For examples, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/controlling-dependencies-updated#defining-a-versioning-strategy).
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
@@ -1026,17 +1139,36 @@ The parameters used to provide authentication details for access to a private re
 
 {% endif %}
 
-All sensitive data used for authentication should be stored securely and referenced from that secure location, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot).
+All sensitive data used for authentication should be stored securely and referenced from that secure location, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries).
 
 > [!TIP]
 > {% data reusables.dependabot.password-definition %}
 
 {% ifversion dependabot-oidc-support %}
 
-For more information about  OIDC support for {% data variables.product.prodname_dependabot %}, see [AUTOTITLE](/actions/concepts/security/openid-connect#oidc-support-for-dependabot) and [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot#using-oidc-for-authentication).
+For more information about  OIDC support for {% data variables.product.prodname_dependabot %}, see [AUTOTITLE](/actions/concepts/security/openid-connect#oidc-support-for-dependabot) and [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#using-oidc-for-authentication).
 
 {% endif %}
 
 ### `url` and `replaces-base`
 
 The `url` parameter defines where to access a registry. When the optional `replaces-base` parameter is enabled (`true`), {% data variables.product.prodname_dependabot %} resolves dependencies using the value of `url` rather than the base URL of that specific ecosystem.
+
+{% ifversion dependabot-npm-scope %}
+
+### `scope`
+
+The `scope` parameter is available for `npm-registry` type registries. It specifies which npm scope should be associated with the registry. The value must start with `@`, for example `@my-company`. To associate multiple scopes with the same registry URL, create a separate registry entry for each scope.
+
+When `scope` is provided, {% data variables.product.prodname_dependabot %} generates the `.npmrc` configuration from your registry credentials. This generated configuration takes precedence over any committed `.npmrc` file or lockfile-based inference.
+
+#### Priority order for npm registry resolution
+
+When determining which registry to use for npm dependencies, {% data variables.product.prodname_dependabot %} follows this priority order:
+
+1. **Credential-based generation (`scope` or `replaces-base`):** If `scope` or `replaces-base` is configured on any `npm-registry` credential in `dependabot.yml`, {% data variables.product.prodname_dependabot %} generates the `.npmrc` from those credentials. This always takes priority, overriding any committed `.npmrc` file.
+1. **Committed `.npmrc` in the repository:** If no `scope` is set, {% data variables.product.prodname_dependabot %} uses any `.npmrc` file committed to the repository.
+1. **Lockfile inference (transitional):** If there is no `scope` and no committed `.npmrc`, {% data variables.product.prodname_dependabot %} attempts to infer registry configuration from the lockfile.
+1. **Error generation:** If none of the above methods succeed, {% data variables.product.prodname_dependabot %} reports an error with guidance to add explicit configuration.
+
+{% endif %}

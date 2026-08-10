@@ -13,14 +13,17 @@ category:
 ---
 
 > [!NOTE]
-> * {% data reusables.spark.preview-note-spark %}
-> * {% data reusables.copilot.spark-data-res %}
+> * {% data reusables.copilot.spark-deprecation %}
 
 ## About {% data variables.product.prodname_spark_short %}
 
 {% data variables.product.prodname_spark_short %} allows users to build intelligent applications using natural-language prompts. {% data variables.product.prodname_spark_short %} includes advanced controls and built-in design tools for customization. Once published, applications can be shared with teammates or deployed to production.
 
 For details about benefits, development experience, billing, and enterprise considerations, see [AUTOTITLE](/copilot/concepts/spark#enterprise-considerations).
+
+> [!NOTE]
+> * {% data reusables.spark.preview-note-spark %}
+> * {% data reusables.copilot.spark-data-res %}
 
 ## Prerequisites
 
@@ -30,7 +33,7 @@ To use {% data variables.product.prodname_spark_short %}, your enterprise must b
 
 By default, {% data variables.product.prodname_spark_short %} is **disabled** for users who receive a {% data variables.copilot.copilot_enterprise_short %} license from an enterprise-owned organization.
 
-You can allow members to use {% data variables.product.prodname_spark_short %} from the AI Controls tab for your enterprise. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#defining-policies-for-your-enterprise).
+You can allow members to use {% data variables.product.prodname_spark_short %} from the AI Controls tab for your enterprise. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies#defining-policies-for-your-enterprise).
 
 {% data reusables.enterprise-accounts.policy-enablement-next-steps %}
 
@@ -44,4 +47,4 @@ Was this article helpful in enabling and managing {% data variables.product.prod
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-spark)
+* [AUTOTITLE](/copilot/responsible-use/agents)

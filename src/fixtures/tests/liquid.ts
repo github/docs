@@ -66,6 +66,17 @@ describe('tool', () => {
   })
 })
 
+describe('codetabs', () => {
+  test('renders code tabs with language metadata', async () => {
+    const $: CheerioAPI = await getDOM('/get-started/liquid/code-tabs-test')
+
+    expect($('.ghd-codetabs').length).toBe(2)
+    expect($('.ghd-codetab[data-lang="typescript"][data-label="TypeScript"]').length).toBe(2)
+    expect($('.ghd-codetab[data-lang="python"][data-label="Python"]').length).toBe(2)
+    expect($('.ghd-codetab-fallback-label').first().text()).toBe('TypeScript')
+  })
+})
+
 describe('post', () => {
   test('whitespace control', async () => {
     const $: CheerioAPI = await getDOM('/get-started/liquid/whitespace')

@@ -57,6 +57,7 @@ import { frontmatterCurlyQuotes } from './frontmatter-curly-quotes'
 import { raiAppCardStructure } from '@/content-linter/lib/linting-rules/rai-app-card-structure'
 import { frontmatterContentType } from '@/content-linter/lib/linting-rules/frontmatter-content-type'
 import { frontmatterDocsTeamMetrics } from '@/content-linter/lib/linting-rules/frontmatter-docs-team-metrics'
+import { frontmatterRestApiCategory } from '@/content-linter/lib/linting-rules/frontmatter-rest-api-category'
 
 const noDefaultAltText = markdownlintGitHub.find((elem: { names: string[] }) =>
   elem.names.includes('no-default-alt-text'),
@@ -122,6 +123,7 @@ export const gitHubDocsMarkdownlint = {
     raiAppCardStructure, // GHD064
     frontmatterContentType, // GHD065
     frontmatterDocsTeamMetrics, // GHD066
+    frontmatterRestApiCategory, // GHD067
 
     // Search-replace rules
     searchReplace, // Open-source plugin

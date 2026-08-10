@@ -21,7 +21,7 @@ A ruleset is a named list of rules that control how people can interact with bra
 
 Typically, you should use {% data variables.product.prodname_code_scanning %} merge protection on long-lived feature branches, where you want to guarantee code has been analyzed before pull requests can be merged.
 
-Configuring a {% data variables.product.prodname_code_scanning %} rule will not automatically enable {% data variables.product.prodname_code_scanning %}. To learn how to enable code scanning, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning).
+Configuring a {% data variables.product.prodname_code_scanning %} rule will not automatically enable {% data variables.product.prodname_code_scanning %}. To learn how to enable code scanning, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configure-code-scanning).
 
 > [!NOTE]
 > * Merge protection with rulesets is not related to status checks. For more information about status checks, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks).
@@ -38,8 +38,8 @@ Merge protection with rulesets will **not apply** to:
 * Merge queue groups
 * {% data variables.product.prodname_dependabot %} pull requests analyzed by default setup
 
-Additionally, all the lines of code identified by an alert must exist in the pull request diff. For more information, see [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#source-file-locations).
+Additionally, all the lines of code identified by an alert must exist in the pull request diff. For more information, see [AUTOTITLE](/code-security/reference/code-scanning/sarif-files/sarif-support#source-file-locations).
 
 ## Next steps
 
-To configure a ruleset that requires {% data variables.product.prodname_code_scanning %} results, see [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/set-code-scanning-merge-protection).
+To configure a ruleset that requires {% data variables.product.prodname_code_scanning %} results, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/set-merge-protection).

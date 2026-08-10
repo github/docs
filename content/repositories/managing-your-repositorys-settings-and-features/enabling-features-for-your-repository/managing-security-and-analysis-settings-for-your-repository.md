@@ -22,7 +22,7 @@ category:
 {% ifversion dependabot-alerts-enterprise-enablement %}
 
 > [!NOTE]
-> When {% data variables.product.prodname_dependabot_alerts %} are enabled or disabled at the enterprise level, it overrides the repository level settings for {% data variables.product.prodname_dependabot_alerts %}. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts#managing-dependabot-alerts-for-your-enterprise).
+> When {% data variables.product.prodname_dependabot_alerts %} are enabled or disabled at the enterprise level, it overrides the repository level settings for {% data variables.product.prodname_dependabot_alerts %}. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-dependabot-alerts#managing-dependabot-alerts-for-your-enterprise).
 
 {% endif %}
 
@@ -55,7 +55,7 @@ Other features are permanently enabled for public repositories, such as the depe
 
 ## Enabling or disabling security and analysis features{% ifversion fpt or ghec %} for private repositories{% endif %}
 
-You can manage the security and analysis features for your {% ifversion fpt or ghec %}private or internal {% endif %}repository. If your enterprise or organization has a license for {% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}{% else %}{% data variables.product.prodname_GHAS %}{% endif %}, then extra options are available. {% data reusables.advanced-security.more-info-ghas %}
+You can manage the security and analysis features for your {% ifversion fpt or ghec %}private or internal {% endif %}repository. If your enterprise or organization has a license for {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}, then extra options are available. {% data reusables.advanced-security.more-info-ghas %}
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
@@ -96,5 +96,5 @@ Security alerts for a repository are visible to people with write, maintain, or 
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/getting-started/securing-your-repository)
+* [AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-repository)
 * [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)

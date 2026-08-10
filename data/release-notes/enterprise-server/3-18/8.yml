@@ -124,6 +124,4 @@ sections:
     - |
       The setting to define private registries at the organization level for code scanning is only available if dependabot is also enabled for the instance.
     - |
-      Custom NTP settings are removed during the upgrade process.
-    - |
       When applying an enterprise security configuration to all repositories (for example, enabling Secret Scanning or Code Scanning across all repositories), the system immediately enqueues enablement jobs for every organization in the enterprise simultaneously. For enterprises with a large number of repositories, this can result in significant system load and potential performance degradation. If you manage a large enterprise with many organizations and repositories, we recommend applying security configurations at the organization level rather than at the enterprise level in the UI. This allows you to enable security features incrementally and monitor system performance as you roll out changes.

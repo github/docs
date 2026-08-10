@@ -331,7 +331,8 @@ interface Frontmatter {
 
 function isFileRaiCard(params: RuleParams): boolean {
   const fm: Frontmatter = (getFrontmatter(params.frontMatterLines) as Frontmatter) || {}
-  return fm.contentType === 'rai'
+  // Files with children: are landing pages that aggregate cards, not cards themselves.
+  return fm.contentType === 'rai' && !('children' in fm)
 }
 
 export const raiAppCardStructure: Rule = {

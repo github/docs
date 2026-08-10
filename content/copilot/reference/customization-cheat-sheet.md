@@ -19,11 +19,11 @@ This table shows what each customization feature is and where it lives.
 |---------|-----------|-------------------|
 | [Custom instructions](/copilot/concepts/prompting/response-customization) | Always-on context that automatically applies to every interaction within its defined scope | `.github/copilot-instructions.md` (repo-wide), `.github/instructions/*.instructions.md` (path-specific), `AGENTS.md` (third-party agents), or personal/org settings via UI on {% data variables.product.github %} |
 | [Prompt files](/copilot/concepts/prompting/response-customization?tool=vscode#about-prompt-files) | Reusable, standalone prompt template with input variables | `.github/prompts/*.prompt.md` |
-| [{% data variables.copilot.custom_agents_caps_short %}](/copilot/concepts/agents/cloud-agent/about-custom-agents) | Specialist persona with its own instructions, tool restrictions, and context | `.github/agents/AGENT-NAME.md` (repo), `agents/AGENT-NAME.md` in `.github-private` repo (org/enterprise), or user profile |
+| [{% data variables.copilot.custom_agents_caps_short %}](/copilot/concepts/agents/cloud-agent/about-custom-agents) | Specialist persona with its own instructions, tool restrictions, and context | `.github/agents/AGENT-NAME.md` (repository), `/agents/AGENT-NAME.md` in the organization's `.github` or `.github-private` repository (org-level), `/agents/AGENT-NAME.md` in a designated `.github-private` repository (enterprise-level), or user profile |
 | [{% data variables.copilot.subagents_caps_short %}](/copilot/how-tos/chat-with-copilot/chat-in-ide#using-subagents) | Separate agent spawned by the main agent to handle delegated work in an isolated context | N/A (runtime process, not a user-configured file) |
 | [Agent skills](/copilot/concepts/agents/about-agent-skills) | Folder of instructions, scripts, and resources that {% data variables.product.prodname_copilot_short %} loads when relevant to a task | `.github/skills/<skill-name>/SKILL.md`, `.claude/skills/<skill-name>/SKILL.md`, or `.agents/skills/<skill-name>/SKILL.md` (project); `~/.copilot/skills/<skill-name>/SKILL.md` or `~/.agents/skills/<skill-name>/SKILL.md` (personal) |
 | [Hooks](/copilot/concepts/agents/hooks) | Custom shell commands that execute deterministically at specific points in an agent's workflow | `.github/hooks/*.json` |
-| [MCP servers](/copilot/concepts/context/mcp) | Connection to external systems, APIs, and databases | `mcp.json` (path varies by IDE), repo settings on {% data variables.product.github %} ({% data variables.copilot.copilot_cloud_agent_short %}), or `mcp-servers` property in {% data variables.copilot.copilot_custom_agent_short %} configurations |
+| [MCP servers](/copilot/concepts/context/mcp) | Connection to external systems, APIs, and databases | `mcp.json` (path varies by IDE), repository MCP settings on {% data variables.product.github %} (applies to {% data variables.copilot.copilot_cloud_agent_short %} and {% data variables.copilot.copilot_code-review_short %}), or `mcp-servers` property in {% data variables.copilot.copilot_custom_agent_short %} configurations |
 
 ## Usage comparison
 
@@ -55,13 +55,27 @@ This table shows which customization features are supported in each IDE and surf
 |---------|:-------:|:-------------:|:---------:|:-------:|:-----:|:-------:|:---:|
 | Custom instructions | ✓ | ✓ | P | P | P | ✓ | ✓ |
 | Prompt files | ✓ | ✓ | P | ✗ | P | ✗ | ✗ |
-| {% data variables.copilot.custom_agents_caps_short %} | ✓ | ✗ | P | P | P | ✓ | ✓ |
+| {% data variables.copilot.custom_agents_caps_short %} | ✓ | ✓ | P | P | P | ✓ | ✓ |
 | {% data variables.copilot.subagents_caps_short %} | ✓ | ✗ | P | P | P | ✗ | ✓ |
-| Agent skills | ✓ | ✗ | P | ✗ | ✗ | ✓ | ✓ |
+| Agent skills | ✓ | ✓ | P | ✗ | ✗ | ✓ | ✓ |
 | Hooks | P | ✗ | ✗ | ✗ | ✗ | ✓ | ✓ |
 | MCP servers | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 
 For a detailed breakdown of which types of custom instructions are supported in each IDE and surface, see [AUTOTITLE](/copilot/reference/custom-instructions-support).
+
+## Agent Customizations editor in JetBrains IDEs
+
+In JetBrains IDEs, you can use the Agent Customizations editor to manage multiple {% data variables.product.prodname_copilot_short %} customizations from one place. In the {% data variables.copilot.copilot_chat %} panel, click the settings icon in the top-right, then click **Customizations**.
+
+From the editor, you can:
+
+* View and edit {% data variables.copilot.custom_agents_short %}
+* Manage reusable skills
+* Configure workspace or personal instructions
+* Manage prompt files
+* Choose **Workspace** customizations for the current project or **Personal** customizations that follow you across projects
+
+For steps to create repository instructions and prompt files in JetBrains IDEs, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions-in-your-ide/add-repository-instructions-in-your-ide).
 
 ## Further reading
 

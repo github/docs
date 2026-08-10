@@ -23,7 +23,7 @@ category:
 >
 > Both {% data variables.product.prodname_oauth_apps %} and {% data variables.product.prodname_github_apps %} use OAuth 2.0.
 >
-> {% data variables.product.prodname_github_apps %} can act on behalf of a user, similar to an {% data variables.product.prodname_oauth_app %}, or as themselves, which is beneficial for automations that do not require user input. Additionally, {% data variables.product.prodname_github_apps %} use fine-grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens. For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps) and [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps).
+> {% data variables.product.prodname_github_apps %} can act on behalf of a user, similar to an {% data variables.product.prodname_oauth_app %}, or as themselves, which is beneficial for automations that do not require user input. Additionally, {% data variables.product.prodname_github_apps %} use fine-grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens. For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps) and [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps).
 
 {% data variables.product.github %}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1) and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser.
 
@@ -43,7 +43,7 @@ To authorize your {% data variables.product.prodname_oauth_app %}, consider whic
 ## Web application flow
 
 > [!NOTE]
-> If you are building a GitHub App, you can still use the OAuth web application flow, but the setup has some important differences. See [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps) for more information.
+> If you are building a GitHub App, you can still use the OAuth web application flow, but the setup has some important differences. See [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user) for more information.
 
 The web application flow to authorize users for your app is:
 
@@ -138,7 +138,7 @@ Every time you receive an access token, you should use the token to revalidate t
 
 The device flow allows you to authorize users for a headless application, such as a CLI tool or the [Git Credential Manager](https://github.com/git-ecosystem/git-credential-manager).
 
-Before you can use the device flow to authorize and identify users, you must first enable it in your app's settings. For more information about enabling the device flow in your app, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app) for {% data variables.product.prodname_github_apps %} and [AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/modifying-an-oauth-app) for {% data variables.product.prodname_oauth_apps %}.
+Before you can use the device flow to authorize and identify users, you must first enable it in your app's settings. For more information about enabling the device flow in your app, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration) for {% data variables.product.prodname_github_apps %} and [AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/modifying-an-oauth-app) for {% data variables.product.prodname_oauth_apps %}.
 
 ### Overview of the device flow
 
@@ -268,7 +268,7 @@ For more information, see the [OAuth 2.0 Device Authorization Grant](https://too
 
 ## Non-Web application flow
 
-Non-web authentication is available for limited situations like testing. If you need to, you can use [Basic Authentication](/rest/overview/authenticating-to-the-rest-api#using-basic-authentication) to create a {% data variables.product.pat_generic %} using your [{% data variables.product.pat_generic %}s settings page](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). This technique enables the user to revoke access at any time.
+Non-web authentication is available for limited situations like testing. If you need to, you can use [Basic Authentication](/rest/authentication/authenticating-to-the-rest-api#using-basic-authentication) to create a {% data variables.product.pat_generic %} using your [{% data variables.product.pat_generic %}s settings page](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens). This technique enables the user to revoke access at any time.
 
 ## Redirect URLs
 

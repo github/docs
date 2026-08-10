@@ -31,7 +31,7 @@ If you're using a GPG key that matches your committer identity and your verified
    gpg> adduid
    ```
 
-1. Follow the prompts to supply your real name, email address, and any comments. You can modify your entries by choosing `N`, `C`, or `E`. {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %} For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address).{% endif %}
+1. Follow the prompts to supply your real name, email address, and any comments. You can modify your entries by choosing `N`, `C`, or `E`. {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %} For more information, see [AUTOTITLE](/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address).{% endif %}
 
    ```shell
    Real Name: OCTOCAT

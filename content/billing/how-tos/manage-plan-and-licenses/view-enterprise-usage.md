@@ -33,7 +33,7 @@ The information displayed varies according to your enterprise set up.
 * {% data variables.product.prodname_ghe_cloud %}, potentially with licenses synchronized from {% data variables.product.prodname_ghe_server %}
 * {% data variables.product.prodname_ghe_server %}
 
-To learn more about the license data associated with your enterprise account and how the number of consumed user licenses is calculated, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise).
+To learn more about the license data associated with your enterprise account and how the number of consumed user licenses is calculated, see [AUTOTITLE](/billing/how-tos/troubleshooting/enterprise-license-usage).
 
 ## Finding information on {% data variables.product.prodname_ghe_cloud %}
 
@@ -71,7 +71,7 @@ The date of the last license sync occurred is shown under "Enterprise Server ins
 * "{% data variables.product.prodname_github_connect %} server usage synced" indicates license usage between environments was automatically updated.
 * "{% data variables.product.prodname_github_connect %} server usage never synced" indicates that {% data variables.product.prodname_github_connect %} is configured, but license usage between environments has never updated successfully.
 
-For more information, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud).
+For more information, see [AUTOTITLE](/billing/how-tos/manage-server-licenses/sync-license-usage).
 
 ### Synchronization of {% data variables.visual_studio.prodname_vss_ghe %} subscriptions
 
@@ -89,4 +89,4 @@ If your {% data variables.product.github %} license includes {% data variables.v
 
 ## Reporting license information using the REST API
 
-You can also use the REST API to return consumed licenses data and the status of the license sync job. See [AUTOTITLE](/rest/enterprise-admin/license).
+You can also use the REST API to return consumed licenses data and the status of the license sync job. See [AUTOTITLE](/rest/enterprise-admin/licensing).

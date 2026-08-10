@@ -11411,6 +11411,30 @@
                                       ]
                                     }
                                   ]
+                                },
+                                "minimized": {
+                                  "anyOf": [
+                                    {
+                                      "type": "null"
+                                    },
+                                    {
+                                      "title": "Minimized Issue Comment",
+                                      "description": "Details about why an issue comment was minimized.",
+                                      "type": "object",
+                                      "properties": {
+                                        "reason": {
+                                          "description": "The reason the comment was minimized.",
+                                          "type": [
+                                            "string",
+                                            "null"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "reason"
+                                      ]
+                                    }
+                                  ]
                                 }
                               },
                               "required": [
@@ -11462,6 +11486,10 @@
                                 "type": "integer",
                                 "format": "int64"
                               },
+                              "issue_field_name": {
+                                "description": "The human-readable name of the issue field.",
+                                "type": "string"
+                              },
                               "node_id": {
                                 "type": "string"
                               },
@@ -11471,6 +11499,7 @@
                                 "enum": [
                                   "text",
                                   "single_select",
+                                  "multi_select",
                                   "number",
                                   "date"
                                 ]
@@ -11521,6 +11550,36 @@
                                   "name",
                                   "color"
                                 ]
+                              },
+                              "multi_select_options": {
+                                "description": "Details about the selected options",
+                                "type": [
+                                  "array",
+                                  "null"
+                                ],
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "description": "Unique identifier for the option.",
+                                      "type": "integer",
+                                      "format": "int64"
+                                    },
+                                    "name": {
+                                      "description": "The name of the option",
+                                      "type": "string"
+                                    },
+                                    "color": {
+                                      "description": "The color of the option",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "name",
+                                    "color"
+                                  ]
+                                }
                               }
                             },
                             "required": [
@@ -12462,6 +12521,15 @@
                                 "enum": [
                                   "enterprise",
                                   "organization"
+                                ]
+                              },
+                              "access_source": {
+                                "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                "type": "string",
+                                "enum": [
+                                  "direct",
+                                  "organization",
+                                  "enterprise"
                                 ]
                               },
                               "organization_id": {
@@ -14493,6 +14561,52 @@
                             "merge_method",
                             "commit_title",
                             "commit_message"
+                          ]
+                        },
+                        "stack": {
+                          "title": "Pull Request Stack",
+                          "description": "The stack information associated with a pull request.",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "base": {
+                              "type": "object",
+                              "properties": {
+                                "ref": {
+                                  "type": "string",
+                                  "description": "The base ref of the stack this pull request belongs to."
+                                },
+                                "sha": {
+                                  "type": "string",
+                                  "description": "The base SHA of the stack this pull request belongs to."
+                                }
+                              },
+                              "required": [
+                                "ref",
+                                "sha"
+                              ]
+                            },
+                            "size": {
+                              "type": "integer",
+                              "description": "The total number of pull requests in the stack."
+                            },
+                            "position": {
+                              "type": "integer",
+                              "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                            },
+                            "id": {
+                              "type": "integer",
+                              "description": "The ID of the stack that this pull request belongs to."
+                            },
+                            "number": {
+                              "type": "integer",
+                              "description": "The number of the stack that this pull request belongs to."
+                            }
+                          },
+                          "required": [
+                            "base"
                           ]
                         },
                         "draft": {
@@ -17623,6 +17737,30 @@
                                       ]
                                     }
                                   ]
+                                },
+                                "minimized": {
+                                  "anyOf": [
+                                    {
+                                      "type": "null"
+                                    },
+                                    {
+                                      "title": "Minimized Issue Comment",
+                                      "description": "Details about why an issue comment was minimized.",
+                                      "type": "object",
+                                      "properties": {
+                                        "reason": {
+                                          "description": "The reason the comment was minimized.",
+                                          "type": [
+                                            "string",
+                                            "null"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "reason"
+                                      ]
+                                    }
+                                  ]
                                 }
                               },
                               "required": [
@@ -17674,6 +17812,10 @@
                                 "type": "integer",
                                 "format": "int64"
                               },
+                              "issue_field_name": {
+                                "description": "The human-readable name of the issue field.",
+                                "type": "string"
+                              },
                               "node_id": {
                                 "type": "string"
                               },
@@ -17683,6 +17825,7 @@
                                 "enum": [
                                   "text",
                                   "single_select",
+                                  "multi_select",
                                   "number",
                                   "date"
                                 ]
@@ -17733,6 +17876,36 @@
                                   "name",
                                   "color"
                                 ]
+                              },
+                              "multi_select_options": {
+                                "description": "Details about the selected options",
+                                "type": [
+                                  "array",
+                                  "null"
+                                ],
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "description": "Unique identifier for the option.",
+                                      "type": "integer",
+                                      "format": "int64"
+                                    },
+                                    "name": {
+                                      "description": "The name of the option",
+                                      "type": "string"
+                                    },
+                                    "color": {
+                                      "description": "The color of the option",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "name",
+                                    "color"
+                                  ]
+                                }
                               }
                             },
                             "required": [
@@ -18674,6 +18847,15 @@
                                 "enum": [
                                   "enterprise",
                                   "organization"
+                                ]
+                              },
+                              "access_source": {
+                                "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                "type": "string",
+                                "enum": [
+                                  "direct",
+                                  "organization",
+                                  "enterprise"
                                 ]
                               },
                               "organization_id": {
@@ -20705,6 +20887,52 @@
                             "merge_method",
                             "commit_title",
                             "commit_message"
+                          ]
+                        },
+                        "stack": {
+                          "title": "Pull Request Stack",
+                          "description": "The stack information associated with a pull request.",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "base": {
+                              "type": "object",
+                              "properties": {
+                                "ref": {
+                                  "type": "string",
+                                  "description": "The base ref of the stack this pull request belongs to."
+                                },
+                                "sha": {
+                                  "type": "string",
+                                  "description": "The base SHA of the stack this pull request belongs to."
+                                }
+                              },
+                              "required": [
+                                "ref",
+                                "sha"
+                              ]
+                            },
+                            "size": {
+                              "type": "integer",
+                              "description": "The total number of pull requests in the stack."
+                            },
+                            "position": {
+                              "type": "integer",
+                              "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                            },
+                            "id": {
+                              "type": "integer",
+                              "description": "The ID of the stack that this pull request belongs to."
+                            },
+                            "number": {
+                              "type": "integer",
+                              "description": "The number of the stack that this pull request belongs to."
+                            }
+                          },
+                          "required": [
+                            "base"
                           ]
                         },
                         "draft": {
@@ -23835,6 +24063,30 @@
                                       ]
                                     }
                                   ]
+                                },
+                                "minimized": {
+                                  "anyOf": [
+                                    {
+                                      "type": "null"
+                                    },
+                                    {
+                                      "title": "Minimized Issue Comment",
+                                      "description": "Details about why an issue comment was minimized.",
+                                      "type": "object",
+                                      "properties": {
+                                        "reason": {
+                                          "description": "The reason the comment was minimized.",
+                                          "type": [
+                                            "string",
+                                            "null"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "reason"
+                                      ]
+                                    }
+                                  ]
                                 }
                               },
                               "required": [
@@ -23886,6 +24138,10 @@
                                 "type": "integer",
                                 "format": "int64"
                               },
+                              "issue_field_name": {
+                                "description": "The human-readable name of the issue field.",
+                                "type": "string"
+                              },
                               "node_id": {
                                 "type": "string"
                               },
@@ -23895,6 +24151,7 @@
                                 "enum": [
                                   "text",
                                   "single_select",
+                                  "multi_select",
                                   "number",
                                   "date"
                                 ]
@@ -23945,6 +24202,36 @@
                                   "name",
                                   "color"
                                 ]
+                              },
+                              "multi_select_options": {
+                                "description": "Details about the selected options",
+                                "type": [
+                                  "array",
+                                  "null"
+                                ],
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "description": "Unique identifier for the option.",
+                                      "type": "integer",
+                                      "format": "int64"
+                                    },
+                                    "name": {
+                                      "description": "The name of the option",
+                                      "type": "string"
+                                    },
+                                    "color": {
+                                      "description": "The color of the option",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "name",
+                                    "color"
+                                  ]
+                                }
                               }
                             },
                             "required": [
@@ -24886,6 +25173,15 @@
                                 "enum": [
                                   "enterprise",
                                   "organization"
+                                ]
+                              },
+                              "access_source": {
+                                "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                "type": "string",
+                                "enum": [
+                                  "direct",
+                                  "organization",
+                                  "enterprise"
                                 ]
                               },
                               "organization_id": {
@@ -26917,6 +27213,52 @@
                             "merge_method",
                             "commit_title",
                             "commit_message"
+                          ]
+                        },
+                        "stack": {
+                          "title": "Pull Request Stack",
+                          "description": "The stack information associated with a pull request.",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "base": {
+                              "type": "object",
+                              "properties": {
+                                "ref": {
+                                  "type": "string",
+                                  "description": "The base ref of the stack this pull request belongs to."
+                                },
+                                "sha": {
+                                  "type": "string",
+                                  "description": "The base SHA of the stack this pull request belongs to."
+                                }
+                              },
+                              "required": [
+                                "ref",
+                                "sha"
+                              ]
+                            },
+                            "size": {
+                              "type": "integer",
+                              "description": "The total number of pull requests in the stack."
+                            },
+                            "position": {
+                              "type": "integer",
+                              "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                            },
+                            "id": {
+                              "type": "integer",
+                              "description": "The ID of the stack that this pull request belongs to."
+                            },
+                            "number": {
+                              "type": "integer",
+                              "description": "The number of the stack that this pull request belongs to."
+                            }
+                          },
+                          "required": [
+                            "base"
                           ]
                         },
                         "draft": {
@@ -30049,6 +30391,30 @@
                                       ]
                                     }
                                   ]
+                                },
+                                "minimized": {
+                                  "anyOf": [
+                                    {
+                                      "type": "null"
+                                    },
+                                    {
+                                      "title": "Minimized Issue Comment",
+                                      "description": "Details about why an issue comment was minimized.",
+                                      "type": "object",
+                                      "properties": {
+                                        "reason": {
+                                          "description": "The reason the comment was minimized.",
+                                          "type": [
+                                            "string",
+                                            "null"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "reason"
+                                      ]
+                                    }
+                                  ]
                                 }
                               },
                               "required": [
@@ -30100,6 +30466,10 @@
                                 "type": "integer",
                                 "format": "int64"
                               },
+                              "issue_field_name": {
+                                "description": "The human-readable name of the issue field.",
+                                "type": "string"
+                              },
                               "node_id": {
                                 "type": "string"
                               },
@@ -30109,6 +30479,7 @@
                                 "enum": [
                                   "text",
                                   "single_select",
+                                  "multi_select",
                                   "number",
                                   "date"
                                 ]
@@ -30159,6 +30530,36 @@
                                   "name",
                                   "color"
                                 ]
+                              },
+                              "multi_select_options": {
+                                "description": "Details about the selected options",
+                                "type": [
+                                  "array",
+                                  "null"
+                                ],
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "description": "Unique identifier for the option.",
+                                      "type": "integer",
+                                      "format": "int64"
+                                    },
+                                    "name": {
+                                      "description": "The name of the option",
+                                      "type": "string"
+                                    },
+                                    "color": {
+                                      "description": "The color of the option",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "name",
+                                    "color"
+                                  ]
+                                }
                               }
                             },
                             "required": [
@@ -31100,6 +31501,15 @@
                                 "enum": [
                                   "enterprise",
                                   "organization"
+                                ]
+                              },
+                              "access_source": {
+                                "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                "type": "string",
+                                "enum": [
+                                  "direct",
+                                  "organization",
+                                  "enterprise"
                                 ]
                               },
                               "organization_id": {
@@ -33131,6 +33541,52 @@
                             "merge_method",
                             "commit_title",
                             "commit_message"
+                          ]
+                        },
+                        "stack": {
+                          "title": "Pull Request Stack",
+                          "description": "The stack information associated with a pull request.",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "base": {
+                              "type": "object",
+                              "properties": {
+                                "ref": {
+                                  "type": "string",
+                                  "description": "The base ref of the stack this pull request belongs to."
+                                },
+                                "sha": {
+                                  "type": "string",
+                                  "description": "The base SHA of the stack this pull request belongs to."
+                                }
+                              },
+                              "required": [
+                                "ref",
+                                "sha"
+                              ]
+                            },
+                            "size": {
+                              "type": "integer",
+                              "description": "The total number of pull requests in the stack."
+                            },
+                            "position": {
+                              "type": "integer",
+                              "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                            },
+                            "id": {
+                              "type": "integer",
+                              "description": "The ID of the stack that this pull request belongs to."
+                            },
+                            "number": {
+                              "type": "integer",
+                              "description": "The number of the stack that this pull request belongs to."
+                            }
+                          },
+                          "required": [
+                            "base"
                           ]
                         },
                         "draft": {
@@ -44494,6 +44950,30 @@
                                       ]
                                     }
                                   ]
+                                },
+                                "minimized": {
+                                  "anyOf": [
+                                    {
+                                      "type": "null"
+                                    },
+                                    {
+                                      "title": "Minimized Issue Comment",
+                                      "description": "Details about why an issue comment was minimized.",
+                                      "type": "object",
+                                      "properties": {
+                                        "reason": {
+                                          "description": "The reason the comment was minimized.",
+                                          "type": [
+                                            "string",
+                                            "null"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "reason"
+                                      ]
+                                    }
+                                  ]
                                 }
                               },
                               "required": [
@@ -44545,6 +45025,10 @@
                                 "type": "integer",
                                 "format": "int64"
                               },
+                              "issue_field_name": {
+                                "description": "The human-readable name of the issue field.",
+                                "type": "string"
+                              },
                               "node_id": {
                                 "type": "string"
                               },
@@ -44554,6 +45038,7 @@
                                 "enum": [
                                   "text",
                                   "single_select",
+                                  "multi_select",
                                   "number",
                                   "date"
                                 ]
@@ -44604,6 +45089,36 @@
                                   "name",
                                   "color"
                                 ]
+                              },
+                              "multi_select_options": {
+                                "description": "Details about the selected options",
+                                "type": [
+                                  "array",
+                                  "null"
+                                ],
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "description": "Unique identifier for the option.",
+                                      "type": "integer",
+                                      "format": "int64"
+                                    },
+                                    "name": {
+                                      "description": "The name of the option",
+                                      "type": "string"
+                                    },
+                                    "color": {
+                                      "description": "The color of the option",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "name",
+                                    "color"
+                                  ]
+                                }
                               }
                             },
                             "required": [
@@ -45545,6 +46060,15 @@
                                 "enum": [
                                   "enterprise",
                                   "organization"
+                                ]
+                              },
+                              "access_source": {
+                                "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                "type": "string",
+                                "enum": [
+                                  "direct",
+                                  "organization",
+                                  "enterprise"
                                 ]
                               },
                               "organization_id": {
@@ -47576,6 +48100,52 @@
                             "merge_method",
                             "commit_title",
                             "commit_message"
+                          ]
+                        },
+                        "stack": {
+                          "title": "Pull Request Stack",
+                          "description": "The stack information associated with a pull request.",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "base": {
+                              "type": "object",
+                              "properties": {
+                                "ref": {
+                                  "type": "string",
+                                  "description": "The base ref of the stack this pull request belongs to."
+                                },
+                                "sha": {
+                                  "type": "string",
+                                  "description": "The base SHA of the stack this pull request belongs to."
+                                }
+                              },
+                              "required": [
+                                "ref",
+                                "sha"
+                              ]
+                            },
+                            "size": {
+                              "type": "integer",
+                              "description": "The total number of pull requests in the stack."
+                            },
+                            "position": {
+                              "type": "integer",
+                              "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                            },
+                            "id": {
+                              "type": "integer",
+                              "description": "The ID of the stack that this pull request belongs to."
+                            },
+                            "number": {
+                              "type": "integer",
+                              "description": "The number of the stack that this pull request belongs to."
+                            }
+                          },
+                          "required": [
+                            "base"
                           ]
                         },
                         "draft": {
@@ -50706,6 +51276,30 @@
                                       ]
                                     }
                                   ]
+                                },
+                                "minimized": {
+                                  "anyOf": [
+                                    {
+                                      "type": "null"
+                                    },
+                                    {
+                                      "title": "Minimized Issue Comment",
+                                      "description": "Details about why an issue comment was minimized.",
+                                      "type": "object",
+                                      "properties": {
+                                        "reason": {
+                                          "description": "The reason the comment was minimized.",
+                                          "type": [
+                                            "string",
+                                            "null"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "reason"
+                                      ]
+                                    }
+                                  ]
                                 }
                               },
                               "required": [
@@ -50757,6 +51351,10 @@
                                 "type": "integer",
                                 "format": "int64"
                               },
+                              "issue_field_name": {
+                                "description": "The human-readable name of the issue field.",
+                                "type": "string"
+                              },
                               "node_id": {
                                 "type": "string"
                               },
@@ -50766,6 +51364,7 @@
                                 "enum": [
                                   "text",
                                   "single_select",
+                                  "multi_select",
                                   "number",
                                   "date"
                                 ]
@@ -50816,6 +51415,36 @@
                                   "name",
                                   "color"
                                 ]
+                              },
+                              "multi_select_options": {
+                                "description": "Details about the selected options",
+                                "type": [
+                                  "array",
+                                  "null"
+                                ],
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "description": "Unique identifier for the option.",
+                                      "type": "integer",
+                                      "format": "int64"
+                                    },
+                                    "name": {
+                                      "description": "The name of the option",
+                                      "type": "string"
+                                    },
+                                    "color": {
+                                      "description": "The color of the option",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "name",
+                                    "color"
+                                  ]
+                                }
                               }
                             },
                             "required": [
@@ -51757,6 +52386,15 @@
                                 "enum": [
                                   "enterprise",
                                   "organization"
+                                ]
+                              },
+                              "access_source": {
+                                "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                "type": "string",
+                                "enum": [
+                                  "direct",
+                                  "organization",
+                                  "enterprise"
                                 ]
                               },
                               "organization_id": {
@@ -53788,6 +54426,52 @@
                             "merge_method",
                             "commit_title",
                             "commit_message"
+                          ]
+                        },
+                        "stack": {
+                          "title": "Pull Request Stack",
+                          "description": "The stack information associated with a pull request.",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "base": {
+                              "type": "object",
+                              "properties": {
+                                "ref": {
+                                  "type": "string",
+                                  "description": "The base ref of the stack this pull request belongs to."
+                                },
+                                "sha": {
+                                  "type": "string",
+                                  "description": "The base SHA of the stack this pull request belongs to."
+                                }
+                              },
+                              "required": [
+                                "ref",
+                                "sha"
+                              ]
+                            },
+                            "size": {
+                              "type": "integer",
+                              "description": "The total number of pull requests in the stack."
+                            },
+                            "position": {
+                              "type": "integer",
+                              "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                            },
+                            "id": {
+                              "type": "integer",
+                              "description": "The ID of the stack that this pull request belongs to."
+                            },
+                            "number": {
+                              "type": "integer",
+                              "description": "The number of the stack that this pull request belongs to."
+                            }
+                          },
+                          "required": [
+                            "base"
                           ]
                         },
                         "draft": {
@@ -56918,6 +57602,30 @@
                                       ]
                                     }
                                   ]
+                                },
+                                "minimized": {
+                                  "anyOf": [
+                                    {
+                                      "type": "null"
+                                    },
+                                    {
+                                      "title": "Minimized Issue Comment",
+                                      "description": "Details about why an issue comment was minimized.",
+                                      "type": "object",
+                                      "properties": {
+                                        "reason": {
+                                          "description": "The reason the comment was minimized.",
+                                          "type": [
+                                            "string",
+                                            "null"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "reason"
+                                      ]
+                                    }
+                                  ]
                                 }
                               },
                               "required": [
@@ -56969,6 +57677,10 @@
                                 "type": "integer",
                                 "format": "int64"
                               },
+                              "issue_field_name": {
+                                "description": "The human-readable name of the issue field.",
+                                "type": "string"
+                              },
                               "node_id": {
                                 "type": "string"
                               },
@@ -56978,6 +57690,7 @@
                                 "enum": [
                                   "text",
                                   "single_select",
+                                  "multi_select",
                                   "number",
                                   "date"
                                 ]
@@ -57028,6 +57741,36 @@
                                   "name",
                                   "color"
                                 ]
+                              },
+                              "multi_select_options": {
+                                "description": "Details about the selected options",
+                                "type": [
+                                  "array",
+                                  "null"
+                                ],
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "description": "Unique identifier for the option.",
+                                      "type": "integer",
+                                      "format": "int64"
+                                    },
+                                    "name": {
+                                      "description": "The name of the option",
+                                      "type": "string"
+                                    },
+                                    "color": {
+                                      "description": "The color of the option",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "name",
+                                    "color"
+                                  ]
+                                }
                               }
                             },
                             "required": [
@@ -57969,6 +58712,15 @@
                                 "enum": [
                                   "enterprise",
                                   "organization"
+                                ]
+                              },
+                              "access_source": {
+                                "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                "type": "string",
+                                "enum": [
+                                  "direct",
+                                  "organization",
+                                  "enterprise"
                                 ]
                               },
                               "organization_id": {
@@ -60000,6 +60752,52 @@
                             "merge_method",
                             "commit_title",
                             "commit_message"
+                          ]
+                        },
+                        "stack": {
+                          "title": "Pull Request Stack",
+                          "description": "The stack information associated with a pull request.",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "base": {
+                              "type": "object",
+                              "properties": {
+                                "ref": {
+                                  "type": "string",
+                                  "description": "The base ref of the stack this pull request belongs to."
+                                },
+                                "sha": {
+                                  "type": "string",
+                                  "description": "The base SHA of the stack this pull request belongs to."
+                                }
+                              },
+                              "required": [
+                                "ref",
+                                "sha"
+                              ]
+                            },
+                            "size": {
+                              "type": "integer",
+                              "description": "The total number of pull requests in the stack."
+                            },
+                            "position": {
+                              "type": "integer",
+                              "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                            },
+                            "id": {
+                              "type": "integer",
+                              "description": "The ID of the stack that this pull request belongs to."
+                            },
+                            "number": {
+                              "type": "integer",
+                              "description": "The number of the stack that this pull request belongs to."
+                            }
+                          },
+                          "required": [
+                            "base"
                           ]
                         },
                         "draft": {
@@ -63132,6 +63930,30 @@
                                       ]
                                     }
                                   ]
+                                },
+                                "minimized": {
+                                  "anyOf": [
+                                    {
+                                      "type": "null"
+                                    },
+                                    {
+                                      "title": "Minimized Issue Comment",
+                                      "description": "Details about why an issue comment was minimized.",
+                                      "type": "object",
+                                      "properties": {
+                                        "reason": {
+                                          "description": "The reason the comment was minimized.",
+                                          "type": [
+                                            "string",
+                                            "null"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "reason"
+                                      ]
+                                    }
+                                  ]
                                 }
                               },
                               "required": [
@@ -63183,6 +64005,10 @@
                                 "type": "integer",
                                 "format": "int64"
                               },
+                              "issue_field_name": {
+                                "description": "The human-readable name of the issue field.",
+                                "type": "string"
+                              },
                               "node_id": {
                                 "type": "string"
                               },
@@ -63192,6 +64018,7 @@
                                 "enum": [
                                   "text",
                                   "single_select",
+                                  "multi_select",
                                   "number",
                                   "date"
                                 ]
@@ -63242,6 +64069,36 @@
                                   "name",
                                   "color"
                                 ]
+                              },
+                              "multi_select_options": {
+                                "description": "Details about the selected options",
+                                "type": [
+                                  "array",
+                                  "null"
+                                ],
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "description": "Unique identifier for the option.",
+                                      "type": "integer",
+                                      "format": "int64"
+                                    },
+                                    "name": {
+                                      "description": "The name of the option",
+                                      "type": "string"
+                                    },
+                                    "color": {
+                                      "description": "The color of the option",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "name",
+                                    "color"
+                                  ]
+                                }
                               }
                             },
                             "required": [
@@ -64183,6 +65040,15 @@
                                 "enum": [
                                   "enterprise",
                                   "organization"
+                                ]
+                              },
+                              "access_source": {
+                                "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                "type": "string",
+                                "enum": [
+                                  "direct",
+                                  "organization",
+                                  "enterprise"
                                 ]
                               },
                               "organization_id": {
@@ -66214,6 +67080,52 @@
                             "merge_method",
                             "commit_title",
                             "commit_message"
+                          ]
+                        },
+                        "stack": {
+                          "title": "Pull Request Stack",
+                          "description": "The stack information associated with a pull request.",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "base": {
+                              "type": "object",
+                              "properties": {
+                                "ref": {
+                                  "type": "string",
+                                  "description": "The base ref of the stack this pull request belongs to."
+                                },
+                                "sha": {
+                                  "type": "string",
+                                  "description": "The base SHA of the stack this pull request belongs to."
+                                }
+                              },
+                              "required": [
+                                "ref",
+                                "sha"
+                              ]
+                            },
+                            "size": {
+                              "type": "integer",
+                              "description": "The total number of pull requests in the stack."
+                            },
+                            "position": {
+                              "type": "integer",
+                              "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                            },
+                            "id": {
+                              "type": "integer",
+                              "description": "The ID of the stack that this pull request belongs to."
+                            },
+                            "number": {
+                              "type": "integer",
+                              "description": "The number of the stack that this pull request belongs to."
+                            }
+                          },
+                          "required": [
+                            "base"
                           ]
                         },
                         "draft": {

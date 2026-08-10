@@ -4,6 +4,7 @@ import patterns from '@/frame/lib/patterns'
 import { pathLanguagePrefixed } from '@/languages/lib/languages-server'
 import { deprecatedWithFunctionalRedirects } from '@/versions/lib/enterprise-server-releases'
 import getRedirect from '../lib/get-redirect'
+import { applyGraphqlCategoryRedirect } from '../lib/graphql-category-redirect'
 import {
   defaultCacheControl,
   languageCacheControl,
@@ -94,6 +95,17 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
   const redirectTo = getRedirect(redirectWithoutQueryParams, req.context)
 
   redirectWithoutQueryParams = redirectTo || redirectWithoutQueryParams
+
+  // Resolve legacy `/graphql/reference/<kind>(#<name>)?` URLs to their
+  // per-category equivalent. Done before query-param re-application so the
+  // fragment parsing in the helper is unambiguous.
+  const graphqlRewrite = applyGraphqlCategoryRedirect(
+    redirectWithoutQueryParams,
+    req.context.userLanguage || 'en',
+  )
+  if (graphqlRewrite) {
+    redirectWithoutQueryParams = graphqlRewrite
+  }
 
   redirect = queryParams ? redirectWithoutQueryParams + queryParams : redirectWithoutQueryParams
 

@@ -14,6 +14,7 @@ children:
     - /how-to-content-type
     - /troubleshooting-content-type
     - /release-note-content-type
+    - /get-started-content-type
     - /quickstart-content-type
     - /tutorial-content-type
     - /about-combining-multiple-content-types

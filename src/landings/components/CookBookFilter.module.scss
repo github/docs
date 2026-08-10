@@ -3,16 +3,16 @@
 }
 
 .categoryLabel {
-  color: var(--fgColor-muted, var(--color-fg-muted, #656d76));
+  color: var(--fgColor-default, var(--color-fg-default, #1f2328));
   display: inline-block;
 }
 
 .complexityLabel {
-  color: var(--fgColor-muted, var(--color-fg-muted, #656d76));
+  color: var(--fgColor-default, var(--color-fg-default, #1f2328));
   display: inline-block;
 }
 
 .surfaceLabel {
-  color: var(--fgColor-muted, var(--color-fg-muted, #656d76));
+  color: var(--fgColor-default, var(--color-fg-default, #1f2328));
   display: inline-block;
 }

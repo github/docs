@@ -410,6 +410,15 @@
                                         "organization"
                                       ]
                                     },
+                                    "access_source": {
+                                      "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                      "type": "string",
+                                      "enum": [
+                                        "direct",
+                                        "organization",
+                                        "enterprise"
+                                      ]
+                                    },
                                     "organization_id": {
                                       "type": "integer",
                                       "description": "Unique identifier of the organization to which this team belongs"
@@ -1032,6 +1041,15 @@
                                         "organization"
                                       ]
                                     },
+                                    "access_source": {
+                                      "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                      "type": "string",
+                                      "enum": [
+                                        "direct",
+                                        "organization",
+                                        "enterprise"
+                                      ]
+                                    },
                                     "organization_id": {
                                       "type": "integer",
                                       "description": "Unique identifier of the organization to which this team belongs"
@@ -1632,6 +1650,15 @@
                                   "enum": [
                                     "enterprise",
                                     "organization"
+                                  ]
+                                },
+                                "access_source": {
+                                  "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                  "type": "string",
+                                  "enum": [
+                                    "direct",
+                                    "organization",
+                                    "enterprise"
                                   ]
                                 },
                                 "organization_id": {
@@ -3017,6 +3044,15 @@
                                       "organization"
                                     ]
                                   },
+                                  "access_source": {
+                                    "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                    "type": "string",
+                                    "enum": [
+                                      "direct",
+                                      "organization",
+                                      "enterprise"
+                                    ]
+                                  },
                                   "organization_id": {
                                     "type": "integer",
                                     "description": "Unique identifier of the organization to which this team belongs"
@@ -3639,6 +3675,15 @@
                                       "organization"
                                     ]
                                   },
+                                  "access_source": {
+                                    "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                    "type": "string",
+                                    "enum": [
+                                      "direct",
+                                      "organization",
+                                      "enterprise"
+                                    ]
+                                  },
                                   "organization_id": {
                                     "type": "integer",
                                     "description": "Unique identifier of the organization to which this team belongs"
@@ -4239,6 +4284,15 @@
                                 "enum": [
                                   "enterprise",
                                   "organization"
+                                ]
+                              },
+                              "access_source": {
+                                "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                "type": "string",
+                                "enum": [
+                                  "direct",
+                                  "organization",
+                                  "enterprise"
                                 ]
                               },
                               "organization_id": {
@@ -5646,6 +5700,15 @@
                                       "organization"
                                     ]
                                   },
+                                  "access_source": {
+                                    "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                    "type": "string",
+                                    "enum": [
+                                      "direct",
+                                      "organization",
+                                      "enterprise"
+                                    ]
+                                  },
                                   "organization_id": {
                                     "type": "integer",
                                     "description": "Unique identifier of the organization to which this team belongs"
@@ -6268,6 +6331,15 @@
                                       "organization"
                                     ]
                                   },
+                                  "access_source": {
+                                    "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                    "type": "string",
+                                    "enum": [
+                                      "direct",
+                                      "organization",
+                                      "enterprise"
+                                    ]
+                                  },
                                   "organization_id": {
                                     "type": "integer",
                                     "description": "Unique identifier of the organization to which this team belongs"
@@ -6868,6 +6940,15 @@
                                 "enum": [
                                   "enterprise",
                                   "organization"
+                                ]
+                              },
+                              "access_source": {
+                                "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                "type": "string",
+                                "enum": [
+                                  "direct",
+                                  "organization",
+                                  "enterprise"
                                 ]
                               },
                               "organization_id": {
@@ -8657,6 +8738,15 @@
                                   "organization"
                                 ]
                               },
+                              "access_source": {
+                                "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                "type": "string",
+                                "enum": [
+                                  "direct",
+                                  "organization",
+                                  "enterprise"
+                                ]
+                              },
                               "organization_id": {
                                 "type": "integer",
                                 "description": "Unique identifier of the organization to which this team belongs"
@@ -9279,6 +9369,15 @@
                                   "organization"
                                 ]
                               },
+                              "access_source": {
+                                "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                "type": "string",
+                                "enum": [
+                                  "direct",
+                                  "organization",
+                                  "enterprise"
+                                ]
+                              },
                               "organization_id": {
                                 "type": "integer",
                                 "description": "Unique identifier of the organization to which this team belongs"
@@ -9879,6 +9978,15 @@
                             "enum": [
                               "enterprise",
                               "organization"
+                            ]
+                          },
+                          "access_source": {
+                            "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                            "type": "string",
+                            "enum": [
+                              "direct",
+                              "organization",
+                              "enterprise"
                             ]
                           },
                           "organization_id": {
@@ -10908,6 +11016,15 @@
                                   "organization"
                                 ]
                               },
+                              "access_source": {
+                                "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                "type": "string",
+                                "enum": [
+                                  "direct",
+                                  "organization",
+                                  "enterprise"
+                                ]
+                              },
                               "organization_id": {
                                 "type": "integer",
                                 "description": "Unique identifier of the organization to which this team belongs"
@@ -11522,6 +11639,15 @@
                                 "enum": [
                                   "enterprise",
                                   "organization"
+                                ]
+                              },
+                              "access_source": {
+                                "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                "type": "string",
+                                "enum": [
+                                  "direct",
+                                  "organization",
+                                  "enterprise"
                                 ]
                               },
                               "organization_id": {
@@ -12179,6 +12305,15 @@
                             "enum": [
                               "enterprise",
                               "organization"
+                            ]
+                          },
+                          "access_source": {
+                            "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                            "type": "string",
+                            "enum": [
+                              "direct",
+                              "organization",
+                              "enterprise"
                             ]
                           },
                           "organization_id": {
@@ -13231,6 +13366,15 @@
                               "organization"
                             ]
                           },
+                          "access_source": {
+                            "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                            "type": "string",
+                            "enum": [
+                              "direct",
+                              "organization",
+                              "enterprise"
+                            ]
+                          },
                           "organization_id": {
                             "type": "integer",
                             "description": "Unique identifier of the organization to which this team belongs"
@@ -13851,6 +13995,15 @@
                             "enum": [
                               "enterprise",
                               "organization"
+                            ]
+                          },
+                          "access_source": {
+                            "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                            "type": "string",
+                            "enum": [
+                              "direct",
+                              "organization",
+                              "enterprise"
                             ]
                           },
                           "organization_id": {
@@ -14753,6 +14906,15 @@
                               "organization"
                             ]
                           },
+                          "access_source": {
+                            "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                            "type": "string",
+                            "enum": [
+                              "direct",
+                              "organization",
+                              "enterprise"
+                            ]
+                          },
                           "organization_id": {
                             "type": "integer",
                             "description": "Unique identifier of the organization to which this team belongs"
@@ -15373,6 +15535,15 @@
                             "enum": [
                               "enterprise",
                               "organization"
+                            ]
+                          },
+                          "access_source": {
+                            "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                            "type": "string",
+                            "enum": [
+                              "direct",
+                              "organization",
+                              "enterprise"
                             ]
                           },
                           "organization_id": {
@@ -17283,6 +17454,15 @@
                         "enum": [
                           "enterprise",
                           "organization"
+                        ]
+                      },
+                      "access_source": {
+                        "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                        "type": "string",
+                        "enum": [
+                          "direct",
+                          "organization",
+                          "enterprise"
                         ]
                       },
                       "organization_id": {
@@ -19470,6 +19650,15 @@
                       "organization"
                     ]
                   },
+                  "access_source": {
+                    "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                    "type": "string",
+                    "enum": [
+                      "direct",
+                      "organization",
+                      "enterprise"
+                    ]
+                  },
                   "organization_id": {
                     "type": "integer",
                     "description": "Unique identifier of the organization to which this team belongs"
@@ -19781,6 +19970,15 @@
                     "enum": [
                       "enterprise",
                       "organization"
+                    ]
+                  },
+                  "access_source": {
+                    "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                    "type": "string",
+                    "enum": [
+                      "direct",
+                      "organization",
+                      "enterprise"
                     ]
                   },
                   "organization_id": {
@@ -20096,6 +20294,15 @@
                       "organization"
                     ]
                   },
+                  "access_source": {
+                    "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                    "type": "string",
+                    "enum": [
+                      "direct",
+                      "organization",
+                      "enterprise"
+                    ]
+                  },
                   "organization_id": {
                     "type": "integer",
                     "description": "Unique identifier of the organization to which this team belongs"
@@ -20407,6 +20614,15 @@
                     "enum": [
                       "enterprise",
                       "organization"
+                    ]
+                  },
+                  "access_source": {
+                    "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                    "type": "string",
+                    "enum": [
+                      "direct",
+                      "organization",
+                      "enterprise"
                     ]
                   },
                   "organization_id": {

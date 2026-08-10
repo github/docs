@@ -31,7 +31,7 @@ Organizational rulesets that apply to branches of a repository will not allow th
 
 {% endif %}
 
-You can use the REST and GraphQL APIs to manage rulesets. For more information, see [AUTOTITLE](/rest/orgs/rules) and [AUTOTITLE](/graphql/reference/mutations#createrepositoryruleset).
+You can use the REST and GraphQL APIs to manage rulesets. For more information, see [AUTOTITLE](/rest/orgs/rules) and [AUTOTITLE](/graphql/reference/repos#mutation-createrepositoryruleset).
 
 {% data reusables.repositories.rulesets-anyone-can-view %}
 
@@ -88,7 +88,7 @@ You can view insights for rulesets to see how rulesets are affecting the reposit
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, in the "Code, planning, and automation" section, click **{% octicon "repo" aria-hidden="true" aria-label="repo" %} Repository**, then click **Rule insights**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "repo" aria-hidden="true" aria-label="repo" %} Repository**, then click **Rule insights**.
 
    ![Screenshot of an organization's settings page. In the sidebar, a link labeled "Rule insights" is outlined in orange.](/assets/images/help/organizations/sidebar-repository-rule-insights.png)
 

@@ -18,8 +18,9 @@ describe('frame', () => {
 
   test.each(langs)('breadcrumbs link to %s pages', async (lang) => {
     const $ = await getDOM(`/${lang}/get-started/learning-about-github`)
-    const $breadcrumbs = $('[data-testid=breadcrumbs-in-article] a')
-    expect(($breadcrumbs[0] as Element).attribs.href).toBe(`/${lang}/get-started`)
+    const $breadcrumbs = $('[data-testid=breadcrumbs-bar] a')
+    // [0] is the Home crumb; [1] is the first page crumb (the product).
+    expect(($breadcrumbs[1] as Element).attribs.href).toBe(`/${lang}/get-started`)
   })
 
   test.each(langs)('homepage links go to %s pages', async (lang) => {

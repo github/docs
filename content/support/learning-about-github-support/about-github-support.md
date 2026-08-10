@@ -18,6 +18,7 @@ redirect_from:
   - /articles/github-business-cloud-support
   - /admin/enterprise-support/about-support-for-advanced-security
   - /enterprise-server/admin/enterprise-support/about-support-for-advanced-security
+  - /enterprise-onboarding/support-for-your-enterprise/understanding-support 
 category:
   - Understand your support options
 ---
@@ -87,6 +88,8 @@ Email communication from GitHub Support will always be sent from either a `githu
 
 {% data reusables.support.scope-of-support %}
 
+For security-related matters, all communication is handled in writing through support tickets. This includes incident notifications, account compromise investigations, and credential exposure. Written communication ensures responses are reviewed, fully documented, and auditable. Callback and screen share requests cannot be accommodated for these tickets.
+
 {% ifversion ghec or fpt %}
 
 ## About GitHub status
@@ -105,7 +108,7 @@ You can also use the {% data variables.product.company_short %} Status API to ch
 
 Enterprise owners and billing managers automatically have a support entitlement, which enables them to create, view, and comment on support tickets associated with their enterprise account.
 
-Enterprise owners can also add support entitlements to members of organizations owned by their enterprise account, allowing those members to create, view, and comment on support tickets. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise).
+Enterprise owners can also add support entitlements to members of organizations owned by their enterprise account, allowing those members to create, view, and comment on support tickets. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise).
 
 {% endif %}
 

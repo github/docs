@@ -32,13 +32,17 @@ The following table lists all credential types that can programmatically access 
 
 The following sections describe revocation options for each credential type based on your role. See also [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation).
 
+{% ifversion single_user_cred_revocation %}
+> [!NOTE] Enterprise owners have options for taking action against individual members or in bulk during incidents. See [Actions for security incidents](#actions-for-security-incidents).
+{% else %}
 > [!NOTE] Enterprise owners have options for **bulk actions** in major incidents. See [Bulk actions for security incidents](#bulk-actions-for-security-incidents).
+{% endif %}
 
 ### {% data variables.product.pat_v1_caps %}
 
 * If the token **belongs to you**, you can delete it via your personal account settings. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#deleting-a-personal-access-token).
 {% data reusables.credentials.revoke-via-api %}
-* **Organization owners** and **enterprise owners** do not have direct visibility into or control over individual tokens. However, they can:{% ifversion fpt or ghec or ghes > 3.17 %}
+* **Organization owners** and **enterprise owners** do not have direct visibility into or control over individual tokens. However, they can:{% ifversion fpt or ghec %}
    * Revoke them using the REST API, if the actual token value is known. See [AUTOTITLE](/rest/credentials/revoke?apiVersion=2022-11-28#revoke-a-list-of-credentials).{% endif %}
    * Restrict the access of {% data variables.product.pat_generic_plural %} to the organization or enterprise entirely. See [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization) and [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise).
 * **Organization owners and enterprise owners** on {% data variables.product.prodname_ghe_cloud %} with SSO enforced can revoke the SSO authorization for a specific {% data variables.product.pat_v1 %}. See [Revoking SSO authorization](#revoking-sso-authorization) for details.
@@ -49,7 +53,7 @@ The following sections describe revocation options for each credential type base
 * If the token **belongs to you**, you can delete it via your personal account settings. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#deleting-a-personal-access-token).
 {% data reusables.credentials.revoke-via-api %}
 * **Organization owners**: Can view and revoke individual tokens. Note, however, that when an organization owner revokes a {% data variables.product.pat_v2 %}, any SSH keys created by the token will continue to work and the token will still be able to read public resources within the organization. The revocation changes the resource owner from the organization to the user, and the user can reassign it back. See [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/reviewing-and-revoking-personal-access-tokens-in-your-organization).
-* **Organization owners** and **enterprise owners** can:{% ifversion fpt or ghec or ghes > 3.17 %}
+* **Organization owners** and **enterprise owners** can:{% ifversion fpt or ghec %}
    * Revoke the token using the REST API. See [AUTOTITLE](/rest/credentials/revoke?apiVersion=2022-11-28#revoke-a-list-of-credentials).{% endif %}
    * Restrict the access of {% data variables.product.pat_generic_plural %} to the organization or enterprise entirely. See [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization) and [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise).
 * **Revoked automatically** if pushed to a public repository or gist, or if unused for one year. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation).
@@ -138,14 +142,22 @@ On {% data variables.product.prodname_ghe_cloud %}, enterprise administrators an
 
 On {% data variables.product.prodname_ghe_cloud %}, you can also manage SSO authorizations via the REST API.
 
+{% ifversion single_user_cred_revocation %}
+On {% data variables.product.prodname_ghe_cloud %}, during a security incident, enterprise owners can revoke SSO authorizations for individual members or in bulk. See [Actions for security incidents](#actions-for-security-incidents).
+{% else %}
 On {% data variables.product.prodname_ghe_cloud %}, during a security incident, enterprise owners can revoke SSO authorizations in bulk. See [Bulk actions for security incidents](#bulk-actions-for-security-incidents).
+{% endif %}
 
-## Bulk actions for security incidents
+## {% ifversion single_user_cred_revocation %}Actions for security incidents{% else %}Bulk actions for security incidents{% endif %}
 
-During a major security incident, there are some enterprise-level bulk actions that enterprise owners on {% data variables.product.prodname_ghe_cloud %} can take to respond quickly. These actions affect user SSH keys, {% data variables.product.prodname_oauth_app %} user access tokens, {% data variables.product.prodname_github_app %} user access tokens, {% data variables.product.pat_v1_plural %}, and {% data variables.product.pat_v2_plural %}. They do **not** affect {% data variables.product.prodname_github_app %} installation access tokens, deploy keys, or `GITHUB_TOKEN`.
+During a security incident, there are enterprise-level actions that enterprise owners on {% data variables.product.prodname_ghe_cloud %} can take to respond quickly. {% ifversion single_user_cred_revocation %}You can take action against individual members or against all members in bulk.{% endif %} These actions affect user SSH keys, {% data variables.product.prodname_oauth_app %} user access tokens, {% data variables.product.prodname_github_app %} user access tokens, {% data variables.product.pat_v1_plural %}, and {% data variables.product.pat_v2_plural %}. They do **not** affect {% data variables.product.prodname_github_app %} installation access tokens, deploy keys, or `GITHUB_TOKEN`.
 
-> [!WARNING] These are high-impact actions that should be reserved for major security incidents. They are likely to break automations, and it could take months of work to restore your original state.
+> [!WARNING] {% ifversion single_user_cred_revocation %}Bulk actions are{% else %}These are{% endif %} high-impact actions that should be reserved for major security incidents. They are likely to break automations, and it could take months of work to restore your original state.
 
+{% ifversion single_user_cred_revocation %}
+* **Revoke SSO authorizations for a specific user**: Remove SSO authorizations for a specific user's credentials. Useful for responding to incidents affecting individual accounts. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents/revoke-authorizations-or-tokens#taking-action-against-individual-members).
+* **Delete keys and tokens for a specific user**: Delete a specific user's credentials entirely. Available for {% data variables.product.prodname_emus %} **only**. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents/revoke-authorizations-or-tokens#taking-action-against-individual-members).
+{% endif %}
 * **Lock down SSO**: Temporarily block SSO for all users except enterprise owners, preventing access to SSO-protected resources. Available for {% data variables.product.prodname_emus %} or enterprises that use SSO. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents/lock-down-sso).
 * **Revoke all SSO authorizations**: Remove SSO authorizations for user credentials across all organizations in the enterprise. Credentials are not deleted, but lose access to SSO-protected organization resources. Once revoked, credentials cannot be re-authorized—users must create new credentials. Available for {% data variables.product.prodname_emus %} or enterprises that use SSO. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents/revoke-authorizations-or-tokens).
 * **Delete all user tokens and keys**: Delete user credentials entirely, removing all access. Available for {% data variables.product.prodname_emus %} **only**. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents/revoke-authorizations-or-tokens).

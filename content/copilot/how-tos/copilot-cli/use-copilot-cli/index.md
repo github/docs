@@ -9,12 +9,15 @@ redirect_from:
 children:
   - /overview
   - /allowing-tools
+  - /voice-input
   - /connecting-vs-code
   - /delegate-tasks-to-cca
+  - /browse-issues-prs-gists
   - /roll-back-changes
   - /invoke-custom-agents
   - /steer-agents
   - /steer-remotely
+  - /set-session-limit
   - /agentic-code-review
   - /manage-pull-requests
   - /speed-up-task-completion

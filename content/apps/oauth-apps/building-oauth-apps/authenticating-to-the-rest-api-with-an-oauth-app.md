@@ -125,7 +125,7 @@ You'll need to `POST` this code back to {% data variables.product.github %} with
 in exchange for an `access_token`.
 To simplify our GET and POST HTTP requests, we're using the [rest-client](https://github.com/archiloque/rest-client).
 Note that you'll probably never access the API through REST. For a more serious
-application, you should probably use [a library written in the language of your choice](/rest/overview/libraries).
+application, you should probably use [a library written in the language of your choice](/rest/using-the-rest-api/libraries-for-the-rest-api).
 
 ### Checking granted scopes
 

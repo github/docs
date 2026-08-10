@@ -32,7 +32,7 @@ category:
 
 If you are a {% data variables.copilot.copilot_enterprise %} or {% data variables.copilot.copilot_for_business %} subscriber, {% data variables.copilot.copilot_cloud_agent %} is disabled by default and must be enabled by an administrator before it is available for use.
 
-If you are a {% data variables.copilot.copilot_pro %} or Pro+ subscriber, {% data variables.copilot.copilot_cloud_agent %} is enabled by default.
+If you are a {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} subscriber, {% data variables.copilot.copilot_cloud_agent %} is enabled by default.
 
 Once enabled, you can use {% data variables.copilot.copilot_cloud_agent %} in any repository, provided that an administrator hasn't opted the repository out.
 
@@ -48,14 +48,22 @@ Enterprise administrators and organization owners (for organization-owned reposi
 
 For information on disabling {% data variables.copilot.copilot_cloud_agent %} in some or all repositories owned by an organization, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/add-copilot-cloud-agent).
 
-For information on disabling {% data variables.copilot.copilot_cloud_agent %} in all repositories owned by an enterprise, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/block-copilot-cloud-agent).
+For information on disabling {% data variables.copilot.copilot_cloud_agent %} in all repositories owned by an enterprise, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/block-agentic-features).
 
-For information on disabling {% data variables.copilot.copilot_cloud_agent %} in repositories owned by your personal user account, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-copilot-cloud-agent).
+For information on disabling {% data variables.copilot.copilot_cloud_agent %} in repositories owned by your personal user account, see [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#disabling-or-enabling-copilot-cloud-agent-in-your-repositories).
+
+## Managing access to {% data variables.copilot.copilot_automations_cap %}
+
+{% data variables.copilot.copilot_automations_cap %} let users run {% data variables.copilot.copilot_cloud_agent %} automatically, on a schedule or in response to events. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-automations).
+
+{% data reusables.copilot.cloud-agent.automations-availability %}
+
+In addition to the {% data variables.copilot.copilot_cloud_agent %} policy, organizations can control whether {% data variables.copilot.copilot_automations %} are allowed in a repository. {% data variables.copilot.copilot_automations_cap %} are enabled by default in repositories where {% data variables.copilot.copilot_cloud_agent %} is enabled. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/add-copilot-cloud-agent).
 
 ## Further reading
 
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-firewall)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-firewall)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)
 * [AUTOTITLE](/copilot/tutorials/cloud-agent/pilot-cloud-agent)

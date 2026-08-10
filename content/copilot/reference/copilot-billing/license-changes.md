@@ -10,11 +10,6 @@ allowTitleToDifferFromFilename: true
 contentType: reference
 ---
 
-> [!IMPORTANT]
-> **Starting April 20, 2026**, new sign-ups for {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and student plans are temporarily paused. However, existing {% data variables.product.prodname_copilot_short %} plans can still be upgraded, downgraded, or canceled. If you hit unexpected limits or these changes just don’t work for you, you can cancel your Pro or Pro+ subscription and receive a refund for the time remaining on your current subscription before May 20.
-> 1. To cancel and receive a refund for the time remaining, go to your [Billing settings](https://github.com/settings/billing/licensing).
-> 1. In the "{% data variables.product.prodname_copilot %}" section, select the **Manage subscription** dropdown on the right and then click **Cancel and refund subscription**.
-
 {% data variables.product.prodname_copilot_short %} follows the same billing rules as other license-based products on {% data variables.product.company_short %}.
 For the general concepts, see:
 
@@ -34,6 +29,14 @@ What you need to know about the following actions:
 
 * **Upgrading:** If you upgrade your plan (for example, from {% data variables.copilot.copilot_pro_short %} to {% data variables.copilot.copilot_pro_plus_short %}), the change is **immediate**. You are charged a prorated amount for the new plan.
 * **Downgrading/canceling:** Access remains until the end of the current billing cycle. **No refund for unused time**.
+
+### Included monthly allowance reset
+
+Paying for, renewing, upgrading, downgrading, converting from a trial, or resuming a plan after a lapse does not grant a fresh {% data variables.product.prodname_ai_credits_short %} allowance immediately. Your included monthly allowance resets at 00:00:00 UTC on the first day of each calendar month, regardless of your subscription billing date.
+
+For example, if you exhaust your {% data variables.product.prodname_ai_credits_short %} on May 28 and renew or upgrade your plan on May 30, your allowance does not reset until June 1.
+
+Any additional usage beyond the included allowance is charged separately and is unaffected by this monthly reset. See [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-individuals) and [AUTOTITLE](/billing/how-tos/set-up-budgets#managing-budgets-for-your-personal-account).
 
 ## Organizations
 
@@ -86,12 +89,13 @@ Additionally:
 ## In summary
 
 * **Proration:** Applies when adding seats/licenses or upgrading plans. You pay only for the portion of the billing cycle remaining.
-* **Access:** Assignments and plan changes are effective immediately for affected users.
+* **Access:** Assignments and upgrades are effective immediately for affected users. Downgrades take effect at the end of the billing cycle.
 * **Removing or canceling:** No refunds are issued for unused time; access continues until the end of the cycle paid for, unless a seat/license is revoked.
 
 | Scenario                        | Plan                | When is billing affected? | Is proration applied? | When does access change? | Refund for unused time? |
 |----------------------------------|---------------------|--------------------------|----------------------|--------------------------|-------------------------|
-| Add seat/license                 | {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}| Next bill             | Yes                  | Immediately              | N/A                     |
-| Remove seat/license              | {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}e| Next bill             | N/A                  | Immediately              | No                      |
+| Add seat/license                 | {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}| Immediately             | Yes                  | Immediately              | N/A                     |
+| Remove seat/license              | {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}| End of cycle             | N/A                  | End of cycle (immediately if revoked) | No                      |
 | Cancel subscription              | All plans           | End of cycle            | N/A                  | End of cycle            | No                      |
-| Upgrade/downgrade/switch plan    | All plans           | Immediate                | Yes                  | Immediately              | N/A (proration instead) |
+| Upgrade plan    | All plans           | Immediate                | Yes                  | Immediately              | N/A (proration instead) |
+| Downgrade plan  | All plans           | End of cycle                | No                  | End of cycle              | No |

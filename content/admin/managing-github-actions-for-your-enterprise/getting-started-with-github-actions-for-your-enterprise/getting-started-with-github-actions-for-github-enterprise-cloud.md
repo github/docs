@@ -23,13 +23,13 @@ category:
 
 ## Managing policies for {% data variables.product.prodname_actions %}
 
-You can use policies to control how enterprise members use {% data variables.product.prodname_actions %}. For example, you can restrict which actions are allowed and configure artifact and log retention. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise).
+You can use policies to control how enterprise members use {% data variables.product.prodname_actions %}. For example, you can restrict which actions are allowed and configure artifact and log retention. For more information, see [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise).
 
 ## Adding runners
 
-To run {% data variables.product.prodname_actions %} workflows, you need to use runners. {% data reusables.actions.about-runners %} If you use {% data variables.product.company_short %}-hosted runners, you will be billed based on consumption after exhausting the minutes included in your plan, whereas self-hosted runners are free. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
+To run {% data variables.product.prodname_actions %} workflows, you need to use runners. {% data reusables.actions.about-runners %} If you use {% data variables.product.company_short %}-hosted runners, you will be billed based on consumption after exhausting the minutes included in your plan, whereas self-hosted runners are free. For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-actions).
 
-If you choose self-hosted runners, you can add runners at the enterprise, organization, or repository levels. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners).
+If you choose self-hosted runners, you can add runners at the enterprise, organization, or repository levels. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/add-runners).
 
 {% ifversion custom-org-roles %}
 

@@ -8,16 +8,17 @@ versions:
   ghec: '*'
 contentType: concepts
 children:
-  - /best-practices-for-selecting-pilot-repositories
-  - /about-enabling-security-features-at-scale
-  - /about-security-overview
+  - /select-pilot-repositories
+  - /organization-security
+  - /security-overview
   - /about-security-campaigns
-  - /auditing-security-alerts
+  - /audit-security-alerts
   - /delegated-alert-dismissal
-  - /about-supply-chain-security-for-your-enterprise
+  - /supply-chain-security
 redirect_from:
   - /admin/managing-code-security/managing-supply-chain-security-for-your-enterprise
   - /admin/code-security/managing-supply-chain-security-for-your-enterprise
   - /admin/managing-code-security/securing-your-enterprise
   - /code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale
 ---
+

@@ -8,8 +8,10 @@ children:
   - /copilot-cookbook
   - /customization-library
   - /cloud-agent
+  - /budgets
   - /spark
   - /customize-code-review
+  - /use-copilot-code-review-across-the-pull-request-lifecycle
   - /enhance-agent-mode-with-mcp
   - /compare-ai-models
   - /speed-up-development-work
@@ -19,8 +21,11 @@ children:
   - /explore-pull-requests
   - /write-tests
   - /refactor-code
+  - /optimize-ai-usage
+  - /optimize-chat-usage
   - /optimize-code-reviews
   - /reduce-technical-debt
+  - /stack-ai-generated-code-in-pull-requests
   - /review-ai-generated-code
   - /learn-a-new-language
   - /modernize-legacy-code
@@ -31,6 +36,7 @@ children:
   - /upgrade-projects
   - /copilot-cli-hooks
   - /use-an-ai-sme
+  - /create-an-extension
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot
 contentType: tutorials

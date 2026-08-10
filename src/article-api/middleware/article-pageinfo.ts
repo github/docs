@@ -17,7 +17,10 @@ import { readCompressedJsonFile } from '@/frame/lib/read-json-file'
 // it can be imported by the script scripts/precompute-pageinfo.ts
 export const CACHE_FILE_PATH = '.pageinfo-cache.json.br'
 
-export async function getPageInfo(page: Page, pathname: string) {
+// Build a mocked request/context for `page` at `pathname`, running the
+// minimum middleware chain needed for downstream renderProp calls and
+// breadcrumb computation.
+async function makeRenderingReq(page: Page, pathname: string) {
   const mockedContext: Context = {}
   const renderingReq = {
     path: pathname,
@@ -31,8 +34,13 @@ export async function getPageInfo(page: Page, pathname: string) {
   await contextualize(renderingReq as ExtendedRequest, res as Response, next)
   await shortVersions(renderingReq as ExtendedRequest, res as Response, next)
   renderingReq.context.page = page
-  await currentProductTree(renderingReq as ExtendedRequest, res as Response, next)
   features(renderingReq as ExtendedRequest, res as Response, next)
+  return renderingReq
+}
+
+type RenderingReq = Awaited<ReturnType<typeof makeRenderingReq>>
+
+async function computeCacheableFromReq(renderingReq: RenderingReq, page: Page) {
   const context = renderingReq.context
 
   const title = await page.renderProp('title', context, { textOnly: true })
@@ -53,12 +61,47 @@ export async function getPageInfo(page: Page, pathname: string) {
   }
   const product = productPage ? await getProductPageInfo(productPage, context) : ''
 
-  // Call breadcrumbs middleware to populate renderingReq.context.breadcrumbs
+  return { title, intro, product }
+}
+
+async function computeBreadcrumbsFromReq(renderingReq: RenderingReq) {
+  const next = () => {}
+  const res = {}
+  await currentProductTree(renderingReq as ExtendedRequest, res as Response, next)
   breadcrumbs(renderingReq as ExtendedRequest, res as Response, next)
+  // Return as-is. Note that for hidden non-early-access pages and
+  // unset-page requests, the breadcrumbs middleware does not assign
+  // `context.breadcrumbs` at all, so this can be `undefined`. Callers
+  // rely on that to keep the existing JSON response shape (the field
+  // is omitted from the response rather than serialized as `[]`).
+  return renderingReq.context.breadcrumbs as Breadcrumb[] | undefined
+}
 
-  const { breadcrumbs: pageBreadcrumbs } = renderingReq.context
+// Compute the cacheable portion of a page's metadata: title, intro, product.
+// Breadcrumbs are intentionally excluded so they can be computed lazily on
+// cache hits, keeping the on-disk cache and in-memory dictionary smaller.
+export async function getCacheablePageInfo(page: Page, pathname: string) {
+  const renderingReq = await makeRenderingReq(page, pathname)
+  return computeCacheableFromReq(renderingReq, page)
+}
 
-  return { title, intro, product, breadcrumbs: pageBreadcrumbs }
+// Compute breadcrumbs for `page` at `pathname`. Cheap relative to title/intro
+// rendering, so it's safe to run on every cache hit instead of bloating the
+// precomputed cache file.
+export async function getBreadcrumbsForPage(page: Page, pathname: string) {
+  const renderingReq = await makeRenderingReq(page, pathname)
+  return computeBreadcrumbsFromReq(renderingReq)
+}
+
+export async function getPageInfo(page: Page, pathname: string) {
+  // Cache-miss path: build the rendering req once and reuse it for both the
+  // cacheable fields and breadcrumbs, instead of letting the two helpers
+  // each call makeRenderingReq() (which would run
+  // contextualize/shortVersions/features twice).
+  const renderingReq = await makeRenderingReq(page, pathname)
+  const base = await computeCacheableFromReq(renderingReq, page)
+  const pageBreadcrumbs = await computeBreadcrumbsFromReq(renderingReq)
+  return { ...base, breadcrumbs: pageBreadcrumbs }
 }
 
 const _productPageCache: {
@@ -82,17 +125,28 @@ async function getProductPageInfo(page: Page, context: Context) {
   return _productPageCache[cacheKey]
 }
 
+type CachedPageInfoEntry = {
+  title: string
+  intro: string
+  product: string
+}
+
 type CachedPageInfo = {
-  [url: string]: {
-    title: string
-    intro: string
-    product: string
-    cacheInfo?: string
-  }
+  [url: string]: CachedPageInfoEntry
+}
+
+type Breadcrumb = { href: string; title: string }
+
+type PageInfoWithBreadcrumbs = CachedPageInfoEntry & {
+  breadcrumbs?: Breadcrumb[]
+  cacheInfo?: string
 }
 
 let _cache: CachedPageInfo | null = null
-export async function getPageInfoFromCache(page: Page, pathname: string) {
+export async function getPageInfoFromCache(
+  page: Page,
+  pathname: string,
+): Promise<PageInfoWithBreadcrumbs> {
   let cacheInfo = ''
   if (_cache === null) {
     try {
@@ -107,12 +161,19 @@ export async function getPageInfoFromCache(page: Page, pathname: string) {
     }
   }
 
-  let meta = _cache[pathname]
+  const cached = _cache[pathname]
   if (!cacheInfo) {
-    cacheInfo = meta ? 'hit' : 'miss'
+    cacheInfo = cached ? 'hit' : 'miss'
   }
-  if (!meta) {
-    meta = await getPageInfo(page, pathname)
+
+  let meta: PageInfoWithBreadcrumbs
+  if (cached) {
+    // Breadcrumbs are not stored in the precomputed cache (they are large
+    // and cheap to compute). Compute on demand on every cache hit.
+    const pageBreadcrumbs = await getBreadcrumbsForPage(page, pathname)
+    meta = { ...cached, breadcrumbs: pageBreadcrumbs }
+  } else {
+    // Cache miss path: compute the full thing inline.
     // You might wonder; why do we not store this compute information
     // into the `_cache` from here?
     // The short answer is; it won't be used again.
@@ -123,6 +184,7 @@ export async function getPageInfoFromCache(page: Page, pathname: string) {
     // In development (local review), the performance doesn't really matter.
     // In CI, we use the caching because the CI runs
     // `npm run precompute-pageinfo` right before it runs vitest tests.
+    meta = await getPageInfo(page, pathname)
   }
   meta.cacheInfo = cacheInfo
   return meta

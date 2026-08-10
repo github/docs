@@ -13,7 +13,9 @@ children:
   - /repository-access-and-collaboration
   - /customizing-your-repository
   - /enabling-features-for-your-repository
+  - /actions-policies
   - /managing-repository-settings
 shortTitle: Manage repository settings
 ---
+
 

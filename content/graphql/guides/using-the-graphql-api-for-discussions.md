@@ -74,7 +74,7 @@ enum DiscussionOrderField {
 
 ### Repository.discussionCategories
 
-Return the available discussion categories defined within this repository. Each repository may have up to 25 categories. For more information about discussion categories, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions).
+Return the available discussion categories defined within this repository. Each repository may have up to 25 categories. For more information about discussion categories, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#about-categories-for-discussions).
 
 _Signature:_
 
@@ -1095,4 +1095,4 @@ Return type fields:
 
 ## Search
 
-Discussion may be returned from the top-level `search` field. To search for discussion, specify `type` as `DISCUSSION`. The `SearchResultItemConnection` type has a `discussionCount` field to report the number of returned discussions, and the `Discussion` type is added to the `SearchResultItem` union. For more information, see [AUTOTITLE](/graphql/reference/queries#searchresultitemconnection) and [AUTOTITLE](/search-github/searching-on-github/searching-discussions).
+Discussion may be returned from the top-level `search` field. To search for discussion, specify `type` as `DISCUSSION`. The `SearchResultItemConnection` type has a `discussionCount` field to report the number of returned discussions, and the `Discussion` type is added to the `SearchResultItem` union. For more information, see [AUTOTITLE](/graphql/reference/search#query-searchresultitemconnection) and [AUTOTITLE](/search-github/searching-on-github/searching-discussions).

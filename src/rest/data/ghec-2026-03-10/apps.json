@@ -1553,7 +1553,7 @@
                   "permissions": {
                     "title": "App Permissions",
                     "type": "object",
-                    "description": "The permissions granted to the user access token.",
+                    "description": "The permissions granted to the fine-grained access token.",
                     "properties": {
                       "actions": {
                         "type": "string",
@@ -1832,6 +1832,7 @@
                         "type": "string",
                         "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                         "enum": [
+                          "read",
                           "write"
                         ]
                       },
@@ -2538,7 +2539,7 @@
                 "permissions": {
                   "title": "App Permissions",
                   "type": "object",
-                  "description": "The permissions granted to the user access token.",
+                  "description": "The permissions granted to the fine-grained access token.",
                   "properties": {
                     "actions": {
                       "type": "string",
@@ -2817,6 +2818,7 @@
                       "type": "string",
                       "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                       "enum": [
+                        "read",
                         "write"
                       ]
                     },
@@ -3295,7 +3297,7 @@
         {
           "type": "object",
           "name": "permissions",
-          "description": "<p>The permissions granted to the user access token.</p>",
+          "description": "<p>The permissions granted to the fine-grained access token.</p>",
           "childParamsGroups": [
             {
               "type": "string",
@@ -3609,6 +3611,7 @@
               "name": "organization_copilot_seat_management",
               "description": "<p>The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.</p>",
               "enum": [
+                "read",
                 "write"
               ]
             },
@@ -3993,7 +3996,7 @@
                 "permissions": {
                   "title": "App Permissions",
                   "type": "object",
-                  "description": "The permissions granted to the user access token.",
+                  "description": "The permissions granted to the fine-grained access token.",
                   "properties": {
                     "actions": {
                       "type": "string",
@@ -4272,6 +4275,7 @@
                       "type": "string",
                       "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                       "enum": [
+                        "read",
                         "write"
                       ]
                     },
@@ -5336,7 +5340,7 @@
         {
           "type": "object",
           "name": "permissions",
-          "description": "<p>The permissions granted to the user access token.</p>",
+          "description": "<p>The permissions granted to the fine-grained access token.</p>",
           "childParamsGroups": [
             {
               "type": "string",
@@ -5650,6 +5654,7 @@
               "name": "organization_copilot_seat_management",
               "description": "<p>The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.</p>",
               "enum": [
+                "read",
                 "write"
               ]
             },
@@ -5894,7 +5899,7 @@
               "token_last_eight": "Ae178B4a",
               "hashed_token": "25f94a2a5c7fbaf499c665bc73d67c1c87e496da8985131633ee0a95819db2e8",
               "app": {
-                "url": "http://my-github-app.com",
+                "url": "https://example.com",
                 "name": "my github app",
                 "client_id": "Iv1.8a61f9b3a7aba766"
               },
@@ -6172,7 +6177,7 @@
                         "permissions": {
                           "title": "App Permissions",
                           "type": "object",
-                          "description": "The permissions granted to the user access token.",
+                          "description": "The permissions granted to the fine-grained access token.",
                           "properties": {
                             "actions": {
                               "type": "string",
@@ -6451,6 +6456,7 @@
                               "type": "string",
                               "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                               "enum": [
+                                "read",
                                 "write"
                               ]
                             },
@@ -7547,7 +7553,7 @@
                 "permissions": {
                   "title": "App Permissions",
                   "type": "object",
-                  "description": "The permissions granted to the user access token.",
+                  "description": "The permissions granted to the fine-grained access token.",
                   "properties": {
                     "actions": {
                       "type": "string",
@@ -7826,6 +7832,7 @@
                       "type": "string",
                       "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                       "enum": [
+                        "read",
                         "write"
                       ]
                     },
@@ -8532,7 +8539,7 @@
                 "permissions": {
                   "title": "App Permissions",
                   "type": "object",
-                  "description": "The permissions granted to the user access token.",
+                  "description": "The permissions granted to the fine-grained access token.",
                   "properties": {
                     "actions": {
                       "type": "string",
@@ -8811,6 +8818,7 @@
                       "type": "string",
                       "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                       "enum": [
+                        "read",
                         "write"
                       ]
                     },
@@ -9527,7 +9535,7 @@
                 "permissions": {
                   "title": "App Permissions",
                   "type": "object",
-                  "description": "The permissions granted to the user access token.",
+                  "description": "The permissions granted to the fine-grained access token.",
                   "properties": {
                     "actions": {
                       "type": "string",
@@ -9806,6 +9814,7 @@
                       "type": "string",
                       "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                       "enum": [
+                        "read",
                         "write"
                       ]
                     },
@@ -10520,7 +10529,7 @@
                 "permissions": {
                   "title": "App Permissions",
                   "type": "object",
-                  "description": "The permissions granted to the user access token.",
+                  "description": "The permissions granted to the fine-grained access token.",
                   "properties": {
                     "actions": {
                       "type": "string",
@@ -10799,6 +10808,7 @@
                       "type": "string",
                       "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                       "enum": [
+                        "read",
                         "write"
                       ]
                     },
@@ -11348,7 +11358,11 @@
                   },
                   "forks": 1,
                   "open_issues": 1,
-                  "watchers": 1
+                  "watchers": 1,
+                  "custom_properties": {
+                    "environment": "production",
+                    "service": "web"
+                  }
                 }
               ]
             },
@@ -12026,6 +12040,16 @@
                           "created_at",
                           "updated_at"
                         ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "custom_properties": {
+                            "type": "object",
+                            "description": "The custom properties that were defined for the repository. The keys are the custom property names, and the values are the corresponding custom property values. Present for org repos only.",
+                            "additionalProperties": true
+                          }
+                        }
                       }
                     ]
                   }
@@ -12493,7 +12517,7 @@
                       "permissions": {
                         "title": "App Permissions",
                         "type": "object",
-                        "description": "The permissions granted to the user access token.",
+                        "description": "The permissions granted to the fine-grained access token.",
                         "properties": {
                           "actions": {
                             "type": "string",
@@ -12772,6 +12796,7 @@
                             "type": "string",
                             "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                             "enum": [
+                              "read",
                               "write"
                             ]
                           },
@@ -14033,6 +14058,16 @@
                           "created_at",
                           "updated_at"
                         ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "custom_properties": {
+                            "type": "object",
+                            "description": "The custom properties that were defined for the repository. The keys are the custom property names, and the values are the corresponding custom property values. Present for org repos only.",
+                            "additionalProperties": true
+                          }
+                        }
                       }
                     ]
                   }
@@ -16728,7 +16763,7 @@
               "token_last_eight": "Ae178B4a",
               "hashed_token": "25f94a2a5c7fbaf499c665bc73d67c1c87e496da8985131633ee0a95819db2e8",
               "app": {
-                "url": "http://my-github-app.com",
+                "url": "https://example.com",
                 "name": "my github app",
                 "client_id": "Iv1.8a61f9b3a7aba766"
               },
@@ -16974,7 +17009,7 @@
                         "permissions": {
                           "title": "App Permissions",
                           "type": "object",
-                          "description": "The permissions granted to the user access token.",
+                          "description": "The permissions granted to the fine-grained access token.",
                           "properties": {
                             "actions": {
                               "type": "string",
@@ -17253,6 +17288,7 @@
                               "type": "string",
                               "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                               "enum": [
+                                "read",
                                 "write"
                               ]
                             },
@@ -17695,7 +17731,7 @@
               "token_last_eight": "Ae178B4a",
               "hashed_token": "25f94a2a5c7fbaf499c665bc73d67c1c87e496da8985131633ee0a95819db2e8",
               "app": {
-                "url": "http://my-github-app.com",
+                "url": "https://example.com",
                 "name": "my github app",
                 "client_id": "Iv1.8a61f9b3a7aba766"
               },
@@ -17941,7 +17977,7 @@
                         "permissions": {
                           "title": "App Permissions",
                           "type": "object",
-                          "description": "The permissions granted to the user access token.",
+                          "description": "The permissions granted to the fine-grained access token.",
                           "properties": {
                             "actions": {
                               "type": "string",
@@ -18220,6 +18256,7 @@
                               "type": "string",
                               "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                               "enum": [
+                                "read",
                                 "write"
                               ]
                             },

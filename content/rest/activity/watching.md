@@ -25,4 +25,8 @@ this data. You should now use the "star" endpoints instead. For more information
 
 In responses from the REST API, `subscribers_count` corresponds to the number of watchers, whereas `watchers`, `watchers_count`, and `stargazers_count` correspond to the number of users that have starred a repository.
 
+### New access restrictions
+
+In July 2026, to ensure responsible use of this data and to protect users from misuse, we are introducing new access restrictions to several public API endpoints related to watching. Access to the subscribers and subscriptions listing endpoints will be limited to admins and collaborators, and the endpoint that lists repositories watched by a user is being deprecated. During the deprecation period, the endpoint will remain available but will return empty responses, and it will be fully removed in a later phase. For more information, see the [changelog post](https://github.blog/changelog/2026-06-30-upcoming-access-restrictions-to-public-api-endpoints-and-ui-views/).
+
 <!-- Content after this section is automatically generated -->

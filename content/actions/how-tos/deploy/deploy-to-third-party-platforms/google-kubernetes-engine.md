@@ -92,11 +92,11 @@ This procedure demonstrates how to create the service account for your GKE integ
    export GKE_SA_KEY=$(cat key.json | base64)
    ```
 
-   For more information about how to store a secret, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
+   For more information about how to store a secret, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
 
 ### Storing your project name
 
-Store the name of your project as a secret named `GKE_PROJECT`. For more information about how to store a secret, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
+Store the name of your project as a secret named `GKE_PROJECT`. For more information about how to store a secret, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
 
 ### (Optional) Configuring kustomize
 

@@ -85,7 +85,7 @@ The following properties are supported in `qlpack.yml` files.
 
   If you are unsure or it does not matter which version should be used, then you can use `"*"`, which indicates that any version of this dependency is compatible with this pack. In practice, this will usually resolve to the highest published version of the dependency.
 
-  There is a special version placeholder, `${workspace}`, which indicates that this {% data variables.product.prodname_codeql %} pack depends on whatever version of the dependency is in the same workspace. For more information, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/about-codeql-workspaces#using-workspace-as-a-version-range-in-qlpackyml-files).
+  There is a special version placeholder, `${workspace}`, which indicates that this {% data variables.product.prodname_codeql %} pack depends on whatever version of the dependency is in the same workspace. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/codeql-workspaces#using-workspace-as-a-version-range-in-qlpackyml-files).
 
 #### `defaultSuiteFile`
 
@@ -158,7 +158,7 @@ The following properties are supported in `qlpack.yml` files.
 #### `extractor`
 
 * Required by all packs containing {% data variables.product.prodname_codeql %} tests.
-* Defines the {% data variables.product.prodname_codeql %} language extractor to use when running the {% data variables.product.prodname_codeql %} tests in the pack. For more information about testing queries, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/testing-custom-queries). For example:
+* Defines the {% data variables.product.prodname_codeql %} language extractor to use when running the {% data variables.product.prodname_codeql %} tests in the pack. For more information about testing queries, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-the-command-line/test-custom-queries). For example:
 
   ```yaml
   extractor: javascript-typescript
@@ -252,7 +252,7 @@ dependencies:
     version: 1.2.4
 ```
 
-The `codeql/cpp-all` dependency is locked to version 0.1.4. The `my-user/my-lib` dependency is locked to version 0.2.4. The `my-user/transitive-dependency`, which is a transitive dependency and is not specified in the `qlpack.yml` file, is locked to version 1.2.4. The `other-dependency/from-source` is absent from the lock file since it is resolved from source. This dependency must be available in the same {% data variables.product.prodname_codeql %} workspace as the pack. For more information about {% data variables.product.prodname_codeql %} workspaces and resolving dependencies from source, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/about-codeql-workspaces).
+The `codeql/cpp-all` dependency is locked to version 0.1.4. The `my-user/my-lib` dependency is locked to version 0.2.4. The `my-user/transitive-dependency`, which is a transitive dependency and is not specified in the `qlpack.yml` file, is locked to version 1.2.4. The `other-dependency/from-source` is absent from the lock file since it is resolved from source. This dependency must be available in the same {% data variables.product.prodname_codeql %} workspace as the pack. For more information about {% data variables.product.prodname_codeql %} workspaces and resolving dependencies from source, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/codeql-workspaces).
 
 In most cases, the `codeql-pack.lock.yml` file is only relevant for query packs since library packs are non-executable and usually do not need their transitive dependencies to be fixed. The exception to this is for library packs that contain tests. In this case, the `codeql-pack.lock.yml` file is used to ensure that the tests are always run with the same versions of dependencies to avoid spurious failures when there are mismatched dependencies.
 
@@ -298,7 +298,7 @@ databases. You may also wish to specify the `tests` property.
 
 {% data reusables.codeql-cli.test-qlpack %}
 
-For more information about running tests, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/testing-custom-queries).
+For more information about running tests, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-the-command-line/test-custom-queries).
 
 ## Example {% data variables.product.prodname_codeql %} packs in the {% data variables.product.prodname_codeql %} repository
 
@@ -350,7 +350,7 @@ defaultSuiteFile: codeql-suites/cpp-code-scanning.qls
 
 Some extra notes on the following properties:
 
-* `dependencies`: This query pack depends on `codeql/cpp-all` and `codeql/suite-helpers`. Since these dependencies are resolved from source, it does not matter what version of the {% data variables.product.prodname_codeql %} pack they are compatible with. For more information about resolving dependencies from source, see [Source Dependencies](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/about-codeql-workspaces#source-dependencies).
+* `dependencies`: This query pack depends on `codeql/cpp-all` and `codeql/suite-helpers`. Since these dependencies are resolved from source, it does not matter what version of the {% data variables.product.prodname_codeql %} pack they are compatible with. For more information about resolving dependencies from source, see [Source Dependencies](/code-security/concepts/code-scanning/codeql/codeql-workspaces#source-dependencies).
 
 * `suites`: Indicates the directory containing "well-known" query suites.
 

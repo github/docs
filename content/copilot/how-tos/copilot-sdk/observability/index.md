@@ -1,10 +1,15 @@
 ---
-title: Observability for Copilot SDK
-shortTitle: Observability
-intro: Learn how to monitor and trace your {% data variables.copilot.copilot_sdk_short %} applications.
+title: Observability
+intro: Monitor and debug your GitHub Copilot SDK applications.
 versions:
-  feature: copilot
+  fpt: '*'
+  ghec: '*'
+contentType: how-tos
 children:
   - /opentelemetry
-contentType: how-tos
 ---
+
+<!-- markdownlint-disable GHD046 GHD005 -->
+<!-- Suppressed: GHD046 (outdated release terminology), GHD005 (hardcoded data variable) -->
+
+
