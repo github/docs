@@ -86,7 +86,7 @@ For example, to defer both `model` and `disableBypassPermissionsMode`:
     }
     ```
 
-1. Create the team settings file under `copilot/{% data variables.copilot.team_settings_directory %}`. Include only the keys you marked as overridable. Every other key stays governed by your enterprise default.
+1. Create the team settings file under `copilot/{% data variables.copilot.team_settings_directory %}`. You can include any keys you marked as overridable, plus the additive keys `enabledPlugins` and `extraKnownMarketplaces`. Every other key stays governed by your enterprise default.
 
    ```json
    {
