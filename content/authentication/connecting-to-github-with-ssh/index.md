@@ -1,6 +1,6 @@
 ---
 title: Connecting to GitHub with SSH
-intro: 'You can connect to {% data variables.product.github %} using the Secure Shell Protocol (SSH), which provides a secure channel over an unsecured network.'
+intro: 'You can connect to {% data variables. product.github %} using the Secure Shell Protocol (SSH), which provides a secure channel over an unsecured network.'
 redirect_from:
   - /key-setup-redirect
   - /linux-key-setup
@@ -19,7 +19,7 @@ layout: journey-landing
 journeyTracks:
   - id: 'connect_with_ssh'
     title: 'Connect to GitHub with SSH'
-    description: 'Set up SSH authentication to securely connect to {% data variables.product.github %} without entering your password each time.'
+    description: 'Set up SSH authentication to securely connect to {% data variables. product.github %} without entering your password each time.'
     guides:
       - href: '/authentication/connecting-to-github-with-ssh/about-ssh'
       - href: '/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys'
