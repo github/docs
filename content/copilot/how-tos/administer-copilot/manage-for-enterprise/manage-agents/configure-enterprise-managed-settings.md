@@ -21,6 +21,7 @@ The following clients are supported, although not every client supports every pr
 
 * {% data variables.copilot.copilot_cli_short %}
 * {% data variables.product.prodname_vscode_shortname %}
+* {% data variables.product.prodname_jetbrains_ides %}
 * The {% data variables.copilot.github_copilot_app %}
 * {% data variables.copilot.copilot_cloud_agent %}
 
@@ -170,7 +171,7 @@ Server-managed settings require an organization and a `.github-private` reposito
 1. Add settings to the repository in a `copilot/{% data variables.copilot.managed_setting_file %}` file.
 1. Set that organization as the source of governance for your enterprise's AI standards. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/create-github-private-repo#selecting-your-repository-as-your-source-of-governance).
 
-From that point on, any user on your enterprise's {% data variables.product.prodname_copilot_short %} plan using {% data variables.copilot.copilot_cli_short %} or {% data variables.product.prodname_vscode_shortname %} is governed by those settings, whether or not they have access to the `.github-private` repository.
+From that point on, any user on your enterprise's {% data variables.product.prodname_copilot_short %} plan using {% data variables.copilot.copilot_cli_short %} or supported clients is governed by those settings, whether or not they have access to the `.github-private` repository.
 
 The main limitation of this method is the {% data variables.product.prodname_enterprise %} license requirement to create the organization and repository.
 
