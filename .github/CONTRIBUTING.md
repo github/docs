@@ -82,7 +82,7 @@ For complete style guidance, see our [style guide](https://docs.github.com/en/co
 
 **Make changes locally:** 
 1. Fork the repository (see [official forking guide](https://docs.github.com/en/contributing))
-2. Install Node.js at the version specified in `.node-version` (see [development guide](../contributing/development.md))
+2. Install Node.js at the version specified in `package.json` (see [development guide](../contributing/development.md))
 3. Create a working branch and start with your changes
 
 ### Commit your update

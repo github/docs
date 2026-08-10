@@ -8,7 +8,7 @@ journeyTracks:
     description: 'Master the fundamentals of {% data variables.product.prodname_ghe_cloud %} and get started with a trial.'
     guides:
       - href: '/admin/concepts/enterprise-fundamentals/choose-an-enterprise-type'
-      - href: '/enterprise-onboarding/getting-started-with-your-enterprise/setting-up-a-trial-of-github-enterprise'
+      - href: '/admin/overview/setting-up-a-trial-of-github-enterprise-cloud'
       - href: '/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/add-users'
       - href: '/billing/concepts/enterprise-billing/billing-for-enterprises'
       - href: '/migrations/overview/planning-your-migration-to-github'
@@ -44,10 +44,10 @@ journeyTracks:
 versions:
   ghec: '*'
 children:
-  - /getting-started-with-your-enterprise
   - /govern-people-and-repositories
 redirect_from:
   - /enterprise-onboarding/feature-enhancements
+  - /enterprise-onboarding/getting-started-with-your-enterprise
 docsTeamMetrics:
   - enterprise-onboarding
 ---
