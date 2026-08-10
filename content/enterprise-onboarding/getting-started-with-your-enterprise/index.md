@@ -6,7 +6,6 @@ versions:
 shortTitle: Get started
 children:
   - /setting-up-a-trial-of-github-enterprise
-  - /about-migrating-to-github-enterprise-cloud
 docsTeamMetrics:
   - enterprise-onboarding
 ---
