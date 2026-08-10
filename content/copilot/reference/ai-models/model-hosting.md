@@ -131,9 +131,15 @@ Used for:
 
 {% data variables.copilot.copilot_kimi_k27_code %} and {% data variables.copilot.copilot_kimi_k3 %} were developed by Moonshot AI. They are open-weight models that may be less aligned than other {% data variables.product.prodname_copilot_short %} models, with an elevated risk of geographic bias. Before you enable either model, review the [{% data variables.copilot.copilot_kimi_k27_code %} model card](https://huggingface.co/moonshotai/Kimi-K2.7-Code) or the [{% data variables.copilot.copilot_kimi_k3 %} model card](https://huggingface.co/moonshotai/Kimi-K3) and run your own evaluations before enabling.
 
-{% data variables.copilot.copilot_kimi_k27_code %} is hosted on US-based Azure AI Foundry infrastructure managed by {% data variables.product.github %} and Microsoft.
+{% data variables.copilot.copilot_kimi_k27_code %} is hosted on Azure AI Foundry infrastructure managed by {% data variables.product.github %} and Microsoft.
 
 {% data variables.copilot.copilot_kimi_k3 %} is hosted by {% data variables.product.github %} on Fireworks AI.
+
+Both models are covered by zero data retention agreements with the hosting providers. Fireworks AI and Azure AI Foundry do not use prompts or completions to train models, and prompts and completions are not sent to Moonshot AI.
+
+{% data variables.product.github %} does not use {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} customer data to train AI models. For individual subscribers—{% data variables.copilot.copilot_free_short %}, {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and {% data variables.copilot.copilot_max_short %} users—{% data variables.product.github %} may use {% data variables.product.prodname_copilot_short %} interaction data, including prompts (inputs), suggestions (outputs), and code snippets generated during {% data variables.product.prodname_copilot_short %} sessions to train and improve AI models, in accordance with our [AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-general-privacy-statement) and applicable user settings. Individual subscribers can opt out of having their data used for AI model training. To manage this setting, see [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#model-training-and-improvements).
+
+When using {% data variables.copilot.copilot_kimi_k27_code %} or {% data variables.copilot.copilot_kimi_k3 %}, input prompts and output completions continue to run through {% data variables.product.prodname_copilot %}'s content filters.
 
 ## Inline suggestions
 
