@@ -354,6 +354,14 @@
   cached_input: $0.075
   output: $4.50
 
+- model: 'MAI-Code-1.1-Flash'
+  provider: microsoft
+  release_status: GA
+  category: Lightweight
+  input: $0.20
+  cached_input: $0.02
+  output: $1.20
+
 # Fine-tuned (GitHub)
 - model: 'Raptor mini'
   provider: github

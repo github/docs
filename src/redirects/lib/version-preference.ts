@@ -48,7 +48,7 @@ const NOTHING: VersionPreference = { vary: false }
 /**
  * Work out whether a reader's version preference applies to a request.
  *
- * The rule, decided in github/docs-team#7227, is that version behaves exactly like
+ * The rule, decided in github/technical-content#7227, is that version behaves exactly like
  * language: the cookie is only a default, a version named in the URL always wins, and
  * an article that does not exist in the preferred version silently stays where it is.
  *

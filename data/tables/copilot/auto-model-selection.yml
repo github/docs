@@ -63,6 +63,12 @@
   cli: true
   app: true
 
+- name: MAI-Code-1.1-Flash
+  cloud_agent: true
+  chat: true
+  cli: true
+  app: true
+
 # Fine-tuned OAI models
 - name: Raptor mini
   cloud_agent: false

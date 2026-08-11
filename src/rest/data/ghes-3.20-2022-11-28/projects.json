@@ -74610,6 +74610,21 @@
           "type": "array of integers",
           "name": "visible_fields",
           "description": "<p><code>visible_fields</code> is not applicable to <code>roadmap</code> layout views.\nFor <code>table</code> and <code>board</code> layouts, this represents the field IDs that should be visible in the view. If not provided, the default visible fields will be used.</p>"
+        },
+        {
+          "type": "array of arrays",
+          "name": "sort_by",
+          "description": "<p>Sorting configuration for the view. Each element is a two-element array of <code>[field_id, direction]</code> where <code>direction</code> is <code>\"asc\"</code> or <code>\"desc\"</code>. Supports multiple sort criteria applied in order.</p>"
+        },
+        {
+          "type": "array of integers",
+          "name": "group_by",
+          "description": "<p>The field IDs to group items by (horizontal grouping). Supports a single field. The field must support grouping; fields such as <code>Title</code>, <code>Reviewers</code>, <code>Linked pull requests</code>, <code>Sub-issues progress</code>, <code>Tracked by</code>, and <code>Tracks</code> cannot be grouped on.</p>"
+        },
+        {
+          "type": "array of integers",
+          "name": "vertical_group_by",
+          "description": "<p>The field IDs to use as columns in <code>board</code> layout (vertical grouping). Supports a single field. The field must support grouping; fields such as <code>Title</code>, <code>Reviewers</code>, <code>Linked pull requests</code>, <code>Sub-issues progress</code>, <code>Tracked by</code>, and <code>Tracks</code> cannot be grouped on.</p>"
         }
       ],
       "descriptionHTML": "<p>Create a new view in an organization-owned project. Views allow you to customize how items in a project are displayed and filtered.</p>",
@@ -75635,6 +75650,21 @@
           "type": "array of integers",
           "name": "visible_fields",
           "description": "<p><code>visible_fields</code> is not applicable to <code>roadmap</code> layout views.\nFor <code>table</code> and <code>board</code> layouts, this represents the field IDs that should be visible in the view. If not provided, the default visible fields will be used.</p>"
+        },
+        {
+          "type": "array of arrays",
+          "name": "sort_by",
+          "description": "<p>Sorting configuration for the view. Each element is a two-element array of <code>[field_id, direction]</code> where <code>direction</code> is <code>\"asc\"</code> or <code>\"desc\"</code>. Supports multiple sort criteria applied in order.</p>"
+        },
+        {
+          "type": "array of integers",
+          "name": "group_by",
+          "description": "<p>The field IDs to group items by (horizontal grouping). Supports a single field. The field must support grouping; fields such as <code>Title</code>, <code>Reviewers</code>, <code>Linked pull requests</code>, <code>Sub-issues progress</code>, <code>Tracked by</code>, and <code>Tracks</code> cannot be grouped on.</p>"
+        },
+        {
+          "type": "array of integers",
+          "name": "vertical_group_by",
+          "description": "<p>The field IDs to use as columns in <code>board</code> layout (vertical grouping). Supports a single field. The field must support grouping; fields such as <code>Title</code>, <code>Reviewers</code>, <code>Linked pull requests</code>, <code>Sub-issues progress</code>, <code>Tracked by</code>, and <code>Tracks</code> cannot be grouped on.</p>"
         }
       ],
       "descriptionHTML": "<p>Create a new view in a user-owned project. Views allow you to customize how items in a project are displayed and filtered.</p>",
