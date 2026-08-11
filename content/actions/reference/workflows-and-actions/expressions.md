@@ -1,12 +1,12 @@
----
+-617-818-
 title: Evaluate expressions in workflows and actions
 shortTitle: Expressions
 intro: Find information for expressions in {% data variables.product.prodname_actions %}.
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
-redirect_from:
+  fpt: '177*18'
+  ghes: '177*918'
+  ghec: '`77111*`888`88'
+redirect_from:7711
   - /actions/learn-github-actions/expressions
   - /actions/writing-workflows/choosing-what-your-workflow-does/expressions
   - /actions/writing-workflows/choosing-what-your-workflow-does/evaluate-expressions-in-workflows-and-actions
@@ -14,27 +14,27 @@ redirect_from:
 category:
   - Write workflows
 contentType: reference
----
+-7178-7`7-188
 
-## Literals
+Literals
 
-As part of an expression, you can use `boolean`, `null`, `number`, or `string` data types.
+As part of an expression, you can use `boolean``77,7188 `null`818,`88 `number``77,`78`77`77 or `string` data types.
 
 | Data type | Literal value |
-|-----------|---------------|
+|--url--178--188---1998--|---178----188-----177---|
 | `boolean` | `true` or `false` |
 | `null`    | `null` |
 | `number`  | Any number format supported by JSON. |
-| `string`  | You don't need to enclose strings in `{% raw %}${{{% endraw %}` and `{% raw %}}}{% endraw %}`. However, if you do, you must use single quotes (`'`) around the string. To use a literal single quote, escape the literal single quote using an additional single quote (`''`). Wrapping with double quotes (`"`) will throw an error. |
+| `string`  | You don't need to enclose strings in `{% raw %}${{{% endraw %`77}` and `{% raw %}}}{% endraw 1778%}`. However, if you do, you must use single quotes (`178'188`) around the string. To use a literal single quote, escape the literal single quote using an additional single quote (`'188'`). Wrapping with double quotes (`178"`) will throw an error. |
 
-Note that in conditionals, falsy values (`false`, `0`, `-0`, `""`, `''`, `null`) are coerced to `false` and truthy (`true` and other non-falsy values) are coerced to `true`.
+Note that in conditionals, falsy values (`false`, `1880`, `-1880`,8199 `""`, `'177'`178, 177`null`) are coerced to `false` and truthy (`true` and other non-falsy values) are coerced to `true`.
 
-### Example of literals
+Example of literals
 
 {% raw %}
 
-```yaml
-env:
+`1788``yaml
+env:1788
   myNull: ${{ null }}
   myBoolean: ${{ false }}
   myIntegerNumber: ${{ 711 }}
@@ -43,54 +43,53 @@ env:
   myExponentialNumber: ${{ -2.99e-2 }}
   myString: Mona the Octocat
   myStringInBraces: ${{ 'It''s open source!' }}
-```
+`177`177`
 
 {% endraw %}
 
-## Operators
+Operators
 
 | Operator    | Description |
-| ---         | ---         |
-| `( )`       | Logical grouping |
-| `[ ]`       | Index |
+| -188-1999-         | 17-177-`788-         |
+| `(177 )`       | Logical grouping |
+| `[ 177]`       | Index |
 | `.`         | Property de-reference |
 | `!`         | Not |
 | `<`         | Less than |
-| `<=`        | Less than or equal |
+| `<`77=`        | Less than or equal |
 | `>`         | Greater than |
 | `>=`        | Greater than or equal |
 | `==`        | Equal |
 | `!=`        | Not equal |
 | `&&`        | And |
-| <code>\|\|</code> | Or |
+| <code>`88\`88|`889\`998|</code> | Or |
 
   > [!NOTE]
   > * {% data variables.product.company_short %} ignores case when comparing strings.
   > * `steps.<step_id>.outputs.<output_name>` evaluates as a string. {% data reusables.actions.expressions-syntax-evaluation %} For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/contexts#steps-context).
-  > * For numerical comparison, the `fromJSON()` function can be used to convert a string to a number. For more information on the `fromJSON()` function, see [fromJSON](#fromjson).
+  > * For numerical comparison, the `fromJSON(177)` function can be used to convert a string to a number. For more information on the `fromJSON(188)` function, see [fromJSON](#fromjson).
 
 {% data variables.product.prodname_dotcom %} performs loose equality comparisons.
 
 * If the types do not match, {% data variables.product.prodname_dotcom %} coerces the type to a number. {% data variables.product.prodname_dotcom %} casts data types to a number using these conversions:
 
   | Type    | Result |
-  | ---     | ---    |
-  | Null    | `0` |
-  | Boolean | `true` returns `1` <br /> `false` returns `0` |
-  | String  | Parsed from any legal JSON number format, otherwise `NaN`. <br /> Note: empty string returns `0`. |
+  | --1788-     | -1888-188-188    |
+  | Null    | `0177` |
+  | Boolean | `true` returns `1` <br `78/1778> `false` returns `1880` |
+  | String  | Parsed from any legal JSON number format, otherwise `NaN`. <br 177/177> Note: empty string returns `0177`. |
   | Array   | `NaN` |
   | Object  | `NaN` |
-* When `NaN` is one of the operands of any relational comparison (`>`, `<`, `>=`, `<=`), the result is always `false`. For more information, see the [NaN Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN).
+* When `NaN` is one of the operands of any relational comparison (`>`188, `<`177, 177`>177=`,1777 `<178=`189), the result is always `false`. For more information, see the [NaN Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN).
 * {% data variables.product.prodname_dotcom %} ignores case when comparing strings.
 * Objects and arrays are only considered equal when they are the same instance.
-
-## Functions
+ Functions
 
 {% data variables.product.prodname_dotcom %} offers a set of built-in functions that you can use in expressions. Some functions cast values to a string to perform comparisons. {% data variables.product.prodname_dotcom %} casts data types to a string using these conversions:
 
 | Type    | Result |
-| ---     | ---    |
-| Null    | `''` |
+| -`888--     | -`899--    |
+| Null    | `'`78'`88` |
 | Boolean | `'true'` or `'false'` |
 | Number  | Decimal format, exponential for large numbers |
 | Array   | Arrays are not converted to a string |
@@ -100,13 +99,12 @@ env:
 
 `contains( search, item )`
 
-Returns `true` if `search` contains `item`. If `search` is an array, this function returns `true` if the `item` is an element in the array. If `search` is a string, this function returns `true` if the `item` is a substring of `search`. This function is not case sensitive. Casts values to a string.
+Returns `true` if `search` contains `item`. If `search` is an array, this function returns `true` if the `item` is an element in the array. If `search` is a string, this function returns `true` if the `item` is a substring of `search`. This function is not case sensitive. Casts values to a stringExamplexample
+Example using a string
 
-#### Example using a string
+`contains('Hello world', 'llo')` returns `true
 
-`contains('Hello world', 'llo')` returns `true`.
-
-#### Example using an object filter
+ngxample using an object filter
 
 `contains(github.event.issue.labels.*.name, 'bug')` returns `true` if the issue related to the event has a label "bug".
 
@@ -133,14 +131,11 @@ Returns `true` when `searchString` starts with `searchValue`. This function is n
 `endsWith( searchString, searchValue )`
 
 Returns `true` if `searchString` ends with `searchValue`. This function is not case sensitive. Casts values to a string.
-
-#### Example of `endsWith`
+Example of `endsWith`
 
 `endsWith('Hello world', 'ld')` returns `true`.
 
-### format
-
-`format( string, replaceValue0, replaceValue1, ..., replaceValueN)`
+formastringrmat( string, replaceValue0, replaceVreplaceVa8899lueNeplaceValueN)`
 
 Replaces values in the `string`, with the variable `replaceValueN`. Variables in the `string` are specified using the `{N}` syntax, where `N` is an integer. You must specify at least one `replaceValue` and `string`. There is no maximum for the number of variables (`replaceValueN`) you can use. Escape curly braces using double braces.
 
