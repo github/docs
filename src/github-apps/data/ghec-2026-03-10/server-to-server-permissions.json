@@ -539,6 +539,28 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
+      },
+      {
+        "category": "billing",
+        "slug": "get-a-budget-by-id",
+        "subcategory": "budgets",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/settings/billing/budgets/{budget_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "billing",
+        "slug": "get-user-states-for-a-multi-user-budget",
+        "subcategory": "budgets",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/settings/billing/budgets/{budget_id}/user-states",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
       }
     ]
   },

@@ -186,6 +186,10 @@
                         "type": "string",
                         "description": "The user login when the budget is scoped to a single user (`user` scope)."
                       },
+                      "consumed_amount": {
+                        "type": "number",
+                        "description": "The amount consumed for a user-scoped budget, or for a multi-user budget when filtering by user."
+                      },
                       "budget_product_sku": {
                         "type": "string",
                         "description": "A single product or sku to apply the budget to."
@@ -379,6 +383,10 @@
                       "user": {
                         "type": "string",
                         "description": "The user login when the budget is scoped to a single user (`user` scope)."
+                      },
+                      "consumed_amount": {
+                        "type": "number",
+                        "description": "The amount consumed for a user-scoped budget, or for a multi-user budget when filtering by user."
                       },
                       "budget_product_sku": {
                         "type": "string",
