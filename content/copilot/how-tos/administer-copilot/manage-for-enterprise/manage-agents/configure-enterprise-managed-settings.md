@@ -24,6 +24,7 @@ The following clients are supported, although not every client supports every pr
 * {% data variables.product.prodname_jetbrains_ides %}
 * The {% data variables.copilot.github_copilot_app %}
 * {% data variables.copilot.copilot_cloud_agent %}
+* {% data variables.product.prodname_jetbrains_ides %}
 
 These settings apply enterprise-wide and enterprises can customize specific keys to enterprise teams. For most supported keys, the `{% data variables.copilot.managed_setting_file %}` value takes precedence over any file-based configuration a user sets in their client. In {% data variables.copilot.copilot_cli_short %}, managed `sandbox` settings instead define minimum restrictions that users can further tighten but cannot loosen.
 
