@@ -58,7 +58,7 @@ describe('version cookie redirects', () => {
   })
 })
 
-// See github/docs-team#7227. Before this, the cookie was only ever consulted on the bare
+// See github/technical-content#7227. Before this, the cookie was only ever consulted on the bare
 // homepage, so every deep link served Free/Pro/Team no matter what the reader preferred.
 describe('version cookie on article URLs', () => {
   // Exists in Free/Pro/Team and in Enterprise Cloud.
