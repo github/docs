@@ -119,7 +119,7 @@
 - name: MAI-Code-1.1-Flash
   task_area: General-purpose coding and writing, image understanding
   excels_at: Fast code completions and explanations, instruction following, tool use
-  further_reading: '[MAI-Code-1.1-Flash model card](https://cardmicrosoft.ai/pdf/MAI-Code-1.1-Flash-Model-Card.PDF)'
+  further_reading: '[MAI-Code-1.1-Flash model card](https://microsoft.ai/pdf/MAI-Code-1.1-Flash-Model-Card.PDF)'
 
 # xAI
 - name: Grok 4.5

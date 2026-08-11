@@ -39,7 +39,7 @@ This table lists the AI models available in {% data variables.product.prodname_c
 | Model name                                             | Provider  | Release status             |
 |--------------------------------------------------------|-----------|----------------------------|
 | {% for model in tables.copilot.model-release-status %} |
-| {{ model.name }}{% if model.name == 'GPT-5.4 nano' %}[^gpt54nano]{% endif %}{% if model.name == 'MAI-Code-1-Flash' %}[^mai-code-1-flash]{% endif %}{% if model.name == 'Claude Fable 5' %}[^claude-fable-5]{% endif %}| {{ model.provider }} | {{ model.release_status }} |
+| {{ model.name }}{% if model.name == 'GPT-5.4 nano' %}[^gpt54nano]{% endif %}{% if model.name == 'MAI-Code-1-Flash' or model.name == 'MAI-Code-1.1-Flash' %}[^mai-code-1-flash]{% endif %}{% if model.name == 'Claude Fable 5' %}[^claude-fable-5]{% endif %}| {{ model.provider }} | {{ model.release_status }} |
 | {% endfor %}                                           |
 
 {% endrowheaders %}
@@ -181,7 +181,7 @@ Access to evaluation models in {% data variables.copilot.copilot_auto_model_sele
 {% data reusables.enterprise-accounts.ai-controls-tab %}
 1. For the **Evaluation models in {% data variables.product.prodname_copilot_short %} {% data variables.copilot.copilot_auto_model_selection_short %}** setting, select **Disabled** from the dropdown.
 
-[^mai-code-1-flash]: {% data variables.copilot.copilot_mai_code_1_flash %} is a continuously improving model. Performance and behavior may evolve over time as new checkpoints are released.
+[^mai-code-1-flash]: MAI models are continuously improving models. Performance and behavior may evolve over time as new checkpoints are released.
 
 ## Utility models
 
