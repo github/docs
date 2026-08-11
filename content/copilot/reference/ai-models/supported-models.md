@@ -210,6 +210,10 @@ Utility models power background features across surfaces, and cannot be disabled
 
 {% data reusables.copilot.model-autoenablement-excluded-models %}
 
+## Model support
+
+If a particular model seems unavailable, always refer to the model vendor's support page for the latest information about its availability. If more than one model from different vendors is unavailable, contact [GitHub Support](https://support.github.com/) or refer to the [GitHub status page](https://www.githubstatus.com/) for additional information.
+
 ## Next steps
 
 * To get up and running with {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/get-started/quickstart).
