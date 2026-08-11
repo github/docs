@@ -14,7 +14,7 @@ import {
 import { NavList } from '@primer/react-brand'
 
 import { ProductTreeNode, useMainContext } from '@/frame/components/context/MainContext'
-import { useAutomatedPageContext } from '@/automated-pipelines/components/AutomatedPageContext'
+import { useAutomatedPageContextOptional } from '@/automated-pipelines/components/AutomatedPageContext'
 import { nonAutomatedRestPaths } from '@/rest/lib/config'
 import { usePrefetchOnInteraction } from '@/frame/components/lib/prefetch'
 import { SidebarExpandStateProvider, useSidebarExpandState } from './useSidebarExpandState'
@@ -414,12 +414,16 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
   const { routePath, navigate, prefetch } = nav
   const { asPath, query } = useRestNav()
   const [visibleAnchor, setVisibleAnchor] = useState('')
+  // Read the automated-page context unconditionally so hook order is stable across route
+  // changes. It is null on conceptual REST pages (no provider), which is fine — those pages
+  // use `[]` anyway.
+  const automatedPage = useAutomatedPageContextOptional()
   const miniTocItems =
     query.productId === 'rest' ||
     // These pages need the Article Page mini tocs instead of the Rest Pages
     nonAutomatedRestPaths.some((item: string) => asPath.includes(item))
       ? []
-      : useAutomatedPageContext().miniTocItems
+      : (automatedPage?.miniTocItems ?? [])
 
   useEffect(() => {
     if (nonAutomatedRestPaths.every((item: string) => !asPath.includes(item))) {

@@ -265,7 +265,12 @@ const LayoutBody = ({ children, scrollToTopLabel }: LayoutBodyProps) => {
   const { collapsed, mobileNavOpen } = useSidebarCollapsed()
   return (
     <div className="d-lg-flex">
-      {collapsed ? null : <SidebarNav mobileOpen={mobileNavOpen} />}
+      {/* `collapsed` is the desktop rail-collapse state (persisted). The inline
+        mobile nav is independent, so still render the sidebar when it's open —
+        otherwise opening the mobile nav while the desktop rail is collapsed
+        hides the content column (contentHiddenForNav) with no drawer to show,
+        so the open nav displays a blank area instead of the doc tree. */}
+      {collapsed && !mobileNavOpen ? null : <SidebarNav mobileOpen={mobileNavOpen} />}
       {/* Need to set an explicit height for sticky elements since we also
         set overflow to auto */}
       <div

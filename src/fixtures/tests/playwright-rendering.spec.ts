@@ -609,6 +609,35 @@ test.describe('test nav at different viewports', () => {
     await expect(page.getByTestId('breadcrumbs-bar')).toBeVisible()
   })
 
+  test('mobile nav opens even when the desktop rail was collapsed', async ({ page }) => {
+    // Collapse the desktop rail at the xxl breakpoint so the persisted
+    // `collapsed` state is set (the collapse toggle only exists at 1400px+).
+    page.setViewportSize({
+      width: 1400,
+      height: 700,
+    })
+    await page.goto('/get-started/foo/bar')
+    await page.getByTestId('sidebar-collapse-toggle').click()
+    // With the rail collapsed the sidebar is not rendered on desktop.
+    await expect(page.getByTestId('sidebar')).toHaveCount(0)
+
+    // Drop below xxl where the inline mobile nav lives. `collapsed` persists.
+    page.setViewportSize({
+      width: 1013,
+      height: 700,
+    })
+
+    // Opening the mobile nav must still render the doc-tree drawer -- before the
+    // fix, `collapsed` short-circuited the sidebar to null while the open state
+    // hid the content column, leaving a blank area with no drawer.
+    await page.getByTestId('sidebar-mobile-toggle').click()
+    await expect(page.getByTestId('sidebar')).toBeVisible()
+
+    // Closing it restores the content column (main content visible again).
+    await page.getByTestId('sidebar-mobile-toggle').click()
+    await expect(page.locator('#main-content')).toBeVisible()
+  })
+
   test('large -> x-large viewports - 1012+', async ({ page }) => {
     page.setViewportSize({
       width: 1013,
