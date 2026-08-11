@@ -73,3 +73,6 @@
 
 - model: 'MAI-Code-1-Flash'
   new_multiplier: '0.33'
+
+- model: 'MAI-Code-1.1-Flash'
+  new_multiplier: '0.25'

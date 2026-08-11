@@ -96,22 +96,6 @@ Choosing a larger context window or higher reasoning will impact {% data variabl
 
 {% endrowheaders %}
 
-## Model retirement history
-
-The following table lists AI models that are retired or scheduled for retirement from {% data variables.product.prodname_copilot_short %}, along with their retirement dates and suggested alternatives.
-
-{% rowheaders %}
-
-| Model name                                                  | Retirement date             | Suggested alternative             |
-|-------------------------------------------------------------|-----------------------------|-----------------------------------|
-| {% for model in tables.copilot.model-deprecation-history %} |
-| {{ model.name }}{% if model.name == 'Claude Sonnet 4.6' %}[^claude-sonnet-46-annual]{% endif %} | {{ model.retirement_date }} | {{ model.suggested_alternative }} |
-| {% endfor %}                                                |
-
-{% endrowheaders %}
-
-[^claude-sonnet-46-annual]: {% data variables.copilot.copilot_claude_sonnet_46 %} remains available to individual {% data variables.product.prodname_copilot_short %} subscribers on annual plans. The retirement of {% data variables.copilot.copilot_claude_sonnet_46 %} does not apply to these subscribers.
-
 ## Supported AI models per client
 
 The following table shows which models are available in each client.
@@ -155,6 +139,7 @@ Some {% data variables.product.prodname_copilot_short %} models require minimum 
 | {% data variables.copilot.copilot_kimi_k27_code %}     | `v1.127` | `17.14.6`            | `1.9.1-251` | TBD | TBD |
 | {% data variables.copilot.copilot_kimi_k3 %}     | `v1.131` | TBD            | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_mai_code_1_flash %}    | `v1.121` | TBD                            | TBD | TBD | TBD |
+| {% data variables.copilot.copilot_mai_code_1_1_flash %}  | `v1.121` | TBD                            | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_grok_45 %}             | TBD | `17.14.19` | TBD | TBD | TBD |
 
 {% endrowheaders %}
@@ -209,6 +194,22 @@ Utility models power background features across surfaces, and cannot be disabled
 {% data reusables.copilot.model-autoenablement %}
 
 {% data reusables.copilot.model-autoenablement-excluded-models %}
+
+## Model retirement history
+
+The following table lists AI models that are retired or scheduled for retirement from {% data variables.product.prodname_copilot_short %}, along with their retirement dates and suggested alternatives.
+
+{% rowheaders %}
+
+| Model name                                                  | Retirement date             | Suggested alternative             |
+|-------------------------------------------------------------|-----------------------------|-----------------------------------|
+| {% for model in tables.copilot.model-deprecation-history %} |
+| {{ model.name }}{% if model.name == 'Claude Sonnet 4.6' %}[^claude-sonnet-46-annual]{% endif %} | {{ model.retirement_date }} | {{ model.suggested_alternative }} |
+| {% endfor %}                                                |
+
+{% endrowheaders %}
+
+[^claude-sonnet-46-annual]: {% data variables.copilot.copilot_claude_sonnet_46 %} remains available to individual {% data variables.product.prodname_copilot_short %} subscribers on annual plans. The retirement of {% data variables.copilot.copilot_claude_sonnet_46 %} does not apply to these subscribers.
 
 ## Next steps
 

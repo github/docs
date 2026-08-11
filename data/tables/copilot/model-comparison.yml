@@ -98,7 +98,7 @@
 - name: Gemini 3.1 Pro
   task_area: Deep reasoning and debugging
   excels_at: Effective and efficient edit-then-test loops with high tool precision
-  further_reading: 'Not available'
+  further_reading: '[Gemini 3.1 Pro model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-1-Pro-Model-Card.pdf)'
 
 - name: Gemini 3.5 Flash
   task_area: Fast help with simple or repetitive tasks
@@ -115,6 +115,11 @@
   task_area: General-purpose coding and writing
   excels_at: Fast, accurate code completions and explanations
   further_reading: '[MAI-Code-1-Flash model card](https://aka.ms/mai-code-1-flash-modelcard)'
+
+- name: MAI-Code-1.1-Flash
+  task_area: General-purpose coding and writing, image understanding
+  excels_at: Fast code completions and explanations, instruction following, tool use
+  further_reading: '[MAI-Code-1.1-Flash model card](https://cardmicrosoft.ai/pdf/MAI-Code-1.1-Flash-Model-Card.PDF)'
 
 # xAI
 - name: Grok 4.5
