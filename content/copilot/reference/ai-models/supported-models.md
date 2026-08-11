@@ -212,7 +212,7 @@ Utility models power background features across surfaces, and cannot be disabled
 
 ## Model support
 
-If a particular model seems unavailable, always refer to the model vendor's support page for the latest information about its availability. If more than one model from different vendors is unavailable, contact [GitHub Support](https://support.github.com/) or refer to the [GitHub status page](https://www.githubstatus.com/) for additional information.
+If a particular model seems unavailable, always refer to the model vendor's support page for the latest information about its availability. If more than one model from different vendors is unavailable, contact {% data variables.contact.contact_support_page %} or refer to the [GitHub status page](https://www.githubstatus.com/) for additional information.
 
 ## Next steps
 
