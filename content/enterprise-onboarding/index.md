@@ -32,7 +32,7 @@ journeyTracks:
       - href: '/admin/concepts/security-and-compliance/enterprise-policies'
       - href: '/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/managing-custom-properties-for-repositories-in-your-enterprise'
       - href: '/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/governing-how-people-use-repositories-in-your-enterprise'
-      - href: '/enterprise-onboarding/govern-people-and-repositories/protect-branches'
+      - href: '/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-governance'
       - href: '/admin/concepts/security-and-compliance/audit-log-for-an-enterprise'
   - id: 'github_apps'
     title: 'Automating processes with GitHub Apps'
@@ -43,11 +43,11 @@ journeyTracks:
       - href: '/apps/using-github-apps/installing-a-github-app-on-your-enterprise'
 versions:
   ghec: '*'
-children:
-  - /govern-people-and-repositories
+children: []
 redirect_from:
   - /enterprise-onboarding/feature-enhancements
   - /enterprise-onboarding/getting-started-with-your-enterprise
+  - /enterprise-onboarding/govern-people-and-repositories
 docsTeamMetrics:
   - enterprise-onboarding
 ---
