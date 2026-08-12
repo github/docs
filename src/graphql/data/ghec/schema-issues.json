@@ -12196,6 +12196,78 @@
       "category": "issues"
     },
     {
+      "name": "IssueFieldValueFilter",
+      "id": "issuefieldvaluefilter",
+      "href": "/graphql/reference/issues#input-object-issuefieldvaluefilter",
+      "description": "<p>A filter for matching an issue field value. Exactly one value argument should be provided.</p>",
+      "inputFields": [
+        {
+          "name": "dateValue",
+          "description": "<p>Matches a date issue field value (YYYY-MM-DD).</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "fieldId",
+          "description": "<p>The ID of the issue field to filter by. Exactly one of <code>fieldId</code> or <code>fieldName</code> must be provided.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "fieldName",
+          "description": "<p>The name of the issue field to filter by. Exactly one of <code>fieldId</code> or <code>fieldName</code> must be provided.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "multiSelectOptionIds",
+          "description": "<p>Matches issues containing all of the multi-select issue field option IDs.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "multiSelectOptionValues",
+          "description": "<p>Matches issues containing all of the multi-select issue field option names.</p>",
+          "type": "[String!]",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "numberValue",
+          "description": "<p>Matches a numeric issue field value.</p>",
+          "type": "Float",
+          "id": "float",
+          "href": "/graphql/reference/other#scalar-float"
+        },
+        {
+          "name": "singleSelectOptionId",
+          "description": "<p>Matches a single-select issue field option by ID.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "singleSelectOptionValue",
+          "description": "<p>Matches a single-select issue field option by name.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "textValue",
+          "description": "<p>Matches a text issue field value.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "issues"
+    },
+    {
       "name": "IssueFilters",
       "id": "issuefilters",
       "href": "/graphql/reference/issues#input-object-issuefilters",
@@ -12215,6 +12287,13 @@
           "type": "String",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "issueFieldValues",
+          "description": "<p>List issues where each supplied issue field value filter matches.</p>",
+          "type": "[IssueFieldValueFilter!]",
+          "id": "issuefieldvaluefilter",
+          "href": "/graphql/reference/issues#input-object-issuefieldvaluefilter"
         },
         {
           "name": "labels",

@@ -31,6 +31,7 @@
       "id": "accessusernamespacerepository",
       "href": "/graphql/reference/enterprise-admin#mutation-accessusernamespacerepository",
       "description": "<p>Access user namespace repository for a temporary duration.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -65,10 +66,64 @@
       "category": "enterprise-admin"
     },
     {
+      "name": "addEnterpriseAdmin",
+      "id": "addenterpriseadmin",
+      "href": "/graphql/reference/enterprise-admin#mutation-addenterpriseadmin",
+      "description": "<p>Adds an administrator to the global enterprise account.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddEnterpriseAdminInput!",
+          "id": "addenterpriseadmininput",
+          "href": "/graphql/reference/enterprise-admin#input-object-addenterpriseadmininput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "admin",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user",
+          "description": "<p>The user who was added as an administrator.</p>"
+        },
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "enterprise",
+          "type": "Enterprise",
+          "id": "enterprise",
+          "href": "/graphql/reference/enterprise-admin#object-enterprise",
+          "description": "<p>The updated enterprise.</p>"
+        },
+        {
+          "name": "role",
+          "type": "EnterpriseAdministratorRole",
+          "id": "enterpriseadministratorrole",
+          "href": "/graphql/reference/enterprise-admin#enum-enterpriseadministratorrole",
+          "description": "<p>The role of the administrator.</p>"
+        },
+        {
+          "name": "viewer",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user",
+          "description": "<p>The viewer performing the mutation.</p>"
+        }
+      ],
+      "category": "enterprise-admin"
+    },
+    {
       "name": "addEnterpriseOrganizationMember",
       "id": "addenterpriseorganizationmember",
       "href": "/graphql/reference/enterprise-admin#mutation-addenterpriseorganizationmember",
       "description": "<p>Adds enterprise members to an organization within the enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -100,6 +155,7 @@
       "id": "createenterpriseorganization",
       "href": "/graphql/reference/enterprise-admin#mutation-createenterpriseorganization",
       "description": "<p>Creates an organization as part of an enterprise account. A personal access\ntoken used to create an organization is implicitly permitted to update the\norganization it created, if the organization is part of an enterprise that has\nSAML enabled or uses Enterprise Managed Users. If the organization is not part\nof such an enterprise, and instead has SAML enabled for it individually, the\ntoken will then require SAML authorization to continue working against that organization.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -138,6 +194,7 @@
       "id": "createipallowlistentry",
       "href": "/graphql/reference/enterprise-admin#mutation-createipallowlistentry",
       "description": "<p>Creates a new IP allow list entry.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -169,6 +226,7 @@
       "id": "deleteipallowlistentry",
       "href": "/graphql/reference/enterprise-admin#mutation-deleteipallowlistentry",
       "description": "<p>Deletes an IP allow list entry.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -200,6 +258,7 @@
       "id": "grantenterpriseorganizationsmigratorrole",
       "href": "/graphql/reference/enterprise-admin#mutation-grantenterpriseorganizationsmigratorrole",
       "description": "<p>Grant the migrator role to a user for all organizations under an enterprise account.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -231,6 +290,7 @@
       "id": "removeenterpriseadmin",
       "href": "/graphql/reference/enterprise-admin#mutation-removeenterpriseadmin",
       "description": "<p>Removes an administrator from the enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -283,6 +343,7 @@
       "id": "revokeenterpriseorganizationsmigratorrole",
       "href": "/graphql/reference/enterprise-admin#mutation-revokeenterpriseorganizationsmigratorrole",
       "description": "<p>Revoke the migrator role to a user for all organizations under an enterprise account.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -314,6 +375,7 @@
       "id": "updateenterpriseallowprivaterepositoryforkingsetting",
       "href": "/graphql/reference/enterprise-admin#mutation-updateenterpriseallowprivaterepositoryforkingsetting",
       "description": "<p>Sets whether private repository forks are enabled for an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -352,6 +414,7 @@
       "id": "updateenterprisedefaultrepositorypermissionsetting",
       "href": "/graphql/reference/enterprise-admin#mutation-updateenterprisedefaultrepositorypermissionsetting",
       "description": "<p>Sets the base repository permission for organizations in an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -390,6 +453,7 @@
       "id": "updateenterprisedeploykeysetting",
       "href": "/graphql/reference/enterprise-admin#mutation-updateenterprisedeploykeysetting",
       "description": "<p>Sets whether deploy keys are allowed to be created and used for an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -428,6 +492,7 @@
       "id": "updateenterprisememberscanchangerepositoryvisibilitysetting",
       "href": "/graphql/reference/enterprise-admin#mutation-updateenterprisememberscanchangerepositoryvisibilitysetting",
       "description": "<p>Sets whether organization members with admin permissions on a repository can change repository visibility.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -466,6 +531,7 @@
       "id": "updateenterprisememberscancreaterepositoriessetting",
       "href": "/graphql/reference/enterprise-admin#mutation-updateenterprisememberscancreaterepositoriessetting",
       "description": "<p>Sets the members can create repositories setting for an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -504,6 +570,7 @@
       "id": "updateenterprisememberscandeleteissuessetting",
       "href": "/graphql/reference/enterprise-admin#mutation-updateenterprisememberscandeleteissuessetting",
       "description": "<p>Sets the members can delete issues setting for an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -542,6 +609,7 @@
       "id": "updateenterprisememberscandeleterepositoriessetting",
       "href": "/graphql/reference/enterprise-admin#mutation-updateenterprisememberscandeleterepositoriessetting",
       "description": "<p>Sets the members can delete repositories setting for an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -580,6 +648,7 @@
       "id": "updateenterprisememberscaninvitecollaboratorssetting",
       "href": "/graphql/reference/enterprise-admin#mutation-updateenterprisememberscaninvitecollaboratorssetting",
       "description": "<p>Sets whether members can invite collaborators are enabled for an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -618,6 +687,7 @@
       "id": "updateenterprisememberscanmakepurchasessetting",
       "href": "/graphql/reference/enterprise-admin#mutation-updateenterprisememberscanmakepurchasessetting",
       "description": "<p>Sets whether or not an organization owner can make purchases.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -656,6 +726,7 @@
       "id": "updateenterprisememberscanupdateprotectedbranchessetting",
       "href": "/graphql/reference/enterprise-admin#mutation-updateenterprisememberscanupdateprotectedbranchessetting",
       "description": "<p>Sets the members can update protected branches setting for an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -694,6 +765,7 @@
       "id": "updateenterprisememberscanviewdependencyinsightssetting",
       "href": "/graphql/reference/enterprise-admin#mutation-updateenterprisememberscanviewdependencyinsightssetting",
       "description": "<p>Sets the members can view dependency insights for an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -732,6 +804,7 @@
       "id": "updateenterpriseorganizationprojectssetting",
       "href": "/graphql/reference/enterprise-admin#mutation-updateenterpriseorganizationprojectssetting",
       "description": "<p>Sets whether organization projects are enabled for an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -770,6 +843,7 @@
       "id": "updateenterpriseownerorganizationrole",
       "href": "/graphql/reference/enterprise-admin#mutation-updateenterpriseownerorganizationrole",
       "description": "<p>Updates the role of an enterprise owner with an organization.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -801,6 +875,7 @@
       "id": "updateenterpriseprofile",
       "href": "/graphql/reference/enterprise-admin#mutation-updateenterpriseprofile",
       "description": "<p>Updates an enterprise's profile.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -832,6 +907,7 @@
       "id": "updateenterpriserepositoryprojectssetting",
       "href": "/graphql/reference/enterprise-admin#mutation-updateenterpriserepositoryprojectssetting",
       "description": "<p>Sets whether repository projects are enabled for a enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -870,6 +946,7 @@
       "id": "updateenterprisetwofactorauthenticationdisallowedmethodssetting",
       "href": "/graphql/reference/enterprise-admin#mutation-updateenterprisetwofactorauthenticationdisallowedmethodssetting",
       "description": "<p>Sets the two-factor authentication methods that users of an enterprise may not use.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -908,6 +985,7 @@
       "id": "updateenterprisetwofactorauthenticationrequiredsetting",
       "href": "/graphql/reference/enterprise-admin#mutation-updateenterprisetwofactorauthenticationrequiredsetting",
       "description": "<p>Sets whether two factor authentication is required for all users in an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -946,6 +1024,7 @@
       "id": "updateipallowlistenabledsetting",
       "href": "/graphql/reference/enterprise-admin#mutation-updateipallowlistenabledsetting",
       "description": "<p>Sets whether an IP allow list is enabled on an owner.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -977,6 +1056,7 @@
       "id": "updateipallowlistentry",
       "href": "/graphql/reference/enterprise-admin#mutation-updateipallowlistentry",
       "description": "<p>Updates an IP allow list entry.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -1008,6 +1088,7 @@
       "id": "updateipallowlistforinstalledappsenabledsetting",
       "href": "/graphql/reference/enterprise-admin#mutation-updateipallowlistforinstalledappsenabledsetting",
       "description": "<p>Sets whether IP allow list configuration for installed GitHub Apps is enabled on an owner.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -1039,6 +1120,7 @@
       "id": "updateipallowlistuserlevelenforcementenabledsetting",
       "href": "/graphql/reference/enterprise-admin#mutation-updateipallowlistuserlevelenforcementenabledsetting",
       "description": "<p>Sets whether IP allow list user-level enforcement is enabled on an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -1072,6 +1154,7 @@
       "id": "announcementbanner",
       "href": "/graphql/reference/enterprise-admin#object-announcementbanner",
       "description": "<p>An announcement banner for an enterprise or organization.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "createdAt",
@@ -1109,6 +1192,7 @@
       "id": "enterprise",
       "href": "/graphql/reference/enterprise-admin#object-enterprise",
       "description": "<p>An account to manage multiple organizations with consolidated policy and billing.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1183,6 +1267,87 @@
           "type": "HTML!",
           "id": "html",
           "href": "/graphql/reference/other#scalar-html"
+        },
+        {
+          "name": "enterpriseTeam",
+          "description": "<p>Find an enterprise team by its slug.</p>",
+          "type": "EnterpriseTeam",
+          "id": "enterpriseteam",
+          "href": "/graphql/reference/enterprise-admin#object-enterpriseteam",
+          "arguments": [
+            {
+              "name": "slug",
+              "description": "<p>The slug of the enterprise team to find.</p>",
+              "type": {
+                "name": "String!",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "enterpriseTeams",
+          "description": "<p>A list of enterprise teams in this enterprise.</p>",
+          "type": "EnterpriseTeamConnection!",
+          "id": "enterpriseteamconnection",
+          "href": "/graphql/reference/enterprise-admin#object-enterpriseteamconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for enterprise teams returned from the connection.</p>",
+              "type": {
+                "name": "EnterpriseTeamOrder",
+                "id": "enterpriseteamorder",
+                "href": "/graphql/reference/enterprise-admin#input-object-enterpriseteamorder"
+              }
+            },
+            {
+              "name": "query",
+              "description": "<p>The search string to look for.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            }
+          ]
         },
         {
           "name": "id",
@@ -1582,6 +1747,7 @@
       "id": "enterpriseadministratorinvitation",
       "href": "/graphql/reference/enterprise-admin#object-enterpriseadministratorinvitation",
       "description": "<p>An invitation for a user to become an owner or billing manager of an enterprise.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1707,6 +1873,7 @@
       "id": "enterprisebillinginfo",
       "href": "/graphql/reference/enterprise-admin#object-enterprisebillinginfo",
       "description": "<p>Enterprise billing information visible to enterprise billing managers and owners.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "allLicensableUsersCount",
@@ -1717,10 +1884,12 @@
         },
         {
           "name": "assetPacks",
-          "description": "<p>The number of data packs used by all organizations owned by the enterprise.</p>",
+          "description": "<p>The number of data packs used by all organizations owned by the enterprise. Data packs are deprecated, always returns 0.</p>",
           "type": "Int!",
           "id": "int",
-          "href": "/graphql/reference/other#scalar-int"
+          "href": "/graphql/reference/other#scalar-int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>LFS data packs have been removed. Always returns 0.</p>"
         },
         {
           "name": "bandwidthQuota",
@@ -1846,6 +2015,7 @@
       "id": "enterpriseidentityprovider",
       "href": "/graphql/reference/enterprise-admin#object-enterpriseidentityprovider",
       "description": "<p>An identity provider configured to provision identities for an enterprise.\nVisible to enterprise owners or enterprise owners' personal access tokens\n(classic) with read:enterprise or admin:enterprise scope.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -2050,6 +2220,7 @@
       "id": "enterprisememberinvitation",
       "href": "/graphql/reference/enterprise-admin#object-enterprisememberinvitation",
       "description": "<p>An invitation for a user to become an unaffiliated member of an enterprise.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -2108,6 +2279,7 @@
       "id": "enterpriseownerinfo",
       "href": "/graphql/reference/enterprise-admin#object-enterpriseownerinfo",
       "description": "<p>Enterprise information visible to enterprise owners or enterprise owners'\npersonal access tokens (classic) with read:enterprise or admin:enterprise scope.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "admins",
@@ -3836,6 +4008,7 @@
       "id": "enterpriserepositoryinfo",
       "href": "/graphql/reference/enterprise-admin#object-enterpriserepositoryinfo",
       "description": "<p>A subset of repository information queryable from an enterprise.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -3940,6 +4113,7 @@
       "id": "enterpriseserverinstallation",
       "href": "/graphql/reference/enterprise-admin#object-enterpriseserverinstallation",
       "description": "<p>An Enterprise Server installation.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -4173,6 +4347,7 @@
       "id": "enterpriseserveruseraccount",
       "href": "/graphql/reference/enterprise-admin#object-enterpriseserveruseraccount",
       "description": "<p>A user account on an Enterprise Server installation.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -4366,6 +4541,7 @@
       "id": "enterpriseserveruseraccountemail",
       "href": "/graphql/reference/enterprise-admin#object-enterpriseserveruseraccountemail",
       "description": "<p>An email belonging to a user account on an Enterprise Server installation.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -4484,6 +4660,7 @@
       "id": "enterpriseserveruseraccountsupload",
       "href": "/graphql/reference/enterprise-admin#object-enterpriseserveruseraccountsupload",
       "description": "<p>A user accounts upload from an Enterprise Server installation.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -4605,10 +4782,308 @@
       "category": "enterprise-admin"
     },
     {
+      "name": "EnterpriseTeam",
+      "id": "enterpriseteam",
+      "href": "/graphql/reference/enterprise-admin#object-enterpriseteam",
+      "description": "<p>A team that belongs to an enterprise and can be assigned to multiple organizations.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "TeamReviewRequestable",
+          "id": "teamreviewrequestable",
+          "href": "/graphql/reference/teams#interface-teamreviewrequestable"
+        }
+      ],
+      "fields": [
+        {
+          "name": "assignedOrganizations",
+          "description": "<p>Organizations this team is assigned to.</p>",
+          "type": "EnterpriseTeamAssignedOrganizationConnection!",
+          "id": "enterpriseteamassignedorganizationconnection",
+          "href": "/graphql/reference/orgs#object-enterpriseteamassignedorganizationconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for organizations returned from the connection.</p>",
+              "type": {
+                "name": "EnterpriseTeamOrganizationOrder",
+                "id": "enterpriseteamorganizationorder",
+                "href": "/graphql/reference/enterprise-admin#input-object-enterpriseteamorganizationorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "combinedSlug",
+          "description": "<p>The human-readable, unique identifier for the enterprise and team.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "description",
+          "description": "<p>The description of the team.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "enterprise",
+          "description": "<p>The enterprise this team belongs to.</p>",
+          "type": "Enterprise",
+          "id": "enterprise",
+          "href": "/graphql/reference/enterprise-admin#object-enterprise"
+        },
+        {
+          "name": "enterpriseTeamMembers",
+          "description": "<p>A list of users who are members of this enterprise team.</p>",
+          "type": "EnterpriseTeamMemberConnection!",
+          "id": "enterpriseteammemberconnection",
+          "href": "/graphql/reference/users#object-enterpriseteammemberconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Order for the connection.</p>",
+              "type": {
+                "name": "EnterpriseTeamMemberOrder",
+                "id": "enterpriseteammemberorder",
+                "href": "/graphql/reference/enterprise-admin#input-object-enterpriseteammemberorder"
+              }
+            },
+            {
+              "name": "query",
+              "description": "<p>The search string to look for.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "href": "/graphql/reference/other#scalar-bigint"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the EnterpriseTeam object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "isViewerMember",
+          "description": "<p>Whether the viewer is a member of this team.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the team.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "notificationSetting",
+          "description": "<p>Whether the team will receive notifications when mentioned.</p>",
+          "type": "TeamNotificationSetting!",
+          "id": "teamnotificationsetting",
+          "href": "/graphql/reference/teams#enum-teamnotificationsetting"
+        },
+        {
+          "name": "organizationSelectionType",
+          "description": "<p>How this team selects its associated organizations.</p>",
+          "type": "EnterpriseTeamOrganizationSelectionType!",
+          "id": "enterpriseteamorganizationselectiontype",
+          "href": "/graphql/reference/enterprise-admin#enum-enterpriseteamorganizationselectiontype"
+        },
+        {
+          "name": "privacy",
+          "description": "<p>The level of privacy the team has.</p>",
+          "type": "TeamPrivacy!",
+          "id": "teamprivacy",
+          "href": "/graphql/reference/teams#enum-teamprivacy"
+        },
+        {
+          "name": "slug",
+          "description": "<p>The slug corresponding to the team.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "viewerCanAdminister",
+          "description": "<p>Whether the viewer can administer this team.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "enterprise-admin"
+    },
+    {
+      "name": "EnterpriseTeamConnection",
+      "id": "enterpriseteamconnection",
+      "href": "/graphql/reference/enterprise-admin#object-enterpriseteamconnection",
+      "description": "<p>A list of enterprise teams owned by the enterprise.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[EnterpriseTeamEdge]",
+          "id": "enterpriseteamedge",
+          "href": "/graphql/reference/enterprise-admin#object-enterpriseteamedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[EnterpriseTeam]",
+          "id": "enterpriseteam",
+          "href": "/graphql/reference/enterprise-admin#object-enterpriseteam"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "enterprise-admin"
+    },
+    {
+      "name": "EnterpriseTeamEdge",
+      "id": "enterpriseteamedge",
+      "href": "/graphql/reference/enterprise-admin#object-enterpriseteamedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "EnterpriseTeam",
+          "id": "enterpriseteam",
+          "href": "/graphql/reference/enterprise-admin#object-enterpriseteam"
+        }
+      ],
+      "category": "enterprise-admin"
+    },
+    {
       "name": "EnterpriseUserAccount",
       "id": "enterpriseuseraccount",
       "href": "/graphql/reference/enterprise-admin#object-enterpriseuseraccount",
       "description": "<p>An account for a user who is an admin of an enterprise or a member of an enterprise through one or more organizations.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Actor",
@@ -4855,6 +5330,7 @@
       "id": "externalidentity",
       "href": "/graphql/reference/enterprise-admin#object-externalidentity",
       "description": "<p>An external identity provisioned by SAML SSO or SCIM. If SAML is configured on\nthe organization, the external identity is visible to (1) organization owners,\n(2) organization owners' personal access tokens (classic) with read:org or\nadmin:org scope, (3) GitHub App with an installation token with read or write\naccess to members. If SAML is configured on the enterprise, the external\nidentity is visible to (1) enterprise owners, (2) enterprise owners' personal\naccess tokens (classic) with read:enterprise or admin:enterprise scope.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -4913,6 +5389,7 @@
       "id": "externalidentityattribute",
       "href": "/graphql/reference/enterprise-admin#object-externalidentityattribute",
       "description": "<p>An attribute for the External Identity attributes collection.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "metadata",
@@ -5003,6 +5480,7 @@
       "id": "externalidentitysamlattributes",
       "href": "/graphql/reference/enterprise-admin#object-externalidentitysamlattributes",
       "description": "<p>SAML attributes for the External Identity.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "attributes",
@@ -5061,6 +5539,7 @@
       "id": "externalidentityscimattributes",
       "href": "/graphql/reference/enterprise-admin#object-externalidentityscimattributes",
       "description": "<p>SCIM attributes for the External Identity.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "emails",
@@ -5105,6 +5584,7 @@
       "id": "ipallowlistentry",
       "href": "/graphql/reference/enterprise-admin#object-ipallowlistentry",
       "description": "<p>An IP address or range of addresses that is allowed to access an owner's resources.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -5230,6 +5710,7 @@
       "id": "memberscandeletereposclearauditentry",
       "href": "/graphql/reference/enterprise-admin#object-memberscandeletereposclearauditentry",
       "description": "<p>Audit log entry for a members_can_delete_repos.clear event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -5442,6 +5923,7 @@
       "id": "memberscandeletereposdisableauditentry",
       "href": "/graphql/reference/enterprise-admin#object-memberscandeletereposdisableauditentry",
       "description": "<p>Audit log entry for a members_can_delete_repos.disable event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -5654,6 +6136,7 @@
       "id": "memberscandeletereposenableauditentry",
       "href": "/graphql/reference/enterprise-admin#object-memberscandeletereposenableauditentry",
       "description": "<p>Audit log entry for a members_can_delete_repos.enable event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -5866,6 +6349,7 @@
       "id": "oauthapplicationcreateauditentry",
       "href": "/graphql/reference/enterprise-admin#object-oauthapplicationcreateauditentry",
       "description": "<p>Audit log entry for a oauth_application.create event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -6114,6 +6598,7 @@
       "id": "privaterepositoryforkingdisableauditentry",
       "href": "/graphql/reference/enterprise-admin#object-privaterepositoryforkingdisableauditentry",
       "description": "<p>Audit log entry for a private_repository_forking.disable event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -6359,6 +6844,7 @@
       "id": "privaterepositoryforkingenableauditentry",
       "href": "/graphql/reference/enterprise-admin#object-privaterepositoryforkingenableauditentry",
       "description": "<p>Audit log entry for a private_repository_forking.enable event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -6604,6 +7090,7 @@
       "id": "repoconfigdisableanonymousgitaccessauditentry",
       "href": "/graphql/reference/enterprise-admin#object-repoconfigdisableanonymousgitaccessauditentry",
       "description": "<p>Audit log entry for a repo.config.disable_anonymous_git_access event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -6823,6 +7310,7 @@
       "id": "repoconfigdisablecollaboratorsonlyauditentry",
       "href": "/graphql/reference/enterprise-admin#object-repoconfigdisablecollaboratorsonlyauditentry",
       "description": "<p>Audit log entry for a repo.config.disable_collaborators_only event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -7042,6 +7530,7 @@
       "id": "repoconfigdisablecontributorsonlyauditentry",
       "href": "/graphql/reference/enterprise-admin#object-repoconfigdisablecontributorsonlyauditentry",
       "description": "<p>Audit log entry for a repo.config.disable_contributors_only event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -7261,6 +7750,7 @@
       "id": "repoconfigdisablesockpuppetdisallowedauditentry",
       "href": "/graphql/reference/enterprise-admin#object-repoconfigdisablesockpuppetdisallowedauditentry",
       "description": "<p>Audit log entry for a repo.config.disable_sockpuppet_disallowed event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -7480,6 +7970,7 @@
       "id": "repoconfigenableanonymousgitaccessauditentry",
       "href": "/graphql/reference/enterprise-admin#object-repoconfigenableanonymousgitaccessauditentry",
       "description": "<p>Audit log entry for a repo.config.enable_anonymous_git_access event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -7699,6 +8190,7 @@
       "id": "repoconfigenablecollaboratorsonlyauditentry",
       "href": "/graphql/reference/enterprise-admin#object-repoconfigenablecollaboratorsonlyauditentry",
       "description": "<p>Audit log entry for a repo.config.enable_collaborators_only event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -7918,6 +8410,7 @@
       "id": "repoconfigenablecontributorsonlyauditentry",
       "href": "/graphql/reference/enterprise-admin#object-repoconfigenablecontributorsonlyauditentry",
       "description": "<p>Audit log entry for a repo.config.enable_contributors_only event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -8137,6 +8630,7 @@
       "id": "repoconfigenablesockpuppetdisallowedauditentry",
       "href": "/graphql/reference/enterprise-admin#object-repoconfigenablesockpuppetdisallowedauditentry",
       "description": "<p>Audit log entry for a repo.config.enable_sockpuppet_disallowed event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -8356,6 +8850,7 @@
       "id": "repoconfiglockanonymousgitaccessauditentry",
       "href": "/graphql/reference/enterprise-admin#object-repoconfiglockanonymousgitaccessauditentry",
       "description": "<p>Audit log entry for a repo.config.lock_anonymous_git_access event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -8575,6 +9070,7 @@
       "id": "repoconfigunlockanonymousgitaccessauditentry",
       "href": "/graphql/reference/enterprise-admin#object-repoconfigunlockanonymousgitaccessauditentry",
       "description": "<p>Audit log entry for a repo.config.unlock_anonymous_git_access event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -8794,6 +9290,7 @@
       "id": "repositoryvisibilitychangedisableauditentry",
       "href": "/graphql/reference/enterprise-admin#object-repositoryvisibilitychangedisableauditentry",
       "description": "<p>Audit log entry for a repository_visibility_change.disable event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -9006,6 +9503,7 @@
       "id": "repositoryvisibilitychangeenableauditentry",
       "href": "/graphql/reference/enterprise-admin#object-repositoryvisibilitychangeenableauditentry",
       "description": "<p>Audit log entry for a repository_visibility_change.enable event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -9218,6 +9716,7 @@
       "id": "usernamespacerepository",
       "href": "/graphql/reference/enterprise-admin#object-usernamespacerepository",
       "description": "<p>A repository owned by an Enterprise Managed user.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -9264,6 +9763,7 @@
       "id": "auditentry",
       "href": "/graphql/reference/enterprise-admin#interface-auditentry",
       "description": "<p>An entry in the audit log.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "action",
@@ -9390,6 +9890,7 @@
       "id": "enterpriseauditentrydata",
       "href": "/graphql/reference/enterprise-admin#interface-enterpriseauditentrydata",
       "description": "<p>Metadata for an audit entry containing enterprise account information.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "enterpriseResourcePath",
@@ -9420,6 +9921,7 @@
       "id": "topicauditentrydata",
       "href": "/graphql/reference/enterprise-admin#interface-topicauditentrydata",
       "description": "<p>Metadata for an audit entry with a topic.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "topic",
@@ -9445,6 +9947,7 @@
       "id": "auditlogorderfield",
       "href": "/graphql/reference/enterprise-admin#enum-auditlogorderfield",
       "description": "<p>Properties by which Audit Log connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -9458,6 +9961,7 @@
       "id": "enterpriseadministratorinvitationorderfield",
       "href": "/graphql/reference/enterprise-admin#enum-enterpriseadministratorinvitationorderfield",
       "description": "<p>Properties by which enterprise administrator invitation connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -9471,6 +9975,7 @@
       "id": "enterpriseadministratorrole",
       "href": "/graphql/reference/enterprise-admin#enum-enterpriseadministratorrole",
       "description": "<p>The possible administrator roles in an enterprise account.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "BILLING_MANAGER",
@@ -9492,6 +9997,7 @@
       "id": "enterpriseallowprivaterepositoryforkingpolicyvalue",
       "href": "/graphql/reference/enterprise-admin#enum-enterpriseallowprivaterepositoryforkingpolicyvalue",
       "description": "<p>The possible values for the enterprise allow private repository forking policy value.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ENTERPRISE_ORGANIZATIONS",
@@ -9503,7 +10009,7 @@
         },
         {
           "name": "EVERYWHERE",
-          "description": "<p>Members can fork a repository to their user account or an organization, either inside or outside of this enterprise.</p>"
+          "description": "<p>Members can fork a repository to their user account or an organization, either\ninside or outside of this enterprise. Internal repositories can only be forked\ninside of this enterprise.</p>"
         },
         {
           "name": "SAME_ORGANIZATION",
@@ -9525,6 +10031,7 @@
       "id": "enterprisedefaultrepositorypermissionsettingvalue",
       "href": "/graphql/reference/enterprise-admin#enum-enterprisedefaultrepositorypermissionsettingvalue",
       "description": "<p>The possible values for the enterprise base repository permission setting.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ADMIN",
@@ -9554,6 +10061,7 @@
       "id": "enterprisedisallowedmethodssettingvalue",
       "href": "/graphql/reference/enterprise-admin#enum-enterprisedisallowedmethodssettingvalue",
       "description": "<p>The possible values for an enabled/no policy enterprise setting.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "INSECURE",
@@ -9571,6 +10079,7 @@
       "id": "enterpriseenableddisabledsettingvalue",
       "href": "/graphql/reference/enterprise-admin#enum-enterpriseenableddisabledsettingvalue",
       "description": "<p>The possible values for an enabled/disabled enterprise setting.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DISABLED",
@@ -9592,6 +10101,7 @@
       "id": "enterpriseenabledsettingvalue",
       "href": "/graphql/reference/enterprise-admin#enum-enterpriseenabledsettingvalue",
       "description": "<p>The possible values for an enabled/no policy enterprise setting.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ENABLED",
@@ -9609,6 +10119,7 @@
       "id": "enterprisememberorderfield",
       "href": "/graphql/reference/enterprise-admin#enum-enterprisememberorderfield",
       "description": "<p>Properties by which enterprise member connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -9626,6 +10137,7 @@
       "id": "enterprisememberscancreaterepositoriessettingvalue",
       "href": "/graphql/reference/enterprise-admin#enum-enterprisememberscancreaterepositoriessettingvalue",
       "description": "<p>The possible values for the enterprise members can create repositories setting.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALL",
@@ -9655,6 +10167,7 @@
       "id": "enterprisememberscanmakepurchasessettingvalue",
       "href": "/graphql/reference/enterprise-admin#enum-enterprisememberscanmakepurchasessettingvalue",
       "description": "<p>The possible values for the members can make purchases setting.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DISABLED",
@@ -9672,6 +10185,7 @@
       "id": "enterprisemembershiptype",
       "href": "/graphql/reference/enterprise-admin#enum-enterprisemembershiptype",
       "description": "<p>The possible values we have for filtering Platform::Objects::User#enterprises.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ADMIN",
@@ -9697,6 +10211,7 @@
       "id": "enterpriseorderfield",
       "href": "/graphql/reference/enterprise-admin#enum-enterpriseorderfield",
       "description": "<p>Properties by which enterprise connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "NAME",
@@ -9710,6 +10225,7 @@
       "id": "enterpriseserverinstallationorderfield",
       "href": "/graphql/reference/enterprise-admin#enum-enterpriseserverinstallationorderfield",
       "description": "<p>Properties by which Enterprise Server installation connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -9731,6 +10247,7 @@
       "id": "enterpriseserveruseraccountemailorderfield",
       "href": "/graphql/reference/enterprise-admin#enum-enterpriseserveruseraccountemailorderfield",
       "description": "<p>Properties by which Enterprise Server user account email connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "EMAIL",
@@ -9744,6 +10261,7 @@
       "id": "enterpriseserveruseraccountorderfield",
       "href": "/graphql/reference/enterprise-admin#enum-enterpriseserveruseraccountorderfield",
       "description": "<p>Properties by which Enterprise Server user account connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "LOGIN",
@@ -9761,6 +10279,7 @@
       "id": "enterpriseserveruseraccountsuploadorderfield",
       "href": "/graphql/reference/enterprise-admin#enum-enterpriseserveruseraccountsuploadorderfield",
       "description": "<p>Properties by which Enterprise Server user accounts upload connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -9774,6 +10293,7 @@
       "id": "enterpriseserveruseraccountsuploadsyncstate",
       "href": "/graphql/reference/enterprise-admin#enum-enterpriseserveruseraccountsuploadsyncstate",
       "description": "<p>Synchronization state of the Enterprise Server user accounts upload.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "FAILURE",
@@ -9791,10 +10311,99 @@
       "category": "enterprise-admin"
     },
     {
+      "name": "EnterpriseTeamMemberOrderField",
+      "id": "enterpriseteammemberorderfield",
+      "href": "/graphql/reference/enterprise-admin#enum-enterpriseteammemberorderfield",
+      "description": "<p>Properties by which enterprise team member connections can be ordered.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order enterprise team members by creation time.</p>"
+        },
+        {
+          "name": "ID",
+          "description": "<p>Order enterprise team members by ID.</p>"
+        },
+        {
+          "name": "LOGIN",
+          "description": "<p>Order enterprise team members by login.</p>"
+        }
+      ],
+      "category": "enterprise-admin"
+    },
+    {
+      "name": "EnterpriseTeamOrderField",
+      "id": "enterpriseteamorderfield",
+      "href": "/graphql/reference/enterprise-admin#enum-enterpriseteamorderfield",
+      "description": "<p>Properties by which enterprise team connections can be ordered.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order enterprise teams by creation time.</p>"
+        },
+        {
+          "name": "ID",
+          "description": "<p>Order enterprise teams by ID.</p>"
+        },
+        {
+          "name": "NAME",
+          "description": "<p>Order enterprise teams by name.</p>"
+        }
+      ],
+      "category": "enterprise-admin"
+    },
+    {
+      "name": "EnterpriseTeamOrganizationOrderField",
+      "id": "enterpriseteamorganizationorderfield",
+      "href": "/graphql/reference/enterprise-admin#enum-enterpriseteamorganizationorderfield",
+      "description": "<p>Properties by which enterprise team organization connections can be ordered.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order enterprise team organizations by creation time.</p>"
+        },
+        {
+          "name": "ID",
+          "description": "<p>Order enterprise team organizations by ID.</p>"
+        },
+        {
+          "name": "LOGIN",
+          "description": "<p>Order enterprise team organizations by login.</p>"
+        }
+      ],
+      "category": "enterprise-admin"
+    },
+    {
+      "name": "EnterpriseTeamOrganizationSelectionType",
+      "id": "enterpriseteamorganizationselectiontype",
+      "href": "/graphql/reference/enterprise-admin#enum-enterpriseteamorganizationselectiontype",
+      "description": "<p>The possible organization selection types for an enterprise team.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "ALL",
+          "description": "<p>The team is associated with all organizations in the enterprise.</p>"
+        },
+        {
+          "name": "DISABLED",
+          "description": "<p>The team is not associated with any organizations.</p>"
+        },
+        {
+          "name": "SELECTED",
+          "description": "<p>The team is associated with selected organizations.</p>"
+        }
+      ],
+      "category": "enterprise-admin"
+    },
+    {
       "name": "EnterpriseUserAccountMembershipRole",
       "id": "enterpriseuseraccountmembershiprole",
       "href": "/graphql/reference/enterprise-admin#enum-enterpriseuseraccountmembershiprole",
       "description": "<p>The possible roles for enterprise membership.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "MEMBER",
@@ -9812,6 +10421,7 @@
       "id": "enterpriseuserdeployment",
       "href": "/graphql/reference/enterprise-admin#enum-enterpriseuserdeployment",
       "description": "<p>The possible GitHub Enterprise deployments where this user can exist.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CLOUD",
@@ -9829,6 +10439,7 @@
       "id": "identityproviderconfigurationstate",
       "href": "/graphql/reference/enterprise-admin#enum-identityproviderconfigurationstate",
       "description": "<p>The possible states in which authentication can be configured with an identity provider.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CONFIGURED",
@@ -9850,6 +10461,7 @@
       "id": "ipallowlistenabledsettingvalue",
       "href": "/graphql/reference/enterprise-admin#enum-ipallowlistenabledsettingvalue",
       "description": "<p>The possible values for the IP allow list enabled setting.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DISABLED",
@@ -9867,6 +10479,7 @@
       "id": "ipallowlistentryorderfield",
       "href": "/graphql/reference/enterprise-admin#enum-ipallowlistentryorderfield",
       "description": "<p>Properties by which IP allow list entry connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALLOW_LIST_VALUE",
@@ -9884,6 +10497,7 @@
       "id": "ipallowlistforinstalledappsenabledsettingvalue",
       "href": "/graphql/reference/enterprise-admin#enum-ipallowlistforinstalledappsenabledsettingvalue",
       "description": "<p>The possible values for the IP allow list configuration for installed GitHub Apps setting.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DISABLED",
@@ -9901,6 +10515,7 @@
       "id": "ipallowlistuserlevelenforcementenabledsettingvalue",
       "href": "/graphql/reference/enterprise-admin#enum-ipallowlistuserlevelenforcementenabledsettingvalue",
       "description": "<p>The possible values for the IP allow list user-level enforcement enabled setting.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DISABLED",
@@ -9918,6 +10533,7 @@
       "id": "samldigestalgorithm",
       "href": "/graphql/reference/enterprise-admin#enum-samldigestalgorithm",
       "description": "<p>The possible digest algorithms used to sign SAML requests for an identity provider.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "SHA1",
@@ -9943,6 +10559,7 @@
       "id": "samlsignaturealgorithm",
       "href": "/graphql/reference/enterprise-admin#enum-samlsignaturealgorithm",
       "description": "<p>The possible signature algorithms used to sign SAML requests for a Identity Provider.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "RSA_SHA1",
@@ -9968,6 +10585,7 @@
       "id": "twofactorcredentialsecuritytype",
       "href": "/graphql/reference/enterprise-admin#enum-twofactorcredentialsecuritytype",
       "description": "<p>Filters by whether or not 2FA is enabled and if the method configured is considered secure or insecure.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DISABLED",
@@ -9991,6 +10609,7 @@
       "id": "auditentryactor",
       "href": "/graphql/reference/enterprise-admin#union-auditentryactor",
       "description": "<p>Types that can initiate an audit log event.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Bot",
@@ -10015,6 +10634,7 @@
       "id": "enterprisemember",
       "href": "/graphql/reference/enterprise-admin#union-enterprisemember",
       "description": "<p>An object that is a member of an enterprise.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "EnterpriseUserAccount",
@@ -10034,6 +10654,7 @@
       "id": "ipallowlistowner",
       "href": "/graphql/reference/enterprise-admin#union-ipallowlistowner",
       "description": "<p>Types that can own an IP allow list.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "App",
@@ -10082,6 +10703,37 @@
           "type": "ID!",
           "id": "id",
           "href": "/graphql/reference/other#scalar-id"
+        }
+      ],
+      "category": "enterprise-admin"
+    },
+    {
+      "name": "AddEnterpriseAdminInput",
+      "id": "addenterpriseadmininput",
+      "href": "/graphql/reference/enterprise-admin#input-object-addenterpriseadmininput",
+      "description": "<p>Autogenerated input type of AddEnterpriseAdmin.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "enterpriseId",
+          "description": "<p>The ID of the enterprise account to which the administrator should be added.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "login",
+          "description": "<p>The login of the user to add as an administrator.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
         }
       ],
       "category": "enterprise-admin"
@@ -10137,6 +10789,7 @@
       "id": "auditlogorder",
       "href": "/graphql/reference/enterprise-admin#input-object-auditlogorder",
       "description": "<p>Ordering options for Audit Log connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -10281,6 +10934,7 @@
       "id": "enterpriseadministratorinvitationorder",
       "href": "/graphql/reference/enterprise-admin#input-object-enterpriseadministratorinvitationorder",
       "description": "<p>Ordering options for enterprise administrator invitation connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -10304,6 +10958,7 @@
       "id": "enterprisememberorder",
       "href": "/graphql/reference/enterprise-admin#input-object-enterprisememberorder",
       "description": "<p>Ordering options for enterprise member connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -10327,6 +10982,7 @@
       "id": "enterpriseorder",
       "href": "/graphql/reference/enterprise-admin#input-object-enterpriseorder",
       "description": "<p>Ordering options for enterprises.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -10350,6 +11006,7 @@
       "id": "enterpriseserverinstallationorder",
       "href": "/graphql/reference/enterprise-admin#input-object-enterpriseserverinstallationorder",
       "description": "<p>Ordering options for Enterprise Server installation connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -10373,6 +11030,7 @@
       "id": "enterpriseserveruseraccountemailorder",
       "href": "/graphql/reference/enterprise-admin#input-object-enterpriseserveruseraccountemailorder",
       "description": "<p>Ordering options for Enterprise Server user account email connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -10396,6 +11054,7 @@
       "id": "enterpriseserveruseraccountorder",
       "href": "/graphql/reference/enterprise-admin#input-object-enterpriseserveruseraccountorder",
       "description": "<p>Ordering options for Enterprise Server user account connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -10419,6 +11078,7 @@
       "id": "enterpriseserveruseraccountsuploadorder",
       "href": "/graphql/reference/enterprise-admin#input-object-enterpriseserveruseraccountsuploadorder",
       "description": "<p>Ordering options for Enterprise Server user accounts upload connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -10433,6 +11093,78 @@
           "type": "EnterpriseServerUserAccountsUploadOrderField!",
           "id": "enterpriseserveruseraccountsuploadorderfield",
           "href": "/graphql/reference/enterprise-admin#enum-enterpriseserveruseraccountsuploadorderfield"
+        }
+      ],
+      "category": "enterprise-admin"
+    },
+    {
+      "name": "EnterpriseTeamMemberOrder",
+      "id": "enterpriseteammemberorder",
+      "href": "/graphql/reference/enterprise-admin#input-object-enterpriseteammemberorder",
+      "description": "<p>Ordering options for enterprise team member connections.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order enterprise team members by.</p>",
+          "type": "EnterpriseTeamMemberOrderField!",
+          "id": "enterpriseteammemberorderfield",
+          "href": "/graphql/reference/enterprise-admin#enum-enterpriseteammemberorderfield"
+        }
+      ],
+      "category": "enterprise-admin"
+    },
+    {
+      "name": "EnterpriseTeamOrder",
+      "id": "enterpriseteamorder",
+      "href": "/graphql/reference/enterprise-admin#input-object-enterpriseteamorder",
+      "description": "<p>Ordering options for enterprise team connections.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order enterprise teams by.</p>",
+          "type": "EnterpriseTeamOrderField!",
+          "id": "enterpriseteamorderfield",
+          "href": "/graphql/reference/enterprise-admin#enum-enterpriseteamorderfield"
+        }
+      ],
+      "category": "enterprise-admin"
+    },
+    {
+      "name": "EnterpriseTeamOrganizationOrder",
+      "id": "enterpriseteamorganizationorder",
+      "href": "/graphql/reference/enterprise-admin#input-object-enterpriseteamorganizationorder",
+      "description": "<p>Ordering options for enterprise team organization connections.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order organizations by.</p>",
+          "type": "EnterpriseTeamOrganizationOrderField!",
+          "id": "enterpriseteamorganizationorderfield",
+          "href": "/graphql/reference/enterprise-admin#enum-enterpriseteamorganizationorderfield"
         }
       ],
       "category": "enterprise-admin"
@@ -10473,6 +11205,7 @@
       "id": "ipallowlistentryorder",
       "href": "/graphql/reference/enterprise-admin#input-object-ipallowlistentryorder",
       "description": "<p>Ordering options for IP allow list entry connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",

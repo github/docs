@@ -5,6 +5,7 @@
       "id": "createref",
       "href": "/graphql/reference/git#mutation-createref",
       "description": "<p>Create a new Git Ref.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -36,6 +37,7 @@
       "id": "deleteref",
       "href": "/graphql/reference/git#mutation-deleteref",
       "description": "<p>Delete a Git Ref.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -60,6 +62,7 @@
       "id": "updateref",
       "href": "/graphql/reference/git#mutation-updateref",
       "description": "<p>Update a Git Ref.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -91,6 +94,7 @@
       "id": "updaterefs",
       "href": "/graphql/reference/git#mutation-updaterefs",
       "description": "<p>Creates, updates and/or deletes multiple refs in a repository.</p>\n<p>This mutation takes a list of <code>RefUpdate</code>s and performs these updates\non the repository. All updates are performed atomically, meaning that\nif one of them is rejected, no other ref will be modified.</p>\n<p><code>RefUpdate.beforeOid</code> specifies that the given reference needs to point\nto the given value before performing any updates. A value of\n<code>0000000000000000000000000000000000000000</code> can be used to verify that\nthe references should not exist.</p>\n<p><code>RefUpdate.afterOid</code> specifies the value that the given reference\nwill point to after performing all updates. A value of\n<code>0000000000000000000000000000000000000000</code> can be used to delete a\nreference.</p>\n<p>If <code>RefUpdate.force</code> is set to <code>true</code>, a non-fast-forward updates\nfor the given reference will be allowed.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -117,6 +121,7 @@
       "id": "blame",
       "href": "/graphql/reference/git#object-blame",
       "description": "<p>Represents a Git blame.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "ranges",
@@ -133,6 +138,7 @@
       "id": "blamerange",
       "href": "/graphql/reference/git#object-blamerange",
       "description": "<p>Represents a range of information from a Git blame.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "age",
@@ -170,6 +176,7 @@
       "id": "blob",
       "href": "/graphql/reference/git#object-blob",
       "description": "<p>Represents a Git blob.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "GitObject",
@@ -261,6 +268,7 @@
       "id": "gitactor",
       "href": "/graphql/reference/git#object-gitactor",
       "description": "<p>Represents an actor in a Git commit (ie. an author or committer).</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "avatarUrl",
@@ -376,6 +384,7 @@
       "id": "gpgsignature",
       "href": "/graphql/reference/git#object-gpgsignature",
       "description": "<p>Represents a GPG signature on a Commit or Tag.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "GitSignature",
@@ -455,6 +464,7 @@
       "id": "push",
       "href": "/graphql/reference/git#object-push",
       "description": "<p>A Git push.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -513,6 +523,7 @@
       "id": "ref",
       "href": "/graphql/reference/git#object-ref",
       "description": "<p>Represents a Git reference.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -800,6 +811,7 @@
       "id": "refupdaterule",
       "href": "/graphql/reference/git#object-refupdaterule",
       "description": "<p>Branch protection rules that are enforced on the viewer.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "allowsDeletions",
@@ -893,6 +905,7 @@
       "id": "smimesignature",
       "href": "/graphql/reference/git#object-smimesignature",
       "description": "<p>Represents an S/MIME signature on a Commit or Tag.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "GitSignature",
@@ -965,6 +978,7 @@
       "id": "sshsignature",
       "href": "/graphql/reference/git#object-sshsignature",
       "description": "<p>Represents an SSH signature on a Commit or Tag.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "GitSignature",
@@ -1044,6 +1058,7 @@
       "id": "submodule",
       "href": "/graphql/reference/git#object-submodule",
       "description": "<p>A pointer to a repository at a specific revision embedded inside another repository.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "branch",
@@ -1162,6 +1177,7 @@
       "id": "tag",
       "href": "/graphql/reference/git#object-tag",
       "description": "<p>Represents a Git tag.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "GitObject",
@@ -1253,6 +1269,7 @@
       "id": "tree",
       "href": "/graphql/reference/git#object-tree",
       "description": "<p>Represents a Git tree.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "GitObject",
@@ -1323,6 +1340,7 @@
       "id": "treeentry",
       "href": "/graphql/reference/git#object-treeentry",
       "description": "<p>Represents a Git tree entry.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "extension",
@@ -1437,6 +1455,7 @@
       "id": "unknownsignature",
       "href": "/graphql/reference/git#object-unknownsignature",
       "description": "<p>Represents an unknown signature on a Commit or Tag.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "GitSignature",
@@ -1511,6 +1530,7 @@
       "id": "gitobject",
       "href": "/graphql/reference/git#interface-gitobject",
       "description": "<p>Represents a Git object.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "abbreviatedOid",
@@ -1562,6 +1582,7 @@
       "id": "gitsignature",
       "href": "/graphql/reference/git#interface-gitsignature",
       "description": "<p>Information about a signature (GPG or S/MIME) on a Commit or Tag.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "email",
@@ -1629,6 +1650,7 @@
       "id": "gitsignaturestate",
       "href": "/graphql/reference/git#enum-gitsignaturestate",
       "description": "<p>The state of a Git signature.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "BAD_CERT",
@@ -1706,6 +1728,7 @@
       "id": "reforderfield",
       "href": "/graphql/reference/git#enum-reforderfield",
       "description": "<p>Properties by which ref connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALPHABETICAL",
@@ -1725,6 +1748,7 @@
       "id": "committablebranch",
       "href": "/graphql/reference/git#input-object-committablebranch",
       "description": "<p>A git ref for a commit to be appended to.</p>\n<p>The ref must be a branch, i.e. its fully qualified name must start\nwith <code>refs/heads/</code> (although the input is not required to be fully\nqualified).</p>\n<p>The Ref may be specified by its global node ID or by the\n<code>repositoryNameWithOwner</code> and <code>branchName</code>.</p>\n<h3 id=\"examples\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#examples\">Examples<span class=\"heading-link-symbol\" aria-hidden=\"true\"></span></a></h3>\n<p>Specify a branch using a global node ID:</p>\n<pre><code>{ \"id\": \"MDM6UmVmMTpyZWZzL2hlYWRzL21haW4=\" }\n</code></pre>\n<p>Specify a branch using <code>repositoryNameWithOwner</code> and <code>branchName</code>:</p>\n<pre><code>{\n  \"repositoryNameWithOwner\": \"github/graphql-client\",\n  \"branchName\": \"main\"\n}.\n</code></pre>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "branchName",
@@ -1817,6 +1841,7 @@
       "id": "fileaddition",
       "href": "/graphql/reference/git#input-object-fileaddition",
       "description": "<p>A command to add a file at the given path with the given contents as part of a\ncommit.  Any existing file at that that path will be replaced.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "contents",
@@ -1840,6 +1865,7 @@
       "id": "filechanges",
       "href": "/graphql/reference/git#input-object-filechanges",
       "description": "<p>A description of a set of changes to a file tree to be made as part of\na git commit, modeled as zero or more file <code>additions</code> and zero or more\nfile <code>deletions</code>.</p>\n<p>Both fields are optional; omitting both will produce a commit with no\nfile changes.</p>\n<p><code>deletions</code> and <code>additions</code> describe changes to files identified\nby their path in the git tree using unix-style path separators, i.e.\n<code>/</code>.  The root of a git tree is an empty string, so paths are not\nslash-prefixed.</p>\n<p><code>path</code> values must be unique across all <code>additions</code> and <code>deletions</code>\nprovided.  Any duplication will result in a validation error.</p>\n<h3 id=\"encoding\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#encoding\">Encoding<span class=\"heading-link-symbol\" aria-hidden=\"true\"></span></a></h3>\n<p>File contents must be provided in full for each <code>FileAddition</code>.</p>\n<p>The <code>contents</code> of a <code>FileAddition</code> must be encoded using RFC 4648\ncompliant base64, i.e. correct padding is required and no characters\noutside the standard alphabet may be used.  Invalid base64\nencoding will be rejected with a validation error.</p>\n<p>The encoded contents may be binary.</p>\n<p>For text files, no assumptions are made about the character encoding of\nthe file contents (after base64 decoding).  No charset transcoding or\nline-ending normalization will be performed; it is the client's\nresponsibility to manage the character encoding of files they provide.\nHowever, for maximum compatibility we recommend using UTF-8 encoding\nand ensuring that all files in a repository use a consistent\nline-ending convention (<code>\\n</code> or <code>\\r\\n</code>), and that all files end\nwith a newline.</p>\n<h3 id=\"modeling-file-changes\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#modeling-file-changes\">Modeling file changes<span class=\"heading-link-symbol\" aria-hidden=\"true\"></span></a></h3>\n<p>Each of the the five types of conceptual changes that can be made in a\ngit commit can be described using the <code>FileChanges</code> type as follows:</p>\n<ol>\n<li>\n<p>New file addition: create file <code>hello world\\n</code> at path <code>docs/README.txt</code>:</p>\n<pre><code>{\n  \"additions\" [\n    {\n      \"path\": \"docs/README.txt\",\n      \"contents\": base64encode(\"hello world\\n\")\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>Existing file modification: change existing <code>docs/README.txt</code> to have new\ncontent <code>new content here\\n</code>:</p>\n<pre><code>{\n  \"additions\" [\n    {\n      \"path\": \"docs/README.txt\",\n      \"contents\": base64encode(\"new content here\\n\")\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>Existing file deletion: remove existing file <code>docs/README.txt</code>.\nNote that the path is required to exist -- specifying a\npath that does not exist on the given branch will abort the\ncommit and return an error.</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\"\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>File rename with no changes: rename <code>docs/README.txt</code> with\nprevious content <code>hello world\\n</code> to the same content at\n<code>newdocs/README.txt</code>:</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\",\n    }\n  ],\n  \"additions\" [\n    {\n      \"path\": \"newdocs/README.txt\",\n      \"contents\": base64encode(\"hello world\\n\")\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>File rename with changes: rename <code>docs/README.txt</code> with\nprevious content <code>hello world\\n</code> to a file at path\n<code>newdocs/README.txt</code> with content <code>new contents\\n</code>:</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\",\n    }\n  ],\n  \"additions\" [\n    {\n      \"path\": \"newdocs/README.txt\",\n      \"contents\": base64encode(\"new contents\\n\")\n    }\n  ]\n}.\n</code></pre>\n</li>\n</ol>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "additions",
@@ -1863,6 +1889,7 @@
       "id": "filedeletion",
       "href": "/graphql/reference/git#input-object-filedeletion",
       "description": "<p>A command to delete the file at the given path as part of a commit.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "path",
@@ -1879,6 +1906,7 @@
       "id": "reforder",
       "href": "/graphql/reference/git#input-object-reforder",
       "description": "<p>Ways in which lists of git refs can be ordered upon return.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -1902,6 +1930,7 @@
       "id": "refupdate",
       "href": "/graphql/reference/git#input-object-refupdate",
       "description": "<p>A ref update.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "afterOid",

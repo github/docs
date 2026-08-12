@@ -161,6 +161,7 @@
       "id": "textmatch",
       "href": "/graphql/reference/search#object-textmatch",
       "description": "<p>A text match within a search result.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "fragment",
@@ -191,6 +192,7 @@
       "id": "textmatchhighlight",
       "href": "/graphql/reference/search#object-textmatchhighlight",
       "description": "<p>Represents a single highlight in a search result match.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "beginIndice",
@@ -223,6 +225,7 @@
       "id": "searchtype",
       "href": "/graphql/reference/search#enum-searchtype",
       "description": "<p>Represents the individual results of a search.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DISCUSSION",
@@ -254,6 +257,7 @@
       "id": "searchresultitem",
       "href": "/graphql/reference/search#union-searchresultitem",
       "description": "<p>The results of a search.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "App",

@@ -5,6 +5,7 @@
       "id": "createbranchprotectionrule",
       "href": "/graphql/reference/branches#mutation-createbranchprotectionrule",
       "description": "<p>Create a new branch protection rule.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -36,6 +37,7 @@
       "id": "deletebranchprotectionrule",
       "href": "/graphql/reference/branches#mutation-deletebranchprotectionrule",
       "description": "<p>Delete a branch protection rule.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -60,6 +62,7 @@
       "id": "mergebranch",
       "href": "/graphql/reference/branches#mutation-mergebranch",
       "description": "<p>Merge a head into a branch.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -91,6 +94,7 @@
       "id": "updatebranchprotectionrule",
       "href": "/graphql/reference/branches#mutation-updatebranchprotectionrule",
       "description": "<p>Update a branch protection rule.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -124,6 +128,7 @@
       "id": "branchnamepatternparameters",
       "href": "/graphql/reference/branches#object-branchnamepatternparameters",
       "description": "<p>Parameters to be used for the branch_name_pattern rule.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "name",
@@ -161,6 +166,7 @@
       "id": "branchprotectionrule",
       "href": "/graphql/reference/branches#object-branchprotectionrule",
       "description": "<p>A branch protection rule.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -645,6 +651,7 @@
       "id": "branchprotectionruleconflict",
       "href": "/graphql/reference/branches#object-branchprotectionruleconflict",
       "description": "<p>A conflict between two branch protection rules.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "branchProtectionRule",
@@ -795,6 +802,7 @@
       "id": "bypassforcepushallowance",
       "href": "/graphql/reference/branches#object-bypassforcepushallowance",
       "description": "<p>A user, team, or app who has the ability to bypass a force push requirement on a protected branch.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -892,6 +900,7 @@
       "id": "bypasspullrequestallowance",
       "href": "/graphql/reference/branches#object-bypasspullrequestallowance",
       "description": "<p>A user, team, or app who has the ability to bypass a pull request requirement on a protected branch.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -989,6 +998,7 @@
       "id": "pushallowance",
       "href": "/graphql/reference/branches#object-pushallowance",
       "description": "<p>A team, user, or app who has the ability to push to a protected branch.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1086,6 +1096,7 @@
       "id": "refnameconditiontarget",
       "href": "/graphql/reference/branches#object-refnameconditiontarget",
       "description": "<p>Parameters to be used for the ref_name condition.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "exclude",
@@ -1109,6 +1120,7 @@
       "id": "requiredstatuscheckdescription",
       "href": "/graphql/reference/branches#object-requiredstatuscheckdescription",
       "description": "<p>Represents a required status check for a protected branch, but not any specific run of that check.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "app",
@@ -1132,6 +1144,7 @@
       "id": "requiredstatuschecksparameters",
       "href": "/graphql/reference/branches#object-requiredstatuschecksparameters",
       "description": "<p>Choose which status checks must pass before the ref is updated. When enabled,\ncommits must first be pushed to another ref where the checks pass.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "doNotEnforceOnCreate",
@@ -1162,6 +1175,7 @@
       "id": "reviewdismissalallowance",
       "href": "/graphql/reference/branches#object-reviewdismissalallowance",
       "description": "<p>A user, team, or app who has the ability to dismiss a review on a protected branch.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1261,6 +1275,7 @@
       "id": "branchactorallowanceactor",
       "href": "/graphql/reference/branches#union-branchactorallowanceactor",
       "description": "<p>Types which can be actors for <code>BranchActorAllowance</code> objects.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "App",
@@ -1285,6 +1300,7 @@
       "id": "pushallowanceactor",
       "href": "/graphql/reference/branches#union-pushallowanceactor",
       "description": "<p>Types that can be an actor.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "App",
@@ -1309,6 +1325,7 @@
       "id": "reviewdismissalallowanceactor",
       "href": "/graphql/reference/branches#union-reviewdismissalallowanceactor",
       "description": "<p>Types that can be an actor.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "App",
@@ -1335,6 +1352,7 @@
       "id": "branchnamepatternparametersinput",
       "href": "/graphql/reference/branches#input-object-branchnamepatternparametersinput",
       "description": "<p>Parameters to be used for the branch_name_pattern rule.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "name",
@@ -1654,6 +1672,7 @@
       "id": "refnameconditiontargetinput",
       "href": "/graphql/reference/branches#input-object-refnameconditiontargetinput",
       "description": "<p>Parameters to be used for the ref_name condition.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "exclude",
@@ -1677,6 +1696,7 @@
       "id": "requiredstatuscheckinput",
       "href": "/graphql/reference/branches#input-object-requiredstatuscheckinput",
       "description": "<p>Specifies the attributes for a new or updated required status check.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "appId",
@@ -1700,6 +1720,7 @@
       "id": "requiredstatuschecksparametersinput",
       "href": "/graphql/reference/branches#input-object-requiredstatuschecksparametersinput",
       "description": "<p>Choose which status checks must pass before the ref is updated. When enabled,\ncommits must first be pushed to another ref where the checks pass.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "doNotEnforceOnCreate",

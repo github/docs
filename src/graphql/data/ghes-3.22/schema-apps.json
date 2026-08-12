@@ -5,6 +5,7 @@
       "id": "app",
       "href": "/graphql/reference/apps#object-app",
       "description": "<p>A GitHub App.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -163,6 +164,7 @@
       "id": "bot",
       "href": "/graphql/reference/apps#object-bot",
       "description": "<p>A special type of user which takes actions on behalf of GitHub Apps.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Actor",
@@ -258,6 +260,7 @@
       "id": "oauthapplicationauditentrydata",
       "href": "/graphql/reference/apps#interface-oauthapplicationauditentrydata",
       "description": "<p>Metadata for an audit entry with action oauth_application.*.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "oauthApplicationName",
@@ -290,6 +293,7 @@
       "id": "oauthapplicationcreateauditentrystate",
       "href": "/graphql/reference/apps#enum-oauthapplicationcreateauditentrystate",
       "description": "<p>The state of an OAuth application when it was created.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ACTIVE",

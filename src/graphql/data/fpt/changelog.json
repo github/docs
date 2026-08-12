@@ -4,6 +4,42 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>IssueFieldValueFilter</code> was added</p>",
+          "<p>Input field <code>dateValue</code> of type <code>String</code> was added to input object type <code>IssueFieldValueFilter</code></p>",
+          "<p>Input field <code>fieldId</code> of type <code>ID</code> was added to input object type <code>IssueFieldValueFilter</code></p>",
+          "<p>Input field <code>fieldName</code> of type <code>String</code> was added to input object type <code>IssueFieldValueFilter</code></p>",
+          "<p>Input field <code>multiSelectOptionIds</code> of type '[ID!]<code>was added to input object type</code>IssueFieldValueFilter'</p>",
+          "<p>Input field <code>multiSelectOptionValues</code> of type '[String!]<code>was added to input object type</code>IssueFieldValueFilter'</p>",
+          "<p>Input field <code>numberValue</code> of type <code>Float</code> was added to input object type <code>IssueFieldValueFilter</code></p>",
+          "<p>Input field <code>singleSelectOptionId</code> of type <code>ID</code> was added to input object type <code>IssueFieldValueFilter</code></p>",
+          "<p>Input field <code>singleSelectOptionValue</code> of type <code>String</code> was added to input object type <code>IssueFieldValueFilter</code></p>",
+          "<p>Input field <code>textValue</code> of type <code>String</code> was added to input object type <code>IssueFieldValueFilter</code></p>",
+          "<p>Input field <code>issueFieldValues</code> of type '[IssueFieldValueFilter!]<code>was added to input object type</code>IssueFilters'</p>",
+          "<p>Field <code>pinnedIssueFields</code> was added to object type <code>Organization</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>Organization.pinnedIssueFields</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>Organization.pinnedIssueFields</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>Organization.pinnedIssueFields</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>Organization.pinnedIssueFields</code></p>",
+          "<p>Field <code>isIssueField</code> was added to object type 'ProjectV2Field'</p>",
+          "<p>Field <code>issueField</code> was added to object type 'ProjectV2Field'</p>",
+          "<p>Field <code>isIssueField</code> was added to interface 'ProjectV2FieldCommon'</p>",
+          "<p>Field <code>isIssueField</code> was added to object type 'ProjectV2IterationField'</p>",
+          "<p>Field <code>isIssueField</code> was added to object type 'ProjectV2MultiSelectField'</p>",
+          "<p>Field <code>issueField</code> was added to object type 'ProjectV2MultiSelectField'</p>",
+          "<p>Field <code>isIssueField</code> was added to object type 'ProjectV2SingleSelectField'</p>",
+          "<p>Field <code>issueField</code> was added to object type 'ProjectV2SingleSelectField'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-08-12"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Enum value <code>GITLAB</code> was added to enum <code>MigrationSourceType</code></p>"
         ]
       }

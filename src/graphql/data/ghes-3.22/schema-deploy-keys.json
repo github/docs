@@ -5,6 +5,7 @@
       "id": "deploykey",
       "href": "/graphql/reference/deploy-keys#object-deploykey",
       "description": "<p>A repository deploy key.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",

@@ -33,6 +33,7 @@
       "id": "license",
       "href": "/graphql/reference/licenses#object-license",
       "description": "<p>A repository's open source license.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -154,6 +155,7 @@
       "id": "licenserule",
       "href": "/graphql/reference/licenses#object-licenserule",
       "description": "<p>Describes a License's conditions, permissions, and limitations.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "description",

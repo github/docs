@@ -5,6 +5,7 @@
       "id": "abortqueuedmigrations",
       "href": "/graphql/reference/migrations#mutation-abortqueuedmigrations",
       "description": "<p>Clear all of a customer's queued migrations.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -36,6 +37,7 @@
       "id": "abortrepositorymigration",
       "href": "/graphql/reference/migrations#mutation-abortrepositorymigration",
       "description": "<p>Abort a repository migration queued or in progress.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -67,6 +69,7 @@
       "id": "createattributioninvitation",
       "href": "/graphql/reference/migrations#mutation-createattributioninvitation",
       "description": "<p>Invites a user to claim reattributable data.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -112,6 +115,7 @@
       "id": "createmigrationsource",
       "href": "/graphql/reference/migrations#mutation-createmigrationsource",
       "description": "<p>Creates a GitHub Enterprise Importer (GEI) migration source.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -143,6 +147,7 @@
       "id": "grantmigratorrole",
       "href": "/graphql/reference/migrations#mutation-grantmigratorrole",
       "description": "<p>Grant the migrator role to a user or a team.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -207,6 +212,7 @@
       "id": "revokemigratorrole",
       "href": "/graphql/reference/migrations#mutation-revokemigratorrole",
       "description": "<p>Revoke the migrator role from a user or a team.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -238,6 +244,7 @@
       "id": "startorganizationmigration",
       "href": "/graphql/reference/migrations#mutation-startorganizationmigration",
       "description": "<p>Starts a GitHub Enterprise Importer organization migration.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -269,6 +276,7 @@
       "id": "startrepositorymigration",
       "href": "/graphql/reference/migrations#mutation-startrepositorymigration",
       "description": "<p>Starts a GitHub Enterprise Importer (GEI) repository migration.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -302,6 +310,7 @@
       "id": "mannequin",
       "href": "/graphql/reference/migrations#object-mannequin",
       "description": "<p>A placeholder user for attribution of imported data on GitHub.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Actor",
@@ -476,6 +485,7 @@
       "id": "migrationsource",
       "href": "/graphql/reference/migrations#object-migrationsource",
       "description": "<p>A GitHub Enterprise Importer (GEI) migration source.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -520,6 +530,7 @@
       "id": "organizationmigration",
       "href": "/graphql/reference/migrations#object-organizationmigration",
       "description": "<p>A GitHub Enterprise Importer (GEI) organization migration.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -606,6 +617,7 @@
       "id": "repositorymigration",
       "href": "/graphql/reference/migrations#object-repositorymigration",
       "description": "<p>A GitHub Enterprise Importer (GEI) repository migration.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Migration",
@@ -766,6 +778,7 @@
       "id": "migration",
       "href": "/graphql/reference/migrations#interface-migration",
       "description": "<p>Represents a GitHub Enterprise Importer (GEI) migration.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "continueOnError",
@@ -854,6 +867,7 @@
       "id": "mannequinorderfield",
       "href": "/graphql/reference/migrations#enum-mannequinorderfield",
       "description": "<p>Properties by which mannequins can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -871,6 +885,7 @@
       "id": "migrationsourcetype",
       "href": "/graphql/reference/migrations#enum-migrationsourcetype",
       "description": "<p>Represents the different GitHub Enterprise Importer (GEI) migration sources.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "AZURE_DEVOPS",
@@ -892,6 +907,7 @@
       "id": "migrationstate",
       "href": "/graphql/reference/migrations#enum-migrationstate",
       "description": "<p>The GitHub Enterprise Importer (GEI) migration state.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "FAILED",
@@ -929,6 +945,7 @@
       "id": "organizationmigrationstate",
       "href": "/graphql/reference/migrations#enum-organizationmigrationstate",
       "description": "<p>The Octoshift Organization migration state.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "FAILED",
@@ -978,6 +995,7 @@
       "id": "repositorymigrationorderdirection",
       "href": "/graphql/reference/migrations#enum-repositorymigrationorderdirection",
       "description": "<p>Possible directions in which to order a list of repository migrations when provided an <code>orderBy</code> argument.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ASC",
@@ -995,6 +1013,7 @@
       "id": "repositorymigrationorderfield",
       "href": "/graphql/reference/migrations#enum-repositorymigrationorderfield",
       "description": "<p>Properties by which repository migrations can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -1246,6 +1265,7 @@
       "id": "mannequinorder",
       "href": "/graphql/reference/migrations#input-object-mannequinorder",
       "description": "<p>Ordering options for mannequins.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -1269,6 +1289,7 @@
       "id": "repositorymigrationorder",
       "href": "/graphql/reference/migrations#input-object-repositorymigrationorder",
       "description": "<p>Ordering options for repository migrations.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",

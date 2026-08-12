@@ -111,6 +111,7 @@
       "id": "codeofconduct",
       "href": "/graphql/reference/meta#object-codeofconduct",
       "description": "<p>The Code of Conduct for a repository.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -165,10 +166,63 @@
       "category": "meta"
     },
     {
+      "name": "ContentWarning",
+      "id": "contentwarning",
+      "href": "/graphql/reference/meta#object-contentwarning",
+      "description": "<p>The content warning for a repository.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "category",
+          "description": "<p>The content warning' category. E.g. 'mis_dis_information'.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "customSubCategory",
+          "description": "<p>The content warning's custom sub category text. E.g. 'dangerous stuff.'.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "subCategory",
+          "description": "<p>The content warning's sub category. E.g. 'medical_scientific'.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "subTitle",
+          "description": "<p>The content warning's sub title. E.g. 'The information contained in this page has not been verified.'.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "title",
+          "description": "<p>The content warning's title. E.g. 'This page may contain false or misleading information.'.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "type",
+          "description": "<p>The type of content warning. E.g. 'interstitial'.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "meta"
+    },
+    {
       "name": "GitHubMetadata",
       "id": "githubmetadata",
       "href": "/graphql/reference/meta#object-githubmetadata",
       "description": "<p>Represents information about the GitHub instance.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "gitHubServicesSha",
@@ -192,6 +246,7 @@
       "id": "ratelimit",
       "href": "/graphql/reference/meta#object-ratelimit",
       "description": "<p>Represents the client's rate limit.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "cost",
@@ -245,6 +300,7 @@
       "id": "node",
       "href": "/graphql/reference/meta#interface-node",
       "description": "<p>An object with an ID.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "id",
@@ -261,6 +317,7 @@
       "id": "uniformresourcelocatable",
       "href": "/graphql/reference/meta#interface-uniformresourcelocatable",
       "description": "<p>Represents a type that can be retrieved by a URL.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "resourcePath",
@@ -286,6 +343,7 @@
       "id": "operationtype",
       "href": "/graphql/reference/meta#enum-operationtype",
       "description": "<p>The corresponding operation type for the action.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ACCESS",
@@ -323,6 +381,7 @@
       "id": "orderdirection",
       "href": "/graphql/reference/meta#enum-orderdirection",
       "description": "<p>Possible directions in which to order a list of items when provided an <code>orderBy</code> argument.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ASC",
@@ -340,6 +399,7 @@
       "id": "reportedcontentclassifiers",
       "href": "/graphql/reference/meta#enum-reportedcontentclassifiers",
       "description": "<p>The reasons a piece of content can be reported or minimized.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DUPLICATE",

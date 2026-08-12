@@ -551,6 +551,7 @@
       "id": "addedtoprojectevent",
       "href": "/graphql/reference/projects-classic#object-addedtoprojectevent",
       "description": "<p>Represents a<code>added_to_project</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -624,6 +625,7 @@
       "id": "movedcolumnsinprojectevent",
       "href": "/graphql/reference/projects-classic#object-movedcolumnsinprojectevent",
       "description": "<p>Represents a<code>moved_columns_in_project</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -706,6 +708,7 @@
       "id": "project",
       "href": "/graphql/reference/projects-classic#object-project",
       "description": "<p>Projects manage issues, pull requests and notes within a project owner.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Closable",
@@ -996,6 +999,7 @@
       "id": "projectcard",
       "href": "/graphql/reference/projects-classic#object-projectcard",
       "description": "<p>A card in a project.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1189,6 +1193,7 @@
       "id": "projectcolumn",
       "href": "/graphql/reference/projects-classic#object-projectcolumn",
       "description": "<p>A column inside a project.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1462,6 +1467,7 @@
       "id": "projectprogress",
       "href": "/graphql/reference/projects-classic#object-projectprogress",
       "description": "<p>Project progress stats.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "doneCount",
@@ -1534,6 +1540,7 @@
       "id": "removedfromprojectevent",
       "href": "/graphql/reference/projects-classic#object-removedfromprojectevent",
       "description": "<p>Represents a<code>removed_from_project</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1600,6 +1607,7 @@
       "id": "projectowner",
       "href": "/graphql/reference/projects-classic#interface-projectowner",
       "description": "<p>Represents an owner of a Project.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "id",
@@ -1741,6 +1749,7 @@
       "id": "projectcardarchivedstate",
       "href": "/graphql/reference/projects-classic#enum-projectcardarchivedstate",
       "description": "<p>The possible archived states of a project card.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ARCHIVED",
@@ -1758,6 +1767,7 @@
       "id": "projectcardstate",
       "href": "/graphql/reference/projects-classic#enum-projectcardstate",
       "description": "<p>Various content states of a ProjectCard.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CONTENT_ONLY",
@@ -1779,6 +1789,7 @@
       "id": "projectcolumnpurpose",
       "href": "/graphql/reference/projects-classic#enum-projectcolumnpurpose",
       "description": "<p>The semantic purpose of the column - todo, in progress, or done.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DONE",
@@ -1800,6 +1811,7 @@
       "id": "projectorderfield",
       "href": "/graphql/reference/projects-classic#enum-projectorderfield",
       "description": "<p>Properties by which project connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -1821,6 +1833,7 @@
       "id": "projectstate",
       "href": "/graphql/reference/projects-classic#enum-projectstate",
       "description": "<p>State of the project; either<code>open</code>or 'closed'.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CLOSED",
@@ -1838,6 +1851,7 @@
       "id": "projecttemplate",
       "href": "/graphql/reference/projects-classic#enum-projecttemplate",
       "description": "<p>GitHub-provided templates for Projects.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "AUTOMATED_KANBAN_V2",
@@ -1865,6 +1879,7 @@
       "id": "projectcarditem",
       "href": "/graphql/reference/projects-classic#union-projectcarditem",
       "description": "<p>Types that can be inside Project Cards.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Issue",
@@ -2291,6 +2306,7 @@
       "id": "projectcardimport",
       "href": "/graphql/reference/projects-classic#input-object-projectcardimport",
       "description": "<p>An issue or PR and its owning repository to be used in a project card.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "number",
@@ -2314,6 +2330,7 @@
       "id": "projectcolumnimport",
       "href": "/graphql/reference/projects-classic#input-object-projectcolumnimport",
       "description": "<p>A project column and a list of its issues and PRs.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "columnName",
@@ -2344,6 +2361,7 @@
       "id": "projectorder",
       "href": "/graphql/reference/projects-classic#input-object-projectorder",
       "description": "<p>Ways in which lists of projects can be ordered upon return.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",

@@ -5,6 +5,7 @@
       "id": "gist",
       "href": "/graphql/reference/gists#object-gist",
       "description": "<p>A Gist.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -303,6 +304,7 @@
       "id": "gistcomment",
       "href": "/graphql/reference/gists#object-gistcomment",
       "description": "<p>Represents a comment on an Gist.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Comment",
@@ -436,7 +438,7 @@
         },
         {
           "name": "minimizedReason",
-          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code>, <code>spam</code>, and <code>low-quality</code>. Note that the\ncase and formatting of these values differs from the inputs to the\n<code>MinimizeComment</code> mutation.</p>",
           "type": "String",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
@@ -670,6 +672,7 @@
       "id": "gistfile",
       "href": "/graphql/reference/gists#object-gistfile",
       "description": "<p>A file in a gist.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "encodedName",
@@ -755,6 +758,7 @@
       "id": "gistorderfield",
       "href": "/graphql/reference/gists#enum-gistorderfield",
       "description": "<p>Properties by which gist connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -776,6 +780,7 @@
       "id": "gistprivacy",
       "href": "/graphql/reference/gists#enum-gistprivacy",
       "description": "<p>The privacy of a Gist.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALL",
@@ -799,6 +804,7 @@
       "id": "gistorder",
       "href": "/graphql/reference/gists#input-object-gistorder",
       "description": "<p>Ordering options for gist connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",

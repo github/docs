@@ -5,6 +5,7 @@
       "id": "deletepackageversion",
       "href": "/graphql/reference/packages#mutation-deletepackageversion",
       "description": "<p>Delete a package version.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -38,6 +39,7 @@
       "id": "package",
       "href": "/graphql/reference/packages#object-package",
       "description": "<p>Information for an uploaded package.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -228,6 +230,7 @@
       "id": "packagefile",
       "href": "/graphql/reference/packages#object-packagefile",
       "description": "<p>A file in a package version.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -367,6 +370,7 @@
       "id": "packagestatistics",
       "href": "/graphql/reference/packages#object-packagestatistics",
       "description": "<p>Represents a object that contains package activity statistics such as downloads.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "downloadsTotalCount",
@@ -383,6 +387,7 @@
       "id": "packagetag",
       "href": "/graphql/reference/packages#object-packagetag",
       "description": "<p>A version tag contains the mapping between a tag name and a version.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -420,6 +425,7 @@
       "id": "packageversion",
       "href": "/graphql/reference/packages#object-packageversion",
       "description": "<p>Information about a specific package version.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -613,6 +619,7 @@
       "id": "packageversionstatistics",
       "href": "/graphql/reference/packages#object-packageversionstatistics",
       "description": "<p>Represents a object that contains package version activity statistics such as downloads.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "downloadsTotalCount",
@@ -631,6 +638,7 @@
       "id": "packageowner",
       "href": "/graphql/reference/packages#interface-packageowner",
       "description": "<p>Represents an owner of a package.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "id",
@@ -730,6 +738,7 @@
       "id": "packagefileorderfield",
       "href": "/graphql/reference/packages#enum-packagefileorderfield",
       "description": "<p>Properties by which package file connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -743,6 +752,7 @@
       "id": "packageorderfield",
       "href": "/graphql/reference/packages#enum-packageorderfield",
       "description": "<p>Properties by which package connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -756,6 +766,7 @@
       "id": "packagetype",
       "href": "/graphql/reference/packages#enum-packagetype",
       "description": "<p>The possible types of a package.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DEBIAN",
@@ -793,6 +804,7 @@
       "id": "packageversionorderfield",
       "href": "/graphql/reference/packages#enum-packageversionorderfield",
       "description": "<p>Properties by which package version connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -832,6 +844,7 @@
       "id": "packagefileorder",
       "href": "/graphql/reference/packages#input-object-packagefileorder",
       "description": "<p>Ways in which lists of package files can be ordered upon return.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -855,6 +868,7 @@
       "id": "packageorder",
       "href": "/graphql/reference/packages#input-object-packageorder",
       "description": "<p>Ways in which lists of packages can be ordered upon return.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -878,6 +892,7 @@
       "id": "packageversionorder",
       "href": "/graphql/reference/packages#input-object-packageversionorder",
       "description": "<p>Ways in which lists of package versions can be ordered upon return.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",

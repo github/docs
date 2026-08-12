@@ -5,6 +5,7 @@
       "id": "release",
       "href": "/graphql/reference/releases#object-release",
       "description": "<p>A release contains the content for a release.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -359,6 +360,7 @@
       "id": "releaseasset",
       "href": "/graphql/reference/releases#object-releaseasset",
       "description": "<p>A release asset contains the content for a release asset.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -581,6 +583,7 @@
       "id": "releaseorderfield",
       "href": "/graphql/reference/releases#enum-releaseorderfield",
       "description": "<p>Properties by which release connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -600,6 +603,7 @@
       "id": "releaseorder",
       "href": "/graphql/reference/releases#input-object-releaseorder",
       "description": "<p>Ways in which lists of releases can be ordered upon return.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",

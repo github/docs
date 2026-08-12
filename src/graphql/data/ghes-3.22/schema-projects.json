@@ -5,6 +5,7 @@
       "id": "addprojectv2draftissue",
       "href": "/graphql/reference/projects#mutation-addprojectv2draftissue",
       "description": "<p>Creates a new draft issue and add it to a Project.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -36,6 +37,7 @@
       "id": "addprojectv2itembyid",
       "href": "/graphql/reference/projects#mutation-addprojectv2itembyid",
       "description": "<p>Links an existing content instance to a Project.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -67,6 +69,7 @@
       "id": "archiveprojectv2item",
       "href": "/graphql/reference/projects#mutation-archiveprojectv2item",
       "description": "<p>Archives a ProjectV2Item.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -98,6 +101,7 @@
       "id": "clearprojectv2itemfieldvalue",
       "href": "/graphql/reference/projects#mutation-clearprojectv2itemfieldvalue",
       "description": "<p>This mutation clears the value of a field for an item in a Project. Currently\nonly text, number, date, assignees, labels, single-select, iteration and\nmilestone fields are supported.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -129,6 +133,7 @@
       "id": "convertprojectv2draftissueitemtoissue",
       "href": "/graphql/reference/projects#mutation-convertprojectv2draftissueitemtoissue",
       "description": "<p>Converts a projectV2 draft issue item to an issue.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -160,6 +165,7 @@
       "id": "copyprojectv2",
       "href": "/graphql/reference/projects#mutation-copyprojectv2",
       "description": "<p>Copy a project.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -191,6 +197,7 @@
       "id": "createprojectv2",
       "href": "/graphql/reference/projects#mutation-createprojectv2",
       "description": "<p>Creates a new project.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -222,6 +229,7 @@
       "id": "createprojectv2field",
       "href": "/graphql/reference/projects#mutation-createprojectv2field",
       "description": "<p>Create a new project field.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -253,6 +261,7 @@
       "id": "createprojectv2issuefield",
       "href": "/graphql/reference/projects#mutation-createprojectv2issuefield",
       "description": "<p>Create a new project issue field.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -284,6 +293,7 @@
       "id": "createprojectv2statusupdate",
       "href": "/graphql/reference/projects#mutation-createprojectv2statusupdate",
       "description": "<p>Creates a status update within a Project.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -315,6 +325,7 @@
       "id": "deleteprojectv2",
       "href": "/graphql/reference/projects#mutation-deleteprojectv2",
       "description": "<p>Delete a project.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -346,6 +357,7 @@
       "id": "deleteprojectv2field",
       "href": "/graphql/reference/projects#mutation-deleteprojectv2field",
       "description": "<p>Delete a project field.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -377,6 +389,7 @@
       "id": "deleteprojectv2item",
       "href": "/graphql/reference/projects#mutation-deleteprojectv2item",
       "description": "<p>Deletes an item from a Project.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -408,6 +421,7 @@
       "id": "deleteprojectv2statusupdate",
       "href": "/graphql/reference/projects#mutation-deleteprojectv2statusupdate",
       "description": "<p>Deletes a project status update.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -446,6 +460,7 @@
       "id": "deleteprojectv2workflow",
       "href": "/graphql/reference/projects#mutation-deleteprojectv2workflow",
       "description": "<p>Deletes a project workflow.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -484,6 +499,7 @@
       "id": "linkprojectv2torepository",
       "href": "/graphql/reference/projects#mutation-linkprojectv2torepository",
       "description": "<p>Links a project to a repository.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -515,6 +531,7 @@
       "id": "linkprojectv2toteam",
       "href": "/graphql/reference/projects#mutation-linkprojectv2toteam",
       "description": "<p>Links a project to a team.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -546,6 +563,7 @@
       "id": "markprojectv2astemplate",
       "href": "/graphql/reference/projects#mutation-markprojectv2astemplate",
       "description": "<p>Mark a project as a template. Note that only projects which are owned by an Organization can be marked as a template.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -577,6 +595,7 @@
       "id": "unarchiveprojectv2item",
       "href": "/graphql/reference/projects#mutation-unarchiveprojectv2item",
       "description": "<p>Unarchives a ProjectV2Item.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -608,6 +627,7 @@
       "id": "unlinkprojectv2fromrepository",
       "href": "/graphql/reference/projects#mutation-unlinkprojectv2fromrepository",
       "description": "<p>Unlinks a project from a repository.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -639,6 +659,7 @@
       "id": "unlinkprojectv2fromteam",
       "href": "/graphql/reference/projects#mutation-unlinkprojectv2fromteam",
       "description": "<p>Unlinks a project to a team.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -670,6 +691,7 @@
       "id": "unmarkprojectv2astemplate",
       "href": "/graphql/reference/projects#mutation-unmarkprojectv2astemplate",
       "description": "<p>Unmark a project as a template.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -701,6 +723,7 @@
       "id": "updateprojectv2",
       "href": "/graphql/reference/projects#mutation-updateprojectv2",
       "description": "<p>Updates an existing project.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -732,6 +755,7 @@
       "id": "updateprojectv2collaborators",
       "href": "/graphql/reference/projects#mutation-updateprojectv2collaborators",
       "description": "<p>Update the collaborators on a team or a project.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -763,6 +787,7 @@
       "id": "updateprojectv2draftissue",
       "href": "/graphql/reference/projects#mutation-updateprojectv2draftissue",
       "description": "<p>Updates a draft issue within a Project.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -794,6 +819,7 @@
       "id": "updateprojectv2field",
       "href": "/graphql/reference/projects#mutation-updateprojectv2field",
       "description": "<p>Update a project field.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -825,6 +851,7 @@
       "id": "updateprojectv2itemfieldvalue",
       "href": "/graphql/reference/projects#mutation-updateprojectv2itemfieldvalue",
       "description": "<p>This mutation updates the value of a field for an item in a Project. Currently\nonly single-select, text, number, date, and iteration fields are supported.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -856,6 +883,7 @@
       "id": "updateprojectv2itemposition",
       "href": "/graphql/reference/projects#mutation-updateprojectv2itemposition",
       "description": "<p>This mutation updates the position of the item in the project, where the position represents the priority of an item.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -887,6 +915,7 @@
       "id": "updateprojectv2statusupdate",
       "href": "/graphql/reference/projects#mutation-updateprojectv2statusupdate",
       "description": "<p>Updates a status update within a Project.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -920,6 +949,7 @@
       "id": "addedtoprojectv2event",
       "href": "/graphql/reference/projects#object-addedtoprojectv2event",
       "description": "<p>Represents a<code>added_to_project_v2</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -976,6 +1006,7 @@
       "id": "draftissue",
       "href": "/graphql/reference/projects#object-draftissue",
       "description": "<p>A draft issue within a project.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1183,6 +1214,7 @@
       "id": "projectv2",
       "href": "/graphql/reference/projects#object-projectv2",
       "description": "<p>New projects that manage issues, pull requests and drafts using tables and boards.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Closable",
@@ -1338,6 +1370,15 @@
                 "name": "String",
                 "id": "string",
                 "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "archivedStates",
+              "description": "<p>Filter items by their archived state. Defaults to only returning items that are not archived.</p>",
+              "type": {
+                "name": "[ProjectV2ItemArchivedState!]",
+                "id": "projectv2itemarchivedstate",
+                "href": "/graphql/reference/projects#enum-projectv2itemarchivedstate"
               }
             },
             {
@@ -1913,6 +1954,7 @@
       "id": "projectv2field",
       "href": "/graphql/reference/projects#object-projectv2field",
       "description": "<p>A field inside a project.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -2103,6 +2145,7 @@
       "id": "projectv2item",
       "href": "/graphql/reference/projects#object-projectv2item",
       "description": "<p>An item within a Project.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -2323,6 +2366,7 @@
       "id": "projectv2itemfielddatevalue",
       "href": "/graphql/reference/projects#object-projectv2itemfielddatevalue",
       "description": "<p>The value of a date field in a Project item.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -2400,6 +2444,7 @@
       "id": "projectv2itemfielditerationvalue",
       "href": "/graphql/reference/projects#object-projectv2itemfielditerationvalue",
       "description": "<p>The value of an iteration field in a Project item.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -2505,6 +2550,7 @@
       "id": "projectv2itemfieldlabelvalue",
       "href": "/graphql/reference/projects#object-projectv2itemfieldlabelvalue",
       "description": "<p>The value of the labels field in a Project item.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "field",
@@ -2566,6 +2612,7 @@
       "id": "projectv2itemfieldmilestonevalue",
       "href": "/graphql/reference/projects#object-projectv2itemfieldmilestonevalue",
       "description": "<p>The value of a milestone field in a Project item.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "field",
@@ -2589,6 +2636,7 @@
       "id": "projectv2itemfieldnumbervalue",
       "href": "/graphql/reference/projects#object-projectv2itemfieldnumbervalue",
       "description": "<p>The value of a number field in a Project item.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -2666,6 +2714,7 @@
       "id": "projectv2itemfieldpullrequestvalue",
       "href": "/graphql/reference/projects#object-projectv2itemfieldpullrequestvalue",
       "description": "<p>The value of a pull request field in a Project item.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "field",
@@ -2736,6 +2785,7 @@
       "id": "projectv2itemfieldrepositoryvalue",
       "href": "/graphql/reference/projects#object-projectv2itemfieldrepositoryvalue",
       "description": "<p>The value of a repository field in a Project item.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "field",
@@ -2759,6 +2809,7 @@
       "id": "projectv2itemfieldreviewervalue",
       "href": "/graphql/reference/projects#object-projectv2itemfieldreviewervalue",
       "description": "<p>The value of a reviewers field in a Project item.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "field",
@@ -2820,6 +2871,7 @@
       "id": "projectv2itemfieldsingleselectvalue",
       "href": "/graphql/reference/projects#object-projectv2itemfieldsingleselectvalue",
       "description": "<p>The value of a single select field in a Project item.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -2932,6 +2984,7 @@
       "id": "projectv2itemfieldtextvalue",
       "href": "/graphql/reference/projects#object-projectv2itemfieldtextvalue",
       "description": "<p>The value of a text field in a Project item.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -3009,6 +3062,7 @@
       "id": "projectv2itemfielduservalue",
       "href": "/graphql/reference/projects#object-projectv2itemfielduservalue",
       "description": "<p>The value of a user field in a Project item.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "field",
@@ -3130,6 +3184,7 @@
       "id": "projectv2itemissuefieldvalue",
       "href": "/graphql/reference/projects#object-projectv2itemissuefieldvalue",
       "description": "<p>The value of an issue field in a Project item.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "field",
@@ -3153,6 +3208,7 @@
       "id": "projectv2itemstatuschangedevent",
       "href": "/graphql/reference/projects#object-projectv2itemstatuschangedevent",
       "description": "<p>Represents a<code>project_v2_item_status_changed</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -3223,6 +3279,7 @@
       "id": "projectv2iterationfield",
       "href": "/graphql/reference/projects#object-projectv2iterationfield",
       "description": "<p>An iteration field inside a project.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -3300,6 +3357,7 @@
       "id": "projectv2iterationfieldconfiguration",
       "href": "/graphql/reference/projects#object-projectv2iterationfieldconfiguration",
       "description": "<p>Iteration field configuration for a project.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "completedIterations",
@@ -3337,6 +3395,7 @@
       "id": "projectv2iterationfielditeration",
       "href": "/graphql/reference/projects#object-projectv2iterationfielditeration",
       "description": "<p>Iteration field iteration settings for a project.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "duration",
@@ -3381,6 +3440,7 @@
       "id": "projectv2singleselectfield",
       "href": "/graphql/reference/projects#object-projectv2singleselectfield",
       "description": "<p>A single select field inside a project.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -3469,6 +3529,7 @@
       "id": "projectv2singleselectfieldoption",
       "href": "/graphql/reference/projects#object-projectv2singleselectfieldoption",
       "description": "<p>Single select field option for a configuration for a project.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "color",
@@ -3520,6 +3581,7 @@
       "id": "projectv2sortby",
       "href": "/graphql/reference/projects#object-projectv2sortby",
       "description": "<p>Represents a sort by field and direction.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "direction",
@@ -3603,6 +3665,7 @@
       "id": "projectv2sortbyfield",
       "href": "/graphql/reference/projects#object-projectv2sortbyfield",
       "description": "<p>Represents a sort by field and direction.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "direction",
@@ -3686,6 +3749,7 @@
       "id": "projectv2statusupdate",
       "href": "/graphql/reference/projects#object-projectv2statusupdate",
       "description": "<p>A status update within a project.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -3848,6 +3912,7 @@
       "id": "projectv2view",
       "href": "/graphql/reference/projects#object-projectv2view",
       "description": "<p>A view within a ProjectV2.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -4418,6 +4483,7 @@
       "id": "projectv2workflow",
       "href": "/graphql/reference/projects#object-projectv2workflow",
       "description": "<p>A workflow inside a project.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -4559,6 +4625,7 @@
       "id": "removedfromprojectv2event",
       "href": "/graphql/reference/projects#object-removedfromprojectv2event",
       "description": "<p>Represents a<code>removed_from_project_v2</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -4617,6 +4684,7 @@
       "id": "projectv2event",
       "href": "/graphql/reference/projects#interface-projectv2event",
       "description": "<p>Represents an event related to a project on the timeline of an issue or pull request.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "project",
@@ -4640,6 +4708,7 @@
       "id": "projectv2fieldcommon",
       "href": "/graphql/reference/projects#interface-projectv2fieldcommon",
       "description": "<p>Common fields across different project field types.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "createdAt",
@@ -4698,6 +4767,7 @@
       "id": "projectv2itemfieldvaluecommon",
       "href": "/graphql/reference/projects#interface-projectv2itemfieldvaluecommon",
       "description": "<p>Common fields across different project field value types.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "createdAt",
@@ -4756,6 +4826,7 @@
       "id": "projectv2owner",
       "href": "/graphql/reference/projects#interface-projectv2owner",
       "description": "<p>Represents an owner of a project.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "id",
@@ -4863,6 +4934,7 @@
       "id": "projectv2recent",
       "href": "/graphql/reference/projects#interface-projectv2recent",
       "description": "<p>Recent projects for the owner.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "recentProjects",
@@ -4919,6 +4991,7 @@
       "id": "projectv2customfieldtype",
       "href": "/graphql/reference/projects#enum-projectv2customfieldtype",
       "description": "<p>The type of a project field.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DATE",
@@ -4948,6 +5021,7 @@
       "id": "projectv2fieldorderfield",
       "href": "/graphql/reference/projects#enum-projectv2fieldorderfield",
       "description": "<p>Properties by which project v2 field connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -4969,10 +5043,19 @@
       "id": "projectv2fieldtype",
       "href": "/graphql/reference/projects#enum-projectv2fieldtype",
       "description": "<p>The type of a project field.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ASSIGNEES",
           "description": "<p>Assignees.</p>"
+        },
+        {
+          "name": "CLOSED",
+          "description": "<p>Closed.</p>"
+        },
+        {
+          "name": "CREATED",
+          "description": "<p>Created.</p>"
         },
         {
           "name": "DATE",
@@ -5037,6 +5120,28 @@
         {
           "name": "TRACKS",
           "description": "<p>Tracks.</p>"
+        },
+        {
+          "name": "UPDATED",
+          "description": "<p>Updated.</p>"
+        }
+      ],
+      "category": "projects"
+    },
+    {
+      "name": "ProjectV2ItemArchivedState",
+      "id": "projectv2itemarchivedstate",
+      "href": "/graphql/reference/projects#enum-projectv2itemarchivedstate",
+      "description": "<p>The possible archived states of a <code>ProjectV2Item</code>.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "ARCHIVED",
+          "description": "<p>A project item that is archived.</p>"
+        },
+        {
+          "name": "NOT_ARCHIVED",
+          "description": "<p>A project item that is not archived.</p>"
         }
       ],
       "category": "projects"
@@ -5046,6 +5151,7 @@
       "id": "projectv2itemfieldvalueorderfield",
       "href": "/graphql/reference/projects#enum-projectv2itemfieldvalueorderfield",
       "description": "<p>Properties by which project v2 item field value connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "POSITION",
@@ -5059,6 +5165,7 @@
       "id": "projectv2itemorderfield",
       "href": "/graphql/reference/projects#enum-projectv2itemorderfield",
       "description": "<p>Properties by which project v2 item connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "POSITION",
@@ -5072,6 +5179,7 @@
       "id": "projectv2itemtype",
       "href": "/graphql/reference/projects#enum-projectv2itemtype",
       "description": "<p>The type of a project item.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DRAFT_ISSUE",
@@ -5097,6 +5205,7 @@
       "id": "projectv2orderfield",
       "href": "/graphql/reference/projects#enum-projectv2orderfield",
       "description": "<p>Properties by which projects can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -5122,6 +5231,7 @@
       "id": "projectv2permissionlevel",
       "href": "/graphql/reference/projects#enum-projectv2permissionlevel",
       "description": "<p>The possible roles of a collaborator on a project.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ADMIN",
@@ -5143,6 +5253,7 @@
       "id": "projectv2roles",
       "href": "/graphql/reference/projects#enum-projectv2roles",
       "description": "<p>The possible roles of a collaborator on a project.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ADMIN",
@@ -5168,6 +5279,7 @@
       "id": "projectv2singleselectfieldoptioncolor",
       "href": "/graphql/reference/projects#enum-projectv2singleselectfieldoptioncolor",
       "description": "<p>The display color of a single-select field option.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "BLUE",
@@ -5209,6 +5321,7 @@
       "id": "projectv2state",
       "href": "/graphql/reference/projects#enum-projectv2state",
       "description": "<p>The possible states of a project v2.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CLOSED",
@@ -5226,6 +5339,7 @@
       "id": "projectv2statusupdateorderfield",
       "href": "/graphql/reference/projects#enum-projectv2statusupdateorderfield",
       "description": "<p>Properties by which project v2 status updates can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -5239,6 +5353,7 @@
       "id": "projectv2statusupdatestatus",
       "href": "/graphql/reference/projects#enum-projectv2statusupdatestatus",
       "description": "<p>The possible statuses of a project v2.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "AT_RISK",
@@ -5268,6 +5383,7 @@
       "id": "projectv2viewlayout",
       "href": "/graphql/reference/projects#enum-projectv2viewlayout",
       "description": "<p>The layout of a project v2 view.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "BOARD_LAYOUT",
@@ -5289,6 +5405,7 @@
       "id": "projectv2vieworderfield",
       "href": "/graphql/reference/projects#enum-projectv2vieworderfield",
       "description": "<p>Properties by which project v2 view connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -5310,6 +5427,7 @@
       "id": "projectv2workflowsorderfield",
       "href": "/graphql/reference/projects#enum-projectv2workflowsorderfield",
       "description": "<p>Properties by which project workflows can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -5337,6 +5455,7 @@
       "id": "organizationoruser",
       "href": "/graphql/reference/projects#union-organizationoruser",
       "description": "<p>Used for argument of CreateProjectV2 mutation.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Organization",
@@ -5356,6 +5475,7 @@
       "id": "projectv2actor",
       "href": "/graphql/reference/projects#union-projectv2actor",
       "description": "<p>Possible collaborators for a project.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Team",
@@ -5375,6 +5495,7 @@
       "id": "projectv2fieldconfiguration",
       "href": "/graphql/reference/projects#union-projectv2fieldconfiguration",
       "description": "<p>Configurations for project fields.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "ProjectV2Field",
@@ -5399,11 +5520,17 @@
       "id": "projectv2issuefieldvalues",
       "href": "/graphql/reference/projects#union-projectv2issuefieldvalues",
       "description": "<p>Possible issue field values for a Project item.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "IssueFieldDateValue",
           "id": "issuefielddatevalue",
           "href": "/graphql/reference/issues#object-issuefielddatevalue"
+        },
+        {
+          "name": "IssueFieldMultiSelectValue",
+          "id": "issuefieldmultiselectvalue",
+          "href": "/graphql/reference/issues#object-issuefieldmultiselectvalue"
         },
         {
           "name": "IssueFieldNumberValue",
@@ -5428,6 +5555,7 @@
       "id": "projectv2itemcontent",
       "href": "/graphql/reference/projects#union-projectv2itemcontent",
       "description": "<p>Types that can be inside Project Items.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "DraftIssue",
@@ -5452,6 +5580,7 @@
       "id": "projectv2itemfieldvalue",
       "href": "/graphql/reference/projects#union-projectv2itemfieldvalue",
       "description": "<p>Project field values.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "ProjectV2ItemFieldDateValue",
@@ -6150,6 +6279,7 @@
       "id": "projectv2collaborator",
       "href": "/graphql/reference/projects#input-object-projectv2collaborator",
       "description": "<p>A collaborator to update on a project. Only one of the userId or teamId should be provided.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "role",
@@ -6182,6 +6312,7 @@
       "id": "projectv2fieldorder",
       "href": "/graphql/reference/projects#input-object-projectv2fieldorder",
       "description": "<p>Ordering options for project v2 field connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -6205,6 +6336,7 @@
       "id": "projectv2fieldvalue",
       "href": "/graphql/reference/projects#input-object-projectv2fieldvalue",
       "description": "<p>The values that can be used to update a field of an item inside a Project. Only 1 value can be updated at a time.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "date",
@@ -6249,6 +6381,7 @@
       "id": "projectv2filters",
       "href": "/graphql/reference/projects#input-object-projectv2filters",
       "description": "<p>Ways in which to filter lists of projects.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "state",
@@ -6265,6 +6398,7 @@
       "id": "projectv2itemfieldvalueorder",
       "href": "/graphql/reference/projects#input-object-projectv2itemfieldvalueorder",
       "description": "<p>Ordering options for project v2 item field value connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -6288,6 +6422,7 @@
       "id": "projectv2itemorder",
       "href": "/graphql/reference/projects#input-object-projectv2itemorder",
       "description": "<p>Ordering options for project v2 item connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -6311,6 +6446,7 @@
       "id": "projectv2iteration",
       "href": "/graphql/reference/projects#input-object-projectv2iteration",
       "description": "<p>Represents an iteration.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "duration",
@@ -6341,6 +6477,7 @@
       "id": "projectv2iterationfieldconfigurationinput",
       "href": "/graphql/reference/projects#input-object-projectv2iterationfieldconfigurationinput",
       "description": "<p>Represents an iteration field configuration.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "duration",
@@ -6371,6 +6508,7 @@
       "id": "projectv2order",
       "href": "/graphql/reference/projects#input-object-projectv2order",
       "description": "<p>Ways in which lists of projects can be ordered upon return.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -6394,6 +6532,7 @@
       "id": "projectv2singleselectfieldoptioninput",
       "href": "/graphql/reference/projects#input-object-projectv2singleselectfieldoptioninput",
       "description": "<p>Represents a single select field option.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "color",
@@ -6406,6 +6545,13 @@
           "name": "description",
           "description": "<p>The description text of the option.</p>",
           "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The ID of an existing single select option. Include this to preserve the\noption's identity during updates, preventing item field values from being cleared.</p>",
+          "type": "String",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
         },
@@ -6424,6 +6570,7 @@
       "id": "projectv2statusorder",
       "href": "/graphql/reference/projects#input-object-projectv2statusorder",
       "description": "<p>Ways in which project v2 status updates can be ordered.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -6447,6 +6594,7 @@
       "id": "projectv2vieworder",
       "href": "/graphql/reference/projects#input-object-projectv2vieworder",
       "description": "<p>Ordering options for project v2 view connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -6470,6 +6618,7 @@
       "id": "projectv2workfloworder",
       "href": "/graphql/reference/projects#input-object-projectv2workfloworder",
       "description": "<p>Ordering options for project v2 workflows connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
