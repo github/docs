@@ -103,7 +103,14 @@ The following example shows these keys in one managed settings file.
     { "serverCommand": ["cmd", "/c", "uvx", "markitdown-mcp"] }
   ],
   "deniedMcpServers": [
-    { "serverUrl": "https://learn.microsoft.com/*" }
+    {
+      "serverCommand": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/"
+      ]
+    }
   ],
   "sandbox": {
     "enabled": true,
