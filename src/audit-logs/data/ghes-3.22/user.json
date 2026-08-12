@@ -198,6 +198,40 @@
     ]
   },
   {
+    "action": "actions_policy.evaluate",
+    "description": "N/A",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "operation_type",
+      "public_repo"
+    ]
+  },
+  {
     "action": "artifact.destroy",
     "description": "A workflow run artifact was manually deleted.",
     "docs_reference_links": "N/A",
@@ -1904,7 +1938,8 @@
       "created_at",
       "operation_type",
       "owner",
-      "owner_type"
+      "owner_type",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -2012,6 +2047,40 @@
       "owner",
       "owner_type",
       "seat_assignment"
+    ]
+  },
+  {
+    "action": "copilot.code_review_repository_settings_updated",
+    "description": "Copilot code review settings were updated for a repository.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "actor_is_bot",
+      "created_at",
+      "old_settings",
+      "operation_type",
+      "public_repo"
     ]
   },
   {
@@ -5369,6 +5438,39 @@
       "allowlist_id",
       "allowlist_name",
       "old_allowlist_name"
+    ]
+  },
+  {
+    "action": "mcp_registry.settings_update",
+    "description": "An MCP policy setting for the business was updated.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "block_local_servers",
+      "mcp_policy",
+      "old_block_local_servers",
+      "old_mcp_policy"
     ]
   },
   {
