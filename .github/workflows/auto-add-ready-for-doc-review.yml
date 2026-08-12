@@ -36,7 +36,7 @@ jobs:
             try {
               await github.rest.teams.getMembershipForUserInOrg({
                 org: 'github',
-                team_slug: 'docs',
+                team_slug: 'technical-content',
                 username: context.payload.sender.login,
               });
               return true

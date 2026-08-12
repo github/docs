@@ -141,7 +141,7 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
   //
   // Without this, the cookie is only ever consulted on the bare homepage, so a deep link
   // from search, the product UI, or a bookmark silently serves Free/Pro/Team. See
-  // github/docs-team#7227 for the measurements.
+  // github/technical-content#7227 for the measurements.
   //
   // This is deliberately its own branch rather than a tweak to `redirect` below, because
   // the ordinary path would emit a 301 for a language-prefixed URL. A redirect that
