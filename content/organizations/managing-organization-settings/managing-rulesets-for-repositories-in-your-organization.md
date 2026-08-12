@@ -80,6 +80,24 @@ You can import a ruleset from another repository or organization using the expor
 {% data reusables.repositories.import-a-ruleset %}
 
 {% endif %}
+
+{% ifversion rule-insights-dashboard-org-level %}
+
+## Viewing the rule insights dashboard
+
+Use the rule insights dashboard to review the evaluation activity of rulesets across your organization. You can:
+
+* Review aggregated rule evaluation metrics across all repositories in your organization to understand where and how your rulesets take effect.
+* Identify the repositories with the most bypasses so you can prioritize your review.
+* Filter results by evaluation status, branch, ruleset, and date range to focus on the activity that matters to you.
+* Export the data to a CSV file for further analysis.
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "repo" aria-hidden="true" aria-label="repo" %} Repository**, then click **Dashboard**.
+
+{% endif %}
+
 {% ifversion not fpt %}
 
 ## Viewing insights for rulesets
