@@ -118,6 +118,6 @@ Generally, if you're using company equipment, your company's IT department shoul
 
 * For Windows, see [Installing the trusted root certificate](https://learn.microsoft.com/en-us/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) in the Microsoft documentation.
 * For macOS, see [Add certificates to a keychain using Keychain Access on Mac](https://support.apple.com/en-gb/guide/keychain-access/kyca2431/mac) in the Keychain Access User Guide.
-* For Linux, see [Installing a root CA certificate in the trust store](https://ubuntu.com/server/docs/security-trust-store) in the Ubuntu documentation. Similar instructions should apply to most Linux distributions.
+* For Linux, see [Install a root CA certificate in the trust store](https://ubuntu.com/server/docs/how-to/security/install-a-root-ca-certificate-in-the-trust-store/) in the Ubuntu documentation. Similar instructions should apply to most Linux distributions.
 
 If you have installed a certificate but {% data variables.product.prodname_copilot_short %} isn't detecting it, see [AUTOTITLE](/copilot/how-tos/troubleshoot-copilot/troubleshoot-network-errors#troubleshooting-certificate-related-errors).
