@@ -116,6 +116,10 @@
   provider: 'Microsoft'
   release_status: 'GA'
 
+- name: 'MAI-Code-1.1-Flash'
+  provider: 'Microsoft'
+  release_status: 'GA'
+
 # Fine-tuned OAI models
 - name: 'Raptor mini'
   provider: 'Fine-tuned GPT-5 mini'

@@ -247,7 +247,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets all budgets for an enterprise. The authenticated user must be an enterprise admin or billing manager.\nEach page returns up to 100 budgets.</p>",
+      "descriptionHTML": "<p>Gets all budgets for an enterprise. The authenticated actor must have permission to view enterprise billing.\nEach page returns up to 100 budgets.</p>",
       "codeExamples": [
         {
           "request": {
@@ -371,6 +371,10 @@
                       "user": {
                         "type": "string",
                         "description": "The user login when the budget is scoped to a single user (`user` scope)."
+                      },
+                      "consumed_amount": {
+                        "type": "number",
+                        "description": "The amount consumed for a user-scoped budget, or for a multi-user budget when filtering by user."
                       },
                       "budget_product_sku": {
                         "type": "string",
@@ -565,6 +569,10 @@
                       "user": {
                         "type": "string",
                         "description": "The user login when the budget is scoped to a single user (`user` scope)."
+                      },
+                      "consumed_amount": {
+                        "type": "number",
+                        "description": "The amount consumed for a user-scoped budget, or for a multi-user budget when filtering by user."
                       },
                       "budget_product_sku": {
                         "type": "string",
@@ -958,7 +966,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a budget by ID. The authenticated user must be an enterprise admin or billing manager.</p>",
+      "descriptionHTML": "<p>Gets a budget by ID. The authenticated actor must have permission to view enterprise billing.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1105,10 +1113,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
+          }
+        ]
       }
     },
     {
@@ -1563,7 +1575,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists per-user budget state for a multi-user customer scoped budget. The authenticated user must be an enterprise admin or billing manager.</p>",
+      "descriptionHTML": "<p>Lists per-user budget state for a multi-user customer scoped budget. The authenticated actor must have permission to view enterprise billing.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1669,10 +1681,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
+          }
+        ]
       }
     }
   ],

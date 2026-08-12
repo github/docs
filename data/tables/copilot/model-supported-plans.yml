@@ -201,6 +201,13 @@
   business: true
   enterprise: true
 
+- name: MAI-Code-1.1-Flash
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
 - name: Raptor mini
   pro: true
   pro_plus: true

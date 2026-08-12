@@ -1505,6 +1505,18 @@
       "requestPath": "/enterprises/{enterprise}/settings/billing/budgets"
     },
     {
+      "slug": "get-a-budget-by-id",
+      "subcategory": "budgets",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets/{budget_id}"
+    },
+    {
+      "slug": "get-user-states-for-a-multi-user-budget",
+      "subcategory": "budgets",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets/{budget_id}/user-states"
+    },
+    {
       "slug": "list-usage-report-exports",
       "subcategory": "usage-reports",
       "verb": "get",

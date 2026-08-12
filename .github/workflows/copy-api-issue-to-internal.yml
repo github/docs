@@ -27,7 +27,7 @@ jobs:
           script: |
             const triggerer_login = context.payload.sender.login
             const teamMembers = await github.request(
-              `/orgs/github/teams/docs/members?per_page=100`
+              `/orgs/github/teams/technical-content/members?per_page=100`
             )
             const logins = teamMembers.data.map(member => member.login)
             if (logins.includes(triggerer_login)) {
