@@ -105,6 +105,40 @@
     ]
   },
   {
+    "action": "actions_policy.evaluate",
+    "description": "N/A",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "operation_type",
+      "public_repo"
+    ]
+  },
+  {
     "action": "advisory_credit.accept",
     "description": "Credit was accepted for a security advisory.",
     "docs_reference_links": "/code-security/security-advisories/working-with-repository-security-advisories/editing-a-repository-security-advisory",
@@ -2146,7 +2180,8 @@
       "created_at",
       "operation_type",
       "owner",
-      "owner_type"
+      "owner_type",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -2292,6 +2327,40 @@
     ]
   },
   {
+    "action": "copilot.code_review_repository_settings_updated",
+    "description": "Copilot code review settings were updated for a repository.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "actor_is_bot",
+      "created_at",
+      "old_settings",
+      "operation_type",
+      "public_repo"
+    ]
+  },
+  {
     "action": "copilot.content_exclusion_changed",
     "description": "The excluded paths for GitHub Copilot were updated.",
     "docs_reference_links": "N/A",
@@ -2392,6 +2461,40 @@
       "created_at",
       "custom_instructions",
       "operation_type"
+    ]
+  },
+  {
+    "action": "copilot.memory_user_opt_out",
+    "description": "A user opted out of Copilot Memory.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "actor_is_bot",
+      "created_at",
+      "operation_type",
+      "owner",
+      "owner_type"
     ]
   },
   {
@@ -8949,6 +9052,70 @@
   {
     "action": "org.code_scanning_autofix_third_party_tools_enabled",
     "description": "Autofix for third party tools for code scanning alerts was enabled for an organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
+    ]
+  },
+  {
+    "action": "org.code_scanning_scan_inactive_repos_disabled",
+    "description": "Scanning inactive repositories was disabled for an organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
+    ]
+  },
+  {
+    "action": "org.code_scanning_scan_inactive_repos_enabled",
+    "description": "Scanning inactive repositories was enabled for an organization.",
     "docs_reference_links": "N/A",
     "fields": [
       "@timestamp",
@@ -18319,7 +18486,7 @@
       "topic",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request"
+    "docs_reference_titles": "Closing a pull request"
   },
   {
     "action": "pull_request.converted_to_draft",
@@ -18359,7 +18526,7 @@
       "pull_request_url",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft"
+    "docs_reference_titles": "Changing the stage of a pull request"
   },
   {
     "action": "pull_request.create",
@@ -18400,7 +18567,7 @@
       "pull_request_url",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request"
+    "docs_reference_titles": "Creating a pull request"
   },
   {
     "action": "pull_request.create_review_request",
@@ -18444,7 +18611,7 @@
       "topic",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews"
+    "docs_reference_titles": "Pull request reviews"
   },
   {
     "action": "pull_request.in_progress",
@@ -18557,7 +18724,7 @@
       "topic",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request"
+    "docs_reference_titles": "Merging a pull request"
   },
   {
     "action": "pull_request.ready_for_review",
@@ -18597,7 +18764,7 @@
       "pull_request_url",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review"
+    "docs_reference_titles": "Changing the stage of a pull request"
   },
   {
     "action": "pull_request.rebase",
@@ -18680,7 +18847,7 @@
       "topic",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews"
+    "docs_reference_titles": "Pull request reviews"
   },
   {
     "action": "pull_request.reopen",
@@ -18757,7 +18924,7 @@
       "topic",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews"
+    "docs_reference_titles": "Pull request reviews"
   },
   {
     "action": "pull_request_review_comment.delete",
@@ -18913,7 +19080,7 @@
       "topic",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review"
+    "docs_reference_titles": "Dismissing a pull request review"
   },
   {
     "action": "pull_request_review.submit",
@@ -18955,7 +19122,7 @@
       "topic",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request#submitting-your-review"
+    "docs_reference_titles": "Reviewing proposed changes in a pull request"
   },
   {
     "action": "repo.access",
@@ -22459,6 +22626,80 @@
       "operation_type"
     ],
     "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories"
+  },
+  {
+    "action": "repository_dependency_graph_autosubmit.disable",
+    "description": "Automatic dependency submission was disabled for a repository.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "topic",
+      "user_programmatic_access_name"
+    ]
+  },
+  {
+    "action": "repository_dependency_graph_autosubmit.enable",
+    "description": "Automatic dependency submission was enabled for a repository.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "topic",
+      "user_programmatic_access_name"
+    ]
   },
   {
     "action": "repository_dependency_graph.disable",
