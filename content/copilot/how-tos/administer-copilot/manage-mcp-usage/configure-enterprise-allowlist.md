@@ -30,7 +30,7 @@ You can find these settings in the {% octicon "mcp" aria-hidden="true" aria-labe
 1. Create a `{% data variables.copilot.managed_setting_file %}` file for your enterprise. Most enterprises store this file in a `.github-private` repository. You can also install it directly on users' machines using mobile device management. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings#deploying-server-managed-settings).
 1. Edit the file to define an allowlist and denylist for MCP servers. You can match by name, server URL, or specific commands. For syntax details, see [allowedMcpServers](/copilot/reference/enterprise-managed-settings-reference#allowedMcpServers), and [deniedMcpServers](/copilot/reference/enterprise-managed-settings-reference#deniedMcpServers) in "Enterprise managed settings reference."
 
-   The following example allows servers that match any of the three allowlist entries. The server at `learn.microsoft.com` is always blocked, even if it also matches an allowlist entry.
+    The following example allows servers that match any of the three allowlist entries. The filesystem server configured to access the root filesystem is always blocked, even if it also matches an allowlist entry.
 
    ```json copy
    {
@@ -40,7 +40,14 @@ You can find these settings in the {% octicon "mcp" aria-hidden="true" aria-labe
        { "serverCommand": ["cmd", "/c", "uvx", "markitdown-mcp"] }
      ],
      "deniedMcpServers": [
-       { "serverUrl": "https://learn.microsoft.com/*" }
+       {
+         "serverCommand": [
+           "npx",
+           "-y",
+           "@modelcontextprotocol/server-filesystem",
+           "/"
+         ]
+       }
      ]
    }
    ```
