@@ -5,6 +5,7 @@
       "id": "dependencygraphdependency",
       "href": "/graphql/reference/dependency-graph#object-dependencygraphdependency",
       "description": "<p>A dependency manifest entry.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "hasDependencies",
@@ -132,6 +133,7 @@
       "id": "dependencygraphmanifest",
       "href": "/graphql/reference/dependency-graph#object-dependencygraphmanifest",
       "description": "<p>Dependency manifest for a repository.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",

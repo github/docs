@@ -69,8 +69,8 @@ jobs:
           days-before-pr-close: -1 # Never close
           operations-per-run: 100
 
-          stale-pr-message: 'This is a gentle reminder for the docs team that this pull request is waiting for review.'
-          stale-pr-label: 'Waiting on Docs team review'
+          stale-pr-message: 'This is a gentle reminder for the Technical Content team that this pull request is waiting for review.'
+          stale-pr-label: 'Waiting on Technical Content review'
 
       - name: Print outputs
         env:

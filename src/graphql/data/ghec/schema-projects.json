@@ -2093,6 +2093,20 @@
           "href": "/graphql/reference/other#scalar-id"
         },
         {
+          "name": "isIssueField",
+          "description": "<p>Returns true if this field is associated with an organization issue field.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "issueField",
+          "description": "<p>The organization issue field associated with this project field, if any.</p>",
+          "type": "IssueFields",
+          "id": "issuefields",
+          "href": "/graphql/reference/issues#union-issuefields"
+        },
+        {
           "name": "name",
           "description": "<p>The project field's name.</p>",
           "type": "String!",
@@ -3510,6 +3524,13 @@
           "href": "/graphql/reference/other#scalar-id"
         },
         {
+          "name": "isIssueField",
+          "description": "<p>Returns true if this field is associated with an organization issue field.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
           "name": "name",
           "description": "<p>The project field's name.</p>",
           "type": "String!",
@@ -3664,6 +3685,20 @@
           "href": "/graphql/reference/other#scalar-id"
         },
         {
+          "name": "isIssueField",
+          "description": "<p>Returns true if this field is associated with an organization issue field.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "issueField",
+          "description": "<p>The organization issue field associated with this project field, if any.</p>",
+          "type": "IssueFields",
+          "id": "issuefields",
+          "href": "/graphql/reference/issues#union-issuefields"
+        },
+        {
           "name": "multiSelectOptions",
           "description": "<p>Options for the multi select field.</p>",
           "type": "[ProjectV2MultiSelectFieldOption!]!",
@@ -3803,6 +3838,20 @@
           "type": "ID!",
           "id": "id",
           "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "isIssueField",
+          "description": "<p>Returns true if this field is associated with an organization issue field.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "issueField",
+          "description": "<p>The organization issue field associated with this project field, if any.</p>",
+          "type": "IssueFields",
+          "id": "issuefields",
+          "href": "/graphql/reference/issues#union-issuefields"
         },
         {
           "name": "name",
@@ -5121,6 +5170,13 @@
           "type": "ID!",
           "id": "id",
           "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "isIssueField",
+          "description": "<p>Returns true if this field is associated with an organization issue field.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
         },
         {
           "name": "name",

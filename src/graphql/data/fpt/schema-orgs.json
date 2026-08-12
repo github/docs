@@ -7659,6 +7659,51 @@
           ]
         },
         {
+          "name": "pinnedIssueFields",
+          "description": "<p>An ordered list of issue fields pinned to issues when no type is selected.</p>",
+          "type": "IssueFieldsConnection",
+          "id": "issuefieldsconnection",
+          "href": "/graphql/reference/issues#object-issuefieldsconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
           "name": "pinnedItems",
           "description": "<p>A list of repositories and gists this profile owner has pinned to their profile.</p>",
           "type": "PinnableItemConnection!",

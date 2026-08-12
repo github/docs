@@ -1,10 +1,43 @@
 {
   "mutations": [
     {
+      "name": "addPullRequestCreationCapBypassUsers",
+      "id": "addpullrequestcreationcapbypassusers",
+      "href": "/graphql/reference/pulls#mutation-addpullrequestcreationcapbypassusers",
+      "description": "<p>Add users to the pull request creation cap bypass list. Bypassed users can\ncreate pull requests regardless of the configured cap. Only repository admins\ncan manage the bypass list. You can add a maximum of 100 users per request.\nThe bypass list can only hold a maximum of 100 users.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddPullRequestCreationCapBypassUsersInput!",
+          "id": "addpullrequestcreationcapbypassusersinput",
+          "href": "/graphql/reference/pulls#input-object-addpullrequestcreationcapbypassusersinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "repository",
+          "type": "Repository",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository",
+          "description": "<p>The repository with the updated bypass list.</p>"
+        }
+      ],
+      "category": "pulls"
+    },
+    {
       "name": "addPullRequestReview",
       "id": "addpullrequestreview",
       "href": "/graphql/reference/pulls#mutation-addpullrequestreview",
       "description": "<p>Adds a review to a Pull Request.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -43,6 +76,7 @@
       "id": "addpullrequestreviewcomment",
       "href": "/graphql/reference/pulls#mutation-addpullrequestreviewcomment",
       "description": "<p>Adds a comment to a review.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -81,6 +115,7 @@
       "id": "addpullrequestreviewthread",
       "href": "/graphql/reference/pulls#mutation-addpullrequestreviewthread",
       "description": "<p>Adds a new thread to a pending Pull Request Review.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -112,6 +147,7 @@
       "id": "addpullrequestreviewthreadreply",
       "href": "/graphql/reference/pulls#mutation-addpullrequestreviewthreadreply",
       "description": "<p>Adds a reply to an existing Pull Request Review Thread.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -139,10 +175,43 @@
       "category": "pulls"
     },
     {
+      "name": "archivePullRequest",
+      "id": "archivepullrequest",
+      "href": "/graphql/reference/pulls#mutation-archivepullrequest",
+      "description": "<p>Archive a pull request. Closes, locks, and marks the pull request as archived.\nOnly repository admins can archive pull requests.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "ArchivePullRequestInput!",
+          "id": "archivepullrequestinput",
+          "href": "/graphql/reference/pulls#input-object-archivepullrequestinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "pullRequest",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "href": "/graphql/reference/pulls#object-pullrequest",
+          "description": "<p>The pull request that was archived.</p>"
+        }
+      ],
+      "category": "pulls"
+    },
+    {
       "name": "closePullRequest",
       "id": "closepullrequest",
       "href": "/graphql/reference/pulls#mutation-closepullrequest",
       "description": "<p>Close a pull request.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -174,6 +243,7 @@
       "id": "convertpullrequesttodraft",
       "href": "/graphql/reference/pulls#mutation-convertpullrequesttodraft",
       "description": "<p>Converts a pull request to draft.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -205,6 +275,7 @@
       "id": "createpullrequest",
       "href": "/graphql/reference/pulls#mutation-createpullrequest",
       "description": "<p>Create a new pull request.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -236,6 +307,7 @@
       "id": "deletepullrequestreview",
       "href": "/graphql/reference/pulls#mutation-deletepullrequestreview",
       "description": "<p>Deletes a pull request review.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -267,6 +339,7 @@
       "id": "deletepullrequestreviewcomment",
       "href": "/graphql/reference/pulls#mutation-deletepullrequestreviewcomment",
       "description": "<p>Deletes a pull request review comment.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -305,6 +378,7 @@
       "id": "dequeuepullrequest",
       "href": "/graphql/reference/pulls#mutation-dequeuepullrequest",
       "description": "<p>Remove a pull request from the merge queue.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -336,6 +410,7 @@
       "id": "disablepullrequestautomerge",
       "href": "/graphql/reference/pulls#mutation-disablepullrequestautomerge",
       "description": "<p>Disable auto merge on the given pull request.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -374,6 +449,7 @@
       "id": "dismisspullrequestreview",
       "href": "/graphql/reference/pulls#mutation-dismisspullrequestreview",
       "description": "<p>Dismisses an approved or rejected pull request review.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -405,6 +481,7 @@
       "id": "enablepullrequestautomerge",
       "href": "/graphql/reference/pulls#mutation-enablepullrequestautomerge",
       "description": "<p>Enable the default auto-merge on a pull request.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -443,6 +520,7 @@
       "id": "enqueuepullrequest",
       "href": "/graphql/reference/pulls#mutation-enqueuepullrequest",
       "description": "<p>Add a pull request to the merge queue.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -474,6 +552,7 @@
       "id": "markfileasviewed",
       "href": "/graphql/reference/pulls#mutation-markfileasviewed",
       "description": "<p>Mark a pull request file as viewed.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -505,6 +584,7 @@
       "id": "markpullrequestreadyforreview",
       "href": "/graphql/reference/pulls#mutation-markpullrequestreadyforreview",
       "description": "<p>Marks a pull request ready for review.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -536,6 +616,7 @@
       "id": "mergepullrequest",
       "href": "/graphql/reference/pulls#mutation-mergepullrequest",
       "description": "<p>Merge a pull request.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -570,10 +651,43 @@
       "category": "pulls"
     },
     {
+      "name": "removePullRequestCreationCapBypassUsers",
+      "id": "removepullrequestcreationcapbypassusers",
+      "href": "/graphql/reference/pulls#mutation-removepullrequestcreationcapbypassusers",
+      "description": "<p>Remove users from the pull request creation cap bypass list. Only repository admins can manage the bypass list.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "RemovePullRequestCreationCapBypassUsersInput!",
+          "id": "removepullrequestcreationcapbypassusersinput",
+          "href": "/graphql/reference/pulls#input-object-removepullrequestcreationcapbypassusersinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "repository",
+          "type": "Repository",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository",
+          "description": "<p>The repository with the updated bypass list.</p>"
+        }
+      ],
+      "category": "pulls"
+    },
+    {
       "name": "reopenPullRequest",
       "id": "reopenpullrequest",
       "href": "/graphql/reference/pulls#mutation-reopenpullrequest",
       "description": "<p>Reopen a pull request.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -605,6 +719,7 @@
       "id": "requestreviews",
       "href": "/graphql/reference/pulls#mutation-requestreviews",
       "description": "<p>Set review requests on a pull request.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -650,6 +765,7 @@
       "id": "requestreviewsbylogin",
       "href": "/graphql/reference/pulls#mutation-requestreviewsbylogin",
       "description": "<p>Set review requests on a pull request using login strings instead of IDs.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -695,6 +811,7 @@
       "id": "resolvereviewthread",
       "href": "/graphql/reference/pulls#mutation-resolvereviewthread",
       "description": "<p>Marks a review thread as resolved.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -726,6 +843,7 @@
       "id": "revertpullrequest",
       "href": "/graphql/reference/pulls#mutation-revertpullrequest",
       "description": "<p>Create a pull request that reverts the changes from a merged pull request.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -764,6 +882,7 @@
       "id": "submitpullrequestreview",
       "href": "/graphql/reference/pulls#mutation-submitpullrequestreview",
       "description": "<p>Submits a pending pull request review.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -791,10 +910,43 @@
       "category": "pulls"
     },
     {
+      "name": "unarchivePullRequest",
+      "id": "unarchivepullrequest",
+      "href": "/graphql/reference/pulls#mutation-unarchivepullrequest",
+      "description": "<p>Unarchive a pull request. Removes the archived flag from the pull request.\nDoes not automatically reopen or unlock the pull request. Only repository\nadmins can unarchive pull requests.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UnarchivePullRequestInput!",
+          "id": "unarchivepullrequestinput",
+          "href": "/graphql/reference/pulls#input-object-unarchivepullrequestinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "pullRequest",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "href": "/graphql/reference/pulls#object-pullrequest",
+          "description": "<p>The pull request that was unarchived.</p>"
+        }
+      ],
+      "category": "pulls"
+    },
+    {
       "name": "unmarkFileAsViewed",
       "id": "unmarkfileasviewed",
       "href": "/graphql/reference/pulls#mutation-unmarkfileasviewed",
       "description": "<p>Unmark a pull request file as viewed.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -826,6 +978,7 @@
       "id": "unresolvereviewthread",
       "href": "/graphql/reference/pulls#mutation-unresolvereviewthread",
       "description": "<p>Marks a review thread as unresolved.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -857,6 +1010,7 @@
       "id": "updatepullrequest",
       "href": "/graphql/reference/pulls#mutation-updatepullrequest",
       "description": "<p>Update a pull request.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -895,6 +1049,7 @@
       "id": "updatepullrequestbranch",
       "href": "/graphql/reference/pulls#mutation-updatepullrequestbranch",
       "description": "<p>Merge or Rebase HEAD from upstream branch into pull request branch.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -926,6 +1081,7 @@
       "id": "updatepullrequestreview",
       "href": "/graphql/reference/pulls#mutation-updatepullrequestreview",
       "description": "<p>Updates the body of a pull request review.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -957,6 +1113,7 @@
       "id": "updatepullrequestreviewcomment",
       "href": "/graphql/reference/pulls#mutation-updatepullrequestreviewcomment",
       "description": "<p>Updates a pull request review comment.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -988,6 +1145,7 @@
       "id": "updateteamreviewassignment",
       "href": "/graphql/reference/pulls#mutation-updateteamreviewassignment",
       "description": "<p>Updates team review assignment.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -1021,6 +1179,7 @@
       "id": "addedtomergequeueevent",
       "href": "/graphql/reference/pulls#object-addedtomergequeueevent",
       "description": "<p>Represents an<code>added_to_merge_queue</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1079,6 +1238,7 @@
       "id": "automergedisabledevent",
       "href": "/graphql/reference/pulls#object-automergedisabledevent",
       "description": "<p>Represents a<code>auto_merge_disabled</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1144,6 +1304,7 @@
       "id": "automergeenabledevent",
       "href": "/graphql/reference/pulls#object-automergeenabledevent",
       "description": "<p>Represents a<code>auto_merge_enabled</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1195,6 +1356,7 @@
       "id": "automergerequest",
       "href": "/graphql/reference/pulls#object-automergerequest",
       "description": "<p>Represents an auto-merge request for a pull request.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "authorEmail",
@@ -1253,6 +1415,7 @@
       "id": "autorebaseenabledevent",
       "href": "/graphql/reference/pulls#object-autorebaseenabledevent",
       "description": "<p>Represents a<code>auto_rebase_enabled</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1304,6 +1467,7 @@
       "id": "autosquashenabledevent",
       "href": "/graphql/reference/pulls#object-autosquashenabledevent",
       "description": "<p>Represents a<code>auto_squash_enabled</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1355,6 +1519,7 @@
       "id": "automaticbasechangefailedevent",
       "href": "/graphql/reference/pulls#object-automaticbasechangefailedevent",
       "description": "<p>Represents a<code>automatic_base_change_failed</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1413,6 +1578,7 @@
       "id": "automaticbasechangesucceededevent",
       "href": "/graphql/reference/pulls#object-automaticbasechangesucceededevent",
       "description": "<p>Represents a<code>automatic_base_change_succeeded</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1471,6 +1637,7 @@
       "id": "baserefchangedevent",
       "href": "/graphql/reference/pulls#object-baserefchangedevent",
       "description": "<p>Represents a<code>base_ref_changed</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1536,6 +1703,7 @@
       "id": "baserefdeletedevent",
       "href": "/graphql/reference/pulls#object-baserefdeletedevent",
       "description": "<p>Represents a<code>base_ref_deleted</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1587,6 +1755,7 @@
       "id": "baserefforcepushedevent",
       "href": "/graphql/reference/pulls#object-baserefforcepushedevent",
       "description": "<p>Represents a<code>base_ref_force_pushed</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1652,6 +1821,7 @@
       "id": "converttodraftevent",
       "href": "/graphql/reference/pulls#object-converttodraftevent",
       "description": "<p>Represents a<code>convert_to_draft</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1715,6 +1885,7 @@
       "id": "convertedfromdraftevent",
       "href": "/graphql/reference/pulls#object-convertedfromdraftevent",
       "description": "<p>Represents a<code>converted_from_draft</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1771,6 +1942,7 @@
       "id": "copilotcodereviewparameters",
       "href": "/graphql/reference/pulls#object-copilotcodereviewparameters",
       "description": "<p>Request Copilot code review for new pull requests automatically if the author\nhas access to Copilot code review and their premium requests quota has not\nreached the limit.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "reviewDraftPullRequests",
@@ -1794,6 +1966,7 @@
       "id": "headrefdeletedevent",
       "href": "/graphql/reference/pulls#object-headrefdeletedevent",
       "description": "<p>Represents a<code>head_ref_deleted</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1852,6 +2025,7 @@
       "id": "headrefforcepushedevent",
       "href": "/graphql/reference/pulls#object-headrefforcepushedevent",
       "description": "<p>Represents a<code>head_ref_force_pushed</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1917,6 +2091,7 @@
       "id": "headrefrestoredevent",
       "href": "/graphql/reference/pulls#object-headrefrestoredevent",
       "description": "<p>Represents a<code>head_ref_restored</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1961,6 +2136,7 @@
       "id": "mergequeue",
       "href": "/graphql/reference/pulls#object-mergequeue",
       "description": "<p>The queue of pull request entries to be merged into a protected branch in a repository.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -2064,6 +2240,7 @@
       "id": "mergequeueconfiguration",
       "href": "/graphql/reference/pulls#object-mergequeueconfiguration",
       "description": "<p>Configuration for a MergeQueue.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "checkResponseTimeout",
@@ -2122,6 +2299,7 @@
       "id": "mergequeueentry",
       "href": "/graphql/reference/pulls#object-mergequeueentry",
       "description": "<p>Entries in a MergeQueue.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -2282,6 +2460,7 @@
       "id": "mergequeueparameters",
       "href": "/graphql/reference/pulls#object-mergequeueparameters",
       "description": "<p>Merges must be performed via a merge queue.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "checkResponseTimeoutMinutes",
@@ -2340,6 +2519,7 @@
       "id": "mergedevent",
       "href": "/graphql/reference/pulls#object-mergedevent",
       "description": "<p>Represents a<code>merged</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -2424,6 +2604,7 @@
       "id": "pullrequest",
       "href": "/graphql/reference/pulls#object-pullrequest",
       "description": "<p>A repository pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Assignable",
@@ -4059,7 +4240,7 @@
               "type": {
                 "name": "[PullRequestTimelineItemsItemType!]",
                 "id": "pullrequesttimelineitemsitemtype",
-                "href": "/graphql/reference/other#enum-pullrequesttimelineitemsitemtype"
+                "href": "/graphql/reference/pulls#enum-pullrequesttimelineitemsitemtype"
               }
             },
             {
@@ -4341,6 +4522,7 @@
       "id": "pullrequestchangedfile",
       "href": "/graphql/reference/pulls#object-pullrequestchangedfile",
       "description": "<p>A file changed in a pull request.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "additions",
@@ -4445,6 +4627,7 @@
       "id": "pullrequestcommit",
       "href": "/graphql/reference/pulls#object-pullrequestcommit",
       "description": "<p>Represents a Git commit part of a pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -4501,6 +4684,7 @@
       "id": "pullrequestcommitcommentthread",
       "href": "/graphql/reference/pulls#object-pullrequestcommitcommentthread",
       "description": "<p>Represents a commit comment thread part of a pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -4706,6 +4890,7 @@
       "id": "pullrequestcontributionsbyrepository",
       "href": "/graphql/reference/pulls#object-pullrequestcontributionsbyrepository",
       "description": "<p>This aggregates pull requests opened by a user within one repository.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "contributions",
@@ -4772,6 +4957,61 @@
       "category": "pulls"
     },
     {
+      "name": "PullRequestCreationCapConfig",
+      "id": "pullrequestcreationcapconfig",
+      "href": "/graphql/reference/pulls#object-pullrequestcreationcapconfig",
+      "description": "<p>Users who are exempt from the pull request creation cap on a repository.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "bypassedUsers",
+          "description": "<p>Users who are exempt from the pull request creation cap.</p>",
+          "type": "UserConnection!",
+          "id": "userconnection",
+          "href": "/graphql/reference/users#object-userconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        }
+      ],
+      "category": "pulls"
+    },
+    {
       "name": "PullRequestEdge",
       "id": "pullrequestedge",
       "href": "/graphql/reference/pulls#object-pullrequestedge",
@@ -4799,6 +5039,7 @@
       "id": "pullrequestparameters",
       "href": "/graphql/reference/pulls#object-pullrequestparameters",
       "description": "<p>Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "allowedMergeMethods",
@@ -4857,6 +5098,7 @@
       "id": "pullrequestreview",
       "href": "/graphql/reference/pulls#object-pullrequestreview",
       "description": "<p>A review object for a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Comment",
@@ -5061,7 +5303,7 @@
         },
         {
           "name": "minimizedReason",
-          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code>, <code>spam</code>, and <code>low-quality</code>. Note that the\ncase and formatting of these values differs from the inputs to the\n<code>MinimizeComment</code> mutation.</p>",
           "type": "String",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
@@ -5339,6 +5581,7 @@
       "id": "pullrequestreviewcomment",
       "href": "/graphql/reference/pulls#object-pullrequestreviewcomment",
       "description": "<p>A review comment associated with a given repository pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Comment",
@@ -5512,7 +5755,7 @@
         },
         {
           "name": "minimizedReason",
-          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code>, <code>spam</code>, and <code>low-quality</code>. Note that the\ncase and formatting of these values differs from the inputs to the\n<code>MinimizeComment</code> mutation.</p>",
           "type": "String",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
@@ -5916,6 +6159,7 @@
       "id": "pullrequestreviewcontributionsbyrepository",
       "href": "/graphql/reference/pulls#object-pullrequestreviewcontributionsbyrepository",
       "description": "<p>This aggregates pull request reviews made by a user within one repository.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "contributions",
@@ -6009,6 +6253,7 @@
       "id": "pullrequestreviewthread",
       "href": "/graphql/reference/pulls#object-pullrequestreviewthread",
       "description": "<p>A threaded list of comments for a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -6265,6 +6510,7 @@
       "id": "pullrequestrevisionmarker",
       "href": "/graphql/reference/pulls#object-pullrequestrevisionmarker",
       "description": "<p>Represents the latest point in the pull request timeline for which the viewer has seen the pull request's commits.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "createdAt",
@@ -6295,6 +6541,7 @@
       "id": "pullrequesttemplate",
       "href": "/graphql/reference/pulls#object-pullrequesttemplate",
       "description": "<p>A repository pull request template.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "body",
@@ -6325,6 +6572,7 @@
       "id": "pullrequestthread",
       "href": "/graphql/reference/pulls#object-pullrequestthread",
       "description": "<p>A threaded list of comments for a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -6648,6 +6896,7 @@
       "id": "readyforreviewevent",
       "href": "/graphql/reference/pulls#object-readyforreviewevent",
       "description": "<p>Represents a<code>ready_for_review</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -6711,6 +6960,7 @@
       "id": "removedfrommergequeueevent",
       "href": "/graphql/reference/pulls#object-removedfrommergequeueevent",
       "description": "<p>Represents a<code>removed_from_merge_queue</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -6843,6 +7093,7 @@
       "id": "requiredreviewerconfiguration",
       "href": "/graphql/reference/pulls#object-requiredreviewerconfiguration",
       "description": "<p>A reviewing team, and file patterns describing which files they must approve changes to.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "filePatterns",
@@ -6873,6 +7124,7 @@
       "id": "reviewdismissedevent",
       "href": "/graphql/reference/pulls#object-reviewdismissedevent",
       "description": "<p>Represents a<code>review_dismissed</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -6978,6 +7230,7 @@
       "id": "reviewrequest",
       "href": "/graphql/reference/pulls#object-reviewrequest",
       "description": "<p>A request for a user to review a pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -7089,6 +7342,7 @@
       "id": "reviewrequestremovedevent",
       "href": "/graphql/reference/pulls#object-reviewrequestremovedevent",
       "description": "<p>Represents an<code>review_request_removed</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -7140,6 +7394,7 @@
       "id": "reviewrequestedevent",
       "href": "/graphql/reference/pulls#object-reviewrequestedevent",
       "description": "<p>Represents an<code>review_requested</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -7191,6 +7446,7 @@
       "id": "reviewstatushovercardcontext",
       "href": "/graphql/reference/pulls#object-reviewstatushovercardcontext",
       "description": "<p>A hovercard context with a message describing the current code review state of the pull\nrequest.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "HovercardContext",
@@ -7228,6 +7484,7 @@
       "id": "suggestedreviewer",
       "href": "/graphql/reference/pulls#object-suggestedreviewer",
       "description": "<p>A suggestion to review a pull request based on a user's commit history and review comments.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "isAuthor",
@@ -7258,6 +7515,7 @@
       "id": "suggestedrevieweractor",
       "href": "/graphql/reference/pulls#object-suggestedrevieweractor",
       "description": "<p>A suggestion to review a pull request based on an actor's commit history, review comments, and integrations.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "isAuthor",
@@ -7350,6 +7608,7 @@
       "id": "requirablebypullrequest",
       "href": "/graphql/reference/pulls#interface-requirablebypullrequest",
       "description": "<p>Represents a type that can be required by a pull request for merging.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "isRequired",
@@ -7388,6 +7647,7 @@
       "id": "diffside",
       "href": "/graphql/reference/pulls#enum-diffside",
       "description": "<p>The possible sides of a diff.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "LEFT",
@@ -7405,6 +7665,7 @@
       "id": "fileviewedstate",
       "href": "/graphql/reference/pulls#enum-fileviewedstate",
       "description": "<p>The possible viewed states of a file .</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DISMISSED",
@@ -7426,6 +7687,7 @@
       "id": "mergequeueentrystate",
       "href": "/graphql/reference/pulls#enum-mergequeueentrystate",
       "description": "<p>The possible states for a merge queue entry.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "AWAITING_CHECKS",
@@ -7455,6 +7717,7 @@
       "id": "mergequeuegroupingstrategy",
       "href": "/graphql/reference/pulls#enum-mergequeuegroupingstrategy",
       "description": "<p>When set to ALLGREEN, the merge commit created by merge queue for each PR in the\ngroup must pass all required checks to merge. When set to HEADGREEN, only the\ncommit at the head of the merge group, i.e. the commit containing changes from\nall of the PRs in the group, must pass its required checks to merge.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALLGREEN",
@@ -7472,6 +7735,7 @@
       "id": "mergequeuemergemethod",
       "href": "/graphql/reference/pulls#enum-mergequeuemergemethod",
       "description": "<p>Method to use when merging changes from queued pull requests.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "MERGE",
@@ -7493,6 +7757,7 @@
       "id": "mergequeuemergingstrategy",
       "href": "/graphql/reference/pulls#enum-mergequeuemergingstrategy",
       "description": "<p>The possible merging strategies for a merge queue.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALLGREEN",
@@ -7510,6 +7775,7 @@
       "id": "mergestatestatus",
       "href": "/graphql/reference/pulls#enum-mergestatestatus",
       "description": "<p>Detailed status information about a pull request merge.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "BEHIND",
@@ -7551,6 +7817,7 @@
       "id": "mergeablestate",
       "href": "/graphql/reference/pulls#enum-mergeablestate",
       "description": "<p>Whether or not a PullRequest can be merged.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CONFLICTING",
@@ -7572,6 +7839,7 @@
       "id": "patchstatus",
       "href": "/graphql/reference/pulls#enum-patchstatus",
       "description": "<p>The possible types of patch statuses.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ADDED",
@@ -7605,6 +7873,7 @@
       "id": "pullrequestallowedmergemethods",
       "href": "/graphql/reference/pulls#enum-pullrequestallowedmergemethods",
       "description": "<p>Array of allowed merge methods. Allowed values include <code>merge</code>, <code>squash</code>, and <code>rebase</code>. At least one option must be enabled.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "MERGE",
@@ -7626,6 +7895,7 @@
       "id": "pullrequestbranchupdatemethod",
       "href": "/graphql/reference/pulls#enum-pullrequestbranchupdatemethod",
       "description": "<p>The possible methods for updating a pull request's head branch with the base branch.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "MERGE",
@@ -7643,6 +7913,7 @@
       "id": "pullrequestcreationpolicy",
       "href": "/graphql/reference/pulls#enum-pullrequestcreationpolicy",
       "description": "<p>The policy controlling who can create pull requests in a repository.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALL",
@@ -7660,6 +7931,7 @@
       "id": "pullrequestmergemethod",
       "href": "/graphql/reference/pulls#enum-pullrequestmergemethod",
       "description": "<p>Represents available types of methods to use when merging a pull request.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "MERGE",
@@ -7681,6 +7953,7 @@
       "id": "pullrequestorderfield",
       "href": "/graphql/reference/pulls#enum-pullrequestorderfield",
       "description": "<p>Properties by which pull_requests connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -7698,6 +7971,7 @@
       "id": "pullrequestreviewcommentstate",
       "href": "/graphql/reference/pulls#enum-pullrequestreviewcommentstate",
       "description": "<p>The possible states of a pull request review comment.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "PENDING",
@@ -7715,6 +7989,7 @@
       "id": "pullrequestreviewdecision",
       "href": "/graphql/reference/pulls#enum-pullrequestreviewdecision",
       "description": "<p>The review status of a pull request.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "APPROVED",
@@ -7736,6 +8011,7 @@
       "id": "pullrequestreviewevent",
       "href": "/graphql/reference/pulls#enum-pullrequestreviewevent",
       "description": "<p>The possible events to perform on a pull request review.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "APPROVE",
@@ -7761,6 +8037,7 @@
       "id": "pullrequestreviewstate",
       "href": "/graphql/reference/pulls#enum-pullrequestreviewstate",
       "description": "<p>The possible states of a pull request review.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "APPROVED",
@@ -7790,6 +8067,7 @@
       "id": "pullrequestreviewthreadsubjecttype",
       "href": "/graphql/reference/pulls#enum-pullrequestreviewthreadsubjecttype",
       "description": "<p>The possible subject types of a pull request review comment.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "FILE",
@@ -7807,6 +8085,7 @@
       "id": "pullrequeststate",
       "href": "/graphql/reference/pulls#enum-pullrequeststate",
       "description": "<p>The possible states of a pull request.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CLOSED",
@@ -7824,10 +8103,332 @@
       "category": "pulls"
     },
     {
+      "name": "PullRequestTimelineItemsItemType",
+      "id": "pullrequesttimelineitemsitemtype",
+      "href": "/graphql/reference/pulls#enum-pullrequesttimelineitemsitemtype",
+      "description": "<p>The possible item types found in a timeline.</p>",
+      "values": [
+        {
+          "name": "ADDED_TO_MERGE_QUEUE_EVENT",
+          "description": "<p>Represents an<code>added_to_merge_queue</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "ADDED_TO_PROJECT_EVENT",
+          "description": "<p>Represents a<code>added_to_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "ADDED_TO_PROJECT_V2_EVENT",
+          "description": "<p>Represents a<code>added_to_project_v2</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "ASSIGNED_EVENT",
+          "description": "<p>Represents an<code>assigned</code>event on any assignable object.</p>"
+        },
+        {
+          "name": "AUTOMATIC_BASE_CHANGE_FAILED_EVENT",
+          "description": "<p>Represents a<code>automatic_base_change_failed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTOMATIC_BASE_CHANGE_SUCCEEDED_EVENT",
+          "description": "<p>Represents a<code>automatic_base_change_succeeded</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_MERGE_DISABLED_EVENT",
+          "description": "<p>Represents a<code>auto_merge_disabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_MERGE_ENABLED_EVENT",
+          "description": "<p>Represents a<code>auto_merge_enabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_REBASE_ENABLED_EVENT",
+          "description": "<p>Represents a<code>auto_rebase_enabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_SQUASH_ENABLED_EVENT",
+          "description": "<p>Represents a<code>auto_squash_enabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "BASE_REF_CHANGED_EVENT",
+          "description": "<p>Represents a<code>base_ref_changed</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "BASE_REF_DELETED_EVENT",
+          "description": "<p>Represents a<code>base_ref_deleted</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "BASE_REF_FORCE_PUSHED_EVENT",
+          "description": "<p>Represents a<code>base_ref_force_pushed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "BLOCKED_BY_ADDED_EVENT",
+          "description": "<p>Represents a<code>blocked_by_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKED_BY_REMOVED_EVENT",
+          "description": "<p>Represents a<code>blocked_by_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_ADDED_EVENT",
+          "description": "<p>Represents a<code>blocking_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_REMOVED_EVENT",
+          "description": "<p>Represents a<code>blocking_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "CLOSED_EVENT",
+          "description": "<p>Represents a<code>closed</code>event on any <code>Closable</code>.</p>"
+        },
+        {
+          "name": "COMMENT_DELETED_EVENT",
+          "description": "<p>Represents a<code>comment_deleted</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONNECTED_EVENT",
+          "description": "<p>Represents a<code>connected</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_FROM_DRAFT_EVENT",
+          "description": "<p>Represents a<code>converted_from_draft</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_NOTE_TO_ISSUE_EVENT",
+          "description": "<p>Represents a<code>converted_note_to_issue</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_TO_DISCUSSION_EVENT",
+          "description": "<p>Represents a<code>converted_to_discussion</code>event on a given issue.</p>"
+        },
+        {
+          "name": "CONVERT_TO_DRAFT_EVENT",
+          "description": "<p>Represents a<code>convert_to_draft</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "CROSS_REFERENCED_EVENT",
+          "description": "<p>Represents a mention made by one issue or pull request to another.</p>"
+        },
+        {
+          "name": "DEMILESTONED_EVENT",
+          "description": "<p>Represents a<code>demilestoned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "DEPLOYED_EVENT",
+          "description": "<p>Represents a<code>deployed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "DEPLOYMENT_ENVIRONMENT_CHANGED_EVENT",
+          "description": "<p>Represents a<code>deployment_environment_changed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "DISCONNECTED_EVENT",
+          "description": "<p>Represents a<code>disconnected</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "HEAD_REF_DELETED_EVENT",
+          "description": "<p>Represents a<code>head_ref_deleted</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "HEAD_REF_FORCE_PUSHED_EVENT",
+          "description": "<p>Represents a<code>head_ref_force_pushed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "HEAD_REF_RESTORED_EVENT",
+          "description": "<p>Represents a<code>head_ref_restored</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT",
+          "description": "<p>Represents a comment on an Issue.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT_PINNED_EVENT",
+          "description": "<p>Represents a<code>issue_comment_pinned</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT_UNPINNED_EVENT",
+          "description": "<p>Represents a<code>issue_comment_unpinned</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_FIELD_ADDED_EVENT",
+          "description": "<p>Represents a<code>issue_field_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_FIELD_CHANGED_EVENT",
+          "description": "<p>Represents a<code>issue_field_changed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_FIELD_REMOVED_EVENT",
+          "description": "<p>Represents a<code>issue_field_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_ADDED_EVENT",
+          "description": "<p>Represents a<code>issue_type_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_CHANGED_EVENT",
+          "description": "<p>Represents a<code>issue_type_changed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>issue_type_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "LABELED_EVENT",
+          "description": "<p>Represents a<code>labeled</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "LOCKED_EVENT",
+          "description": "<p>Represents a<code>locked</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MARKED_AS_DUPLICATE_EVENT",
+          "description": "<p>Represents a<code>marked_as_duplicate</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MENTIONED_EVENT",
+          "description": "<p>Represents a<code>mentioned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MERGED_EVENT",
+          "description": "<p>Represents a<code>merged</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "MILESTONED_EVENT",
+          "description": "<p>Represents a<code>milestoned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MOVED_COLUMNS_IN_PROJECT_EVENT",
+          "description": "<p>Represents a<code>moved_columns_in_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "PARENT_ISSUE_ADDED_EVENT",
+          "description": "<p>Represents a<code>parent_issue_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "PARENT_ISSUE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>parent_issue_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "PINNED_EVENT",
+          "description": "<p>Represents a<code>pinned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "PROJECT_V2_ITEM_STATUS_CHANGED_EVENT",
+          "description": "<p>Represents a<code>project_v2_item_status_changed</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "PULL_REQUEST_COMMIT",
+          "description": "<p>Represents a Git commit part of a pull request.</p>"
+        },
+        {
+          "name": "PULL_REQUEST_COMMIT_COMMENT_THREAD",
+          "description": "<p>Represents a commit comment thread part of a pull request.</p>"
+        },
+        {
+          "name": "PULL_REQUEST_REVIEW",
+          "description": "<p>A review object for a given pull request.</p>"
+        },
+        {
+          "name": "PULL_REQUEST_REVIEW_THREAD",
+          "description": "<p>A threaded list of comments for a given pull request.</p>"
+        },
+        {
+          "name": "PULL_REQUEST_REVISION_MARKER",
+          "description": "<p>Represents the latest point in the pull request timeline for which the viewer has seen the pull request's commits.</p>"
+        },
+        {
+          "name": "READY_FOR_REVIEW_EVENT",
+          "description": "<p>Represents a<code>ready_for_review</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "REFERENCED_EVENT",
+          "description": "<p>Represents a<code>referenced</code>event on a given <code>ReferencedSubject</code>.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_MERGE_QUEUE_EVENT",
+          "description": "<p>Represents a<code>removed_from_merge_queue</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_PROJECT_EVENT",
+          "description": "<p>Represents a<code>removed_from_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_PROJECT_V2_EVENT",
+          "description": "<p>Represents a<code>removed_from_project_v2</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "RENAMED_TITLE_EVENT",
+          "description": "<p>Represents a<code>renamed</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REOPENED_EVENT",
+          "description": "<p>Represents a<code>reopened</code>event on any <code>Closable</code>.</p>"
+        },
+        {
+          "name": "REVIEW_DISMISSED_EVENT",
+          "description": "<p>Represents a<code>review_dismissed</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REVIEW_REQUESTED_EVENT",
+          "description": "<p>Represents an<code>review_requested</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "REVIEW_REQUEST_REMOVED_EVENT",
+          "description": "<p>Represents an<code>review_request_removed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "SUBSCRIBED_EVENT",
+          "description": "<p>Represents a<code>subscribed</code>event on a given <code>Subscribable</code>.</p>"
+        },
+        {
+          "name": "SUB_ISSUE_ADDED_EVENT",
+          "description": "<p>Represents a<code>sub_issue_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "SUB_ISSUE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>sub_issue_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "TRANSFERRED_EVENT",
+          "description": "<p>Represents a<code>transferred</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNASSIGNED_EVENT",
+          "description": "<p>Represents an<code>unassigned</code>event on any assignable object.</p>"
+        },
+        {
+          "name": "UNLABELED_EVENT",
+          "description": "<p>Represents an<code>unlabeled</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNLOCKED_EVENT",
+          "description": "<p>Represents an<code>unlocked</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNMARKED_AS_DUPLICATE_EVENT",
+          "description": "<p>Represents an<code>unmarked_as_duplicate</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNPINNED_EVENT",
+          "description": "<p>Represents an<code>unpinned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNSUBSCRIBED_EVENT",
+          "description": "<p>Represents an<code>unsubscribed</code>event on a given <code>Subscribable</code>.</p>"
+        },
+        {
+          "name": "USER_BLOCKED_EVENT",
+          "description": "<p>Represents a<code>user_blocked</code>event on a given user.</p>"
+        }
+      ],
+      "category": "pulls"
+    },
+    {
       "name": "PullRequestUpdateState",
       "id": "pullrequestupdatestate",
       "href": "/graphql/reference/pulls#enum-pullrequestupdatestate",
       "description": "<p>The possible target states when updating a pull request.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CLOSED",
@@ -7847,6 +8448,7 @@
       "id": "pullrequesttimelineitem",
       "href": "/graphql/reference/pulls#union-pullrequesttimelineitem",
       "description": "<p>An item in a pull request timeline.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "AssignedEvent",
@@ -8021,6 +8623,7 @@
       "id": "pullrequesttimelineitems",
       "href": "/graphql/reference/pulls#union-pullrequesttimelineitems",
       "description": "<p>An item in a pull request timeline.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "AddedToMergeQueueEvent",
@@ -8196,6 +8799,21 @@
           "name": "IssueCommentUnpinnedEvent",
           "id": "issuecommentunpinnedevent",
           "href": "/graphql/reference/issues#object-issuecommentunpinnedevent"
+        },
+        {
+          "name": "IssueFieldAddedEvent",
+          "id": "issuefieldaddedevent",
+          "href": "/graphql/reference/issues#object-issuefieldaddedevent"
+        },
+        {
+          "name": "IssueFieldChangedEvent",
+          "id": "issuefieldchangedevent",
+          "href": "/graphql/reference/issues#object-issuefieldchangedevent"
+        },
+        {
+          "name": "IssueFieldRemovedEvent",
+          "id": "issuefieldremovedevent",
+          "href": "/graphql/reference/issues#object-issuefieldremovedevent"
         },
         {
           "name": "IssueTypeAddedEvent",
@@ -8405,11 +9023,17 @@
       "id": "requestedreviewer",
       "href": "/graphql/reference/pulls#union-requestedreviewer",
       "description": "<p>Types that can be requested reviewers.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Bot",
           "id": "bot",
           "href": "/graphql/reference/apps#object-bot"
+        },
+        {
+          "name": "EnterpriseTeam",
+          "id": "enterpriseteam",
+          "href": "/graphql/reference/enterprise-admin#object-enterpriseteam"
         },
         {
           "name": "Mannequin",
@@ -8431,6 +9055,38 @@
     }
   ],
   "inputObjects": [
+    {
+      "name": "AddPullRequestCreationCapBypassUsersInput",
+      "id": "addpullrequestcreationcapbypassusersinput",
+      "href": "/graphql/reference/pulls#input-object-addpullrequestcreationcapbypassusersinput",
+      "description": "<p>Autogenerated input type of AddPullRequestCreationCapBypassUsers.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The Node ID of the repository.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "userIds",
+          "description": "<p>The Node IDs of the users to add to the bypass list.</p>",
+          "type": "[ID!]!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "pulls"
+    },
     {
       "name": "AddPullRequestReviewCommentInput",
       "id": "addpullrequestreviewcommentinput",
@@ -8679,6 +9335,30 @@
       "category": "pulls"
     },
     {
+      "name": "ArchivePullRequestInput",
+      "id": "archivepullrequestinput",
+      "href": "/graphql/reference/pulls#input-object-archivepullrequestinput",
+      "description": "<p>Autogenerated input type of ArchivePullRequest.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "pullRequestId",
+          "description": "<p>The Node ID of the pull request to archive.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "pulls"
+    },
+    {
       "name": "ClosePullRequestInput",
       "id": "closepullrequestinput",
       "href": "/graphql/reference/pulls#input-object-closepullrequestinput",
@@ -8731,6 +9411,7 @@
       "id": "copilotcodereviewparametersinput",
       "href": "/graphql/reference/pulls#input-object-copilotcodereviewparametersinput",
       "description": "<p>Request Copilot code review for new pull requests automatically if the author\nhas access to Copilot code review and their premium requests quota has not\nreached the limit.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "reviewDraftPullRequests",
@@ -8955,6 +9636,7 @@
       "id": "draftpullrequestreviewcomment",
       "href": "/graphql/reference/pulls#input-object-draftpullrequestreviewcomment",
       "description": "<p>Specifies a review comment to be left with a Pull Request Review.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "body",
@@ -8985,6 +9667,7 @@
       "id": "draftpullrequestreviewthread",
       "href": "/graphql/reference/pulls#input-object-draftpullrequestreviewthread",
       "description": "<p>Specifies a review comment thread to be left with a Pull Request Review.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "body",
@@ -9247,6 +9930,7 @@
       "id": "mergequeueparametersinput",
       "href": "/graphql/reference/pulls#input-object-mergequeueparametersinput",
       "description": "<p>Merges must be performed via a merge queue.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "checkResponseTimeoutMinutes",
@@ -9305,6 +9989,7 @@
       "id": "pullrequestorder",
       "href": "/graphql/reference/pulls#input-object-pullrequestorder",
       "description": "<p>Ways in which lists of issues can be ordered upon return.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -9328,6 +10013,7 @@
       "id": "pullrequestparametersinput",
       "href": "/graphql/reference/pulls#input-object-pullrequestparametersinput",
       "description": "<p>Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "allowedMergeMethods",
@@ -9377,6 +10063,38 @@
           "type": "[RequiredReviewerConfigurationInput!]",
           "id": "requiredreviewerconfigurationinput",
           "href": "/graphql/reference/pulls#input-object-requiredreviewerconfigurationinput"
+        }
+      ],
+      "category": "pulls"
+    },
+    {
+      "name": "RemovePullRequestCreationCapBypassUsersInput",
+      "id": "removepullrequestcreationcapbypassusersinput",
+      "href": "/graphql/reference/pulls#input-object-removepullrequestcreationcapbypassusersinput",
+      "description": "<p>Autogenerated input type of RemovePullRequestCreationCapBypassUsers.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The Node ID of the repository.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "userIds",
+          "description": "<p>The Node IDs of the users to remove from the bypass list.</p>",
+          "type": "[ID!]!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
         }
       ],
       "category": "pulls"
@@ -9517,6 +10235,7 @@
       "id": "requiredreviewerconfigurationinput",
       "href": "/graphql/reference/pulls#input-object-requiredreviewerconfigurationinput",
       "description": "<p>A reviewing team, and file patterns describing which files they must approve changes to.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "filePatterns",
@@ -9650,6 +10369,30 @@
           "name": "pullRequestReviewId",
           "description": "<p>The Pull Request Review ID to submit.</p>",
           "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "pulls"
+    },
+    {
+      "name": "UnarchivePullRequestInput",
+      "id": "unarchivepullrequestinput",
+      "href": "/graphql/reference/pulls#input-object-unarchivepullrequestinput",
+      "description": "<p>Autogenerated input type of UnarchivePullRequest.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "pullRequestId",
+          "description": "<p>The Node ID of the pull request to unarchive.</p>",
+          "type": "ID!",
           "id": "id",
           "href": "/graphql/reference/other#scalar-id",
           "isDeprecated": false

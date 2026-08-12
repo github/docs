@@ -5,6 +5,7 @@
       "id": "addstar",
       "href": "/graphql/reference/activity#mutation-addstar",
       "description": "<p>Adds a star to a Starrable.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -36,6 +37,7 @@
       "id": "removestar",
       "href": "/graphql/reference/activity#mutation-removestar",
       "description": "<p>Removes a star from a Starrable.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -67,6 +69,7 @@
       "id": "updatenotificationrestrictionsetting",
       "href": "/graphql/reference/activity#mutation-updatenotificationrestrictionsetting",
       "description": "<p>Update the setting to restrict notifications to only verified or approved domains available to an owner.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -98,6 +101,7 @@
       "id": "updatesubscription",
       "href": "/graphql/reference/activity#mutation-updatesubscription",
       "description": "<p>Updates the state for subscribable subjects.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -131,6 +135,7 @@
       "id": "starrable",
       "href": "/graphql/reference/activity#interface-starrable",
       "description": "<p>Things that can be starred.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "id",
@@ -215,6 +220,7 @@
       "id": "subscribable",
       "href": "/graphql/reference/activity#interface-subscribable",
       "description": "<p>Entities that can be subscribed to for web and email notifications.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "id",
@@ -245,6 +251,7 @@
       "id": "subscribablethread",
       "href": "/graphql/reference/activity#interface-subscribablethread",
       "description": "<p>Entities that can be subscribed to for web and email notifications.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "id",
@@ -277,6 +284,7 @@
       "id": "notificationrestrictionsettingvalue",
       "href": "/graphql/reference/activity#enum-notificationrestrictionsettingvalue",
       "description": "<p>The possible values for the notification restriction setting.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DISABLED",
@@ -294,6 +302,7 @@
       "id": "starorderfield",
       "href": "/graphql/reference/activity#enum-starorderfield",
       "description": "<p>Properties by which star connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "STARRED_AT",
@@ -307,6 +316,7 @@
       "id": "subscriptionstate",
       "href": "/graphql/reference/activity#enum-subscriptionstate",
       "description": "<p>The possible states of a subscription.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "IGNORED",
@@ -328,6 +338,7 @@
       "id": "threadsubscriptionformaction",
       "href": "/graphql/reference/activity#enum-threadsubscriptionformaction",
       "description": "<p>The possible states of a thread subscription form action.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "NONE",
@@ -349,6 +360,7 @@
       "id": "threadsubscriptionstate",
       "href": "/graphql/reference/activity#enum-threadsubscriptionstate",
       "description": "<p>The possible states of a subscription.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DISABLED",
@@ -444,6 +456,7 @@
       "id": "starorder",
       "href": "/graphql/reference/activity#input-object-starorder",
       "description": "<p>Ways in which star connections can be ordered.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",

@@ -71,6 +71,7 @@
       "id": "changeuserstatus",
       "href": "/graphql/reference/users#mutation-changeuserstatus",
       "description": "<p>Update your status on GitHub.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -102,6 +103,7 @@
       "id": "createuserlist",
       "href": "/graphql/reference/users#mutation-createuserlist",
       "description": "<p>Creates a new user list.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -140,6 +142,7 @@
       "id": "deleteuserlist",
       "href": "/graphql/reference/users#mutation-deleteuserlist",
       "description": "<p>Deletes a user list.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -171,6 +174,7 @@
       "id": "followuser",
       "href": "/graphql/reference/users#mutation-followuser",
       "description": "<p>Follow a user.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -202,6 +206,7 @@
       "id": "unfollowuser",
       "href": "/graphql/reference/users#mutation-unfollowuser",
       "description": "<p>Unfollow a user.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -233,6 +238,7 @@
       "id": "updateuserlist",
       "href": "/graphql/reference/users#mutation-updateuserlist",
       "description": "<p>Updates an existing user list.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -264,6 +270,7 @@
       "id": "updateuserlistsforitem",
       "href": "/graphql/reference/users#mutation-updateuserlistsforitem",
       "description": "<p>Updates which of the viewer's lists an item belongs to.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -371,6 +378,7 @@
       "id": "actorlocation",
       "href": "/graphql/reference/users#object-actorlocation",
       "description": "<p>Location information for an actor.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "city",
@@ -415,6 +423,7 @@
       "id": "contributioncalendar",
       "href": "/graphql/reference/users#object-contributioncalendar",
       "description": "<p>A calendar of contributions made on GitHub by a user.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "colors",
@@ -459,6 +468,7 @@
       "id": "contributioncalendarday",
       "href": "/graphql/reference/users#object-contributioncalendarday",
       "description": "<p>Represents a single day of contributions on GitHub by a user.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "color",
@@ -503,6 +513,7 @@
       "id": "contributioncalendarmonth",
       "href": "/graphql/reference/users#object-contributioncalendarmonth",
       "description": "<p>A month of contributions in a user's contribution graph.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "firstDay",
@@ -540,6 +551,7 @@
       "id": "contributioncalendarweek",
       "href": "/graphql/reference/users#object-contributioncalendarweek",
       "description": "<p>A week of contributions in a user's contribution graph.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "contributionDays",
@@ -563,6 +575,7 @@
       "id": "contributionscollection",
       "href": "/graphql/reference/users#object-contributionscollection",
       "description": "<p>A collection of contributions made by a user, including opened issues, commits, and pull requests.\nContributions in private and internal repositories are only included with the optional read:user scope.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "commitContributionsByRepository",
@@ -1264,6 +1277,7 @@
       "id": "createdcommitcontribution",
       "href": "/graphql/reference/users#object-createdcommitcontribution",
       "description": "<p>Represents the contribution a user made by committing to a repository.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Contribution",
@@ -1389,6 +1403,7 @@
       "id": "createdissuecontribution",
       "href": "/graphql/reference/users#object-createdissuecontribution",
       "description": "<p>Represents the contribution a user made on GitHub by opening an issue.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Contribution",
@@ -1507,6 +1522,7 @@
       "id": "createdpullrequestcontribution",
       "href": "/graphql/reference/users#object-createdpullrequestcontribution",
       "description": "<p>Represents the contribution a user made on GitHub by opening a pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Contribution",
@@ -1625,6 +1641,7 @@
       "id": "createdpullrequestreviewcontribution",
       "href": "/graphql/reference/users#object-createdpullrequestreviewcontribution",
       "description": "<p>Represents the contribution a user made by leaving a review on a pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Contribution",
@@ -1757,6 +1774,7 @@
       "id": "createdrepositorycontribution",
       "href": "/graphql/reference/users#object-createdrepositorycontribution",
       "description": "<p>Represents the contribution a user made on GitHub by creating a repository.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Contribution",
@@ -2052,6 +2070,66 @@
       "category": "users"
     },
     {
+      "name": "EnterpriseTeamMemberConnection",
+      "id": "enterpriseteammemberconnection",
+      "href": "/graphql/reference/users#object-enterpriseteammemberconnection",
+      "description": "<p>The connection type for User.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[EnterpriseTeamMemberEdge]",
+          "id": "enterpriseteammemberedge",
+          "href": "/graphql/reference/users#object-enterpriseteammemberedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[User]",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "users"
+    },
+    {
+      "name": "EnterpriseTeamMemberEdge",
+      "id": "enterpriseteammemberedge",
+      "href": "/graphql/reference/users#object-enterpriseteammemberedge",
+      "description": "<p>Represents a user who is a member of an enterprise team.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        }
+      ],
+      "category": "users"
+    },
+    {
       "name": "FollowerConnection",
       "id": "followerconnection",
       "href": "/graphql/reference/users#object-followerconnection",
@@ -2130,6 +2208,7 @@
       "id": "generichovercardcontext",
       "href": "/graphql/reference/users#object-generichovercardcontext",
       "description": "<p>A generic hovercard context with a message and icon.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "HovercardContext",
@@ -2160,6 +2239,7 @@
       "id": "hovercard",
       "href": "/graphql/reference/users#object-hovercard",
       "description": "<p>Detail needed to display a hovercard for a user.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "contexts",
@@ -2176,6 +2256,7 @@
       "id": "joinedgithubcontribution",
       "href": "/graphql/reference/users#object-joinedgithubcontribution",
       "description": "<p>Represents a user signing up for a GitHub account.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Contribution",
@@ -2428,6 +2509,7 @@
       "id": "profileitemshowcase",
       "href": "/graphql/reference/users#object-profileitemshowcase",
       "description": "<p>A curatable list of repositories relating to a repository owner, which defaults\nto showing the most popular repositories they own.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "hasPinnedItems",
@@ -2489,6 +2571,7 @@
       "id": "publickey",
       "href": "/graphql/reference/users#object-publickey",
       "description": "<p>A user's public key.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -2755,6 +2838,7 @@
       "id": "restrictedcontribution",
       "href": "/graphql/reference/users#object-restrictedcontribution",
       "description": "<p>Represents a private contribution a user made on GitHub.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Contribution",
@@ -2806,6 +2890,7 @@
       "id": "savedreply",
       "href": "/graphql/reference/users#object-savedreply",
       "description": "<p>A Saved Reply is text a user can use to reply quickly.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -2924,6 +3009,7 @@
       "id": "socialaccount",
       "href": "/graphql/reference/users#object-socialaccount",
       "description": "<p>Social media profile associated with a user.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "displayName",
@@ -3162,6 +3248,7 @@
       "id": "user",
       "href": "/graphql/reference/users#object-user",
       "description": "<p>A user is an individual's account on GitHub that owns repositories and can make new content.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Actor",
@@ -5524,6 +5611,7 @@
       "id": "userblockedevent",
       "href": "/graphql/reference/users#object-userblockedevent",
       "description": "<p>Represents a<code>user_blocked</code>event on a given user.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -5612,6 +5700,7 @@
       "id": "usercontentedit",
       "href": "/graphql/reference/users#object-usercontentedit",
       "description": "<p>An edit on user content.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -5767,6 +5856,7 @@
       "id": "useremailmetadata",
       "href": "/graphql/reference/users#object-useremailmetadata",
       "description": "<p>Email attributes from External Identity.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "primary",
@@ -5797,6 +5887,7 @@
       "id": "userlist",
       "href": "/graphql/reference/users#object-userlist",
       "description": "<p>A user-curated list of repositories.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -6041,6 +6132,7 @@
       "id": "userlistsuggestion",
       "href": "/graphql/reference/users#object-userlistsuggestion",
       "description": "<p>Represents a suggested user list.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "id",
@@ -6064,6 +6156,7 @@
       "id": "userstatus",
       "href": "/graphql/reference/users#object-userstatus",
       "description": "<p>The user's description of what they're currently doing.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -6210,6 +6303,7 @@
       "id": "viewerhovercardcontext",
       "href": "/graphql/reference/users#object-viewerhovercardcontext",
       "description": "<p>A hovercard context with a message describing how the viewer is related.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "HovercardContext",
@@ -6249,6 +6343,7 @@
       "id": "actor",
       "href": "/graphql/reference/users#interface-actor",
       "description": "<p>Represents an object which can take actions on GitHub. Typically a User or Bot.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "avatarUrl",
@@ -6297,6 +6392,7 @@
       "id": "contribution",
       "href": "/graphql/reference/users#interface-contribution",
       "description": "<p>Represents a contribution a user made on GitHub, such as opening an issue.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "isRestricted",
@@ -6341,6 +6437,7 @@
       "id": "hovercardcontext",
       "href": "/graphql/reference/users#interface-hovercardcontext",
       "description": "<p>An individual line of a hovercard.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "message",
@@ -6364,6 +6461,7 @@
       "id": "memberstatusable",
       "href": "/graphql/reference/users#interface-memberstatusable",
       "description": "<p>Entities that have members who can set status messages.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "memberStatuses",
@@ -6427,6 +6525,7 @@
       "id": "pinnable",
       "href": "/graphql/reference/users#interface-pinnable",
       "description": "<p>Entities that can be pinned.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "isPinned",
@@ -6471,6 +6570,7 @@
       "id": "profileowner",
       "href": "/graphql/reference/users#interface-profileowner",
       "description": "<p>Represents any entity on GitHub that has a profile page.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "anyPinnableItems",
@@ -6671,6 +6771,7 @@
       "id": "actortype",
       "href": "/graphql/reference/users#enum-actortype",
       "description": "<p>The actor's type.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "TEAM",
@@ -6688,6 +6789,7 @@
       "id": "contributionlevel",
       "href": "/graphql/reference/users#enum-contributionlevel",
       "description": "<p>Varying levels of contributions from none to many.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "FIRST_QUARTILE",
@@ -6717,6 +6819,7 @@
       "id": "pinnableitemtype",
       "href": "/graphql/reference/users#enum-pinnableitemtype",
       "description": "<p>Represents items that can be pinned to a profile page or dashboard.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "GIST",
@@ -6758,6 +6861,7 @@
       "id": "savedreplyorderfield",
       "href": "/graphql/reference/users#enum-savedreplyorderfield",
       "description": "<p>Properties by which saved reply connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "UPDATED_AT",
@@ -6771,6 +6875,7 @@
       "id": "socialaccountprovider",
       "href": "/graphql/reference/users#enum-socialaccountprovider",
       "description": "<p>Software or company that hosts social media accounts.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "BLUESKY",
@@ -6809,6 +6914,10 @@
           "description": "<p>Social news aggregation and discussion website.</p>"
         },
         {
+          "name": "THREADS",
+          "description": "<p>Microblogging social platform.</p>"
+        },
+        {
           "name": "TWITCH",
           "description": "<p>Live-streaming service.</p>"
         },
@@ -6828,6 +6937,7 @@
       "id": "userblockduration",
       "href": "/graphql/reference/users#enum-userblockduration",
       "description": "<p>The possible durations that a user can be blocked for.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ONE_DAY",
@@ -6857,6 +6967,7 @@
       "id": "userstatusorderfield",
       "href": "/graphql/reference/users#enum-userstatusorderfield",
       "description": "<p>Properties by which user status connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "UPDATED_AT",
@@ -6870,6 +6981,7 @@
       "id": "userviewtype",
       "href": "/graphql/reference/users#enum-userviewtype",
       "description": "<p>Whether a user being viewed contains public or private information.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "PRIVATE",
@@ -6889,6 +7001,7 @@
       "id": "claimable",
       "href": "/graphql/reference/users#union-claimable",
       "description": "<p>An object which can have its data claimed or claim data from another.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Mannequin",
@@ -6908,6 +7021,7 @@
       "id": "createdissueorrestrictedcontribution",
       "href": "/graphql/reference/users#union-createdissueorrestrictedcontribution",
       "description": "<p>Represents either a issue the viewer can access or a restricted contribution.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "CreatedIssueContribution",
@@ -6927,6 +7041,7 @@
       "id": "createdpullrequestorrestrictedcontribution",
       "href": "/graphql/reference/users#union-createdpullrequestorrestrictedcontribution",
       "description": "<p>Represents either a pull request the viewer can access or a restricted contribution.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "CreatedPullRequestContribution",
@@ -6946,6 +7061,7 @@
       "id": "createdrepositoryorrestrictedcontribution",
       "href": "/graphql/reference/users#union-createdrepositoryorrestrictedcontribution",
       "description": "<p>Represents either a repository the viewer can access or a restricted contribution.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "CreatedRepositoryContribution",
@@ -6965,6 +7081,7 @@
       "id": "pinnableitem",
       "href": "/graphql/reference/users#union-pinnableitem",
       "description": "<p>Types that can be pinned to a profile page.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Gist",
@@ -6984,6 +7101,7 @@
       "id": "userlistitems",
       "href": "/graphql/reference/users#union-userlistitems",
       "description": "<p>Types that can be added to a user list.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Repository",
@@ -7000,6 +7118,7 @@
       "id": "agentassignmentinput",
       "href": "/graphql/reference/users#input-object-agentassignmentinput",
       "description": "<p>Represents configuration for assigning Copilot to an issue (public variant).</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "baseRef",
@@ -7090,6 +7209,7 @@
       "id": "contributionorder",
       "href": "/graphql/reference/users#input-object-contributionorder",
       "description": "<p>Ordering options for contribution connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -7191,6 +7311,7 @@
       "id": "savedreplyorder",
       "href": "/graphql/reference/users#input-object-savedreplyorder",
       "description": "<p>Ordering options for saved reply connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -7323,6 +7444,7 @@
       "id": "userstatusorder",
       "href": "/graphql/reference/users#input-object-userstatusorder",
       "description": "<p>Ordering options for user status connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",

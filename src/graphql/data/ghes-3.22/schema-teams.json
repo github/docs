@@ -5,6 +5,7 @@
       "id": "updateteamsrepository",
       "href": "/graphql/reference/teams#mutation-updateteamsrepository",
       "description": "<p>Update team repository.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -45,6 +46,7 @@
       "id": "organizationteamshovercardcontext",
       "href": "/graphql/reference/teams#object-organizationteamshovercardcontext",
       "description": "<p>An organization teams hovercard context.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "HovercardContext",
@@ -141,6 +143,7 @@
       "id": "team",
       "href": "/graphql/reference/teams#object-team",
       "description": "<p>A team of users in an organization.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "MemberStatusable",
@@ -156,6 +159,11 @@
           "name": "Subscribable",
           "id": "subscribable",
           "href": "/graphql/reference/activity#interface-subscribable"
+        },
+        {
+          "name": "TeamReviewRequestable",
+          "id": "teamreviewrequestable",
+          "href": "/graphql/reference/teams#interface-teamreviewrequestable"
         }
       ],
       "fields": [
@@ -870,6 +878,7 @@
       "id": "teamaddmemberauditentry",
       "href": "/graphql/reference/teams#object-teamaddmemberauditentry",
       "description": "<p>Audit log entry for a team.add_member event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -1098,6 +1107,7 @@
       "id": "teamaddrepositoryauditentry",
       "href": "/graphql/reference/teams#object-teamaddrepositoryauditentry",
       "description": "<p>Audit log entry for a team.add_repository event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -1359,6 +1369,7 @@
       "id": "teamchangeparentteamauditentry",
       "href": "/graphql/reference/teams#object-teamchangeparentteamauditentry",
       "description": "<p>Audit log entry for a team.change_parent_team event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -1719,6 +1730,7 @@
       "id": "teamremovememberauditentry",
       "href": "/graphql/reference/teams#object-teamremovememberauditentry",
       "description": "<p>Audit log entry for a team.remove_member event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -1947,6 +1959,7 @@
       "id": "teamremoverepositoryauditentry",
       "href": "/graphql/reference/teams#object-teamremoverepositoryauditentry",
       "description": "<p>Audit log entry for a team.remove_repository event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -2210,6 +2223,7 @@
       "id": "teamauditentrydata",
       "href": "/graphql/reference/teams#interface-teamauditentrydata",
       "description": "<p>Metadata for an audit entry with action team.*.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "team",
@@ -2241,6 +2255,37 @@
         }
       ],
       "category": "teams"
+    },
+    {
+      "name": "TeamReviewRequestable",
+      "id": "teamreviewrequestable",
+      "href": "/graphql/reference/teams#interface-teamreviewrequestable",
+      "description": "<p>Represents a team that can be requested to review a pull request.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the TeamReviewRequestable object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the team.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "slug",
+          "description": "<p>A unique, human-readable identifier for the team.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "teams"
     }
   ],
   "enums": [
@@ -2249,6 +2294,7 @@
       "id": "teammemberorderfield",
       "href": "/graphql/reference/teams#enum-teammemberorderfield",
       "description": "<p>Properties by which team member connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -2266,6 +2312,7 @@
       "id": "teammemberrole",
       "href": "/graphql/reference/teams#enum-teammemberrole",
       "description": "<p>The possible team member roles; either<code>maintainer</code>or 'member'.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "MAINTAINER",
@@ -2283,6 +2330,7 @@
       "id": "teammembershiptype",
       "href": "/graphql/reference/teams#enum-teammembershiptype",
       "description": "<p>Defines which types of team members are included in the returned list. Can be one of IMMEDIATE, CHILD_TEAM or ALL.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALL",
@@ -2304,6 +2352,7 @@
       "id": "teamnotificationsetting",
       "href": "/graphql/reference/teams#enum-teamnotificationsetting",
       "description": "<p>The possible team notification values.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "NOTIFICATIONS_DISABLED",
@@ -2321,6 +2370,7 @@
       "id": "teamorderfield",
       "href": "/graphql/reference/teams#enum-teamorderfield",
       "description": "<p>Properties by which team connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "NAME",
@@ -2334,6 +2384,7 @@
       "id": "teamprivacy",
       "href": "/graphql/reference/teams#enum-teamprivacy",
       "description": "<p>The possible team privacy values.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "SECRET",
@@ -2351,6 +2402,7 @@
       "id": "teamrepositoryorderfield",
       "href": "/graphql/reference/teams#enum-teamrepositoryorderfield",
       "description": "<p>Properties by which team repository connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -2384,6 +2436,7 @@
       "id": "teamreviewassignmentalgorithm",
       "href": "/graphql/reference/teams#enum-teamreviewassignmentalgorithm",
       "description": "<p>The possible team review assignment algorithms.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "LOAD_BALANCE",
@@ -2401,6 +2454,7 @@
       "id": "teamrole",
       "href": "/graphql/reference/teams#enum-teamrole",
       "description": "<p>The role of a user on a team.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ADMIN",
@@ -2420,6 +2474,7 @@
       "id": "teammemberorder",
       "href": "/graphql/reference/teams#input-object-teammemberorder",
       "description": "<p>Ordering options for team member connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -2443,6 +2498,7 @@
       "id": "teamorder",
       "href": "/graphql/reference/teams#input-object-teamorder",
       "description": "<p>Ways in which team connections can be ordered.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -2466,6 +2522,7 @@
       "id": "teamrepositoryorder",
       "href": "/graphql/reference/teams#input-object-teamrepositoryorder",
       "description": "<p>Ordering options for team repository connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",

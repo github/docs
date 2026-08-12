@@ -73,6 +73,7 @@
       "id": "archiverepository",
       "href": "/graphql/reference/repos#mutation-archiverepository",
       "description": "<p>Marks a repository as archived.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -104,6 +105,7 @@
       "id": "clonetemplaterepository",
       "href": "/graphql/reference/repos#mutation-clonetemplaterepository",
       "description": "<p>Create a new repository with the same files and directory structure as a template repository.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -135,6 +137,7 @@
       "id": "createrepository",
       "href": "/graphql/reference/repos#mutation-createrepository",
       "description": "<p>Create a new repository.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -166,6 +169,7 @@
       "id": "createrepositorycustomproperty",
       "href": "/graphql/reference/repos#mutation-createrepositorycustomproperty",
       "description": "<p>Create a repository custom property.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -197,6 +201,7 @@
       "id": "createrepositoryruleset",
       "href": "/graphql/reference/repos#mutation-createrepositoryruleset",
       "description": "<p>Create a repository ruleset.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -228,6 +233,7 @@
       "id": "deleterepositorycustomproperty",
       "href": "/graphql/reference/repos#mutation-deleterepositorycustomproperty",
       "description": "<p>Delete a repository custom property.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -259,6 +265,7 @@
       "id": "deleterepositoryruleset",
       "href": "/graphql/reference/repos#mutation-deleterepositoryruleset",
       "description": "<p>Delete a repository ruleset.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -283,6 +290,7 @@
       "id": "promoterepositorycustomproperty",
       "href": "/graphql/reference/repos#mutation-promoterepositorycustomproperty",
       "description": "<p>Promote a repository custom property to the enterprise level.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -314,6 +322,7 @@
       "id": "setrepositorycustompropertyvalues",
       "href": "/graphql/reference/repos#mutation-setrepositorycustompropertyvalues",
       "description": "<p>Set repository custom property values for a repository.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -345,6 +354,7 @@
       "id": "unarchiverepository",
       "href": "/graphql/reference/repos#mutation-unarchiverepository",
       "description": "<p>Unarchives a repository.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -376,6 +386,7 @@
       "id": "updaterepository",
       "href": "/graphql/reference/repos#mutation-updaterepository",
       "description": "<p>Update information about a repository.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -407,6 +418,7 @@
       "id": "updaterepositorycustomproperty",
       "href": "/graphql/reference/repos#mutation-updaterepositorycustomproperty",
       "description": "<p>Update a repository custom property.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -438,6 +450,7 @@
       "id": "updaterepositoryruleset",
       "href": "/graphql/reference/repos#mutation-updaterepositoryruleset",
       "description": "<p>Update a repository ruleset.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -469,6 +482,7 @@
       "id": "updaterepositorywebcommitsignoffsetting",
       "href": "/graphql/reference/repos#mutation-updaterepositorywebcommitsignoffsetting",
       "description": "<p>Sets whether contributors are required to sign off on web-based commits for a repository.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -507,6 +521,7 @@
       "id": "updatetopics",
       "href": "/graphql/reference/repos#mutation-updatetopics",
       "description": "<p>Replaces the repository's topics with the given topics.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -547,6 +562,7 @@
       "id": "codescanningparameters",
       "href": "/graphql/reference/repos#object-codescanningparameters",
       "description": "<p>Choose which tools must provide code scanning results before the reference is\nupdated. When configured, code scanning must be enabled and have results for\nboth the commit and the reference being updated.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "codeScanningTools",
@@ -563,6 +579,7 @@
       "id": "codescanningtool",
       "href": "/graphql/reference/repos#object-codescanningtool",
       "description": "<p>A tool that must provide code scanning results for this rule to pass.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "alertsThreshold",
@@ -593,6 +610,7 @@
       "id": "contributingguidelines",
       "href": "/graphql/reference/repos#object-contributingguidelines",
       "description": "<p>The Contributing Guidelines for a repository.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "body",
@@ -623,6 +641,7 @@
       "id": "fileextensionrestrictionparameters",
       "href": "/graphql/reference/repos#object-fileextensionrestrictionparameters",
       "description": "<p>Prevent commits that include files with specified file extensions from being pushed to the commit graph.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "restrictedFileExtensions",
@@ -639,6 +658,7 @@
       "id": "filepathrestrictionparameters",
       "href": "/graphql/reference/repos#object-filepathrestrictionparameters",
       "description": "<p>Prevent commits that include changes in specified file and folder paths from\nbeing pushed to the commit graph. This includes absolute paths that contain file names.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "restrictedFilePaths",
@@ -655,6 +675,7 @@
       "id": "language",
       "href": "/graphql/reference/repos#object-language",
       "description": "<p>Represents a given language found in repositories.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -766,6 +787,7 @@
       "id": "maxfilepathlengthparameters",
       "href": "/graphql/reference/repos#object-maxfilepathlengthparameters",
       "description": "<p>Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "maxFilePathLength",
@@ -782,6 +804,7 @@
       "id": "maxfilesizeparameters",
       "href": "/graphql/reference/repos#object-maxfilesizeparameters",
       "description": "<p>Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "maxFileSize",
@@ -798,6 +821,7 @@
       "id": "permissionsource",
       "href": "/graphql/reference/repos#object-permissionsource",
       "description": "<p>A level of permission and source for a user's access to a repository.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "organization",
@@ -835,6 +859,7 @@
       "id": "propertytargetdefinition",
       "href": "/graphql/reference/repos#object-propertytargetdefinition",
       "description": "<p>A property that must match.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "name",
@@ -865,6 +890,7 @@
       "id": "repoaccessauditentry",
       "href": "/graphql/reference/repos#object-repoaccessauditentry",
       "description": "<p>Audit log entry for a repo.access event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -1093,6 +1119,7 @@
       "id": "repoaddmemberauditentry",
       "href": "/graphql/reference/repos#object-repoaddmemberauditentry",
       "description": "<p>Audit log entry for a repo.add_member event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -1321,6 +1348,7 @@
       "id": "repoaddtopicauditentry",
       "href": "/graphql/reference/repos#object-repoaddtopicauditentry",
       "description": "<p>Audit log entry for a repo.add_topic event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -1559,6 +1587,7 @@
       "id": "repoarchivedauditentry",
       "href": "/graphql/reference/repos#object-repoarchivedauditentry",
       "description": "<p>Audit log entry for a repo.archived event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -1787,6 +1816,7 @@
       "id": "repochangemergesettingauditentry",
       "href": "/graphql/reference/repos#object-repochangemergesettingauditentry",
       "description": "<p>Audit log entry for a repo.change_merge_setting event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -2024,6 +2054,7 @@
       "id": "repocreateauditentry",
       "href": "/graphql/reference/repos#object-repocreateauditentry",
       "description": "<p>Audit log entry for a repo.create event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -2270,6 +2301,7 @@
       "id": "repodestroyauditentry",
       "href": "/graphql/reference/repos#object-repodestroyauditentry",
       "description": "<p>Audit log entry for a repo.destroy event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -2498,6 +2530,7 @@
       "id": "reporemovememberauditentry",
       "href": "/graphql/reference/repos#object-reporemovememberauditentry",
       "description": "<p>Audit log entry for a repo.remove_member event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -2726,6 +2759,7 @@
       "id": "reporemovetopicauditentry",
       "href": "/graphql/reference/repos#object-reporemovetopicauditentry",
       "description": "<p>Audit log entry for a repo.remove_topic event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -2964,6 +2998,7 @@
       "id": "repository",
       "href": "/graphql/reference/repos#object-repository",
       "description": "<p>A repository contains the content for a project.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -4063,6 +4098,67 @@
           ]
         },
         {
+          "name": "issueCreationPolicy",
+          "description": "<p>The policy controlling who can create issues in this repository.</p>",
+          "type": "IssueCreationPolicy",
+          "id": "issuecreationpolicy",
+          "href": "/graphql/reference/issues#enum-issuecreationpolicy"
+        },
+        {
+          "name": "issueFields",
+          "description": "<p>A list of the repository's issue fields, inherited from the organization.</p>",
+          "type": "IssueFieldsConnection",
+          "id": "issuefieldsconnection",
+          "href": "/graphql/reference/issues#object-issuefieldsconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for issue fields returned from the connection.</p>",
+              "type": {
+                "name": "IssueFieldOrder",
+                "id": "issuefieldorder",
+                "href": "/graphql/reference/issues#input-object-issuefieldorder"
+              }
+            }
+          ]
+        },
+        {
           "name": "issueOrPullRequest",
           "description": "<p>Returns a single issue-like object from the current repository by number.</p>",
           "type": "IssueOrPullRequest",
@@ -5105,6 +5201,13 @@
           ]
         },
         {
+          "name": "pullRequestCreationCapConfig",
+          "description": "<p>A list of users who are exempt from the pull request creation cap on this repository. Only visible to repository admins.</p>",
+          "type": "PullRequestCreationCapConfig",
+          "id": "pullrequestcreationcapconfig",
+          "href": "/graphql/reference/pulls#object-pullrequestcreationcapconfig"
+        },
+        {
           "name": "pullRequestCreationPolicy",
           "description": "<p>The policy controlling who can create pull requests in this repository.</p>",
           "type": "PullRequestCreationPolicy",
@@ -5929,6 +6032,13 @@
           "href": "/graphql/reference/other#scalar-boolean"
         },
         {
+          "name": "viewerCanCreateIssues",
+          "description": "<p>Indicates whether the current user can create issues in this repository.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
           "name": "viewerCanCreateProjects",
           "description": "<p>Can the current viewer create new projects on this owner.</p>",
           "type": "Boolean!",
@@ -5957,6 +6067,13 @@
           "type": "Boolean!",
           "id": "boolean",
           "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerContentWarning",
+          "description": "<p>The content warning for this repository for the viewer.</p>",
+          "type": "ContentWarning",
+          "id": "contentwarning",
+          "href": "/graphql/reference/meta#object-contentwarning"
         },
         {
           "name": "viewerDefaultCommitEmail",
@@ -6048,6 +6165,15 @@
                 "name": "String",
                 "id": "string",
                 "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "classifications",
+              "description": "<p>Filter by the classification of the alert's associated security advisory.</p>",
+              "type": {
+                "name": "[SecurityAdvisoryClassification!]",
+                "id": "securityadvisoryclassification",
+                "href": "/graphql/reference/security-advisories#enum-securityadvisoryclassification"
               }
             },
             {
@@ -6148,6 +6274,7 @@
       "id": "repositorycodeowners",
       "href": "/graphql/reference/repos#object-repositorycodeowners",
       "description": "<p>Information extracted from a repository's <code>CODEOWNERS</code> file.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "errors",
@@ -6164,6 +6291,7 @@
       "id": "repositorycodeownerserror",
       "href": "/graphql/reference/repos#object-repositorycodeownerserror",
       "description": "<p>An error in a <code>CODEOWNERS</code> file.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "column",
@@ -6266,6 +6394,7 @@
       "id": "repositorycontactlink",
       "href": "/graphql/reference/repos#object-repositorycontactlink",
       "description": "<p>A repository contact link.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "about",
@@ -6296,6 +6425,7 @@
       "id": "repositorycustomproperty",
       "href": "/graphql/reference/repos#object-repositorycustomproperty",
       "description": "<p>A repository custom property.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -6449,6 +6579,7 @@
       "id": "repositorycustompropertyvalue",
       "href": "/graphql/reference/repos#object-repositorycustompropertyvalue",
       "description": "<p>A value associated with a repository custom property.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "propertyName",
@@ -6555,6 +6686,7 @@
       "id": "repositoryidconditiontarget",
       "href": "/graphql/reference/repos#object-repositoryidconditiontarget",
       "description": "<p>Parameters to be used for the repository_id condition.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "repositoryIds",
@@ -6571,6 +6703,7 @@
       "id": "repositoryinvitation",
       "href": "/graphql/reference/repos#object-repositoryinvitation",
       "description": "<p>An invitation for a user to be added to a repository.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -6696,6 +6829,7 @@
       "id": "repositorynameconditiontarget",
       "href": "/graphql/reference/repos#object-repositorynameconditiontarget",
       "description": "<p>Parameters to be used for the repository_name condition.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "exclude",
@@ -6726,6 +6860,7 @@
       "id": "repositoryplanfeatures",
       "href": "/graphql/reference/repos#object-repositoryplanfeatures",
       "description": "<p>Information about the availability of features and limits for a repository based on its billing plan.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "codeowners",
@@ -6770,6 +6905,7 @@
       "id": "repositorypropertyconditiontarget",
       "href": "/graphql/reference/repos#object-repositorypropertyconditiontarget",
       "description": "<p>Parameters to be used for the repository_property condition.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "exclude",
@@ -6793,6 +6929,7 @@
       "id": "repositoryrule",
       "href": "/graphql/reference/repos#object-repositoryrule",
       "description": "<p>A repository rule.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -6813,7 +6950,7 @@
           "description": "<p>The parameters for this rule.</p>",
           "type": "RuleParameters",
           "id": "ruleparameters",
-          "href": "/graphql/reference/other#union-ruleparameters"
+          "href": "/graphql/reference/repos#union-ruleparameters"
         },
         {
           "name": "repositoryRuleset",
@@ -6827,7 +6964,7 @@
           "description": "<p>The type of rule.</p>",
           "type": "RepositoryRuleType!",
           "id": "repositoryruletype",
-          "href": "/graphql/reference/other#enum-repositoryruletype"
+          "href": "/graphql/reference/repos#enum-repositoryruletype"
         }
       ],
       "category": "repos"
@@ -6837,6 +6974,7 @@
       "id": "repositoryruleconditions",
       "href": "/graphql/reference/repos#object-repositoryruleconditions",
       "description": "<p>Set of conditions that determine if a ruleset will evaluate.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "organizationProperty",
@@ -6941,6 +7079,7 @@
       "id": "repositoryruleset",
       "href": "/graphql/reference/repos#object-repositoryruleset",
       "description": "<p>A repository ruleset.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -7085,7 +7224,7 @@
               "type": {
                 "name": "RepositoryRuleType",
                 "id": "repositoryruletype",
-                "href": "/graphql/reference/other#enum-repositoryruletype"
+                "href": "/graphql/reference/repos#enum-repositoryruletype"
               }
             }
           ]
@@ -7118,7 +7257,8 @@
       "name": "RepositoryRulesetBypassActor",
       "id": "repositoryrulesetbypassactor",
       "href": "/graphql/reference/repos#object-repositoryrulesetbypassactor",
-      "description": "<p>A team or app that has the ability to bypass a rules defined on a ruleset.</p>",
+      "description": "<p>A team, app or user that has the ability to bypass rules defined on a ruleset.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -7325,6 +7465,7 @@
       "id": "repositorytopic",
       "href": "/graphql/reference/repos#object-repositorytopic",
       "description": "<p>A repository-topic connects a repository to a topic.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -7508,6 +7649,7 @@
       "id": "tagnamepatternparameters",
       "href": "/graphql/reference/repos#object-tagnamepatternparameters",
       "description": "<p>Parameters to be used for the tag_name_pattern rule.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "name",
@@ -7612,6 +7754,7 @@
       "id": "topic",
       "href": "/graphql/reference/repos#object-topic",
       "description": "<p>A topic aggregates entities that are related to a subject.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -7842,6 +7985,7 @@
       "id": "updateparameters",
       "href": "/graphql/reference/repos#object-updateparameters",
       "description": "<p>Only allow users with bypass permission to update matching refs.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "updateAllowsFetchAndMerge",
@@ -7860,6 +8004,7 @@
       "id": "repositoryauditentrydata",
       "href": "/graphql/reference/repos#interface-repositoryauditentrydata",
       "description": "<p>Metadata for an audit entry with action repo.*.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "repository",
@@ -7897,6 +8042,7 @@
       "id": "repositoryinfo",
       "href": "/graphql/reference/repos#interface-repositoryinfo",
       "description": "<p>A subset of repository info.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "archivedAt",
@@ -8032,6 +8178,13 @@
           "href": "/graphql/reference/other#scalar-boolean"
         },
         {
+          "name": "issueCreationPolicy",
+          "description": "<p>The policy controlling who can create issues in this repository.</p>",
+          "type": "IssueCreationPolicy",
+          "id": "issuecreationpolicy",
+          "href": "/graphql/reference/issues#enum-issuecreationpolicy"
+        },
+        {
           "name": "licenseInfo",
           "description": "<p>The license associated with the repository.</p>",
           "type": "License",
@@ -8156,6 +8309,7 @@
       "id": "repositorynode",
       "href": "/graphql/reference/repos#interface-repositorynode",
       "description": "<p>Represents a object that belongs to a repository.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "repository",
@@ -8172,6 +8326,7 @@
       "id": "repositoryowner",
       "href": "/graphql/reference/repos#interface-repositoryowner",
       "description": "<p>Represents an owner of a Repository.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "avatarUrl",
@@ -8383,6 +8538,7 @@
       "id": "collaboratoraffiliation",
       "href": "/graphql/reference/repos#enum-collaboratoraffiliation",
       "description": "<p>Collaborators affiliation level with a subject.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALL",
@@ -8404,6 +8560,7 @@
       "id": "custompropertyvaluetype",
       "href": "/graphql/reference/repos#enum-custompropertyvaluetype",
       "description": "<p>The allowed value types for a custom property definition.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "MULTI_SELECT",
@@ -8433,6 +8590,7 @@
       "id": "defaultrepositorypermissionfield",
       "href": "/graphql/reference/repos#enum-defaultrepositorypermissionfield",
       "description": "<p>The possible base permissions for repositories.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ADMIN",
@@ -8458,6 +8616,7 @@
       "id": "languageorderfield",
       "href": "/graphql/reference/repos#enum-languageorderfield",
       "description": "<p>Properties by which language connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "SIZE",
@@ -8471,6 +8630,7 @@
       "id": "mergecommitmessage",
       "href": "/graphql/reference/repos#enum-mergecommitmessage",
       "description": "<p>The possible default commit messages for merges.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "BLANK",
@@ -8492,6 +8652,7 @@
       "id": "mergecommittitle",
       "href": "/graphql/reference/repos#enum-mergecommittitle",
       "description": "<p>The possible default commit titles for merges.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "MERGE_MESSAGE",
@@ -8509,6 +8670,7 @@
       "id": "repoaccessauditentryvisibility",
       "href": "/graphql/reference/repos#enum-repoaccessauditentryvisibility",
       "description": "<p>The privacy of a repository.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "INTERNAL",
@@ -8530,6 +8692,7 @@
       "id": "repoaddmemberauditentryvisibility",
       "href": "/graphql/reference/repos#enum-repoaddmemberauditentryvisibility",
       "description": "<p>The privacy of a repository.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "INTERNAL",
@@ -8551,6 +8714,7 @@
       "id": "repoarchivedauditentryvisibility",
       "href": "/graphql/reference/repos#enum-repoarchivedauditentryvisibility",
       "description": "<p>The privacy of a repository.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "INTERNAL",
@@ -8572,6 +8736,7 @@
       "id": "repochangemergesettingauditentrymergetype",
       "href": "/graphql/reference/repos#enum-repochangemergesettingauditentrymergetype",
       "description": "<p>The merge options available for pull requests to this repository.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "MERGE",
@@ -8593,6 +8758,7 @@
       "id": "repocreateauditentryvisibility",
       "href": "/graphql/reference/repos#enum-repocreateauditentryvisibility",
       "description": "<p>The privacy of a repository.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "INTERNAL",
@@ -8614,6 +8780,7 @@
       "id": "repodestroyauditentryvisibility",
       "href": "/graphql/reference/repos#enum-repodestroyauditentryvisibility",
       "description": "<p>The privacy of a repository.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "INTERNAL",
@@ -8635,6 +8802,7 @@
       "id": "reporemovememberauditentryvisibility",
       "href": "/graphql/reference/repos#enum-reporemovememberauditentryvisibility",
       "description": "<p>The privacy of a repository.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "INTERNAL",
@@ -8656,6 +8824,7 @@
       "id": "repositoryaffiliation",
       "href": "/graphql/reference/repos#enum-repositoryaffiliation",
       "description": "<p>The affiliation of a user to a repository.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "COLLABORATOR",
@@ -8677,6 +8846,7 @@
       "id": "repositorycontributiontype",
       "href": "/graphql/reference/repos#enum-repositorycontributiontype",
       "description": "<p>The reason a repository is listed as 'contributed'.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "COMMIT",
@@ -8706,6 +8876,7 @@
       "id": "repositorycustompropertyvalueseditableby",
       "href": "/graphql/reference/repos#enum-repositorycustompropertyvalueseditableby",
       "description": "<p>The allowed actors who can edit the values of a custom property.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ORG_ACTORS",
@@ -8723,6 +8894,7 @@
       "id": "repositoryinvitationorderfield",
       "href": "/graphql/reference/repos#enum-repositoryinvitationorderfield",
       "description": "<p>Properties by which repository invitation connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -8736,6 +8908,7 @@
       "id": "repositorylockreason",
       "href": "/graphql/reference/repos#enum-repositorylockreason",
       "description": "<p>The possible reasons a given repository could be in a locked state.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "BILLING",
@@ -8769,6 +8942,7 @@
       "id": "repositoryorderfield",
       "href": "/graphql/reference/repos#enum-repositoryorderfield",
       "description": "<p>Properties by which repository connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -8798,6 +8972,7 @@
       "id": "repositorypermission",
       "href": "/graphql/reference/repos#enum-repositorypermission",
       "description": "<p>The access level to a repository.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ADMIN",
@@ -8827,6 +9002,7 @@
       "id": "repositoryprivacy",
       "href": "/graphql/reference/repos#enum-repositoryprivacy",
       "description": "<p>The privacy of a repository.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "PRIVATE",
@@ -8844,6 +9020,7 @@
       "id": "repositoryruleorderfield",
       "href": "/graphql/reference/repos#enum-repositoryruleorderfield",
       "description": "<p>Properties by which repository rule connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -8861,10 +9038,144 @@
       "category": "repos"
     },
     {
+      "name": "RepositoryRuleType",
+      "id": "repositoryruletype",
+      "href": "/graphql/reference/repos#enum-repositoryruletype",
+      "description": "<p>The rule types supported in rulesets.</p>",
+      "values": [
+        {
+          "name": "AUTHORIZATION",
+          "description": "<p>Authorization.</p>"
+        },
+        {
+          "name": "BRANCH_NAME_PATTERN",
+          "description": "<p>Branch name pattern.</p>"
+        },
+        {
+          "name": "CODE_SCANNING",
+          "description": "<p>Choose which tools must provide code scanning results before the reference is\nupdated. When configured, code scanning must be enabled and have results for\nboth the commit and the reference being updated.</p>"
+        },
+        {
+          "name": "COMMITTER_EMAIL_PATTERN",
+          "description": "<p>Committer email pattern.</p>"
+        },
+        {
+          "name": "COMMIT_AUTHOR_EMAIL_PATTERN",
+          "description": "<p>Commit author email pattern.</p>"
+        },
+        {
+          "name": "COMMIT_MESSAGE_PATTERN",
+          "description": "<p>Commit message pattern.</p>"
+        },
+        {
+          "name": "COPILOT_CODE_REVIEW",
+          "description": "<p>Request Copilot code review for new pull requests automatically if the author\nhas access to Copilot code review and their premium requests quota has not\nreached the limit.</p>"
+        },
+        {
+          "name": "CREATION",
+          "description": "<p>Only allow users with bypass permission to create matching refs.</p>"
+        },
+        {
+          "name": "DELETION",
+          "description": "<p>Only allow users with bypass permissions to delete matching refs.</p>"
+        },
+        {
+          "name": "FILE_EXTENSION_RESTRICTION",
+          "description": "<p>Prevent commits that include files with specified file extensions from being pushed to the commit graph.</p>"
+        },
+        {
+          "name": "FILE_PATH_RESTRICTION",
+          "description": "<p>Prevent commits that include changes in specified file and folder paths from\nbeing pushed to the commit graph. This includes absolute paths that contain file names.</p>"
+        },
+        {
+          "name": "LOCK_BRANCH",
+          "description": "<p>Branch is read-only. Users cannot push to the branch.</p>"
+        },
+        {
+          "name": "MAX_FILE_PATH_LENGTH",
+          "description": "<p>Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.</p>"
+        },
+        {
+          "name": "MAX_FILE_SIZE",
+          "description": "<p>Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.</p>"
+        },
+        {
+          "name": "MAX_REF_UPDATES",
+          "description": "<p>Max ref updates.</p>"
+        },
+        {
+          "name": "MERGE_QUEUE",
+          "description": "<p>Merges must be performed via a merge queue.</p>"
+        },
+        {
+          "name": "MERGE_QUEUE_LOCKED_REF",
+          "description": "<p>Merge queue locked ref.</p>"
+        },
+        {
+          "name": "NON_FAST_FORWARD",
+          "description": "<p>Prevent users with push access from force pushing to refs.</p>"
+        },
+        {
+          "name": "PULL_REQUEST",
+          "description": "<p>Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.</p>"
+        },
+        {
+          "name": "REQUIRED_DEPLOYMENTS",
+          "description": "<p>Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule.</p>"
+        },
+        {
+          "name": "REQUIRED_LINEAR_HISTORY",
+          "description": "<p>Prevent merge commits from being pushed to matching refs.</p>"
+        },
+        {
+          "name": "REQUIRED_REVIEW_THREAD_RESOLUTION",
+          "description": "<p>When enabled, all conversations on code must be resolved before a pull request\ncan be merged into a branch that matches this rule.</p>"
+        },
+        {
+          "name": "REQUIRED_SIGNATURES",
+          "description": "<p>Commits pushed to matching refs must have verified signatures.</p>"
+        },
+        {
+          "name": "REQUIRED_STATUS_CHECKS",
+          "description": "<p>Choose which status checks must pass before the ref is updated. When enabled,\ncommits must first be pushed to another ref where the checks pass.</p>"
+        },
+        {
+          "name": "REQUIRED_WORKFLOW_STATUS_CHECKS",
+          "description": "<p>Require all commits be made to a non-target branch and submitted via a pull\nrequest and required workflow checks to pass before they can be merged.</p>"
+        },
+        {
+          "name": "SECRET_SCANNING",
+          "description": "<p>Secret scanning.</p>"
+        },
+        {
+          "name": "TAG",
+          "description": "<p>Tag.</p>"
+        },
+        {
+          "name": "TAG_NAME_PATTERN",
+          "description": "<p>Tag name pattern.</p>"
+        },
+        {
+          "name": "UPDATE",
+          "description": "<p>Only allow users with bypass permission to update matching refs.</p>"
+        },
+        {
+          "name": "WORKFLOWS",
+          "description": "<p>Require all changes made to a targeted branch to pass the specified workflows before they can be merged.</p>"
+        },
+        {
+          "name": "WORKFLOW_UPDATES",
+          "description": "<p>Workflow files cannot be modified.</p>"
+        }
+      ],
+      "category": "repos"
+    },
+    {
       "name": "RepositoryRulesetBypassActorBypassMode",
       "id": "repositoryrulesetbypassactorbypassmode",
       "href": "/graphql/reference/repos#enum-repositoryrulesetbypassactorbypassmode",
       "description": "<p>The bypass mode for a specific actor on a ruleset.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALWAYS",
@@ -8886,6 +9197,7 @@
       "id": "repositoryrulesettarget",
       "href": "/graphql/reference/repos#enum-repositoryrulesettarget",
       "description": "<p>The targets supported for rulesets.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "BRANCH",
@@ -8911,6 +9223,7 @@
       "id": "repositorysuggestedactorfilter",
       "href": "/graphql/reference/repos#enum-repositorysuggestedactorfilter",
       "description": "<p>The possible filters for suggested actors in a repository.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CAN_BE_ASSIGNED",
@@ -8928,6 +9241,7 @@
       "id": "repositoryvisibility",
       "href": "/graphql/reference/repos#enum-repositoryvisibility",
       "description": "<p>The repository's visibility level.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "INTERNAL",
@@ -8949,6 +9263,7 @@
       "id": "ruleenforcement",
       "href": "/graphql/reference/repos#enum-ruleenforcement",
       "description": "<p>The level of enforcement for a rule or ruleset.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ACTIVE",
@@ -8970,6 +9285,7 @@
       "id": "squashmergecommitmessage",
       "href": "/graphql/reference/repos#enum-squashmergecommitmessage",
       "description": "<p>The possible default commit messages for squash merges.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "BLANK",
@@ -8991,6 +9307,7 @@
       "id": "squashmergecommittitle",
       "href": "/graphql/reference/repos#enum-squashmergecommittitle",
       "description": "<p>The possible default commit titles for squash merges.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "COMMIT_OR_PR_TITLE",
@@ -9010,11 +9327,17 @@
       "id": "bypassactor",
       "href": "/graphql/reference/repos#union-bypassactor",
       "description": "<p>Types that can represent a repository ruleset bypass actor.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "App",
           "id": "app",
           "href": "/graphql/reference/apps#object-app"
+        },
+        {
+          "name": "EnterpriseTeam",
+          "id": "enterpriseteam",
+          "href": "/graphql/reference/enterprise-admin#object-enterpriseteam"
         },
         {
           "name": "Team",
@@ -9034,6 +9357,7 @@
       "id": "custompropertysource",
       "href": "/graphql/reference/repos#union-custompropertysource",
       "description": "<p>Sources which can have custom properties defined.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Enterprise",
@@ -9049,10 +9373,105 @@
       "category": "repos"
     },
     {
+      "name": "RuleParameters",
+      "id": "ruleparameters",
+      "href": "/graphql/reference/repos#union-ruleparameters",
+      "description": "<p>Types which can be parameters for <code>RepositoryRule</code> objects.</p>",
+      "possibleTypes": [
+        {
+          "name": "BranchNamePatternParameters",
+          "id": "branchnamepatternparameters",
+          "href": "/graphql/reference/branches#object-branchnamepatternparameters"
+        },
+        {
+          "name": "CodeScanningParameters",
+          "id": "codescanningparameters",
+          "href": "/graphql/reference/repos#object-codescanningparameters"
+        },
+        {
+          "name": "CommitAuthorEmailPatternParameters",
+          "id": "commitauthoremailpatternparameters",
+          "href": "/graphql/reference/commits#object-commitauthoremailpatternparameters"
+        },
+        {
+          "name": "CommitMessagePatternParameters",
+          "id": "commitmessagepatternparameters",
+          "href": "/graphql/reference/commits#object-commitmessagepatternparameters"
+        },
+        {
+          "name": "CommitterEmailPatternParameters",
+          "id": "committeremailpatternparameters",
+          "href": "/graphql/reference/commits#object-committeremailpatternparameters"
+        },
+        {
+          "name": "CopilotCodeReviewParameters",
+          "id": "copilotcodereviewparameters",
+          "href": "/graphql/reference/pulls#object-copilotcodereviewparameters"
+        },
+        {
+          "name": "FileExtensionRestrictionParameters",
+          "id": "fileextensionrestrictionparameters",
+          "href": "/graphql/reference/repos#object-fileextensionrestrictionparameters"
+        },
+        {
+          "name": "FilePathRestrictionParameters",
+          "id": "filepathrestrictionparameters",
+          "href": "/graphql/reference/repos#object-filepathrestrictionparameters"
+        },
+        {
+          "name": "MaxFilePathLengthParameters",
+          "id": "maxfilepathlengthparameters",
+          "href": "/graphql/reference/repos#object-maxfilepathlengthparameters"
+        },
+        {
+          "name": "MaxFileSizeParameters",
+          "id": "maxfilesizeparameters",
+          "href": "/graphql/reference/repos#object-maxfilesizeparameters"
+        },
+        {
+          "name": "MergeQueueParameters",
+          "id": "mergequeueparameters",
+          "href": "/graphql/reference/pulls#object-mergequeueparameters"
+        },
+        {
+          "name": "PullRequestParameters",
+          "id": "pullrequestparameters",
+          "href": "/graphql/reference/pulls#object-pullrequestparameters"
+        },
+        {
+          "name": "RequiredDeploymentsParameters",
+          "id": "requireddeploymentsparameters",
+          "href": "/graphql/reference/deployments#object-requireddeploymentsparameters"
+        },
+        {
+          "name": "RequiredStatusChecksParameters",
+          "id": "requiredstatuschecksparameters",
+          "href": "/graphql/reference/branches#object-requiredstatuschecksparameters"
+        },
+        {
+          "name": "TagNamePatternParameters",
+          "id": "tagnamepatternparameters",
+          "href": "/graphql/reference/repos#object-tagnamepatternparameters"
+        },
+        {
+          "name": "UpdateParameters",
+          "id": "updateparameters",
+          "href": "/graphql/reference/repos#object-updateparameters"
+        },
+        {
+          "name": "WorkflowsParameters",
+          "id": "workflowsparameters",
+          "href": "/graphql/reference/actions#object-workflowsparameters"
+        }
+      ],
+      "category": "repos"
+    },
+    {
       "name": "RuleSource",
       "id": "rulesource",
       "href": "/graphql/reference/repos#union-rulesource",
       "description": "<p>Types which can have <code>RepositoryRule</code> objects.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Enterprise",
@@ -9163,6 +9582,7 @@
       "id": "codescanningparametersinput",
       "href": "/graphql/reference/repos#input-object-codescanningparametersinput",
       "description": "<p>Choose which tools must provide code scanning results before the reference is\nupdated. When configured, code scanning must be enabled and have results for\nboth the commit and the reference being updated.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "codeScanningTools",
@@ -9179,6 +9599,7 @@
       "id": "codescanningtoolinput",
       "href": "/graphql/reference/repos#input-object-codescanningtoolinput",
       "description": "<p>A tool that must provide code scanning results for this rule to pass.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "alertsThreshold",
@@ -9443,6 +9864,7 @@
       "id": "custompropertyvalueinput",
       "href": "/graphql/reference/repos#input-object-custompropertyvalueinput",
       "description": "<p>The custom property name and value to be set.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "propertyName",
@@ -9514,6 +9936,7 @@
       "id": "fileextensionrestrictionparametersinput",
       "href": "/graphql/reference/repos#input-object-fileextensionrestrictionparametersinput",
       "description": "<p>Prevent commits that include files with specified file extensions from being pushed to the commit graph.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "restrictedFileExtensions",
@@ -9530,6 +9953,7 @@
       "id": "filepathrestrictionparametersinput",
       "href": "/graphql/reference/repos#input-object-filepathrestrictionparametersinput",
       "description": "<p>Prevent commits that include changes in specified file and folder paths from\nbeing pushed to the commit graph. This includes absolute paths that contain file names.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "restrictedFilePaths",
@@ -9546,6 +9970,7 @@
       "id": "languageorder",
       "href": "/graphql/reference/repos#input-object-languageorder",
       "description": "<p>Ordering options for language connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -9569,6 +9994,7 @@
       "id": "maxfilepathlengthparametersinput",
       "href": "/graphql/reference/repos#input-object-maxfilepathlengthparametersinput",
       "description": "<p>Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "maxFilePathLength",
@@ -9585,6 +10011,7 @@
       "id": "maxfilesizeparametersinput",
       "href": "/graphql/reference/repos#input-object-maxfilesizeparametersinput",
       "description": "<p>Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "maxFileSize",
@@ -9625,6 +10052,7 @@
       "id": "propertytargetdefinitioninput",
       "href": "/graphql/reference/repos#input-object-propertytargetdefinitioninput",
       "description": "<p>A property that must match.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "name",
@@ -9655,6 +10083,7 @@
       "id": "repositoryidconditiontargetinput",
       "href": "/graphql/reference/repos#input-object-repositoryidconditiontargetinput",
       "description": "<p>Parameters to be used for the repository_id condition.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "repositoryIds",
@@ -9671,6 +10100,7 @@
       "id": "repositoryinvitationorder",
       "href": "/graphql/reference/repos#input-object-repositoryinvitationorder",
       "description": "<p>Ordering options for repository invitation connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -9694,6 +10124,7 @@
       "id": "repositorynameconditiontargetinput",
       "href": "/graphql/reference/repos#input-object-repositorynameconditiontargetinput",
       "description": "<p>Parameters to be used for the repository_name condition.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "exclude",
@@ -9724,6 +10155,7 @@
       "id": "repositoryorder",
       "href": "/graphql/reference/repos#input-object-repositoryorder",
       "description": "<p>Ordering options for repository connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -9747,6 +10179,7 @@
       "id": "repositorypropertyconditiontargetinput",
       "href": "/graphql/reference/repos#input-object-repositorypropertyconditiontargetinput",
       "description": "<p>Parameters to be used for the repository_property condition.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "exclude",
@@ -9770,6 +10203,7 @@
       "id": "repositoryruleconditionsinput",
       "href": "/graphql/reference/repos#input-object-repositoryruleconditionsinput",
       "description": "<p>Specifies the conditions required for a ruleset to evaluate.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "organizationProperty",
@@ -9814,6 +10248,7 @@
       "id": "repositoryruleinput",
       "href": "/graphql/reference/repos#input-object-repositoryruleinput",
       "description": "<p>Specifies the attributes for a new or updated rule.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "id",
@@ -9828,14 +10263,14 @@
           "description": "<p>The parameters for the rule.</p>",
           "type": "RuleParametersInput",
           "id": "ruleparametersinput",
-          "href": "/graphql/reference/other#input-object-ruleparametersinput"
+          "href": "/graphql/reference/repos#input-object-ruleparametersinput"
         },
         {
           "name": "type",
           "description": "<p>The type of rule to create.</p>",
           "type": "RepositoryRuleType!",
           "id": "repositoryruletype",
-          "href": "/graphql/reference/other#enum-repositoryruletype"
+          "href": "/graphql/reference/repos#enum-repositoryruletype"
         }
       ],
       "category": "repos"
@@ -9845,6 +10280,7 @@
       "id": "repositoryruleorder",
       "href": "/graphql/reference/repos#input-object-repositoryruleorder",
       "description": "<p>Ordering options for repository rules.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -9867,11 +10303,12 @@
       "name": "RepositoryRulesetBypassActorInput",
       "id": "repositoryrulesetbypassactorinput",
       "href": "/graphql/reference/repos#input-object-repositoryrulesetbypassactorinput",
-      "description": "<p>Specifies the attributes for a new or updated ruleset bypass actor. Only one of\n<code>actor_id</code>, <code>repository_role_database_id</code>, <code>organization_admin</code>, or <code>deploy_key</code>\nshould be specified.</p>",
+      "description": "<p>Specifies the attributes for a new or updated ruleset bypass actor. Only one of\n<code>actor_id</code>, <code>repository_role_database_id</code>, <code>organization_admin</code>,\n<code>enterprise_owner</code>, or <code>deploy_key</code> should be specified.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "actorId",
-          "description": "<p>For Team and Integration bypasses, the Team or Integration ID.</p>",
+          "description": "<p>For Team, Integration and User bypasses, the Team, Integration, or User ID.</p>",
           "type": "ID",
           "id": "id",
           "href": "/graphql/reference/other#scalar-id"
@@ -9922,6 +10359,134 @@
       "category": "repos"
     },
     {
+      "name": "RuleParametersInput",
+      "id": "ruleparametersinput",
+      "href": "/graphql/reference/repos#input-object-ruleparametersinput",
+      "description": "<p>Specifies the parameters for a <code>RepositoryRule</code> object. Only one of the fields should be specified.</p>",
+      "inputFields": [
+        {
+          "name": "branchNamePattern",
+          "description": "<p>Parameters used for the <code>branch_name_pattern</code> rule type.</p>",
+          "type": "BranchNamePatternParametersInput",
+          "id": "branchnamepatternparametersinput",
+          "href": "/graphql/reference/branches#input-object-branchnamepatternparametersinput"
+        },
+        {
+          "name": "codeScanning",
+          "description": "<p>Parameters used for the <code>code_scanning</code> rule type.</p>",
+          "type": "CodeScanningParametersInput",
+          "id": "codescanningparametersinput",
+          "href": "/graphql/reference/repos#input-object-codescanningparametersinput"
+        },
+        {
+          "name": "commitAuthorEmailPattern",
+          "description": "<p>Parameters used for the <code>commit_author_email_pattern</code> rule type.</p>",
+          "type": "CommitAuthorEmailPatternParametersInput",
+          "id": "commitauthoremailpatternparametersinput",
+          "href": "/graphql/reference/commits#input-object-commitauthoremailpatternparametersinput"
+        },
+        {
+          "name": "commitMessagePattern",
+          "description": "<p>Parameters used for the <code>commit_message_pattern</code> rule type.</p>",
+          "type": "CommitMessagePatternParametersInput",
+          "id": "commitmessagepatternparametersinput",
+          "href": "/graphql/reference/commits#input-object-commitmessagepatternparametersinput"
+        },
+        {
+          "name": "committerEmailPattern",
+          "description": "<p>Parameters used for the <code>committer_email_pattern</code> rule type.</p>",
+          "type": "CommitterEmailPatternParametersInput",
+          "id": "committeremailpatternparametersinput",
+          "href": "/graphql/reference/commits#input-object-committeremailpatternparametersinput"
+        },
+        {
+          "name": "copilotCodeReview",
+          "description": "<p>Parameters used for the <code>copilot_code_review</code> rule type.</p>",
+          "type": "CopilotCodeReviewParametersInput",
+          "id": "copilotcodereviewparametersinput",
+          "href": "/graphql/reference/pulls#input-object-copilotcodereviewparametersinput"
+        },
+        {
+          "name": "fileExtensionRestriction",
+          "description": "<p>Parameters used for the <code>file_extension_restriction</code> rule type.</p>",
+          "type": "FileExtensionRestrictionParametersInput",
+          "id": "fileextensionrestrictionparametersinput",
+          "href": "/graphql/reference/repos#input-object-fileextensionrestrictionparametersinput"
+        },
+        {
+          "name": "filePathRestriction",
+          "description": "<p>Parameters used for the <code>file_path_restriction</code> rule type.</p>",
+          "type": "FilePathRestrictionParametersInput",
+          "id": "filepathrestrictionparametersinput",
+          "href": "/graphql/reference/repos#input-object-filepathrestrictionparametersinput"
+        },
+        {
+          "name": "maxFilePathLength",
+          "description": "<p>Parameters used for the <code>max_file_path_length</code> rule type.</p>",
+          "type": "MaxFilePathLengthParametersInput",
+          "id": "maxfilepathlengthparametersinput",
+          "href": "/graphql/reference/repos#input-object-maxfilepathlengthparametersinput"
+        },
+        {
+          "name": "maxFileSize",
+          "description": "<p>Parameters used for the <code>max_file_size</code> rule type.</p>",
+          "type": "MaxFileSizeParametersInput",
+          "id": "maxfilesizeparametersinput",
+          "href": "/graphql/reference/repos#input-object-maxfilesizeparametersinput"
+        },
+        {
+          "name": "mergeQueue",
+          "description": "<p>Parameters used for the <code>merge_queue</code> rule type.</p>",
+          "type": "MergeQueueParametersInput",
+          "id": "mergequeueparametersinput",
+          "href": "/graphql/reference/pulls#input-object-mergequeueparametersinput"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>Parameters used for the <code>pull_request</code> rule type.</p>",
+          "type": "PullRequestParametersInput",
+          "id": "pullrequestparametersinput",
+          "href": "/graphql/reference/pulls#input-object-pullrequestparametersinput"
+        },
+        {
+          "name": "requiredDeployments",
+          "description": "<p>Parameters used for the <code>required_deployments</code> rule type.</p>",
+          "type": "RequiredDeploymentsParametersInput",
+          "id": "requireddeploymentsparametersinput",
+          "href": "/graphql/reference/deployments#input-object-requireddeploymentsparametersinput"
+        },
+        {
+          "name": "requiredStatusChecks",
+          "description": "<p>Parameters used for the <code>required_status_checks</code> rule type.</p>",
+          "type": "RequiredStatusChecksParametersInput",
+          "id": "requiredstatuschecksparametersinput",
+          "href": "/graphql/reference/branches#input-object-requiredstatuschecksparametersinput"
+        },
+        {
+          "name": "tagNamePattern",
+          "description": "<p>Parameters used for the <code>tag_name_pattern</code> rule type.</p>",
+          "type": "TagNamePatternParametersInput",
+          "id": "tagnamepatternparametersinput",
+          "href": "/graphql/reference/repos#input-object-tagnamepatternparametersinput"
+        },
+        {
+          "name": "update",
+          "description": "<p>Parameters used for the <code>update</code> rule type.</p>",
+          "type": "UpdateParametersInput",
+          "id": "updateparametersinput",
+          "href": "/graphql/reference/repos#input-object-updateparametersinput"
+        },
+        {
+          "name": "workflows",
+          "description": "<p>Parameters used for the <code>workflows</code> rule type.</p>",
+          "type": "WorkflowsParametersInput",
+          "id": "workflowsparametersinput",
+          "href": "/graphql/reference/actions#input-object-workflowsparametersinput"
+        }
+      ],
+      "category": "repos"
+    },
+    {
       "name": "SetRepositoryCustomPropertyValuesInput",
       "id": "setrepositorycustompropertyvaluesinput",
       "href": "/graphql/reference/repos#input-object-setrepositorycustompropertyvaluesinput",
@@ -9957,6 +10522,7 @@
       "id": "tagnamepatternparametersinput",
       "href": "/graphql/reference/repos#input-object-tagnamepatternparametersinput",
       "description": "<p>Parameters to be used for the tag_name_pattern rule.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "name",
@@ -10018,6 +10584,7 @@
       "id": "updateparametersinput",
       "href": "/graphql/reference/repos#input-object-updateparametersinput",
       "description": "<p>Only allow users with bypass permission to update matching refs.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "updateAllowsFetchAndMerge",

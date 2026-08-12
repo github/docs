@@ -69,6 +69,7 @@
       "id": "addverifiabledomain",
       "href": "/graphql/reference/orgs#mutation-addverifiabledomain",
       "description": "<p>Adds a verifiable domain to an owning account.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -100,6 +101,7 @@
       "id": "approveverifiabledomain",
       "href": "/graphql/reference/orgs#mutation-approveverifiabledomain",
       "description": "<p>Approve a verifiable domain for notification delivery.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -131,6 +133,7 @@
       "id": "deleteverifiabledomain",
       "href": "/graphql/reference/orgs#mutation-deleteverifiabledomain",
       "description": "<p>Deletes a verifiable domain.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -162,6 +165,7 @@
       "id": "followorganization",
       "href": "/graphql/reference/orgs#mutation-followorganization",
       "description": "<p>Follow an organization.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -193,6 +197,7 @@
       "id": "regenerateverifiabledomaintoken",
       "href": "/graphql/reference/orgs#mutation-regenerateverifiabledomaintoken",
       "description": "<p>Regenerates a verifiable domain's verification token.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -224,6 +229,7 @@
       "id": "removeoutsidecollaborator",
       "href": "/graphql/reference/orgs#mutation-removeoutsidecollaborator",
       "description": "<p>Removes outside collaborator from all repositories in an organization.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -255,6 +261,7 @@
       "id": "unfolloworganization",
       "href": "/graphql/reference/orgs#mutation-unfolloworganization",
       "description": "<p>Unfollow an organization.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -286,6 +293,7 @@
       "id": "updateorganizationallowprivaterepositoryforkingsetting",
       "href": "/graphql/reference/orgs#mutation-updateorganizationallowprivaterepositoryforkingsetting",
       "description": "<p>Sets whether private repository forks are enabled for an organization.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -324,6 +332,7 @@
       "id": "updateorganizationwebcommitsignoffsetting",
       "href": "/graphql/reference/orgs#mutation-updateorganizationwebcommitsignoffsetting",
       "description": "<p>Sets whether contributors are required to sign off on web-based commits for repositories in an organization.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -362,6 +371,7 @@
       "id": "verifyverifiabledomain",
       "href": "/graphql/reference/orgs#mutation-verifyverifiabledomain",
       "description": "<p>Verify that a verifiable domain has the expected DNS record.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -592,10 +602,71 @@
       "category": "orgs"
     },
     {
+      "name": "EnterpriseTeamAssignedOrganizationConnection",
+      "id": "enterpriseteamassignedorganizationconnection",
+      "href": "/graphql/reference/orgs#object-enterpriseteamassignedorganizationconnection",
+      "description": "<p>The connection type for Organization.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[EnterpriseTeamAssignedOrganizationEdge]",
+          "id": "enterpriseteamassignedorganizationedge",
+          "href": "/graphql/reference/orgs#object-enterpriseteamassignedorganizationedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Organization]",
+          "id": "organization",
+          "href": "/graphql/reference/orgs#object-organization"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "orgs"
+    },
+    {
+      "name": "EnterpriseTeamAssignedOrganizationEdge",
+      "id": "enterpriseteamassignedorganizationedge",
+      "href": "/graphql/reference/orgs#object-enterpriseteamassignedorganizationedge",
+      "description": "<p>Represents an organization that an enterprise team is assigned to.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "",
+          "type": "Organization",
+          "id": "organization",
+          "href": "/graphql/reference/orgs#object-organization"
+        }
+      ],
+      "category": "orgs"
+    },
+    {
       "name": "MemberFeatureRequestNotification",
       "id": "memberfeaturerequestnotification",
       "href": "/graphql/reference/orgs#object-memberfeaturerequestnotification",
       "description": "<p>Represents a member feature request notification.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -640,6 +711,7 @@
       "id": "orgaddbillingmanagerauditentry",
       "href": "/graphql/reference/orgs#object-orgaddbillingmanagerauditentry",
       "description": "<p>Audit log entry for a org.add_billing_manager.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -835,6 +907,7 @@
       "id": "orgaddmemberauditentry",
       "href": "/graphql/reference/orgs#object-orgaddmemberauditentry",
       "description": "<p>Audit log entry for a org.add_member.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -1030,6 +1103,7 @@
       "id": "orgblockuserauditentry",
       "href": "/graphql/reference/orgs#object-orgblockuserauditentry",
       "description": "<p>Audit log entry for a org.block_user.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -1252,6 +1326,7 @@
       "id": "orgconfigdisablecollaboratorsonlyauditentry",
       "href": "/graphql/reference/orgs#object-orgconfigdisablecollaboratorsonlyauditentry",
       "description": "<p>Audit log entry for a org.config.disable_collaborators_only event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -1438,6 +1513,7 @@
       "id": "orgconfigenablecollaboratorsonlyauditentry",
       "href": "/graphql/reference/orgs#object-orgconfigenablecollaboratorsonlyauditentry",
       "description": "<p>Audit log entry for a org.config.enable_collaborators_only event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -1624,6 +1700,7 @@
       "id": "orgcreateauditentry",
       "href": "/graphql/reference/orgs#object-orgcreateauditentry",
       "description": "<p>Audit log entry for a org.create event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -1819,6 +1896,7 @@
       "id": "orgdisableoauthapprestrictionsauditentry",
       "href": "/graphql/reference/orgs#object-orgdisableoauthapprestrictionsauditentry",
       "description": "<p>Audit log entry for a org.disable_oauth_app_restrictions event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -2005,6 +2083,7 @@
       "id": "orgdisablesamlauditentry",
       "href": "/graphql/reference/orgs#object-orgdisablesamlauditentry",
       "description": "<p>Audit log entry for a org.disable_saml event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -2227,6 +2306,7 @@
       "id": "orgdisabletwofactorrequirementauditentry",
       "href": "/graphql/reference/orgs#object-orgdisabletwofactorrequirementauditentry",
       "description": "<p>Audit log entry for a org.disable_two_factor_requirement event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -2413,6 +2493,7 @@
       "id": "orgenableoauthapprestrictionsauditentry",
       "href": "/graphql/reference/orgs#object-orgenableoauthapprestrictionsauditentry",
       "description": "<p>Audit log entry for a org.enable_oauth_app_restrictions event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -2599,6 +2680,7 @@
       "id": "orgenablesamlauditentry",
       "href": "/graphql/reference/orgs#object-orgenablesamlauditentry",
       "description": "<p>Audit log entry for a org.enable_saml event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -2821,6 +2903,7 @@
       "id": "orgenabletwofactorrequirementauditentry",
       "href": "/graphql/reference/orgs#object-orgenabletwofactorrequirementauditentry",
       "description": "<p>Audit log entry for a org.enable_two_factor_requirement event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -3007,6 +3090,7 @@
       "id": "orginvitememberauditentry",
       "href": "/graphql/reference/orgs#object-orginvitememberauditentry",
       "description": "<p>Audit log entry for a org.invite_member event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -3211,6 +3295,7 @@
       "id": "orginvitetobusinessauditentry",
       "href": "/graphql/reference/orgs#object-orginvitetobusinessauditentry",
       "description": "<p>Audit log entry for a org.invite_to_business event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -3423,6 +3508,7 @@
       "id": "orgoauthappaccessapprovedauditentry",
       "href": "/graphql/reference/orgs#object-orgoauthappaccessapprovedauditentry",
       "description": "<p>Audit log entry for a org.oauth_app_access_approved event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -3635,6 +3721,7 @@
       "id": "orgoauthappaccessblockedauditentry",
       "href": "/graphql/reference/orgs#object-orgoauthappaccessblockedauditentry",
       "description": "<p>Audit log entry for a org.oauth_app_access_blocked event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -3847,6 +3934,7 @@
       "id": "orgoauthappaccessdeniedauditentry",
       "href": "/graphql/reference/orgs#object-orgoauthappaccessdeniedauditentry",
       "description": "<p>Audit log entry for a org.oauth_app_access_denied event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -4059,6 +4147,7 @@
       "id": "orgoauthappaccessrequestedauditentry",
       "href": "/graphql/reference/orgs#object-orgoauthappaccessrequestedauditentry",
       "description": "<p>Audit log entry for a org.oauth_app_access_requested event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -4271,6 +4360,7 @@
       "id": "orgoauthappaccessunblockedauditentry",
       "href": "/graphql/reference/orgs#object-orgoauthappaccessunblockedauditentry",
       "description": "<p>Audit log entry for a org.oauth_app_access_unblocked event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -4483,6 +4573,7 @@
       "id": "orgremovebillingmanagerauditentry",
       "href": "/graphql/reference/orgs#object-orgremovebillingmanagerauditentry",
       "description": "<p>Audit log entry for a org.remove_billing_manager event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -4678,6 +4769,7 @@
       "id": "orgremovememberauditentry",
       "href": "/graphql/reference/orgs#object-orgremovememberauditentry",
       "description": "<p>Audit log entry for a org.remove_member event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -4882,6 +4974,7 @@
       "id": "orgremoveoutsidecollaboratorauditentry",
       "href": "/graphql/reference/orgs#object-orgremoveoutsidecollaboratorauditentry",
       "description": "<p>Audit log entry for a org.remove_outside_collaborator event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -5086,6 +5179,7 @@
       "id": "orgrestorememberauditentry",
       "href": "/graphql/reference/orgs#object-orgrestorememberauditentry",
       "description": "<p>Audit log entry for a org.restore_member event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -5335,6 +5429,7 @@
       "id": "orgrestoremembermembershiporganizationauditentrydata",
       "href": "/graphql/reference/orgs#object-orgrestoremembermembershiporganizationauditentrydata",
       "description": "<p>Metadata for an organization membership for org.restore_member actions.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "OrganizationAuditEntryData",
@@ -5387,6 +5482,7 @@
       "id": "orgrestoremembermembershiprepositoryauditentrydata",
       "href": "/graphql/reference/orgs#object-orgrestoremembermembershiprepositoryauditentrydata",
       "description": "<p>Metadata for a repository membership for org.restore_member actions.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "RepositoryAuditEntryData",
@@ -5431,6 +5527,7 @@
       "id": "orgrestoremembermembershipteamauditentrydata",
       "href": "/graphql/reference/orgs#object-orgrestoremembermembershipteamauditentrydata",
       "description": "<p>Metadata for a team membership for org.restore_member actions.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "TeamAuditEntryData",
@@ -5475,6 +5572,7 @@
       "id": "orgunblockuserauditentry",
       "href": "/graphql/reference/orgs#object-orgunblockuserauditentry",
       "description": "<p>Audit log entry for a org.unblock_user.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -5697,6 +5795,7 @@
       "id": "orgupdatedefaultrepositorypermissionauditentry",
       "href": "/graphql/reference/orgs#object-orgupdatedefaultrepositorypermissionauditentry",
       "description": "<p>Audit log entry for a org.update_default_repository_permission.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -5901,6 +6000,7 @@
       "id": "orgupdatememberauditentry",
       "href": "/graphql/reference/orgs#object-orgupdatememberauditentry",
       "description": "<p>Audit log entry for a org.update_member event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -6105,6 +6205,7 @@
       "id": "orgupdatememberrepositorycreationpermissionauditentry",
       "href": "/graphql/reference/orgs#object-orgupdatememberrepositorycreationpermissionauditentry",
       "description": "<p>Audit log entry for a org.update_member_repository_creation_permission event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -6309,6 +6410,7 @@
       "id": "orgupdatememberrepositoryinvitationpermissionauditentry",
       "href": "/graphql/reference/orgs#object-orgupdatememberrepositoryinvitationpermissionauditentry",
       "description": "<p>Audit log entry for a org.update_member_repository_invitation_permission event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -6504,6 +6606,7 @@
       "id": "organization",
       "href": "/graphql/reference/orgs#object-organization",
       "description": "<p>An account on GitHub, with one or more owners, that has repositories, members and teams.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Actor",
@@ -8672,6 +8775,7 @@
       "id": "organizationidentityprovider",
       "href": "/graphql/reference/orgs#object-organizationidentityprovider",
       "description": "<p>An Identity Provider configured to provision SAML and SCIM identities for\nOrganizations. Visible to (1) organization owners, (2) organization owners'\npersonal access tokens (classic) with read:org or admin:org scope, (3) GitHub\nApp with an installation token with read or write access to members.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -8809,6 +8913,7 @@
       "id": "organizationinvitation",
       "href": "/graphql/reference/orgs#object-organizationinvitation",
       "description": "<p>An Invitation for a user to an organization.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -8957,6 +9062,7 @@
       "id": "organizationpropertyconditiontarget",
       "href": "/graphql/reference/orgs#object-organizationpropertyconditiontarget",
       "description": "<p>Parameters to be used for the organization_property condition.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "exclude",
@@ -8980,6 +9086,7 @@
       "id": "organizationpropertytargetdefinition",
       "href": "/graphql/reference/orgs#object-organizationpropertytargetdefinition",
       "description": "<p>A property that must match.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "name",
@@ -9003,6 +9110,7 @@
       "id": "organizationshovercardcontext",
       "href": "/graphql/reference/orgs#object-organizationshovercardcontext",
       "description": "<p>An organization list hovercard context.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "HovercardContext",
@@ -9094,6 +9202,7 @@
       "id": "verifiabledomain",
       "href": "/graphql/reference/orgs#object-verifiabledomain",
       "description": "<p>A domain that can be verified or approved for an organization or an enterprise.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -9277,6 +9386,7 @@
       "id": "organizationauditentrydata",
       "href": "/graphql/reference/orgs#interface-organizationauditentrydata",
       "description": "<p>Metadata for an audit entry with action org.*.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "organization",
@@ -9324,6 +9434,7 @@
       "id": "orgaddmemberauditentrypermission",
       "href": "/graphql/reference/orgs#enum-orgaddmemberauditentrypermission",
       "description": "<p>The permissions available to members on an Organization.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ADMIN",
@@ -9341,6 +9452,7 @@
       "id": "orgcreateauditentrybillingplan",
       "href": "/graphql/reference/orgs#enum-orgcreateauditentrybillingplan",
       "description": "<p>The billing plans available for organizations.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "BUSINESS",
@@ -9370,6 +9482,7 @@
       "id": "orgenterpriseownerorderfield",
       "href": "/graphql/reference/orgs#enum-orgenterpriseownerorderfield",
       "description": "<p>Properties by which enterprise owners can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "LOGIN",
@@ -9383,6 +9496,7 @@
       "id": "orgremovebillingmanagerauditentryreason",
       "href": "/graphql/reference/orgs#enum-orgremovebillingmanagerauditentryreason",
       "description": "<p>The reason a billing manager was removed from an Organization.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "SAML_EXTERNAL_IDENTITY_MISSING",
@@ -9404,6 +9518,7 @@
       "id": "orgremovememberauditentrymembershiptype",
       "href": "/graphql/reference/orgs#enum-orgremovememberauditentrymembershiptype",
       "description": "<p>The type of membership a user has with an Organization.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ADMIN",
@@ -9437,6 +9552,7 @@
       "id": "orgremovememberauditentryreason",
       "href": "/graphql/reference/orgs#enum-orgremovememberauditentryreason",
       "description": "<p>The reason a member was removed from an Organization.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "SAML_EXTERNAL_IDENTITY_MISSING",
@@ -9466,6 +9582,7 @@
       "id": "orgremoveoutsidecollaboratorauditentrymembershiptype",
       "href": "/graphql/reference/orgs#enum-orgremoveoutsidecollaboratorauditentrymembershiptype",
       "description": "<p>The type of membership a user has with an Organization.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "BILLING_MANAGER",
@@ -9487,6 +9604,7 @@
       "id": "orgremoveoutsidecollaboratorauditentryreason",
       "href": "/graphql/reference/orgs#enum-orgremoveoutsidecollaboratorauditentryreason",
       "description": "<p>The reason an outside collaborator was removed from an Organization.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "SAML_EXTERNAL_IDENTITY_MISSING",
@@ -9504,6 +9622,7 @@
       "id": "orgupdatedefaultrepositorypermissionauditentrypermission",
       "href": "/graphql/reference/orgs#enum-orgupdatedefaultrepositorypermissionauditentrypermission",
       "description": "<p>The default permission a repository can have in an Organization.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ADMIN",
@@ -9529,6 +9648,7 @@
       "id": "orgupdatememberauditentrypermission",
       "href": "/graphql/reference/orgs#enum-orgupdatememberauditentrypermission",
       "description": "<p>The permissions available to members on an Organization.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ADMIN",
@@ -9546,6 +9666,7 @@
       "id": "orgupdatememberrepositorycreationpermissionauditentryvisibility",
       "href": "/graphql/reference/orgs#enum-orgupdatememberrepositorycreationpermissionauditentryvisibility",
       "description": "<p>The permissions available for repository creation on an Organization.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALL",
@@ -9587,6 +9708,7 @@
       "id": "organizationinvitationrole",
       "href": "/graphql/reference/orgs#enum-organizationinvitationrole",
       "description": "<p>The possible organization invitation roles.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ADMIN",
@@ -9612,6 +9734,7 @@
       "id": "organizationinvitationsource",
       "href": "/graphql/reference/orgs#enum-organizationinvitationsource",
       "description": "<p>The possible organization invitation sources.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "MEMBER",
@@ -9633,6 +9756,7 @@
       "id": "organizationinvitationtype",
       "href": "/graphql/reference/orgs#enum-organizationinvitationtype",
       "description": "<p>The possible organization invitation types.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "EMAIL",
@@ -9650,6 +9774,7 @@
       "id": "organizationmemberrole",
       "href": "/graphql/reference/orgs#enum-organizationmemberrole",
       "description": "<p>The possible roles within an organization for its members.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ADMIN",
@@ -9667,6 +9792,7 @@
       "id": "organizationmemberscancreaterepositoriessettingvalue",
       "href": "/graphql/reference/orgs#enum-organizationmemberscancreaterepositoriessettingvalue",
       "description": "<p>The possible values for the members can create repositories setting on an organization.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALL",
@@ -9692,6 +9818,7 @@
       "id": "organizationorderfield",
       "href": "/graphql/reference/orgs#enum-organizationorderfield",
       "description": "<p>Properties by which organization connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -9709,6 +9836,7 @@
       "id": "roleinorganization",
       "href": "/graphql/reference/orgs#enum-roleinorganization",
       "description": "<p>Possible roles a user may have in relation to an organization.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DIRECT_MEMBER",
@@ -9730,6 +9858,7 @@
       "id": "verifiabledomainorderfield",
       "href": "/graphql/reference/orgs#enum-verifiabledomainorderfield",
       "description": "<p>Properties by which verifiable domain connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -9749,6 +9878,7 @@
       "id": "orgrestorememberauditentrymembership",
       "href": "/graphql/reference/orgs#union-orgrestorememberauditentrymembership",
       "description": "<p>Types of memberships that can be restored for an Organization member.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "OrgRestoreMemberMembershipOrganizationAuditEntryData",
@@ -9773,6 +9903,7 @@
       "id": "organizationauditentry",
       "href": "/graphql/reference/orgs#union-organizationauditentry",
       "description": "<p>An audit entry in an organization audit log.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "MembersCanDeleteReposClearAuditEntry",
@@ -10082,7 +10213,13 @@
       "id": "permissiongranter",
       "href": "/graphql/reference/orgs#union-permissiongranter",
       "description": "<p>Types that can grant permissions on a repository to a user.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
+        {
+          "name": "EnterpriseTeam",
+          "id": "enterpriseteam",
+          "href": "/graphql/reference/enterprise-admin#object-enterpriseteam"
+        },
         {
           "name": "Organization",
           "id": "organization",
@@ -10106,6 +10243,7 @@
       "id": "verifiabledomainowner",
       "href": "/graphql/reference/orgs#union-verifiabledomainowner",
       "description": "<p>Types that can own a verifiable domain.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Enterprise",
@@ -10230,6 +10368,7 @@
       "id": "orgenterpriseownerorder",
       "href": "/graphql/reference/orgs#input-object-orgenterpriseownerorder",
       "description": "<p>Ordering options for an organization's enterprise owner connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -10253,6 +10392,7 @@
       "id": "organizationorder",
       "href": "/graphql/reference/orgs#input-object-organizationorder",
       "description": "<p>Ordering options for organization connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -10276,6 +10416,7 @@
       "id": "organizationpropertyconditiontargetinput",
       "href": "/graphql/reference/orgs#input-object-organizationpropertyconditiontargetinput",
       "description": "<p>Parameters to be used for the organization_property condition.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "exclude",
@@ -10299,6 +10440,7 @@
       "id": "organizationpropertytargetdefinitioninput",
       "href": "/graphql/reference/orgs#input-object-organizationpropertytargetdefinitioninput",
       "description": "<p>A property that must match.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "name",
@@ -10464,6 +10606,7 @@
       "id": "verifiabledomainorder",
       "href": "/graphql/reference/orgs#input-object-verifiabledomainorder",
       "description": "<p>Ordering options for verifiable domain connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",

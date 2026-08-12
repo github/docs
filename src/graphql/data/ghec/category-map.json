@@ -1595,6 +1595,7 @@
     "issuefieldcreateorupdateinput": "issues",
     "issuefieldorder": "issues",
     "issuefieldsingleselectoptioninput": "issues",
+    "issuefieldvaluefilter": "issues",
     "issuefilters": "issues",
     "issueorder": "issues",
     "issuestateupdateinput": "issues",

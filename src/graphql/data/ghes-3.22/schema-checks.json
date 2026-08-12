@@ -5,6 +5,7 @@
       "id": "createcheckrun",
       "href": "/graphql/reference/checks#mutation-createcheckrun",
       "description": "<p>Create a check run.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -36,6 +37,7 @@
       "id": "createchecksuite",
       "href": "/graphql/reference/checks#mutation-createchecksuite",
       "description": "<p>Create a check suite.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -67,6 +69,7 @@
       "id": "rerequestchecksuite",
       "href": "/graphql/reference/checks#mutation-rerequestchecksuite",
       "description": "<p>Rerequests an existing check suite.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -98,6 +101,7 @@
       "id": "updatecheckrun",
       "href": "/graphql/reference/checks#mutation-updatecheckrun",
       "description": "<p>Update a check run.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -129,6 +133,7 @@
       "id": "updatechecksuitepreferences",
       "href": "/graphql/reference/checks#mutation-updatechecksuitepreferences",
       "description": "<p>Modifies the settings of an existing check suite.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -162,6 +167,7 @@
       "id": "checkannotation",
       "href": "/graphql/reference/checks#object-checkannotation",
       "description": "<p>A single check annotation.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "annotationLevel",
@@ -296,6 +302,7 @@
       "id": "checkannotationposition",
       "href": "/graphql/reference/checks#object-checkannotationposition",
       "description": "<p>A character position in a check annotation.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "column",
@@ -319,6 +326,7 @@
       "id": "checkannotationspan",
       "href": "/graphql/reference/checks#object-checkannotationspan",
       "description": "<p>An inclusive pair of positions for a check annotation.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "end",
@@ -342,6 +350,7 @@
       "id": "checkrun",
       "href": "/graphql/reference/checks#object-checkrun",
       "description": "<p>A check run.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -687,6 +696,7 @@
       "id": "checkrunstatecount",
       "href": "/graphql/reference/checks#object-checkrunstatecount",
       "description": "<p>Represents a count of the state of a check run.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "count",
@@ -710,6 +720,7 @@
       "id": "checkstep",
       "href": "/graphql/reference/checks#object-checkstep",
       "description": "<p>A single check step.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "completedAt",
@@ -835,6 +846,7 @@
       "id": "checksuite",
       "href": "/graphql/reference/checks#object-checksuite",
       "description": "<p>A check suite.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1162,6 +1174,7 @@
       "id": "checkannotationlevel",
       "href": "/graphql/reference/checks#enum-checkannotationlevel",
       "description": "<p>Represents an annotation's information level.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "FAILURE",
@@ -1183,6 +1196,7 @@
       "id": "checkconclusionstate",
       "href": "/graphql/reference/checks#enum-checkconclusionstate",
       "description": "<p>The possible states for a check suite or run conclusion.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ACTION_REQUIRED",
@@ -1228,6 +1242,7 @@
       "id": "checkrunstate",
       "href": "/graphql/reference/checks#enum-checkrunstate",
       "description": "<p>The possible states of a check run in a status rollup.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ACTION_REQUIRED",
@@ -1293,6 +1308,7 @@
       "id": "checkruntype",
       "href": "/graphql/reference/checks#enum-checkruntype",
       "description": "<p>The possible types of check runs.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALL",
@@ -1310,6 +1326,7 @@
       "id": "checkstatusstate",
       "href": "/graphql/reference/checks#enum-checkstatusstate",
       "description": "<p>The possible states for a check suite or run status.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "COMPLETED",
@@ -1343,6 +1360,7 @@
       "id": "requestablecheckstatusstate",
       "href": "/graphql/reference/checks#enum-requestablecheckstatusstate",
       "description": "<p>The possible states that can be requested when creating a check run.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "COMPLETED",
@@ -1374,6 +1392,7 @@
       "id": "checkannotationdata",
       "href": "/graphql/reference/checks#input-object-checkannotationdata",
       "description": "<p>Information from a check run analysis to specific lines of code.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "annotationLevel",
@@ -1425,6 +1444,7 @@
       "id": "checkannotationrange",
       "href": "/graphql/reference/checks#input-object-checkannotationrange",
       "description": "<p>Information from a check run analysis to specific lines of code.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "endColumn",
@@ -1462,6 +1482,7 @@
       "id": "checkrunaction",
       "href": "/graphql/reference/checks#input-object-checkrunaction",
       "description": "<p>Possible further actions the integrator can perform.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "description",
@@ -1492,6 +1513,7 @@
       "id": "checkrunfilter",
       "href": "/graphql/reference/checks#input-object-checkrunfilter",
       "description": "<p>The filters that are available when fetching check runs.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "appId",
@@ -1543,6 +1565,7 @@
       "id": "checkrunoutput",
       "href": "/graphql/reference/checks#input-object-checkrunoutput",
       "description": "<p>Descriptive details about the check run.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "annotations",
@@ -1587,6 +1610,7 @@
       "id": "checkrunoutputimage",
       "href": "/graphql/reference/checks#input-object-checkrunoutputimage",
       "description": "<p>Images attached to the check run output displayed in the GitHub pull request UI.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "alt",
@@ -1617,6 +1641,7 @@
       "id": "checksuiteautotriggerpreference",
       "href": "/graphql/reference/checks#input-object-checksuiteautotriggerpreference",
       "description": "<p>The auto-trigger preferences that are available for check suites.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "appId",
@@ -1640,6 +1665,7 @@
       "id": "checksuitefilter",
       "href": "/graphql/reference/checks#input-object-checksuitefilter",
       "description": "<p>The filters that are available when fetching check suites.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "appId",

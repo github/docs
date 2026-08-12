@@ -17,6 +17,16 @@
       "owner": "github/actions-persistence"
     }
   ],
+  "2026-10-01": [
+    {
+      "location": "User.viewerRelevantRepositories",
+      "description": "<p><code>viewerRelevantRepositories</code> will be removed. Use viewerCopilotChatRepositorySuggestions instead.</p>",
+      "reason": "<p><code>viewerRelevantRepositories</code> has been renamed to <code>viewerCopilotChatRepositorySuggestions</code>.</p>",
+      "date": "2026-10-01",
+      "criticality": "breaking",
+      "owner": "github/client-apps-platform"
+    }
+  ],
   "2026-07-01": [
     {
       "location": "Team.viewerSubscription",

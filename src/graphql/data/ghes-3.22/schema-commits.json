@@ -5,6 +5,7 @@
       "id": "createcommitonbranch",
       "href": "/graphql/reference/commits#mutation-createcommitonbranch",
       "description": "<p>Appends a commit to the given branch as the authenticated user.</p>\n<p>This mutation creates a commit whose parent is the HEAD of the provided\nbranch and also updates that branch to point to the new commit.\nIt can be thought of as similar to <code>git commit</code>.</p>\n<h3 id=\"locating-a-branch\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#locating-a-branch\">Locating a Branch<span class=\"heading-link-symbol\" aria-hidden=\"true\"></span></a></h3>\n<p>Commits are appended to a <code>branch</code> of type <code>Ref</code>.\nThis must refer to a git branch (i.e.  the fully qualified path must\nbegin with <code>refs/heads/</code>, although including this prefix is optional.</p>\n<p>Callers may specify the <code>branch</code> to commit to either by its global node\nID or by passing both of <code>repositoryNameWithOwner</code> and <code>refName</code>.  For\nmore details see the documentation for <code>CommittableBranch</code>.</p>\n<h3 id=\"describing-changes\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#describing-changes\">Describing Changes<span class=\"heading-link-symbol\" aria-hidden=\"true\"></span></a></h3>\n<p><code>fileChanges</code> are specified as a <code>FilesChanges</code> object describing\n<code>FileAdditions</code> and <code>FileDeletions</code>.</p>\n<p>Please see the documentation for <code>FileChanges</code> for more information on\nhow to use this argument to describe any set of file changes.</p>\n<h3 id=\"authorship\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#authorship\">Authorship<span class=\"heading-link-symbol\" aria-hidden=\"true\"></span></a></h3>\n<p>Similar to the web commit interface, this mutation does not support\nspecifying the author or committer of the commit and will not add\nsupport for this in the future.</p>\n<p>A commit created by a successful execution of this mutation will be\nauthored by the owner of the credential which authenticates the API\nrequest.  The committer will be identical to that of commits authored\nusing the web interface.</p>\n<p>If you need full control over author and committer information, please\nuse the Git Database REST API instead.</p>\n<h3 id=\"commit-signing\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#commit-signing\">Commit Signing<span class=\"heading-link-symbol\" aria-hidden=\"true\"></span></a></h3>\n<p>Commits made using this mutation are automatically signed by GitHub if\nsupported and will be marked as verified in the user interface.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -45,6 +46,7 @@
       "id": "commit",
       "href": "/graphql/reference/commits#object-commit",
       "description": "<p>Represents a Git commit.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "GitObject",
@@ -793,6 +795,7 @@
       "id": "commitauthoremailpatternparameters",
       "href": "/graphql/reference/commits#object-commitauthoremailpatternparameters",
       "description": "<p>Parameters to be used for the commit_author_email_pattern rule.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "name",
@@ -830,6 +833,7 @@
       "id": "commitcomment",
       "href": "/graphql/reference/commits#object-commitcomment",
       "description": "<p>Represents a comment on a given Commit.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Comment",
@@ -973,7 +977,7 @@
         },
         {
           "name": "minimizedReason",
-          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code>, <code>spam</code>, and <code>low-quality</code>. Note that the\ncase and formatting of these values differs from the inputs to the\n<code>MinimizeComment</code> mutation.</p>",
           "type": "String",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
@@ -1259,6 +1263,7 @@
       "id": "commitcommentthread",
       "href": "/graphql/reference/commits#object-commitcommentthread",
       "description": "<p>A thread of comments on a commit.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1397,6 +1402,7 @@
       "id": "commitcontributionsbyrepository",
       "href": "/graphql/reference/commits#object-commitcontributionsbyrepository",
       "description": "<p>This aggregates commits made by a user within one repository.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "contributions",
@@ -1541,6 +1547,7 @@
       "id": "commitmessagepatternparameters",
       "href": "/graphql/reference/commits#object-commitmessagepatternparameters",
       "description": "<p>Parameters to be used for the commit_message_pattern rule.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "name",
@@ -1578,6 +1585,7 @@
       "id": "committeremailpatternparameters",
       "href": "/graphql/reference/commits#object-committeremailpatternparameters",
       "description": "<p>Parameters to be used for the committer_email_pattern rule.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "name",
@@ -1615,6 +1623,7 @@
       "id": "comparison",
       "href": "/graphql/reference/commits#object-comparison",
       "description": "<p>Represents a comparison between two commit revisions.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1762,6 +1771,7 @@
       "id": "status",
       "href": "/graphql/reference/commits#object-status",
       "description": "<p>Represents a commit status.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1869,6 +1879,7 @@
       "id": "statuscheckconfiguration",
       "href": "/graphql/reference/commits#object-statuscheckconfiguration",
       "description": "<p>Required status check.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "context",
@@ -1892,6 +1903,7 @@
       "id": "statuscheckrollup",
       "href": "/graphql/reference/commits#object-statuscheckrollup",
       "description": "<p>Represents the rollup for both the check runs and status for a commit.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -2062,6 +2074,7 @@
       "id": "statuscontext",
       "href": "/graphql/reference/commits#object-statuscontext",
       "description": "<p>Represents an individual commit status context.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -2176,6 +2189,13 @@
           "type": "URI",
           "id": "uri",
           "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
         }
       ],
       "category": "commits"
@@ -2185,6 +2205,7 @@
       "id": "statuscontextstatecount",
       "href": "/graphql/reference/commits#object-statuscontextstatecount",
       "description": "<p>Represents a count of the state of a status context.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "count",
@@ -2210,6 +2231,7 @@
       "id": "commitcontributionorderfield",
       "href": "/graphql/reference/commits#enum-commitcontributionorderfield",
       "description": "<p>Properties by which commit contribution connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "COMMIT_COUNT",
@@ -2227,6 +2249,7 @@
       "id": "comparisonstatus",
       "href": "/graphql/reference/commits#enum-comparisonstatus",
       "description": "<p>The status of a git comparison between two refs.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "AHEAD",
@@ -2252,6 +2275,7 @@
       "id": "statusstate",
       "href": "/graphql/reference/commits#enum-statusstate",
       "description": "<p>The possible commit status states.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ERROR",
@@ -2283,6 +2307,7 @@
       "id": "statuscheckrollupcontext",
       "href": "/graphql/reference/commits#union-statuscheckrollupcontext",
       "description": "<p>Types that can be inside a StatusCheckRollup context.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "CheckRun",
@@ -2304,6 +2329,7 @@
       "id": "commitauthor",
       "href": "/graphql/reference/commits#input-object-commitauthor",
       "description": "<p>Specifies an author for filtering Git commits.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "emails",
@@ -2327,6 +2353,7 @@
       "id": "commitauthoremailpatternparametersinput",
       "href": "/graphql/reference/commits#input-object-commitauthoremailpatternparametersinput",
       "description": "<p>Parameters to be used for the commit_author_email_pattern rule.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "name",
@@ -2364,6 +2391,7 @@
       "id": "commitcontributionorder",
       "href": "/graphql/reference/commits#input-object-commitcontributionorder",
       "description": "<p>Ordering options for commit contribution connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -2387,6 +2415,7 @@
       "id": "commitmessage",
       "href": "/graphql/reference/commits#input-object-commitmessage",
       "description": "<p>A message to include with a new commit.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "body",
@@ -2410,6 +2439,7 @@
       "id": "commitmessagepatternparametersinput",
       "href": "/graphql/reference/commits#input-object-commitmessagepatternparametersinput",
       "description": "<p>Parameters to be used for the commit_message_pattern rule.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "name",
@@ -2447,6 +2477,7 @@
       "id": "committeremailpatternparametersinput",
       "href": "/graphql/reference/commits#input-object-committeremailpatternparametersinput",
       "description": "<p>Parameters to be used for the committer_email_pattern rule.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "name",
@@ -2528,6 +2559,7 @@
       "id": "statuscheckconfigurationinput",
       "href": "/graphql/reference/commits#input-object-statuscheckconfigurationinput",
       "description": "<p>Required status check.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "context",

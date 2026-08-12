@@ -5,6 +5,7 @@
       "id": "addreaction",
       "href": "/graphql/reference/reactions#mutation-addreaction",
       "description": "<p>Adds a reaction to a subject.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -50,6 +51,7 @@
       "id": "removereaction",
       "href": "/graphql/reference/reactions#mutation-removereaction",
       "description": "<p>Removes a reaction from a subject.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -97,6 +99,7 @@
       "id": "reaction",
       "href": "/graphql/reference/reactions#object-reaction",
       "description": "<p>An emoji reaction to a particular piece of content.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -222,6 +225,7 @@
       "id": "reactiongroup",
       "href": "/graphql/reference/reactions#object-reactiongroup",
       "description": "<p>A group of emoji reactions to a particular piece of content.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "content",
@@ -420,6 +424,7 @@
       "id": "reactable",
       "href": "/graphql/reference/reactions#interface-reactable",
       "description": "<p>Represents a subject that can be reacted on.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "databaseId",
@@ -522,6 +527,7 @@
       "id": "reactioncontent",
       "href": "/graphql/reference/reactions#enum-reactioncontent",
       "description": "<p>Emojis that can be attached to Issues, Pull Requests and Comments.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CONFUSED",
@@ -563,6 +569,7 @@
       "id": "reactionorderfield",
       "href": "/graphql/reference/reactions#enum-reactionorderfield",
       "description": "<p>A list of fields that reactions can be ordered by.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -578,6 +585,7 @@
       "id": "reactor",
       "href": "/graphql/reference/reactions#union-reactor",
       "description": "<p>Types that can be assigned to reactions.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Bot",
@@ -640,6 +648,7 @@
       "id": "reactionorder",
       "href": "/graphql/reference/reactions#input-object-reactionorder",
       "description": "<p>Ways in which lists of reactions can be ordered upon return.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",

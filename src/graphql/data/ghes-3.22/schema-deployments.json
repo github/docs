@@ -5,6 +5,7 @@
       "id": "approvedeployments",
       "href": "/graphql/reference/deployments#mutation-approvedeployments",
       "description": "<p>Approve all pending deployments under one or more environments.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -36,6 +37,7 @@
       "id": "createdeployment",
       "href": "/graphql/reference/deployments#mutation-createdeployment",
       "description": "<p>Creates a new deployment event.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -74,6 +76,7 @@
       "id": "createdeploymentstatus",
       "href": "/graphql/reference/deployments#mutation-createdeploymentstatus",
       "description": "<p>Create a deployment status.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -105,6 +108,7 @@
       "id": "createenvironment",
       "href": "/graphql/reference/deployments#mutation-createenvironment",
       "description": "<p>Creates an environment or simply returns it if already exists.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -136,6 +140,7 @@
       "id": "deletedeployment",
       "href": "/graphql/reference/deployments#mutation-deletedeployment",
       "description": "<p>Deletes a deployment.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -160,6 +165,7 @@
       "id": "deleteenvironment",
       "href": "/graphql/reference/deployments#mutation-deleteenvironment",
       "description": "<p>Deletes an environment.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -184,6 +190,7 @@
       "id": "pinenvironment",
       "href": "/graphql/reference/deployments#mutation-pinenvironment",
       "description": "<p>Pin an environment to a repository.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -222,6 +229,7 @@
       "id": "rejectdeployments",
       "href": "/graphql/reference/deployments#mutation-rejectdeployments",
       "description": "<p>Reject all pending deployments under one or more environments.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -253,6 +261,7 @@
       "id": "reorderenvironment",
       "href": "/graphql/reference/deployments#mutation-reorderenvironment",
       "description": "<p>Reorder a pinned repository environment.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -284,6 +293,7 @@
       "id": "updateenvironment",
       "href": "/graphql/reference/deployments#mutation-updateenvironment",
       "description": "<p>Updates an environment.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -317,6 +327,7 @@
       "id": "deployedevent",
       "href": "/graphql/reference/deployments#object-deployedevent",
       "description": "<p>Represents a<code>deployed</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -382,6 +393,7 @@
       "id": "deployment",
       "href": "/graphql/reference/deployments#object-deployment",
       "description": "<p>Represents triggered deployment instance.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -622,6 +634,7 @@
       "id": "deploymentenvironmentchangedevent",
       "href": "/graphql/reference/deployments#object-deploymentenvironmentchangedevent",
       "description": "<p>Represents a<code>deployment_environment_changed</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -673,6 +686,7 @@
       "id": "deploymentprotectionrule",
       "href": "/graphql/reference/deployments#object-deploymentprotectionrule",
       "description": "<p>A protection rule.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "databaseId",
@@ -815,6 +829,7 @@
       "id": "deploymentrequest",
       "href": "/graphql/reference/deployments#object-deploymentrequest",
       "description": "<p>A request to deploy a workflow run to an environment.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "currentUserCanApprove",
@@ -957,6 +972,7 @@
       "id": "deploymentreview",
       "href": "/graphql/reference/deployments#object-deploymentreview",
       "description": "<p>A deployment review.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1173,6 +1189,7 @@
       "id": "deploymentstatus",
       "href": "/graphql/reference/deployments#object-deploymentstatus",
       "description": "<p>Describes the status of a given deployment attempt.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1319,6 +1336,7 @@
       "id": "environment",
       "href": "/graphql/reference/deployments#object-environment",
       "description": "<p>An environment.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1482,6 +1500,7 @@
       "id": "pinnedenvironment",
       "href": "/graphql/reference/deployments#object-pinnedenvironment",
       "description": "<p>Represents a pinned environment on a given repository.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -1600,6 +1619,7 @@
       "id": "requireddeploymentsparameters",
       "href": "/graphql/reference/deployments#object-requireddeploymentsparameters",
       "description": "<p>Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "requiredDeploymentEnvironments",
@@ -1618,6 +1638,7 @@
       "id": "deploymentorderfield",
       "href": "/graphql/reference/deployments#enum-deploymentorderfield",
       "description": "<p>Properties by which deployment connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -1631,6 +1652,7 @@
       "id": "deploymentprotectionruletype",
       "href": "/graphql/reference/deployments#enum-deploymentprotectionruletype",
       "description": "<p>The possible protection rule types.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "BRANCH_POLICY",
@@ -1652,6 +1674,7 @@
       "id": "deploymentreviewstate",
       "href": "/graphql/reference/deployments#enum-deploymentreviewstate",
       "description": "<p>The possible states for a deployment review.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "APPROVED",
@@ -1669,6 +1692,7 @@
       "id": "deploymentstate",
       "href": "/graphql/reference/deployments#enum-deploymentstate",
       "description": "<p>The possible states in which a deployment can be.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ABANDONED",
@@ -1722,6 +1746,7 @@
       "id": "deploymentstatusstate",
       "href": "/graphql/reference/deployments#enum-deploymentstatusstate",
       "description": "<p>The possible states for a deployment status.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ERROR",
@@ -1763,6 +1788,7 @@
       "id": "environmentorderfield",
       "href": "/graphql/reference/deployments#enum-environmentorderfield",
       "description": "<p>Properties by which environments connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "NAME",
@@ -1776,6 +1802,7 @@
       "id": "environmentpinnedfilterfield",
       "href": "/graphql/reference/deployments#enum-environmentpinnedfilterfield",
       "description": "<p>Properties by which environments connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALL",
@@ -1797,6 +1824,7 @@
       "id": "pinnedenvironmentorderfield",
       "href": "/graphql/reference/deployments#enum-pinnedenvironmentorderfield",
       "description": "<p>Properties by which pinned environments connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "POSITION",
@@ -1812,6 +1840,7 @@
       "id": "deploymentreviewer",
       "href": "/graphql/reference/deployments#union-deploymentreviewer",
       "description": "<p>Users and teams.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Team",
@@ -2090,6 +2119,7 @@
       "id": "deploymentorder",
       "href": "/graphql/reference/deployments#input-object-deploymentorder",
       "description": "<p>Ordering options for deployment connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -2113,6 +2143,7 @@
       "id": "environments",
       "href": "/graphql/reference/deployments#input-object-environments",
       "description": "<p>Ordering options for environments.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -2167,6 +2198,7 @@
       "id": "pinnedenvironmentorder",
       "href": "/graphql/reference/deployments#input-object-pinnedenvironmentorder",
       "description": "<p>Ordering options for pinned environments.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -2259,6 +2291,7 @@
       "id": "requireddeploymentsparametersinput",
       "href": "/graphql/reference/deployments#input-object-requireddeploymentsparametersinput",
       "description": "<p>Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "requiredDeploymentEnvironments",

@@ -168,7 +168,7 @@ jobs:
             PR_BODY+="> * Internal or feature-flagged details that shouldn't be public"$'\n'
             PR_BODY+="> * Excessive or low-value detail"$'\n'
             PR_BODY+=">"$'\n'
-            PR_BODY+="> Cross-check changes against the source docs linked below. If in doubt, leave the review to a subject-matter expert on the docs team."$'\n\n'
+            PR_BODY+="> Cross-check changes against the source docs linked below. If in doubt, leave the review to a subject-matter expert on the Technical Content team."$'\n\n'
             PR_BODY+="## What this does"$'\n\n'
             PR_BODY+="Runs the \`content-pipeline-update\` agent (${PIPELINE_ID}) against the latest source docs and updates official articles under \`content/\` that have fallen out of sync."$'\n\n'
             PR_BODY+="## Source changes"$'\n\n'
