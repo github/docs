@@ -32,7 +32,7 @@ When you configure access to the private registries used in your organization, {
 
 {% ifversion codeql-config-property %}
 
-Additionally, _Git Source_ registries are supported for granting {% data variables.product.prodname_code_scanning %} access to configuration files in private repositories. For more information about customizing {% data variables.product.prodname_code_scanning %} using custom configuration files, see [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options#custom-configuration-files).
+Additionally, _Git Source_ registries are supported for granting {% data variables.product.prodname_code_scanning %} access to configuration files in internal or private repositories. For more information about customizing {% data variables.product.prodname_code_scanning %} using custom configuration files, see [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options#custom-configuration-files).
 
 {% endif %}
 
@@ -51,7 +51,7 @@ You need to be an **organization owner** to set up access to private registries 
    * **Type** is the type of registry.
 1. Select the authentication method for the registry:
    * **Token**: Enter the token used to authenticate with the registry.
-   * **Username and password**: Enter the username and password used to authenticate with the registry. Some types of authentication tokens, such as a {% data variables.product.github %} {% data variables.product.pat_generic_title_case %}, are tied to a particular user identity. Select this option for these and enter the relevant username as **Username** and the token as **Password**.
+   * **Username and password**: Enter the username and password used to authenticate with the registry. Some types of authentication tokens, such as a {% data variables.product.github %} {% data variables.product.pat_generic_title_case %}, are tied to a particular user identity. Select this option for these and enter the name of the user who created the token as **Username** and the token itself as **Password**. 
    {% ifversion org-private-registry-oidc %}
    * **OIDC (OpenID Connect)**: Use short-lived credentials from a cloud identity provider instead of storing long-lived secrets. When you select this option, choose a provider and fill in the provider-specific fields. For more information, see [Configuring OIDC authentication for a private registry](#configuring-oidc-authentication-for-a-private-registry).
    {% endif %}

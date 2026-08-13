@@ -124,6 +124,7 @@ Some {% data variables.product.prodname_copilot_short %} models require minimum 
 | {% data variables.copilot.copilot_gemini_31_pro %}       | `v1.115.0` | `17.14.22` or `18.1.0`         | `1.5.62` | `0.46.0` | `0.14.0` |
 | {% data variables.copilot.copilot_gemini_35_flash %}     | `v1.115.0` | `17.14.22` or `18.1.0`         | `1.5.62` | `0.46.0` | `0.14.0` |
 | {% data variables.copilot.copilot_gemini_36_flash %}     | `v1.128.0` | `17.14.22` or `18.1.0`         | TBD | TBD | TBD |
+| {% data variables.copilot.copilot_gemini_37_flash %}     | `v1.128.0` | `17.14.22` or `18.1.0`         | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_gpt_52_codex %}        | No minimum listed | `17.14.19` or `18.0.0`         | `1.5.61` | `0.45.0` | `0.13.0` |
 | {% data variables.copilot.copilot_gpt_53_codex %}        | `v1.104.1` | `17.14.19`                     | `1.5.61` | `0.45.0` | `0.13.0` |
 | {% data variables.copilot.copilot_gpt_54 %}              | `v1.104.1` | `17.14.19`                     | `1.5.66` | `0.47.0` | `0.15.0` |
