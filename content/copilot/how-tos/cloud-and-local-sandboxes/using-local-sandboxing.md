@@ -22,11 +22,23 @@ Sandboxing is currently an experimental feature. To use it, start {% data variab
 
 When you enable local sandboxing, {% data variables.copilot.copilot_cli_short %} runs most of the commands and tools it invokes on your behalf inside an operating-system sandbox. After you enable local sandboxing, it is used for all your {% data variables.copilot.copilot_cli_short %} sessions until you disable it, or turn it off for a specific session. If enterprise managed settings require sandboxing, you cannot disable it.
 
-By default, sandboxed commands and tools can write within your current working directory and temporary folders. Your user profile (home) directory, along with system and tool locations are read-only. Other disk locations are blocked. In a Git repository, access above the current working directory varies by operating system. Access to your local and private network is permitted, as is outbound internet access.
+By default, sandboxed commands and tools can write within your current working directory and temporary folders. Your user profile (home) directory, along with system and tool locations are read-only. Other disk locations are blocked. In a Git repository, the rest of the repository above your current working directory is readable but not writable. Access to your local and private network is permitted, as is outbound internet access.
 
 By default, authenticated Git and {% data variables.product.prodname_cli %} (`gh`) operations continue to work inside the sandbox, because {% data variables.copilot.copilot_cli_short %} makes your {% data variables.product.github %} credentials available to sandboxed commands. This allows actions such as `git push` and `gh pr create` to succeed. You can turn this off in your sandbox settings.
 
 For a conceptual overview of sandboxing in {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
+
+## Sandbox commands
+
+You manage local sandboxing from within a {% data variables.copilot.copilot_cli_short %} session using the `/sandbox` slash command. It has the following subcommands.
+
+| Command | Description |
+| --- | --- |
+| `/sandbox status` | Show whether sandboxing is currently being used for the session. See [Checking whether sandboxing is being used](#checking-whether-sandboxing-is-being-used). |
+| `/sandbox policy` | Show the effective filesystem policy for the current directory—the paths that are readable, writable, or blocked, and the network access in force. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/understanding-local-sandboxing). |
+| `/sandbox config` | Open the interactive settings interface. Entering `/sandbox` on its own does the same thing. For more information, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings). |
+| `/sandbox enable` | Turn local sandboxing on. See [Enabling local sandboxing](#enabling-local-sandboxing). |
+| `/sandbox disable` | Turn local sandboxing off. If enterprise managed settings require sandboxing, this is refused. See [Disabling local sandboxing](#disabling-local-sandboxing). |
 
 ## Enabling local sandboxing
 
@@ -78,9 +90,17 @@ This behavior is enabled by default and can be turned off in your sandbox settin
 
 ## Checking whether sandboxing is being used
 
-To check whether sandboxing is being used for the current session, look at the status line. If sandboxing is being used, the status line contains `sandbox enabled`.
+To check whether local sandboxing is being used for the current session, enter:
 
-Display of sandbox information in the status line is turned on by default. If it is turned off, you can turn it back on:
+```shell copy
+/sandbox status
+```
+
+{% data variables.copilot.copilot_cli_short %} reports whether sandboxing is enabled for the session. If your organization's managed settings require sandboxing, the status notes this too. Because the status reflects what the session actually enforces, it is the reliable way to confirm whether the commands {% data variables.product.prodname_copilot_short %} runs are being sandboxed.
+
+To see not only whether sandboxing is on, but exactly which paths are readable, writable, or blocked, enter `/sandbox policy`. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/understanding-local-sandboxing).
+
+You can also see sandbox status at a glance in the status line, which contains `sandbox enabled` when sandboxing is being used. Display of sandbox information in the status line is turned on by default. If it has been turned off, you can turn it back on:
 
 1. Enter `/statusline`.
 1. Move the selection down the list of options to **sandbox**.

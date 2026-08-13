@@ -24,4 +24,3 @@ children:
   - /learning-about-new-features-and-models
 contentType: concepts
 ---
-
