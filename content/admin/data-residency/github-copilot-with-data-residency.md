@@ -61,6 +61,9 @@ The models available for {% data variables.product.prodname_copilot_short %} var
 * {% data variables.copilot.copilot_gpt_54_mini %}
 * {% data variables.copilot.copilot_gpt_54_nano %}
 * {% data variables.copilot.copilot_gpt_55 %}
+* {% data variables.copilot.copilot_gpt_56_luna %}
+* {% data variables.copilot.copilot_gpt_56_sol %}
+* {% data variables.copilot.copilot_gpt_56_terra %}
 * {% data variables.copilot.copilot_claude_haiku_45 %}
 * {% data variables.copilot.copilot_claude_opus_45 %}
 * {% data variables.copilot.copilot_claude_opus_46 %}

@@ -1221,6 +1221,42 @@ To allow `web_fetch` to reach `localhost` during development—for example, for 
 export COPILOT_WEB_FETCH_ALLOW_LOCALHOST=1
 ```
 
+### Sandbox tool directory grants
+
+When local sandboxing is enabled, {% data variables.copilot.copilot_cli_short %} discovers the tool directories a sandboxed command is likely to need and grants each one **read-only** access, so a command can run an installed toolchain without being able to modify it. Discovery runs for each command, before the process starts, and reads two kinds of source from the command's environment.
+
+* **`PATH`** (`Path` on Windows). Every directory listed is a candidate grant.
+* **Named toolchain variables.** The CLI inspects the variables in the table below on every operating system. A variable that holds a single directory grants that directory; a variable that holds a path list is split on the operating system's path separator (`;` on Windows, `:` elsewhere), and each entry becomes a candidate grant.
+
+A candidate is granted only when it is an absolute path that exists and resolves to a directory. Candidates are dropped—and the reason logged to the `sandbox_spawn` log target—when they are relative, do not exist, resolve to a filesystem root (such as `/` or `C:\`), or resolve under a system-critical location (`%WINDIR%` on Windows; `/bin`, `/sbin`, `/usr/bin`, `/usr/sbin`, `/boot`, `/proc`, `/sys`, and `/dev` on Linux and macOS). Symbolic links are resolved before these checks, and duplicate directories are removed (case-insensitively on Windows).
+
+| Variable | Toolchain | Value | Typically set on |
+|----------|-----------|-------|------------------|
+| `PATH` / `Path` | Executables (all) | Path list | All |
+| `PYTHONPATH` | Python | Path list | All |
+| `PYTHONHOME` | Python | Single directory | All |
+| `VIRTUAL_ENV` | Python (venv) | Single directory | All |
+| `PYENV_ROOT` | Python (pyenv) | Single directory | All |
+| `CONDA_PREFIX` | Conda | Single directory | All |
+| `GOPATH` | Go | Path list | All |
+| `GOROOT` | Go | Single directory | All |
+| `CARGO_HOME` | Rust (Cargo) | Single directory | All |
+| `RUSTUP_HOME` | Rust (rustup) | Single directory | All |
+| `JAVA_HOME` | Java | Single directory | All |
+| `NODE_PATH` | Node.js | Path list | All |
+| `NVM_HOME` | Node.js (nvm) | Single directory | Windows |
+| `NVM_SYMLINK` | Node.js (nvm) | Single directory | Windows |
+| `DOTNET_ROOT` | .NET | Single directory | All |
+| `PSModulePath` | PowerShell | Path list | All |
+| `VCINSTALLDIR` | Visual C++ | Single directory | Windows |
+| `VSINSTALLDIR` | Visual Studio | Single directory | Windows |
+| `VCPKG_ROOT` | vcpkg | Single directory | All |
+| `LD_LIBRARY_PATH` | Shared libraries | Path list | Linux |
+
+Every variable is read on every platform; the **Typically set on** column shows where each is normally populated, not a restriction the CLI enforces. A variable that is unset simply contributes nothing.
+
+These are not the only read-only grants. {% data variables.copilot.copilot_cli_short %} also grants your user-profile application directories (`~/.local/bin` and `~/.local/lib` on Linux and macOS; the immediate subdirectories of `%LOCALAPPDATA%\Programs` on Windows), standard system and profile locations, and the caches and registries used by common package managers and toolchains (shown as **dev-tool access** in the `/sandbox policy` report). To see the fully resolved policy for your current directory—read/write, read-only, and denied paths—run `/sandbox policy` in a session. For the concepts behind how the policy is assembled, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/understanding-local-sandboxing).
+
 ## OpenTelemetry monitoring
 
 {% data variables.copilot.copilot_cli_short %} can export traces and metrics via [OpenTelemetry](https://opentelemetry.io/) (OTel), giving you visibility into agent interactions, LLM calls, tool executions, and token usage. All signal names and attributes follow the [OTel GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions-genai/tree/main/docs/gen-ai/).
@@ -1231,7 +1267,7 @@ OTel is off by default with zero overhead. It activates when any of the followin
 * `OTEL_EXPORTER_OTLP_ENDPOINT` is set
 * `COPILOT_OTEL_FILE_EXPORTER_PATH` is set
 
-OTel configuration can also be set in {% data variables.product.prodname_vscode_shortname %}, or in an enterprise-wide `{% data variables.copilot.managed_setting_file %}` file. See [Enable OTel monitoring](https://code.visualstudio.com/docs/agents/guides/monitoring-agents#_enable-otel-monitoring) in the {% data variables.product.prodname_vscode_shortname %} documentation and [AUTOTITLE](/copilot/reference/enterprise-managed-settings-reference).
+OTel configuration can also be set in {% data variables.product.prodname_vscode_shortname %}, or in an enterprise-wide `{% data variables.copilot.managed_setting_file %}` file. See [Enable OTel monitoring](https://code.visualstudio.com/docs/agents/guides/monitoring-agents#_enable-otel-monitoring) in the {% data variables.product.prodname_vscode_shortname %} documentation and [AUTOTITLE](/copilot/reference/enterprise-administrators/enterprise-managed-settings).
 
 ### OTel environment variables
 

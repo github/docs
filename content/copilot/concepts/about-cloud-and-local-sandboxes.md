@@ -43,6 +43,8 @@ Local sandboxing is powered by Microsoft eXecution Container (MXC), a cross-plat
 
 Isolation technologies exist on a spectrum, from strong isolation such as full hypervisors or containers, to lighter-weight isolation such as OS-level process and filesystem containment. Local sandboxing currently sits at the lighter-weight end of this spectrum: it restricts what a process can read, write, and reach on the network, but it does not run your commands inside a separate virtual machine or container. If you want to evaluate whether this level of isolation meets your security requirements, see the [microsoft/mxc repository](https://github.com/microsoft/mxc) for implementation details.
 
+For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/understanding-local-sandboxing).
+
 ### Enabling local sandboxing
 
 To enable local sandboxing inside a {% data variables.copilot.copilot_cli_short %} session, run:

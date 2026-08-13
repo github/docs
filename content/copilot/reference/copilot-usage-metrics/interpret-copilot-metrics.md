@@ -98,8 +98,3 @@ Use trends in usage, feature adoption, and language activity to guide enablement
 
 > [!TIP]
 > Consider combining dashboard trends with feedback from surveys or retrospectives to get a full picture of {% data variables.product.prodname_copilot_short %}’s impact on developer productivity.
-
-## Next steps
-
-* To access metrics programmatically, including enterprise, organization, repository, and user-level records, see [AUTOTITLE](/rest/copilot/copilot-usage-metrics).
-* To construct team-level metrics from the per-user usage metrics report, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/team-level-metrics).

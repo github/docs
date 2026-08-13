@@ -22,7 +22,7 @@ Every user of the proxy server or firewall also needs to configure their own env
 
 We recommend using the `/meta` API endpoint to find the domains required to use {% data variables.product.github %} on a restricted network. For more information, see [AUTOTITLE](/get-started/using-github/allowing-access-to-githubs-services-from-a-restricted-network).
 
-The following request returns most of the wildcard domains required to authenticate and connect to {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %}. There are some exceptions for specific services, or if you want to allow traffic based only for specific {% data variables.product.prodname_copilot_short %} plans.
+The following request returns most of the wildcard domains required to authenticate and connect to {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %}. There are some exceptions for specific services, or if you want to allow traffic only for users with specific {% data variables.product.prodname_copilot_short %} plans.
 
 ```shell copy
 gh api meta -q '.domains | .website, .copilot'
@@ -77,7 +77,7 @@ All other domains that are required on {% data variables.product.prodname_dotcom
 
 ## Editor-specific requirements
 
-In addition to the URLs required to connect to {% data variables.product.prodname_copilot_short %}, you must ensure your network rules meet the requirements the local client (for example, outbound requests to `vscode.dev` in {% data variables.product.prodname_vscode %}). Find the documentation for your chosen client, for example:
+In addition to the URLs required to connect to {% data variables.product.prodname_copilot_short %}, you must ensure your network rules meet the requirements of the local client (for example, outbound requests to `vscode.dev` in {% data variables.product.prodname_vscode %}). Find the documentation for your chosen client, for example:
 
 * [Network Connections in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/setup/network) in the {% data variables.product.prodname_vs %} documentation
 * [Install and use {% data variables.product.prodname_vs %} and Azure Services behind a firewall or proxy server](https://learn.microsoft.com/en-us/visualstudio/install/install-and-use-visual-studio-behind-a-firewall-or-proxy-server) in the Microsoft documentation

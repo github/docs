@@ -25,8 +25,3 @@ For a detailed explanation of what the dashboard shows, including adoption cohor
 
 {% data reusables.copilot.access-copilot-metrics-dashboard %}
 1. In the left sidebar, click **{% data variables.product.prodname_copilot_short %} impact**.
-
-## Next steps
-
-* To learn how to interpret cohort shifts and what action to take, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/interpret-copilot-metrics#reviewing-adoption-cohorts).
-* For raw per-team NDJSON data, such as for custom BI reporting, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/team-level-metrics).
