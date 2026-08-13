@@ -14,7 +14,7 @@ category:
 
 ## {% data variables.product.prodname_codeql %} pack compatibility
 
-When a query pack is published, it includes pre-compiled representations of all the queries in it to increase analysis speed. However, if the version of {% data variables.product.prodname_codeql %} that performs the analysis is over 6 months newer than the the version that ran `codeql pack publish`, it may be necessary to compile the queries from source during analysis, slowing the process significantly.
+When a query pack is published, it includes pre-compiled representations of all the queries in it to increase analysis speed. However, if the version of {% data variables.product.prodname_codeql %} that performs the analysis is over 6 months newer than the version that ran `codeql pack publish`, it may be necessary to compile the queries from source during analysis, slowing the process significantly.
 
 A pack published by the _latest_ public release of {% data variables.product.prodname_codeql %} will be useable by the version of {% data variables.product.prodname_codeql %} that is used by {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_actions %}, even though that is often a slightly older release.
 

@@ -35,7 +35,7 @@ If you are using external blob storage, you will need to set this up.
 
 {% data reusables.enterprise-migration-tool.aws-credentials-cli %}
 
-### Setting up an Azure Blob Storage storage account
+### Setting up an Azure Blob Storage account
 
 {% data reusables.enterprise-migration-tool.set-up-azure-storage-account %}
 
