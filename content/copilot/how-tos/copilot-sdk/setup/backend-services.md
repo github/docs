@@ -114,7 +114,7 @@ const client = new CopilotClient({
 
 const session = await client.createSession({
     sessionId: `user-${userId}-${Date.now()}`,
-    model: "gpt-4.1",
+    model: "gpt-5.4",
     availableTools: ["custom:*"],
     gitHubToken: user.githubToken,
 });
@@ -135,7 +135,7 @@ client = CopilotClient(
 )
 await client.start()
 
-session = await client.create_session(on_permission_request=PermissionHandler.approve_all, model="gpt-4.1", session_id=f"user-{user_id}-{int(time.time())}")
+session = await client.create_session(on_permission_request=PermissionHandler.approve_all, model="gpt-5.4", session_id=f"user-{user_id}-{int(time.time())}")
 
 response = await session.send_and_wait(message)
 ```
@@ -166,7 +166,7 @@ func main() {
 
 	session, _ := client.CreateSession(ctx, &copilot.SessionConfig{
 		SessionID: fmt.Sprintf("user-%s-%d", userID, time.Now().Unix()),
-		Model:     "gpt-4.1",
+		Model:     "gpt-5.4",
 	})
 
 	response, _ := session.SendAndWait(ctx, copilot.MessageOptions{Prompt: message})
@@ -183,7 +183,7 @@ defer client.Stop()
 
 session, _ := client.CreateSession(ctx, &copilot.SessionConfig{
     SessionID: fmt.Sprintf("user-%s-%d", userID, time.Now().Unix()),
-    Model:     "gpt-4.1",
+    Model:     "gpt-5.4",
 })
 
 response, _ := session.SendAndWait(ctx, copilot.MessageOptions{Prompt: message})
@@ -206,7 +206,7 @@ var client = new CopilotClient(new CopilotClientOptions
 await using var session = await client.CreateSessionAsync(new SessionConfig
 {
     SessionId = $"user-{userId}-{DateTimeOffset.UtcNow.ToUnixTimeSeconds()}",
-    Model = "gpt-4.1",
+    Model = "gpt-5.4",
 });
 
 var response = await session.SendAndWaitAsync(
@@ -222,7 +222,7 @@ var client = new CopilotClient(new CopilotClientOptions
 await using var session = await client.CreateSessionAsync(new SessionConfig
 {
     SessionId = $"user-{userId}-{DateTimeOffset.UtcNow.ToUnixTimeSeconds()}",
-    Model = "gpt-4.1",
+    Model = "gpt-5.4",
 });
 
 var response = await session.SendAndWaitAsync(
@@ -248,7 +248,7 @@ try {
 
     var session = client.createSession(new SessionConfig()
         .setSessionId(String.format("user-%s-%d", userId, System.currentTimeMillis() / 1000))
-        .setModel("gpt-4.1")
+        .setModel("gpt-5.4")
         .setOnPermissionRequest(PermissionHandler.APPROVE_ALL)
     ).get();
 
@@ -290,7 +290,7 @@ const client = new CopilotClient({
 app.post("/chat", authMiddleware, async (req, res) => {
     const session = await client.createSession({
         sessionId: `user-${req.user.id}-chat`,
-        model: "gpt-4.1",
+        model: "gpt-5.4",
         availableTools: ["custom:*"],
         gitHubToken: req.user.githubToken,
     });
@@ -313,7 +313,7 @@ const client = new CopilotClient({
 });
 
 const session = await client.createSession({
-    model: "gpt-4.1",
+    model: "gpt-5.4",
     provider: {
         type: "openai",
         baseUrl: "https://api.openai.com/v1",
@@ -351,7 +351,7 @@ app.post("/api/chat", async (req, res) => {
     } catch {
         session = await client.createSession({
             sessionId,
-            model: "gpt-4.1",
+            model: "gpt-5.4",
             availableTools: ["custom:*"],
             gitHubToken: req.user.githubToken,
         });
@@ -380,7 +380,7 @@ const client = new CopilotClient({
 async function processJob(job: Job) {
     const session = await client.createSession({
         sessionId: `job-${job.id}`,
-        model: "gpt-4.1",
+        model: "gpt-5.4",
     });
 
     const response = await session.sendAndWait({

@@ -1028,16 +1028,16 @@ const session = await client.createSession({
 
 For full type definitions, input/output field tables, and additional examples for every hook, see the API reference:
 
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/hooks-overview)
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/pre-tool-use)
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/post-tool-use)
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/user-prompt-submitted)
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/session-lifecycle)
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/error-handling)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/hooks-overview)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/pre-tool-use)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/post-tool-use)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/user-prompt-submitted)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/session-lifecycle)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/error-handling)
 
 ## See also
 
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/getting-started)
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/custom-agents)
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/streaming-events)
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/troubleshooting/debugging)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/getting-started)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/custom-agents)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/streaming-events)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/troubleshooting/debugging)

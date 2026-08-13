@@ -25,6 +25,9 @@ You can control the use of {% data variables.copilot.copilot_cli_short %} by con
 1. To manage policies for **{% data variables.product.prodname_copilot_short %}**, in the sidebar, click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} **{% data variables.product.prodname_copilot_short %}**.
 1. In the "{% data variables.product.prodname_copilot_short %} Clients" section, for {% data variables.copilot.copilot_cli_short %}, select your preferred policy.
 
+> [!NOTE]
+> Disabling {% data variables.copilot.copilot_cli_short %} does not disable the {% data variables.copilot.github_copilot_app %}. The app is governed by its own policy. For more information, see [AUTOTITLE](/copilot/concepts/agents/github-copilot-app).
+
 ## How do other AI controls affect {% data variables.copilot.copilot_cli_short %}?
 
 Not all enterprise-level AI controls and policies apply to {% data variables.copilot.copilot_cli_short %}. These are the controls that **do apply**:

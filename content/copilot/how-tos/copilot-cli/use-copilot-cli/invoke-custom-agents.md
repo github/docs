@@ -58,7 +58,7 @@ You can define {% data variables.copilot.custom_agents_short %} at the user, rep
 | User-level {% data variables.copilot.copilot_custom_agent_short %} | local `~/.copilot/agents` directory | All projects |
 | Repository-level {% data variables.copilot.copilot_custom_agent_short %} | `.github/agents` directory in your local and remote repositories | Current project |
 | Organization-level {% data variables.copilot.copilot_custom_agent_short %} | `/agents` directory in the organization's `.github` or `.github-private` repository | All projects within the organization |
-| Enterprise-level {% data variables.copilot.copilot_custom_agent_short %} | `/agents` directory in the `.github-private` repository of an organization designated in enterprise settings. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents#enabling-and-protecting-custom-agents-in-your-enterprise). | All projects under the enterprise account |
+| Enterprise-level {% data variables.copilot.copilot_custom_agent_short %} | `/agents` directory in the `.github-private` repository of an organization designated in enterprise settings. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents). | All projects under the enterprise account |
 
 In the case of naming conflicts (where agents share the same filename), a user-level agent overrides a repository-level agent, a repository-level agent overrides an organization-level agent, and an organization-level agent overrides an enterprise-level agent.
 
@@ -84,7 +84,7 @@ In the case of naming conflicts (where agents share the same filename), a user-l
   copilot --agent=refactor-agent --prompt "Refactor this code block"
   ```
 
-For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents).
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/create-custom-agents).
 
 ## Use skills
 
@@ -107,7 +107,7 @@ To extend the functionality available to you in {% data variables.copilot.copilo
 1. Fill in the details for the MCP server you want to add, using the <kbd>Tab</kbd> key to move between fields.
 1. Press <kbd>Ctrl</kbd>+<kbd>S</kbd> to save the details.
 
-Details of your configured MCP servers are stored in the `mcp-config.json` file, which is located, by default, in the `~/.copilot` directory. This location can be changed by setting the `COPILOT_HOME` environment variable. For information about the JSON structure of a server definition, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp#writing-a-json-configuration-for-mcp-servers).
+Details of your configured MCP servers are stored in the `mcp-config.json` file, which is located, by default, in the `~/.copilot` directory. This location can be changed by setting the `COPILOT_HOME` environment variable. For information about the JSON structure of a server definition, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers#writing-a-json-configuration-for-mcp-servers).
 
 For more detailed information on adding and managing MCP servers in {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers).
 

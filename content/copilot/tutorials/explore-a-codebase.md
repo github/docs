@@ -9,7 +9,7 @@ redirect_from:
   - /copilot/tutorials/using-copilot-to-explore-a-codebase
 contentType: tutorials
 category:
-  - Scale institutional knowledge 
+  - Scale institutional knowledge
   - Author and optimize with Copilot
 ---
 
@@ -21,15 +21,28 @@ If you've been assigned to work on a project that you're not familiar with—or 
 
 Throughout this guide, we'll work with {% data variables.copilot.copilot_chat_short %} on {% data variables.product.prodname_dotcom_the_website %}, which you can find at [github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text).
 
-## Attaching a codebase
+## Providing repository context
 
-Before {% data variables.copilot.copilot_chat_short %} can help you, you need to attach the codebase you want to explore.
+You can ask {% data variables.copilot.copilot_chat_short %} about a codebase in either of these ways.
+
+### Attaching a repository in chat
+
+Attaching a repository gives {% data variables.copilot.copilot_chat_short %} access to the code in the repository, and is best when you want to compare or switch between repositories during a conversation.
 
 1. On {% data variables.product.github %}, navigate to [github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text).
 1. In the text box, click **{% octicon "plus" aria-label="Add attachments" %} Add repositories, files, and spaces**, then click **Repositories**.
 1. Search for and select the repository you want to explore.
 
-{% data variables.copilot.copilot_chat_short %} now has access to the code in that repository, and you can start asking questions about it.
+### Asking from the repository page
+
+> [!NOTE]
+> This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
+
+You can ask {% data variables.copilot.copilot_chat_short %} about a repository directly from its page on {% data variables.product.github %}, without attaching it first. This is a quick way to get oriented in a project you haven't worked on before.
+
+1. On {% data variables.product.github %}, navigate to the repository you want to explore.
+1. Open {% data variables.copilot.copilot_chat_short %} from the repository page and ask a question. {% data variables.product.prodname_copilot_short %} uses the repository as context and grounds its answers in the repository's actual files and symbols.
+1. Ask a follow-up question to go deeper, using the same shared context.
 
 ## Example prompts
 
@@ -40,6 +53,10 @@ The following prompts are examples of the kind of questions you can ask {% data 
 <!-- Blank lines left between list items to space out the output slightly. -->
 
 * `Based on the code in this repository, give me an overview of the architecture of the codebase. Provide evidence.`
+
+* `Give me an overview of this repository: its purpose, structure, key components, and how to run it.`
+
+* `What are the main entry points and how do the key components fit together?`
 
 * `Which languages are used in this repo? Show the percentages for each language.`
 
@@ -104,7 +121,7 @@ Use {% data variables.product.prodname_copilot_short %} to help you understand t
 
 1. On {% data variables.product.github %}, navigate to a repository and open a file.
 1. At the top of the file, click the {% data variables.product.prodname_copilot_short %} icon (**{% octicon "copilot" aria-label="Copilot icon" %}**) to open {% data variables.copilot.copilot_chat_short %}.
-     
+
      {% data variables.product.prodname_copilot_short %} will display the file contents in a split screen as context for your question.
 
 1. If you want to ask about a specific symbol, highlight the symbol in the file.
@@ -134,4 +151,4 @@ For more information, see [AUTOTITLE](/repositories/viewing-activity-and-data-fo
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github)

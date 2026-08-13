@@ -31,6 +31,8 @@ You can also enable activity limitations on all repositories owned by your perso
 1. In the sidebar, select **{% octicon "comment-discussion" aria-hidden="true" aria-label="comment-discussion" %} Moderation options**, then click **Interaction limits**.
 {% data reusables.community.set-interaction-limit %}
 
+{% ifversion pull-request-limit %}
+
 ## Limiting concurrent open pull requests for users without write access
 
 In a public repository, you can set a maximum number of pull requests that a user without write access can have open at the same time. When a user without write access reaches the limit, they can close or merge an existing pull request before they can open a new one.
@@ -52,10 +54,12 @@ To configure the pull request limit, navigate to the **Interaction limits** sett
 1. Under **Pull request limits**, select the maximum number of concurrent open pull requests allowed for users without write access.
 1. Optionally, under **Bypass list**, search for and select the users you want to allow to bypass the pull request limit.
 
+{% endif %}
+
 ## Further reading
 
 * [AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)
 * [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-an-individuals-access-to-an-organization-repository)
-* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository)
+* [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/permission-levels-for-a-personal-account-repository)
 * [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)
 * [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)

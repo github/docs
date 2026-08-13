@@ -42,7 +42,7 @@ If the external identity you sign in with does not match the external identity t
 
 To use the API or Git on the command line to access protected content in an organization that uses SSO, you will need to use an authorized {% data variables.product.pat_generic %} over HTTPS or an authorized SSH key.
 
-If you don't have a {% data variables.product.pat_generic %} or an SSH key, you can create a {% data variables.product.pat_generic %} for the command line or generate a new SSH key. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) or [AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+If you don't have a {% data variables.product.pat_generic %} or an SSH key, you can create a {% data variables.product.pat_generic %} for the command line or generate a new SSH key. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) or [AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
 To use a new or existing {% data variables.product.pat_generic %} or SSH key with an organization that uses or enforces SSO, you will need to authorize the token or authorize the SSH key for use with the organization. For more information, see [AUTOTITLE](/authentication/authenticating-with-single-sign-on/authorizing-a-personal-access-token-for-use-with-single-sign-on) or [AUTOTITLE](/authentication/authenticating-with-single-sign-on/authorizing-an-ssh-key-for-use-with-single-sign-on).
 

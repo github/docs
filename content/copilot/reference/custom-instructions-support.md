@@ -52,6 +52,7 @@ WRITING NOTE: The following tables have been written using HTML rather than Mark
         <ul style="list-style: none; padding-left: 1.5em; margin-left: 0;">
           {% data reusables.copilot.ci-support-repository %}
           {% data reusables.copilot.ci-support-path %}
+          {% data reusables.copilot.ci-support-agents-only %}
           {% data reusables.copilot.ci-support-organization %}
         </ul>
       </td>
@@ -263,11 +264,12 @@ The editor lets you work with workspace customizations for the current project o
 <ul style="list-style: none; padding-left: 1.5em; margin-left: 0;">
   {% data reusables.copilot.ci-support-repository %}
   {% data reusables.copilot.ci-support-path %}
-  {% data reusables.copilot.ci-support-agents-only %}
+  {% data reusables.copilot.ci-support-agents-all %}
+  <li style="text-indent: -1.6em;"><span aria-hidden="true">👤</span> &nbsp;<strong>Personal</strong> instructions (using <code>~/.copilot/copilot-instructions.md</code> or <code>~/.copilot/instructions/**/*.instructions.md</code> files).</li>
 </ul>
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions)
-* [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-personal-instructions)
-* [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-organization-instructions)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-personal-instructions)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-organization-instructions)

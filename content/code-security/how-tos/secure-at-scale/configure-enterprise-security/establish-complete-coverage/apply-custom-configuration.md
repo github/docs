@@ -17,7 +17,7 @@ category:
 
 After you create a {% data variables.product.prodname_custom_security_configuration %}, you need to apply it to repositories in your enterprise to enable the configuration's settings on those repositories.
 
-The repository list displays each repository's configuration status. For the full list of statuses and recommended actions, see [AUTOTITLE](/code-security/reference/security-at-scale/security-configuration-statuses).
+The repository list displays each repository's configuration status. For the full list of statuses and recommended actions, see [AUTOTITLE](/code-security/reference/security-at-scale/configuration-statuses).
 
 {% data reusables.security-configurations.security-features-use-actions %}
 
@@ -35,4 +35,4 @@ The repository list displays each repository's configuration status. For the ful
 
 ## Next steps
 
-To learn how to edit your {% data variables.product.prodname_custom_security_configuration %}, see [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/editing-a-custom-security-configuration).
+To learn how to edit your {% data variables.product.prodname_custom_security_configuration %}, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/manage-your-coverage/edit-custom-configuration).

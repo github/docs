@@ -22,7 +22,7 @@ If your migration encounters a problem, check the migration status with `elm mig
 | **Exporting** | Data is being exported from the source | Monitor with `elm migration status` |
 | **Processing** | Exported data is being imported to the destination | Monitor with `elm migration status` |
 | **Ready for cutover** | The initial migration is complete and the migration is ready for cutover | When ready, run `elm migration cutover-to-destination` |
-| **Cutting over** | The source repository is locked and remaining changes are being applied to the destination | Monitor; the status will transition to **Completed** |
+| **Cutting over** | The source repository is archived and remaining changes are being applied to the destination | Monitor; the status will transition to **Completed** |
 | **Completed** | The migration has finished successfully | Verify the destination repository and reclaim mannequins |
 | **Failed** | The migration encountered an unrecoverable failure | Investigate the error (see below) |
 | **Paused** | The migration is paused | Check the pause reason and resolve (see below) |
@@ -95,7 +95,7 @@ Failed resources are only shown after all automatic retries have been exhausted,
 
 If the number and types of failed resources are acceptable, you can proceed with cutover. If not, abort the migration, resolve the underlying issue, then start a new migration.
 
-## Cutover failed and the source repository is locked
+## Cutover failed and the source repository is unavailable
 
 {% data reusables.elm.locked-repo %}
 

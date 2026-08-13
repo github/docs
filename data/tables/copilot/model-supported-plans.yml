@@ -33,13 +33,6 @@
   business: true
   enterprise: true
 
-- name: Claude Opus 4.6 (fast mode) (preview)
-  pro: false
-  pro_plus: false
-  max: false
-  business: false
-  enterprise: true
-
 - name: Claude Opus 4.7
   pro: false
   pro_plus: true
@@ -48,6 +41,20 @@
   enterprise: true
 
 - name: Claude Opus 4.8
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Claude Opus 4.8 (fast mode) (preview)
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Claude Opus 5
   pro: false
   pro_plus: true
   max: true
@@ -75,14 +82,7 @@
   business: true
   enterprise: true
 
-- name: Gemini 2.5 Pro
-  pro: true
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
-
-- name: Gemini 3 Flash
+- name: Claude Sonnet 5
   pro: true
   pro_plus: true
   max: true
@@ -103,12 +103,12 @@
   business: true
   enterprise: true
 
-- name: MAI-Code-1-Flash
+- name: Gemini 3.6 Flash
   pro: true
   pro_plus: true
   max: true
-  business: false
-  enterprise: false
+  business: true
+  enterprise: true
 
 - name: GPT-5 mini
   pro: true
@@ -152,16 +152,65 @@
   business: true
   enterprise: true
 
+- name: GPT-5.6 Luna
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: GPT-5.6 Sol
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: GPT-5.6 Terra
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Grok 4.5
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Kimi K2.7 Code
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Kimi K3
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: MAI-Code-1-Flash
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: MAI-Code-1.1-Flash
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
 - name: Raptor mini
   pro: true
   pro_plus: true
   max: true
-  business: false
-  enterprise: false
-
-- name: Goldeneye
-  pro: false
-  pro_plus: false
-  max: false
   business: false
   enterprise: false

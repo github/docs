@@ -150,3 +150,8 @@ The footer hint bar in the **Issues**, **Pull requests**, and **Gists** tabs sum
 | <kbd>Enter</kbd> | Search box | Run the search query. |
 | <kbd>Esc</kbd> | Search box / applied search | Cancel the search box, or dismiss the search results. |
 | <kbd>Esc</kbd> | Details view | Return to the list view. |
+
+## Further reading
+
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/manage-pull-requests)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#slash-commands-in-the-interactive-interface)

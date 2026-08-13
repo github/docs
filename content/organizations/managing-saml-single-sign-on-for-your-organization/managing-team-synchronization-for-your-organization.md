@@ -34,7 +34,7 @@ You can enable team synchronization between your IdP and {% data variables.produ
 
 {% data reusables.identity-and-permissions.sync-team-with-idp-group %}
 
-You can also enable team synchronization for all organizations owned by an enterprise account. If SAML is configured at the enterprise level, you cannot enable team synchronization on an individual organization. Instead, you must configure team synchronization for the entire enterprise. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise).
+You can also enable team synchronization for all organizations owned by an enterprise account. If SAML is configured at the enterprise level, you cannot enable team synchronization on an individual organization. Instead, you must configure team synchronization for the entire enterprise. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise).
 
 {% data reusables.enterprise-accounts.team-sync-override %}
 

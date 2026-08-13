@@ -84,7 +84,7 @@ When you create a {% data variables.product.prodname_actions %} workflow, you ca
 For more information, see:{% ifversion fpt or ghec %}
 * [AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility){% endif %}
 * [AUTOTITLE](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)
-* [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+* [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
 * [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)
 
 ## About repository transfers
@@ -109,7 +109,7 @@ For more conceptual background on {% data variables.product.prodname_actions %} 
 * To publish, install, delete, and restore packages associated with the workflow repository, use `GITHUB_TOKEN`.
 * To install packages associated with other private repositories that `GITHUB_TOKEN` can't access, use a {% data variables.product.pat_v1 %}
 
-For more information about `GITHUB_TOKEN` used in {% data variables.product.prodname_actions %} workflows, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow).
+For more information about `GITHUB_TOKEN` used in {% data variables.product.prodname_actions %} workflows, see [AUTOTITLE](/actions/tutorials/authenticate-with-github_token#using-the-github_token-in-a-workflow).
 
 {% ifversion fpt or ghec %}
 

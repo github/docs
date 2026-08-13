@@ -9,8 +9,6 @@ category:
   - Manage project items and fields
 ---
 
-{% data reusables.issues.issue-fields-public-preview-note %}
-
 Issue fields are organization-level fields that provide consistent, typed metadata across all repositories. Unlike project custom fields, issue fields are defined once at the organization level and are available on every issue and in every project across the organization. For more information on creating and managing issue fields, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-fields-in-your-organization).
 
 ## Issue fields in public and internal projects

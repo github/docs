@@ -5,6 +5,7 @@ import type { Response } from 'express'
 import type { BreadcrumbT } from '@/frame/components/page-header/Breadcrumbs'
 import type { FeatureFlags } from '@/frame/components/hooks/useFeatureFlags'
 import type { ExtendedRequest, Permalink, SidebarLink } from '@/types'
+import { SIDEBAR_EXPANDED_COOKIE_NAME, SIDEBAR_COLLAPSED_COOKIE_NAME } from '@/frame/lib/constants'
 
 export type ProductT = {
   external: boolean
@@ -130,6 +131,14 @@ export type MainContextT = {
   } | null
   relativePath?: string | null
   sidebarTree?: ProductTreeNode | null
+  // Per-category expand/collapse overrides for the doc-tree sidebar, read from the
+  // sidebar_expanded cookie during SSR so the tree renders in its persisted state
+  // on first paint (no post-mount flash). Keyed by locale-prefixed href.
+  sidebarExpanded?: Record<string, boolean> | null
+  // Whether the desktop doc-tree rail is collapsed, read from the sidebar_collapsed
+  // cookie during SSR so the rail renders in its persisted state on first paint
+  // (no flash of the open sidebar before it collapses post-mount).
+  sidebarCollapsed?: boolean
   status: number
   xHost?: string
 }
@@ -169,6 +178,19 @@ export function addUINamespaces(req: ExtendedRequest, ui: UIStrings, namespaces:
   }
 }
 
+// Parse the sidebar_expanded cookie (a JSON map of href -> bool) from the request.
+// Guarded so a malformed or absent cookie degrades to no overrides.
+function parseSidebarExpandedCookie(req: ExtendedRequest): Record<string, boolean> {
+  const raw = req.cookies?.[SIDEBAR_EXPANDED_COOKIE_NAME]
+  if (!raw) return {}
+  try {
+    const parsed = JSON.parse(raw)
+    return parsed && typeof parsed === 'object' ? (parsed as Record<string, boolean>) : {}
+  } catch {
+    return {}
+  }
+}
+
 export const getMainContext = async (
   req: ExtendedRequest,
   res: Response,
@@ -190,6 +212,11 @@ export const getMainContext = async (
   addUINamespaces(req, ui, DEFAULT_UI_NAMESPACES)
   if (context.currentJourneyTrack?.trackId) {
     addUINamespaces(req, ui, ['journey_track_nav'])
+  }
+  // CodeTabs (rendered React-natively from the article body hast) needs its i18n
+  // strings shipped to the page; only articles can contain code tabs.
+  if (documentType === 'article') {
+    addUINamespaces(req, ui, ['code_tabs'])
   }
 
   // Product index pages (depth-2 index.md, e.g. actions/index.md) need the
@@ -288,6 +315,10 @@ export const getMainContext = async (
     // The minimal product tree is needed on all pages that depend on
     // the product sidebar or the rest sidebar.
     sidebarTree: (includeSidebarTree && context.sidebarTree) || null,
+    sidebarExpanded: includeSidebarTree ? parseSidebarExpandedCookie(req) : null,
+    sidebarCollapsed: includeSidebarTree
+      ? req.cookies?.[SIDEBAR_COLLAPSED_COOKIE_NAME] === 'true'
+      : false,
     status: res.statusCode,
     xHost: req.get('x-host') || '',
   }

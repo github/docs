@@ -35,4 +35,4 @@ When restoring an instance with {% data variables.product.prodname_actions %} en
 
    All runners must be re-registered with the restored instance, as previous registration tokens are invalid after a restore.
 
-For more information, see [AUTOTITLE](/admin/github-actions/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled).
+For more information, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled).

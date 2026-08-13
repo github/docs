@@ -8,7 +8,7 @@ category:
 
 GitHub provides [a number of account recovery methods](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials) including an [automated recovery process](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials#authenticating-with-a-verified-device-ssh-token-or-personal-access-token) if you have lost access to your GitHub.com account. **If you cannot use any of the provided recovery methods, you have permanently lost access to your account.**
 
-You can, however, [unlink email addresses](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/unlinking-your-email-address-from-a-locked-account) from a locked account in order to create a new account or use the email on another existing account.
+You can, however, [unlink email addresses](/account-and-profile/how-tos/account-management/unlinking-your-email-address-from-a-locked-account) from a locked account in order to create a new account or use the email on another existing account.
 
 ## Can I open a support ticket to recover my account?
 
@@ -18,7 +18,7 @@ GitHub does not support any other means of account recovery, including social or
 
 ## How can I retrieve my email from a locked account?
 
-See [Unlinking your email address from a locked account](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/unlinking-your-email-address-from-a-locked-account).
+See [Unlinking your email address from a locked account](/account-and-profile/how-tos/account-management/unlinking-your-email-address-from-a-locked-account).
 
 ## How can I remove a payment method from a locked account?
 

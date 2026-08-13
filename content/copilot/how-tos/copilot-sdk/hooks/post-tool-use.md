@@ -15,10 +15,10 @@ contentType: how-tos
 <!-- markdownlint-disable GHD046 GHD005 -->
 <!-- Suppressed: GHD046 (outdated release terminology), GHD005 (hardcoded data variable) -->
 
-- Transform or filter tool results
-- Log tool execution for auditing
-- Add context based on results
-- Suppress results from the conversation
+* Transform or filter tool results
+* Log tool execution for auditing
+* Add context based on results
+* Suppress results from the conversation
 
 > **Failure variant** — `onPostToolUse` only fires for successful tool executions. To observe **failed** tool calls, register `onPostToolUseFailure` (`on_post_tool_use_failure` in Python, `OnPostToolUseFailure` in Go/.NET, `on_post_tool_use_failure` in Rust). The handler receives `{ sessionId, toolName, toolArgs, error, timestamp, workingDirectory }` — the `error` field is a string extracted from the tool's failure result — and may return `{ additionalContext: string }` to inject extra guidance for the model (e.g. retry hints). See the [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/hooks-overview) for the full list.
 > <a id="failure-variant"></a>
@@ -488,6 +488,6 @@ const session = await client.createSession({
 
 ## See also
 
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks)
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/pre-tool-use)
-- [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/error-handling)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/pre-tool-use)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/error-handling)

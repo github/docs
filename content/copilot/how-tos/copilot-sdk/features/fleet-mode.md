@@ -2,8 +2,13 @@
 title: Fleet mode
 shortTitle: Fleet Mode
 intro: >-
-    Use fleet mode to split work across multiple sub-agents and combine their
-    results in one parent session.
+  Fleet mode is Copilot's parallel orchestration pattern for work that can be
+  split across independent sub-agents. In the runtime research notes, fleet mode
+  is described as "the runtime's built-in pattern for dispatching multiple
+  sub-agents in parallel via the `task` tool, with SQL todos as the shared
+  coordination state." Use it when one parent session should coordinate several
+  workers, collect their results, and continue the conversation with the
+  combined context.
 versions:
   fpt: '*'
   ghec: '*'
@@ -59,7 +64,7 @@ if (result.started) {
 {% codetab python %}
 
 ```python
-from copilot.generated.rpc import FleetStartRequest
+from copilot.rpc import FleetStartRequest
 
 result = await session.rpc.fleet.start(
     FleetStartRequest(
@@ -151,7 +156,7 @@ if (result.Started)
 {% codetab rust %}
 
 ```rust
-use github_copilot_sdk::generated::api_types::FleetStartRequest;
+use github_copilot_sdk::rpc::FleetStartRequest;
 
 let result = session
     .rpc()
@@ -176,7 +181,7 @@ Native typed bindings for fleet mode were verified in Node.js/TypeScript, Python
 Plan-mode UIs can start fleet deployment by returning the `autopilot_fleet` exit action. The generated session event types describe it as:
 
 ```typescript
-type PlanModeExitAction =
+type ExitPlanModeAction =
   | "exit_only"
   | "interactive"
   | "autopilot"

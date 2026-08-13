@@ -87,7 +87,7 @@ You pay for any additional use above your quota using the payment method set up 
 Data transfer is billed for each GB of data transferred. Storage is billed by calculating an hourly usage rate.
 
 * {% data reusables.dotcom_billing.pricing_calculator.pricing_cal_packages %}
-* To view your current storage and bandwidth, see [AUTOTITLE](/billing/managing-billing-for-your-products/viewing-your-product-usage).
+* To view your current storage and bandwidth, see [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
 
 ### Example of how usage is calculated over a month
 

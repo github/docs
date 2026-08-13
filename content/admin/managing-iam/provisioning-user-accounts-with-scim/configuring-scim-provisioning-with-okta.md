@@ -24,9 +24,9 @@ category:
 
 ## About provisioning with Okta
 
-If you use Okta as an IdP, you can use Okta's application to provision user accounts, manage enterprise membership, and manage team memberships for organizations in your enterprise. Okta is a partner IdP, so you can simplify your authentication and provisioning configuration by using the Okta application {% ifversion ghec %}for {% data variables.product.prodname_emus %}. For more information, see [AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#about-authentication-and-user-provisioning).{% else %}to manage both SAML single-sign on and SCIM provisioning on {% data variables.product.prodname_ghe_server %}.{% endif %}
+If you use Okta as an IdP, you can use Okta's application to provision user accounts, manage enterprise membership, and manage team memberships for organizations in your enterprise. Okta is a partner IdP, so you can simplify your authentication and provisioning configuration by using the Okta application {% ifversion ghec %}for {% data variables.product.prodname_emus %}. For more information, see [AUTOTITLE](/admin/concepts/identity-and-access-management/enterprise-managed-users#about-authentication-and-user-provisioning).{% else %}to manage both SAML single-sign on and SCIM provisioning on {% data variables.product.prodname_ghe_server %}.{% endif %}
 
-Alternatively, if you only intend to use Okta for SAML authentication and you want to use a different IdP for provisioning, you can integrate with {% data variables.product.prodname_dotcom %}'s REST API for SCIM. For more information, see [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api).
+Alternatively, if you only intend to use Okta for SAML authentication and you want to use a different IdP for provisioning, you can integrate with {% data variables.product.prodname_dotcom %}'s REST API for SCIM. For more information, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/provisioning-users-and-groups-with-scim-using-the-rest-api).
 
 ## Supported features
 
@@ -145,7 +145,7 @@ When you have finished configuring SCIM, you may want to disable some SAML setti
 
 {% data reusables.scim.emu-scim-rate-limit %}
 
-You can also automatically manage organization membership by adding groups to the "Push Groups" tab in Okta. When the group is provisioned successfully, it will be available to connect to teams in the enterprise's organizations. For more information about managing teams, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups).
+You can also automatically manage organization membership by adding groups to the "Push Groups" tab in Okta. When the group is provisioned successfully, it will be available to connect to teams in the enterprise's organizations. For more information about managing teams, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/managing-team-memberships-with-identity-provider-groups).
 
 {% data reusables.enterprise-managed.assigning-roles %}
 

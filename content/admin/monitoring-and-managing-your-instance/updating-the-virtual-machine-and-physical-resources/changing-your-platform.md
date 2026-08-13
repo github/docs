@@ -24,14 +24,14 @@ Moving via backup and restore will not require any changes to your live environm
 
 ## Move platforms using a HA replica
 
-1. Set up a new {% data variables.product.prodname_ghe_server %} instance on your chosen platform. See [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance).
+1. Set up a new {% data variables.product.prodname_ghe_server %} instance on your chosen platform. See [AUTOTITLE](/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance).
 1. Configure your new {% data variables.product.prodname_ghe_server %} instance as a replica. See [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-high-availability/creating-a-high-availability-replica).
 1. Failover to your replica. See [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-high-availability/initiating-a-failover-to-your-replica-appliance).
 
 ## Moving platforms using backup and restore
 
 1. Setup backups for your existing {% data variables.product.prodname_ghe_server %} instance. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/about-the-backup-service-for-github-enterprise-server).
-1. Set up a new {% data variables.product.prodname_ghe_server %} instance on your chosen platform. See [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance).
+1. Set up a new {% data variables.product.prodname_ghe_server %} instance on your chosen platform. See [AUTOTITLE](/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance).
 1. Communicate the upcoming downtime to your users and enable maintenance mode. For more information, see the following articles.
 
    * [AUTOTITLE](/admin/managing-accounts-and-repositories/communicating-information-to-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-mandatory-message)

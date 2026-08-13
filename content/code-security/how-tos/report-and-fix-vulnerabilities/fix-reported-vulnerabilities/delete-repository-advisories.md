@@ -25,4 +25,4 @@ If you publish a security advisory in error, you can delete the security advisor
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/editing-a-repository-security-advisory)
+* [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/edit-repository-advisories)

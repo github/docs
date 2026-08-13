@@ -1,4 +1,3 @@
-import React from 'react'
 import type { GetServerSideProps } from 'next'
 import type { Response } from 'express'
 
@@ -10,12 +9,11 @@ import {
 } from '@/frame/components/context/MainContext'
 
 import { DefaultLayout } from '@/frame/components/DefaultLayout'
-import { useTranslation } from '@/languages/components/useTranslation'
-import { ArticleList } from '@/landings/components/ArticleList'
 import { HomePageHero } from '@/landings/components/HomePageHero'
 import type { ProductGroupT } from '@/landings/components/ProductSelections'
 import { ProductSelections } from '@/landings/components/ProductSelections'
 import type { ExtendedRequest, FeaturedLinkExpanded } from '@/types'
+import styles from './home.module.scss'
 
 type FeaturedLink = {
   href: string
@@ -25,56 +23,35 @@ type FeaturedLink = {
 
 type Props = {
   mainContext: MainContextT
+  // Retained in getServerSideProps so the "Getting started" / "Popular" lists
+  // can be restored later; the Docs 2026 homepage body is just the grid.
   popularLinks: Array<FeaturedLink>
   gettingStartedLinks: Array<FeaturedLink>
   productGroups: Array<ProductGroupT>
 }
 
-export default function MainHomePage({
-  mainContext,
-  gettingStartedLinks,
-  popularLinks,
-  productGroups,
-}: Props) {
+export default function MainHomePage({ mainContext, productGroups }: Props) {
   return (
     <MainContext.Provider value={mainContext}>
       <DefaultLayout>
-        <HomePage
-          gettingStartedLinks={gettingStartedLinks}
-          popularLinks={popularLinks}
-          productGroups={productGroups}
-        />
+        <HomePage productGroups={productGroups} />
       </DefaultLayout>
     </MainContext.Provider>
   )
 }
 
 type HomePageProps = {
-  popularLinks: Array<FeaturedLink>
-  gettingStartedLinks: Array<FeaturedLink>
   productGroups: Array<ProductGroupT>
 }
 function HomePage(props: HomePageProps) {
-  const { gettingStartedLinks, popularLinks, productGroups } = props
-  const { t } = useTranslation(['toc'])
+  const { productGroups } = props
 
   return (
     <div>
       <HomePageHero />
+      <div className={styles.sectionGap} />
       <ProductSelections productGroups={productGroups} />
-      <div className="mt-6 px-3 px-md-6 container-xl">
-        <div className="container-xl">
-          <div className="gutter gutter-xl-spacious clearfix">
-            <div className="col-12 col-lg-6 mb-md-4 mb-lg-0 float-left">
-              <ArticleList title={t('getting_started')} articles={gettingStartedLinks} />
-            </div>
-
-            <div className="col-12 col-lg-6 float-left">
-              <ArticleList title={t('popular')} articles={popularLinks} />
-            </div>
-          </div>
-        </div>
-      </div>
+      <div className={styles.sectionEnd} />
     </div>
   )
 }

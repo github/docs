@@ -92,6 +92,14 @@
           }
         },
         {
+          "name": "relationship",
+          "in": "query",
+          "description": "<p>A comma-separated list of relationships of the vulnerable dependency to your project. If specified, only alerts with these relationships will be returned.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nWe are rolling out support for dependency relationship across ecosystems. This value will be \"unknown\" for all dependencies in unsupported ecosystems.</p>\n</div>",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
           "name": "sort",
           "in": "query",
           "description": "<p>The property by which to sort the results.\n<code>created</code> means when the alert was created.\n<code>updated</code> means when the alert's state last changed.\n<code>epss_percentage</code> sorts alerts by the Exploit Prediction Scoring System (EPSS) percentage.</p>",
@@ -172,7 +180,8 @@
                     "name": "django"
                   },
                   "manifest_path": "path/to/requirements.txt",
-                  "scope": "runtime"
+                  "scope": "runtime",
+                  "relationship": "direct"
                 },
                 "security_advisory": {
                   "ghsa_id": "GHSA-rf4j-j272-fj86",
@@ -397,7 +406,8 @@
                     "name": "ansible"
                   },
                   "manifest_path": "path/to/requirements.txt",
-                  "scope": "runtime"
+                  "scope": "runtime",
+                  "relationship": "direct"
                 },
                 "security_advisory": {
                   "ghsa_id": "GHSA-8f4m-hccc-8qph",
@@ -1950,6 +1960,14 @@
           }
         },
         {
+          "name": "relationship",
+          "in": "query",
+          "description": "<p>A comma-separated list of relationships of the vulnerable dependency to your project. If specified, only alerts with these relationships will be returned.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nWe are rolling out support for dependency relationship across ecosystems. This value will be \"unknown\" for all dependencies in unsupported ecosystems.</p>\n</div>",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
           "name": "sort",
           "in": "query",
           "description": "<p>The property by which to sort the results.\n<code>created</code> means when the alert was created.\n<code>updated</code> means when the alert's state last changed.\n<code>epss_percentage</code> sorts alerts by the Exploit Prediction Scoring System (EPSS) percentage.</p>",
@@ -2030,7 +2048,8 @@
                     "name": "django"
                   },
                   "manifest_path": "path/to/requirements.txt",
-                  "scope": "runtime"
+                  "scope": "runtime",
+                  "relationship": "direct"
                 },
                 "security_advisory": {
                   "ghsa_id": "GHSA-rf4j-j272-fj86",
@@ -2255,7 +2274,8 @@
                     "name": "ansible"
                   },
                   "manifest_path": "path/to/requirements.txt",
-                  "scope": "runtime"
+                  "scope": "runtime",
+                  "relationship": "direct"
                 },
                 "security_advisory": {
                   "ghsa_id": "GHSA-8f4m-hccc-8qph",
@@ -3809,6 +3829,14 @@
           }
         },
         {
+          "name": "relationship",
+          "in": "query",
+          "description": "<p>A comma-separated list of relationships of the vulnerable dependency to your project. If specified, only alerts with these relationships will be returned.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nWe are rolling out support for dependency relationship across ecosystems. This value will be \"unknown\" for all dependencies in unsupported ecosystems.</p>\n</div>",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
           "name": "sort",
           "in": "query",
           "description": "<p>The property by which to sort the results.\n<code>created</code> means when the alert was created.\n<code>updated</code> means when the alert's state last changed.\n<code>epss_percentage</code> sorts alerts by the Exploit Prediction Scoring System (EPSS) percentage.</p>",
@@ -3890,7 +3918,8 @@
                     "name": "django"
                   },
                   "manifest_path": "path/to/requirements.txt",
-                  "scope": "runtime"
+                  "scope": "runtime",
+                  "relationship": "direct"
                 },
                 "security_advisory": {
                   "ghsa_id": "GHSA-rf4j-j272-fj86",
@@ -4048,7 +4077,8 @@
                     "name": "ansible"
                   },
                   "manifest_path": "path/to/requirements.txt",
-                  "scope": "runtime"
+                  "scope": "runtime",
+                  "relationship": "direct"
                 },
                 "security_advisory": {
                   "ghsa_id": "GHSA-8f4m-hccc-8qph",
@@ -5122,7 +5152,8 @@
                   "name": "ansible"
                 },
                 "manifest_path": "path/to/requirements.txt",
-                "scope": "runtime"
+                "scope": "runtime",
+                "relationship": "direct"
               },
               "security_advisory": {
                 "ghsa_id": "GHSA-8f4m-hccc-8qph",
@@ -6214,6 +6245,28 @@
           "type": "array of strings",
           "name": "assignees",
           "description": "<p>Usernames to assign to this Dependabot Alert.\nPass one or more user logins to <em>replace</em> the set of assignees on this alert.\nSend an empty array (<code>[]</code>) to clear all assignees from the alert.\nTo assign an AI agent, include the bot login (for example, <code>copilot-swe-agent[bot]</code>).</p>"
+        },
+        {
+          "type": "object",
+          "name": "agent_assignment",
+          "description": "<p>Parameters for AI agent assignment. Only used when an agent bot login is\nincluded in <code>assignees</code>. Ignored when no agent is being assigned.</p>",
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "custom_instructions",
+              "description": "<p>Custom instructions for the agent.</p>"
+            },
+            {
+              "type": "string",
+              "name": "custom_agent",
+              "description": "<p>A custom agent identifier.</p>"
+            },
+            {
+              "type": "string",
+              "name": "model",
+              "description": "<p>The model to use for the agent.</p>"
+            }
+          ]
         }
       ],
       "descriptionHTML": "<p>The authenticated user must have access to security alerts for the repository to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts\">Granting access to security alerts</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint. If this endpoint is only used with public repositories, the token can use the <code>public_repo</code> scope instead.</p>",
@@ -6247,7 +6300,8 @@
                   "name": "django"
                 },
                 "manifest_path": "path/to/requirements.txt",
-                "scope": "runtime"
+                "scope": "runtime",
+                "relationship": "direct"
               },
               "security_advisory": {
                 "ghsa_id": "GHSA-rf4j-j272-fj86",

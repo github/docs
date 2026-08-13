@@ -72,7 +72,7 @@ void process () {
 {% data variables.product.prodname_copilot %} will attempt to match the context and style of your code. You can always edit the suggested code.
 
 > [!TIP]
-> If you receive limited or no suggestions from {% data variables.product.prodname_copilot_short %}, you may have duplication detection enabled. For more information about duplication detection, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom#enabling-or-disabling-suggestions-matching-public-code).
+> If you receive limited or no suggestions from {% data variables.product.prodname_copilot_short %}, you may have duplication detection enabled. For more information about duplication detection, see [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-suggestions-matching-public-code).
 
 ## Showing alternative suggestions
 
@@ -133,7 +133,7 @@ Alternatively, you can use a keyboard shortcut to accept the next word of a sugg
 |macOS|<kbd>Command</kbd>+<kbd>→</kbd>|<kbd>Command</kbd>+<kbd>Control</kbd>+<kbd>→</kbd>|
 |Windows or Linux|<kbd>Control</kbd>+<kbd>→</kbd>|<kbd>Control</kbd>+<kbd>Alt</kbd>+<kbd>→</kbd>|
 
-If you want to accept the next line of a suggestion, you will need to set a custom keyboard shortcut for the command `editor.action.inlineSuggest.acceptNextLine`. For more information on setting custom keyboard shortcuts, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment).
+If you want to accept the next line of a suggestion, you will need to set a custom keyboard shortcut for the command `editor.action.inlineSuggest.acceptNextLine`. For more information on setting custom keyboard shortcuts, see [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-in-ide).
 
 {% endjetbrains %}
 
@@ -177,7 +177,7 @@ var doc = XDocument.Load("index.xhml");
 {% data variables.product.prodname_copilot %} will suggest an implementation of the function. {% data reusables.copilot.accept-suggestion %}
 
 > [!TIP]
-> If you receive limited or no suggestions from {% data variables.product.prodname_copilot_short %}, you may have duplication detection enabled. For more information about duplication detection, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom#enabling-or-disabling-suggestions-matching-public-code).
+> If you receive limited or no suggestions from {% data variables.product.prodname_copilot_short %}, you may have duplication detection enabled. For more information about duplication detection, see [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-suggestions-matching-public-code).
 
 ## Showing alternative suggestions
 
@@ -291,7 +291,7 @@ You can also describe something you want to do using natural language within a c
 {% data variables.product.prodname_copilot %} will automatically suggest code. {% data reusables.copilot.accept-suggestion %}
 
 > [!TIP]
-> If you receive limited or no suggestions from {% data variables.product.prodname_copilot_short %}, you may have duplication detection enabled. For more information about duplication detection, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom#enabling-or-disabling-suggestions-matching-public-code).
+> If you receive limited or no suggestions from {% data variables.product.prodname_copilot_short %}, you may have duplication detection enabled. For more information about duplication detection, see [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-suggestions-matching-public-code).
 
 ## Showing alternative suggestions
 
@@ -351,7 +351,7 @@ Alternatively, you can use a keyboard shortcut to accept the next word of a sugg
 |macOS|<kbd>Command</kbd>+<kbd>→</kbd>|
 |Windows or Linux |<kbd>Control</kbd>+<kbd>→</kbd>|
 
-If you want to accept the next line of a suggestion, you will need to set a custom keyboard shortcut for the command `editor.action.inlineSuggest.acceptNextLine`. For more information on setting custom keyboard shortcuts, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment).
+If you want to accept the next line of a suggestion, you will need to set a custom keyboard shortcut for the command `editor.action.inlineSuggest.acceptNextLine`. For more information on setting custom keyboard shortcuts, see [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-in-ide).
 
 ## Navigating and accepting {% data variables.copilot.next_edit_suggestions %}
 
@@ -383,7 +383,7 @@ This guide demonstrates how to get coding suggestions from {% data variables.pro
 
 * **Compatible version of Vim/Neovim**. To use {% data variables.product.prodname_copilot %} in Vim/Neovim you must have Vim version 9.0.0185 / Neovim version 0.6 or above and Node.js version 18 or above installed. For more information, see the [Vim](https://vimhelp.org/) / [Neovim documentation](https://neovim.io/doc/) and the [Node.js website](https://nodejs.org/en/).
 
-* **{% data variables.product.prodname_copilot %} extension for Vim/Neovim**. To use {% data variables.product.prodname_copilot %} in Vim/Neovim, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see [AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment).
+* **{% data variables.product.prodname_copilot %} extension for Vim/Neovim**. To use {% data variables.product.prodname_copilot %} in Vim/Neovim, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension).
 
 ## Learning to use {% data variables.product.prodname_copilot %} in Vim/Neovim
 
@@ -409,7 +409,7 @@ This guide demonstrates how to get coding suggestions from {% data variables.pro
 
 * **Compatible version of Azure Data Studio**. To use {% data variables.product.prodname_copilot %} in Azure Data Studio, you must have Azure Data Studio version 1.44.0 or later installed. For more information, see the [Azure Data Studio download page](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio) in the Azure Data Studio documentation.
 
-* **{% data variables.product.prodname_copilot %} extension for Azure Data Studio**. To use {% data variables.product.prodname_copilot %} in Azure Data Studio, you must install the {% data variables.product.prodname_copilot %} extension. For more information, see [AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment).
+* **{% data variables.product.prodname_copilot %} extension for Azure Data Studio**. To use {% data variables.product.prodname_copilot %} in Azure Data Studio, you must install the {% data variables.product.prodname_copilot %} extension. For more information, see [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension).
 
 ## Getting code suggestions
 
@@ -439,7 +439,7 @@ SELECT [Purple], [Blue], [Green], [Yellow], [Orange], [Red]
 {% data variables.product.prodname_copilot %} will automatically suggest code. {% data reusables.copilot.accept-suggestion %}
 
    > [!TIP]
-   > If you receive limited or no suggestions from {% data variables.product.prodname_copilot_short %}, you may have duplication detection enabled. For more information on duplication detection, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom#enabling-or-disabling-suggestions-matching-public-code).
+   > If you receive limited or no suggestions from {% data variables.product.prodname_copilot_short %}, you may have duplication detection enabled. For more information on duplication detection, see [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-suggestions-matching-public-code).
 
 ## Showing alternative suggestions
 
@@ -503,7 +503,7 @@ This guide demonstrates how to get coding suggestions from {% data variables.pro
 
 * **Access to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in Xcode, you need either limited access through {% data variables.copilot.copilot_free_short %} or a paid {% data variables.product.prodname_copilot_short %} plan for full access. {% data reusables.copilot.subscription-prerequisite %}
 
-* **{% data variables.product.prodname_copilot %} extension for Xcode**. To use {% data variables.product.prodname_copilot %} for Xcode, you must install the {% data variables.product.prodname_copilot %} for Xcode extension. See [AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment).
+* **{% data variables.product.prodname_copilot %} extension for Xcode**. To use {% data variables.product.prodname_copilot %} for Xcode, you must install the {% data variables.product.prodname_copilot %} for Xcode extension. See [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension).
 
 ## Getting code suggestions
 
@@ -521,7 +521,7 @@ func calculateDaysBetweenDates(
 If you encounter issues with code suggestions, such as conflicting or missing suggestions, you can try the following:
 
 * **Disable Xcode's native predictive text completion:** To avoid receiving two sets of code suggestions, you can disable Xcode's native predictive text completion. You can find this setting in the Xcode settings in the "Editing" tab under "Text Editing."
-* **Check for duplication detection in {% data variables.product.prodname_copilot_short %}:** If you receive limited or no suggestions from {% data variables.product.prodname_copilot_short %}, you may have duplication detection enabled. For more information on duplication detection, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom#enabling-or-disabling-suggestions-matching-public-code).
+* **Check for duplication detection in {% data variables.product.prodname_copilot_short %}:** If you receive limited or no suggestions from {% data variables.product.prodname_copilot_short %}, you may have duplication detection enabled. For more information on duplication detection, see [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-suggestions-matching-public-code).
 * **Check for updates and restart Xcode:** Ensure you have the latest version of {% data variables.product.prodname_copilot_short %} for Xcode in the extension application and restart Xcode.
 
 You can also open an issue in the [{% data variables.product.prodname_copilot_short %} for Xcode repository](https://github.com/github/CopilotForXcode).
@@ -548,7 +548,7 @@ This guide demonstrates how to get coding suggestions from {% data variables.pro
 
 * **Access to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in Eclipse, you need either limited access through {% data variables.copilot.copilot_free_short %} or a paid {% data variables.product.prodname_copilot_short %} plan for full access. {% data reusables.copilot.subscription-prerequisite %}
 
-* **{% data variables.product.prodname_copilot %} extension for Eclipse**.To use {% data variables.product.prodname_copilot %} in Eclipse, you must install the {% data variables.product.prodname_copilot %} extension. See [AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment?tool=eclipse).
+* **{% data variables.product.prodname_copilot %} extension for Eclipse**. To use {% data variables.product.prodname_copilot %} in Eclipse, you must install the {% data variables.product.prodname_copilot %} extension. See [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension?tool=eclipse).
 
 ## Getting code suggestions
 
@@ -572,7 +572,7 @@ You can also describe something you want to do using natural language within a c
 {% data variables.product.prodname_copilot %} will automatically suggest code.
 
 > [!TIP]
-> If you receive limited or no suggestions from {% data variables.product.prodname_copilot_short %}, you may have duplication detection enabled. For more information about duplication detection, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom#enabling-or-disabling-suggestions-matching-public-code).
+> If you receive limited or no suggestions from {% data variables.product.prodname_copilot_short %}, you may have duplication detection enabled. For more information about duplication detection, see [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-suggestions-matching-public-code).
 
 ## Manually triggering inline suggestions
 
@@ -606,10 +606,10 @@ An arrow in the gutter indicates an available edit suggestion. Hover over the ar
 
 ## Next steps
 
-* **Learn how to write effective prompts** - See [AUTOTITLE](/copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat).
-* **Configure {% data variables.product.prodname_copilot_short %} in your editor** - You can enable or disable {% data variables.product.prodname_copilot %} from within your editor, and create your own preferred keyboard shortcuts for {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment).
-* **Get started with {% data variables.copilot.copilot_chat %}** - Learn how to ask {% data variables.product.prodname_copilot_short %} for information and assistance, using {% data variables.copilot.copilot_chat %}. See [AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide){% ifversion ghec %} and [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom){% endif %}.
-* **Troubleshoot issues** - Learn more about how to troubleshoot common issues with {% data variables.product.prodname_copilot %}. See [AUTOTITLE](/copilot/troubleshooting-github-copilot).
+* **Learn how to write effective prompts** - See [AUTOTITLE](/copilot/concepts/prompting/prompt-engineering).
+* **Configure {% data variables.product.prodname_copilot_short %} in your editor** - You can enable or disable {% data variables.product.prodname_copilot %} from within your editor, and create your own preferred keyboard shortcuts for {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-in-ide).
+* **Get started with {% data variables.copilot.copilot_chat %}** - Learn how to ask {% data variables.product.prodname_copilot_short %} for information and assistance, using {% data variables.copilot.copilot_chat %}. See [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide){% ifversion ghec %} and [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github){% endif %}.
+* **Troubleshoot issues** - Learn more about how to troubleshoot common issues with {% data variables.product.prodname_copilot %}. See [AUTOTITLE](/copilot/how-tos/troubleshoot-copilot).
 
 ## Further reading
 

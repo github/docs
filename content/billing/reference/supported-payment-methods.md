@@ -52,18 +52,18 @@ The following Azure subscription types cannot be used as a payment method for {%
 
 {% data variables.product.github %} provides usage-based billing for the following products.
 
-* {% data variables.product.prodname_actions %}, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)
-* {% data variables.product.prodname_github_codespaces %}, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)
-* {% data variables.product.prodname_registry %}, see [AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)
-* {% data variables.large_files.product_name_long %}, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)
+* {% data variables.product.prodname_actions %}, see [AUTOTITLE](/billing/concepts/product-billing/github-actions)
+* {% data variables.product.prodname_github_codespaces %}, see [AUTOTITLE](/billing/concepts/product-billing/github-codespaces)
+* {% data variables.product.prodname_registry %}, see [AUTOTITLE](/billing/concepts/product-billing/github-packages)
+* {% data variables.large_files.product_name_long %}, see [AUTOTITLE](/billing/concepts/product-billing/git-lfs)
 
 In addition, usage-based billing is available for the following licenses:
 
-* {% data variables.product.prodname_enterprise %}, see [AUTOTITLE](/billing/managing-your-billing/about-billing-for-your-enterprise)
-* {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)
-* {% data variables.product.prodname_GHAS %}, see [AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)
+* {% data variables.product.prodname_enterprise %}, see [AUTOTITLE](/billing/concepts/enterprise-billing/billing-for-enterprises)
+* {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/billing/concepts/product-billing/github-copilot-licenses)
+* {% data variables.product.prodname_GHAS %}, see [AUTOTITLE](/billing/concepts/product-billing/github-advanced-security)
 
-For information about controlling spending, see [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
+For information about controlling spending, see [AUTOTITLE](/billing/how-tos/set-up-budgets).
 
 > [!NOTE]
 > Prepaid usage is not currently available for usage-based billing through Azure.

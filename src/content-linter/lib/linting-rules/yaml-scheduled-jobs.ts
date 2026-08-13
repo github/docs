@@ -1,4 +1,4 @@
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
 
 import { liquid } from '@/content-render/index'
@@ -39,7 +39,7 @@ export const yamlScheduledJobs: Rule = {
       }
       // If we don't parse the Liquid first, yaml loading chokes on {% raw %} tags
       const renderedYaml = await liquid.parseAndRender(token.content, context)
-      const yamlObj = yaml.load(renderedYaml) as YamlWorkflow
+      const yamlObj = load(renderedYaml) as YamlWorkflow
       if (!yamlObj.on) return
       if (!yamlObj.on.schedule) return
 

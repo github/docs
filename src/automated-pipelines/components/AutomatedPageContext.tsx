@@ -9,6 +9,7 @@ export type AutomatedPageContextT = {
   title: string
   intro: string
   renderedPage: string | JSX.Element[]
+  renderedPageHast?: import('hast').Root | null
   miniTocItems: Array<MiniTocItem>
   product?: string
   permissions?: string
@@ -28,6 +29,13 @@ export const useAutomatedPageContext = (): AutomatedPageContextT => {
   }
 
   return context
+}
+
+// Non-throwing variant: returns null when there is no provider. For components that render
+// both inside and outside an AutomatedPageContext.Provider (e.g. the product sidebar, shared
+// across automated REST reference pages and conceptual REST pages). Call it unconditionally.
+export const useAutomatedPageContextOptional = (): AutomatedPageContextT | null => {
+  return useContext(AutomatedPageContext)
 }
 
 type AutomatedPageContextRequest = { context?: Partial<Context> } | IncomingMessage
@@ -57,6 +65,7 @@ export const getAutomatedPageContextFromRequest = (
     title: page.title,
     intro: page.intro,
     renderedPage,
+    renderedPageHast: context.renderedPageHast ?? null,
     miniTocItems,
     product: page.product ?? '',
     permissions: page.permissions ?? page.rawPermissions ?? '',

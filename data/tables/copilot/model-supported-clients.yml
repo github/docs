@@ -41,15 +41,6 @@
   xcode: true
   jetbrains: true
 
-- name: Claude Opus 4.6 (fast mode) (preview)
-  dotcom: false
-  cli: true
-  vscode: true
-  vs: false
-  eclipse: false
-  xcode: false
-  jetbrains: false
-
 - name: Claude Opus 4.7
   dotcom: true
   cli: true
@@ -60,6 +51,24 @@
   jetbrains: true
 
 - name: Claude Opus 4.8
+  dotcom: true
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
+- name: Claude Opus 4.8 (fast mode) (preview)
+  dotcom: false
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
+- name: Claude Opus 5
   dotcom: true
   cli: true
   vscode: true
@@ -95,18 +104,9 @@
   xcode: false
   jetbrains: false
 
-- name: Gemini 2.5 Pro
-  dotcom: false
-  cli: false
-  vscode: true
-  vs: true
-  eclipse: true
-  xcode: true
-  jetbrains: true
-
-- name: Gemini 3 Flash
-  dotcom: false
-  cli: false
+- name: Claude Sonnet 5
+  dotcom: true
+  cli: true
   vscode: true
   vs: true
   eclipse: true
@@ -131,7 +131,25 @@
   xcode: true
   jetbrains: true
 
+- name: Gemini 3.6 Flash
+  dotcom: false
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
 - name: MAI-Code-1-Flash
+  dotcom: true
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
+- name: MAI-Code-1.1-Flash
   dotcom: true
   cli: true
   vscode: true
@@ -186,6 +204,60 @@
   jetbrains: false
 
 - name: GPT-5.5
+  dotcom: true
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
+- name: GPT-5.6 Luna
+  dotcom: true
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: false
+  xcode: false
+  jetbrains: false
+
+- name: GPT-5.6 Sol
+  dotcom: true
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: false
+  xcode: false
+  jetbrains: false
+
+- name: GPT-5.6 Terra
+  dotcom: true
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: false
+  xcode: false
+  jetbrains: false
+
+- name: Grok 4.5
+  dotcom: false
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
+- name: Kimi K2.7 Code
+  dotcom: true
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: false
+  xcode: false
+  jetbrains: true
+
+- name: Kimi K3
   dotcom: true
   cli: true
   vscode: true

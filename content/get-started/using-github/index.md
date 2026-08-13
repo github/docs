@@ -1,6 +1,6 @@
 ---
 title: Using GitHub
-intro: 'Explore {% data variables.product.company_short %}''s products from different platforms and devices.'
+intro: Explore {% data variables.product.company_short %}'s products from different platforms and devices.
 redirect_from:
   - /articles/using-github
   - /github/getting-started-with-github/using-github
@@ -9,6 +9,7 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
+  - /hello-world
   - /github-flow
   - /connecting-to-github
   - /communicating-on-github

@@ -40,6 +40,8 @@ A user's included {% data variables.product.prodname_ai_credits_short %} are poo
 
 Adding licenses mid-cycle increases the pool immediately. Removing licenses mid-cycle doesn't shrink the pool: the decrease is reflected at the start of the next billing cycle.
 
+Included {% data variables.product.prodname_ai_credits_short %} do not carry over between months. Unused credits are forfeited, and the pool resets to the full monthly amount at 00:00:00 UTC on the first day of each calendar month. This reset date is fixed and does not change based on when licenses are added, removed, or billed. See [AUTOTITLE](/billing/concepts/billing-cycles#billing-cycles-for-metered-products).
+
 <!-- expires 2026-09-01 -->
 
 ### Promotional amounts for existing customers
@@ -61,6 +63,9 @@ When your pooled {% data variables.product.prodname_ai_credits_short %} are exha
 
 * **Additional usage allowed**: Usage continues at published per-credit rates. The additional spend is charged to your organization or enterprise.
 * **Additional usage not allowed**: Usage is blocked until the next billing cycle when monthly amounts are refreshed.
+
+> [!NOTE]
+> Additional usage is **enabled by default** for organizations and enterprises. If you want to prevent any spending beyond your included {% data variables.product.prodname_ai_credits_short %}, an administrator must explicitly disable the **{% data variables.product.prodname_ai_credits_short %} paid usage** policy in your enterprise's or organization's AI Controls settings.
 
 If you have set a user-level budget and a user exhausts it, that user's access to {% data variables.product.prodname_copilot_short %} is halted, regardless of whether the organization's pool still has capacity. A user can also be blocked by an enterprise spending limit before they reach their individual user-level budget, if the spending limit runs out first. There is no automatic fallback to lower-cost models when a budget is exhausted. For more information about how these controls interact, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
 

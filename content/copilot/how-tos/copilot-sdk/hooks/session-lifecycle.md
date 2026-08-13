@@ -529,6 +529,42 @@ Session Summary:
 });
 ```
 
+## Agent stop hook {#agent-stop}
+
+The agent stop hook runs when the top-level agent naturally reaches the end of a turn. It is separate from `onSessionEnd`: the session remains active, and the hook can request another agent turn.
+
+| Language | Handler |
+|----------|---------|
+| Node.js / TypeScript | `onAgentStop` |
+| Python | `on_agent_stop` |
+| Go | `OnAgentStop` |
+| .NET | `OnAgentStop` |
+| Rust | `on_agent_stop` |
+| Java | `setOnAgentStop` |
+
+### Input
+
+The public member names follow each language's casing conventions:
+
+| Meaning | Node.js / Python | Go / .NET | Rust | Java |
+|---------|------------------|-----------|------|------|
+| Why the agent stopped, such as `end_turn` | `stopReason` | `StopReason` | `stop_reason` | `getStopReason()` |
+| Path to the on-disk session transcript | `transcriptPath` | `TranscriptPath` | `transcript_path` | `getTranscriptPath()` |
+| Whether an earlier block decision already forced this continuation | `stopHookActive` | `StopHookActive` | `stop_hook_active` | `getStopHookActive()` |
+
+### Output
+
+Return no output to let the agent stop. Return a block decision to enqueue another user message and continue:
+
+```json
+{
+  "decision": "block",
+  "reason": "Run the final validation and fix any failures."
+}
+```
+
+Use the active-stop member listed above to avoid repeatedly blocking an agent that has already continued because of this hook. The runtime also caps consecutive block decisions.
+
 ## Best practices
 
 1. **Keep `onSessionStart` fast** - Users are waiting for the session to be ready.

@@ -41,7 +41,7 @@ Compliance teams may also want to know about the administrative features availab
 * Audit logs for monitoring changes to access and settings
 * The ability to exclude sensitive content from {% data variables.product.prodname_copilot_short %}'s view
 
-For an overview of these features, see [AUTOTITLE](/copilot/get-started/features#github-copilot-features-for-administrators).
+For an overview of these features, see [AUTOTITLE](/copilot/get-started/features#features-for-administrators).
 
 ### For new {% data variables.product.prodname_enterprise %} customers
 
@@ -53,7 +53,7 @@ These teams need to know how {% data variables.product.prodname_copilot_short %}
 
 * The allowlist required for a firewall or proxy to ensure {% data variables.product.prodname_copilot_short %} works as expected. See [AUTOTITLE](/copilot/reference/copilot-allowlist-reference).
 * The network protocol that {% data variables.product.prodname_copilot_short %} operates on by default, and your company's options for routing traffic through a proxy server and intercepting traffic. See [AUTOTITLE](/copilot/concepts/network-settings).
-* The option to use {% data variables.product.prodname_copilot_short %} in air-gapped environments by bringing your own API keys in {% data variables.product.prodname_vscode_shortname %} or {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
+* The option to use {% data variables.product.prodname_copilot_short %} in air-gapped environments by configuring API keys locally. See [AUTOTITLE](/copilot/concepts/models/bring-your-own-key#local-byok).
 * The clients where users will be using {% data variables.product.prodname_copilot_short %}.
   * Your enterprise can enable or disable {% data variables.product.prodname_copilot_short %} in IDEs, on {% data variables.product.prodname_mobile %}, in the CLI, and on the {% data variables.product.github %} website.
   * If your company distributes approved software for users, IT teams may need to approve the supported versions of IDEs. See [AUTOTITLE](/copilot/reference/copilot-feature-matrix).

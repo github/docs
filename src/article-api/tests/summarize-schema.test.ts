@@ -197,3 +197,94 @@ describe('summarizeSchema — OAS 3.1 nullable handling', () => {
     expect(summarizeSchema('not an object')).toBe('')
   })
 })
+
+describe('summarizeSchema — repeated titled type deduplication', () => {
+  type Schema = Parameters<typeof summarizeSchema>[0]
+  const user: Schema = {
+    type: 'object',
+    title: 'Simple User',
+    properties: {
+      login: { type: 'string' },
+      id: { type: 'integer' },
+    },
+  }
+
+  it('expands a titled type once then references it with "(see above)"', () => {
+    const schema: Schema = {
+      type: 'object',
+      properties: {
+        actor: user,
+        assignee: user,
+        assigner: user,
+      },
+    }
+    const result = summarizeSchema(schema)
+    // Expanded exactly once
+    expect(result.match(/`login`/g)?.length).toBe(1)
+    // Two later references
+    expect(result.match(/\(see above\)/g)?.length).toBe(2)
+    expect(result).toContain('`assignee`: `Simple User` (see above)')
+  })
+
+  it('references repeated titled variants inside a composition', () => {
+    const schema: Schema = {
+      type: 'array',
+      items: {
+        anyOf: [
+          {
+            type: 'object',
+            title: 'Event A',
+            properties: { actor: user, target: user },
+          },
+          {
+            type: 'object',
+            title: 'Event B',
+            properties: { actor: user },
+          },
+        ],
+      },
+    }
+    const result = summarizeSchema(schema)
+    // Simple User expanded once across the whole schema
+    expect(result.match(/`login`/g)?.length).toBe(1)
+    expect((result.match(/\(see above\)/g) || []).length).toBeGreaterThanOrEqual(2)
+  })
+
+  it('does not reference untitled (anonymous) objects', () => {
+    const anon: Schema = {
+      type: 'object',
+      properties: { a: { type: 'string' } },
+    }
+    const schema: Schema = {
+      type: 'object',
+      properties: { first: anon, second: anon },
+    }
+    const result = summarizeSchema(schema)
+    expect(result).not.toContain('(see above)')
+    expect(result.match(/`a`/g)?.length).toBe(2)
+  })
+
+  it('expands a self-referential top-level object before referencing it (no dangling ref)', () => {
+    // A top-level object emits no visible titled header. With the top-level
+    // title NOT pre-marked, the first occurrence of the recursive property
+    // expands visibly, so any deeper "(see above)" points to that expansion
+    // rather than a header that was never rendered.
+    const node: Schema = {
+      type: 'object',
+      title: 'Category',
+      properties: {
+        name: { type: 'string' },
+      },
+    }
+    node.properties!.parent = node
+    const result = summarizeSchema(node)
+    // `Category` is expanded at least once (its `name` field is visible)
+    // before the recursive reference appears.
+    const firstExpansion = result.indexOf('`name`')
+    const firstReference = result.indexOf('(see above)')
+    expect(firstExpansion).toBeGreaterThanOrEqual(0)
+    if (firstReference >= 0) {
+      expect(firstExpansion).toBeLessThan(firstReference)
+    }
+  })
+})

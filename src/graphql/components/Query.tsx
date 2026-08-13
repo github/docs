@@ -3,6 +3,7 @@ import { GraphqlItem, headingTag } from './GraphqlItem'
 import { Table } from './Table'
 import { useTranslation } from '@/languages/components/useTranslation'
 import type { QueryT } from './types'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type Props = {
   item: QueryT
@@ -24,10 +25,9 @@ export function Query({ item, headingLevel = 2 }: Props) {
 
       {item.args.length > 0 && (
         <>
-          <SubHeading
-            dangerouslySetInnerHTML={{
-              __html: t('reference.arguments').replace('{{ GraphQLItemTitle }}', item.name),
-            }}
+          <RenderedHTML
+            as={SubHeading}
+            html={t('reference.arguments').replace('{{ GraphQLItemTitle }}', item.name)}
           />
           <Table fields={item.args} />
         </>

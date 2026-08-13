@@ -43,7 +43,7 @@ If you use an LDAP directory for centralized authentication, you can configure L
 
 ## Username considerations with LDAP
 
-{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication).
+{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see [AUTOTITLE](/admin/managing-iam/iam-configuration-reference/username-considerations-for-external-authentication).
 
 ## Configuring LDAP with {% data variables.location.product_location %}
 
@@ -193,8 +193,8 @@ You can view the full list of LDAP users who have access to your instance and pr
 Unless [LDAP Sync is enabled](#enabling-ldap-sync), changes to LDAP accounts are not automatically synchronized with {% data variables.product.prodname_ghe_server %}.
 
 * To use a new LDAP admin group, users must be manually promoted and demoted on {% data variables.product.prodname_ghe_server %} to reflect changes in LDAP.
-* To add or remove LDAP accounts in LDAP admin groups, [promote or demote the accounts on {% data variables.product.prodname_ghe_server %}](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator).
-* To remove LDAP accounts, [suspend the {% data variables.product.prodname_ghe_server %} accounts](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users).
+* To add or remove LDAP accounts in LDAP admin groups, [promote or demote the accounts on {% data variables.product.prodname_ghe_server %}](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator).
+* To remove LDAP accounts, [suspend the {% data variables.product.prodname_ghe_server %} accounts](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/suspending-and-unsuspending-users).
 
 ## Manually syncing LDAP accounts
 
@@ -212,7 +212,7 @@ You can also [use the API to trigger a manual sync](/rest/enterprise-admin/ldap)
 
 If [LDAP Sync is enabled](#enabling-ldap-sync), removing a user's LDAP credentials will suspend their account after the next synchronization run.
 
-If LDAP Sync is **not** enabled, you must manually suspend the {% data variables.product.prodname_ghe_server %} account after you remove the LDAP credentials. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users).
+If LDAP Sync is **not** enabled, you must manually suspend the {% data variables.product.prodname_ghe_server %} account after you remove the LDAP credentials. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/suspending-and-unsuspending-users).
 
 ## About logging for LDAP
 

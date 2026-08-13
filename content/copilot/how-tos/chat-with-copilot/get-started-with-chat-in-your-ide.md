@@ -29,7 +29,7 @@ Use the tabs above to select the environment where you are using {% data variabl
     <span>Open {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}
 </a>
 
-Some of the following example prompts use chat participants (preceded by `@`), slash commands (preceded by `/`), or chat variables (preceded by `#`). For more information on keywords in prompts, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#using-keywords-in-your-prompt).
+Some of the following example prompts use chat participants (preceded by `@`), slash commands (preceded by `/`), or chat variables (preceded by `#`). For more information on keywords in prompts, see [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide#using-keywords-in-your-prompt).
 
 ## Ask general software questions
 
@@ -207,7 +207,7 @@ You can ask {% data variables.copilot.copilot_chat_short %} questions about your
 
 * Highlight relevant lines of code.
 * Open the relevant file.
-* Add the file as a reference. For information about how to use file references, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide?tool=jetbrains#file-references).
+* Add the file as a reference. For information about how to use file references, see [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide?tool=jetbrains#file-references).
 * Use the `@project` chat participant.
 
 For example:
