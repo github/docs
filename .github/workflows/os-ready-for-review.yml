@@ -30,8 +30,10 @@ jobs:
           result-encoding: string
           script: |
             const triggerer_login = context.payload.sender.login
+            // Team is addressed by numeric ID (org github = 9919, team docs = 325922)
+            // because IDs survive team renames and slugs do not.
             const teamMembers = await github.request(
-              `/orgs/github/teams/technical-content/members?per_page=100`
+              `/organizations/9919/team/325922/members?per_page=100`
             )
             const logins = teamMembers.data.map(member => member.login)
             if (logins.includes(triggerer_login)) {
