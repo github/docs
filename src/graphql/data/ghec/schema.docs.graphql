@@ -14216,6 +14216,51 @@ type Enterprise implements Node @docsCategory(name: "enterprise-admin") {
   id: ID!
 
   """
+  Innersource security vulnerabilities scoped to this enterprise.
+  """
+  innersourceVulnerabilities(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    An ecosystem to filter vulnerabilities by.
+    """
+    ecosystem: SecurityAdvisoryEcosystem
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for the returned vulnerabilities.
+    """
+    orderBy: SecurityVulnerabilityOrder = {field: UPDATED_AT, direction: DESC}
+
+    """
+    A package name to filter vulnerabilities by.
+    """
+    package: String
+
+    """
+    A list of severities to filter vulnerabilities by.
+    """
+    severities: [SecurityAdvisorySeverity!]
+  ): SecurityVulnerabilityConnection!
+
+  """
   The location of the enterprise.
   """
   location: String
@@ -35432,6 +35477,51 @@ type Organization implements Actor &
   The Node ID of the Organization object
   """
   id: ID!
+
+  """
+  Innersource security vulnerabilities scoped to this organization.
+  """
+  innersourceVulnerabilities(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    An ecosystem to filter vulnerabilities by.
+    """
+    ecosystem: SecurityAdvisoryEcosystem
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for the returned vulnerabilities.
+    """
+    orderBy: SecurityVulnerabilityOrder = {field: UPDATED_AT, direction: DESC}
+
+    """
+    A package name to filter vulnerabilities by.
+    """
+    package: String
+
+    """
+    A list of severities to filter vulnerabilities by.
+    """
+    severities: [SecurityAdvisorySeverity!]
+  ): SecurityVulnerabilityConnection!
 
   """
   The interaction ability settings for this organization.
