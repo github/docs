@@ -192,6 +192,12 @@ const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': false,
   },
+  'consecutive-duplicate-words': {
+    // GHD068
+    severity: 'warning',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
 }
 
 export const githubDocsFrontmatterConfig = {

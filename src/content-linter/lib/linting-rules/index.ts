@@ -58,6 +58,7 @@ import { raiAppCardStructure } from '@/content-linter/lib/linting-rules/rai-app-
 import { frontmatterContentType } from '@/content-linter/lib/linting-rules/frontmatter-content-type'
 import { frontmatterDocsTeamMetrics } from '@/content-linter/lib/linting-rules/frontmatter-docs-team-metrics'
 import { frontmatterRestApiCategory } from '@/content-linter/lib/linting-rules/frontmatter-rest-api-category'
+import { consecutiveDuplicateWords } from '@/content-linter/lib/linting-rules/consecutive-duplicate-words'
 
 const noDefaultAltText = markdownlintGitHub.find((elem: { names: string[] }) =>
   elem.names.includes('no-default-alt-text'),
@@ -124,6 +125,7 @@ export const gitHubDocsMarkdownlint = {
     frontmatterContentType, // GHD065
     frontmatterDocsTeamMetrics, // GHD066
     frontmatterRestApiCategory, // GHD067
+    consecutiveDuplicateWords, // GHD068
 
     // Search-replace rules
     searchReplace, // Open-source plugin
