@@ -4,6 +4,176 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>IssueFieldValueFilter</code> was added</p>",
+          "<p>Input field <code>dateValue</code> of type <code>String</code> was added to input object type <code>IssueFieldValueFilter</code></p>",
+          "<p>Input field <code>fieldId</code> of type <code>ID</code> was added to input object type <code>IssueFieldValueFilter</code></p>",
+          "<p>Input field <code>fieldName</code> of type <code>String</code> was added to input object type <code>IssueFieldValueFilter</code></p>",
+          "<p>Input field <code>multiSelectOptionIds</code> of type '[ID!]<code>was added to input object type</code>IssueFieldValueFilter'</p>",
+          "<p>Input field <code>multiSelectOptionValues</code> of type '[String!]<code>was added to input object type</code>IssueFieldValueFilter'</p>",
+          "<p>Input field <code>numberValue</code> of type <code>Float</code> was added to input object type <code>IssueFieldValueFilter</code></p>",
+          "<p>Input field <code>singleSelectOptionId</code> of type <code>ID</code> was added to input object type <code>IssueFieldValueFilter</code></p>",
+          "<p>Input field <code>singleSelectOptionValue</code> of type <code>String</code> was added to input object type <code>IssueFieldValueFilter</code></p>",
+          "<p>Input field <code>textValue</code> of type <code>String</code> was added to input object type <code>IssueFieldValueFilter</code></p>",
+          "<p>Input field <code>issueFieldValues</code> of type '[IssueFieldValueFilter!]<code>was added to input object type</code>IssueFilters'</p>",
+          "<p>Field <code>pinnedIssueFields</code> was added to object type <code>Organization</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>Organization.pinnedIssueFields</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>Organization.pinnedIssueFields</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>Organization.pinnedIssueFields</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>Organization.pinnedIssueFields</code></p>",
+          "<p>Field <code>isIssueField</code> was added to object type 'ProjectV2Field'</p>",
+          "<p>Field <code>issueField</code> was added to object type 'ProjectV2Field'</p>",
+          "<p>Field <code>isIssueField</code> was added to interface 'ProjectV2FieldCommon'</p>",
+          "<p>Field <code>isIssueField</code> was added to object type 'ProjectV2IterationField'</p>",
+          "<p>Field <code>isIssueField</code> was added to object type 'ProjectV2MultiSelectField'</p>",
+          "<p>Field <code>issueField</code> was added to object type 'ProjectV2MultiSelectField'</p>",
+          "<p>Field <code>isIssueField</code> was added to object type 'ProjectV2SingleSelectField'</p>",
+          "<p>Field <code>issueField</code> was added to object type 'ProjectV2SingleSelectField'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-08-12"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Enum value <code>GITLAB</code> was added to enum <code>MigrationSourceType</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-07-31"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type 'ProjectV2ViewConfiguration' was added</p>",
+          "<p>Field <code>visibleFields</code> was added to object type 'ProjectV2ViewConfiguration'</p>",
+          "<p>Argument <code>after: String</code> added to field 'ProjectV2ViewConfiguration.visibleFields'</p>",
+          "<p>Argument <code>before: String</code> added to field 'ProjectV2ViewConfiguration.visibleFields'</p>",
+          "<p>Argument <code>first: Int</code> added to field 'ProjectV2ViewConfiguration.visibleFields'</p>",
+          "<p>Argument <code>last: Int</code> added to field 'ProjectV2ViewConfiguration.visibleFields'</p>",
+          "<p>Type 'ProjectV2ViewConfigurationInput' was added</p>",
+          "<p>Input field <code>visibleFieldIds</code> of type '[ID!]<code>was added to input object type</code>ProjectV2ViewConfigurationInput'</p>",
+          "<p>Input field <code>configuration</code> of type 'ProjectV2ViewConfigurationInput<code>was added to input object type</code>CreateProjectV2ViewInput'</p>",
+          "<p>Field <code>configuration</code> was added to object type 'ProjectV2View'</p>",
+          "<p>Input field <code>configuration</code> of type 'ProjectV2ViewConfigurationInput<code>was added to input object type</code>UpdateProjectV2ViewInput'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-07-30"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type 'CreateProjectV2ViewInput' was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type 'CreateProjectV2ViewInput'</p>",
+          "<p>Input field <code>layout</code> of type 'ProjectV2ViewLayout!<code>was added to input object type</code>CreateProjectV2ViewInput'</p>",
+          "<p>Input field <code>name</code> of type <code>String!</code> was added to input object type 'CreateProjectV2ViewInput'</p>",
+          "<p>Input field <code>projectId</code> of type <code>ID!</code> was added to input object type 'CreateProjectV2ViewInput'</p>",
+          "<p>Type 'CreateProjectV2ViewPayload' was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type 'CreateProjectV2ViewPayload'</p>",
+          "<p>Field 'projectV2View<code>was added to object type</code>CreateProjectV2ViewPayload'</p>",
+          "<p>Type 'DeleteProjectV2ViewInput' was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type 'DeleteProjectV2ViewInput'</p>",
+          "<p>Input field <code>viewId</code> of type <code>ID!</code> was added to input object type 'DeleteProjectV2ViewInput'</p>",
+          "<p>Type 'DeleteProjectV2ViewPayload' was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type 'DeleteProjectV2ViewPayload'</p>",
+          "<p>Field 'projectV2View<code>was added to object type</code>DeleteProjectV2ViewPayload'</p>",
+          "<p>Type 'UpdateProjectV2ViewInput' was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type 'UpdateProjectV2ViewInput'</p>",
+          "<p>Input field <code>filter</code> of type <code>String</code> was added to input object type 'UpdateProjectV2ViewInput'</p>",
+          "<p>Input field <code>layout</code> of type 'ProjectV2ViewLayout<code>was added to input object type</code>UpdateProjectV2ViewInput'</p>",
+          "<p>Input field <code>name</code> of type <code>String</code> was added to input object type 'UpdateProjectV2ViewInput'</p>",
+          "<p>Input field <code>viewId</code> of type <code>ID!</code> was added to input object type 'UpdateProjectV2ViewInput'</p>",
+          "<p>Type 'UpdateProjectV2ViewPayload' was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type 'UpdateProjectV2ViewPayload'</p>",
+          "<p>Field 'projectV2View<code>was added to object type</code>UpdateProjectV2ViewPayload'</p>",
+          "<p>Field <code>exp</code> was added to object type <code>CopilotEndpoints</code></p>",
+          "<p>Field 'createProjectV2View<code>was added to object type</code>Mutation'</p>",
+          "<p>Argument 'input: CreateProjectV2ViewInput!<code>added to field</code>Mutation.createProjectV2View'</p>",
+          "<p>Field 'deleteProjectV2View<code>was added to object type</code>Mutation'</p>",
+          "<p>Argument 'input: DeleteProjectV2ViewInput!<code>added to field</code>Mutation.deleteProjectV2View'</p>",
+          "<p>Field 'updateProjectV2View<code>was added to object type</code>Mutation'</p>",
+          "<p>Argument 'input: UpdateProjectV2ViewInput!<code>added to field</code>Mutation.updateProjectV2View'</p>",
+          "<p>Enum value 'SECURITY_KEY<code>was added to enum</code>ProofOfPresenceRequirement'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-07-28"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type 'ProjectV2ItemFieldMultiSelectValue' was added</p>",
+          "<p>'ProjectV2ItemFieldMultiSelectValue<code>object implements</code>Node' interface</p>",
+          "<p>'ProjectV2ItemFieldMultiSelectValue<code>object implements</code>ProjectV2ItemFieldValueCommon' interface</p>",
+          "<p>Field <code>createdAt</code> was added to object type 'ProjectV2ItemFieldMultiSelectValue'</p>",
+          "<p>Field <code>creator</code> was added to object type 'ProjectV2ItemFieldMultiSelectValue'</p>",
+          "<p>Field <code>databaseId</code> was added to object type 'ProjectV2ItemFieldMultiSelectValue'</p>",
+          "<p>Field <code>field</code> was added to object type 'ProjectV2ItemFieldMultiSelectValue'</p>",
+          "<p>Field <code>id</code> was added to object type 'ProjectV2ItemFieldMultiSelectValue'</p>",
+          "<p>Field <code>item</code> was added to object type 'ProjectV2ItemFieldMultiSelectValue'</p>",
+          "<p>Field <code>options</code> was added to object type 'ProjectV2ItemFieldMultiSelectValue'</p>",
+          "<p>Field <code>updatedAt</code> was added to object type 'ProjectV2ItemFieldMultiSelectValue'</p>",
+          "<p>Field <code>value</code> was added to object type 'ProjectV2ItemFieldMultiSelectValue'</p>",
+          "<p>Type 'ProjectV2MultiSelectField' was added</p>",
+          "<p>'ProjectV2MultiSelectField<code>object implements</code>Node' interface</p>",
+          "<p>'ProjectV2MultiSelectField<code>object implements</code>ProjectV2FieldCommon' interface</p>",
+          "<p>Field <code>createdAt</code> was added to object type 'ProjectV2MultiSelectField'</p>",
+          "<p>Field <code>dataType</code> was added to object type 'ProjectV2MultiSelectField'</p>",
+          "<p>Field <code>databaseId</code> was added to object type 'ProjectV2MultiSelectField'</p>",
+          "<p>Field <code>id</code> was added to object type 'ProjectV2MultiSelectField'</p>",
+          "<p>Field <code>multiSelectOptions</code> was added to object type 'ProjectV2MultiSelectField'</p>",
+          "<p>Argument 'names: [String!]<code>added to field</code>ProjectV2MultiSelectField.multiSelectOptions'</p>",
+          "<p>Field <code>name</code> was added to object type 'ProjectV2MultiSelectField'</p>",
+          "<p>Field <code>project</code> was added to object type 'ProjectV2MultiSelectField'</p>",
+          "<p>Field <code>updatedAt</code> was added to object type 'ProjectV2MultiSelectField'</p>",
+          "<p>Type 'ProjectV2MultiSelectFieldOption' was added</p>",
+          "<p>Field <code>color</code> was added to object type 'ProjectV2MultiSelectFieldOption'</p>",
+          "<p>Field <code>description</code> was added to object type 'ProjectV2MultiSelectFieldOption'</p>",
+          "<p>Field <code>descriptionHTML</code> was added to object type 'ProjectV2MultiSelectFieldOption'</p>",
+          "<p>Field <code>id</code> was added to object type 'ProjectV2MultiSelectFieldOption'</p>",
+          "<p>Field <code>name</code> was added to object type 'ProjectV2MultiSelectFieldOption'</p>",
+          "<p>Field <code>nameHTML</code> was added to object type 'ProjectV2MultiSelectFieldOption'</p>",
+          "<p>Type 'ProjectV2MultiSelectFieldOptionInput' was added</p>",
+          "<p>Input field <code>color</code> of type 'ProjectV2SingleSelectFieldOptionColor!<code>was added to input object type</code>ProjectV2MultiSelectFieldOptionInput'</p>",
+          "<p>Input field <code>description</code> of type <code>String!</code> was added to input object type 'ProjectV2MultiSelectFieldOptionInput'</p>",
+          "<p>Input field <code>id</code> of type <code>String</code> was added to input object type 'ProjectV2MultiSelectFieldOptionInput'</p>",
+          "<p>Input field <code>name</code> of type <code>String!</code> was added to input object type 'ProjectV2MultiSelectFieldOptionInput'</p>",
+          "<p>Input field <code>multiSelectOptions</code> of type '[ProjectV2MultiSelectFieldOptionInput!]<code>was added to input object type</code>CreateProjectV2FieldInput'</p>",
+          "<p>Enum value 'MULTI_SELECT<code>was added to enum</code>ProjectV2CustomFieldType'</p>",
+          "<p>Member 'ProjectV2MultiSelectField<code>was added to Union type</code>ProjectV2FieldConfiguration'</p>",
+          "<p>Enum value 'MULTI_SELECT<code>was added to enum</code>ProjectV2FieldType'</p>",
+          "<p>Input field <code>multiSelectOptionIds</code> of type '[String!]<code>was added to input object type</code>ProjectV2FieldValue'</p>",
+          "<p>Member 'ProjectV2ItemFieldMultiSelectValue<code>was added to Union type</code>ProjectV2ItemFieldValue'</p>",
+          "<p>Input field <code>multiSelectOptions</code> of type '[ProjectV2MultiSelectFieldOptionInput!]<code>was added to input object type</code>UpdateProjectV2FieldInput'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-07-27"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>ProofOfPresenceRequirement</code> was added</p>",
           "<p>Enum value <code>MFA</code> was added to enum <code>ProofOfPresenceRequirement</code></p>",
           "<p>Enum value 'NO_POLICY<code>was added to enum</code>ProofOfPresenceRequirement'</p>",

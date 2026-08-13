@@ -263,7 +263,23 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 
 {% data variables.copilot.copilot_cli_short %} comes with the {% data variables.product.github %} MCP server already configured. This MCP server allows you to interact with resources on {% data variables.product.prodname_dotcom_the_website %}—for example, allowing you to merge pull requests from the CLI.
 
-To extend the functionality available to you in {% data variables.copilot.copilot_cli_short %}, you can add more MCP servers:
+To extend the functionality available to you in {% data variables.copilot.copilot_cli_short %}, you can add more MCP servers.
+
+To add a remote HTTP server directly from your terminal without starting an interactive session, use:
+
+```shell copy
+copilot mcp add --transport http SERVER-NAME URL
+```
+
+For example:
+
+```shell copy
+copilot mcp add --transport http sentry https://mcp.sentry.dev/mcp
+```
+
+For local servers and additional options, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers#using-the-copilot-mcp-add-subcommand).
+
+Alternatively, add a server from an interactive session:
 
 1. Use the following slash command:
 
@@ -295,9 +311,11 @@ Details of your configured MCP servers are stored in the `mcp-config.json` file,
 
 For situations where you trust {% data variables.product.prodname_copilot_short %} to run freely, you can use the `--allow-all` or `--yolo` flags to enable all permissions at once.
 
-### Run in a sandbox
+### Use sandboxing
 
-You can run {% data variables.copilot.copilot_cli_short %} sessions inside a sandbox to restrict access to your filesystem, network, and system capabilities. To enable local sandboxing, enter `/sandbox enable` inside a session. To start a cloud-backed session instead, run `copilot --cloud`. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
+You can use sandboxing to restrict what {% data variables.product.prodname_copilot_short %} can access. Local sandboxing does not run the CLI itself in a sandbox; instead, the commands and tools that {% data variables.copilot.copilot_cli_short %} runs on your behalf are restricted, limiting their access to your filesystem, network, and system capabilities. To enable local sandboxing, enter `/sandbox enable` inside a session.
+
+Alternatively, with cloud sandboxing, the entire {% data variables.copilot.copilot_cli_short %} session runs remotely in an isolated environment. To start a {% data variables.copilot.copilot_cli_short %} session in the cloud, run `copilot ‑‑cloud`. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
 
 ### Toggle reasoning visibility
 

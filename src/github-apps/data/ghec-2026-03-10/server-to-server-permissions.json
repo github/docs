@@ -525,6 +525,45 @@
       }
     ]
   },
+  "enterprise_billing": {
+    "title": "Enterprise billing",
+    "displayTitle": "Enterprise permissions for \"Enterprise billing\"",
+    "permissions": [
+      {
+        "category": "billing",
+        "slug": "get-all-budgets",
+        "subcategory": "budgets",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/settings/billing/budgets",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "billing",
+        "slug": "get-a-budget-by-id",
+        "subcategory": "budgets",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/settings/billing/budgets/{budget_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "billing",
+        "slug": "get-user-states-for-a-multi-user-budget",
+        "subcategory": "budgets",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/settings/billing/budgets/{budget_id}/user-states",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
   "enterprise_credentials": {
     "title": "Enterprise credentials",
     "displayTitle": "Enterprise permissions for \"Enterprise credentials\"",
@@ -2007,6 +2046,28 @@
         "subcategory": "orgs",
         "verb": "delete",
         "requestPath": "/orgs/{org}/interaction-limits",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "interactions",
+        "slug": "get-pull-request-creation-cap-for-an-org",
+        "subcategory": "orgs",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/interaction-limits/pulls/creation-cap",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "interactions",
+        "slug": "update-pull-request-creation-cap-for-an-org",
+        "subcategory": "orgs",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/interaction-limits/pulls/creation-cap",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -5584,6 +5645,17 @@
       },
       {
         "category": "actions",
+        "slug": "get-runner-version-end-of-life-schedule-for-an-organization",
+        "subcategory": "self-hosted-runners",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/runners/deprecations/{version}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
         "slug": "list-runner-applications-for-an-organization",
         "subcategory": "self-hosted-runners",
         "verb": "get",
@@ -6723,6 +6795,17 @@
         "subcategory": "self-hosted-runners",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/actions/runners",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "get-runner-version-end-of-life-schedule-for-a-repository",
+        "subcategory": "self-hosted-runners",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/runners/deprecations/{version}",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -8172,6 +8255,28 @@
         "verb": "post",
         "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}",
         "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
+        "slug": "create-a-cluster-deployment-records-job",
+        "subcategory": "artifact-metadata",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}/jobs",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
+        "slug": "get-cluster-deployment-records-job-status",
+        "subcategory": "artifact-metadata",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}/jobs/{job_id}",
+        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
@@ -9777,6 +9882,28 @@
         "additional-permissions": false
       },
       {
+        "category": "pulls",
+        "slug": "merge-a-pull-request-asynchronously",
+        "subcategory": "pulls",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge-async",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "pulls",
+        "slug": "get-the-result-of-an-asynchronous-merge",
+        "subcategory": "pulls",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge-async/{uuid}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
         "category": "repos",
         "slug": "get-a-repository-readme",
         "subcategory": "contents",
@@ -10953,6 +11080,39 @@
       },
       {
         "category": "issues",
+        "slug": "list-issue-suggestions",
+        "subcategory": "issues",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "approve-an-issue-suggestion",
+        "subcategory": "issues",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions/{suggestion_id}/approve",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "dismiss-an-issue-suggestion",
+        "subcategory": "issues",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions/{suggestion_id}/dismiss",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
         "slug": "list-timeline-events-for-an-issue",
         "subcategory": "timeline",
         "verb": "get",
@@ -11873,6 +12033,39 @@
       },
       {
         "category": "issues",
+        "slug": "list-issue-suggestions",
+        "subcategory": "issues",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "approve-an-issue-suggestion",
+        "subcategory": "issues",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions/{suggestion_id}/approve",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "dismiss-an-issue-suggestion",
+        "subcategory": "issues",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions/{suggestion_id}/dismiss",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
         "slug": "list-timeline-events-for-an-issue",
         "subcategory": "timeline",
         "verb": "get",
@@ -12317,6 +12510,61 @@
         "subcategory": "pulls",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/update-branch",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "pulls",
+        "slug": "list-pull-request-stacks",
+        "subcategory": "stacks",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/stacks",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "pulls",
+        "slug": "create-a-pull-request-stack",
+        "subcategory": "stacks",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/stacks",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "pulls",
+        "slug": "get-a-pull-request-stack",
+        "subcategory": "stacks",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/stacks/{stack_number}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "pulls",
+        "slug": "add-pull-requests-to-a-pull-request-stack",
+        "subcategory": "stacks",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/stacks/{stack_number}/add",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "pulls",
+        "slug": "remove-pull-requests-from-a-pull-request-stack",
+        "subcategory": "stacks",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/stacks/{stack_number}/unstack",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,

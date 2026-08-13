@@ -2,13 +2,13 @@
 title: 'Reviewing your proposed changes'
 shortTitle: 'Review changes'
 intro: 'Review your own pull request before you merge to catch bugs and improve quality, with an optional AI assist from {% data variables.product.prodname_copilot_short %}.'
-category:
-  - Learn to code
-contentType: get-started
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Start your GitHub journey
+contentType: get-started
 ---
 
 A pull request is a chance to look at your work with fresh eyes before it becomes part of `main`. In this tutorial, you'll review your own changes, apply improvements, and merge the first feature for your website.

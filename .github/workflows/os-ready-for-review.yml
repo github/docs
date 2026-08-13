@@ -31,7 +31,7 @@ jobs:
           script: |
             const triggerer_login = context.payload.sender.login
             const teamMembers = await github.request(
-              `/orgs/github/teams/docs/members?per_page=100`
+              `/orgs/github/teams/technical-content/members?per_page=100`
             )
             const logins = teamMembers.data.map(member => member.login)
             if (logins.includes(triggerer_login)) {
@@ -47,14 +47,8 @@ jobs:
           echo Aborting. This workflow must be triggered by a member of the docs team.
           exit 1
 
-      - name: Setup Node.js
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
-        with:
-          node-version-file: 'package.json'
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
+      - name: Set up Node and dependencies
+        uses: ./.github/actions/node-npm-setup
 
       - name: Run script
         run: |

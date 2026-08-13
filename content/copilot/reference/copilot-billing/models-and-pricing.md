@@ -33,10 +33,12 @@ All prices are **per 1 million tokens**.
 
 {% data reusables.copilot.extended-context-pricing %}
 
-| Model | Release status | Category | Tier | Threshold (input tokens) | Input | Cached input | Output |
-| --- | --- | --- | --- | --- | ---: | ---: | ---: |
+{% data variables.copilot.copilot_gpt_56_sol %}, {% data variables.copilot.copilot_gpt_56_terra %}, and {% data variables.copilot.copilot_gpt_56_luna %} include a cache write cost in addition to cached input. Earlier OpenAI models have no cache write cost.
+
+| Model | Release status | Category | Tier | Threshold (input tokens) | Input | Cached input | Cache write | Output |
+| --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: |
 | {% for entry in tables.copilot.models-and-pricing %}{% if entry.provider == "openai" %} |
-| {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.tier }} | {{ entry.threshold }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
+| {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.tier }} | {{ entry.threshold }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.cache_write }} | {{ entry.output }} |
 | {% endif %}{% endfor %} |
 
 ### Anthropic
@@ -73,6 +75,16 @@ Anthropic models include a cache write cost in addition to cached input.
 | --- | --- | --- | ---: | ---: | ---: |
 | {% for entry in tables.copilot.models-and-pricing %}{% if entry.provider == "microsoft" %} |
 | {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
+| {% endif %}{% endfor %} |
+
+### xAI
+
+{% data reusables.copilot.extended-context-pricing %}
+
+| Model | Release status | Category | Tier | Threshold (input tokens) | Input | Cached input | Output |
+| --- | --- | --- | --- | --- | ---: | ---: | ---: |
+| {% for entry in tables.copilot.models-and-pricing %}{% if entry.provider == "xai" %} |
+| {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.tier }} | {{ entry.threshold }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
 | {% endif %}{% endfor %} |
 
 ### Moonshot AI

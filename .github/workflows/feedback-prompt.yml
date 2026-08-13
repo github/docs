@@ -1,4 +1,4 @@
-name: Feedback prompt for non-Docs team contributors when a PR is closed
+name: Feedback prompt for non-Technical Content team contributors when a PR is closed
 
 on:
   pull_request:

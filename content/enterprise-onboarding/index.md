@@ -8,16 +8,16 @@ journeyTracks:
     description: 'Master the fundamentals of {% data variables.product.prodname_ghe_cloud %} and get started with a trial.'
     guides:
       - href: '/admin/concepts/enterprise-fundamentals/choose-an-enterprise-type'
-      - href: '/enterprise-onboarding/getting-started-with-your-enterprise/setting-up-a-trial-of-github-enterprise'
-      - href: '/enterprise-onboarding/getting-started-with-your-enterprise/adding-users-to-your-enterprise'
+      - href: '/admin/overview/setting-up-a-trial-of-github-enterprise-cloud'
+      - href: '/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/add-users'
       - href: '/billing/concepts/enterprise-billing/billing-for-enterprises'
-      - href: '/enterprise-onboarding/getting-started-with-your-enterprise/about-migrating-to-github-enterprise-cloud'
+      - href: '/migrations/overview/planning-your-migration-to-github'
   - id: 'setting_up_organizations_and_teams'
     title: 'Setting up organizations and teams in your enterprise'
     description: 'Organize work effectively and ensure people have the access they need to resources and administrative settings.'
     guides:
       - href: '/admin/concepts/enterprise-best-practices/organize-work'
-      - href: '/enterprise-onboarding/setting-up-organizations-and-teams/setting-up-an-organization'
+      - href: '/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise'
       - href: '/admin/concepts/enterprise-fundamentals/roles-in-an-enterprise'
       - href: '/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/identify-role-requirements'
       - href: '/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/create-custom-roles'
@@ -31,8 +31,8 @@ journeyTracks:
     guides:
       - href: '/admin/concepts/security-and-compliance/enterprise-policies'
       - href: '/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/managing-custom-properties-for-repositories-in-your-enterprise'
-      - href: '/enterprise-onboarding/govern-people-and-repositories/create-repository-policies'
-      - href: '/enterprise-onboarding/govern-people-and-repositories/protect-branches'
+      - href: '/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/governing-how-people-use-repositories-in-your-enterprise'
+      - href: '/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-governance'
       - href: '/admin/concepts/security-and-compliance/audit-log-for-an-enterprise'
   - id: 'github_apps'
     title: 'Automating processes with GitHub Apps'
@@ -43,12 +43,11 @@ journeyTracks:
       - href: '/apps/using-github-apps/installing-a-github-app-on-your-enterprise'
 versions:
   ghec: '*'
-children:
-  - /getting-started-with-your-enterprise
-  - /setting-up-organizations-and-teams
-  - /govern-people-and-repositories
+children: []
 redirect_from:
   - /enterprise-onboarding/feature-enhancements
+  - /enterprise-onboarding/getting-started-with-your-enterprise
+  - /enterprise-onboarding/govern-people-and-repositories
 docsTeamMetrics:
   - enterprise-onboarding
 ---

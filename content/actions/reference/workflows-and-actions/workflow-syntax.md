@@ -28,6 +28,12 @@ Workflow files use YAML syntax, and must have either a `.yml` or `.yaml` file ex
 
 You must store workflow files in the `.github/workflows` directory of your repository.
 
+{% ifversion copilot %}
+
+> [!TIP]
+> Unlike traditional {% data variables.product.prodname_actions %} workflows that require you to script every decision as YAML job steps, {% data variables.copilot.github_agentic_workflows %} use YAML frontmatter for triggers and configuration, but let you describe what you want in natural-language Markdown—so you don't need to anticipate and encode every scenario in advance. For more information, see [AUTOTITLE](/copilot/how-tos/github-agentic-workflows/creating-github-agentic-workflows).
+
+{% endif %}
 ## `name`
 
 {% data reusables.actions.workflows.workflow-syntax-name %}
@@ -277,7 +283,7 @@ The value of this parameter is a string specifying the data type of the input. T
 
 {% data reusables.actions.forked-write-permission %}
 
-## How permissions are calculated for a workflow job
+### How permissions are calculated for a workflow job
 
 The permissions for the `GITHUB_TOKEN` are initially set to the default setting for the enterprise, organization, or repository. If the default is set to the restricted permissions at any of these levels then this will apply to the relevant repositories. For example, if you choose the restricted default at the organization level then all repositories in that organization will use the restricted permissions as the default. The permissions are then adjusted based on any configuration within the workflow file, first at the workflow level and then at the job level. Finally, if the workflow was triggered by a pull request event other than `pull_request_target` from a forked repository, and the **Send write tokens to workflows from pull requests** setting is not selected, the permissions are adjusted to change any write permissions to read only.
 
@@ -597,11 +603,42 @@ jobs:
         uses: actions/aws/ec2@main
 ```
 
+### Example: Using an action in the same repository as the workflow at the running commit (recommended)
+
+`$/path/to/action`
+
+The `$/` prefix is the self repository reference. It references an action stored in the same repository as the workflow or action that is currently running, and resolves to that repository at the running commit (the same SHA as the running workflow or action). You do not need to check out the repository first, so it is the recommended way to reference an action within its own repository.
+
+The `$/` syntax is not available in {% data variables.product.prodname_ghe_server %}.
+
+A `$/` reference must not include an `@{ref}` suffix. The ref is always the commit the running workflow or action is using, so a reference such as `$/actions/my-action@v1` is invalid.
+
+`$/` always resolves against the repository of the file it appears in, not the repository that called it. For example, if a reusable workflow in one repository is called by a workflow in another repository, a `$/` reference in the called workflow resolves to the called workflow's repository, not the calling workflow's repository. This makes `$/` reliable for action composition, where a relative `./` path would instead resolve against whatever is checked out in the caller's workspace. For using `$/` in a composite action's steps, see [AUTOTITLE](/actions/reference/workflows-and-actions/metadata-syntax#runsstepsuses).
+
+The following table compares the ways to reference an action.
+
+| Syntax | Resolves to | Recommended for |
+| ------ | ----------- | --------------- |
+| `$/path/to/action` | The same repository as the running workflow or action, at the running commit | Actions in the same repository |
+| `{owner}/{repo}@{ref}` | The specified repository at the specified ref | Actions in another repository |
+| `./path/to/action` | A path in the runner's checked-out workspace, relative to the default working directory (`{% raw %}${{ github.workspace }}{% endraw %}`) | Edge cases only |
+
+```yaml
+on: [push]
+
+jobs:
+  my_first_job:
+    runs-on: ubuntu-latest
+    steps:
+      # References an action in the same repository at the running commit
+      - uses: $/.github/actions/hello-world-action
+```
+
 ### Example: Using an action in the same repository as the workflow
 
 `./path/to/dir`
 
-The path to the directory that contains the action in your workflow's repository. You must check out your repository before using the action.
+The path to the directory that contains the action in your workflow's repository. You must check out your repository before using the action, and the `./` path resolves against the runner's workspace rather than the repository of the running workflow. For most cases, use the `$/` syntax shown above instead.
 
 {% data reusables.actions.workflows.section-referencing-an-action-from-the-same-repository %}
 
@@ -1535,3 +1572,5 @@ Path patterns must match the whole path, and start from the repository's root.
 | `'**/migrate-*.sql'`                                | A file with the prefix `migrate-` and suffix `.sql` anywhere in the repository.                                                                                                               | `migrate-10909.sql`<br/><br/>`db/migrate-v1.0.sql`<br/><br/>`db/sept/migrate-v1.sql`    |
 | `'*.md'`<br/><br/>`'!README.md'`                    | Using an exclamation mark (`!`) in front of a pattern negates it. When a file matches a pattern and also matches a negative pattern defined later in the file, the file will not be included. | `hello.md`<br/><br/>_Does not match_<br/><br/>`README.md`<br/><br/>`docs/hello.md`      |
 | `'*.md'`<br/><br/>`'!README.md'`<br/><br/>`README*` | Patterns are checked sequentially. A pattern that negates a previous pattern will re-include file paths.                                                                                      | `hello.md`<br/><br/>`README.md`<br/><br/>`README.doc`                                   |
+
+

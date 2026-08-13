@@ -114,6 +114,13 @@ For more information{% ifversion fpt or ghec %} about self-hosted runners{% endi
 
 {% data reusables.actions.onboarding-next-steps %}
 
+{% ifversion copilot %}
+
+> [!NOTE]
+> For automations that require contextual judgment about your repository's content, you can also author {% data variables.copilot.agentic_workflows_short %} in natural language instead of a traditional {% data variables.product.prodname_actions %} workflow. For more information, see [AUTOTITLE](/copilot/how-tos/github-agentic-workflows/quickstart) and [AUTOTITLE](/copilot/how-tos/github-agentic-workflows/creating-github-agentic-workflows).
+
+{% endif %}
+
 {% ifversion ghec or ghes %}
 
 ## Further reading

@@ -249,6 +249,17 @@ export function correctTranslatedContentStrings(
       '{% ifversion ghec %}SCIM{% else %} con Okta',
       '{% ifversion ghec %}SCIM{% else %} con Okta{% endif %}',
     )
+
+    // data/reusables/repositories/you-can-fork.md: translation starts with
+    // `{% elsif ghes or ghec %}` instead of `{% ifversion ghes or ghec %}` —
+    // the opening `{% ifversion %}` was replaced with `{% elsif %}`, leaving no
+    // opener and causing "elsif not found" errors in fork-a-repo.md and forks.md.
+    if (
+      context.dottedPath === 'reusables.repositories.you-can-fork' ||
+      context.relativePath?.endsWith('data/reusables/repositories/you-can-fork.md')
+    ) {
+      content = content.replace(/^\{%-?\s*elsif\s+/, '{% ifversion ')
+    }
   }
 
   if (context.code === 'ja') {
@@ -1504,6 +1515,24 @@ export function correctTranslatedContentStrings(
       '{%- collaborateurs invités ifversion %}',
       '{%- ifversion guest-collaborators %}',
     )
+
+    // `{% ifversion <ghec %}` / `{% ifversion <fpt %}` etc. — stray `<` immediately
+    // before the plan name in an ifversion/elsif tag (e.g. from HTML entity confusion).
+    // Remove the stray `<` so the version expression is valid Liquid.
+    content = content.replace(
+      /\{%(-?\s+(?:ifversion|elsif|if)\s+)(?:<|&lt;)(fpt|ghec|ghes|ghae|ghecom)\b/g,
+      '{%$1$2',
+    )
+
+    // education/manage-coursework-with-github-classroom/.../leave-feedback-with-pull-requests.md
+    // The `{% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}`
+    // tag was fully translated (both keyword and path) by the translator:
+    // `{% reusable (fr) classroom.vous-pouvez-créer-une-pull-request-pour-retour %}`
+    // Restore the canonical English form so the reusable can be looked up.
+    content = content.replaceAll(
+      '{% reusable (fr) classroom.vous-pouvez-créer-une-pull-request-pour-retour %}',
+      '{% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}',
+    )
   }
 
   if (context.code === 'ko') {
@@ -1678,6 +1707,17 @@ export function correctTranslatedContentStrings(
       '{% data variables.product.prodname_dotcom %}.{% ifversion default-setup-self-hosted-runners-GHEC %}',
       '{% data variables.product.prodname_dotcom %}.{% endif %}',
     )
+
+    // data/reusables/repositories/about-READMEs.md: the translation contains an
+    // orphaned `{% endif %}` immediately before the first `{% ifversion fpt or ghec %}`
+    // tag. The English source has no such tag at that position. Remove the orphan
+    // so the opening ifversion block balances.
+    if (
+      context.dottedPath === 'reusables.repositories.about-READMEs' ||
+      context.relativePath?.endsWith('data/reusables/repositories/about-READMEs.md')
+    ) {
+      content = content.replace(/\{%-?\s*endif\s*-?%\}\s*(\{%-?\s*ifversion\s)/g, '$1')
+    }
   }
 
   if (context.code === 'de') {
@@ -2158,6 +2198,9 @@ export function correctTranslatedContentStrings(
   content = content.replaceAll('["AUTOTITLE]', '"[AUTOTITLE]')
   content = content.replaceAll('[ AUTOTITLE](', '[AUTOTITLE](')
   content = content.replaceAll('[ "AUTOTITLE](', '[AUTOTITLE](')
+  // Extra space between the closing `]` and opening `(` breaks the Markdown
+  // link so it renders as literal text instead of a hyperlink.
+  content = content.replaceAll('[AUTOTITLE] (', '[AUTOTITLE](')
 
   // Double-brace Liquid tag corruptions.
   content = content.replaceAll('{{% octicon', '{% octicon')

@@ -83,7 +83,7 @@ For more information, see [AUTOTITLE](/copilot/reference/review-excluded-files).
 * **Full project context gathering**. This provides more specific, accurate, and contextually aware code reviews. This capability analyzes your entire repository to better understand the context of code changes.
 * **The ability to pass suggestions to {% data variables.copilot.copilot_cloud_agent %}**. This automates creating a new pull request against your branch with the suggested fixes applied. Passing suggestions to {% data variables.copilot.copilot_cloud_agent %} is in public preview and subject to change.
 
-These capabilities are enabled automatically for all plans that include {% data variables.copilot.copilot_code-review_short %}. See [Review effort level](#review-effort-level) later in this article for information about choosing between Low and Medium analysis levels.
+These capabilities are enabled automatically for all plans that include {% data variables.copilot.copilot_code-review_short %}. See [Review effort level](#review-effort-level) later in this article for information about choosing between Lite and Balanced analysis levels.
 
 If {% data variables.product.prodname_actions %} is unavailable or if Actions workflows used by {% data variables.copilot.copilot_code-review_short %} fail, reviews will still be generated. However, they will not include the additional features provided by the agentic capabilities.
 
@@ -104,16 +104,22 @@ You can view the {% data variables.product.prodname_actions %} minutes associate
 
 ## Review effort level
 
-> [!NOTE]
-> Medium review effort is in {% data variables.release-phases.public_preview %} and subject to change. The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of preview features.
-
 {% data variables.copilot.copilot_code-review_short %} supports multiple review effort levels, so you can choose the level of thoroughness that matches the criticality of your code.
 
-* **Low**: Standard review. Provides fast, targeted feedback on common issues such as bugs, security vulnerabilities, and style inconsistencies (default).
-* **Medium**: Routes pull requests to a higher-reasoning model for longer analysis of complex logic, security-sensitive code, and cross-service changes. Medium reviews use more {% data variables.product.prodname_ai_credits_short %} and {% data variables.product.prodname_actions %} minutes than Low reviews. For better performance with Medium reviews, consider configuring larger or self-hosted runners. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-runners).
+* **Lite**: Standard review. Provides fast, targeted feedback on common issues such as bugs, security vulnerabilities, and style inconsistencies (default).
+* **Balanced**: Routes pull requests to a higher-reasoning model for longer analysis of complex logic, security-sensitive code, and cross-service changes. Balanced reviews use more {% data variables.product.prodname_ai_credits_short %} and {% data variables.product.prodname_actions %} minutes than Lite reviews. For better performance with Balanced reviews, consider configuring larger or self-hosted runners. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-runners).
 
-Use Medium for security-sensitive code, multi-service pull requests, or repositories with strict quality standards. Use Low for routine changes where fast feedback is more important than exhaustive analysis.
+Use Balanced for security-sensitive code, multi-service pull requests, or repositories with strict quality standards. Use Lite for routine changes where fast feedback is more important than exhaustive analysis.
 
+Organization owners can set a default review effort level for automatic code reviews in their organization. Repository administrators can override the organization default for a specific repository.
+
+After {% data variables.copilot.copilot_code-review_short %} reviews a pull request, the pull request overview comment shows the effort level used for each review run.
+
+### Estimated consumption
+
+A review typically consumes an estimated $0.05 USD to $1 USD worth of {% data variables.product.prodname_ai_credits_short %} with "Lite" effort, and $0.25 USD to $5 USD worth of {% data variables.product.prodname_ai_credits_short %} with "Balanced" effort.
+
+Consumption generally increases with pull request size and repository custom instructions, and the ranges may change as models evolve. These estimates do not include {% data variables.product.prodname_actions %} minutes.
 
 Repository administrators can set the default review effort level for automatic code reviews. For configuration steps, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review).
 
@@ -149,8 +155,6 @@ When {% data variables.copilot.copilot_code-review_short %} is enabled for these
 {% data reusables.copilot.ccr-model-settings %}
 
 ## MCP servers and agent skills for code review
-
-{% data reusables.copilot.code-review.skills-and-mcp-preview-note %}
 
 {% data variables.copilot.copilot_code-review_short %} can use repository-level agent skills and MCP servers when they are relevant to the review.
 
@@ -238,7 +242,7 @@ For full instructions, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up
 
 {% data variables.product.prodname_code_quality %} complements {% data variables.copilot.copilot_code-review_short %} by adding:
 
-* **Hybrid detection** that combines rules-based {% data variables.product.prodname_codeql %} analysis with AI-powered analysis, on pull requests and on your default branch.
+* **Rules-based  {% data variables.product.prodname_codeql %}-powered analysis** on pull requests and on your default branch.
 * **Test-coverage metrics** on pull requests, so you can see whether a change maintains or reduces coverage.
 * **One-click, {% data variables.product.prodname_copilot_short %}-powered fixes**, including delegating remediation to {% data variables.copilot.copilot_cloud_agent %}.
 * **Optional merge gating** with rulesets, so pull requests with unresolved rules-based findings (or that miss a coverage threshold) can be blocked from merging.

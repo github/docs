@@ -4,7 +4,8 @@ shortTitle: Use your own model provider
 intro: 'Use a model from an external provider of your choice in {% data variables.product.prodname_copilot_short %} by supplying your own API key.'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: copilot
+  fpt: '*'
+  ghec: '*'
 contentType: how-tos
 category:
   - Configure Copilot
@@ -123,5 +124,5 @@ You can run {% data variables.copilot.copilot_cli_short %} in offline mode to pr
    ```shell
    export COPILOT_OFFLINE=true
    ```
-
-{% data reusables.copilot.copilot-cli.start-cli %}
+   
+1. {% data reusables.copilot.copilot-cli.start-cli %}

@@ -1,1 +1,0 @@
-1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "ai-model" aria-hidden="true" aria-label="ai-model" %} Models** dropdown. Then click **Custom models**. The "Custom Models" page displays the API keys and custom models added to the organization.

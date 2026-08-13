@@ -227,7 +227,7 @@ The table below lists every supported event. The **Cloud agent** column shows wh
 | `sessionStart` | A new or resumed session begins. | Optional — can inject `additionalContext` into the session. | Fires once per job, as a new session (not a resume). See the Prompt hooks note above for the behavior of `prompt` entries under cloud agent. |
 | `subagentStart` | A subagent is spawned (before it runs). Supports a `matcher` regex pattern (the value of the `matcher` field) to filter by agent name. | Optional — cannot block creation, but `additionalContext` is prepended to the subagent's prompt. | Fires. |
 | `subagentStop` | A subagent completes. | Yes — can block and force continuation. | Fires. |
-| `userPromptSubmitted` | The user submits a prompt. | No | Fires at most once, for the prompt supplied to the job. There is no follow-up user input. |
+| `userPromptSubmitted` | The user submits a prompt. | Optional—`modifiedPrompt` is honored only by SDK programmatic hooks. | Fires at most once, for the prompt supplied to the job. There is no follow-up user input. |
 | `userPromptTransformed` | Fires after the runtime transforms a submitted prompt into its model-facing content, just before that content is emitted and persisted to session history. Runs for the primary message and for every preceding message in a batched submission. Mutation-only — it can rewrite the content the model receives, but not block or handle the turn. System notifications never trigger it. | Yes — can rewrite the model-facing content. | Fires. |
 
 ## Hook event input payloads
@@ -313,6 +313,20 @@ Each hook event delivers a JSON payload to the hook handler. Two payload formats
     prompt: string;
 }
 ```
+
+**Output:**
+
+```typescript
+{
+    modifiedPrompt?: string; // Replaces the prompt for the rest of the turn (SDK programmatic hooks only)
+}
+```
+
+Return `{}` or empty to leave the prompt unchanged.
+
+> [!NOTE]
+> * `modifiedPrompt` is only honored by SDK programmatic hooks. Command and HTTP config-file `userPromptSubmitted` hooks have their output dropped, including `modifiedPrompt`. The lighter hooks-processing runtime used by hosted or steering {% data variables.copilot.copilot_cloud_agent %} sessions also ignores it. This is the same runtime split as `preToolUse`.
+> * A non-string `modifiedPrompt`, `modifiedTransformedPrompt`, or a handled `responseContent` value is ignored rather than corrupting the session—a type warning naming the field is logged and emitted as a `session.warning` event. An empty-string override is rejected instead of blanking the model-facing content. A `null` `additionalContext` value is treated as absent instead of being injected as the literal text `null`. Hook output (stdout for command hooks, the response body for HTTP hooks) is bounded at 10 MiB per invocation—a larger response is truncated rather than exhausting memory.
 
 ### `userPromptTransformed`
 
@@ -510,6 +524,8 @@ Tools with no Claude equivalent keep their runtime names.
 
 ### `subagentStop` / `SubagentStop`
 
+Fires when a subagent completes normally, before returning results to the parent. `stopReason` is currently always `"end_turn"`. This hook fires before large-response spill handling, so `response` (or `last_assistant_message` in the {% data variables.product.prodname_vscode_shortname %} compatible format) carries the full final subagent response text.
+
 **camelCase input:**
 
 ```typescript
@@ -518,8 +534,11 @@ Tools with no Claude equivalent keep their runtime names.
     timestamp: number;
     cwd: string;
     transcriptPath: string;
+    agentId: string;
+    agentType: string;
     agentName: string;
     agentDisplayName?: string;
+    response: string;       // Full final subagent response text
     stopReason: "end_turn";
 }
 ```
@@ -533,8 +552,11 @@ Tools with no Claude equivalent keep their runtime names.
     timestamp: string;      // ISO 8601 timestamp
     cwd: string;
     transcript_path: string;
+    agent_id: string;
+    agent_type: string;
     agent_name: string;
     agent_display_name?: string;
+    last_assistant_message: string; // The `response` text
     stop_reason: "end_turn";
 }
 ```
@@ -621,6 +643,13 @@ The `preToolUse` hook can control tool execution by writing a JSON object to std
 |-------|--------|-------------|
 | `decision` | `"block"`, `"allow"` | `"block"` forces another agent turn using `reason` as the prompt. |
 | `reason` | string | Prompt for the next turn when `decision` is `"block"`. |
+| `modifiedResponse` | string | **`subagentStop` only.** Replaces the response returned to the parent when the subagent is allowed to complete—useful for redacting or reformatting subagent output. Not applicable to `agentStop`. |
+
+`decision` and `reason` behave the same for both `agentStop` and `subagentStop`. `modifiedResponse` applies only to `subagentStop`:
+
+* A valid `block` decision wins over `modifiedResponse`: if a hook returns both, the subagent continues and the rewrite is discarded.
+* Rewrites do not compose across multiple matching hooks. Every hook receives the same original `response`, and the last hook to return `modifiedResponse` wins—chaining a redactor and a formatter does not feed the redacted text into the formatter.
+* The output field names (`decision`, `reason`, `modifiedResponse`) are the same for both the camelCase and {% data variables.product.prodname_vscode_shortname %} compatible configs.
 
 > [!NOTE]
 > **Runaway guard.** After 8 consecutive `block` continuations, the CLI overrides the hook and ends the turn anyway, to prevent an unbounded loop. Use the `stop_hook_active` input field on `agentStop` to detect that this turn was already forced to continue, and self-limit before hitting the cap.

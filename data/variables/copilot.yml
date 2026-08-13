@@ -97,6 +97,7 @@ copilot_vsc_chat_participants: 'Copilot-enabled VS Code chat participants'
 
 ## GitHub Copilot app
 github_copilot_app: 'GitHub Copilot app'
+github_copilot_app_short: 'Copilot app'
 
 ## Copilot CLI
 copilot_cli_short: 'Copilot CLI'
@@ -104,12 +105,6 @@ copilot_cli: 'GitHub Copilot CLI'
 copilot_old-cli_short: 'Copilot in the CLI'
 copilot_old-cli: 'GitHub Copilot in the CLI'
 copilot_cli_npm_version: 'Node.js 22 or later'
-
-## GitHub Sandbox
-sandbox: 'cloud and local sandboxes for GitHub Copilot'
-sandbox_caps: 'Cloud and local sandboxes for GitHub Copilot'
-sandbox_short: 'sandboxes for GitHub Copilot'
-sandbox_short_caps: 'Sandboxes for GitHub Copilot'
 
 ## Copilot custom agents
 copilot_custom_agent: 'Copilot custom agent'
@@ -239,14 +234,17 @@ copilot_o3: 'o3'
 copilot_o4_mini: 'o4-mini'
 ## xAI:
 copilot_grok_code: 'Grok Code Fast 1'
+copilot_grok_45: 'Grok 4.5'
 # Qwen:
 copilot_qwen_25: 'Qwen2.5'
 # Microsoft:
 copilot_mai_code_1_flash: 'MAI-Code-1-Flash'
+copilot_mai_code_1_1_flash: 'MAI-Code-1.1-Flash'
 # Microsoft fine-tuned:
 copilot_raptor_mini: 'Raptor mini'
 # Open-weight models:
 copilot_kimi_k27_code: 'Kimi K2.7 Code'
+copilot_kimi_k3: 'Kimi K3'
 
 ## Current model used by Copilot cloud agent and Copilot CLI
 cca_current_model: '{% data variables.copilot.copilot_claude_opus_46 %}'
@@ -266,3 +264,5 @@ copilot_byok_supported_features: '{% data variables.copilot.copilot_chat_short %
 
 ## File for enterprise client management
 managed_setting_file: 'managed-settings.json'
+team_mappings_file: 'team-mappings.json'
+team_settings_directory: 'teams/'

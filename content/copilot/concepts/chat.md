@@ -23,6 +23,7 @@ category:
 * A range of IDEs such as {% data variables.product.prodname_vscode %}, Xcode, and JetBrains IDEs
 * {% data variables.product.prodname_mobile %}
 * {% data variables.copilot.copilot_cli %}
+* {% data variables.copilot.github_copilot_app %}
 
 Different environments may have different features and capabilities, but the core functionality remains consistent across platforms. To explore the functionality available in each environment, see the [AUTOTITLE](/copilot/how-tos/chat-with-copilot) how-to guides and the [AUTOTITLE](/copilot/tutorials).
 

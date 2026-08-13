@@ -41,6 +41,8 @@ To manage repository access for any {% data variables.product.github %} team, in
 
 {% ifversion ghec %}You can also manage team synchronization with the API. For more information, see [AUTOTITLE](/rest/teams/team-sync).{% endif %}
 
+If you are managing a team's membership with an IdP group, you cannot assign the team maintainer role to a member of that team. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member).
+
 {% ifversion ghec %}
 
 ## Requirements for members of synchronized teams
@@ -85,9 +87,7 @@ When you connect an IdP group to a {% data variables.product.github %} team, all
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-{%- ifversion ghec %}
 1. Under "Identity Provider Groups", select the **Select Groups** dropdown menu, and click up to 5 identity provider groups.
-{%- endif %}
 1. Click **Save changes**.
 
 ## Disconnecting an IdP group from a team
@@ -96,7 +96,5 @@ When you connect an IdP group to a {% data variables.product.github %} team, all
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-{%- ifversion ghec %}
 1. Under "Identity Provider Groups", to the right of the IdP group you want to disconnect, click {% octicon "x" aria-label="Remove group" %}.
-{%- endif %}
 1. Click **Save changes**.

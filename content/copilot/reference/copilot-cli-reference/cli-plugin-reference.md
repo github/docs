@@ -69,6 +69,10 @@ MCP servers install from a policy-configured registry, which requires authentica
 |-----------|-----------------------------------------|
 | `--all`   | Update every installed plugin           |
 
+First-party plugins—those installed from the built-in `copilot-plugins` and `awesome-copilot` marketplaces—automatically update at the start of each session in a trusted working directory. Disable this behavior with the `autoUpdate` setting (set to `false`) or the `COPILOT_AUTO_UPDATE=false` environment variable. Auto-update is also skipped by default in CI. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#configuration-file-settings).
+
+A marketplace you've added yourself can opt into the same session-start auto-update by setting `autoUpdate: true` on its `extraKnownMarketplaces` entry in your user settings. This opt-in is only honored from your own user settings—a repository or managed (MDM) setting can't enable or redirect auto-update for a marketplace. See [Repository settings](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#repository-settings-githubcopilotsettingsjson).
+
 ### `copilot plugins marketplace` subcommands
 
 Built-in default marketplaces ship with the runtime and can't be removed.

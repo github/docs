@@ -52,6 +52,58 @@ test('use sidebar to go to Hello World page', async ({ page }) => {
   await expect(page).toHaveTitle(/Hello World - GitHub Docs/)
 })
 
+test('sidebar highlights the clicked item optimistically while navigation is pending', async ({
+  page,
+}) => {
+  // Article pages are getServerSideProps routes, so router.asPath (and thus the real
+  // aria-current) only updates after the destination loads. The sidebar marks the
+  // clicked link with a visual-only `data-pending` accent so the click is acknowledged
+  // immediately. Throttle the client-side data fetch so the navigation stays pending
+  // long enough to observe that intermediate state.
+  await page.goto('/get-started')
+  await page.getByTestId('product-sidebar').getByText('Start your journey').click()
+
+  const sidebar = page.getByTestId('product-sidebar')
+  const helloWorld = sidebar.getByRole('link', { name: 'Hello World' })
+  const linkRewriting = sidebar.getByRole('link', { name: 'Link rewriting' })
+
+  // Hold the next data request open until we release it, so navigation stays pending.
+  let releaseNavigation = () => {}
+  const navigationHeld = new Promise<void>((resolve) => {
+    releaseNavigation = resolve
+  })
+  await page.route('**/_next/data/**', async (route) => {
+    await navigationHeld
+    await route.continue()
+  })
+
+  await helloWorld.click()
+
+  // While pending: the clicked link carries the optimistic visual marker, but the URL
+  // and the semantic aria-current still reflect the (still-loaded) get-started page.
+  await expect(helloWorld).toHaveAttribute('data-pending', '')
+  await expect(helloWorld).not.toHaveAttribute('aria-current', 'page')
+  await expect(page).not.toHaveURL(/hello-world/)
+
+  // Let the navigation finish: the marker gives way to a real aria-current.
+  releaseNavigation()
+  await expect(page).toHaveURL(/\/en\/get-started\/start-your-journey\/hello-world/)
+  await expect(helloWorld).toHaveAttribute('aria-current', 'page')
+  await expect(helloWorld).not.toHaveAttribute('data-pending', '')
+
+  // A modifier-click (open in new tab) must NOT move the optimistic selection.
+  // handleNavClick bails on modifier clicks, so pendingHref is never set: the current
+  // page keeps its URL, its aria-current, and the clicked link gets no data-pending.
+  // Use ControlOrMeta so the real "open in new tab" modifier is sent per-platform
+  // (Ctrl on Linux/Windows CI, Meta on macOS). The click opens a background tab we
+  // don't need to assert on; catch any popup so it doesn't leak.
+  page.on('popup', (popup) => popup.close())
+  await linkRewriting.click({ modifiers: ['ControlOrMeta'] })
+  await expect(linkRewriting).not.toHaveAttribute('data-pending', '')
+  await expect(helloWorld).toHaveAttribute('aria-current', 'page')
+  await expect(page).toHaveURL(/\/en\/get-started\/start-your-journey\/hello-world/)
+})
+
 test('press "/" to open the search overlay', async ({ page }) => {
   await page.goto('/')
   await turnOffExperimentsInPage(page)
@@ -557,6 +609,35 @@ test.describe('test nav at different viewports', () => {
     await expect(page.getByTestId('breadcrumbs-bar')).toBeVisible()
   })
 
+  test('mobile nav opens even when the desktop rail was collapsed', async ({ page }) => {
+    // Collapse the desktop rail at the xxl breakpoint so the persisted
+    // `collapsed` state is set (the collapse toggle only exists at 1400px+).
+    page.setViewportSize({
+      width: 1400,
+      height: 700,
+    })
+    await page.goto('/get-started/foo/bar')
+    await page.getByTestId('sidebar-collapse-toggle').click()
+    // With the rail collapsed the sidebar is not rendered on desktop.
+    await expect(page.getByTestId('sidebar')).toHaveCount(0)
+
+    // Drop below xxl where the inline mobile nav lives. `collapsed` persists.
+    page.setViewportSize({
+      width: 1013,
+      height: 700,
+    })
+
+    // Opening the mobile nav must still render the doc-tree drawer -- before the
+    // fix, `collapsed` short-circuited the sidebar to null while the open state
+    // hid the content column, leaving a blank area with no drawer.
+    await page.getByTestId('sidebar-mobile-toggle').click()
+    await expect(page.getByTestId('sidebar')).toBeVisible()
+
+    // Closing it restores the content column (main content visible again).
+    await page.getByTestId('sidebar-mobile-toggle').click()
+    await expect(page.locator('#main-content')).toBeVisible()
+  })
+
   test('large -> x-large viewports - 1012+', async ({ page }) => {
     page.setViewportSize({
       width: 1013,
@@ -804,6 +885,59 @@ test.describe('secondary-bar breadcrumb scroller', () => {
     }
     await expect(leftChevron).toBeHidden()
     await expect.poll(scrollLeftOf).toBeLessThanOrEqual(1)
+  })
+})
+
+test.describe('anchor link scrolling', () => {
+  // The doc-tree rail only renders at the xxl breakpoint (1400px) and up. Its
+  // "centre the active item" effect used to call scrollIntoView, which scrolls
+  // every scrollable ancestor including the document, so it undid the browser's
+  // scroll to the #anchor and dumped the reader at the top of the article.
+  // These tests only mean anything with the rail on screen.
+  const WIDE = { width: 1400, height: 720 }
+
+  // The heading is offset from the top of the viewport by `scroll-margin-top`
+  // (109px at xxl, see src/frame/stylesheets/scroll-top.scss). Allow slack for
+  // rounding and sticky-header tweaks, but stay well clear of "not scrolled".
+  const expectScrolledToTarget = async (page: import('@playwright/test').Page) => {
+    const heading = page.locator('#target-heading')
+    await expect(heading).toBeVisible()
+    await expect.poll(async () => Math.round((await heading.boundingBox())!.y)).toBeLessThan(200)
+    expect(await page.evaluate(() => Math.round(window.scrollY))).toBeGreaterThan(300)
+  }
+
+  test('a direct load of a URL with an #anchor scrolls to that section', async ({ page }) => {
+    page.setViewportSize(WIDE)
+    await page.goto('/get-started/foo/anchor-scrolling#target-heading')
+    await expect(page.getByTestId('sidebar')).toBeVisible()
+    await expectScrolledToTarget(page)
+
+    // Guard the setup: the regression only shows when the rail has actually
+    // scrolled its own container to centre the active item. If a fixture change
+    // ever makes the rail short enough that it doesn't need to scroll, these
+    // tests would keep passing while covering nothing — fail loudly instead.
+    const railScrollTop = await page
+      .getByTestId('sidebar')
+      .evaluate((el) => el.closest('[role="region"]')!.scrollTop)
+    expect(railScrollTop).toBeGreaterThan(0)
+  })
+
+  test('clicking a cross-page #anchor link scrolls to that section', async ({ page }) => {
+    page.setViewportSize(WIDE)
+    await page.goto('/get-started/foo/for-playwright')
+    await page.locator('main a[href$="/get-started/foo/anchor-scrolling#target-heading"]').click()
+    await expect(page).toHaveURL(/anchor-scrolling#target-heading/)
+    await expectScrolledToTarget(page)
+  })
+
+  test('navigating to a page without an #anchor still lands at the top', async ({ page }) => {
+    page.setViewportSize(WIDE)
+    await page.goto('/get-started/foo/anchor-scrolling#target-heading')
+    await expectScrolledToTarget(page)
+
+    await page.getByTestId('sidebar').getByRole('link', { name: 'Bar', exact: true }).click()
+    await expect(page).toHaveURL(/\/en\/get-started\/foo\/bar$/)
+    await expect.poll(async () => page.evaluate(() => Math.round(window.scrollY))).toBe(0)
   })
 })
 
@@ -1107,9 +1241,12 @@ test('open search, Ask AI returns 400 error and shows general search results', a
   // Pressing enter should trigger Ask AI, get 400 error, and show general search results
   await page.keyboard.press('Enter')
 
-  // Wait for general search results to appear
-  await expect(page.getByRole('link', { name: 'Foo' })).toBeVisible()
-  await expect(page.getByRole('link', { name: 'Bar' })).toBeVisible()
+  // Wait for the general search results to appear inside the overlay's suggestions
+  // group. These render as ActionList items (buttons), so scope the lookup to the
+  // group rather than matching page-level links of the same name.
+  const generalSuggestions = page.getByTestId('general-autocomplete-suggestions')
+  await expect(generalSuggestions.getByRole('button', { name: 'Foo' })).toBeVisible()
+  await expect(generalSuggestions.getByRole('button', { name: 'Bar' })).toBeVisible()
 
   // Wait for the AI error message to appear
   // This is a canned response for the 400 error
@@ -1139,15 +1276,14 @@ test.describe('LandingCarousel component', () => {
     const carousel = page.locator('[data-testid="landing-carousel"]')
     await expect(carousel).toBeVisible()
 
-    // Check that article cards are present
+    // Check that article cards are present. Brand Card renders each card's title
+    // as an <h3> (Card.Heading) wrapping a stretched <a>, so target the heading.
     const items = page.locator('[data-testid="carousel-items"]')
-    const cards = items.locator('a')
-    await expect(cards.first()).toBeVisible()
+    const cardHeadings = items.locator('h3')
+    await expect(cardHeadings.first()).toBeVisible()
 
     // Verify cards have real titles (not "Unknown Article" when article not found)
-    const firstCardTitle = cards.first().locator('h3')
-    await expect(firstCardTitle).toBeVisible()
-    await expect(firstCardTitle).not.toHaveText('Unknown Article')
+    await expect(cardHeadings.first()).not.toHaveText('Unknown Article')
   })
 
   test('navigation works on desktop', async ({ page }) => {
@@ -1429,10 +1565,12 @@ test.describe('LandingArticleGridWithFilter component', () => {
     await expect(articleCards.first()).toBeVisible()
 
     const firstCard = articleCards.first()
-    const titleLink = firstCard.locator('h3 span')
+    // Brand Card renders the title as an <h3> (Card.Heading) wrapping a
+    // stretched <a>, and the intro as a Card.Description <p>.
+    const titleLink = firstCard.locator('h3 a')
     await expect(titleLink).toBeVisible()
 
-    const intro = firstCard.locator('div').last() // cardIntro is the last div
+    const intro = firstCard.locator('p').last()
     await expect(intro).toBeVisible()
     const introText = await intro.textContent()
     expect(introText).toBeTruthy()
@@ -1548,6 +1686,36 @@ test.describe('LandingArticleGridWithFilter component', () => {
     await expect(articleGrid).toBeVisible()
   })
 
+  test('card is keyboard-navigable via Enter (client-side)', async ({ page }) => {
+    // The brand Card renders a native stretched anchor; a synthetic click from
+    // pressing Enter on that anchor must bubble to the card's onClick handler so
+    // keyboard users get the same client-side SPA navigation as mouse users.
+    // Guards against a regression if the click-intercept logic is refactored.
+    await page.goto('/get-started/article-grid-discovery')
+
+    const articleGrid = page.getByTestId('article-grid')
+    await expect(articleGrid).toBeVisible()
+
+    const firstCardLink = articleGrid.getByTestId('article-card').first().getByRole('link').first()
+    const href = await firstCardLink.getAttribute('href')
+    expect(href).toBeTruthy()
+
+    // Mark the current document so we can prove navigation was client-side
+    // (no full page reload): a hard navigation would wipe this window property.
+    await page.evaluate(() => {
+      ;(window as unknown as { __spaMarker?: boolean }).__spaMarker = true
+    })
+
+    await firstCardLink.focus()
+    await page.keyboard.press('Enter')
+
+    await expect(page).toHaveURL(new RegExp(href!.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')))
+    const stillClientSide = await page.evaluate(
+      () => (window as unknown as { __spaMarker?: boolean }).__spaMarker === true,
+    )
+    expect(stillClientSide).toBe(true)
+  })
+
   test('bespoke landing page does not show duplicate articles', async ({ page }) => {
     // The bespoke fixture lists individual articles AND their parent group
     // as children, which would cause duplicates without deduplication.
@@ -1566,7 +1734,7 @@ test.describe('LandingArticleGridWithFilter component', () => {
     const titles: string[] = []
     const count = await articleCards.count()
     for (let i = 0; i < count; i++) {
-      const title = await articleCards.nth(i).locator('h3 span').textContent()
+      const title = await articleCards.nth(i).locator('h3').textContent()
       titles.push(title!)
     }
     const uniqueTitles = new Set(titles)

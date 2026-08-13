@@ -21,6 +21,7 @@ import { loadUnversionedTree, loadPages, loadPageMap } from '@/frame/lib/page-da
 import getRedirect, { splitPathByLanguage } from '@/redirects/lib/get-redirect'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
 import { deprecated } from '@/versions/lib/enterprise-server-releases'
+import { RedirectedFragmentValidator } from '@/links/lib/validate-redirected-fragment'
 
 const logger = createLogger(import.meta.url)
 
@@ -33,6 +34,7 @@ type LinkContext = {
   redirects: NonNullable<Context['redirects']>
   currentLanguage: string
   userLanguage: string
+  fragmentValidator: RedirectedFragmentValidator
 }
 
 type Replacement = {
@@ -49,11 +51,40 @@ type Warning = {
   column?: number
 }
 
+// A fragment (`#anchor`) that was carried over when a redirect rewrote the link's path.
+// It needs validating against the destination page before we decide to keep or drop it.
+type CarriedFragment = {
+  hash: string
+  destPage?: Page
+}
+
+type NewHrefResult = {
+  // The rewritten href WITHOUT the fragment when `fragment` is set (the caller decides
+  // whether to re-append it); otherwise the full href including any fragment/search.
+  href: string
+  fragment?: CarriedFragment
+}
+
+// A link/definition replacement collected during the synchronous AST walk. Applying it is
+// deferred until after async fragment validation, so a carried-over anchor can be dropped.
+type PendingReplacement = {
+  asMarkdown: string
+  line: number
+  column?: number
+  baseHref: string
+  makeMarkdown: (href: string) => string
+  fragment?: CarriedFragment
+}
+
 const Options = {
   setAutotitle: false,
   fixHref: false,
   verbose: false,
   strict: false,
+  // When a redirect rewrites a link's path, the carried-over `#anchor` is validated
+  // against the destination page's real headings. If it exists in no applicable version
+  // it is dropped by default. Set this to keep such fragments (warn only).
+  keepStaleFragments: false,
 }
 
 export async function updateInternalLinks(files: string[], options = {}) {
@@ -71,6 +102,7 @@ export async function updateInternalLinks(files: string[], options = {}) {
     redirects,
     currentLanguage: 'en',
     userLanguage: 'en',
+    fragmentValidator: new RedirectedFragmentValidator(pageMap, redirects, 'en'),
   }
 
   for (const file of files) {
@@ -167,31 +199,30 @@ async function updateFile(file: string, context: LinkContext, opts: typeof Optio
 
   const lineOffset = rawContent.replace(content, '').split(/\n/g).length - 1
 
+  // Replacements are collected here during the synchronous AST walk and applied after
+  // async fragment validation below, so a carried-over `#anchor` can be dropped when the
+  // redirected destination page doesn't actually have that heading.
+  const pending: PendingReplacement[] = []
+
   visit(ast, definitionMatcher as Test, (node: Nodes) => {
     const asMarkdown = toMarkdown(node).trim()
     // E.g. `[foo]: /bar`
     if (opts.fixHref && content.includes(asMarkdown) && isDefinition(node)) {
-      let newHref = node.url
       const { label } = node
-      const betterHref = getNewHref(newHref, context, opts, file)
+      const result = getNewHref(node.url, context, opts, file)
       // getNewHref() might return a deliberate `undefined` if the
       // new href value could not be computed for some reason.
-      if (betterHref !== undefined) {
-        newHref = betterHref
-      }
-      const newAsMarkdown = `[${label}]: ${newHref}`
-      if (asMarkdown !== newAsMarkdown) {
-        // Something can be improved!
-        const column = node.position?.start.column
-        const line = node.position?.start.line || 0 + lineOffset
-        replacements.push({
-          asMarkdown,
-          newAsMarkdown,
-          line,
-          column,
-        })
-        newContent = newContent.replace(asMarkdown, newAsMarkdown)
-      }
+      const baseHref = result === undefined ? node.url : result.href
+      const column = node.position?.start.column
+      const line = (node.position?.start.line ?? 0) + lineOffset
+      pending.push({
+        asMarkdown,
+        line,
+        column,
+        baseHref,
+        makeMarkdown: (href) => `[${label}]: ${href}`,
+        fragment: result?.fragment,
+      })
     }
   })
 
@@ -212,7 +243,8 @@ async function updateFile(file: string, context: LinkContext, opts: typeof Optio
       const title = node.children.map((child: Nodes) => toMarkdown(child).slice(0, -1)).join('')
 
       let newTitle = title
-      let newHref = node.url
+      let baseHref = node.url
+      let fragment: CarriedFragment | undefined
 
       const hasQuotesAroundLink = content.includes(`"${asMarkdown}`)
 
@@ -250,7 +282,7 @@ async function updateFile(file: string, context: LinkContext, opts: typeof Optio
           if (xValue) {
             if (singleStartingQuote(xValue)) {
               const column = node.position?.start.column
-              const line = node.position?.start.line || 0 + lineOffset
+              const line = (node.position?.start.line ?? 0) + lineOffset
               warnings.push({
                 warning: 'Starts with a single " inside the text',
                 asMarkdown,
@@ -259,7 +291,7 @@ async function updateFile(file: string, context: LinkContext, opts: typeof Optio
               })
             } else if (isSimpleQuote(xValue)) {
               const column = node.position?.start.column
-              const line = node.position?.start.line || 0 + lineOffset
+              const line = (node.position?.start.line ?? 0) + lineOffset
               warnings.push({
                 warning: 'Starts and ends with a " inside the text',
                 asMarkdown,
@@ -271,26 +303,24 @@ async function updateFile(file: string, context: LinkContext, opts: typeof Optio
         }
       }
       if (opts.fixHref) {
-        const betterHref = getNewHref(node.url, context, opts, file)
+        const result = getNewHref(node.url, context, opts, file)
         // getNewHref() might return a deliberate `undefined` if the
         // new href value could not be computed for some reason.
-        if (betterHref !== undefined) {
-          newHref = betterHref
+        if (result !== undefined) {
+          baseHref = result.href
+          fragment = result.fragment
         }
       }
-      const newAsMarkdown = `[${newTitle}](${newHref})`
-      if (asMarkdown !== newAsMarkdown) {
-        // Something can be improved!
-        const column = node.position?.start.column
-        const line = node.position?.start.line || 0 + lineOffset
-        replacements.push({
-          asMarkdown,
-          newAsMarkdown,
-          line,
-          column,
-        })
-        newContent = newContent.replace(asMarkdown, newAsMarkdown)
-      }
+      const column = node.position?.start.column
+      const line = (node.position?.start.line ?? 0) + lineOffset
+      pending.push({
+        asMarkdown,
+        line,
+        column,
+        baseHref,
+        makeMarkdown: (href) => `[${newTitle}](${href})`,
+        fragment,
+      })
     } else if (opts.verbose) {
       logger.warn('Unable to find link as Markdown in the source content', {
         asMarkdown,
@@ -298,6 +328,64 @@ async function updateFile(file: string, context: LinkContext, opts: typeof Optio
       })
     }
   })
+
+  // Resolve any carried-over fragments (async — renders the destination page), then apply
+  // every replacement to `newContent` in document order.
+  for (const item of pending) {
+    let finalHref = item.baseHref
+    if (item.fragment) {
+      const { hash, destPage } = item.fragment
+      const decision = await context.fragmentValidator.classify(destPage, hash)
+      if (decision === 'drop') {
+        if (opts.keepStaleFragments) {
+          finalHref = item.baseHref + hash
+          warnings.push({
+            warning: `Stale anchor '${hash}' not found on the redirected destination page in any applicable version, but kept because keepStaleFragments is set`,
+            asMarkdown: item.asMarkdown,
+            line: item.line,
+            column: item.column,
+          })
+        } else {
+          // Drop the fragment: leave `finalHref` as the fragment-less base href.
+          warnings.push({
+            warning: `Removed stale anchor '${hash}' — not found on the redirected destination page in any applicable version`,
+            asMarkdown: item.asMarkdown,
+            line: item.line,
+            column: item.column,
+          })
+        }
+      } else if (decision === 'mixed') {
+        finalHref = item.baseHref + hash
+        warnings.push({
+          warning: `Anchor '${hash}' exists in some but not all versions of the redirected destination page; kept for manual review`,
+          asMarkdown: item.asMarkdown,
+          line: item.line,
+          column: item.column,
+        })
+      } else if (decision === 'unvalidatable') {
+        finalHref = item.baseHref + hash
+        warnings.push({
+          warning: `Could not validate anchor '${hash}' on the redirected destination page; kept unchanged`,
+          asMarkdown: item.asMarkdown,
+          line: item.line,
+          column: item.column,
+        })
+      } else {
+        // 'keep' — the anchor exists on the destination in every applicable version.
+        finalHref = item.baseHref + hash
+      }
+    }
+    const newAsMarkdown = item.makeMarkdown(finalHref)
+    if (item.asMarkdown !== newAsMarkdown) {
+      replacements.push({
+        asMarkdown: item.asMarkdown,
+        newAsMarkdown,
+        line: item.line,
+        column: item.column,
+      })
+      newContent = newContent.replace(item.asMarkdown, newAsMarkdown)
+    }
+  }
 
   return {
     data,
@@ -490,7 +578,7 @@ function getNewHref(
     strict: boolean
   },
   file: string,
-) {
+): NewHrefResult | undefined {
   const { currentLanguage } = context
   const parsed = new URL(href, 'https://docs.github.com')
   const hash = parsed.hash
@@ -579,13 +667,31 @@ function getNewHref(
     }
   }
 
-  if (search) {
-    newHref += search
+  const base = search ? `${newHref}${search}` : newHref
+
+  // No fragment → nothing to validate; return the (possibly rewritten) path as-is.
+  if (!hash) {
+    return { href: base }
   }
-  if (hash) {
-    newHref += hash
+
+  // The path wasn't rewritten, so the original fragment still points at the same page and
+  // remains valid. Keep it appended, exactly as before.
+  if (!redirected) {
+    return { href: base + hash }
   }
-  return newHref
+
+  // The path WAS rewritten by a redirect, so the carried-over fragment may be stale on the
+  // destination page. Surface it (with the destination Page, if resolvable) so the caller
+  // can validate it against the destination's real headings and decide keep vs. drop.
+  const destPage = resolveDestinationPage(context.pages, redirected)
+  return { href: base, fragment: { hash, destPage } }
+}
+
+// Resolve the Page a redirect points at, so its headings can be validated. `redirected` is
+// a full permalink-style URL from getRedirect() (e.g. `/en/get-started/foo` or
+// `/en/enterprise-cloud@latest/get-started/foo`), which is how the page map is keyed.
+function resolveDestinationPage(pages: Record<string, Page>, redirected: string): Page | undefined {
+  return pages[redirected] || pages[getPathWithLanguage(getPathWithoutLanguage(redirected), 'en')]
 }
 
 function singleStartingQuote(text: string) {

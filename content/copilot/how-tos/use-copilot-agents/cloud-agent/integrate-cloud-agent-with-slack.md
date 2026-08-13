@@ -25,7 +25,7 @@ For information about additional {% data variables.product.prodname_copilot_shor
 
 ## Security considerations
 
-When you @mention {% data variables.product.prodname_copilot_short %} in Slack, consider the following.
+Before you @mention the {% data variables.product.prodname_github_app %} in Slack, consider the following.
 
 * {% data variables.product.prodname_copilot_short %} may perform write actions on your behalf, such as creating pull requests or issues, in addition to answering questions. {% data variables.product.prodname_copilot_short %} uses the permissions of your linked {% data variables.product.github %} account for any actions it takes.
 * {% data variables.copilot.copilot_cloud_agent %} will capture the entire thread as context for your request, understanding and implementing solutions based on the discussion. This context is stored in the pull request. If you want to limit the context, you can send a direct message to the {% data variables.product.prodname_github_app %} for Slack instead.
@@ -40,7 +40,7 @@ When you @mention {% data variables.product.prodname_copilot_short %} in Slack, 
 
 The first time you use the {% data variables.product.prodname_github_app %} in Slack, the app will prompt you to connect it to your {% data variables.product.github %} account and set a default repository. The default repository is where pull requests created by {% data variables.copilot.copilot_cloud_agent %} sessions will be opened.
 
-1. In Slack, open a direct message with the {% data variables.product.prodname_github_app %} or mention {% data variables.product.prodname_copilot_short %} in a thread by typing `@{% data variables.product.prodname_copilot %}`.
+1. In Slack, open a direct message with the {% data variables.product.prodname_github_app %} or mention the {% data variables.product.prodname_github_app %} in a thread by typing `@{% data variables.product.github %}`.
 1. Send a prompt to {% data variables.copilot.copilot_cloud_agent %}. This can be a request to perform a task, or simply `login`.
 1. If asked to connect your {% data variables.product.github %} account, follow the instructions in {% data variables.product.prodname_copilot_short %}'s reply and authorize the app to access your {% data variables.product.github %} account.
 1. In the Slack message thread, click **Configure settings** to set a default repository for pull requests. You can change this repository later using the `settings` command.

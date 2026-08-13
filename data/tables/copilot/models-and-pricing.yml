@@ -14,7 +14,9 @@
 # - output: Output token price per 1M tokens.
 # - threshold: Input token threshold for pricing tier (OpenAI and Google only).
 # - tier: Pricing tier label (OpenAI and Google only).
-# - cache_write: Cache write price per 1M tokens (Anthropic only).
+# - cache_write: Cache write price per 1M tokens. Applies to Anthropic models and
+#   to GPT-5.6 and later OpenAI model families. Use "Not applicable" for models
+#   that have no cache write cost.
 # - notes: Optional notes about the model.
 
 # OpenAI
@@ -27,6 +29,7 @@
   input: $0.25
   cached_input: $0.025
   output: $2.00
+  cache_write: Not applicable
 
 - model: GPT-5.3-Codex
   provider: openai
@@ -37,6 +40,7 @@
   input: $1.75
   cached_input: $0.175
   output: $14.00
+  cache_write: Not applicable
 
 - model: 'GPT-5.4'
   provider: openai
@@ -47,6 +51,7 @@
   input: $2.50
   cached_input: $0.25
   output: $15.00
+  cache_write: Not applicable
 
 - model: GPT-5.4
   provider: openai
@@ -57,6 +62,7 @@
   input: $5.00
   cached_input: $0.50
   output: $22.50
+  cache_write: Not applicable
 
 - model: GPT-5.4 mini
   provider: openai
@@ -67,6 +73,7 @@
   input: $0.75
   cached_input: $0.075
   output: $4.50
+  cache_write: Not applicable
 
 - model: GPT-5.4 nano
   provider: openai
@@ -77,6 +84,7 @@
   input: $0.20
   cached_input: $0.02
   output: $1.25
+  cache_write: Not applicable
 
 - model: GPT-5.5
   provider: openai
@@ -87,6 +95,7 @@
   input: $5.00
   cached_input: $0.50
   output: $30.00
+  cache_write: Not applicable
 
 - model: GPT-5.5
   provider: openai
@@ -97,6 +106,7 @@
   input: $10.00
   cached_input: $1.00
   output: $45.00
+  cache_write: Not applicable
 
 - model: GPT-5.6 Luna
   provider: openai
@@ -104,9 +114,10 @@
   category: Lightweight
   threshold: '≤ 200K'
   tier: Default
-  input: $1.00
-  cached_input: $0.10
-  output: $6.00
+  input: $0.20
+  cached_input: $0.02
+  output: $1.20
+  cache_write: $0.25
 
 - model: GPT-5.6 Luna
   provider: openai
@@ -114,9 +125,10 @@
   category: Lightweight
   threshold: '> 200K'
   tier: 'Long context'
-  input: $2.00
-  cached_input: $0.20
-  output: $9.00
+  input: $0.40
+  cached_input: $0.04
+  output: $1.80
+  cache_write: $0.50
 
 - model: GPT-5.6 Sol
   provider: openai
@@ -127,6 +139,7 @@
   input: $5.00
   cached_input: $0.50
   output: $30.00
+  cache_write: $6.25
 
 - model: GPT-5.6 Sol
   provider: openai
@@ -137,6 +150,7 @@
   input: $10.00
   cached_input: $1.00
   output: $45.00
+  cache_write: $12.50
 
 - model: GPT-5.6 Terra
   provider: openai
@@ -144,9 +158,10 @@
   category: Versatile
   threshold: '≤ 272K'
   tier: Default
-  input: $2.50
-  cached_input: $0.25
-  output: $15.00
+  input: $2.00
+  cached_input: $0.20
+  output: $12.00
+  cache_write: $2.50
 
 - model: GPT-5.6 Terra
   provider: openai
@@ -154,9 +169,10 @@
   category: Versatile
   threshold: '> 272K'
   tier: 'Long context'
-  input: $5.00
-  cached_input: $0.50
-  output: $22.50
+  input: $4.00
+  cached_input: $0.40
+  output: $18.00
+  cache_write: $5.00
 
 # Anthropic
 - model: Claude Haiku 4.5
@@ -268,26 +284,6 @@
   cache_write: $12.50
 
 # Google
-- model: 'Gemini 2.5 Pro'
-  provider: google
-  release_status: GA
-  category: Powerful
-  threshold: 'Not applicable'
-  tier: 'Default'
-  input: $1.25
-  cached_input: $0.125
-  output: $10.00
-
-- model: 'Gemini 3 Flash'
-  provider: google
-  release_status: Public preview
-  category: Lightweight
-  threshold: 'Not applicable'
-  tier: 'Default'
-  input: $0.50
-  cached_input: $0.05
-  output: $3.00
-
 - model: 'Gemini 3.1 Pro'
   provider: google
   release_status: Public preview
@@ -328,6 +324,27 @@
   cached_input: $0.15
   output: $7.50
 
+# xAI
+- model: 'Grok 4.5'
+  provider: xai
+  release_status: GA
+  category: Versatile
+  threshold: '≤ 200K'
+  tier: 'Default'
+  input: $2.00
+  cached_input: $0.50
+  output: $6.00
+
+- model: 'Grok 4.5'
+  provider: xai
+  release_status: GA
+  category: Versatile
+  threshold: '> 200K'
+  tier: 'Long context'
+  input: $4.00
+  cached_input: $1.00
+  output: $12.00
+
 # Microsoft
 - model: 'MAI-Code-1-Flash'
   provider: microsoft
@@ -336,6 +353,14 @@
   input: $0.75
   cached_input: $0.075
   output: $4.50
+
+- model: 'MAI-Code-1.1-Flash'
+  provider: microsoft
+  release_status: GA
+  category: Lightweight
+  input: $0.20
+  cached_input: $0.02
+  output: $1.20
 
 # Fine-tuned (GitHub)
 - model: 'Raptor mini'
@@ -355,3 +380,11 @@
   input: $0.95
   cached_input: $0.19
   output: $4.00
+
+- model: 'Kimi K3'
+  provider: moonshot_ai
+  release_status: GA
+  category: Powerful
+  input: $3.00
+  cached_input: $0.30
+  output: $15.00

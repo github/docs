@@ -2,13 +2,13 @@
 title: 'Deploying your website automatically'
 shortTitle: 'Deploy automatically'
 intro: 'Automate your code deployment with {% data variables.product.prodname_actions %} and {% data variables.product.prodname_pages %} to publish updates to a live site with every push to the main branch.'
-category:
-  - Learn to code
-contentType: get-started
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Start your GitHub journey
+contentType: get-started
 ---
 
 Your feature is merged, so now you can share it. In this tutorial, you'll set up automatic deployment so every push to `main` publishes your software project to a live website.
@@ -123,7 +123,7 @@ Across this series, you built a complete software project and practiced the {% d
 ## Next steps
 
 * Expand your understanding of Git and {% data variables.product.github %}. For more information, see [AUTOTITLE](/get-started/start-your-journey/git-and-github-learning-resources).
-* Explore {% data variables.copilot.copilot_chat_short %} to learn faster and get help as you code. For more information, see [AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest/{% endif %}/copilot/concepts/chat){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
-* Go deeper with AI and learn how agents can act like a practical coding partner by turning ideas into small actionable steps, generating examples, and handling repetitive work. For more information, see [AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest/{% endif %}/copilot/concepts/agents){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
+* Explore {% data variables.copilot.copilot_chat_short %} to learn faster and get help as you code. For more information, see [AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/copilot/concepts/chat){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
+* Go deeper with AI and learn how agents can act like a practical coding partner by turning ideas into small actionable steps, generating examples, and handling repetitive work. For more information, see [AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/copilot/concepts/agents){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
 * Learn more about automating your software projects with {% data variables.product.prodname_actions %} workflows. For more information, see [AUTOTITLE](/actions/get-started/understand-github-actions).
 * Add a custom domain or explore more ways to publish your website with {% data variables.product.prodname_pages %}. For more information, see [AUTOTITLE](/pages/getting-started-with-github-pages).
