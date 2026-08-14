@@ -132,6 +132,11 @@
   excels_at: Complex problem-solving challenges, sophisticated reasoning
   further_reading: '[Grok 4.5 model card](https://media.x.ai/v1/website/card-7f81d41b.pdf)'
 
+- name: Grok 4.6
+  task_area: General-purpose coding and agent tasks
+  excels_at: Complex problem-solving challenges, sophisticated reasoning
+  further_reading: '[Grok 4.6 model card](https://media.x.ai/v1/website/card-4p6-4cd2dc57.pdf)'
+
 # Other providers (alphabetized by model name)
 - name: Qwen2.5
   task_area: General-purpose coding and writing

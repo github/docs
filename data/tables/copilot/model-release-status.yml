@@ -142,3 +142,7 @@
 - name: 'Grok 4.5'
   provider: 'xAI'
   release_status: 'GA'
+
+- name: 'Grok 4.6'
+  provider: 'xAI'
+  release_status: 'GA'
