@@ -63,15 +63,6 @@ If the commit that introduced the sensitive data exists in any forks, it will co
 
 Consider these limitations and challenges in your decision to rewrite your repository's history.
 
-## Before you begin
-
-Before rewriting your repository's history, prepare for the cleanup and coordinate with anyone who might be affected.
-
-* Revoke or rotate any exposed secrets before you rewrite history. Rewriting history removes the secret from some locations, but it does not prevent anyone who already saw the secret from using it.
-* Identify every path or text value that needs to be removed. If the sensitive data moved between files or changed names, include each path or value in your cleanup plan.
-* Ask collaborators to pause work on affected branches until the cleanup is complete. New commits pushed during the cleanup can require you to repeat the process.
-* Check whether branch protections, tags, pull requests, or forks still reference the commit that introduced the sensitive data. These references can prevent the data from being fully removed.
-
 ## Purging a file from your local repository's history using git-filter-repo
 
 1. Install the latest release of [the `git-filter-repo` tool](https://github.com/newren/git-filter-repo). You need a version with the `--sensitive-data-removal` flag, meaning at least version 2.47.  You can install `git-filter-repo` manually or by using a package manager. For example, to install the tool with Homebrew, use the `brew install` command.
