@@ -37,7 +37,7 @@ Each REST API endpoint is documented individually, and the endpoints are categor
 
 For a list of libraries to facilitate scripting with the REST API, see [AUTOTITLE](/rest/using-the-rest-api/libraries-for-the-rest-api).
 
-You might also use webhooks to get notified about events, or build a {% data variables.product.prodname_github_app %} to act on behalf of a user or organization. For more information, see [AUTOTITLE](/webhooks/about-webhooks) and [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/deciding-when-to-build-a-github-app).
+If you are building scripts or applications that use the REST API, you might also be interested in using webhooks to get notified about events or a {% data variables.product.prodname_github_app %} to access resources on behalf of a user or in an organization. For more information, see [AUTOTITLE](/webhooks/about-webhooks) and [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/deciding-when-to-build-a-github-app).
 
 ## Further reading
 
