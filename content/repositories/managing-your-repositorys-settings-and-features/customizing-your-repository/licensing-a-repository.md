@@ -10,8 +10,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Repositories
+category:
+  - Customize and configure a repository
 ---
 ## Choosing the right license
 

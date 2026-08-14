@@ -6,12 +6,6 @@ versions:
   ghec: '*'
   ghes: '*'
 permissions: Enterprise owners can restrict email notifications for an enterprise.
-type: how_to
-topics:
-  - Enterprise
-  - Notifications
-  - Organizations
-  - Policies
 redirect_from:
   - /admin/policies/restricting-email-notifications-for-your-enterprise
   - /github/setting-up-and-managing-your-enterprise/restricting-email-notifications-for-your-enterprise-account-to-approved-domains
@@ -19,6 +13,9 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/restricting-email-notifications-for-your-enterprise-account
   - /admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise
 shortTitle: Restrict email notifications
+contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About email restrictions for your enterprise
@@ -27,7 +24,7 @@ When you restrict email notifications, enterprise members can only use an email 
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 
-The domains can be inherited from the enterprise or configured for the specific organization. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise) and [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization).
+The domains can be inherited from the enterprise or configured for the specific organization. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise) and [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization).
 
 {% data reusables.notifications.email-restrictions-verification %}
 
@@ -35,7 +32,7 @@ If email restrictions are enabled for an enterprise, organization owners cannot 
 
 ## Restricting email notifications for your enterprise
 
-Before you can restrict email notifications for your enterprise, you must verify or approve at least one domain for the enterprise. {% ifversion ghec %} For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise).{% endif %}
+Before you can restrict email notifications for your enterprise, you must verify or approve at least one domain for the enterprise. {% ifversion ghec %} For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise).{% endif %}
 
 Users will not be notified when you enable email restrictions. It is your responsibility to inform users that, in the future, they will only receive email notifications related to your enterprise if they've added an email address belonging to a verified or approved domain to their account settings.
 

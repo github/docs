@@ -12,14 +12,16 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile
   - /account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile
   - /account-and-profile/get-started/personalizing-your-profile
+  - /get-started/quickstart/setting-up-your-profile
+  - /get-started/start-your-journey/setting-up-your-profile
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Profiles
 shortTitle: Personalize your profile
 contentType: tutorials
+category:
+  - Customize your profile
 ---
 
 > [!NOTE]
@@ -90,7 +92,7 @@ Add pronouns to your public user profile to share information about yourself wit
 You can add up to four links to social accounts on your profile.
 
 {% data reusables.user-settings.access_settings %}
-1. Under "Social accounts", in a blank "Link to social profile" field, type the full URL of the social account. For example, for the `@GitHub` Twitter account, type `https://twitter.com/github`.
+1. Under "Social accounts", in a blank "Link to social profile" field, type the full URL of the social account. For example, for the `@GitHub` X (formerly Twitter) account, type `https://x.com/github`.
 {% data reusables.profile.update-profile %}
 
 {% endif %}
@@ -118,14 +120,13 @@ You can set a status to display information about your current availability.
 1. In the "What's happening" field, type a status message.
 1. Optionally, to set an emoji status, click {% octicon "smiley" aria-label="Choose an emoji" %}, then click an emoji from the list.
 1. Optionally, if you'd like to share that you have limited availability, select "Busy."
-1. Select the **Clear status** dropdown menu, then click when you want your status to expire. If you don't select a status expiration, you will keep your status until you clear or edit your status.
+1. Select the **Expiration** dropdown menu, then click when you want your status to expire. If you don't select a status expiration, you will keep your status until you clear or edit your status.
 1. Select the **Visible to** dropdown menu, then click who you want your status visible to. If you don't select an organization, your status will be public.
 1. Click **Set status**.
 
 ## Next steps
 
-* To learn more about GitHub profiles, see [AUTOTITLE](/account-and-profile/concepts/about-your-profile).
-
+* Use the [Emoji cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/) and [Markdown cheat sheet](https://www.markdownguide.org/cheat-sheet/) to experiment with additional formatting.
+* To learn more about GitHub profiles, see [AUTOTITLE](/account-and-profile/concepts/personal-profile).
 * For reference information, see [AUTOTITLE](/account-and-profile/reference/profile-reference).
-
-* For more detailed profile customizations, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-github-profile).
+* For more detailed profile customizations, see [AUTOTITLE](/account-and-profile/how-tos).

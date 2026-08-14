@@ -6,8 +6,6 @@ permissions: Organization owners
 product: '{% data reusables.gated-features.copilot-business-and-enterprise %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-activity-related-to-github-copilot-in-your-organization/reviewing-changes-to-content-exclusions-for-github-copilot
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/reviewing-changes-to-content-exclusions-for-github-copilot
@@ -17,7 +15,7 @@ redirect_from:
   - /copilot/how-tos/content-exclusion/reviewing-changes-to-content-exclusions-for-github-copilot
   - /copilot/how-tos/content-exclusion/review-changes
 contentType: how-tos
-category: 
+category:
   - Configure Copilot
 ---
 
@@ -28,7 +26,7 @@ Organization and repository settings include the ability to exclude content from
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 
-1. In the "Code & automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**.
 {% data reusables.copilot.view-last-change-content-exclusions %}
 1. Click the time of the last change.
 
@@ -76,4 +74,4 @@ Organization and repository settings include the ability to exclude content from
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/content-exclusion-for-github-copilot)
+* [AUTOTITLE](/copilot/concepts/context/content-exclusion)

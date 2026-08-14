@@ -1,64 +1,38 @@
-import { fileURLToPath } from 'url'
 import { Command } from 'commander'
 import fs from 'fs'
-import yaml from 'js-yaml'
 import path from 'path'
 import ora from 'ora'
-import { execSync } from 'child_process'
-import { callModelsApi } from '@/ai-tools/lib/call-models-api'
+import { execFileSync } from 'child_process'
 import dotenv from 'dotenv'
+import readFrontmatter from '@/frame/lib/read-frontmatter'
+import { findMarkdownFiles, mergeFrontmatterProperties } from '@/ai-tools/lib/file-utils'
+import {
+  getPromptsDir,
+  getAvailableEditorTypes,
+  getRefinementDescriptions,
+  callEditor,
+  enrichIndexContext,
+} from '@/ai-tools/lib/prompt-utils'
+import { fetchCopilotSpace, convertSpaceToPrompt } from '@/ai-tools/lib/spaces-utils'
+import { ensureGitHubToken } from '@/ai-tools/lib/auth-utils'
 dotenv.config({ quiet: true })
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const promptDir = path.join(__dirname, '../prompts')
-const promptTemplatePath = path.join(promptDir, 'prompt-template.yml')
+const promptDir = getPromptsDir()
 
-if (!process.env.GITHUB_TOKEN) {
-  // Try to find a token via the CLI before throwing an error
-  const token = execSync('gh auth token').toString()
-  if (token.startsWith('gh')) {
-    process.env.GITHUB_TOKEN = token
-  } else {
-    console.warn(`🔑 A token is needed to run this script. Please do one of the following and try again:
+// Ensure GitHub token is available
+ensureGitHubToken()
 
-1. Add a GITHUB_TOKEN to a local .env file.
-2. Install https://cli.github.com and authenticate via 'gh auth login'.
-    `)
-    process.exit(1)
-  }
-}
-
-interface EditorType {
-  description: string
-}
-
-interface EditorTypes {
-  versioning: EditorType
-  intro: EditorType
-}
-
-const editorTypes: EditorTypes = {
-  versioning: {
-    description: 'Refine versioning according to simplification guidance.',
-  },
-  intro: {
-    description: 'Refine intro frontmatter based on SEO and content guidelines.',
-  },
-}
-
-const refinementDescriptions = (): string => {
-  let str = '\n\n'
-  for (const [ed, edObj] of Object.entries(editorTypes)) {
-    str += `  ${ed.padEnd(12)} ${edObj.description}\n`
-  }
-  return str
-}
+const editorTypes = getAvailableEditorTypes(promptDir)
 
 interface CliOptions {
   verbose?: boolean
-  refine: Array<keyof EditorTypes>
-  files: string[]
+  prompt?: string[]
+  refine?: string[]
+  files?: string[]
   write?: boolean
+  exportSpace?: string
+  space?: string
+  output?: string
 }
 
 const program = new Command()
@@ -71,20 +45,118 @@ program
     '-w, --write',
     'Write changes back to the original files (default: output to console only)',
   )
-  .requiredOption(
+  .option(
+    '-p, --prompt <type...>',
+    `Specify one or more prompt type: ${getRefinementDescriptions(editorTypes)}`,
+  )
+  .option(
     '-r, --refine <type...>',
-    `Specify one or more refinement type: ${refinementDescriptions().trimEnd()}\n`,
+    `(Deprecated: use --prompt) Specify one or more prompt type: ${getRefinementDescriptions(editorTypes)}`,
   )
-  .requiredOption(
-    '-f, --files <files...>',
-    'One or more content file paths in the content directory',
+  .option(
+    '--export-space <url>',
+    'Export a Copilot Space to a prompt file (format: https://api.github.com/orgs/{org}/copilot-spaces/{id})',
   )
+  .option(
+    '--space <url>',
+    'Use a Copilot Space as prompt source (format: https://api.github.com/orgs/{org}/copilot-spaces/{id})',
+  )
+  .option(
+    '--output <filename>',
+    'Output filename for exported Space prompt (use with --export-space)',
+  )
+  .option('-f, --files <files...>', 'One or more content file paths in the content directory')
   .action((options: CliOptions) => {
     ;(async () => {
+      // Handle export-space workflow (standalone, doesn't process files)
+      if (options.exportSpace) {
+        if (!options.output) {
+          console.error('Error: --export-space requires --output option')
+          process.exit(1)
+        }
+
+        const spinner = ora('Fetching Copilot Space...').start()
+        try {
+          const space = await fetchCopilotSpace(options.exportSpace)
+          spinner.text = `Converting Space "${space.name}" to prompt format...`
+
+          const promptContent = convertSpaceToPrompt(space)
+          const outputPath = path.join(promptDir, options.output)
+
+          fs.writeFileSync(outputPath, promptContent, 'utf8')
+          spinner.succeed(`Exported Space to: ${outputPath}`)
+          console.log(`\nSpace: ${space.name}`)
+          console.log(`Resources: ${space.resources_attributes?.length || 0} items`)
+          console.log(`\nYou can now use it with: --prompt ${path.basename(options.output, '.md')}`)
+          return
+        } catch (error) {
+          spinner.fail(`Failed to export Space: ${(error as Error).message}`)
+          process.exit(1)
+        }
+      }
+
+      // Validate mutually exclusive options
+      if (options.space && options.prompt) {
+        console.error('Error: Cannot use both --space and --prompt options')
+        process.exit(1)
+      }
+
+      // Files are required for processing workflows
+      if (!options.files || options.files.length === 0) {
+        console.error('Error: --files option is required (unless using --export-space)')
+        process.exit(1)
+      }
+
       const spinner = ora('Starting AI review...').start()
 
       const files = options.files
-      const editors = options.refine
+      let prompts: string[] = []
+      let promptContent: string | undefined
+
+      // Handle Space workflow (in-memory)
+      if (options.space) {
+        try {
+          spinner.text = 'Fetching Copilot Space...'
+          const space = await fetchCopilotSpace(options.space)
+          promptContent = convertSpaceToPrompt(space)
+          prompts = [space.name] // Use space name for display
+
+          if (options.verbose) {
+            console.log(`Using Space: ${space.name} (ID: ${space.number})`)
+            console.log(`Resources: ${space.resources_attributes?.length || 0} items`)
+          }
+        } catch (error) {
+          spinner.fail(`Failed to fetch Space: ${(error as Error).message}`)
+          process.exit(1)
+        }
+      } else {
+        // Handle local prompt workflow
+        prompts = options.prompt || options.refine || []
+
+        if (prompts.length === 0) {
+          spinner.fail('No prompt type specified. Use --prompt, --refine, or --space.')
+          process.exitCode = 1
+          return
+        }
+      }
+
+      // Validate local prompt types exist (skip for Space workflow)
+      if (!options.space) {
+        const availableEditors = editorTypes
+        for (const editor of prompts) {
+          if (!availableEditors.includes(editor)) {
+            spinner.fail(
+              `Unknown prompt type: ${editor}. Available types: ${availableEditors.join(', ')}`,
+            )
+            process.exitCode = 1
+            return
+          }
+        }
+      }
+
+      if (options.verbose) {
+        console.log(`Processing ${files.length} files with prompts: ${prompts.join(', ')}`)
+      }
 
       for (const file of files) {
         const filePath = path.resolve(process.cwd(), file)
@@ -96,69 +168,175 @@ program
           continue
         }
 
-        try {
-          spinner.text = `Reading file: ${file}`
-          const content = fs.readFileSync(filePath, 'utf8')
+        // Check if it's a directory
+        const isDirectory = fs.statSync(filePath).isDirectory()
 
-          for (const editorType of editors) {
-            spinner.text = `Running the AI-powered ${editorType} refinement...`
-            const answer = await callEditor(editorType, content, options.write || false)
-            spinner.stop()
+        for (const editorType of prompts) {
+          try {
+            // For other editor types, process individual files
+            const filesToProcess: string[] = []
 
-            if (options.write) {
-              // Write the result back to the original file
-              fs.writeFileSync(filePath, answer, 'utf8')
-              console.log(`✅ Updated: ${file}`)
+            if (isDirectory) {
+              // Find all markdown files in the directory recursively
+              // Use process.cwd() as the root directory for safety
+              const rootDir = fs.realpathSync(process.cwd())
+              filesToProcess.push(...findMarkdownFiles(filePath, rootDir))
+
+              if (filesToProcess.length === 0) {
+                spinner.warn(`No markdown files found in directory: ${file}`)
+                continue
+              }
+
+              spinner.text = `Found ${filesToProcess.length} markdown files in ${file}`
             } else {
-              // Just output to console (current behavior)
-              console.log(answer)
+              filesToProcess.push(filePath)
             }
+
+            spinner.start()
+            for (const fileToProcess of filesToProcess) {
+              const relativePath = path.relative(process.cwd(), fileToProcess)
+              spinner.text = `Processing: ${relativePath}`
+              try {
+                // Expand Liquid references before processing
+                let originalIntro = ''
+                if (editorType === 'intro') {
+                  const originalContent = fs.readFileSync(fileToProcess, 'utf8')
+                  const { data: originalData } = readFrontmatter(originalContent)
+                  originalIntro = originalData?.intro || ''
+                }
+
+                if (options.verbose) {
+                  console.log(`Expanding Liquid references in: ${relativePath}`)
+                }
+                runLiquidTagsScript('expand', [fileToProcess], options.verbose || false)
+
+                let content = fs.readFileSync(fileToProcess, 'utf8')
+
+                // For intro prompt, add original intro and enrich context
+                if (editorType === 'intro') {
+                  if (originalIntro) {
+                    content = `\n\n---\nOriginal intro (unresolved): ${originalIntro}\n---\n\n${content}`
+                  }
+                  content = enrichIndexContext(fileToProcess, content)
+                }
+
+                // For content-type prompt, skip files that already have contentType
+                if (editorType === 'content-type' && content.includes('contentType:')) {
+                  spinner.stop()
+                  console.log(`⏭️  Skipping ${relativePath} (already has contentType)`)
+                  runLiquidTagsScript('restore', [fileToProcess], false)
+                  continue
+                }
+
+                const answer = await callEditor(
+                  editorType,
+                  content,
+                  promptDir,
+                  options.write || false,
+                  options.verbose || false,
+                  promptContent, // Pass Space prompt content if using --space
+                )
+                spinner.stop()
+
+                if (options.write) {
+                  if (editorType === 'intro' || editorType === 'content-type') {
+                    // For frontmatter addition/modification, merge properties instead of overwriting entire file
+                    const updatedContent = mergeFrontmatterProperties(fileToProcess, answer)
+                    fs.writeFileSync(fileToProcess, updatedContent, 'utf8')
+                    console.log(`✅ Added frontmatter properties to: ${relativePath}`)
+                  } else {
+                    // For other editor types, write the full result back to the original file
+                    fs.writeFileSync(fileToProcess, answer, 'utf8')
+                    console.log(`✅ Updated: ${relativePath}`)
+                  }
+                } else {
+                  // Just output to console (current behavior)
+                  if (filesToProcess.length > 1) {
+                    console.log(`\n=== ${relativePath} ===`)
+                  }
+                  console.log(answer)
+                }
+
+                // Always restore Liquid references after processing (even in non-write mode)
+                if (options.verbose) {
+                  console.log(`Restoring Liquid references in: ${relativePath}`)
+                }
+                runLiquidTagsScript('restore', [fileToProcess], options.verbose || false)
+              } catch (err) {
+                const error = err as Error
+                spinner.fail(`Error processing ${relativePath}: ${error.message}`)
+                process.exitCode = 1
+
+                // Still try to restore Liquid references on error
+                try {
+                  runLiquidTagsScript('restore', [fileToProcess], false)
+                } catch (restoreError) {
+                  // Log restore failures in verbose mode for debugging
+                  if (options.verbose) {
+                    console.error(`Warning: Failed to restore Liquid references: ${restoreError}`)
+                  }
+                }
+              } finally {
+                spinner.stop()
+              }
+            }
+          } catch (err) {
+            const error = err as Error
+            const targetName = path.relative(process.cwd(), filePath)
+            spinner.fail(`Error processing ${targetName}: ${error.message}`)
+            process.exitCode = 1
           }
-        } catch (err) {
-          const error = err as Error
-          spinner.fail(`Error processing file ${file}: ${error.message}`)
-          process.exitCode = 1
         }
       }
 
       spinner.stop()
+
+      // Exit with appropriate code based on whether any errors occurred
+      if (process.exitCode) {
+        process.exit(process.exitCode)
+      }
     })()
   })
 
 program.parse(process.argv)
 
-interface PromptMessage {
-  content: string
-  role: string
-}
-
-interface PromptData {
-  messages: PromptMessage[]
-  model?: string
-  temperature?: number
-  max_tokens?: number
-}
-
-async function callEditor(
-  editorType: keyof EditorTypes,
-  content: string,
-  writeMode: boolean,
-): Promise<string> {
-  const markdownPromptPath = path.join(promptDir, `${editorType}.md`)
-  let markdownPrompt = fs.readFileSync(markdownPromptPath, 'utf8')
-
-  // For intro type in write mode, append special instructions
-  if (editorType === 'intro' && writeMode) {
-    markdownPrompt +=
-      '\n\n**WRITE MODE**: Output only the complete updated file content with the new intro in the frontmatter. Do not include analysis or explanations - just return the file ready to write.'
+/**
+ * Run liquid-tags command on specified file paths
+ */
+function runLiquidTagsScript(
+  command: 'expand' | 'restore',
+  filePaths: string[],
+  verbose: boolean = false,
+): void {
+  const args = [command, '--paths', ...filePaths]
+  if (verbose) {
+    args.push('--verbose')
   }
 
-  const prompt = yaml.load(fs.readFileSync(promptTemplatePath, 'utf8')) as PromptData
-
-  for (const msg of prompt.messages) {
-    msg.content = msg.content.replace('{{markdownPrompt}}', markdownPrompt)
-    msg.content = msg.content.replace('{{input}}', content)
+  try {
+    // Run liquid-tags script via tsx
+    const liquidTagsScriptPath = path.join(
+      process.cwd(),
+      'src/content-render/scripts/liquid-tags.ts',
+    )
+    execFileSync('npx', ['tsx', liquidTagsScriptPath, ...args], {
+      stdio: verbose ? 'inherit' : 'pipe',
+    })
+  } catch (error) {
+    if (verbose) {
+      console.error(`Error running liquid-tags ${command}:`, error)
+    }
+    // Don't fail the entire process if liquid-tags fails
   }
-
-  return callModelsApi(prompt)
 }
+
+// Handle graceful shutdown
+process.on('SIGINT', () => {
+  console.log('\n\n🛑 Process interrupted by user')
+  process.exit(0)
+})
+
+process.on('SIGTERM', () => {
+  console.log('\n\n🛑 Process terminated')
+  process.exit(0)
+})

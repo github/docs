@@ -32,6 +32,9 @@ To run the webhooks pipeline locally:
 1. Set a `GITHUB_TOKEN` in your `.env` with (classic) `repo` scopes & enable SSO for the github org. 
 1. Run `npm run sync-rest -- -s rest-api-description -o webhooks`.
 
+> [!NOTE]
+> The `npm run sync-webhooks` shortcut in `package.json` does **not** pass `-s`, so it defaults to sourcing from the private `github/github` monorepo and will fail unless you are in a Codespace with that repo checked out as a sibling directory. Use the `sync-rest` command above for local development.
+
 ## About this directory
 
 - `src/webhooks/data` - The automatically generated data files created by running this pipeline.
@@ -57,3 +60,37 @@ Slack: `#docs-engineering`
 Repo: `github/docs-engineering`
 
 If you have a question about the webhooks pipeline, you can ask in the `#docs-engineering` Slack channel. If you notice a problem with the webhooks pipeline, you can open an issue in the `github/docs-engineering` repository.
+
+## Ownership & Escalation
+
+### Ownership
+- **Team**: Docs Engineering
+- **Source data**: API Platform (github/rest-api-description)
+
+### Escalation path
+1. **Pipeline failures** → #docs-engineering Slack
+2. **OpenAPI schema issues** → #api-platform Slack
+3. **Production incidents** → #docs-engineering
+
+### On-call procedures
+If the webhooks pipeline fails:
+1. Check workflow logs in `.github/workflows/sync-openapi.yml`
+2. Verify access to `github/rest-api-description` repo
+3. Check for OpenAPI schema validation errors
+4. Review changes in generated data files
+5. Check `config.json` SHA tracking
+6. Escalate to API Platform team if schema issue
+
+### Monitoring
+- Pipeline runs automatically on daily schedule (shared with REST/GitHub Apps)
+- PRs created with `github-openapi-bot` label
+- SHA tracking in `config.json` for version history
+- Failures visible in GitHub Actions
+
+This pipeline is in maintenance mode. We will continue to support ongoing improvements incoming from the platform but we are not expecting new functionality moving forward.
+
+### Known limitations
+- **Shared pipeline** - Cannot run webhooks independently of REST/GitHub Apps
+- **Single page** - All events on one page (may impact performance)
+- **Introduction placement** - Manual content must be at start of file
+- **Payload complexity** - Some payloads are very large and complex

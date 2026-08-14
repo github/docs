@@ -14,9 +14,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pages
 shortTitle: Unpublish Pages site
+category:
+  - Managing a GitHub Pages site
 ---
 
 When you unpublish your site, your current deployment is removed and the site will no longer be available. Any existing repository settings or content will not be affected.

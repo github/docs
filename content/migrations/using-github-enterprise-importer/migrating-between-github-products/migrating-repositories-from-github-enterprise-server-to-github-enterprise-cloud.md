@@ -11,6 +11,8 @@ redirect_from:
   - /early-access/enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-to-github-enterprise-cloud/migrating-repositories-from-github-enterprise-server-to-github-enterprise-cloud
   - /early-access/enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-github-enterprise-server-to-github-enterprise-cloud
   - /migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-github-enterprise-server-to-github-enterprise-cloud
+category:
+  - Run an enterprise migration
 ---
 
 ## About repository migrations with {% data variables.product.prodname_importer_proper_name %}
@@ -19,7 +21,7 @@ redirect_from:
 
 {% api %}
 
-If you choose to use the API, you'll need to write your own scripts or use an HTTP client like [Insomnia](https://insomnia.rest/). You can learn more about getting started with {% data variables.product.company_short %}'s APIs in [AUTOTITLE](/rest/guides/getting-started-with-the-rest-api) and [AUTOTITLE](/graphql/guides/forming-calls-with-graphql).
+If you choose to use the API, you'll need to write your own scripts or use an HTTP client like [Insomnia](https://insomnia.rest/). You can learn more about getting started with {% data variables.product.company_short %}'s APIs in [AUTOTITLE](/rest/using-the-rest-api/getting-started-with-the-rest-api) and [AUTOTITLE](/graphql/guides/forming-calls-with-graphql).
 
 To migrate your repositories from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %} with the APIs, you will:
 
@@ -46,6 +48,10 @@ To migrate your repositories from {% data variables.product.prodname_ghe_server 
 {% data reusables.enterprise-migration-tool.gei-tool-switcher-cli %}
 
 {% endapi %}
+
+{% ifversion repo-rules-enterprise %}
+{% data reusables.enterprise-migration-tool.repository-migrations-bypass %}
+{% endif %}
 
 ## Prerequisites
 
@@ -220,7 +226,7 @@ For more information, see [Get an organization migration status](/rest/migration
 > [!NOTE]
 > If your migration moves to the `failed` state rather than the `exported` state, try starting the migration again. If the migration fails repeatedly, we recommend generating the archives using `ghe-migrator` instead of the API.
 >
->Follow the steps in [Exporting migration data from your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-your-enterprise), adding only one repository to the migration. At the end of the process, you will have a single migration archive with your Git source and metadata, and you can move to step 6 in this article.
+>Follow the steps in [Exporting migration data from your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/migrations/using-ghe-migrator/exporting-migration-data-from-github-enterprise-server), adding only one repository to the migration. At the end of the process, you will have a single migration archive with your Git source and metadata, and you can move to step 6 in this article.
 
 After the `state` of a migration moves to `exported`, you can fetch the migration's URL using the "Download an organization migration archive" API.
 
@@ -424,7 +430,7 @@ When you use the CLI flag for {% data variables.product.prodname_ghos %}, the re
 
 {% data reusables.enterprise-migration-tool.set-up-aws-bucket %}
 
-### Setting up an Azure Blob Storage storage account
+### Setting up an Azure Blob Storage account
 
 {% data reusables.enterprise-migration-tool.set-up-azure-storage-account %}
 
@@ -506,7 +512,7 @@ gh gei generate-script --github-source-org SOURCE \
 
 | Argument | Description |
 | -------- | ----------- |
-| `--download-migration-logs` | Download the migration log for each migrated repository. For more information about migration logs, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer#downloading-all-migration-logs-for-an-organization). |
+| `--download-migration-logs` | Download the migration log for each migrated repository. For more information about migration logs, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer#downloading-all-the-repository-migration-logs-for-a-migration-script). |
 | `--lock-source-repo` | Lock the source repository when migrating. **Warning:** Locking a source repository prevents further changes and may disrupt workflows. It is recommended to only use this option if you are certain it is appropriate. For more information, see [AUTOTITLE](/migrations/overview/about-locked-repositories). |
 | `--no-ssl-verify` | {% data reusables.enterprise-migration-tool.ssl-flag %} |
 | `--skip-releases` | {% data reusables.enterprise-migration-tool.skip-releases %} |

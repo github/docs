@@ -1,0 +1,6 @@
+# https://github.com/github/core-ux/issues/1444
+# review-involves pull request search qualifier, shipping to GHES 3.23
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.23'

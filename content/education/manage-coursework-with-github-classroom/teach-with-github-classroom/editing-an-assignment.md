@@ -5,7 +5,11 @@ versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can edit assignments for that classroom. {% data reusables.classroom.classroom-admins-link %}'
 shortTitle: Edit an assignment
+category:
+  - Create and manage assignments
 ---
+{% data reusables.classroom.closing-down-notice %}
+
 ## About editing assignments
 
 After creating an assignment, you can edit many aspects of the assignment to better fit the needs of yourself and your students. Be aware that you cannot change the assignment type (either individual or group) or the online integrated development environment (IDE) after assignment creation. For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment) and [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment).

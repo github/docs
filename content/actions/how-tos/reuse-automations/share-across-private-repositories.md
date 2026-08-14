@@ -3,14 +3,14 @@ title: Sharing actions and workflows from your private repository
 intro: You can share an action or reusable workflow without publishing them publicly.
 versions:
   fpt: '*'
-topics:
-  - Actions
-  - Action development
 shortTitle: Share across private repositories
 redirect_from:
   - /actions/creating-actions/sharing-actions-and-workflows-from-your-private-repository
   - /actions/sharing-automations/sharing-actions-and-workflows-from-your-private-repository
   - /actions/how-tos/sharing-automations/sharing-actions-and-workflows-from-your-private-repository
+category:
+  - Reuse and share automations
+contentType: how-tos
 ---
 
 > [!WARNING]
@@ -28,4 +28,4 @@ redirect_from:
 
 ## Next steps
 
-To reuse your shared workflows, see [AUTOTITLE](/actions/using-workflows/reusing-workflows).
+To reuse your shared workflows, see [AUTOTITLE](/actions/how-tos/reuse-automations/reuse-workflows).

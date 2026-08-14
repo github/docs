@@ -11,11 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Webhooks
 children:
   - /webhook-events-and-payloads
-changelog:
-  label: webhooks
-layout: product-landing
+layout: discovery-landing
 ---

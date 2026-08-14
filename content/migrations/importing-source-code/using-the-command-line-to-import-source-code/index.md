@@ -5,7 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-# topics:
 children:
   - /about-source-code-imports-using-the-command-line
   - /adding-locally-hosted-code-to-github

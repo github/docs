@@ -22,7 +22,7 @@ sections:
       Users received an email for secret scanning alert dismissal requests if they had organization-level permission to review and manage dismissal requests, even if they lacked the necessary permission for the repository the request was for.
   changes:
     - |
-      Administrators can now invoke `ghe-storage-init-backup`, the backup initialization script introduced in [3.17](/enterprise-server@3.17/admin/backing-up-and-restoring-your-instance/backup-service-for-github-enterprise-server/configuring-the-backup-service), from any location as it is installed in the system PATH instead of the `/usr/local/share/enterprise` directory.
+      Administrators can now invoke `ghe-storage-init-backup`, the backup initialization script introduced in [3.17](/enterprise-server@3.17/admin/backing-up-and-restoring-your-instance/configuring-the-backup-service), from any location as it is installed in the system PATH instead of the `/usr/local/share/enterprise` directory.
     - |
       For administrators managing logs, log folders are more consistently accessible from the administrative account without the need to use `sudo`.
     - |

@@ -5,13 +5,11 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Testing
 journeyTracks:
   - id: track-1
     title: "Should be ignored"
     guides:
-      - /nonexistent/path
+      - href: /nonexistent/path
 ---
 
 # Non-Journey Page

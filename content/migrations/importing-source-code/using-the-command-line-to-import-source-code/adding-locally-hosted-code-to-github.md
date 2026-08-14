@@ -13,6 +13,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Local code
+category:
+  - Import source code
 ---
 
 ## About importing source code

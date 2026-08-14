@@ -5,6 +5,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Follow the style guide and content model
 ---
 
 Good release notes provide administrators the necessary information to plan system upgrades in environments that require change control, and support end users who want to understand and prepare to use new {% data variables.product.prodname_dotcom %} features and functionality.

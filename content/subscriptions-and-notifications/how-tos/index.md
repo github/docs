@@ -14,5 +14,6 @@ children:
   - /managing-your-scheduled-reminders
   - /managing-security-notifications
   - /managing-marketing-emails-from-github
+contentType: how-tos
 ---
 

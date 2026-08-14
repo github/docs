@@ -1,15 +1,15 @@
 ---
 title: Troubleshooting your connection to GitHub Codespaces
-intro: 'Troubleshooting help for connecting to {% data variables.product.prodname_github_codespaces %}.'
+intro: Troubleshooting help for connecting to {% data variables.product.prodname_github_codespaces %}.
 versions:
   fpt: '*'
   ghec: '*'
-type: reference
-topics:
-  - Codespaces
 shortTitle: Connection
 redirect_from:
   - /codespaces/troubleshooting/troubleshooting-your-connection-to-codespaces
+contentType: reference
+category:
+  - Troubleshoot codespaces
 ---
 
 ## 503 codespace service unavailable
@@ -17,7 +17,7 @@ redirect_from:
 Codespaces are set to stop after 30 minutes without any activity. If you try to interact with a codespace after it has stopped, you may see a `503 service unavailable` error.
 
 * If a **Start** button is shown in {% data variables.product.prodname_vscode %} or in your browser window, click **Start** to reconnect to the codespace.
-* Reset your codespace by reloading the window. From the [Command Palette](/codespaces/reference/using-the-vs-code-command-palette-in-codespaces#accessing-the-command-palette) in {% data variables.product.prodname_vscode %}, click **Developer: Reload Window**.
+* Reset your codespace by reloading the window. From the [Command Palette](/codespaces/reference/using-the-vs-code-command-palette-in-codespaces#accessing-the-vs-code-command-palette) in {% data variables.product.prodname_vscode %}, click **Developer: Reload Window**.
 
 ## Browser cannot connect
 

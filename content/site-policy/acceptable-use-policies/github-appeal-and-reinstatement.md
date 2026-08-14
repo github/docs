@@ -4,9 +4,8 @@ versions:
   fpt: '*'
 redirect_from:
   - /articles/github-appeal-and-reinstatement
-topics:
-  - Policy
-  - Legal
+category:
+  - Follow acceptable use policies
 ---
 ## Appeal and Reinstatement
 
