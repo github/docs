@@ -71,7 +71,7 @@ MCP servers install from a policy-configured registry, which requires authentica
 
 First-party plugins—those installed from the built-in `copilot-plugins` and `awesome-copilot` marketplaces—automatically update at the start of each session in a trusted working directory. Disable this behavior with the `autoUpdate` setting (set to `false`) or the `COPILOT_AUTO_UPDATE=false` environment variable. Auto-update is also skipped by default in CI. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#configuration-file-settings).
 
-A marketplace you've added yourself can opt into the same session-start auto-update by setting `autoUpdate: true` on its `extraKnownMarketplaces` entry in your user settings. This opt-in is only honored from your own user settings—a repository or managed (MDM) setting can't enable or redirect auto-update for a marketplace. See [Repository settings](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#repository-settings-githubcopilotsettingsjson).
+A marketplace you've added yourself can opt into the same session-start auto-update by setting `autoUpdate: true` on its `extraKnownMarketplaces` entry in your user settings. This opt-in applies only to interactive and `-p` sessions—SDK and server sessions don't auto-update. It is honored from your own user settings or from managed (MDM/server) settings, but a repository-level `autoUpdate` setting is accepted and ignored—it can't enable or redirect auto-update for a marketplace. On a same-name collision, a built-in first-party marketplace wins, then a managed entry (which replaces the whole same-named user entry, so a managed entry without `"autoUpdate": true` removes the user's opt-in), then the user's own entry. See [Repository settings](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#repository-settings-githubcopilotsettingsjson).
 
 ### `copilot plugins marketplace` subcommands
 
@@ -83,7 +83,9 @@ Built-in default marketplaces ship with the runtime and can't be removed.
 | `add SOURCE`            | Add a marketplace (`owner/repo`, `owner/repo#ref`, a URL, or a local path)    |
 | `remove NAME [--force]` | Remove a marketplace; `--force` also uninstalls plugins sourced from it   |
 | `browse NAME [--json]`  | List the plugins offered by a marketplace's catalog                        |
-| `update [NAME]` (alias `refresh`) | Refresh the plugin catalog for one marketplace, or all if `NAME` is omitted   |
+| `update [NAME]` (alias `refresh`) | Refresh the plugin catalog for one marketplace, or all if `NAME` is omitted |
+
+In interactive mode, run `/plugins marketplace update [NAME]` (alias `/plugins marketplace refresh`), or press `r` in the plugins dashboard's Marketplace tab, to refresh every registered marketplace's catalog.
 
 ## `plugin.json`
 

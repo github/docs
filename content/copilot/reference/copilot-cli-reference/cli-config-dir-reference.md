@@ -60,9 +60,9 @@ By default, this file is located in the `~/.copilot` directory, which is the use
 > [!NOTE]
 > User-editable settings were originally stored in `config.json`. They have been moved to `settings.json`. Any user settings present in `config.json` on startup are automatically migrated to `settings.json`.
 
-If `settings.json` fails to read, parse, or validate, {% data variables.copilot.copilot_cli_short %} ignores the invalid values (recognized `config.json` values are still merged in) and shows a startup warning on the timeline identifying the error. Fix the reported issue to restore the affected settings.
+If `settings.json` fails to read, parse, or validate, {% data variables.copilot.copilot_cli_short %} ignores the invalid values (recognized `config.json` values are still merged in) and shows a startup warning on the timeline directing you to the **Problems** tab of the `/settings` command. Open that tab to see the specific error, then fix the reported issue to restore the affected settings.
 
-If `settings.json` contains a top-level key that isn't a recognized setting (for example, a typo), {% data variables.copilot.copilot_cli_short %} shows a startup warning listing the unknown key(s)—up to five, with a count of any more—and ignores them since they have no effect. `$schema` is tolerated and never reported.
+If `settings.json` contains a top-level key that isn't a recognized setting (for example, a typo), {% data variables.copilot.copilot_cli_short %} lists it in the **Problems** tab of the `/settings` command instead of on the timeline or in stderr. The tab's label shows a count (for example, `Problems (2)`) when any configuration scope has an issue. `$schema` is tolerated and never reported.
 
 If `~/.copilot/settings.json` is a symlink—for example, to sync settings through a dotfiles repository—writes from the `/settings` command follow the symlink and update its target instead of replacing the symlink with a regular file.
 
@@ -462,7 +462,7 @@ These settings apply across all your sessions and repositories. You can use the 
 | `enabledMcpServers` | `string[]` | `[]` | Enable built-in MCP servers that are disabled by default. |
 | `enabledPlugins` | `Record<string, boolean>` | `{}` | Declarative plugin auto-install. Keys are plugin specs; values are `true` (enabled) or `false` (disabled). |
 | `experimental` | `boolean` | `false` | Enable experimental features. Can also be enabled with the `--experimental` command-line option or the `/experimental` slash command. |
-| `extraKnownMarketplaces` | `Record<string, {...}>` | `{}` | Additional plugin marketplaces. Each key is a marketplace name; the value specifies the required `source` (`"directory"`, `"git"`, or `"github"`). Set `autoUpdate: true` on an entry to opt that marketplace's installed plugins into session-start auto-update, the same as first-party plugins. This opt-in is only honored when set in your own user settings. |
+| `extraKnownMarketplaces` | `Record<string, {...}>` | `{}` | Additional plugin marketplaces. Each key is a marketplace name; the value specifies the required `source` (`"directory"`, `"git"`, or `"github"`). Set `autoUpdate: true` on an entry to opt that marketplace's installed plugins into session-start auto-update, the same as first-party plugins. This opt-in applies only to interactive and `-p` sessions—SDK and server sessions don't auto-update. The opt-in is honored when set in your own user settings, or in managed (MDM/server) settings. On a same-name collision, a built-in first-party marketplace wins, then a managed entry (which replaces the whole same-named user entry, so a managed entry without `"autoUpdate": true` removes the user's opt-in), then the user's own entry. |
 | `footer` | `object` | — | Controls which items appear in the status line. Sub-keys include `showModelEffort`, `showDirectory`, `showBranch`, `showContextWindow`, `showQuota`, `showAgent`, `showAiUsed`, `showCodeChanges`, `showUsername`, `showSandbox`, `showYolo`, and `showCustom` (all `boolean`). Managed by the `/statusline` slash command. |
 | `hooks` | `object` | — | Inline user-level hook definitions, keyed by event name. Uses the same schema as `.github/hooks/*.json` files. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/use-hooks). |
 | `ide.autoConnect` | `boolean` | `true` | Automatically connect to an IDE workspace on startup. When `false`, you can still connect manually using the `/ide` command. |
@@ -473,7 +473,7 @@ These settings apply across all your sessions and repositories. You can use the 
 | `mergeStrategy` | `"rebase"` \| `"merge"` | — | Conflict resolution strategy for `/pr fix conflicts`. When set to `"rebase"`, conflicts are resolved by rebasing onto the base branch. When set to `"merge"`, the base branch is merged into the feature branch. If not configured, a picker dialog is shown. |
 | `model` | `string` | varies | AI model to use. Set to `"auto"` to let {% data variables.product.prodname_copilot_short %} pick the best available model automatically. Managed by the `/model` slash command. |
 | `mouse` | `boolean` | `true` | Enable mouse support. Can also be set with `--mouse` or `--no-mouse`. |
-| `permissions.disableBypassPermissionsMode` | `string` | — | When set to `"disable"`, all allow-all flags (`--allow-all-tools`, `--allow-all-paths`, `--allow-all-urls`, `--allow-all`, `--yolo`) are suppressed at startup and cannot be used to grant elevated permissions. |
+| `permissions.disableBypassPermissionsMode` | `string` | — | Set to `"disable"` to suppress all allow-all flags (`--allow-all-tools`, `--allow-all-paths`, `--allow-all-urls`, `--allow-all`, `--yolo`) at startup so they cannot be used to grant elevated permissions. Set to `"allow-auto-only"` to keep blocking full allow-all while still permitting `/allow-all auto` (LLM-assisted auto-approval). See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#restricting-the---allow-all-options). |
 | `pinnedPrompts` | `boolean` | `true` | Pin the current section's user prompt just below the top bar while scrolling the timeline, so it stays clear which request the visible output belongs to. CLI UI only—has no effect on prompts sent to the model. |
 | `powershellFlags` | `string[]` | `["-NoProfile", "-NoLogo"]` | Flags passed to PowerShell on startup. On Windows, the CLI prefers PowerShell 7+ (`pwsh`) and falls back to Windows PowerShell (`powershell.exe`) when `pwsh` is unavailable. Windows only. |
 | `proxyKerberosServicePrincipal` | `string` | unset | Service principal name (SPN) for Kerberos/Negotiate proxy authentication, overriding the derived `HTTP/<proxy-host>`. |
@@ -485,8 +485,8 @@ These settings apply across all your sessions and repositories. You can use the 
 | `respectGitignore` | `boolean` | `true` | Exclude gitignored files from the `@` file mention picker. When `false`, the picker includes files normally excluded by `.gitignore`. |
 | `sandbox.allowBypass` | `boolean` | `true` | Allow sandboxed commands to request a bypass for specific operations (surfaces a permission prompt) so tools like `grep` and `glob` keep working when the sandbox would otherwise block them. Set to `false` to opt out. |
 | `sandbox.enabled` | `boolean` | `false` | Restrict shell commands, MCP/LSP servers, and built-in file/web tools to a sandboxed environment with limited file system and network access. Enable it from the `/sandbox` dialog or with `/sandbox enable`. |
-| `sandbox.gitAuth` | `boolean` | `true` | Inject Git credentials into the sandbox so commands running inside it can authenticate with Git. Set to `false` to opt out. |
-| `sandbox.ghAuth` | `boolean` | `true` | Inject {% data variables.product.prodname_cli %} (`gh`) credentials into the sandbox so commands running inside it can authenticate with the {% data variables.product.prodname_cli %}. Set to `false` to opt out. |
+| `sandbox.auth.git` | `boolean` | `true` | Inject Git credentials into the sandbox so commands running inside it can authenticate with Git. Set to `false` to opt out. Renamed from `sandbox.gitAuth`; the old key has no migration and is ignored wherever it still appears. |
+| `sandbox.auth.gh` | `boolean` | `true` | Inject {% data variables.product.prodname_cli %} (`gh`) credentials into the sandbox so commands running inside it can authenticate with the {% data variables.product.prodname_cli %}. Set to `false` to opt out. Renamed from `sandbox.ghAuth`; the old key has no migration and is ignored wherever it still appears. |
 | `sandbox.userPolicy.network.allowLocalNetwork` | `boolean` | `true` | Allow sandboxed commands to reach local network addresses (for example, local dev servers). Set to `false` to opt out. |
 | `sandbox.userPolicy.network.proxy` | `object` | unset | Route sandboxed network traffic through an HTTP proxy. Fields: `url` (required), `username` (optional), `password` (optional). Configure it from the `/sandbox` dialog's **Network** tab, which masks the password field. The password itself is stored in the OS keychain rather than in `settings.json`, so it isn't editable via `/settings`. On Linux and macOS the proxy is cooperative (not strictly enforced); Windows enforces it. |
 | `sandbox.userPolicy.deniedPaths` | `string[]` | `[]` | Paths that sandboxed commands are denied access to. On Windows, the ProcessContainer sandbox backend cannot enforce per-path deny rules, so entries have no effect—therefore don't rely on `deniedPaths` to protect a sensitive directory on Windows. |
@@ -513,9 +513,12 @@ These settings apply across all your sessions and repositories. You can use the 
 | `theme` | `"default"` \| `"github"` \| `"dim"` \| `"high-contrast"` \| `"colorblind"` | `"github"` | Color palette for terminal output. Managed by the `/settings` and `/theme` slash commands. `colorMode` is a deprecated alias for this setting. | <!-- markdownlint-disable-line GHD046 -->
 | `toolSearch` | `boolean` | model- and feature-dependent | Controls tool search (deferred tool loading). Set `toolSearch: false` to opt out of tool search. |
 | `updateTerminalTitle` | `boolean` | `true` | Show the current intent in the terminal tab or window title. |
+| `worktreeBaseRef` | `"head"` \| `"defaultBranch"` | `"head"` | Starting point for new worktrees created by `/worktree`, `/worktree new`, and `--worktree`. `"defaultBranch"` starts from the remote default branch instead of the current checkout. |
 
 > [!TIP]
 > Run `copilot help sandbox` for the full sandbox reference, including supported hosts and all `sandbox` settings keys.
+
+The `/sandbox` dialog groups `git`, `gh`, and keychain access under a dedicated **Auth** tab, and shows the `settings.json` path where the current sandbox configuration is stored.
 
 Sandboxing is powered by [Microsoft eXecution Container (MXC)](https://github.com/microsoft/mxc), which provides platform-specific containment backends. {% data variables.copilot.copilot_cli_short %} uses Seatbelt on macOS, Bubblewrap on Linux, and ProcessContainer on Windows.
 
@@ -538,7 +541,7 @@ Only the keys listed in the following table are supported at the repository leve
 | `disabledSkills` | `string[]` | Union—repository can add entries, never remove | Skills discovered but not loaded. |
 | `effortLevel` | `string` | Replaced—repository takes precedence | Pin the default reasoning effort. |
 | `enabledPlugins` | `Record<string, boolean>` | Merged—repository overrides user for same key | Declarative plugin auto-install. |
-| `extraKnownMarketplaces` | `Record<string, {...}>` | Merged—repository overrides user for same key | Plugin marketplaces available in this repository. Each entry's `source` is required. An `autoUpdate: true` on an entry is accepted at the repository level but currently ignored—the auto-update opt-in is only honored when set in the user's own settings. |
+| `extraKnownMarketplaces` | `Record<string, {...}>` | Merged—repository overrides user for same key | Plugin marketplaces available in this repository. Each entry's `source` is required. An `autoUpdate: true` on an entry is accepted at the repository level but currently ignored—the auto-update opt-in is only honored when set in the user's own settings or in managed (MDM/server) settings. |
 | `hooks` | `object` | Merged—repository overrides user for same key | Hook definitions scoped to this repository. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/use-hooks). |
 | `includeCoAuthoredBy` | `boolean` | Replaced—repository takes precedence | Add a `Co-authored-by` trailer to commits. |
 | `mergeStrategy` | `"rebase"` \| `"merge"` | Replaced—repository takes precedence | Conflict resolution strategy for `/pr fix conflicts`. |
@@ -640,6 +643,9 @@ Only the following keys are supported in MDM managed settings.
 
 > [!NOTE]
 > When `remoteControl.mode` is `"requireSSO"`, list the allowed organizations in `remoteControl.githubDotComOrganizations`. The client must be SSO-authorized for at least one listed {% data variables.product.prodname_dotcom_the_website %} organization—it no longer needs to be authorized for all of them.
+
+> [!NOTE]
+> Set `permissions.disableBypassPermissionsMode` to `"disable"` in MDM managed settings to enforce the restriction at the device level. Account switches cannot override this policy. Set it to `"allow-auto-only"` to block full allow-all escalation while still permitting `/permissions assisted` (LLM-assisted permission approval). See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#restricting-the---allow-all-options).
 
 ### Managed permission rules
 

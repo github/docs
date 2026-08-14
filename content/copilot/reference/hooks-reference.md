@@ -637,6 +637,8 @@ The `preToolUse` hook can control tool execution by writing a JSON object to std
 | `permissionDecisionReason` | string | Reason shown to the agent. Required when decision is `"deny"`. |
 | `modifiedArgs` | object | Substitute tool arguments to use instead of the originals. |
 
+When {% data variables.copilot.copilot_cli_short %} can show the hook-permission prompt, the user can type optional feedback along with a denial. That feedback is appended to the message the agent receives: `Denied by user via preToolUse hook prompt: <permissionDecisionReason>. The user provided the following feedback: <feedback>`.
+
 ## `agentStop` / `subagentStop` decision control
 
 | Field | Values | Description |
