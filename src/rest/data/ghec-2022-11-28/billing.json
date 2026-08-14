@@ -247,7 +247,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets all budgets for an enterprise. The authenticated actor must have permission to view enterprise billing.\nEach page returns up to 100 budgets.</p>",
+      "descriptionHTML": "<p>Gets budgets for an enterprise. Enterprise owners and billing managers can view all budgets. Organization administrators can view budgets scoped to organizations and repositories they administer.\nEach page returns up to 100 budgets.</p>",
       "codeExamples": [
         {
           "request": {
@@ -385,14 +385,14 @@
                         "properties": {
                           "will_alert": {
                             "type": "boolean",
-                            "description": "Whether alerts are enabled for this budget"
+                            "description": "Whether alerts are enabled for this budget. Ignored for user-scope as alerting is disabled for them."
                           },
                           "alert_recipients": {
                             "type": "array",
                             "items": {
                               "type": "string"
                             },
-                            "description": "Array of user login names who will receive alerts"
+                            "description": "Array of user login names who will receive alerts. Ignored for user-scope as alerting is disabled for them."
                           }
                         },
                         "required": [
@@ -583,14 +583,14 @@
                         "properties": {
                           "will_alert": {
                             "type": "boolean",
-                            "description": "Whether alerts are enabled for this budget"
+                            "description": "Whether alerts are enabled for this budget. Ignored for user-scope as alerting is disabled for them."
                           },
                           "alert_recipients": {
                             "type": "array",
                             "items": {
                               "type": "string"
                             },
-                            "description": "Array of user login names who will receive alerts"
+                            "description": "Array of user login names who will receive alerts. Ignored for user-scope as alerting is disabled for them."
                           }
                         },
                         "required": [
@@ -720,13 +720,13 @@
             {
               "type": "boolean",
               "name": "will_alert",
-              "description": "<p>Whether alerts are enabled for this budget</p>",
+              "description": "<p>Whether alerts are enabled for this budget. Rejected for user-scope as alerting is always disabled for them.</p>",
               "isRequired": true
             },
             {
               "type": "array of strings",
               "name": "alert_recipients",
-              "description": "<p>Array of user login names who will receive alerts</p>",
+              "description": "<p>Array of user login names who will receive alerts. Rejected for user-scope as alerting is always disabled for them.</p>",
               "isRequired": true
             }
           ]
@@ -878,14 +878,14 @@
                       "properties": {
                         "will_alert": {
                           "type": "boolean",
-                          "description": "Whether alerts are enabled for this budget"
+                          "description": "Whether alerts are enabled for this budget. Rejected for user-scope as alerting is always disabled for them."
                         },
                         "alert_recipients": {
                           "type": "array",
                           "items": {
                             "type": "string"
                           },
-                          "description": "Array of user login names who will receive alerts"
+                          "description": "Array of user login names who will receive alerts. Rejected for user-scope as alerting is always disabled for them."
                         }
                       }
                     }
@@ -932,10 +932,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -966,7 +970,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a budget by ID. The authenticated actor must have permission to view enterprise billing.</p>",
+      "descriptionHTML": "<p>Gets a budget by ID. Enterprise owners and billing managers can view any budget in the enterprise. Organization administrators can view budgets scoped to organizations and repositories they administer.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1059,14 +1063,14 @@
                   "properties": {
                     "will_alert": {
                       "type": "boolean",
-                      "description": "Whether alerts are enabled for this budget"
+                      "description": "Whether alerts are enabled for this budget. Present but not applicable for user-scope as alerting is always disabled for them."
                     },
                     "alert_recipients": {
                       "type": "array",
                       "items": {
                         "type": "string"
                       },
-                      "description": "Array of user login names who will receive alerts"
+                      "description": "Array of user login names who will receive alerts. Present but not applicable for user-scope as alerting is always disabled for them."
                     }
                   }
                 }
@@ -1169,12 +1173,12 @@
             {
               "type": "boolean",
               "name": "will_alert",
-              "description": "<p>Whether alerts are enabled for this budget</p>"
+              "description": "<p>Whether alerts are enabled for this budget. Ignored for user-scope as alerting is always disabled for them.</p>"
             },
             {
               "type": "array of strings",
               "name": "alert_recipients",
-              "description": "<p>Array of user login names who will receive alerts</p>"
+              "description": "<p>Array of user login names who will receive alerts. Ignored for user-scope as alerting is always disabled for them.</p>"
             }
           ]
         },
@@ -1330,14 +1334,14 @@
                       "properties": {
                         "will_alert": {
                           "type": "boolean",
-                          "description": "Whether alerts are enabled for this budget"
+                          "description": "Whether alerts are enabled for this budget. Ignored for user-scope as alerting is always disabled for them."
                         },
                         "alert_recipients": {
                           "type": "array",
                           "items": {
                             "type": "string"
                           },
-                          "description": "Array of user login names who will receive alerts"
+                          "description": "Array of user login names who will receive alerts. Ignored for user-scope as alerting is always disabled for them."
                         }
                       }
                     }
@@ -1388,10 +1392,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -1422,7 +1430,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Deletes a budget by ID. The authenticated user must be an enterprise admin.</p>",
+      "descriptionHTML": "<p>Deletes a budget by ID. Enterprise owners and billing managers can delete any budget in the enterprise. Organization administrators can delete budgets scoped to organizations they administer, and repository administrators can delete budgets scoped to repositories they administer.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1489,10 +1497,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -1575,7 +1587,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists per-user budget state for a multi-user customer scoped budget. The authenticated actor must have permission to view enterprise billing.</p>",
+      "descriptionHTML": "<p>Lists per-user budget state for a multi-user customer scoped budget. Enterprise owners and billing managers can view state across the enterprise. Organization administrators can view state for budgets scoped to organizations they administer.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1725,7 +1737,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a list of all the cost centers for an enterprise.</p>",
+      "descriptionHTML": "<p>Gets a list of all the cost centers for an enterprise. Enterprise owners and billing managers can view all cost centers. Organization owners can view cost centers associated with resources they administer.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1896,10 +1908,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
+          }
+        ]
       }
     },
     {
@@ -1933,7 +1949,7 @@
           "description": "<p>Whether the cost center draws from the AI credit pool.</p>\n<p>This can only be enabled for cost centers that contain only user or team resources.</p>\n<ul>\n<li><code>false</code> — no cap; the cost center draws from the shared enterprise pool.</li>\n<li><code>true</code> — the cost center is capped at an amount derived from its members' license entitlements.</li>\n</ul>"
         }
       ],
-      "descriptionHTML": "<p>Creates a new cost center for an enterprise. The authenticated user must be an enterprise admin.</p>",
+      "descriptionHTML": "<p>Creates a new cost center for an enterprise. The authenticated user must be an enterprise owner or billing manager.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2053,10 +2069,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -2105,7 +2125,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a cost center by ID. The authenticated user must be an enterprise admin.</p>",
+      "descriptionHTML": "<p>Gets a cost center by ID. Enterprise owners and billing managers can view any cost center. Organization owners can view cost centers associated with resources they administer.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2249,10 +2269,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
+          }
+        ]
       }
     },
     {
@@ -2294,7 +2318,7 @@
           "description": "<p>Whether the cost center draws from the AI credit pool.</p>\n<p>This can only be enabled for cost centers that contain only user or team resources.</p>\n<ul>\n<li><code>false</code> — no cap; the cost center draws from the shared enterprise pool.</li>\n<li><code>true</code> — the cost center is capped at an amount derived from its members' license entitlements.</li>\n</ul>"
         }
       ],
-      "descriptionHTML": "<p>Updates an existing cost center.</p>",
+      "descriptionHTML": "<p>Updates an existing cost center. Enterprise owners and billing managers can update any cost center. Organization owners can update cost centers associated with resources they administer.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2567,10 +2591,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -2601,7 +2629,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Archieves a cost center by ID. The authenticated user must be an enterprise admin.</p>",
+      "descriptionHTML": "<p>Archives a cost center by ID. Enterprise owners and billing managers can archive any cost center. Organization owners can archive cost centers associated with resources they administer.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2683,10 +2711,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -2738,7 +2770,7 @@
           "description": "<p>The enterprise teams to add to the cost center.</p>"
         }
       ],
-      "descriptionHTML": "<p>Adds resources to a cost center.</p>\n<p>The usage for the resources will be charged to the cost center's budget. The authenticated user must be an enterprise admin in order to use this endpoint.</p>",
+      "descriptionHTML": "<p>Adds resources to a cost center.</p>\n<p>The usage for the resources will be charged to the cost center's budget. Enterprise owners and billing managers can add any resource. Organization owners can add non-team resources to cost centers associated with resources they administer.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2846,10 +2878,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -2901,7 +2937,7 @@
           "description": "<p>The enterprise teams to remove from the cost center.</p>"
         }
       ],
-      "descriptionHTML": "<p>Remove resources from a cost center.</p>\n<p>The usage for the resources will no longer be charged to the cost center's budget. The authenticated user must be an enterprise admin in order to use this endpoint.</p>",
+      "descriptionHTML": "<p>Remove resources from a cost center.</p>\n<p>The usage for the resources will no longer be charged to the cost center's budget. Enterprise owners and billing managers can remove any resource. Organization owners can remove non-team resources from cost centers associated with resources they administer.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2960,10 +2996,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "write"
+          }
+        ]
       }
     }
   ],
