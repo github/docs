@@ -32,7 +32,7 @@ If your enterprise members manage their own user accounts on {% data variables.l
 
 {% data reusables.saml.about-saml-enterprise-accounts %} For more information, see [AUTOTITLE](/admin/concepts/identity-and-access-management/identity-and-access-management-fundamentals#considerations-for-enabling-saml-for-an-enterprise-or-organization) and [AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise).
 
-Alternatively, you can provision and manage the accounts of your enterprise members with {% data variables.product.prodname_emus %}. To help you determine whether SAML SSO or {% data variables.product.prodname_emus %} is better for your enterprise, see [AUTOTITLE](/enterprise-onboarding/getting-started-with-your-enterprise/choose-an-enterprise-type).
+Alternatively, you can provision and manage the accounts of your enterprise members with {% data variables.product.prodname_emus %}. To help you determine whether SAML SSO or {% data variables.product.prodname_emus %} is better for your enterprise, see [AUTOTITLE](/admin/concepts/enterprise-fundamentals/choose-an-enterprise-type).
 
 {% data reusables.enterprise-accounts.about-recovery-codes %} For more information, see [AUTOTITLE](/admin/managing-iam/managing-recovery-codes-for-your-enterprise).
 

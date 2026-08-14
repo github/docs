@@ -361,6 +361,6 @@ To restart streaming, click **Resume stream**.
 
 You can also retrieve {% data variables.product.prodname_copilot_short %} usage data through the REST API by selecting **Enabled everywhere** for "Copilot Usage Records API". See [AUTOTITLE](/rest/copilot/copilot-usage-metrics#get-copilot-usage-records-for-an-enterprise).
 
-For help interpreting the audit log events for agentic activity, see [AUTOTITLE](/copilot/reference/agentic-audit-log-events#streaming-audit-log-events).
+For help interpreting the audit log events for agentic activity, see [AUTOTITLE](/copilot/reference/enterprise-administrators/agentic-audit-log-events#streaming-audit-log-events).
 
 {% endif %}

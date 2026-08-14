@@ -21,7 +21,7 @@ category:
 
 {% data reusables.enterprise-accounts.about-enterprise-types %}
 
-After learning more about authentication and provisioning for each of these options, to determine which method is best for your enterprise, see [AUTOTITLE](/enterprise-onboarding/getting-started-with-your-enterprise/choose-an-enterprise-type).
+After learning more about authentication and provisioning for each of these options, to determine which method is best for your enterprise, see [AUTOTITLE](/admin/concepts/enterprise-fundamentals/choose-an-enterprise-type).
 
 {% elsif ghes %}
 
