@@ -1547,9 +1547,27 @@
       "requestPath": "/enterprises/{enterprise}/settings/billing/budgets"
     },
     {
+      "slug": "create-a-budget",
+      "subcategory": "budgets",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets"
+    },
+    {
       "slug": "get-a-budget-by-id",
       "subcategory": "budgets",
       "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets/{budget_id}"
+    },
+    {
+      "slug": "update-a-budget",
+      "subcategory": "budgets",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets/{budget_id}"
+    },
+    {
+      "slug": "delete-a-budget",
+      "subcategory": "budgets",
+      "verb": "delete",
       "requestPath": "/enterprises/{enterprise}/settings/billing/budgets/{budget_id}"
     },
     {
@@ -1557,6 +1575,48 @@
       "subcategory": "budgets",
       "verb": "get",
       "requestPath": "/enterprises/{enterprise}/settings/billing/budgets/{budget_id}/user-states"
+    },
+    {
+      "slug": "get-all-cost-centers-for-an-enterprise",
+      "subcategory": "cost-centers",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers"
+    },
+    {
+      "slug": "create-a-new-cost-center",
+      "subcategory": "cost-centers",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers"
+    },
+    {
+      "slug": "get-a-cost-center-by-id",
+      "subcategory": "cost-centers",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}"
+    },
+    {
+      "slug": "update-a-cost-center",
+      "subcategory": "cost-centers",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}"
+    },
+    {
+      "slug": "delete-a-cost-center",
+      "subcategory": "cost-centers",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}"
+    },
+    {
+      "slug": "add-resources-to-a-cost-center",
+      "subcategory": "cost-centers",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource"
+    },
+    {
+      "slug": "remove-resources-from-a-cost-center",
+      "subcategory": "cost-centers",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource"
     },
     {
       "slug": "list-usage-report-exports",
@@ -4807,10 +4867,34 @@
       "requestPath": "/orgs/{org}/credential-authorizations"
     },
     {
+      "slug": "revoke-all-credential-authorizations-for-an-organization",
+      "subcategory": "orgs",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/credential-authorizations/revoke-all"
+    },
+    {
+      "slug": "revoke-a-single-credential-type-for-an-organization",
+      "subcategory": "orgs",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/credential-authorizations/revoke-credential-type"
+    },
+    {
       "slug": "remove-a-saml-sso-authorization-for-an-organization",
       "subcategory": "orgs",
       "verb": "delete",
       "requestPath": "/orgs/{org}/credential-authorizations/{credential_id}"
+    },
+    {
+      "slug": "revoke-credential-authorizations-for-a-user-in-an-organization",
+      "subcategory": "orgs",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/credential-authorizations/{username}/revoke"
+    },
+    {
+      "slug": "revoke-a-single-credential-type-for-a-user-in-an-organization",
+      "subcategory": "orgs",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/credential-authorizations/{username}/revoke-credential-type"
     },
     {
       "slug": "list-custom-repository-roles-in-an-organization",

@@ -42,7 +42,7 @@
       {
         "type": "array of objects",
         "name": "repositories_removed",
-        "description": "<p>An array of repository objects, which were removed from the installation.</p>",
+        "description": "<p>An array of repository objects, which were removed from the installation. When <code>repository_selection</code> changes from <code>all</code> to <code>selected</code>, this array is empty.</p>",
         "isRequired": true,
         "childParamsGroups": []
       },
@@ -127,7 +127,7 @@
       {
         "type": "array of objects",
         "name": "repositories_removed",
-        "description": "<p>An array of repository objects, which were removed from the installation.</p>",
+        "description": "<p>An array of repository objects, which were removed from the installation. When <code>repository_selection</code> changes from <code>all</code> to <code>selected</code>, this array is empty.</p>",
         "isRequired": true,
         "childParamsGroups": []
       },
