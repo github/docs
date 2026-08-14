@@ -148,6 +148,14 @@ There are separate limits for security and version update pull requests, so that
 
 {% data variables.product.prodname_dependabot %} took longer than the maximum time allowed to assess the update required and prepare a pull request. This error is usually seen only for large repositories with many manifest files, for example, npm or yarn monorepo projects with hundreds of _package.json_ files. Updates to the Composer ecosystem also take longer to assess and may time out.
 
+{% ifversion fpt or ghec %} 
+
+{% data variables.product.prodname_dependabot %} update jobs that run on {% data variables.product.prodname_dotcom %}-hosted runners time out after 55 minutes. You cannot increase this time limit.
+
+A job's run time increases with the number of updates it must prepare. Repositories with many outdated dependencies can exceed the limit in a single job. If jobs time out consistently, consider manually updating some dependencies to reduce the workload for future jobs.
+
+{% endif %}
+
 **Resolution for version updates:** Specify the most important dependencies to update using the `allow` parameter or, alternatively, use the `ignore` parameter to exclude some dependencies from updates. Updating your configuration might allow {% data variables.product.prodname_dependabot %} to review the version update and generate the pull request in the time available.
 
 **Resolution for security updates:** Reduce the chances of timeouts by keeping the dependencies updated, for example, by enabling version updates. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-version-updates).
