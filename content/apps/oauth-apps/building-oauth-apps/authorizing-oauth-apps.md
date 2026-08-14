@@ -368,23 +368,33 @@ Non-web authentication is available for limited situations like testing. If you 
 
 ## Redirect URLs
 
-The `redirect_uri` parameter is optional. If left out, GitHub will
-redirect users to the callback URL configured in the {% data variables.product.prodname_oauth_app %}
-settings. If provided, the redirect URL's host (excluding sub-domains) and port must exactly
+The `redirect_uri` parameter is optional. If left out, {% data variables.product.github %} will
+redirect users to the {% ifversion fpt or ghec or ghes > 3.23 %}first {% endif %}callback URL configured in the {% data variables.product.prodname_oauth_app %}
+settings.
+
+{% ifversion fpt or ghec or ghes > 3.23 %}
+
+{% data reusables.apps.redirect-uri-wildcard-matching %}
+
+{% else %}
+
+If provided, the redirect URL's host (excluding sub-domains) and port must exactly
 match the callback URL. The redirect URL's path must reference a
 subdirectory of the callback URL.
 
-    CALLBACK: http://example.com/path
+    CALLBACK: https://example.com/path
 
-    GOOD: http://example.com/path
-    GOOD: http://example.com/path/subdir/other
-    GOOD: http://oauth.example.com/path
-    GOOD: http://oauth.example.com/path/subdir/other
-    BAD:  http://example.com/bar
-    BAD:  http://example.com/
-    BAD:  http://example.com:8080/path
-    BAD:  http://oauth.example.com:8080/path
-    BAD:  http://example.org
+    MATCH: https://example.com/path
+    MATCH: https://example.com/path/subdir/other
+    MATCH: https://oauth.example.com/path
+    MATCH: https://oauth.example.com/path/subdir/other
+    FAIL:  https://example.com/bar
+    FAIL:  https://example.com/
+    FAIL:  https://example.com:8080/path
+    FAIL:  https://oauth.example.com:8080/path
+    FAIL:  https://example.org
+
+{% endif %}
 
 ### Loopback redirect urls
 

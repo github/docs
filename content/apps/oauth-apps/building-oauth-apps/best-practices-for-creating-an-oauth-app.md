@@ -84,6 +84,11 @@ To test and gradually roll out support for expiring tokens, you can opt in to re
 
 {% endif %}
 
+## Enable wildcard matching for callback URLs only when necessary
+
+> [!WARNING]
+> {% data reusables.apps.redirect-uri-wildcard-security-warning %}
+
 ## Make a plan for handling security breaches
 
 You should have a plan in place so that you can handle any security breaches in a timely manner.
