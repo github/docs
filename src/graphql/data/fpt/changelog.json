@@ -4,6 +4,36 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>innersourceVulnerabilities</code> was added to object type <code>Enterprise</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>Enterprise.innersourceVulnerabilities</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>Enterprise.innersourceVulnerabilities</code></p>",
+          "<p>Argument <code>ecosystem: SecurityAdvisoryEcosystem</code> added to field <code>Enterprise.innersourceVulnerabilities</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>Enterprise.innersourceVulnerabilities</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>Enterprise.innersourceVulnerabilities</code></p>",
+          "<p>Argument <code>orderBy: SecurityVulnerabilityOrder</code> (with default value) added to field <code>Enterprise.innersourceVulnerabilities</code></p>",
+          "<p>Argument <code>package: String</code> added to field <code>Enterprise.innersourceVulnerabilities</code></p>",
+          "<p>Argument 'severities: [SecurityAdvisorySeverity!]<code>added to field</code>Enterprise.innersourceVulnerabilities'</p>",
+          "<p>Field <code>innersourceVulnerabilities</code> was added to object type <code>Organization</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>Organization.innersourceVulnerabilities</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>Organization.innersourceVulnerabilities</code></p>",
+          "<p>Argument <code>ecosystem: SecurityAdvisoryEcosystem</code> added to field <code>Organization.innersourceVulnerabilities</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>Organization.innersourceVulnerabilities</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>Organization.innersourceVulnerabilities</code></p>",
+          "<p>Argument <code>orderBy: SecurityVulnerabilityOrder</code> (with default value) added to field <code>Organization.innersourceVulnerabilities</code></p>",
+          "<p>Argument <code>package: String</code> added to field <code>Organization.innersourceVulnerabilities</code></p>",
+          "<p>Argument 'severities: [SecurityAdvisorySeverity!]<code>added to field</code>Organization.innersourceVulnerabilities'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-08-13"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>IssueFieldValueFilter</code> was added</p>",
           "<p>Input field <code>dateValue</code> of type <code>String</code> was added to input object type <code>IssueFieldValueFilter</code></p>",
           "<p>Input field <code>fieldId</code> of type <code>ID</code> was added to input object type <code>IssueFieldValueFilter</code></p>",

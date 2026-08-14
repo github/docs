@@ -91,4 +91,4 @@ The migration process may require time or cost from your team. Confirm that this
 
 ## Next steps
 
-When you have chosen an enterprise type, you're ready to create an enterprise account by starting a trial. See [AUTOTITLE](/enterprise-onboarding/getting-started-with-your-enterprise/setting-up-a-trial-of-github-enterprise).
+When you have chosen an enterprise type, you're ready to create an enterprise account by starting a trial. See [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud).

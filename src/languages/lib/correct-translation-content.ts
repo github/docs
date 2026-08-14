@@ -555,6 +555,23 @@ export function correctTranslatedContentStrings(
     // `{%–` — en-dash (U+2013) used instead of hyphen in `{%-` trim modifier
     content = content.replaceAll('{%–', '{%-')
 
+    // `{% vscode %}` inserted mid-sentence with no matching `{% endvscode %}`
+    // and no `{% vscode %}` in the English source at all. The translator
+    // apparently mistranslated a phrase ("the latest releases of VS Code")
+    // into a stray opening tag. Confirmed in
+    // `data/reusables/copilot/code-completion-switch-prereqs-vscode.md`,
+    // which then breaks tag balance in every file that wraps this reusable
+    // in its own `{% vscode %}...{% endvscode %}` block. Strip the stray
+    // opener (and any following whitespace) when it has no closer and the
+    // English source never used this tag.
+    if (
+      content.includes('{% vscode %}') &&
+      !content.includes('{% endvscode %}') &&
+      !englishContent.includes('{% vscode %}')
+    ) {
+      content = content.replaceAll(/\{% vscode %\}\s*/g, '')
+    }
+
     content = content.replaceAll('{% dados variables', '{% data variables')
     content = content.replaceAll('{% de dados variables', '{% data variables')
     content = content.replaceAll('{% dados reusables', '{% data reusables')
@@ -2344,6 +2361,28 @@ export function correctTranslatedContentStrings(
 
   // Collapsed Markdown table rows — restore linebreaks between `|` cells.
   content = content.replaceAll(' | | ', ' |\n| ')
+
+  // Translators sometimes reorder an `{% ifversion %}...{% endif %}` block so
+  // that `{% endif %}` appears BEFORE its matching `{% else %}`, e.g.
+  // `{% ifversion X %}A{% endif %}B{% else %}` instead of the correct
+  // `{% ifversion X %}A{% else %}B{% endif %}`. This produces a
+  // "tag 'else' not found" parse error. Confirmed identically across all
+  // eight translated languages for
+  // `data/reusables/organizations/custom-org-roles-intro.md`, so this fix
+  // runs universally as a post-fix (after the more specific per-file/
+  // per-language exact-string fixes above, which take priority when they
+  // match). We only swap `{% endif %}` and `{% else %}` when they appear
+  // back-to-back (with no other Liquid tag between them and the matching
+  // `{% ifversion %}`), to avoid disturbing legitimately nested or unrelated
+  // tags.
+  {
+    const noTag = '(?:(?!\\{%)[\\s\\S])*?'
+    const reorderRegex = new RegExp(
+      `(\\{%-?\\s*ifversion\\s+[^%]+?%\\})(${noTag})\\{%-?\\s*endif\\s*-?%\\}(${noTag})\\{%-?\\s*else\\s*-?%\\}`,
+      'g',
+    )
+    content = content.replace(reorderRegex, '$1$2{% else %}$3{% endif %}')
+  }
 
   // Final catch-all: earlier normalizations (e.g. space-in-braces regex) can
   // recreate `{{% KEYWORD` patterns after the per-keyword fixes already ran.

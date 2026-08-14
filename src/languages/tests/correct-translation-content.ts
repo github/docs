@@ -356,6 +356,32 @@ describe('correctTranslatedContentStrings', () => {
   // ─── PORTUGUESE (pt) ───────────────────────────────────────────────
 
   describe('Portuguese (pt)', () => {
+    test('strips stray unclosed {% vscode %} opener with no English counterpart', () => {
+      // Confirmed in data/reusables/copilot/code-completion-switch-prereqs-vscode.md:
+      // translator inserted a stray `{% vscode %}` opener mid-sentence with no
+      // matching `{% endvscode %}`, and the English source never used this tag.
+      expect(
+        fix(
+          'Você está usando as versões mais recentes do {% vscode %} Você pode alternar os modelos.',
+          'pt',
+          'You are using the latest releases of Visual Studio Code.',
+        ),
+      ).toBe('Você está usando as versões mais recentes do Você pode alternar os modelos.')
+
+      // Leave the tag alone when it's properly closed.
+      expect(
+        fix('{% vscode %}Conteúdo{% endvscode %}', 'pt', 'You are using the latest releases.'),
+      ).toBe('{% vscode %}Conteúdo{% endvscode %}')
+
+      // Leave the tag alone when the English source also uses it (legitimate tab content).
+      expect(fix('{% vscode %}Conteúdo', 'pt', '{% vscode %}Content')).toBe('{% vscode %}Conteúdo')
+
+      // Every opener is stray when there is no closer at all, so strip all of them.
+      expect(
+        fix('a {% vscode %} b {% vscode %} c', 'pt', 'You are using the latest releases.'),
+      ).toBe('a b c')
+    })
+
     test('fixes translated data tags', () => {
       expect(fix('{% dados variables.product.github %}', 'pt')).toBe(
         '{% data variables.product.github %}',
@@ -1514,6 +1540,20 @@ describe('correctTranslatedContentStrings', () => {
   })
 
   describe('Generic fixes (all languages)', () => {
+    test('fixes reordered ifversion/endif/else back to ifversion/else/endif', () => {
+      // Confirmed corruption pattern across all 8 translated languages in
+      // data/reusables/organizations/custom-org-roles-intro.md: `{% endif %}`
+      // and `{% else %}` were swapped, producing a "tag 'else' not found"
+      // parse error.
+      expect(
+        fix('{% ifversion org-custom-role-with-repo-permissions %}A{% endif %}B{% else %}C', 'pt'),
+      ).toBe('{% ifversion org-custom-role-with-repo-permissions %}A{% else %}B{% endif %}C')
+      // Already-correct input is left unchanged.
+      expect(fix('{% ifversion ghec %}A{% else %}B{% endif %}', 'pt')).toBe(
+        '{% ifversion ghec %}A{% else %}B{% endif %}',
+      )
+    })
+
     test('strips LLM sentinel markers and preserves word boundaries', () => {
       expect(fix('Hello<|endoftext|>World', 'es')).toBe('Hello World')
       expect(fix('Hello <|endoftext|> World', 'es')).toBe('Hello World')

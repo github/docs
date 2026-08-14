@@ -69,10 +69,10 @@ You can set the default review effort level that {% data variables.copilot.copil
 {% data reusables.profile.org_settings %}
 1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, then **Code review**.
 1. Next to "Review effort level," select the default effort level for automatic reviews in repositories in your organization.
-   * **Lite**: Standard review (default).
+   * **Lite**: Standard review.
    * **Balanced**: Deeper analysis of complex logic, security-sensitive code, and cross-service changes.
 
-Balanced reviews use more {% data variables.product.prodname_actions %} minutes and {% data variables.product.prodname_ai_credits_short %}. If you use Balanced effort, consider configuring larger or self-hosted runners for better performance. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-runners).
+Balanced reviews use more {% data variables.product.prodname_ai_credits_short %}, and may consume marginally more {% data variables.product.prodname_actions %} minutes. For more information on the cost of review effort levels, see [AUTOTITLE](/copilot/concepts/agents/code-review#estimated-consumption).
 
 ## Configuring review effort level for a repository
 
@@ -82,7 +82,7 @@ You can override the organization default and set a different default review eff
 {% data reusables.repositories.sidebar-settings %}
 1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, then **Code review**.
 1. Next to "Review effort level," select the effort level for automatic reviews in this repository.
-   * **Lite**: Standard review (default).
+   * **Lite**: Standard review.
    * **Balanced**: Deeper analysis of complex logic, security-sensitive code, and cross-service changes.
 
-Balanced reviews use more {% data variables.product.prodname_actions %} minutes and {% data variables.product.prodname_ai_credits_short %}. If you use Balanced effort, consider configuring larger or self-hosted runners for better performance. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-runners).
+Balanced reviews use more {% data variables.product.prodname_ai_credits_short %}, and may consume marginally more {% data variables.product.prodname_actions %} minutes. For more information on the cost of review effort levels, see [AUTOTITLE](/copilot/concepts/agents/code-review#estimated-consumption).

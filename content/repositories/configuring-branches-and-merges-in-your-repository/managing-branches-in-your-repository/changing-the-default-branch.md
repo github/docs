@@ -17,7 +17,7 @@ category:
 ---
 ## About changing the default branch
 
-You can choose the default branch for a repository. The default branch is the base branch for pull requests and code commits. For more information about the default branch, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch).
+You can choose the default branch for a repository. The default branch is the base branch for pull requests and code commits. For more information about the default branch, see [AUTOTITLE](/pull-requests/reference/branches#about-the-default-branch).
 
 You can also rename the default branch. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch).
 
@@ -25,7 +25,7 @@ You can also rename the default branch. For more information, see [AUTOTITLE](/r
 
 ## Prerequisites
 
-To change the default branch, your repository must have more than one branch. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch).
+To change the default branch, your repository must have more than one branch. For more information, see [AUTOTITLE](/pull-requests/how-tos/commit-changes/managing-branches-within-your-repository#creating-a-branch).
 
 {% ifversion repo-admin-branch-rename %}
 
