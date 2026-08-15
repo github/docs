@@ -14,7 +14,7 @@ The `src/links` directory manages:
 
 ### Components
 
-- **`LinkPreviewPopover.tsx`**: A React component that renders a preview card when a user hovers over a link. It handles:
+- **`components/LinkPreviewPopover.tsx`**: A React component that renders a preview card when a user hovers over a link. It handles:
   - **Delay Logic**: Prevents the popover from appearing during accidental mouse-overs.
   - **Positioning**: Ensures the popover appears near the link without going off-screen.
 
@@ -28,12 +28,9 @@ The `src/links` directory manages:
 
 ### Scripts (`src/links/scripts`)
 
-- **`rendered-content-link-checker.ts`**: A comprehensive CLI tool that:
-  - Renders content pages to HTML.
-  - Parses the HTML to find all `<a>` and `<img>` tags.
-  - Validates internal links (checking for 404s, broken anchors).
-  - Validates external links (with caching and retry logic).
-  - Reports flaws and can comment directly on GitHub Pull Requests.
+- **`check-links-pr.ts`**: Checks internal links in files changed by a pull request and can comment on the pull request.
+- **`check-links-internal.ts`**: Checks internal links across a selected version and language, including cross-page anchors.
+- **`check-links-external.ts`**: Checks external links in content files with a persistent cache.
 - **`check-github-github-links.ts`**: Ensures that we don't accidentally link to private `github/github` URLs in public documentation.
 - **`update-internal-links.ts`**: A CLI wrapper around the library function to perform bulk updates on the content files.
 
@@ -41,16 +38,20 @@ The `src/links` directory manages:
 
 ### Validating Links
 
-To run the link checker locally:
+To check links locally, choose the checker that matches the scope of your work:
 
 ```bash
-npm run rendered-content-link-checker-cli
+# Check changed files (or pass files explicitly)
+npm run check-links-pr -- --files content/actions/index.md content/repos/index.md
+
+# Check internal links for one version and language
+npm run check-links-internal -- --version free-pro-team@latest --language en
+
+# Check up to 100 external URLs
+npm run check-links-external -- --max 100
 ```
 
-Options:
-- `--level <all|critical|warning>`: Set the reporting level.
-- `--check-external-links`: Check external links (slower).
-- `--verbose`: Show detailed output.
+All three commands support `--verbose`. The PR checker also supports `--files` and `--all`; the internal checker supports `--version`, `--language`, and `--check-anchors`; and the external checker supports `--max`, `--domain-concurrency`, and `--dry-run`.
 
 ### Updating Links
 
@@ -74,6 +75,6 @@ This script typically relies on the state of the `content` directory to determin
 
 ## Current State & Known Issues
 
-- **Performance**: The `rendered-content-link-checker` is resource-intensive because it renders pages. It uses concurrency limits and caching (especially for external links) to mitigate this.
+- **Performance**: The internal link checker renders pages and can be resource-intensive. It uses concurrency limits, while the external link checker uses caching to reduce repeated requests.
 - **False Positives**: External link checking can be flaky due to temporary network issues or anti-bot protections on target sites. The system uses a "retry and cache" strategy to reduce noise.
 - **Liquid Complexity**: `update-internal-links` has to use regex and heuristics to parse Markdown mixed with Liquid, which is inherently fragile compared to a full AST parser, but necessary to preserve code formatting.
