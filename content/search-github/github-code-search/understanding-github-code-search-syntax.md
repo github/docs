@@ -1,3 +1,8 @@
+<img width="2880" height="1800" alt="FRACTAL-L-ONE-FRAME" src="https://github.com/user-attachments/assets/3d0ba6b6-a142-4685-9fc4-539a9578e9e7" />
+<img width="2880" height="1800" alt="FRACTAL-L-ONE-FRAME" src="https://github.com/user-attachments/assets/23487f92-2863-4498-85a2-c35e7fd09998" />
+
+<img width="2880" height="1800" alt="FRACTAL-L-ONE-FRAME" src="https://github.com/user-attachments/assets/332e69e6-4a5d-4c34-8b22-a1dc019a024e" />
+
 ---
 title: Understanding GitHub Code Search syntax
 shortTitle: Code search syntax
