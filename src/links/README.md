@@ -14,7 +14,7 @@ The `src/links` directory manages:
 
 ### Components
 
-- **`LinkPreviewPopover.tsx`**: A React component that renders a preview card when a user hovers over a link. It handles:
+- **`components/LinkPreviewPopover.tsx`**: A React component that renders a preview card when a user hovers over a link. It handles:
   - **Delay Logic**: Prevents the popover from appearing during accidental mouse-overs.
   - **Positioning**: Ensures the popover appears near the link without going off-screen.
 
@@ -28,12 +28,9 @@ The `src/links` directory manages:
 
 ### Scripts (`src/links/scripts`)
 
-- **`rendered-content-link-checker.ts`**: A comprehensive CLI tool that:
-  - Renders content pages to HTML.
-  - Parses the HTML to find all `<a>` and `<img>` tags.
-  - Validates internal links (checking for 404s, broken anchors).
-  - Validates external links (with caching and retry logic).
-  - Reports flaws and can comment directly on GitHub Pull Requests.
+- **`check-links-pr.ts`**: Fast validation of internal links in the files changed by a pull request. Runs in under 10 minutes on typical PRs and can post flaws directly on the PR.
+- **`check-links-internal.ts`**: Comprehensive check of all internal links across all versions and languages. Designed to run as a scheduled workflow (twice weekly).
+- **`check-links-external.ts`**: Validates external URLs in content files. Designed to run weekly with aggressive caching.
 - **`check-github-github-links.ts`**: Ensures that we don't accidentally link to private `github/github` URLs in public documentation.
 - **`update-internal-links.ts`**: A CLI wrapper around the library function to perform bulk updates on the content files.
 
@@ -44,13 +41,14 @@ The `src/links` directory manages:
 To run the link checker locally:
 
 ```bash
-npm run rendered-content-link-checker-cli
+npm run check-links-pr
+npm run check-links-internal
+npm run check-links-external
 ```
 
-Options:
-- `--level <all|critical|warning>`: Set the reporting level.
-- `--check-external-links`: Check external links (slower).
-- `--verbose`: Show detailed output.
+- `check-links-pr` validates internal links in the changed files of a pull request (optionally limited with `--files <paths>`).
+- `check-links-internal` checks all internal links across all versions and languages (optionally scoped with `--version <version>` and `--language <language>`).
+- `check-links-external` validates external URLs in content files (optionally limited with `--max <count>`).
 
 ### Updating Links
 
@@ -74,6 +72,6 @@ This script typically relies on the state of the `content` directory to determin
 
 ## Current State & Known Issues
 
-- **Performance**: The `rendered-content-link-checker` is resource-intensive because it renders pages. It uses concurrency limits and caching (especially for external links) to mitigate this.
+- **Performance**: The internal link checker is resource-intensive because it renders pages across all versions and languages. It uses concurrency limits and caching (especially for external links) to mitigate this.
 - **False Positives**: External link checking can be flaky due to temporary network issues or anti-bot protections on target sites. The system uses a "retry and cache" strategy to reduce noise.
 - **Liquid Complexity**: `update-internal-links` has to use regex and heuristics to parse Markdown mixed with Liquid, which is inherently fragile compared to a full AST parser, but necessary to preserve code formatting.
