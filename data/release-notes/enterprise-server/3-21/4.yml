@@ -1,0 +1,94 @@
+date: '2026-08-05'
+sections:
+  security_fixes:
+    - |
+      **HIGH**: A path traversal vulnerability allowed an unauthenticated attacker to delete the user storage directory on the GitHub Enterprise Server instance, including Git LFS objects, release assets, attachments, and avatars, via the unsanitized X-GitHub-Request-Id request header. Exploitation required network access to the instance and worked when private mode was enabled. GitHub has requested CVE ID [CVE-2026-17556](https://www.cve.org/cverecord?id=CVE-2026-17556) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/). 
+    - |
+      Some internal, auto-generated secrets were not redacted when users compiled a support bundle. 
+  bugs:
+    - |
+      On a {% data variables.product.prodname_ghe_server %} cluster upgrade, if all Consul server nodes restarted concurrently, the cluster could lose its Nomad leader and fail to recover, causing the upgrade to loop and fail rather than complete. 
+    - |
+      On a {% data variables.product.prodname_ghe_server %} cluster with multiple nodes, requests to the container registry could fail with `503` errors if the container registry service was running on a different node than the one handling the request. 
+    - |
+      `ghe-service-list` omitted unhealthy Nomad-backed services from its output on single-node and high-availability appliances. Stopped or failed services, such as `babeld` or `nginx`, appeared in neither the `active` nor `inactive` section. 
+    - |
+      Administrators could not remove a node with `ghe-remove-node` when the provided hostname was a substring of another node hostname. 
+    - |
+      On clustered instances, `ghe-remove-node` could incorrectly determine that a web or job node was the last `web-server` or `job-server` in the cluster. 
+    - |
+      During hotpatching, custom `sshd_config` directives, such as directives added by cloud guest agents, were overwritten instead of being preserved as they were during feature upgrades. 
+    - |
+      When administrators generated a support bundle with `ghe-support-bundle` while OpenTelemetry was enabled, a VictoriaMetrics export failure could produce a corrupt bundle because a log message was sent to `stdout` instead of `stderr`.
+    - |
+      Users experienced unnecessary reconnects or intermittent delivery delays in Kafka Lite-backed features when idle connections timed out too aggressively. GitHub Enterprise Server updated the idle connection timeout behavior to better preserve stable idle connections and reduce avoidable disruptions. 
+    - |
+      Repository administrators and users subscribed to secret scanning alerts did not receive email notifications summarizing newly detected secrets. 
+    - |
+      When users changed the visibility of a repository, they sometimes received a 500 error. 
+    - |
+      On instances where a GitHub App listed the repositories for its installation through the REST API, response time and CPU usage on the appliance increased with the number of repositories the installation could access. For installations with access to many repositories, or on instances with large configuration sets, this could make these requests slow and contribute to sustained high CPU on the appliance. Repository configuration for these requests is loaded in a single batch instead of separately for each repository. 
+    - |
+      Cached license information was not cleared until the instance was restarted. 
+    - |
+      On instances with large organizations, listing organization members (for example, via the `membersWithRole` GraphQL API connection) could be slow and consume excessive CPU because a permission check was evaluated for each member instead of once per organization. 
+    - |
+      Editing an existing repository ruleset on GitHub Enterprise Server could fail with an `Unexpected parameter automatic_copilot_code_review_enabled` error after upgrading. 
+    - |
+      When a user deleted an organization that owned GitHub Apps, repositories owned by that organization were not deleted. 
+    - |
+      Users saw unexpected entries on the enterprises **People** page: ProgrammaticAccessBot accounts appeared alongside human users. 
+    - |
+      Maintenance jobs did not correctly process very large repositories whose sizes exceeded the capacity of a 32-bit signed integer database column.
+    - |
+      A repair of a standalone repository could fail with the error `not a standalone repository` if the repair detected changes only to the repository's wiki. 
+    - |
+      When site administrators collected support bundles, secrets in Slack callback URLs were not sanitized. 
+    - |
+      Users experienced stale or idle client connections that were not cleaned up promptly, which could lead to unnecessary resource usage over time. Idle client connections are now reaped more reliably to improve connection lifecycle management. 
+    - |
+      On instances that use `actions-rate-limiting.queue-runs-per-minute`, queue run rate limiting could be calculated incorrectly. 
+  changes:
+    - |
+      Improvements to authorization, migration APIs, and bug fixes supporting increased migration fidelity. 
+    - |
+      On large GitHub Enterprise Server instances, kafka-lite and Redis memory limits scale with CPU count to reduce event-processing bottlenecks. Existing defaults are unchanged for smaller instances. 
+    - |
+      MySQL memory allocation now auto-scales on large-memory appliances. Appliances with 84 GB or more of RAM receive proportionally larger InnoDB buffer pool caps (up to 512 GB), and an explicitly configured `ghe-config mysql.max-memory` value is now honored directly instead of being silently capped by the internal memory budget. Appliances with less than 84 GB of RAM are unaffected. 
+    - |
+      The size limit for `ghe-migrator` exports (80GB uncompressed, 40GB compressed) has been removed. If disk space is a concern, site administrators can configure a limit of their choice with the `ENTERPRISE_MIGRATIONS_MAX_EXPORT_ARCHIVE_SIZE_GB` environment variable. 
+    - |
+      Users can see the progress of a repository being migrated with Enterprise Live Migrations (ELM). A banner indicates when the migration is in progress and the repository is still editable, when the repository has entered read-only cutover, and when the migration is complete, with a link to the destination repository. 
+  known_issues:
+    - |
+      During an upgrade of GitHub Enterprise Server, custom firewall rules are removed. If you use custom firewall rules, you must reapply them after upgrading.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      Admin stats REST API endpoints may time out on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      When following the steps for [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-database-node-mysql-or-mysql-and-mssql), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    - |
+      Running a config apply as part of the steps for [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shut down the node and repeat the steps.
+    - |
+      When restoring data originally backed up from a 3.13 or greater appliance version, the Elasticsearch indices need to be reindexed before some of the data will show up.  This happens via a nightly scheduled job.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+    - |
+      When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
+    - |
+      In a cluster, the host running restore requires access to the storage nodes via their private IPs.
+    - |
+      On an instance hosted on Azure, commenting on an issue via email meant the comment was not added to the issue.
+    - |
+      After a restore, existing outside collaborators cannot be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.
+    - |
+      After a geo-replica is promoted to be a primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
+    - |
+      When publishing npm packages in a workflow after restoring from a backup to GitHub Enterprise Server 3.13.5.gm4 or 3.14.2.gm3, you may encounter a `401 Unauthorized` error from the GitHub Packages service. This can happen if the restore is from an N-1 or N-2 version and the workflow targets the npm endpoint on the backup instance. To avoid this issue, ensure the access token is valid and includes the correct scopes for publishing to GitHub Packages.
+    - |
+      When applying an enterprise security configuration to all repositories (for example, enabling secret scanning or code scanning across all repositories), the system immediately enqueues enablement jobs for every organization in the enterprise simultaneously. For enterprises with a large number of repositories, this can result in significant system load and potential performance degradation. If you manage a large enterprise with many organizations and repositories, we recommend applying security configurations at the organization level rather than at the enterprise level in the UI. This allows you to enable security features incrementally and monitor system performance as you roll out changes.
+    - |
+      On instances with multiple Git storage nodes in a voting configuration, including cluster and geo-replication high availability topologies, upgrading may fail to correctly install Actions that ship with the new version. In some cases, previous versions of these Actions remain on the instance. To resolve this issue, run the following commands on the primary node: `ghe-config --unset 'app.actions.actions-repos-sha1sum'`, `ghe-config-apply`, and `/usr/local/share/enterprise/ghe-run-init-actions-graph`.

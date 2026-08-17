@@ -17,8 +17,6 @@ category:
   - Provision and manage enterprise users
 ---
 
-{% data reusables.scim.ghes-beta-note %}
-
 ## About authentication and user provisioning with Entra ID
 
 Entra ID is a service from Microsoft that allows you to centrally manage user accounts and access to web applications. For more information, see [What is Microsoft Entra ID?](https://learn.microsoft.com/entra/fundamentals/whatis) in the Microsoft Docs.

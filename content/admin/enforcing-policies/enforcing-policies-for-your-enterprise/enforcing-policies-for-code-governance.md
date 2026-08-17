@@ -6,9 +6,14 @@ versions:
   feature: enterprise-code-rulesets
 permissions: Enterprise owners
 shortTitle: Create rulesets
+redirect_from:
+  - /enterprise-onboarding/govern-people-and-repositories/protect-branches
+  - /enterprise-onboarding/feature-enhancements/about-rulesets
 contentType: how-tos
 category:
   - Secure and govern your enterprise
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 ## Introduction
@@ -17,11 +22,13 @@ category:
 
 To learn more, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
 
+As you onboard your enterprise, rulesets are how you apply consistent protections across many repositories at once, rather than configuring each repository individually.
+
+If you have used **branch protection rules** on individual repositories, rulesets serve a similar goal at enterprise scale. Unlike a branch protection rule, which applies to a single repository, a ruleset can target many organizations, repositories, and branches at the same time, and you can set it to an evaluate status to preview its impact before you enforce it.
+
 ## Importing rulesets
 
 To import a prebuilt ruleset created by {% data variables.product.company_short %}, see [`github/ruleset-recipes`](https://github.com/github/ruleset-recipes).
-
-{% data reusables.repositories.import-a-ruleset-conceptual %} For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#using-ruleset-history).
 
 ## How will I define where my ruleset applies?
 
@@ -31,8 +38,6 @@ Rulesets allow you to flexibly target the organizations, repositories, and branc
 
 * Within those organizations, you can target all **repositories**, or target a dynamic list by custom property or deployment context.
 * Within the repositories, you can target certain **branches or tags**: all branches, the default branch, or a dynamic list using `fnmatch` syntax.
-
-When you create a ruleset that targets branches in a repository, repository administrators can no longer rename branches or change the default branch in the targeted repository. They can still create and delete branches if they have the appropriate permissions.
 
 ## How can I control the format of commits?
 
@@ -64,9 +69,7 @@ The following are eligible for bypass access:
 * {% data variables.copilot.copilot_cloud_agent %}. For more information about {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent#limitations-in-copilot-cloud-agents-compatibility-with-other-features).
 {%- endif %}
 
-1. To grant bypass permissions for the ruleset, in the "Bypass list" section, click **Add bypass**.
-
-1. In the "Add bypass" modal dialog that appears, search for the role, team, or app you would like to grant bypass permissions, then select the role, team, or app from the "Suggestions" section and click Add Selected.
+1. In the "Bypass list" section, click **Add bypass**, then search for and select the role, team, or app you want to grant bypass permissions, and click **Add Selected**.
 
 {% data reusables.repositories.rulesets-branch-tag-bypass-optional-step %}
 
@@ -101,8 +104,6 @@ In the "Branch protections" or "Tag protections" section, select the rules you w
 
 {% data reusables.repositories.rulesets-create-and-insights-step %}
 
-{% ifversion push-rulesets %}
-
 ## Creating a push ruleset
 
 {% data reusables.repositories.push-rules-fork-network-note %}
@@ -129,8 +130,7 @@ You can grant certain roles, teams, or apps bypass permissions as well as the ab
 * {% data variables.copilot.copilot_cloud_agent %}. For more information about {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent#limitations-in-copilot-cloud-agents-compatibility-with-other-features).
 {%- endif %}
 
-1. To grant bypass permissions for the ruleset, in the "Bypass list" section, click **Add bypass**.
-1. In the "Add bypass" modal dialog that appears, search for the role, team, or app you would like to grant bypass permissions, then select the role, team, or app from the "Suggestions" section and click Add Selected.
+1. In the "Bypass list" section, click **Add bypass**, then search for and select the role, team, or app you want to grant bypass permissions, and click **Add Selected**.
 
 ### Choosing which organizations to target in your enterprise
 
@@ -149,5 +149,3 @@ Within your chosen organizations, you can target all repositories, or target a d
 ### Finalizing your push ruleset and next steps
 
 {% data reusables.repositories.rulesets-create-and-insights-step %}
-
-{% endif %}

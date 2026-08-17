@@ -213,7 +213,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 10).</p>",
+          "description": "<p>The number of results per page (max 100).</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -222,7 +222,7 @@
         },
         {
           "name": "scope",
-          "description": "<p>Filter budgets by scope type.</p>",
+          "description": "<p>Filter budgets by scope type.</p>\n<ul>\n<li><code>enterprise</code>: Budgets that apply to the entire enterprise.</li>\n<li><code>organization</code>: Budgets scoped to an organization in the enterprise.</li>\n<li><code>repository</code>: Budgets scoped to a repository.</li>\n<li><code>cost_center</code>: Budgets scoped to a cost center.</li>\n<li><code>multi_user_customer</code>: Universal budgets that apply to all users in the enterprise.</li>\n<li><code>multi_user_cost_center</code>: Universal budgets that apply to all users in a cost center.</li>\n<li><code>user</code>: Budgets scoped to an individual user.</li>\n</ul>",
           "in": "query",
           "schema": {
             "type": "string",
@@ -230,17 +230,28 @@
               "enterprise",
               "organization",
               "repository",
-              "cost_center"
+              "cost_center",
+              "multi_user_customer",
+              "multi_user_cost_center",
+              "user"
             ]
+          }
+        },
+        {
+          "name": "user",
+          "description": "<p>Filter consumed amount details for budgets by the specified user login.</p>",
+          "in": "query",
+          "schema": {
+            "type": "string"
           }
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Gets all budgets for an enterprise. The authenticated user must be an enterprise admin or billing manager.\nEach page returns up to 10 budgets.</p>",
+      "descriptionHTML": "<p>Gets budgets for an enterprise. Enterprise owners and billing managers can view all budgets. Organization administrators can view budgets scoped to organizations and repositories they administer.\nEach page returns up to 100 budgets.</p>",
       "codeExamples": [
         {
           "request": {
-            "description": "Example",
+            "description": "Example 1: Status Code 200",
             "acceptHeader": "application/vnd.github.v3+json",
             "parameters": {
               "enterprise": "ENTERPRISE"
@@ -342,11 +353,28 @@
                       },
                       "budget_scope": {
                         "type": "string",
-                        "description": "The scope of the budget (enterprise, organization, repository, cost center)"
+                        "description": "The scope of the budget",
+                        "enum": [
+                          "enterprise",
+                          "organization",
+                          "repository",
+                          "cost_center",
+                          "multi_user_customer",
+                          "multi_user_cost_center",
+                          "user"
+                        ]
                       },
                       "budget_entity_name": {
                         "type": "string",
                         "description": "The name of the entity for the budget (enterprise does not require a name)."
+                      },
+                      "user": {
+                        "type": "string",
+                        "description": "The user login when the budget is scoped to a single user (`user` scope)."
+                      },
+                      "consumed_amount": {
+                        "type": "number",
+                        "description": "The amount consumed for a user-scoped budget, or for a multi-user budget when filtering by user."
                       },
                       "budget_product_sku": {
                         "type": "string",
@@ -357,14 +385,14 @@
                         "properties": {
                           "will_alert": {
                             "type": "boolean",
-                            "description": "Whether alerts are enabled for this budget"
+                            "description": "Whether alerts are enabled for this budget. Ignored for user-scope as alerting is disabled for them."
                           },
                           "alert_recipients": {
                             "type": "array",
                             "items": {
                               "type": "string"
                             },
-                            "description": "Array of user login names who will receive alerts"
+                            "description": "Array of user login names who will receive alerts. Ignored for user-scope as alerting is disabled for them."
                           }
                         },
                         "required": [
@@ -384,6 +412,231 @@
                     ]
                   },
                   "description": "Array of budget objects for the enterprise"
+                },
+                "user": {
+                  "type": "string",
+                  "description": "User login included when the response is scoped with the `user` query parameter."
+                },
+                "effective_budget": {
+                  "type": "object",
+                  "description": "Effective user-level budget details returned when the response is scoped with the `user` query parameter.",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "The unique identifier of the effective budget."
+                    },
+                    "budget_amount": {
+                      "type": "integer",
+                      "description": "The budget amount for the effective budget."
+                    },
+                    "consumed_amount": {
+                      "type": "number",
+                      "description": "The consumed amount for the specified user within the effective budget."
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "budget_amount",
+                    "consumed_amount"
+                  ]
+                },
+                "has_next_page": {
+                  "type": "boolean",
+                  "description": "Indicates if there are more pages of results available (maps to hasNextPage from billing platform)"
+                },
+                "total_count": {
+                  "type": "integer",
+                  "description": "Total number of budgets matching the query"
+                }
+              },
+              "required": [
+                "budgets"
+              ]
+            }
+          }
+        },
+        {
+          "request": {
+            "description": "Example 2: Status Code 200",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response when getting all budgets</p>",
+            "example": {
+              "budgets": [
+                {
+                  "id": "2066deda-923f-43f9-88d2-62395a28c0cdd",
+                  "budget_type": "ProductPricing",
+                  "budget_product_skus": [
+                    "actions"
+                  ],
+                  "budget_scope": "multi_user_customer",
+                  "budget_amount": 1000,
+                  "prevent_further_usage": true,
+                  "budget_alerting": {
+                    "will_alert": true,
+                    "alert_recipients": [
+                      "enterprise-admin",
+                      "billing-manager"
+                    ]
+                  }
+                },
+                {
+                  "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+                  "budget_type": "BundlePricing",
+                  "budget_product_skus": [
+                    "ai_credits"
+                  ],
+                  "budget_scope": "user",
+                  "budget_amount": 500,
+                  "prevent_further_usage": true,
+                  "budget_alerting": {
+                    "will_alert": true,
+                    "alert_recipients": [
+                      "org-owner"
+                    ]
+                  }
+                }
+              ],
+              "user": "octocat",
+              "effective_budget": {
+                "id": "9a7d04e8-6600-44f5-94ef-65ca92b95f0b",
+                "budget_amount": 1000,
+                "consumed_amount": 42
+              },
+              "has_next_page": false,
+              "total_count": 2
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "budgets": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "The unique identifier for the budget"
+                      },
+                      "budget_type": {
+                        "description": "The type of pricing for the budget",
+                        "oneOf": [
+                          {
+                            "type": "string",
+                            "enum": [
+                              "SkuPricing"
+                            ]
+                          },
+                          {
+                            "type": "string",
+                            "enum": [
+                              "ProductPricing"
+                            ]
+                          }
+                        ]
+                      },
+                      "budget_amount": {
+                        "type": "integer",
+                        "description": "The budget amount limit in whole dollars. For license-based products, this represents the number of licenses."
+                      },
+                      "prevent_further_usage": {
+                        "type": "boolean",
+                        "description": "The type of limit enforcement for the budget"
+                      },
+                      "budget_scope": {
+                        "type": "string",
+                        "description": "The scope of the budget",
+                        "enum": [
+                          "enterprise",
+                          "organization",
+                          "repository",
+                          "cost_center",
+                          "multi_user_customer",
+                          "multi_user_cost_center",
+                          "user"
+                        ]
+                      },
+                      "budget_entity_name": {
+                        "type": "string",
+                        "description": "The name of the entity for the budget (enterprise does not require a name)."
+                      },
+                      "user": {
+                        "type": "string",
+                        "description": "The user login when the budget is scoped to a single user (`user` scope)."
+                      },
+                      "consumed_amount": {
+                        "type": "number",
+                        "description": "The amount consumed for a user-scoped budget, or for a multi-user budget when filtering by user."
+                      },
+                      "budget_product_sku": {
+                        "type": "string",
+                        "description": "A single product or sku to apply the budget to."
+                      },
+                      "budget_alerting": {
+                        "type": "object",
+                        "properties": {
+                          "will_alert": {
+                            "type": "boolean",
+                            "description": "Whether alerts are enabled for this budget. Ignored for user-scope as alerting is disabled for them."
+                          },
+                          "alert_recipients": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "Array of user login names who will receive alerts. Ignored for user-scope as alerting is disabled for them."
+                          }
+                        },
+                        "required": [
+                          "will_alert",
+                          "alert_recipients"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "budget_type",
+                      "budget_product_sku",
+                      "budget_scope",
+                      "budget_amount",
+                      "prevent_further_usage",
+                      "budget_alerting"
+                    ]
+                  },
+                  "description": "Array of budget objects for the enterprise"
+                },
+                "user": {
+                  "type": "string",
+                  "description": "User login included when the response is scoped with the `user` query parameter."
+                },
+                "effective_budget": {
+                  "type": "object",
+                  "description": "Effective user-level budget details returned when the response is scoped with the `user` query parameter.",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "The unique identifier of the effective budget."
+                    },
+                    "budget_amount": {
+                      "type": "integer",
+                      "description": "The budget amount for the effective budget."
+                    },
+                    "consumed_amount": {
+                      "type": "number",
+                      "description": "The consumed amount for the specified user within the effective budget."
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "budget_amount",
+                    "consumed_amount"
+                  ]
                 },
                 "has_next_page": {
                   "type": "boolean",
@@ -417,10 +670,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
+          }
+        ]
       }
     },
     {
@@ -451,7 +708,7 @@
         {
           "type": "boolean",
           "name": "prevent_further_usage",
-          "description": "<p>Whether to prevent additional spending once the budget is exceeded</p>",
+          "description": "<p>Whether to prevent additional spending once the budget is exceeded. For <code>user</code> and <code>multi_user_customer</code> scopes, this must be <code>true</code>.</p>",
           "isRequired": true
         },
         {
@@ -463,13 +720,13 @@
             {
               "type": "boolean",
               "name": "will_alert",
-              "description": "<p>Whether alerts are enabled for this budget</p>",
+              "description": "<p>Whether alerts are enabled for this budget. Rejected for user-scope as alerting is always disabled for them.</p>",
               "isRequired": true
             },
             {
               "type": "array of strings",
               "name": "alert_recipients",
-              "description": "<p>Array of user login names who will receive alerts</p>",
+              "description": "<p>Array of user login names who will receive alerts. Rejected for user-scope as alerting is always disabled for them.</p>",
               "isRequired": true
             }
           ]
@@ -477,13 +734,16 @@
         {
           "type": "string",
           "name": "budget_scope",
-          "description": "<p>The scope of the budget</p>",
+          "description": "<p>The scope of the budget.</p>\n<ul>\n<li><code>enterprise</code>: Apply the budget to the entire enterprise.</li>\n<li><code>organization</code>: Apply the budget to a specific organization in the enterprise.</li>\n<li><code>repository</code>: Apply the budget to a specific repository.</li>\n<li><code>cost_center</code>: Apply the budget to a specific cost center.</li>\n<li><code>multi_user_customer</code>: Apply a universal budget to all users in the enterprise.</li>\n<li><code>multi_user_cost_center</code>: Apply a universal budget to all users in a cost center.</li>\n<li><code>user</code>: Apply the budget to a single user.</li>\n</ul>\n<p><code>user</code>, <code>multi_user_customer</code>, and <code>multi_user_cost_center</code> scopes are only supported when <code>budget_product_sku</code> is <code>ai_credits</code> or <code>premium_requests</code>.</p>",
           "isRequired": true,
           "enum": [
             "enterprise",
             "organization",
             "repository",
-            "cost_center"
+            "cost_center",
+            "multi_user_customer",
+            "multi_user_cost_center",
+            "user"
           ]
         },
         {
@@ -495,16 +755,21 @@
         {
           "type": "string",
           "name": "budget_type",
-          "description": "<p>The type of pricing for the budget</p>",
+          "description": "<p>The type of pricing model used by the budget. Determines how <code>budget_product_sku</code> is interpreted.</p>\n<ul>\n<li><code>BundlePricing</code>: Covers all AI credit SKUs. Set <code>budget_product_sku</code> to <code>ai_credits</code>.</li>\n<li><code>ProductPricing</code>: Covers all SKUs that belong to a product. Set <code>budget_product_sku</code> to a product such as <code>actions</code> or <code>packages</code>.</li>\n<li><code>SkuPricing</code>: Covers a single, specific SKU. Set <code>budget_product_sku</code> to a SKU such as <code>actions_linux</code>.</li>\n</ul>",
           "isRequired": true
         },
         {
           "type": "string",
           "name": "budget_product_sku",
           "description": "<p>A single product or SKU that will be covered in the budget</p>"
+        },
+        {
+          "type": "string",
+          "name": "user",
+          "description": "<p>The username of the user for <code>user</code> scope budgets. This field is required when <code>budget_scope</code> is <code>user</code>.</p>"
         }
       ],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Creates a new budget for an enterprise. The authenticated user must be an enterprise admin, organization admin, or billing manager of the enterprise.</p>",
+      "descriptionHTML": "<p>Creates a new budget for an enterprise. The authenticated user must be an enterprise admin, organization admin, or billing manager of the enterprise.</p>",
       "codeExamples": [
         {
           "request": {
@@ -532,7 +797,20 @@
             "contentType": "application/json",
             "description": "<p>Budget created successfully</p>",
             "example": {
-              "message": "Budget successfully created."
+              "message": "Budget successfully created.",
+              "budget": {
+                "id": "f5236c62-157f-4d8f-a79e-ffb91058ee97",
+                "budget_type": "ProductPricing",
+                "budget_product_sku": "actions",
+                "budget_scope": "organization",
+                "budget_entity_name": "example-organization",
+                "budget_amount": 100,
+                "prevent_further_usage": true,
+                "budget_alerting": {
+                  "will_alert": false,
+                  "alert_recipients": []
+                }
+              }
             },
             "schema": {
               "type": "object",
@@ -555,7 +833,10 @@
                         "enterprise",
                         "organization",
                         "repository",
-                        "cost_center"
+                        "cost_center",
+                        "multi_user_customer",
+                        "multi_user_cost_center",
+                        "user"
                       ]
                     },
                     "budget_entity_name": {
@@ -563,9 +844,8 @@
                       "description": "The name of the entity to apply the budget to"
                     },
                     "budget_amount": {
-                      "type": "number",
-                      "format": "float",
-                      "description": "The budget amount in dollars",
+                      "type": "integer",
+                      "description": "The budget amount in whole dollars. For license-based products, this represents the number of licenses.",
                       "minimum": 0
                     },
                     "prevent_further_usage": {
@@ -598,14 +878,14 @@
                       "properties": {
                         "will_alert": {
                           "type": "boolean",
-                          "description": "Whether alerts are enabled for this budget"
+                          "description": "Whether alerts are enabled for this budget. Rejected for user-scope as alerting is always disabled for them."
                         },
                         "alert_recipients": {
                           "type": "array",
                           "items": {
                             "type": "string"
                           },
-                          "description": "Array of user login names who will receive alerts"
+                          "description": "Array of user login names who will receive alerts. Rejected for user-scope as alerting is always disabled for them."
                         }
                       }
                     }
@@ -652,10 +932,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -686,7 +970,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Gets a budget by ID. The authenticated user must be an enterprise admin or billing manager.</p>",
+      "descriptionHTML": "<p>Gets a budget by ID. Enterprise owners and billing managers can view any budget in the enterprise. Organization administrators can view budgets scoped to organizations and repositories they administer.</p>",
       "codeExamples": [
         {
           "request": {
@@ -731,12 +1015,19 @@
                     "enterprise",
                     "organization",
                     "repository",
-                    "cost_center"
+                    "cost_center",
+                    "multi_user_customer",
+                    "multi_user_cost_center",
+                    "user"
                   ]
                 },
                 "budget_entity_name": {
                   "type": "string",
                   "description": "The name of the entity to apply the budget to"
+                },
+                "user": {
+                  "type": "string",
+                  "description": "The user login when the budget is scoped to a single user (`user` scope)."
                 },
                 "budget_amount": {
                   "type": "integer",
@@ -772,14 +1063,14 @@
                   "properties": {
                     "will_alert": {
                       "type": "boolean",
-                      "description": "Whether alerts are enabled for this budget"
+                      "description": "Whether alerts are enabled for this budget. Present but not applicable for user-scope as alerting is always disabled for them."
                     },
                     "alert_recipients": {
                       "type": "array",
                       "items": {
                         "type": "string"
                       },
-                      "description": "Array of user login names who will receive alerts"
+                      "description": "Array of user login names who will receive alerts. Present but not applicable for user-scope as alerting is always disabled for them."
                     }
                   }
                 }
@@ -826,10 +1117,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
+          }
+        ]
       }
     },
     {
@@ -868,7 +1163,7 @@
         {
           "type": "boolean",
           "name": "prevent_further_usage",
-          "description": "<p>Whether to prevent additional spending once the budget is exceeded</p>"
+          "description": "<p>Whether to prevent additional spending once the budget is exceeded. For budgets with <code>user</code> or <code>multi_user_customer</code> scope, this must remain <code>true</code>.</p>"
         },
         {
           "type": "object",
@@ -878,24 +1173,27 @@
             {
               "type": "boolean",
               "name": "will_alert",
-              "description": "<p>Whether alerts are enabled for this budget</p>"
+              "description": "<p>Whether alerts are enabled for this budget. Ignored for user-scope as alerting is always disabled for them.</p>"
             },
             {
               "type": "array of strings",
               "name": "alert_recipients",
-              "description": "<p>Array of user login names who will receive alerts</p>"
+              "description": "<p>Array of user login names who will receive alerts. Ignored for user-scope as alerting is always disabled for them.</p>"
             }
           ]
         },
         {
           "type": "string",
           "name": "budget_scope",
-          "description": "<p>The scope of the budget</p>",
+          "description": "<p>The scope of the budget.</p>\n<ul>\n<li><code>enterprise</code>: Apply the budget to the entire enterprise.</li>\n<li><code>organization</code>: Apply the budget to a specific organization in the enterprise.</li>\n<li><code>repository</code>: Apply the budget to a specific repository.</li>\n<li><code>cost_center</code>: Apply the budget to a specific cost center.</li>\n<li><code>multi_user_customer</code>: Apply a universal budget to all users in the enterprise.</li>\n<li><code>multi_user_cost_center</code>: Apply a universal budget to all users in a cost center.</li>\n<li><code>user</code>: Apply the budget to a single user.</li>\n</ul>",
           "enum": [
             "enterprise",
             "organization",
             "repository",
-            "cost_center"
+            "cost_center",
+            "multi_user_customer",
+            "multi_user_cost_center",
+            "user"
           ]
         },
         {
@@ -906,15 +1204,20 @@
         {
           "type": "string",
           "name": "budget_type",
-          "description": "<p>The type of pricing for the budget</p>"
+          "description": "<p>The type of pricing model used by the budget. Determines how <code>budget_product_sku</code> is interpreted.</p>\n<ul>\n<li><code>BundlePricing</code>: Covers all AI credit SKUs. Set <code>budget_product_sku</code> to <code>ai_credits</code>.</li>\n<li><code>ProductPricing</code>: Covers all SKUs that belong to a product. Set <code>budget_product_sku</code> to a product such as <code>actions</code> or <code>packages</code>.</li>\n<li><code>SkuPricing</code>: Covers a single, specific SKU. Set <code>budget_product_sku</code> to a SKU such as <code>actions_linux</code>.</li>\n</ul>"
         },
         {
           "type": "string",
           "name": "budget_product_sku",
           "description": "<p>A single product or SKU that will be covered in the budget</p>"
+        },
+        {
+          "type": "string",
+          "name": "user",
+          "description": "<p>The username of the user for <code>user</code> scope budgets.</p>"
         }
       ],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Updates an existing budget for an enterprise. The authenticated user must be an enterprise admin, organization admin, or billing manager of the enterprise.</p>",
+      "descriptionHTML": "<p>Updates an existing budget for an enterprise. The authenticated user must be an enterprise admin, organization admin, or billing manager of the enterprise.</p>",
       "codeExamples": [
         {
           "request": {
@@ -946,7 +1249,7 @@
                 "budget_product_sku": "actions_linux",
                 "budget_scope": "repository",
                 "budget_entity_name": "org-name/example-repo-name",
-                "budget_amount": 0,
+                "budget_amount": 10,
                 "prevent_further_usage": true,
                 "budget_alerting": {
                   "will_alert": true,
@@ -978,17 +1281,27 @@
                         "enterprise",
                         "organization",
                         "repository",
-                        "cost_center"
+                        "cost_center",
+                        "multi_user_customer",
+                        "multi_user_cost_center",
+                        "user"
                       ]
                     },
                     "budget_entity_name": {
                       "type": "string",
                       "description": "The name of the entity to apply the budget to"
                     },
-                    "budget_amount": {
+                    "user": {
+                      "type": "string",
+                      "description": "The user login when the budget is scoped to a single user (`user` scope)."
+                    },
+                    "consumed_amount": {
                       "type": "number",
-                      "format": "float",
-                      "description": "The budget amount in dollars",
+                      "description": "The consumed amount for the specified user within the budget. Only included for `user`-scoped budgets."
+                    },
+                    "budget_amount": {
+                      "type": "integer",
+                      "description": "The budget amount in whole dollars. For license-based products, this represents the number of licenses.",
                       "minimum": 0
                     },
                     "prevent_further_usage": {
@@ -1021,14 +1334,14 @@
                       "properties": {
                         "will_alert": {
                           "type": "boolean",
-                          "description": "Whether alerts are enabled for this budget"
+                          "description": "Whether alerts are enabled for this budget. Ignored for user-scope as alerting is always disabled for them."
                         },
                         "alert_recipients": {
                           "type": "array",
                           "items": {
                             "type": "string"
                           },
-                          "description": "Array of user login names who will receive alerts"
+                          "description": "Array of user login names who will receive alerts. Ignored for user-scope as alerting is always disabled for them."
                         }
                       }
                     }
@@ -1079,10 +1392,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -1113,7 +1430,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Deletes a budget by ID. The authenticated user must be an enterprise admin.</p>",
+      "descriptionHTML": "<p>Deletes a budget by ID. Enterprise owners and billing managers can delete any budget in the enterprise. Organization administrators can delete budgets scoped to organizations they administer, and repository administrators can delete budgets scoped to repositories they administer.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1180,10 +1497,210 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets/{budget_id}/user-states",
+      "title": "Get user states for a multi-user budget",
+      "category": "billing",
+      "subcategory": "budgets",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "budget_id",
+          "description": "<p>The ID corresponding to the budget.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "page",
+          "description": "<p>The page number of results to fetch.</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page.</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "sort_order",
+          "description": "<p>Sort order for results. <code>0</code> for descending, <code>1</code> for ascending.</p>",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "0",
+              "1"
+            ]
+          }
+        },
+        {
+          "name": "user",
+          "description": "<p>Filter user states to a specific user login.</p>",
+          "in": "query",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "threshold_lower_bound",
+          "description": "<p>Filter user states whose threshold percentage is at or above this value.</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "threshold_upper_bound",
+          "description": "<p>Filter user states whose threshold percentage is at or below this value.</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Lists per-user budget state for a multi-user customer scoped budget. Enterprise owners and billing managers can view state across the enterprise. Organization administrators can view state for budgets scoped to organizations they administer.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "budget_id": "BUDGET_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response when getting per-user states for a multi-user budget</p>",
+            "example": {
+              "user_states": [
+                {
+                  "user": "octocat",
+                  "consumed_amount": 50.5,
+                  "target_amount": 1000
+                },
+                {
+                  "user": "monalisa",
+                  "consumed_amount": 250,
+                  "target_amount": 1000,
+                  "override_budget_id": "2066deda-923f-43f9-88d2-62395a28c0cdd"
+                }
+              ],
+              "has_next_page": false,
+              "total_count": 2
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user_states": {
+                  "type": "array",
+                  "description": "Per-user state entries for the budget.",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "user": {
+                        "type": "string",
+                        "description": "The login of the user, when the user record is available."
+                      },
+                      "consumed_amount": {
+                        "type": "number",
+                        "description": "The amount currently consumed by this user against the budget."
+                      },
+                      "target_amount": {
+                        "type": "number",
+                        "description": "The target amount allocated to this user within the budget."
+                      },
+                      "override_budget_id": {
+                        "type": "string",
+                        "description": "The ID of a user-scoped budget that overrides the per-user allocation, when present."
+                      }
+                    },
+                    "required": [
+                      "consumed_amount",
+                      "target_amount"
+                    ]
+                  }
+                },
+                "has_next_page": {
+                  "type": "boolean",
+                  "description": "Indicates if there are more pages of results available."
+                },
+                "total_count": {
+                  "type": "integer",
+                  "description": "Total number of user state entries matching the query."
+                }
+              },
+              "required": [
+                "user_states",
+                "has_next_page",
+                "total_count"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Response when getting per-user states for a multi-user budget</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
+          }
+        ]
       }
     }
   ],
@@ -1220,7 +1737,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a list of all the cost centers for an enterprise.</p>",
+      "descriptionHTML": "<p>Gets a list of all the cost centers for an enterprise. Enterprise owners and billing managers can view all cost centers. Organization owners can view cost centers associated with resources they administer.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1247,10 +1764,15 @@
                       "name": "Monalisa"
                     },
                     {
-                      "type": "Repo",
-                      "name": "octocat/hello-world"
+                      "type": "Team",
+                      "name": "enterprise-team-1"
                     }
-                  ]
+                  ],
+                  "ai_credit_pool_enabled": true,
+                  "ai_credit_pool_state": {
+                    "target_amount": 21000,
+                    "current_amount": 7250.5
+                  }
                 },
                 {
                   "id": "3ffb9ffe-6903-11ee-8c99-0242ac120003",
@@ -1260,8 +1782,17 @@
                     {
                       "type": "User",
                       "name": "Octocat"
+                    },
+                    {
+                      "type": "Team",
+                      "name": "enterprise-team-2"
+                    },
+                    {
+                      "type": "Repo",
+                      "name": "octocat/hello-world"
                     }
-                  ]
+                  ],
+                  "ai_credit_pool_enabled": false
                 }
               ]
             },
@@ -1295,6 +1826,30 @@
                           "null"
                         ],
                         "description": "Azure subscription ID associated with the cost center. Only present for cost centers linked to Azure subscriptions."
+                      },
+                      "ai_credit_pool_enabled": {
+                        "type": "boolean",
+                        "description": "Whether the cost center draws from the AI credit pool.\n\nThis can only be enabled for cost centers that contain only user or team resources.\n\n- `false` — no cap; the cost center draws from the shared enterprise pool.\n- `true` — the cost center is capped at an amount derived from its members' license entitlements."
+                      },
+                      "ai_credit_pool_state": {
+                        "type": "object",
+                        "description": "Read-only cap-budget projection for the cost center. Only present when the cost center draws from the AI credit pool.",
+                        "properties": {
+                          "target_amount": {
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "description": "The AI credit pool cap target amount, in AI Credits. Null when the cap budget has not been materialized yet."
+                          },
+                          "current_amount": {
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "description": "The current-month applied amount against the AI credit pool cap, in AI Credits. Null when the cap budget has not been materialized yet."
+                          }
+                        }
                       },
                       "resources": {
                         "type": "array",
@@ -1353,10 +1908,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
+          }
+        ]
       }
     },
     {
@@ -1383,9 +1942,14 @@
           "name": "name",
           "description": "<p>The name of the cost center (max length 255 characters)</p>",
           "isRequired": true
+        },
+        {
+          "type": "boolean",
+          "name": "ai_credit_pool_enabled",
+          "description": "<p>Whether the cost center draws from the AI credit pool.</p>\n<p>This can only be enabled for cost centers that contain only user or team resources.</p>\n<ul>\n<li><code>false</code> — no cap; the cost center draws from the shared enterprise pool.</li>\n<li><code>true</code> — the cost center is capped at an amount derived from its members' license entitlements.</li>\n</ul>"
         }
       ],
-      "descriptionHTML": "<p>Creates a new cost center for an enterprise. The authenticated user must be an enterprise admin.</p>",
+      "descriptionHTML": "<p>Creates a new cost center for an enterprise. The authenticated user must be an enterprise owner or billing manager.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1406,7 +1970,12 @@
             "example": {
               "id": "abc123",
               "name": "Engineering Team",
-              "resources": []
+              "resources": [],
+              "ai_credit_pool_enabled": true,
+              "ai_credit_pool_state": {
+                "target_amount": null,
+                "current_amount": null
+              }
             },
             "schema": {
               "type": "object",
@@ -1450,6 +2019,30 @@
                       }
                     }
                   }
+                },
+                "ai_credit_pool_enabled": {
+                  "type": "boolean",
+                  "description": "Whether the cost center draws from the AI credit pool (capped from member license entitlements)."
+                },
+                "ai_credit_pool_state": {
+                  "type": "object",
+                  "description": "Read-only cap-budget projection for the cost center. Only present when the cost center draws from the AI credit pool.",
+                  "properties": {
+                    "target_amount": {
+                      "type": [
+                        "number",
+                        "null"
+                      ],
+                      "description": "The AI credit pool cap target amount, in AI Credits. Null when the cap budget has not been materialized yet."
+                    },
+                    "current_amount": {
+                      "type": [
+                        "number",
+                        "null"
+                      ],
+                      "description": "The current-month applied amount against the AI credit pool cap, in AI Credits. Null when the cap budget has not been materialized yet."
+                    }
+                  }
                 }
               }
             }
@@ -1476,10 +2069,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -1528,7 +2125,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a cost center by ID. The authenticated user must be an enterprise admin.</p>",
+      "descriptionHTML": "<p>Gets a cost center by ID. Enterprise owners and billing managers can view any cost center. Organization owners can view cost centers associated with resources they administer.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1554,10 +2151,15 @@
                   "name": "Monalisa"
                 },
                 {
-                  "type": "Repo",
-                  "name": "octocat/hello-world"
+                  "type": "Team",
+                  "name": "enterprise-team-1"
                 }
-              ]
+              ],
+              "ai_credit_pool_enabled": true,
+              "ai_credit_pool_state": {
+                "target_amount": 21000,
+                "current_amount": 7250.5
+              }
             },
             "schema": {
               "type": "object",
@@ -1608,6 +2210,30 @@
                 "has_next_page": {
                   "type": "boolean",
                   "description": "Indicates if there are more resources available for pagination. Only present when pagination is used."
+                },
+                "ai_credit_pool_enabled": {
+                  "type": "boolean",
+                  "description": "Whether the cost center draws from the AI credit pool.\n\nThis can only be enabled for cost centers that contain only user or team resources.\n\n- `false` — no cap; the cost center draws from the shared enterprise pool.\n- `true` — the cost center is capped at an amount derived from its members' license entitlements."
+                },
+                "ai_credit_pool_state": {
+                  "type": "object",
+                  "description": "Read-only cap-budget projection for the cost center. Only present when the cost center draws from the AI credit pool.",
+                  "properties": {
+                    "target_amount": {
+                      "type": [
+                        "number",
+                        "null"
+                      ],
+                      "description": "The AI credit pool cap target amount, in AI Credits. Null when the cap budget has not been materialized yet."
+                    },
+                    "current_amount": {
+                      "type": [
+                        "number",
+                        "null"
+                      ],
+                      "description": "The current-month applied amount against the AI credit pool cap, in AI Credits. Null when the cap budget has not been materialized yet."
+                    }
+                  }
                 }
               },
               "required": [
@@ -1643,17 +2269,21 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
+          }
+        ]
       }
     },
     {
       "serverUrl": "https://api.github.com",
       "verb": "patch",
       "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}",
-      "title": "Update a cost center name",
+      "title": "Update a cost center",
       "category": "billing",
       "subcategory": "cost-centers",
       "parameters": [
@@ -1680,11 +2310,15 @@
         {
           "type": "string",
           "name": "name",
-          "description": "<p>The new name for the cost center</p>",
-          "isRequired": true
+          "description": "<p>The new name for the cost center</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "ai_credit_pool_enabled",
+          "description": "<p>Whether the cost center draws from the AI credit pool.</p>\n<p>This can only be enabled for cost centers that contain only user or team resources.</p>\n<ul>\n<li><code>false</code> — no cap; the cost center draws from the shared enterprise pool.</li>\n<li><code>true</code> — the cost center is capped at an amount derived from its members' license entitlements.</li>\n</ul>"
         }
       ],
-      "descriptionHTML": "<p>Updates an existing cost center name.</p>",
+      "descriptionHTML": "<p>Updates an existing cost center. Enterprise owners and billing managers can update any cost center. Organization owners can update cost centers associated with resources they administer.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1714,10 +2348,15 @@
                   "name": "Monalisa"
                 },
                 {
-                  "type": "Repo",
-                  "name": "octocat/hello-world"
+                  "type": "Team",
+                  "name": "enterprise-team-1"
                 }
-              ]
+              ],
+              "ai_credit_pool_enabled": true,
+              "ai_credit_pool_state": {
+                "target_amount": 21000,
+                "current_amount": 7250.5
+              }
             },
             "schema": {
               "type": "object",
@@ -1764,6 +2403,147 @@
                       "name"
                     ]
                   }
+                },
+                "ai_credit_pool_enabled": {
+                  "type": "boolean",
+                  "description": "Whether the cost center draws from the AI credit pool.\n\nThis can only be enabled for cost centers that contain only user or team resources.\n\n- `false` — no cap; the cost center draws from the shared enterprise pool.\n- `true` — the cost center is capped at an amount derived from its members' license entitlements."
+                },
+                "ai_credit_pool_state": {
+                  "type": "object",
+                  "description": "Read-only cap-budget projection for the cost center. Only present when the cost center draws from the AI credit pool.",
+                  "properties": {
+                    "target_amount": {
+                      "type": [
+                        "number",
+                        "null"
+                      ],
+                      "description": "The AI credit pool cap target amount, in AI Credits. Null when the cap budget has not been materialized yet."
+                    },
+                    "current_amount": {
+                      "type": [
+                        "number",
+                        "null"
+                      ],
+                      "description": "The current-month applied amount against the AI credit pool cap, in AI Credits. Null when the cap budget has not been materialized yet."
+                    }
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "resources"
+              ]
+            }
+          }
+        },
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Update cost center with AI credit pool enabled",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "ai_credit_pool_enabled": true
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "cost_center_id": "COST_CENTER_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response when updating a cost center</p>",
+            "example": {
+              "id": "2eeb8ffe-6903-11ee-8c99-0242ac120002",
+              "name": "Cost Center Name",
+              "state": "active",
+              "azure_subscription": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+              "resources": [
+                {
+                  "type": "User",
+                  "name": "Monalisa"
+                },
+                {
+                  "type": "Team",
+                  "name": "enterprise-team-1"
+                }
+              ],
+              "ai_credit_pool_enabled": true,
+              "ai_credit_pool_state": {
+                "target_amount": 21000,
+                "current_amount": 7250.5
+              }
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "ID of the cost center."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Name of the cost center."
+                },
+                "azure_subscription": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "Azure subscription ID associated with the cost center. Only present for cost centers linked to Azure subscriptions."
+                },
+                "state": {
+                  "type": "string",
+                  "description": "State of the cost center.",
+                  "enum": [
+                    "active",
+                    "deleted"
+                  ]
+                },
+                "resources": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "description": "Type of the resource."
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Name of the resource."
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "name"
+                    ]
+                  }
+                },
+                "ai_credit_pool_enabled": {
+                  "type": "boolean",
+                  "description": "Whether the cost center draws from the AI credit pool.\n\nThis can only be enabled for cost centers that contain only user or team resources.\n\n- `false` — no cap; the cost center draws from the shared enterprise pool.\n- `true` — the cost center is capped at an amount derived from its members' license entitlements."
+                },
+                "ai_credit_pool_state": {
+                  "type": "object",
+                  "description": "Read-only cap-budget projection for the cost center. Only present when the cost center draws from the AI credit pool.",
+                  "properties": {
+                    "target_amount": {
+                      "type": [
+                        "number",
+                        "null"
+                      ],
+                      "description": "The AI credit pool cap target amount, in AI Credits. Null when the cap budget has not been materialized yet."
+                    },
+                    "current_amount": {
+                      "type": [
+                        "number",
+                        "null"
+                      ],
+                      "description": "The current-month applied amount against the AI credit pool cap, in AI Credits. Null when the cap budget has not been materialized yet."
+                    }
+                  }
                 }
               },
               "required": [
@@ -1797,6 +2577,10 @@
           "description": "<p>Conflict</p>"
         },
         {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        },
+        {
           "httpStatusCode": "500",
           "description": "<p>Internal Error</p>"
         },
@@ -1807,10 +2591,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -1841,7 +2629,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Archieves a cost center by ID. The authenticated user must be an enterprise admin.</p>",
+      "descriptionHTML": "<p>Archives a cost center by ID. Enterprise owners and billing managers can archive any cost center. Organization owners can archive cost centers associated with resources they administer.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1923,10 +2711,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -1971,9 +2763,14 @@
           "type": "array of strings",
           "name": "repositories",
           "description": "<p>The repositories to add to the cost center.</p>"
+        },
+        {
+          "type": "array of strings",
+          "name": "enterprise_teams",
+          "description": "<p>The enterprise teams to add to the cost center.</p>"
         }
       ],
-      "descriptionHTML": "<p>Adds resources to a cost center.</p>\n<p>The usage for the resources will be charged to the cost center's budget. The authenticated user must be an enterprise admin in order to use this endpoint.</p>",
+      "descriptionHTML": "<p>Adds resources to a cost center.</p>\n<p>The usage for the resources will be charged to the cost center's budget. Enterprise owners and billing managers can add any resource. Organization owners can add non-team resources to cost centers associated with resources they administer.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2011,6 +2808,11 @@
                   "resource_type": "repository",
                   "name": "octo-repo",
                   "previous_cost_center": "yet-another-cost-center"
+                },
+                {
+                  "resource_type": "team",
+                  "name": "octo-enterprise-team",
+                  "previous_cost_center": "old-cost-center"
                 }
               ]
             },
@@ -2076,10 +2878,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -2124,9 +2930,14 @@
           "type": "array of strings",
           "name": "repositories",
           "description": "<p>The repositories to remove from the cost center.</p>"
+        },
+        {
+          "type": "array of strings",
+          "name": "enterprise_teams",
+          "description": "<p>The enterprise teams to remove from the cost center.</p>"
         }
       ],
-      "descriptionHTML": "<p>Remove resources from a cost center.</p>\n<p>The usage for the resources will no longer be charged to the cost center's budget. The authenticated user must be an enterprise admin in order to use this endpoint.</p>",
+      "descriptionHTML": "<p>Remove resources from a cost center.</p>\n<p>The usage for the resources will no longer be charged to the cost center's budget. Enterprise owners and billing managers can remove any resource. Organization owners can remove non-team resources from cost centers associated with resources they administer.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2185,14 +2996,313 @@
       ],
       "previews": [],
       "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "write"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/ai_credit/usage",
+      "title": "Get billing AI credit usage report for an enterprise",
+      "category": "billing",
+      "subcategory": "usage",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "year",
+          "description": "<p>If specified, only return results for a single year. The value of <code>year</code> is an integer with four digits representing a year. For example, <code>2025</code>. Default value is the current year.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "month",
+          "description": "<p>If specified, only return results for a single month. The value of <code>month</code> is an integer between <code>1</code> and <code>12</code>. Default value is the current month. If no year is specified the default <code>year</code> is used.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "day",
+          "description": "<p>If specified, only return results for a single day. The value of <code>day</code> is an integer between <code>1</code> and <code>31</code>. If no <code>year</code> or <code>month</code> is specified, the default <code>year</code> and <code>month</code> are used.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "organization",
+          "description": "<p>The organization name to query usage for. The name is not case sensitive.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "user",
+          "description": "<p>The user name to query usage for. The name is not case sensitive.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "model",
+          "description": "<p>The model name to query usage for. The name is not case sensitive.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "product",
+          "description": "<p>The product name to query usage for. The name is not case sensitive.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "cost_center_id",
+          "description": "<p>The ID corresponding to a cost center. An ID of 'none' will target usage not associated to any cost center.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets a report of AI credit usage for an enterprise. To use this endpoint, you must be an administrator or billing manager of the enterprise.</p>\n<p><strong>Note:</strong> Only data from the past 24 months is accessible via this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response when getting a billing AI credit usage report</p>",
+            "example": {
+              "timePeriod": {
+                "year": 2025
+              },
+              "enterprise": "GitHub",
+              "usageItems": [
+                {
+                  "product": "Copilot",
+                  "sku": "Copilot AI Credits",
+                  "model": "GPT-5",
+                  "unitType": "credits",
+                  "pricePerUnit": 0.01,
+                  "grossQuantity": 100,
+                  "grossAmount": 1,
+                  "discountQuantity": 0,
+                  "discountAmount": 0,
+                  "netQuantity": 100,
+                  "netAmount": 1
+                }
+              ]
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "timePeriod": {
+                  "type": "object",
+                  "properties": {
+                    "year": {
+                      "type": "integer",
+                      "description": "The year for the usage report."
+                    },
+                    "month": {
+                      "type": "integer",
+                      "description": "The month for the usage report."
+                    },
+                    "day": {
+                      "type": "integer",
+                      "description": "The day for the usage report."
+                    }
+                  },
+                  "required": [
+                    "year"
+                  ]
+                },
+                "enterprise": {
+                  "type": "string",
+                  "description": "The name of the enterprise for the usage report."
+                },
+                "user": {
+                  "type": "string",
+                  "description": "The name of the user for the usage report."
+                },
+                "organization": {
+                  "type": "string",
+                  "description": "The name of the organization for the usage report."
+                },
+                "product": {
+                  "type": "string",
+                  "description": "The product for the usage report."
+                },
+                "model": {
+                  "type": "string",
+                  "description": "The model for the usage report."
+                },
+                "costCenter": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "The unique identifier of the cost center."
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The name of the cost center."
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ]
+                },
+                "usageItems": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "product": {
+                        "type": "string",
+                        "description": "Product name."
+                      },
+                      "sku": {
+                        "type": "string",
+                        "description": "SKU name."
+                      },
+                      "model": {
+                        "type": "string",
+                        "description": "Model name."
+                      },
+                      "unitType": {
+                        "type": "string",
+                        "description": "Unit type of the usage line item."
+                      },
+                      "pricePerUnit": {
+                        "type": "number",
+                        "description": "Price per unit of the usage line item."
+                      },
+                      "grossQuantity": {
+                        "type": "number",
+                        "description": "Gross quantity of the usage line item."
+                      },
+                      "grossAmount": {
+                        "type": "number",
+                        "description": "Gross amount of the usage line item."
+                      },
+                      "discountQuantity": {
+                        "type": "number",
+                        "description": "Discount quantity of the usage line item."
+                      },
+                      "discountAmount": {
+                        "type": "number",
+                        "description": "Discount amount of the usage line item."
+                      },
+                      "netQuantity": {
+                        "type": "number",
+                        "description": "Net quantity of the usage line item."
+                      },
+                      "netAmount": {
+                        "type": "number",
+                        "description": "Net amount of the usage line item."
+                      }
+                    },
+                    "required": [
+                      "product",
+                      "sku",
+                      "model",
+                      "unitType",
+                      "pricePerUnit",
+                      "grossQuantity",
+                      "grossAmount",
+                      "discountQuantity",
+                      "discountAmount",
+                      "netQuantity",
+                      "netAmount"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "timePeriod",
+                "enterprise",
+                "usageItems"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Response when getting a billing AI credit usage report</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
         "userToServerRest": false,
         "serverToServer": false,
         "fineGrainedPat": false,
         "permissions": []
       }
-    }
-  ],
-  "usage": [
+    },
     {
       "serverUrl": "https://api.github.com",
       "verb": "get",
@@ -2767,7 +3877,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Gets a summary report of usage for an enterprise. To use this endpoint, you must be an administrator or billing manager of the enterprise. By default, this endpoint will return usage across all cost centers in the enterprise.</p>\n<p><strong>Note:</strong> Only data from the past 24 months is accessible via this endpoint.</p>",
+      "descriptionHTML": "<p>Gets a summary report of usage for an enterprise. To use this endpoint, you must be an administrator or billing manager of the enterprise. By default, this endpoint will return usage across all cost centers in the enterprise.</p>\n<p><strong>Note:</strong> Only data from the past 24 months is accessible via this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2982,7 +4092,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Lists all usage report exports for an enterprise. The authenticated user must be an enterprise admin or billing manager.</p>",
+      "descriptionHTML": "<p>Lists all usage report exports for an enterprise. The authenticated user must be an enterprise admin or billing manager.</p>",
       "codeExamples": [
         {
           "request": {
@@ -3050,7 +4160,8 @@
                         "enum": [
                           "detailed",
                           "summarized",
-                          "premium_request"
+                          "premium_request",
+                          "ai_credit"
                         ]
                       },
                       "start_date": {
@@ -3171,7 +4282,8 @@
           "enum": [
             "detailed",
             "summarized",
-            "premium_request"
+            "premium_request",
+            "ai_credit"
           ]
         },
         {
@@ -3192,7 +4304,7 @@
           "default": false
         }
       ],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Initiates the generation of a usage report export for an enterprise. The report will be processed asynchronously\nand can be downloaded once completed. The authenticated user must be an enterprise admin or billing manager.</p>",
+      "descriptionHTML": "<p>Initiates the generation of a usage report export for an enterprise. The report will be processed asynchronously\nand can be downloaded once completed. The authenticated user must be an enterprise admin or billing manager.</p>",
       "codeExamples": [
         {
           "request": {
@@ -3238,7 +4350,8 @@
                   "enum": [
                     "detailed",
                     "summarized",
-                    "premium_request"
+                    "premium_request",
+                    "ai_credit"
                   ]
                 },
                 "start_date": {
@@ -3353,13 +4466,12 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string",
-            "format": "uuid"
+            "type": "string"
           }
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Gets the status and details of a usage report export by ID. The authenticated user must be an enterprise admin or billing manager.</p>",
+      "descriptionHTML": "<p>Gets the status and details of a usage report export by ID. The authenticated user must be an enterprise admin or billing manager.</p>",
       "codeExamples": [
         {
           "request": {
@@ -3400,7 +4512,8 @@
                   "enum": [
                     "detailed",
                     "summarized",
-                    "premium_request"
+                    "premium_request",
+                    "ai_credit"
                   ]
                 },
                 "start_date": {

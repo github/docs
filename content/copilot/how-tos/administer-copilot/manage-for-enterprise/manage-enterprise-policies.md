@@ -19,6 +19,8 @@ category:
 
 When an organization owner assigns a {% data variables.product.prodname_copilot_short %} license to a member of their organization, the availability of features and models is controlled by policies.
 
+If you're setting up {% data variables.product.prodname_copilot_short %} for the first time, see [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/govern-at-scale/govern-for-adoption) for guidance on setting a governance posture that balances compliance with developer productivity.
+
 ## Defining policies for your enterprise
 
 Enterprise owners can define a policy for the whole enterprise, or delegate the decision to individual organization owners. See [AUTOTITLE](/copilot/concepts/policies).
@@ -30,13 +32,14 @@ Enterprise owners can define a policy for the whole enterprise, or delegate the 
    * To view policies for **AI agents**, in the sidebar, click {% octicon "agent" aria-hidden="true" aria-label="agent" %} **Agents**.
    * To view policies for **{% data variables.product.prodname_copilot_short %}**, in the sidebar, click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} **{% data variables.product.prodname_copilot_short %}**.
    * To view policies for **Model Context Protocol (MCP)**, in the sidebar, click {% octicon "mcp" aria-hidden="true" aria-label="mcp" %} **MCP**.
-
 1. Configure your policies as follows:
    * For policies with a **dropdown menu**, select the menu and click an enforcement option.
    * For policies with a **toggle**, click the toggle to set availability or enforcement.
    * For policies with **no visible dropdown menu or toggle**, click the name of the policy for configuration options.
 
 {% data reusables.copilot.mcp-servers-policy-note %}
+
+{% data reusables.copilot.policy.suggestions-code-enterprise-default %}
 
 ## Opting in to feedback collection
 
@@ -45,3 +48,4 @@ If you enable "{% data variables.product.prodname_copilot_short %} in {% data va
 ## Further reading
 
 * [AUTOTITLE](/copilot/reference/policy-conflicts)
+* [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies)

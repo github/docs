@@ -1,3 +1,0 @@
-1. To purchase {% data variables.product.prodname_copilot %} for your organization, [contact {% data variables.product.github %}'s Sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=text).
-1. A member of the Sales team will work with you to set up {% data variables.product.prodname_copilot_short %} for your organization.
-1. For more information about assigning seats, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization).

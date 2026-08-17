@@ -364,8 +364,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "description": "The Git reference, formatted as `refs/pull/<number>/merge`, `refs/pull/<number>/head`,\n`refs/heads/<branch name>` or simply `<branch name>`."
+            "type": "string"
           }
         }
       ],

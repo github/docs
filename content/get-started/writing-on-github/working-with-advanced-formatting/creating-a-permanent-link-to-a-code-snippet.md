@@ -44,5 +44,5 @@ You can link to a specific line in the Markdown file the same way you can in cod
 
 ## Further reading
 
-* [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)
+* [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/creating-an-issue)
 * [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests)

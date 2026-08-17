@@ -12,6 +12,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile
   - /account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile
   - /account-and-profile/get-started/personalizing-your-profile
+  - /get-started/quickstart/setting-up-your-profile
+  - /get-started/start-your-journey/setting-up-your-profile
 versions:
   fpt: '*'
   ghes: '*'
@@ -90,7 +92,7 @@ Add pronouns to your public user profile to share information about yourself wit
 You can add up to four links to social accounts on your profile.
 
 {% data reusables.user-settings.access_settings %}
-1. Under "Social accounts", in a blank "Link to social profile" field, type the full URL of the social account. For example, for the `@GitHub` Twitter account, type `https://twitter.com/github`.
+1. Under "Social accounts", in a blank "Link to social profile" field, type the full URL of the social account. For example, for the `@GitHub` X (formerly Twitter) account, type `https://x.com/github`.
 {% data reusables.profile.update-profile %}
 
 {% endif %}
@@ -124,8 +126,7 @@ You can set a status to display information about your current availability.
 
 ## Next steps
 
-* To learn more about GitHub profiles, see [AUTOTITLE](/account-and-profile/concepts/about-your-profile).
-
+* Use the [Emoji cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/) and [Markdown cheat sheet](https://www.markdownguide.org/cheat-sheet/) to experiment with additional formatting.
+* To learn more about GitHub profiles, see [AUTOTITLE](/account-and-profile/concepts/personal-profile).
 * For reference information, see [AUTOTITLE](/account-and-profile/reference/profile-reference).
-
-* For more detailed profile customizations, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-github-profile).
+* For more detailed profile customizations, see [AUTOTITLE](/account-and-profile/how-tos).

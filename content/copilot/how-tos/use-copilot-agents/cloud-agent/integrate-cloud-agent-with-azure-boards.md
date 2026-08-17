@@ -3,6 +3,7 @@ title: Integrating Copilot cloud agent with Azure Boards
 shortTitle: Integrate cloud agent with Azure Boards
 allowTitleToDifferFromFilename: true
 intro: 'Use the {% data variables.product.prodname_copilot_short %} integration in Azure Boards to send work items directly to {% data variables.copilot.copilot_cloud_agent %} and generate pull requests, all from within your Azure DevOps workspace.'
+product: '{% data reusables.copilot.plans.permission-paid-plans-cfi %}'
 versions:
   feature: copilot
 contentType: how-tos
@@ -17,12 +18,12 @@ The Azure Boards {% data variables.product.github %} integration allows you to i
 For information about additional {% data variables.product.prodname_copilot_short %} integrations, see [AUTOTITLE](/copilot/concepts/tools/about-copilot-integrations).
 
 > [!NOTE]
-> * {% data variables.product.prodname_copilot %} uses AI. Check for mistakes. See [AUTOTITLE](/copilot/responsible-use/copilot-cloud-agent).
+> * {% data variables.product.prodname_copilot %} uses AI. Check for mistakes. See [AUTOTITLE](/copilot/responsible-use/agents).
 > * When you send a work item to {% data variables.copilot.copilot_cloud_agent %}, the agent will capture content from text fields (such as the description and reproduction steps), along with the last 50 comments. This context is stored in the pull request, and is visible to anyone with access to the repository.
 
 ## Prerequisites
 
-* You must have a {% data variables.product.github %} account with access to {% data variables.product.prodname_copilot_short %} through {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, or {% data variables.copilot.copilot_enterprise_short %}.
+* You must have a {% data variables.product.github %} account with access to {% data variables.product.prodname_copilot_short %} through a paid {% data variables.product.prodname_copilot_short %} plan.
 * The repositories connected to the Azure DevOps project must have {% data variables.copilot.copilot_cloud_agent %} enabled.
 
 ## Installing the Azure Boards application on {% data variables.product.github %}

@@ -14,7 +14,7 @@ Before you enable {% data variables.copilot.copilot_cloud_agent %}, it is good p
 
 ## Learn about built-in protections
 
-{% data variables.copilot.copilot_cloud_agent %} has a strong base of built-in security protections designed to protect against common risk points of AI agents. See [AUTOTITLE](/copilot/concepts/agents/coding-agent/risks-and-mitigations).
+{% data variables.copilot.copilot_cloud_agent %} has a strong base of built-in security protections designed to protect against common risk points of AI agents. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/risks-and-mitigations).
 
 ## Plan policy settings
 
@@ -22,14 +22,13 @@ Plan your policies for {% data variables.copilot.copilot_cloud_agent %} in advan
 
 Some questions to ask are:
 
-* Which organizations and repositories will {% data variables.copilot.copilot_cloud_agent %} be enabled in? See [AUTOTITLE](/copilot/concepts/agents/coding-agent/access-management).
-* Which MCP servers will you configure to give {% data variables.copilot.copilot_cloud_agent %} access to external tools? See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp).
+* Which organizations and repositories will {% data variables.copilot.copilot_cloud_agent %} be enabled in? See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/access-management).
+* Which MCP servers will you configure to give {% data variables.copilot.copilot_cloud_agent %} access to external tools? See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers).
 
 ### Which policies don't apply?
 
 The following {% data variables.product.prodname_copilot_short %} policies don't apply to {% data variables.copilot.copilot_cloud_agent %}:
 
-* Content exclusions
 * Custom models (providing your own LLM API keys)
 * Private MCP registries
 
@@ -51,7 +50,7 @@ To adapt your rulesets for {% data variables.copilot.copilot_cloud_agent %}:
 
 Continue to store data and tokens that you _don't_ want {% data variables.product.prodname_copilot_short %} to access as **{% data variables.product.prodname_actions %} variables or secrets**. {% data variables.product.prodname_copilot_short %} won't be able to access these in its sessions or environment setup steps.
 
-If you need to provide data and secrets that {% data variables.copilot.copilot_cloud_agent %} _does_ need, you'll be able to do this in a specific `copilot` environment.
+If you need to provide data and secrets that {% data variables.copilot.copilot_cloud_agent %} _does_ need, you'll be able to do this by configuring Agents secrets and variables at the organization or repository level. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables).
 
 ### Configure runners
 
@@ -61,7 +60,7 @@ Organization owners can restrict the {% data variables.copilot.copilot_cloud_age
 
 ### Configure workflow policies
 
-Decide whether **{% data variables.product.prodname_actions %} workflows should be blocked from running** in pull requests that {% data variables.copilot.copilot_cloud_agent %} creates. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/configuring-agent-settings#allowing-github-actions-workflows-to-run-automatically-when-copilot-pushes).
+Decide whether **{% data variables.product.prodname_actions %} workflows should be blocked from running** in pull requests that {% data variables.copilot.copilot_cloud_agent %} creates. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/configuring-agent-settings#allowing-github-actions-workflows-to-run-automatically-when-copilot-pushes).
 
 By default, workflows are blocked from running until someone with write access approves them. Repository administrators will be able to disable this feature, so communicate with them in advance about your preferred setting.
 
@@ -72,7 +71,3 @@ Review the default permissions for the `GITHUB_TOKEN` in your enterprise. See [A
 This policy does **not** affect the token that {% data variables.product.prodname_copilot_short %} will receive for its sessions, but the `GITHUB_TOKEN` _is_ used in environment setup steps defined in `copilot-setup-steps.yml` workflow files.
 
 Bear in mind that developers will be able to set their own `permissions` in these workflow files, and you should encourage them to use the minimum required permissions in all workflows.
-
-## Next steps
-
-When you're ready to enable {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/manage-copilot-coding-agent).

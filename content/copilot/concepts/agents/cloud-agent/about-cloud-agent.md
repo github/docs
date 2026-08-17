@@ -20,10 +20,9 @@ contentType: concepts
 category:
   - Learn about Copilot
 ---
-<!-- expires 2026-04-21 -->
-<!-- When this expires, search all references to {% data variables.copilot.copilot_cloud_agent_tmp %} in docs-internal and replace with {% data variables.copilot.copilot_cloud_agent %} -->
-## Overview of {% data variables.copilot.copilot_cloud_agent_tmp %}
-<!-- end expires 2026-04-21 -->
+
+## Overview of {% data variables.copilot.copilot_cloud_agent %}
+
 With {% data variables.copilot.copilot_cloud_agent %}, {% data variables.product.prodname_copilot %} can work independently in the background to complete tasks, just like a human developer.
 
 {% data variables.copilot.copilot_cloud_agent %} can:
@@ -39,10 +38,11 @@ With {% data variables.copilot.copilot_cloud_agent %}, {% data variables.product
 
 When you delegate tasks to {% data variables.copilot.copilot_cloud_agent %}, you can:
 
-* Use the agents panel or other agents entry points on {% data variables.product.prodname_dotcom_the_website %} to have {% data variables.product.prodname_copilot_short %} research, plan, and make code changes on a branch, then iterate before creating a pull request. You can also specify in your prompt that you want a pull request created right away. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/research-plan-iterate).
-* Ask {% data variables.product.prodname_copilot_short %} to open a new pull request from other entry points, including {% data variables.product.prodname_github_issues %} and {% data variables.product.prodname_vscode %}. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-a-pr).
-* Mention `@copilot` in a comment on an existing pull request to ask it to make changes. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/make-changes-to-an-existing-pr).
-{% ifversion security-campaigns-assign-to-cca %}* Assign security alerts to {% data variables.product.prodname_copilot_short %} from security campaigns. See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign#assigning-alerts-to-copilot-cloud-agent).{% endif %}
+* Use the agents panel or other agents entry points on {% data variables.product.prodname_dotcom_the_website %} to have {% data variables.product.prodname_copilot_short %} research, plan, and make code changes on a branch, then iterate before creating a pull request. You can also specify in your prompt that you want a pull request created right away. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/research-plan-iterate).
+* Ask {% data variables.product.prodname_copilot_short %} to open a new pull request from other entry points, including {% data variables.product.prodname_github_issues %} and {% data variables.product.prodname_vscode %}. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions).
+* Mention `@copilot` in a comment on an existing pull request to ask it to make changes. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/use-cloud-agent-on-github).
+* Set up an {% data variables.copilot.copilot_automation %} to run {% data variables.product.prodname_copilot_short %} automatically, on a schedule or in response to events such as an issue being opened. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-automations).
+{% ifversion security-campaigns-assign-to-cca %}* Assign security alerts to {% data variables.product.prodname_copilot_short %} from security campaigns. See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/fixing-alerts-in-security-campaign#assigning-alerts-to-copilot-cloud-agent).{% endif %}
 
 {% data variables.copilot.copilot_cloud_agent %} will evaluate the task it has been assigned based on the prompt you give it.
 
@@ -58,9 +58,13 @@ When used effectively, {% data variables.copilot.copilot_cloud_agent %} offers p
 
 * With **{% data variables.copilot.copilot_cloud_agent %}**, all coding and iterating happens **on {% data variables.product.github %}**. You can ask {% data variables.product.prodname_copilot_short %} to **research** a repository, **create a plan**, and **make code changes** on a branch—all before opening a pull request. You can create multiple {% data variables.copilot.custom_agents_short %} that specialize in different types of tasks. {% data variables.product.prodname_copilot_short %} **automates** branch creation, commit message writing, and pushing. Developers let the agents **work in the background** and then chooses to **create a pull request** when ready. Working on {% data variables.product.github %} adds **transparency**, with every step happening in a commit and being viewable in logs, and opens up **collaboration** opportunities for the entire team.
 
+### Sharing context between {% data variables.copilot.copilot_chat_short %} and {% data variables.copilot.copilot_cloud_agent %} sessions
+
+When you start a {% data variables.copilot.copilot_cloud_agent %} session from {% data variables.copilot.copilot_chat_short %} on {% data variables.product.github %}, the session carries the context of your chat. You can continue chatting while the session runs, and ask follow-up questions about progress in the same conversation. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents).
+
 ## {% data variables.copilot.copilot_cloud_agent %} versus agent mode
 
-{% data variables.copilot.copilot_cloud_agent %} is distinct from the "agent mode" feature available in your IDE. {% data variables.copilot.copilot_cloud_agent %} works autonomously in a {% data variables.product.prodname_actions %}-powered environment to complete development tasks assigned through {% data variables.product.github %} issues or {% data variables.copilot.copilot_chat %} prompts. It can research a repository, create a plan, make code changes on a branch, and optionally open a pull request. In contrast, agent mode in your IDE makes autonomous edits directly in your local development environment. For more information about agent mode, see [AUTOTITLE](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide).
+{% data variables.copilot.copilot_cloud_agent %} is distinct from the "agent mode" feature available in your IDE. {% data variables.copilot.copilot_cloud_agent %} works autonomously in a {% data variables.product.prodname_actions %}-powered environment to complete development tasks assigned through {% data variables.product.github %} issues or {% data variables.copilot.copilot_chat %} prompts. It can research a repository, create a plan, make code changes on a branch, and optionally open a pull request. In contrast, agent mode in your IDE makes autonomous edits directly in your local development environment. For more information about agent mode, see [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
 
 ## Streamlining software development with {% data variables.copilot.copilot_cloud_agent %}
 
@@ -70,7 +74,7 @@ For example, you can assign {% data variables.copilot.copilot_cloud_agent %} to 
 
 Having {% data variables.copilot.copilot_cloud_agent %} as an additional coding resource also allows you to start tasks that you might not have otherwise started due to lack of resources. For example, you might create issues to refactor code or add more logging, and then immediately assign these to {% data variables.product.prodname_copilot_short %}.
 
-You can also use {% data variables.copilot.copilot_cloud_agent %} to research a repository and create a plan before any code is written, helping you understand how a codebase works or agree on an approach before committing to changes. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/research-plan-iterate).
+You can also use {% data variables.copilot.copilot_cloud_agent %} to research a repository and create a plan before any code is written, helping you understand how a codebase works or agree on an approach before committing to changes. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/research-plan-iterate).
 
 {% data variables.copilot.copilot_cloud_agent %} can start a task, which you then pick up and continue working on yourself. By assigning the initial work to {% data variables.product.prodname_copilot_short %}, you free up time that you would otherwise have spent doing repetitive tasks, such as setting up the scaffolding for a new project.
 
@@ -94,21 +98,19 @@ You can also invoke {% data variables.copilot.copilot_cloud_agent %} from extern
 
 ## Making {% data variables.copilot.copilot_cloud_agent %} available
 
-Before you can assign tasks to {% data variables.copilot.copilot_cloud_agent %}, it must be enabled.
-
-{% data variables.copilot.copilot_cloud_agent %} is available with the {% data variables.copilot.copilot_pro %}, {% data variables.copilot.copilot_pro_plus %}, {% data variables.copilot.copilot_for_business %} and {% data variables.copilot.copilot_enterprise %} plans.
+Before you can assign tasks to {% data variables.copilot.copilot_cloud_agent %}, it must be enabled. {% data variables.copilot.copilot_cloud_agent %} is available for all paid {% data variables.product.prodname_copilot_short %} plans.
 
 If you are a {% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %} subscriber, an administrator must enable the relevant policy before you can use the agent.
 
 Repository owners can choose to opt out some or all repositories from {% data variables.copilot.copilot_cloud_agent %}.
 
-For more information, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/access-management).
+See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/access-management).
 
 ## AI models for {% data variables.copilot.copilot_cloud_agent %}
 
 Depending on how you start your {% data variables.copilot.copilot_cloud_agent %} task, you may be able to select the model used by {% data variables.copilot.copilot_cloud_agent %}. You may find that different models perform better, or provide more useful responses, depending on the type of tasks you give {% data variables.product.prodname_copilot_short %}.
 
-For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/changing-the-ai-model).
+See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/changing-the-ai-model).
 
 ## Enhancing {% data variables.copilot.copilot_cloud_agent %}'s knowledge of a repository
 
@@ -116,29 +118,29 @@ The more {% data variables.copilot.copilot_cloud_agent %} knows about the code i
 
 * **Custom instructions**
 
-  These are short, natural‑language statements that you write and store as one or more files in a repository. If you are the owner of an organization on {% data variables.product.github %} you can also define custom instructions in the settings for your organization. For more information, see [AUTOTITLE](/copilot/concepts/prompting/response-customization?tool=webui#about-repository-custom-instructions).
+  These are short, natural‑language statements that you write and store as one or more files in a repository. If you are the owner of an organization on {% data variables.product.github %} you can also define custom instructions in the settings for your organization. See [AUTOTITLE](/copilot/concepts/prompting/response-customization?tool=webui#about-repository-custom-instructions).
 
 * **{% data variables.copilot.copilot_memory %}** ({% data variables.release-phases.public_preview %})
 
-  If you have a {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan, you can enable {% data variables.copilot.copilot_memory %}. This allows {% data variables.product.prodname_copilot_short %} to store useful details it has worked out for itself about a repository. {% data variables.copilot.copilot_cloud_agent %} can then use this information when it is working in that repository. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-memory).
+  If you have a {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} plan, you can enable {% data variables.copilot.copilot_memory %}. This allows {% data variables.product.prodname_copilot_short %} to store useful details it has worked out for itself about a repository. {% data variables.copilot.copilot_cloud_agent %} can then use this information when it is working in that repository. See [AUTOTITLE](/copilot/concepts/agents/copilot-memory).
 
 ## {% data variables.copilot.copilot_cloud_agent %} usage costs
 
-{% data variables.copilot.copilot_cloud_agent %} uses {% data variables.product.prodname_actions %} minutes and {% data variables.product.prodname_copilot_short %} premium requests.
+{% data variables.copilot.copilot_cloud_agent %} uses {% data variables.product.prodname_actions %} minutes and {% data variables.product.prodname_ai_credits_short %}. The {% data variables.product.prodname_ai_credits_short %} consumed depend on the model used and the number of tokens processed during the session.
 
-Within your monthly usage allowance for {% data variables.product.prodname_actions %} and premium requests, you can ask {% data variables.copilot.copilot_cloud_agent %} to work on coding tasks without incurring any additional costs.
+Within your included {% data variables.product.prodname_actions %} minutes and {% data variables.product.prodname_ai_credits_short %}, you can use {% data variables.copilot.copilot_cloud_agent %} without incurring additional costs. See [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
 
-For more information, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-copilot/about-billing-for-github-copilot#allowance-usage-for-copilot-cloud-agent).
+{% data variables.product.prodname_copilot_short %} code review also consumes {% data variables.product.prodname_actions %} minutes on private repositories. See [AUTOTITLE](/billing/concepts/product-billing/github-actions#copilot-code-review-and-github-actions-minutes).
 
 ## Customizing {% data variables.copilot.copilot_cloud_agent %}
 
 You can customize {% data variables.copilot.copilot_cloud_agent %} in a number of ways:
 
-* **Custom instructions**: Custom instructions allow you to give {% data variables.product.prodname_copilot_short %} additional context on your project and how to build, test and validate its changes. For more information, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
-* **Model Context Protocol (MCP) servers**: MCP servers allow you to give {% data variables.product.prodname_copilot_short %} access to different data sources and tools. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp).
-* **{% data variables.copilot.custom_agents_caps_short %}**: {% data variables.copilot.custom_agents_caps_short %} allow you to create different specialized versions of {% data variables.product.prodname_copilot_short %} for different tasks. For example, you could customize {% data variables.product.prodname_copilot_short %} to be an expert frontend engineer following your team's guidelines. For more information, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-custom-agents).
-* **Hooks**: Hooks allow you to execute custom shell commands at key points during agent execution, enabling you to add validation, logging, security scanning, or workflow automation. For more information, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-hooks).
-* **Skills**: Skills allow you to enhance the ability of {% data variables.product.prodname_copilot_short %} to perform specialized tasks with instructions, scripts, and resources. For more information, see [AUTOTITLE](/copilot/concepts/agents/about-agent-skills).
+* **Custom instructions**: Custom instructions allow you to give {% data variables.product.prodname_copilot_short %} additional context on your project and how to build, test and validate its changes. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions).
+* **Model Context Protocol (MCP) servers**: MCP servers allow you to give {% data variables.product.prodname_copilot_short %} access to different data sources and tools. Repository MCP settings on {% data variables.product.github %} apply to both {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}. The {% data variables.product.github %} MCP server and Playwright MCP server are enabled by default for both features. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers).
+* **{% data variables.copilot.custom_agents_caps_short %}**: {% data variables.copilot.custom_agents_caps_short %} allow you to create different specialized versions of {% data variables.product.prodname_copilot_short %} for different tasks. For example, you could customize {% data variables.product.prodname_copilot_short %} to be an expert frontend engineer following your team's guidelines. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-custom-agents).
+* **Hooks**: Hooks allow you to execute custom shell commands at key points during agent execution, enabling you to add validation, logging, security scanning, or workflow automation. See [AUTOTITLE](/copilot/concepts/agents/hooks).
+* **Skills**: Skills allow you to enhance the ability of {% data variables.product.prodname_copilot_short %} to perform specialized tasks with instructions, scripts, and resources. See [AUTOTITLE](/copilot/concepts/agents/about-agent-skills).
 
 ## Limitations of {% data variables.copilot.copilot_cloud_agent %}
 
@@ -147,13 +149,13 @@ You can customize {% data variables.copilot.copilot_cloud_agent %} in a number o
 ### Limitations in {% data variables.copilot.copilot_cloud_agent %}'s software development workflow
 
 * **{% data variables.product.prodname_copilot_short %} can only make changes in the repository specified when you start a task**. {% data variables.product.prodname_copilot_short %} cannot make changes across multiple repositories in one run.
-* **By default, {% data variables.product.prodname_copilot_short %} can only access context in the repository specified when you start a task**. The {% data variables.product.prodname_copilot_short %} MCP server is configured by default to allow {% data variables.product.prodname_copilot_short %} to access context (for example issues and historic pull requests) in the repository where it is working. You can, however, configure broader access. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp).
+* **By default, {% data variables.product.prodname_copilot_short %} can only access context in the repository specified when you start a task**. The {% data variables.product.prodname_copilot_short %} MCP server is configured by default to allow {% data variables.product.prodname_copilot_short %} to access context (for example issues and historic pull requests) in the repository where it is working. You can, however, configure broader access through repository MCP settings. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers).
 * **{% data variables.product.prodname_copilot_short %} can only work on one branch at a time** and can open exactly one pull request to address each task it is assigned.
+* **Each {% data variables.copilot.copilot_cloud_agent %} session has a maximum execution time of 59 minutes**. This is a hard limit that cannot be extended or bypassed. If a task exceeds this limit, the session will time out and stop. For complex tasks that may require more time, consider breaking the work into smaller, more focused tasks. You can configure a shorter timeout using the `timeout-minutes` setting in your `copilot-setup-steps.yml` file. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment).
 
 ### Limitations in {% data variables.copilot.copilot_cloud_agent %}'s compatibility with other features
 
 * **{% data variables.product.prodname_copilot_short %} isn't able to comply with certain rules that may be configured for your repository**. If you have configured a ruleset or branch protection rule that isn't compatible with {% data variables.copilot.copilot_cloud_agent %}, access to the agent will be blocked. For example, a rule that only allows specific commit authors can prevent {% data variables.copilot.copilot_cloud_agent %} from creating or updating pull requests. If the rule is configured using rulesets, you can add {% data variables.product.prodname_copilot_short %} as a bypass actor to enable access. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#granting-bypass-permissions-for-your-branch-or-tag-ruleset).
-* **{% data variables.copilot.copilot_cloud_agent %} doesn't account for content exclusions**. Content exclusions allow administrators to configure {% data variables.product.prodname_copilot_short %} to ignore certain files. When using {% data variables.copilot.copilot_cloud_agent %}, {% data variables.product.prodname_copilot_short %} will not ignore these files, and will be able to see and update them. See [AUTOTITLE](/copilot/managing-copilot/configuring-and-auditing-content-exclusion/excluding-content-from-github-copilot).
 * **{% data variables.copilot.copilot_cloud_agent %} only works with repositories hosted on {% data variables.product.github %}**. If your repository is stored using a different code hosting platform, {% data variables.product.prodname_copilot_short %} won't be able to work on it.
 
 ## Hands-on practice
@@ -164,4 +166,4 @@ Try the [Expand your team with {% data variables.copilot.copilot_cloud_agent %}]
 
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent) how-to articles
 * [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-custom-agents)
-* [AUTOTITLE](/copilot/responsible-use/copilot-cloud-agent)
+* [AUTOTITLE](/copilot/responsible-use/agents)

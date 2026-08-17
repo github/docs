@@ -21,6 +21,19 @@ export interface BrokenLink {
   errorMessage?: string
 }
 
+/**
+ * A cross-page anchor link (`/path#fragment`) whose fragment doesn't match any heading on
+ * the target page, along with the versions it breaks in. Reported separately from broken
+ * page links because the target page exists — only the fragment is stale.
+ */
+export interface CrossPageAnchorFlaw {
+  href: string
+  file: string
+  lines: number[]
+  text?: string
+  versions: string[]
+}
+
 export interface GroupedBrokenLinks {
   target: string
   occurrences: BrokenLink[]
@@ -32,6 +45,7 @@ export interface LinkReport {
   title: string
   summary: string
   groups: GroupedBrokenLinks[]
+  selfReferentialGroups?: GroupedBrokenLinks[]
   uniqueTargets: number
   totalOccurrences: number
   timestamp: string
@@ -96,14 +110,38 @@ ${statusInfo}${suggestion}**Found in ${count} file${plural}:**
 ${tableRows}`
   },
 
+  // Self-referential links section
+  selfReferentialLinks: (title: string, groups: GroupedBrokenLinks[]) => {
+    const totalOccurrences = groups.reduce((sum, g) => sum + g.occurrences.length, 0)
+    const rows = groups
+      .map((g) => {
+        const uniqueFileCount = new Set(g.occurrences.map((occ) => occ.file)).size
+        const occRows = g.occurrences
+          .map((occ) => `| \`${occ.file}\` | ${occ.lines.join(', ')} |`)
+          .join('\n')
+        return `### \`${g.target}\`\n\n**Found in ${uniqueFileCount} file${uniqueFileCount === 1 ? '' : 's'}:**\n\n| File | Line(s) |\n|------|---------|\n${occRows}`
+      })
+      .join('\n\n')
+    return `## 🔗 ${title} (${groups.length} unique URL${groups.length === 1 ? '' : 's'}, ${totalOccurrences} occurrence${totalOccurrences === 1 ? '' : 's'})
+
+The following links point to \`docs.github.com\`. Consider replacing them with relative internal links using the \`[AUTOTITLE](/path/to/article)\` syntax.
+
+${rows}`
+  },
+
   // Empty report
   noIssues: () => 'No issues found! 🎉',
 
   // PR comment
-  prComment: (errors: GroupedBrokenLinks[], warnings: GroupedBrokenLinks[], actionUrl?: string) => {
+  prComment: (
+    errors: GroupedBrokenLinks[],
+    warnings: GroupedBrokenLinks[],
+    anchorSection: string,
+    actionUrl?: string,
+  ) => {
     const errorSection =
       errors.length > 0
-        ? `### ❌ ${errors.length} Broken Link${errors.length === 1 ? '' : 's'}
+        ? `### ⚠️ ${errors.length} Broken Link${errors.length === 1 ? '' : 's'}
 
 ${errors
   .map((group) => {
@@ -131,11 +169,33 @@ ${errors
 
     return `## 🔗 Link Check Results
 
-> [!NOTE]
-> **This check is being actively worked on** and may produce false positives. If something looks wrong, you can safely ignore it for now.
-
-${errorSection}${warningSection}${detailsLink}
+${errorSection}${warningSection}${anchorSection}${detailsLink}
 <!-- link-checker-pr-comment -->`
+  },
+
+  // Cross-page anchor section. `blocking` reflects FAIL_ON_ANCHOR_FLAW so the wording
+  // can't claim the check is advisory once the rollout flips it to failing.
+  anchorSection: (anchors: CrossPageAnchorFlaw[], blocking = false) => {
+    if (anchors.length === 0) return ''
+    const shown = anchors.slice(0, 10)
+    const remaining = anchors.length - shown.length
+    const rows = shown
+      .map(
+        (a) =>
+          `- \`${a.href}\`\n  - \`${a.file}\` line ${a.lines.join(', ')} (${a.versions.join(', ')})`,
+      )
+      .join('\n')
+    const moreLine = remaining > 0 ? `\n- ... and ${remaining} more` : ''
+    const status = blocking
+      ? 'This check is failing.'
+      : 'Not blocking yet, so this check still passes.'
+    return `### ⚓ ${anchors.length} broken cross-page anchor${anchors.length === 1 ? '' : 's'}
+
+These links resolve to a real page, but the \`#fragment\` no longer matches a heading on the target. ${status}
+
+${rows}${moreLine}
+
+`
   },
 }
 
@@ -301,9 +361,12 @@ export function generateInternalLinkReport(
  */
 export function generateExternalLinkReport(
   brokenLinks: BrokenLink[],
-  options: { actionUrl?: string } = {},
+  options: { actionUrl?: string; selfReferentialLinks?: BrokenLink[] } = {},
 ): LinkReport {
   const groups = groupExternalLinksByDomain(brokenLinks)
+  const selfReferentialGroups = options.selfReferentialLinks?.length
+    ? groupBrokenLinks(options.selfReferentialLinks)
+    : undefined
   const count = groups.length
   const plural = count === 1 ? '' : 's'
 
@@ -314,6 +377,7 @@ export function generateExternalLinkReport(
         ? `Found **${brokenLinks.length}** broken external link${brokenLinks.length === 1 ? '' : 's'} across **${count}** domain${plural}.`
         : 'All external links are valid! ✅',
     groups,
+    selfReferentialGroups,
     uniqueTargets: count,
     totalOccurrences: brokenLinks.length,
     timestamp: new Date().toISOString(),
@@ -360,6 +424,8 @@ function renderGroups(groups: GroupedBrokenLinks[], isExternal: boolean): string
  */
 export function reportToMarkdown(report: LinkReport, isExternal = false): string {
   const parts: string[] = []
+  const hasBrokenOrRedirectGroups = report.groups.length > 0
+  const hasSelfReferentialGroups = Boolean(report.selfReferentialGroups?.length)
 
   // Header
   parts.push(
@@ -367,7 +433,7 @@ export function reportToMarkdown(report: LinkReport, isExternal = false): string
   )
   parts.push('')
 
-  if (report.groups.length === 0) {
+  if (!hasBrokenOrRedirectGroups && !hasSelfReferentialGroups) {
     parts.push(TEMPLATES.noIssues())
     return parts.join('\n')
   }
@@ -379,7 +445,17 @@ export function reportToMarkdown(report: LinkReport, isExternal = false): string
   }
 
   // Groups
-  parts.push(renderGroups(report.groups, isExternal))
+  if (hasBrokenOrRedirectGroups) {
+    parts.push(renderGroups(report.groups, isExternal))
+  }
+
+  // Self-referential links section (external report only)
+  if (hasSelfReferentialGroups) {
+    parts.push(
+      TEMPLATES.selfReferentialLinks('Potential Internal Links', report.selfReferentialGroups!),
+    )
+    parts.push('')
+  }
 
   return parts.join('\n')
 }
@@ -389,15 +465,21 @@ export function reportToMarkdown(report: LinkReport, isExternal = false): string
  */
 export function generatePRComment(
   brokenLinks: BrokenLink[],
-  options: { actionUrl?: string } = {},
+  options: {
+    actionUrl?: string
+    brokenAnchors?: CrossPageAnchorFlaw[]
+    anchorsBlocking?: boolean
+  } = {},
 ): string {
-  if (brokenLinks.length === 0) return ''
+  const brokenAnchors = options.brokenAnchors ?? []
+  if (brokenLinks.length === 0 && brokenAnchors.length === 0) return ''
 
   const groups = groupBrokenLinks(brokenLinks)
   const errors = groups.filter((g) => !g.isWarning)
   const warnings = groups.filter((g) => g.isWarning)
+  const anchorSection = TEMPLATES.anchorSection(brokenAnchors, options.anchorsBlocking)
 
-  return TEMPLATES.prComment(errors, warnings, options.actionUrl)
+  return TEMPLATES.prComment(errors, warnings, anchorSection, options.actionUrl)
 }
 
 // ============================================================================

@@ -35,7 +35,7 @@ category:
 
 **"Program"** means the GitHub Secret Scanning Partner Program.
 
-**"Program Documentation"** means GitHub's published documentation for the Program, currently available at [https://docs.github.com/code-security/secret-scanning/secret-scanning-partner-program](/code-security/secret-scanning/secret-scanning-partner-program), as GitHub may update it.
+**"Program Documentation"** means GitHub's published documentation for the Program, currently available at [https://docs.github.com/code-security/secret-scanning/secret-scanning-partner-program](/code-security/tutorials/secret-scanning-partner-program), as GitHub may update it.
 
 **"Token Patterns"** means the technical specifications that Partner provides to GitHub for use in the Program, including: (a) a unique, human-readable name for each credential type; (b) regular expressions and multi-part relationship rules that identify the credential type; (c) post-processing logic, exclusion patterns, validation endpoints, and format documentation; and (d) any other technical information that Partner provides to GitHub in connection with the Program's pattern-matching functionality.
 
@@ -237,7 +237,7 @@ The Program Documentation is part of this agreement. If there is a conflict betw
 
 ### 12.2 Amendments to this Agreement
 
-GitHub may amend this agreement (including the Program Documentation) at any time by posting a revised version to [https://docs.github.com/code-security/secret-scanning/secret-scanning-partner-program](/code-security/secret-scanning/secret-scanning-partner-program) and providing Partner at least 30 days' advance notice via email to the address Partner provided during onboarding. Partner's continued participation in the Program following the 30-day notice period constitutes Partner's acceptance of that amendment. Partner may terminate this agreement under Section 16.2 before the amendment takes effect.
+GitHub may amend this agreement (including the Program Documentation) at any time by posting a revised version to [https://docs.github.com/code-security/secret-scanning/secret-scanning-partner-program](/code-security/tutorials/secret-scanning-partner-program) and providing Partner at least 30 days' advance notice via email to the address Partner provided during onboarding. Partner's continued participation in the Program following the 30-day notice period constitutes Partner's acceptance of that amendment. Partner may terminate this agreement under Section 16.2 before the amendment takes effect.
 
 ### 12.3 Program Changes
 

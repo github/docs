@@ -31,9 +31,7 @@
           "in": "query",
           "schema": {
             "type": "integer",
-            "default": 30,
-            "minimum": 1,
-            "maximum": 100
+            "default": 30
           },
           "description": "<p>The number of results per page (max 100).</p>"
         },
@@ -42,8 +40,7 @@
           "in": "query",
           "schema": {
             "type": "integer",
-            "default": 1,
-            "minimum": 1
+            "default": 1
           },
           "description": "<p>The page number of the results to fetch.</p>"
         },
@@ -94,8 +91,7 @@
           "name": "since",
           "in": "query",
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           },
           "description": "<p>Only show tasks updated at or after this time (ISO 8601 timestamp)</p>"
         },
@@ -103,13 +99,13 @@
           "name": "creator_id",
           "in": "query",
           "schema": {
-            "type": "integer"
+            "type": "array"
           },
-          "description": "<p>Filter tasks by creator user ID</p>"
+          "description": "<p>Filter tasks by creator user ID. Accepts one or more user IDs.</p>"
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Returns a list of tasks for a specific repository</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Returns a list of tasks for a specific repository</p>\n<p><strong>Fine-grained access tokens for \"List tasks for repository\"</strong></p>\n<p>This endpoint works with the following fine-grained token types:</p>\n<ul>\n<li><a href=\"https://docs.github.com/enterprise-cloud@latest/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app\">GitHub App user access tokens</a></li>\n<li><a href=\"https://docs.github.com/enterprise-cloud@latest/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token\">Fine-grained personal access tokens</a></li>\n</ul>\n<p>The fine-grained token must have the following permission set:</p>\n<ul>\n<li>\"Agent tasks\" repository permissions (read)</li>\n</ul>\n<p>GitHub App installation access tokens are not supported for this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -359,6 +355,16 @@
                         "type": "string",
                         "format": "date-time",
                         "description": "Timestamp when the task was created"
+                      },
+                      "custom_agent": {
+                        "type": "object",
+                        "description": "Custom agent metadata associated with this task",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "The custom agent's filename without the extension - for example, `performance-optimizer` for a `.github/agents/performance-optimizer.agent.md` custom agent."
+                          }
+                        }
                       }
                     }
                   },
@@ -411,7 +417,7 @@
       "serverUrl": "https://api.github.com",
       "verb": "post",
       "requestPath": "/agents/repos/{owner}/{repo}/tasks",
-      "title": "Create a task",
+      "title": "Start a task",
       "category": "agent-tasks",
       "subcategory": "agent-tasks",
       "parameters": [
@@ -447,6 +453,11 @@
           "description": "<p>The model to use for this task. The allowed models may change over time and depend on the user's GitHub Copilot plan and organization policies. Currently supported values: <code>claude-sonnet-4.6</code>, <code>claude-opus-4.6</code>, <code>gpt-5.2-codex</code>, <code>gpt-5.3-codex</code>, <code>gpt-5.4</code>, <code>claude-sonnet-4.5</code>, <code>claude-opus-4.5</code></p>"
         },
         {
+          "type": "string",
+          "name": "custom_agent",
+          "description": "<p>Optional identifier for a custom agent to use for this task. Use the custom agent's filename without the extension - for example, for a <code>.github/agents/performance-optimizer.agent.md</code> custom agent, use <code>performance-optimizer</code>.</p>"
+        },
+        {
           "type": "boolean",
           "name": "create_pull_request",
           "description": "<p>Whether to create a PR.</p>",
@@ -456,9 +467,14 @@
           "type": "string",
           "name": "base_ref",
           "description": "<p>Base ref for new branch/PR</p>"
+        },
+        {
+          "type": "string",
+          "name": "head_ref",
+          "description": "<p>Head ref for existing branch/PR. If provided with <code>base_ref</code>, the agent looks up open PR context for <code>head_ref</code> targeting <code>base_ref</code> and commits to <code>head_ref</code> instead of creating a new branch.</p>"
         }
       ],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Creates a new task for a repository.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Starts a new Copilot cloud agent task for a repository.</p>\n<p>This endpoint is only available to users with a Copilot Business or Copilot Enterprise subscription.</p>\n<p><strong>Fine-grained access tokens for \"Start a task\"</strong></p>\n<p>This endpoint works with the following fine-grained token types:</p>\n<ul>\n<li><a href=\"https://docs.github.com/enterprise-cloud@latest/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app\">GitHub App user access tokens</a></li>\n<li><a href=\"https://docs.github.com/enterprise-cloud@latest/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token\">Fine-grained personal access tokens</a></li>\n</ul>\n<p>The fine-grained token must have the following permission set:</p>\n<ul>\n<li>\"Agent tasks\" repository permissions (read and write)</li>\n</ul>\n<p>GitHub App installation access tokens are not supported for this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -693,6 +709,268 @@
                   "type": "string",
                   "format": "date-time",
                   "description": "Timestamp when the task was created"
+                },
+                "custom_agent": {
+                  "type": "object",
+                  "description": "Custom agent metadata associated with this task",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "The custom agent's filename without the extension - for example, `performance-optimizer` for a `.github/agents/performance-optimizer.agent.md` custom agent."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Task with a custom agent",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "prompt": "Fix the login button on the homepage",
+              "base_ref": "main",
+              "custom_agent": "my-custom-agent"
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Task created with a custom agent</p>",
+            "example": {
+              "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+              "url": "https://api.github.com/agents/repos/octocat/hello-world/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+              "html_url": "https://github.com/octocat/hello-world/copilot/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+              "name": "Fix the login button on the homepage",
+              "creator": {
+                "id": 1
+              },
+              "creator_type": "user",
+              "owner": {
+                "id": 1
+              },
+              "repository": {
+                "id": 1296269
+              },
+              "state": "queued",
+              "session_count": 1,
+              "custom_agent": {
+                "id": "my-custom-agent"
+              },
+              "artifacts": [],
+              "archived_at": null,
+              "created_at": "2025-01-01T00:00:00Z",
+              "updated_at": "2025-01-01T00:00:00Z"
+            },
+            "schema": {
+              "type": "object",
+              "required": [
+                "id",
+                "state",
+                "created_at"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Unique task identifier"
+                },
+                "url": {
+                  "type": "string",
+                  "description": "API URL for this task"
+                },
+                "html_url": {
+                  "type": "string",
+                  "description": "Web URL for this task"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Human-readable name derived from the task prompt"
+                },
+                "creator": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "description": "A GitHub user",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "The unique identifier of the user"
+                        }
+                      }
+                    }
+                  ],
+                  "description": "The entity who created this task"
+                },
+                "creator_type": {
+                  "type": "string",
+                  "description": "Type of the task creator",
+                  "enum": [
+                    "user",
+                    "organization"
+                  ]
+                },
+                "user_collaborators": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "description": "A GitHub user",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "The unique identifier of the user"
+                      }
+                    }
+                  },
+                  "description": "User objects of collaborators on this task",
+                  "deprecated": true
+                },
+                "owner": {
+                  "description": "The owner of the repository",
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "The unique identifier of the user"
+                    }
+                  }
+                },
+                "repository": {
+                  "description": "The repository this task belongs to",
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "The unique identifier of the repository"
+                    }
+                  }
+                },
+                "state": {
+                  "type": "string",
+                  "description": "Current state of the task, derived from its most recent session",
+                  "enum": [
+                    "queued",
+                    "in_progress",
+                    "completed",
+                    "failed",
+                    "idle",
+                    "waiting_for_user",
+                    "timed_out",
+                    "cancelled"
+                  ]
+                },
+                "session_count": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Number of sessions in this task"
+                },
+                "artifacts": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "description": "A resource generated by the task",
+                    "required": [
+                      "provider",
+                      "type",
+                      "data"
+                    ],
+                    "properties": {
+                      "provider": {
+                        "type": "string",
+                        "enum": [
+                          "github"
+                        ],
+                        "description": "Provider namespace"
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "pull",
+                          "branch"
+                        ],
+                        "description": "Type of artifact. Available Values: `pull`, `branch`.\n"
+                      },
+                      "data": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "description": "A GitHub resource (pull request, issue, etc.)",
+                            "required": [
+                              "id"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "format": "int64",
+                                "description": "GitHub resource ID"
+                              },
+                              "global_id": {
+                                "type": "string",
+                                "description": "GraphQL global ID"
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "description": "A Git branch reference",
+                            "required": [
+                              "head_ref",
+                              "base_ref"
+                            ],
+                            "properties": {
+                              "head_ref": {
+                                "type": "string",
+                                "description": "Head branch name"
+                              },
+                              "base_ref": {
+                                "type": "string",
+                                "description": "Base branch name"
+                              }
+                            }
+                          }
+                        ],
+                        "description": "Resource data (shape depends on type)"
+                      }
+                    }
+                  },
+                  "description": "Resources created by this task (PRs, branches, etc.)"
+                },
+                "archived_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time",
+                  "description": "Timestamp when the task was archived, null if not archived"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Timestamp of the most recent update"
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Timestamp when the task was created"
+                },
+                "custom_agent": {
+                  "type": "object",
+                  "description": "Custom agent metadata associated with this task",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "The custom agent's filename without the extension - for example, `performance-optimizer` for a `.github/agents/performance-optimizer.agent.md` custom agent."
+                    }
+                  }
                 }
               }
             }
@@ -760,7 +1038,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Returns a task by ID scoped to an owner/repo path</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Returns a task by ID scoped to an owner/repo path</p>\n<p><strong>Fine-grained access tokens for \"Get a task by repo\"</strong></p>\n<p>This endpoint works with the following fine-grained token types:</p>\n<ul>\n<li><a href=\"https://docs.github.com/enterprise-cloud@latest/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app\">GitHub App user access tokens</a></li>\n<li><a href=\"https://docs.github.com/enterprise-cloud@latest/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token\">Fine-grained personal access tokens</a></li>\n</ul>\n<p>The fine-grained token must have the following permission set:</p>\n<ul>\n<li>\"Agent tasks\" repository permissions (read)</li>\n</ul>\n<p>GitHub App installation access tokens are not supported for this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1025,6 +1303,16 @@
                       "type": "string",
                       "format": "date-time",
                       "description": "Timestamp when the task was created"
+                    },
+                    "custom_agent": {
+                      "type": "object",
+                      "description": "Custom agent metadata associated with this task",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "The custom agent's filename without the extension - for example, `performance-optimizer` for a `.github/agents/performance-optimizer.agent.md` custom agent."
+                        }
+                      }
                     }
                   }
                 },
@@ -1132,6 +1420,29 @@
                             "type": "string",
                             "description": "Model used for this session"
                           },
+                          "usage": {
+                            "type": "object",
+                            "description": "Structured information about billing units consumed by the session.",
+                            "required": [
+                              "type",
+                              "amount"
+                            ],
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "description": "Billing unit used for this session. New sessions since June 1, 2026 use `ai_credits`, but older sessions use `premium_requests`.",
+                                "enum": [
+                                  "ai_credits",
+                                  "premium_requests"
+                                ]
+                              },
+                              "amount": {
+                                "type": "number",
+                                "format": "double",
+                                "description": "Number of billing units used by this session. When the `type` is `ai_credits`, the value is a whole number, expressed in nano units. When presenting this to a human, divide by 1,000,000,000 and round to one decimal place. When aggregating (for example, summing usage across sessions), sum the nano values first, and divide once at the end before presenting to a human to avoid losing precision. When the `type` is `premium_requests`, the value may be fractional (for example `1.5`)."
+                              }
+                            }
+                          },
                           "error": {
                             "type": "object",
                             "description": "Error details for a failed session",
@@ -1194,9 +1505,7 @@
           "in": "query",
           "schema": {
             "type": "integer",
-            "default": 30,
-            "minimum": 1,
-            "maximum": 100
+            "default": 30
           },
           "description": "<p>The number of results per page (max 100).</p>"
         },
@@ -1205,8 +1514,7 @@
           "in": "query",
           "schema": {
             "type": "integer",
-            "default": 1,
-            "minimum": 1
+            "default": 1
           },
           "description": "<p>The page number of the results to fetch.</p>"
         },
@@ -1257,14 +1565,13 @@
           "name": "since",
           "in": "query",
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           },
           "description": "<p>Only show tasks updated at or after this time (ISO 8601 timestamp)</p>"
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Returns a list of tasks for the authenticated user</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Returns a list of tasks for the authenticated user</p>\n<p><strong>Fine-grained access tokens for \"List tasks\"</strong></p>\n<p>This endpoint works with the following fine-grained token types:</p>\n<ul>\n<li><a href=\"https://docs.github.com/enterprise-cloud@latest/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app\">GitHub App user access tokens</a></li>\n<li><a href=\"https://docs.github.com/enterprise-cloud@latest/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token\">Fine-grained personal access tokens</a></li>\n</ul>\n<p>The fine-grained token must have the following permission set:</p>\n<ul>\n<li>\"Agent tasks\" repository permissions (read)</li>\n</ul>\n<p>GitHub App installation access tokens are not supported for this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1508,6 +1815,16 @@
                         "type": "string",
                         "format": "date-time",
                         "description": "Timestamp when the task was created"
+                      },
+                      "custom_agent": {
+                        "type": "object",
+                        "description": "Custom agent metadata associated with this task",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "The custom agent's filename without the extension - for example, `performance-optimizer` for a `.github/agents/performance-optimizer.agent.md` custom agent."
+                          }
+                        }
                       }
                     }
                   },
@@ -1571,7 +1888,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Returns a task by ID with its associated sessions</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Returns a task by ID with its associated sessions</p>\n<p><strong>Fine-grained access tokens for \"Get a task by ID\"</strong></p>\n<p>This endpoint works with the following fine-grained token types:</p>\n<ul>\n<li><a href=\"https://docs.github.com/enterprise-cloud@latest/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app\">GitHub App user access tokens</a></li>\n<li><a href=\"https://docs.github.com/enterprise-cloud@latest/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token\">Fine-grained personal access tokens</a></li>\n</ul>\n<p>The fine-grained token must have the following permission set:</p>\n<ul>\n<li>\"Agent tasks\" repository permissions (read)</li>\n</ul>\n<p>GitHub App installation access tokens are not supported for this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1834,6 +2151,16 @@
                       "type": "string",
                       "format": "date-time",
                       "description": "Timestamp when the task was created"
+                    },
+                    "custom_agent": {
+                      "type": "object",
+                      "description": "Custom agent metadata associated with this task",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "The custom agent's filename without the extension - for example, `performance-optimizer` for a `.github/agents/performance-optimizer.agent.md` custom agent."
+                        }
+                      }
                     }
                   }
                 },
@@ -1940,6 +2267,29 @@
                           "model": {
                             "type": "string",
                             "description": "Model used for this session"
+                          },
+                          "usage": {
+                            "type": "object",
+                            "description": "Structured information about billing units consumed by the session.",
+                            "required": [
+                              "type",
+                              "amount"
+                            ],
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "description": "Billing unit used for this session. New sessions since June 1, 2026 use `ai_credits`, but older sessions use `premium_requests`.",
+                                "enum": [
+                                  "ai_credits",
+                                  "premium_requests"
+                                ]
+                              },
+                              "amount": {
+                                "type": "number",
+                                "format": "double",
+                                "description": "Number of billing units used by this session. When the `type` is `ai_credits`, the value is a whole number, expressed in nano units. When presenting this to a human, divide by 1,000,000,000 and round to one decimal place. When aggregating (for example, summing usage across sessions), sum the nano values first, and divide once at the end before presenting to a human to avoid losing precision. When the `type` is `premium_requests`, the value may be fractional (for example `1.5`)."
+                              }
+                            }
                           },
                           "error": {
                             "type": "object",

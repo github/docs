@@ -8,6 +8,7 @@ import { distance } from 'fastest-levenshtein'
 import { getPathWithoutLanguage, getVersionStringFromPath } from '@/frame/lib/path-utils'
 import { getNewVersionedPath } from '@/archives/lib/old-versions-utils'
 import patterns from '@/frame/lib/patterns'
+import { createLogger } from '@/observability/logger'
 import { deprecated, latest } from '@/versions/lib/enterprise-server-releases'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
 import { allVersions } from '@/versions/lib/all-versions'
@@ -15,6 +16,8 @@ import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path'
 import readJsonFile from '@/frame/lib/read-json-file'
 import findPage from '@/frame/lib/find-page'
 import type { Context, Page } from '@/types'
+
+const logger = createLogger(import.meta.url)
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -47,7 +50,8 @@ function logError(file: string, line: number, message: string, title = 'Error') 
       message.replace(/%/g, '%25').replace(/\r/g, '%0D').replace(/\n/g, '%0A'),
     )
     const error = `::error file=${file},line=${line},title=${title}::${message}`
-    console.log(error)
+    process.stdout.write(`${error}\n`)
+    logger.info('GitHub Actions error annotation', { annotation: error })
   }
 }
 
@@ -109,7 +113,7 @@ export default function rewriteLocalLinks(context?: Context) {
         mutableNode.url = definition.url
         mutableNode.title = definition.title
       } else {
-        console.warn(`Definition not found for identifier: ${linkRefNode.identifier}`)
+        logger.warn('Definition not found for identifier', { identifier: linkRefNode.identifier })
       }
     })
 
@@ -246,13 +250,9 @@ function getNewHref(node: LinkNode, languageCode: string, version: string): stri
     // This can happen if you have something
     // like `/enterprise-servr@3.9/foo/bar` which is a typo. I.e.
     // `enterprise-servr` is not a valid plan, but it has a `@` character  in it.
-    console.warn(
-      `
-Warning! The first segment of the internal link has a '@' character in it
-but the plan is not recognized. This is likely a typo.
-Please inspect the link and fix it if it's a typo.
-Look for an internal link that starts with '${url}'.
-    `,
+    logger.warn(
+      'First segment of internal link has @ character but plan is not recognized, likely a typo',
+      { url },
     )
   }
 

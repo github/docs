@@ -14,6 +14,6 @@ category:
 
 ## About variables in {% data variables.product.prodname_actions %}
 
-You can use the REST API to create, update, delete, and retrieve information about variables that can be used in workflows in {% data variables.product.prodname_actions %}. {% data reusables.actions.about-variables %} For more information, see [AUTOTITLE](/actions/learn-github-actions/variables) in the {% data variables.product.prodname_actions %} documentation.
+You can use the REST API to create, update, delete, and retrieve information about variables that can be used in workflows in {% data variables.product.prodname_actions %}. {% data reusables.actions.about-variables %} For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables) in the {% data variables.product.prodname_actions %} documentation.
 
 <!-- Content after this section is automatically generated -->

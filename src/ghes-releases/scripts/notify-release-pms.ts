@@ -10,7 +10,11 @@
  * react with 🚀 once satisfied.
  *
  * Usage:
- *   npm run notify-release-pms -- --release 3.20 --rc --pr 12345 [--dry-run]
+ *   # Post comments via GitHub Actions (handles auth automatically):
+ *   gh workflow run notify-release-pms.yml -f release=3.20 -f pr=12345
+ *
+ *   # Preview locally (dry run, no token needed):
+ *   npm run notify-release-pms -- --release 3.20 --pr 12345 --dry-run
  */
 import { Command } from 'commander'
 import { execFileSync } from 'child_process'
@@ -20,7 +24,7 @@ import ora from 'ora'
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
-interface SourceNote {
+export interface SourceNote {
   issueUrl: string
   issueNumber: number
 }
@@ -28,11 +32,16 @@ interface SourceNote {
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 /**
- * Run `gh` CLI commands with native auth (no GITHUB_TOKEN interference)
+ * Run read-only `gh` CLI commands.
+ * Uses DOCS_BOT_PAT_BASE when available (CI), otherwise falls back to
+ * the caller's native `gh` auth (local).
  */
-function gh(args: string[]): string {
+function ghRead(args: string[]): string {
   const env = { ...process.env }
-  delete env.GITHUB_TOKEN
+  if (env.DOCS_BOT_PAT_BASE) {
+    env.GH_TOKEN = env.DOCS_BOT_PAT_BASE
+  }
+  delete (env as Record<string, string | undefined>).GITHUB_TOKEN
   return execFileSync('gh', args, {
     encoding: 'utf8',
     stdio: ['pipe', 'pipe', 'pipe'],
@@ -42,12 +51,37 @@ function gh(args: string[]): string {
 }
 
 /**
- * Parse the release notes YAML file and extract source issue URLs with their
- * line numbers. Each `# https://github.com/github/releases/issues/NNNN` comment
+ * Run `gh` CLI commands authenticated as docs-bot (for posting comments).
+ * Requires the DOCS_BOT_PAT_BASE environment variable to be set.
+ */
+function ghWrite(args: string[]): string {
+  const token = process.env.DOCS_BOT_PAT_BASE
+  if (!token) {
+    console.error(
+      'Error: DOCS_BOT_PAT_BASE environment variable is not set.\n' +
+        'To post comments as docs-bot, run this script via the GitHub Actions workflow:\n' +
+        '  gh workflow run notify-release-pms.yml -f release=<version> -f pr=<number>\n' +
+        'To preview comments locally, use --dry-run (no token needed).',
+    )
+    process.exit(1)
+  }
+  const env = { ...process.env, GH_TOKEN: token }
+  // Ensure GH_TOKEN takes precedence over any pre-existing GITHUB_TOKEN
+  delete (env as Record<string, string | undefined>).GITHUB_TOKEN
+  return execFileSync('gh', args, {
+    encoding: 'utf8',
+    stdio: ['pipe', 'pipe', 'pipe'],
+    env,
+    maxBuffer: 10 * 1024 * 1024,
+  })
+}
+
+/**
+ * Parse release notes content and extract source issue URLs.
+ * Each `# https://github.com/github/releases/issues/NNNN` comment
  * maps to the note(s) that follow it.
  */
-function extractSourceNotes(yamlPath: string): SourceNote[] {
-  const content = fs.readFileSync(yamlPath, 'utf8')
+export function parseSourceNotes(content: string): SourceNote[] {
   const lines = content.split('\n')
   const notes: SourceNote[] = []
   const seen = new Set<number>()
@@ -72,57 +106,47 @@ function extractSourceNotes(yamlPath: string): SourceNote[] {
 }
 
 /**
- * Calculate the next weekday (Mon–Fri) at least `days` calendar days from now.
- * If the resulting date lands on a weekend, it rolls forward to Monday.
+ * Read a release notes YAML file and extract source issue URLs.
  */
-function getReviewDeadline(days: number): string {
-  const date = new Date()
-  date.setDate(date.getDate() + days)
-  const day = date.getDay()
-  if (day === 0) date.setDate(date.getDate() + 1) // Sunday → Monday
-  if (day === 6) date.setDate(date.getDate() + 2) // Saturday → Monday
-  return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+function extractSourceNotes(yamlPath: string): SourceNote[] {
+  const content = fs.readFileSync(yamlPath, 'utf8')
+  return parseSourceNotes(content)
 }
 
 /**
  * Build the comment body for a release issue notification.
  */
-function buildCommentBody(
+export function buildCommentBody(
   version: string,
   rc: boolean,
   prNumber: number,
-  relativeFilePath: string,
-  reviewDate?: string,
+  assignees: string[],
 ): string {
   const releaseType = rc ? 'RC' : 'GA'
   const prUrl = `https://github.com/github/docs-internal/pull/${prNumber}`
   const fileUrl = `${prUrl}/files`
-  const deadline = reviewDate
-    ? new Date(`${reviewDate}T00:00:00`).toLocaleDateString('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric',
-      })
-    : getReviewDeadline(10)
 
-  // Use a marker so we can identify our comments later (for check-release-approvals).
+  // Use a marker so we can identify our comments later (for duplicate-prevention).
   // Include releaseType so RC and GA comments are distinguishable.
-  const marker = `<!-- ghes-release-note-review: ${version}-${releaseType.toLowerCase()} -->`
+  const marker = buildMarker(version, releaseType.toLowerCase() as 'rc' | 'ga')
+
+  const mentions = assignees.length > 0 ? `${assignees.map((a) => `@${a}`).join(' ')} ` : ''
 
   return `${marker}
 ### GHES ${version} ${releaseType} release note review
 
-Hello! A release note has been created for this feature by a Docs team member assisted by Copilot. If you'd like to review it:
+👋 ${mentions}A Copilot-generated release note has been added in [docs-internal PR #${prNumber}](${fileUrl}).
 
-1. [**Review the note in the PR**](${fileUrl}) (search for this issue's URL within \`${relativeFilePath}\`)
-2. If the note looks good, **react to this comment with 🚀**.
-3. If it needs changes, suggest edits directly in the PR, then **react with 🚀** to this comment when you're done.
+You're welcome to edit it in the PR. If you do nothing, the note will be published after review from a Docs team member.
 
-We ask that you submit any changes by **${deadline}** to help ensure timely release notes.
+Any questions, ask in [#docs-ghes-releases](https://github-grid.enterprise.slack.com/archives/C0AQ37XBK7D).`
+}
 
-The 🚀 tells us you've completed your review. If we don't hear from you, we'll go ahead with this note.
-
-Questions? Ask us in [#docs-ghes-releases](https://github-grid.enterprise.slack.com/archives/C0AQ37XBK7D).`
+/**
+ * Build the marker string used to identify notification comments.
+ */
+export function buildMarker(version: string, releaseType: 'rc' | 'ga'): string {
+  return `<!-- ghes-release-note-review: ${version}-${releaseType} -->`
 }
 
 // ─── CLI ─────────────────────────────────────────────────────────────────────
@@ -193,15 +217,28 @@ program
         '0.yml',
       )
 
+      if (options.rc && options.ga) {
+        console.error('Error: --rc and --ga cannot be used together.')
+        process.exit(1)
+      }
+
       let rc: boolean
       let yamlPath: string
 
       if (options.rc) {
         rc = true
         yamlPath = rcPath
+        if (!fs.existsSync(yamlPath)) {
+          console.error(`Error: RC release notes file not found: ${rcPath}`)
+          process.exit(1)
+        }
       } else if (options.ga) {
         rc = false
         yamlPath = gaPath
+        if (!fs.existsSync(yamlPath)) {
+          console.error(`Error: GA release notes file not found: ${gaPath}`)
+          process.exit(1)
+        }
       } else {
         // Auto-detect: prefer GA if it exists, otherwise RC (consistent with generate-release-notes)
         if (fs.existsSync(gaPath)) {
@@ -220,11 +257,6 @@ program
 
       const relativeFilePath = path.relative(process.cwd(), yamlPath)
 
-      if (!fs.existsSync(yamlPath)) {
-        console.error(`Error: Release notes file not found: ${relativeFilePath}`)
-        process.exit(1)
-      }
-
       // ── Step 1: Extract source issue URLs ──
       spinner.start('Parsing release notes file...')
       const sourceNotes = extractSourceNotes(yamlPath)
@@ -237,32 +269,35 @@ program
 
       // ── Step 2: Check for existing comments (avoid duplicates) ──
       const releaseType = rc ? 'rc' : 'ga'
-      const marker = `<!-- ghes-release-note-review: ${release}-${releaseType} -->`
+      const marker = buildMarker(release, releaseType)
       const alreadyCommented = new Set<number>()
 
-      if (!dryRun) {
-        spinner.start('Checking for existing notification comments...')
-        for (const note of sourceNotes) {
-          try {
-            const comments = gh([
-              'api',
-              `repos/github/releases/issues/${note.issueNumber}/comments`,
-              '--paginate',
-              '--jq',
-              `.[].body`,
-            ])
-            if (comments.includes(marker)) {
-              alreadyCommented.add(note.issueNumber)
-            }
-          } catch {
-            // If we can't read comments, we'll try to post and handle errors then
+      spinner.start('Checking for existing notification comments...')
+      for (const note of sourceNotes) {
+        try {
+          const comments = ghRead([
+            'api',
+            `repos/github/releases/issues/${note.issueNumber}/comments`,
+            '--paginate',
+            '--jq',
+            `.[].body`,
+          ])
+          if (comments.includes(marker)) {
+            alreadyCommented.add(note.issueNumber)
           }
+        } catch {
+          // If we can't read comments, we'll try to post and handle errors then
         }
-        spinner.succeed(
-          alreadyCommented.size > 0
-            ? `Skipping ${alreadyCommented.size} issue(s) already notified`
-            : 'No existing notifications found',
-        )
+      }
+      if (alreadyCommented.size > 0) {
+        spinner.succeed(`Found ${alreadyCommented.size} issue(s) already notified`)
+        for (const issueNumber of alreadyCommented) {
+          console.log(
+            `  Skipping #${issueNumber} — auto-comment on github/releases#${issueNumber} already exists`,
+          )
+        }
+      } else {
+        spinner.succeed('No existing notifications found')
       }
 
       // ── Step 3: Post comments ──
@@ -278,14 +313,28 @@ program
 
       for (let i = 0; i < toNotify.length; i++) {
         const note = toNotify[i]
-        const commentBody = buildCommentBody(release, rc, prNumber, relativeFilePath, reviewDate)
+        // Fetch assignees (or fall back to issue author) for the release issue
+        let assignees: string[] = []
+        try {
+          const raw = ghRead(['api', `repos/github/releases/issues/${note.issueNumber}`])
+          const issue = JSON.parse(raw)
+          assignees = (issue.assignees || []).map((a: { login: string }) => a.login)
+          // Fall back to the issue author unless they're a bot
+          if (assignees.length === 0 && issue.user?.login && issue.user.type !== 'Bot') {
+            assignees = [issue.user.login]
+          }
+        } catch {
+          // If we can't fetch the issue, post without mentions
+        }
+
+        const commentBody = buildCommentBody(release, rc, prNumber, assignees)
 
         const label = `[${i + 1}/${toNotify.length}] #${note.issueNumber}`
 
         if (dryRun) {
           console.log(`\n${'─'.repeat(60)}`)
           console.log(`${label} — ${note.issueUrl}`)
-          console.log(`(Dry run) Comment body that would be posted:`)
+          console.log(`(Dry run) Comment that would be posted by docs-bot:`)
           console.log(`${'─'.repeat(60)}`)
           console.log(commentBody)
           posted++
@@ -294,7 +343,7 @@ program
 
         spinner.start(`${label} — Posting comment...`)
         try {
-          gh([
+          ghWrite([
             'issue',
             'comment',
             String(note.issueNumber),
@@ -314,12 +363,18 @@ program
       // ── Summary ──
       console.log(`\n${'─'.repeat(40)}`)
       console.log(`${dryRun ? '🔍 Dry run' : '✅ Done'}`)
-      console.log(`  ${posted} comment(s) ${dryRun ? 'would be posted' : 'posted'}`)
+      console.log(
+        `  ${posted} comment(s) ${dryRun ? 'would be posted by docs-bot' : 'posted by docs-bot'}`,
+      )
       if (failed > 0) console.log(`  ${failed} failed`)
       if (alreadyCommented.size > 0) {
         console.log(`  ${alreadyCommented.size} previously notified (skipped)`)
       }
+      if (failed > 0) process.exit(1)
     },
   )
 
-program.parse(process.argv)
+// Only run CLI when executed directly (not when imported in tests)
+if (import.meta.url === `file://${process.argv[1]}`) {
+  program.parse(process.argv)
+}

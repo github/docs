@@ -20,57 +20,29 @@ contentType: concepts
 
 ## About {% ifversion fpt or ghec %}user alerts {% else %}{% data variables.secret-scanning.alerts %}{% endif %}
 
-{% data reusables.secret-scanning.secret-scanning-about-alerts %} {% data reusables.secret-scanning.repository-alert-location %}
+{% data reusables.secret-scanning.secret-scanning-about-alerts %} {% data reusables.secret-scanning.repository-alert-location %} If the same secret appears multiple times within a single file, only one alert is created.
 
 To help you triage alerts more effectively, {% data variables.product.company_short %} separates alerts into two lists:
 
-{% ifversion secret-scanning-alert-experimental-list %}
-* **Default** alerts{% ifversion secret-scanning-generic-tab %}
-* **Generic** alerts{% elsif ghes = 3.16 %}
-* **Experimental** alerts{% endif %}
-
-{% ifversion ghes = 3.16 %}
-![Screenshot of the {% data variables.product.prodname_secret_scanning %} alert view. The button to toggle between "Default" and "Experimental" alerts is highlighted with an orange outline.](/assets/images/enterprise/3.16/help/security/secret-scanning-default-alert-view.png)
-{% endif %}
-
-{% else %}
-* **High confidence** alerts.
-* **Other** alerts.
-
-![Screenshot of the {% data variables.product.prodname_secret_scanning %} alert view. The button to toggle between "High confidence" and "Other" alerts is highlighted with an orange outline.](/assets/images/help/security/secret-scanning-high-confidence-alert-view.png)
-
-{% endif %}
-
-{% ifversion secret-scanning-alert-experimental-list %}
+* **Default** alerts
+* **Generic** alerts
 
 ### Default alerts list
 
 The default alerts list displays alerts that relate to supported patterns and specified custom patterns. This is the main view for alerts.
 
-### {% ifversion secret-scanning-generic-tab %}Generic{% elsif ghes = 3.16 %}Experimental{% endif %} alerts list
+### Generic alerts list
 
-The {% ifversion secret-scanning-generic-tab %}generic{% elsif ghes = 3.16 %}experimental{% endif %} alerts list displays alerts that relate to non-provider patterns (such as private keys){% ifversion secret-scanning-ai-generic-secret-detection %}, or generic secrets detected using AI (such as passwords){% endif %}. These types of alerts can have a higher rate of false positives or secrets used in tests. You can toggle to the {% ifversion secret-scanning-generic-tab %}generic{% elsif ghes = 3.16 %}experimental{% endif %} alerts list from the default alerts list.
+The generic alerts list displays alerts that relate to generic secrets detected with patterns and deterministic methods (such as private keys){% ifversion secret-scanning-ai-generic-secret-detection %}, as well as secrets detected with AI (such as passwords){% endif %}. These types of alerts can have a higher rate of false positives or secrets used in tests. You can toggle to the generic alerts list from the default alerts list.
 
-{% data variables.product.github %} will continue to release new patterns and secret types to the {% ifversion secret-scanning-generic-tab %}generic{% elsif ghes = 3.16 %}experimental{% endif %} alerts list and will promote them to the default list when feature-complete (that is, when they have an appropriately low volume and false positive rate).
-
-{% else %}
-
-### High confidence alerts list
-
-The "High confidence" alerts list displays alerts that relate to supported patterns and specified custom patterns. This list is always the default view for the alerts page.
-
-### Other alerts list
-
-The "Other" alerts list displays alerts that relate to non-provider patterns (such as private keys){% ifversion secret-scanning-ai-generic-secret-detection %}, or generic secrets detected using AI (such as passwords){% endif %}. These types of alerts have a higher rate of false positives.
-
-{% endif %}
+{% data variables.product.github %} will continue to release new patterns and secret types to the generic alerts list.
 
 In addition, alerts that fall into this category:
 * Are limited in quantity to 5000 alerts per repository (this includes open and closed alerts).
 * Are not shown in the summary views for security overview, only in the "{% data variables.product.prodname_secret_scanning_caps %}" view.
-* Only have the first five detected locations shown on {% data variables.product.prodname_dotcom %} for non-provider patterns{% ifversion secret-scanning-ai-generic-secret-detection %}, and only the first detected location shown for AI-detected generic secrets{% endif %}.
+* Only have the first five detected locations shown on {% data variables.product.prodname_dotcom %} for generic patterns{% ifversion secret-scanning-ai-generic-secret-detection %}, and only the first detected location shown for AI-detected secrets{% endif %}.
 
-For {% data variables.product.company_short %} to scan for non-provider patterns{% ifversion secret-scanning-ai-generic-secret-detection %} and generic secrets{% endif %}, you must first enable the feature{% ifversion secret-scanning-ai-generic-secret-detection %}s{% endif %} for your repository or organization. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enabling-secret-scanning-for-non-provider-patterns){% ifversion secret-scanning-ai-generic-secret-detection %} and [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/enabling-ai-powered-generic-secret-detection){% endif %}.
+For {% data variables.product.company_short %} to scan for generic patterns{% ifversion secret-scanning-ai-generic-secret-detection %} and AI-detected secrets{% endif %}, you must first enable the feature{% ifversion secret-scanning-ai-generic-secret-detection %}s{% endif %} for your repository or organization. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enabling-secret-scanning-for-generic-patterns){% ifversion secret-scanning-ai-generic-secret-detection %} and [AUTOTITLE](/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enabling-secret-scanning-for-ai-detected-secrets){% endif %}.
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
@@ -80,23 +52,22 @@ Push protection scans pushes for supported secrets. If push protection detects a
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
->[!NOTE]
-> {% ifversion secret-scanning-push-protection-for-users %}You can also enable push protection for your personal account, called "push protection for users", which prevents you from accidentally pushing supported secrets to _any_ public repository. Alerts are _not_ created if you choose to bypass your user-based push protection only. Alerts are only created if the repository itself has push protection enabled. For more information, see [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users).{% endif %}
+> [!NOTE]
+> {% ifversion secret-scanning-push-protection-for-users %}You can also enable push protection for your personal account, called "push protection for users", which prevents you from accidentally pushing supported secrets to _any_ public repository. Alerts are _not_ created if you choose to bypass your user-based push protection only. Alerts are only created if the repository itself has push protection enabled. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/prevent-future-leaks/manage-user-push-protection).{% endif %}
 >
-> {% data reusables.secret-scanning.push-protection-older-tokens %} For more information about push protection limitations, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/troubleshooting-secret-scanning#push-protection-and-pattern-versions).
+> {% data reusables.secret-scanning.push-protection-older-tokens %} For more information about push protection limitations, see [AUTOTITLE](/code-security/reference/secret-security/secret-scanning-scope).
 
 {% ifversion fpt or ghec %}
 
 ## About partner alerts
 
-When {% data variables.product.company_short %} detects a leaked secret in a public repository or npm package, an alert is sent directly to the secret provider, if they are part of {% data variables.product.company_short %}'s secret scanning partner program. For more information about {% data variables.secret-scanning.partner_alerts %}, see [AUTOTITLE](/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program) and [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns).
+When {% data variables.product.company_short %} detects a leaked secret in a public repository or npm package, an alert is sent directly to the secret provider, if they are part of {% data variables.product.company_short %}'s secret scanning partner program. For more information about {% data variables.secret-scanning.partner_alerts %}, see [AUTOTITLE](/code-security/tutorials/secret-scanning-partner-program) and [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns).
 
 Partner alerts are not sent to repository administrators, so you do not need to take any action for this type of alert.
 
 {% endif %}
 
-
 ## Further reading
 
 * [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns)
-* [AUTOTITLE](/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enabling-secret-scanning-for-non-provider-patterns)
+* [AUTOTITLE](/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enabling-secret-scanning-for-generic-patterns)

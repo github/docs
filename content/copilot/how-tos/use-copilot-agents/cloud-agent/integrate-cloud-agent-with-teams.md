@@ -3,6 +3,7 @@ title: Integrating Copilot cloud agent with Teams
 shortTitle: Integrate cloud agent with Teams
 allowTitleToDifferFromFilename: true
 intro: 'You can use the {% data variables.product.github %} integration in Teams to provide context and open pull requests all from within your Teams channels.'
+product: '{% data reusables.copilot.plans.permission-paid-plans-cfi %}'
 versions:
   feature: copilot
 contentType: how-tos
@@ -14,7 +15,7 @@ redirect_from:
 
 > [!NOTE]
 > * This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
-> * {% data variables.product.prodname_copilot %} uses AI. Check for mistakes. See [AUTOTITLE](/copilot/responsible-use/copilot-cloud-agent).
+> * {% data variables.product.prodname_copilot %} uses AI. Check for mistakes. See [AUTOTITLE](/copilot/responsible-use/agents).
 
 The {% data variables.product.github %} integration in Microsoft Teams allows you to interact with {% data variables.copilot.copilot_cloud_agent %} all from within your Teams channels. From within a Teams thread you can initiate {% data variables.copilot.copilot_cloud_agent_short %} sessions and open pull requests, using the context of your conversation.
 
@@ -25,7 +26,7 @@ For information about additional {% data variables.product.prodname_copilot_shor
 
 ## Prerequisites
 
-* You must have a {% data variables.product.github %} account with access to {% data variables.product.prodname_copilot_short %} through {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, or {% data variables.copilot.copilot_enterprise_short %}.
+* You must have a {% data variables.product.github %} account with access to {% data variables.product.prodname_copilot_short %} through a paid {% data variables.product.prodname_copilot_short %} plan.
 * You must have a Teams account and be a member of a channel.
 
 ## Installing the {% data variables.product.github %} app in Teams

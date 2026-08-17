@@ -11,7 +11,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '*'
 children:
   - /how-billing-works
   - /introduction-to-billing

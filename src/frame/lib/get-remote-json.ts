@@ -113,6 +113,12 @@ export default async function getRemoteJSON(
           retries,
           timeout,
           throwHttpErrors: true,
+          // The `redirects.json` files are large (5-10MB) but well-cached, and
+          // the configured timeout is deliberately a short time-to-first-byte
+          // budget (got's `timeout.response` semantics). Bound only TTFB so a
+          // slow server fails fast without aborting a legitimately long body
+          // download mid-transfer.
+          timeoutMode: 'ttfb',
         },
       )
 

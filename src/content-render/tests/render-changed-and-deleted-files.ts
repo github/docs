@@ -4,11 +4,15 @@
  *
  *   - CHANGED_FILES
  *   - DELETED_FILES
+ *   - RENAMED_FILES
  *
- * They both need to a whitespace-separated list of paths to content files.
- * For example:
+ * `CHANGED_FILES` and `DELETED_FILES` are whitespace-separated lists of
+ * paths to content files. `RENAMED_FILES` is a whitespace-separated list
+ * of `oldPath,newPath` pairs (as emitted by tj-actions/changed-files
+ * `all_old_new_renamed_files` output). For example:
  *
  *    export CHANGED_FILES="content/get-started/index.md content/get-started/start-your-journey/hello-world.md"
+ *    export RENAMED_FILES="content/old/path.md,content/new/path.md"
  *
  * If any of the paths in there, split by ' ', don't match real files, the
  * test will fail before it even starts. Meaning, it will throw an error
@@ -40,12 +44,31 @@ const EMPTY = Symbol('EMPTY')
 
 const pageList = await loadPages(undefined, ['en'])
 
+const SDK_DOCS_PATH = 'content/copilot/how-tos/copilot-sdk/'
+
 function getChangedContentFiles() {
-  const deleted = new Set(getDeletedContentFiles())
-  return getContentFiles(process.env.CHANGED_FILES).filter((f) => !deleted.has(f))
+  const deleted = new Set([...getDeletedContentFiles(), ...getRenamedOldContentFiles()])
+  return getContentFiles(process.env.CHANGED_FILES).filter(
+    (f) => !deleted.has(f) && !f.startsWith(SDK_DOCS_PATH),
+  )
 }
 function getDeletedContentFiles() {
-  return getContentFiles(process.env.DELETED_FILES)
+  return getContentFiles(process.env.DELETED_FILES).filter((file) => {
+    // Auto-generated SDK docs are managed by the sync-sdk-docs pipeline,
+    // which deletes and recreates pages when the source repo restructures.
+    // These deletions are expected and don't need redirects.
+    return !file.startsWith(SDK_DOCS_PATH)
+  })
+}
+
+// Parse `RENAMED_FILES` from tj-actions/changed-files `all_old_new_renamed_files`
+// output. Each whitespace-separated entry is an `oldPath,newPath` pair. We return
+// the OLD paths so they can be checked the same way deleted files are: the test
+// will fail if the old URL 404s (i.e. no redirect was set up for the rename).
+function getRenamedOldContentFiles() {
+  const raw = (process.env.RENAMED_FILES || '').split(/\s+/g).filter(Boolean)
+  const oldPaths = raw.map((pair) => pair.split(',')[0]).filter(Boolean)
+  return getContentFiles(oldPaths.join(' '))
 }
 
 function getContentFiles(spaceSeparatedList: string | undefined): string[] {
@@ -100,7 +123,10 @@ describe('changed-content', () => {
 })
 
 describe('deleted-content', () => {
-  const deletedContentFiles = getDeletedContentFiles()
+  // Renamed files (status `R` from git) don't appear in `DELETED_FILES`, but
+  // the old path is just as gone from the user's perspective and needs a
+  // redirect. Treat the old path of each rename the same as a deleted file.
+  const deletedContentFiles = [...getDeletedContentFiles(), ...getRenamedOldContentFiles()]
 
   // `test.each` will throw if the array is empty, so we need to add a dummy
   // when there are no deleted files in the environment.
@@ -131,7 +157,7 @@ describe('deleted-content', () => {
     const res = await head(href)
     const error =
       res.statusCode === 404
-        ? `The deleted file ${file as string} did not set up a redirect when deleted.`
+        ? `The deleted or renamed file ${file as string} did not set up a redirect.`
         : ''
     // Certain articles that are deleted and moved under a directory with the same article name
     // should just route to the subcategory page instead of redirecting (docs content team confirmed).

@@ -2,15 +2,14 @@
 * GPT-4o mini
 * GPT-4o
 * GPT-4.1
-* GPT-5.1
-* GPT-5.1-Codex
-* GPT-5.1-Codex-Max
 * GPT-5.2
 * GPT-5.2-Codex
 * GPT-5.3-Codex
 * Claude Haiku 4.5
-* Claude Sonnet 4
 * Claude Sonnet 4.5
 * Claude Opus 4.5
 * Claude Sonnet 4.6
+* Claude Sonnet 5
 * Claude Opus 4.6
+* Claude Opus 4.8
+* MAI-Code-1-Flash

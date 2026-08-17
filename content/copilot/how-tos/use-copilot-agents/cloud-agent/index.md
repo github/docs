@@ -6,26 +6,25 @@ intro: 'Find out how {% data variables.product.prodname_copilot_short %} can res
 versions:
   feature: copilot
 children:
-  - /research-plan-iterate
-  - /create-a-pr
-  - /make-changes-to-an-existing-pr
-  - /provide-visual-inputs
-  - /track-copilot-sessions
-  - /review-copilot-prs
-  - /create-custom-agents
-  - /test-custom-agents
-  - /create-skills
-  - /extend-cloud-agent-with-mcp
+  - /start-copilot-sessions
+  - /create-automations
+  - /manage-rationale-confidence-approvals
+  - /changing-the-ai-model
+  - /configuring-agent-settings
+  - /create-custom-agents-in-your-ide
+  - /use-cloud-agent-on-github
+  - /use-cloud-agent-on-mobile
+  - /use-agent-apps
+  - /use-cloud-agent-in-your-ide
+  - /use-cloud-agent-via-the-api
+  - /use-cloud-agent-from-cli
+  - /use-cloud-agent-with-mcp
   - /integrate-cloud-agent-with-jira
   - /integrate-cloud-agent-with-slack
   - /integrate-cloud-agent-with-teams
   - /integrate-cloud-agent-with-linear
   - /integrate-cloud-agent-with-azure-boards
-  - /changing-the-ai-model
-  - /configuring-agent-settings
-  - /customize-the-agent-environment
-  - /customize-the-agent-firewall
-  - /use-hooks
+  - /use-cloud-agent-from-raycast
   - /troubleshoot-cloud-agent
 redirect_from:
   - /copilot/how-tos/use-copilot-agents/coding-agent

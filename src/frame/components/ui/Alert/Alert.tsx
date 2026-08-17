@@ -3,6 +3,7 @@ import cx from 'classnames'
 import styles from './Alert.module.scss'
 import { InfoIcon, ReportIcon, AlertIcon, LightBulbIcon, StopIcon } from '@primer/octicons-react'
 import { useTranslation } from '@/languages/components/useTranslation'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML'
 
 const alertTypes = {
   NOTE: { icon: InfoIcon, color: 'accent' },
@@ -32,7 +33,7 @@ export function Alert({ className, html, children, type = 'IMPORTANT' }: AlertPr
         {createElement(alertTypes[type].icon, { size: 16, className: 'mr-2' })}
         {t(type)}
       </p>
-      {html ? <div dangerouslySetInnerHTML={{ __html: html }} /> : children}
+      {html ? <RenderedHTML as="div" html={html} /> : children}
     </div>
   )
 }

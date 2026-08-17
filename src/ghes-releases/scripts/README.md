@@ -71,8 +71,28 @@ npm run generate-release-notes -- --release 3.21 --force
 
 After you open a pull request with the generated notes, this script posts a review comment on each source issue in `github/releases`. The comment asks the PM to review their note in the docs PR and react with 🚀 when they approve.
 
+Comments are always posted by the `docs-bot` account.
+
+### Running via GitHub Actions (recommended)
+
+The easiest way to run this is via the **Notify release PMs** workflow, which handles authentication automatically:
+
 ```bash
-npm run notify-release-pms -- --release <version> --pr <number> [options]
+# From the CLI
+gh workflow run notify-release-pms.yml -f release=3.21 -f pr=12345
+
+# With options
+gh workflow run notify-release-pms.yml -f release=3.21 -f pr=12345 -f release_type=rc -f review_date=2026-04-25
+```
+
+You can also trigger it from the [Actions tab](https://github.com/github/docs-internal/actions/workflows/notify-release-pms.yml).
+
+### Previewing locally (dry run)
+
+You can preview comments locally without any token:
+
+```bash
+npm run notify-release-pms -- --release 3.21 --pr 12345 --dry-run
 ```
 
 ### Options
@@ -155,7 +175,7 @@ npm run check-release-approvals -- --release 3.21 --json
 1. **Generate notes:** `npm run generate-release-notes -- --release 3.21 --rc`
 2. **Review the output** in `data/release-notes/enterprise-server/3-21/0-rc1.yml`—clean up any TODO placeholders or unknown headings.
 3. **Open a draft PR** with the generated file.
-4. **Notify PMs:** `npm run notify-release-pms -- --release 3.21 --rc --pr <PR_NUMBER>`
+4. **Notify PMs:** `gh workflow run notify-release-pms.yml -f release=3.21 -f pr=<PR_NUMBER> -f release_type=rc`
 5. **Wait for approvals.** PMs react with 🚀 on their release issues.
 6. **Check status:** `npm run check-release-approvals -- --release 3.21 --rc`
 7. Once all approved, finalize the PR.

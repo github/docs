@@ -8,8 +8,9 @@ contentType: how-tos
 children:
   - /overview
   - /add-custom-instructions
+  - /change-settings
   - /use-hooks
-  - /create-skills
+  - /add-skills
   - /add-mcp-servers
   - /create-custom-agents-for-cli
   - /use-byok-models

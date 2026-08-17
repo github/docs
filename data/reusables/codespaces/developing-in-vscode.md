@@ -8,7 +8,7 @@ You can use a [dotfiles](https://dotfiles.github.io/tutorials/) repository and [
 
 ### Running your app from a codespace
 
-{% data reusables.codespaces.about-port-forwarding %} For more information, see [AUTOTITLE](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace).
+{% data reusables.codespaces.about-port-forwarding %} For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/forwarding-ports-in-your-codespace).
 
 ### Committing your changes
 
@@ -16,4 +16,4 @@ You can use a [dotfiles](https://dotfiles.github.io/tutorials/) repository and [
 
 ### Using the {% data variables.product.prodname_vscode_command_palette %}
 
-The {% data variables.product.prodname_vscode_command_palette %} allows you to access and manage many features for {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_vscode %}. For more information, see [AUTOTITLE](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces).
+The {% data variables.product.prodname_vscode_command_palette %} allows you to access and manage many features for {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_vscode %}. For more information, see [AUTOTITLE](/codespaces/reference/using-the-vs-code-command-palette-in-codespaces).

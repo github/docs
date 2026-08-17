@@ -32,7 +32,7 @@ Consider the points before you start a migration process:
 
 * **Use AI to help you**
 
-  If you don't understand a particular part of the code you are about to translate, use {% data variables.product.prodname_copilot_short %}'s "explain" feature, either on the whole file, or a selected portion of the code within a file. See [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
+  If you don't understand a particular part of the code you are about to translate, use {% data variables.product.prodname_copilot_short %}'s "explain" feature, either on the whole file, or a selected portion of the code within a file. See [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
 
 * **Schedule time to complete the migration**
 
@@ -54,7 +54,7 @@ Consider the points before you start a migration process:
 
 Assuming you've already familiarized yourself with the existing project, a good way to start a migration is to open a branch of the repository in your editor and ask {% data variables.product.prodname_copilot_short %} for help.
 
-1. In your editor, open the {% data variables.copilot.copilot_chat_short %} panel. See [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
+1. In your editor, open the {% data variables.copilot.copilot_chat_short %} panel. See [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
 1. Ask {% data variables.product.prodname_copilot_short %} to outline the steps you need to take to migrate the project to the new language.
 
    For example, for a migration from PHP to Python, you could ask:
@@ -76,7 +76,7 @@ Assuming you've already familiarized yourself with the existing project, a good 
    If you think a change suggested by {% data variables.product.prodname_copilot_short %} is not right in some way, ask for an alternative suggestion.
 
 1. As soon as you've migrated a component to a state that you can run, check that it works as expected. If it generates an error, copy the error into the {% data variables.copilot.copilot_chat_short %} view, and ask {% data variables.product.prodname_copilot_short %} to help you fix it.
-1. After you've completed the initial conversion, use {% data variables.product.prodname_copilot_short %} to help you refactor the code in the new language. For more information, see [AUTOTITLE](/copilot/tutorials/refactoring-code-with-github-copilot).
+1. After you've completed the initial conversion, use {% data variables.product.prodname_copilot_short %} to help you refactor the code in the new language. For more information, see [AUTOTITLE](/copilot/tutorials/refactor-code).
 
 ## Example: migrating a PHP project to Python
 

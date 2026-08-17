@@ -31,7 +31,8 @@ export const JourneyLearningTracks = ({ tracks, articlesHeading }: JourneyLearni
         <summary className={styles.trackSummary}>
           <div className={styles.trackHeader}>
             <h2 className="h4 text-bold">{track.title}</h2>
-            <Token text={`${track.guides?.length || 0} articles`} />
+            <Token text={t('articles').replace('{{ number }}', `${track.guides?.length || 0}`)} />
+            {track.timeCommitment && <Token text={track.timeCommitment} />}
           </div>
           <div className={styles.trackDescription}>
             <p>{track.description}</p>

@@ -19,6 +19,8 @@ export const TOOL_PREFERRED_COOKIE_NAME = 'tool_preferred'
 export const OS_PREFERRED_COOKIE_NAME = 'os_preferred'
 export const DOCS_EVENTS_COOKIE_NAME = 'docs_events'
 export const MACHINE_TRANSLATION_BANNER_COOKIE_NAME = 'machine_translation_banner_seen'
+export const SIDEBAR_EXPANDED_COOKIE_NAME = 'sidebar_expanded'
+export const SIDEBAR_COLLAPSED_COOKIE_NAME = 'sidebar_collapsed'
 
 // Monolith cookies — set by github.com, read-only for us. Names are not
 // ours to change so they don't follow our snake_case convention.

@@ -6,7 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-layout: product-landing
+layout: discovery-landing
 introLinks:
   quickstart: /get-started/start-your-journey
 featuredLinks:

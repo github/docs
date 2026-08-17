@@ -35,7 +35,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 
 Skills are folders of instructions, scripts, and resources that {% data variables.product.prodname_copilot_short %} can load to improve its performance on specialized tasks. By adding skills to your project, you can give {% data variables.product.prodname_copilot_short %} extra knowledge or tools for particular workflows, technologies, or domains.
 
-For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/create-skills).
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-skills).
 
 ## Custom agents
 
@@ -65,4 +65,10 @@ For more information, see [AUTOTITLE](/copilot/concepts/context/mcp).
 
 They bundle multiple customization components together into a single installable unit. You can install plugins directly from a repository, from a plugin marketplace, or from a local path.
 
-For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-cli-plugins).
+For more information, see [AUTOTITLE](/copilot/concepts/agents/about-plugins).
+
+## Personal CLI settings
+
+The `/settings` slash command allows you to view and change your {% data variables.copilot.copilot_cli %} settings from within an interactive session. It controls user-level settings such as whether {% data variables.product.prodname_copilot_short %} updates itself automatically, which color palette the interface uses, what appears in the footer, and many other options.
+
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/change-settings).

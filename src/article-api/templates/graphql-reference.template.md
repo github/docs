@@ -4,17 +4,9 @@
 
 {{ manualContent }}
 
-{% if connectionEdgeSummary %}
-## Connection and Edge types
-
-Connection types with only the standard pagination fields (`edges`, `nodes`, `pageInfo`, `totalCount`) and Edge types with only `cursor` and `node` are summarized here. Connection and Edge types with additional fields are documented individually below.
-
-{% for name in connectionEdgeSummary %}`{{ name }}`{% unless forloop.last %}, {% endunless %}{% endfor %}
-
-{% endif %}
 {% for item in items %}
 
-## {{ item.name }}
+## {{ item.name }} - {{ item.kindLabel }}
 
 {{ item.description }}
 
@@ -24,7 +16,7 @@ Connection types with only the standard pagination fields (`edges`, `nodes`, `pa
 > **Deprecation notice:** {{ item.deprecationReason }}
 {% endif %}
 
-{% if pageType == 'queries' %}
+{% if item.kind == 'queries' %}
 **Type:** {{ item.type }}
 
 {% if item.args.size > 0 %}
@@ -35,7 +27,7 @@ Connection types with only the standard pagination fields (`edges`, `nodes`, `pa
 {% endfor %}
 {% endif %}
 
-{% elsif pageType == 'mutations' %}
+{% elsif item.kind == 'mutations' %}
 {% if item.inputFields.size > 0 %}
 
 ### Input fields for `{{ item.name }}`
@@ -52,7 +44,7 @@ Connection types with only the standard pagination fields (`edges`, `nodes`, `pa
 {% endfor %}
 {% endif %}
 
-{% elsif pageType == 'objects' %}
+{% elsif item.kind == 'objects' %}
 {% if item.implements.size > 0 %}
 **Implements:** {% for impl in item.implements %}{{ impl.name }}{% unless forloop.last %}, {% endunless %}{% endfor %}
 
@@ -68,7 +60,7 @@ Connection types with only the standard pagination fields (`edges`, `nodes`, `pa
 {% endfor %}
 {% endif %}
 
-{% elsif pageType == 'interfaces' %}
+{% elsif item.kind == 'interfaces' %}
 {% if item.fields.size > 0 %}
 
 ### Fields for `{{ item.name }}`
@@ -79,7 +71,15 @@ Connection types with only the standard pagination fields (`edges`, `nodes`, `pa
 {% endfor %}
 {% endif %}
 
-{% elsif pageType == 'enums' %}
+{% if item.implementedBy.size > 0 %}
+
+### Implemented by
+
+{% for impl in item.implementedBy %}* {{ impl.name }}
+{% endfor %}
+{% endif %}
+
+{% elsif item.kind == 'enums' %}
 {% if item.values.size > 0 %}
 
 ### Values for `{{ item.name }}`
@@ -88,7 +88,7 @@ Connection types with only the standard pagination fields (`edges`, `nodes`, `pa
 {% endfor %}
 {% endif %}
 
-{% elsif pageType == 'unions' %}
+{% elsif item.kind == 'unions' %}
 {% if item.possibleTypes.size > 0 %}
 
 ### Possible types for `{{ item.name }}`
@@ -97,7 +97,7 @@ Connection types with only the standard pagination fields (`edges`, `nodes`, `pa
 {% endfor %}
 {% endif %}
 
-{% elsif pageType == 'inputObjects' %}
+{% elsif item.kind == 'inputObjects' %}
 {% if item.inputFields.size > 0 %}
 
 ### Input fields for `{{ item.name }}`
@@ -106,7 +106,7 @@ Connection types with only the standard pagination fields (`edges`, `nodes`, `pa
 {% endfor %}
 {% endif %}
 
-{% elsif pageType == 'scalars' %}
+{% elsif item.kind == 'scalars' %}
 {%- comment -%}Scalars typically just have name and description{%- endcomment -%}
 
 {% endif %}

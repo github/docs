@@ -59,7 +59,7 @@ If you are using an environment variable, check whether the `COPILOT_GITHUB_TOKE
  echo $COPILOT_GITHUB_TOKEN
  ```
   
-If the command prints nothing, the variable is not set. Set the variable to a valid token. To generate a token, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli#authenticate-with-a-personal-access-token-pat).
+If the command prints nothing, the variable is not set. Set the variable to a valid token. To generate a token, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli#authenticating-with-environment-variables).
   
 ```bash copy
  export $COPILOT_GITHUB_TOKEN=PERSONAL_ACCESS_TOKEN
@@ -102,7 +102,7 @@ The token was revoked, has expired, or was created without the required permissi
 
 ### Fix
 
-Review the token's status and permissions on {% data variables.product.prodname_dotcom %}. The token must have the **Copilot Requests** permission. Generate a new token with the required permissions if necessary.  
+Review the token's status and permissions on {% data variables.product.prodname_dotcom %}. The token must be a {% data variables.product.pat_v2 %} owned by your **personal account** (not an organization) with the **{% data variables.product.prodname_copilot_short %} Requests** permission. Generate a new token with the required permissions if necessary.  
 
 ## {% data variables.product.pat_classic_caps %} rejected
 

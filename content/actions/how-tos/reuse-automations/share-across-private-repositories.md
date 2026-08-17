@@ -28,4 +28,4 @@ contentType: how-tos
 
 ## Next steps
 
-To reuse your shared workflows, see [AUTOTITLE](/actions/using-workflows/reusing-workflows).
+To reuse your shared workflows, see [AUTOTITLE](/actions/how-tos/reuse-automations/reuse-workflows).

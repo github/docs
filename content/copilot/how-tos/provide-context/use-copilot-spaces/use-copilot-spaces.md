@@ -10,15 +10,7 @@ category:
   - Author and optimize with Copilot
 ---
 
-For information on creating {% data variables.copilot.copilot_spaces %}, see [AUTOTITLE](/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces).
-
-## Using {% data variables.copilot.copilot_spaces %} in {% data variables.product.github %}
-
-Once you've added context to your space, you can ask {% data variables.product.prodname_copilot_short %} questions in the space's chat interface in {% data variables.product.github %}. Your chat will be grounded in the context you've added. You can view all conversations you have had in the space's "Conversations" tab.
-
-You can also change the large language model (LLM) used for your space by selecting the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then clicking the AI model of your choice. For more information, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
-
-To star your favorite spaces so that you can easily find them later, you can click **{% octicon "star" aria-hidden="true" aria-label="star" %}** in the top right corner of the space. To view all spaces available to you, including starred spaces, go to [https://github.com/copilot/spaces](https://github.com/copilot/spaces?ref_product=copilot&ref_type=engagement&ref_style=text).
+For information on creating {% data variables.copilot.copilot_spaces %}, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/copilot-spaces/create-copilot-spaces).
 
 ## Using {% data variables.copilot.copilot_spaces %} in your IDE
 
@@ -38,8 +30,8 @@ Once you've accessed space context from your IDE:
 
 To use {% data variables.copilot.copilot_spaces_short %} in your IDE, you need to:
 
-* Set up the remote {% data variables.product.github %} MCP server for your IDE. For more information, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/set-up-the-github-mcp-server) and [Remote {% data variables.product.github %} MCP Server](https://github.com/github/github-mcp-server/blob/main/docs/remote-server.md) in the {% data variables.product.github %} MCP server documentation.
-* Configure the set up of the remote {% data variables.product.github %} MCP server so that the {% data variables.copilot.copilot_spaces_short %} toolset is enabled.
+* Set up the remote {% data variables.product.github %} MCP server for your IDE. For more information, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/set-up-the-github-mcp-server) and [Remote {% data variables.product.github %} MCP Server](https://github.com/github/github-mcp-server/blob/main/docs/remote-server.md) in the {% data variables.product.github %} MCP server documentation.
+* Configure the remote {% data variables.product.github %} MCP server so that the {% data variables.copilot.copilot_spaces_short %} toolset is enabled.
 
   The {% data variables.copilot.copilot_spaces_short %} toolset is not included in the default configuration, so you must explicitly enable it using the `X-MCP-Toolsets` header. The following example configuration enables both the default tools and {% data variables.copilot.copilot_spaces_short %}:
 
@@ -61,7 +53,7 @@ To use {% data variables.copilot.copilot_spaces_short %} in your IDE, you need t
 
 ### Accessing space context from your IDE
 
-For more detailed information on using the {% data variables.product.github %} MCP server in a specific IDE, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/use-the-github-mcp-server).
+For more detailed information on using the {% data variables.product.github %} MCP server in a specific IDE, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/use-the-github-mcp-server).
 
 Note that {% data variables.copilot.copilot_spaces_short %} can only be used in agent mode in your IDE, since spaces are accessed via the {% data variables.product.github %} MCP server.
 
@@ -78,5 +70,5 @@ Note that {% data variables.copilot.copilot_spaces_short %} can only be used in 
 
 ## Next steps
 
-* To learn more about how to use {% data variables.copilot.copilot_spaces_short %} to help you with development work, see [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/speeding-up-development-work-with-copilot-spaces).
-* To learn how to share your space with your team, see [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/collaborating-with-your-team-using-copilot-spaces).
+* To learn more about how to use {% data variables.copilot.copilot_spaces_short %} to help you with development work, see [AUTOTITLE](/copilot/tutorials/speed-up-development-work).
+* To learn how to share your space with your team, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/copilot-spaces/collaborate-with-others).

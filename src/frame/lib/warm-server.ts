@@ -1,4 +1,4 @@
-import statsd from '@/observability/lib/statsd'
+import statsd, { adaptForTimer } from '@/observability/lib/statsd'
 import { loadUnversionedTree, loadSiteTree, loadPages, loadPageMap } from './page-data'
 import loadRedirects from '@/redirects/lib/precompile'
 import { createLogger } from '@/observability/logger'
@@ -17,12 +17,15 @@ type WarmServerResult = {
 // Instrument these functions so that
 // it's wrapped in a timer that reports to Datadog
 const dog = {
-  loadUnversionedTree: statsd.asyncTimer(loadUnversionedTree, 'load_unversioned_tree'),
-  loadSiteTree: statsd.asyncTimer(loadSiteTree, 'load_site_tree'),
-  loadPages: statsd.asyncTimer(loadPages, 'load_pages'),
-  loadPageMap: statsd.asyncTimer(loadPageMap, 'load_page_map'),
-  loadRedirects: statsd.asyncTimer(loadRedirects, 'load_redirects'),
-  warmServer: statsd.asyncTimer(warmServer, 'warm_server'),
+  loadUnversionedTree: statsd.asyncTimer(
+    adaptForTimer(loadUnversionedTree),
+    'load_unversioned_tree',
+  ),
+  loadSiteTree: statsd.asyncTimer(adaptForTimer(loadSiteTree), 'load_site_tree'),
+  loadPages: statsd.asyncTimer(adaptForTimer(loadPages), 'load_pages'),
+  loadPageMap: statsd.asyncTimer(adaptForTimer(loadPageMap), 'load_page_map'),
+  loadRedirects: statsd.asyncTimer(adaptForTimer(loadRedirects), 'load_redirects'),
+  warmServer: statsd.asyncTimer(adaptForTimer(warmServer), 'warm_server'),
 }
 
 // For multiple-triggered Promise sharing
@@ -59,7 +62,7 @@ async function warmServer(languagesOnly: string[] = []): Promise<WarmServerResul
   })
 
   stepStart = Date.now()
-  const pageMap = await dog.loadPageMap(pageList)
+  const pageMap = await dog.loadPageMap(pageList, [])
   logger.info('warm-server: loadPageMap complete', {
     durationMs: Date.now() - stepStart,
     permalinkCount: Object.keys(pageMap).length,

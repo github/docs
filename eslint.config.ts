@@ -100,8 +100,12 @@ export default [
       // Disabled rules to review
       'no-console': 'off', // 800+
 
-      // Custom rules (disabled by default for now)
-      'custom-rules/use-custom-logger': 'off',
+      // Custom rules
+      'custom-rules/use-custom-logger': 'error',
+
+      // Disallow dangerouslySetInnerHTML; render trusted HTML via RenderedHTML /
+      // renderHTMLString or a hast tree instead (github/docs-engineering#6619).
+      'custom-rules/no-dangerously-set-inner-html': 'error',
 
       // Prevent direct res.redirect() usage — use res.safeRedirect() instead
       // to avoid open redirect vulnerabilities via protocol-relative URLs.
@@ -161,9 +165,40 @@ export default [
     },
   },
 
+  // Client-side files that run in the browser where the server-only logger is unavailable
+  {
+    files: [
+      'src/search/components/hooks/useAISearchAutocomplete.ts',
+      'src/search/components/hooks/useAISearchLocalStorageCache.ts',
+    ],
+    rules: {
+      'custom-rules/use-custom-logger': 'off',
+    },
+  },
+
   // Disable custom logger rule for logger implementation itself
   {
     files: ['src/observability/logger/**/*.{ts,js}'],
+    rules: {
+      'custom-rules/use-custom-logger': 'off',
+    },
+  },
+
+  // Directories not yet migrated to structured logger (see github/docs-engineering#5639)
+  // Remove directories from this list as they are migrated
+  {
+    files: [
+      'src/ai-tools/**/*.{ts,js}',
+      'src/article-api/**/*.{ts,js}',
+      'src/audit-logs/**/*.{ts,js}',
+      'src/color-schemes/**/*.{ts,js}',
+      'src/dev-toc/**/*.{ts,js}',
+      'src/events/components/**/*.{ts,js}',
+      'src/fixtures/**/*.{ts,js}',
+      'src/journeys/**/*.{ts,js}',
+      'src/metrics/**/*.{ts,js}',
+      'src/observability/lib/handle-package-not-found.ts',
+    ],
     rules: {
       'custom-rules/use-custom-logger': 'off',
     },
@@ -177,6 +212,10 @@ export default [
       'src/workflows/**/*.{ts,js}',
       'src/content-linter/**/*.{ts,js}',
       '**/*.{tsx,jsx}',
+      // Client-side module that cannot use the server-only structured logger
+      'src/languages/lib/translation-utils.ts',
+      // CLI help script — chalk-colored terminal output, not application logging
+      'src/rest/docs.ts',
     ],
     rules: {
       'custom-rules/use-custom-logger': 'off',
@@ -196,104 +235,25 @@ export default [
     },
   },
 
-  // Legacy files with @typescript-eslint/no-explicit-any violations (see github/docs-engineering#5797)
+  // Allow role="list" on list-style:none <ul> elements in these components.
+  // Chromium drops the implicit `list`/`listitem` roles from the accessibility tree
+  // when list-style:none is set, so NVDA/JAWS lose list semantics and the item count;
+  // role="list" on the <ul> and role="listitem" on each <li> restore them and are not
+  // actually redundant here. See github/accessibility-audits#16815.
   {
     files: [
-      'src/article-api/liquid-renderers/rest-tags.ts',
-      'src/article-api/scripts/generate-api-docs.ts',
-      'src/article-api/transformers/audit-logs-transformer.ts',
-      'src/article-api/transformers/rest-transformer.ts',
-      'src/codeql-cli/scripts/convert-markdown-for-docs.ts',
-      'src/content-linter/lib/init-test.ts',
-      'src/content-linter/lib/linting-rules/code-annotations.ts',
-      'src/content-linter/lib/linting-rules/index.ts',
-      'src/content-linter/lib/linting-rules/journey-tracks-liquid.ts',
-      'src/content-linter/lib/linting-rules/liquid-ifversion-versions.ts',
-      'src/content-linter/lib/linting-rules/liquid-versioning.ts',
-      'src/content-linter/lib/linting-rules/third-party-action-pinning.ts',
-      'src/content-linter/scripts/lint-content.ts',
-      'src/content-linter/scripts/pretty-print-results.ts',
-      'src/content-linter/style/base.ts',
-      'src/content-linter/tests/integration/lint-cli.ts',
-      'src/content-linter/tests/lint-files.ts',
-      'src/content-linter/tests/lint-frontmatter-links.ts',
-      'src/content-linter/tests/unit/table-column-integrity-simple.ts',
-      'src/content-render/liquid/engine.ts',
-      'src/content-render/liquid/index.ts',
-      'src/content-render/scripts/liquid-tags.ts',
-      'src/content-render/scripts/move-content.ts',
-      'src/content-render/tests/link-error-line-numbers.ts',
-      'src/content-render/unified/annotate.ts',
-      'src/content-render/unified/index.ts',
-      'src/data-directory/lib/get-data.ts',
-      'src/early-access/scripts/migrate-early-access-product.ts',
-      'src/fixtures/tests/categories-and-subcategory.ts',
-      'src/fixtures/tests/guides.ts',
-      'src/fixtures/tests/translations.ts',
-      'src/frame/components/context/MainContext.tsx',
-      'src/frame/lib/create-tree.ts',
-      'src/frame/lib/frontmatter.ts',
-      'src/frame/lib/page-data.ts',
-      'src/frame/lib/page.ts',
-      'src/frame/tests/page.ts',
-      'src/frame/tests/server.ts',
-      'src/github-apps/lib/index.ts',
-      'src/graphql/lib/index.ts',
-      'src/graphql/pages/reference.tsx',
-      'src/graphql/scripts/utils/process-schemas.ts',
-      'src/graphql/scripts/utils/schema-helpers.ts',
-      'src/graphql/tests/validate-schema.ts',
-      'src/landings/components/CookBookFilter.tsx',
-      'src/landings/components/ProductGuidesContext.tsx',
-      'src/landings/components/ProductLandingContext.tsx',
-      'src/landings/components/SidebarProduct.tsx',
-      'src/landings/pages/home.tsx',
-      'src/landings/pages/product.tsx',
-      'src/languages/lib/correct-translation-content.ts',
-      'src/languages/lib/render-with-fallback.ts',
-      'src/languages/lib/translation-utils.ts',
-      'src/links/lib/update-internal-links.ts',
-      'src/links/scripts/check-github-github-links.ts',
-      'src/links/scripts/update-internal-links.ts',
-      'src/rest/components/get-rest-code-samples.ts',
-      'src/rest/lib/index.ts',
-      'src/rest/pages/category.tsx',
-      'src/rest/pages/subcategory.tsx',
-      'src/rest/scripts/utils/create-rest-examples.ts',
-      'src/rest/scripts/utils/get-operations.ts',
-      'src/rest/scripts/utils/inject-models-schema.ts',
-      'src/rest/scripts/utils/operation.ts',
-      'src/rest/scripts/utils/sync.ts',
-      'src/rest/scripts/utils/update-markdown.ts',
-      'src/rest/tests/get-rest-code-samples-2.ts',
-      'src/rest/tests/get-rest-code-samples.ts',
-      'src/rest/tests/openapi-schema.ts',
-      'src/rest/tests/rendering.ts',
-      'src/search/components/hooks/useAISearchAutocomplete.ts',
-      'src/search/components/hooks/useAISearchLocalStorageCache.ts',
-      'src/search/components/input/AskAIResults.tsx',
-      'src/search/components/input/SearchOverlay.tsx',
-      'src/search/lib/get-elasticsearch-results/ai-search-autocomplete.ts',
-      'src/search/lib/get-elasticsearch-results/general-search.ts',
-      'src/search/lib/routes/combined-search-route.ts',
-      'src/search/lib/search-request-params/get-search-from-request-params.ts',
-      'src/search/middleware/search-routes.ts',
-      'src/search/scripts/index/index-cli.ts',
-      'src/search/scripts/index/utils/indexing-elasticsearch-utils.ts',
-      'src/search/scripts/scrape/lib/parse-page-sections-into-records.ts',
-      'src/tests/helpers/check-url.ts',
-      'src/tests/helpers/e2etest.ts',
-      'src/tests/scripts/copy-fixture-data.ts',
-      'src/tests/vitest.setup.ts',
-      'src/types/github__markdownlint-github.d.ts',
-      'src/types/markdownlint-lib-rules.d.ts',
-      'src/types/markdownlint-rule-helpers.d.ts',
-      'src/types/markdownlint-rule-search-replace.d.ts',
-      'src/types/primer__octicons.d.ts',
-      'src/workflows/projects.ts',
+      'src/frame/components/ui/MiniTocs/MiniTocs.tsx',
+      'src/landings/components/TableOfContents.tsx',
+      'src/frame/components/GenericError.tsx',
+      'src/frame/components/page-footer/LegalFooter.tsx',
+      'src/landings/components/ProductSelectionCard.tsx',
+      'src/release-notes/components/GHESReleaseNotes.tsx',
     ],
     rules: {
-      '@typescript-eslint/no-explicit-any': 'off',
+      'jsx-a11y/no-redundant-roles': [
+        'error',
+        { nav: ['navigation'], ul: ['list'], li: ['listitem'] },
+      ],
     },
   },
 

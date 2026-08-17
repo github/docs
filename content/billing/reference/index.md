@@ -13,7 +13,6 @@ children:
   - /billing-reports
   - /billing-roles
   - /cost-center-allocation
-  - /costs-for-github-models
   - /enterprise-license-troubleshooting
   - /github-license-users
   - /license-reports

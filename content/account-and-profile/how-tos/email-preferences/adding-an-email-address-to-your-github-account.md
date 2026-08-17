@@ -34,6 +34,6 @@ category:
 
 ## Next steps
 
-If you are having trouble adding an email address, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/troubleshooting-adding-an-email).
+If you are having trouble adding an email address, see [AUTOTITLE](/account-and-profile/how-tos/email-preferences/troubleshooting-adding-an-email).
 
 For reference information, see [AUTOTITLE](/account-and-profile/reference/email-addresses-reference).

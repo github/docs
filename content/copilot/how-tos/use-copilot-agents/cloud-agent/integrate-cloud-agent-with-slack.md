@@ -3,6 +3,7 @@ title: Integrating Copilot cloud agent with Slack
 shortTitle: Integrate cloud agent with Slack
 allowTitleToDifferFromFilename: true
 intro: 'Provide context to the {% data variables.product.prodname_copilot_short %} cloud agent and open pull requests, all from within your Slack workspace.'
+product: '{% data reusables.copilot.plans.permission-paid-plans-cfi %}'
 versions:
   feature: copilot
 contentType: how-tos
@@ -14,7 +15,7 @@ redirect_from:
 
 > [!NOTE]
 > * This feature is in {% data variables.release-phases.public_preview %} and subject to change.
-> * {% data variables.product.prodname_copilot %} uses AI. Check for mistakes. See [AUTOTITLE](/copilot/responsible-use/copilot-cloud-agent)
+> * {% data variables.product.prodname_copilot %} uses AI. Check for mistakes. See [AUTOTITLE](/copilot/responsible-use/agents).
 
 ## Introduction
 
@@ -24,14 +25,14 @@ For information about additional {% data variables.product.prodname_copilot_shor
 
 ## Security considerations
 
-When you @mention {% data variables.product.prodname_copilot_short %} in Slack, consider the following.
+Before you @mention the {% data variables.product.prodname_github_app %} in Slack, consider the following.
 
 * {% data variables.product.prodname_copilot_short %} may perform write actions on your behalf, such as creating pull requests or issues, in addition to answering questions. {% data variables.product.prodname_copilot_short %} uses the permissions of your linked {% data variables.product.github %} account for any actions it takes.
 * {% data variables.copilot.copilot_cloud_agent %} will capture the entire thread as context for your request, understanding and implementing solutions based on the discussion. This context is stored in the pull request. If you want to limit the context, you can send a direct message to the {% data variables.product.prodname_github_app %} for Slack instead.
 
 ## Prerequisites
 
-* You must have a {% data variables.product.github %} account with access to {% data variables.product.prodname_copilot_short %} through {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, or {% data variables.copilot.copilot_enterprise_short %}.
+* You must have a {% data variables.product.github %} account with access to {% data variables.product.prodname_copilot_short %} through a paid {% data variables.product.prodname_copilot_short %} plan.
 * You must have a Slack account and be a member of a workspace.
 * You must have the {% data variables.product.prodname_github_app %} for Slack installed. See [AUTOTITLE](/integrations/how-tos/slack/integrate-github-with-slack).
 
@@ -39,7 +40,7 @@ When you @mention {% data variables.product.prodname_copilot_short %} in Slack, 
 
 The first time you use the {% data variables.product.prodname_github_app %} in Slack, the app will prompt you to connect it to your {% data variables.product.github %} account and set a default repository. The default repository is where pull requests created by {% data variables.copilot.copilot_cloud_agent %} sessions will be opened.
 
-1. In Slack, open a direct message with the {% data variables.product.prodname_github_app %} or mention {% data variables.product.prodname_copilot_short %} in a thread by typing `@{% data variables.product.prodname_copilot %}`.
+1. In Slack, open a direct message with the {% data variables.product.prodname_github_app %} or mention the {% data variables.product.prodname_github_app %} in a thread by typing `@{% data variables.product.github %}`.
 1. Send a prompt to {% data variables.copilot.copilot_cloud_agent %}. This can be a request to perform a task, or simply `login`.
 1. If asked to connect your {% data variables.product.github %} account, follow the instructions in {% data variables.product.prodname_copilot_short %}'s reply and authorize the app to access your {% data variables.product.github %} account.
 1. In the Slack message thread, click **Configure settings** to set a default repository for pull requests. You can change this repository later using the `settings` command.
@@ -53,45 +54,53 @@ You must have write access to the default repository – or the repository speci
 
 Users can invoke {% data variables.copilot.copilot_cloud_agent %} on any repository where they have `write` access. For enterprise-owned repositories, administrators must install and configure the [Slack {% data variables.product.prodname_github_app %}](https://github.com/marketplace/slack-github?ref_product=copilot&ref_type=engagement&ref_style=text&ref_plan=enterprise) and specify which repositories the Slack app can access. For more information about configuring {% data variables.product.prodname_github_apps %}, see [AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-organizations).
 
-1. In Slack, open a direct message with the {% data variables.product.prodname_github_app %} or mention the app in a thread by typing `@{% data variables.product.prodname_copilot %}`.
-1. Type your prompt, then send it. Optionally, you can specify a repository or branch using the following syntax:
+1. In Slack, open a direct message with the {% data variables.product.prodname_github_app %} or mention the app in a thread by typing `@{% data variables.product.github %}`.
+1. Type your prompt, then send it. You can describe the repository and branch in natural language as part of your request. For example:
 
-    `@{% data variables.product.github %} Add "Hello World" to the README in repo=REPO_OWNER/REPO_NAME branch=BRANCH_NAME`
+    `@{% data variables.product.github %} Add "Hello World" to the README in octo-org/octo-repo on the develop branch`
 
-    > [!NOTE] The repo parameter tells {% data variables.copilot.copilot_cloud_agent %} which repository to use for the request, and the branch parameter specifies an existing branch of the repository that should be used as the base branch for a pull request. By default, {% data variables.product.prodname_copilot_short %} uses your configured default repository and the repository’s default branch.
+    > [!NOTE] Tell {% data variables.copilot.copilot_cloud_agent %} which repository to use for the request, and, if needed, an existing branch of the repository to use as the base branch for a pull request. If you don't specify a repository, {% data variables.product.prodname_copilot_short %} uses the channel's default repository if one is set, and otherwise asks you which one to use. If you don't specify a branch, {% data variables.product.prodname_copilot_short %} creates a new branch from the repository's default branch.
 
 1. {% data variables.copilot.copilot_cloud_agent %} will initiate a {% data variables.copilot.copilot_cloud_agent_short %} session and, once the {% data variables.copilot.copilot_cloud_agent_short %} has finished, respond with a summary of the changes it plans to make and a link to the pull request it has created in the default repository.
 
-### Creating an issue with {% data variables.product.prodname_copilot_short %}
+### Creating issues with {% data variables.product.prodname_copilot_short %}
 
-You can ask {% data variables.product.prodname_copilot_short %} to draft {% data variables.product.github %} issues directly from Slack, turning conversations into actionable tasks. When you mention {% data variables.product.prodname_copilot_short %}, it uses the full thread history as context for the issue it drafts. To keep the context focused, consider starting a new thread or sending a direct message.
+You can ask {% data variables.product.prodname_copilot_short %} to create {% data variables.product.github %} issues directly from Slack, turning conversations into actionable tasks. Just describe what you need in natural language, and {% data variables.product.prodname_copilot_short %} creates the issue for you. You can create a single issue or multiple issues at once with child-parent relationships. When you mention {% data variables.product.prodname_copilot_short %}, it uses the full thread history as context for the issues it creates. To keep the context focused, consider starting a new thread or sending a direct message.
 
-1. In Slack, ask {% data variables.product.prodname_copilot_short %} to create an issue, specifying the target repository.
+1. In Slack, ask {% data variables.product.prodname_copilot_short %} to create one or more issues, specifying the target repository.
 
-   For example:
+   To create a single issue:
 
    ```text
    @{% data variables.product.github %} In octo-org/octo-repo, create a feature request to add fuzzy matching to search.
    ```
 
-   ```text
-   @{% data variables.product.github %} Log a bug for a 500 error in octo-org/octo-repo and assign @USER to it. This happens consistently when I try to log into the site.
-   ```
+   To create multiple issues at once:
 
    ```text
-   @{% data variables.product.github %} In octo-org/octo-repo, create an issue and add relevant code snippets to improve the API response format.
+   @{% data variables.product.github %} In octo-org/octo-repo, open separate issues for adding fuzzy matching to search, paginating the results list, and caching search queries.
+   ```
+
+   To create issues with child-parent relationships:
+
+   ```text
+   @{% data variables.product.github %} In octo-org/octo-repo, create an epic to redesign search, with child issues for fuzzy matching, pagination, and query caching.
    ```
 
    > [!NOTE] You can only use {% data variables.product.prodname_copilot_short %} to create issues in repositories where you already have permission to create issues. This feature doesn't change your access or bypass repository permissions.
 
-1. Click **Review draft** to open the issue draft. {% data variables.product.prodname_copilot_short %} drafts an issue that includes:
+1. {% data variables.product.prodname_copilot_short %} creates the issues and replies with a link to each one. Each issue includes a title and description, and based on your prompt {% data variables.product.prodname_copilot_short %} can also add metadata such as labels, assignees, and issue type.
 
-   * A suggested title.
-   * Details of the required changes.
+### Setting a default repository for a channel
 
-   Based on your prompt, {% data variables.product.prodname_copilot_short %} can also suggest metadata such as labels, assignees, and issue type.
+To avoid specifying a repository in every request, you can set a default repository for a Slack channel.
 
-1. Review the draft, and once the issue looks good, click **Create**.
+1. In the channel, type `@{% data variables.product.github %} settings` and send the message.
+1. Select the repository you want to use as the default, then save your changes.
+
+When no repository is specified in a request, {% data variables.product.prodname_copilot_short %} uses the channel's default repository.
+
+> [!NOTE] The default repository is shared across the channel, so any change applies to everyone using {% data variables.product.prodname_copilot_short %} in that channel.
 
 
 ## Further reading

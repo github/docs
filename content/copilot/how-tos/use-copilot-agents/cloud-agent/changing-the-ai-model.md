@@ -2,7 +2,7 @@
 title: Changing the AI model for GitHub Copilot cloud agent
 shortTitle: Changing the AI model
 allowTitleToDifferFromFilename: true
-intro: 'In supported entrypoints, when starting a task with {% data variables.copilot.copilot_cloud_agent %}, you can select the model used.'
+intro: 'In supported entrypoints, when starting a task with {% data variables.copilot.copilot_cloud_agent %}, you can select the model used, and, for supported models, the reasoning level.'
 product: '{% data reusables.gated-features.copilot-cloud-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
@@ -23,7 +23,7 @@ In supported entrypoints, you can select the model used by {% data variables.cop
 You may find that different models perform better, or provide more useful responses, depending on the type of tasks you give {% data variables.product.prodname_copilot_short %}.
 
 > [!NOTE]
-> Model selection for {% data variables.copilot.copilot_cloud_agent %} is only supported when assigning an issue to {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %}, when mentioning `@copilot` in a pull request comment on {% data variables.product.prodname_dotcom_the_website %}, or when starting a task from the agents tab, agents panel, {% data variables.product.prodname_mobile %} or the Raycast launcher. Where a model picker is not available, Auto will be used automatically. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-a-pr).
+> Model selection for {% data variables.copilot.copilot_cloud_agent %} is only supported when assigning an issue to {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %}, when mentioning `@copilot` in a pull request comment on {% data variables.product.prodname_dotcom_the_website %}, or when starting a task from the agents tab, agents panel, {% data variables.product.prodname_mobile %} or the Raycast launcher. Where a model picker is not available, Auto will be used automatically. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions).
 
 ## Supported models
 
@@ -34,4 +34,10 @@ The following options are currently available:
 {% data reusables.copilot.copilot-cloud-agent-non-auto-models %}
 
 {% data reusables.copilot.auto-model-option %}
+
+## Reasoning level
+
+Some models support configurable reasoning levels, which control how much time and effort the model spends reasoning before it responds. Higher reasoning levels can improve the quality of responses to complex tasks, but may take longer and use more {% data variables.product.prodname_ai_credits_short %}.
+
+If you select a model that supports configurable reasoning, a second dropdown menu appears so you can choose the reasoning level you want {% data variables.copilot.copilot_cloud_agent %} to use for that task. For more information about which models support configurable reasoning, see [AUTOTITLE](/copilot/reference/ai-models/supported-models#models-with-extended-capabilities).
 

@@ -31,6 +31,12 @@ We make changes to our IP addresses from time to time. We do not recommend allow
 
 For applications to function, you must allow TCP ports 22, 80, and 443 via our IP ranges for `github.com` and `{% data variables.enterprise.data_residency_domain %}`.
 
+## {% data variables.product.prodname_actions %} runner IP addresses and third-party IP reputation services
+
+{% data reusables.actions.runner-ip-reputation %}
+
+For more information about {% data variables.product.prodname_actions %} runner IP ranges, see [AUTOTITLE](/actions/how-tos/troubleshoot-workflows#runner-ip-addresses-flagged-by-security-scanners).
+
 ## Further reading
 
 * [AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems)

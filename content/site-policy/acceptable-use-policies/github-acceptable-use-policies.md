@@ -92,13 +92,13 @@ Scraping refers to extracting information from our Service via an automated proc
 
 You may not use information from the Service (whether scraped, collected through our API, or obtained otherwise) for spamming purposes, including for the purposes of sending unsolicited emails to users or selling personal information, such as to recruiters, headhunters, and job boards.
 
-Your use of information from the Service must comply with the [GitHub Privacy Statement](/site-policy/privacy-policies/github-privacy-statement).
+Your use of information from the Service must comply with the [GitHub Privacy Statement](/site-policy/privacy-policies/github-general-privacy-statement).
 
 ## 8. Privacy
 
 Misuse of personal information is prohibited.
 
-Any person, entity, or service collecting data from the Service must comply with the [GitHub Privacy Statement](/site-policy/privacy-policies/github-privacy-statement), particularly in regards to the collection of personal information. If you collect any personal information from the Service, you agree that you will only use that personal information for the purpose for which that User has authorized it. You agree that you will reasonably secure any personal information you have gathered from the Service, and you will respond promptly to complaints, removal requests, and "do not contact" requests from us or other users.
+Any person, entity, or service collecting data from the Service must comply with the [GitHub Privacy Statement](/site-policy/privacy-policies/github-general-privacy-statement), particularly in regards to the collection of personal information. If you collect any personal information from the Service, you agree that you will only use that personal information for the purpose for which that User has authorized it. You agree that you will reasonably secure any personal information you have gathered from the Service, and you will respond promptly to complaints, removal requests, and "do not contact" requests from us or other users.
 
 ## 9. Excessive Bandwidth Use
 
@@ -126,3 +126,4 @@ We will interpret our policies and resolve disputes in favor of protecting users
 **Enforcement.** GitHub retains full discretion to [take action](/site-policy/github-terms/github-community-guidelines#what-happens-if-someone-violates-githubs-policies) in response to a violation of these policies, including account suspension, account [termination](/site-policy/github-terms/github-terms-of-service#3-github-may-terminate), or [removal](/site-policy/github-terms/github-terms-of-service#2-github-may-remove-content) of content. Please also see our [Community Guidelines](/site-policy/github-terms/github-community-guidelines) for actions you can take if something or someone offends you.
 
 **Reinstatement and appeal.** If your content or account has been disabled or restricted and you seek reinstatement or wish to appeal, please see our [Appeal and Reinstatement page](/site-policy/acceptable-use-policies/github-appeal-and-reinstatement) for information about the process and use our [Appeal and Reinstatement form](https://support.github.com/contact/reinstatement) to submit a request.
+

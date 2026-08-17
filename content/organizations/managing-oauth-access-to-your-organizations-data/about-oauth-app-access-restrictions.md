@@ -65,5 +65,5 @@ If an organization disables {% data variables.product.prodname_oauth_app %} acce
 * [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/reviewing-github-apps-installed-in-your-organization)
 * [AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/denying-access-to-a-previously-approved-oauth-app-for-your-organization)
 * [AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/disabling-oauth-app-access-restrictions-for-your-organization)
-* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps)
+* [AUTOTITLE](/account-and-profile/how-tos/organization-membership/requesting-organization-approval-for-oauth-apps)
 * [AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)

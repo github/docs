@@ -54,8 +54,8 @@ async function main(opts: { check?: boolean; dryRun?: boolean; verbose?: boolean
         } else if (opts.verbose) {
           console.log(`The file ${chalk.green(destination)} is up-to-date 🥰`)
         }
-      } catch (error: any) {
-        if (error.code === 'ENOENT') {
+      } catch (error: unknown) {
+        if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
           console.warn(`The file ${chalk.red(destination)} does not exist`)
           errors++
         } else {
@@ -71,8 +71,8 @@ async function main(opts: { check?: boolean; dryRun?: boolean; verbose?: boolean
           }
           continue
         }
-      } catch (error: any) {
-        if (error.code !== 'ENOENT') throw error
+      } catch (error: unknown) {
+        if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error
       }
       if (!opts.dryRun) {
         await mkdirp(path.dirname(destination))
