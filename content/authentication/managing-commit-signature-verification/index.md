@@ -35,3 +35,5 @@ children:
   - /displaying-verification-statuses-for-all-of-your-commits
 shortTitle: Verify commit signatures
 ---
+sudo pacman -S opencode           # Arch Linux (Stable)
+paru -S opencode-bin              # Arch Linux (Latest from AUR)
