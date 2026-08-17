@@ -638,6 +638,30 @@ test.describe('test nav at different viewports', () => {
     await expect(page.locator('#main-content')).toBeVisible()
   })
 
+  test('resizing from mobile to desktop closes the inline nav', async ({ page }) => {
+    // Start below the xxl (1400px) breakpoint where the inline mobile nav lives.
+    page.setViewportSize({
+      width: 1013,
+      height: 700,
+    })
+    await page.goto('/get-started/foo/bar')
+
+    // Open the inline doc-tree nav from the secondary bar.
+    await page.getByTestId('sidebar-mobile-toggle').click()
+    const nav = page.locator('[data-container="nav"]')
+    await expect(nav).toHaveAttribute('data-mobile-open', 'true')
+
+    // Resize up to the desktop breakpoint -- the inline nav should close and the
+    // fixed desktop rail (326px) should take over rather than the full-width
+    // mobile markup persisting over the page.
+    await page.setViewportSize({
+      width: 1400,
+      height: 700,
+    })
+    await expect(nav).toHaveAttribute('data-mobile-open', 'false')
+    await expect(nav).toHaveCSS('width', '326px')
+  })
+
   test('large -> x-large viewports - 1012+', async ({ page }) => {
     page.setViewportSize({
       width: 1013,
