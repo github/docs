@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Enum value 'SECURITY_KEY<code>was removed from enum</code>ProofOfPresenceRequirement'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-08-17"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>innersourceVulnerabilities</code> was added to object type <code>Enterprise</code></p>",
           "<p>Argument <code>after: String</code> added to field <code>Enterprise.innersourceVulnerabilities</code></p>",
           "<p>Argument <code>before: String</code> added to field <code>Enterprise.innersourceVulnerabilities</code></p>",

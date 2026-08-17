@@ -44014,11 +44014,6 @@ enum ProofOfPresenceRequirement @docsCategory(name: "enterprise-admin") {
   Members must complete a fresh re-authentication against the enterprise identity provider.
   """
   REAUTH
-
-  """
-  Members must satisfy a phishing-resistant security key re-authentication (Microsoft Entra only).
-  """
-  SECURITY_KEY
 }
 
 """

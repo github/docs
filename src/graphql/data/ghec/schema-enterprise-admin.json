@@ -11825,10 +11825,6 @@
         {
           "name": "REAUTH",
           "description": "<p>Members must complete a fresh re-authentication against the enterprise identity provider.</p>"
-        },
-        {
-          "name": "SECURITY_KEY",
-          "description": "<p>Members must satisfy a phishing-resistant security key re-authentication (Microsoft Entra only).</p>"
         }
       ],
       "category": "enterprise-admin"

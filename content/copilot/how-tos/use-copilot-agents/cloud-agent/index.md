@@ -19,11 +19,6 @@ children:
   - /use-cloud-agent-via-the-api
   - /use-cloud-agent-from-cli
   - /use-cloud-agent-with-mcp
-  - /integrate-cloud-agent-with-jira
-  - /integrate-cloud-agent-with-slack
-  - /integrate-cloud-agent-with-teams
-  - /integrate-cloud-agent-with-linear
-  - /integrate-cloud-agent-with-azure-boards
   - /use-cloud-agent-from-raycast
   - /troubleshoot-cloud-agent
 redirect_from:

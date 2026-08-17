@@ -10,6 +10,7 @@ contentType: how-tos
 category:
   - Integrate Copilot with your tools
 redirect_from:
+  - /copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-teams
   - /copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-teams
 ---
 
