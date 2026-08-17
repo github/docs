@@ -33,6 +33,10 @@ The trial lasts for **{% data reusables.enterprise.ghec-trial-length %} days** a
 * {% data variables.product.prodname_GH_cs_and_sp %} ({% data variables.product.prodname_dotcom_the_website %} trials only)
 * Up to 3,000 minutes of standard {% data variables.product.prodname_dotcom %}-hosted runners.
 
+The 50,000 monthly {% data variables.product.prodname_actions %} minutes included with a paid {% data variables.product.prodname_ghe_cloud %} plan do not apply during the trial. The trial includes up to 3,000 minutes of standard {% data variables.product.prodname_dotcom %}-hosted runners. If your trial uses {% data variables.product.prodname_emus %}, you must link an Azure subscription to exceed this limit. If your trial doesn't use {% data variables.product.prodname_emus %}, linking an Azure subscription immediately ends the trial and begins paid usage. For more information, see [AUTOTITLE](/billing/reference/azure-subscription).
+
+Usage of available AI-powered features consumes {% data variables.product.prodname_ai_credits_short %}. For more information, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
+
 ## Features not included in the trial
 
 * {% data variables.product.prodname_github_codespaces %}

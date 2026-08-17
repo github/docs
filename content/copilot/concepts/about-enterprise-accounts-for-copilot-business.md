@@ -1,6 +1,6 @@
 ---
 title: About enterprise accounts for Copilot Business
-intro: 'Learn about the option to create an enterprise account to manage only {% data variables.copilot.copilot_business_short %} licenses without adopting {% data variables.product.prodname_enterprise %}.'
+intro: 'An enterprise account lets you manage only {% data variables.copilot.copilot_business_short %} licenses, without consuming {% data variables.product.prodname_ghe_cloud %} licenses.'
 versions:
   feature: copilot
 shortTitle: Copilot-only enterprises
@@ -28,6 +28,13 @@ category:
 To use {% data variables.product.prodname_copilot %}, a user must authenticate to an account on {% data variables.product.prodname_dotcom %} that has a license for {% data variables.product.prodname_copilot_short %}. You can assign a license to a user through a {% data variables.copilot.copilot_business_short %} subscription if they're a member of an organization or enterprise that you administer.
 
 If you don't already manage users through an organization or enterprise, you can create an enterprise account specifically for allocating {% data variables.copilot.copilot_business_short %} licenses. This gives you access to enterprise-grade integrations with identity providers for authentication and provisioning, without needing to pay for {% data variables.product.prodname_enterprise %} licenses.
+
+You don't need a special type of enterprise account to do this. In any enterprise account, members who don't belong to an organization don't usually consume a {% data variables.product.prodname_ghe_cloud %} license, but they can be added to enterprise teams and be assigned a {% data variables.product.prodname_copilot_short %} license directly from the enterprise. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/abilities-of-roles#unaffiliated-users).
+
+This means that in an enterprise with no organizations, you are only billed for {% data variables.copilot.copilot_business_short %}. As soon as a user joins an organization, that user consumes a {% data variables.product.prodname_ghe_cloud %} license. If your enterprise already contains an organization, its members are already consuming licenses, even if you don't add anyone else. See [AUTOTITLE](/billing/reference/github-license-users#organizations-on-github-enterprise-cloud).
+
+> [!NOTE]
+> {% data variables.product.company_short %} no longer provisions a special kind of enterprise account for {% data variables.copilot.copilot_business_short %}. You can achieve the same result yourself in a standard enterprise account without organizations.
 
 ## How will I manage access for users?
 

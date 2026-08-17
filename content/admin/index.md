@@ -91,6 +91,7 @@ versions:
   ghec: '*'
   ghes: '*'
 children:
+  - /enterprise-onboarding
   - /overview
   - /concepts
   - /data-residency
