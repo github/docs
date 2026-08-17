@@ -7,6 +7,7 @@ product: '{% data reusables.copilot.plans.permission-paid-plans-cfi %}'
 versions:
   feature: copilot
 redirect_from:
+  - /copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-jira
   - /copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-jira
   - /early-access/copilot/integrate-coding-agent-with-jira
 contentType: how-tos
