@@ -3,16 +3,21 @@ title: About enterprise accounts for Copilot Business
 intro: 'Learn about the option to create an enterprise account to manage only {% data variables.copilot.copilot_business_short %} licenses without adopting {% data variables.product.prodname_enterprise %}.'
 versions:
   feature: copilot
-topics:
-  - Accounts
-  - Enterprise
-  - Fundamentals
 shortTitle: Copilot-only enterprises
 redirect_from:
   - /admin/copilot-business-only
   - /admin/copilot-business-only/about-enterprise-accounts-for-copilot-business
   - /early-access/copilot/managing-copilot-business-licenses-with-an-enterprise-account
-  - /early-access/copilot/managing-copilot-business-licenses-with-an-enterprise-account
+  - /billing/managing-billing-for-github-copilot/managing-your-github-copilot-business-subscription
+  - /billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription-for-your-organization-or-enterprise
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization/subscribing-to-copilot-for-your-organization
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-the-copilot-subscription-for-your-organization/subscribing-to-copilot-for-your-organization
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-the-copilot-plan-for-your-organization/subscribing-to-copilot-for-your-organization
+  - /copilot/how-tos/administer/organizations/managing-the-copilot-plan-for-your-organization/subscribing-to-copilot-for-your-organization
+  - /copilot/how-tos/administer/organizations/managing-the-copilot-plan-for-your-organization/subscribe
+  - /copilot/how-tos/administer/organizations/manage-plan/subscribe
+  - /copilot/how-tos/administer/manage-for-organization/manage-plan/subscribe
+  - /copilot/how-tos/administer-copilot/manage-for-organization/manage-plan/subscribe
 contentType: concepts
 category:
   - Learn about Copilot
@@ -44,4 +49,4 @@ When you create your enterprise account, you will choose whether your enterprise
 
 ## Getting started
 
-To get started, see [AUTOTITLE](/copilot/how-tos/set-up/set-up-a-dedicated-enterprise-for-copilot-business).
+To get started, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-a-dedicated-enterprise-for-copilot-business).

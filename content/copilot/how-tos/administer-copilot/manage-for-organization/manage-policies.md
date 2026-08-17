@@ -22,12 +22,9 @@ redirect_from:
   - /copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization
   - /copilot/how-tos/administer/organizations/manage-policies
   - /copilot/how-tos/administer/manage-for-organization/manage-policies
-topics:
-  - Copilot
-  - Organizations
 shortTitle: Manage policies
 contentType: how-tos
-category: 
+category:
   - Manage Copilot for a team
 ---
 
@@ -37,7 +34,7 @@ category:
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the sidebar, under "Code, planning, and automation", click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**.
    * Click **Policies** to edit the policies that control privacy and availability of features.
    * Click **Models** to edit the policies that control availability of models beyond the basic models provided with {% data variables.product.prodname_copilot_short %}, which may incur additional costs.
 1. For each policy you want to configure, click the dropdown menu and select an enforcement option.
@@ -47,22 +44,24 @@ category:
 ## Enabling or disabling third-party coding agents in your repositories
 
 > [!NOTE]
-> * {% data reusables.gated-features.third-party-agents %}
+> * {% data reusables.copilot.plans.permission-paid-plans-no-purchase-link %}
+> * If your organization is owned by an enterprise, these settings are only visible if an enterprise admin has enabled third-party coding agents at the enterprise level. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
+>   * {% data variables.copilot.agent_apps_caps %} are not enabled here. They are controlled separately by a single "{% data variables.copilot.agent_apps %}" policy. For more information, see [AUTOTITLE](/copilot/concepts/agents/agent-apps).
 
 You can choose whether to allow the following coding agents to be enabled in your organization:
 
 * {% data variables.product.prodname_anthropic_claude %}
 * {% data variables.product.prodname_openai_codex %}
 
-Coding agents have access to the same repositories that {% data variables.copilot.copilot_coding_agent %} has been enabled in.
+Coding agents have access to the same repositories that {% data variables.copilot.copilot_cloud_agent %} has been enabled in.
 
 To enable coding agents:
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.copilot.coding-agent-settings %}
-1. In the sidebar, under **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, click **Coding agent**.
-1. On the {% data variables.copilot.copilot_coding_agent %} page, under "Partner agents", click the toggle to enable the third-party agent you want to use.
+{% data reusables.copilot.cloud-agent-settings %}
+1. In the sidebar, under **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, click **Cloud agent**.
+1. On the {% data variables.copilot.copilot_cloud_agent %} page, under "Partner agents", click the toggle to enable the third-party agent you want to use.
 
 ## Opting in to previews or feedback
 
@@ -72,6 +71,6 @@ If your organization has a {% data variables.copilot.copilot_business_short %} o
 
 ## Further reading
 
-* [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page)
-* [AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions)
-* [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise)
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-default-models)
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-availability-of-default-models)
+* [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies)

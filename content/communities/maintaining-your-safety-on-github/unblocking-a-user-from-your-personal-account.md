@@ -7,16 +7,21 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Community
 shortTitle: Unblock from your account
+category:
+  - Block users and report abuse
 ---
 
 When you unblock a user, they'll be able to invite you to be a collaborator to their repositories. If they [@mention you](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams) anywhere on GitHub, you'll receive notifications.
 
 In repositories you own, the user will be able to collaborate normally.
 
-You can unblock a user in your account settings or from the user's profile page.
+You can unblock a user in your account settings, from the user's profile page, or from an issue or pull request in a repository you own.
+
+## Unblocking a user in an issue or pull request
+
+1. Navigate to an issue or pull request in a repository you own.
+1. In the upper-right corner of the description or comment whose author you would like to unblock, click {% octicon "kebab-horizontal" aria-label="Show options" %}, then click **Unblock user**.
 
 ## Unblocking a user in your account settings
 

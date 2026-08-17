@@ -4,7 +4,11 @@ intro: 'You can install {% data variables.product.prodname_github_apps %} on you
 versions:
   feature: enterprise-installed-apps
 shortTitle: Install apps on your enterprise
+redirect_from:
+  - /enterprise-onboarding/github-apps/install-enterprise-apps
 permissions: 'Enterprise owners can install {% data variables.product.prodname_github_apps %} on their enterprise. App managers cannot install apps at the enterprise level.'
+category:
+  - Install and authorize apps
 ---
 
 > [!NOTE]
@@ -20,7 +24,10 @@ When an enterprise owner installs a {% data variables.product.prodname_github_ap
 
 The {% data variables.product.prodname_github_app %} must request enterprise-level permissions. It can request other permissions as well, but only the enterprise permissions will be granted during installation.
 
-The app must be owned by your enterprise or an organization within your enterprise. You cannot install apps owned by an account outside your enterprise.
+The app can be owned by your enterprise, by an organization within your enterprise, or by a third-party developer. To install a public app from a third party, use the installation link that the app's developer provides. You cannot install a private app that is owned by an account outside your enterprise.
+
+> [!NOTE]
+> There is one exception to installing a third-party app across enterprises. If an app requests the "Enterprise organization installations" permission, it can only be installed on the enterprise that owns the app. You cannot install this app on your enterprise if it is owned outside your enterprise. In EMU enterprises and GHES, enterprise's users count as being within the enterprise, so their apps can be installed on the enterprise.
 
 ## Installing a {% data variables.product.prodname_github_app %} on your enterprise
 
@@ -40,7 +47,7 @@ For more information about available permissions and API endpoints, see [AUTOTIT
 
 ## Rate limits for enterprise-installed {% data variables.product.prodname_github_apps %}
 
-The installation token for an enterprise-installed {% data variables.product.prodname_github_apps %} has the same rate limit as a {% data variables.product.prodname_ghe_cloud %} organization. Rate limits are per installation. For example, if an app is installed on an enterprise and two organizations, it will require 3 installation tokens to access them and have a full, independent rate limit budget for each installation. For more information, see [AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api) and [AUTOTITLE](/graphql/overview/resource-limitations).
+The installation token for an enterprise-installed {% data variables.product.prodname_github_apps %} has the same rate limit as a {% data variables.product.prodname_ghe_cloud %} organization. Rate limits are per installation. For example, if an app is installed on an enterprise and two organizations, it will require 3 installation tokens to access them and have a full, independent rate limit budget for each installation. For more information, see [AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api) and [AUTOTITLE](/graphql/overview/rate-limits-and-query-limits-for-the-graphql-api).
 {% endif %}
 
 ## Current limitations

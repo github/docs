@@ -117,7 +117,7 @@ const apiVersions: RestApiConfig['api-versions'] = JSON.parse(
 
 for (const key of Object.keys(apiVersions)) {
   const docsVersion = getDocsVersion(key)
-  allVersions[docsVersion].apiVersions.push(...apiVersions[key].sort())
+  allVersions[docsVersion].apiVersions.push(...apiVersions[key].sort().reverse())
   // Create a copy of the array to avoid mutating the original when using pop()
   const sortedVersions = [...apiVersions[key].sort()]
   allVersions[docsVersion].latestApiVersion = sortedVersions.pop() || ''

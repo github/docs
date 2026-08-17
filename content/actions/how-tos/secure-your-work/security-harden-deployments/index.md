@@ -20,4 +20,6 @@ children:
   - /oidc-in-pypi
   - /oidc-in-cloud-providers
   - /oidc-with-reusable-workflows
+contentType: how-tos
 ---
+

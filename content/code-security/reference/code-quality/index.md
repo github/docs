@@ -6,11 +6,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Quality
 contentType: reference
 children:
   - /metrics-and-ratings
+  - /code-coverage
   - /codeql-detection
   - /codeql-queries
 redirect_from:

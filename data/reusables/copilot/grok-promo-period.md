@@ -1,1 +1,0 @@
-> [!Important] Complimentary access to {% data variables.copilot.copilot_grok_code %} will end on February 15, 2026. [Regular pricing](/copilot/reference/ai-models/supported-models#model-multipliers) applies after complimentary access ends.

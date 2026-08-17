@@ -12,15 +12,15 @@ redirect_from:
   - /search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment
 versions:
   ghes: '*'
-topics:
-  - GitHub search
+category:
+  - Get started with search
 ---
 
 You can search for designated private repositories on {% data variables.product.prodname_ghe_cloud %} from {% data variables.location.product_location %}. For more information about searching across environments, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment).
 
 ## Prerequisites
 
-An enterprise owner for {% data variables.product.prodname_ghe_server %} must enable {% data variables.product.prodname_github_connect %} and {% data variables.enterprise.prodname_unified_search %} for private repositories. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise).
+An enterprise owner for {% data variables.product.prodname_ghe_server %} must enable {% data variables.product.prodname_github_connect %} and {% data variables.enterprise.prodname_unified_search %} for private repositories. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-unified-search-for-your-enterprise).
 
 ## Enabling unified repository search from {% data variables.product.prodname_ghe_server %}
 

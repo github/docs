@@ -1,14 +1,40 @@
 import type { NextFunction, Response } from 'express'
 
 import FailBot from '../lib/failbot'
-import { shouldLogException, type ErrorWithCode } from '../lib/should-log-exception'
 import { nextApp } from '@/frame/middleware/next'
-import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
+import { minimumNotFoundHtml } from '@/frame/lib/constants'
+import {
+  setFastlySurrogateKey,
+  makeLanguageSurrogateKey,
+} from '@/frame/middleware/set-fastly-surrogate-key'
 import { errorCacheControl } from '@/frame/middleware/cache-control'
-import statsd from '@/observability/lib/statsd'
+import { toError } from '@/observability/lib/to-error'
 import { ExtendedRequest } from '@/types'
+import { createLogger } from '@/observability/logger'
+
+const logger = createLogger(import.meta.url)
 
 const DEBUG_MIDDLEWARE_TESTS = Boolean(JSON.parse(process.env.DEBUG_MIDDLEWARE_TESTS || 'false'))
+
+type ErrorWithCode = Error & {
+  code: string
+  statusCode?: number
+  status?: string
+}
+
+function shouldLogException(error: ErrorWithCode) {
+  const IGNORED_ERRORS = [
+    // Client connection aborted
+    'ECONNRESET',
+  ]
+
+  if (IGNORED_ERRORS.includes(error.code)) {
+    return false
+  }
+
+  // We should log this exception
+  return true
+}
 
 async function logException(error: ErrorWithCode, req: ExtendedRequest) {
   if (process.env.NODE_ENV !== 'test' && shouldLogException(error)) {
@@ -19,29 +45,12 @@ async function logException(error: ErrorWithCode, req: ExtendedRequest) {
   }
 }
 
-function timedOut(req: ExtendedRequest) {
-  // The `req.pagePath` can come later so it's not guaranteed to always
-  // be present. It's added by the `handle-next-data-path.ts` middleware
-  // we translates those "cryptic" `/_next/data/...` URLs from
-  // client-side routing.
-  const incrementTags = [`path:${req.pagePath || req.path}`]
-  if (req.context?.currentCategory) {
-    incrementTags.push(`product:${req.context.currentCategory}`)
-  }
-  statsd.increment('middleware.timeout', 1, incrementTags)
-}
-
 async function handleError(
   error: ErrorWithCode | number,
   req: ExtendedRequest,
   res: Response,
   next: NextFunction,
 ) {
-  // Potentially set by the `connect-timeout` middleware.
-  if (req.timedout) {
-    timedOut(req)
-  }
-
   const responseDone = res.headersSent || req.aborted
 
   if (req.path.startsWith('/assets') || req.path.startsWith('/_next/static')) {
@@ -55,11 +64,12 @@ async function handleError(
       errorCacheControl(res)
       // Makes sure the surrogate key is NOT the manual one if it failed.
       // This basically unsets what was assumed in the beginning of
-      // loading all the middlewares.
-      setFastlySurrogateKey(res, SURROGATE_ENUMS.DEFAULT)
+      // loading all the middlewares. Falls back to `no-language` when
+      // `req.language` isn't set yet (e.g. errors before language detection).
+      setFastlySurrogateKey(res, makeLanguageSurrogateKey(req.language), true)
     }
   } else if (DEBUG_MIDDLEWARE_TESTS) {
-    console.warn('An error occurred in some middleware handler', error)
+    logger.warn('An error occurred in some middleware handler', { error })
   }
 
   try {
@@ -81,13 +91,10 @@ async function handleError(
 
     // Special handling for when a middleware calls `next(404)`
     if (error === 404) {
-      // Route to App Router for proper 404 handling
-      req.url = '/404'
-      res.status(404)
-      res.setHeader('x-pathname', req.path)
-      res.locals = res.locals || {}
-      res.locals.handledByAppRouter = true
-      return nextApp.getRequestHandler()(req, res)
+      errorCacheControl(res)
+      setFastlySurrogateKey(res, makeLanguageSurrogateKey(req.language), true)
+      res.status(404).type('html').send(minimumNotFoundHtml)
+      return
     }
     if (typeof error === 'number') {
       throw new Error("Don't use next(xxx) where xxx is any other number than 404")
@@ -123,7 +130,9 @@ async function handleError(
       await logException(error, req)
     }
   } catch (handlingError) {
-    console.error('An error occurred in the error handling middleware!', handlingError)
+    logger.error('An error occurred in the error handling middleware', {
+      error: toError(handlingError),
+    })
     next(handlingError)
     return
   }

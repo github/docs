@@ -5,14 +5,13 @@ shortTitle: 'Monitor costs with soft budgets'
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Enterprise
-  - Billing
 permissions: 'Enterprise owners and billing managers'
 contentType: tutorials
 audience:
   - driver
 allowTitleToDifferFromFilename: true
+category:
+  - Track spending and control costs
 ---
 
 ## About soft budgets
@@ -38,7 +37,7 @@ Before setting a soft budget, make a rough estimate of your expected costs. This
 
 ## 2. Set a soft budget
 
-To set a budget for your enterprise or organization, see [AUTOTITLE](/billing/tutorials/set-up-budgets#creating-a-budget).
+To set a budget for your enterprise or organization, see [AUTOTITLE](/billing/how-tos/set-up-budgets#creating-a-budget).
 
 When creating the budget, leave **Stop usage when budget limit is reached** unchecked. This choice makes the budget “soft”: you’ll receive alerts when the limit is exceeded, but usage won’t be blocked.
 

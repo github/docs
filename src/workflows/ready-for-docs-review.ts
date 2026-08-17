@@ -9,6 +9,8 @@ import {
   generateUpdateProjectV2ItemFieldMutation,
   getFeature,
   getSize,
+  type ProjectV2Data,
+  type ItemData,
 } from './projects'
 
 /**
@@ -16,28 +18,25 @@ import {
  * @param data GraphQL response data containing PR information
  * @returns Object with isCopilotAuthor boolean and copilotAssignee string
  */
-function getCopilotAuthorInfo(data: Record<string, unknown>): {
+function getCopilotAuthorInfo(data: ItemData): {
   isCopilotAuthor: boolean
   copilotAssignee: string
 } {
-  const item = data.item as Record<string, unknown>
-  const author = item.author as Record<string, unknown> | undefined
-  const assigneesObj = item.assignees as Record<string, unknown> | undefined
+  const item = data.item
 
   // Check if this is a Copilot-authored PR
   const isCopilotAuthor = !!(
     item.__typename === 'PullRequest' &&
-    author &&
-    author.login === 'copilot-swe-agent'
+    item.author &&
+    item.author.login === 'copilot-swe-agent'
   )
 
   // For Copilot PRs, find the appropriate assignee (excluding Copilot itself)
   let copilotAssignee = ''
-  if (isCopilotAuthor && assigneesObj && assigneesObj.nodes) {
-    const nodes = assigneesObj.nodes as Array<Record<string, unknown>>
-    const assigneeLogins = nodes
-      .map((assignee: Record<string, unknown>) => assignee.login as string)
-      .filter((login: string) => login !== 'copilot-swe-agent')
+  if (isCopilotAuthor && item.assignees && item.assignees.nodes) {
+    const assigneeLogins = item.assignees.nodes
+      .map((assignee) => assignee.login)
+      .filter((login) => login !== 'copilot-swe-agent')
 
     // Use the first non-Copilot assignee
     copilotAssignee = assigneeLogins.length > 0 ? assigneeLogins[0] : ''
@@ -71,7 +70,7 @@ function getAuthorFieldValue(
 
 async function run() {
   // Get info about the docs-content review board project
-  const data: Record<string, unknown> = await graphql(
+  const data = (await graphql(
     `
       query ($organization: String!, $projectNumber: Int!, $id: ID!) {
         organization(login: $organization) {
@@ -125,12 +124,10 @@ async function run() {
         authorization: `token ${process.env.TOKEN}`,
       },
     },
-  )
+  )) as ProjectV2Data & ItemData
 
   // Get the project ID
-  const organization = data.organization as Record<string, unknown>
-  const projectV2 = organization.projectV2 as Record<string, unknown>
-  const projectID = projectV2.id as string
+  const projectID = data.organization.projectV2.id
 
   // Get the ID of the fields that we want to populate
   const datePostedID = findFieldID('Date posted', data)
@@ -155,10 +152,16 @@ async function run() {
   const size = getSize(data)
   const sizeType = findSingleSelectID(size, 'Size', data)
 
+  // Check if the author is a bot account (e.g. dependabot[bot], github-actions[bot]).
+  // GitHub bot logins end with '[bot]' and cannot be resolved as regular GitHub users,
+  // so we skip any user-specific GraphQL queries for them.
+  const isBotAuthor = (process.env.AUTHOR_LOGIN || '').endsWith('[bot]')
+
   // If this is the OS repo, determine if this is a first time contributor
   // If yes, set the author to 'first time contributor' instead of to the author login
+  // Bot accounts (e.g. dependabot[bot]) are not resolvable as GitHub users, so skip this check.
   let firstTimeContributor
-  if (process.env.REPO === 'github/docs') {
+  if (!isBotAuthor && process.env.REPO === 'github/docs') {
     const contributorData: Record<string, unknown> = await graphql(
       `
         query ($author: String!) {
@@ -242,8 +245,8 @@ async function run() {
 
   // Determine which variable to use for the contributor type
   let contributorType
-  if (isCopilotAuthor) {
-    // Treat Copilot PRs as Docs team
+  if (isCopilotAuthor || isBotAuthor) {
+    // Treat Copilot and bot-authored PRs (e.g. dependabot[bot]) as Docs team
     contributorType = docsMemberTypeID
   } else if (await isDocsTeamMember(process.env.AUTHOR_LOGIN || '')) {
     contributorType = docsMemberTypeID

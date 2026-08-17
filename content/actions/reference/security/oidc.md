@@ -1,15 +1,16 @@
 ---
 title: OpenID Connect reference
 shortTitle: OIDC
-intro: 'Find information about using OpenID Connect (OIDC) to authenticate {% data variables.product.prodname_actions %} workflows with cloud providers.'
+intro: Find information about using OpenID Connect (OIDC) to authenticate {% data variables.product.prodname_actions %} workflows with cloud providers.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Security
 redirect_from:
   - /actions/reference/openid-connect-reference
+category:
+  - Secure your workflows
+contentType: reference
 ---
 
 ## OIDC token claims
@@ -25,7 +26,7 @@ The OIDC token includes the following claims.
 | ----------- | -----| ---------------------- |
 | `aud`| Audience | By default, this is the URL of the repository owner, such as the organization that owns the repository. You can set a custom audience with a toolkit command: [`core.getIDToken(audience)`](https://www.npmjs.com/package/@actions/core/v/1.6.0) |
 | `iss`| Issuer | The issuer of the OIDC token: {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %} |
-| `sub`| Subject | Defines the subject claim that is to be validated by the cloud provider. This setting is essential for making sure that access tokens are only allocated in a predictable way. |
+| `sub`| Subject | Defines the subject claim that is to be validated by the cloud provider. This setting is essential for making sure that access tokens are only allocated in a predictable way. For repositories using immutable subject claims, the `sub` format includes immutable owner and repository IDs (not available on {% data variables.product.prodname_ghe_server %}). |
 
 ### Additional standard JOSE header parameters and claims
 
@@ -61,7 +62,7 @@ The OIDC token includes the following claims.
 | `environment`| The name of the environment used by the job. If the `environment` claim is included (also via `include_claim_keys`), an environment is required and must be provided.                   |
 | `event_name`| The name of the event that triggered the workflow run.                    |
 | `head_ref`| The source branch of the pull request in a workflow run.                   |
-| `job_workflow_ref`| For jobs using a reusable workflow, the ref path to the reusable workflow. For more information, see [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows).                  |
+| `job_workflow_ref`| For jobs using a reusable workflow, the ref path to the reusable workflow. For more information, see [AUTOTITLE](/actions/how-tos/secure-your-work/security-harden-deployments/oidc-with-reusable-workflows).                  |
 | `job_workflow_sha`| For jobs using a reusable workflow, the commit SHA for the reusable workflow file.                   |
 | `ref`| _(Reference)_ The git ref that triggered the workflow run.                   |
 | `ref_type`| The type of `ref`, for example: "branch".                  |
@@ -70,6 +71,9 @@ The OIDC token includes the following claims.
 | `repository_id`| The ID of the repository from where the workflow is running.  |
 | `repository_owner`| The name of the organization in which the `repository` is stored.                   |
 | `repository_owner_id`| The ID of the organization in which the `repository` is stored.            |
+| {% ifversion oidc-custom-properties %} |
+| `repo_property_*`| Custom properties defined at the organization or enterprise level that are included as claims in the OIDC token, prefixed with `repo_property_`. For more information, see [Including repository custom properties in OIDC tokens](#including-repository-custom-properties-in-oidc-tokens).                  |
+| {% endif %} |
 | `run_id`| The ID of the workflow run that triggered the workflow.                   |
 | `run_number`| The number of times this workflow has been run.                   |
 | `run_attempt`| The number of times this workflow run has been retried.                    |
@@ -97,7 +101,7 @@ For example, if your subdomain is `octocorp`, the following substitutions apply:
 
 Audience and subject claims are typically used in combination while setting conditions on the cloud role/resources to scope its access to the {% data variables.product.github %} workflows.
 * **Audience:** By default, this value uses the URL of the organization or repository owner. This can be used to set a condition that only the workflows in the specific organization can access the cloud role.
-* **Subject:** By default, has a predefined format and is a concatenation of some of the key metadata about the workflow, such as the {% data variables.product.prodname_dotcom %} organization, repository, branch, or associated [`job`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idenvironment) environment. See [Example subject claims](#example-subject-claims) to see how the subject claim is assembled from concatenated metadata.
+* **Subject:** By default, has a predefined format and is a concatenation of some of the key metadata about the workflow, such as the {% data variables.product.prodname_dotcom %} organization, repository, branch, or associated [`job`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idenvironment) environment. See [Example subject claims](#example-subject-claims) to see how the subject claim is assembled from concatenated metadata.
 
 If you need more granular trust conditions, you can customize the {% ifversion ghec %}issuer (`iss`) and {% endif %}subject (`sub`) claim{% ifversion ghec %}s that are{% else %} that's{% endif %} included with the JWT. For more information, see [Customizing the token claims](#customizing-the-token-claims).
 
@@ -108,13 +112,13 @@ There are also many additional claims supported in the OIDC token that can be us
 
 ## Example subject claims
 
-The following examples demonstrate how to use "Subject" as a condition, and explain how the "Subject" is assembled from concatenated metadata. The [subject](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) uses information from the [`job` context](/actions/learn-github-actions/contexts#job-context), and instructs your cloud provider that access token requests may only be granted for requests from workflows running in specific branches, environments. The following sections describe some common subjects you can use.
+The following examples demonstrate how to use "Subject" as a condition, and explain how the "Subject" is assembled from concatenated metadata. The [subject](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) uses information from the [`job` context](/actions/reference/workflows-and-actions/contexts#job-context), and instructs your cloud provider that access token requests may only be granted for requests from workflows running in specific branches, environments. The following sections describe some common subjects you can use.
 
 ### Filtering for a specific environment
 
 The subject claim includes the environment name when the job references an environment.
 
-You can configure a subject that filters for a specific [environment](/actions/deployment/targeting-different-environments/managing-environments-for-deployment) name. In this example, the workflow run must have originated from a job that has an environment named `Production`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
+You can configure a subject that filters for a specific [environment](/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments) name. In this example, the workflow run must have originated from a job that has an environment named `Production`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
 * Syntax: `repo:ORG-NAME/REPO-NAME:environment:ENVIRONMENT-NAME`
 * Example: `repo:octo-org/octo-repo:environment:Production`
@@ -123,7 +127,7 @@ You can configure a subject that filters for a specific [environment](/actions/d
 
 The subject claim includes the `pull_request` string when the workflow is triggered by a pull request event, but only if the job doesn't reference an environment.
 
-You can configure a subject that filters for the [`pull_request`](/actions/using-workflows/events-that-trigger-workflows#pull_request) event. In this example, the workflow run must have been triggered by a `pull_request` event in a repository named `octo-repo` that is owned by the `octo-org` organization:
+You can configure a subject that filters for the [`pull_request`](/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request) event. In this example, the workflow run must have been triggered by a `pull_request` event in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
 * Syntax: `repo:ORG-NAME/REPO-NAME:pull_request`
 * Example: `repo:octo-org/octo-repo:pull_request`
@@ -159,6 +163,22 @@ You can configure a subject that includes metadata containing colons. In this ex
 
 {% endif %}
 
+## Immutable subject claims
+
+The OpenID Connect (OIDC) specification requires subject (`sub`) claims to be locally unique and never reassigned. Previously, the default `sub` format used only organization and repository names. If a namespace was recycled, a different owner could create the same subject value.
+
+To help prevent this scenario, repositories created after July 15, 2026 now use an immutable default subject format that includes both the owner ID and repository ID. This rollout does not include {% data variables.product.prodname_ghe_server %}.
+
+* Syntax: `repo:OWNER@OWNER-ID/REPO@REPO-ID:ref:refs/heads/BRANCH`
+* Previous format example: `repo:octo-org/octo-repo:ref:refs/heads/main`
+* Immutable format example: `repo:octo-org@123456/octo-repo@456789:ref:refs/heads/main`
+
+The `@` separator is used between names and IDs because `@` cannot appear in {% data variables.product.github %} usernames or repository names.
+
+Repositories created before July 15, 2026 keep the previous format unless you opt in to immutable subject claims. You can opt in at the organization or repository level by using the OIDC settings UI or REST API.
+
+Repository renames and transfers after July 15, 2026 also move to the immutable subject format.
+
 ## Configuring the subject in your cloud provider
 
 To configure the subject in your cloud provider's trust relationship, you must add the subject string to its trust configuration. The following examples demonstrate how various cloud providers can accept the same `repo:octo-org/octo-repo:ref:refs/heads/demo-branch` subject in different ways:
@@ -170,7 +190,16 @@ To configure the subject in your cloud provider's trust relationship, you must a
 | Google Cloud Platform| `(assertion.sub=='repo:octo-org/octo-repo:ref:refs/heads/demo-branch')` |
 | HashiCorp Vault| `bound_subject="repo:octo-org/octo-repo:ref:refs/heads/demo-branch"` |
 
-For more information about configuring specific cloud providers, see the guides listed in [AUTOTITLE](/actions/how-tos/security-for-github-actions/security-hardening-your-deployments).
+For repositories created after July 15, 2026, or that have opted in to immutable subject claims, the `sub` claim includes `owner_id` and `repo_id` as shown in the immutable examples. Update your trust policies to match the format your repository uses. Immutable subject claims are not available on {% data variables.product.prodname_ghe_server %}.
+
+| Cloud provider | Immutable format example |
+| ------ | ----------- |
+| Amazon Web Services | `"token.actions.githubusercontent.com:sub": "repo:octo-org@123456/octo-repo@456789:ref:refs/heads/demo-branch"` |
+| Azure| `repo:octo-org@123456/octo-repo@456789:ref:refs/heads/demo-branch` |
+| Google Cloud Platform| `(assertion.sub=='repo:octo-org@123456/octo-repo@456789:ref:refs/heads/demo-branch')` |
+| HashiCorp Vault| `bound_subject="repo:octo-org@123456/octo-repo@456789:ref:refs/heads/demo-branch"` |
+
+For more information about configuring specific cloud providers, see the guides listed in [AUTOTITLE](/actions/how-tos/secure-your-work/security-harden-deployments).
 
 ## Customizing the token claims
 
@@ -179,12 +208,15 @@ You can security harden your OIDC configuration by customizing the claims that a
 * You can customize values for {% ifversion ghec %}`issuer` or {% endif %}`audience` claims. See {% ifversion ghec %}[Customizing the `issuer` value for an enterprise](#customizing-the-issuer-value-for-an-enterprise) and {% endif %}[Customizing the `audience` value](#customizing-the-audience-value).
 * You can customize the format of your OIDC configuration by setting conditions on the subject (`sub`) claim that require JWT tokens to originate from a specific repository, reusable workflow, or other source.
 * You can define granular OIDC policies by using additional OIDC token claims, such as `repository_id` and `repository_visibility`. See [AUTOTITLE](/actions/concepts/security/openid-connect#understanding-the-oidc-token).
+{% ifversion oidc-custom-properties %}
+* You can include repository custom properties as claims in OIDC tokens, enabling attribute-based access control policies. See [Including repository custom properties in OIDC tokens](#including-repository-custom-properties-in-oidc-tokens).
+{% endif %}
 
 ### Customizing the `audience` value
 
 When you use custom actions in your workflows, those actions may use the {% data variables.product.prodname_actions %} Toolkit to enable you to supply a custom value for the `audience` claim. Some cloud providers also use this in their official login actions to enforce a default value for the `audience` claim. For example, the [GitHub Action for Azure Login](https://github.com/Azure/login/blob/master/action.yml) provides a default `aud` value of `api://AzureADTokenExchange`, or it allows you to set a custom `aud` value in your workflows. For more information on the {% data variables.product.prodname_actions %} Toolkit, see the [OIDC token](https://github.com/actions/toolkit/tree/main/packages/core#oidc-token) section in the documentation.
 
-If you do not want to use the default `aud` value offered by an action, you can provide a custom value for the `audience` claim. This allows you to set a condition that only workflows in a specific repository or organization can access the cloud role. If the action you are using supports this, you can use the `with` keyword in your workflow to pass a custom `aud` value to the action. For more information, see [AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#inputs).
+If you do not want to use the default `aud` value offered by an action, you can provide a custom value for the `audience` claim. This allows you to set a condition that only workflows in a specific repository or organization can access the cloud role. If the action you are using supports this, you can use the `with` keyword in your workflow to pass a custom `aud` value to the action. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/metadata-syntax#inputs).
 
 {% ifversion ghec %}
 
@@ -216,6 +248,86 @@ After this setting is applied, the JWT will contain the updated `iss` value. In 
 
 {% endif %}
 
+{% ifversion oidc-custom-properties %}
+
+### Including repository custom properties in OIDC tokens
+
+Organization and enterprise admins can select repository custom properties to include as claims in {% data variables.product.prodname_actions %} OIDC tokens. Once a custom property is added to the OIDC configuration, every repository in the organization or enterprise that has a value set for that property will automatically include it in its OIDC tokens. The property name appears in the token prefixed with `repo_property_`.
+
+This allows you to create attribute-based access control (ABAC) policies in your cloud provider that bind directly to your repository metadata, reducing configuration drift and eliminating the need to manage separate access configuration for each repository.
+
+#### Claim format
+
+Each enabled custom property appears as a separate claim in the OIDC token. The claim name is the property name prefixed with `repo_property_`.
+
+| Custom property name | Claim name in OIDC token |
+| --- | --- |
+| `business_unit` | `repo_property_business_unit` |
+| `workspace_id` | `repo_property_workspace_id` |
+| `data_classification` | `repo_property_data_classification` |
+
+#### Supported property types
+
+The following custom property types are supported as OIDC claims. The value representation in the token depends on the property type.
+
+| Property type | Example value in OIDC token | Notes |
+| --- | --- | --- |
+| String | `"repo_property_team": "platform-eng"` | Value appears as a plain string. |
+| Single select | `"repo_property_env_tier": "production"` | The selected option appears as a plain string. |
+| Multi select | `"repo_property_regions": "us-east-1,eu-west-1"` | Multiple selected values are joined into a single comma-separated string. |
+| True/false | `"repo_property_pci_compliant": "true"` | Boolean values appear as the string `"true"` or `"false"`. |
+
+#### Multi-select value representation
+
+When a repository has a multi-select custom property with multiple values selected, the values are joined into a single comma-separated string in the OIDC token. For example, if a repository has a `regions` property with the values `us-east-1` and `eu-west-1`, the claim appears as:
+
+```json
+{
+  "repo_property_regions": "us-east-1,eu-west-1"
+} 
+```
+
+When configuring trust policies in your cloud provider, use string matching or contains checks to evaluate multi-select claims.
+
+#### Prerequisites for including custom properties
+
+* Custom properties must already be defined at the organization or enterprise level. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
+* You must be an organization admin or enterprise admin.
+* After adding a custom property to the OIDC configuration, all repositories in the organization or enterprise that have a value set for that property will automatically include it in their OIDC tokens.
+
+#### Adding a custom property to OIDC token claims
+
+You can manage which custom properties are included in OIDC tokens using the settings UI or the REST API.
+
+* **Using the settings UI:**
+
+  Navigate to your organization's or enterprise's Actions OIDC settings to view and configure which custom properties are included in OIDC tokens.
+
+* **Using the REST API:**
+
+   To add a custom property to your organization's OIDC token claims, send a `POST` request to the appropriate OIDC custom-property inclusion endpoint. For example:
+   * For an organization: `POST /orgs/{org}/actions/oidc/customization/properties/repo`
+   * For an enterprise: `POST /enterprises/{enterprise}/actions/oidc/customization/properties/repo`
+   For request parameters and full details, see the REST API documentation for managing OIDC custom properties: [AUTOTITLE](/rest/actions/oidc).
+
+#### Example token with custom properties
+
+After a custom property is added to the OIDC configuration, repositories with a value set for that property will include it in their tokens. In the following example, two custom properties (`business_unit` and `workspace_id`) are included in the token:
+
+```json
+{
+  "sub": "repo:my-org/my-repo:ref:refs/heads/main",
+  "aud": "https://github.com/my-org",
+  "repository": "my-org/my-repo",
+  "repo_property_business_unit": "payments",
+  "repo_property_workspace_id": "ws-abc123"
+}
+```
+
+You can use these `repo_property_*` claims as conditions in your cloud provider's trust policy. For an example, see [Example: Filtering on a repository custom property](#example-filtering-on-a-repository-custom-property).
+
+{% endif %}
+
 ### Customizing the subject claims for an organization or repository
 
 To help improve security, compliance, and standardization, you can customize the standard claims to suit your required access conditions. If your cloud provider supports conditions on subject claims, you can create a condition that checks whether the `sub` value matches the path of the reusable workflow, such as `"job_workflow_ref:octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main"`. The exact format will vary depending on your cloud provider's OIDC configuration. To configure the matching condition on {% data variables.product.prodname_dotcom %}, you can use the REST API to require that the `sub` claim must always include a specific custom claim, such as `job_workflow_ref`. You can use the REST API to apply a customization template for the OIDC subject claim; for example, you can require that the `sub` claim within the OIDC token must always include a specific custom claim, such as `job_workflow_ref`. For more information, see [AUTOTITLE](/rest/actions/oidc).
@@ -226,8 +338,9 @@ To help improve security, compliance, and standardization, you can customize the
 Customizing the claims results in a new format for the entire `sub` claim, which replaces the default predefined `sub` format in the token described in [Example subject claims](#example-subject-claims).
 
 > [!NOTE]
-> The `sub` claim uses the shortened form `repo` (for example, `repo:ORG-NAME/REPO-NAME`) instead of `repository` to reference the repository. {% ifversion fpt or ghec or ghes > 3.15 %}
-> Any `:` within the context value will be replaced with `%3A`. {% endif %}
+> The `sub` claim uses the shortened form `repo` (for example, `repo:ORG-NAME/REPO-NAME`) instead of `repository` to reference the repository. 
+> Any `:` within the context value will be replaced with `%3A`.
+> For repositories using immutable subject claims (not available on {% data variables.product.prodname_ghe_server %}), `owner_id` and `repo_id` are always included in the `repo` segment of the `sub` claim, even when you customize claims with `include_claim_keys`. You can't remove these IDs from the immutable format.
 
 The following example templates demonstrate various ways to customize the subject claim. To configure these settings on {% data variables.product.prodname_dotcom %}, admins use the REST API to specify a list of claims that must be included in the subject (`sub`) claim.
 
@@ -350,8 +463,6 @@ or:
 
 In your cloud provider's OIDC configuration, configure the `sub` condition to require a `repository_owner_id` claim that matches the required value.
 
-{% ifversion fpt or ghec or ghes > 3.15 %}
-
 #### Example: Context value with `:`
 
 This example demonstrates how to handle context value with `:`. For example, when the job references an environment named `production:eastus`.
@@ -368,6 +479,25 @@ This example demonstrates how to handle context value with `:`. For example, whe
 ```
 
 In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include a specific value for `environment` and `repository_owner`. For example: `"sub": "environment:production%3Aeastus:repository_owner:octo-org"`.
+
+{% ifversion oidc-custom-properties %}
+
+#### Example: Filtering on a repository custom property
+
+This example template allows the `sub` claim to include a repository custom property claim. Custom properties included in OIDC tokens appear prefixed with `repo_property_` in the token, but the `include_claim_keys` value uses the full claim name as it appears in the token.
+
+{% data reusables.actions.use-request-body-api %}
+
+```json
+{
+   "include_claim_keys": [
+       "repo_property_workspace_id"
+   ]
+}
+```
+
+In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include a specific value for `repo_property_workspace_id`. For example: `"sub": "repo_property_workspace_id:ws-abc123"`.
+
 {% endif %}
 
 #### Resetting organization template customizations
@@ -421,7 +551,7 @@ You can use the [`github/actions-oidc-debugger`](https://github.com/github/actio
 
 ### Required permission
 
-* The job or workflow must grant the [`id-token: write`](/actions/reference/workflow-syntax-for-github-actions#permissions) permission to allow {% data variables.product.github %}'s OIDC provider to create a JSON Web Token (JWT):
+* The job or workflow must grant the [`id-token: write`](/actions/reference/workflows-and-actions/workflow-syntax#permissions) permission to allow {% data variables.product.github %}'s OIDC provider to create a JSON Web Token (JWT):
 
   ```yaml
   permissions:

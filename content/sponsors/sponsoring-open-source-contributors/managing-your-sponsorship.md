@@ -7,11 +7,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Contacting sponsors
-  - Privacy
-  - Open Source
+contentType: how-tos
+category:
+  - Manage your sponsored account
 ---
 
 ## Managing the privacy setting for your sponsorship
@@ -36,5 +34,5 @@ You can choose whether an account you sponsor can send you email updates about t
 
 ## Further reading
 
-* [AUTOTITLE](/billing/managing-billing-for-github-sponsors/upgrading-a-sponsorship)
-* [AUTOTITLE](/billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship)
+* [AUTOTITLE](/billing/how-tos/pay-third-parties/upgrade-sponsorship)
+* [AUTOTITLE](/billing/how-tos/pay-third-parties/downgrade-sponsorship)

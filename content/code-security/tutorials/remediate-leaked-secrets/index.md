@@ -7,6 +7,9 @@ versions:
   ghec: '*'
 contentType: tutorials
 children:
+  - /calculate-cost-savings
+  - /assessing-ghsp-impact
   - /evaluating-alerts
   - /remediating-a-leaked-secret
 ---
+

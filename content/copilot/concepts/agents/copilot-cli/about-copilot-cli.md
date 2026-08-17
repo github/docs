@@ -6,13 +6,14 @@ intro: 'Find out about using {% data variables.product.prodname_copilot_short %}
 product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: concepts
 category:
-  - Learn about Copilot
+  - Learn about Copilot # Copilot discovery page
+  - Learn about Copilot CLI # Copilot CLI bespoke page
 redirect_from:
   - /copilot/concepts/agents/about-copilot-cli
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Introduction
@@ -21,15 +22,13 @@ The command-line interface (CLI) for {% data variables.product.prodname_copilot 
 
 {% data variables.copilot.copilot_cli %} gives you quick access to a powerful AI agent, without having to leave your terminal. It can help you complete tasks more quickly by working on your behalf, and you can work iteratively with {% data variables.copilot.copilot_cli %} to build the code you need.
 
-{% data reusables.cli.preview-note-cli %}
-
 ## Supported operating systems
 
 * Linux
 * macOS
 * Windows from within Powershell and [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about)
 
-For installation instructions, see [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-cli).
+For installation instructions, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli).
 
 ## Modes of use
 
@@ -52,7 +51,7 @@ You can also pass the CLI a single prompt directly on the command line. The CLI 
 To use the CLI programmatically, include the `-p` or `--prompt` command-line option in your command. To allow {% data variables.product.prodname_copilot_short %} to modify and execute files you should also use one of the approval options described later in this article—see [Allowing tools to be used without manual approval](#allowing-tools-to-be-used-without-manual-approval) ). For example:
 
   ```bash copy
-  copilot -p "Show me this week's commits and summarize them" --allow-tool 'shell(git)'
+  copilot -p "Show me this week's commits and summarize them" --allow-tool='shell(git)'
   ```
 
   Alternatively, you can use a script to output command-line options and pipe this to `copilot`. For example:
@@ -63,6 +62,26 @@ To use the CLI programmatically, include the `-p` or `--prompt` command-line opt
 
 > [!CAUTION]
 > If you use an automatic approval option such as `--allow-all-tools`, {% data variables.product.prodname_copilot_short %} has the same access as you do to files on your computer, and can run any shell commands that you can run, without getting your prior approval. See [Security considerations](#security-considerations), later in this article.
+
+## Running {% data variables.copilot.copilot_cli_short %} commands in a sandbox
+
+{% data reusables.cli.public-preview-sandbox %}
+
+To prevent {% data variables.product.prodname_copilot_short %} from modifying files you don't want it to touch, you can force agents to run commands within a local sandboxed environment. Alternatively, you can run an entire CLI session in an isolated environment in the cloud. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
+
+### Local sandboxing
+
+You can enable local sandboxing inside a {% data variables.copilot.copilot_cli_short %} session to restrict {% data variables.product.prodname_copilot_short %}'s access to your filesystem, network, and system capabilities. To enable it, run `/sandbox enable` inside a session.
+
+### Cloud sandboxing
+
+You can start a {% data variables.copilot.copilot_cli_short %} session inside an isolated, cloud-hosted environment with cloud sandboxes. This is useful when you want to run code without affecting your local machine, keep a session's state between uses, continue a session from a different machine, or run multiple tasks in parallel. Cloud sandbox policies inherit from {% data variables.copilot.copilot_cloud_agent %} policies, so existing security controls like firewall rules extend to cloud sandboxes without additional setup.
+
+To start a cloud-backed session, run:
+
+```bash copy
+copilot ‑‑cloud
+```
 
 ## Use cases for {% data variables.copilot.copilot_cli %}
 
@@ -165,7 +184,7 @@ You can interact with {% data variables.product.prodname_copilot_short %} while 
 {% data variables.copilot.copilot_cli %} automatically manages your conversation context:
 
 * **Auto-compaction**: When your conversation approaches 95% of the token limit, {% data variables.product.prodname_copilot_short %} automatically compresses your history in the background without interrupting your workflow. This enables virtually infinite sessions.
-* **Manual control**: Use `/compact` to manually compress context anytime. Press <kbd>Escape</kbd> to cancel if you change your mind.
+* **Manual control**: Use `/compact` to manually compress context anytime. Press <kbd>Esc</kbd> to cancel if you change your mind.
 * **Visualize usage**: The `/context` command shows a detailed token usage breakdown so you can understand how your context window is being used.
 
 ## Customizing {% data variables.copilot.copilot_cli %}
@@ -173,9 +192,9 @@ You can interact with {% data variables.product.prodname_copilot_short %} while 
 You can customize {% data variables.copilot.copilot_cli %} in a number of ways:
 
 * **Custom instructions**: Custom instructions allow you to give {% data variables.product.prodname_copilot_short %} additional context on your project and how to build, test and validate its changes. All custom instruction files now combine instead of using priority-based fallbacks. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions).
-* **Model Context Protocol (MCP) servers**: MCP servers allow you to give {% data variables.product.prodname_copilot_short %} access to different data sources and tools. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli#add-an-mcp-server).
-* **{% data variables.copilot.custom_agents_caps_short %}**: {% data variables.copilot.custom_agents_caps_short %} allow you to create different specialized versions of {% data variables.product.prodname_copilot_short %} for different tasks. For example, you could customize {% data variables.product.prodname_copilot_short %} to be an expert frontend engineer following your team's guidelines. {% data variables.copilot.copilot_cli %} includes specialized {% data variables.copilot.custom_agents_short %} that it automatically delegates common tasks to. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli#use-custom-agents).
-* **Hooks**: Hooks allow you to execute custom shell commands at key points during agent execution, enabling you to add validation, logging, security scanning, or workflow automation. See [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-hooks).
+* **Model Context Protocol (MCP) servers**: MCP servers allow you to give {% data variables.product.prodname_copilot_short %} access to different data sources and tools. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/overview#add-an-mcp-server).
+* **{% data variables.copilot.custom_agents_caps_short %}**: {% data variables.copilot.custom_agents_caps_short %} allow you to create different specialized versions of {% data variables.product.prodname_copilot_short %} for different tasks. For example, you could customize {% data variables.product.prodname_copilot_short %} to be an expert frontend engineer following your team's guidelines. {% data variables.copilot.copilot_cli %} includes specialized {% data variables.copilot.custom_agents_short %} that it automatically delegates common tasks to. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/overview#use-custom-agents).
+* **Hooks**: Hooks allow you to execute custom shell commands at key points during agent execution, enabling you to add validation, logging, security scanning, or workflow automation. See [AUTOTITLE](/copilot/concepts/agents/hooks).
 * **Skills**: Skills allow you to enhance the ability of {% data variables.product.prodname_copilot_short %} to perform specialized tasks with instructions, scripts, and resources. For more information, see [AUTOTITLE](/copilot/concepts/agents/about-agent-skills).
 * **{% data variables.copilot.copilot_memory %}**: {% data variables.copilot.copilot_memory %} allows {% data variables.product.prodname_copilot_short %} to build a persistent understanding of your repository by storing "memories", which are pieces of information about coding conventions, patterns, and preferences that {% data variables.product.prodname_copilot_short %} deduces as it works. This reduces the need to repeatedly explain context in your prompts and makes future sessions more productive. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-memory).
 
@@ -243,27 +262,27 @@ The `--deny-tool` and `--allow-tool` options require one of the following argume
 
 * `'shell(COMMAND)'`
 
-  For example, `copilot --deny-tool 'shell(rm)'` prevents {% data variables.product.prodname_copilot_short %} from using any `rm` command.
+  For example, `copilot --deny-tool='shell(rm)'` prevents {% data variables.product.prodname_copilot_short %} from using any `rm` command.
 
   For `git` and `gh` commands, you can specify a particular first-level subcommand to allow or deny. For example:
 
   ```shell
-  copilot --deny-tool 'shell(git push)'
+  copilot --deny-tool='shell(git push)'
   ```
 
-  The tool specification is optional. For example, `copilot --allow-tool 'shell'` allows {% data variables.product.prodname_copilot_short %} to use any shell command without individual approval.
+  The tool specification is optional. For example, `copilot --allow-tool='shell'` allows {% data variables.product.prodname_copilot_short %} to use any shell command without individual approval.
 
 * `'write'`
 
   This argument allows or denies tools—other than shell commands—permission to modify files.
 
-  For example, `copilot --allow-tool 'write'` allows {% data variables.product.prodname_copilot_short %} to edit files without your individual approval.
+  For example, `copilot --allow-tool='write'` allows {% data variables.product.prodname_copilot_short %} to edit files without your individual approval.
 
 * `'MCP_SERVER_NAME'`
 
   This argument allows or denies tools from the specified MCP server, where `MCP_SERVER_NAME` is the name of an MCP server that you have configured. Tools from the server are specified in parentheses, using the tool name that is registered with the MCP server. Using the server name without specifying a tool allows or denies all tools from that server.
 
-  For example, `copilot --deny-tool 'My-MCP-Server(tool_name)'` prevents {% data variables.product.prodname_copilot_short %} from using the tool called `tool_name` from the MCP server called `My-MCP-Server`.
+  For example, `copilot --deny-tool='My-MCP-Server(tool_name)'` prevents {% data variables.product.prodname_copilot_short %} from using the tool called `tool_name` from the MCP server called `My-MCP-Server`.
 
   You can find an MCP server's name by entering `/mcp` in the CLI's interactive interface, then selecting the server from the list that's displayed.
 
@@ -274,13 +293,13 @@ You can use a combination of approval options to determine exactly which tools {
 For example, to prevent {% data variables.product.prodname_copilot_short %} from using the `rm` and `git push` commands, but automatically allow all other tools, use:
 
 ```shell
-copilot --allow-all-tools --deny-tool 'shell(rm)' --deny-tool 'shell(git push)'
+copilot --allow-all-tools --deny-tool='shell(rm)' --deny-tool='shell(git push)'
 ```
 
 To prevent {% data variables.product.prodname_copilot_short %} from using the tool `tool_name` from the MCP server named `My-MCP-Server`, but allow all other tools from that server to be used without individual approval, use:
 
 ```shell
-copilot --allow-tool 'My-MCP-Server' --deny-tool 'My-MCP-Server(tool_name)'
+copilot --allow-tool='My-MCP-Server' --deny-tool='My-MCP-Server(tool_name)'
 ```
 
 #### Security implications of automatic tool approval
@@ -291,7 +310,9 @@ You can control which tools {% data variables.copilot.copilot_cli_short %} can u
 
 ### Risk mitigation
 
-You can mitigate the risks associated with using the automatic approval options by running {% data variables.copilot.copilot_cli_short %} in a restricted environment—such as a virtual machine, container, or dedicated system—with tightly controlled permissions and network access. This confines any potential damage that could occur when allowing {% data variables.product.prodname_copilot_short %} to execute commands that you have not reviewed and verified.
+You can mitigate the risks associated with using the automatic approval options by running {% data variables.copilot.copilot_cli_short %} in a sandboxed environment. {% data variables.product.github %} provides first-party sandboxing for this, with local sandboxing to restrict access on your machine and cloud sandboxing for fully isolated execution. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
+
+Alternatively, you can run {% data variables.copilot.copilot_cli_short %} in a virtual machine, container, or dedicated system with tightly controlled permissions and network access.
 
 ### Known MCP server policy limitations
 
@@ -300,26 +321,49 @@ You can mitigate the risks associated with using the automatic approval options 
 * **MCP servers in {% data variables.product.prodname_copilot_short %}**, which controls whether MCP servers can be used at all by {% data variables.product.prodname_copilot_short %}.
 * **MCP Registry URL**, which controls which MCP registry {% data variables.product.prodname_copilot_short %} will allow MCP servers to be used from.
 
-For more information about these policies, see [AUTOTITLE](/copilot/concepts/mcp-management#mcp-policy-settings).
+For more information about these policies, see [AUTOTITLE](/copilot/concepts/mcp-management#mcp-allowlists).
 
 ## Model usage
 
-The default model used by {% data variables.copilot.copilot_cli %} is {% data variables.copilot.copilot_claude_sonnet_45 %}. {% data variables.product.github %} reserves the right to change this model.
-
 You can change the model used by {% data variables.copilot.copilot_cli %} by using the `/model` slash command or the `--model` command-line option. Enter this command, then select a model from the list.
 
-Each time you submit a prompt to {% data variables.product.prodname_copilot_short %} in {% data variables.copilot.copilot_cli_short %}'s interactive interface, and each time you use {% data variables.copilot.copilot_cli_short %} programmatically, your monthly quota of {% data variables.product.prodname_copilot_short %} premium requests is reduced by one, multiplied by the multiplier shown in parentheses in the model list. For example, `Claude Sonnet 4.5 (1x)` indicates that with this model each time you submit a prompt your quota of premium requests is reduced by one. For information about premium requests, see [AUTOTITLE](/copilot/concepts/billing/copilot-requests).
+Each time you interact with {% data variables.product.prodname_copilot_short %} in {% data variables.copilot.copilot_cli_short %}'s interactive interface, or use {% data variables.copilot.copilot_cli_short %} programmatically, {% data variables.product.prodname_ai_credits_short %} are consumed based on the number of tokens processed. The amount consumed per interaction varies depending on the model used. See [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing).
+
+### Models with extended capabilities
+
+The latest models support a 1 million token context window, so you can work across larger codebases, longer documents, and complex multi-file projects without losing context. After you select a supported model, you will be prompted to choose between the default context size or an extended (1 million token) context.
+
+In addition, these models also support configurable reasoning levels, which control the depth of the model's reasoning process before it generates a response.
+
+Choosing a larger context window or higher reasoning will impact {% data variables.product.prodname_ai_credits_short %} consumption; more tokens will be consumed, so more credits will be used. For this reason, we recommend that you use the regular context window and regular reasoning by default, selecting the larger context window and higher reasoning for more complex tasks only.
+
+For a list of models that support these capabilities, see [Models with extended capabilities](/copilot/reference/ai-models/supported-models#models-with-extended-capabilities).
+
+### Using your own model provider
+
+You can configure {% data variables.copilot.copilot_cli_short %} to use your own model provider instead of {% data variables.product.github %}-hosted models. This lets you connect to an OpenAI-compatible endpoint, Azure OpenAI, or Anthropic, including locally running models such as Ollama. You configure your model provider using environment variables.
+
+| Environment variable | Description |
+|---|---|
+| `COPILOT_PROVIDER_BASE_URL` | The base URL of your model provider's API endpoint. |
+| `COPILOT_PROVIDER_TYPE` | The provider type: `openai` (default), `azure`, or `anthropic`. The `openai` type works with any OpenAI-compatible endpoint, including Ollama and vLLM. |
+| `COPILOT_PROVIDER_API_KEY` | Your API key for authenticating with the provider. Not required for providers that don't use authentication, such as a local Ollama instance. |
+| `COPILOT_MODEL` | The model to use (required when using a custom provider). You can also set this with the `--model` command-line option. |
+
+Models used with {% data variables.copilot.copilot_cli_short %} must support **tool calling** (function calling) and **streaming**. If the model does not support these capabilities, {% data variables.copilot.copilot_cli_short %} will return an error. For best results, the model should have a context window of at least 128k tokens.
+
+For details on how to configure your model provider, run `copilot help providers` in your terminal.
 
 ## Use {% data variables.copilot.copilot_cli_short %} via ACP
 
 ACP (the Agent Client Protocol) is an open standard for interacting with AI agents. It allows you to use {% data variables.copilot.copilot_cli_short %} as an agent in any third-party tools, IDEs, or automation systems that support this protocol.
 
-For more information, see [AUTOTITLE](/copilot/reference/acp-server).
+For more information, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/acp-server).
 
 {% data reusables.cli.feedback %}
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-cli)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli)
-* [AUTOTITLE](/enterprise-cloud@latest/copilot/responsible-use/copilot-cli)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/overview)
+* [AUTOTITLE](/enterprise-cloud@latest/copilot/responsible-use/agents)

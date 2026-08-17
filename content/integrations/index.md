@@ -11,22 +11,22 @@ children:
   - /how-tos
   - /reference
   - /tutorials
-featuredLinks:
-  startHere:
-    - /integrations/how-tos/slack/integrate-github-with-slack
-    - /integrations/how-tos/slack/use-github-in-slack
-    - /integrations/how-tos/slack/customize-notifications
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 contentType: landing
-topics:
-  - Integration
 includedCategories:
   - Learn about integrations
   - Administer integrations
   - Use integrations
   - Build integrations
-  - Troubleshoot integrations
+carousels:
+  recommended:
+    - /integrations/concepts/about-integrations
+    - /integrations/how-tos/slack/integrate-github-with-slack
+    - /integrations/how-tos/teams/integrate-github-with-teams
+    - /integrations/how-tos/slack/use-github-in-slack
+    - /integrations/how-tos/teams/use-github-in-teams
+    - /integrations/concepts/about-building-integrations
 ---

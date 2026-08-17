@@ -6,8 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Webhooks
+category:
+  - Test and troubleshoot
 ---
 
 ## Missing webhook deliveries

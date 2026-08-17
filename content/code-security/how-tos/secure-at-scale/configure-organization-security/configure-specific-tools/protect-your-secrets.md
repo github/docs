@@ -10,17 +10,16 @@ versions:
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/choosing-github-secret-protection
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/protect-your-secrets
-topics:
-  - Secret scanning
-  - Secret Protection
-  - Code Security
-  - Organizations
-  - Security
+category:
+  - Secure at scale
 ---
 
 ## Prerequisites
 
-Before you configure {% data variables.product.prodname_GH_secret_protection %}, you should run the free {% data variables.product.prodname_secret_risk_assessment %} to inform your enablement strategy. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/assess-your-secret-risk).
+Before you configure {% data variables.product.prodname_GH_secret_protection %}:
+
+* Run the free {% data variables.product.prodname_secret_risk_assessment %} to inform your enablement strategy. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/assess-your-secret-risk).
+* Review best practices for choosing pilot repositories. See [AUTOTITLE](/code-security/concepts/security-at-scale/select-pilot-repositories).
 
 ## Configuring {% data variables.product.prodname_GH_secret_protection %}
 
@@ -31,4 +30,11 @@ Before you configure {% data variables.product.prodname_GH_secret_protection %},
    * **For public repositories for free**: Click to enable for _only_ public repositories in your organization.
    * **For all repositories**: Click to see an estimated cost for {% data variables.product.prodname_GH_secret_protection %} for all repositories in your organization.
      * If you are satisfied with the pricing estimate, to enable {% data variables.product.prodname_secret_scanning %} alerts and push protection across your organization, click **Enable {% data variables.product.prodname_secret_protection %}**.
-     * Alternatively, click **Configure in settings** to customize which repositories you want to enable {% data variables.product.prodname_secret_protection %} for. See {% ifversion fpt or ghec %}[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization) and {% endif %}[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
+     * Alternatively, click **Configure in settings** to customize which repositories you want to enable {% data variables.product.prodname_secret_protection %} for. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/create-custom-configuration).
+
+{% ifversion secret-scanning-public-monitoring %}
+
+> [!TIP]
+> To extend secret detection beyond repositories your enterprise owns, enterprise owners can enable public monitoring. Public monitoring detects secrets leaked by enterprise members in public repositories across {% data variables.product.github %}. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/manage-your-coverage/enabling-public-monitoring-for-your-enterprise).
+
+{% endif %}

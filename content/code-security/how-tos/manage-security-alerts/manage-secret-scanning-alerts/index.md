@@ -7,16 +7,12 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Secret scanning
-  - Secret Protection
-  - Alerts
-  - Repositories
 redirect_from:
   - /code-security/secret-scanning/managing-alerts-from-secret-scanning
 children:
   - monitoring-alerts
   - viewing-alerts
   - resolving-alerts
-  - enabling-delegated-alert-dismissal-for-secret-scanning
+  - enable-delegated-dismissal
 ---
+

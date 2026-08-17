@@ -36,12 +36,12 @@ describe('getRemoteJSON', () => {
     const { origin, pathname } = new URL(url)
     nock(origin).get(pathname).reply(200, { foo: 'bar' })
     const data = await getRemoteJSON(url, {})
-    expect(data.foo).toBe('bar')
+    expect((data as Record<string, unknown>).foo).toBe('bar')
     expect(cache.get(url)).toBeTruthy()
     // Second time, despite not setting up a second nock(), will work
     // because it can use memory now.
     const data2 = await getRemoteJSON(url, {})
-    expect(data2.foo).toBe('bar')
+    expect((data2 as Record<string, unknown>).foo).toBe('bar')
     expect(cache.get(url)).toBeTruthy()
   })
 
@@ -50,7 +50,7 @@ describe('getRemoteJSON', () => {
     const { origin, pathname } = new URL(url)
     nock(origin).get(pathname).reply(200, { cool: true })
     const data = await getRemoteJSON(url, {})
-    expect(data.cool).toBe(true)
+    expect((data as Record<string, unknown>).cool).toBe(true)
     expect(cache.get(url)).toBeTruthy()
     cache.delete(url)
 
@@ -58,7 +58,7 @@ describe('getRemoteJSON', () => {
     // That means it didn't need the network because it was able to
     // use the disk cache.
     const data2 = await getRemoteJSON(url, {})
-    expect(data2.cool).toBe(true)
+    expect((data2 as Record<string, unknown>).cool).toBe(true)
   })
 
   test('recover from disk corruption (empty)', async () => {
@@ -80,7 +80,7 @@ describe('getRemoteJSON', () => {
     nock(origin).get(pathname).reply(200, { cool: true })
 
     const data = await getRemoteJSON(url, {})
-    expect(data.cool).toBe(true)
+    expect((data as Record<string, unknown>).cool).toBe(true)
   })
 
   test('recover from disk corruption (bad JSON)', async () => {
@@ -102,7 +102,7 @@ describe('getRemoteJSON', () => {
     nock(origin).get(pathname).reply(200, { cool: true })
 
     const data = await getRemoteJSON(url, {})
-    expect(data.cool).toBe(true)
+    expect((data as Record<string, unknown>).cool).toBe(true)
   })
 
   test('not-actually JSON despite URL', async () => {

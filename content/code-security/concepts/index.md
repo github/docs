@@ -6,19 +6,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Secret Protection
-  - Secret scanning
-  - Code Security
-  - Code scanning
-  - Vulnerabilities
-  - Dependencies
-  - Dependabot
 contentType: concepts
 children:
   - /secret-security
   - /code-scanning
-  - /about-code-quality
   - supply-chain-security
-  - /vulnerability-reporting-and-management
+  - /code-quality
+  - vulnerability-reporting-and-management
   - /security-at-scale
+---
+

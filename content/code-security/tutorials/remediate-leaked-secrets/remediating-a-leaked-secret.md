@@ -3,11 +3,6 @@ title: Remediating a leaked secret in your repository
 shortTitle: Remediate a leaked secret
 allowTitleToDifferFromFilename: true
 intro: Learn how to respond effectively to a leaked secret in your {% data variables.product.github %} repository.
-topics:
-  - Secret scanning
-  - Secret Protection
-  - Alerts
-  - Repositories
 versions:
   fpt: '*'
   ghec: '*'
@@ -15,6 +10,8 @@ versions:
 redirect_from:
   - /code-security/secret-scanning/working-with-secret-scanning-and-push-protection/remediating-a-leaked-secret
 contentType: tutorials
+category:
+  - Protect your secrets
 ---
 
 ## Introduction
@@ -58,7 +55,7 @@ Review the {% data variables.product.prodname_secret_scanning %} alert associate
 
 1. Check the secret's **validity status** to determine if the secret is still active. The alert will include a status that describes whether the secret is active, inactive, or if its validity is unknown.
    > [!NOTE]
-   > * Validity checks are only available for certain secret types. To check if your secret type is supported, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#default-patterns).
+   > * Validity checks are only available for certain secret types. To check if your secret type is supported, see [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns).
    > * The secret provider is always the most reliable source of truth for determining the validity of a secret.
 1. Check for the `public exposure` label to determine if the secret was leaked in a public repository.
 1. Check for the `multiple leaks` label to determine if the secret is exposed in multiple locations.
@@ -77,7 +74,7 @@ If you don't yet have {% data variables.product.prodname_secret_scanning %} enab
 {% ifversion secret-risk-assessment %}
 
 > [!TIP]
-> Organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} plans can perform a **free** secret risk assessment (an on-demand, point-in-time scan) that evaluates their exposure to leaked secrets. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment).
+> Organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} plans can perform a **free** secret risk assessment (an on-demand, point-in-time scan) that evaluates their exposure to leaked secrets. See [AUTOTITLE](/code-security/concepts/secret-security/secret-security-with-github).
 
 {% endif %}
 
@@ -140,7 +137,7 @@ Next, you need to coordinate updates to all affected services using the leaked s
 
 ### Coordinate
 
-1. Instruct {% data variables.product.prodname_copilot_short %} to create issues (and sub-issues) for each task involved in updating an affected service. {% ifversion fpt or ghec %} See [AUTOTITLE](/copilot/how-tos/github-flow/using-github-copilot-to-create-issues).{% endif %}
+1. Instruct {% data variables.product.prodname_copilot_short %} to create issues (and sub-issues) for each task involved in updating an affected service. {% ifversion fpt or ghec %} See [AUTOTITLE](/copilot/how-tos/copilot-on-github/copilot-for-github-tasks/use-copilot-to-create-or-update-issues).{% endif %}
 1. If multiple stakeholders are involved, create a project board for the issues to track progress and facilitate communication.
 
 ### Update and verify
@@ -181,7 +178,7 @@ Together with your repository's security leads, consider carefully the effects o
 
 Dealing with secret leaks is often disruptive, complicated, and time-consuming. The focus for secret handling should always be on **preventing leaks** at all costs:
 
-1. Ensure that push protection (part of {% data variables.product.prodname_GH_secret_protection %}) is enabled for the repository, if it's not already. Explore implementing strict bypass controls, so that only trusted users can bypass push protection. See [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).
+1. Ensure that push protection (part of {% data variables.product.prodname_GH_secret_protection %}) is enabled for the repository, if it's not already. Explore implementing strict bypass controls, so that only trusted users can bypass push protection. See [AUTOTITLE](/code-security/concepts/secret-security/push-protection).
 1. Ensure you have "Push protection for users" enabled on your personal account, which protects you from accidentally pushing supported secrets to _any_ public repository.
 1. Advocate for, or implement, best practices for secret management within your team or organization:
    * Use environment variables to store secrets instead of hardcoding them in the codebase.
@@ -189,10 +186,3 @@ Dealing with secret leaks is often disruptive, complicated, and time-consuming. 
    * Regularly rotate secrets to minimize the impact of any potential leaks.
 1. Document incidents and remediation steps to help your team learn from past mistakes and improve future practices.
 1. Advocate for, and undertake, regular learning and security training. See, for example, [{% data variables.product.github %} Advanced Security](https://learn.microsoft.com/en-us/training/paths/github-advanced-security/) course from Microsoft Learn.
-
-## Further reading
-
-* [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)
-* [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection)
-* [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns)
-* [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)

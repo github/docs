@@ -35,6 +35,12 @@ import type {
   Redirects,
 } from '@/search/scripts/scrape/types'
 
+// GitHub-style alert markers (> [!NOTE], > [!TIP], etc.) that appear in
+// markdown returned by the Article API.  The rehype alerts plugin only runs
+// in the HTML pipeline, so these leak through as literal text when we index
+// the markdown-only output.  Strip them so they don't appear in search results.
+const ALERT_MARKER_REGEXP = /\[!(NOTE|TIP|WARNING|IMPORTANT|CAUTION)\]\n?/gi
+
 // Same ignored headings as the HTML scraping approach
 const IGNORED_HEADING_SLUGS = new Set(['in-this-article', 'further-reading', 'prerequisites'])
 
@@ -190,7 +196,7 @@ export function extractFromMarkdown(markdown: string): { headings: string; conte
 
   // 2. Convert full AST to plain text (code blocks are kept so that terms
   //    appearing only in code examples remain searchable).
-  const content = astToPlainText(ast)
+  const content = astToPlainText(ast).replace(ALERT_MARKER_REGEXP, '')
 
   return { headings: headings.join('\n'), content }
 }
@@ -410,6 +416,18 @@ export default async function buildRecordsFromApi(
       }
 
       if (result.record) {
+        // Validate required fields before adding to records
+        if (!result.record.title) {
+          failedPages.push({
+            url: permalink.href,
+            relativePath: permalink.relativePath,
+            error: 'Record has empty title',
+            errorType: 'Validation Error',
+          })
+          if (!noMarkers) process.stdout.write(chalk.red('✗'))
+          return null
+        }
+
         // Apply popularity
         const pathArticle = permalink.relativePath.replace('/index.md', '').replace('.md', '')
         let popularity = (hasPopularPages && popularPages[pathArticle]) || 0.0

@@ -1,18 +1,15 @@
 ---
-title: 'Getting started with {% data variables.product.prodname_emus %}'
+title: Getting started with {% data variables.product.prodname_emus %}
 shortTitle: Get started with managed users
-intro: 'Learn how to create and configure an {% data variables.enterprise.prodname_emu_enterprise %}.'
+intro: Learn how to create and configure an {% data variables.enterprise.prodname_emu_enterprise %}.
 versions:
   ghec: '*'
-type: overview
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - SSO
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users
+contentType: concepts
+category:
+  - Configure authentication
 ---
 
 Before your developers can use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %}, you must follow a series of configuration steps.
@@ -31,15 +28,17 @@ The setup process for the environments is similar. However, you will need to **p
 
 ## Create the setup user
 
-After we create your enterprise, you will receive an email inviting you to choose a password for the setup user, which is used to configure authentication and provisioning. The username is your enterprise's shortcode (chosen by you or randomly generated), suffixed with `_admin`. For example: `fabrikam_admin`.
+After we create your enterprise, you will receive an email inviting you to choose a password for the setup user, which is used to configure authentication and provisioning. This is the first enterprise owner account, and the only user account in the enterprise that is not SCIM-provisioned. The username is your enterprise's shortcode (chosen by you or randomly generated), suffixed with `_admin`. For example: `fabrikam_admin`.
 
 Using an **incognito or private browsing window**:
 
 1. Set the user's password.
-1. Enable two-factor authentication (2FA), and save the recovery codes. See [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
+1. Enable two-factor authentication (2FA) for the setup user account, and save the recovery codes. See [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
 
    > [!WARNING]
-   > All subsequent login attempts for the setup user account will require a successful 2FA challenge response.
+   > All subsequent login attempts to the setup user account will require a successful 2FA challenge response.
+1. Download the enterprise recovery codes. See [AUTOTITLE](/admin/managing-iam/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes).
+
 {% data reusables.enterprise-accounts.emu-recommend-password-manager %}
 
 {% data reusables.enterprise-accounts.about-setup-user %}
@@ -52,7 +51,7 @@ Using an **incognito or private browsing window**:
 
 {% data reusables.enterprise-accounts.emu-configure-authentication %}
 
-{% data variables.product.company_short %} offers a "paved-path" integration and full support if you use a partner IdP for both authentication and provisioning. Alternatively, you can use any system, or combination of systems, that conforms to SAML 2.0 and SCIM 2.0. However, support for resolving problems with these systems may be limited. For more details, see [AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems).
+{% data variables.product.company_short %} offers a "paved-path" integration and full support if you use a partner IdP for both authentication and provisioning. Alternatively, you can use any system, or combination of systems, that conforms to SAML 2.0 and SCIM 2.0. However, support for resolving problems with these systems may be limited. For more details, see [AUTOTITLE](/admin/concepts/identity-and-access-management/enterprise-managed-users#identity-management-systems).
 
 ## Configure provisioning
 
@@ -66,6 +65,6 @@ Using an **incognito or private browsing window**:
 
 Developers may need to maintain separate, personal accounts for their work outside of your {% data variables.enterprise.prodname_emu_enterprise %}. You can help them manage multiple accounts by providing the following resources:
 
-* **On the command line**, developers can configure Git to simplify the process of using multiple accounts. See [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts).
+* **On the command line**, developers can configure Git to simplify the process of using multiple accounts. See [AUTOTITLE](/account-and-profile/how-tos/account-management/managing-multiple-accounts).
 * **In Git Credential Manager (GCM)**: Turn off account filtering to prevent multiple sign-in prompts if the [SSO Redirect setting](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users) is not enabled for your enterprise. See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users).
 * **In the web interface**, developers can switch between accounts without always needing to re-authenticate. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/switching-between-accounts).

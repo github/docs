@@ -1,20 +1,19 @@
 ---
 title: Query reference files
+shortTitle: Query reference files
 intro: You can use query reference files to define the location of a query you want to run in tests.
 product: '{% data reusables.gated-features.codeql %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 redirect_from:
   - /code-security/codeql-cli/query-reference-files
   - /code-security/codeql-cli/codeql-cli-reference/query-reference-files
   - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/query-reference-files
 contentType: concepts
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## About query reference files
@@ -60,4 +59,4 @@ to the `codeql/javascript-queries` {% data variables.product.prodname_codeql %} 
 AngularJS/DeadAngularJSEventListener.ql
 ```
 
-For another example, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/testing-custom-queries).
+For another example, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-the-command-line/test-custom-queries).

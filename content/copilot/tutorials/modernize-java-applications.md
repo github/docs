@@ -14,7 +14,7 @@ category:
 
 <!-- When this expires, check with the stakeholder for release #18998 on whether or not the content is still needed -->
 
-The {% data variables.product.prodname_copilot %} app modernization extension in {% data variables.product.prodname_vscode %} automates Java upgrades by identifying outdated frameworks, deprecated APIs, and upgrade blockers. {% data variables.copilot.copilot_coding_agent %} applies code changes, updates build files, and resolves build and CVE issues for you. <!-- markdownlint-disable-line GHD046 -->
+The {% data variables.product.prodname_copilot %} app modernization extension in {% data variables.product.prodname_vscode %} automates Java upgrades by identifying outdated frameworks, deprecated APIs, and upgrade blockers. {% data variables.copilot.copilot_cloud_agent %} applies code changes, updates build files, and resolves build and CVE issues for you. <!-- markdownlint-disable-line GHD046 -->
 
 The recommendations and reporting produced by the extension can help your teams adopt new technologies quickly and reduce technical debt. {% data variables.product.prodname_copilot_short %} guides you through upgrades with actionable steps and summaries, accelerating and securing your migrations while reducing manual effort.
 
@@ -50,7 +50,7 @@ In this example, we'll walk through the high-level steps to modernize a Java app
 For detailed prerequisites and instructions, see [Quickstart: upgrade a Java project with {% data variables.product.prodname_copilot %} app modernization](https://learn.microsoft.com/en-us/java/upgrade/quickstart-upgrade) in the Microsoft documentation.
 
 > [!NOTE]
-> During the modernization workflow, you may frequently be prompted by {% data variables.copilot.copilot_coding_agent %} for confirmation before it performs specific actions.
+> During the modernization workflow, you may frequently be prompted by {% data variables.copilot.copilot_cloud_agent %} for confirmation before it performs specific actions.
 
 ### 1. Open your Java project
 
@@ -89,7 +89,7 @@ Use {% data variables.product.prodname_copilot_short %} to apply or review code 
 
 If build errors are found, {% data variables.product.prodname_copilot_short %} can enter a fix-and-test loop until the project compiles cleanly.
 
-{% data variables.copilot.copilot_coding_agent %} automated changes can include:
+{% data variables.copilot.copilot_cloud_agent %} automated changes can include:
 
 * Updating `pom.xml` or `build.gradle` files for new dependency versions.
 * Generating pull requests or committing changes directly.

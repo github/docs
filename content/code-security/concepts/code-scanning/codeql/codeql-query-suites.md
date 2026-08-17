@@ -11,10 +11,9 @@ redirect_from:
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/built-in-codeql-query-suites
   - /code-security/code-scanning/managing-your-code-scanning-configuration/built-in-codeql-query-suites
   - /code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites
-topics:
-  - Code scanning
-  - CodeQL
 contentType: concepts
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## What are query suites?
@@ -27,9 +26,9 @@ You should use query suites for the queries that you want to frequently use in y
 
 The built-in {% data variables.product.prodname_codeql %} query suites, `default` and `security-extended`, are created and maintained by {% data variables.product.prodname_dotcom %}. Both of these query suites are available with default setup for every {% data variables.product.prodname_codeql %}-supported language.
 
-Organization owners and security managers can recommend a query suite for use with default setup throughout their organization. For more information, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale).
+Organization owners and security managers can recommend a query suite for use with default setup throughout their organization. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/code-scanning-at-scale).
 
-For a complete list of queries included in each query suite for every language, see [AUTOTITLE](/code-security/code-scanning/reference/code-ql-built-in-queries).
+For a complete list of queries included in each query suite for every language, see [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-queries).
 
 ### `default` query suite
 
@@ -45,10 +44,10 @@ For a complete list of queries included in each query suite for every language, 
 
 ## Custom query suites
 
-To use a custom query suite, you must configure advanced setup for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning).
+To use a custom query suite, you must configure advanced setup for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}. For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configuring-advanced-setup-for-code-scanning).
 
-Query suite definitions are stored in YAML files with the extension `.qls`. A suite definition is a sequence of instructions, where each instruction is a YAML mapping with (usually) a single key. The instructions are executed in the order they appear in the query suite definition. After all the instructions in the suite definition have been executed, the result is a set of selected queries. For more information, see [AUTOTITLE](/code-security/tutorials/customize-code-scanning/creating-codeql-query-suites).
+Query suite definitions are stored in YAML files with the extension `.qls`. A suite definition is a sequence of instructions, where each instruction is a YAML mapping with (usually) a single key. The instructions are executed in the order they appear in the query suite definition. After all the instructions in the suite definition have been executed, the result is a set of selected queries. For more information, see [AUTOTITLE](/code-security/tutorials/customize-code-scanning/create-query-suites).
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-codeql-query-suites)
+* [AUTOTITLE](/code-security/tutorials/customize-code-scanning/create-query-suites)

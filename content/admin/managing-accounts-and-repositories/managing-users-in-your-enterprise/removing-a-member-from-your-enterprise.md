@@ -4,12 +4,12 @@ intro: Offboard users from an enterprise by following the recommended approach f
 permissions: Enterprise owners or IdP administrators
 versions:
   feature: remove-enterprise-members
-type: how_to
-topics:
-  - Enterprise
 shortTitle: Remove member
 redirect_from:
   - /admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise
+contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 The recommended offboarding approach for your enterprise depends on whether you use personal accounts or {% data variables.product.prodname_emus %}. To learn more about the effects of offboarding users, see [AUTOTITLE](/admin/concepts/identity-and-access-management/user-offboarding).
@@ -20,9 +20,9 @@ When you remove a member from your enterprise, the member is removed from all or
 
 If the enterprise member you're removing is the last owner of an organization owned by your enterprise, you will become an owner of that organization.
 
->[!TIP] For automated offboarding, you can also remove users with the GraphQL API. See [AUTOTITLE](/graphql/reference/mutations#removeenterprisemember).
+>[!TIP] For automated offboarding, you can also remove users with the GraphQL API. See [AUTOTITLE](/graphql/reference/enterprise-admin#mutation-removeenterprisemember).
 
-{% data reusables.enterprise-accounts.access-enterprise-personal-accounts %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 1. To the right of the person you want to remove, select the {% octicon "kebab-horizontal" aria-label="Member settings" %} dropdown menu and click **Remove from enterprise**.
 

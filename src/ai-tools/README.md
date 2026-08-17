@@ -56,7 +56,7 @@ npm run ai-tools -- --refine versioning --files content/path/to/file.md
 
 Refine versioning in a file:
 ```bash
-npm run ai-tools -- --files content/copilot/tutorials/coding-agent/get-the-best-results.md --refine versioning
+npm run ai-tools -- --files content/copilot/tutorials/cloud-agent/get-the-best-results.md --refine versioning
 ```
 
 Refine intro:
@@ -99,7 +99,6 @@ npm run ai-tools -- --files content/path/to/file.md --refine versioning --write
 - Content files in `content/` - Target of refinements
 
 ### Internal documentation
-- [GitHub Models API docs](https://docs.github.com/en/rest/models/inference)
 - Copilot Spaces for prompt management
 
 ### Ownership
@@ -181,3 +180,5 @@ Add `GITHUB_TOKEN` to `.env` with Models scopes.
 - Add more examples
 - Test in Models UI first
 - Consider different model/parameters
+
+🌎

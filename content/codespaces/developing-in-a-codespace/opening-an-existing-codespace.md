@@ -4,14 +4,12 @@ intro: You can reopen a codespace that you have closed or stopped and return to 
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
-  - Fundamentals
-  - Developer
 shortTitle: Open an existing codespace
 redirect_from:
   - /codespaces/developing-in-codespaces/opening-an-existing-codespace
+contentType: how-tos
+category:
+  - Create and manage codespaces
 ---
 
 You can reopen any of your active or stopped codespaces on {% data variables.product.github %}, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. You can't reopen a codespace that has been deleted. See [AUTOTITLE](/codespaces/about-codespaces/understanding-the-codespace-lifecycle).
@@ -19,7 +17,7 @@ You can reopen any of your active or stopped codespaces on {% data variables.pro
 You can view all your codespaces on the "Your codespaces" page at [github.com/codespaces](https://github.com/codespaces). From this page, you can:
 
 * Open, stop, or delete your codespaces.
-* See who owns (and may be billed for) your codespaces: your personal account, or organizations you belong to. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
+* See who owns (and may be billed for) your codespaces: your personal account, or organizations you belong to. See [AUTOTITLE](/billing/concepts/product-billing/github-codespaces).
 * See the machine type, size, and status of your codespaces.
 * Create a new codespace, either by choosing one of {% data variables.product.company_short %}'s templates or by clicking **New codespace**. See [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template) and [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository).
 * Prevent automatic deletion of a codespace. See [AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces?tool=webui#avoiding-automatic-deletion-of-codespaces).

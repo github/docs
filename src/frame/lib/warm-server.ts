@@ -1,4 +1,4 @@
-import statsd from '@/observability/lib/statsd'
+import statsd, { adaptForTimer } from '@/observability/lib/statsd'
 import { loadUnversionedTree, loadSiteTree, loadPages, loadPageMap } from './page-data'
 import loadRedirects from '@/redirects/lib/precompile'
 import { createLogger } from '@/observability/logger'
@@ -17,12 +17,15 @@ type WarmServerResult = {
 // Instrument these functions so that
 // it's wrapped in a timer that reports to Datadog
 const dog = {
-  loadUnversionedTree: statsd.asyncTimer(loadUnversionedTree, 'load_unversioned_tree'),
-  loadSiteTree: statsd.asyncTimer(loadSiteTree, 'load_site_tree'),
-  loadPages: statsd.asyncTimer(loadPages, 'load_pages'),
-  loadPageMap: statsd.asyncTimer(loadPageMap, 'load_page_map'),
-  loadRedirects: statsd.asyncTimer(loadRedirects, 'load_redirects'),
-  warmServer: statsd.asyncTimer(warmServer, 'warm_server'),
+  loadUnversionedTree: statsd.asyncTimer(
+    adaptForTimer(loadUnversionedTree),
+    'load_unversioned_tree',
+  ),
+  loadSiteTree: statsd.asyncTimer(adaptForTimer(loadSiteTree), 'load_site_tree'),
+  loadPages: statsd.asyncTimer(adaptForTimer(loadPages), 'load_pages'),
+  loadPageMap: statsd.asyncTimer(adaptForTimer(loadPageMap), 'load_page_map'),
+  loadRedirects: statsd.asyncTimer(adaptForTimer(loadRedirects), 'load_redirects'),
+  warmServer: statsd.asyncTimer(adaptForTimer(warmServer), 'warm_server'),
 }
 
 // For multiple-triggered Promise sharing
@@ -31,19 +34,55 @@ let promisedWarmServer: Promise<WarmServerResult> | undefined
 async function warmServer(languagesOnly: string[] = []): Promise<WarmServerResult> {
   const startTime = Date.now()
 
-  logger.debug(
-    `Priming context information...${languagesOnly && languagesOnly.length ? ` ${languagesOnly.join(',')} only` : ''}`,
-  )
+  const langSuffix =
+    languagesOnly && languagesOnly.length ? ` (${languagesOnly.join(',')})` : ' (all languages)'
 
+  logger.info(`warm-server: starting${langSuffix}`)
+
+  let stepStart = Date.now()
   const unversionedTree = await dog.loadUnversionedTree(languagesOnly)
+  logger.info('warm-server: loadUnversionedTree complete', {
+    durationMs: Date.now() - stepStart,
+    heapUsedMb: Math.round(process.memoryUsage().heapUsed / 1024 / 1024),
+  })
+
+  stepStart = Date.now()
   const siteTree = await dog.loadSiteTree(unversionedTree, languagesOnly)
+  logger.info('warm-server: loadSiteTree complete', {
+    durationMs: Date.now() - stepStart,
+    heapUsedMb: Math.round(process.memoryUsage().heapUsed / 1024 / 1024),
+  })
+
+  stepStart = Date.now()
   const pageList = await dog.loadPages(unversionedTree, languagesOnly)
-  const pageMap = await dog.loadPageMap(pageList)
+  logger.info('warm-server: loadPages complete', {
+    durationMs: Date.now() - stepStart,
+    pageCount: pageList.length,
+    heapUsedMb: Math.round(process.memoryUsage().heapUsed / 1024 / 1024),
+  })
+
+  stepStart = Date.now()
+  const pageMap = await dog.loadPageMap(pageList, [])
+  logger.info('warm-server: loadPageMap complete', {
+    durationMs: Date.now() - stepStart,
+    permalinkCount: Object.keys(pageMap).length,
+    heapUsedMb: Math.round(process.memoryUsage().heapUsed / 1024 / 1024),
+  })
+
+  stepStart = Date.now()
   const redirects = await dog.loadRedirects(pageList)
+  logger.info('warm-server: loadRedirects complete', {
+    durationMs: Date.now() - stepStart,
+    redirectCount: Object.keys(redirects).length,
+    heapUsedMb: Math.round(process.memoryUsage().heapUsed / 1024 / 1024),
+  })
 
   statsd.gauge('memory_heap_used', process.memoryUsage().heapUsed, ['event:warm-server'])
 
-  logger.debug(`Context primed in ${Date.now() - startTime} ms`)
+  logger.info('warm-server: complete', {
+    totalDurationMs: Date.now() - startTime,
+    heapUsedMb: Math.round(process.memoryUsage().heapUsed / 1024 / 1024),
+  })
 
   return {
     pages: pageMap,

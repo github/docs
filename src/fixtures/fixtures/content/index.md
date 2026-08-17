@@ -34,7 +34,6 @@ children:
   - rest
   - webhooks
   - graphql
-  - video-transcripts
   # - account-and-profile
   - authentication
   # - repositories
@@ -44,7 +43,7 @@ children:
   - organizations
   # - pull-requests
   # - issues
-  # - copilot
+  - copilot
   # - codespaces
   # - packages
   # - search-github

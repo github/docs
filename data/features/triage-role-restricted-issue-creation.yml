@@ -1,0 +1,6 @@
+# Reference: https://github.com/github/releases/issues/10322
+# Allow users with the triage role to create issues when issue creation is restricted
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.23'

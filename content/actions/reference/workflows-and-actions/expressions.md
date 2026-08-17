@@ -1,7 +1,7 @@
 ---
 title: Evaluate expressions in workflows and actions
 shortTitle: Expressions
-intro: 'Find information for expressions in {% data variables.product.prodname_actions %}.'
+intro: Find information for expressions in {% data variables.product.prodname_actions %}.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,6 +11,9 @@ redirect_from:
   - /actions/writing-workflows/choosing-what-your-workflow-does/expressions
   - /actions/writing-workflows/choosing-what-your-workflow-does/evaluate-expressions-in-workflows-and-actions
   - /actions/reference/evaluate-expressions-in-workflows-and-actions
+category:
+  - Write workflows
+contentType: reference
 ---
 
 ## Literals
@@ -63,7 +66,7 @@ env:
 
   > [!NOTE]
   > * {% data variables.product.company_short %} ignores case when comparing strings.
-  > * `steps.<step_id>.outputs.<output_name>` evaluates as a string. {% data reusables.actions.expressions-syntax-evaluation %} For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts#steps-context).
+  > * `steps.<step_id>.outputs.<output_name>` evaluates as a string. {% data reusables.actions.expressions-syntax-evaluation %} For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/contexts#steps-context).
   > * For numerical comparison, the `fromJSON()` function can be used to convert a string to a number. For more information on the `fromJSON()` function, see [fromJSON](#fromjson).
 
 {% data variables.product.prodname_dotcom %} performs loose equality comparisons.
@@ -272,6 +275,8 @@ Creates a hash for all `.rb` files in the `lib` directory at root level, includi
 
 `hashFiles('/lib/**/*.rb', '!/lib/foo/*.rb')`
 
+{% ifversion fpt or ghec %}
+
 ### case
 
 `case( pred1, val1, pred2, val2, ..., default )`
@@ -310,11 +315,13 @@ env:
 
 Sets `MY_ENV_VAR` based on the branch: `production` for `main`, `staging` for `staging`, `development` for branches starting with `feature/`, or `unknown` for all other branches.
 
+{% endif %}
+
 ## Status check functions
 
-You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif) and [AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#runsstepsif).
+You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idif) and [AUTOTITLE](/actions/reference/workflows-and-actions/metadata-syntax#runsstepsif).
 
-Outside `if` conditionals, you can use `job.status` to access the job status. For more information, see [AUTOTITLE](/actions/reference/contexts-reference#job-context).
+Outside `if` conditionals, you can use `job.status` to access the job status. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/contexts#job-context).
 
 ### success
 

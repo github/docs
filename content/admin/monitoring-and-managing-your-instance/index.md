@@ -7,8 +7,6 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance
 versions:
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /monitoring-your-instance
   - /updating-the-virtual-machine-and-physical-resources
@@ -16,5 +14,6 @@ children:
   - /configuring-high-availability
   - /caching-repositories
   - /multiple-data-disks
+  - /additional-nodes
 shortTitle: 'Monitor and manage your instance'
 ---

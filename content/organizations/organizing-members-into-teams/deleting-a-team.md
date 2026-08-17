@@ -8,9 +8,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
+category:
+  - Organize teams
 ---
 
 > [!TIP]

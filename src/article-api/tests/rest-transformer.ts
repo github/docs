@@ -107,31 +107,39 @@ describe('REST transformer', () => {
 
     // Check for request/response labels
     expect(res.body).toContain('**Request:**')
-    expect(res.body).toContain('**Response schema:**')
+    expect(res.body).toContain('**Response schema (Status: 200):**')
 
     // Check for curl code block
     expect(res.body).toContain('```curl')
     expect(res.body).toContain('curl -L \\')
     expect(res.body).toContain('-X GET \\')
-    expect(res.body).toContain('https://api.github.com/repos/OWNER/REPO/actions/artifacts \\')
-    expect(res.body).toContain('-H "Accept: application/vnd.github.v3+json" \\')
-    expect(res.body).toContain('-H "Authorization: Bearer <YOUR-TOKEN>"')
+    expect(res.body).toContain('https://api.github.com/repos/OWNER/REPO/actions/artifacts')
   })
 
-  test('Code examples include X-GitHub-Api-Version header by default', async () => {
+  test('Authentication note is included at top of page', async () => {
     const res = await get(makeURL('/en/rest/actions/artifacts'))
     expect(res.statusCode).toBe(200)
 
-    // Check for API version header in curl example
-    expect(res.body).toContain('-H "X-GitHub-Api-Version: 2022-11-28"')
+    // Check that auth note is at the top using [!NOTE] syntax
+    expect(res.body).toContain('[!NOTE]')
+    expect(res.body).toContain('Authorization: Bearer <YOUR-TOKEN>')
+    expect(res.body).toContain('application/vnd.github+json')
   })
 
-  test('Code examples include specified API version', async () => {
+  test('API version is mentioned in auth note', async () => {
+    const res = await get(makeURL('/en/rest/actions/artifacts'))
+    expect(res.statusCode).toBe(200)
+
+    // Check for API version in the auth note (any valid date format)
+    expect(res.body).toMatch(/X-GitHub-Api-Version: \d{4}-\d{2}-\d{2}/)
+  })
+
+  test('Code examples include specified API version in auth note', async () => {
     const res = await get(makeURL('/en/rest/actions/artifacts', '2022-11-28'))
     expect(res.statusCode).toBe(200)
 
-    // Check for the specified API version header
-    expect(res.body).toContain('-H "X-GitHub-Api-Version: 2022-11-28"')
+    // Check for the specified API version in auth note
+    expect(res.body).toContain('X-GitHub-Api-Version: 2022-11-28')
   })
 
   test('Liquid tags are rendered in intro', async () => {
@@ -173,36 +181,19 @@ describe('REST transformer', () => {
     expect(res.body).toMatch(/\[.*?\]\(\/en\/.*?\)/)
   })
 
-  test('Response schema is formatted correctly', async () => {
+  test('Response schema is formatted as markdown', async () => {
     const res = await get(makeURL('/en/rest/actions/artifacts'))
     expect(res.statusCode).toBe(200)
 
-    // Check for JSON code block with schema label
-    expect(res.body).toContain('**Response schema:**')
-    expect(res.body).toContain('```json')
-    expect(res.body).toContain('Status: 200')
+    // Check for markdown-formatted schema
+    expect(res.body).toContain('**Response schema (Status: 200):**')
 
-    // Verify schema structure is present (not an example)
-    expect(res.body).toContain('"type":')
-    expect(res.body).toContain('"properties":')
+    // Schema should be rendered as a markdown bullet list, not JSON
+    expect(res.body).toContain('* `total_count`:')
+    expect(res.body).toContain('* `artifacts`:')
 
-    // Check for common schema keywords
-    const schemaMatch = res.body.match(/```json\s+Status: 200\s+([\s\S]*?)```/)
-    expect(schemaMatch).toBeTruthy()
-
-    if (schemaMatch) {
-      const schemaContent = schemaMatch[1]
-      const schema = JSON.parse(schemaContent)
-
-      // Verify it's a valid OpenAPI/JSON schema structure
-      expect(schema).toHaveProperty('type')
-      expect(schema.type).toBe('object')
-      expect(schema).toHaveProperty('properties')
-
-      // Verify it has expected properties for artifacts response
-      expect(schema.properties).toHaveProperty('total_count')
-      expect(schema.properties).toHaveProperty('artifacts')
-    }
+    // Should not contain raw JSON Schema keywords
+    expect(res.body).not.toContain('"properties":')
   })
 
   test('Non-REST pages return appropriate error', async () => {
@@ -241,7 +232,7 @@ describe('REST transformer', () => {
     const res = await get(makeURL('/en/rest/actions/artifacts', '2022-11-28'))
 
     expect(res.statusCode).toBe(200)
-    expect(res.body).toContain('-H "X-GitHub-Api-Version: 2022-11-28"')
+    expect(res.body).toContain('X-GitHub-Api-Version: 2022-11-28')
   })
 
   test('Missing apiVersion defaults to latest', async () => {
@@ -249,8 +240,8 @@ describe('REST transformer', () => {
     const res = await get(makeURL('/en/rest/actions/artifacts'))
 
     expect(res.statusCode).toBe(200)
-    // Should include the default API version header
-    expect(res.body).toContain('-H "X-GitHub-Api-Version: 2022-11-28"')
+    // Should include the default API version in auth note (any valid date format)
+    expect(res.body).toMatch(/X-GitHub-Api-Version: \d{4}-\d{2}-\d{2}/)
   })
 
   test('Multiple operations on a page are all rendered', async () => {

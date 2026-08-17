@@ -3,6 +3,7 @@ import { getLoggerContext } from '@/observability/logger/lib/logger-context'
 import type { NextFunction, Request, Response } from 'express'
 import { getLogLevelNumber, useProductionLogging } from '@/observability/logger/lib/log-levels'
 import { toLogfmt } from '@/observability/logger/lib/to-logfmt'
+import { POD_IDENTITY } from '@/observability/logger/lib/pod-identity'
 
 /**
  * Check if automatic development logging is enabled.
@@ -45,6 +46,7 @@ export function getAutomaticRequestLogger() {
         const loggerContext = getLoggerContext()
         console.log(
           toLogfmt({
+            ...POD_IDENTITY,
             ...loggerContext,
             status,
             responseTime: `${responseTime} ms`,

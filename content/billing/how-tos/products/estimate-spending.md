@@ -11,13 +11,11 @@ redirect_from:
   - /billing/using-the-new-billing-platform/estimating-spending
   - /billing/managing-your-billing/estimating-spending
   - /billing/tutorials/estimate-spending
-topics:
-  - Billing
-  - Enterprise
-  - Team
 permissions: '{% data reusables.permissions.enhanced-billing-platform %}'
 product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 contentType: how-tos
+category:
+  - Track spending and control costs
 ---
 
 The new billing platform provides a high-level view of your spending trends based on the usage across products. You can use this information to estimate your spending and make informed decisions about your budget.
@@ -90,4 +88,4 @@ You can see the total amount of promotions and discounts applied to your account
 
 ## Creating a budget
 
-As an enterprise owner or billing manager, you can set the budget for your enterprise, an organization within your enterprise, or a cost center. As an organization owner, you are able to set the budgets for the repositories you manage. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending#creating-a-budget).
+As an enterprise owner or billing manager, you can set the budget for your enterprise, an organization within your enterprise, or a cost center. As an organization owner, you are able to set the budgets for the repositories you manage. See [AUTOTITLE](/billing/how-tos/set-up-budgets#creating-a-budget).

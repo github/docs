@@ -8,13 +8,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Enterprise
-  - Billing
-  - REST
 permissions: 'Enterprise owners, organization owners, and billing managers'
-product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 contentType: tutorials
+category:
+  - Track spending and control costs
 ---
 
 After you transition to metered billing, you may want to automatically track usage and costs for paid {% data variables.product.github %} features in your internal reporting systems. For example, you might want to monitor spend over time, reconcile invoices, or feed usage data into finance or BI tools.
@@ -56,9 +53,9 @@ After you’ve decided which level to report on, use the REST API to retrieve us
 {% data variables.product.github %} provides two types of billing usage data:
 
 * **Usage summaries** – aggregated usage and cost data for all paid products.
-* **Premium request usage** – detailed usage and billing data for premium requests, including quotas and overage usage.
+* **{% data variables.product.prodname_ai_credits_short %} usage** – detailed usage and billing data for {% data variables.product.prodname_ai_credits_short %}, including included pool consumption and additional usage spend.
 
-In most reporting scenarios, you’ll start with a **usage summary** to understand overall usage and spend, and then use premium request usage data when you need deeper insight into premium request consumption.
+In most reporting scenarios, you'll start with a **usage summary** to understand overall usage and spend, and then use {% data variables.product.prodname_ai_credits_short %} usage data when you need deeper insight into {% data variables.product.prodname_copilot_short %} consumption.
 
 ### Retrieve a usage summary
 
@@ -75,7 +72,7 @@ You must authenticate your request to this endpoint.
 ```bash
 curl -L \
   -H "Authorization: Bearer $GITHUB_TOKEN" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
+  -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
   https://api.github.com/enterprises/ENTERPRISE/settings/billing/usage/summary
 ```
 
@@ -85,7 +82,7 @@ Replace `ENTERPRISE` with the enterprise slug and set the `GITHUB_TOKEN` environ
 
 ```bash
 gh api \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
+  -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
   /enterprises/ENTERPRISE/settings/billing/usage/summary
 ```
 
@@ -93,11 +90,9 @@ This endpoint returns aggregated usage data for all paid products for the curren
 
 You can use the same approach to retrieve usage summaries for an organization or user by calling the equivalent endpoint for that account level.
 
-### Retrieve premium request usage
+### Retrieve {% data variables.product.prodname_ai_credits_short %} usage
 
-If you need to report specifically on premium request consumption, use the `premium_request/usage` endpoint for the same account level. This endpoint provides additional details such as included usage, billed overages, and remaining quota.
-
-In the next step, you’ll learn how to filter usage data by time period or cost center so you can generate more targeted reports.
+If you need to report specifically on {% data variables.product.prodname_copilot_short %} consumption, use the AI usage endpoint for the same account level. This endpoint provides additional details such as included pool usage, billed additional usage, and consumption by model.
 
 ## Step 3: Filter usage data by time period or cost center
 
@@ -183,4 +178,4 @@ In some cases, you may need to calculate product-specific usage metrics from the
 
 To calculate these metrics, you typically filter usage items by `product` and `unitType`, then aggregate fields such as `quantity`, `netAmount`, and `discountAmount`.
 
-For detailed examples and product-specific calculations, see [AUTOTITLE](/billing/reference/previous-billing-platform-endpoints).
+For detailed examples and product-specific calculations, see [AUTOTITLE](/billing/get-started/introduction-to-billing).

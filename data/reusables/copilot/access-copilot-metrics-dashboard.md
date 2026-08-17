@@ -1,2 +1,2 @@
-1. Go to the [Enterprises](https://github.com/settings/enterprises?ref_product=ghec&ref_type=engagement&ref_style=text) page and select your enterprise.
+{% data reusables.enterprise-accounts.access-enterprise %}
 1. Click the **Insights** tab.

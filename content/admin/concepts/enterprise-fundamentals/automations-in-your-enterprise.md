@@ -1,13 +1,14 @@
 ---
 title: Automations in your enterprise
 shortTitle: Automations
-intro: 'Learn how {% data variables.product.prodname_github_apps %}, external services, and {% data variables.product.prodname_actions %} work together to automate processes in your enterprise.'
+intro: Learn how {% data variables.product.prodname_github_apps %}, external services, and {% data variables.product.prodname_actions %} work together to automate processes in your enterprise.
 versions:
   feature: enterprise-apps-public-beta
-type: overview
-topics:
-  - Enterprise
-  - Fundamentals
+contentType: concepts
+redirect_from:
+  - /enterprise-onboarding/github-apps/automations-in-your-enterprise
+category:
+  - Get started with GitHub Enterprise
 ---
 
 Automation on {% data variables.product.github %} typically involves multiple components working together. The most important {% data variables.product.github %} native components are:
@@ -51,7 +52,7 @@ A {% data variables.product.prodname_github_app %} provides the **identity, perm
 
 ## {% data variables.product.prodname_actions %}
 
-{% data variables.product.prodname_actions %} provide {% data variables.product.github %}’s built-in **runtime** for executing automation logic inside repositories. Workflows run on hosted or self-hosted runners and are ideal for tasks tied to code changes or repository events.
+{% data variables.product.prodname_actions %} provide {% data variables.product.github %}’s built-in **runtime** for executing automation logic inside repositories. Workflows run on {% ifversion ghec %}hosted or {% endif %}self-hosted runners and are ideal for tasks tied to code changes or repository events.
 
 Use {% data variables.product.prodname_actions %} for:
 
@@ -132,4 +133,4 @@ Use **{% data variables.product.prodname_github_apps %} and {% data variables.pr
 
 ## Next steps
 
-Learn how to design and manage {% data variables.product.prodname_github_apps %} at the enterprise level in [AUTOTITLE](/admin/managing-your-enterprise-account/creating-github-apps-for-your-enterprise).
+Learn how to design and manage {% data variables.product.prodname_github_apps %} at the enterprise level in [AUTOTITLE](/admin/managing-github-apps-for-your-enterprise/creating-github-apps-for-your-enterprise).

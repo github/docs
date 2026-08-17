@@ -6,27 +6,27 @@ permissions: 'Organization owners and users with the "View organization API insi
 product: 'Your organization must be on a {% data variables.product.prodname_ghe_cloud %} plan.'
 versions:
   feature: 'api-insights'
-topics:
-  - API
-  - Organizations
-  - REST
+category:
+  - Manage app and API access
 ---
 
 ## About API insights
 
 As a {% data variables.product.prodname_ghe_cloud %} organization owner, you and your designated users can view REST API activity for your entire organization or specific apps and users. This helps you understand the sources of your REST API activity and manage against your primary rate limits, giving you visibility into the timeframe, apps, and API endpoints involved. To learn more about primary rate limits, see [AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-primary-rate-limits).
 
-> [!NOTE] Currently, this feature supports only the `core` category of REST API endpoints and primary rate limits. API activity for search, {% data variables.product.prodname_actions %} (using the [`GITHUB_TOKEN`](/actions/security-for-github-actions/security-guides/automatic-token-authentication) secret), and secondary rate-limiting are not supported. For information about API categories, see [AUTOTITLE](/rest/rate-limit/rate-limit). To learn more about primary and secondary rate limits, see [AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api).
+> [!NOTE] Currently, this feature supports only the `core` category of REST API endpoints and primary rate limits. API activity for search, {% data variables.product.prodname_actions %} (using the [`GITHUB_TOKEN`](/actions/tutorials/authenticate-with-github_token) secret), and secondary rate-limiting are not supported. For information about API categories, see [AUTOTITLE](/rest/rate-limit/rate-limit). To learn more about primary and secondary rate limits, see [AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api).
 
 ## Enabling access to API insights
   
-Organization owners can create custom organization roles to allow people to view API insights for their organization. To provide users with access, select the **View organization API insights** permission when creating a custom organization role. Then assign the custom role to an organization member or team. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles).
+Organization owners can create custom organization roles to allow people to view API insights for their organization. To provide users with access, select the **View organization API insights** permission when creating a custom organization role. Then assign the custom role to an organization member or team. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles).
 
->[!WARNING] Granting access to organization non-owners will allow them to view API insights for all users and apps in the organization, so privacy should be considered.
+> [!WARNING] Granting access to organization non-owners will allow them to view API insights for all users and apps in the organization, so privacy should be considered.
 
 ## Understanding API insights aggregation
 
 The time period selection feature allows you to view API insights over predefined periods or a custom period, as detailed in the following table. By default, data is presented in Coordinated Universal Time (UTC). You can change the data displayed from UTC to your browser's time zone in the "Period" drop down menu at the top-right of the page.
+
+Under normal conditions, you can expect API data to appear within 6 hours after making a request. During incidents or periods of unusually high volume, it may take longer.
 
 {% rowheaders %}
 

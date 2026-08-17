@@ -1,20 +1,19 @@
 ---
 title: Exit codes
+shortTitle: Exit codes
 intro: Exit codes signify the status of a command after the {% data variables.product.prodname_codeql_cli %} runs it.
 product: '{% data reusables.gated-features.codeql %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 redirect_from:
   - /code-security/codeql-cli/exit-codes
   - /code-security/codeql-cli/codeql-cli-reference/exit-codes
   - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/exit-codes
 contentType: reference
+category:
+  - Find CodeQL CLI commands
 ---
 
 ## About exit codes
@@ -30,7 +29,7 @@ Success, normal termination.
 
 The command successfully determined that the answer to your question is "no".
 
-This exit code is only used by a few commands, such as [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/test-run), [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/dataset-check), [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/query-format),and [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/resolve-extractor).
+This exit code is only used by a few commands, such as [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-cli-manual/test-run), [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-cli-manual/dataset-check), [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-cli-manual/query-format), and [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-cli-manual/resolve-extractor).
 For more details, see the documentation for those commands.
 
 ## 2
@@ -48,7 +47,7 @@ In this case, the launcher can’t start the Java code for the {% data variables
 
 ## 32
 
-The extractor didn’t find any code to analyze when running [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-create) or [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-finalize).
+The extractor didn’t find any code to analyze when running [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-create) or [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-finalize).
 
 ## 33
 

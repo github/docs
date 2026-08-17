@@ -10,7 +10,6 @@
    > If you are running version 3.14.20, 3.15.15, 3.16.11, 3.17.8, 3.18.2, or a later version including future releases like 3.19, you no longer need to put the primary in maintenance mode prior to running `ghe-repl-start`. This command is no longer expected to cause an outage on the primary server. However, when setting up a new replica, `ghe-repl-start` won't cause an outage as long as you run `ghe-config-apply` between `ghe-repl-setup` and `ghe-repl-start`. Skipping `ghe-config-apply` and going straight from `ghe-repl-setup` to `ghe-repl-start` will still result in an outage.
 
    {% else %}
-   > [!WARNING]
 
    > [!WARNING]
    > To ensure uninterrupted service when setting up a new replica, run `ghe-config-apply` between `ghe-repl-setup` and `ghe-repl-start`. This allows the primary server to remain available throughout the replication setup process.

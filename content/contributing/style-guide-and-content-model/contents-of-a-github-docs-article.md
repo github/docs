@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Follow the style guide and content model
 ---
 
 ## About the structure of an article
@@ -51,20 +53,15 @@ Titles can be challenging. Use these general guidelines to help create clear, he
 
 ## Intro
 
-The top of every page has an intro that provides context and sets expectations, allowing readers to quickly decide if the page is relevant to them. Intros also are displayed in search results to provide contextual information to help readers choose a result.
+Every page and article has an intro which describes what they’re about. The text we use for intros is also displayed within search results, making them important for SEO.  
 
 ### How to write an intro
 
-* Article intros are one to two sentences long.
-* Map topic and category intros are one sentence long.
-* API reference intros are one sentence long.
-  * The intro for an API page should define the feature so that someone knows whether the feature meets their needs without reading the entire article.
-* Intros contain a high-level summary of the page’s content, developing the idea presented in a title with more detail.
-  * Use approachable synonyms of words in the page’s title to help readers understand the article’s purpose differently. Avoid repeating words from the title when possible.
-* Intros are relatively evergreen and high-level, so they can scale with future changes to the content on the page without needing to be frequently updated.
-* For searchability, include keywords on the page's subject in the intro.
-* When a term in the intro has an acronym we’ll use elsewhere in the article, indicate the acronym.
-* Intros generally don't contain permissions for any tasks contained within the article.
+* Intros should be concise, ideally one sentence long.
+* Intros help people know if they’re in the right place for what they need. Let the user know what value is being provided to them, using words they would use and search for.
+* Intros are also an invitation to continue reading. A good intro reassures the reader that their time is being well spent. 
+* If an important term has a related acronym that is generally used in its place, include the acronym in the intro. (Example: Search engine optimization and SEO.)
+* Finally, review your intro to ensure it is search engine friendly by including relevant keywords and phrases.
 
 ## Permissions statements
 
@@ -115,11 +112,11 @@ Tables of contents are automatically generated. For more information see [Autoge
 
 ## Conceptual content
 
-Conceptual content helps people understand or learn about a topic. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/conceptual-content-type) in the content model.
+Conceptual content helps people understand or learn about a topic. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/concepts-content-type) in the content model.
 
 ## Referential content
 
-Referential content provides structured information related to actively using a product or feature. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/referential-content-type) in the content model.
+Referential content provides structured information related to actively using a product or feature. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/reference-content-type) in the content model.
 
 ## Prerequisites
 
@@ -140,12 +137,12 @@ Prerequisites are information that people need to know before proceeding with a 
 
 ### Examples of articles with prerequisites sections
 
-* [AUTOTITLE](/enterprise-server@latest/admin/installation/installing-github-enterprise-server-on-aws)
-* [AUTOTITLE](/enterprise-server@latest/admin/configuration/enabling-subdomain-isolation)
+* [AUTOTITLE](/enterprise-server@latest/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-aws)
+* [AUTOTITLE](/enterprise-server@latest/admin/configuring-settings/hardening-security-for-your-enterprise/enabling-subdomain-isolation)
 
-## Procedural content
+## How-to content
 
-Procedural content helps people complete tasks. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/procedural-content-type) in the content model.
+How-to content helps people complete tasks. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/how-to-content-type) in the content model.
 
 ## Troubleshooting content
 
@@ -165,7 +162,7 @@ When an article describes one step in a larger process or has a logical next ste
 - {% data variables.product.company_short %} recommends that you review security considerations for self-hosted runner machines. See "Security hardening for {% data variables.product.prodname_actions %}."
 ```
 
-In this example from [AUTOTITLE](/enterprise-cloud@latest/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise#next-steps), the next steps section includes links to procedures that someone will need to do after they start using the feature described in the article.
+In this example from [AUTOTITLE](/enterprise-cloud@latest/admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise#next-steps), the next steps section includes links to procedures that someone will need to do after they start using the feature described in the article.
 
 ```markdown
 ## Next steps

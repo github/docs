@@ -1,6 +1,7 @@
 import type { Context, Page } from '@/types'
 import type { PageTransformer } from './types'
 import type { CategorizedEvents } from '@/audit-logs/types'
+import type { TitleResolutionContext } from '@/audit-logs/lib/index'
 import { renderContent } from '@/content-render/index'
 import { loadTemplate } from '@/article-api/lib/load-template'
 import matter from '@gr2m/gray-matter'
@@ -94,12 +95,16 @@ export class AuditLogsTransformer implements PageTransformer {
     categoryNotes: Record<string, string>,
     context: Context,
     manualContent: string,
-    resolveReferenceLinksToMarkdown: (docsReferenceLinks: string, context: any) => Promise<string>,
+    resolveReferenceLinksToMarkdown: (
+      docsReferenceLinks: string,
+      context: TitleResolutionContext,
+    ) => Promise<string>,
   ): Promise<Record<string, unknown>> {
     // Prepare page intro
     const intro = page.intro ? await page.renderProp('intro', context, { textOnly: true }) : ''
 
-    // Sort categories and events
+    // Sort categories and events, and compute fields shared by most (≥80%) events
+    const allFieldSets: string[][] = []
     const sortedCategorizedEvents: CategorizedEvents = {}
     const sortedCategories = Object.keys(categorizedEvents).sort((a, b) => a.localeCompare(b))
 
@@ -114,12 +119,38 @@ export class AuditLogsTransformer implements PageTransformer {
           if (newEvent.docs_reference_links && newEvent.docs_reference_links !== 'N/A') {
             newEvent.docs_reference_links = await resolveReferenceLinksToMarkdown(
               newEvent.docs_reference_links,
-              context,
+              context as TitleResolutionContext,
             )
+          }
+          if (newEvent.fields) {
+            allFieldSets.push(newEvent.fields)
           }
           return newEvent
         }),
       )
+    }
+
+    // Compute base fields that appear in ≥80% of events
+    const fieldCounts = new Map<string, number>()
+    for (const fields of allFieldSets) {
+      for (const f of fields) {
+        fieldCounts.set(f, (fieldCounts.get(f) || 0) + 1)
+      }
+    }
+    const threshold = allFieldSets.length * 0.8
+    const baseFields = [...fieldCounts.entries()]
+      .filter(([, count]) => count >= threshold)
+      .map(([field]) => field)
+      .sort()
+
+    // Remove base fields from each event's field list
+    const baseFieldSet = new Set(baseFields)
+    for (const category of Object.keys(sortedCategorizedEvents)) {
+      for (const event of sortedCategorizedEvents[category]) {
+        if (event.fields) {
+          event.fields = event.fields.filter((f: string) => !baseFieldSet.has(f))
+        }
+      }
     }
 
     return {
@@ -130,6 +161,7 @@ export class AuditLogsTransformer implements PageTransformer {
       manualContent,
       categorizedEvents: sortedCategorizedEvents,
       categoryNotes,
+      baseFields,
     }
   }
 }

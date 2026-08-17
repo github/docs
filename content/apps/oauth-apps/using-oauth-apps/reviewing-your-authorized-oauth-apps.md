@@ -12,10 +12,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 shortTitle: Review OAuth apps
+category:
+  - Install and authorize apps
 ---
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.access_applications %}
@@ -25,6 +24,6 @@ shortTitle: Review OAuth apps
 ## Further reading
 
 {% ifversion fpt or ghec %}
-* [AUTOTITLE](/get-started/exploring-integrations/about-integrations){% endif %}
-* [AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)
+* [AUTOTITLE](/integrations/concepts/about-integrations){% endif %}
+* [AUTOTITLE](/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps)
 * [AUTOTITLE](/apps/oauth-apps/using-oauth-apps/privileged-oauth-apps)

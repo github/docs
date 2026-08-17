@@ -7,11 +7,10 @@ category:
   - Prompt files
   - Team collaboration
   - Configure Copilot
+  - Scale institutional knowledge
 complexity:
   - Simple
 octicon: copilot
-topics:
-  - Copilot
 contentType: tutorials
 ---
 

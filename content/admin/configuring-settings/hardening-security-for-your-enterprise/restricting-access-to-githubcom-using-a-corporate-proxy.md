@@ -5,6 +5,8 @@ shortTitle: 'Block personal accounts'
 product: 'Enterprises with {% data variables.product.prodname_emus %} on {% data variables.product.prodname_dotcom_the_website %}'
 versions:
   ghec: '*'
+category:
+  - Secure and govern your enterprise
 ---
 
 If you use {% data variables.product.prodname_emus %}, you can block users on your network from authenticating to {% data variables.product.prodname_dotcom_the_website %} with accounts that are not members of your enterprise. This helps reduce the risk of your company's data being exposed to the public.
@@ -17,7 +19,7 @@ This feature requires an external firewall or proxy. {% data variables.contact.g
 
 This feature is not enabled by default. An enterprise owner can enable the feature for your enterprise.
 
-{% data reusables.enterprise-accounts.access-enterprise-emu %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 1. Under {% octicon "gear" aria-hidden="true" aria-label="gear" %} **Settings**, click **Authentication security**.
 1. In the "Enterprise access restrictions" section, select **Enable enterprise access restrictions**.
@@ -42,7 +44,7 @@ sec-GitHub-allowed-enterprise: ENTERPRISE-ID
 
 An enterprise owner can identify the correct enterprise ID to use in the header for your enterprise.
 
-{% data reusables.enterprise-accounts.access-enterprise-emu %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 1. Under {% octicon "gear" aria-hidden="true" aria-label="gear" %} **Settings**, click **Authentication security**.
 1. In the "Enterprise access restrictions" section, find the header for your enterprise.
@@ -96,7 +98,7 @@ Because this restriction only applies to requests that are sent via a proxy that
 | SSH access | Port 22 on {% data variables.product.prodname_dotcom_the_website %} | To restrict access, block the endpoint entirely. |
 | SSH over HTTPS        | `ssh.github.com`          | To restrict access, block the endpoint entirely. |
 | {% data variables.product.github %}-hosted runners | Various | To enforce specific routing, use Azure private networking. See [AUTOTITLE](/admin/configuring-settings/configuring-private-networking-for-hosted-compute-products/about-azure-private-networking-for-github-hosted-runners-in-your-enterprise). |
-| Self-hosted runners | Various | To enforce specific routing, utilize a proxy server. See [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/use-proxy-servers). |
+| Self-hosted runners | Various | To enforce specific routing, utilize a proxy server. See [AUTOTITLE](/actions/how-tos/manage-runners/use-proxy-servers). |
 
 ### Endpoints that don't require restriction
 
@@ -219,4 +221,4 @@ Generally, `400` errors occur in the following situations.
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/managing-github-copilot-access-to-your-organizations-network#configuring-copilot-subscription-based-network-routing-for-your-organization)
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-access/manage-network-access#configuring-copilot-subscription-based-network-routing-for-your-enterprise-or-organization)

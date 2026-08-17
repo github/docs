@@ -70,6 +70,16 @@ describe('article body api', () => {
 
   // Removed: non-article pages test - landing pages are now supported via transformers
 
+  test('glossary page renders glossary terms', async () => {
+    const res = await get(makeURL('/en/get-started/learning-about-github/github-glossary'))
+    expect(res.statusCode).toBe(200)
+    // Glossary terms come from the glossaries middleware context,
+    // not from the markdown body itself.
+    expect(res.body).toContain('## foo')
+    expect(res.body).toContain('## check')
+    expect(res.body).toContain('Foo is an intentionally meaningless placeholder')
+  })
+
   test('invalid Referer header does not crash', async () => {
     const res = await get(makeURL('/en/get-started/start-your-journey/hello-world'), {
       headers: {

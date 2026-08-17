@@ -45,7 +45,6 @@ export interface GeneralSearchHitWithoutIncludes {
   url: string
   title: string
   breadcrumbs: string
-  topics?: string[]
   score?: number
   popularity?: number
   es_url?: string

@@ -1,10 +1,6 @@
 ---
 title: Troubleshooting firewall settings for GitHub Copilot
 intro: Troubleshooting help for firewall-related errors.
-topics:
-  - Copilot
-  - Troubleshooting
-  - Networking
 versions:
   feature: copilot
 shortTitle: Troubleshoot firewall settings
@@ -23,4 +19,4 @@ If you or your company uses a firewall, {% data variables.product.prodname_copil
 
 ## Solving the problem
 
-For an optimal {% data variables.product.prodname_copilot_short %} experience, you should create an "allowlist" that lets certain URLs, ports, and protocols through your firewall. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/configuring-your-proxy-server-or-firewall-for-copilot).
+For an optimal {% data variables.product.prodname_copilot_short %} experience, you should create an "allowlist" that lets certain URLs, ports, and protocols through your firewall. See [AUTOTITLE](/copilot/reference/copilot-allowlist-reference).

@@ -8,14 +8,11 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams
   - /organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization
 
-layout: product-landing
+layout: discovery-landing
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 children:
   - /keeping-your-organization-secure
 ---

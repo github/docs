@@ -3,8 +3,6 @@ title: REST API endpoints for billing
 shortTitle: Billing
 allowTitleToDifferFromFilename: true
 intro: Use the REST API to get billing information.
-topics:
-  - API
 versions:
   fpt: '*'
   ghec: '*'

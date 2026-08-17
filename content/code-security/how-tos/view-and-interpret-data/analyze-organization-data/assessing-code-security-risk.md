@@ -6,13 +6,6 @@ intro: You can use security overview to see which teams and repositories are aff
 permissions: '{% data reusables.permissions.security-overview %}'
 product: '{% data reusables.gated-features.security-overview-fpt-both %}'
 contentType: how-tos
-topics:
-  - Security overview
-  - Code Security
-  - Secret Protection
-  - Alerts
-  - Organizations
-  - Teams
 versions:
   fpt: '*'
   ghes: '*'
@@ -20,16 +13,18 @@ versions:
 redirect_from:
   - /code-security/security-overview/viewing-the-security-overview
   - /code-security/security-overview/assessing-code-security-risk
+category:
+  - Secure at scale
 ---
 
 ## Exploring the security risks in your code
 
-You can use the different views on your **Security** tab to explore the security risks in your code.
+You can use the different views on your **{% data variables.product.prodname_security_and_quality_tab %}** tab to explore the security risks in your code.
 
 * **Overview:** use to explore trends in **Detection**, **Remediation**, and **Prevention** of security alerts.
 * **Risk:** use to explore the current state of repositories, across all alert types.{% ifversion secret-risk-assessment %}
 * **Assessments:** use to explore the current state of repositories, for secret leaks specifically{% endif %}
-* **Alerts views:** use to explore {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_dependabot %}, or {% data variables.product.prodname_secret_scanning %} alerts in greater detail.
+* **Findings:** use to explore {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_dependabot %}, or {% data variables.product.prodname_secret_scanning %} alerts in greater detail.
 
 These views provide you with the data and filters to:
 
@@ -39,7 +34,7 @@ These views provide you with the data and filters to:
 * Understand how your organization is affected by secret leaks and exposures.{% endif %}{% ifversion security-overview-export-data %}
 * Export your current selection of data for further analysis and reporting.  {% endif %}
 
-For information about the **Overview**, see [AUTOTITLE](/code-security/security-overview/viewing-security-insights).
+For information about the **Overview**, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-security-insights).
 
 ## Viewing organization-level security risks in code
 
@@ -53,7 +48,7 @@ For information about the **Overview**, see [AUTOTITLE](/code-security/security-
     {% data reusables.security-overview.unaffected-repositories %}
 
 {% data reusables.organizations.security-overview-feature-specific-page %} {% ifversion security-overview-export-data %}
-1. Optionally, use the **{% octicon "download" aria-hidden="true" aria-label="download" %} Export CSV** button to download a CSV file of the data currently displayed on the page for security research and in-depth data analysis. For more information, see [AUTOTITLE](/code-security/security-overview/exporting-data-from-security-overview). {% endif %}
+1. Optionally, use the **{% octicon "download" aria-hidden="true" aria-label="download" %} Export CSV** button to download a CSV file of the data currently displayed on the page for security research and in-depth data analysis. For more information, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/export-data). {% endif %}
 
 {% data reusables.security-overview.alert-differences %}
 
@@ -72,7 +67,7 @@ You can view data for security alerts across organizations in an enterprise.
 
     {% data reusables.security-overview.unaffected-repositories %}
 {% data reusables.organizations.security-overview-feature-specific-page %}{% ifversion security-overview-export-data %}
-1. Optionally, use the {% octicon "download" aria-hidden="true" aria-label="download" %} **Export CSV** button to download a CSV file of the data currently displayed on the page for security research and in-depth data analysis. For more information, see [AUTOTITLE](/code-security/security-overview/exporting-data-from-security-overview). {% endif %}
+1. Optionally, use the {% octicon "download" aria-hidden="true" aria-label="download" %} **Export CSV** button to download a CSV file of the data currently displayed on the page for security research and in-depth data analysis. For more information, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/export-data). {% endif %}
 
 {% data reusables.security-overview.alert-differences %}
 
@@ -80,5 +75,5 @@ You can view data for security alerts across organizations in an enterprise.
 
 ## Next steps
 
-When you have assessed your security risks, you are ready to create a security campaign to collaborate with developers to remediate alerts. For information about fixing security alerts at scale, see [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-managing-security-campaigns) and [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale).
+When you have assessed your security risks, you are ready to create a security campaign to collaborate with developers to remediate alerts. For information about fixing security alerts at scale, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/creating-managing-security-campaigns) and [AUTOTITLE](/code-security/tutorials/secure-your-organization/best-practice-fix-alerts-at-scale).
 {% endif %}

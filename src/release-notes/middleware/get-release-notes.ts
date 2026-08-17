@@ -1,5 +1,5 @@
 import { getDataByLanguage, getDeepDataByLanguage } from '@/data-directory/lib/get-data'
-import type { ReleaseNotes } from '@/types'
+import type { GHESReleasePatch, ReleaseNotes } from '@/types'
 
 // If we one day support release-notes for other products, add it here.
 // Checking against this is only really to make sure there's no typos
@@ -47,7 +47,7 @@ export function getReleaseNotes(prefix: string, langCode: string) {
       const data = getDataByLanguage(
         `release-notes.${prefix}.${majorVersion}.${minorVersion}`,
         langCode,
-      )
+      ) as GHESReleasePatch
       // A simple but powerful validation. If the `sections:` thing
       // is incorrectly translated so it's no longer an array, then we
       // don't pick this up from the translation.

@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Create from a template
+category:
+  - Create and set up a repository
 ---
 ## About repository templates
 
@@ -28,7 +28,7 @@ Creating a repository from a template is similar to forking a repository, but th
 * Commits to a fork don't appear in your contributions graph, while commits to a repository created from a template do appear in your contribution graph.
 * A fork can be a temporary way to contribute code to an existing project, while creating a repository from a template starts a new project quickly.
 
-For more information about forks, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks).
+For more information about forks, see [AUTOTITLE](/pull-requests/reference/forks).
 
 ## Creating a repository from a template
 
@@ -40,7 +40,7 @@ For more information about forks, see [AUTOTITLE](/pull-requests/collaborating-w
    ![Screenshot of the "Use this template" button and the dropdown menu expanded to show the "Open in a codespace" option.](/assets/images/help/repository/use-this-template-button.png)
 
    > [!NOTE]
-   > Alternatively, you can open the template in a codespace and publish your work to a new repository later. For more information, see [AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template).
+   > Alternatively, you can open the template in a codespace and publish your work to a new repository later. For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template).
 
 {% endif %}
 {% data reusables.repositories.owner-drop-down %}

@@ -51,4 +51,39 @@ describe('discovery landing transformer', () => {
     // Should have at least one section
     expect(res.body).toContain('##')
   })
+
+  test('articles include intros rendered with Liquid', async () => {
+    const res = await get(makeURL('/en/get-started/article-grid-discovery'))
+    expect(res.statusCode).toBe(200)
+
+    // Articles should have intros (Liquid-rendered from frontmatter)
+    expect(res.body).toContain('This is the first test article for the article grid component.')
+    expect(res.body).toContain('This is the fourth test article for the article grid component.')
+  })
+
+  test('filters articles by includedCategories', async () => {
+    const res = await get(makeURL('/en/get-started/discovery-filtered'))
+    expect(res.statusCode).toBe(200)
+
+    // "Included Article" has category "Getting started" and should appear
+    expect(res.body).toContain('[Included Article]')
+
+    // "Excluded Article" has category "Advanced" and should be filtered out
+    expect(res.body).not.toContain('[Excluded Article]')
+  })
+
+  test('recursive articles stay within product section (basePath guard)', async () => {
+    const res = await get(makeURL('/en/get-started/article-grid-discovery'))
+    expect(res.statusCode).toBe(200)
+
+    // All four articles from both categories should appear
+    expect(res.body).toContain('[Grid Article One]')
+    expect(res.body).toContain('[Grid Article Two]')
+    expect(res.body).toContain('[Grid Article Three]')
+    expect(res.body).toContain('[Grid Article Four]')
+
+    // Category pages themselves should NOT appear (excludeParents: true)
+    expect(res.body).not.toContain('[Grid Category One]')
+    expect(res.body).not.toContain('[Grid Category Two]')
+  })
 })

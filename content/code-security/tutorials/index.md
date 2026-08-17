@@ -6,16 +6,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Secret Protection
-  - Secret scanning
-  - Code Security
-  - Code scanning
-  - Vulnerabilities
-  - Dependencies
-  - Dependabot
 contentType: tutorials
 children:
+  - /secret-protection-adoption-path
+  - /code-quality-adoption-path
   - /trialing-github-advanced-security
   - /adopting-github-advanced-security-at-scale
   - /secure-your-organization
@@ -28,3 +22,4 @@ children:
   - /improve-code-quality
   - /fix-reported-vulnerabilities
 ---
+

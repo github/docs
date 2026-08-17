@@ -142,6 +142,7 @@ function excludeHidden(tree: TitlesTree) {
   }
   if (tree.sidebarLink) newTree.sidebarLink = tree.sidebarLink
   if (tree.layout && typeof tree.layout === 'string') newTree.layout = tree.layout
+  if (tree.crossProductChild) newTree.crossProductChild = true
   return newTree
 }
 
@@ -149,7 +150,16 @@ function sidebarTree(tree: TitlesTree) {
   const { href, title, shortTitle, childPages, sidebarLink } = tree
   // Filter out cross-product children from the sidebar
   const filteredChildPages = childPages.filter((child) => !child.crossProductChild)
-  const childChildPages = filteredChildPages.map(sidebarTree)
+
+  // Filter out children that are descendants of another sibling.
+  // When a page lists both a subdirectory and individual articles from it,
+  // the articles should only appear nested under the subdirectory in the sidebar.
+  const siblingHrefs = filteredChildPages.map((c) => c.href)
+  const dedupedChildPages = filteredChildPages.filter(
+    (child) => !siblingHrefs.some((sh) => sh !== child.href && child.href.startsWith(`${sh}/`)),
+  )
+
+  const childChildPages = dedupedChildPages.map(sidebarTree)
   const newTree: TitlesTree = {
     href,
     title: shortTitle || title,

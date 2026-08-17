@@ -1,20 +1,21 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 
-import cheerio from 'cheerio'
-import { beforeAll, beforeEach, describe, expect, test } from 'vitest'
+import { load } from 'cheerio'
+import { beforeAll, describe, expect, test } from 'vitest'
 
 import Page, { FrontmatterErrorsError } from '@/frame/lib/page'
 import { allVersions } from '@/versions/lib/all-versions'
 import enterpriseServerReleases, { latest } from '@/versions/lib/enterprise-server-releases'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
+import type { Context } from '@/types'
 
 interface TestContext {
   currentVersion: string
   currentLanguage: string
   currentPath?: string
   enterpriseServerVersions?: string[]
-  [key: string]: any
+  [key: string]: unknown
 }
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -26,8 +27,7 @@ const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
 const nonEnterpriseDefaultPlan = nonEnterpriseDefaultVersion.split('@')[0]
 
 const opts = {
-  relativePath:
-    'pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md',
+  relativePath: 'pull-requests/reference/branches.md',
   basePath: path.join(__dirname, '../../../content'),
   languageCode: 'en',
 }
@@ -56,7 +56,7 @@ describe('Page class', () => {
         relativePath: article!.relativePath,
         basePath: article!.basePath,
         languageCode: article!.languageCode,
-      } as any)
+      } as Parameters<typeof Page.init>[0])
 
       tocPage = await Page.init({
         relativePath: 'sample-toc-index.md',
@@ -97,33 +97,39 @@ describe('Page class', () => {
       }
       context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page!.relativePath}`
       let rendered = await page!.render(context)
-      let $ = cheerio.load(rendered)
-      expect(($ as any).text()).toBe(
+      let $ = load(rendered)
+      expect(($ as unknown as { text(): string }).text()).toBe(
         'This text should render on any actively supported version of Enterprise Server',
       )
-      expect(($ as any).text()).not.toBe('This text should only render on non-Enterprise')
+      expect(($ as unknown as { text(): string }).text()).not.toBe(
+        'This text should only render on non-Enterprise',
+      )
 
       // change version to the oldest enterprise version, re-render, and test again;
       // the results should be the same
       context.currentVersion = `enterprise-server@${enterpriseServerReleases.oldestSupported}`
       context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page!.relativePath}`
       rendered = await page!.render(context)
-      $ = cheerio.load(rendered)
-      expect(($ as any).text()).toBe(
+      $ = load(rendered)
+      expect(($ as unknown as { text(): string }).text()).toBe(
         'This text should render on any actively supported version of Enterprise Server',
       )
-      expect(($ as any).text()).not.toBe('This text should only render on non-Enterprise')
+      expect(($ as unknown as { text(): string }).text()).not.toBe(
+        'This text should only render on non-Enterprise',
+      )
 
       // change version to non-enterprise, re-render, and test again;
       // the results should be the opposite
       context.currentVersion = nonEnterpriseDefaultVersion
       context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page!.relativePath}`
       rendered = await page!.render(context)
-      $ = cheerio.load(rendered)
-      expect(($ as any).text()).not.toBe(
+      $ = load(rendered)
+      expect(($ as unknown as { text(): string }).text()).not.toBe(
         'This text should render on any actively supported version of Enterprise Server',
       )
-      expect(($ as any).text()).toBe('This text should only render on non-Enterprise')
+      expect(($ as unknown as { text(): string }).text()).toBe(
+        'This text should only render on non-Enterprise',
+      )
     })
 
     test('support next to-be-released Enterprise Server version in frontmatter', async () => {
@@ -180,7 +186,7 @@ describe('Page class', () => {
 
     test('has a key for every supported enterprise version (and no deprecated versions)', async () => {
       const page = await Page.init(opts)
-      const pageVersions = page!.permalinks.map((permalink: any) => permalink.pageVersion)
+      const pageVersions = page!.permalinks.map((permalink) => permalink.pageVersion)
       expect(
         enterpriseServerReleases.supported.every((version) =>
           pageVersions.includes(`enterprise-server@${version}`),
@@ -195,16 +201,14 @@ describe('Page class', () => {
 
     test('sets versioned values', async () => {
       const page = await Page.init(opts)
-      const expectedPath =
-        'pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches'
+      const expectedPath = 'pull-requests/reference/branches'
       expect(
-        page!.permalinks.find(
-          (permalink: any) => permalink.pageVersion === nonEnterpriseDefaultVersion,
-        )!.href,
+        page!.permalinks.find((permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion)!
+          .href,
       ).toBe(`/en/${expectedPath}`)
       expect(
         page!.permalinks.find(
-          (permalink: any) =>
+          (permalink) =>
             permalink.pageVersion ===
             `enterprise-server@${enterpriseServerReleases.oldestSupported}`,
         )!.href,
@@ -238,12 +242,12 @@ describe('Page class', () => {
       })
       expect(
         page!.permalinks.find(
-          (permalink: any) => permalink.pageVersion === `enterprise-server@${latest}`,
+          (permalink) => permalink.pageVersion === `enterprise-server@${latest}`,
         )!.href,
       ).toBe(
         `/en/enterprise-server@${enterpriseServerReleases.latest}/products/admin/some-category/some-article`,
       )
-      const pageVersions = page!.permalinks.map((permalink: any) => permalink.pageVersion)
+      const pageVersions = page!.permalinks.map((permalink) => permalink.pageVersion)
       expect(page!.permalinks.length).toBeGreaterThan(0)
       expect(pageVersions.includes(nonEnterpriseDefaultVersion)).toBe(false)
     })
@@ -255,42 +259,10 @@ describe('Page class', () => {
         languageCode: 'en',
       })
       expect(
-        page!.permalinks.find(
-          (permalink: any) => permalink.pageVersion === nonEnterpriseDefaultVersion,
-        )!.href,
+        page!.permalinks.find((permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion)!
+          .href,
       ).toBe('/en/products/actions/some-category/some-article')
       expect(page!.permalinks.length).toBe(1)
-    })
-  })
-
-  describe('videos', () => {
-    let page: Page | undefined
-
-    beforeEach(async () => {
-      page = await Page.init({
-        relativePath: 'article-with-videos.md',
-        basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),
-        languageCode: 'en',
-      })
-    })
-
-    test('includes videos specified in the featuredLinks frontmatter', async () => {
-      expect((page as any)!.featuredLinks.videos).toStrictEqual([
-        {
-          title: 'codespaces',
-          href: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc',
-        },
-        {
-          title: 'more codespaces',
-          href: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc',
-        },
-        {
-          title: 'even more codespaces',
-          href: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc',
-        },
-      ])
-
-      expect((page as any)!.featuredLinks.videosHeading).toBe('Custom Videos heading')
     })
   })
 
@@ -313,7 +285,11 @@ describe('Page class', () => {
     test('throws an error on bad input', () => {
       const markdown = null
       expect(() => {
-        ;(Page as any).parseFrontmatter('some/file.md', markdown)
+        ;(
+          Page as unknown as {
+            parseFrontmatter: (file: string, markdown: unknown) => void
+          }
+        ).parseFrontmatter('some/file.md', markdown)
       }).toThrow()
     })
   })
@@ -325,8 +301,8 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),
         languageCode: 'en',
       })
-      expect((page!.versions as any).fpt).toBe('*')
-      expect((page!.versions as any).ghes).toBe('>3.0')
+      expect(page!.versions.fpt).toBe('*')
+      expect(page!.versions.ghes).toBe('>3.0')
       expect(page!.applicableVersions.includes('free-pro-team@latest')).toBe(true)
       expect(page!.applicableVersions.includes(`enterprise-server@${latest}`)).toBe(true)
     })
@@ -396,8 +372,8 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../../../src/fixtures/fixtures/products'),
         languageCode: 'en',
       })
-      expect((page as any)!.defaultPlatform).toBeDefined()
-      expect((page as any)!.defaultPlatform).toBe('linux')
+      expect((page as unknown as { defaultPlatform?: string })!.defaultPlatform).toBeDefined()
+      expect((page as unknown as { defaultPlatform?: string })!.defaultPlatform).toBe('linux')
     })
   })
 
@@ -408,8 +384,8 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),
         languageCode: 'en',
       })
-      expect((page as any)!.defaultTool).toBeDefined()
-      expect((page as any)!.defaultTool).toBe('cli')
+      expect((page as unknown as { defaultTool?: string })!.defaultTool).toBeDefined()
+      expect((page as unknown as { defaultTool?: string })!.defaultTool).toBe('cli')
     })
   })
 })
@@ -464,13 +440,22 @@ describe('catches errors thrown in Page class', () => {
   })
 
   describe('versioning optional attributes', () => {
-    test("re-rendering set appropriate 'product', 'permissions', 'learningTracks'", async () => {
+    test("re-rendering set appropriate 'product', 'permissions'", async () => {
       const page = await Page.init({
         relativePath: 'page-with-optional-attributes.md',
         basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),
         languageCode: 'en',
       })
-      const context: any = {
+      const context: {
+        page: { version: string }
+        currentVersion: string
+        currentVersionObj: object
+        currentProduct: string
+        currentLanguage: string
+        currentPath: string
+        fpt: boolean
+        version?: string
+      } = {
         page: { version: `enterprise-server@3.2` },
         currentVersion: `enterprise-server@3.2`,
         currentVersionObj: {},
@@ -480,7 +465,7 @@ describe('catches errors thrown in Page class', () => {
         fpt: false, // what the shortVersions contextualizer does
       }
 
-      await page!.render(context)
+      await page!.render(context as unknown as Context)
       expect(page!.product).toBe('')
       expect(page!.permissions).toBe('')
 
@@ -489,7 +474,7 @@ describe('catches errors thrown in Page class', () => {
       context.version = nonEnterpriseDefaultVersion
       context.currentPath = '/en/optional/attributes'
       context.fpt = true
-      await page!.render(context)
+      await page!.render(context as unknown as Context)
       expect(page!.product).toContain('FPT rulez!')
       expect(page!.permissions).toContain('FPT only!')
     })

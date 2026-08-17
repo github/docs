@@ -8,15 +8,11 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: tutorials
-topics:
-  - Dependabot
-  - Version updates
-  - Repositories
-  - Dependencies
-  - Pull requests
 shortTitle: Optimize PR creation
 redirect_from:
   - /code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates
+category:
+  - Secure your dependencies
 ---
 
 By default, {% data variables.product.prodname_dependabot %} opens a new pull request to update each dependency. When you enable security updates, new pull requests are opened when a vulnerable dependency is found. When you configure version updates for one or more ecosystems, new pull requests are opened when new versions of dependencies are available, with the frequency defined in the `dependabot.yml` file.
@@ -29,7 +25,7 @@ There are a couple of customization options you can implement to optimize {% dat
 
 ## Controlling the frequency and timings of dependency updates
 
-{% data variables.product.prodname_dependabot %} runs its checks for version updates at a frequency set by you in the configuration file, where the required field, `schedule.interval`, must be set to `daily`, `weekly`, `monthly`, `quarterly`, `semiannually`, `yearly`, or `cron` (see [`cronjob`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#cronjob)).
+{% data variables.product.prodname_dependabot %} runs its checks for version updates at a frequency set by you in the configuration file, where the required field, `schedule.interval`, must be set to `daily`, `weekly`, `monthly`, `quarterly`, `semiannually`, `yearly`, or `cron` (see [`cronjob`](/code-security/reference/supply-chain-security/dependabot-options-reference#cronjob)).
 
 By default, {% data variables.product.prodname_dependabot %} balances its workload by assigning a random time to check and raise pull requests for dependency updates.
 
@@ -58,13 +54,19 @@ updates:
       timezone: "Asia/Tokyo"
 ```
 
-See also [schedule](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#schedule-).
+See also [schedule](/code-security/reference/supply-chain-security/dependabot-options-reference#schedule-).
 
 {% ifversion dependabot-option-cooldown %}
 
 ### Setting up a cooldown period for dependency updates
 
-You can use  `cooldown` with a combination of options to control when {% data variables.product.prodname_dependabot %} creates pull requests for **version updates**.
+You can use `cooldown` with a combination of options to control when {% data variables.product.prodname_dependabot %} creates pull requests for **version updates**, but not **security updates**.
+
+{% ifversion dependabot-cooldown-default-days %}
+
+{% data reusables.dependabot.default-cooldown-period %}
+
+{% endif %}
 
 The example `dependabot.yml` file below shows a cooldown period being applied to the dependencies `requests`, `numpy`, and those prefixed with `pandas` or `django`, but not to the dependency called `pandas` (exact match), which is excluded via the **exclude** list.
 
@@ -104,11 +106,13 @@ SemVer is supported for most package managers. Updates to new versions for depen
 * Minor updates: Delayed by 7 days (`semver-minor-days: 7`).
 * Patch updates: Delayed by 3 days (`semver-patch-days: 3`).
 
-See also [`cooldown`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#cooldown-).
+See also [`cooldown`](/code-security/reference/supply-chain-security/dependabot-options-reference#cooldown-).
 
 {% endif %}
 
 ## Prioritizing meaningful updates
+
+### Grouping related dependencies together
 
 You can use `groups` to consolidate updates for multiple dependencies into a single pull request. This helps you focus your review time on higher risk updates, and minimize the time spent reviewing minor version updates. For example, you can combine updates for minor or patch updates for development dependencies into a single pull request, and have a dedicated group for security or version updates that impact a key area of your codebase.
 
@@ -119,8 +123,41 @@ You must configure groups per individual package ecosystem, then you can create 
 * Dependency name: `patterns` and `exclude-patterns`
 * Semantic versioning levels: `update-types`
 
-To see all supported values for each criterion, see [`groups`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#groups--).
+To see all supported values for each criterion, see [`groups`](/code-security/reference/supply-chain-security/dependabot-options-reference#groups--).
 
 The below examples present several different methods to create groups of dependencies using the criteria.
 
 {% data reusables.dependabot.dependabot-version-updates-groups-yaml-example %}
+
+{% ifversion dependabot-updates-group-by %}
+
+### Grouping updates across directories in a monorepo
+
+If you manage a monorepo with multiple directories that share common dependencies, you can reduce the number of pull requests for version updates by grouping updates by dependency name across all directories.
+
+When you configure {% data variables.product.prodname_dependabot %} to monitor multiple directories and enable grouping by dependency name, {% data variables.product.prodname_dependabot %} will:
+* Create a single pull request for each dependency update that affects multiple directories
+* Update the same dependency to the same version across all directories in one operation
+* Reduce the number of pull requests you need to review
+* Minimize CI/CD costs by running tests once instead of per directory
+
+For more information, see [`group-by`](/code-security/reference/supply-chain-security/dependabot-options-reference#group-by-groups).
+
+This configuration example groups updates by dependency name across the `/frontend`, `/admin-panel`, and `/mobile-app` directories. If `lodash` needs to be updated in all three directories, {% data variables.product.prodname_dependabot %} will create a single pull request named "Bump lodash in monorepo-dependencies group" that updates `lodash` in all three locations.
+
+```yaml
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directories:
+      - "/frontend"
+      - "/admin-panel"
+      - "/mobile-app"
+    schedule:
+      interval: "weekly"
+    groups:
+      monorepo-dependencies:
+        group-by: dependency-name
+```
+
+{% endif %}

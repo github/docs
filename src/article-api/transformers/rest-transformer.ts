@@ -2,11 +2,54 @@ import type { Context, Page } from '@/types'
 import type { PageTransformer } from './types'
 import type { Operation } from '@/rest/components/types'
 import { renderContent } from '@/content-render/index'
+import { engine } from '@/content-render/liquid/engine'
+import { apiTransformerTags } from '@/article-api/liquid-renderers'
 import { loadTemplate } from '@/article-api/lib/load-template'
+import { summarizeSchema } from '@/article-api/lib/summarize-schema'
 import matter from '@gr2m/gray-matter'
 import { fastTextOnly } from '@/content-render/unified/text-only'
+import GithubSlugger from 'github-slugger'
+
+// Register article-api-specific Liquid tags on the shared engine.
+// These are only used by REST templates and kept here (not in engine.ts)
+// to avoid a circular dependency: rest-tags → renderContent → engine.
+for (const [tagName, tagClass] of Object.entries(apiTransformerTags)) {
+  engine.registerTag(tagName, tagClass as unknown as Parameters<typeof engine.registerTag>[1])
+}
 
 const DEBUG = process.env.RUNNER_DEBUG === '1' || process.env.DEBUG === '1'
+
+type PreparedCodeExample = {
+  request: {
+    description: string
+    url: string
+    acceptHeader?: string
+    bodyParameters: string | null
+  }
+  response: {
+    statusCode?: string
+    schema: string | null
+  }
+}
+
+type PreparedOperation = Omit<Operation, 'statusCodes' | 'codeExamples'> & {
+  description: string
+  hasParameters: boolean
+  showHeaders: boolean
+  needsContentTypeHeader: boolean
+  statusCodes?: Array<{ httpStatusCode: string; description?: string }>
+  codeExamples: PreparedCodeExample[]
+}
+
+type PreparedTemplateData = {
+  page: {
+    title: Page['title']
+    intro: string
+  }
+  manualContent: string
+  restOperations: PreparedOperation[]
+  apiVersion?: string
+}
 
 /**
  * Transformer for REST API pages
@@ -56,15 +99,14 @@ export class RestTransformer implements PageTransformer {
     const subcategory = pathParts[restIndex + 2] // May be undefined for category-only pages
 
     // Get the REST operations data
-    const restData = await getRest(currentVersion, effectiveApiVersion)
+    const categoryData = await getRest(currentVersion, effectiveApiVersion, category)
 
     let operations: Operation[] = []
 
-    if (subcategory && restData[category]?.[subcategory]) {
-      operations = restData[category][subcategory]
-    } else if (category && restData[category]) {
+    if (subcategory && categoryData?.[subcategory]) {
+      operations = categoryData[subcategory]
+    } else if (category && categoryData) {
       // For categories without subcategories, operations are nested directly
-      const categoryData = restData[category]
       // Flatten all operations from all subcategories
       operations = Object.values(categoryData).flat()
     }
@@ -104,12 +146,14 @@ export class RestTransformer implements PageTransformer {
     // Load and render template
     const templateContent = loadTemplate(this.templateName)
 
-    // Render the template with Liquid
+    // Render the template with Liquid. templateData intentionally replaces
+    // context.page with a simplified, text-rendered {title, intro} for the
+    // template, so the merged object is not a strict Context.
     const rendered = await renderContent(templateContent, {
       ...context,
       ...templateData,
       markdownRequested: true,
-    })
+    } as unknown as Context)
 
     if (DEBUG) console.log(`[DEBUG] RestTransformer completed in ${Date.now() - startTime}ms`)
     return rendered
@@ -124,7 +168,7 @@ export class RestTransformer implements PageTransformer {
     context: Context,
     manualContent: string,
     apiVersion?: string,
-  ): Promise<Record<string, any>> {
+  ): Promise<PreparedTemplateData> {
     // Prepare page intro
     const intro = page.intro ? await page.renderProp('intro', context, { textOnly: true }) : ''
 
@@ -132,6 +176,29 @@ export class RestTransformer implements PageTransformer {
     const preparedOperations = await Promise.all(
       operations.map(async (operation) => await this.prepareOperation(operation)),
     )
+
+    // Deduplicate identical response schemas across operations on the same page.
+    // When multiple endpoints share the same schema, render it once and reference it.
+    const slugger = new GithubSlugger()
+    const titleToSlug = new Map<string, string>()
+    for (const op of preparedOperations) {
+      titleToSlug.set(op.title, slugger.slug(op.title))
+    }
+    const schemaMap = new Map<string, string>()
+    for (const op of preparedOperations) {
+      for (const example of op.codeExamples) {
+        const schema = example.response?.schema
+        if (!schema || typeof schema !== 'string') continue
+
+        const existing = schemaMap.get(schema)
+        if (existing && existing !== op.title) {
+          const slug = titleToSlug.get(existing) || ''
+          example.response.schema = `Same response schema as [${existing}](#${slug}).`
+        } else if (!existing) {
+          schemaMap.set(schema, op.title)
+        }
+      }
+    }
 
     return {
       page: {
@@ -147,7 +214,7 @@ export class RestTransformer implements PageTransformer {
   /**
    * Prepare a single operation for template rendering
    */
-  private async prepareOperation(operation: Operation): Promise<Record<string, any>> {
+  private async prepareOperation(operation: Operation): Promise<PreparedOperation> {
     // Convert HTML description to text
     const description = operation.descriptionHTML ? fastTextOnly(operation.descriptionHTML) : ''
 
@@ -179,6 +246,9 @@ export class RestTransformer implements PageTransformer {
           }
         }
 
+        const responseSchema = (
+          example.response as { schema?: Parameters<typeof summarizeSchema>[0] } | undefined
+        )?.schema
         return {
           request: {
             description: example.request?.description
@@ -192,9 +262,7 @@ export class RestTransformer implements PageTransformer {
           },
           response: {
             statusCode: example.response?.statusCode,
-            schema: (example.response as any)?.schema
-              ? JSON.stringify((example.response as any).schema, null, 2)
-              : null,
+            schema: responseSchema ? summarizeSchema(responseSchema) : null,
           },
         }
       }) || []

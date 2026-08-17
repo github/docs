@@ -5,14 +5,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CLI
-type: overview
 redirect_from:
   - /github/getting-started-with-github/github-cli
   - /github/getting-started-with-github/using-github/github-cli
   - /actions/guides/managing-github-actions-with-github-cli
   - /get-started/using-github/github-cli
+contentType: concepts
+category:
+  - Learn the basics
 ---
 ## About {% data variables.product.prodname_cli %}
 

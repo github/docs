@@ -4,51 +4,43 @@ shortTitle: MCP management
 intro: 'You can manage MCP server usage to provide your developers with valuable tools while maintaining security and compliance.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: concepts
 category:
   - Learn about Copilot
   - Manage Copilot for a team
 ---
 
-You can manage Model Context Protocol (MCP) server usage in your organization or enterprise by configuring a series of MCP policies on {% data variables.product.prodname_dotcom_the_website %}. Through these policies, you can allow or block MCP server usage entirely, or restrict access to a list of servers that you define in an MCP registry.
+{% data reusables.copilot.mcp.intro %}
 
-## MCP registries
+You can manage MCP server usage in your organization or enterprise by configuring MCP policies on {% data variables.product.github %}.
 
-An MCP registry is a directory of MCP servers that acts like a catalog for IDEs and {% data variables.product.prodname_copilot_short %}. Each registry entry points to a server's manifest, which describes the tools, resources, and prompts that server provides.
+The **MCP servers in {% data variables.product.prodname_copilot_short %}** policy defines whether MCP servers can run at all across {% data variables.product.prodname_copilot_short %} clients. We recommend keeping this policy enabled and, if necessary, restricting the MCP servers that users can run to an approved list.
 
-After you create your MCP registry, you can make it available to your company, allowing you to:
-* Curate a catalog of MCP servers your developers can discover and use without context switching
-* Restrict access to unapproved servers for increased security and compliance
-* Provide clarity to developers when a server is blocked by policy
+## MCP allowlists
 
-## MCP policy settings
+The recommended method for creating an allowlist is to use your enterprise's `{% data variables.copilot.managed_setting_file %}` file. This allows you to apply settings across clients that users cannot override.
 
-The following settings let you control how MCP servers are discovered and accessed in your organization or enterprise:
+Alternatively, you can host your own MCP registry and restrict access to servers in the registry. However, this method has weaker enforcement than `{% data variables.copilot.managed_setting_file %}`.
 
-* **MCP servers in {% data variables.product.prodname_copilot_short %}**: Manage the use of MCP servers for all users with {% data variables.product.prodname_copilot_short %} seats in your organization or enterprise.
-* **MCP Registry URL**: Specify the URL of your MCP registry, allowing your developers to discover and use approved MCP servers in supported surfaces.
-* **Restrict MCP access to registry servers**: Choose whether to allow all MCP servers or restrict access to only those listed in your configured registry.
+{% rowheaders %}
 
-## Supported surfaces
+| Method | Managed settings file | Custom registry |
+| ------ | --------------------- | --------------- |
+| Release phase | Generally available | {% data variables.release-phases.public_preview_caps %}, not prioritized for development |
+| Ease of setup | You can host a configuration file on {% data variables.product.github %} that applies automatically to clients. | You must host your own registry that matches the MCP specification and serves HTTPS requests. |
+| Enforcement level | Enterprise-wide settings, overridable for enterprise teams | Enterprise-wide or for individual organizations |
+| Supported clients | Clients supported by the `{% data variables.copilot.managed_setting_file %}` file, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings). Planned to expand in the near future. | See [AUTOTITLE](/copilot/reference/mcp-allowlist-enforcement). |
+| Server matching method | Secure matching based on name, URL, or `stdio` commands | Less secure matching, based on name or ID only. Users can bypass the restriction by editing configuration files. |
 
-MCP management features are supported as follows:
-
-| Surface | Registry display | Allowlist enforcement |
-|---|:---:|:---:|
-| {% data variables.copilot.copilot_cli_short %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| {% data variables.copilot.copilot_coding_agent %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| Eclipse | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| JetBrains | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.product.prodname_vs %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.product.prodname_vscode_shortname %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.product.prodname_vscode_shortname %} Insiders | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| Xcode | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-
-> [!NOTE]
-> For Eclipse, JetBrains, and Xcode, MCP management features are supported in the pre-release versions of {% data variables.product.prodname_copilot_short %}.
+{% endrowheaders %}
 
 ## Next steps
 
-To create your own MCP registry, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-mcp-registry).
+To configure an allowlist on {% data variables.product.github %}, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-enterprise-allowlist).
+
+If you  create your own MCP registry, see
+
+## Further reading
+
+* [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies)
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-mcp-registry)

@@ -5,9 +5,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Configure commit merging
+category:
+  - Configure merges and pull requests
 ---
 {% data reusables.pull_requests.configure_pull_request_merges_intro %}
 
@@ -22,5 +22,5 @@ If you select more than one merge method, collaborators can choose which type of
 
 ## Further reading
 
-* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)
-* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)
+* [AUTOTITLE](/pull-requests/reference/pull-request-merges)
+* [AUTOTITLE](/pull-requests/how-tos/merge-and-close-pull-requests/merging-a-pull-request)

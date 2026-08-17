@@ -6,8 +6,8 @@ A user is considered active if the user has performed any of the following activ
 * Pushing to an internal repository via SSH{% endif %}
 * Being added to a repository
 * Changing the visibility of a repository
-* Creating an issue or pull request
-* Commenting on an issue or pull request
+* Creating a pull request
+* Commenting on a pull request
 * Closing or reopening an issue or pull request
 * Applying a label to an issue or pull request, or removing a label
 * Assigning or unassigning an issue or pull request
@@ -27,6 +27,7 @@ A user is considered active if the user has performed any of the following activ
 
 * Accessing resources by using a {% data variables.product.pat_generic %}, SSH key, or {% data variables.product.prodname_github_app %}.
 * Git operations (such as pushes, pulls, repository cloning) on private repositories.
+* Creating or commenting on an issue.
 
 {% ifversion ghes %}
 A user will also be considered active if their account has been updated by LDAP.

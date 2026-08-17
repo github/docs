@@ -5,27 +5,26 @@ allowTitleToDifferFromFilename: true
 intro: 'Extend {% data variables.product.prodname_copilot_short %}''s functionality by installing plugins created by the community or by your team.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
-  - Configure Copilot
-  - Author and optimize with Copilot
+  - Configure Copilot # Copilot discovery page
+  - Author and optimize with Copilot # Copilot discovery page
+  - Configure Copilot CLI # Copilot CLI bespoke page
 contentType: how-tos
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Introduction
 
-Plugins are packages that extend the functionality of {% data variables.copilot.copilot_cli_short %}. You can install a plugin from a marketplace that you have registered with the CLI, from a {% data variables.product.github %} repository, or from a local path.
+Plugins are packages that extend the functionality of {% data variables.copilot.copilot_cli_short %}. You can install a plugin from a marketplace that you have registered with the CLI.
 
-For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-cli-plugins).
+For more information, see [AUTOTITLE](/copilot/concepts/agents/about-plugins).
 
-{% data reusables.copilot.cli-help-note %}
+{% data reusables.copilot.copilot-cli.cli-help-note %}
 
 ## Finding plugins
 
 Plugins are collected together in marketplaces. A marketplace is a registry of plugins that you can browse and install from. You can add a marketplace to your CLI configuration, which allows you to use the CLI to browse and install plugins from that marketplace—see [Adding plugin marketplaces](#adding-plugin-marketplaces). {% data variables.product.prodname_copilot_short %} comes with two marketplaces already registered by default: `copilot-plugins` and `awesome-copilot`.
-
-Alternatively, you can search for plugin marketplaces online and then add a plugin directly from a repository.
 
 To use the CLI to browse the plugins in one of your registered marketplaces:
 
@@ -49,16 +48,14 @@ To use the CLI to browse the plugins in one of your registered marketplaces:
 
    ```shell copy
    copilot plugin marketplace browse MARKETPLACE-NAME
-   
+
    ```
 
 ## Installing plugins
 
-Typically, you'll install a plugin from one of your registered marketplaces. However, you can also install a plugin directly from a {% data variables.product.github %} repository, or from a local path.
+You can install plugins from a registered marketplace. For information on how to register additional marketplaces, see [Adding plugin marketplaces](#adding-plugin-marketplaces).
 
-For information on how to register additional marketplaces, see [Adding and removing plugin marketplaces](#adding-and-removing-plugin-marketplaces).
-
-### Install from a registered marketplace
+To install a plugin, enter:
 
 ```shell copy
 copilot plugin install PLUGIN-NAME@MARKETPLACE-NAME
@@ -76,26 +73,6 @@ Alternatively, in an interactive session, enter:
 /plugin install PLUGIN-NAME@MARKETPLACE-NAME
 ```
 
-### Install from {% data variables.product.github %} directly
-
-You can install a plugin directly from a {% data variables.product.github %} repository, without first adding a marketplace to your list of registered marketplaces.
-
-```shell copy
-copilot plugin install OWNER/REPO:PATH/TO/PLUGIN
-```
-
-For example,
-
-```shell copy
-copilot plugin install github/awesome-copilot:plugins/security-best-practices
-```
-
-### Install from a local path
-
-```shell copy
-copilot plugin install ./PATH/TO/PLUGIN
-```
-
 ## Managing installed plugins
 
 ```bash
@@ -103,10 +80,6 @@ copilot plugin list                    # View installed plugins
 copilot plugin update PLUGIN-NAME      # Update plugin to latest version
 copilot plugin uninstall PLUGIN-NAME   # Remove plugin completely
 ```
-
-## Where plugins are stored
-
-Plugins installed from a marketplace are stored under: `~/.copilot/installed-plugins/MARKETPLACE/PLUGIN-NAME/`. Plugins installed directly (for example, from a local path) are stored under: `~/.copilot/installed-plugins/_direct/PLUGIN-NAME/`.
 
 ## Adding plugin marketplaces
 
@@ -130,16 +103,16 @@ Alternatively, in an interactive session, enter:
 /plugin marketplace add OWNER/REPO
 ```
 
-If a marketplace is located on the local file system, instead of on {% data variables.product.github %}, use the path to the marketplace directory instead of OWNER/REPO. For example:
+If a marketplace is located on the local file system, instead of on {% data variables.product.prodname_dotcom_the_website %}, use the path to the marketplace directory instead of OWNER/REPO. For example:
 
 ```shell copy
 copilot plugin marketplace add /PATH/TO/MARKETPLACE-DIRECTORY
 ```
 
-If a marketplace is located in a Git repository that is not hosted on {% data variables.product.github %}, use the URL of the Git repository. For example:
+If a marketplace is located in a Git repository that is not hosted on {% data variables.product.prodname_dotcom_the_website %}, use the URL of the Git repository. For example:
 
 ```shell copy
-copilot plugin marketplace add https://gitlab.example.com/team/plugins.git
+copilot plugin marketplace add https://gitlab.com/OWNER/REPO.git
 ```
 
 ## Removing plugin marketplaces
@@ -157,7 +130,8 @@ Or, in an interactive session:
 ```
 
 > [!NOTE]
-> When adding a marketplace you reference the marketplace using the OWNER/REPO of the {% data variables.product.github %} repository that has been configured as a marketplace. When removing a marketplace, however, you reference the name of the marketplace as it appears in your list of registered marketplaces.
+> * When adding a marketplace you reference the marketplace using the OWNER/REPO of the {% data variables.product.github %} repository that has been configured as a marketplace. When removing a marketplace, however, you reference the name of the marketplace as it appears in your list of registered marketplaces.
+> * If you attempt to remove a marketplace that has plugins installed, the command will fail with an error message that lists the plugins that are currently installed from that marketplace. Add the `--force` option to the command to remove the marketplace and uninstall all plugins that were installed from that marketplace.
 
 ## Further reading
 

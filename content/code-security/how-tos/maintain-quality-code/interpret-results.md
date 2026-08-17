@@ -2,30 +2,30 @@
 title: Interpreting the code quality results for your repository
 shortTitle: Interpret results
 allowTitleToDifferFromFilename: true
-intro: View {% data variables.product.prodname_code_quality %} findings for your default branch.
+intro: Use {% data variables.product.prodname_code_quality_short %} results to assess the maintainability and reliability of your codebase, so your teams can focus remediation where it matters most.
 versions:
   feature: code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'
 permissions: '{% data reusables.permissions.code-quality-see-repo-findings %}'
-topics:
-  - Code Quality
+audience:
+  - driver
 contentType: how-tos
 redirect_from:
   - /code-security/code-quality/how-tos/interpret-results
+category:
+  - Improve code quality
 ---
-
-{% data reusables.code-quality.code-quality-preview-note %}
 
 ## Prerequisites
 
-* {% data variables.product.prodname_code_quality_short %} is enabled, see [AUTOTITLE](/code-security/code-quality/how-tos/enable-code-quality).
+* {% data variables.product.prodname_code_quality_short %} is enabled, see [AUTOTITLE](/code-security/how-tos/maintain-quality-code/enable-code-quality?utm_campaign=code-quality-ga-july-2026&utm_medium=docs&utm_source=docs-interpret-results-enable-cq).
 
 ## Viewing the full backlog of code quality results
 
 {% data reusables.code-quality.dashboard-navigation-repo %}
 {% data reusables.code-quality.dashboard-all-findings %}
 
-Alternatively, if you want to view AI-powered findings for the most recently changed files, see [AUTOTITLE](/code-security/code-quality/tutorials/improve-recent-merges).
+Alternatively, if you want to view AI-powered findings for the most recently changed files, see [AUTOTITLE](/code-security/how-tos/maintain-quality-code/fix-recent-merge-findings).
 
 ## Exploring the backlog for your repository
 
@@ -44,17 +44,12 @@ Explore the results by expanding a rule to list the affected files and clicking 
 
 ![Screenshot of the Rules table on the "{% data variables.code-quality.all_findings %}" dashboard for code quality. The "Overwritten property" rule name is outlined in dark orange.](/assets/images/help/code-quality/all-findings-rules-repo.png)
 
-## Interpreting ratings and metrics
+## Interpreting scores and metrics
 
 Code quality results should always be interpreted in the context of your repository. For example:
 
-* Small repositories, or repositories with only a small amount of code written in supported languages, tend to have few results and good ratings.
-* Repositories with a lot of generated code may have many maintenance results, lowering the rating for maintainability. This is not a problem if the source code itself is maintainable.
+* Small repositories, or repositories with only a small amount of code written in supported languages, tend to have few results and good scores.
+* Repositories with a lot of generated code may have many maintenance results, lowering the score for maintainability. This is not a problem if the source code itself is maintainable.
 * Large repositories with a lot of code in a fully supported language often have many results even if the majority of the code has good maintainability and reliability standards.
 
-To learn more about the metrics and how the ratings are calculated, see [AUTOTITLE](/code-security/code-quality/reference/metrics-and-ratings).
-
-## Next steps
-
-* Remediate quality findings in your default branch and improve the maintainability and reliability rating for your repository. See [AUTOTITLE](/code-security/code-quality/tutorials/improve-your-codebase).
-* Stop your repository from accumulating more code quality problems by setting a quality threshold for pull requests using rulesets. See [AUTOTITLE](/code-security/code-quality/how-tos/set-pr-thresholds).
+To learn more about the metrics and how the scores are calculated, see [AUTOTITLE](/code-security/reference/code-quality/metrics-and-ratings).

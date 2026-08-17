@@ -1,6 +1,6 @@
 ---
 title: Filtering and searching issues and pull requests
-intro: 'To find detailed information about a repository on {% data variables.product.github %}, you can filter, sort, and search issues and pull requests that are relevant to the repository.'
+intro: To find detailed information about a repository on {% data variables.product.github %}, you can filter, sort, and search issues and pull requests that are relevant to the repository.
 redirect_from:
   - /github/managing-your-work-on-github/finding-information-in-a-repository/filtering-issues-and-pull-requests-by-assignees
   - /articles/filtering-issues-and-pull-requests-by-assignees
@@ -38,11 +38,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Issues
-  - Pull requests
 shortTitle: Filter and search
-type: how_to
+contentType: how-tos
+category:
+  - Create and work with issues
 ---
 
 {% data reusables.cli.filter-issues-and-pull-requests-tip %}
@@ -107,7 +106,7 @@ You can nest filters using parentheses up to five levels deep.{% ifversion ghes 
 
 ## Filtering issues and pull requests by assignees
 
-Once you've [assigned an issue or pull request to someone](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users), you can find items based on who's working on them.
+Once you've [assigned an issue or pull request to someone](/issues/tracking-your-work-with-issues/using-issues/assigning-issues-and-pull-requests-to-other-github-users), you can find items based on who's working on them.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -147,6 +146,22 @@ If your organization uses issue types, you can filter issues for a particular ty
 
 {% endif %}
 
+{% ifversion issue-fields %}
+
+## Filtering by issue fields
+
+If your organization uses issue fields, you can filter issues by field values. Type `field.` followed by the field name and value in your filter. Field names with spaces should be enclosed in quotes.
+
+Examples:
+* `field.priority:high` -- find issues with priority set to "high"
+* `field."target date":>=2026-03-01` -- find issues with a target date on or after March 1, 2026
+* `field.story-points:>5` -- find issues with a number field value greater than 5
+* `field.priority:high,medium` -- find issues with priority set to "high" or "medium"
+
+For more information about managing issue fields, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-fields-in-your-organization).
+
+{% endif %}
+
 ## Filtering pull requests by review status
 
 You can use filters to list pull requests by review status and to find pull requests that you've reviewed or other people have asked you to review.
@@ -176,7 +191,7 @@ You can use filters to search for issues and pull requests that meet specific cr
 
 {% webui %}
 
-The issues and pull requests search bar allows you to define your own custom filters and sort by a wide variety of criteria. You can find the search bar on each repository's **Issues** and **Pull requests** tabs and on your [Issues and Pull requests dashboards](/issues/tracking-your-work-with-issues/viewing-all-of-your-issues-and-pull-requests).
+The issues and pull requests search bar allows you to define your own custom filters and sort by a wide variety of criteria. You can find the search bar on each repository's **Issues** and **Pull requests** tabs and on your [Issues and Pull requests dashboards](/issues/tracking-your-work-with-issues/using-issues/viewing-all-of-your-issues-and-pull-requests).
 
 ![Screenshot of the list of issues for a repository. Above the list, a search field, containing the query "is:issue is:open", is outlined in orange.](/assets/images/help/issues/issues-search-bar.png)
 
@@ -225,7 +240,8 @@ For issues, you can also use search to:
 
 * Filter for issues that are linked to a pull request by a closing reference: `linked:pr`
 * Filter issues by the reason they were closed: `is:closed reason:completed` or `is:closed reason:"not planned"`
-{% ifversion issue-types %}* Filter for issues with a particular type: `is:open type:"Bug"`{% endif %}{% ifversion issues-advanced-search %}
+{% ifversion issue-types %}* Filter for issues with a particular type: `is:open type:"Bug"`{% endif %}{% ifversion issue-fields %}
+* Filter for issues by field value: `is:open field.priority:high`{% endif %}{% ifversion issues-advanced-search %}
 * Filter for issues that have metadata: `has:label`
 * Filter for issues that are missing metadata: `no:project`
 * Filter for issues from repositories [**owned**](/search-github/searching-on-github/searching-issues-and-pull-requests#search-within-a-users-or-organizations-repositories) by a certain user or organization, limited to up to 16 `user` and `org` qualifiers with no limit on `repo` qualifiers: `state:open is:issue org:github OR user:octocat`{% endif %}

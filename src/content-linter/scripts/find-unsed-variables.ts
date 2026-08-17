@@ -17,7 +17,7 @@
  *
  */
 import fs from 'fs'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 
 import { program } from 'commander'
 
@@ -108,7 +108,7 @@ function getVariables(): Map<string, string> {
   const variables = new Map<string, string>()
   for (const filePath of walkFiles('data/variables', '.yml')) {
     const dottedPathBase = `variables.${filePath.replace('data/variables/', '').replace('.yml', '').replace(/\//g, '.')}`
-    const data = yaml.load(fs.readFileSync(filePath, 'utf-8')) as Record<string, unknown>
+    const data = load(fs.readFileSync(filePath, 'utf-8')) as Record<string, unknown>
     for (const key of Object.keys(data)) {
       const dottedPath = `${dottedPathBase}.${key}`
       variables.set(dottedPath, filePath)

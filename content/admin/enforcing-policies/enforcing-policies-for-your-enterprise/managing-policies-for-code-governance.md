@@ -6,6 +6,8 @@ versions:
   feature: enterprise-code-rulesets
 permissions: 'Enterprise owners'
 shortTitle: Manage rulesets
+category:
+  - Secure and govern your enterprise
 ---
 
 After creating a ruleset at the enterprise level, you can make changes to the ruleset to alter how people can interact with the targeted repositories. For example, you can:

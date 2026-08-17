@@ -6,8 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
+category:
+  - Authenticate with a GitHub App
 ---
 
 ## About JSON Web Tokens (JWTs)

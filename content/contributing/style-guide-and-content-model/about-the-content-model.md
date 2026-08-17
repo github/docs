@@ -8,6 +8,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Follow the style guide and content model
 ---
 
 Our content model explains the purpose of each type of content we create within {% data variables.product.prodname_docs %}, and what to include when you write or update an article. We use a content model to ensure that our content consistently, clearly, and comprehensively communicates the information that people need to achieve their goals with {% data variables.product.prodname_dotcom %}.
@@ -74,7 +76,7 @@ Categories are organized around a feature or a discrete set of tasks within a to
 * General or high-level enough to scale with future product enhancements.
 * Category titles must be 67 characters or shorter and have a [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) less than 27 characters.
 * Examples
-  * [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github)
+  * [AUTOTITLE](/account-and-profile/how-tos)
   * [AUTOTITLE](/pull-requests/committing-changes-to-your-project)
 
 ### Intros for categories
@@ -96,8 +98,8 @@ In general, avoid having a map topic within a map topic unless it is the best wa
 * General or high-level enough to scale with future additions to the product.
 * Map topic titles must be 63 characters or shorter and have a [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) less than 30 characters.
 * Examples
-  * [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain)
-  * [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise)
+  * [AUTOTITLE](/code-security/concepts/supply-chain-security)
+  * [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise)
 
 ### Intros for map topics
 

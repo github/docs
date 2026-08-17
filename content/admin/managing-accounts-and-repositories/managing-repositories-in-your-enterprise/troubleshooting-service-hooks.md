@@ -9,9 +9,9 @@ redirect_from:
   - /admin/user-management/managing-repositories-in-your-enterprise/troubleshooting-service-hooks
 versions:
   ghes: '*'
-topics:
-  - Enterprise
 shortTitle: Troubleshoot service hooks
+category:
+  - Manage accounts and repositories
 ---
 ## Getting information on deliveries
 

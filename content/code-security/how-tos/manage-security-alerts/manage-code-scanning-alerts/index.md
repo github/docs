@@ -7,17 +7,14 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Code Security
-  - Code scanning
-  - Alerts
-  - Repositories
 redirect_from:
   - /code-security/code-scanning/managing-code-scanning-alerts
 children:
-  - assessing-code-scanning-alerts-for-your-repository
-  - triaging-code-scanning-alerts-in-pull-requests
-  - resolving-code-scanning-alerts
-  - enabling-delegated-alert-dismissal-for-code-scanning
+  - assess-alerts
+  - triage-alerts-in-pull-requests
+  - track-alerts-in-issues
+  - resolve-alerts
+  - enable-delegated-alert-dismissal
   - disabling-autofix-for-code-scanning
 ---
+

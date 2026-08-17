@@ -24,7 +24,10 @@ export interface PickerItem {
   text: string
   selected: boolean
   extra?: {
-    [key: string]: any
+    arrow?: boolean
+    info?: boolean
+    version?: string
+    currentDate?: string
   }
   divider?: boolean
 }

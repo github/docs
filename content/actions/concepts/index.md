@@ -14,5 +14,6 @@ children:
   - /billing-and-usage
 redirect_from:
   - /actions/concepts/use-cases
+contentType: concepts
 ---
 

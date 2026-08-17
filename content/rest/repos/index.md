@@ -12,8 +12,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 children:
   - /attestations
   - /autolinks
@@ -21,6 +19,7 @@ children:
   - /contents
   - /custom-properties
   - /forks
+  - /issue-types
   - /lfs
   - /repos
   - /rule-suites

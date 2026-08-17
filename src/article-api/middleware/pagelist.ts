@@ -92,7 +92,7 @@ router.get(
   '/',
   pagelistValidationMiddleware as RequestHandler,
   catchMiddlewareError(async function (req: ExtendedRequest, res: Response) {
-    res.redirect(
+    res.safeRedirect(
       308,
       req.originalUrl.replace(
         '/pagelist',
@@ -108,7 +108,7 @@ router.get(
   pagelistValidationMiddleware as RequestHandler,
   catchMiddlewareError(async function (req: ExtendedRequest, res: Response) {
     const { someParam } = req.params
-    res.redirect(
+    res.safeRedirect(
       308,
       req.originalUrl.replace(
         `/pagelist/${someParam}`,

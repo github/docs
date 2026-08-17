@@ -1,6 +1,8 @@
 /**
  * Copilot Space API response types
  */
+import { fetchWithRetry, readBodyWithTimeout } from '@/frame/lib/fetch-utils'
+
 export interface SpaceResource {
   id: number
   resource_type: string
@@ -48,14 +50,28 @@ export function parseSpaceUrl(url: string): { org: string; id: string } {
 export async function fetchCopilotSpace(spaceUrl: string): Promise<SpaceData> {
   const { org, id } = parseSpaceUrl(spaceUrl)
   const apiUrl = `https://api.github.com/orgs/${org}/copilot-spaces/${id}`
+  const githubToken = process.env.GITHUB_TOKEN
 
-  const response = await fetch(apiUrl, {
-    headers: {
-      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-      Accept: 'application/vnd.github+json',
-      'X-GitHub-Api-Version': '2022-11-28',
+  if (!githubToken) {
+    throw new Error('GITHUB_TOKEN environment variable is required to fetch Copilot Spaces.')
+  }
+
+  const response = await fetchWithRetry(
+    apiUrl,
+    {
+      headers: {
+        Authorization: `Bearer ${githubToken}`,
+        Accept: 'application/vnd.github+json',
+        'X-GitHub-Api-Version': '2022-11-28',
+      },
     },
-  })
+    {
+      retries: 0,
+      timeout: 30_000,
+      // We handle non-2xx responses below with status-specific messages.
+      throwHttpErrors: false,
+    },
+  )
 
   if (!response.ok) {
     if (response.status === 404) {
@@ -69,7 +85,7 @@ export async function fetchCopilotSpace(spaceUrl: string): Promise<SpaceData> {
     }
   }
 
-  return (await response.json()) as SpaceData
+  return (await readBodyWithTimeout(response, () => response.json(), 30_000)) as SpaceData
 }
 
 /**

@@ -6,13 +6,13 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
-topics:
-  - Security
 redirect_from:
   - /actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers
   - /actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers
   - /actions/how-tos/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers
+contentType: how-tos
+category:
+  - Secure your workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -65,7 +65,7 @@ To update your workflows using this approach, you will need to make three change
 
 ### Requesting the JWT using the Actions core toolkit
 
-The following example demonstrates how to use `actions/github-script` with the `core` toolkit to request the JWT from {% data variables.product.prodname_dotcom %}'s OIDC provider. For more information, see [AUTOTITLE](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages).
+The following example demonstrates how to use `actions/github-script` with the `core` toolkit to request the JWT from {% data variables.product.prodname_dotcom %}'s OIDC provider. For more information, see [AUTOTITLE](/actions/tutorials/create-actions/create-a-javascript-action#adding-actions-toolkit-packages).
 
 ```yaml
 jobs:
@@ -88,7 +88,7 @@ jobs:
 
 The following example demonstrates how to use environment variables to request a JSON Web Token.
 
-For your deployment job, you will need to define the token settings, using `actions/github-script` with the `core` toolkit. For more information, see [AUTOTITLE](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages).
+For your deployment job, you will need to define the token settings, using `actions/github-script` with the `core` toolkit. For more information, see [AUTOTITLE](/actions/tutorials/create-actions/create-a-javascript-action#adding-actions-toolkit-packages).
 
 For example:
 
