@@ -85,7 +85,3 @@ Another way to delegate frequent, time-consuming tasks is to assign work to {% d
 For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents).
 
 {% endif %}
-
-## Next steps
-
-Now that you've planned which roles will help your teams be productive and secure on GitHub, create custom roles for the permissions you need. Later, you will create teams to manage role assignments at scale. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/create-custom-roles).

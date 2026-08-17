@@ -65,7 +65,3 @@ Specifically, you may want to hide internal repositories from an external collab
 Outside collaborators (called **repository collaborators** if you use {% data variables.product.prodname_emus %}) only have access to a specific repository. These users are not full organization members, so they do not receive the base level of access for the organization, and they cannot automatically see internal repositories in the enterprise unless they are a member of another organization.
 
 For more information, see {% ifversion ghec %}[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/enabling-guest-collaborators) and{% endif %} [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization).
-
-## Next steps
-
-Now that you've set up organizations and teams, learn how to stay compliant and secure by setting up governance policies for your users and repositories. See [AUTOTITLE](/admin/concepts/security-and-compliance/enterprise-policies).

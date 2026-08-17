@@ -52,7 +52,6 @@ versions:
 children:
   - search
   - get-started
-  - enterprise-onboarding
   - account-and-profile
   - subscriptions-and-notifications
   - authentication
@@ -148,7 +147,7 @@ childGroups:
     children:
       - organizations
       - code-security/how-tos/secure-at-scale
-      - enterprise-onboarding
+      - admin/enterprise-onboarding
       - admin
   - name: Developers
     octicon: CodeSquareIcon
