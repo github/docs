@@ -4,6 +4,20 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Argument <code>excludeUserLinked: Boolean</code> (with default value) added to field <code>Issue.closedByPullRequestsReferences</code></p>",
+          "<p>Argument <code>excludeUserLinked: Boolean</code> (with default value) added to field <code>PullRequest.closingIssuesReferences</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-08-18"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Enum value 'SECURITY_KEY<code>was removed from enum</code>ProofOfPresenceRequirement'</p>"
         ]
       }

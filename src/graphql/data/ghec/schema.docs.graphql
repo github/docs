@@ -20156,6 +20156,11 @@ type Issue implements Assignable &
     before: String
 
     """
+    Exclude manually linked PRs
+    """
+    excludeUserLinked: Boolean = false
+
+    """
     Returns the first _n_ elements from the list.
     """
     first: Int
@@ -44338,6 +44343,11 @@ type PullRequest implements Assignable &
     Returns the elements in the list that come before the specified cursor.
     """
     before: String
+
+    """
+    Exclude manually linked Issues
+    """
+    excludeUserLinked: Boolean = false
 
     """
     Returns the first _n_ elements from the list.
