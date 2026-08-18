@@ -9,7 +9,7 @@ GitHub Docs uses YAML files to manage some complex reference tables instead of h
 - **Accurate information**: Reduces errors and outdated content
 - **Self-service process**: Minimal engineering support needed
 
-> **Important**: The `.yml` files in this directory are maintained **manually**. Tables that need automatic updates from external sources require engineering work.
+> **Important**: The `.yml` files in this directory are maintained **manually**. Tables that need automatic updates from external sources require engineering workv  .
 
 ## Table of contents
 
