@@ -60,7 +60,7 @@ Scope
 
 ## How to report content or behavior
 - Use the built-in reporting tools on the offending content (issue, comment, or profile).
-- If you need additional support, contact GitHub Support: {% raw %}{% data variables.contact.contact_support %}{% endraw %} (or replace with https://support.github.com/contact if you prefer an explicit URL).
+- If you need additional support, contact GitHub Support: {% raw %}{% data variables.contact.contact_support %}{% endraw %} (or https://support.github.com/contact).
 - When reporting, include helpful context: direct links to the content, a brief description of why it violates guidelines, and any relevant timestamps or thread links.
 - For legal emergencies or imminent threats to safety, contact local law enforcement in addition to reporting on GitHub.
 
@@ -71,7 +71,7 @@ Scope
 - Users may not always receive public details about moderation decisions due to privacy and safety considerations, but we strive for consistent, fair enforcement.
 
 ## Appeals and reinstatement
-If your content or account is disabled or restricted and you wish to appeal, see the Appeal and Reinstatement page: /site-policy/acceptable-use-policies/github-appeal-and-reinstatement (please verify the slug and that the page exists).
+If your content or account is disabled or restricted and you wish to appeal, see the Appeal and Reinstatement page: https://docs.github.com/site-policy/acceptable-use-policies/github-appeal-and-reinstatement (please verify the slug and that the page exists).
 
 ## Legal notices and license
 - These Community Guidelines are intended as guidance and do not replace GitHub's Terms of Service.
