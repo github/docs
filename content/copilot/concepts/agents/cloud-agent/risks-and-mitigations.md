@@ -43,7 +43,7 @@ To mitigate this risk, {% data variables.product.github %}:
 
 {% data variables.copilot.copilot_cloud_agent %} has access to code and other sensitive information, and could leak it, either accidentally or due to malicious user input.
 
-To mitigate this risk, {% data variables.product.github %} **restricts {% data variables.copilot.copilot_cloud_agent %}'s access to the internet**. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-firewall).
+To mitigate this risk, {% data variables.product.github %} **restricts {% data variables.copilot.copilot_cloud_agent %}'s access to the internet**. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-the-firewall).
 
 ## AI prompts can be vulnerable to injection
 

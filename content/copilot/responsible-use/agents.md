@@ -340,7 +340,7 @@ For additional guidance on the responsible use of Copilot agentic features, we r
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review)
 * [AUTOTITLE](/copilot/tutorials/cloud-agent/get-the-best-results)
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment)
-* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-firewall)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-the-firewall)
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/getting-started)
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)
 * [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli)

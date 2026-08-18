@@ -205,7 +205,7 @@ These are short, natural-language statements that you write and store as one or 
 | Scope | Repository-wide and {% data variables.product.prodname_copilot_short %}-specific | Repository sub-paths and {% data variables.product.prodname_copilot_short %}-specific | Cross-tool / agent-agnostic | Invoked per task |
 | Rule | "{% data variables.product.prodname_copilot_short %}, always know this for this repository" | "{% data variables.product.prodname_copilot_short %}, always know this when working in these paths" | "Any agent, always know this" | "Do this when needed" |
 
-For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills) and [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills) and [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions).
 
 ### {% data variables.copilot.copilot_memory %} ({% data variables.release-phases.public_preview %})
 

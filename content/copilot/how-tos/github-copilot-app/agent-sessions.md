@@ -39,7 +39,7 @@ The session mode controls how much autonomy the agent has. You can set the mode 
 
 You can select a model and reasoning effort from the dropdowns below the prompt field. Higher reasoning effort gives the agent more time to think through complex problems but may take longer. You can change both settings at any time during a session.
 
-If you choose **Auto** in the model picker, the app automatically selects the optimal model for your task based on task complexity. After the session starts, the picker next to **Auto** shows which model handled each response. For more information, see [AUTOTITLE](/copilot/concepts/auto-model-selection).
+If you choose **Auto** in the model picker, the app automatically selects the optimal model for your task based on task complexity. After the session starts, the picker next to **Auto** shows which model handled each response. For more information, see [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
 
 If you configured your own model provider in the app, those models also appear in the picker. For setup steps, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/use-byok-models).
 

@@ -29,7 +29,7 @@ Alternatively, you can host your own MCP registry and restrict access to servers
 | Release phase | Generally available | {% data variables.release-phases.public_preview_caps %}, not prioritized for development |
 | Ease of setup | You can host a configuration file on {% data variables.product.github %} that applies automatically to clients. | You must host your own registry that matches the MCP specification and serves HTTPS requests. |
 | Enforcement level | Enterprise-wide settings, overridable for enterprise teams | Enterprise-wide or for individual organizations |
-| Supported clients | Clients supported by the `{% data variables.copilot.managed_setting_file %}` file, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings). Planned to expand in the near future. | See [AUTOTITLE](/copilot/reference/mcp-allowlist-enforcement). |
+| Supported clients | Clients supported by the `{% data variables.copilot.managed_setting_file %}` file, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings). Planned to expand in the near future. | See [AUTOTITLE](/copilot/reference/enterprise-administrators/mcp-private-registry-enforcement). |
 | Server matching method | Secure matching based on name, URL, or `stdio` commands | Less secure matching, based on name or ID only. Users can bypass the restriction by editing configuration files. |
 
 {% endrowheaders %}

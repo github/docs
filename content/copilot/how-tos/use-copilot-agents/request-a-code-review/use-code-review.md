@@ -45,7 +45,7 @@ These instructions explain how to use {% data variables.copilot.copilot_code-rev
 
    ![Screenshot of a code review left by {% data variables.product.prodname_copilot_short %}.](/assets/images/help/copilot/code-review/review-comment@2x.png)
 
-   {% data variables.product.prodname_copilot_short %} always leaves a "Comment" review, not an "Approve" review or a "Request changes" review. This means that {% data variables.product.prodname_copilot_short %}'s reviews do not count toward required approvals for the pull request, and {% data variables.product.prodname_copilot_short %}'s reviews will not block merging changes. For more details, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/approving-a-pull-request-with-required-reviews).
+   {% data variables.product.prodname_copilot_short %} always leaves a "Comment" review, not an "Approve" review or a "Request changes" review. This means that {% data variables.product.prodname_copilot_short %}'s reviews do not count toward required approvals for the pull request, and {% data variables.product.prodname_copilot_short %}'s reviews will not block merging changes. For more details, see [AUTOTITLE](/pull-requests/how-tos/review-pull-requests/approving-a-pull-request-with-required-reviews).
 
 1. {% data variables.product.prodname_copilot_short %}'s review comments behave like review comments from humans. You can add reactions to them, comment on them, resolve them and hide them.
 
@@ -72,7 +72,7 @@ For more information, see [AUTOTITLE](/copilot/concepts/agents/code-review#revie
 
 Where possible, {% data variables.product.prodname_copilot_short %}'s feedback includes suggested changes which you can apply with a couple of clicks.
 
-If you're happy with the changes, you can accept a single suggestion from {% data variables.product.prodname_copilot_short %} and commit it, or accept a group of suggestions together in a single commit. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request).
+If you're happy with the changes, you can accept a single suggestion from {% data variables.product.prodname_copilot_short %} and commit it, or accept a group of suggestions together in a single commit. For more information, see [AUTOTITLE](/pull-requests/how-tos/review-pull-requests/incorporating-feedback-in-your-pull-request).
 
 You can also invoke {% data variables.copilot.copilot_cloud_agent %} to implement suggested changes. To do this, you must:
 
@@ -83,7 +83,7 @@ You can also invoke {% data variables.copilot.copilot_cloud_agent %} to implemen
 
 When you push changes to a pull request that {% data variables.product.prodname_copilot_short %} has reviewed, it won't automatically re-review your changes unless you've configured it to review new pushes after enabling automatic reviews.
 
-To manually request a re-review from {% data variables.product.prodname_copilot_short %}, click the {% octicon "sync" aria-label="Re-request review" %} button next to {% data variables.product.prodname_copilot_short %}'s name in the **Reviewers** menu. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review).
+To manually request a re-review from {% data variables.product.prodname_copilot_short %}, click the {% octicon "sync" aria-label="Re-request review" %} button next to {% data variables.product.prodname_copilot_short %}'s name in the **Reviewers** menu. For more information, see [AUTOTITLE](/pull-requests/how-tos/create-pull-requests/requesting-a-pull-request-review).
 
 To automatically request re-reviews from {% data variables.product.prodname_copilot_short %} on every push, enable automatic code review for the repository and select **Review new pushes** in the ruleset settings. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review#configuring-automatic-code-review-for-repositories-in-an-organization).
 
@@ -115,7 +115,7 @@ You can use either of the following files to configure {% data variables.copilot
 * `.github/workflows/copilot-setup-steps.yml`: If you have already configured this file for {% data variables.copilot.copilot_cloud_agent %}, {% data variables.copilot.copilot_code-review_short %} will use the same configuration by default.
 * `.github/workflows/copilot-code-review.yml`: We recommend creating this file if you want to configure {% data variables.copilot.copilot_code-review_short %}'s environment independently of {% data variables.copilot.copilot_cloud_agent %}. If this file is present in your repository, it is used for {% data variables.copilot.copilot_code-review_short %} instead of `copilot-setup-steps.yml`.
 
-You can also configure firewall rules to control the domains and URLs that {% data variables.copilot.copilot_code-review_short %} can access, at both the organization and repository level. These settings are configured separately from {% data variables.copilot.copilot_cloud_agent %}'s firewall settings, in their own section of the same "Internet access" tab. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-firewall).
+You can also configure firewall rules to control the domains and URLs that {% data variables.copilot.copilot_code-review_short %} can access, at both the organization and repository level. These settings are configured separately from {% data variables.copilot.copilot_cloud_agent %}'s firewall settings, in their own section of the same "Internet access" tab. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-the-firewall).
 
 ## Providing feedback on {% data variables.product.prodname_copilot_short %}'s reviews
 

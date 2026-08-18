@@ -33,7 +33,7 @@ You can also request a review from {% data variables.product.prodname_copilot_sh
 
 ## Work with suggested changes
 
-{% data variables.product.prodname_copilot_short %}'s feedback often includes suggested changes you can apply in a few clicks. Accept a single suggestion or group multiple suggestions into one commit. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request).
+{% data variables.product.prodname_copilot_short %}'s feedback often includes suggested changes you can apply in a few clicks. Accept a single suggestion or group multiple suggestions into one commit. For more information, see [AUTOTITLE](/pull-requests/how-tos/review-pull-requests/incorporating-feedback-in-your-pull-request).
 
 To have {% data variables.copilot.copilot_cloud_agent %} implement suggested changes directly:
 
@@ -56,7 +56,7 @@ Rate {% data variables.product.prodname_copilot_short %}'s comments to help impr
 
 When you push new changes to a pull request that {% data variables.product.prodname_copilot_short %} has reviewed, it does not automatically re-review unless you've configured automatic reviews to include new pushes.
 
-To manually request a re-review, click the {% octicon "sync" aria-label="Re-request review" %} button next to {% data variables.product.prodname_copilot_short %}'s name in the **Reviewers** menu. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review).
+To manually request a re-review, click the {% octicon "sync" aria-label="Re-request review" %} button next to {% data variables.product.prodname_copilot_short %}'s name in the **Reviewers** menu. For more information, see [AUTOTITLE](/pull-requests/how-tos/create-pull-requests/requesting-a-pull-request-review).
 
 To automatically request re-reviews on every push, enable automatic code review and select **Review new pushes** in the ruleset settings. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review#configuring-automatic-code-review-for-repositories-in-an-organization).
 

@@ -20,7 +20,7 @@ You can configure the {% data variables.copilot.github_copilot_app %} to use you
 You must sign in with a {% data variables.product.github %} account to use the app, but you do not need a {% data variables.product.prodname_copilot_short %} plan if you use your own model provider. If you do have a {% data variables.product.prodname_copilot_short %} plan, you can use both your own model provider and {% data variables.product.github %}-hosted models in the same app.
 
 > [!NOTE]
-> This article is for users who want to configure their own LLM provider settings on their local machine. To set up custom models for users in an organization or enterprise, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/use-your-own-api-keys) and [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
+> This article is for users who want to configure their own LLM provider settings on their local machine. To set up custom models for users in an organization or enterprise, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/enable-custom-models) and [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/enable-custom-models).
 
 ## Supported providers
 
