@@ -100,7 +100,7 @@ After your tests generate a Cobertura XML report, upload it to {% data variables
 1. Replace the following values:
    * **`COVERAGE-FILE-PATH.xml`**: The path to your Cobertura XML report (for example, `coverage.xml` or `target/site/jacoco/cobertura.xml`).
    * **`LANGUAGE`**: The primary language of the code being covered (for example, `Python`, `Java`, `JavaScript`).
-   * **`LABEL`**: An optional label to identify this coverage report (for example, `code-coverage/pytest`).
+   * **`LABEL`**: A label to identify this coverage report (for example, `code-coverage/pytest`).
 1. Commit and push the workflow change.
 
 ### Full workflow example
