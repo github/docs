@@ -82,7 +82,7 @@ See src/data-directory/lib/data-schemas/tables/supported-code-languages.ts for a
 
 ## Testing and validation
 
-After creating all three files:
+After creating all three files :
 
 1. **Build the site**: Run `npm run build`
 2. **Test schemas**: Run `npm test -- src/data-directory/tests`
