@@ -52,6 +52,73 @@ You can add an issue type or make changes to an existing issue type.
 
 {% endif %}
 
+## Editing an issue with {% data variables.product.prodname_cli %}
+
+{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see [AUTOTITLE](/github-cli/github-cli/about-github-cli).
+
+### Editing a single issue
+
+To edit an issue, use the `gh issue edit` subcommand with the issue number or URL.
+
+```shell
+gh issue edit ISSUE-NUMBER --title "TITLE" --body "ISSUE-DESCRIPTION"
+```
+
+### Editing multiple issues
+
+You can pass multiple issue numbers to apply the same change to several issues at once.
+
+```shell
+gh issue edit ISSUE-NUMBER-1 ISSUE-NUMBER-2 --add-label "LABEL"
+```
+
+{% ifversion issue-types %}
+
+### Editing the issue type
+
+To set or remove the issue type, use the `--type` or `--remove-type` flag.
+
+```shell
+gh issue edit ISSUE-NUMBER --type "ISSUE-TYPE"
+gh issue edit ISSUE-NUMBER --remove-type
+```
+
+{% endif %}
+
+{% ifversion sub-issues %}
+
+### Editing the parent issue
+
+To set or remove the parent issue, use the `--parent` or `--remove-parent` flag. The parent can be specified by issue number or URL.
+
+```shell
+gh issue edit ISSUE-NUMBER --parent PARENT-ISSUE-NUMBER
+gh issue edit ISSUE-NUMBER --remove-parent
+```
+
+### Editing sub-issues
+
+To add or remove sub-issues, use the `--add-sub-issue` or `--remove-sub-issue` flag with a comma-separated list of issue numbers or URLs.
+
+```shell
+gh issue edit PARENT-ISSUE-NUMBER --add-sub-issue SUB-ISSUE-NUMBER
+gh issue edit PARENT-ISSUE-NUMBER --remove-sub-issue SUB-ISSUE-NUMBER
+```
+
+{% endif %}
+
+{% ifversion fpt or ghec %}
+
+### Editing dependencies
+
+To manage dependencies, use the `--add-blocked-by`, `--remove-blocked-by`, `--add-blocking`, and `--remove-blocking` flags. Each accepts a comma-separated list of issue numbers or URLs.
+
+```shell
+gh issue edit ISSUE-NUMBER --add-blocked-by BLOCKED-BY-ISSUE-NUMBER --add-blocking BLOCKING-ISSUE-NUMBER
+```
+
+{% endif %}
+
 ## Further reading
 
 * [AUTOTITLE](/issues/tracking-your-work-with-issues/administering-issues/closing-an-issue)

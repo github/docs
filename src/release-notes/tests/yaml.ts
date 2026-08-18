@@ -3,7 +3,7 @@ import walk from 'walk-sync'
 import path from 'path'
 
 import { beforeAll, describe, expect, test } from 'vitest'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 
 import { liquid } from '@/content-render/index'
 import { getDataByLanguage } from '@/data-directory/lib/get-data'
@@ -33,7 +33,7 @@ describe('lint enterprise release notes', () => {
 
     beforeAll(async () => {
       const fileContents = await readFile(yamlAbsPath, 'utf8')
-      yamlContent = yaml.load(fileContents) as ReleaseNoteContent
+      yamlContent = load(fileContents) as ReleaseNoteContent
     })
 
     test('contains valid liquid', async () => {

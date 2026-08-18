@@ -135,9 +135,6 @@ sections:
         # https://github.com/github/releases/issues/7290
         - |
           When a workflow job is skipped because of an `if:` conditional, the job log now shows how the conditional expression was evaluated. This helps users verify whether a job was skipped for the expected reason or if there is an error in their workflow logic.
-        # https://github.com/github/releases/issues/7112
-        - |
-          {% data variables.product.prodname_actions %} expressions support a new `case` function that enables conditional logic (if/else if/else) directly within workflow expressions. Users can use the `case` function to select values based on conditions without needing to store that logic externally.
         # https://github.com/github/releases/issues/7074
         - |
           The {% data variables.product.prodname_actions %} workflow visualization page now supports rendering workflows with more than 300 jobs. Jobs are lazy loaded to prevent page errors when viewing large workflows. This feature is in public preview and subject to change.
@@ -257,9 +254,9 @@ sections:
     - |
       Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
     - |
-      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-database-node-mysql-or-mysql-and-mssql), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
     - |
-      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
+      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
     - |
       When restoring data originally backed up from a 3.13 or greater appliance version, the Elasticsearch indices need to be reindexed before some of the data will show up.  This happens via a nightly scheduled job.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
     - |

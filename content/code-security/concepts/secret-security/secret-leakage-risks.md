@@ -79,10 +79,10 @@ Exposed secrets can cost your organization money in several ways.
 
 ### 1. Prevent new secrets from being committed
 
-Enable **Push protection** to scan code during `git push` operations and block commits containing detected secrets before they enter your repository. This prevents hardcoded credentials from being added to your codebase and provides real-time feedback to developers at the point of risk, covering both provider patterns for known services and non-provider patterns such as private keys and generic API keys.
+Enable **Push protection** to scan code during `git push` operations and block commits containing detected secrets before they enter your repository. This prevents hardcoded credentials from being added to your codebase and provides real-time feedback to developers at the point of risk, covering both provider patterns for known services and generic patterns such as private keys and generic API keys. Please note, not all secret types are push protected by default and must be configured by your organization, based on your tolerance for risk vs. noise.
 
 Encourage individual developers to enable push protection for their personal accounts to protect all their pushes across {% data variables.product.github %}, regardless of organization policies. This helps prevent secret sprawl by catching leaked credentials before they reach your repositories.
 
 ### 2. Detect existing secrets
 
-Use **{% data variables.product.prodname_secret_scanning %}** to continuously monitor your repositories for hardcoded secrets and generate alerts when credentials are detected, enabling you to revoke and rotate compromised credentials quickly. Beyond default detection of provider patterns, you can expand scanning to non-provider patterns and define custom patterns for organization-specific secrets. This helps you gain visibility into secret sprawl across your organization.
+Use **{% data variables.product.prodname_secret_scanning %}** to continuously monitor your repositories for hardcoded secrets and generate alerts when credentials are detected, enabling you to revoke and rotate compromised credentials quickly. Beyond default detection of provider patterns, you can expand scanning to generic patterns and define custom patterns for organization-specific secrets. This helps you gain visibility into secret sprawl across your organization.

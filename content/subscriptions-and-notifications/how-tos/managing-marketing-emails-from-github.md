@@ -40,6 +40,6 @@ You can choose to unsubscribe from all {% data variables.product.prodname_dotcom
 
 ## Next steps
 
-To learn about other types of emails {% data variables.product.github %} sends, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/types-of-emails-github-sends).
+To learn about other types of emails {% data variables.product.github %} sends, see [AUTOTITLE](/subscriptions-and-notifications/reference/types-of-emails-github-sends).
 
-To manage email notifications about activity on {% data variables.product.github %}, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications).
+To manage email notifications about activity on {% data variables.product.github %}, see [AUTOTITLE](/subscriptions-and-notifications/get-started/configuring-notifications).

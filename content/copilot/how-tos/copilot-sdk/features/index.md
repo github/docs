@@ -20,10 +20,12 @@ children:
   - /mcp
   - /plugin-directories
   - /remote-sessions
+  - /session-limits
   - /session-persistence
   - /skills
   - /steering-and-queueing
   - /streaming-events
+  - /usage-and-billing
 ---
 
 <!-- markdownlint-disable GHD046 GHD005 -->

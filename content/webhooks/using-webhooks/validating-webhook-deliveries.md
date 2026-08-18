@@ -37,7 +37,7 @@ You can create a new webhook with a secret token, or you can add a secret token 
 
 ## Securely storing the secret token
 
-After creating a secret token, you should store it in a secure location that your server can access. Never hardcode a token into an application or push a token to any repository. For more information about how to use authentication credentials securely in your code, see [AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure#use-authentication-credentials-securely-in-your-code).
+After creating a secret token, you should store it in a secure location that your server can access. Never hardcode a token into an application or push a token to any repository. For more information about how to use authentication credentials securely in your code, see [AUTOTITLE](/rest/authentication/keeping-your-api-credentials-secure#use-authentication-credentials-securely-in-your-code).
 
 ## Validating webhook deliveries
 

@@ -30,8 +30,8 @@ Pick a repository where {% data variables.copilot.copilot_cloud_agent %} is enab
 While {% data variables.product.prodname_copilot_short %} works on the issue, start a second, non-coding task to see two sessions running in parallel.
 
 1. In the same repository, click the **{% octicon "agent" aria-hidden="true" aria-label="agent" %} Agents** tab.
-1. Type a research prompt. 
-    
+1. Type a research prompt.
+
     For example: `Investigate which dependencies in this repo are outdated and summarize what upgrading would involve.`
 1. Click **{% octicon "paper-airplane" aria-label="Start task" %}** or press <kbd>Enter</kbd>.
 
@@ -52,7 +52,7 @@ For more details on monitoring, steering, and stopping sessions, see [AUTOTITLE]
 When the coding task finishes, {% data variables.product.prodname_copilot_short %} opens a pull request and adds you as a reviewer.
 
 1. Open the pull request from the notification or from the session log.
-1. In the right sidebar, click **Reviewers**, then select **{% data variables.product.prodname_copilot_short %}**.
+1. Under "Reviewers" in the right sidebar, next to **{% data variables.product.prodname_copilot_short %}**, click **Request**.
 1. Wait for {% data variables.copilot.copilot_code-review_short %} to leave comments—usually under 30 seconds.
 
 Read through the review comments. {% data variables.product.prodname_copilot_short %} may suggest changes you can apply directly with a click.

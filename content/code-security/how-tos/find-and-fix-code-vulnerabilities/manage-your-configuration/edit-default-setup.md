@@ -16,7 +16,7 @@ category:
   - Find and fix code vulnerabilities
 ---
 
-After running an initial analysis of your code with default setup, you can make changes to your configuration to better meet your needs. See [AUTOTITLE](/code-security/concepts/code-scanning/setup-types){% ifversion codeql-custom-properties %} and [AUTOTITLE](/code-security/concepts/code-scanning/repository-properties){% endif %}.
+After running an initial analysis of your code with default setup, you can make changes to your configuration to better meet your needs. You can customize your configuration in the user interface{% ifversion codeql-custom-properties %}, or using repository properties to add custom queries{% ifversion codeql-config-property %} or apply a custom configuration file{% endif %}{% endif %}. See [AUTOTITLE](/code-security/concepts/code-scanning/setup-types){% ifversion codeql-custom-properties %} and [AUTOTITLE](/code-security/concepts/code-scanning/repository-properties){% endif %}.
 
 ## Customizing your existing configuration of default setup
 
@@ -28,7 +28,7 @@ After running an initial analysis of your code with default setup, you can make 
 1. Optionally, in the "Languages" section, select or deselect languages for analysis.
 1. Optionally, in the "Query suite" row of the "Scan settings" section, select a different query suite to run against your code.
 
-1. Optionally, to use labeled runners, in the "Runner type" section of the "{% data variables.product.prodname_codeql %} default configuration" modal dialog, select **Standard {% data variables.product.company_short %} runner** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} to open a dropdown menu, then select **Labeled runner**. Then, next to "Runner label," enter the label of an existing self-hosted or {% data variables.product.company_short %}-hosted runner. For more information, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#assigning-labels-to-runners).
+1. Optionally, to use labeled runners, in the "Runner type" section of the "{% data variables.product.prodname_codeql %} default configuration" modal dialog, select **Standard {% data variables.product.company_short %} runner** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} to open a dropdown menu, then select **Labeled runner**. Then, next to "Runner label," enter the label of an existing self-hosted or {% data variables.product.company_short %}-hosted runner. For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configure-code-scanning#assigning-labels-to-self-hosted-runners).
 
 1. ({% data variables.release-phases.public_preview_caps %}) Optionally, in the "Threat model" row of the "Scan settings" section, select **Remote and local sources**. This option is only available for repositories with code in a supported language: {% data variables.code-scanning.code_scanning_threat_model_support %}.
 
@@ -40,7 +40,7 @@ You can use rulesets to prevent pull requests from being merged when one of the 
 
 {% data reusables.code-scanning.merge-protection-rulesets-conditions %}
 
-For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection). For more general information about rulesets, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
+For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/set-merge-protection). For more general information about rulesets, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
 
 ## Including local sources of tainted data in default setup
 
@@ -58,7 +58,7 @@ If {% ifversion ghec %}your enterprise is hosted on {% data variables.product.pr
 
 For default setup, you need to define the models of your additional dependencies in {% data variables.product.prodname_codeql %} model packs. You can extend coverage in default setup with {% data variables.product.prodname_codeql %} model packs for individual repositories, or at scale for all repositories in an organization.
 
-For more information about {% data variables.product.prodname_codeql %} model packs and writing your own, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/using-the-codeql-model-editor).
+For more information about {% data variables.product.prodname_codeql %} model packs and writing your own, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-vs-code/use-the-model-editor).
 
 ### Extending coverage for a repository
 
@@ -83,6 +83,39 @@ For more information about {% data variables.product.prodname_codeql %} model pa
 
 1. The model packs will be automatically detected and used when {% data variables.product.prodname_code_scanning %} runs on any repository in the organization with default setup enabled.
 
+{% ifversion codeql-config-property %}
+
+## Customizing default setup with a configuration file
+
+You can further customize default setup by applying a {% data variables.product.prodname_codeql %} configuration file, using the `github-codeql-config-file` repository property. The configuration in the file is merged with the configuration default setup generates automatically, so you can, for example, add extra queries or exclude paths without needing to switch to advanced setup. For more information about what you can configure in a {% data variables.product.prodname_codeql %} configuration file, and how it's merged with default setup, see [AUTOTITLE](/code-security/concepts/code-scanning/repository-properties#custom-configuration-files).
+
+### Applying a configuration file to all repositories in an organization
+
+The recommended way to customize default setup at scale is to set an organization-wide default value for the `github-codeql-config-file` repository property, so that you don't need to update individual repositories as you add more of them to your organization.
+
+1. Create a {% data variables.product.prodname_codeql %} configuration file in a central repository. You can either create a new repository for this purpose or add the file to an existing one. Your organization-wide configuration can then be maintained in one place. For information about the format of the configuration files, see [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options#custom-configuration-files).
+
+   {% data reusables.code-scanning.remote-config-file-registry %}
+
+1. Create a `github-codeql-config-file` repository property for your organization and set its default value to the path of the configuration file. For example, if you have committed your configuration file as `codeql.yml` to the `main` branch of `octo-org/config`, you would set the value of the repository property to `remote=octo-org/config@main:codeql.yml`.
+
+   We recommend testing the configuration file on a single repository before setting the organization-wide default. See [AUTOTITLE](/code-security/concepts/code-scanning/repository-properties#testing-changes-before-applying-them).
+
+1. The configuration file will be automatically detected and merged with the configuration default setup generates the next time {% data variables.product.prodname_code_scanning %} runs on each repository in the organization. Repositories that already have an explicit value set for the `github-codeql-config-file` property continue to use that value instead of the organization-wide default. For more information about how default and explicit repository property values interact, see [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization#adding-custom-properties).
+
+### Applying a configuration file to a repository
+
+If you only need to customize default setup for a single repository, or to test a configuration before rolling it out to your organization, you can set the property directly on that repository instead.
+
+1. Create a {% data variables.product.prodname_codeql %} configuration file. This can be a file within the repository being analyzed, or a file in a separate repository. For information about the format of the configuration files, see [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options#custom-configuration-files).
+
+   {% data reusables.code-scanning.remote-config-file-registry %}
+
+1. Set the `github-codeql-config-file` repository property for the repository to the local or remote path of the configuration file. See [AUTOTITLE](/code-security/concepts/code-scanning/repository-properties#custom-configuration-files) for more information about acceptable values for this property, and [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization#setting-values-for-repositories-in-your-organization) for how to set a repository property value.
+1. The configuration file will be automatically detected and merged with the configuration default setup generates the next time {% data variables.product.prodname_code_scanning %} runs on the repository.
+
+{% endif %}
+
 {% ifversion code-scanning-inactive-repos %}
 
 ## Continuing scans on inactive repositories
@@ -98,4 +131,4 @@ For more information about {% data variables.product.prodname_codeql %} model pa
 
 ## Further customization
 
-If you need to change any other aspects of your {% data variables.product.prodname_code_scanning %} configuration, consider configuring advanced setup. See [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning).
+If you need to change any other aspects of your {% data variables.product.prodname_code_scanning %} configuration, consider configuring advanced setup. See [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configuring-advanced-setup-for-code-scanning).

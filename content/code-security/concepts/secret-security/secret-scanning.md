@@ -49,7 +49,7 @@ When you receive an alert, rotate the affected credential immediately to prevent
 
 ### Partner integration
 
-{% data variables.product.company_short %} partners with a large variety of service providers to validate detected secrets. When a partner secret is detected, we notify the provider so they can take action, such as revoking the credential. Partner secrets are reported directly to the provider and aren't displayed in your repository alerts. For more information, see [AUTOTITLE](/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program).
+{% data variables.product.company_short %} partners with a large variety of service providers to validate detected secrets. When a partner secret is detected, we notify the provider so they can take action, such as revoking the credential. Partner secrets are reported directly to the provider and aren't displayed in your repository alerts. For more information, see [AUTOTITLE](/code-security/tutorials/secret-scanning-partner-program).
 
 {% endif %}
 
@@ -57,11 +57,11 @@ When you receive an alert, rotate the affected credential immediately to prevent
 
 Beyond the default detection of partner and provider secrets, you can expand and customize {% data variables.product.prodname_secret_scanning %} to fit your needs.
 
-* **Non-provider patterns.** Expand detection to secrets that aren't tied to a specific service provider, such as private keys, connection strings, and generic API keys.
+* **Generic patterns.** Expand detection to secrets that aren't tied to a specific service provider, such as private keys, connection strings, and generic API keys.
 * **Custom patterns.** Define your own regular expressions to detect organization-specific secrets that aren't covered by default patterns.
 * **Validity checks.** Prioritize remediation by checking whether detected secrets are still active.
 {% ifversion secret-scanning-ai-generic-secret-detection %}
-* **{% data variables.secret-scanning.copilot-secret-scanning %}.** Use AI to detect unstructured secrets like passwords, or to generate regular expressions for custom patterns.
+* **{% data variables.secret-scanning.ai-detected-secrets-caps %}.** Use AI to detect unstructured secrets like passwords, or to generate regular expressions for custom patterns.
 {% endif %}
 
 {% ifversion secret-scanning-validity-check-partner-patterns %}
@@ -70,10 +70,18 @@ Beyond the default detection of partner and provider secrets, you can expand and
 
 Validity checks help you prioritize which secrets to remediate first by verifying whether a detected secret is still active. When you enable validity checks, {% data variables.product.prodname_secret_scanning %} may contact the secret's issuing service to determine if the credential has been revoked.
 
-Validity checks are separate from {% data variables.product.prodname_secret_scanning %}'s partner program. While partner secrets are automatically reported to service providers for revocation, validity checks verify the status of secrets you manage in your own alerts. For more information, see [AUTOTITLE](/code-security/concepts/secret-security/about-validity-checks).
+Validity checks are separate from {% data variables.product.prodname_secret_scanning %}'s partner program. While partner secrets are automatically reported to service providers for revocation, validity checks verify the status of secrets you manage in your own alerts. For more information, see [AUTOTITLE](/code-security/concepts/secret-security/validity-checks).
 
 {% endif %}
 
 ## How can I access this feature?
 
 {% data reusables.gated-features.secret-scanning %}
+
+{% ifversion secret-scanning-public-monitoring %}
+
+## Public monitoring
+
+In addition to scanning repositories your enterprise owns, you can enable public monitoring to detect secrets leaked by your enterprise members in public repositories across {% data variables.product.github %}. This extends {% data variables.product.prodname_secret_scanning %} beyond the repositories your enterprise owns to follow your members' activity across the platform. See [AUTOTITLE](/code-security/concepts/secret-security/public-monitoring).
+
+{% endif %}

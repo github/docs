@@ -46,9 +46,11 @@ jobs:
 
             // Don't perform this action with Docs team members
             try {
-              await github.rest.teams.getMembershipForUserInOrg({
-                org: 'github',
-                team_slug: 'docs',
+              // Team is addressed by numeric ID (org github = 9919, team docs = 325922)
+              // because IDs survive team renames and slugs do not.
+              await github.request('GET /organizations/{org_id}/team/{team_id}/memberships/{username}', {
+                org_id: 9919,
+                team_id: 325922,
                 username: context.payload.sender.login,
               });
               // If the user is a Docs team member, we should stop here and not send
@@ -73,9 +75,9 @@ jobs:
 
             core.setOutput('did_warn', 'true')
 
-      - name: Send Slack notification if a GitHub employee who isn't on the docs team opens an issue in public
+      - name: Send Slack notification if a GitHub employee who isn't on the Technical Content team opens an issue in public
         if: ${{ steps.membership_check.outputs.did_warn && github.repository == 'github/docs' }}
-        uses: slackapi/slack-github-action@45a88b9581bfab2566dc881e2cd66d334e621e2c # v3.0.3
+        uses: slackapi/slack-github-action@dcb1066f776dd043e64d0e8ba94ca15cc7e1875d # v4.0.0
         env:
           SLACK_MESSAGE: <@${{ github.actor }}> opened https://github.com/github/docs/issues/${{ github.event.number || github.event.issue.number }} publicly on the github/docs repo instead of a private repo. They have been notified via a new issue in the private repo to confirm this was intentional.
           SLACK_CHANNEL_ID: ${{ secrets.DOCS_OPEN_SOURCE_SLACK_CHANNEL_ID }}
@@ -89,7 +91,7 @@ jobs:
 
       - name: Check out repo
         if: ${{ failure() && github.event_name != 'pull_request_target' }}
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'pull_request_target' }}
         with:

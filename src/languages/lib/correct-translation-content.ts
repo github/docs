@@ -249,6 +249,17 @@ export function correctTranslatedContentStrings(
       '{% ifversion ghec %}SCIM{% else %} con Okta',
       '{% ifversion ghec %}SCIM{% else %} con Okta{% endif %}',
     )
+
+    // data/reusables/repositories/you-can-fork.md: translation starts with
+    // `{% elsif ghes or ghec %}` instead of `{% ifversion ghes or ghec %}` —
+    // the opening `{% ifversion %}` was replaced with `{% elsif %}`, leaving no
+    // opener and causing "elsif not found" errors in fork-a-repo.md and forks.md.
+    if (
+      context.dottedPath === 'reusables.repositories.you-can-fork' ||
+      context.relativePath?.endsWith('data/reusables/repositories/you-can-fork.md')
+    ) {
+      content = content.replace(/^\{%-?\s*elsif\s+/, '{% ifversion ')
+    }
   }
 
   if (context.code === 'ja') {
@@ -526,11 +537,40 @@ export function correctTranslatedContentStrings(
       '{% endif %} 上で{% endif %}エンタープライズとの通信を実行できるように Okta を構成する方法を学習します。',
       '{% endif %} 上でエンタープライズとの通信を実行できるように Okta を構成する方法を学習します。',
     )
+
+    // [SCRAPE-6759] admin/managing-iam/iam-configuration-reference/username-considerations-for-external-authentication.md
+    // (intro): the second conditional block was scrambled — `{% endif %}`,
+    // `{% elsif ghes %}` and `{% ifversion ghec %}` ended up out of order, leaving
+    // an orphan `endif` and a never-closed `ifversion`. This breaks the admin
+    // landing page render (`tag "endif" not found`). Reconstruct to match English:
+    // determine the username for each user account {% ifversion ghec %}in your
+    // enterprise{% elsif ghes %}on your instance{% endif %}. Prose preserved.
+    content = content.replaceAll(
+      'は一定のルールに従って、インスタンス{% endif %}上のエンタープライズ{% elsif ghes %}内の各ユーザーアカウント{% ifversion ghec %}のユーザー名を決定します。',
+      'は一定のルールに従って、{% ifversion ghec %}エンタープライズ内{% elsif ghes %}インスタンス上{% endif %}の各ユーザーアカウントのユーザー名を決定します。',
+    )
   }
 
   if (context.code === 'pt') {
     // `{%–` — en-dash (U+2013) used instead of hyphen in `{%-` trim modifier
     content = content.replaceAll('{%–', '{%-')
+
+    // `{% vscode %}` inserted mid-sentence with no matching `{% endvscode %}`
+    // and no `{% vscode %}` in the English source at all. The translator
+    // apparently mistranslated a phrase ("the latest releases of VS Code")
+    // into a stray opening tag. Confirmed in
+    // `data/reusables/copilot/code-completion-switch-prereqs-vscode.md`,
+    // which then breaks tag balance in every file that wraps this reusable
+    // in its own `{% vscode %}...{% endvscode %}` block. Strip the stray
+    // opener (and any following whitespace) when it has no closer and the
+    // English source never used this tag.
+    if (
+      content.includes('{% vscode %}') &&
+      !content.includes('{% endvscode %}') &&
+      !englishContent.includes('{% vscode %}')
+    ) {
+      content = content.replaceAll(/\{% vscode %\}\s*/g, '')
+    }
 
     content = content.replaceAll('{% dados variables', '{% data variables')
     content = content.replaceAll('{% de dados variables', '{% data variables')
@@ -882,6 +922,54 @@ export function correctTranslatedContentStrings(
       '在{% data variables.product.prodname_dotcom_the_website %}或{% data variables.enterprise.data_residency_site %}{% endif %}上的企业{% ifversion ghec %}进行通信。',
       '的企业{% ifversion ghec %}在{% data variables.product.prodname_dotcom_the_website %}或{% data variables.enterprise.data_residency_site %}{% endif %}进行通信。',
     )
+
+    // [per-file] actions/azure-vnet-creating-network-configuration-prereqs.md:
+    // `{% ifversion ghec%}` closes prematurely with `{% endif %}` before the
+    // `{% else %}` branch, leaving `{% else %}` as an orphan. Reorder to:
+    // `{% ifversion ghec %}...{% else %}...{% endif %}`.
+    content = content.replaceAll(
+      '可以{% ifversion ghec%}在企业或组织级别{% endif %}在组织级别{% else %}创建网络配置，从而将 Azure 虚拟网络 (VNET) 用于专用网络。',
+      '可以{% ifversion ghec %}在企业或组织级别{% else %}在组织级别{% endif %}创建网络配置，从而将 Azure 虚拟网络 (VNET) 用于专用网络。',
+    )
+
+    // [per-file] gated-features/ghas-ghec.md: `prodname_team` and `prodname_ghe_cloud`
+    // escaped outside the `{% ifversion fpt or ghec %}` block, and the branches are
+    // swapped. `{% endif %}` appears before `{% elsif ghes %}`. Restore structure:
+    // `{% ifversion fpt or ghec %}...team...ghe_cloud{% elsif ghes %}...ghe_server{% endif %}`.
+    content = content.replaceAll(
+      '适用于{% data variables.product.prodname_team %}上的{% ifversion fpt or ghec %}账户以及{% data variables.product.prodname_ghe_server %}{% endif %}上的{% data variables.product.prodname_ghe_cloud %}{% elsif ghes %}账户。',
+      '适用于{% ifversion fpt or ghec %}{% data variables.product.prodname_team %}和{% data variables.product.prodname_ghe_cloud %}上的账户{% elsif ghes %}{% data variables.product.prodname_ghe_server %}上的账户{% endif %}。',
+    )
+
+    // [per-file] scim/after-you-configure-saml.md: `{% ifversion fpt or ghec %}` opener
+    // was dropped before `{% data variables.product.github %}`, leaving `{% else %}` as
+    // an orphan. The `{% ifversion %}` token was then misplaced after `{% endif %}`.
+    content = content.replaceAll(
+      '{% data variables.product.github %}{% else %}{% data variables.location.product_location_enterprise %}{% endif %} 上的{% ifversion fpt or ghec %}企业资源',
+      '{% ifversion fpt or ghec %}{% data variables.product.github %} 上的企业资源{% else %}{% data variables.location.product_location_enterprise %}{% endif %}',
+    )
+
+    // [per-file] enterprise_user_management/consider-usernames-for-external-authentication.md:
+    // The second `{% ifversion ghec %}` opener (before `product.github`) was dropped,
+    // leaving an orphan `{% elsif ghes %}` and a dangling `{% ifversion ghec %}` at end.
+    // `企业中` ("in your enterprise") is GHEC-only in the source, so it belongs inside the
+    // `{% ifversion ghec %}` branch, not before it.
+    content = content.replaceAll(
+      '企业中 {% data variables.product.github %}{% elsif ghes %} 上 {% data variables.location.product_location %}{% endif %} 上每个新个人帐户 {% ifversion ghec %} 的用户名。',
+      '{% ifversion ghec %}企业中 {% data variables.product.github %}{% elsif ghes %} 上 {% data variables.location.product_location %}{% endif %} 上每个新个人帐户的用户名。',
+    )
+
+    // [SCRAPE-6759] admin/managing-iam/iam-configuration-reference/username-considerations-for-external-authentication.md
+    // (intro): the second conditional block was scrambled — `{% endif %}`,
+    // `{% elsif ghes %}` and `{% ifversion ghec %}` ended up out of order, leaving
+    // an orphan `endif` and a never-closed `ifversion`. This breaks the admin
+    // landing page render (`tag "endif" not found`). Reconstruct to match English:
+    // determine the username for each user account {% ifversion ghec %}in your
+    // enterprise{% elsif ghes %}on your instance{% endif %}. Prose preserved.
+    content = content.replaceAll(
+      '会按照特定规则确定您实例{% endif %}上您企业{% elsif ghes %}中各个用户帐户{% ifversion ghec %}的用户名。',
+      '会按照特定规则确定{% ifversion ghec %}您企业中{% elsif ghes %}您实例上{% endif %}各个用户帐户的用户名。',
+    )
   }
 
   if (context.code === 'ru') {
@@ -898,6 +986,16 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% данные variables.', '{% data variables.')
     content = content.replaceAll('{% данных reusables', '{% data reusables')
     content = content.replaceAll('{% данные reusables', '{% data reusables')
+    // Fully translated "data reusables" phrases used as Liquid tag prefixes.
+    // `данных, многократно используемых` ("data, repeatedly used") and
+    // `данных, которые можно использовать повторно` ("data that can be reused")
+    // are both translations of `data reusables`; the English reusable path
+    // that follows is untranslated, so restoring the keyword is deterministic.
+    content = content.replaceAll('{% данных, многократно используемых.', '{% data reusables.')
+    content = content.replaceAll(
+      '{% данных, которые можно использовать повторно.',
+      '{% data reusables.',
+    )
     content = content.replaceAll('{% данных переменных.', '{% data variables.')
     // Broaden `{% данных.X` → `{% data variables.X` (covers .product., .dependency-review., .code-scanning., etc.)
     content = content.replaceAll('{% данных.', '{% data variables.')
@@ -1104,6 +1202,14 @@ export function correctTranslatedContentStrings(
       return match.replace(/(\d)\s*о/g, '$10').replace(/о\s*(\d)/g, '0$1')
     })
 
+    // `{% PLAN PLAN ifversion %}` — plan name duplicated before `ifversion`; word-order swap.
+    // The universal whitespace fix converts `{ % ghes ghes ifversion %}` to this form first.
+    // Collapse the duplicate plan name and swap to canonical `{% ifversion PLAN %}`.
+    content = content.replace(
+      /\{%(-?)\s*(fpt|ghec|ghes|ghae|ghecom)\s+\2\s+ifversion\s*(-?)%\}/g,
+      '{%$1 ifversion $2 $3%}',
+    )
+
     // Word-order swap: translator placed plan name BEFORE `ifversion`, e.g.
     // `{% ghes ifversion %}` → `{% ifversion ghes %}`,
     // `{% ghes ifversion < 3,14 %}` → `{% ifversion ghes < 3.14 %}`
@@ -1206,6 +1312,32 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll(
       '{% ifversion ghec %}аутентификации и{% endif %} провизионирования SCIM{% else %}с помощью Okta',
       '{% ifversion ghec %}SCIM{% else %}аутентификации и{% endif %} провизионирования с помощью Okta',
+    )
+
+    // [SCRAPE-6732] admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise.md
+    // (intro): translator scrambled `{% ifversion ghec %}...{% else %}...{% endif %}`
+    // so the `{% else %}` ended up before any opening `{% ifversion %}` (an orphan)
+    // and the `{% ifversion ghec %}` moved into the else branch. This breaks the
+    // admin landing page render (`tag "else" not found`). Reconstruct to match
+    // English: view and revoke an enterprise member's {% ifversion ghec %}linked
+    // identity, active sessions, and authorized credentials{% else %}active SAML
+    // sessions{% endif %}. The corrector runs on the PARSED intro value.
+    content = content.replaceAll(
+      'связанную личность, активные сессии и авторизованные учетные{% else %}данные {% ifversion ghec %}SAML{% endif %}',
+      '{% ifversion ghec %}связанную личность, активные сессии и авторизованные учетные данные{% else %}активные сессии SAML{% endif %}',
+    )
+
+    // [SCRAPE-6759] admin/managing-iam/understanding-iam-for-enterprises/about-saml-for-enterprise-iam.md
+    // (intro): the `{% ifversion ghec %}...{% elsif ghes %}...{% endif %}` block was
+    // scrambled — `{% endif %}` was placed before `{% elsif ghes %}` and the final
+    // `{% endif %}` was dropped, leaving an orphan `elsif`. This breaks the admin
+    // landing page render (`tag "elsif" not found`). Reconstruct to match English:
+    // centrally manage access {% ifversion ghec %}to organizations owned by your
+    // enterprise on {% data ...dotcom_the_website %}{% elsif ghes %}to
+    // {% data ...product_location %}{% endif %}. Prose preserved.
+    content = content.replaceAll(
+      'доступом {% ifversion ghec %}к организациям, принадлежащим вашей организации{% endif %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.location.product_location %}.',
+      'доступом {% ifversion ghec %}к организациям, принадлежащим вашей организации на {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}к {% data variables.location.product_location %}{% endif %}.',
     )
   }
 
@@ -1400,6 +1532,24 @@ export function correctTranslatedContentStrings(
       '{%- collaborateurs invités ifversion %}',
       '{%- ifversion guest-collaborators %}',
     )
+
+    // `{% ifversion <ghec %}` / `{% ifversion <fpt %}` etc. — stray `<` immediately
+    // before the plan name in an ifversion/elsif tag (e.g. from HTML entity confusion).
+    // Remove the stray `<` so the version expression is valid Liquid.
+    content = content.replace(
+      /\{%(-?\s+(?:ifversion|elsif|if)\s+)(?:<|&lt;)(fpt|ghec|ghes|ghae|ghecom)\b/g,
+      '{%$1$2',
+    )
+
+    // education/manage-coursework-with-github-classroom/.../leave-feedback-with-pull-requests.md
+    // The `{% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}`
+    // tag was fully translated (both keyword and path) by the translator:
+    // `{% reusable (fr) classroom.vous-pouvez-créer-une-pull-request-pour-retour %}`
+    // Restore the canonical English form so the reusable can be looked up.
+    content = content.replaceAll(
+      '{% reusable (fr) classroom.vous-pouvez-créer-une-pull-request-pour-retour %}',
+      '{% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}',
+    )
   }
 
   if (context.code === 'ko') {
@@ -1574,6 +1724,17 @@ export function correctTranslatedContentStrings(
       '{% data variables.product.prodname_dotcom %}.{% ifversion default-setup-self-hosted-runners-GHEC %}',
       '{% data variables.product.prodname_dotcom %}.{% endif %}',
     )
+
+    // data/reusables/repositories/about-READMEs.md: the translation contains an
+    // orphaned `{% endif %}` immediately before the first `{% ifversion fpt or ghec %}`
+    // tag. The English source has no such tag at that position. Remove the orphan
+    // so the opening ifversion block balances.
+    if (
+      context.dottedPath === 'reusables.repositories.about-READMEs' ||
+      context.relativePath?.endsWith('data/reusables/repositories/about-READMEs.md')
+    ) {
+      content = content.replace(/\{%-?\s*endif\s*-?%\}\s*(\{%-?\s*ifversion\s)/g, '$1')
+    }
   }
 
   if (context.code === 'de') {
@@ -1776,6 +1937,13 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll(
       'auf selbst-gehosteten Runnern ausführen.{% data variables.product.prodname_dependabot %}',
       'auf selbst-gehosteten Runnern ausführen.{% endif %}',
+    )
+    // [per-file] enterprise_installation/hardware-considerations-all-platforms.md:
+    // `{% ifversion ghes %}` opener was stripped before "200 GB", leaving `{% else %}`
+    // as an orphan. Restore the opener immediately before the "200 GB" text.
+    content = content.replaceAll(
+      'werden 200 GB auf dem Stammdateisystem verfügbar sein. Die verbleibenden 200GB{% else %}',
+      'werden {% ifversion ghes %}200 GB auf dem Stammdateisystem verfügbar sein. Die verbleibenden 200GB{% else %}',
     )
   }
 
@@ -2047,6 +2215,9 @@ export function correctTranslatedContentStrings(
   content = content.replaceAll('["AUTOTITLE]', '"[AUTOTITLE]')
   content = content.replaceAll('[ AUTOTITLE](', '[AUTOTITLE](')
   content = content.replaceAll('[ "AUTOTITLE](', '[AUTOTITLE](')
+  // Extra space between the closing `]` and opening `(` breaks the Markdown
+  // link so it renders as literal text instead of a hyperlink.
+  content = content.replaceAll('[AUTOTITLE] (', '[AUTOTITLE](')
 
   // Double-brace Liquid tag corruptions.
   content = content.replaceAll('{{% octicon', '{% octicon')
@@ -2190,6 +2361,28 @@ export function correctTranslatedContentStrings(
 
   // Collapsed Markdown table rows — restore linebreaks between `|` cells.
   content = content.replaceAll(' | | ', ' |\n| ')
+
+  // Translators sometimes reorder an `{% ifversion %}...{% endif %}` block so
+  // that `{% endif %}` appears BEFORE its matching `{% else %}`, e.g.
+  // `{% ifversion X %}A{% endif %}B{% else %}` instead of the correct
+  // `{% ifversion X %}A{% else %}B{% endif %}`. This produces a
+  // "tag 'else' not found" parse error. Confirmed identically across all
+  // eight translated languages for
+  // `data/reusables/organizations/custom-org-roles-intro.md`, so this fix
+  // runs universally as a post-fix (after the more specific per-file/
+  // per-language exact-string fixes above, which take priority when they
+  // match). We only swap `{% endif %}` and `{% else %}` when they appear
+  // back-to-back (with no other Liquid tag between them and the matching
+  // `{% ifversion %}`), to avoid disturbing legitimately nested or unrelated
+  // tags.
+  {
+    const noTag = '(?:(?!\\{%)[\\s\\S])*?'
+    const reorderRegex = new RegExp(
+      `(\\{%-?\\s*ifversion\\s+[^%]+?%\\})(${noTag})\\{%-?\\s*endif\\s*-?%\\}(${noTag})\\{%-?\\s*else\\s*-?%\\}`,
+      'g',
+    )
+    content = content.replace(reorderRegex, '$1$2{% else %}$3{% endif %}')
+  }
 
   // Final catch-all: earlier normalizations (e.g. space-in-braces regex) can
   // recreate `{{% KEYWORD` patterns after the per-keyword fixes already ran.

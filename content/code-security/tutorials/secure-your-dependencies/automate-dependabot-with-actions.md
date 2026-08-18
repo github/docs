@@ -19,7 +19,7 @@ category:
 
 {% ifversion dependabot-on-actions-opt-in %}
 
->[!NOTE] This article explains how to automate {% data variables.product.prodname_dependabot %}-related tasks using {% data variables.product.prodname_actions %}. For more information about running {% data variables.product.prodname_dependabot_updates %} using {% data variables.product.prodname_actions %}, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners) instead.
+> [!NOTE] This article explains how to automate {% data variables.product.prodname_dependabot %}-related tasks using {% data variables.product.prodname_actions %}. For more information about running {% data variables.product.prodname_dependabot_updates %} using {% data variables.product.prodname_actions %}, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-on-actions) instead.
 {% endif %}
 
 You can use {% data variables.product.prodname_actions %} to perform automated tasks when {% data variables.product.prodname_dependabot %} creates pull requests to update dependencies. You may find this useful if you want to:
@@ -37,7 +37,14 @@ You can use {% data variables.product.prodname_actions %} to perform automated t
 
 {% data variables.product.prodname_dependabot %} creates pull requests to keep your dependencies up to date. You can use {% data variables.product.prodname_actions %} to perform automated tasks when these pull requests are created. For example, fetch additional artifacts, add labels, run tests, or otherwise modify the pull request.
 
-{% data reusables.dependabot.working-with-actions-considerations %} For more information, see [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/troubleshooting-dependabot-on-github-actions).
+{% data reusables.dependabot.working-with-actions-considerations %} For more information, see [AUTOTITLE](/code-security/reference/supply-chain-security/troubleshoot-dependabot/dependabot-on-actions).
+
+{% ifversion copilot %}
+
+> [!NOTE]
+> You can also use {% data variables.copilot.agentic_workflows_short %} for dependency analysis, update summaries, and remediation recommendations, while keeping security enforcement and merge gating in deterministic {% data variables.product.prodname_actions %} workflows. For more information, see [AUTOTITLE](/copilot/how-tos/github-agentic-workflows/creating-github-agentic-workflows).
+
+{% endif %}
 
 Here are several common scenarios for pull requests that can be automated using {% data variables.product.prodname_actions %}.
 
@@ -147,7 +154,7 @@ jobs:
 
 If you want to allow maintainers to mark certain pull requests for automerge, you can use {% data variables.product.prodname_dotcom %}'s automerge functionality. This enables the pull request to be merged when any tests and approvals required by the branch protection rules are successfully met.
 
-For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request) and [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule).
+For more information, see [AUTOTITLE](/pull-requests/how-tos/merge-and-close-pull-requests/automatically-merging-a-pull-request) and [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule).
 
 You can instead use {% data variables.product.prodname_actions %} and the {% data variables.product.prodname_cli %}. Here is an example that automerges all patch updates to `my-dependency`:
 
@@ -194,7 +201,7 @@ However, when {% data variables.product.prodname_dependabot %} is enabled for a 
 * The actions referenced within these workflows are also allowed to run, even if external actions are disallowed.
 
 {% ifversion dependabot-on-actions-opt-in %}
-For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners).
+For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-on-actions).
 {% endif %}
 
 ## Investigating failed workflow runs
@@ -206,6 +213,7 @@ If your workflow run fails, check the following:
 * Your secrets are available in {% data variables.product.prodname_dependabot %} secrets rather than as {% data variables.product.prodname_actions %} secrets.
 * You have a `GITHUB_TOKEN` with the correct permissions.
 
-For information on writing and debugging {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/learn-github-actions).
+For information on writing and debugging {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/how-tos/write-workflows).
 
-For more tips to help resolve issues with workflows, see [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/troubleshooting-dependabot-on-github-actions).
+For more tips to help resolve issues with workflows, see [AUTOTITLE](/code-security/reference/supply-chain-security/troubleshoot-dependabot/dependabot-on-actions).
+

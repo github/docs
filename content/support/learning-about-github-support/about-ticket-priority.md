@@ -73,7 +73,7 @@ All tickets regarding security features follow this logic for ticket prioritizat
 | {% data variables.product.support_ticket_priority_high %} | Issues that affect the performance of {% data variables.product.github %}-supported ARC in an existing production environment but do not result in a complete system failure. | Delays in pod termination or assignment of jobs to pods, where the delay is not in line with expectations but does not entirely halt the workflow. |
 | {% data variables.product.support_ticket_priority_normal %} / {% data variables.product.support_ticket_priority_low %} | Any other minor issues not classified as {% data variables.product.support_ticket_priority_urgent %} or {% data variables.product.support_ticket_priority_high %} should be directed to [the open source {% data variables.product.prodname_actions_runner_controller %} repository](https://github.com/actions/actions-runner-controller) issues/discussions.  | Customization, performance analysis, initial setup. |
 
-For more information about what {% data variables.contact.github_support %} can assist with, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-support-for-actions-runner-controller).
+For more information about what {% data variables.contact.github_support %} can assist with, see [AUTOTITLE](/actions/concepts/runners/support-for-arc).
 
 ## Ticket priorities for {% data variables.product.prodname_copilot %}
 

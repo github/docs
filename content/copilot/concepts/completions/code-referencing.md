@@ -90,6 +90,6 @@ References to matching code are currently available in JetBrains IDEs, {% data v
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/how-tos/completions/finding-public-code-that-matches-github-copilot-suggestions)
-* [AUTOTITLE](/copilot/how-tos/manage-your-account/managing-copilot-policies-as-an-individual-subscriber)
-* [AUTOTITLE](/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization)
+* [AUTOTITLE](/copilot/how-tos/get-code-suggestions/find-matching-code)
+* [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies)
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies)

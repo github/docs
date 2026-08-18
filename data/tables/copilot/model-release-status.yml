@@ -39,7 +39,24 @@
   provider: 'OpenAI'
   release_status: 'GA'
 
+- name: 'GPT-5.6 Luna'
+  provider: 'OpenAI'
+  release_status: 'GA'
+
+- name: 'GPT-5.6 Sol'
+  provider: 'OpenAI'
+  release_status: 'GA'
+
+- name: 'GPT-5.6 Terra'
+  provider: 'OpenAI'
+  release_status: 'GA'
+
 # Anthropic models
+
+- name: 'Claude Fable 5'
+  provider: 'Anthropic'
+  release_status: 'GA'
+
 - name: 'Claude Haiku 4.5'
   provider: 'Anthropic'
   release_status: 'GA'
@@ -52,10 +69,6 @@
   provider: 'Anthropic'
   release_status: 'GA'
 
-- name: 'Claude Opus 4.6 (fast mode) (preview)'
-  provider: 'Anthropic'
-  release_status: 'Public preview'
-
 - name: 'Claude Opus 4.7'
   provider: 'Anthropic'
   release_status: 'GA'
@@ -64,12 +77,13 @@
   provider: 'Anthropic'
   release_status: 'GA'
 
-- name: 'Claude Fable 5'
+- name: 'Claude Opus 4.8 (fast mode) (preview)'
   provider: 'Anthropic'
   release_status: 'GA'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
+
+- name: 'Claude Opus 5'
+  provider: 'Anthropic'
+  release_status: 'GA'
 
 - name: 'Claude Sonnet 4.5'
   provider: 'Anthropic'
@@ -79,15 +93,11 @@
   provider: 'Anthropic'
   release_status: 'GA'
 
-# Google models
-
-- name: 'Gemini 2.5 Pro'
-  provider: 'Google'
+- name: 'Claude Sonnet 5'
+  provider: 'Anthropic'
   release_status: 'GA'
 
-- name: 'Gemini 3 Flash'
-  provider: 'Google'
-  release_status: 'Public preview'
+# Google models
 
 - name: 'Gemini 3.1 Pro'
   provider: 'Google'
@@ -95,14 +105,44 @@
 
 - name: 'Gemini 3.5 Flash'
   provider: 'Google'
-  release_status: GA
+  release_status: 'GA'
+
+- name: 'Gemini 3.6 Flash'
+  provider: 'Google'
+  release_status: 'GA'
+
+- name: 'Gemini 3.7 Flash'
+  provider: 'Google'
+  release_status: 'GA'
 
 # Microsoft models
 - name: 'MAI-Code-1-Flash'
   provider: 'Microsoft'
   release_status: 'GA'
 
+- name: 'MAI-Code-1.1-Flash'
+  provider: 'Microsoft'
+  release_status: 'GA'
+
 # Fine-tuned OAI models
 - name: 'Raptor mini'
   provider: 'Fine-tuned GPT-5 mini'
-  release_status: 'Public preview'
+  release_status: 'GA'
+
+# Open-weight models
+- name: 'Kimi K2.7 Code'
+  provider: 'Moonshot AI'
+  release_status: 'GA'
+
+- name: 'Kimi K3'
+  provider: 'Moonshot AI'
+  release_status: 'GA'
+
+# xAI models
+- name: 'Grok 4.5'
+  provider: 'xAI'
+  release_status: 'GA'
+
+- name: 'Grok 4.6'
+  provider: 'xAI'
+  release_status: 'GA'

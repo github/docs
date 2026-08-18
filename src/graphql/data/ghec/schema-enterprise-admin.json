@@ -60,7 +60,7 @@
       "type": "EnterpriseAdministratorInvitation",
       "id": "enterpriseadministratorinvitation",
       "href": "/graphql/reference/enterprise-admin#object-enterpriseadministratorinvitation",
-      "description": "<p>Look up a pending enterprise administrator invitation by invitation token.</p>",
+      "description": "<p>Look up a pending enterprise administrator invitation by invitation token. If\nthe invitation was sent to an email address, the viewer must have verified\nthat email address, or otherwise be an administrator of the enterprise.</p>",
       "args": [
         {
           "name": "invitationToken",
@@ -101,7 +101,7 @@
       "type": "EnterpriseMemberInvitation",
       "id": "enterprisememberinvitation",
       "href": "/graphql/reference/enterprise-admin#object-enterprisememberinvitation",
-      "description": "<p>Look up a pending enterprise unaffiliated member invitation by invitation token.</p>",
+      "description": "<p>Look up a pending enterprise unaffiliated member invitation by invitation\ntoken. If the invitation was sent to an email address, the viewer must have\nverified that email address, or otherwise be an administrator of the enterprise.</p>",
       "args": [
         {
           "name": "invitationToken",
@@ -694,7 +694,7 @@
       "name": "removeEnterpriseMember",
       "id": "removeenterprisemember",
       "href": "/graphql/reference/enterprise-admin#mutation-removeenterprisemember",
-      "description": "<p>Completely removes a user from the enterprise.</p>",
+      "description": "<p>Completely removes a user from the enterprise asynchronously.</p>",
       "isDeprecated": false,
       "inputFields": [
         {
@@ -1475,6 +1475,45 @@
       "category": "enterprise-admin"
     },
     {
+      "name": "updateEnterpriseProofOfPresenceRequiredSetting",
+      "id": "updateenterpriseproofofpresencerequiredsetting",
+      "href": "/graphql/reference/enterprise-admin#mutation-updateenterpriseproofofpresencerequiredsetting",
+      "description": "<p>Sets the proof of presence (PoP) re-authentication requirement for sudo actions in an enterprise.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateEnterpriseProofOfPresenceRequiredSettingInput!",
+          "id": "updateenterpriseproofofpresencerequiredsettinginput",
+          "href": "/graphql/reference/enterprise-admin#input-object-updateenterpriseproofofpresencerequiredsettinginput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "enterprise",
+          "type": "Enterprise",
+          "id": "enterprise",
+          "href": "/graphql/reference/enterprise-admin#object-enterprise",
+          "description": "<p>The enterprise with the updated proof of presence required setting.</p>"
+        },
+        {
+          "name": "message",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A message confirming the result of updating the proof of presence required setting.</p>"
+        }
+      ],
+      "category": "enterprise-admin"
+    },
+    {
       "name": "updateEnterpriseRepositoryProjectsSetting",
       "id": "updateenterpriserepositoryprojectssetting",
       "href": "/graphql/reference/enterprise-admin#mutation-updateenterpriserepositoryprojectssetting",
@@ -1927,6 +1966,87 @@
           "type": "ID!",
           "id": "id",
           "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "innersourceVulnerabilities",
+          "description": "<p>Innersource security vulnerabilities scoped to this enterprise.</p>",
+          "type": "SecurityVulnerabilityConnection!",
+          "id": "securityvulnerabilityconnection",
+          "href": "/graphql/reference/security-advisories#object-securityvulnerabilityconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "ecosystem",
+              "description": "<p>An ecosystem to filter vulnerabilities by.</p>",
+              "type": {
+                "name": "SecurityAdvisoryEcosystem",
+                "id": "securityadvisoryecosystem",
+                "href": "/graphql/reference/security-advisories#enum-securityadvisoryecosystem"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the returned vulnerabilities.</p>",
+              "type": {
+                "name": "SecurityVulnerabilityOrder",
+                "id": "securityvulnerabilityorder",
+                "href": "/graphql/reference/security-advisories#input-object-securityvulnerabilityorder"
+              }
+            },
+            {
+              "name": "package",
+              "description": "<p>A package name to filter vulnerabilities by.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "severities",
+              "description": "<p>A list of severities to filter vulnerabilities by.</p>",
+              "type": {
+                "name": "[SecurityAdvisorySeverity!]",
+                "id": "securityadvisoryseverity",
+                "href": "/graphql/reference/security-advisories#enum-securityadvisoryseverity"
+              }
+            }
+          ]
         },
         {
           "name": "location",
@@ -11688,6 +11808,28 @@
       "category": "enterprise-admin"
     },
     {
+      "name": "ProofOfPresenceRequirement",
+      "id": "proofofpresencerequirement",
+      "href": "/graphql/reference/enterprise-admin#enum-proofofpresencerequirement",
+      "description": "<p>The proof of presence (PoP) re-authentication requirement for sudo actions in an enterprise.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "MFA",
+          "description": "<p>Members must satisfy an MFA re-authentication.</p>"
+        },
+        {
+          "name": "NO_POLICY",
+          "description": "<p>Proof of presence is not required.</p>"
+        },
+        {
+          "name": "REAUTH",
+          "description": "<p>Members must complete a fresh re-authentication against the enterprise identity provider.</p>"
+        }
+      ],
+      "category": "enterprise-admin"
+    },
+    {
       "name": "SamlDigestAlgorithm",
       "id": "samldigestalgorithm",
       "href": "/graphql/reference/enterprise-admin#enum-samldigestalgorithm",
@@ -13421,6 +13563,37 @@
           "type": "String",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "enterprise-admin"
+    },
+    {
+      "name": "UpdateEnterpriseProofOfPresenceRequiredSettingInput",
+      "id": "updateenterpriseproofofpresencerequiredsettinginput",
+      "href": "/graphql/reference/enterprise-admin#input-object-updateenterpriseproofofpresencerequiredsettinginput",
+      "description": "<p>Autogenerated input type of UpdateEnterpriseProofOfPresenceRequiredSetting.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "enterpriseId",
+          "description": "<p>The ID of the enterprise on which to set the proof of presence required setting.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "settingValue",
+          "description": "<p>The proof of presence requirement to set on the enterprise.</p>",
+          "type": "ProofOfPresenceRequirement!",
+          "id": "proofofpresencerequirement",
+          "href": "/graphql/reference/enterprise-admin#enum-proofofpresencerequirement"
         }
       ],
       "category": "enterprise-admin"

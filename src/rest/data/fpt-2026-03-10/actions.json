@@ -26343,11 +26343,13 @@
               "properties": {
                 "id": {
                   "description": "The id of the job.",
-                  "type": "integer"
+                  "type": "integer",
+                  "format": "int64"
                 },
                 "run_id": {
                   "description": "The id of the associated workflow run.",
-                  "type": "integer"
+                  "type": "integer",
+                  "format": "int64"
                 },
                 "run_url": {
                   "type": "string"
@@ -26863,11 +26865,13 @@
                     "properties": {
                       "id": {
                         "description": "The id of the job.",
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                       },
                       "run_id": {
                         "description": "The id of the associated workflow run.",
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                       },
                       "run_url": {
                         "type": "string"
@@ -27320,11 +27324,13 @@
                     "properties": {
                       "id": {
                         "description": "The id of the job.",
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                       },
                       "run_id": {
                         "description": "The id of the associated workflow run.",
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                       },
                       "run_url": {
                         "type": "string"
@@ -28052,6 +28058,7 @@
                     "properties": {
                       "id": {
                         "type": "integer",
+                        "format": "int64",
                         "description": "The ID of the workflow run."
                       },
                       "name": {
@@ -28066,6 +28073,7 @@
                       },
                       "check_suite_id": {
                         "type": "integer",
+                        "format": "int64",
                         "description": "The ID of the associated check suite."
                       },
                       "check_suite_node_id": {
@@ -30382,6 +30390,7 @@
               "properties": {
                 "id": {
                   "type": "integer",
+                  "format": "int64",
                   "description": "The ID of the workflow run."
                 },
                 "name": {
@@ -30396,6 +30405,7 @@
                 },
                 "check_suite_id": {
                   "type": "integer",
+                  "format": "int64",
                   "description": "The ID of the associated check suite."
                 },
                 "check_suite_node_id": {
@@ -33170,6 +33180,7 @@
               "properties": {
                 "id": {
                   "type": "integer",
+                  "format": "int64",
                   "description": "The ID of the workflow run."
                 },
                 "name": {
@@ -33184,6 +33195,7 @@
                 },
                 "check_suite_id": {
                   "type": "integer",
+                  "format": "int64",
                   "description": "The ID of the associated check suite."
                 },
                 "check_suite_node_id": {
@@ -36045,6 +36057,15 @@
                                     "organization"
                                   ]
                                 },
+                                "access_source": {
+                                  "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                  "type": "string",
+                                  "enum": [
+                                    "direct",
+                                    "organization",
+                                    "enterprise"
+                                  ]
+                                },
                                 "organization_id": {
                                   "type": "integer",
                                   "description": "Unique identifier of the organization to which this team belongs"
@@ -37677,6 +37698,7 @@
                     "properties": {
                       "id": {
                         "type": "integer",
+                        "format": "int64",
                         "description": "The ID of the workflow run."
                       },
                       "name": {
@@ -37691,6 +37713,7 @@
                       },
                       "check_suite_id": {
                         "type": "integer",
+                        "format": "int64",
                         "description": "The ID of the associated check suite."
                       },
                       "check_suite_node_id": {

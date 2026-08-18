@@ -3,7 +3,7 @@
 1. Under **Repository access**, select the level of access appropriate for your use case:
    * **Public repositories** if you only need to work with public repos.
    * **All repositories** if you need access across all your current and future repos.
-   * **Only select repositories** f you want to restrict access to specific repos.
+   * **Only select repositories** if you want to restrict access to specific repos.
 1. Under **Permissions**, select the **Account** tab. 
 1. Click **Add permissions** and select **{% data variables.product.prodname_copilot_short %} Requests**.
 1. Click **Generate token**.

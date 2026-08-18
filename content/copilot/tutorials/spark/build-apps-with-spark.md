@@ -16,14 +16,17 @@ category:
 ---
 
 > [!NOTE]
-> * {% data reusables.spark.preview-note-spark %}
-> * The {% data variables.product.prodname_copilot %} setting that blocks suggestions matching public code may not work as intended when using {% data variables.product.prodname_spark_short %}. See [AUTOTITLE](/copilot/how-tos/manage-your-account/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code).
+> {% data reusables.copilot.spark-deprecation %}
 
 ## Introduction
 
 {% data reusables.copilot.spark-overview %}
 
 This tutorial will guide you through the full lifecycle of building and deploying an app with {% data variables.product.prodname_spark_short %} and exploring its features.
+
+> [!NOTE]
+> * {% data reusables.spark.preview-note-spark %}
+> * The {% data variables.product.prodname_copilot %} setting that blocks suggestions matching public code may not work as intended when using {% data variables.product.prodname_spark_short %}. See [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-suggestions-matching-public-code).
 
 ### Prerequisites
 
@@ -185,6 +188,6 @@ Explore more ideas you can build with {% data variables.product.prodname_spark_s
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-spark)
-* [AUTOTITLE](/copilot/concepts/copilot-billing/about-billing-for-github-spark)
+* [AUTOTITLE](/copilot/responsible-use/agents)
+* [AUTOTITLE](/billing/concepts/product-billing/github-spark)
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms)

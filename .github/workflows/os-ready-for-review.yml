@@ -20,18 +20,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo content
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - name: Check if this run was triggered by a member of the docs team
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         id: triggered-by-member
         with:
-          github-token: ${{secrets.DOCS_BOT_PAT_BASE}}
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           result-encoding: string
           script: |
             const triggerer_login = context.payload.sender.login
+            // Team is addressed by numeric ID (org github = 9919, team docs = 325922)
+            // because IDs survive team renames and slugs do not.
             const teamMembers = await github.request(
-              `/orgs/github/teams/docs/members?per_page=100`
+              `/organizations/9919/team/325922/members?per_page=100`
             )
             const logins = teamMembers.data.map(member => member.login)
             if (logins.includes(triggerer_login)) {
@@ -47,14 +49,8 @@ jobs:
           echo Aborting. This workflow must be triggered by a member of the docs team.
           exit 1
 
-      - name: Setup Node.js
-        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
-        with:
-          node-version-file: 'package.json'
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
+      - name: Set up Node and dependencies
+        uses: ./.github/actions/node-npm-setup
 
       - name: Run script
         run: |

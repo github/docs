@@ -32,7 +32,7 @@ Before enabling {% data variables.copilot.copilot_cloud_agent %} for members, un
 
 1. Learn about {% data variables.copilot.copilot_cloud_agent %}, including the costs and how it differs from other AI tools your developers may be used to. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
 1. Learn about the tasks that {% data variables.copilot.copilot_cloud_agent %} is best suited for. These are generally well-defined and scoped issues, such as increasing test coverage, fixing bugs or flaky tests, or updating config files or documentation. See [AUTOTITLE](/copilot/tutorials/cloud-agent/get-the-best-results).
-1. Consider how {% data variables.copilot.copilot_cloud_agent %} fits alongside other tools in your organization's workflows. For an example scenario that walks through how to use {% data variables.copilot.copilot_cloud_agent %} alongside other AI features on {% data variables.product.github %}, see [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/enabling-developers/integrating-agentic-ai).
+1. Consider how {% data variables.copilot.copilot_cloud_agent %} fits alongside other tools in your organization's workflows. For an example scenario that walks through how to use {% data variables.copilot.copilot_cloud_agent %} alongside other AI features on {% data variables.product.github %}, see [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/enable-developers/integrate-ai-agents).
 
 ## 2. Secure
 
@@ -49,8 +49,8 @@ As with any other change to working practices, it's important to run a trial to 
 1. Gather a cross-functional team for the trial to bring different roles, backgrounds, and perspectives to the project. This will make it easier to ensure that you explore a broad range of ways to define issues, assign work to {% data variables.product.prodname_copilot_short %}, and give clear review feedback.
 1. Choose an isolated or low-risk repository, for example, one that contains documentation or internal tools. You could create a fresh repository to use as a playground, but {% data variables.product.prodname_copilot_short %} needs context to be successful, so you would need to add a lot of context, including team processes, development environment, and common dependencies.
 1. Enable {% data variables.copilot.copilot_cloud_agent %} in the repository and optionally enable third-party MCP servers for enhanced context sharing. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/add-copilot-cloud-agent).
-1. Create repository instructions and pre-install any tools required in the development environment {% data variables.product.prodname_copilot_short %} uses. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment).
-1. Identify a few compelling use cases for your organization, for example: test coverage or improving accessibility. See [Choose the right type of tasks to give to Copilot](/copilot/tutorials/cloud-agent/best-practices#choosing-the-right-type-of-tasks-to-give-to-copilot) in the best practice guide.
+1. Create repository instructions and pre-install any tools required in the development environment {% data variables.product.prodname_copilot_short %} uses. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment).
+1. Identify a few compelling use cases for your organization, for example: test coverage or improving accessibility. See [Choose the right type of tasks to give to Copilot](/copilot/tutorials/cloud-agent/get-the-best-results#choosing-the-right-type-of-tasks-to-give-to-copilot) in the best practice guide.
 1. Use best practice to create or refine issues for {% data variables.product.prodname_copilot_short %} in your pilot repository.
 1. Assign issues to {% data variables.product.prodname_copilot_short %} and prepare team members to review its work.
 1. Spend time looking at the codebase or documentation in {% data variables.product.prodname_vscode_shortname %} or {% data variables.product.prodname_dotcom_the_website %}, asking {% data variables.product.prodname_copilot_short %} to create a pull request to fix any bugs or small improvements that you identify.
@@ -70,7 +70,7 @@ You can extend the information available to {% data variables.copilot.copilot_cl
 * **Project planning tools**: Allow {% data variables.product.prodname_copilot_short %} direct access to private planning documents that are stored outside {% data variables.product.github %} in tools like Notion or Figma.
 * **Augment training data**: Each LLM contains training data up to a specific cut-off date. If you're working with fast moving tools, {% data variables.product.prodname_copilot_short %} may not have access to information on new features. You can fill this knowledge gap by making the tool's MCP server available. For example, adding the Terraform MCP server will give {% data variables.product.prodname_copilot_short %} access to the most recently supported Terraform providers.
 
-For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp).
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers).
 
 ## Next steps
 

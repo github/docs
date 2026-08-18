@@ -18,7 +18,7 @@ docsTeamMetrics:
 
 ## Prerequisite
 
-**For Windows only:** The examples in this article use PowerShell. If you're using Windows, you must have PowerShell 7.0 or later installed and in your PATH. You can check your PowerShell version by running `pwsh --version` in a terminal. To install PowerShell, run `winget install Microsoft.PowerShell` then restart your terminal.
+**Windows users only:** The example hooks in this article are designed to run on Windows, Linux, and macOS. For Windows, they use PowerShell and require you to have PowerShell 7.0 or later installed and in your PATH. You can check your PowerShell version by running `pwsh --version` in a terminal. To install PowerShell, run `winget install Microsoft.PowerShell` then restart your terminal.
 
 ## Creating a repository-level hook
 
@@ -106,5 +106,5 @@ The following examples for macOS and Windows show how to configure hooks that wi
 
 * [AUTOTITLE](/copilot/reference/hooks-reference)
 * [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent)
-* [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment)
+* [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment)

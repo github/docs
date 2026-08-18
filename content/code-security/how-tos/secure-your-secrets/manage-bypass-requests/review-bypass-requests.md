@@ -18,7 +18,7 @@ category:
 
 ## Prerequisites
 
-Before you can review bypass requests, delegated bypass must be enabled for your organization or repositories. See [AUTOTITLE](/code-security/how-tos/secure-your-secrets/manage-bypass-requests/enabling-delegated-bypass-for-push-protection).
+Before you can review bypass requests, delegated bypass must be enabled for your organization or repositories. See [AUTOTITLE](/code-security/how-tos/secure-your-secrets/manage-bypass-requests/enable-delegated-bypass).
 
 You can review and manage these requests in security overview.
 
@@ -53,5 +53,5 @@ The following statuses are assigned to a request:
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection)
-* [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/enabling-delegated-bypass-for-push-protection)
+* [AUTOTITLE](/code-security/concepts/secret-security/delegated-bypass)
+* [AUTOTITLE](/code-security/how-tos/secure-your-secrets/manage-bypass-requests/enable-delegated-bypass)

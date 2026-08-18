@@ -33,6 +33,6 @@ For more information on using {% data variables.copilot.custom_agents_short %} i
 
 To create your own {% data variables.copilot.custom_agents_short %}, see:
 
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/create-custom-agents)
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/create-custom-agents-for-cli)
 * [AUTOTITLE](/copilot/reference/customization-cheat-sheet)

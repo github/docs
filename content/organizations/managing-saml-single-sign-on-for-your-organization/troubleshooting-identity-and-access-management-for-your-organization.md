@@ -103,7 +103,7 @@ For organizations using supported SCIM IdPs, these types of integrations use an 
 ### Resolving the error
 
 1. Identify the {% data variables.product.prodname_dotcom %} user account that last authorized the SCIM integration. You can review `org.invite_member` events in your organization audit log to find the user account on whose behalf SCIM operations are performed.
-1. Log into that {% data variables.product.prodname_dotcom %} user account and verify the email address associated with the account. Only one {% data variables.product.prodname_dotcom %} account can verify a particular email address at a time. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address).
+1. Log into that {% data variables.product.prodname_dotcom %} user account and verify the email address associated with the account. Only one {% data variables.product.prodname_dotcom %} account can verify a particular email address at a time. For more information, see [AUTOTITLE](/account-and-profile/how-tos/email-preferences/verifying-your-email-address).
 1. After you verify the email, retry the SCIM provisioning operation from your identity provider.
 
 ## Conflicting SAML identity error
@@ -112,4 +112,4 @@ For organizations using supported SCIM IdPs, these types of integrations use an 
 
 ## Further reading
 
-* [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/troubleshooting-identity-and-access-management-for-your-enterprise)
+* [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/troubleshooting-identity-and-access-management-for-your-enterprise)

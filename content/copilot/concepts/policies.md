@@ -40,6 +40,8 @@ Policies can apply to any surface where users authenticate to {% data variables.
 
 However, not all policies apply to every surface. See [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies).
 
+The {% data variables.copilot.github_copilot_app %} and {% data variables.copilot.copilot_cli_short %} are governed by separate, independent client policies, so you can allow one without allowing the other.
+
 ## How can I prevent policy drift?
 
 If too many people have access to policy settings and your enterprise's governance posture isn't clearly communicated, policy settings can drift over time. This is a risk for enterprises with strict compliance requirements.
@@ -55,5 +57,5 @@ If too many people have access to policy settings and your enterprise's governan
 
 To set policies, see:
 
-* [AUTOTITLE](/copilot/how-tos/administer/enterprises/managing-policies-and-features-for-copilot-in-your-enterprise)
-* [AUTOTITLE](/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization)
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies)
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies)

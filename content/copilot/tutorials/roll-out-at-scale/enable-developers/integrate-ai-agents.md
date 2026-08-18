@@ -61,6 +61,8 @@ To meet a tight deadline, you want to speed up each stage for both developers an
 
    {% data variables.product.prodname_copilot_short %} can update multiple files at once and, with the developer's authorization, run commands for actions like installing dependencies or running tests.
 
+1. Before opening a pull request, the developer runs `/security-review` to identify likely vulnerabilities in active local changes and apply remediations.
+
 1. The developer reviews the diff and chooses which code to keep.
 
 ## 3. Test with an MCP server

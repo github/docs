@@ -36,7 +36,7 @@ There are many variables that may affect how long you might take to complete thi
 ## Prerequisites
 
 Before getting started you must have the following:
-* A [{% data variables.product.prodname_copilot %} subscription plan](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
+* A [{% data variables.product.prodname_copilot %} subscription plan](/copilot/get-started/plans).
 * One of these IDEs:
   * {% data variables.product.prodname_vscode %}
   * Any JetBrains IDE that supports {% data variables.product.prodname_copilot_short %}, with the {% data variables.product.prodname_copilot %} extension for JetBrains installed. See [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension?tool=jetbrains).

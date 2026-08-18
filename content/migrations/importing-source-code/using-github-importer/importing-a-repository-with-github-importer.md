@@ -19,7 +19,7 @@ category:
 
 {% data variables.product.prodname_importer %} imports the source code and commit history of Git repositories hosted on external hosting services. For more information about the capabilities and limitations of {% data variables.product.prodname_importer %}, see [AUTOTITLE](/migrations/importing-source-code/using-github-importer/about-github-importer#capabilities-and-limitations-of-github-importer).
 
-{% data variables.product.github %} uses the email address in the commit header to link a commit to a {% data variables.product.github %} user. To correctly attribute commits in an imported repository, users will need to add the email address associated with their commits to their {% data variables.product.github %} account. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account).
+{% data variables.product.github %} uses the email address in the commit header to link a commit to a {% data variables.product.github %} user. To correctly attribute commits in an imported repository, users will need to add the email address associated with their commits to their {% data variables.product.github %} account. For more information, see [AUTOTITLE](/account-and-profile/how-tos/email-preferences/adding-an-email-address-to-your-github-account).
 
 ## Importing a repository with {% data variables.product.prodname_importer %}
 

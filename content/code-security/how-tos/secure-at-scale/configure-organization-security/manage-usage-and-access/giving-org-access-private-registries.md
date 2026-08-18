@@ -14,7 +14,7 @@ category:
 
 ## About the importance of providing access to private registries
 
-When code in a repository has dependencies that are stored in a private registry, some security features need access to the registry to enable them to work effectively. Without access to all the dependencies of a repository, the effectiveness of {% ifversion code-quality %}{% data variables.product.prodname_code_quality_short %} ({% data variables.release-phases.public_preview %}), {% endif %}{% data variables.product.prodname_code_scanning %} default setup and {% data variables.product.prodname_dependabot %} are limited.
+When code in a repository has dependencies that are stored in a private registry, some security features need access to the registry to enable them to work effectively. Without access to all the dependencies of a repository, the effectiveness of {% ifversion code-quality %}{% data variables.product.prodname_code_quality_short %}, {% endif %}{% data variables.product.prodname_code_scanning %} default setup and {% data variables.product.prodname_dependabot %} are limited.
 
 ## {% data variables.product.prodname_code_scanning_caps %} default setup access to private registries
 
@@ -29,6 +29,12 @@ When you configure access to the private registries used in your organization, {
 | C# | NuGet Feed |
 | Go | GOPROXY server, Git Source |
 | Java | Maven Repository |
+
+{% ifversion codeql-config-property %}
+
+Additionally, _Git Source_ registries are supported for granting {% data variables.product.prodname_code_scanning %} access to configuration files in internal or private repositories. For more information about customizing {% data variables.product.prodname_code_scanning %} using custom configuration files, see [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options#custom-configuration-files).
+
+{% endif %}
 
 > [!TIP]
 > You can define one of each type of registry for each organization. If the codebases in your organization use more than one registry of a given type, you should set up a unified access point or define access to the most important registry for the codebases in that organization.
@@ -45,7 +51,7 @@ You need to be an **organization owner** to set up access to private registries 
    * **Type** is the type of registry.
 1. Select the authentication method for the registry:
    * **Token**: Enter the token used to authenticate with the registry.
-   * **Username and password**: Enter the username and password used to authenticate with the registry. Some types of authentication tokens, such as a {% data variables.product.github %} {% data variables.product.pat_generic_title_case %}, are tied to a particular user identity. Select this option for these and enter the relevant username as **Username** and the token as **Password**.
+   * **Username and password**: Enter the username and password used to authenticate with the registry. Some types of authentication tokens, such as a {% data variables.product.github %} {% data variables.product.pat_generic_title_case %}, are tied to a particular user identity. Select this option for these and enter the name of the user who created the token as **Username** and the token itself as **Password**. 
    {% ifversion org-private-registry-oidc %}
    * **OIDC (OpenID Connect)**: Use short-lived credentials from a cloud identity provider instead of storing long-lived secrets. When you select this option, choose a provider and fill in the provider-specific fields. For more information, see [Configuring OIDC authentication for a private registry](#configuring-oidc-authentication-for-a-private-registry).
    {% endif %}
@@ -61,7 +67,7 @@ When you enable {% data variables.product.prodname_code_scanning %} default setu
 
 When configuring private registries for the first time, you need to disable and re-enable {% data variables.product.prodname_code_scanning %} default setup for any repositories that you want to use the new definition. New or modified configurations will be automatically picked up on subsequent runs.
 
-For languages supporting private package registries, {% data variables.product.prodname_code_scanning %} default setup will produce information on the {% data variables.code-scanning.tool_status_page %}. This shows you which private registry configurations were available to an analysis, but not whether {% data variables.product.prodname_code_scanning %} default setup was able to successfully download private dependencies from them. For more information about the {% data variables.code-scanning.tool_status_page %}, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page).
+For languages supporting private package registries, {% data variables.product.prodname_code_scanning %} default setup will produce information on the {% data variables.code-scanning.tool_status_page %}. This shows you which private registry configurations were available to an analysis, but not whether {% data variables.product.prodname_code_scanning %} default setup was able to successfully download private dependencies from them. For more information about the {% data variables.code-scanning.tool_status_page %}, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/use-the-tools-status-page-for-code-scanning).
 
 Alternatively, you can confirm whether private registries were used successfully by {% data variables.product.prodname_code_scanning %} analysis by looking in the Actions log files, see [AUTOTITLE](/code-security/reference/code-scanning/code-scanning-logs#diagnostic-information-for-private-package-registries).
 
@@ -71,7 +77,7 @@ Alternatively, you can confirm whether private registries were used successfully
 
 For compiled languages, the `codeql-action` must observe a build of the code. You can either revise your existing build workflow to also run the `codeql-action` or create a new workflow that builds the production version of the code and also runs the `codeql-action`.
 
-Any private registries used by the build must also be accessible to the workflow that runs the `codeql-action`. For more information on advanced setup, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql).
+Any private registries used by the build must also be accessible to the workflow that runs the `codeql-action`. For more information on advanced setup, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql).
 
 ## {% data variables.product.prodname_dependabot %} updates access to private registries
 
@@ -79,7 +85,7 @@ Any private registries used by the build must also be accessible to the workflow
 
 {% data variables.product.prodname_dependabot %} cannot check for security or version updates for code stored in a private registry unless it can access the registry. If you do not configure access to the private registry, then {% data variables.product.prodname_dependabot %} cannot raise pull requests to update any of the dependencies stored in the registry.
 
-When you configure access to one or more private registries, {% data variables.product.prodname_dependabot %} can propose pull requests to upgrade a vulnerable dependency or to maintain a dependency, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot).
+When you configure access to one or more private registries, {% data variables.product.prodname_dependabot %} can propose pull requests to upgrade a vulnerable dependency or to maintain a dependency, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries) and [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-private-registries).
 
 {% ifversion org-private-registry-oidc %}
 
@@ -107,8 +113,6 @@ For more information about how OIDC works, see [AUTOTITLE](/actions/concepts/sec
 {% ifversion code-quality %}
 
 ## {% data variables.product.prodname_code_quality_short %} access to private registries
-
-{% data reusables.code-quality.code-quality-preview-note %}
 
 {% data variables.product.prodname_code_quality %} can use any of the organization-level private registries that are available when it is enabled for a repository.
 

@@ -15,11 +15,11 @@ category:
 
 ## Introduction
 
-{% data variables.product.prodname_github_apps %} let you automate processes or integrate other platforms with {% data variables.product.company_short %}. For more info, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/about-apps).
+{% data variables.product.prodname_github_apps %} let you automate processes or integrate other platforms with {% data variables.product.company_short %}. For more info, see [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps).
 
 This quickstart describes how to quickly create a {% data variables.product.prodname_github_app %}. When a pull request is opened in a repository that the app was granted access to, the app will add a comment to the pull request.
 
-This quickstart uses pre-written code to help you get started quickly. For a more detailed tutorial that helps you write the code, see [AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events).
+This quickstart uses pre-written code to help you get started quickly. For a more detailed tutorial that helps you write the code, see [AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events).
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ Your computer or codespace should use Node.js version 12 or greater. For more in
 
 ## Step 1: Clone the app code
 
-To help you get started quickly, we wrote code that you can use. If you want to learn how to write the code yourself, see [AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events).
+To help you get started quickly, we wrote code that you can use. If you want to learn how to write the code yourself, see [AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events).
 
 1. Clone the [github/github-app-js-sample](https://github.com/github/github-app-js-sample) repository. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository). You may use a local clone or {% data variables.product.prodname_github_codespaces %}.
 1. In a terminal window, navigate to the directory where your clone is stored.
@@ -43,7 +43,7 @@ In order to develop your app locally, you can use a webhook proxy URL to forward
 
 ## Step 3: Register a {% data variables.product.prodname_github_app %}
 
-The following steps will guide you through configuring the app settings that are required for this quickstart. For more information about the settings, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app).
+The following steps will guide you through configuring the app settings that are required for this quickstart. For more information about the settings, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/registering-a-github-app).
 
 {% data reusables.apps.settings-step-personal-orgs %}
 {% data reusables.user-settings.developer_settings %}
@@ -51,7 +51,7 @@ The following steps will guide you through configuring the app settings that are
 1. Click **New {% data variables.product.prodname_github_app %}**.
 1. Under "{% data variables.product.prodname_github_app %} name", enter a name for your app. For example, `USERNAME-quickstart-app` where `USERNAME` is your {% data variables.product.company_short %} username.
 1. Under "Homepage URL", enter `https://github.com/github/github-app-js-sample#readme`.
-1. Skip the "Identifying and authorizing users" and "Post installation" sections for this quickstart. For more information about these settings, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app).
+1. Skip the "Identifying and authorizing users" and "Post installation" sections for this quickstart. For more information about these settings, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/registering-a-github-app).
 1. Make sure that **Active** is selected under "Webhooks."
 1. Under "Webhook URL", enter your webhook proxy URL from earlier. For more information, see [Step 2: Get a webhook proxy URL](#step-2-get-a-webhook-proxy-url).
 1. Under "Webhook secret", enter a random string. You will use this string later.
@@ -144,9 +144,9 @@ Now that you have an app, you might want to expand your app's code, deploy your 
 
 ### Modify the app code
 
-Fork the [github/github-app-js-sample](https://github.com/github/github-app-js-sample) repository and modify the code to respond to different webhook events or to make different API requests. For more information about the code, see [AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events).
+Fork the [github/github-app-js-sample](https://github.com/github/github-app-js-sample) repository and modify the code to respond to different webhook events or to make different API requests. For more information about the code, see [AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events).
 
-Remember to update your app's permissions if your app needs additional permissions for the API requests that you want to make or the webhook events you want to receive. For more information, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/setting-permissions-for-github-apps).
+Remember to update your app's permissions if your app needs additional permissions for the API requests that you want to make or the webhook events you want to receive. For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app).
 
 ### Deploy your app
 
@@ -154,14 +154,14 @@ This tutorial used your computer or codespace as a server. Once the app is ready
 
 Once you have a server, update the webhook URL in your app settings. You should not use Smee.io to forward your webhooks in production.
 
-You will also need to update the `port` and `host` constants in the code. For more information, see [AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events#deploy-your-app).
+You will also need to update the `port` and `host` constants in the code. For more information, see [AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events#deploy-your-app).
 
 You should never publicize your app's private key or webhook secret. This tutorial stored your app's credentials in a gitignored `.env` file. When you deploy your app, you should choose a secure way to store the credentials and update your code to get the value accordingly. For example, you can store the credentials in an environment variable on the server where your app is deployed. You can also use a secret management service like [Azure Key Vault](https://azure.microsoft.com/en-us/products/key-vault).
 
 ### Share your app
 
-If you want to share your app with other users and organizations, make your app public. For more information, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/making-a-github-app-public-or-private).
+If you want to share your app with other users and organizations, make your app public. For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/making-a-github-app-public-or-private).
 
 ### Follow best practices
 
-You should aim to follow best practices with your {% data variables.product.prodname_github_app %}. For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app).
+You should aim to follow best practices with your {% data variables.product.prodname_github_app %}. For more information, see [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app).

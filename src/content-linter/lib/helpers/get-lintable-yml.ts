@@ -1,4 +1,4 @@
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import fs from 'fs/promises'
 
 import dataSchemas from '@/data-directory/lib/data-schemas/index'
@@ -71,7 +71,7 @@ export async function getLintableYml(dataFilePath: string): Promise<Record<strin
   const schema = (await import(schemaFilePath)).default
   if (!schema) return null
 
-  const data = yaml.load(await fs.readFile(dataFilePath, 'utf8'))
+  const data = load(await fs.readFile(dataFilePath, 'utf8'))
 
   mdDict.clear()
   // This validate function will call all keyword validator functions and populate mdDict

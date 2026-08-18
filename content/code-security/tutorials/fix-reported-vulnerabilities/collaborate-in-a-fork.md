@@ -22,7 +22,7 @@ category:
 
 ## Prerequisites
 
-Before you can collaborate in a temporary private fork, you must create a draft security advisory. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory).
+Before you can collaborate in a temporary private fork, you must create a draft security advisory. For more information, see [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/create-repository-advisory).
 
 ## Creating a temporary private fork
 
@@ -51,7 +51,7 @@ You can also use the REST API to create temporary private forks. For more inform
 
 ## Adding collaborators to a temporary private fork
 
-Anyone with admin permissions to a security advisory can add additional collaborators to the security advisory, and collaborators on the security advisory can access the temporary private fork. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory).
+Anyone with admin permissions to a security advisory can add additional collaborators to the security advisory, and collaborators on the security advisory can access the temporary private fork. For more information, see [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/add-collaborators).
 
 ## Adding changes to a temporary private fork
 
@@ -104,9 +104,9 @@ Additionally, there can be no merge conflicts, and {% data variables.product.pro
   > [!NOTE]
   > You can only merge one pull request into the `main` branch of a temporary private fork. If more than one pull request targets the `main` branch, merging is blocked.
 
-After you merge changes in a security advisory, you can publish the security advisory to alert your community about the security vulnerability in previous versions of your project. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/publishing-a-repository-security-advisory).
+After you merge changes in a security advisory, you can publish the security advisory to alert your community about the security vulnerability in previous versions of your project. For more information, see [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/publish-repository-advisory).
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/permission-levels-for-repository-security-advisories)
-* [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/publishing-a-repository-security-advisory)
+* [AUTOTITLE](/code-security/reference/permissions/repository-security-advisory)
+* [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/publish-repository-advisory)

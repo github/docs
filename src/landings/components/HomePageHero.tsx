@@ -1,25 +1,36 @@
+import { Heading, Text } from '@primer/react-brand'
+
 import { useTranslation } from '@/languages/components/useTranslation'
+import { useSearchOverlayContext } from '@/search/components/context/SearchOverlayContext'
 import styles from './HomePageHero.module.scss'
-import cx from 'classnames'
 
 export const HomePageHero = () => {
   const { t } = useTranslation(['header', 'homepage'])
+  const { setIsSearchOpen } = useSearchOverlayContext()
 
   return (
-    <section
-      id="landing"
-      className={cx(
-        'border-bottom color-border-muted color-bg-subtle',
-        'd-flex flex-justify-center flex-column',
-        'text-center',
-        styles.section,
-      )}
-    >
-      <div className={cx('mx-auto px-4 rounded-3', styles.content)}>
-        <h1 id="title-h1" className="text-semibold">
-          {t('github_docs')}
-        </h1>
-        <p className="f3 color-fg-muted">{t('description')}</p>
+    <section id="landing" className={styles.hero}>
+      <div className={styles.rails}>
+        <div className={styles.titleRow}>
+          <Heading as="h1" size="display" className={styles.title}>
+            {t('github_docs')}
+          </Heading>
+          <Text as="p" size="200" variant="muted" className={styles.lede}>
+            {t('description')}
+          </Text>
+        </div>
+
+        <button
+          type="button"
+          data-testid="homepage-search"
+          className={styles.searchRow}
+          onClick={() => setIsSearchOpen(true)}
+          aria-haspopup="dialog"
+          aria-label={t('search_placeholder')}
+        >
+          <span className={styles.searchPlaceholder}>{t('search_placeholder')}</span>
+          <kbd className={styles.searchHint}>/</kbd>
+        </button>
       </div>
     </section>
   )

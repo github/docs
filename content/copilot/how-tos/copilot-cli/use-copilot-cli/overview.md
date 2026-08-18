@@ -16,11 +16,11 @@ docsTeamMetrics:
   - copilot-cli
 ---
 
-The command-line interface (CLI) for {% data variables.product.prodname_copilot %} allows you to use {% data variables.product.prodname_copilot_short %} directly from your terminal. For more information, see [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli).
+The command-line interface (CLI) for {% data variables.product.prodname_copilot %} allows you to use {% data variables.product.prodname_copilot_short %} directly from your terminal. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli).
 
 ## Prerequisite
 
-Install {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-cli).
+Install {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli).
 
 ## Using {% data variables.copilot.copilot_cli_short %}
 
@@ -30,7 +30,7 @@ Install {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot
    {% data variables.product.prodname_copilot_short %} will ask you to confirm that you trust the files in this folder.
 
    > [!IMPORTANT]
-   > During this {% data variables.copilot.copilot_cli %} session, {% data variables.product.prodname_copilot_short %} may attempt to read, modify, and execute files in and below this folder. You should only proceed if you trust the files in this location. For more information about trusted directories, see [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli#trusted-directories).
+   > During this {% data variables.copilot.copilot_cli %} session, {% data variables.product.prodname_copilot_short %} may attempt to read, modify, and execute files in and below this folder. You should only proceed if you trust the files in this location. For more information about trusted directories, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli#trusted-directories).
 
 1. Choose one of the options:
 
@@ -53,7 +53,7 @@ Install {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot
 
    As an alternative to typing, you can speak your prompt. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/voice-input).
 
-   For some examples of prompts, see [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli).
+   For some examples of prompts, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli).
 
 1. When {% data variables.product.prodname_copilot_short %} wants to use a tool that could modify or execute files—{% data reusables.cli.tools-needing-approval %}—it will ask you to approve the use of the tool.
 
@@ -94,6 +94,20 @@ Plan mode lets you collaborate with {% data variables.product.prodname_copilot_s
 To add a specific file to your prompt, use `@` followed by the relative path to the file. For example: `Explain @config/ci/ci-required-checks.yml` or `Fix the bug in @src/app.js`. This adds the contents of the file to your prompt as context for {% data variables.product.prodname_copilot_short %}.
 
 When you start typing a file path, the matching paths are displayed below the prompt box. Use the arrow keys to select a path and press <kbd>Tab</kbd> to complete the path in your prompt.
+
+### Attach images and PDFs
+
+You can attach images and PDFs to your prompts when using a model that supports image input.
+
+{% data reusables.copilot.supported-attachment-file-types %}
+
+{% data reusables.copilot.image-pdf-attachment-handling %}
+
+You can attach a file in the following ways during an interactive session:
+
+* Reference the file in your prompt using `@` followed by the path to the file.
+* Drag and drop a file into the interactive session.
+* Copy an image to your clipboard, then paste it as an attachment.
 
 ### Work with files in a different location
 
@@ -150,7 +164,7 @@ You can enhance {% data variables.product.prodname_copilot_short %}’s performa
 * Path-specific instructions files: `.github/instructions/**/*.instructions.md`.
 * Agent files such as `AGENTS.md`.
 
-For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/add-custom-instructions).
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions).
 
 ### Use {% data variables.copilot.custom_agents_short %}
 
@@ -231,7 +245,7 @@ In the case of naming conflicts, a system-level agent overrides a repository-lev
   copilot --agent=refactor-agent --prompt "Refactor this code block"
   ```
 
-For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents).
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/create-custom-agents).
 
 ### Use skills
 
@@ -239,11 +253,33 @@ You can create skills to enhance the ability of {% data variables.product.prodna
 
 For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-skills).
 
+### Use hooks
+
+You can use hooks to extend and customize the behavior of {% data variables.copilot.copilot_cli_short %}. Hooks allow you to run custom shell commands automatically at key points during a CLI session.
+
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/use-hooks).
+
 ### Add an MCP server
 
 {% data variables.copilot.copilot_cli_short %} comes with the {% data variables.product.github %} MCP server already configured. This MCP server allows you to interact with resources on {% data variables.product.prodname_dotcom_the_website %}—for example, allowing you to merge pull requests from the CLI.
 
-To extend the functionality available to you in {% data variables.copilot.copilot_cli_short %}, you can add more MCP servers:
+To extend the functionality available to you in {% data variables.copilot.copilot_cli_short %}, you can add more MCP servers.
+
+To add a remote HTTP server directly from your terminal without starting an interactive session, use:
+
+```shell copy
+copilot mcp add --transport http SERVER-NAME URL
+```
+
+For example:
+
+```shell copy
+copilot mcp add --transport http sentry https://mcp.sentry.dev/mcp
+```
+
+For local servers and additional options, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers#using-the-copilot-mcp-add-subcommand).
+
+Alternatively, add a server from an interactive session:
 
 1. Use the following slash command:
 
@@ -254,7 +290,7 @@ To extend the functionality available to you in {% data variables.copilot.copilo
 1. Fill in the details for the MCP server you want to add, using the <kbd>Tab</kbd> key to move between fields.
 1. Press <kbd>Ctrl</kbd>+<kbd>S</kbd> to save the details.
 
-Details of your configured MCP servers are stored in the `mcp-config.json` file, which is located, by default, in the `~/.copilot` directory. This location can be changed by setting the `COPILOT_HOME` environment variable. For information about the JSON structure of a server definition, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp#writing-a-json-configuration-for-mcp-servers).
+Details of your configured MCP servers are stored in the `mcp-config.json` file, which is located, by default, in the `~/.copilot` directory. This location can be changed by setting the `COPILOT_HOME` environment variable. For information about the JSON structure of a server definition, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers#writing-a-json-configuration-for-mcp-servers).
 
 ### Context management
 
@@ -275,9 +311,11 @@ Details of your configured MCP servers are stored in the `mcp-config.json` file,
 
 For situations where you trust {% data variables.product.prodname_copilot_short %} to run freely, you can use the `--allow-all` or `--yolo` flags to enable all permissions at once.
 
-### Run in a sandbox
+### Use sandboxing
 
-You can run {% data variables.copilot.copilot_cli_short %} sessions inside a sandbox to restrict access to your filesystem, network, and system capabilities. To enable local sandboxing, enter `/sandbox enable` inside a session. To start a cloud-backed session instead, run `copilot --cloud`. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
+You can use sandboxing to restrict what {% data variables.product.prodname_copilot_short %} can access. Local sandboxing does not run the CLI itself in a sandbox; instead, the commands and tools that {% data variables.copilot.copilot_cli_short %} runs on your behalf are restricted, limiting their access to your filesystem, network, and system capabilities. To enable local sandboxing, enter `/sandbox enable` inside a session.
+
+Alternatively, with cloud sandboxing, the entire {% data variables.copilot.copilot_cli_short %} session runs remotely in an isolated environment. To start a {% data variables.copilot.copilot_cli_short %} session in the cloud, run `copilot ‑‑cloud`. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
 
 ### Toggle reasoning visibility
 
@@ -285,15 +323,15 @@ Press <kbd>Ctrl</kbd>+<kbd>T</kbd> to show or hide the model's reasoning process
 
 ### Configure settings
 
-You can view and change {% data variables.copilot.copilot_cli_short %} settings using the `/settings` slash command.
+You can view and change your personal {% data variables.copilot.copilot_cli_short %} settings using the `/settings` slash command.
 
-* Run `/settings` to open an interactive settings dialog, where you can search for a setting by name and edit it.
-* Run `/settings KEY VALUE` to set a setting inline, where KEY is the name of the setting and VALUE is the value you want to set. This also works in scripts and in programmatic sessions started with `-p`.
-* Run `/settings reset KEY` to restore a setting to its default value.
+* Run `/settings` to open an interactive settings editor, where you can search for a setting by name and edit it. To restore a setting to its default value, highlight it in the list of settings and press <kbd>Ctrl</kbd>+<kbd>R</kbd>.
+* Run `/settings KEY VALUE` to change a setting directly in the CLI's prompt box. KEY is the name of the setting and VALUE is the value you want to set. This also works in scripts and in programmatic sessions started with `-p`.
+* Run `/settings show KEY` to display a setting's current value as text, without opening the editor.
 
-Some settings, such as the color mode, take effect immediately when you save them.
+Most settings changes take effect immediately, without needing to restart {% data variables.copilot.copilot_cli_short %}.
 
-For the full list of available settings, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#configuration-file-settings).
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/change-settings). For the full list of available settings, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#configuration-file-settings).
 
 ## Find out more
 
@@ -302,13 +340,11 @@ For a complete list of the command line options and slash commands that you can 
 * Enter `?` in the prompt box in an interactive session.
 * Enter `copilot help` in your terminal.
 
-For additional information use one of the following commands in your terminal:
+For additional information, use one of the following `copilot help` subcommands in your terminal:
 
 * **Configuration settings**:
 
   `copilot help config`
-
-  You can adjust the configuration settings by editing the `settings.json` file, which is located, by default, in the `~/.copilot` directory. This location can be changed by setting the `COPILOT_HOME` environment variable.
 
 * **Environment variables** that affect {% data variables.copilot.copilot_cli_short %}:
 

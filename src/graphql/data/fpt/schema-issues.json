@@ -189,6 +189,38 @@
       "category": "issues"
     },
     {
+      "name": "applyPendingIssueSuggestions",
+      "id": "applypendingissuesuggestions",
+      "href": "/graphql/reference/issues#mutation-applypendingissuesuggestions",
+      "description": "<p>Applies a batch of pending issue suggestions to an issue.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "ApplyPendingIssueSuggestionsInput!",
+          "id": "applypendingissuesuggestionsinput",
+          "href": "/graphql/reference/issues#input-object-applypendingissuesuggestionsinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issue",
+          "type": "Issue",
+          "id": "issue",
+          "href": "/graphql/reference/issues#object-issue",
+          "description": "<p>The updated issue.</p>"
+        }
+      ],
+      "category": "issues"
+    },
+    {
       "name": "clearLabelsFromLabelable",
       "id": "clearlabelsfromlabelable",
       "href": "/graphql/reference/issues#mutation-clearlabelsfromlabelable",
@@ -806,6 +838,38 @@
           "id": "issuecomment",
           "href": "/graphql/reference/issues#object-issuecomment",
           "description": "<p>The Issue Comment that was pinned.</p>"
+        }
+      ],
+      "category": "issues"
+    },
+    {
+      "name": "rejectPendingIssueSuggestions",
+      "id": "rejectpendingissuesuggestions",
+      "href": "/graphql/reference/issues#mutation-rejectpendingissuesuggestions",
+      "description": "<p>Rejects a batch of pending issue suggestions on an issue atomically.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "RejectPendingIssueSuggestionsInput!",
+          "id": "rejectpendingissuesuggestionsinput",
+          "href": "/graphql/reference/issues#input-object-rejectpendingissuesuggestionsinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issue",
+          "type": "Issue",
+          "id": "issue",
+          "href": "/graphql/reference/issues#object-issue",
+          "description": "<p>The issue the suggestions were rejected from.</p>"
         }
       ],
       "category": "issues"
@@ -1583,6 +1647,13 @@
           "href": "/graphql/reference/other#scalar-id"
         },
         {
+          "name": "intent",
+          "description": "<p>The intent behind the agent's action, including rationale and confidence.</p>",
+          "type": "IssueUpdateIntent",
+          "id": "issueupdateintent",
+          "href": "/graphql/reference/issues#object-issueupdateintent"
+        },
+        {
           "name": "user",
           "description": "<p>Identifies the user who was assigned.</p>",
           "type": "User",
@@ -1894,6 +1965,13 @@
           "type": "ID!",
           "id": "id",
           "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "intent",
+          "description": "<p>The intent behind the agent's action, including rationale and confidence.</p>",
+          "type": "IssueUpdateIntent",
+          "id": "issueupdateintent",
+          "href": "/graphql/reference/issues#object-issueupdateintent"
         },
         {
           "name": "resourcePath",
@@ -2865,6 +2943,15 @@
           "href": "/graphql/reference/users#interface-actor"
         },
         {
+          "name": "eventRationales",
+          "description": "<p>A list of rationales associated with this issue's timeline events. Always\nreturns an empty list; use the <code>intent</code> field on individual timeline events instead.</p>",
+          "type": "[IssueEventRationale!]!",
+          "id": "issueeventrationale",
+          "href": "/graphql/reference/issues#object-issueeventrationale",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Use the <code>intent</code> field on individual timeline events instead. This field is being removed and now always returns an empty list.</p>"
+        },
+        {
           "name": "fullDatabaseId",
           "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
           "type": "BigInt",
@@ -3155,6 +3242,13 @@
               }
             }
           ]
+        },
+        {
+          "name": "pendingSuggestions",
+          "description": "<p>All pending suggestions on this issue.</p>",
+          "type": "[PendingIssueSuggestion!]",
+          "id": "pendingissuesuggestion",
+          "href": "/graphql/reference/issues#union-pendingissuesuggestion"
         },
         {
           "name": "pinnedIssueComment",
@@ -3684,7 +3778,7 @@
               "type": {
                 "name": "[IssueTimelineItemsItemType!]",
                 "id": "issuetimelineitemsitemtype",
-                "href": "/graphql/reference/other#enum-issuetimelineitemsitemtype"
+                "href": "/graphql/reference/issues#enum-issuetimelineitemsitemtype"
               }
             },
             {
@@ -3898,6 +3992,13 @@
           ]
         },
         {
+          "name": "viewerCanAssign",
+          "description": "<p>Indicates if the viewer can edit assignees for this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
           "name": "viewerCanClose",
           "description": "<p>Indicates if the object can be closed by the viewer.</p>",
           "type": "Boolean!",
@@ -3940,6 +4041,13 @@
           "href": "/graphql/reference/other#scalar-boolean"
         },
         {
+          "name": "viewerCanSetMilestone",
+          "description": "<p>Indicates if the viewer can edit the milestone of the issue.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
           "name": "viewerCanSubscribe",
           "description": "<p>Check if the viewer is able to change their subscription status for the repository.</p>",
           "type": "Boolean!",
@@ -3947,9 +4055,23 @@
           "href": "/graphql/reference/other#scalar-boolean"
         },
         {
+          "name": "viewerCanType",
+          "description": "<p>Check if the current viewer can set the issue type of this issue.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
           "name": "viewerCanUpdate",
           "description": "<p>Check if the current viewer can update this object.</p>",
           "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanUpdateMetadata",
+          "description": "<p>Check if the viewer has triage-level (or higher) access to update this issue's\nmetadata. Note: this reflects the viewer's base repository role and does not\naccount for individual fine-grained permissions granted via custom repository roles.</p>",
+          "type": "Boolean",
           "id": "boolean",
           "href": "/graphql/reference/other#scalar-boolean"
         },
@@ -4721,6 +4843,44 @@
       "category": "issues"
     },
     {
+      "name": "IssueEventRationale",
+      "id": "issueeventrationale",
+      "href": "/graphql/reference/issues#object-issueeventrationale",
+      "description": "<p>Rationale text associated with an issue timeline event. Deprecated: the fields\nthat return this type are being removed and now return null/empty. Use the\n<code>intent</code> field on individual timeline events instead.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>The agent or user who produced the rationale.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the rationale was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "issueEvent",
+          "description": "<p>The issue timeline event this rationale is associated with.</p>",
+          "type": "IssueEventWithRationale",
+          "id": "issueeventwithrationale",
+          "href": "/graphql/reference/issues#union-issueeventwithrationale"
+        },
+        {
+          "name": "rationale",
+          "description": "<p>The reasoning or explanation text for the event.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "issues"
+    },
+    {
       "name": "IssueFieldAddedEvent",
       "id": "issuefieldaddedevent",
       "href": "/graphql/reference/issues#object-issuefieldaddedevent",
@@ -4763,11 +4923,34 @@
           "href": "/graphql/reference/other#scalar-id"
         },
         {
+          "name": "intent",
+          "description": "<p>The intent behind the agent's action, including rationale and confidence.</p>",
+          "type": "IssueUpdateIntent",
+          "id": "issueupdateintent",
+          "href": "/graphql/reference/issues#object-issueupdateintent"
+        },
+        {
           "name": "issueField",
           "description": "<p>The issue field added.</p>",
           "type": "IssueFields",
           "id": "issuefields",
           "href": "/graphql/reference/issues#union-issuefields"
+        },
+        {
+          "name": "options",
+          "description": "<p>The selected options for option-backed fields; single-select returns one option and multi-select returns many.</p>",
+          "type": "[IssueFieldTimelineOption!]",
+          "id": "issuefieldtimelineoption",
+          "href": "/graphql/reference/issues#object-issuefieldtimelineoption"
+        },
+        {
+          "name": "rationale",
+          "description": "<p>The rationale associated with this event. Always returns null; use <code>intent</code> instead.</p>",
+          "type": "IssueEventRationale",
+          "id": "issueeventrationale",
+          "href": "/graphql/reference/issues#object-issueeventrationale",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Use <code>intent</code> instead. This field is being removed and now always returns null.</p>"
         },
         {
           "name": "value",
@@ -4815,6 +4998,13 @@
           "href": "/graphql/reference/other#scalar-id"
         },
         {
+          "name": "intent",
+          "description": "<p>The intent behind the agent's action, including rationale and confidence.</p>",
+          "type": "IssueUpdateIntent",
+          "id": "issueupdateintent",
+          "href": "/graphql/reference/issues#object-issueupdateintent"
+        },
+        {
           "name": "issueField",
           "description": "<p>The issue field changed.</p>",
           "type": "IssueFields",
@@ -4827,6 +5017,13 @@
           "type": "String",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "newOptions",
+          "description": "<p>The new options for option-backed fields; single-select returns one option and multi-select returns many.</p>",
+          "type": "[IssueFieldTimelineOption!]",
+          "id": "issuefieldtimelineoption",
+          "href": "/graphql/reference/issues#object-issuefieldtimelineoption"
         },
         {
           "name": "newValue",
@@ -4843,11 +5040,27 @@
           "href": "/graphql/reference/other#scalar-string"
         },
         {
+          "name": "previousOptions",
+          "description": "<p>The previous options for option-backed fields; single-select returns one option and multi-select returns many.</p>",
+          "type": "[IssueFieldTimelineOption!]",
+          "id": "issuefieldtimelineoption",
+          "href": "/graphql/reference/issues#object-issuefieldtimelineoption"
+        },
+        {
           "name": "previousValue",
           "description": "<p>The previous value of the field.</p>",
           "type": "String",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "rationale",
+          "description": "<p>The rationale associated with this event. Always returns null; use <code>intent</code> instead.</p>",
+          "type": "IssueEventRationale",
+          "id": "issueeventrationale",
+          "href": "/graphql/reference/issues#object-issueeventrationale",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Use <code>intent</code> instead. This field is being removed and now always returns null.</p>"
         }
       ],
       "category": "issues"
@@ -5244,11 +5457,34 @@
           "href": "/graphql/reference/other#scalar-id"
         },
         {
+          "name": "intent",
+          "description": "<p>The intent behind the agent's action, including rationale and confidence.</p>",
+          "type": "IssueUpdateIntent",
+          "id": "issueupdateintent",
+          "href": "/graphql/reference/issues#object-issueupdateintent"
+        },
+        {
           "name": "issueField",
           "description": "<p>The issue field removed.</p>",
           "type": "IssueFields",
           "id": "issuefields",
           "href": "/graphql/reference/issues#union-issuefields"
+        },
+        {
+          "name": "options",
+          "description": "<p>The removed options for option-backed fields; single-select returns one option and multi-select returns many.</p>",
+          "type": "[IssueFieldTimelineOption!]",
+          "id": "issuefieldtimelineoption",
+          "href": "/graphql/reference/issues#object-issuefieldtimelineoption"
+        },
+        {
+          "name": "rationale",
+          "description": "<p>The rationale associated with this event. Always returns null; use <code>intent</code> instead.</p>",
+          "type": "IssueEventRationale",
+          "id": "issueeventrationale",
+          "href": "/graphql/reference/issues#object-issueeventrationale",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Use <code>intent</code> instead. This field is being removed and now always returns null.</p>"
         }
       ],
       "category": "issues"
@@ -5575,6 +5811,30 @@
         {
           "name": "value",
           "description": "<p>Value of the field.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "issues"
+    },
+    {
+      "name": "IssueFieldTimelineOption",
+      "id": "issuefieldtimelineoption",
+      "href": "/graphql/reference/issues#object-issuefieldtimelineoption",
+      "description": "<p>Represents a selected option for a timeline issue field event.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "color",
+          "description": "<p>The option color.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "name",
+          "description": "<p>The option name.</p>",
           "type": "String!",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
@@ -6188,11 +6448,27 @@
           "href": "/graphql/reference/other#scalar-id"
         },
         {
+          "name": "intent",
+          "description": "<p>The intent behind the agent's action, including rationale and confidence.</p>",
+          "type": "IssueUpdateIntent",
+          "id": "issueupdateintent",
+          "href": "/graphql/reference/issues#object-issueupdateintent"
+        },
+        {
           "name": "issueType",
           "description": "<p>The issue type added.</p>",
           "type": "IssueType",
           "id": "issuetype",
           "href": "/graphql/reference/issues#object-issuetype"
+        },
+        {
+          "name": "rationale",
+          "description": "<p>The rationale associated with this event. Always returns null; use <code>intent</code> instead.</p>",
+          "type": "IssueEventRationale",
+          "id": "issueeventrationale",
+          "href": "/graphql/reference/issues#object-issueeventrationale",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Use <code>intent</code> instead. This field is being removed and now always returns null.</p>"
         }
       ],
       "category": "issues"
@@ -6233,6 +6509,13 @@
           "href": "/graphql/reference/other#scalar-id"
         },
         {
+          "name": "intent",
+          "description": "<p>The intent behind the agent's action, including rationale and confidence.</p>",
+          "type": "IssueUpdateIntent",
+          "id": "issueupdateintent",
+          "href": "/graphql/reference/issues#object-issueupdateintent"
+        },
+        {
           "name": "issueType",
           "description": "<p>The issue type added.</p>",
           "type": "IssueType",
@@ -6245,6 +6528,15 @@
           "type": "IssueType",
           "id": "issuetype",
           "href": "/graphql/reference/issues#object-issuetype"
+        },
+        {
+          "name": "rationale",
+          "description": "<p>The rationale associated with this event. Always returns null; use <code>intent</code> instead.</p>",
+          "type": "IssueEventRationale",
+          "id": "issueeventrationale",
+          "href": "/graphql/reference/issues#object-issueeventrationale",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Use <code>intent</code> instead. This field is being removed and now always returns null.</p>"
         }
       ],
       "category": "issues"
@@ -6345,11 +6637,65 @@
           "href": "/graphql/reference/other#scalar-id"
         },
         {
+          "name": "intent",
+          "description": "<p>The intent behind the agent's action, including rationale and confidence.</p>",
+          "type": "IssueUpdateIntent",
+          "id": "issueupdateintent",
+          "href": "/graphql/reference/issues#object-issueupdateintent"
+        },
+        {
           "name": "issueType",
           "description": "<p>The issue type removed.</p>",
           "type": "IssueType",
           "id": "issuetype",
           "href": "/graphql/reference/issues#object-issuetype"
+        },
+        {
+          "name": "rationale",
+          "description": "<p>The rationale associated with this event. Always returns null; use <code>intent</code> instead.</p>",
+          "type": "IssueEventRationale",
+          "id": "issueeventrationale",
+          "href": "/graphql/reference/issues#object-issueeventrationale",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Use <code>intent</code> instead. This field is being removed and now always returns null.</p>"
+        }
+      ],
+      "category": "issues"
+    },
+    {
+      "name": "IssueUpdateIntent",
+      "id": "issueupdateintent",
+      "href": "/graphql/reference/issues#object-issueupdateintent",
+      "description": "<p>The intent behind an agent's issue event action, including rationale and confidence.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "confidence",
+          "description": "<p>The confidence level the agent had when performing this action.</p>",
+          "type": "IssueEventConfidenceLevel",
+          "id": "issueeventconfidencelevel",
+          "href": "/graphql/reference/issues#enum-issueeventconfidencelevel"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "intentId",
+          "description": "<p>Opaque identifier for the underlying intent. Carries the DB bigint as a String.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "rationale",
+          "description": "<p>The reasoning or explanation text for the event.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
         }
       ],
       "category": "issues"
@@ -6708,6 +7054,13 @@
           "href": "/graphql/reference/other#scalar-id"
         },
         {
+          "name": "intent",
+          "description": "<p>The intent behind the agent's action, including rationale and confidence.</p>",
+          "type": "IssueUpdateIntent",
+          "id": "issueupdateintent",
+          "href": "/graphql/reference/issues#object-issueupdateintent"
+        },
+        {
           "name": "label",
           "description": "<p>Identifies the label associated with the<code>labeled</code>event.</p>",
           "type": "Label!",
@@ -6720,6 +7073,15 @@
           "type": "Labelable!",
           "id": "labelable",
           "href": "/graphql/reference/issues#interface-labelable"
+        },
+        {
+          "name": "rationale",
+          "description": "<p>The rationale associated with this event. Always returns null; use <code>intent</code> instead.</p>",
+          "type": "IssueEventRationale",
+          "id": "issueeventrationale",
+          "href": "/graphql/reference/issues#object-issueeventrationale",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Use <code>intent</code> instead. This field is being removed and now always returns null.</p>"
         }
       ],
       "category": "issues"
@@ -7512,6 +7874,245 @@
       "category": "issues"
     },
     {
+      "name": "PendingAssigneeSuggestion",
+      "id": "pendingassigneesuggestion",
+      "href": "/graphql/reference/issues#object-pendingassigneesuggestion",
+      "description": "<p>A pending suggestion to assign a user to an issue.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>The actor who suggested the assignee.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "assignee",
+          "description": "<p>The suggested assignee.</p>",
+          "type": "Assignee",
+          "id": "assignee",
+          "href": "/graphql/reference/issues#union-assignee"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>When the suggestion was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "rationale",
+          "description": "<p>The rationale provided for suggesting this assignee.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>When the suggestion was last updated.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        }
+      ],
+      "category": "issues"
+    },
+    {
+      "name": "PendingCloseSuggestion",
+      "id": "pendingclosesuggestion",
+      "href": "/graphql/reference/issues#object-pendingclosesuggestion",
+      "description": "<p>A pending suggestion to close an issue.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>The actor who suggested closing the issue.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>When the suggestion was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "duplicateOf",
+          "description": "<p>The issue or pull request the suggestion proposes marking this issue as a\nduplicate of. Only set when <code>stateReason</code> is <code>DUPLICATE</code>.</p>",
+          "type": "IssueOrPullRequest",
+          "id": "issueorpullrequest",
+          "href": "/graphql/reference/issues#union-issueorpullrequest"
+        },
+        {
+          "name": "rationale",
+          "description": "<p>The rationale provided for suggesting this close.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "stateReason",
+          "description": "<p>The state reason the suggestion would apply when closing the issue.</p>",
+          "type": "IssueStateReason",
+          "id": "issuestatereason",
+          "href": "/graphql/reference/issues#enum-issuestatereason"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>When the suggestion was last updated.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        }
+      ],
+      "category": "issues"
+    },
+    {
+      "name": "PendingFieldSuggestion",
+      "id": "pendingfieldsuggestion",
+      "href": "/graphql/reference/issues#object-pendingfieldsuggestion",
+      "description": "<p>A pending suggestion to set an issue field's value.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>The actor who suggested the field value.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>When the suggestion was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "issueField",
+          "description": "<p>The issue field the suggestion targets.</p>",
+          "type": "IssueFields",
+          "id": "issuefields",
+          "href": "/graphql/reference/issues#union-issuefields"
+        },
+        {
+          "name": "rationale",
+          "description": "<p>The rationale provided for suggesting this field value.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "suggestedValue",
+          "description": "<p>The suggested value for the field, as a string representation of the value originally provided.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>When the suggestion was last updated.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        }
+      ],
+      "category": "issues"
+    },
+    {
+      "name": "PendingLabelSuggestion",
+      "id": "pendinglabelsuggestion",
+      "href": "/graphql/reference/issues#object-pendinglabelsuggestion",
+      "description": "<p>A pending suggestion to add a label to an issue.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>The actor who suggested the label.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>When the suggestion was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "label",
+          "description": "<p>The suggested label.</p>",
+          "type": "Label",
+          "id": "label",
+          "href": "/graphql/reference/issues#object-label"
+        },
+        {
+          "name": "rationale",
+          "description": "<p>The rationale provided for suggesting this label.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>When the suggestion was last updated.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        }
+      ],
+      "category": "issues"
+    },
+    {
+      "name": "PendingTypeSuggestion",
+      "id": "pendingtypesuggestion",
+      "href": "/graphql/reference/issues#object-pendingtypesuggestion",
+      "description": "<p>A pending suggestion to change an issue's type.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>The actor who suggested the type change.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>When the suggestion was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "issueType",
+          "description": "<p>The suggested issue type.</p>",
+          "type": "IssueType",
+          "id": "issuetype",
+          "href": "/graphql/reference/issues#object-issuetype"
+        },
+        {
+          "name": "rationale",
+          "description": "<p>The rationale provided for suggesting this type change.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>When the suggestion was last updated.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        }
+      ],
+      "category": "issues"
+    },
+    {
       "name": "PinnedEvent",
       "id": "pinnedevent",
       "href": "/graphql/reference/issues#object-pinnedevent",
@@ -8240,6 +8841,13 @@
           "href": "/graphql/reference/other#scalar-id"
         },
         {
+          "name": "intent",
+          "description": "<p>The intent behind the agent's action, including rationale and confidence.</p>",
+          "type": "IssueUpdateIntent",
+          "id": "issueupdateintent",
+          "href": "/graphql/reference/issues#object-issueupdateintent"
+        },
+        {
           "name": "label",
           "description": "<p>Identifies the label associated with the<code>unlabeled</code>event.</p>",
           "type": "Label!",
@@ -8252,6 +8860,15 @@
           "type": "Labelable!",
           "id": "labelable",
           "href": "/graphql/reference/issues#interface-labelable"
+        },
+        {
+          "name": "rationale",
+          "description": "<p>The rationale associated with this event. Always returns null; use <code>intent</code> instead.</p>",
+          "type": "IssueEventRationale",
+          "id": "issueeventrationale",
+          "href": "/graphql/reference/issues#object-issueeventrationale",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Use <code>intent</code> instead. This field is being removed and now always returns null.</p>"
         }
       ],
       "category": "issues"
@@ -8602,6 +9219,13 @@
               }
             }
           ]
+        },
+        {
+          "name": "viewerCanAssign",
+          "description": "<p>Indicates if the viewer can edit assignees for this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
         }
       ],
       "category": "issues"
@@ -9205,6 +9829,28 @@
       "category": "issues"
     },
     {
+      "name": "IssueEventConfidenceLevel",
+      "id": "issueeventconfidencelevel",
+      "href": "/graphql/reference/issues#enum-issueeventconfidencelevel",
+      "description": "<p>The confidence level associated with an agent's issue event action.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "HIGH",
+          "description": "<p>High confidence.</p>"
+        },
+        {
+          "name": "LOW",
+          "description": "<p>Low confidence.</p>"
+        },
+        {
+          "name": "MEDIUM",
+          "description": "<p>Medium confidence.</p>"
+        }
+      ],
+      "category": "issues"
+    },
+    {
       "name": "IssueFieldDataType",
       "id": "issuefielddatatype",
       "href": "/graphql/reference/issues#enum-issuefielddatatype",
@@ -9401,6 +10047,219 @@
       "category": "issues"
     },
     {
+      "name": "IssueTimelineItemsItemType",
+      "id": "issuetimelineitemsitemtype",
+      "href": "/graphql/reference/issues#enum-issuetimelineitemsitemtype",
+      "description": "<p>The possible item types found in a timeline.</p>",
+      "values": [
+        {
+          "name": "ADDED_TO_PROJECT_EVENT",
+          "description": "<p>Represents a<code>added_to_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "ADDED_TO_PROJECT_V2_EVENT",
+          "description": "<p>Represents a<code>added_to_project_v2</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "ASSIGNED_EVENT",
+          "description": "<p>Represents an<code>assigned</code>event on any assignable object.</p>"
+        },
+        {
+          "name": "BLOCKED_BY_ADDED_EVENT",
+          "description": "<p>Represents a<code>blocked_by_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKED_BY_REMOVED_EVENT",
+          "description": "<p>Represents a<code>blocked_by_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_ADDED_EVENT",
+          "description": "<p>Represents a<code>blocking_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_REMOVED_EVENT",
+          "description": "<p>Represents a<code>blocking_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "CLOSED_EVENT",
+          "description": "<p>Represents a<code>closed</code>event on any <code>Closable</code>.</p>"
+        },
+        {
+          "name": "COMMENT_DELETED_EVENT",
+          "description": "<p>Represents a<code>comment_deleted</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONNECTED_EVENT",
+          "description": "<p>Represents a<code>connected</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_FROM_DRAFT_EVENT",
+          "description": "<p>Represents a<code>converted_from_draft</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_NOTE_TO_ISSUE_EVENT",
+          "description": "<p>Represents a<code>converted_note_to_issue</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_TO_DISCUSSION_EVENT",
+          "description": "<p>Represents a<code>converted_to_discussion</code>event on a given issue.</p>"
+        },
+        {
+          "name": "CROSS_REFERENCED_EVENT",
+          "description": "<p>Represents a mention made by one issue or pull request to another.</p>"
+        },
+        {
+          "name": "DEMILESTONED_EVENT",
+          "description": "<p>Represents a<code>demilestoned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "DISCONNECTED_EVENT",
+          "description": "<p>Represents a<code>disconnected</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT",
+          "description": "<p>Represents a comment on an Issue.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT_PINNED_EVENT",
+          "description": "<p>Represents a<code>issue_comment_pinned</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT_UNPINNED_EVENT",
+          "description": "<p>Represents a<code>issue_comment_unpinned</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_FIELD_ADDED_EVENT",
+          "description": "<p>Represents a<code>issue_field_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_FIELD_CHANGED_EVENT",
+          "description": "<p>Represents a<code>issue_field_changed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_FIELD_REMOVED_EVENT",
+          "description": "<p>Represents a<code>issue_field_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_ADDED_EVENT",
+          "description": "<p>Represents a<code>issue_type_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_CHANGED_EVENT",
+          "description": "<p>Represents a<code>issue_type_changed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>issue_type_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "LABELED_EVENT",
+          "description": "<p>Represents a<code>labeled</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "LOCKED_EVENT",
+          "description": "<p>Represents a<code>locked</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MARKED_AS_DUPLICATE_EVENT",
+          "description": "<p>Represents a<code>marked_as_duplicate</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MENTIONED_EVENT",
+          "description": "<p>Represents a<code>mentioned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MILESTONED_EVENT",
+          "description": "<p>Represents a<code>milestoned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MOVED_COLUMNS_IN_PROJECT_EVENT",
+          "description": "<p>Represents a<code>moved_columns_in_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "PARENT_ISSUE_ADDED_EVENT",
+          "description": "<p>Represents a<code>parent_issue_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "PARENT_ISSUE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>parent_issue_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "PINNED_EVENT",
+          "description": "<p>Represents a<code>pinned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "PROJECT_V2_ITEM_STATUS_CHANGED_EVENT",
+          "description": "<p>Represents a<code>project_v2_item_status_changed</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REFERENCED_EVENT",
+          "description": "<p>Represents a<code>referenced</code>event on a given <code>ReferencedSubject</code>.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_PROJECT_EVENT",
+          "description": "<p>Represents a<code>removed_from_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_PROJECT_V2_EVENT",
+          "description": "<p>Represents a<code>removed_from_project_v2</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "RENAMED_TITLE_EVENT",
+          "description": "<p>Represents a<code>renamed</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REOPENED_EVENT",
+          "description": "<p>Represents a<code>reopened</code>event on any <code>Closable</code>.</p>"
+        },
+        {
+          "name": "SUBSCRIBED_EVENT",
+          "description": "<p>Represents a<code>subscribed</code>event on a given <code>Subscribable</code>.</p>"
+        },
+        {
+          "name": "SUB_ISSUE_ADDED_EVENT",
+          "description": "<p>Represents a<code>sub_issue_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "SUB_ISSUE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>sub_issue_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "TRANSFERRED_EVENT",
+          "description": "<p>Represents a<code>transferred</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNASSIGNED_EVENT",
+          "description": "<p>Represents an<code>unassigned</code>event on any assignable object.</p>"
+        },
+        {
+          "name": "UNLABELED_EVENT",
+          "description": "<p>Represents an<code>unlabeled</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNLOCKED_EVENT",
+          "description": "<p>Represents an<code>unlocked</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNMARKED_AS_DUPLICATE_EVENT",
+          "description": "<p>Represents an<code>unmarked_as_duplicate</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNPINNED_EVENT",
+          "description": "<p>Represents an<code>unpinned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNSUBSCRIBED_EVENT",
+          "description": "<p>Represents an<code>unsubscribed</code>event on a given <code>Subscribable</code>.</p>"
+        },
+        {
+          "name": "USER_BLOCKED_EVENT",
+          "description": "<p>Represents a<code>user_blocked</code>event on a given user.</p>"
+        }
+      ],
+      "category": "issues"
+    },
+    {
       "name": "IssueTypeColor",
       "id": "issuetypecolor",
       "href": "/graphql/reference/issues#enum-issuetypecolor",
@@ -9553,6 +10412,36 @@
       "category": "issues"
     },
     {
+      "name": "PendingIssueSuggestionKind",
+      "id": "pendingissuesuggestionkind",
+      "href": "/graphql/reference/issues#enum-pendingissuesuggestionkind",
+      "description": "<p>The kind of pending issue suggestion being applied.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "ASSIGNEE",
+          "description": "<p>Add the suggested assignee to the issue.</p>"
+        },
+        {
+          "name": "CLOSE",
+          "description": "<p>Close the issue with the suggested state reason (and duplicate target, when applicable).</p>"
+        },
+        {
+          "name": "FIELD",
+          "description": "<p>Set the suggested issue field value on the issue.</p>"
+        },
+        {
+          "name": "LABEL",
+          "description": "<p>Add the suggested label to the issue.</p>"
+        },
+        {
+          "name": "TYPE",
+          "description": "<p>Set the issue's type to the suggested issue type.</p>"
+        }
+      ],
+      "category": "issues"
+    },
+    {
       "name": "TrackedIssueStates",
       "id": "trackedissuestates",
       "href": "/graphql/reference/issues#enum-trackedissuestates",
@@ -9623,6 +10512,61 @@
           "name": "PullRequest",
           "id": "pullrequest",
           "href": "/graphql/reference/pulls#object-pullrequest"
+        }
+      ],
+      "category": "issues"
+    },
+    {
+      "name": "IssueEventWithRationale",
+      "id": "issueeventwithrationale",
+      "href": "/graphql/reference/issues#union-issueeventwithrationale",
+      "description": "<p>An issue timeline event that may have an associated rationale. Deprecated: this\nunion is only reachable via the deprecated <code>IssueEventRationale</code> type, which is\nbeing removed. Use the <code>intent</code> field on individual timeline events instead.</p>",
+      "isDeprecated": false,
+      "possibleTypes": [
+        {
+          "name": "ClosedEvent",
+          "id": "closedevent",
+          "href": "/graphql/reference/issues#object-closedevent"
+        },
+        {
+          "name": "IssueFieldAddedEvent",
+          "id": "issuefieldaddedevent",
+          "href": "/graphql/reference/issues#object-issuefieldaddedevent"
+        },
+        {
+          "name": "IssueFieldChangedEvent",
+          "id": "issuefieldchangedevent",
+          "href": "/graphql/reference/issues#object-issuefieldchangedevent"
+        },
+        {
+          "name": "IssueFieldRemovedEvent",
+          "id": "issuefieldremovedevent",
+          "href": "/graphql/reference/issues#object-issuefieldremovedevent"
+        },
+        {
+          "name": "IssueTypeAddedEvent",
+          "id": "issuetypeaddedevent",
+          "href": "/graphql/reference/issues#object-issuetypeaddedevent"
+        },
+        {
+          "name": "IssueTypeChangedEvent",
+          "id": "issuetypechangedevent",
+          "href": "/graphql/reference/issues#object-issuetypechangedevent"
+        },
+        {
+          "name": "IssueTypeRemovedEvent",
+          "id": "issuetyperemovedevent",
+          "href": "/graphql/reference/issues#object-issuetyperemovedevent"
+        },
+        {
+          "name": "LabeledEvent",
+          "id": "labeledevent",
+          "href": "/graphql/reference/issues#object-labeledevent"
+        },
+        {
+          "name": "UnlabeledEvent",
+          "id": "unlabeledevent",
+          "href": "/graphql/reference/issues#object-unlabeledevent"
         }
       ],
       "category": "issues"
@@ -10108,6 +11052,41 @@
       "category": "issues"
     },
     {
+      "name": "PendingIssueSuggestion",
+      "id": "pendingissuesuggestion",
+      "href": "/graphql/reference/issues#union-pendingissuesuggestion",
+      "description": "<p>A pending suggestion for an issue. May target the issue's type, labels, field values, assignees, or close state.</p>",
+      "isDeprecated": false,
+      "possibleTypes": [
+        {
+          "name": "PendingAssigneeSuggestion",
+          "id": "pendingassigneesuggestion",
+          "href": "/graphql/reference/issues#object-pendingassigneesuggestion"
+        },
+        {
+          "name": "PendingCloseSuggestion",
+          "id": "pendingclosesuggestion",
+          "href": "/graphql/reference/issues#object-pendingclosesuggestion"
+        },
+        {
+          "name": "PendingFieldSuggestion",
+          "id": "pendingfieldsuggestion",
+          "href": "/graphql/reference/issues#object-pendingfieldsuggestion"
+        },
+        {
+          "name": "PendingLabelSuggestion",
+          "id": "pendinglabelsuggestion",
+          "href": "/graphql/reference/issues#object-pendinglabelsuggestion"
+        },
+        {
+          "name": "PendingTypeSuggestion",
+          "id": "pendingtypesuggestion",
+          "href": "/graphql/reference/issues#object-pendingtypesuggestion"
+        }
+      ],
+      "category": "issues"
+    },
+    {
       "name": "ReferencedSubject",
       "id": "referencedsubject",
       "href": "/graphql/reference/issues#union-referencedsubject",
@@ -10172,11 +11151,18 @@
         },
         {
           "name": "assigneeIds",
-          "description": "<p>The ids of actors (users or bots) to add as assignees.</p>",
-          "type": "[ID!]!",
+          "description": "<p>The ids of actors (users or bots) to add as assignees. Mutually exclusive with <code>assignees</code>.</p>",
+          "type": "[ID!]",
           "id": "id",
           "href": "/graphql/reference/other#scalar-id",
           "isDeprecated": false
+        },
+        {
+          "name": "assignees",
+          "description": "<p>An array of actors to add as assignees, each with optional rationale or\nsuggest flag. Mutually exclusive with <code>assigneeIds</code>.</p>",
+          "type": "[AssigneeUpdateInput!]",
+          "id": "assigneeupdateinput",
+          "href": "/graphql/reference/issues#input-object-assigneeupdateinput"
         },
         {
           "name": "clientMutationId",
@@ -10279,6 +11265,13 @@
           "id": "id",
           "href": "/graphql/reference/other#scalar-id",
           "isDeprecated": false
+        },
+        {
+          "name": "labels",
+          "description": "<p>The labels to add, each with optional <code>rationale</code> or a <code>suggest</code> flag that\nstores the addition as a pending suggestion. Mutually exclusive with <code>labelIds</code>.</p>",
+          "type": "[LabelUpdateInput!]",
+          "id": "labelupdateinput",
+          "href": "/graphql/reference/issues#input-object-labelupdateinput"
         }
       ],
       "category": "issues"
@@ -10330,6 +11323,84 @@
       "category": "issues"
     },
     {
+      "name": "ApplyPendingIssueSuggestionsInput",
+      "id": "applypendingissuesuggestionsinput",
+      "href": "/graphql/reference/issues#input-object-applypendingissuesuggestionsinput",
+      "description": "<p>Autogenerated input type of ApplyPendingIssueSuggestions.</p>",
+      "inputFields": [
+        {
+          "name": "actorId",
+          "description": "<p>The ID of the actor whose suggestions to apply.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "issueId",
+          "description": "<p>The ID of the issue the suggestions apply to.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "suggestions",
+          "description": "<p>The pending suggestions to apply.</p>",
+          "type": "[PendingIssueSuggestionRef!]!",
+          "id": "pendingissuesuggestionref",
+          "href": "/graphql/reference/issues#input-object-pendingissuesuggestionref"
+        }
+      ],
+      "category": "issues"
+    },
+    {
+      "name": "AssigneeUpdateInput",
+      "id": "assigneeupdateinput",
+      "href": "/graphql/reference/issues#input-object-assigneeupdateinput",
+      "description": "<p>Specifies an actor (user or bot) to assign to an issue, with optional metadata such as a rationale.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "actorId",
+          "description": "<p>The ID of the actor (user or bot) to assign.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "confidence",
+          "description": "<p>The confidence level the agent had when selecting this value.</p>",
+          "type": "IssueEventConfidenceLevel",
+          "id": "issueeventconfidencelevel",
+          "href": "/graphql/reference/issues#enum-issueeventconfidencelevel"
+        },
+        {
+          "name": "rationale",
+          "description": "<p>Optional rationale describing why this value was selected. Max 280 characters.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "suggest",
+          "description": "<p>If true, the value is stored as a pending suggestion for human review rather than being applied directly.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "issues"
+    },
+    {
       "name": "ClearLabelsFromLabelableInput",
       "id": "clearlabelsfromlabelableinput",
       "href": "/graphql/reference/issues#input-object-clearlabelsfromlabelableinput",
@@ -10367,6 +11438,13 @@
           "href": "/graphql/reference/other#scalar-string"
         },
         {
+          "name": "confidence",
+          "description": "<p>The confidence level the agent had when suggesting this close. Only meaningful when isSuggestion is true.</p>",
+          "type": "IssueEventConfidenceLevel",
+          "id": "issueeventconfidencelevel",
+          "href": "/graphql/reference/issues#enum-issueeventconfidencelevel"
+        },
+        {
           "name": "duplicateIssueId",
           "description": "<p>ID of the issue that this is a duplicate of.</p>",
           "type": "ID",
@@ -10375,12 +11453,26 @@
           "isDeprecated": false
         },
         {
+          "name": "isSuggestion",
+          "description": "<p>If true, the close action is stored as a pending suggestion for human review rather than being applied directly.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
           "name": "issueId",
           "description": "<p>ID of the issue to be closed.</p>",
           "type": "ID!",
           "id": "id",
           "href": "/graphql/reference/other#scalar-id",
           "isDeprecated": false
+        },
+        {
+          "name": "rationale",
+          "description": "<p>Optional rationale describing why the issue should be closed. Max 280 characters.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
         },
         {
           "name": "stateReason",
@@ -10642,8 +11734,7 @@
           "description": "<p>The ID for the organization on which the issue type is created.</p>",
           "type": "ID!",
           "id": "id",
-          "href": "/graphql/reference/other#scalar-id",
-          "isDeprecated": false
+          "href": "/graphql/reference/other#scalar-id"
         }
       ],
       "category": "issues"
@@ -10970,6 +12061,13 @@
       "isDeprecated": false,
       "inputFields": [
         {
+          "name": "confidence",
+          "description": "<p>The confidence level the agent had when selecting this value.</p>",
+          "type": "IssueEventConfidenceLevel",
+          "id": "issueeventconfidencelevel",
+          "href": "/graphql/reference/issues#enum-issueeventconfidencelevel"
+        },
+        {
           "name": "dateValue",
           "description": "<p>The date value, for a date field.</p>",
           "type": "String",
@@ -11005,11 +12103,25 @@
           "href": "/graphql/reference/other#scalar-float"
         },
         {
+          "name": "rationale",
+          "description": "<p>Optional rationale describing why this value was selected. Max 280 characters.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
           "name": "singleSelectOptionId",
           "description": "<p>The ID of the selected option, for a single select field.</p>",
           "type": "ID",
           "id": "id",
           "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "suggest",
+          "description": "<p>If true, the value is stored as a pending suggestion for human review rather than being applied directly.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
         },
         {
           "name": "textValue",
@@ -11084,6 +12196,78 @@
       "category": "issues"
     },
     {
+      "name": "IssueFieldValueFilter",
+      "id": "issuefieldvaluefilter",
+      "href": "/graphql/reference/issues#input-object-issuefieldvaluefilter",
+      "description": "<p>A filter for matching an issue field value. Exactly one value argument should be provided.</p>",
+      "inputFields": [
+        {
+          "name": "dateValue",
+          "description": "<p>Matches a date issue field value (YYYY-MM-DD).</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "fieldId",
+          "description": "<p>The ID of the issue field to filter by. Exactly one of <code>fieldId</code> or <code>fieldName</code> must be provided.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "fieldName",
+          "description": "<p>The name of the issue field to filter by. Exactly one of <code>fieldId</code> or <code>fieldName</code> must be provided.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "multiSelectOptionIds",
+          "description": "<p>Matches issues containing all of the multi-select issue field option IDs.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "multiSelectOptionValues",
+          "description": "<p>Matches issues containing all of the multi-select issue field option names.</p>",
+          "type": "[String!]",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "numberValue",
+          "description": "<p>Matches a numeric issue field value.</p>",
+          "type": "Float",
+          "id": "float",
+          "href": "/graphql/reference/other#scalar-float"
+        },
+        {
+          "name": "singleSelectOptionId",
+          "description": "<p>Matches a single-select issue field option by ID.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "singleSelectOptionValue",
+          "description": "<p>Matches a single-select issue field option by name.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "textValue",
+          "description": "<p>Matches a text issue field value.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "issues"
+    },
+    {
       "name": "IssueFilters",
       "id": "issuefilters",
       "href": "/graphql/reference/issues#input-object-issuefilters",
@@ -11103,6 +12287,13 @@
           "type": "String",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "issueFieldValues",
+          "description": "<p>List issues where each supplied issue field value filter matches.</p>",
+          "type": "[IssueFieldValueFilter!]",
+          "id": "issuefieldvaluefilter",
+          "href": "/graphql/reference/issues#input-object-issuefieldvaluefilter"
         },
         {
           "name": "labels",
@@ -11188,6 +12379,59 @@
       "category": "issues"
     },
     {
+      "name": "IssueStateUpdateInput",
+      "id": "issuestateupdateinput",
+      "href": "/graphql/reference/issues#input-object-issuestateupdateinput",
+      "description": "<p>Specifies a target state for an issue, with optional metadata such as a\nrationale, close reason, or duplicate reference. Suggestion metadata\n(<code>rationale</code>, <code>confidence</code>, <code>suggest</code>) is only meaningful when <code>value</code> is\n<code>CLOSED</code>; it is silently ignored otherwise.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "confidence",
+          "description": "<p>The confidence level the agent had when suggesting this close. Only meaningful when <code>value</code> is <code>CLOSED</code>.</p>",
+          "type": "IssueEventConfidenceLevel",
+          "id": "issueeventconfidencelevel",
+          "href": "/graphql/reference/issues#enum-issueeventconfidencelevel"
+        },
+        {
+          "name": "duplicateIssueId",
+          "description": "<p>The ID of the issue that this is a duplicate of. Only meaningful when <code>value</code>\nis <code>CLOSED</code> and <code>stateReason</code> is <code>DUPLICATE</code>.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "rationale",
+          "description": "<p>Optional rationale describing why the issue is being closed. Only meaningful when <code>value</code> is <code>CLOSED</code>. Max 280 characters.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "stateReason",
+          "description": "<p>The reason for closing the issue. Only meaningful when <code>value</code> is <code>CLOSED</code>.</p>",
+          "type": "IssueClosedStateReason",
+          "id": "issueclosedstatereason",
+          "href": "/graphql/reference/issues#enum-issueclosedstatereason"
+        },
+        {
+          "name": "suggest",
+          "description": "<p>If true, the close is stored as a pending suggestion for human review rather\nthan being applied directly. Only meaningful when <code>value</code> is <code>CLOSED</code>;\nsilently ignored otherwise.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "value",
+          "description": "<p>The target state.</p>",
+          "type": "IssueState!",
+          "id": "issuestate",
+          "href": "/graphql/reference/issues#enum-issuestate"
+        }
+      ],
+      "category": "issues"
+    },
+    {
       "name": "IssueTypeOrder",
       "id": "issuetypeorder",
       "href": "/graphql/reference/issues#input-object-issuetypeorder",
@@ -11212,6 +12456,44 @@
       "category": "issues"
     },
     {
+      "name": "IssueTypeUpdateInput",
+      "id": "issuetypeupdateinput",
+      "href": "/graphql/reference/issues#input-object-issuetypeupdateinput",
+      "description": "<p>Specifies an Issue Type to set on an issue, with optional metadata such as a rationale.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "confidence",
+          "description": "<p>The confidence level the agent had when selecting this value.</p>",
+          "type": "IssueEventConfidenceLevel",
+          "id": "issueeventconfidencelevel",
+          "href": "/graphql/reference/issues#enum-issueeventconfidencelevel"
+        },
+        {
+          "name": "issueTypeId",
+          "description": "<p>The ID of the Issue Type to set on this issue. Pass null to clear the issue type.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "rationale",
+          "description": "<p>Optional rationale describing why this value was selected. Max 280 characters.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "suggest",
+          "description": "<p>If true, the value is stored as a pending suggestion for human review rather than being applied directly.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "issues"
+    },
+    {
       "name": "LabelOrder",
       "id": "labelorder",
       "href": "/graphql/reference/issues#input-object-labelorder",
@@ -11231,6 +12513,45 @@
           "type": "LabelOrderField!",
           "id": "labelorderfield",
           "href": "/graphql/reference/issues#enum-labelorderfield"
+        }
+      ],
+      "category": "issues"
+    },
+    {
+      "name": "LabelUpdateInput",
+      "id": "labelupdateinput",
+      "href": "/graphql/reference/issues#input-object-labelupdateinput",
+      "description": "<p>Specifies a Label to set on an issue, with optional metadata such as a rationale.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "confidence",
+          "description": "<p>The confidence level the agent had when selecting this value.</p>",
+          "type": "IssueEventConfidenceLevel",
+          "id": "issueeventconfidencelevel",
+          "href": "/graphql/reference/issues#enum-issueeventconfidencelevel"
+        },
+        {
+          "name": "labelId",
+          "description": "<p>The ID of the Label.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "rationale",
+          "description": "<p>Optional rationale describing why this value was selected. Max 280 characters.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "suggest",
+          "description": "<p>If true, the value is stored as a pending suggestion for human review rather than being applied directly.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
         }
       ],
       "category": "issues"
@@ -11322,6 +12643,51 @@
       "category": "issues"
     },
     {
+      "name": "PendingIssueSuggestionRef",
+      "id": "pendingissuesuggestionref",
+      "href": "/graphql/reference/issues#input-object-pendingissuesuggestionref",
+      "description": "<p>A reference to a single pending issue suggestion to apply.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "assigneeId",
+          "description": "<p>The ID of the suggested assignee. Required when kind is ASSIGNEE.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "issueFieldId",
+          "description": "<p>The ID of the suggested issue field. Required when kind is FIELD.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "issueTypeId",
+          "description": "<p>The ID of the suggested issue type. Required when kind is TYPE.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "kind",
+          "description": "<p>The kind of suggestion to apply.</p>",
+          "type": "PendingIssueSuggestionKind!",
+          "id": "pendingissuesuggestionkind",
+          "href": "/graphql/reference/issues#enum-pendingissuesuggestionkind"
+        },
+        {
+          "name": "labelId",
+          "description": "<p>The ID of the suggested label. Required when kind is LABEL.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        }
+      ],
+      "category": "issues"
+    },
+    {
       "name": "PinIssueCommentInput",
       "id": "pinissuecommentinput",
       "href": "/graphql/reference/issues#input-object-pinissuecommentinput",
@@ -11365,6 +12731,45 @@
           "id": "id",
           "href": "/graphql/reference/other#scalar-id",
           "isDeprecated": false
+        }
+      ],
+      "category": "issues"
+    },
+    {
+      "name": "RejectPendingIssueSuggestionsInput",
+      "id": "rejectpendingissuesuggestionsinput",
+      "href": "/graphql/reference/issues#input-object-rejectpendingissuesuggestionsinput",
+      "description": "<p>Autogenerated input type of RejectPendingIssueSuggestions.</p>",
+      "inputFields": [
+        {
+          "name": "actorId",
+          "description": "<p>The ID of the actor whose suggestions to reject.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "issueId",
+          "description": "<p>The ID of the issue the suggestions apply to.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "suggestions",
+          "description": "<p>The pending suggestions to reject. All are rejected atomically; any failure rolls back the entire batch.</p>",
+          "type": "[PendingIssueSuggestionRef!]!",
+          "id": "pendingissuesuggestionref",
+          "href": "/graphql/reference/issues#input-object-pendingissuesuggestionref"
         }
       ],
       "category": "issues"
@@ -11556,6 +12961,13 @@
           "id": "id",
           "href": "/graphql/reference/other#scalar-id",
           "isDeprecated": false
+        },
+        {
+          "name": "assignees",
+          "description": "<p>An array of actors to set as assignees, each with optional rationale or\nsuggest flag. Mutually exclusive with <code>actorIds</code> and <code>actorLogins</code>.</p>",
+          "type": "[AssigneeUpdateInput!]",
+          "id": "assigneeupdateinput",
+          "href": "/graphql/reference/issues#input-object-assigneeupdateinput"
         },
         {
           "name": "clientMutationId",
@@ -11949,6 +13361,13 @@
           "isDeprecated": false
         },
         {
+          "name": "assignees",
+          "description": "<p>An array of actors to assign to this issue, each with optional rationale or\nsuggest flag. Mutually exclusive with <code>assigneeIds</code>.</p>",
+          "type": "[AssigneeUpdateInput!]",
+          "id": "assigneeupdateinput",
+          "href": "/graphql/reference/issues#input-object-assigneeupdateinput"
+        },
+        {
           "name": "body",
           "description": "<p>The body for the issue description.</p>",
           "type": "String",
@@ -11971,6 +13390,13 @@
           "isDeprecated": false
         },
         {
+          "name": "issueType",
+          "description": "<p>The Issue Type to set on this issue, with optional rationale. Mutually exclusive with <code>issueTypeId</code>.</p>",
+          "type": "IssueTypeUpdateInput",
+          "id": "issuetypeupdateinput",
+          "href": "/graphql/reference/issues#input-object-issuetypeupdateinput"
+        },
+        {
           "name": "issueTypeId",
           "description": "<p>The ID of the Issue Type for this issue.</p>",
           "type": "ID",
@@ -11984,6 +13410,13 @@
           "id": "id",
           "href": "/graphql/reference/other#scalar-id",
           "isDeprecated": false
+        },
+        {
+          "name": "labels",
+          "description": "<p>An array of labels to set on this issue, each with optional rationale or suggest flag. Mutually exclusive with <code>labelIds</code>.</p>",
+          "type": "[LabelUpdateInput!]",
+          "id": "labelupdateinput",
+          "href": "/graphql/reference/issues#input-object-labelupdateinput"
         },
         {
           "name": "milestoneId",
@@ -12006,6 +13439,13 @@
           "type": "IssueState",
           "id": "issuestate",
           "href": "/graphql/reference/issues#enum-issuestate"
+        },
+        {
+          "name": "stateInput",
+          "description": "<p>The desired issue state, with optional rationale, state reason, or duplicate reference. Mutually exclusive with <code>state</code>.</p>",
+          "type": "IssueStateUpdateInput",
+          "id": "issuestateupdateinput",
+          "href": "/graphql/reference/issues#input-object-issuestateupdateinput"
         },
         {
           "name": "title",

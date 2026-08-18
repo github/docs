@@ -21,7 +21,7 @@ Before you start, make sure you know:
 * Enterprise name your client would like to use
 * Email address for receipts
 * Number of seats your client needs in the enterprise
-* Enterprise account type required by your client, see [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud)
+* Enterprise account type required by your client, see [AUTOTITLE](/enterprise-onboarding/getting-started-with-your-enterprise/choose-an-enterprise-type)
 
 ## Step 1: Create the enterprise account in the Azure portal
 
@@ -30,7 +30,7 @@ As a Microsoft CSP partner, you can get started with {% data variables.product.p
 1. Sign in to the Microsoft Azure portal.
 1. In the search bar, type "{% data variables.product.prodname_dotcom %}" and select **{% data variables.product.prodname_dotcom %}** to go the landing page.
 1. Select **Get started with {% data variables.product.prodname_enterprise %}**.
-1. Choose an enterprise type. To help you decide which choice is best for the enterprise, see [AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud).
+1. Choose an enterprise type. To help you decide which choice is best for the enterprise, see [AUTOTITLE](/enterprise-onboarding/getting-started-with-your-enterprise/choose-an-enterprise-type).
 1. Complete the form with your client's information.
 {% data reusables.billing.enterprise-create-button %}
 
@@ -53,7 +53,7 @@ At any time during the trial, you can purchase {% data variables.product.prodnam
 
 ## Step 3: Invite your client as an enterprise owner
 
-Invite your client to become an enterprise owner. See [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#inviting-an-enterprise-administrator-to-your-enterprise-account).
+Invite your client to become an enterprise owner. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#inviting-an-enterprise-administrator-to-your-enterprise-account).
 
 ## Step 4: Change your role to billing manager
 

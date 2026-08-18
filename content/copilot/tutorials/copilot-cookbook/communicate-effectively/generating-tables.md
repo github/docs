@@ -104,7 +104,7 @@ Availability: Mon-Thu, 10am-6pm
 
 ## Next steps
 
-You can experiment with different types of visualizations and data to see how {% data variables.copilot.copilot_chat_short %} can help you create organized and easy-to-read information. For example, you could ask {% data variables.copilot.copilot_chat_short %} to use the `Timezone` and `Availability` columns to create a Mermaid graph that shows overlapping working hours for team members in different time zones. See [AUTOTITLE](/copilot/tutorials/copilot-chat-cookbook/communicate-effectively/creating-diagrams) for more information.
+You can experiment with different types of visualizations and data to see how {% data variables.copilot.copilot_chat_short %} can help you create organized and easy-to-read information. For example, you could ask {% data variables.copilot.copilot_chat_short %} to use the `Timezone` and `Availability` columns to create a Mermaid graph that shows overlapping working hours for team members in different time zones. See [AUTOTITLE](/copilot/tutorials/copilot-cookbook/communicate-effectively/creating-diagrams) for more information.
 
 ## Further reading
 

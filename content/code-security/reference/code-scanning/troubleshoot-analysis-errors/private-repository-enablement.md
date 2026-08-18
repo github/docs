@@ -17,7 +17,7 @@ category:
 ---
 
 {% ifversion fpt %}
-If you are on a **{% data variables.product.prodname_free_team %}** or **{% data variables.product.prodname_pro %}** plan, you can only use {% data variables.product.prodname_code_scanning %} on repositories that are publicly available. To enable {% data variables.product.prodname_code_scanning %} for private or internal repositories, you must upgrade to {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} with {% data variables.product.prodname_GH_code_security %} and enable {% data variables.product.prodname_code_security %} for the repository. For more information, see [AUTOTITLE](/get-started/learning-about-github/githubs-products#github-team) and [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
+If you are on a **{% data variables.product.prodname_free_team %}** or **{% data variables.product.prodname_pro %}** plan, you can only use {% data variables.product.prodname_code_scanning %} on repositories that are publicly available. To enable {% data variables.product.prodname_code_scanning %} for private or internal repositories, you must upgrade to {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} with {% data variables.product.prodname_GH_code_security %} and enable {% data variables.product.prodname_code_security %} for the repository. For more information, see [AUTOTITLE](/get-started/learning-about-github/githubs-plans#github-team) and [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 {% endif %}
 
 ## Confirm whether {% data variables.product.prodname_GH_code_security %} is enabled

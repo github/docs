@@ -29,8 +29,7 @@ jobs:
       ELASTICSEARCH_URL: http://localhost:9200/
     steps:
       - name: Checkout code
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       - uses: ./.github/actions/node-npm-setup
 
       # Search and language test suites require a running Elasticsearch instance.
@@ -49,5 +48,11 @@ jobs:
         run: npm run build
 
       # Populate Elasticsearch with fixture data so search/language tests work.
+      # ELASTICSEARCH_URL is set inline in the run command because the
+      # Copilot/GHAS agent runtime executes these setup steps with its own
+      # injected environment and does not apply the workflow's `env:` blocks
+      # (job-level or step-level). The inline assignment is part of the run
+      # command, which the agent runs verbatim, so it is honored in both the
+      # agent context and normal workflow_dispatch runs.
       - name: Index fixtures into the local Elasticsearch
-        run: npm run index-test-fixtures
+        run: ELASTICSEARCH_URL=http://localhost:9200/ npm run index-test-fixtures

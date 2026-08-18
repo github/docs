@@ -2393,6 +2393,19 @@
                 ]
               }
             ]
+          },
+          {
+            "type": "object or null",
+            "name": "minimized",
+            "description": "<p>Details about why an issue comment was minimized.</p>",
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "reason",
+                "description": "<p>The reason the comment was minimized.</p>",
+                "isRequired": true
+              }
+            ]
           }
         ]
       },
@@ -2437,6 +2450,11 @@
             "name": "issue_field_id",
             "description": "<p>Unique identifier for the issue field.</p>",
             "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "issue_field_name",
+            "description": "<p>The human-readable name of the issue field.</p>"
           },
           {
             "type": "string",
@@ -5723,6 +5741,19 @@
                 ]
               }
             ]
+          },
+          {
+            "type": "object or null",
+            "name": "minimized",
+            "description": "<p>Details about why an issue comment was minimized.</p>",
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "reason",
+                "description": "<p>The reason the comment was minimized.</p>",
+                "isRequired": true
+              }
+            ]
           }
         ]
       },
@@ -5767,6 +5798,11 @@
             "name": "issue_field_id",
             "description": "<p>Unique identifier for the issue field.</p>",
             "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "issue_field_name",
+            "description": "<p>The human-readable name of the issue field.</p>"
           },
           {
             "type": "string",
@@ -8241,6 +8277,19 @@
                 ]
               }
             ]
+          },
+          {
+            "type": "object or null",
+            "name": "minimized",
+            "description": "<p>Details about why an issue comment was minimized.</p>",
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "reason",
+                "description": "<p>The reason the comment was minimized.</p>",
+                "isRequired": true
+              }
+            ]
           }
         ]
       },
@@ -8285,6 +8334,11 @@
             "name": "issue_field_id",
             "description": "<p>Unique identifier for the issue field.</p>",
             "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "issue_field_name",
+            "description": "<p>The human-readable name of the issue field.</p>"
           },
           {
             "type": "string",
@@ -11571,6 +11625,19 @@
                 ]
               }
             ]
+          },
+          {
+            "type": "object or null",
+            "name": "minimized",
+            "description": "<p>Details about why an issue comment was minimized.</p>",
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "reason",
+                "description": "<p>The reason the comment was minimized.</p>",
+                "isRequired": true
+              }
+            ]
           }
         ]
       },
@@ -11615,6 +11682,11 @@
             "name": "issue_field_id",
             "description": "<p>Unique identifier for the issue field.</p>",
             "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "issue_field_name",
+            "description": "<p>The human-readable name of the issue field.</p>"
           },
           {
             "type": "string",
@@ -14089,6 +14161,19 @@
                 ]
               }
             ]
+          },
+          {
+            "type": "object or null",
+            "name": "minimized",
+            "description": "<p>Details about why an issue comment was minimized.</p>",
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "reason",
+                "description": "<p>The reason the comment was minimized.</p>",
+                "isRequired": true
+              }
+            ]
           }
         ]
       },
@@ -14133,6 +14218,11 @@
             "name": "issue_field_id",
             "description": "<p>Unique identifier for the issue field.</p>",
             "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "issue_field_name",
+            "description": "<p>The human-readable name of the issue field.</p>"
           },
           {
             "type": "string",
@@ -17419,6 +17509,19 @@
                 ]
               }
             ]
+          },
+          {
+            "type": "object or null",
+            "name": "minimized",
+            "description": "<p>Details about why an issue comment was minimized.</p>",
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "reason",
+                "description": "<p>The reason the comment was minimized.</p>",
+                "isRequired": true
+              }
+            ]
           }
         ]
       },
@@ -17463,6 +17566,11 @@
             "name": "issue_field_id",
             "description": "<p>Unique identifier for the issue field.</p>",
             "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "issue_field_name",
+            "description": "<p>The human-readable name of the issue field.</p>"
           },
           {
             "type": "string",
@@ -19937,6 +20045,19 @@
                 ]
               }
             ]
+          },
+          {
+            "type": "object or null",
+            "name": "minimized",
+            "description": "<p>Details about why an issue comment was minimized.</p>",
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "reason",
+                "description": "<p>The reason the comment was minimized.</p>",
+                "isRequired": true
+              }
+            ]
           }
         ]
       },
@@ -19981,6 +20102,11 @@
             "name": "issue_field_id",
             "description": "<p>Unique identifier for the issue field.</p>",
             "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "issue_field_name",
+            "description": "<p>The human-readable name of the issue field.</p>"
           },
           {
             "type": "string",
@@ -23267,6 +23393,19 @@
                 ]
               }
             ]
+          },
+          {
+            "type": "object or null",
+            "name": "minimized",
+            "description": "<p>Details about why an issue comment was minimized.</p>",
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "reason",
+                "description": "<p>The reason the comment was minimized.</p>",
+                "isRequired": true
+              }
+            ]
           }
         ]
       },
@@ -23311,6 +23450,11 @@
             "name": "issue_field_id",
             "description": "<p>Unique identifier for the issue field.</p>",
             "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "issue_field_name",
+            "description": "<p>The human-readable name of the issue field.</p>"
           },
           {
             "type": "string",

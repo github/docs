@@ -43,6 +43,18 @@ Enterprise recovery codes are not the same as personal two-factor authentication
 
 {% data reusables.enterprise-accounts.emu-password-reset-session %}
 
+## Can I change the email address for the setup user?
+
+You can change the email address at any time while signed in to the setup user account. This is useful if the original recipient has left your organization or if you need to route notifications to a different address.
+
+> [!WARNING]
+> Ensure you have access to the new email address before making this change. You'll need to verify the new address via email.
+
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.emails %}
+1. Under "Update email address *", type a new email address and click **Update**.
+1. {% data variables.product.prodname_dotcom %} will send you an email with a link in it. After you click that link, you'll be taken to your {% data variables.product.prodname_dotcom %} dashboard and see a confirmation banner.
+
 ## Can I delete the setup user?
 
 The setup user **cannot** be deleted, because it is essential for maintaining authentication and provisioning. The only way to remove the setup user is to delete your enterprise account. See [AUTOTITLE](/admin/managing-your-enterprise-account/deleting-an-enterprise-account).

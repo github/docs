@@ -1,4 +1,6 @@
 import { GetServerSideProps } from 'next'
+import type { Response } from 'express'
+import type { ExtendedRequest } from '@/types'
 
 import {
   addUINamespaces,
@@ -60,8 +62,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const { getAutomatedPageMiniTocItems } = await import('@/frame/lib/get-mini-toc-items')
   const { getCategorizedAuditLogEvents, getCategoryNotes } = await import('../lib')
 
-  const req = context.req as object
-  const res = context.res as object
+  const req = context.req as unknown as ExtendedRequest
+  const res = context.res as unknown as Response
   const currentVersion = context.query.versionId as string
   const url = context.req.url
 

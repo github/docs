@@ -25,6 +25,9 @@ You can control the use of {% data variables.copilot.copilot_cli_short %} by con
 1. To manage policies for **{% data variables.product.prodname_copilot_short %}**, in the sidebar, click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} **{% data variables.product.prodname_copilot_short %}**.
 1. In the "{% data variables.product.prodname_copilot_short %} Clients" section, for {% data variables.copilot.copilot_cli_short %}, select your preferred policy.
 
+> [!NOTE]
+> Disabling {% data variables.copilot.copilot_cli_short %} does not disable the {% data variables.copilot.github_copilot_app %}. The app is governed by its own policy. For more information, see [AUTOTITLE](/copilot/concepts/agents/github-copilot-app).
+
 ## How do other AI controls affect {% data variables.copilot.copilot_cli_short %}?
 
 Not all enterprise-level AI controls and policies apply to {% data variables.copilot.copilot_cli_short %}. These are the controls that **do apply**:
@@ -36,6 +39,10 @@ You can enable or disable {% data variables.copilot.copilot_cli_short %} at the 
 ### Model selection
 
 Users can only access AI models that are enabled at the enterprise level. When you enable or disable models in your enterprise settings, those changes are reflected in {% data variables.copilot.copilot_cli_short %}. Users can view which models are available to them using the `/model` command.
+
+Enterprise and organization owners can provide keys for custom models. Users can select these like any other model: with the {% data variables.copilot.copilot_cli_short %} model selector, the `--model` flag, or environment variables. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
+
+Separately, users can also provide their own LLM keys locally. This is not controlled by enterprise policies. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models).
 
 ### Custom agents
 
@@ -63,7 +70,6 @@ All other controls do **not** affect {% data variables.copilot.copilot_cli_short
 
 * **IDE-specific policies**: Policies configured for specific IDEs or editor extensions
 * **Content exclusions**: File path-based content exclusions
-* **User-configured model providers (BYOK)**: Users can configure {% data variables.copilot.copilot_cli_short %} to use their own model providers via environment variables. This is configured at the _user level_ and cannot be controlled by enterprise policies.
 
 ## Why can't my developers access {% data variables.copilot.copilot_cli_short %}?
 

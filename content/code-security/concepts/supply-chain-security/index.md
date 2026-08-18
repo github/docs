@@ -8,8 +8,10 @@ versions:
 contentType: concepts
 redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain
+  - /code-security/concepts/supply-chain-security/automatic-dependabot-access-to-github-registries
 children:
   - supply-chain-security
+  - open-source-license-compliance
   - best-practices-for-maintaining-dependencies
   - dependency-graph
   - dependency-graph-data
@@ -28,4 +30,3 @@ children:
   - immutable-releases
   - linked-artifacts
 ---
-

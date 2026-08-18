@@ -89,11 +89,11 @@ To protect intellectual property and prevent security incidents, it's important 
 
 ### {% data variables.product.prodname_secret_scanning_caps %}
 
-With **{% data variables.product.prodname_secret_scanning %}**, you can scan your code to detect sensitive information such as API keys, passwords, and other credentials in the codebase, preventing unauthorized access and potential breaches. {% data variables.product.prodname_secret_scanning_caps %} alerts you to sensitive information in your codebase, allowing you to respond appropriately by changing passwords or rotating tokens.{% ifversion ghec %} For generic secrets such as passwords, {% data variables.product.prodname_secret_scanning %} is powered by {% data variables.product.prodname_copilot %} and uses AI. See [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets){% endif %}
+With **{% data variables.product.prodname_secret_scanning %}**, you can scan your code to detect sensitive information such as API keys, passwords, and other credentials in the codebase, preventing unauthorized access and potential breaches. {% data variables.product.prodname_secret_scanning_caps %} alerts you to sensitive information in your codebase, allowing you to respond appropriately by changing passwords or rotating tokens.{% ifversion ghec %} For generic secrets such as passwords, {% data variables.product.prodname_secret_scanning %} is powered by {% data variables.product.prodname_copilot %} and uses AI. See [AUTOTITLE](/code-security/responsible-use/security-and-quality-ai-features){% endif %}
 
-To learn more, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).
+To learn more, see [AUTOTITLE](/code-security/concepts/secret-security/secret-scanning).
 
-{% data variables.product.prodname_secret_scanning_caps %} can be enabled at the enterprise, organization, and repository level. See {% ifversion ghes %}[AUTOTITLE](/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance){% elsif ghec %}[AUTOTITLE](/code-security/concepts/security-at-scale/about-security-configurations){% endif %} for enablement at enterprise level.
+{% data variables.product.prodname_secret_scanning_caps %} can be enabled at the enterprise, organization, and repository level. See {% ifversion ghes %}[AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configure-secret-scanning){% elsif ghec %}[AUTOTITLE](/code-security/concepts/security-at-scale/organization-security){% endif %} for enablement at enterprise level.
 
 ### Push protection
 
@@ -101,15 +101,15 @@ Additionally, you can prevent sensitive data and credentials from being accident
 
 Push protection acts as a safeguard by scanning for secrets in real-time and blocking pushes that contain potentially sensitive information. Organization owners can configure push protection policies at the organization level to enforce consistent security standards across all repositories. When a push is blocked, developers receive detailed guidance on how to remediate the issue, such as removing the secret from the code.
 
-See [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).
+See [AUTOTITLE](/code-security/concepts/secret-security/push-protection).
 
-Push protection can be enabled at the organization, repository, and user account level. See [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository).
+Push protection can be enabled at the organization, repository, and user account level. See [AUTOTITLE](/code-security/how-tos/secure-your-secrets/prevent-future-leaks/enable-push-protection).
 
 {% ifversion push-protected-pattern-configuration %}
 
 {% data reusables.secret-scanning.push-protected-pattern-configuration-org-enterprise-preview %}
 
-To align secret detection with internal security policies and more effectively prevent unauthorized exposure of sensitive information in your repositories, you can customize which secret patterns are included in push protection at the enterprise or organization level. See [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/configuring-additional-secret-scanning-settings-for-your-enterprise#specifying-patterns-to-include-in-push-protection-for-your-enterprise) and [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#specifying-patterns-to-include-in-push-protection).
+To align secret detection with internal security policies and more effectively prevent unauthorized exposure of sensitive information in your repositories, you can customize which secret patterns are included in push protection at the enterprise or organization level. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/configure-additional-settings#specifying-patterns-to-include-in-push-protection-for-your-enterprise) and [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/configure-global-settings#specifying-patterns-to-include-in-push-protection).
 
 {% endif %}
 
@@ -117,14 +117,14 @@ To align secret detection with internal security policies and more effectively p
 
 You may want to set up an approval process for better control over who in your enterprise can perform sensitive actions. An approval process helps mitigate the risk of unauthorized or malicious changes, and can provide a record of who used the bypass and why, ensuring that all actions are traceable and accountable.
 
->[!NOTE] The implementation of these approval processes can potentially cause some friction, so it's important to ensure that your security management team has adequate coverage before proceeding.
+> [!NOTE] The implementation of these approval processes can potentially cause some friction, so it's important to ensure that your security management team has adequate coverage before proceeding.
 
 Approval processes are available for:
-* Bypasses of push protection—You can choose who is allowed to bypass push protection, and add a review and approval cycle for pushes containing secrets from all other contributors. For more information about **delegated bypass for push protection**, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection).
+* Bypasses of push protection—You can choose who is allowed to bypass push protection, and add a review and approval cycle for pushes containing secrets from all other contributors. For more information about **delegated bypass for push protection**, see [AUTOTITLE](/code-security/concepts/secret-security/delegated-bypass).
 * Dismissals of alerts for {% data variables.product.prodname_code_scanning %}{% ifversion dependabot-delegated-alert-dismissal %}, {% data variables.product.prodname_dependabot %},{% endif %} and {% data variables.product.prodname_secret_scanning %}—You can provide additional control and visibility over alert assessment by ensuring that only designated individuals can dismiss (or close) alerts. For more information about **delegated alert dismissal**, see the following articles:
-  * [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/enabling-delegated-alert-dismissal-for-code-scanning){% ifversion dependabot-delegated-alert-dismissal %}
-  * [AUTOTITLE](/code-security/dependabot/dependabot-alerts/enable-delegated-alert-dismissal){% endif %}
-  * [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/enabling-delegated-alert-dismissal-for-secret-scanning)
+  * [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/enable-delegated-alert-dismissal){% ifversion dependabot-delegated-alert-dismissal %}
+  * [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/enable-delegated-alert-dismissal){% endif %}
+  * [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts/enable-delegated-dismissal)
 
 ## Identifying security vulnerabilities and errors
 
@@ -132,6 +132,6 @@ Many industries have regulations that require regular security assessments and v
 
 {% data variables.product.prodname_code_scanning_caps %} can be integrated to your CI/CD pipeline, providing continuous monitoring and assessment of your codebase.
 
-To get started quickly with {% data variables.product.prodname_code_scanning %}, we recommend you use the default setup. See [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning).
+To get started quickly with {% data variables.product.prodname_code_scanning %}, we recommend you use the default setup. See [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configure-code-scanning).
 
-{% data variables.product.prodname_code_scanning_caps %} can be enabled at the enterprise, organization, and repository level. See {% ifversion ghes %}[AUTOTITLE](/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance){% elsif ghec %}[AUTOTITLE](/code-security/concepts/security-at-scale/about-security-configurations){% endif %} for enablement at enterprise level.
+{% data variables.product.prodname_code_scanning_caps %} can be enabled at the enterprise, organization, and repository level. See {% ifversion ghes %}[AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configuring-code-scanning-for-your-appliance){% elsif ghec %}[AUTOTITLE](/code-security/concepts/security-at-scale/organization-security){% endif %} for enablement at enterprise level.

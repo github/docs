@@ -10,7 +10,6 @@ import type { JourneyTrack } from '@/journeys/lib/journey-path-resolver'
 // typically operating on elements **within** an article.
 import copyCode from '@/frame/components/lib/copy-code'
 import toggleAnnotation from '@/frame/components/lib/toggle-annotations'
-import wrapCodeTerms from '@/frame/components/lib/wrap-code-terms'
 
 import {
   MainContextT,
@@ -49,7 +48,6 @@ import { JourneyLanding } from '@/landings/components/journey/JourneyLanding'
 
 function initiateArticleScripts() {
   copyCode()
-  wrapCodeTerms()
   toggleAnnotation()
 }
 
