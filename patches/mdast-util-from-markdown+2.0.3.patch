@@ -9,7 +9,7 @@ index 90e17be..794871f 100644
 +    const insertPositions = [];
 +    const insertEvents = [];
      while (++index <= length) {
-       const event = events[index];
+       const event  =  events[index];
        switch (event[1].type) {
 @@ -331,7 +333,7 @@ function compiler(options) {
          if (listItem) {
