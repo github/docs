@@ -88,7 +88,7 @@ User access tokens created by a {% data variables.product.prodname_github_app %}
 
 ## Token revoked by enterprise owners
 
-Enterprise owners on {% data variables.product.prodname_ghe_cloud %} can revoke SSO authorizations or delete credentials{% ifversion single_user_cred_revocation %} for individual users or{% endif %} in bulk when responding to security incidents. Revoking SSO authorizations removes access to SSO-protected organization resources, while deleting credentials (available for {% data variables.product.prodname_emus %} only) removes the credentials entirely.
+Enterprise owners on {% data variables.product.prodname_ghe_cloud %} can revoke SSO authorizations or delete credentials{% ifversion single_user_cred_revocation %} for individual users, for a specific credential type, or{% endif %} in bulk when responding to security incidents. Revoking SSO authorizations removes access to SSO-protected organization resources, while deleting credentials (available for {% data variables.product.prodname_emus %} only) removes the credentials entirely.{% ifversion single_user_cred_revocation %} Organization owners can take the same actions at the organization level. These actions are recorded in the audit log, and you will receive an email notification.{% endif %}
 
 For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents/revoke-authorizations-or-tokens).
 
