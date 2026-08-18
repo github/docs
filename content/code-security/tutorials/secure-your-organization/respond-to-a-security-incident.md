@@ -122,12 +122,20 @@ For exposed or exploited credentials, the most immediate action you can take is 
 {% ifversion single_user_cred_revocation %}
 * **Revoke or delete credentials for a specific user**
 
-  If you've identified a specific compromised account, enterprise owners on {% data variables.product.prodname_ghe_cloud %} can revoke SSO authorizations for that individual user. For enterprises with {% data variables.product.prodname_emus %}, you can also delete credentials entirely. This is less disruptive than bulk actions while still containing the threat. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents/revoke-authorizations-or-tokens#taking-action-against-individual-members).
+  If you've identified a specific compromised account, enterprise or organization owners on {% data variables.product.prodname_ghe_cloud %} can revoke SSO authorizations for that individual user. For enterprises with {% data variables.product.prodname_emus %}, you can also delete credentials entirely. This is less disruptive than bulk actions while still containing the threat. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents/revoke-authorizations-or-tokens#taking-action-against-individual-members).
+
+* **Revoke or delete credentials of a specific type**
+
+  If the incident is limited to one credential type, such as {% data variables.product.pat_v1_plural %}, enterprise or organization owners can revoke SSO authorizations or delete credentials of that type only, across all members, using the {% data variables.product.github %} UI{% ifversion ghec %} or REST API{% endif %}. This targets the affected credential type without disrupting other credentials. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents/revoke-authorizations-or-tokens#taking-action-against-a-specific-credential-type).
 
 {% endif %}
 * **Emergency actions (major incident)**
 
-  Enterprise owners on {% data variables.product.prodname_ghe_cloud %} can take bulk emergency actions to lock down access across their enterprise. For enterprises with {% data variables.product.prodname_emus %}, this includes **deleting all user tokens and keys**. These are high-impact actions that will break automations and should be reserved for major incidents. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents).
+  Enterprise{% ifversion single_user_cred_revocation %} and organization{% endif %} owners on {% data variables.product.prodname_ghe_cloud %} can take bulk emergency actions to lock down access across their enterprise{% ifversion single_user_cred_revocation %} or organization{% endif %}. For enterprises with {% data variables.product.prodname_emus %}, this includes **deleting all user tokens and keys**. These are high-impact actions that will break automations and should be reserved for major incidents. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents).
+
+{% ifversion single_user_cred_revocation %}
+All of these de-authorization and revocation actions, whether initiated by an admin or by the affected user, are recorded in the audit log, and the affected user receives an email notification.
+{% endif %}
 
 ### Restrict access
 

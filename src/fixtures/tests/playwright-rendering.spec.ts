@@ -1507,6 +1507,30 @@ test.describe('Journey Tracks', () => {
     expect(trackContent).not.toContain('%}')
   })
 
+  test('renders the single-track journey landing path', async ({ page }) => {
+    await page.goto('/get-started/test-journey-single')
+
+    // single-track pages use the simplified heading + guide list, not the numbered cards
+    const singleTrack = page.locator('[data-testid="journey-single-track"]')
+    await expect(singleTrack).toBeVisible()
+    await expect(page.locator('[data-testid="journey-tracks"]')).toHaveCount(0)
+
+    // heading is present
+    await expect(singleTrack.locator('h2')).toBeVisible()
+
+    // guide list renders its article links
+    const guides = singleTrack.locator('[data-testid="journey-articles"] li a')
+    await expect(guides.first()).toBeVisible()
+    expect(await guides.count()).toBeGreaterThan(0)
+
+    // without a surrounding card, the list must sit flush with the heading
+    // rather than picking up the card's inset
+    const listPaddingLeft = await singleTrack
+      .locator('[data-testid="journey-articles"]')
+      .evaluate((el) => getComputedStyle(el).paddingLeft)
+    expect(listPaddingLeft).toBe('0px')
+  })
+
   test('journey navigation components show on article pages', async ({ page }) => {
     // go to an article that's part of a journey track
     await page.goto('/get-started/start-your-journey/hello-world')
