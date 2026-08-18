@@ -19,7 +19,7 @@ Enterprise-managed plugin standards allow administrators to **define and enforce
 
 ## Where plugin standards apply
 
-Plugin standards apply to all users on the enterprise's {% data variables.product.prodname_copilot_short %} plan, across supported clients. See [AUTOTITLE](/copilot/reference/enterprise-managed-settings-reference#supported-keys).
+Plugin standards apply to all users on the enterprise's {% data variables.product.prodname_copilot_short %} plan, across supported clients. See [AUTOTITLE](/copilot/reference/enterprise-administrators/enterprise-managed-settings#supported-keys).
 
 Users must upgrade to a supported client version for these standards to be applied.
 

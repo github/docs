@@ -1,1 +1,0 @@
-You can use the automatic setup option to generate a workflow with an AI-powered agent, or configure your workflow manually. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/set-up-code-coverage).

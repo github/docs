@@ -28,7 +28,7 @@ You can find these settings in the {% octicon "mcp" aria-hidden="true" aria-labe
 ## Defining an allowlist or denylist
 
 1. Create a `{% data variables.copilot.managed_setting_file %}` file for your enterprise. Most enterprises store this file in a `.github-private` repository. You can also install it directly on users' machines using mobile device management. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings#deploying-server-managed-settings).
-1. Edit the file to define an allowlist and denylist for MCP servers. You can match by name, server URL, or specific commands. For syntax details, see [allowedMcpServers](/copilot/reference/enterprise-managed-settings-reference#allowedMcpServers), and [deniedMcpServers](/copilot/reference/enterprise-managed-settings-reference#deniedMcpServers) in "Enterprise managed settings reference."
+1. Edit the file to define an allowlist and denylist for MCP servers. You can match by name, server URL, or specific commands. For syntax details, see [allowedMcpServers](/copilot/reference/enterprise-administrators/enterprise-managed-settings#allowedmcpservers), and [deniedMcpServers](/copilot/reference/enterprise-administrators/enterprise-managed-settings#deniedmcpservers) in "Enterprise managed settings."
 
     The following example allows servers that match any of the three allowlist entries. The filesystem server configured to access the root filesystem is always blocked, even if it also matches an allowlist entry.
 

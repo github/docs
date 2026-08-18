@@ -627,7 +627,7 @@ The example uses the fields below. The generated `UsageGetMetricsResult` type is
 | `modelMetrics` | `Record<string, ModelMetric>` | Per-model breakdown; each entry has `usage.inputTokens`, `usage.outputTokens`, and `totalNanoAiu` |
 
 > [!NOTE]
-> Cost is reported in **nano-AI units** (the field is named `totalNanoAiu`). The exact conversion to AI credits and the precise meaning of premium request accounting are defined by GitHub Copilot billing, not by the SDK—treat [GitHub's Copilot billing documentation](/copilot/managing-copilot/understanding-and-managing-copilot-usage) as the source of truth and verify before surfacing currency-like values to users. The examples divide by `1e9` as a convenience, following the SI `nano` prefix; confirm this matches current billing before relying on it. The `modelMetrics` and `tokenDetails` maps are keyed by runtime strings (model IDs and token-type names) that the SDK type system does not validate.
+> Cost is reported in **nano-AI units** (the field is named `totalNanoAiu`). The exact conversion to AI credits and the precise meaning of premium request accounting are defined by GitHub Copilot billing, not by the SDK—treat [GitHub's Copilot billing documentation](/copilot/concepts/billing) as the source of truth and verify before surfacing currency-like values to users. The examples divide by `1e9` as a convenience, following the SI `nano` prefix; confirm this matches current billing before relying on it. The `modelMetrics` and `tokenDetails` maps are keyed by runtime strings (model IDs and token-type names) that the SDK type system does not validate.
 
 {% codetabs %}
 {% codetab typescript %}

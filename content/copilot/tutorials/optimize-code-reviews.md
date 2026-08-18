@@ -211,7 +211,7 @@ So far, {% data variables.copilot.copilot_code-review_short %} has provided per-
 
 When {% data variables.product.prodname_code_quality_short %} is enabled, it posts reliability and maintainability findings as inline comments on the pull request, each with a one-click, {% data variables.product.prodname_copilot_short %}-powered autofix you can apply directly. It also reports coverage metrics that show whether the change maintains or reduces reported code coverage from your test suite compared to the default branch. If you want to enforce these standards, rulesets can require rules-based findings to be resolved and coverage thresholds to be met before merge.
 
-For more information, see [AUTOTITLE](/code-security/concepts/about-code-quality).
+For more information, see [AUTOTITLE](/code-security/concepts/code-quality/code-quality).
 
 ## Optimized reviews with {% data variables.product.prodname_copilot_short %}
 

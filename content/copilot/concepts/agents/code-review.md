@@ -205,7 +205,7 @@ These are short, natural-language statements that you write and store as one or 
 | Scope | Repository-wide and {% data variables.product.prodname_copilot_short %}-specific | Repository sub-paths and {% data variables.product.prodname_copilot_short %}-specific | Cross-tool / agent-agnostic | Invoked per task |
 | Rule | "{% data variables.product.prodname_copilot_short %}, always know this for this repository" | "{% data variables.product.prodname_copilot_short %}, always know this when working in these paths" | "Any agent, always know this" | "Do this when needed" |
 
-For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills) and [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills) and [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions).
 
 ### {% data variables.copilot.copilot_memory %} ({% data variables.release-phases.public_preview %})
 
@@ -218,6 +218,9 @@ By default, {% data variables.product.prodname_copilot_short %} only reviews a p
 * **Individual users** on the {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan can configure {% data variables.product.prodname_copilot_short %} to automatically review all pull requests they create.
 * **Repository owners** can configure {% data variables.product.prodname_copilot_short %} to automatically review all pull requests in the repository that are created by people with access to {% data variables.product.prodname_copilot_short %}.
 * **Organization owners** can configure {% data variables.product.prodname_copilot_short %} to automatically review all pull requests in some or all of the repositories in the organization where the pull request is created by a {% data variables.product.prodname_copilot_short %} user.
+
+If your organization has enabled {% data variables.copilot.copilot_code-review_short %} without a {% data variables.product.prodname_copilot_short %} license, automatic reviews also apply to pull requests created by organization members without a license. This applies to repositories covered by a policy where automatic reviews are enabled. For more information, see [{% data variables.copilot.copilot_code-review_short %} without a {% data variables.product.prodname_copilot_short %} license](#copilot-code-review-without-a-copilot-license).
+
 
 ### Triggering an automatic pull request review
 

@@ -41,7 +41,9 @@ For more information about MCP, see [AUTOTITLE](/copilot/how-tos/copilot-cli/cus
 
 {% data variables.copilot.custom_agents_caps_short %} are specialized versions of {% data variables.copilot.copilot_cloud_agent %} that you can tailor to specific tasks and workflows.
 
-In a session, type `/agent` to choose and invoke a {% data variables.copilot.copilot_custom_agent_short %}.
+Use the agent picker dropdown in the prompt box to select a {% data variables.copilot.copilot_custom_agent_short %} before or during a session.
+
+Alternatively, type `/agent` in the prompt box to choose and invoke a {% data variables.copilot.copilot_custom_agent_short %}.
 
 For more information, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-custom-agents).
 

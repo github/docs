@@ -64,6 +64,6 @@ In addition to the {% data variables.copilot.copilot_cloud_agent %} policy, orga
 
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent)
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment)
-* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-firewall)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-the-firewall)
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)
 * [AUTOTITLE](/copilot/tutorials/cloud-agent/pilot-cloud-agent)

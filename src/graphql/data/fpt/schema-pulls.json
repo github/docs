@@ -2939,6 +2939,16 @@
               }
             },
             {
+              "name": "excludeUserLinked",
+              "defaultValue": false,
+              "description": "<p>Exclude manually linked Issues.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "href": "/graphql/reference/other#scalar-boolean"
+              }
+            },
+            {
               "name": "first",
               "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
               "type": {

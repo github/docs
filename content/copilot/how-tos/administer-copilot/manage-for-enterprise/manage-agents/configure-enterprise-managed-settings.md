@@ -32,7 +32,7 @@ MDM-managed and file-based settings are loaded from the device, so they can appl
 
 ## Defining settings
 
-For detailed information on the available properties and syntax, see [AUTOTITLE](/copilot/reference/enterprise-managed-settings-reference).
+For detailed information on the available properties and syntax, see [AUTOTITLE](/copilot/reference/enterprise-administrators/enterprise-managed-settings).
 
 Use `copilot/{% data variables.copilot.team_mappings_file %}` and the `copilot/{% data variables.copilot.team_settings_directory %}` directory when you need one or more enterprise teams to use settings that differ from the defaults in `copilot/{% data variables.copilot.managed_setting_file %}`. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings#overriding-settings-for-specific-teams).
 
@@ -127,7 +127,7 @@ For example:
 | `sandbox.enabled` | `true` |
 | `enabledPlugins` | `{"PLUGIN-NAME@MARKETPLACE-NAME":true}` |
 
-1. Choose the settings you want to enforce. See [AUTOTITLE](/copilot/reference/enterprise-managed-settings-reference).
+1. Choose the settings you want to enforce. See [AUTOTITLE](/copilot/reference/enterprise-administrators/enterprise-managed-settings).
 1. Convert each setting to the native key and string value representation.
 1. Deploy the settings to the native policy location using your enterprise MDM platform and standard rollout process.
 1. Assign the policy to the target device groups.
