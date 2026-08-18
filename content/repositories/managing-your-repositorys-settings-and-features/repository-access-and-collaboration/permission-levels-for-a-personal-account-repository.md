@@ -1,6 +1,6 @@
 ---
 title: Permission levels for a personal account repository
-intro: 'A repository owned by a personal account has two permission levels: the repository owner and collaborators.'
+intro: 'A repository owned by a personal account has a single owner, and collaborators can be granted read, write, or admin access.'
 redirect_from:
   - /articles/permission-levels-for-a-user-account-repository
   - /github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository
@@ -69,10 +69,10 @@ Repositories owned by personal accounts have a single owner who has full control
 
 {% endif %}
 
-Collaborators on a personal repository can pull (read) the contents of the repository and push (write) changes to the repository.
+Collaborators on a personal repository can be granted one of three access levels: read, write, or admin. The triage and maintain roles are only available on repositories owned by an organization.
 
 > [!NOTE]
-> In a private repository, repository owners can only grant write access to collaborators. Collaborators can't have read-only access to repositories owned by a personal account.
+> The triage and maintain roles are not available for repositories owned by a personal account. If you need those roles, or team-based access management, consider transferring the repository to an organization.
 
 Collaborators can also perform the following actions.
 
