@@ -219,6 +219,9 @@ By default, {% data variables.product.prodname_copilot_short %} only reviews a p
 * **Repository owners** can configure {% data variables.product.prodname_copilot_short %} to automatically review all pull requests in the repository that are created by people with access to {% data variables.product.prodname_copilot_short %}.
 * **Organization owners** can configure {% data variables.product.prodname_copilot_short %} to automatically review all pull requests in some or all of the repositories in the organization where the pull request is created by a {% data variables.product.prodname_copilot_short %} user.
 
+If your organization has enabled {% data variables.copilot.copilot_code-review_short %} without a {% data variables.product.prodname_copilot_short %} license, automatic reviews also apply to pull requests created by organization members without a license. This applies to repositories covered by a policy where automatic reviews are enabled. For more information, see [{% data variables.copilot.copilot_code-review_short %} without a {% data variables.product.prodname_copilot_short %} license](#copilot-code-review-without-a-copilot-license).
+
+
 ### Triggering an automatic pull request review
 
 The triggers for automatic code review depend on the configuration settings.
