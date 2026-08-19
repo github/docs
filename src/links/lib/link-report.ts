@@ -22,8 +22,20 @@ export interface BrokenLink {
    * `update-internal-links` looks the href up exactly as written, so it can't fix these.
    */
   requiresVersionContext?: boolean
+  /**
+   * Two checked versions resolved this href to genuinely different destinations, so no
+   * single rewrite is correct for all of them. Merging keeps one target and drops the
+   * rest, which would otherwise let the report name a destination that is only right for
+   * one version.
+   */
+  hasConflictingRedirectTargets?: boolean
   statusCode?: number
   errorMessage?: string
+  /**
+   * The versions this link is broken in. Only set on a merged report, where the same link
+   * usually breaks in every version checked.
+   */
+  versions?: string[]
 }
 
 /**
@@ -55,6 +67,8 @@ export interface LinkReport {
   totalOccurrences: number
   timestamp: string
   actionUrl?: string
+  /** Every version this report covers. Only set on a merged report. */
+  versionsChecked?: string[]
 }
 
 // ============================================================================
@@ -238,6 +252,15 @@ function isVersionOnlyRedirect(target: string, redirectTarget: string): boolean 
 }
 
 /**
+ * Two redirect targets that differ only by version prefix are the same rename seen from
+ * two versions, not a disagreement. `/enterprise-server@3.21/new` and
+ * `/enterprise-server@3.17/new` both mean "the page moved to /new".
+ */
+function sameDestination(a: string, b: string): boolean {
+  return a.replace(VERSION_PREFIX_RE, '') === b.replace(VERSION_PREFIX_RE, '')
+}
+
+/**
  * Create a suggestion message for a redirect
  */
 function createRedirectSuggestion(
@@ -369,6 +392,84 @@ function createSummary(errorCount: number, warningCount: number, totalOccurrence
 }
 
 /**
+ * Describe which versions a link breaks in, but only when that is news.
+ *
+ * Nearly every broken link breaks in every version, so printing the full list on every
+ * group is noise that also blows past the issue body size limit. Say something only when a
+ * link is version-specific.
+ */
+export function describeVersions(
+  versions: string[] | undefined,
+  versionsChecked: string[] | undefined,
+): string | undefined {
+  if (!versions?.length || !versionsChecked?.length) return undefined
+  if (versionsChecked.length === 1) return undefined
+  if (versions.length >= versionsChecked.length) return undefined
+  return versions.join(', ')
+}
+
+/**
+ * Merge one report per version into a single report.
+ *
+ * The workflow used to concatenate each version's rendered Markdown, so a link broken in
+ * every version produced an identical section per version. Merging on the link itself means
+ * one section per real problem, with the versions recorded on the occurrence.
+ */
+export function mergeInternalLinkReports(
+  reports: { version: string; report: LinkReport }[],
+  options: { actionUrl?: string; versionsChecked?: string[] } = {},
+): LinkReport {
+  const merged = new Map<string, BrokenLink>()
+
+  for (const { version, report } of reports) {
+    for (const group of report.groups) {
+      for (const occurrence of group.occurrences) {
+        const href = occurrence.href || group.target
+        const key = `${href}\u0000${occurrence.file}`
+        const existing = merged.get(key)
+        if (existing) {
+          existing.lines = [...new Set([...existing.lines, ...occurrence.lines])].sort(
+            (a, b) => a - b,
+          )
+          existing.versions = [...new Set([...(existing.versions ?? []), version])]
+          // A link that redirects in any version is still worth rewriting everywhere.
+          existing.isRedirect = existing.isRedirect || occurrence.isRedirect
+          existing.requiresVersionContext =
+            existing.requiresVersionContext || occurrence.requiresVersionContext
+          // Keeping the first target and dropping the rest is only safe while every
+          // version agrees on where the page went. Today they always do, but if that ever
+          // stops being true the report would confidently name a destination that is
+          // right for one version and wrong for the others. Flag it instead.
+          if (
+            existing.redirectTarget &&
+            occurrence.redirectTarget &&
+            !sameDestination(existing.redirectTarget, occurrence.redirectTarget)
+          ) {
+            existing.hasConflictingRedirectTargets = true
+          }
+          existing.redirectTarget = existing.redirectTarget ?? occurrence.redirectTarget
+        } else {
+          merged.set(key, { ...occurrence, href, versions: [version] })
+        }
+      }
+    }
+  }
+
+  // A version with no broken links writes no report, so the files on disk undercount what
+  // was actually checked. Callers that know the full matrix pass it in, otherwise fall back
+  // to what was found.
+  const versionsChecked = options.versionsChecked?.length
+    ? options.versionsChecked
+    : reports.map((r) => r.version)
+  const report = generateInternalLinkReport([...merged.values()], options)
+  const scope =
+    versionsChecked.length > 1
+      ? `\n\nChecked ${versionsChecked.length} versions: ${versionsChecked.join(', ')}. A link listed without a version breaks in all of them.`
+      : ''
+  return { ...report, versionsChecked, summary: report.summary + scope }
+}
+
+/**
  * Generate a report for internal links
  */
 export function generateInternalLinkReport(
@@ -472,6 +573,10 @@ export function classifyFixStrategy(group: GroupedBrokenLinks): FixStrategy {
     if (group.occurrences.some((occ) => occ.requiresVersionContext)) {
       return 'decide'
     }
+    // Versions disagree about where the page went, so there is no single correct rewrite.
+    if (group.occurrences.some((occ) => occ.hasConflictingRedirectTargets)) {
+      return 'decide'
+    }
     return 'codemod'
   }
   // The link carries a fragment, so the stale part is likely a renamed heading.
@@ -501,15 +606,30 @@ function codemodPaths(groups: GroupedBrokenLinks[]): string[] {
   return [...paths].sort()
 }
 
+/** The union of versions across a group's occurrences. */
+function groupVersions(group: GroupedBrokenLinks): string[] {
+  const versions = new Set<string>()
+  for (const occ of group.occurrences) {
+    for (const version of occ.versions ?? []) versions.add(version)
+  }
+  return [...versions]
+}
+
 function occurrenceCount(groups: GroupedBrokenLinks[]): number {
   return groups.reduce((sum, g) => sum + g.occurrences.length, 0)
 }
 
-function renderCodemodSection(groups: GroupedBrokenLinks[]): string {
+function renderCodemodSection(groups: GroupedBrokenLinks[], versionsChecked?: string[]): string {
+  const versionFor = (group: GroupedBrokenLinks) =>
+    describeVersions(groupVersions(group), versionsChecked)
+  const showVersions = groups.some((group) => versionFor(group))
+
   const rows = groups
     .map((group) => {
       const target = group.occurrences.find((occ) => occ.redirectTarget)?.redirectTarget ?? ''
-      return `| \`${group.target}\` | \`${target}\` | ${group.occurrences.length} |`
+      const cells = [`\`${group.target}\``, `\`${target}\``, `${group.occurrences.length}`]
+      if (showVersions) cells.push(versionFor(group) ?? 'all')
+      return `| ${cells.join(' | ')} |`
     })
     .join('\n')
 
@@ -542,8 +662,8 @@ Review the diff, then open a pull request.
 <details>
 <summary>The ${groups.length} link${plural} this fixes</summary>
 
-| From | To | Occurrences |
-|------|-----|-------------|
+| From | To | Occurrences |${showVersions ? ' Versions |' : ''}
+|------|-----|-------------|${showVersions ? '----------|' : ''}
 ${rows}
 
 </details>`
@@ -591,8 +711,15 @@ function renderManualSection(
   blurb: string,
   groups: GroupedBrokenLinks[],
   isExternal: boolean,
+  versionsChecked?: string[],
 ): string {
-  const sections = groups.map((group) => TEMPLATES.group(group, isExternal)).join('\n\n')
+  const sections = groups
+    .map((group) => {
+      const versions = describeVersions(groupVersions(group), versionsChecked)
+      const note = versions ? `\n\n**Only in:** ${versions}` : ''
+      return TEMPLATES.group(group, isExternal) + note
+    })
+    .join('\n\n')
   return `## ${heading} (${groups.length} link${groups.length === 1 ? '' : 's'}, ${occurrenceCount(groups)} occurrence${occurrenceCount(groups) === 1 ? '' : 's'})
 
 ${blurb}
@@ -604,7 +731,11 @@ ${sections}`
  * Render an internal report as four buckets ordered by how much work each one costs, from
  * one command down to nothing at all.
  */
-function renderByFixStrategy(groups: GroupedBrokenLinks[], isExternal: boolean): string {
+function renderByFixStrategy(
+  groups: GroupedBrokenLinks[],
+  isExternal: boolean,
+  versionsChecked?: string[],
+): string {
   const codemod = groups.filter((g) => classifyFixStrategy(g) === 'codemod')
   const versionless = groups.filter((g) => classifyFixStrategy(g) === 'versionless')
   const anchors = groups.filter((g) => classifyFixStrategy(g) === 'anchor')
@@ -631,7 +762,7 @@ ${summaryRows.join('\n')}
 Work top to bottom. Bucket 1 is usually most of the report and costs one command.`,
   ]
 
-  if (codemod.length > 0) parts.push(renderCodemodSection(codemod))
+  if (codemod.length > 0) parts.push(renderCodemodSection(codemod, versionsChecked))
   if (anchors.length > 0) {
     parts.push(
       renderManualSection(
@@ -639,6 +770,7 @@ Work top to bottom. Bucket 1 is usually most of the report and costs one command
         'The `#fragment` does not match a heading on the target page. Usually a heading was renamed: find it and repoint the link, or drop the fragment if the section is gone. Check that the page itself still exists first, since a missing page with a fragment also lands here.',
         anchors,
         isExternal,
+        versionsChecked,
       ),
     )
   }
@@ -649,6 +781,7 @@ Work top to bottom. Bucket 1 is usually most of the report and costs one command
         'The codemod looks each link up exactly as written, and for these that lookup finds nothing: either no redirect exists at all, or the redirect only exists under a version prefix the link does not carry. Choose a destination, or add a redirect from the path as written.',
         decide,
         isExternal,
+        versionsChecked,
       ),
     )
   }
@@ -725,7 +858,7 @@ export function reportToMarkdown(report: LinkReport, isExternal = false): string
     parts.push(
       isExternal
         ? renderGroups(report.groups, isExternal)
-        : renderByFixStrategy(report.groups, isExternal),
+        : renderByFixStrategy(report.groups, isExternal, report.versionsChecked),
     )
   }
 

@@ -212,6 +212,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: ./.github/actions/node-npm-setup
+
       - name: Download all artifacts
         uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 # v8.0.0
         with:
@@ -221,23 +223,23 @@ jobs:
 
       - name: Combine reports
         id: combine
+        env:
+          ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          # A version with no broken links uploads no report, so the files on disk undercount
+          # what was checked. Pass the matrix so the report can say "broken in all versions"
+          # and mean it.
+          MATRIX: ${{ needs.setup-matrix.outputs.matrix }}
         run: |
-          # Check if any reports exist
-          if ls reports/*.md 1> /dev/null 2>&1; then
+          # Merge the per-version JSON rather than concatenating the rendered Markdown.
+          # A link broken in every version is one problem, not one per version.
+          if ls reports/*.json 1> /dev/null 2>&1; then
             echo "has_reports=true" >> $GITHUB_OUTPUT
-
-            # Combine all markdown reports
-            echo "# Internal Links Report" > combined-report.md
-            echo "" >> combined-report.md
-            echo "Generated: $(date -u +'%Y-%m-%d %H:%M UTC')" >> combined-report.md
-            echo "[Action run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> combined-report.md
-            echo "" >> combined-report.md
-
-            for report in reports/*.md; do
-              echo "---" >> combined-report.md
-              cat "$report" >> combined-report.md
-              echo "" >> combined-report.md
-            done
+            VERSIONS=$(echo "$MATRIX" | jq -r '[.include[] | "\(.version) \(.language)"] | join(",")')
+            npm run combine-link-reports -- \
+              --input reports \
+              --output combined-report.md \
+              --versions "$VERSIONS" \
+              --action-url "$ACTION_RUN_URL"
           else
             echo "has_reports=false" >> $GITHUB_OUTPUT
             echo "No broken link reports generated - all links valid!"

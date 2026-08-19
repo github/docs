@@ -10,6 +10,8 @@ import {
   generatePRComment,
   generateSampleReports,
   classifyFixStrategy,
+  mergeInternalLinkReports,
+  describeVersions,
 } from '../lib/link-report'
 
 describe('groupBrokenLinks', () => {
@@ -621,6 +623,103 @@ describe('codemod command scoping', () => {
   })
 })
 
+describe('mergeInternalLinkReports', () => {
+  const reportFor = (version: string, links: BrokenLink[]) => ({
+    version,
+    report: generateInternalLinkReport(links, { version }),
+  })
+
+  const shared: BrokenLink = {
+    href: '/old',
+    file: 'actions/a.md',
+    lines: [1],
+    isRedirect: true,
+    redirectTarget: '/new',
+  }
+
+  test('a link broken in every version becomes one group, not one per version', () => {
+    const merged = mergeInternalLinkReports([
+      reportFor('fpt', [shared]),
+      reportFor('ghes', [shared]),
+    ])
+
+    expect(merged.groups).toHaveLength(1)
+    expect(merged.groups[0].occurrences).toHaveLength(1)
+    expect(merged.groups[0].occurrences[0].versions).toEqual(['fpt', 'ghes'])
+  })
+
+  test('keeps links that only break in one version', () => {
+    const merged = mergeInternalLinkReports([
+      reportFor('fpt', [shared]),
+      reportFor('ghes', [shared, { href: '/ghes-only', file: 'admin/b.md', lines: [2] }]),
+    ])
+
+    expect(merged.groups).toHaveLength(2)
+    const ghesOnly = merged.groups.find((g) => g.target === '/ghes-only')
+    expect(ghesOnly?.occurrences[0].versions).toEqual(['ghes'])
+  })
+
+  test('unions line numbers for the same link in the same file', () => {
+    const merged = mergeInternalLinkReports([
+      reportFor('fpt', [{ ...shared, lines: [3, 1] }]),
+      reportFor('ghes', [{ ...shared, lines: [2] }]),
+    ])
+
+    expect(merged.groups[0].occurrences[0].lines).toEqual([1, 2, 3])
+  })
+
+  test('a link that redirects in any version keeps its destination', () => {
+    const merged = mergeInternalLinkReports([
+      reportFor('fpt', [{ href: '/old', file: 'actions/a.md', lines: [1] }]),
+      reportFor('ghes', [shared]),
+    ])
+
+    expect(merged.groups[0].isWarning).toBe(true)
+    expect(merged.groups[0].occurrences[0].redirectTarget).toBe('/new')
+  })
+
+  test('records every version checked', () => {
+    const merged = mergeInternalLinkReports([
+      reportFor('fpt', [shared]),
+      reportFor('ghes', [shared]),
+    ])
+
+    expect(merged.versionsChecked).toEqual(['fpt', 'ghes'])
+    expect(merged.summary).toContain('Checked 2 versions')
+  })
+
+  test('flags version-specific links in the rendered report', () => {
+    const merged = mergeInternalLinkReports([
+      reportFor('fpt', [shared]),
+      reportFor('ghes', [shared, { href: '/ghes-only', file: 'admin/b.md', lines: [2] }]),
+    ])
+    const markdown = reportToMarkdown(merged)
+
+    expect(markdown).toContain('**Only in:** ghes')
+    // The shared link breaks everywhere, so saying so on every group would be noise.
+    expect(markdown).not.toContain('**Only in:** fpt, ghes')
+  })
+})
+
+describe('describeVersions', () => {
+  test('says nothing when the link breaks in every version checked', () => {
+    expect(describeVersions(['fpt', 'ghes'], ['fpt', 'ghes'])).toBeUndefined()
+  })
+
+  test('says nothing when only one version was checked', () => {
+    expect(describeVersions(['fpt'], ['fpt'])).toBeUndefined()
+  })
+
+  test('names the versions when a link is version-specific', () => {
+    expect(describeVersions(['ghes'], ['fpt', 'ghes'])).toBe('ghes')
+  })
+
+  test('says nothing without version data, as on a single-version report', () => {
+    expect(describeVersions(undefined, ['fpt', 'ghes'])).toBeUndefined()
+    expect(describeVersions(['fpt'], undefined)).toBeUndefined()
+  })
+})
+
 describe('version-only redirects', () => {
   const versionOnly: BrokenLink[] = [
     {
@@ -721,6 +820,39 @@ describe('version-only classification across versions', () => {
   })
 })
 
+describe('versions checked when some come back clean', () => {
+  const report = (href: string) =>
+    generateInternalLinkReport([{ href, file: 'actions/a.md', lines: [1] }])
+
+  test('a caller-supplied version list wins over what was found on disk', () => {
+    // A clean version uploads no report, so counting files undercounts the matrix.
+    const merged = mergeInternalLinkReports(
+      [
+        { version: 'free-pro-team@latest en', report: report('/a#gone') },
+        { version: 'enterprise-cloud@latest en', report: report('/b#gone') },
+      ],
+      { versionsChecked: ['free-pro-team@latest en', 'enterprise-cloud@latest en', 'ghes en'] },
+    )
+
+    expect(merged.versionsChecked).toHaveLength(3)
+    expect(merged.summary).toContain('Checked 3 versions')
+    // Two of three versions is now worth saying out loud, where two of two was not.
+    expect(reportToMarkdown(merged)).toContain('**Only in:**')
+  })
+
+  test('falls back to the reports on disk when no list is given', () => {
+    const merged = mergeInternalLinkReports([
+      { version: 'free-pro-team@latest en', report: report('/a#gone') },
+      { version: 'enterprise-cloud@latest en', report: report('/b#gone') },
+    ])
+
+    expect(merged.versionsChecked).toEqual([
+      'free-pro-team@latest en',
+      'enterprise-cloud@latest en',
+    ])
+  })
+})
+
 describe('redirects the codemod cannot resolve', () => {
   const occurrence = (extra: Partial<BrokenLink> = {}): BrokenLink => ({
     href: '/admin/old',
@@ -788,5 +920,58 @@ describe('rename advice and inherited version prefixes', () => {
   test('still treats a pure version prefix as version-only', () => {
     const s = suggestionFor('/admin/same', '/enterprise-server@3.21/admin/same')
     expect(s).toContain('Leave the link versionless')
+  })
+})
+
+describe('merging redirect targets across versions', () => {
+  const reportFor = (version: string, links: BrokenLink[]) => ({
+    version,
+    report: generateInternalLinkReport(links, { version }),
+  })
+  const occ = (redirectTarget: string, extra: Partial<BrokenLink> = {}): BrokenLink => ({
+    href: '/old',
+    file: 'actions/a.md',
+    lines: [1],
+    isRedirect: true,
+    redirectTarget,
+    ...extra,
+  })
+  const mergedOccurrence = (targets: string[], extra: Partial<BrokenLink> = {}) =>
+    mergeInternalLinkReports(targets.map((t, i) => reportFor(`v${i}`, [occ(t, extra)]))).groups[0]
+      .occurrences[0]
+
+  test('treats targets that differ only by version prefix as the same destination', () => {
+    const merged = mergedOccurrence(['/enterprise-server@3.22/new', '/enterprise-server@3.17/new'])
+    expect(merged.hasConflictingRedirectTargets).toBeUndefined()
+  })
+
+  test('flags genuinely different destinations between versions', () => {
+    const merged = mergedOccurrence(['/new-a', '/new-b'])
+    expect(merged.hasConflictingRedirectTargets).toBe(true)
+  })
+
+  test('sends conflicting destinations to a human instead of the codemod', () => {
+    const report = mergeInternalLinkReports([
+      reportFor('v0', [occ('/new-a')]),
+      reportFor('v1', [occ('/new-b')]),
+    ])
+    expect(classifyFixStrategy(report.groups[0])).toBe('decide')
+  })
+
+  test('still routes an agreed rename to the codemod', () => {
+    const report = mergeInternalLinkReports([
+      reportFor('v0', [occ('/enterprise-server@3.22/new')]),
+      reportFor('v1', [occ('/enterprise-server@3.17/new')]),
+    ])
+    expect(classifyFixStrategy(report.groups[0])).toBe('codemod')
+  })
+
+  test('keeps requiresVersionContext when only a later version sets it', () => {
+    const report = mergeInternalLinkReports([
+      reportFor('v0', [occ('/new')]),
+      reportFor('v1', [occ('/new', { requiresVersionContext: true })]),
+    ])
+    expect(report.groups[0].occurrences[0].requiresVersionContext).toBe(true)
+    expect(classifyFixStrategy(report.groups[0])).toBe('decide')
   })
 })
