@@ -394,7 +394,6 @@ on:
     types: [checks_requested]
 ```
 
-
 You can use the `branches` and `branches-ignore` filters with `merge_group` to only run a workflow when the merge group targets specific branches. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#onpull_requestpull_request_targetbranchesbranches-ignore).
 
 For example, you can run a workflow only when the merge group targets the `main` branch.
@@ -414,7 +413,6 @@ on:
     branches-ignore: [ "main" ]
     types: [checks_requested]
 ```
-
 
 ## `milestone`
 
@@ -1300,5 +1298,3 @@ jobs:
               body: 'Thank you for the PR!'
             });
 ```
-
-
