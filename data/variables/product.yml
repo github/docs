@@ -204,9 +204,6 @@ prodname_GHAS_or_secret_protection: 'GitHub Secret Protection or GitHub Advanced
 prodname_GHAS_cs_or_sp: 'GitHub Secret Protection, GitHub Code Security, or GitHub Advanced Security'
 prodname_GH_cs_or_sp: 'GitHub Secret Protection or GitHub Code Security'
 
-## GitHub Code Quality preview only
-prodname_GH_sp_cs_and_cq_or_as: '{% data variables.product.prodname_GH_secret_protection %}, {% data variables.product.prodname_GH_code_security %}{% ifversion code-quality %} and {% data variables.product.prodname_code_quality %} ({% data variables.release-phases.public_preview %}){% endif %}, or {% data variables.product.prodname_GHAS %}'
-
 ## GHAS and GHAS products
 prodname_GHAS_cs_and_sp: 'GitHub Secret Protection, GitHub Code Security, and GitHub Advanced Security'
 prodname_GH_cs_and_sp: 'GitHub Secret Protection and GitHub Code Security'

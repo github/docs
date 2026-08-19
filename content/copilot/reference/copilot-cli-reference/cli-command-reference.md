@@ -394,6 +394,8 @@ These are the slash commands you can use from within an interactive CLI session.
 
 For a complete list of available slash commands enter `/help` in the CLI's interactive interface.
 
+In the schedule manager opened by a bare `/every` or `/after`, use <kbd>↑</kbd>/<kbd>↓</kbd> to select an entry and `x` to remove it. Schedules can only be added from the prompt input using `/every` or `/after` with arguments—the dialog itself is read-and-remove only.
+
 ## Command-line options
 
 | Option                             | Purpose                                  |
@@ -518,6 +520,7 @@ Use `--model=MODEL` or the `COPILOT_MODEL` environment variable to select the AI
 | `gemini-3.1-pro-preview` | Google Gemini reasoning |
 | `gemini-3.5-flash` | Fast Google Gemini responses |
 | `gemini-3.6-flash` | Fast Google Gemini responses |
+| `gemini-3.7-flash` | Fast Google Gemini responses |
 | `mai-code-1-flash` | Fast, adaptive coding tasks |
 
 You can also switch models during an interactive session using the `/model` slash command.
@@ -1031,7 +1034,10 @@ Custom agents are specialized AI agents defined in Markdown files. The filename 
 | `mcp-servers` | object | No | MCP servers to connect. Uses the same schema as `~/.copilot/mcp-config.json`. |
 | `model` | string | No | AI model for this agent. When unset, inherits the outer agent's model. When the session model is set to `Auto` (server-selected), subagents always inherit the resolved session model regardless of this field. |
 | `name` | string | No | Display name. Defaults to the filename. |
+| `reasoningEffort` | string | No | Default reasoning effort for this agent (for example, `"low"`, `"medium"`, or `"high"`). When unset, inherits the outer agent's effort. |
 | `tools` | string[] | No | Tools available to the agent. Default: `["*"]` (all tools). |
+
+`model` and `reasoningEffort` apply whether the agent is dispatched through the `task` tool or started directly—for example, through the SDK's `session.startSubagent`. They're resolved with this precedence, highest first: an explicit per-call value, the `subagents` override in `~/.copilot/settings.json`, the agent definition's `model`/`reasoningEffort` field, then the parent session's value. A declared model or effort that can't be honored falls back to the session's value instead of failing the dispatch.
 
 ### Custom agent locations
 

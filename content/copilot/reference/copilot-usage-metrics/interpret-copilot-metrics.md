@@ -86,6 +86,16 @@ The adoption multiplier compares engaged users (Phase 1, 2, or 3) against passiv
 > [!NOTE]
 > The adoption multiplier compares two different populations of users, not the same users over time. Differences in team composition, project complexity, or seniority between engaged and passive users can influence the comparison as much as {% data variables.product.prodname_copilot_short %} adoption itself.
 
+## Reviewing potential return on investment
+
+The **Potential return on investment** section compares {% data variables.product.prodname_copilot_short %} cost, estimated percentage of payroll, and pull requests per developer per month across earlier and agent-first adoption phases. Treat these comparisons as directional associations, not proof that a change in adoption caused a change in output.
+
+| Signal | What it suggests | Suggested action |
+|:--|:--|:--|
+| Agent-first users merge more pull requests with a similar or lower cost as a percentage of payroll | Agent-first usage is associated with more pull request output relative to the estimated investment. | Compare this signal with the adoption multiplier and trends over multiple periods before using it to inform enablement investment. |
+| Agent-first users merge fewer pull requests or have a higher cost as a percentage of payroll | Differences in work type, team composition, or adoption maturity may be affecting the comparison. | Review cohort distribution and team-level context before drawing conclusions about return on investment. |
+| The payroll percentage changes after you select a different developer cost | The dashboard is recalculating the estimate using a different compensation assumption, not showing a change in usage. | Use the same compensation band when comparing different periods or organizations. |
+
 ## Acting on your insights
 
 Use trends in usage, feature adoption, and language activity to guide enablement and rollout planning.

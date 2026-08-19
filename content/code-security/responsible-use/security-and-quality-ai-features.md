@@ -244,7 +244,6 @@ GitHub Code Quality's LLM-powered analysis shares the evaluation framework of Co
 * **Dry-run validation for generated patterns**: Generated regular expressions from the custom pattern regex generator must go through a dry-run validation step before deployment. Users explicitly import a result into the custom pattern form and test it across their repository or organization, ensuring patterns perform as expected before they are used in production.
 * **Explicit user action required**: The regex generator does not automatically deploy patterns. Users must click **Use result** to copy a generated expression into the custom pattern form, then manually save and enable the pattern.
 * **Feedback mechanism for Code Quality**: Users can provide feedback on Code Quality suggestions using the thumbs up and thumbs down buttons on the `github-code-quality` bot's comments, helping GitHub improve suggestion quality.
-* **Preview-gated availability**: GitHub Code Quality is available as a preview, allowing organizations to evaluate the feature before broader adoption.
 
 ## 10. Best practices for deploying and adopting GitHub Code Security AI features
 
