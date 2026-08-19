@@ -26,6 +26,8 @@ There are two ways to qualify for free access to {% data variables.copilot.copil
 
 {% data variables.product.company_short %} reevaluates your eligibility every month.
 
+{% data reusables.copilot.free-access-cancellation-note %} For more information about managing your plan, see [AUTOTITLE](/copilot/how-tos/manage-your-account/view-and-change-your-copilot-plan).
+
 ## What if I don't qualify for free access to {% data variables.copilot.copilot_pro_short %}?
 
 If you do not meet the previous criteria, you can do one of the following:
