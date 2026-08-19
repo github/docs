@@ -130,6 +130,8 @@ To be grouped into a phase, a user must meet an engagement threshold of at least
 
 Phase assignment is recalculated daily from the trailing 28-day window, so a user's phase can shift from one day to the next as their activity within that window changes. This is expected behavior, not a data error.
 
+The impact dashboard counts every user who was active during the trailing 28-day window and groups each user by their current phase. The phase classification rules are the same, but the dashboard population is broader than the `totals_by_ai_adoption_phase.total_engaged_users` field in API and NDJSON reports, which counts users who were active on a specific day.
+
 Users who haven't met any phase's threshold are grouped into **Passive users**, which is not a measure of inactivity, but a signal that a user's engagement hasn't yet reached the level needed to reliably classify their adoption depth. For example, a user with fewer than two active days in the trailing 28-day window, or one who only lightly uses a surface like {% data variables.copilot.copilot_chat_short %} on {% data variables.product.prodname_dotcom_the_website %}, shows as a passive user.
 
 Because phase assignment is based on **which surfaces a user engages with**, not simply how many actions they take, a user with high completion volume but no agent usage stays in Phase 1, while a user with lighter but broader usage across agent surfaces progresses to Phase 2 or Phase 3.
@@ -141,6 +143,14 @@ The impact dashboard's **adoption multiplier** divides the average amount of pul
 This shows the relative impact of deeper adoption, independent of how many users fall into each phase. This is a measurement to understand the potential lift that becoming a more engaged user can provide.
 
 For example, if users in the engaged cohorts averaged 20 pull requests/user/month and the passive cohort averaged 10, then the equation is 20 / 10 = 2x multiplier.
+
+### Estimating potential return on investment
+
+The impact dashboard's **Potential return on investment** section provides a comparison of cost and pull request output between **Phase 0-1 Passive and Code First Users** and **Phase 2-3 Agent First Users**.
+
+For each phase group, the dashboard shows the monthly {% data variables.product.prodname_copilot_short %} cost per developer, based on actual {% data variables.product.prodname_ai_credits_short %} consumption, and that cost as a percentage of developer compensation. It also shows average pull requests per developer per month.
+
+You can select a compensation band to update estimates that depend on developer compensation. These figures are estimates rather than exact financial results, so interpret them alongside the adoption multiplier's code-shipped and time-to-merge comparisons. The return-on-investment estimates are available only in the dashboard and are not included in the {% data variables.product.prodname_copilot_short %} usage metrics API or NDJSON exports.
 
 ### Interpreting pull request lifecycle metrics across scopes
 
