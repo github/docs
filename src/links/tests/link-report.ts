@@ -160,6 +160,65 @@ describe('generateInternalLinkReport', () => {
     expect(report.groups).toHaveLength(0)
     expect(report.summary).toContain('valid')
   })
+
+  test('labels the title with version and language when supplied', () => {
+    // The workflow concatenates every version's report into one issue, so an
+    // unlabelled title leaves no way to tell the sections apart.
+    const report = generateInternalLinkReport([{ href: '/broken', file: 'a.md', lines: [1] }], {
+      version: 'enterprise-server@3.21',
+      language: 'en',
+    })
+
+    expect(report.title).toBe(
+      'Internal Link Check (enterprise-server@3.21 en): 1 broken, 0 redirects',
+    )
+  })
+
+  test('omits the label when no version or language is supplied', () => {
+    const report = generateInternalLinkReport([])
+
+    expect(report.title).toBe('Internal Link Check: 0 broken, 0 redirects')
+  })
+})
+
+describe('createRedirectSuggestion', () => {
+  const linkTo = (href: string, redirectTarget: string): BrokenLink[] => [
+    { href, file: 'a.md', lines: [1], isRedirect: true, redirectTarget },
+  ]
+
+  test('does not tell authors to hardcode a version', () => {
+    // Following "update to the new path" here bakes 3.21 into content, which breaks
+    // as soon as 3.22 ships.
+    const report = generateInternalLinkReport(
+      linkTo('/admin/all-releases', '/enterprise-server@3.21/admin/all-releases'),
+    )
+
+    const suggestion = report.groups[0].suggestion
+    expect(suggestion).toContain('Leave the link versionless')
+    expect(suggestion).not.toContain('Consider updating to the new path')
+  })
+
+  test('still suggests updating a genuine rename', () => {
+    const report = generateInternalLinkReport(linkTo('/old-name', '/new-name'))
+
+    expect(report.groups[0].suggestion).toContain('Consider updating to the new path')
+  })
+
+  test('treats a version-only change as version resolution, not a rename', () => {
+    const report = generateInternalLinkReport(
+      linkTo('/billing/set-up', '/enterprise-cloud@latest/billing/set-up'),
+    )
+
+    expect(report.groups[0].suggestion).toContain('Leave the link versionless')
+  })
+
+  test('treats a same-version path change as a rename', () => {
+    const report = generateInternalLinkReport(
+      linkTo('/enterprise-server@3.21/old', '/enterprise-server@3.21/new'),
+    )
+
+    expect(report.groups[0].suggestion).toContain('Consider updating to the new path')
+  })
 })
 
 describe('generateExternalLinkReport', () => {
@@ -419,5 +478,37 @@ describe('generateSampleReports', () => {
     // PR comment
     expect(samples.prComment).toContain('Link Check Results')
     expect(samples.prComment).toContain('link-checker-pr-comment')
+  })
+})
+
+describe('rename advice and inherited version prefixes', () => {
+  const suggestionFor = (href: string, redirectTarget: string): string | undefined =>
+    groupBrokenLinks([
+      { href, file: 'admin/a.md', lines: [1], isRedirect: true, redirectTarget },
+    ])[0].suggestion
+
+  test('strips the inherited version from a versionless rename', () => {
+    const s = suggestionFor('/admin/old', '/enterprise-server@3.21/admin/new')
+    expect(s).toContain('`/admin/new`')
+    expect(s).not.toContain('`/enterprise-server@3.21/admin/new`')
+    expect(s).toContain('enterprise-server@3.21')
+  })
+
+  test('keeps the target verbatim when the link already named a version', () => {
+    const s = suggestionFor(
+      '/enterprise-server@3.21/admin/old',
+      '/enterprise-cloud@latest/admin/new',
+    )
+    expect(s).toContain('`/enterprise-cloud@latest/admin/new`')
+  })
+
+  test('keeps the target verbatim when the redirect carries no version', () => {
+    const s = suggestionFor('/admin/old', '/admin/new')
+    expect(s).toContain('`/admin/new`')
+  })
+
+  test('still treats a pure version prefix as version-only', () => {
+    const s = suggestionFor('/admin/same', '/enterprise-server@3.21/admin/same')
+    expect(s).toContain('Leave the link versionless')
   })
 })

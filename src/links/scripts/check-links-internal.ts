@@ -265,7 +265,7 @@ async function checkPage(
   pageContext: Context,
   pageMap: Record<string, Page>,
   redirects: Record<string, string>,
-  options: { checkAnchors: boolean },
+  options: { checkAnchors: boolean; version?: string; language?: string },
 ): Promise<{
   brokenLinks: BrokenLink[]
   redirectLinks: BrokenLink[]
@@ -314,7 +314,13 @@ async function checkPage(
     }
 
     const normalized = normalizeLinkPath(link.href)
-    const result = checkInternalLink(normalized, pageMap, redirects)
+    const result = checkInternalLink(
+      normalized,
+      pageMap,
+      redirects,
+      options.version,
+      options.language,
+    )
 
     if (!result.exists) {
       brokenLinks.push({
@@ -336,7 +342,12 @@ async function checkPage(
       // Direct (non-redirect) hit with a fragment: defer a cross-page anchor check.
       // We can't validate it now because the target page may not have been rendered
       // yet, so collect it and validate after the whole version finishes.
-      const targetKey = resolveInternalLinkKey(link.href, pageMap)
+      const targetKey = resolveInternalLinkKey(
+        link.href,
+        pageMap,
+        options.version,
+        options.language,
+      )
       if (targetKey) {
         crossPageAnchors.push({
           targetKey,
@@ -432,7 +443,11 @@ async function checkVersion(
       // pageMap and redirects are read-only and safe to share.
       const pageContext = { ...baseContext, page } as Context
 
-      const result = await checkPage(page, permalink, pageContext, pageMap, redirects, options)
+      const result = await checkPage(page, permalink, pageContext, pageMap, redirects, {
+        ...options,
+        version,
+        language,
+      })
 
       // Merging results here is safe: JS is single-threaded so array pushes
       // between await points cannot interleave with another worker's pushes.

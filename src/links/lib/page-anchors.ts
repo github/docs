@@ -61,18 +61,20 @@ export function findLinkLines(content: string, hrefWithFragment: string): number
  * Resolve a link href to a pageMap key, considering the version the source page is being
  * rendered in.
  *
- * `resolveInternalLinkKey` only tries the href as written. An unversioned href like
- * `/copilot/foo` written on a GHEC-only page has no `/en/copilot/foo` key in the pageMap
- * (that key only exists when the target applies to FPT), so resolution returns null and
- * the link is silently skipped. Retrying with the source version prefixed picks up those
- * targets so their anchors get checked too.
+ * `resolveInternalLinkKey` handles the common shapes once it knows the version, so hand
+ * the version to it directly. That also fixes the precedence: a target that applies to
+ * both FPT and the source version has a key for each, and without the version the `/en`
+ * key wins even during an enterprise run.
+ *
+ * The explicit retry below still earns its place for hrefs that carry a language prefix,
+ * which `resolveInternalLinkKey` refuses to reinterpret as relative to a version.
  */
 export function resolveLinkKeyForVersion(
   href: string,
   version: string,
   pageMap: Record<string, Page>,
 ): string | null {
-  const direct = resolveInternalLinkKey(href, pageMap)
+  const direct = resolveInternalLinkKey(href, pageMap, version)
   if (direct) return direct
 
   // Only worth retrying when the href carries no version of its own.

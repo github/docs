@@ -218,6 +218,20 @@ function groupByTarget(links: BrokenLink[]): Map<string, BrokenLink[]> {
   return groups
 }
 
+const VERSION_PREFIX_RE = /^\/[a-z-]+@[^/]+/
+
+/**
+ * True when a redirect target is the same path with a version prefix bolted on.
+ *
+ * These aren't renames, they're the versionless link resolving into a version. Telling
+ * an author to "update to the new path" here is actively wrong: hardcoding
+ * `/enterprise-server@3.21/...` into content breaks as soon as 3.22 ships.
+ */
+function isVersionOnlyRedirect(target: string, redirectTarget: string): boolean {
+  const withoutVersion = redirectTarget.replace(VERSION_PREFIX_RE, '')
+  return withoutVersion === target
+}
+
 /**
  * Create a suggestion message for a redirect
  */
@@ -226,13 +240,33 @@ function createRedirectSuggestion(
   occurrences: BrokenLink[],
   redirects?: Record<string, string>,
 ): string | undefined {
-  if (redirects?.[target]) {
-    return `This path redirects to \`${redirects[target]}\`. Consider updating to the new path.`
+  const redirectTarget = redirects?.[target] ?? occurrences[0]?.redirectTarget
+  if (!redirectTarget) return undefined
+
+  if (isVersionOnlyRedirect(target, redirectTarget)) {
+    return (
+      `This path resolves to \`${redirectTarget}\` in this version. Leave the link versionless: ` +
+      `hardcoding a version breaks when the next release ships. If it should point at a ` +
+      `different version, use a Liquid \`ifversion\` gate.`
+    )
   }
-  if (occurrences[0]?.redirectTarget) {
-    return `This path redirects to \`${occurrences[0].redirectTarget}\`. Consider updating to the new path.`
+
+  // A versionless link that lands on a versioned path is a rename plus the version the
+  // check happened to run in. Only the rename is real. Suggesting the target verbatim
+  // would bake `enterprise-server@3.21` into content that never asked for a version.
+  const sourceIsVersionless = !VERSION_PREFIX_RE.test(target)
+  const versionPrefix = redirectTarget.match(VERSION_PREFIX_RE)?.[0]
+  if (sourceIsVersionless && versionPrefix) {
+    const withoutVersion = redirectTarget.slice(versionPrefix.length)
+    return (
+      `This path redirects to \`${withoutVersion}\`. Update the path but keep the link ` +
+      `versionless: the \`${versionPrefix.slice(1)}\` prefix comes from the version being ` +
+      `checked, not from the rename. Gate it with Liquid \`ifversion\` only if the new page ` +
+      `really is version-specific.`
+    )
   }
-  return undefined
+
+  return `This path redirects to \`${redirectTarget}\`. Consider updating to the new path.`
 }
 
 /**
@@ -345,8 +379,13 @@ export function generateInternalLinkReport(
   const errors = groups.filter((g) => !g.isWarning)
   const warnings = groups.filter((g) => g.isWarning)
 
+  // The workflow concatenates every version's report into one issue, so without this
+  // label there's no way to tell which version a section covers.
+  const scope = [options.version, options.language].filter(Boolean).join(' ')
+  const scopeLabel = scope ? ` (${scope})` : ''
+
   return {
-    title: `Internal Link Check: ${errors.length} broken, ${warnings.length} redirects`,
+    title: `Internal Link Check${scopeLabel}: ${errors.length} broken, ${warnings.length} redirects`,
     summary: createSummary(errors.length, warnings.length, brokenLinks.length),
     groups,
     uniqueTargets: groups.length,

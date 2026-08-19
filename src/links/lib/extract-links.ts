@@ -11,6 +11,7 @@ import path from 'path'
 import { createLogger } from '@/observability/logger'
 import { allVersions } from '@/versions/lib/all-versions'
 import { latestStable } from '@/versions/lib/enterprise-server-releases'
+import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path'
 import { getDataByLanguage } from '@/data-directory/lib/get-data'
 import getRedirect from '@/redirects/lib/get-redirect'
 import { isArchivedVersionByPath } from '@/archives/lib/is-archived-version'
@@ -461,7 +462,12 @@ export function normalizeLinkPath(href: string): string {
  * target page's precomputed heading IDs. Redirects are intentionally excluded: the
  * link is already reported as a redirect-to-update, and its final anchor is ambiguous.
  */
-export function resolveInternalLinkKey(href: string, pageMap: Record<string, Page>): string | null {
+export function resolveInternalLinkKey(
+  href: string,
+  pageMap: Record<string, Page>,
+  version?: string,
+  language = 'en',
+): string | null {
   const normalized = normalizeLinkPath(href)
 
   const latestPrefix = '/enterprise-server@latest'
@@ -473,19 +479,62 @@ export function resolveInternalLinkKey(href: string, pageMap: Record<string, Pag
 
   if (pageMap[resolved]) return resolved
 
-  const withLang = `/en${resolved}`
+  // Try the version being checked before the bare `/en` fallback, matching the order
+  // `checkInternalLink` uses. A page that applies to both FPT and GHES has a key for
+  // each, and the `/en` key would otherwise win even during a GHES run. The heading
+  // cache is keyed by that version's permalink, so the anchor would then be looked up
+  // under the wrong key and silently skipped.
+  const versioned = versionedPageKey(resolved, version, language)
+  if (versioned && pageMap[versioned.key]) return versioned.key
+
+  const withLang = `/${language}${resolved}`
   if (pageMap[withLang]) return withLang
 
   return null
 }
 
 /**
+ * Build the pageMap key for a versionless path inside a specific version, or return
+ * null when the path shouldn't be resolved that way.
+ *
+ * pageMap keys look like `/en/enterprise-server@3.21/admin/foo`, with FPT omitting the
+ * version segment entirely. A path that already carries its own version or language
+ * prefix is left alone: it means something specific and shouldn't be reinterpreted as
+ * relative to the version being checked.
+ *
+ * Returns the language-prefixed key for pageMap lookups and the language-stripped form,
+ * which is how the redirect table stores paths.
+ */
+function versionedPageKey(
+  resolved: string,
+  version: string | undefined,
+  language: string,
+): { key: string; withoutLanguage: string } | null {
+  if (!version) return null
+  // Already version-qualified, e.g. /enterprise-cloud@latest/..., so not a versionless link.
+  if (/^\/[a-z-]+@/.test(resolved)) return null
+  // Already language-qualified, e.g. /en/..., handled by the direct pageMap lookup above.
+  if (/^\/[a-z]{2}(-[a-z]{2})?(\/|$)/.test(resolved)) return null
+
+  const withoutLanguage = removeFPTFromPath(path.posix.join('/', version, resolved))
+  return { key: `/${language}${withoutLanguage}`, withoutLanguage }
+}
+
+/**
  * Check if a path exists in the pageMap or redirects
+ *
+ * When `version` is supplied, a versionless link is first resolved inside that version,
+ * mirroring what the runtime does when rendering the page. Without it, a versionless
+ * link on a non-FPT page never matches a permalink (only FPT pages have versionless
+ * permalinks), so it falls through to the versionless-fallback redirect and gets
+ * misreported as a link that needs updating.
  */
 export function checkInternalLink(
   href: string,
   pageMap: Record<string, Page>,
   redirects: Record<string, string>,
+  version?: string,
+  language = 'en',
 ): { exists: boolean; isRedirect: boolean; redirectTarget?: string } {
   const normalized = normalizeLinkPath(href)
 
@@ -501,6 +550,24 @@ export function checkInternalLink(
   // Check if it's a direct page
   if (pageMap[resolved]) {
     return { exists: true, isRedirect: false }
+  }
+
+  // A versionless link resolves within the version currently being checked. This has to
+  // come before the redirect lookups on the versionless form: that form exists in the
+  // redirect table as a fallback and would otherwise shadow a page that really exists
+  // in this version.
+  const versioned = versionedPageKey(resolved, version, language)
+  if (versioned) {
+    // Mirror runtime precedence: the redirect middleware runs before a page is served,
+    // so a redirect on the effective versioned URL wins over the page itself. A
+    // self-redirect is a no-op and doesn't count.
+    const versionedRedirect = redirects[versioned.withoutLanguage]
+    if (versionedRedirect && versionedRedirect !== versioned.withoutLanguage) {
+      return { exists: true, isRedirect: true, redirectTarget: versionedRedirect }
+    }
+    if (pageMap[versioned.key]) {
+      return { exists: true, isRedirect: false }
+    }
   }
 
   // Check if it's a redirect
