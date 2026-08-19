@@ -245,6 +245,17 @@ jobs:
             echo "No broken link reports generated - all links valid!"
           fi
 
+      - name: Upload the combined report
+        if: steps.combine.outputs.has_reports == 'true'
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          # The issue body caps every long section, and the notes there point at
+          # "the report attached to the workflow run". Upload it so that is true.
+          name: combined-link-report
+          path: combined-report.md
+          retention-days: 5
+          if-no-files-found: error
+
       - name: Create or update the rolling report issue
         if: |
           steps.combine.outputs.has_reports == 'true'
@@ -268,7 +279,15 @@ jobs:
             let body = fs.readFileSync('combined-report.md', 'utf8')
             if (body.length > MAX_BODY_SIZE) {
               const notice = `\n\n---\n\n*Report truncated. Download the full report from the [workflow run artifacts](${runUrl}).*`
-              body = body.slice(0, MAX_BODY_SIZE - notice.length) + notice
+              let cut = body.slice(0, MAX_BODY_SIZE - notice.length)
+              // Cut at a line boundary so the last thing a reader sees is not half
+              // a table row, and close any `<details>` the cut left open, since an
+              // unclosed one swallows everything after it.
+              cut = cut.slice(0, cut.lastIndexOf('\n'))
+              const opened = (cut.match(/<details>/g) || []).length
+              const closed = (cut.match(/<\/details>/g) || []).length
+              cut += '\n</details>'.repeat(Math.max(0, opened - closed))
+              body = cut + notice
               core.warning(`Report exceeded ${MAX_BODY_SIZE} characters, so it was truncated.`)
             }
 

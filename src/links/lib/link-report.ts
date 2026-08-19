@@ -116,9 +116,14 @@ ${summary}
 
     const suggestion = group.suggestion ? `💡 ${group.suggestion}\n\n` : ''
 
-    const tableRows = group.occurrences
+    const listedOccurrences = group.occurrences.slice(0, MAX_FILES_PER_GROUP)
+    const hiddenOccurrences = group.occurrences.length - listedOccurrences.length
+    const tableRows = listedOccurrences
       .map((occ) => `| \`${occ.file}\` | ${occ.lines.join(', ')} |`)
       .join('\n')
+    const moreFiles = hiddenOccurrences
+      ? `\n\nAnd ${hiddenOccurrences} more file${hiddenOccurrences === 1 ? '' : 's'}, listed in the report attached to the workflow run.`
+      : ''
 
     return `### ${icon} \`${group.target}\`
 
@@ -126,7 +131,7 @@ ${statusInfo}${suggestion}**Found in ${count} file${plural}:**
 
 | File | Line(s) |
 |------|---------|
-${tableRows}`
+${tableRows}${moreFiles}`
   },
 
   // Self-referential links section
@@ -550,6 +555,48 @@ export type FixStrategy = 'codemod' | 'versionless' | 'anchor' | 'decide'
  */
 const MAX_LISTED_CODEMOD_PATHS = 8
 
+/**
+ * How many rows of the codemod table to print. The codemod does this work, so the full list
+ * is reference material, not a task list. Printing all of it costs more than half the issue
+ * body budget, and the complete list is in the workflow artifact either way.
+ */
+const MAX_CODEMOD_ROWS = 40
+
+/**
+ * How many stale anchors to print. This bucket is real work, but 70-plus entries is more
+ * than anyone picks up in a week, and each entry costs several times a table row because it
+ * lists every file the link appears in. The rest are in the workflow artifact.
+ */
+const MAX_ANCHOR_GROUPS = 25
+
+/**
+ * How many version-only redirects to print. This bucket needs no action at all, so the list
+ * exists to show what was ruled out, not to be worked through.
+ */
+const MAX_VERSIONLESS_ROWS = 25
+
+/**
+ * How many files to list under a single broken link. Nothing bounds how many pages reuse
+ * one link, so without this a single popular link could fill the issue body on its own. The
+ * busiest link in the current eight-version data appears in 31 files, so this does not
+ * trigger today.
+ */
+const MAX_FILES_PER_GROUP = 20
+
+/**
+ * Split a list at a cap and describe what is missing, so no section can grow without bound.
+ * GitHub rejects issue bodies over 65,536 characters and the workflow truncates at 60,000
+ * with a blind slice, which can cut a table in half.
+ */
+function capGroups(
+  groups: GroupedBrokenLinks[],
+  max: number,
+): { listed: GroupedBrokenLinks[]; hidden: number } {
+  // Most-used links first, so the truncated tail is the least interesting part.
+  const byOccurrences = [...groups].sort((a, b) => b.occurrences.length - a.occurrences.length)
+  return { listed: byOccurrences.slice(0, max), hidden: Math.max(0, groups.length - max) }
+}
+
 export function classifyFixStrategy(group: GroupedBrokenLinks): FixStrategy {
   const redirectTargets = group.occurrences
     .map((occ) => occ.redirectTarget)
@@ -624,7 +671,10 @@ function renderCodemodSection(groups: GroupedBrokenLinks[], versionsChecked?: st
     describeVersions(groupVersions(group), versionsChecked)
   const showVersions = groups.some((group) => versionFor(group))
 
-  const rows = groups
+  // Most-used links first, so the truncated tail is the least interesting part.
+  const { listed, hidden } = capGroups(groups, MAX_CODEMOD_ROWS)
+
+  const rows = listed
     .map((group) => {
       const target = group.occurrences.find((occ) => occ.redirectTarget)?.redirectTarget ?? ''
       const cells = [`\`${group.target}\``, `\`${target}\``, `${group.occurrences.length}`]
@@ -632,6 +682,10 @@ function renderCodemodSection(groups: GroupedBrokenLinks[], versionsChecked?: st
       return `| ${cells.join(' | ')} |`
     })
     .join('\n')
+
+  const truncationNote = hidden
+    ? `\n\nAnd ${hidden} more. The codemod fixes every one of them, so this list is reference only. The full report is attached to the workflow run.`
+    : ''
 
   const flags = '--keep-stale-fragments --dont-set-autotitle'
   const paths = codemodPaths(groups)
@@ -664,7 +718,7 @@ Review the diff, then open a pull request.
 
 | From | To | Occurrences |${showVersions ? ' Versions |' : ''}
 |------|-----|-------------|${showVersions ? '----------|' : ''}
-${rows}
+${rows}${truncationNote}
 
 </details>`
 }
@@ -678,12 +732,17 @@ ${rows}
  * alone and so should writers.
  */
 function renderVersionlessSection(groups: GroupedBrokenLinks[]): string {
-  const rows = groups
+  const { listed, hidden } = capGroups(groups, MAX_VERSIONLESS_ROWS)
+  const rows = listed
     .map((group) => {
       const target = group.occurrences.find((occ) => occ.redirectTarget)?.redirectTarget ?? ''
       return `| \`${group.target}\` | \`${target}\` |`
     })
     .join('\n')
+
+  const truncationNote = hidden
+    ? `\n\nAnd ${hidden} more in the same state. The list is cut short because this bucket is here to show what was ruled out, not to be worked through. The full report is attached to the workflow run.`
+    : ''
 
   const plural = groups.length === 1 ? '' : 's'
   const occurrences = occurrenceCount(groups)
@@ -701,7 +760,7 @@ should differ per version.
 
 | Link | Resolves to |
 |------|-------------|
-${rows}
+${rows}${truncationNote}
 
 </details>`
 }
@@ -712,19 +771,24 @@ function renderManualSection(
   groups: GroupedBrokenLinks[],
   isExternal: boolean,
   versionsChecked?: string[],
+  maxGroups?: number,
 ): string {
-  const sections = groups
+  const { listed, hidden } = capGroups(groups, maxGroups ?? groups.length)
+  const sections = listed
     .map((group) => {
       const versions = describeVersions(groupVersions(group), versionsChecked)
       const note = versions ? `\n\n**Only in:** ${versions}` : ''
       return TEMPLATES.group(group, isExternal) + note
     })
     .join('\n\n')
+  const truncationNote = hidden
+    ? `\n\nAnd ${hidden} more, listed in the report attached to the workflow run. Only the busiest are shown here, to keep the issue readable. Fixing the ones above moves some of the rest into view on the next run, but a link that is not shown is not fixed: use the artifact to work through the tail.`
+    : ''
   return `## ${heading} (${groups.length} link${groups.length === 1 ? '' : 's'}, ${occurrenceCount(groups)} occurrence${occurrenceCount(groups) === 1 ? '' : 's'})
 
 ${blurb}
 
-${sections}`
+${sections}${truncationNote}`
 }
 
 /**
@@ -771,6 +835,7 @@ Work top to bottom. Bucket 1 is usually most of the report and costs one command
         anchors,
         isExternal,
         versionsChecked,
+        MAX_ANCHOR_GROUPS,
       ),
     )
   }
