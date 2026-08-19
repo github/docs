@@ -3,6 +3,7 @@ import fs from 'fs'
 import { visit, Test } from 'unist-util-visit'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { toMarkdown } from 'mdast-util-to-markdown'
+import { dump } from 'js-yaml'
 import { loadYaml } from '@/frame/lib/load-yaml'
 import { type Node, type Nodes, type Definition, type Link } from 'mdast'
 
@@ -29,7 +30,7 @@ const logger = createLogger(import.meta.url)
 // we, at runtime, render out the links
 const AUTOTITLE = 'AUTOTITLE'
 
-type LinkContext = {
+export type LinkContext = {
   pages: Record<string, Page>
   redirects: NonNullable<Context['redirects']>
   currentLanguage: string
@@ -74,6 +75,12 @@ type PendingReplacement = {
   baseHref: string
   makeMarkdown: (href: string) => string
   fragment?: CarriedFragment
+  /**
+   * Byte range of this link in the source, when the node's position could be mapped back
+   * and the slice matches `asMarkdown` exactly. Replacing by range instead of by string
+   * search keeps identical text elsewhere in the file untouched.
+   */
+  span?: [number, number]
 }
 
 const Options = {
@@ -120,7 +127,11 @@ export async function updateInternalLinks(files: string[], options = {}) {
   return results
 }
 
-async function updateFile(file: string, context: LinkContext, opts: typeof Options) {
+/**
+ * Exported so tests can drive a single file with a hand-built context. Loading the real
+ * page tree takes tens of seconds, which is too slow to cover the rewrite branches.
+ */
+export async function updateFile(file: string, context: LinkContext, opts: typeof Options) {
   const rawContent = fs.readFileSync(file, 'utf8')
   let { data, content } = frontmatter(rawContent)
   data = data || {}
@@ -132,14 +143,58 @@ async function updateFile(file: string, context: LinkContext, opts: typeof Optio
   // the `frontmatter(rawContent).data` always becomes `{}`.
   // And since the Yaml file might contain arrays of internal linked
   // pathnames, we have to re-read it fully.
-  if (file.endsWith('.yml')) {
+  const isYaml = file.endsWith('.yml')
+  if (isYaml) {
     Object.assign(data, loadYaml(content))
   }
 
   let newContent = content
-  const ast = fromMarkdown(newContent)
+
+  // Captured so the closure below sees a non-reassignable string.
+  const source = content
+
+  // A YAML file is parsed as Markdown to find its links, and that parse is
+  // indentation-sensitive: a value indented four or more spaces reads as a code block,
+  // so the AST holds fewer link nodes than the text has occurrences. Stripping the
+  // leading whitespace from every line exposes all of them. Line numbers are unaffected,
+  // and `sourceSpan` maps each node's columns back onto the original text so the
+  // rewrite still lands on the real bytes.
+  const parseSource = isYaml ? dedentLines(source) : source
+  const lineStarts = buildLineStarts(source)
+  const indents = isYaml ? source.split('\n').map((line) => /^[ \t]*/.exec(line)![0].length) : null
+
+  /**
+   * Column of a node in the original text. The YAML parse runs on dedented lines, so the
+   * indent has to go back on before the column is reported to a human.
+   */
+  function sourceColumn(node: Nodes): number | undefined {
+    const pos = node.position
+    if (!pos?.start.column) return undefined
+    const indent = indents ? (indents[pos.start.line - 1] ?? 0) : 0
+    return pos.start.column + indent
+  }
+
+  /**
+   * Byte range of a node in the source, or undefined when the range can't be trusted:
+   * a node spanning several lines, or a serialization that doesn't match the source.
+   */
+  function sourceSpan(node: Nodes, asMarkdown: string): [number, number] | undefined {
+    const pos = node.position
+    if (!pos?.start.line || !pos.end.line || pos.start.line !== pos.end.line) return undefined
+    const lineIndex = pos.start.line - 1
+    const lineStart = lineStarts[lineIndex]
+    if (lineStart === undefined) return undefined
+    const indent = indents ? indents[lineIndex] : 0
+    const start = lineStart + indent + (pos.start.column - 1)
+    const end = lineStart + indent + (pos.end.column - 1)
+    return source.slice(start, end) === asMarkdown ? [start, end] : undefined
+  }
+
+  const ast = fromMarkdown(parseSource)
 
   const replacements: Replacement[] = []
+  const spanEdits: { start: number; end: number; text: string }[] = []
+  const stringEdits: { find: string; text: string }[] = []
   const warnings: Warning[] = []
 
   const newData = structuredClone(data)
@@ -213,7 +268,7 @@ async function updateFile(file: string, context: LinkContext, opts: typeof Optio
       // getNewHref() might return a deliberate `undefined` if the
       // new href value could not be computed for some reason.
       const baseHref = result === undefined ? node.url : result.href
-      const column = node.position?.start.column
+      const column = sourceColumn(node)
       const line = (node.position?.start.line ?? 0) + lineOffset
       pending.push({
         asMarkdown,
@@ -222,6 +277,7 @@ async function updateFile(file: string, context: LinkContext, opts: typeof Optio
         baseHref,
         makeMarkdown: (href) => `[${label}]: ${href}`,
         fragment: result?.fragment,
+        span: sourceSpan(node, asMarkdown),
       })
     }
   })
@@ -281,7 +337,7 @@ async function updateFile(file: string, context: LinkContext, opts: typeof Optio
            */
           if (xValue) {
             if (singleStartingQuote(xValue)) {
-              const column = node.position?.start.column
+              const column = sourceColumn(node)
               const line = (node.position?.start.line ?? 0) + lineOffset
               warnings.push({
                 warning: 'Starts with a single " inside the text',
@@ -290,7 +346,7 @@ async function updateFile(file: string, context: LinkContext, opts: typeof Optio
                 column,
               })
             } else if (isSimpleQuote(xValue)) {
-              const column = node.position?.start.column
+              const column = sourceColumn(node)
               const line = (node.position?.start.line ?? 0) + lineOffset
               warnings.push({
                 warning: 'Starts and ends with a " inside the text',
@@ -311,7 +367,7 @@ async function updateFile(file: string, context: LinkContext, opts: typeof Optio
           fragment = result.fragment
         }
       }
-      const column = node.position?.start.column
+      const column = sourceColumn(node)
       const line = (node.position?.start.line ?? 0) + lineOffset
       pending.push({
         asMarkdown,
@@ -320,6 +376,7 @@ async function updateFile(file: string, context: LinkContext, opts: typeof Optio
         baseHref,
         makeMarkdown: (href) => `[${newTitle}](${href})`,
         fragment,
+        span: sourceSpan(node, asMarkdown),
       })
     } else if (opts.verbose) {
       logger.warn('Unable to find link as Markdown in the source content', {
@@ -376,14 +433,33 @@ async function updateFile(file: string, context: LinkContext, opts: typeof Optio
       }
     }
     const newAsMarkdown = item.makeMarkdown(finalHref)
-    if (item.asMarkdown !== newAsMarkdown) {
+    if (item.asMarkdown !== newAsMarkdown && content.includes(item.asMarkdown)) {
       replacements.push({
         asMarkdown: item.asMarkdown,
         newAsMarkdown,
         line: item.line,
         column: item.column,
       })
-      newContent = newContent.replace(item.asMarkdown, newAsMarkdown)
+      if (item.span) {
+        spanEdits.push({ start: item.span[0], end: item.span[1], text: newAsMarkdown })
+      } else {
+        // No trustworthy range for this node, so fall back to a string search. Left for
+        // the second pass, after the ranged edits, since a search can't be offset-aware.
+        stringEdits.push({ find: item.asMarkdown, text: newAsMarkdown })
+      }
+    }
+  }
+
+  // Ranged edits go in descending order so earlier offsets stay valid, and each one
+  // touches exactly the bytes the parser identified as a link. That's what keeps an
+  // identical string in a comment or a code example from being rewritten too.
+  spanEdits.sort((a, b) => b.start - a.start)
+  for (const edit of spanEdits) {
+    newContent = newContent.slice(0, edit.start) + edit.text + newContent.slice(edit.end)
+  }
+  for (const edit of stringEdits) {
+    if (newContent.includes(edit.find)) {
+      newContent = newContent.replace(edit.find, edit.text)
     }
   }
 
@@ -396,6 +472,23 @@ async function updateFile(file: string, context: LinkContext, opts: typeof Optio
     warnings,
     newData,
   }
+}
+
+/** Strip leading whitespace from every line, preserving the line count. */
+function dedentLines(content: string): string {
+  return content
+    .split('\n')
+    .map((line) => line.replace(/^[ \t]+/, ''))
+    .join('\n')
+}
+
+/** Byte offset where each line begins, so a line/column pair can become an offset. */
+function buildLineStarts(content: string): number[] {
+  const starts = [0]
+  for (let i = 0; i < content.length; i++) {
+    if (content[i] === '\n') starts.push(i + 1)
+  }
+  return starts
 }
 
 function isDefinition(node: Node): node is Definition {
@@ -701,6 +794,38 @@ function singleStartingQuote(text: string) {
 function isSimpleQuote(text: string) {
   return text.startsWith('"') && text.endsWith('"') && text.split('"').length === 3
 }
+
+/**
+ * Write a YAML data file back out.
+ *
+ * For `.yml` files every link fix lands in `newContent`, the file's own text, because
+ * `updateFile` finds Markdown links by parsing that text and rewrites them in place.
+ * `newData` is only mutated for the structured link keys (`featuredLinks` and
+ * `introLinks`), which no file under `data/` currently uses.
+ *
+ * Writing `dump(newData)` therefore threw away every fix and reserialized the untouched
+ * data instead: pure churn, no change. Prefer the surgically edited text, and only fall
+ * back to reserializing when the structured data genuinely changed.
+ */
+export function serializeYaml(
+  newContent: string,
+  newData: Record<string, unknown> | undefined,
+  differentContent: boolean,
+  differentData: boolean,
+): string {
+  if (!differentData) return newContent
+  if (differentContent) {
+    // The two kinds of change live in different representations and there is no
+    // format-preserving way to merge them, so `dump` would silently drop the text
+    // fixes. No file hits this today. Fail loudly rather than lose edits quietly.
+    throw new Error(
+      'Cannot serialize a YAML file that has both text and structured data changes ' +
+        'without losing one of them. This needs a format-preserving merge.',
+    )
+  }
+  return dump(newData || {})
+}
+
 /**
  * Write a Markdown page back out, preserving the original frontmatter text verbatim
  * whenever the frontmatter data itself didn't change.

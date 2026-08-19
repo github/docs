@@ -103,7 +103,9 @@ jobs:
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: link-report-${{ matrix.version }}-${{ matrix.language }}
-          path: artifacts/link-report-*.md
+          # Include the JSON alongside the Markdown so the structured report is
+          # consumable outside this job, not just readable in the issue body.
+          path: artifacts/link-report-*
           retention-days: 5
           if-no-files-found: ignore
 

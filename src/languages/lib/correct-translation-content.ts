@@ -773,6 +773,19 @@ export function correctTranslatedContentStrings(
       'tornando mais difícil para os atores mal-intencionados acessarem os repositórios e as configurações de uma organização.',
       'tornando mais difícil para os atores mal-intencionados acessarem os repositórios e as configurações de uma organização.{% endif %}',
     )
+
+    // [SCRAPE-6781] Per-file fix:
+    // codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization.md
+    // (intro): the translator reordered the inline Liquid tags to match
+    // Portuguese word order, so `{% endif %}` lands before the
+    // `{% ifversion ghec %}` that opens the block. English source is
+    // `...private {% ifversion ghec %}and internal {% endif %}repositories`.
+    // Reorder the tags around the existing translated words so ghec reads
+    // "privados e internos" and fpt reads "privados".
+    content = content.replaceAll(
+      'nos repositórios internos e {% endif %}privados {% ifversion ghec %}da sua organização.',
+      'nos repositórios privados {% ifversion ghec %}e internos {% endif %}da sua organização.',
+    )
   }
 
   if (context.code === 'zh') {
@@ -1735,6 +1748,20 @@ export function correctTranslatedContentStrings(
     ) {
       content = content.replace(/\{%-?\s*endif\s*-?%\}\s*(\{%-?\s*ifversion\s)/g, '$1')
     }
+
+    // [SCRAPE-6781] Per-file fix:
+    // organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization.md
+    // (intro): the translator reordered the inline Liquid tags to match Korean
+    // word order, so `{% else %}` and `{% endif%}` both land before the
+    // `{% ifversion fpt or ghec %}` that opens the block, which broke the
+    // /ko/organizations landing page scrape. Move the opener to the front so
+    // fpt/ghec reads "이전 조직 구성원을 초대하여 다시 추가하고" and ghes reads
+    // "조직에 이전 멤버를 다시 추가하고". Note the English source also writes
+    // `{% endif%}` without a leading space, which the translation preserved.
+    content = content.replaceAll(
+      '이전 조직 구성원을 초대하여{% else %}조직에 이전 멤버를{% endif%} 다시 추가하고 해당 사용자의 이전 역할, 액세스 권한, 포크 및 설정을 복원할지 여부를 선택할 수 {% ifversion fpt or ghec %}있습니다.',
+      '{% ifversion fpt or ghec %}이전 조직 구성원을 초대하여{% else %}조직에 이전 멤버를{% endif %} 다시 추가하고 해당 사용자의 이전 역할, 액세스 권한, 포크 및 설정을 복원할지 여부를 선택할 수 있습니다.',
+    )
   }
 
   if (context.code === 'de') {
