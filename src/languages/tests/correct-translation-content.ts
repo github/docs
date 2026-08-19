@@ -2511,6 +2511,37 @@ Para más información, consulta "[AUTOTITLE](/path)".
     })
   })
 
+  // ─── SCRAPE-6781: search-scrape failures ─────────────────────────────
+  // The pt codespaces and ko organizations landing pages failed to scrape
+  // (github/docs-engineering#6781). Neither landing page is itself corrupt:
+  // `discovery-landing` pages render their descendants' intros via
+  // getAllTocItems, so a corrupt child intro takes the whole landing page
+  // down. In both cases the translator reordered the inline Liquid tags to
+  // match target-language word order, leaving `{% else %}`/`{% endif %}`
+  // ahead of the `{% ifversion %}` that opens the block. The corrector runs
+  // on the PARSED intro value.
+  describe('SCRAPE-6781 per-file fixes', () => {
+    test('pt: enabling-or-disabling-github-codespaces-for-your-organization intro reorders tags', () => {
+      const broken =
+        'Você pode controlar quais usuários podem usar {% data variables.product.prodname_github_codespaces %} nos repositórios internos e {% endif %}privados {% ifversion ghec %}da sua organização.'
+      const fixed =
+        'Você pode controlar quais usuários podem usar {% data variables.product.prodname_github_codespaces %} nos repositórios privados {% ifversion ghec %}e internos {% endif %}da sua organização.'
+      expect(fix(broken, 'pt')).toBe(fixed)
+      // idempotent: the fix only matches the broken form
+      expect(fix(fixed, 'pt')).toBe(fixed)
+    })
+
+    test('ko: reinstating-a-former-member-of-your-organization intro reorders tags', () => {
+      const broken =
+        '이전 조직 구성원을 초대하여{% else %}조직에 이전 멤버를{% endif%} 다시 추가하고 해당 사용자의 이전 역할, 액세스 권한, 포크 및 설정을 복원할지 여부를 선택할 수 {% ifversion fpt or ghec %}있습니다.'
+      const fixed =
+        '{% ifversion fpt or ghec %}이전 조직 구성원을 초대하여{% else %}조직에 이전 멤버를{% endif %} 다시 추가하고 해당 사용자의 이전 역할, 액세스 권한, 포크 및 설정을 복원할지 여부를 선택할 수 있습니다.'
+      expect(fix(broken, 'ko')).toBe(fixed)
+      // idempotent: the fix only matches the broken form
+      expect(fix(fixed, 'ko')).toBe(fixed)
+    })
+  })
+
   // ─── New patterns ───────────────────────────────────────────────────
 
   describe('es: you-can-fork.md per-file fix', () => {
