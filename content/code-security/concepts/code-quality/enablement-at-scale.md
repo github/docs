@@ -39,12 +39,12 @@ You can apply one of the following options at a time.
 | **No repositories** | Disables {% data variables.product.prodname_code_quality_short %} for all current and future repositories in the organization. |
 | **Let repositories decide** | The organization neither enables nor disables {% data variables.product.prodname_code_quality_short %}. Repository administrators choose whether to enable it for their own repositories. This option cannot be enforced. |
 | **All repositories** | Enables {% data variables.product.prodname_code_quality_short %} for all current and future repositories. |
-| **Selected repositories** | Enables {% data variables.product.prodname_code_quality_short %} for a specific list of repositories that you choose. Repositories you do not select are disabled, and new repositories are not enabled automatically. Best for pilots or exceptions. |
-| **Matching a filter** | Enables {% data variables.product.prodname_code_quality_short %} for repositories that match a filter you define, now and in the future. Repositories that do not match are disabled. See [Filtering repositories](#filtering-repositories). |
+| **Selected repositories...** | Enables {% data variables.product.prodname_code_quality_short %} for a specific list of repositories that you choose. Repositories you do not select are disabled, and new repositories are not enabled automatically. Best for pilots or exceptions. |
+| **Matching a filter...** | Enables {% data variables.product.prodname_code_quality_short %} for repositories that match a filter you define, now and in the future. Repositories that do not match are disabled. See [Filtering repositories](#filtering-repositories). |
 
 ### Filtering repositories
 
-When you choose **Matching a filter**, you create a dynamic filter that automatically enables {% data variables.product.prodname_code_quality_short %} for existing and future repositories that match your criteria. This is useful for ongoing governance at scale.
+When you choose **Matching a filter...**, you create a dynamic filter that automatically enables {% data variables.product.prodname_code_quality_short %} for existing and future repositories that match your criteria. This is useful for ongoing governance at scale.
 
 You can filter on any combination of the following criteria:
 
