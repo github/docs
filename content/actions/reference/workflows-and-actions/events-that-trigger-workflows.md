@@ -394,6 +394,26 @@ on:
     types: [checks_requested]
 ```
 
+You can use the `branches` and `branches-ignore` filters with `merge_group` to only run a workflow when the merge group targets specific branches. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#onpull_requestpull_request_targetbranchesbranches-ignore).
+
+For example, you can run a workflow only when the merge group targets the `main` branch.
+
+```yaml
+on:
+  merge_group:
+    branches: [ "main" ]
+    types: [checks_requested]
+```
+
+You can also use `branches-ignore` to skip a specific branch.
+
+```yaml
+on:
+  merge_group:
+    branches-ignore: [ "main" ]
+    types: [checks_requested]
+```
+
 ## `milestone`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
@@ -1278,5 +1298,3 @@ jobs:
               body: 'Thank you for the PR!'
             });
 ```
-
-
