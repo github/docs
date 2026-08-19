@@ -323,16 +323,21 @@ The `pull_requests` object appears in aggregated enterprise and organization rep
 
 #### Classification logic
 
-A user is classified into a phase based on which `used_*` per-user fields (see [Per-user report fields](#per-user-report-fields)) are `true` on at least **two active days within the trailing 28-day window**:
+A user is classified into a phase based on the {% data variables.product.prodname_copilot_short %} features they are **engaged** with. A user is engaged with a feature when they use it on at least **two distinct days within the trailing 28-day window**. Engagement is evaluated from the feature-level activity signals in the table below, not directly from the single-day `used_*` [per-user fields](#per-user-report-fields) or from `code_acceptance_activity_count`. Phases are evaluated from the top down, and a user is assigned the highest phase they qualify for.
 
-| Phase | Surface criteria |
+| Phase | Engagement criteria |
 |:--|:--|
-| No Cohort (displayed as "Passive users" in the impact dashboard) | The user has not met the two-day engagement threshold for any phase in the window. |
-| Phase 1: Code first | At least two active days where `used_chat` is `true`, `code_acceptance_activity_count` is greater than `0`, or `used_agent` is `true`. |
-| Phase 2: Agent first | At least two active days where a single GitHub-based agent surface was used: `used_cli` is `true`, `used_copilot_cloud_agent` is `true`, or `used_copilot_code_review_active` is `true`. Passive {% data variables.copilot.copilot_code-review_short %} activity (`used_copilot_code_review_passive`) doesn't count toward phase classification. |
-| Phase 3: Multi-agent | At least two active days where two or more of the GitHub-based agent surfaces listed under Phase 2 were used. |
+| No Cohort (displayed as "Passive users" in the impact dashboard) | The user isn't engaged with any feature that qualifies for a phase. This doesn't mean the user is inactive. A user in this group can still be using {% data variables.product.prodname_copilot_short %} regularly and consuming premium requests, but hasn't used a qualifying feature on at least two distinct days within the trailing 28-day window. The most common case is conversational use of {% data variables.copilot.copilot_chat_short %} or agent mode, recorded as `chat_panel_agent_mode`, that never produces `code_completion` or `agent_edit` activity. Copying code out of a chat response also doesn't produce either signal. |
+| Phase 1: Code first | Engaged with inline code completions (the `code_completion` value of the `feature` dimension) or with agent edits written directly to files (the `agent_edit` value of the `feature` dimension). |
+| Phase 2: Agent first | Engaged with exactly one {% data variables.product.github %}-based agent surface: {% data variables.copilot.copilot_cli_short %} (the `copilot_cli` value of the `feature` dimension), {% data variables.copilot.copilot_cloud_agent %} (`used_copilot_cloud_agent`), or {% data variables.copilot.copilot_code-review_short %} (`used_copilot_code_review_active` or `used_copilot_code_review_passive`). Active and passive {% data variables.copilot.copilot_code-review_short %} count together as a single surface. |
+| Phase 3: Multi-agent | Engaged with the {% data variables.copilot.github_copilot_app_short %} (the `copilot_app` value of the `feature` dimension), or engaged with two or more of the agent surfaces listed for Phase 2. |
 
-A user only needs two qualifying days on a phase's own criteria to reach that phase. A user doesn't need to independently meet Phase 1 criteria to reach Phase 2 or Phase 3, although in practice most agent surface usage co-occurs with completions or chat activity.
+A user only needs to be engaged with a phase's own signals to reach that phase. A user doesn't need to independently meet Phase 1 criteria to reach Phase 2 or Phase 3, although in practice agent-surface usage often co-occurs with completions or agent edits.
+
+> [!NOTE]
+> Because classification uses feature-level engagement, some activity doesn't affect a user's phase on its own. Using IDE chat (`used_chat`) or agent mode (`used_agent`) doesn't qualify a user for Phase 1 unless it produces `code_completion` or `agent_edit` activity.
+>
+> For example, asking a question in agent mode without letting {% data variables.product.prodname_copilot_short %} edit your files records `chat_panel_agent_mode` activity, not `agent_edit`. A user whose usage is entirely conversational in this way stays in the No Cohort group even though they are actively using {% data variables.product.prodname_copilot_short %} and can still incur premium request usage. Likewise, `code_acceptance_activity_count` includes chat-based acceptances, such as "apply to file" and the **Copy** button, that aren't inline `code_completion` activity, so it isn't used for classification. For more about the `feature` dimension, see [Breakdown dimension values](#breakdown-dimension-values).
 
 Phase assignment is recalculated each day using the trailing 28-day window, so a user's phase can change from one day to the next as their activity within the window shifts. This is expected behavior and does not indicate a data error.
 

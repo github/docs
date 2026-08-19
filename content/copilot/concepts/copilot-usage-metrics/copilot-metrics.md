@@ -121,9 +121,9 @@ Users are grouped into the following phases:
 
 | Phase | What it represents |
 |:--|:--|
-| Passive users | The user has not met the engagement threshold for a phase during the period. In the underlying data, this phase is labeled `No Cohort`. |
-| Phase 1: Code first | The user engaged with code completions and/or IDE agent mode. |
-| Phase 2: Agent first | The user engaged with a single {% data variables.product.github %}-based agent surface, such as {% data variables.copilot.copilot_cloud_agent %}, {% data variables.copilot.copilot_code-review_short %}, or {% data variables.copilot.copilot_cli_short %}. Only active engagement with {% data variables.copilot.copilot_code-review_short %} counts here; having it automatically assigned to review a pull request without further engagement does not. |
+| Passive users | The user has not met the engagement threshold for a phase during the period. A passive user may still be using {% data variables.product.prodname_copilot_short %} regularly, for example by asking questions in {% data variables.copilot.copilot_chat_short %} or agent mode without applying any code edits. In the API, this phase is labeled `No Cohort`. |
+| Phase 1: Code first | The user engaged with code completions and/or agent edits, where {% data variables.product.prodname_copilot_short %} writes changes directly into files in the IDE. Using {% data variables.copilot.copilot_chat_short %} or agent mode without producing code completion or agent edit activity does not qualify on its own. |
+| Phase 2: Agent first | The user engaged with a single {% data variables.product.github %}-based agent surface, such as {% data variables.copilot.copilot_cloud_agent %}, {% data variables.copilot.copilot_code-review_short %}, or {% data variables.copilot.copilot_cli_short %}. Both active engagement with {% data variables.copilot.copilot_code-review_short %} and having it automatically assigned to review a pull request count as the same surface. |
 | Phase 3: Multi-agent | The user engaged with two or more {% data variables.product.github %}-based agent surfaces, or with the {% data variables.copilot.github_copilot_app %}. |
 
 To be grouped into a phase, a user must meet an engagement threshold of at least two active days out of the trailing 28-day window, using the surfaces associated with that phase. A user only needs two qualifying days on a higher phase's surfaces to progress to that phase. Agent usage alone can qualify a user, without separate days of plain completions.
