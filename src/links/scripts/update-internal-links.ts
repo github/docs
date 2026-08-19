@@ -14,8 +14,7 @@ import { program } from 'commander'
 import chalk from 'chalk'
 import { dump } from 'js-yaml'
 
-import { updateInternalLinks } from '@/links/lib/update-internal-links'
-import frontmatter from '@/frame/lib/read-frontmatter'
+import { updateInternalLinks, serializeMarkdown } from '@/links/lib/update-internal-links'
 import walkFiles from '@/workflows/walk-files'
 
 program
@@ -158,7 +157,11 @@ async function main(files: string[], opts: Options) {
           } else {
             // Remember the `content` and `newContent` is the "meat" of the
             // Markdown page. To save it you need the frontmatter data too.
-            fs.writeFileSync(file, frontmatter.stringify(newContent || '', newData || {}), 'utf-8')
+            fs.writeFileSync(
+              file,
+              serializeMarkdown(rawContent, content, newContent, newData, differentData),
+              'utf-8',
+            )
           }
         }
       }

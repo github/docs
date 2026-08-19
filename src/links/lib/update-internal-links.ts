@@ -701,3 +701,26 @@ function singleStartingQuote(text: string) {
 function isSimpleQuote(text: string) {
   return text.startsWith('"') && text.endsWith('"') && text.split('"').length === 3
 }
+/**
+ * Write a Markdown page back out, preserving the original frontmatter text verbatim
+ * whenever the frontmatter data itself didn't change.
+ *
+ * Round-tripping frontmatter through the YAML serializer reflows values that were
+ * never touched: long `intro` strings become block scalars, `redirect_from` entries get
+ * rewrapped, and quote styles change. That churn dwarfs the actual link fixes and makes
+ * a bulk run unreviewable, which is why this only reserializes when it has to.
+ */
+export function serializeMarkdown(
+  rawContent: string,
+  content: string,
+  newContent: string,
+  newData: Record<string, unknown> | undefined,
+  differentData: boolean,
+): string {
+  // `content` is the tail of the file, so everything before it is the frontmatter
+  // block exactly as the author wrote it, delimiters and all.
+  if (!differentData && rawContent.endsWith(content)) {
+    return rawContent.slice(0, rawContent.length - content.length) + newContent
+  }
+  return frontmatter.stringify(newContent, newData || {})
+}
