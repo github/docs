@@ -12,9 +12,12 @@ import path from 'path'
 
 import { program } from 'commander'
 import chalk from 'chalk'
-import { dump } from 'js-yaml'
 
-import { updateInternalLinks, serializeMarkdown } from '@/links/lib/update-internal-links'
+import {
+  updateInternalLinks,
+  serializeMarkdown,
+  serializeYaml,
+} from '@/links/lib/update-internal-links'
 import walkFiles from '@/workflows/walk-files'
 
 program
@@ -116,6 +119,10 @@ async function main(files: string[], opts: Options) {
     const results = await updateInternalLinks(actualFiles, options)
 
     let exitCheck = 0
+    // Serializing can throw, and a throw halfway through the loop would leave a
+    // half-updated checkout. Every output is computed first so a failure on the last
+    // file means nothing was written at all, which is what the comment above promises.
+    const pendingWrites: { file: string; output: string }[] = []
     for (const {
       file,
       rawContent,
@@ -153,15 +160,17 @@ async function main(files: string[], opts: Options) {
         }
         if (!opts.dryRun) {
           if (file.endsWith('.yml')) {
-            fs.writeFileSync(file, dump(newData), 'utf-8')
+            pendingWrites.push({
+              file,
+              output: serializeYaml(newContent, newData, differentContent, differentData),
+            })
           } else {
             // Remember the `content` and `newContent` is the "meat" of the
             // Markdown page. To save it you need the frontmatter data too.
-            fs.writeFileSync(
+            pendingWrites.push({
               file,
-              serializeMarkdown(rawContent, content, newContent, newData, differentData),
-              'utf-8',
-            )
+              output: serializeMarkdown(rawContent, content, newContent, newData, differentData),
+            })
           }
         }
       }
@@ -173,6 +182,11 @@ async function main(files: string[], opts: Options) {
           console.log('')
         }
       }
+    }
+
+    // Every serializer succeeded, so the writes can't be interrupted by one of them.
+    for (const { file, output } of pendingWrites) {
+      fs.writeFileSync(file, output, 'utf-8')
     }
 
     if (opts.aggregateStats) {
