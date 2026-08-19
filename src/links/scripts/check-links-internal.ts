@@ -337,6 +337,7 @@ async function checkPage(
         text: link.text,
         isRedirect: true,
         redirectTarget: result.redirectTarget,
+        requiresVersionContext: result.requiresVersionContext,
       })
     } else if (options.checkAnchors && link.fragment) {
       // Direct (non-redirect) hit with a fragment: defer a cross-page anchor check.

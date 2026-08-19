@@ -762,6 +762,31 @@ describe('checkAssetLink', () => {
   })
 })
 
+describe('checkInternalLink version-only redirects', () => {
+  const pageMap = {
+    '/en/enterprise-server@3.21/admin/other': {} as unknown as Page,
+  }
+
+  test('flags a redirect that only exists under the version prefix', () => {
+    const redirects = {
+      '/enterprise-server@3.21/admin/old': '/enterprise-server@3.21/admin/other',
+    }
+    const result = checkInternalLink('/admin/old', pageMap, redirects, 'enterprise-server@3.21')
+    expect(result.isRedirect).toBe(true)
+    expect(result.requiresVersionContext).toBe(true)
+  })
+
+  test('does not flag it when the versionless form redirects too', () => {
+    const redirects = {
+      '/enterprise-server@3.21/admin/old': '/enterprise-server@3.21/admin/other',
+      '/admin/old': '/admin/other',
+    }
+    const result = checkInternalLink('/admin/old', pageMap, redirects, 'enterprise-server@3.21')
+    expect(result.isRedirect).toBe(true)
+    expect(result.requiresVersionContext).toBe(false)
+  })
+})
+
 describe('resolveInternalLinkKey version precedence', () => {
   // Both keys exist because the target page applies to FPT and to GHES.
   const pageMap = {

@@ -535,7 +535,12 @@ export function checkInternalLink(
   redirects: Record<string, string>,
   version?: string,
   language = 'en',
-): { exists: boolean; isRedirect: boolean; redirectTarget?: string } {
+): {
+  exists: boolean
+  isRedirect: boolean
+  redirectTarget?: string
+  requiresVersionContext?: boolean
+} {
   const normalized = normalizeLinkPath(href)
 
   // Resolve enterprise-server@latest to actual version, mirroring runtime behavior.
@@ -563,7 +568,15 @@ export function checkInternalLink(
     // self-redirect is a no-op and doesn't count.
     const versionedRedirect = redirects[versioned.withoutLanguage]
     if (versionedRedirect && versionedRedirect !== versioned.withoutLanguage) {
-      return { exists: true, isRedirect: true, redirectTarget: versionedRedirect }
+      // `update-internal-links` only ever looks the raw href up as written, so it never
+      // sees a redirect that exists solely under a version prefix. Say so, otherwise the
+      // report tells people to run a codemod that will silently leave the link alone.
+      return {
+        exists: true,
+        isRedirect: true,
+        redirectTarget: versionedRedirect,
+        requiresVersionContext: !(resolved in redirects),
+      }
     }
     if (pageMap[versioned.key]) {
       return { exists: true, isRedirect: false }
