@@ -242,8 +242,8 @@ If your repository has {% data variables.product.prodname_code_quality %} enable
 
 This rule blocks a pull request from being merged when either of two code coverage thresholds is not met:
 
-* **Minimum coverage percentage**: the aggregated code coverage for the pull request branch is below the configured percentage.
-* **Maximum coverage drop**: code coverage drops by more than the configured number of percentage points relative to the default branch.
+* **Minimum line coverage percentage**: the aggregated line coverage for the pull request branch is below the configured percentage.
+* **Maximum line coverage drop**: line coverage drops by more than the configured number of percentage points relative to the default branch.
 
 For how to configure the thresholds, the prerequisite for uploading coverage data, and how to roll the rule out safely, see [AUTOTITLE](/code-security/how-tos/maintain-quality-code/restrict-code-coverage).
 
