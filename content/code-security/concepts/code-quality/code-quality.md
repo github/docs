@@ -39,7 +39,7 @@ For developers and teams:
 For administrators and leads:
 
 * **An engineering lead sets coverage and quality thresholds** using rulesets. Pull requests that don't meet the criteria are blocked from merging, so no new quality or coverage debt accumulates.
-* **An administrator needs visibility across repositories** for audits or compliance reporting. {% data variables.product.prodname_code_quality_short %} reports through the security overview alongside security tools, so they can see quality posture across the organization at a glance, identify which repositories need attention, and track improvement metrics using standard {% data variables.product.github %} audit controls and policies.
+* **An administrator needs visibility across repositories** for audits or compliance reporting. {% data variables.product.prodname_code_quality_short %} reports through the security overview alongside security tools, so they can see current quality posture across the organization, review how open findings have changed over time, and identify which repositories need attention. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/explore-code-quality).
 
 ## Availability and billing
 
