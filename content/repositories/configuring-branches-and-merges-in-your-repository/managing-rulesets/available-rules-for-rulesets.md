@@ -132,6 +132,23 @@ Optionally, you can require all comments on the pull request to be resolved befo
 Optionally, you can require a merge type of merge, squash, or rebase. This means the targeted branches may only be merged based on the allowed type. Additionally if the repository has disabled a merge method and the ruleset required a different method, the merge will be blocked. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github).
 {% endif %}
 
+{% ifversion repo-rules-copilot-extra-approval %}
+
+#### Additional approval for unattributed {% data variables.product.prodname_copilot_short %} pull requests
+
+> [!NOTE]
+> This feature is in {% data variables.release-phases.public_preview %} and subject to change.
+
+**Require an additional approval for unattributed {% data variables.product.prodname_copilot_short %} pull requests** is enabled by default, for both new and existing rulesets. When {% data variables.product.prodname_copilot_short %} opens a pull request that isn't attributed to a person, the ruleset requires one more approval than the number you configured. For example, a ruleset that requires one approval requires two approvals from people with write access.
+
+Requiring one approval usually means two people are involved in a change: the person who wrote it and the person who approved it. That assumption doesn't hold when {% data variables.product.prodname_copilot_short %} opens a pull request under its own app identity instead of on behalf of a person, for example when you prompt it from a shared context such as a group thread or channel. See [AUTOTITLE](/copilot/how-tos/copilot-integrations/integrate-cloud-agent-with-slack) and [AUTOTITLE](/copilot/how-tos/copilot-integrations/integrate-cloud-agent-with-teams).
+
+This setting has no effect if the ruleset requires zero approvals, so repositories that use pull requests as a record of changes rather than to gate on approvals are unaffected.
+
+If you clear this setting, these pull requests require only the number of approvals you configured. If you also require an approval from someone other than the last person to push, at least one approval must cover the last push and come from someone other than {% data variables.product.prodname_copilot_short %}.
+
+{% endif %}
+
 {% ifversion repo-rules-required-reviewer %}
 
 #### Required reviewers
