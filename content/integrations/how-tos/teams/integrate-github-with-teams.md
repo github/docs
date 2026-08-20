@@ -13,15 +13,21 @@ category:
 
 ## About the {% data variables.product.github %} integration for Teams
 
-The {% data variables.product.github %} integration for Microsoft Teams gives you and your teams visibility into your {% data variables.product.github %} projects directly in Teams channels. You can triage issues, collaborate on pull requests, and keep track of changes without leaving Teams.
+The {% data variables.product.github %} integration for Microsoft Teams gives you and your teams visibility into your {% data variables.product.github %} projects directly in Teams channels. You can {% ifversion copilot %}work with {% data variables.copilot.copilot_cloud_agent %} to research, plan and triage in conversations, create artifacts such as issues and pull requests, start and steer agent sessions,{% else %}triage issues, collaborate on pull requests, {% endif %} and keep track of changes without leaving Teams.
 
 With the {% data variables.product.github %} integration for Teams, you can:
 
 * Get **{% data variables.product.github %} notifications** in Teams channels.
 * Use **commands** to take actions on {% data variables.product.github %}.
 * See **previews** when sharing links to {% data variables.product.github %} resources.
-{% ifversion fpt or ghec %}
-* Initiate a {% data variables.copilot.copilot_cloud_agent %} session from Teams, using the context of a Teams thread.
+
+{% ifversion copilot %}
+
+* **Initiate and steer {% data variables.copilot.copilot_cloud_agent %} sessions** in a conversation. Teammates can collaborate with each other and the agent, add context, correct assumptions, continue an agent task, and review the resulting plan, issues, pull requests and other artifacts.
+
+   > [!NOTE]
+   > * This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
+
 {% endif %}
 
 {% data reusables.integrations.github-teams-permissions %}
@@ -33,14 +39,18 @@ To use the {% data variables.product.github %} integration for Teams, you need:
 * A {% data variables.product.github %} account.
 * A Teams workspace where you have permission to install apps.
 
-{% ifversion not ghes %}
+{% ifversion copilot %}
+
+* You must have Microsoft Public Developer Preview enabled for your Microsoft Teams client, see [Public developer preview for Teams](https://learn.microsoft.com/en-us/microsoftteams/platform/resources/dev-preview/developer-preview-intro) in the Microsoft Learn documentation.
+{% data reusables.copilot.cloud-agent.cloud-sandboxes-prerequisite-teams %}
 
 ## Installing the {% data variables.product.github %} integration for Teams in a single workspace
 
 1. Go to the [{% data variables.product.github %} integration for Teams](https://teams.microsoft.com/l/app/ca9e26b7-dce5-44a0-b2b7-a70a3d65ce25) listing in the Teams app store.
 1. Click **Add**.
 1. Follow the prompts to sign in to Teams and approve access.
-1. In Teams, run `@GitHub Notifications signin` and follow the prompts to connect your {% data variables.product.github %} account.
+1. In a Teams message or channel, @mention the app by typing `@{% data variables.product.github %}` and follow the prompts to connect your {% data variables.product.github %} account.
+1. To see what else you can do, in the thread, @mention the app by typing `@{% data variables.product.github %} help`.
 
 {% ifversion ghec %}
 
@@ -99,3 +109,6 @@ To integrate {% data variables.product.prodname_ghe_server %} with Microsoft Tea
 
 * [AUTOTITLE](/integrations/how-tos/teams/use-github-in-teams) - Learn how to use the {% data variables.product.github %} integration for Teams.
 * [AUTOTITLE](/integrations/how-tos/teams/customize-notifications) - Learn how to customize your {% data variables.product.github %} notifications in Teams.
+{% ifversion copilot %}
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-teams) - Learn about {% data variables.copilot.copilot_cloud_agent %} with Teams.
+{% endif %}
