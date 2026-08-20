@@ -99,46 +99,6 @@ session = await client.create_session(
 {% codetab go %}
 
 ```golang
-package main
-
-import (
-	"context"
-	copilot "github.com/github/copilot-sdk/go"
-	"github.com/github/copilot-sdk/go/rpc"
-)
-
-func main() {
-	ctx := context.Background()
-	client := copilot.NewClient(nil)
-	client.Start(ctx)
-
-	session, _ := client.CreateSession(ctx, &copilot.SessionConfig{
-		Model: "gpt-5.4",
-		CustomAgents: []copilot.CustomAgentConfig{
-			{
-				Name:        "researcher",
-				DisplayName: "Research Agent",
-				Description: "Explores codebases and answers questions using read-only tools",
-				Tools:       []string{"grep", "glob", "view"},
-				Prompt:      "You are a research assistant. Analyze code and answer questions. Do not modify any files.",
-			},
-			{
-				Name:        "editor",
-				DisplayName: "Editor Agent",
-				Description: "Makes targeted code changes",
-				Tools:       []string{"view", "edit", "bash"},
-				Prompt:      "You are a code editor. Make minimal, surgical changes to files as requested.",
-			},
-		},
-		OnPermissionRequest: func(req copilot.PermissionRequest, inv copilot.PermissionInvocation) (rpc.PermissionDecision, error) {
-			return &rpc.PermissionDecisionApproveOnce{}, nil
-		},
-	})
-	_ = session
-}
-```
-
-```golang
 ctx := context.Background()
 client := copilot.NewClient(nil)
 client.Start(ctx)
@@ -514,50 +474,6 @@ response = await session.send_and_wait("Research how authentication works in thi
 {% codetab go %}
 
 ```golang
-package main
-
-import (
-	"context"
-	"fmt"
-	copilot "github.com/github/copilot-sdk/go"
-	"github.com/github/copilot-sdk/go/rpc"
-)
-
-func main() {
-	ctx := context.Background()
-	client := copilot.NewClient(nil)
-	client.Start(ctx)
-
-	session, _ := client.CreateSession(ctx, &copilot.SessionConfig{
-		Model: "gpt-5.4",
-		OnPermissionRequest: func(req copilot.PermissionRequest, inv copilot.PermissionInvocation) (rpc.PermissionDecision, error) {
-			return &rpc.PermissionDecisionApproveOnce{}, nil
-		},
-	})
-
-	session.On(func(event copilot.SessionEvent) {
-		switch d := event.Data.(type) {
-		case *copilot.SubagentStartedData:
-			fmt.Printf("▶ Sub-agent started: %s\n", d.AgentDisplayName)
-			fmt.Printf("  Description: %s\n", d.AgentDescription)
-			fmt.Printf("  Tool call ID: %s\n", d.ToolCallID)
-		case *copilot.SubagentCompletedData:
-			fmt.Printf("✅ Sub-agent completed: %s\n", d.AgentDisplayName)
-		case *copilot.SubagentFailedData:
-			fmt.Printf("❌ Sub-agent failed: %s — %v\n", d.AgentDisplayName, d.Error)
-		case *copilot.SubagentSelectedData:
-			fmt.Printf("🎯 Agent selected: %s\n", d.AgentDisplayName)
-		}
-	})
-
-	_, err := session.SendAndWait(ctx, copilot.MessageOptions{
-		Prompt: "Research how authentication works in this codebase",
-	})
-	_ = err
-}
-```
-
-```golang
 session.On(func(event copilot.SessionEvent) {
     switch d := event.Data.(type) {
     case *copilot.SubagentStartedData:
@@ -580,42 +496,6 @@ _, err := session.SendAndWait(ctx, copilot.MessageOptions{
 
 {% endcodetab %}
 {% codetab dotnet %}
-
-```csharp
-using GitHub.Copilot;
-
-public static class SubAgentEventsExample
-{
-    public static async Task Example(CopilotSession session)
-    {
-        using var subscription = session.On<SessionEvent>(evt =>
-        {
-            switch (evt)
-            {
-                case SubagentStartedEvent started:
-                    Console.WriteLine($"▶ Sub-agent started: {started.Data.AgentDisplayName}");
-                    Console.WriteLine($"  Description: {started.Data.AgentDescription}");
-                    Console.WriteLine($"  Tool call ID: {started.Data.ToolCallId}");
-                    break;
-                case SubagentCompletedEvent completed:
-                    Console.WriteLine($"✅ Sub-agent completed: {completed.Data.AgentDisplayName}");
-                    break;
-                case SubagentFailedEvent failed:
-                    Console.WriteLine($"❌ Sub-agent failed: {failed.Data.AgentDisplayName} — {failed.Data.Error}");
-                    break;
-                case SubagentSelectedEvent selected:
-                    Console.WriteLine($"🎯 Agent selected: {selected.Data.AgentDisplayName}");
-                    break;
-            }
-        });
-
-        await session.SendAndWaitAsync(new MessageOptions
-        {
-            Prompt = "Research how authentication works in this codebase"
-        });
-    }
-}
-```
 
 ```csharp
 using var subscription = session.On<SessionEvent>(evt =>

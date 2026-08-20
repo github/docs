@@ -77,47 +77,6 @@ session = await client.create_session(
 
 ### Go
 
-<!-- docs-validate: hidden -->
-
-```golang
-package main
-
-import (
-    "context"
-
-    copilot "github.com/github/copilot-sdk/go"
-    "github.com/github/copilot-sdk/go/rpc"
-)
-
-func main() {
-    _ = run(context.Background())
-}
-
-func run(ctx context.Context) error {
-    client := copilot.NewClient(nil)
-    if err := client.Start(ctx); err != nil {
-        return err
-    }
-
-    session, err := client.CreateSession(ctx, &copilot.SessionConfig{
-        Cloud: &copilot.CloudSessionOptions{
-            Repository: &copilot.CloudSessionRepository{
-                Owner:  "github",
-                Name:   "copilot-sdk",
-                Branch: "main",
-            },
-        },
-        OnPermissionRequest: func(_ copilot.PermissionRequest, _ copilot.PermissionInvocation) (rpc.PermissionDecision, error) {
-            return &rpc.PermissionDecisionApproveOnce{}, nil
-        },
-    })
-    _ = session
-    return err
-}
-```
-
-<!-- /docs-validate: hidden -->
-
 ```golang
 client := copilot.NewClient(nil)
 if err := client.Start(ctx); err != nil {
@@ -279,22 +238,6 @@ Use `branch` when the work should start from a specific branch. If your app is c
 
 The `cloud` option only applies when creating a new session. To resume an existing cloud session, use the standard resume API for the SDK language:
 
-<!-- docs-validate: hidden -->
-
-```typescript
-import { CopilotClient } from "@github/copilot-sdk";
-
-const client = new CopilotClient();
-await client.start();
-
-const session = await client.resumeSession("session-id", {
-  onPermissionRequest: async () => ({ kind: "approve-once" }),
-});
-void session;
-```
-
-<!-- /docs-validate: hidden -->
-
 ```typescript
 const session = await client.resumeSession("session-id", {
   onPermissionRequest: async () => ({ kind: "approve-once" }),
@@ -310,37 +253,6 @@ Cloud session creation can fail when the user or organization is not entitled to
 When this happens, the runtime reports a `"policy_blocked"` failure reason for cloud task creation. Treat this as an authorization or policy outcome, not as a transient infrastructure failure.
 
 In TypeScript, check for the reason before retrying:
-
-<!-- docs-validate: hidden -->
-
-```typescript
-import {
-  CopilotClient,
-  type CloudSessionRepository,
-} from "@github/copilot-sdk";
-
-const client = new CopilotClient();
-await client.start();
-
-const repository: CloudSessionRepository = {
-  owner: "github",
-  name: "copilot-sdk",
-};
-
-try {
-  await client.createSession({
-    cloud: { repository },
-    onPermissionRequest: async () => ({ kind: "approve-once" }),
-  });
-} catch (error) {
-  if ((error as { reason?: string }).reason === "policy_blocked") {
-    // Show an admin-facing message or link to org policy settings.
-  }
-  throw error;
-}
-```
-
-<!-- /docs-validate: hidden -->
 
 ```typescript
 try {

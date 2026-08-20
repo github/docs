@@ -21,7 +21,7 @@ contentType: how-tos
 | Method | Use Case | Copilot Subscription Required |
 |--------|----------|-------------------------------|
 | [GitHub Signed-in User](#github-signed-in-user) | Interactive apps where users sign in with GitHub | Yes |
-| [OAuth GitHub App](#oauth-github-app) | Apps acting on behalf of users via OAuth | Yes |
+| [GitHub OAuth App](#github-oauth-app) | Apps acting on behalf of users via OAuth | Yes |
 | [Environment Variables](#environment-variables) | CI/CD, automation, server-to-server | Yes |
 | [AUTOTITLE](/copilot/how-tos/copilot-sdk/auth/server-to-server-tokens) | Organization-attributed automation and direct organization billing | No user subscription; organization policy required |
 | [AUTOTITLE](/copilot/how-tos/copilot-sdk/auth/byok) | Using your own API keys (Microsoft Foundry, OpenAI, and more) | No |
@@ -38,56 +38,23 @@ This is the default authentication method when running the Copilot CLI interacti
 **SDK Configuration:**
 
 {% codetabs %}
-{% codetab typescript %}
-
-```typescript
-import { CopilotClient } from "@github/copilot-sdk";
-
-// Default: uses logged-in user credentials
-const client = new CopilotClient();
-```
-
-{% endcodetab %}
-{% codetab python %}
-
-```python
-from copilot import CopilotClient
-
-# Default: uses logged-in user credentials
-client = CopilotClient()
-await client.start()
-```
-
-{% endcodetab %}
-{% codetab go %}
-
-```golang
-package main
-
-import copilot "github.com/github/copilot-sdk/go"
-
-func main() {
-	// Default: uses logged-in user credentials
-	client := copilot.NewClient(nil)
-	_ = client
-}
-```
-
-```golang
-import copilot "github.com/github/copilot-sdk/go"
-
-// Default: uses logged-in user credentials
-client := copilot.NewClient(nil)
-```
-
-{% endcodetab %}
 {% codetab dotnet %}
 
 ```csharp
 using GitHub.Copilot;
 
 // Default: uses logged-in user credentials
-await using var client = new CopilotClient();
+await using CopilotClient client = new();
+```
+
+{% endcodetab %}
+{% codetab go %}
+
+```golang
+import copilot "github.com/github/copilot-sdk/go"
+
+// Default: uses logged-in user credentials
+client := copilot.NewClient(nil)
 ```
 
 {% endcodetab %}
@@ -102,6 +69,37 @@ client.start().get();
 ```
 
 {% endcodetab %}
+{% codetab python %}
+
+```python
+from copilot import CopilotClient
+
+# Default: uses logged-in user credentials
+client = CopilotClient()
+await client.start()
+```
+
+{% endcodetab %}
+{% codetab rust %}
+
+```rust
+use github_copilot_sdk::{Client, ClientOptions};
+
+// Default: uses logged-in user credentials
+let client = Client::start(ClientOptions::default()).await?;
+```
+
+{% endcodetab %}
+{% codetab typescript %}
+
+```typescript
+import { CopilotClient } from "@github/copilot-sdk";
+
+// Default: uses logged-in user credentials
+const client = new CopilotClient();
+```
+
+{% endcodetab %}
 {% endcodetabs %}
 
 **When to use:**
@@ -109,82 +107,19 @@ client.start().get();
 * Development and testing environments
 * Any scenario where a user can sign in interactively
 
-## OAuth GitHub App
+## GitHub OAuth App
 
 Use an OAuth GitHub App to authenticate users through your application and pass their credentials to the SDK. This enables your application to make Copilot API requests on behalf of users who authorize your app.
 
 **How it works:**
 1. User authorizes your OAuth GitHub App
 1. Your app receives a user access token (`gho_` or `ghu_` prefix)
-1. Pass the token to the SDK via `gitHubToken` option
+1. Pass the token to the SDK through its client configuration
 
 **SDK Configuration:**
 
 {% codetabs %}
-{% codetab typescript %}
-
-```typescript
-import { CopilotClient } from "@github/copilot-sdk";
-
-const client = new CopilotClient({
-    gitHubToken: userAccessToken,  // Token from OAuth flow
-    useLoggedInUser: false,        // Don't use stored CLI credentials
-});
-```
-
-{% endcodetab %}
-{% codetab python %}
-
-```python
-from copilot import CopilotClient
-
-client = CopilotClient({
-    "github_token": user_access_token,  # Token from OAuth flow
-    "use_logged_in_user": False,        # Don't use stored CLI credentials
-})
-await client.start()
-```
-
-{% endcodetab %}
-{% codetab go %}
-
-```golang
-package main
-
-import copilot "github.com/github/copilot-sdk/go"
-
-func main() {
-	userAccessToken := "token"
-	client := copilot.NewClient(&copilot.ClientOptions{
-		GitHubToken:     userAccessToken,
-		UseLoggedInUser: copilot.Bool(false),
-	})
-	_ = client
-}
-```
-
-```golang
-import copilot "github.com/github/copilot-sdk/go"
-
-client := copilot.NewClient(&copilot.ClientOptions{
-    GitHubToken:     userAccessToken,   // Token from OAuth flow
-    UseLoggedInUser: copilot.Bool(false), // Don't use stored CLI credentials
-})
-```
-
-{% endcodetab %}
 {% codetab dotnet %}
-
-```csharp
-using GitHub.Copilot;
-
-var userAccessToken = "token";
-await using var client = new CopilotClient(new CopilotClientOptions
-{
-    GitHubToken = userAccessToken,
-    UseLoggedInUser = false,
-});
-```
 
 ```csharp
 using GitHub.Copilot;
@@ -194,6 +129,18 @@ await using var client = new CopilotClient(new CopilotClientOptions
     GitHubToken = userAccessToken,     // Token from OAuth flow
     UseLoggedInUser = false,           // Don't use stored CLI credentials
 });
+```
+
+{% endcodetab %}
+{% codetab go %}
+
+```golang
+import copilot "github.com/github/copilot-sdk/go"
+
+client := copilot.NewClient(&copilot.ClientOptions{
+    GitHubToken:       userAccessToken,      // Token from OAuth flow
+    UseLoggedInUser:   copilot.Bool(false),  // Don't use stored CLI credentials
+})
 ```
 
 {% endcodetab %}
@@ -213,6 +160,44 @@ client.start().get();
 ```
 
 {% endcodetab %}
+{% codetab python %}
+
+```python
+from copilot import CopilotClient
+
+client = CopilotClient({
+    "github_token": user_access_token,  # Token from OAuth flow
+    "use_logged_in_user": False,        # Don't use stored CLI credentials
+})
+await client.start()
+```
+
+{% endcodetab %}
+{% codetab rust %}
+
+```rust
+use github_copilot_sdk::{Client, ClientOptions};
+
+let client = Client::start(
+    ClientOptions::default()
+        .with_github_token(user_access_token)
+        .with_use_logged_in_user(false),
+).await?;
+```
+
+{% endcodetab %}
+{% codetab typescript %}
+
+```typescript
+import { CopilotClient } from "@github/copilot-sdk";
+
+const client = new CopilotClient({
+    gitHubToken: userAccessToken,  // Token from OAuth flow
+    useLoggedInUser: false,        // Don't use stored CLI credentials
+});
+```
+
+{% endcodetab %}
 {% endcodetabs %}
 
 **Supported token types:**
@@ -227,6 +212,8 @@ client.start().get();
 * Web applications where users sign in via GitHub
 * SaaS applications building on top of Copilot
 * Any multi-user application where you need to make requests on behalf of different users
+
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/github-oauth).
 
 ## Environment variables
 
@@ -248,13 +235,34 @@ For organization-attributed automation that should not use a user's personal acc
 No code changes needed—the SDK automatically detects environment variables:
 
 {% codetabs %}
-{% codetab typescript %}
+{% codetab dotnet %}
 
-```typescript
-import { CopilotClient } from "@github/copilot-sdk";
+```csharp
+using GitHub.Copilot;
 
 // Token is read from environment variable automatically
-const client = new CopilotClient();
+await using CopilotClient client = new();
+```
+
+{% endcodetab %}
+{% codetab go %}
+
+```golang
+import copilot "github.com/github/copilot-sdk/go"
+
+// Token is read from environment variable automatically
+client := copilot.NewClient(nil)
+```
+
+{% endcodetab %}
+{% codetab java %}
+
+```java
+import com.github.copilot.CopilotClient;
+
+// Token is read from environment variable automatically
+var client = new CopilotClient();
+client.start().get();
 ```
 
 {% endcodetab %}
@@ -266,6 +274,26 @@ from copilot import CopilotClient
 # Token is read from environment variable automatically
 client = CopilotClient()
 await client.start()
+```
+
+{% endcodetab %}
+{% codetab rust %}
+
+```rust
+use github_copilot_sdk::{Client, ClientOptions};
+
+// Token is read from environment variable automatically
+let client = Client::start(ClientOptions::default()).await?;
+```
+
+{% endcodetab %}
+{% codetab typescript %}
+
+```typescript
+import { CopilotClient } from "@github/copilot-sdk";
+
+// Token is read from environment variable automatically
+const client = new CopilotClient();
 ```
 
 {% endcodetab %}
@@ -307,57 +335,9 @@ For multi-user server mode, pass a per-session `gitHubToken` so each session run
 
 ## Disabling auto-login
 
-To prevent the SDK from automatically using stored credentials or `gh` CLI auth, use the `useLoggedInUser: false` option:
+To prevent the SDK from automatically using stored credentials or `gh` CLI auth, configure it to disable logged-in-user fallback:
 
 {% codetabs %}
-{% codetab typescript %}
-
-```typescript
-const client = new CopilotClient({
-    useLoggedInUser: false,  // Only use explicit tokens
-});
-```
-
-{% endcodetab %}
-{% codetab python %}
-
-```python
-from copilot import CopilotClient
-
-client = CopilotClient({
-    "use_logged_in_user": False,
-})
-```
-
-```python
-client = CopilotClient({
-    "use_logged_in_user": False,  # Only use explicit tokens
-})
-```
-
-{% endcodetab %}
-{% codetab go %}
-
-```golang
-package main
-
-import copilot "github.com/github/copilot-sdk/go"
-
-func main() {
-	client := copilot.NewClient(&copilot.ClientOptions{
-		UseLoggedInUser: copilot.Bool(false),
-	})
-	_ = client
-}
-```
-
-```golang
-client := copilot.NewClient(&copilot.ClientOptions{
-    UseLoggedInUser: copilot.Bool(false),  // Only use explicit tokens
-})
-```
-
-{% endcodetab %}
 {% codetab dotnet %}
 
 ```csharp
@@ -365,6 +345,15 @@ await using var client = new CopilotClient(new CopilotClientOptions
 {
     UseLoggedInUser = false,  // Only use explicit tokens
 });
+```
+
+{% endcodetab %}
+{% codetab go %}
+
+```golang
+client := copilot.NewClient(&copilot.ClientOptions{
+    UseLoggedInUser: copilot.Bool(false),  // Only use explicit tokens
+})
 ```
 
 {% endcodetab %}
@@ -378,6 +367,35 @@ var client = new CopilotClient(new CopilotClientOptions()
     .setUseLoggedInUser(false)  // Only use explicit tokens
 );
 client.start().get();
+```
+
+{% endcodetab %}
+{% codetab python %}
+
+```python
+client = CopilotClient({
+    "use_logged_in_user": False,  # Only use explicit tokens
+})
+```
+
+{% endcodetab %}
+{% codetab rust %}
+
+```rust
+use github_copilot_sdk::{Client, ClientOptions};
+
+let client = Client::start(
+    ClientOptions::default().with_use_logged_in_user(false),
+).await?;
+```
+
+{% endcodetab %}
+{% codetab typescript %}
+
+```typescript
+const client = new CopilotClient({
+    useLoggedInUser: false,  // Only use explicit tokens
+});
 ```
 
 {% endcodetab %}

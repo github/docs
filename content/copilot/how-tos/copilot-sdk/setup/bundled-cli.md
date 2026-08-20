@@ -79,33 +79,6 @@ await client.stop()
 > Unlike Node.js, Python, and .NET, the Go SDK does not include a CLI as an automatic dependency. With no explicit path, `NewClient(nil)` uses an embedded CLI when available, then falls back to `copilot` on `PATH`. To embed a CLI, run the [bundler tool](https://github.com/github/copilot-sdk/tree/main/go/README.md#distributing-your-application-with-an-embedded-github-copilot-cli) at build time. You can also set `COPILOT_CLI_PATH` or point a `Connection` at an existing binary. See [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/local-cli) for details.
 
 ```golang
-package main
-
-import (
-	"context"
-	"fmt"
-	"log"
-	copilot "github.com/github/copilot-sdk/go"
-)
-
-func main() {
-	ctx := context.Background()
-
-	client := copilot.NewClient(nil)
-	if err := client.Start(ctx); err != nil {
-		log.Fatal(err)
-	}
-	defer client.Stop()
-
-	session, _ := client.CreateSession(ctx, &copilot.SessionConfig{Model: "gpt-5.4"})
-	response, _ := session.SendAndWait(ctx, copilot.MessageOptions{Prompt: "Hello!"})
-	if d, ok := response.Data.(*copilot.AssistantMessageData); ok {
-		fmt.Println(d.Content)
-	}
-}
-```
-
-```golang
 client := copilot.NewClient(nil)
 if err := client.Start(ctx); err != nil {
     log.Fatal(err)

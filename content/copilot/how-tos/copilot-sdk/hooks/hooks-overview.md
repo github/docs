@@ -29,6 +29,7 @@ contentType: how-tos
 | [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/post-tool-use) | After a tool executes (success only) | Result transformation, logging |
 | [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/post-tool-use#failure-variant) | After a tool execution whose result was a failure | Inject retry guidance, log failures |
 | [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/user-prompt-submitted) | When user sends a message | Prompt modification, filtering |
+| [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/user-prompt-transformed) | After runtime prompt transformation | Inspect or replace model-facing content |
 | [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/session-lifecycle#session-start) | Session begins | Add context, configure session |
 | [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/session-lifecycle#session-end) | Session ends | Cleanup, analytics |
 | [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/error-handling) | Error happens | Custom error handling |
@@ -269,6 +270,7 @@ const session = await client.createSession({
 * **[AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/pre-tool-use)** - Control tool execution permissions
 * **[AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/post-tool-use)** - Transform tool results
 * **[AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/user-prompt-submitted)** - Modify user prompts
+* **[AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/user-prompt-transformed)** - Replace model-facing prompts
 * **[AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/session-lifecycle)** - Session start and end
 * **[AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/session-lifecycle#agent-stop)** - Validate completion before the agent stops
 * **[AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/error-handling)** - Custom error handling
