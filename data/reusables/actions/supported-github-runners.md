@@ -61,7 +61,7 @@ For public repositories, jobs using the workflow labels shown in the table below
       <td>arm64</td>
       <td>
         <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows11-Arm64-Readme.md">windows-11-arm</a></code>,
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows11-VS2026-Arm64-Readme.md">windows-11-vs2026-arm</a></code> ({% data variables.release-phases.public_preview_caps %})
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows11-VS2026-Arm64-Readme.md">windows-11-vs2026-arm</a></code>
       </td>
     </tr>
     <tr>
@@ -155,7 +155,7 @@ For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using
       <td> arm64 </td>
       <td>
         <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows11-Arm64-Readme.md">windows-11-arm</a></code>,
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows11-Arm64-VS2026-Readme.md">windows-11-vs2026-arm</a></code> ({% data variables.release-phases.public_preview_caps %})
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows11-Arm64-VS2026-Readme.md">windows-11-vs2026-arm</a></code>
       </td>
     </tr>
     <tr>
