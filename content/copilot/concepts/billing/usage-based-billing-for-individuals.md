@@ -57,6 +57,8 @@ The following table shows what's included with each paid plan.
 
 {% data reusables.copilot.plans.ai-credits-by-plan %}
 
+ {% data variables.copilot.copilot_free_short %} and {% data variables.copilot.copilot_student_short %} both have an allowance of {% data variables.product.prodname_ai_credits_short %} and access to models through {% data variables.copilot.copilot_auto_model_selection_short %} only. {% data variables.copilot.copilot_free_short %} includes 2000 code completions per month and {% data variables.copilot.copilot_student_short %} includes unlimited code completions.
+
 If you use everything included in your plan, you can purchase more and keep working. See [What happens if I exceed my included {% data variables.product.prodname_ai_credits_short %}](#what-happens-if-i-exceed-my-included--data-variablesproductprodname_ai_credits_short-).
 
 ## What is billed in {% data variables.product.prodname_ai_credits_short %}?
