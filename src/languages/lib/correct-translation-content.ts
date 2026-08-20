@@ -463,6 +463,16 @@ export function correctTranslatedContentStrings(
     // `{% indented_data_reference 再利用可能.X.Y spaces=N %}` — translated path
     content = content.replace(/(\{%-?\s*indented_data_reference\s+)再利用可能\./g, '$1reusables.')
 
+    // `{% ifversion コマンド パレット %}` — translated flag name "command palette" = command-palette
+    content = content.replaceAll(
+      '{% ifversion コマンド パレット %}',
+      '{% ifversion command-palette %}',
+    )
+    content = content.replaceAll(
+      '{%- ifversion コマンド パレット %}',
+      '{%- ifversion command-palette %}',
+    )
+
     // [SCRAPE-6548] Per-file fixes for ja pages whose intro/title/shortTitle
     // Liquid was structurally scrambled (orphan endif, swapped tag order,
     // unclosed ifversion). Each replacement is scoped by the unique broken
@@ -648,6 +658,10 @@ export function correctTranslatedContentStrings(
     // Catch "ou" between any plan names in ifversion/elsif/if tags
     content = content.replace(/\{%-? (?:ifversion|elsif|if) [^%]*?ou [^%]*?%\}/g, (match) => {
       return match.replace(/ ou /g, ' or ')
+    })
+    // Portuguese "não" for "not" in ifversion/elsif/if tags (e.g. `{% ifversion não ghes %}`)
+    content = content.replace(/\{%-? (?:ifversion|elsif|if) [^%]*?\bnão\b[^%]*?%\}/g, (match) => {
+      return match.replace(/\bnão\b/g, 'not')
     })
     // Fully translated reusable path in audit log article:
     // `{% dados agrupados por categoria.complemento.audit_log.reference-grouped-by-category %}`
@@ -838,6 +852,16 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{%- 行标头 %}', '{%- rowheaders %}')
     content = content.replaceAll('{% 行标题 %}', '{% rowheaders %}')
     content = content.replaceAll('{%- 行标题 %}', '{%- rowheaders %}')
+
+    // `{% ifversion 命令面板 %}` — translated flag name "command panel" = command-palette
+    content = content.replaceAll('{% ifversion 命令面板 %}', '{% ifversion command-palette %}')
+    content = content.replaceAll('{%- ifversion 命令面板 %}', '{%- ifversion command-palette %}')
+    // `{% ifversion 子问题 %}` — translated flag name "sub-issues" (子问题)
+    content = content.replaceAll('{% ifversion 子问题 %}', '{% ifversion sub-issues %}')
+    content = content.replaceAll('{%- ifversion 子问题 %}', '{%- ifversion sub-issues %}')
+    // `{% ifversion 问题类型 %}` — translated flag name "issue types" = issue-types
+    content = content.replaceAll('{% ifversion 问题类型 %}', '{% ifversion issue-types %}')
+    content = content.replaceAll('{%- ifversion 问题类型 %}', '{%- ifversion issue-types %}')
     // `{% 结束行标题 %}` / `{% 结束行标头 %}` / `{% 结束行头 %}` — endrowheaders
     content = content.replaceAll('{% 结束行标题 %}', '{% endrowheaders %}')
     content = content.replaceAll('{%- 结束行标题 %}', '{%- endrowheaders %}')
@@ -1636,6 +1660,31 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% 옥티콘 ', '{% octicon ')
     content = content.replaceAll('{%- 옥티콘 ', '{%- octicon ')
 
+    // `{% ifversion 명령 팔레트 %}` — translated flag name "command palette" = command-palette
+    content = content.replaceAll('{% ifversion 명령 팔레트 %}', '{% ifversion command-palette %}')
+    content = content.replaceAll('{%- ifversion 명령 팔레트 %}', '{%- ifversion command-palette %}')
+    // `{% ifversion 하위 문제 %}` — translated flag name "sub-issues" (하위 문제)
+    content = content.replaceAll('{% ifversion 하위 문제 %}', '{% ifversion sub-issues %}')
+    content = content.replaceAll('{%- ifversion 하위 문제 %}', '{%- ifversion sub-issues %}')
+    // `{% ifversion 리포지토리-규칙 관리 %}` — translated flag name "repository-rules management"
+    content = content.replaceAll(
+      '{% ifversion 리포지토리-규칙 관리 %}',
+      '{% ifversion repo-rules-management %}',
+    )
+    content = content.replaceAll(
+      '{%- ifversion 리포지토리-규칙 관리 %}',
+      '{%- ifversion repo-rules-management %}',
+    )
+    // `{% ifversion 업데이트 알림 설정-22 %}` — translated flag name "update notification settings-22"
+    content = content.replaceAll(
+      '{% ifversion 업데이트 알림 설정-22 %}',
+      '{% ifversion update-notification-settings-22 %}',
+    )
+    content = content.replaceAll(
+      '{%- ifversion 업데이트 알림 설정-22 %}',
+      '{%- ifversion update-notification-settings-22 %}',
+    )
+
     // `{% data Variables.` — capital V in "Variables" (Korean translator capitalised the word)
     content = content.replaceAll('{% data Variables.', '{% data variables.')
     content = content.replaceAll('{%- data Variables.', '{%- data variables.')
@@ -1936,6 +1985,16 @@ export function correctTranslatedContentStrings(
     // Translated tag name `{% eingerucktes_datenverweis ... %}` → `{% indented_data_reference ... %}`
     content = content.replaceAll('{% eingerucktes_datenverweis ', '{% indented_data_reference ')
     content = content.replaceAll('{%- eingerucktes_datenverweis ', '{%- indented_data_reference ')
+    // `{% ifversion unveränderliche Versionen %}` — translated flag name
+    // "immutable releases" = immutable-releases
+    content = content.replaceAll(
+      '{% ifversion unveränderliche Versionen %}',
+      '{% ifversion immutable-releases %}',
+    )
+    content = content.replaceAll(
+      '{%- ifversion unveränderliche Versionen %}',
+      '{%- ifversion immutable-releases %}',
+    )
 
     // [SCRAPE-6548] Per-file fix:
     // organizations/.../permissions-of-custom-organization-roles.md (intro):

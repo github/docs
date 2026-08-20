@@ -222,6 +222,14 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- ifversion fpt または ghec %}', 'ja')).toBe('{%- ifversion fpt or ghec %}')
     })
 
+    test('fixes translated command-palette flag name', () => {
+      expect(fix('{% ifversion コマンド パレット %}', 'ja')).toBe('{% ifversion command-palette %}')
+      expect(fix('{%- ifversion コマンド パレット %}', 'ja')).toBe(
+        '{%- ifversion command-palette %}',
+      )
+      expect(fix('{% ifversion command-palette %}', 'ja')).toBe('{% ifversion command-palette %}')
+    })
+
     test('fixes trailing quote on YAML value', () => {
       expect(fix('  asked_too_many_times: some value"  ', 'ja')).toBe(
         '  asked_too_many_times: some value',
@@ -404,6 +412,12 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%– endif %}', 'pt')).toBe('{%- endif %}')
     })
 
+    test('fixes Portuguese não (not) in ifversion tags', () => {
+      expect(fix('{% ifversion não ghes %}', 'pt')).toBe('{% ifversion not ghes %}')
+      expect(fix('{%- ifversion não ghes %}', 'pt')).toBe('{%- ifversion not ghes %}')
+      expect(fix('{% ifversion not ghes %}', 'pt')).toBe('{% ifversion not ghes %}')
+    })
+
     test('fixes datavariables / dadosvariables (no space)', () => {
       // `{% datavariables` — no space between "data" and "variables" (post-translation)
       expect(fix('{% datavariables.product.github %}', 'pt')).toBe(
@@ -560,6 +574,18 @@ describe('correctTranslatedContentStrings', () => {
 
     test('fixes Chinese if keyword', () => {
       expect(fix('{ 如果 ghec %}', 'zh')).toBe('{% if ghec %}')
+    })
+
+    test('fixes translated flag names in ifversion tags', () => {
+      expect(fix('{% ifversion 命令面板 %}', 'zh')).toBe('{% ifversion command-palette %}')
+      expect(fix('{%- ifversion 命令面板 %}', 'zh')).toBe('{%- ifversion command-palette %}')
+      expect(fix('{% ifversion 子问题 %}', 'zh')).toBe('{% ifversion sub-issues %}')
+      expect(fix('{%- ifversion 子问题 %}', 'zh')).toBe('{%- ifversion sub-issues %}')
+      expect(fix('{% ifversion 问题类型 %}', 'zh')).toBe('{% ifversion issue-types %}')
+      expect(fix('{%- ifversion 问题类型 %}', 'zh')).toBe('{%- ifversion issue-types %}')
+      expect(fix('{% ifversion command-palette %}', 'zh')).toBe('{% ifversion command-palette %}')
+      expect(fix('{% ifversion sub-issues %}', 'zh')).toBe('{% ifversion sub-issues %}')
+      expect(fix('{% ifversion issue-types %}', 'zh')).toBe('{% ifversion issue-types %}')
     })
 
     test('fixes stray Chinese then merged with HTML', () => {
@@ -1172,6 +1198,33 @@ describe('correctTranslatedContentStrings', () => {
       )
     })
 
+    test('fixes translated flag names in ifversion tags', () => {
+      expect(fix('{% ifversion 명령 팔레트 %}', 'ko')).toBe('{% ifversion command-palette %}')
+      expect(fix('{%- ifversion 명령 팔레트 %}', 'ko')).toBe('{%- ifversion command-palette %}')
+      expect(fix('{% ifversion 하위 문제 %}', 'ko')).toBe('{% ifversion sub-issues %}')
+      expect(fix('{%- ifversion 하위 문제 %}', 'ko')).toBe('{%- ifversion sub-issues %}')
+      expect(fix('{% ifversion 리포지토리-규칙 관리 %}', 'ko')).toBe(
+        '{% ifversion repo-rules-management %}',
+      )
+      expect(fix('{%- ifversion 리포지토리-규칙 관리 %}', 'ko')).toBe(
+        '{%- ifversion repo-rules-management %}',
+      )
+      expect(fix('{% ifversion 업데이트 알림 설정-22 %}', 'ko')).toBe(
+        '{% ifversion update-notification-settings-22 %}',
+      )
+      expect(fix('{%- ifversion 업데이트 알림 설정-22 %}', 'ko')).toBe(
+        '{%- ifversion update-notification-settings-22 %}',
+      )
+      expect(fix('{% ifversion command-palette %}', 'ko')).toBe('{% ifversion command-palette %}')
+      expect(fix('{% ifversion sub-issues %}', 'ko')).toBe('{% ifversion sub-issues %}')
+      expect(fix('{% ifversion repo-rules-management %}', 'ko')).toBe(
+        '{% ifversion repo-rules-management %}',
+      )
+      expect(fix('{% ifversion update-notification-settings-22 %}', 'ko')).toBe(
+        '{% ifversion update-notification-settings-22 %}',
+      )
+    })
+
     test('fixes dada → data (via generic)', () => {
       expect(fix('{% dada variables.product.github %}', 'ko')).toBe(
         '{% data variables.product.github %}',
@@ -1289,6 +1342,18 @@ describe('correctTranslatedContentStrings', () => {
     test('fixes oder → or in ifversion tags', () => {
       expect(fix('{%- ifversion fpt oder ghec %}', 'de')).toBe('{%- ifversion fpt or ghec %}')
       expect(fix('{% ifversion fpt oder ghec %}', 'de')).toBe('{% ifversion fpt or ghec %}')
+    })
+
+    test('fixes translated immutable-releases flag name', () => {
+      expect(fix('{% ifversion unveränderliche Versionen %}', 'de')).toBe(
+        '{% ifversion immutable-releases %}',
+      )
+      expect(fix('{%- ifversion unveränderliche Versionen %}', 'de')).toBe(
+        '{%- ifversion immutable-releases %}',
+      )
+      expect(fix('{% ifversion immutable-releases %}', 'de')).toBe(
+        '{% ifversion immutable-releases %}',
+      )
     })
 
     test('fixes translated block tags', () => {
