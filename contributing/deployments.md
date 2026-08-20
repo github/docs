@@ -1,7 +1,5 @@
 ## Deployments
 
-Staging and production deployments are automated by a deployer service created and maintained by @github/docs-engineering.
-
 ### Review deployments
 
 TBD

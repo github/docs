@@ -102,7 +102,7 @@ See [`lib/README.md`](lib/README.md) for how to investigate and triage a broken 
 
 ## Ownership
 
-- **Team**: `@github/docs-engineering`
+- `#technical-content`
 
 ## Current State & Known Issues
 
