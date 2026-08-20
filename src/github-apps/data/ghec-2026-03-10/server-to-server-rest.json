@@ -1595,6 +1595,12 @@
       "requestPath": "/enterprises/{enterprise}/settings/billing/reports/{report_id}"
     },
     {
+      "slug": "get-billing-usage-report-for-an-enterprise",
+      "subcategory": "usage",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/usage"
+    },
+    {
       "slug": "get-github-advanced-security-active-committers-for-an-organization",
       "subcategory": "billing",
       "verb": "get",
