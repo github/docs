@@ -39,11 +39,9 @@ The identity {% data variables.product.prodname_copilot_short %} uses depends on
 
 Only users with **write** access to a repository can trigger {% data variables.product.prodname_copilot_short %} to make changes, but any conversation participant can provide input. Guest members of a workspace, and outside collaborators to repositories are not able to start or steer a session with {% data variables.product.prodname_copilot_short %} in Teams.
 
-When {% data variables.copilot.copilot_cloud_agent %} starts work on a task from Teams, {% data variables.product.prodname_copilot_short %} continues working asynchronously in a **secure cloud sandbox**, and posts the result when it's ready. You can keep steering from Teams, or continue the work on the agent-generated artifacts in {% data variables.product.github %}, the terminal, or your preferred code editor.
-
 {% data variables.product.prodname_copilot_short %} uses all messages in the conversation to inform the work. The entire thread becomes the decision-making context for the artifact.
 
-When you ask {% data variables.product.prodname_copilot_short %} to perform a task, it will display details about the session, such as the working repository, issue or pull request link, and a task status or summary.
+When you ask {% data variables.product.prodname_copilot_short %} to perform a task, it will display details about the session, such as the working repository, issue or pull request link, model used, and a task status or summary.
 
 ### Secure cloud sandboxes
 
@@ -124,6 +122,10 @@ When you do not specify a repository or branch, {% data variables.product.prodna
 
 1. In the channel, type `@{% data variables.product.github %} settings` and send the message.
 1. Follow the prompts to select a default repository for the channel.
+
+## Feedback and support
+
+You can view and share feedback in our [discussion forum](https://github.com/orgs/community/discussions/205453).
 
 ## Further reading
 

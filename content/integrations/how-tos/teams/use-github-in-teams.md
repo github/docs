@@ -128,6 +128,10 @@ Use {% data variables.product.prodname_copilot_short %} in direct messages, thre
 
 For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-teams).
 
+## Feedback and support
+
+You can view and share feedback in our [discussion forum](https://github.com/orgs/community/discussions/205453).
+
 {% endif %}
 
 ## Further reading
