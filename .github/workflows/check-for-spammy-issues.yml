@@ -1,6 +1,6 @@
 name: Check for Spammy Issues
 
-# **What it does**: This action closes low value pull requests in the open-source repository.
+# **What it does**: This action closes low value issues in the open-source repository.
 # **Why we have it**: We get lots of spam in the open-source repository.
 # **Who does it impact**: Open-source contributors.
 
