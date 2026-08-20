@@ -305,7 +305,7 @@ jobs:
           # Reuse the oldest open scraping-failures issue if one exists,
           # to keep the noise down. Otherwise open a new one.
           existing_issue=$(gh issue list \
-            --repo github/docs-engineering \
+            --repo github/technical-content \
             --label "search-scraping-failures" \
             --state open \
             --limit 200 \
@@ -324,7 +324,7 @@ jobs:
           EOF
           )
             gh issue comment "$existing_issue" \
-              --repo github/docs-engineering \
+              --repo github/technical-content \
               --body "$comment_body"
             exit 0
           fi
@@ -344,7 +344,7 @@ jobs:
           EOF
           )
           gh issue create \
-            --repo github/docs-engineering \
+            --repo github/technical-content \
             --label "search-scraping-failures" \
             --title "[Search Scraping Failures] $today" \
             --body "$body"

@@ -228,14 +228,14 @@ async function validateInputParameters(): Promise<void> {
   // The `--versions` option cannot be used
   // with the `--include-deprecated` option
   if (includeDeprecated && versions) {
-    const errorMsg = `🛑 You cannot use the versions option with the include-deprecated option. This is not currently supported in the bundler.\nPlease reach out to #docs-engineering if a new use case should be supported.`
+    const errorMsg = `🛑 You cannot use the versions option with the include-deprecated option. This is not currently supported in the bundler.\nPlease reach out to #technical-content if a new use case should be supported.`
     throw new Error(errorMsg)
   }
 
   // The `--decorate-only` option cannot be used
   // with the `--include-deprecated` or `--include-unpublished` options
   if ((includeDeprecated || includeUnpublished) && !sourceRepos.includes('github')) {
-    const errorMsg = `🛑 You cannot use the decorate-only option with  include-unpublished or include-deprecated because the include-unpublished and include-deprecated options are only available when running the bundler. The decorate-only option skips running the bundler.\nPlease reach out to #docs-engineering if a new use case should be supported.`
+    const errorMsg = `🛑 You cannot use the decorate-only option with  include-unpublished or include-deprecated because the include-unpublished and include-deprecated options are only available when running the bundler. The decorate-only option skips running the bundler.\nPlease reach out to #technical-content if a new use case should be supported.`
     throw new Error(errorMsg)
   }
 

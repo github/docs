@@ -51,7 +51,7 @@ jobs:
             "Hello! Some GraphQL data in github/github was updated recently. This PR
             syncs up the GraphQL data in this repo.\n\n
             If CI passes, this PR will be auto-merged. :green_heart:\n\n
-            If CI does not pass or other problems arise, contact #docs-engineering on slack."
+            If CI does not pass or other problems arise, contact #technical-content on slack."
           branch: graphql-schema-update
 
       - name: Enable GitHub auto-merge

@@ -1,5 +1,5 @@
 name: Create workflow failure issue
-description: Create or update a GitHub issue in docs-engineering when a workflow fails, for automated diagnosis by an agentic workflow.
+description: Create or update a GitHub issue in technical-content when a workflow fails, for automated diagnosis by an agentic workflow.
 
 inputs:
   token:
@@ -7,7 +7,7 @@ inputs:
     required: true
   repo:
     description: The repository to create the issue in
-    default: github/docs-engineering
+    default: github/technical-content
     required: false
 
 outputs:
