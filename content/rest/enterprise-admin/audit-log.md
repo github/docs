@@ -11,6 +11,7 @@ category:
   - Administer enterprises and billing
 ---
 
-{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
+> [!NOTE]
+> These endpoints support authentication using a {% data variables.product.pat_v1 %} or an OAuth token with the `admin:enterprise` scope, for a user who is an enterprise administrator. {% data variables.product.prodname_github_app %} installation and user access tokens, and {% data variables.product.pat_v2_plural %}, are not supported.
 
 <!-- Content after this section is automatically generated -->
