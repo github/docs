@@ -21,7 +21,7 @@ You can block pull requests that don't meet your code quality standards by addin
 You can set thresholds for:
 
 * **{% data variables.product.prodname_codeql %} findings**, by the lowest severity of results you require to be resolved.
-* **Code coverage**, by the minimum percentage of code that must be covered by tests.
+* **Code coverage**, by the minimum percentage of lines that must be covered by tests.
 
 You can enforce these thresholds at the **repository** level, or at the **organization** level to apply the same standard across many repositories at once. Choose the organization level when you want a consistent quality bar across teams, and the repository level when a single project needs its own standard. {% data variables.product.prodname_code_quality_short %} {% data variables.code-quality.recent_suggestions %} cannot be set as a threshold.
 

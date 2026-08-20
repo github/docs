@@ -47,9 +47,12 @@ jobs:
             # Manual run: use the provided version and language
             echo "matrix={\"include\":[{\"version\":\"${INPUT_VERSION}\",\"language\":\"${INPUT_LANGUAGE}\"}]}" >> $GITHUB_OUTPUT
           else
-            # Scheduled run: English free-pro-team + English latest enterprise-server
-            LATEST_GHES=$(npx tsx -e "import { latest } from './src/versions/lib/enterprise-server-releases'; console.log(latest)")
-            echo "matrix={\"include\":[{\"version\":\"free-pro-team@latest\",\"language\":\"en\"},{\"version\":\"enterprise-server@${LATEST_GHES}\",\"language\":\"en\"}]}" >> $GITHUB_OUTPUT
+            # Scheduled run: every published version, in English. A link can be broken in
+            # one version and fine in another, so checking two of eight left most of the
+            # site unchecked. The report job merges the results, so this does not multiply
+            # the size of the issue.
+            MATRIX=$(npx tsx -e "import { allVersions } from './src/versions/lib/all-versions'; console.log(JSON.stringify({ include: Object.keys(allVersions).map((version) => ({ version, language: 'en' })) }))")
+            echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
           fi
         env:
           EVENT_NAME: ${{ github.event_name }}
@@ -245,6 +248,17 @@ jobs:
             echo "No broken link reports generated - all links valid!"
           fi
 
+      - name: Upload the combined report
+        if: steps.combine.outputs.has_reports == 'true'
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          # The issue body caps every long section, and the notes there point at
+          # "the report attached to the workflow run". Upload it so that is true.
+          name: combined-link-report
+          path: combined-report.md
+          retention-days: 5
+          if-no-files-found: error
+
       - name: Create or update the rolling report issue
         if: |
           steps.combine.outputs.has_reports == 'true'
@@ -268,7 +282,15 @@ jobs:
             let body = fs.readFileSync('combined-report.md', 'utf8')
             if (body.length > MAX_BODY_SIZE) {
               const notice = `\n\n---\n\n*Report truncated. Download the full report from the [workflow run artifacts](${runUrl}).*`
-              body = body.slice(0, MAX_BODY_SIZE - notice.length) + notice
+              let cut = body.slice(0, MAX_BODY_SIZE - notice.length)
+              // Cut at a line boundary so the last thing a reader sees is not half
+              // a table row, and close any `<details>` the cut left open, since an
+              // unclosed one swallows everything after it.
+              cut = cut.slice(0, cut.lastIndexOf('\n'))
+              const opened = (cut.match(/<details>/g) || []).length
+              const closed = (cut.match(/<\/details>/g) || []).length
+              cut += '\n</details>'.repeat(Math.max(0, opened - closed))
+              body = cut + notice
               core.warning(`Report exceeded ${MAX_BODY_SIZE} characters, so it was truncated.`)
             }
 

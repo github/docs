@@ -720,6 +720,45 @@ describe('describeVersions', () => {
   })
 })
 
+describe('codemod table truncation', () => {
+  const links: BrokenLink[] = [
+    // `/old-0` appears in five files, so it should survive truncation.
+    ...Array.from({ length: 5 }, (_, f) => ({
+      href: '/old-0',
+      file: `actions/busy-${f}.md`,
+      lines: [1],
+      isRedirect: true,
+      redirectTarget: '/new-0',
+    })),
+    ...Array.from({ length: 59 }, (_, i) => ({
+      href: `/old-${i + 1}`,
+      file: `actions/page-${i + 1}.md`,
+      lines: [1],
+      isRedirect: true,
+      redirectTarget: `/new-${i + 1}`,
+    })),
+  ]
+
+  const markdown = reportToMarkdown(generateInternalLinkReport(links))
+
+  test('caps the reference table so the report fits in an issue body', () => {
+    expect(markdown).toContain('And 20 more.')
+  })
+
+  test('keeps the most-used links, dropping only the tail', () => {
+    expect(markdown).toContain('| `/old-0` | `/new-0` | 5 |')
+  })
+
+  test('still counts every link in the heading, not just the listed ones', () => {
+    expect(markdown).toContain('## 1. Run the codemod (60 links')
+  })
+
+  test('says nothing about truncation when everything fits', () => {
+    const few = reportToMarkdown(generateInternalLinkReport(links.slice(0, 3)))
+    expect(few).not.toContain('more. The codemod fixes every one of them')
+  })
+})
+
 describe('version-only redirects', () => {
   const versionOnly: BrokenLink[] = [
     {
@@ -771,6 +810,54 @@ describe('version-only redirects', () => {
   })
 })
 
+describe('section caps', () => {
+  test('caps stale anchors, keeping the busiest ones and counting the rest', () => {
+    const anchors: BrokenLink[] = [
+      // `/page-0#gone` appears in four files, so it must survive the cut.
+      ...Array.from({ length: 4 }, (_, f) => ({
+        href: '/page-0#gone',
+        file: `actions/busy-${f}.md`,
+        lines: [1],
+      })),
+      ...Array.from({ length: 39 }, (_, i) => ({
+        href: `/page-${i + 1}#gone`,
+        file: `actions/page-${i + 1}.md`,
+        lines: [1],
+      })),
+    ]
+
+    const markdown = reportToMarkdown(generateInternalLinkReport(anchors))
+
+    expect(markdown).toContain('## 2. Stale anchors (40 links, 43 occurrences)')
+    expect(markdown).toContain('/page-0#gone')
+    expect(markdown).toContain('And 15 more, listed in the report attached to the workflow run.')
+  })
+
+  test('caps version-only redirects, which need no action at all', () => {
+    const versionOnly: BrokenLink[] = Array.from({ length: 30 }, (_, i) => ({
+      href: `/admin/page-${i}`,
+      file: `actions/page-${i}.md`,
+      lines: [1],
+      isRedirect: true,
+      redirectTarget: `/enterprise-cloud@latest/admin/page-${i}`,
+    }))
+
+    const markdown = reportToMarkdown(generateInternalLinkReport(versionOnly))
+
+    expect(markdown).toContain('## 4. Version-only redirects (30 links, 30 occurrences)')
+    expect(markdown).toContain('And 5 more in the same state.')
+  })
+
+  test('says nothing about truncation when every section fits', () => {
+    const markdown = reportToMarkdown(
+      generateInternalLinkReport([{ href: '/page#gone', file: 'actions/a.md', lines: [1] }]),
+    )
+
+    expect(markdown).toContain('## 2. Stale anchors (1 link, 1 occurrence)')
+    expect(markdown).not.toContain('more, listed in the report attached')
+  })
+})
+
 describe('version-only classification across versions', () => {
   test('a link that is version-only in one version and renamed in another is codemod work', () => {
     // Merged reports put every version's occurrences in one group. Classifying on the first
@@ -817,6 +904,32 @@ describe('version-only classification across versions', () => {
 
     const [group] = generateInternalLinkReport(perVersion).groups
     expect(classifyFixStrategy(group)).toBe('versionless')
+  })
+})
+
+describe('per-link file list cap', () => {
+  test('caps the file table under one link and counts the rest', () => {
+    // Nothing bounds how many pages reuse a link, so one popular link could otherwise
+    // fill the whole issue body.
+    const many: BrokenLink[] = Array.from({ length: 30 }, (_, i) => ({
+      href: '/page#gone',
+      file: `actions/page-${i}.md`,
+      lines: [1],
+    }))
+
+    const markdown = reportToMarkdown(generateInternalLinkReport(many))
+
+    expect(markdown).toContain('**Found in 30 files:**')
+    expect(markdown).toContain('And 10 more files, listed in the report attached')
+    expect(markdown).not.toContain('actions/page-29.md')
+  })
+
+  test('says nothing when every file fits', () => {
+    const few: BrokenLink[] = [{ href: '/page#gone', file: 'actions/a.md', lines: [1] }]
+    const markdown = reportToMarkdown(generateInternalLinkReport(few))
+
+    expect(markdown).toContain('actions/a.md')
+    expect(markdown).not.toContain('more files, listed in the report attached')
   })
 })
 

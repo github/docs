@@ -22,6 +22,7 @@ children:
   - /anthropic-claude
   - /about-agent-skills
   - /enterprise-management
+  - /opentelemetry
 contentType: concepts
 ---
 

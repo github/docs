@@ -8,7 +8,6 @@ children:
   - /usage-based-billing-for-individuals
   - /usage-based-billing-for-organizations-and-enterprises
   - /budgets-for-usage-based-billing
-  - /individual-plans
   - /organizations-and-enterprises
 redirect_from:
   - /managing-copilot/managing-copilot-as-an-individual-subscriber/billing-and-payments
