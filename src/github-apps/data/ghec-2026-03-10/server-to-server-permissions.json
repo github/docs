@@ -671,6 +671,17 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
+      },
+      {
+        "category": "billing",
+        "slug": "get-billing-usage-report-for-an-enterprise",
+        "subcategory": "usage",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/settings/billing/usage",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
       }
     ]
   },

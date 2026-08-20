@@ -74,10 +74,10 @@ Writers can also add an introduction paragraph _above_ the following Markdown co
 
 ## How to get help
 
-Slack: `#docs-engineering`
-Repo: `github/docs-engineering`
+Slack: `#technical-content`
+Repo: `github/technical-content`
 
-If you have a question about the REST pipeline, you can ask in the `#docs-engineering` Slack channel. If you notice a problem with the REST pipeline, you can open an issue in the `github/docs-engineering` repository.
+If you have a question about the REST pipeline, you can ask in the `#technical-content` Slack channel. If you notice a problem with the REST pipeline, you can open an issue in the `github/technical-content` repository.
 
 ## Ownership & Escalation
 
@@ -86,7 +86,7 @@ If you have a question about the REST pipeline, you can ask in the `#docs-engine
 - **Source data**: API Platform team (github/rest-api-description)
 
 ### Escalation path
-1. **Pipeline failures** → #docs-engineering Slack
+1. **Pipeline failures** → #technical-content Slack
 2. **OpenAPI schema issues** → #api-platform Slack
 
 ### On-call procedures

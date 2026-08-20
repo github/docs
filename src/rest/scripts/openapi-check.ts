@@ -51,7 +51,7 @@ async function check(files: string[]): Promise<void> {
     } catch (error: unknown) {
       console.error(error)
       console.log(
-        `🐛 Whoops! It looks like the decorator script wasn't able to parse the dereferenced schema in file ${filename}. A recent change may not yet be supported by the decorator. Please reach out in the #docs-engineering slack channel for help.`,
+        `🐛 Whoops! It looks like the decorator script wasn't able to parse the dereferenced schema in file ${filename}. A recent change may not yet be supported by the decorator. Please reach out in the #technical-content slack channel for help.`,
       )
       process.exit(1)
     }
