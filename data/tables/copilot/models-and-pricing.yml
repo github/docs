@@ -130,27 +130,27 @@
   output: $1.80
   cache_write: $0.50
 
-- model: GPT-5.6 Sol
+- model: 'GPT-5.6 Sol[^gpt-56-sol-promo]'
   provider: openai
   release_status: GA
   category: Powerful
   threshold: '≤ 272K'
   tier: Default
-  input: $5.00
-  cached_input: $0.50
-  output: $30.00
-  cache_write: $6.25
+  input: $2.50
+  cached_input: $0.25
+  output: $15.00
+  cache_write: $3.125
 
-- model: GPT-5.6 Sol
+- model: 'GPT-5.6 Sol[^gpt-56-sol-promo]'
   provider: openai
   release_status: GA
   category: Powerful
   threshold: '> 272K'
   tier: 'Long context'
-  input: $10.00
-  cached_input: $1.00
-  output: $45.00
-  cache_write: $12.50
+  input: $5.00
+  cached_input: $0.50
+  output: $22.50
+  cache_write: $6.25
 
 - model: GPT-5.6 Terra
   provider: openai
