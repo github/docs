@@ -52,19 +52,6 @@ client = CopilotClient(log_level="debug")
 {% codetab go %}
 
 ```golang
-package main
-
-import copilot "github.com/github/copilot-sdk/go"
-
-func main() {
-	client := copilot.NewClient(&copilot.ClientOptions{
-		LogLevel: "debug",
-	})
-	_ = client
-}
-```
-
-```golang
 import copilot "github.com/github/copilot-sdk/go"
 
 client := copilot.NewClient(&copilot.ClientOptions{
@@ -137,21 +124,6 @@ const client = new CopilotClient({
 
 {% endcodetab %}
 {% codetab go %}
-
-```golang
-package main
-
-import copilot "github.com/github/copilot-sdk/go"
-
-func main() {
-	client := copilot.NewClient(&copilot.ClientOptions{
-		Connection: copilot.StdioConnection{
-			Args: []string{"--log-dir", "/path/to/logs"},
-		},
-	})
-	_ = client
-}
-```
 
 ```golang
 client := copilot.NewClient(&copilot.ClientOptions{

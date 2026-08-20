@@ -60,20 +60,6 @@ The example below uses these fields. See [AUTOTITLE](/copilot/how-tos/copilot-sd
 {% codetab typescript %}
 
 ```typescript
-import { CopilotClient } from "@github/copilot-sdk";
-
-const client = new CopilotClient();
-const session = await client.createSession({ streaming: true });
-
-session.on("assistant.usage", (event) => {
-    const { model, inputTokens, outputTokens, cost } = event.data;
-    console.log(
-        `${model}: in=${inputTokens ?? 0} out=${outputTokens ?? 0} cost=${cost ?? 0}`,
-    );
-});
-```
-
-```typescript
 session.on("assistant.usage", (event) => {
     const { model, inputTokens, outputTokens, cost } = event.data;
     console.log(
@@ -86,21 +72,6 @@ session.on("assistant.usage", (event) => {
 {% codetab python %}
 
 ```python
-from copilot import CopilotClient
-from copilot.session_events import SessionEventType
-
-client = CopilotClient()
-session = await client.create_session(streaming=True)
-
-def on_usage(event):
-    if event.type == SessionEventType.ASSISTANT_USAGE:
-        data = event.data
-        print(f"{data.model}: in={data.input_tokens or 0} out={data.output_tokens or 0} cost={data.cost or 0}")
-
-session.on(on_usage)
-```
-
-```python
 def on_usage(event):
     if event.type == SessionEventType.ASSISTANT_USAGE:
         data = event.data
@@ -111,50 +82,6 @@ session.on(on_usage)
 
 {% endcodetab %}
 {% codetab go %}
-
-```golang
-package main
-
-import (
-	"context"
-	"fmt"
-
-	copilot "github.com/github/copilot-sdk/go"
-	"github.com/github/copilot-sdk/go/rpc"
-)
-
-func main() {
-	ctx := context.Background()
-	client := copilot.NewClient(nil)
-	client.Start(ctx)
-
-	session, _ := client.CreateSession(ctx, &copilot.SessionConfig{
-		Streaming: copilot.Bool(true),
-		OnPermissionRequest: func(req copilot.PermissionRequest, inv copilot.PermissionInvocation) (rpc.PermissionDecision, error) {
-			return &rpc.PermissionDecisionApproveOnce{}, nil
-		},
-	})
-
-	session.On(func(event copilot.SessionEvent) {
-		d, ok := event.Data.(*copilot.AssistantUsageData)
-		if !ok {
-			return
-		}
-		in, out, cost := int64(0), int64(0), float64(0)
-		if d.InputTokens != nil {
-			in = *d.InputTokens
-		}
-		if d.OutputTokens != nil {
-			out = *d.OutputTokens
-		}
-		if d.Cost != nil {
-			cost = *d.Cost
-		}
-		fmt.Printf("%s: in=%d out=%d cost=%g\n", d.Model, in, out, cost)
-	})
-	_ = session
-}
-```
 
 ```golang
 session.On(func(event copilot.SessionEvent) {
@@ -178,20 +105,6 @@ session.On(func(event copilot.SessionEvent) {
 
 {% endcodetab %}
 {% codetab dotnet %}
-
-```csharp
-using GitHub.Copilot;
-
-await using var client = new CopilotClient();
-await using var session = await client.CreateSessionAsync(new SessionConfig { Streaming = true });
-
-session.On<AssistantUsageEvent>(evt =>
-{
-    var data = evt.Data;
-    Console.WriteLine(
-        $"{data.Model}: in={data.InputTokens ?? 0} out={data.OutputTokens ?? 0} cost={data.Cost ?? 0}");
-});
-```
 
 ```csharp
 session.On<AssistantUsageEvent>(evt =>
@@ -259,19 +172,6 @@ The runtime emits a `session.usage_info` event whenever the context-window size 
 {% codetab typescript %}
 
 ```typescript
-import { CopilotClient } from "@github/copilot-sdk";
-
-const client = new CopilotClient();
-const session = await client.createSession({ streaming: true });
-
-session.on("session.usage_info", (event) => {
-    const { currentTokens, tokenLimit } = event.data;
-    const pct = Math.round((currentTokens / tokenLimit) * 100);
-    console.log(`Context: ${currentTokens}/${tokenLimit} (${pct}%)`);
-});
-```
-
-```typescript
 session.on("session.usage_info", (event) => {
     const { currentTokens, tokenLimit } = event.data;
     const pct = Math.round((currentTokens / tokenLimit) * 100);
@@ -281,22 +181,6 @@ session.on("session.usage_info", (event) => {
 
 {% endcodetab %}
 {% codetab python %}
-
-```python
-from copilot import CopilotClient
-from copilot.session_events import SessionEventType
-
-client = CopilotClient()
-session = await client.create_session(streaming=True)
-
-def on_usage_info(event):
-    if event.type == SessionEventType.SESSION_USAGE_INFO:
-        data = event.data
-        pct = round(data.current_tokens / data.token_limit * 100)
-        print(f"Context: {data.current_tokens}/{data.token_limit} ({pct}%)")
-
-session.on(on_usage_info)
-```
 
 ```python
 def on_usage_info(event):
@@ -312,41 +196,6 @@ session.on(on_usage_info)
 {% codetab go %}
 
 ```golang
-package main
-
-import (
-	"context"
-	"fmt"
-
-	copilot "github.com/github/copilot-sdk/go"
-	"github.com/github/copilot-sdk/go/rpc"
-)
-
-func main() {
-	ctx := context.Background()
-	client := copilot.NewClient(nil)
-	client.Start(ctx)
-
-	session, _ := client.CreateSession(ctx, &copilot.SessionConfig{
-		Streaming: copilot.Bool(true),
-		OnPermissionRequest: func(req copilot.PermissionRequest, inv copilot.PermissionInvocation) (rpc.PermissionDecision, error) {
-			return &rpc.PermissionDecisionApproveOnce{}, nil
-		},
-	})
-
-	session.On(func(event copilot.SessionEvent) {
-		d, ok := event.Data.(*copilot.SessionUsageInfoData)
-		if !ok {
-			return
-		}
-		pct := int(float64(d.CurrentTokens) / float64(d.TokenLimit) * 100)
-		fmt.Printf("Context: %d/%d (%d%%)\n", d.CurrentTokens, d.TokenLimit, pct)
-	})
-	_ = session
-}
-```
-
-```golang
 session.On(func(event copilot.SessionEvent) {
     d, ok := event.Data.(*copilot.SessionUsageInfoData)
     if !ok {
@@ -359,19 +208,6 @@ session.On(func(event copilot.SessionEvent) {
 
 {% endcodetab %}
 {% codetab dotnet %}
-
-```csharp
-using GitHub.Copilot;
-
-await using var client = new CopilotClient();
-await using var session = await client.CreateSessionAsync(new SessionConfig { Streaming = true });
-
-session.On<SessionUsageInfoEvent>(evt =>
-{
-    var pct = (int)Math.Round((double)evt.Data.CurrentTokens / evt.Data.TokenLimit * 100);
-    Console.WriteLine($"Context: {evt.Data.CurrentTokens}/{evt.Data.TokenLimit} ({pct}%)");
-});
-```
 
 ```csharp
 session.On<SessionUsageInfoEvent>(evt =>
@@ -424,25 +260,6 @@ The result's `contextInfo` is `null` until the session has been initialized (the
 {% codetab typescript %}
 
 ```typescript
-import { CopilotClient } from "@github/copilot-sdk";
-
-const client = new CopilotClient();
-const session = await client.createSession({});
-
-const { contextInfo } = await session.rpc.metadata.contextInfo({
-    promptTokenLimit: 0,
-    outputTokenLimit: 0,
-});
-
-if (contextInfo) {
-    console.log(
-        `Total ${contextInfo.totalTokens}/${contextInfo.promptTokenLimit} ` +
-            `(system=${contextInfo.systemTokens}, conversation=${contextInfo.conversationTokens})`,
-    );
-}
-```
-
-```typescript
 const { contextInfo } = await session.rpc.metadata.contextInfo({
     promptTokenLimit: 0,
     outputTokenLimit: 0,
@@ -458,25 +275,6 @@ if (contextInfo) {
 
 {% endcodetab %}
 {% codetab python %}
-
-```python
-from copilot import CopilotClient
-from copilot.rpc import MetadataContextInfoRequest
-
-client = CopilotClient()
-session = await client.create_session()
-
-result = await session.rpc.metadata.context_info(
-    MetadataContextInfoRequest(prompt_token_limit=0, output_token_limit=0)
-)
-info = result.context_info
-
-if info is not None:
-    print(
-        f"Total {info.total_tokens}/{info.prompt_token_limit} "
-        f"(system={info.system_tokens}, conversation={info.conversation_tokens})"
-    )
-```
 
 ```python
 result = await session.rpc.metadata.context_info(
@@ -495,36 +293,6 @@ if info is not None:
 {% codetab go %}
 
 ```golang
-package main
-
-import (
-	"context"
-	"fmt"
-
-	copilot "github.com/github/copilot-sdk/go"
-	"github.com/github/copilot-sdk/go/rpc"
-)
-
-func main() {
-	ctx := context.Background()
-	client := copilot.NewClient(nil)
-	client.Start(ctx)
-
-	session, _ := client.CreateSession(ctx, &copilot.SessionConfig{})
-
-	result, _ := session.RPC.Metadata.ContextInfo(ctx, &rpc.MetadataContextInfoRequest{
-		PromptTokenLimit: 0,
-		OutputTokenLimit: 0,
-	})
-
-	if info := result.ContextInfo; info != nil {
-		fmt.Printf("Total %d/%d (system=%d, conversation=%d)\n",
-			info.TotalTokens, info.PromptTokenLimit, info.SystemTokens, info.ConversationTokens)
-	}
-}
-```
-
-```golang
 result, _ := session.RPC.Metadata.ContextInfo(ctx, &rpc.MetadataContextInfoRequest{
     PromptTokenLimit: 0,
     OutputTokenLimit: 0,
@@ -538,25 +306,6 @@ if info := result.ContextInfo; info != nil {
 
 {% endcodetab %}
 {% codetab dotnet %}
-
-```csharp
-#pragma warning disable GHCP001
-using GitHub.Copilot;
-
-await using var client = new CopilotClient();
-await using var session = await client.CreateSessionAsync(new SessionConfig());
-
-var result = await session.Rpc.Metadata.ContextInfoAsync(promptTokenLimit: 0, outputTokenLimit: 0);
-var info = result.ContextInfo;
-
-if (info is not null)
-{
-    Console.WriteLine(
-        $"Total {info.TotalTokens}/{info.PromptTokenLimit} " +
-        $"(system={info.SystemTokens}, conversation={info.ConversationTokens})");
-}
-#pragma warning restore GHCP001
-```
 
 ```csharp
 var result = await session.Rpc.Metadata.ContextInfoAsync(promptTokenLimit: 0, outputTokenLimit: 0);
@@ -633,27 +382,6 @@ The example uses the fields below. The generated `UsageGetMetricsResult` type is
 {% codetab typescript %}
 
 ```typescript
-import { CopilotClient } from "@github/copilot-sdk";
-
-const client = new CopilotClient();
-const session = await client.createSession({});
-
-const metrics = await session.rpc.usage.getMetrics();
-
-const aiCredits = (metrics.totalNanoAiu ?? 0) / 1e9;
-console.log(`AI credits used: ${aiCredits.toFixed(6)}`);
-console.log(`Premium requests: ${metrics.totalPremiumRequestCost}`);
-
-for (const [model, m] of Object.entries(metrics.modelMetrics)) {
-    if (!m) continue;
-    console.log(
-        `${model}: in=${m.usage.inputTokens} out=${m.usage.outputTokens} ` +
-            `nanoAiu=${m.totalNanoAiu ?? 0}`,
-    );
-}
-```
-
-```typescript
 const metrics = await session.rpc.usage.getMetrics();
 
 const aiCredits = (metrics.totalNanoAiu ?? 0) / 1e9;
@@ -673,22 +401,6 @@ for (const [model, m] of Object.entries(metrics.modelMetrics)) {
 {% codetab python %}
 
 ```python
-from copilot import CopilotClient
-
-client = CopilotClient()
-session = await client.create_session()
-
-metrics = await session.rpc.usage.get_metrics()
-
-ai_credits = (metrics.total_nano_aiu or 0) / 1e9
-print(f"AI credits used: {ai_credits:.6f}")
-print(f"Premium requests: {metrics.total_premium_request_cost}")
-
-for model, m in metrics.model_metrics.items():
-    print(f"{model}: in={m.usage.input_tokens} out={m.usage.output_tokens} nanoAiu={m.total_nano_aiu or 0}")
-```
-
-```python
 metrics = await session.rpc.usage.get_metrics()
 
 ai_credits = (metrics.total_nano_aiu or 0) / 1e9
@@ -701,42 +413,6 @@ for model, m in metrics.model_metrics.items():
 
 {% endcodetab %}
 {% codetab go %}
-
-```golang
-package main
-
-import (
-	"context"
-	"fmt"
-
-	copilot "github.com/github/copilot-sdk/go"
-)
-
-func main() {
-	ctx := context.Background()
-	client := copilot.NewClient(nil)
-	client.Start(ctx)
-
-	session, _ := client.CreateSession(ctx, &copilot.SessionConfig{})
-
-	metrics, _ := session.RPC.Usage.GetMetrics(ctx)
-
-	aiCredits := float64(0)
-	if metrics.TotalNanoAiu != nil {
-		aiCredits = *metrics.TotalNanoAiu / 1e9
-	}
-	fmt.Printf("AI credits used: %.6f\n", aiCredits)
-	fmt.Printf("Premium requests: %v\n", metrics.TotalPremiumRequestCost)
-
-	for model, m := range metrics.ModelMetrics {
-		nanoAiu := float64(0)
-		if m.TotalNanoAiu != nil {
-			nanoAiu = *m.TotalNanoAiu
-		}
-		fmt.Printf("%s: in=%d out=%d nanoAiu=%v\n", model, m.Usage.InputTokens, m.Usage.OutputTokens, nanoAiu)
-	}
-}
-```
 
 ```golang
 metrics, _ := session.RPC.Usage.GetMetrics(ctx)
@@ -759,27 +435,6 @@ for model, m := range metrics.ModelMetrics {
 
 {% endcodetab %}
 {% codetab dotnet %}
-
-```csharp
-#pragma warning disable GHCP001
-using GitHub.Copilot;
-
-await using var client = new CopilotClient();
-await using var session = await client.CreateSessionAsync(new SessionConfig());
-
-var metrics = await session.Rpc.Usage.GetMetricsAsync();
-
-var aiCredits = (metrics.TotalNanoAiu ?? 0) / 1e9;
-Console.WriteLine($"AI credits used: {aiCredits:F6}");
-Console.WriteLine($"Premium requests: {metrics.TotalPremiumRequestCost}");
-
-foreach (var (model, m) in metrics.ModelMetrics)
-{
-    Console.WriteLine(
-        $"{model}: in={m.Usage.InputTokens} out={m.Usage.OutputTokens} nanoAiu={m.TotalNanoAiu ?? 0}");
-}
-#pragma warning restore GHCP001
-```
 
 ```csharp
 var metrics = await session.Rpc.Usage.GetMetricsAsync();
@@ -854,23 +509,6 @@ To estimate cost before you run a turn, read each model's token prices from `mod
 {% codetab typescript %}
 
 ```typescript
-import { CopilotClient } from "@github/copilot-sdk";
-
-const client = new CopilotClient();
-
-const { models } = await client.rpc.models.list({});
-
-for (const model of models) {
-    const prices = model.billing?.tokenPrices;
-    if (!prices) continue;
-    console.log(
-        `${model.id}: input=${prices.inputPrice} output=${prices.outputPrice} ` +
-            `per ${prices.batchSize} tokens (x${model.billing?.multiplier ?? 1})`,
-    );
-}
-```
-
-```typescript
 const { models } = await client.rpc.models.list({});
 
 for (const model of models) {
@@ -885,25 +523,6 @@ for (const model of models) {
 
 {% endcodetab %}
 {% codetab python %}
-
-```python
-from copilot import CopilotClient
-from copilot.rpc import ModelsListRequest
-
-client = CopilotClient()
-
-result = await client.rpc.models.list(ModelsListRequest())
-
-for model in result.models:
-    prices = model.billing.token_prices if model.billing else None
-    if prices is None:
-        continue
-    multiplier = model.billing.multiplier if model.billing else 1
-    print(
-        f"{model.id}: input={prices.input_price} output={prices.output_price} "
-        f"per {prices.batch_size} tokens (x{multiplier})"
-    )
-```
 
 ```python
 result = await client.rpc.models.list(ModelsListRequest())
@@ -921,49 +540,6 @@ for model in result.models:
 
 {% endcodetab %}
 {% codetab go %}
-
-```golang
-package main
-
-import (
-	"context"
-	"fmt"
-
-	copilot "github.com/github/copilot-sdk/go"
-	"github.com/github/copilot-sdk/go/rpc"
-)
-
-func main() {
-	ctx := context.Background()
-	client := copilot.NewClient(nil)
-	client.Start(ctx)
-
-	list, _ := client.RPC.Models.List(ctx, &rpc.ModelsListRequest{})
-
-	for _, model := range list.Models {
-		if model.Billing == nil || model.Billing.TokenPrices == nil {
-			continue
-		}
-		prices := model.Billing.TokenPrices
-		multiplier := 1.0
-		if model.Billing.Multiplier != nil {
-			multiplier = *model.Billing.Multiplier
-		}
-		in, out := 0.0, 0.0
-		if prices.InputPrice != nil {
-			in = *prices.InputPrice
-		}
-		if prices.OutputPrice != nil {
-			out = *prices.OutputPrice
-		}
-		batch := int64(0)
-		if prices.BatchSize != nil {
-			batch = *prices.BatchSize
-		}
-		fmt.Printf("%s: input=%v output=%v per %d tokens (x%v)\n", model.ID, in, out, batch, multiplier)
-	}
-}
-```
 
 ```golang
 list, _ := client.RPC.Models.List(ctx, &rpc.ModelsListRequest{})
@@ -994,23 +570,6 @@ for _, model := range list.Models {
 
 {% endcodetab %}
 {% codetab dotnet %}
-
-```csharp
-using GitHub.Copilot;
-
-await using var client = new CopilotClient();
-
-var list = await client.Rpc.Models.ListAsync();
-
-foreach (var model in list.Models)
-{
-    var prices = model.Billing?.TokenPrices;
-    if (prices is null) continue;
-    Console.WriteLine(
-        $"{model.Id}: input={prices.InputPrice} output={prices.OutputPrice} " +
-        $"per {prices.BatchSize} tokens (x{model.Billing?.Multiplier ?? 1})");
-}
-```
 
 ```csharp
 var list = await client.Rpc.Models.ListAsync();
@@ -1088,22 +647,6 @@ The example uses the fields below; the generated `AccountQuotaSnapshot` type is 
 {% codetab typescript %}
 
 ```typescript
-import { CopilotClient } from "@github/copilot-sdk";
-
-const client = new CopilotClient();
-
-const { quotaSnapshots } = await client.rpc.account.getQuota({});
-const premium = quotaSnapshots["premium_interactions"];
-
-if (premium) {
-    console.log(
-        `Premium interactions: ${premium.usedRequests}/${premium.entitlementRequests} ` +
-            `(${premium.remainingPercentage.toFixed(1)}% left, resets ${premium.resetDate ?? "n/a"})`,
-    );
-}
-```
-
-```typescript
 const { quotaSnapshots } = await client.rpc.account.getQuota({});
 const premium = quotaSnapshots["premium_interactions"];
 
@@ -1117,22 +660,6 @@ if (premium) {
 
 {% endcodetab %}
 {% codetab python %}
-
-```python
-from copilot import CopilotClient
-from copilot.rpc import AccountGetQuotaRequest
-
-client = CopilotClient()
-
-result = await client.rpc.account.get_quota(AccountGetQuotaRequest())
-premium = result.quota_snapshots.get("premium_interactions")
-
-if premium is not None:
-    print(
-        f"Premium interactions: {premium.used_requests}/{premium.entitlement_requests} "
-        f"({premium.remaining_percentage:.1f}% left, resets {premium.reset_date or 'n/a'})"
-    )
-```
 
 ```python
 result = await client.rpc.account.get_quota(AccountGetQuotaRequest())
@@ -1149,36 +676,6 @@ if premium is not None:
 {% codetab go %}
 
 ```golang
-package main
-
-import (
-	"context"
-	"fmt"
-	"time"
-
-	copilot "github.com/github/copilot-sdk/go"
-	"github.com/github/copilot-sdk/go/rpc"
-)
-
-func main() {
-	ctx := context.Background()
-	client := copilot.NewClient(nil)
-	client.Start(ctx)
-
-	result, _ := client.RPC.Account.GetQuota(ctx, &rpc.AccountGetQuotaRequest{})
-
-	if premium, ok := result.QuotaSnapshots["premium_interactions"]; ok {
-		resets := "n/a"
-		if premium.ResetDate != nil {
-			resets = premium.ResetDate.Format(time.RFC3339)
-		}
-		fmt.Printf("Premium interactions: %d/%d (%.1f%% left, resets %s)\n",
-			premium.UsedRequests, premium.EntitlementRequests, premium.RemainingPercentage, resets)
-	}
-}
-```
-
-```golang
 result, _ := client.RPC.Account.GetQuota(ctx, &rpc.AccountGetQuotaRequest{})
 
 if premium, ok := result.QuotaSnapshots["premium_interactions"]; ok {
@@ -1193,21 +690,6 @@ if premium, ok := result.QuotaSnapshots["premium_interactions"]; ok {
 
 {% endcodetab %}
 {% codetab dotnet %}
-
-```csharp
-using GitHub.Copilot;
-
-await using var client = new CopilotClient();
-
-var result = await client.Rpc.Account.GetQuotaAsync();
-
-if (result.QuotaSnapshots.TryGetValue("premium_interactions", out var premium))
-{
-    Console.WriteLine(
-        $"Premium interactions: {premium.UsedRequests}/{premium.EntitlementRequests} " +
-        $"({premium.RemainingPercentage:F1}% left, resets {premium.ResetDate?.ToString("o") ?? "n/a"})");
-}
-```
 
 ```csharp
 var result = await client.Rpc.Account.GetQuotaAsync();

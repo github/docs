@@ -30,14 +30,6 @@ The `onSessionStart` hook is called when a session begins (new or resumed).
 {% codetab typescript %}
 
 ```typescript
-import type { SessionStartHookInput, HookInvocation, SessionStartHookOutput } from "@github/copilot-sdk";
-type SessionStartHandler = (
-  input: SessionStartHookInput,
-  invocation: HookInvocation
-) => Promise<SessionStartHookOutput | null | undefined>;
-```
-
-```typescript
 type SessionStartHandler = (
   input: SessionStartHookInput,
   invocation: HookInvocation
@@ -46,16 +38,6 @@ type SessionStartHandler = (
 
 {% endcodetab %}
 {% codetab python %}
-
-```python
-from copilot.session import SessionStartHookInput, SessionStartHookOutput
-from typing import Callable, Awaitable
-
-SessionStartHandler = Callable[
-    [SessionStartHookInput, dict[str, str]],
-    Awaitable[SessionStartHookOutput | None]
-]
-```
 
 ```python
 SessionStartHandler = Callable[
@@ -68,19 +50,6 @@ SessionStartHandler = Callable[
 {% codetab go %}
 
 ```golang
-package main
-
-import copilot "github.com/github/copilot-sdk/go"
-
-type SessionStartHandler func(
-    input copilot.SessionStartHookInput,
-    invocation copilot.HookInvocation,
-) (*copilot.SessionStartHookOutput, error)
-
-func main() {}
-```
-
-```golang
 type SessionStartHandler func(
     input SessionStartHookInput,
     invocation HookInvocation,
@@ -91,14 +60,6 @@ type SessionStartHandler func(
 {% codetab dotnet %}
 
 ```csharp
-using GitHub.Copilot;
-
-public delegate Task<SessionStartHookOutput?> SessionStartHandler(
-    SessionStartHookInput input,
-    HookInvocation invocation);
-```
-
-```csharp
 public delegate Task<SessionStartHookOutput?> SessionStartHandler(
     SessionStartHookInput input,
     HookInvocation invocation);
@@ -106,17 +67,6 @@ public delegate Task<SessionStartHookOutput?> SessionStartHandler(
 
 {% endcodetab %}
 {% codetab java %}
-
-```java
-import com.github.copilot.rpc.*;
-import java.util.concurrent.CompletableFuture;
-
-public class SessionStartSignature {
-    SessionStartHandler handler = (SessionStartHookInput input, HookInvocation invocation) ->
-        CompletableFuture.completedFuture(null);
-    public static void main(String[] args) {}
-}
-```
 
 ```java
 @FunctionalInterface
@@ -270,16 +220,6 @@ type SessionEndHandler = (
 {% codetab python %}
 
 ```python
-from copilot.session import SessionEndHookInput
-from typing import Callable, Awaitable
-
-SessionEndHandler = Callable[
-    [SessionEndHookInput, dict[str, str]],
-    Awaitable[None]
-]
-```
-
-```python
 SessionEndHandler = Callable[
     [SessionEndHookInput, dict[str, str]],
     Awaitable[SessionEndHookOutput | None]
@@ -288,19 +228,6 @@ SessionEndHandler = Callable[
 
 {% endcodetab %}
 {% codetab go %}
-
-```golang
-package main
-
-import copilot "github.com/github/copilot-sdk/go"
-
-type SessionEndHandler func(
-    input copilot.SessionEndHookInput,
-    invocation copilot.HookInvocation,
-) error
-
-func main() {}
-```
 
 ```golang
 type SessionEndHandler func(
@@ -320,17 +247,6 @@ public delegate Task<SessionEndHookOutput?> SessionEndHandler(
 
 {% endcodetab %}
 {% codetab java %}
-
-```java
-import com.github.copilot.rpc.*;
-import java.util.concurrent.CompletableFuture;
-
-public class SessionEndSignature {
-    SessionEndHandler handler = (SessionEndHookInput input, HookInvocation invocation) ->
-        CompletableFuture.completedFuture(null);
-    public static void main(String[] args) {}
-}
-```
 
 ```java
 @FunctionalInterface

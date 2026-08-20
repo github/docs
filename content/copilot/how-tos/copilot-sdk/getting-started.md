@@ -651,30 +651,6 @@ unsubscribeIdle();
 {% codetab python %}
 
 ```python
-from copilot import CopilotClient, PermissionDecisionApproveOnce
-from copilot.session_events import SessionEvent, SessionEventType
-
-client = CopilotClient()
-
-session = await client.create_session(on_permission_request=lambda req, inv: PermissionDecisionApproveOnce())
-
-# Subscribe to all events
-unsubscribe = session.on(lambda event: print(f"Event: {event.type}"))
-
-# Filter by event type in your handler
-def handle_event(event: SessionEvent) -> None:
-    if event.type == SessionEventType.SESSION_IDLE:
-        print("Session is idle")
-    elif event.type == SessionEventType.ASSISTANT_MESSAGE:
-        print(f"Message: {event.data.content}")
-
-unsubscribe = session.on(handle_event)
-
-# Later, to unsubscribe:
-unsubscribe()
-```
-
-```python
 # Subscribe to all events
 unsubscribe = session.on(lambda event: print(f"Event: {event.type}"))
 
@@ -693,39 +669,6 @@ unsubscribe()
 
 {% endcodetab %}
 {% codetab go %}
-
-```golang
-package main
-
-import (
-	"fmt"
-
-	copilot "github.com/github/copilot-sdk/go"
-)
-
-func main() {
-	session := &copilot.Session{}
-
-	// Subscribe to all events
-	unsubscribe := session.On(func(event copilot.SessionEvent) {
-		fmt.Println("Event:", event.Type)
-	})
-
-	// Filter by event type in your handler
-	session.On(func(event copilot.SessionEvent) {
-		switch d := event.Data.(type) {
-		case *copilot.SessionIdleData:
-			_ = d
-			fmt.Println("Session is idle")
-		case *copilot.AssistantMessageData:
-			fmt.Println("Message:", d.Content)
-		}
-	})
-
-	// Later, to unsubscribe:
-	unsubscribe()
-}
-```
 
 ```golang
 // Subscribe to all events
@@ -773,36 +716,6 @@ tokio::spawn(async move {
 
 {% endcodetab %}
 {% codetab dotnet %}
-
-```csharp
-using GitHub.Copilot;
-
-public static class EventSubscriptionExample
-{
-    public static void Example(CopilotSession session)
-    {
-        // Subscribe to all events
-        var unsubscribe = session.On<SessionEvent>(ev => Console.WriteLine($"Event: {ev.Type}"));
-
-        // Filter by event type using pattern matching
-        session.On<SessionEvent>(ev =>
-        {
-            switch (ev)
-            {
-                case SessionIdleEvent:
-                    Console.WriteLine("Session is idle");
-                    break;
-                case AssistantMessageEvent msg:
-                    Console.WriteLine($"Message: {msg.Data.Content}");
-                    break;
-            }
-        });
-
-        // Later, to unsubscribe:
-        unsubscribe.Dispose();
-    }
-}
-```
 
 ```csharp
 // Subscribe to all events
@@ -1942,35 +1855,6 @@ session = await client.create_session(on_permission_request=PermissionHandler.ap
 
 {% endcodetab %}
 {% codetab go %}
-
-```golang
-package main
-
-import (
-	"context"
-	"log"
-
-	copilot "github.com/github/copilot-sdk/go"
-)
-
-func main() {
-	ctx := context.Background()
-
-    client := copilot.NewClient(&copilot.ClientOptions{
-        Connection: copilot.URIConnection{URL: "localhost:4321"},
-    })
-
-	if err := client.Start(ctx); err != nil {
-		log.Fatal(err)
-	}
-	defer client.Stop()
-
-	// Use the client normally
-	_, _ = client.CreateSession(ctx, &copilot.SessionConfig{
-		OnPermissionRequest: copilot.PermissionHandler.ApproveAll,
-	})
-}
-```
 
 ```golang
 import copilot "github.com/github/copilot-sdk/go"

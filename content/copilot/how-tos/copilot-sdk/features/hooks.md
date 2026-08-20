@@ -28,6 +28,7 @@ A hook is a callback you register once when creating a session. The SDK invokes 
 | ------------------------------------------------------------------- | ----------------------------------- | ------------------------------------------ |
 | [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/session-lifecycle#session-start)     | Session begins (new or resumed)     | Inject context, load preferences           |
 | [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/user-prompt-submitted)        | User sends a message                | Rewrite prompts, add context, filter input |
+| [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/user-prompt-transformed)    | Runtime builds the model prompt     | Inspect or replace model-facing content    |
 | [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/pre-tool-use)                          | Before a tool executes              | Allow / deny / modify the call             |
 | [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/post-tool-use)                        | After a tool returns (success only) | Transform results, redact secrets, audit   |
 | [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/post-tool-use#failure-variant) | After a tool returns a failure      | Inject retry guidance, log failures        |
@@ -90,47 +91,6 @@ session = await client.create_session(
 {% codetab go %}
 
 ```golang
-package main
-
-import (
-	"context"
-	copilot "github.com/github/copilot-sdk/go"
-	"github.com/github/copilot-sdk/go/rpc"
-)
-
-func onSessionStart(input copilot.SessionStartHookInput, inv copilot.HookInvocation) (*copilot.SessionStartHookOutput, error) {
-	return nil, nil
-}
-
-func onPreToolUse(input copilot.PreToolUseHookInput, inv copilot.HookInvocation) (*copilot.PreToolUseHookOutput, error) {
-	return nil, nil
-}
-
-func onPostToolUse(input copilot.PostToolUseHookInput, inv copilot.HookInvocation) (*copilot.PostToolUseHookOutput, error) {
-	return nil, nil
-}
-
-func main() {
-	ctx := context.Background()
-	client := copilot.NewClient(nil)
-
-	session, err := client.CreateSession(ctx, &copilot.SessionConfig{
-		Hooks: &copilot.SessionHooks{
-			OnSessionStart: onSessionStart,
-			OnPreToolUse:   onPreToolUse,
-			OnPostToolUse:  onPostToolUse,
-		},
-		OnPermissionRequest: func(req copilot.PermissionRequest, inv copilot.PermissionInvocation) (rpc.PermissionDecision, error) {
-			return &rpc.PermissionDecisionApproveOnce{}, nil
-		},
-	})
-	_ = session
-	_ = err
-}
-```
-
-
-```golang
 client := copilot.NewClient(nil)
 
 session, err := client.CreateSession(ctx, &copilot.SessionConfig{
@@ -148,39 +108,6 @@ session, err := client.CreateSession(ctx, &copilot.SessionConfig{
 
 {% endcodetab %}
 {% codetab dotnet %}
-
-```csharp
-using GitHub.Copilot;
-using GitHub.Copilot.Rpc;
-
-public static class HooksExample
-{
-    static Task<SessionStartHookOutput?> onSessionStart(SessionStartHookInput input, HookInvocation invocation) =>
-        Task.FromResult<SessionStartHookOutput?>(null);
-    static Task<PreToolUseHookOutput?> onPreToolUse(PreToolUseHookInput input, HookInvocation invocation) =>
-        Task.FromResult<PreToolUseHookOutput?>(null);
-    static Task<PostToolUseHookOutput?> onPostToolUse(PostToolUseHookInput input, HookInvocation invocation) =>
-        Task.FromResult<PostToolUseHookOutput?>(null);
-
-    public static async Task Main()
-    {
-        var client = new CopilotClient();
-
-        var session = await client.CreateSessionAsync(new SessionConfig
-        {
-            Hooks = new SessionHooks
-            {
-                OnSessionStart = onSessionStart,
-                OnPreToolUse   = onPreToolUse,
-                OnPostToolUse  = onPostToolUse,
-            },
-            OnPermissionRequest = (req, inv) =>
-                Task.FromResult(PermissionDecision.ApproveOnce()),
-        });
-    }
-}
-```
-
 
 ```csharp
 var client = new CopilotClient();
@@ -285,43 +212,6 @@ session = await client.create_session(
 {% codetab go %}
 
 ```golang
-package main
-
-import (
-	"context"
-	"fmt"
-	copilot "github.com/github/copilot-sdk/go"
-	"github.com/github/copilot-sdk/go/rpc"
-)
-
-func main() {
-	ctx := context.Background()
-	client := copilot.NewClient(nil)
-
-	readOnlyTools := map[string]bool{"read_file": true, "glob": true, "grep": true, "view": true}
-
-	session, _ := client.CreateSession(ctx, &copilot.SessionConfig{
-		Hooks: &copilot.SessionHooks{
-			OnPreToolUse: func(input copilot.PreToolUseHookInput, inv copilot.HookInvocation) (*copilot.PreToolUseHookOutput, error) {
-				if !readOnlyTools[input.ToolName] {
-					return &copilot.PreToolUseHookOutput{
-						PermissionDecision:       "deny",
-						PermissionDecisionReason: fmt.Sprintf("Only read-only tools are allowed. %q was blocked.", input.ToolName),
-					}, nil
-				}
-				return &copilot.PreToolUseHookOutput{PermissionDecision: "allow"}, nil
-			},
-		},
-		OnPermissionRequest: func(req copilot.PermissionRequest, inv copilot.PermissionInvocation) (rpc.PermissionDecision, error) {
-			return &rpc.PermissionDecisionApproveOnce{}, nil
-		},
-	})
-	_ = session
-}
-```
-
-
-```golang
 readOnlyTools := map[string]bool{"read_file": true, "glob": true, "grep": true, "view": true}
 
 session, _ := client.CreateSession(ctx, &copilot.SessionConfig{
@@ -341,44 +231,6 @@ session, _ := client.CreateSession(ctx, &copilot.SessionConfig{
 
 {% endcodetab %}
 {% codetab dotnet %}
-
-```csharp
-using GitHub.Copilot;
-using GitHub.Copilot.Rpc;
-
-public static class PermissionControlExample
-{
-    public static async Task Main()
-    {
-        await using var client = new CopilotClient();
-
-        var readOnlyTools = new HashSet<string> { "read_file", "glob", "grep", "view" };
-
-        var session = await client.CreateSessionAsync(new SessionConfig
-        {
-            Hooks = new SessionHooks
-            {
-                OnPreToolUse = (input, invocation) =>
-                {
-                    if (!readOnlyTools.Contains(input.ToolName))
-                    {
-                        return Task.FromResult<PreToolUseHookOutput?>(new PreToolUseHookOutput
-                        {
-                            PermissionDecision = "deny",
-                            PermissionDecisionReason = $"Only read-only tools are allowed. \"{input.ToolName}\" was blocked.",
-                        });
-                    }
-                    return Task.FromResult<PreToolUseHookOutput?>(
-                        new PreToolUseHookOutput { PermissionDecision = "allow" });
-                },
-            },
-            OnPermissionRequest = (req, inv) =>
-                Task.FromResult(PermissionDecision.ApproveOnce()),
-        });
-    }
-}
-```
-
 
 ```csharp
 var readOnlyTools = new HashSet<string> { "read_file", "glob", "grep", "view" };
@@ -1032,6 +884,7 @@ For full type definitions, input/output field tables, and additional examples fo
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/pre-tool-use)
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/post-tool-use)
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/user-prompt-submitted)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/user-prompt-transformed)
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/session-lifecycle)
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/error-handling)
 
